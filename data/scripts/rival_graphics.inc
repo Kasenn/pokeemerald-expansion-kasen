@@ -15,11 +15,11 @@ EventScript_SetupRivalOnBikeGfxIdMale::
 	return
 
 EventScript_SetupRivalOnBikeGfxIdMaleOras::
-	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_ORAS_BRENDAN_BIKE
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_BRENDAN_ORAS_BIKE
 	return
 
 EventScript_SetupRivalOnBikeGfxIdFemaleOras::
-	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_ORAS_MAY_BIKE
+	setvar VAR_OBJ_GFX_ID_3, OBJ_EVENT_GFX_MAY_ORAS_BIKE
 	return
 
 @ Unused

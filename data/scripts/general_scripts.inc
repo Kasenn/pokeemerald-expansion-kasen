@@ -52,12 +52,12 @@ SetupRivalGfxId_1:
 
 SetupRivalGfxId_4:
 # 30 "data/scripts/general_scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ORAS_MAY_NORMAL
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ORAS_NORMAL
 	return
 
 SetupRivalGfxId_7:
 # 38 "data/scripts/general_scripts.pory"
-	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ORAS_BRENDAN_NORMAL
+	setvar VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ORAS_NORMAL
 	return
 
 

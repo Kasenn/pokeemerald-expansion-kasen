@@ -1032,21 +1032,21 @@ script Amberock_SetPlayerModel{
     if(checkplayergender == MALE){
         switch(var(VAR_CHOSEN_OUTFIT)){
             case 0:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_NORMAL)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_NORMAL)
             case 1:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
             case 2:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_NORMAL)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_NORMAL)
         }
     }
     else{
         switch(var(VAR_CHOSEN_OUTFIT)){
             case 0:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_NORMAL)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_NORMAL)
             case 1:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
             case 2:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_NORMAL)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_NORMAL)
         }
     }
     return
@@ -1063,25 +1063,25 @@ script SetSittingPlayerModel{
     if(checkplayergender == MALE){
         switch(var(VAR_CHOSEN_OUTFIT)){
             case 0:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_RIDE)
             case 1:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING)
             case 2:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_RIDE)
             case 3:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_BRENDAN_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_CONTEST_RIDE)
         }
     }
     else{
         switch(var(VAR_CHOSEN_OUTFIT)){
             case 0:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_RIDE)
             case 1:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_SURFING)
             case 2:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_RIDE)
             case 3:
-                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_MAY_SURFING)
+                setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_CONTEST_RIDE)
         }
     }
     return

@@ -208,16 +208,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_6PX_SN
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_8PX_SNOW =  {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow8Px, sAnimTable_BrendanMayNormal)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_10PX_SNOW = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayContest_Snow10Px, sAnimTable_BrendanMayNormal)};
 
-/* MAYBE UNUSED */
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalMayRockClimbing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_BrendanEM_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_RockClimb =   {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_RockClimb =   {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbing = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_BrendanEM_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRockClimbingOras = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_RockClimb)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRockClimbingOras = {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayRockClimbingOras)};
-
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_RivalBrendanNormal = {
     .tileTag = TAG_NONE,
     .paletteTag = OBJ_EVENT_PAL_TAG_BRENDAN,

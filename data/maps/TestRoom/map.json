@@ -444,25 +444,11 @@
   ],
   "warp_events": [
     {
-      "x": 56,
-      "y": 12,
+      "x": 31,
+      "y": 33,
       "elevation": 0,
       "dest_map": "MAP_TEST_ROOM",
       "dest_warp_id": "0"
-    },
-    {
-      "x": 47,
-      "y": 4,
-      "elevation": 0,
-      "dest_map": "MAP_TEST_ROOM",
-      "dest_warp_id": "2"
-    },
-    {
-      "x": 9,
-      "y": 29,
-      "elevation": 0,
-      "dest_map": "MAP_TEST_ROOM",
-      "dest_warp_id": "1"
     }
   ],
   "coord_events": [],

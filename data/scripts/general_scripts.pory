@@ -27,7 +27,7 @@ script Common_EventScript_FindItem{
 script SetupRivalGfxId{
     if(checkplayergender == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ORAS_MAY_NORMAL)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_MAY_ORAS_NORMAL)
         }
         else{
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
@@ -35,7 +35,7 @@ script SetupRivalGfxId{
     }
     else{
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
-            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ORAS_BRENDAN_NORMAL)
+            setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_BRENDAN_ORAS_NORMAL)
         }
         else{
             setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)

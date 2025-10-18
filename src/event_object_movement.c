@@ -3309,9 +3309,6 @@ static void ObjectEventSetGraphics(struct ObjectEvent *objectEvent, const struct
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->x += 8;
     sprite->y += 16 + sprite->centerToCornerVecY;
-    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_RIVAL_BRENDAN_ROCK_CLIMBING
-     && objectEvent->graphicsId <= OBJ_EVENT_GFX_MAY_ROCK_CLIMBING_ORAS)
-        sprite->y += 8;
     if (objectEvent->trackedByCamera)
         CameraObjectReset();
 }

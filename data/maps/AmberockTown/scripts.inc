@@ -1698,7 +1698,7 @@ Amberock_SetPlayerModel_2:
 
 Amberock_SetPlayerModel_6:
 # 1035 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_NORMAL
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_7:
@@ -1708,12 +1708,12 @@ Amberock_SetPlayerModel_7:
 
 Amberock_SetPlayerModel_8:
 # 1039 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_NORMAL
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_10:
 # 1045 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_NORMAL
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_11:
@@ -1723,7 +1723,7 @@ Amberock_SetPlayerModel_11:
 
 Amberock_SetPlayerModel_12:
 # 1049 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_NORMAL
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_NORMAL
 	goto Amberock_SetPlayerModel_1
 
 
@@ -1774,7 +1774,7 @@ SetSittingPlayerModel_2:
 
 SetSittingPlayerModel_6:
 # 1066 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_BRENDAN_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_RIDE
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_7:
@@ -1784,17 +1784,17 @@ SetSittingPlayerModel_7:
 
 SetSittingPlayerModel_8:
 # 1070 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_BRENDAN_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_RIDE
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_9:
 # 1072 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_BRENDAN_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_CONTEST_RIDE
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_11:
 # 1078 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RS_MAY_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_RIDE
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_12:
@@ -1804,12 +1804,12 @@ SetSittingPlayerModel_12:
 
 SetSittingPlayerModel_13:
 # 1082 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_ORAS_MAY_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_RIDE
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_14:
 # 1084 "data/maps/AmberockTown/scripts.pory"
-	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_CONTEST_MAY_SURFING
+	setvar VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_CONTEST_RIDE
 	goto SetSittingPlayerModel_1
 
 
