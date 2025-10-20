@@ -1,6 +1,25 @@
-ENSURE THAT ALL ROCK CLIMB MODELS WORK!!!
+ENSURE THAT ALL PLAYER SPRITES WORK!!!
 CONTEST SPRITES
-RESIZE ALL EXISTING PLAYER SPRITES
+
+eventual redesigns:
+move trainers out of route 1?
+move primrose meadow to route 1 or give a surf access point
+possibly expand primrose town geography
+path from route 2 to hidden birch island
+move team rocket down in windy woods, add ball on ledge to attract player back, add prof to guide player to grotto
+expand route 2 after windy woods
+potentially add wailmer pail here
+add hot air balloonn quick travel
+	- locations: coralgrove, near poke ranch, near shoreslate, kaolisle, near daycare, in sandstone city, etc
+	- add whistle item to windplume valley that returns to last spot
+make gym 1 skippable
+add tide to route 3
+add park or something to aldeleaf
+add rival or brother fight to somewhere near skyloch
+add something extra in sandstone city?
+fishing contest in fishing village??
+add some extra exploration stuff in frosthearth city
+make path from magical forest to near sandstone
 
 wild encounter changes
 honey tree mons now have 20% chance to have a hidden ability
