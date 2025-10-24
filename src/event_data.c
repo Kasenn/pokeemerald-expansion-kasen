@@ -27,6 +27,11 @@ EWRAM_DATA u16 gSpecialVar_Facing = 0;
 EWRAM_DATA u16 gSpecialVar_MonBoxId = 0;
 EWRAM_DATA u16 gSpecialVar_MonBoxPos = 0;
 EWRAM_DATA u16 gSpecialVar_Unused_0x8014 = 0;
+EWRAM_DATA u16 gSpecialVar_MyVar1 = 0;
+EWRAM_DATA u16 gSpecialVar_MyVar2 = 0;
+EWRAM_DATA u16 gSpecialVar_MyVar3 = 0;
+EWRAM_DATA u16 gSpecialVar_MyVar4 = 0;
+EWRAM_DATA u16 gSpecialVar_MyVar5 = 0;
 EWRAM_DATA static u8 sSpecialFlags[SPECIAL_FLAGS_SIZE] = {0};
 
 #if TESTING

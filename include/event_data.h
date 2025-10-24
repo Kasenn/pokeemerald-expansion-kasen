@@ -50,6 +50,12 @@ extern u16 gSpecialVar_Facing;
 extern u16 gSpecialVar_MonBoxId;
 extern u16 gSpecialVar_MonBoxPos;
 extern u16 gSpecialVar_Unused_0x8014;
+extern u16 gSpecialVar_MyVar1;
+extern u16 gSpecialVar_MyVar2;
+extern u16 gSpecialVar_MyVar3;
+extern u16 gSpecialVar_MyVar4;
+extern u16 gSpecialVar_MyVar5;
+
 
 extern const u16 gBadgeFlags[NUM_BADGES];
 

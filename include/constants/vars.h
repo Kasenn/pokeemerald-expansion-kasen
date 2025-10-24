@@ -403,9 +403,14 @@
 #define VAR_MON_BOX_ID                0x8012
 #define VAR_MON_BOX_POS               0x8013
 #define VAR_UNUSED_0x8014             0x8014
-#define VAR_TRAINER_BATTLE_OPPONENT_A 0x8015 // Alias of TRAINER_BATTLE_PARAM.opponentA
+#define VAR_MY_VAR_1                  0x8015
+#define VAR_MY_VAR_2                  0x8016
+#define VAR_MY_VAR_3                  0x8017
+#define VAR_MY_VAR_4                  0x8018
+#define VAR_MY_VAR_5                  0x8019
+#define VAR_TRAINER_BATTLE_OPPONENT_A 0x801A // Alias of TRAINER_BATTLE_PARAM.opponentA
 
-#define SPECIAL_VARS_END              0x8015
+#define SPECIAL_VARS_END              0x801A
 
 // If an overworld trigger uses this pseudo-variable as the trigger check,
 // then the script will be run using RunScriptImmediately instead of in the
