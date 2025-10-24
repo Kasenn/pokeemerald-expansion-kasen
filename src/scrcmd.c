@@ -4138,3 +4138,74 @@ void ResetFreeSpace(void)
         gSaveBlock1Ptr->freeSpaceFlags[i] = 0;
     }
 }
+
+void TestStringIds (void)
+{
+    for (int i = 0; i < STRINGID_COUNT; i++)
+    {
+        if (gBattleStringsTable[i] == NULL)
+        {
+            DebugPrintf2("%d", i);
+        }
+    }
+}
+
+void TestSpeciesName(void)
+{
+    s32 finalWidth = 0;
+    s32 species = 0;
+    s32 width = 0;
+
+    for (int i = 0; i < NUM_SPECIES; i++)
+    {
+        width = GetStringWidth(FONT_NORMAL, gSpeciesInfo[i].speciesName, 0);
+
+        if (width > finalWidth && width < 200)
+        {
+            finalWidth = width;
+            species = i;
+            DebugPrintf2("width: %d, species %d", finalWidth, species);
+        }
+    }
+}
+
+void TestItemName(void)
+{
+    s32 finalWidth = 0;
+    s32 itemId = 0;
+    s32 width = 0;
+
+    for (int i = 0; i < ITEMS_COUNT; i++)
+    {
+        width = GetStringWidth(FONT_NORMAL, gItemsInfo[i].name, 0);
+
+        if (width > finalWidth && width < 200)
+        {
+            finalWidth = width;
+            itemId = i;
+            DebugPrintf2("width: %d, %S", finalWidth, gItemsInfo[itemId].name);
+        }
+    }
+}
+
+#include "constants/abilities.h"
+
+void TestAbilityName(void)
+{
+    s32 finalWidth = 0;
+    s32 itemId = 0;
+    s32 width = 0;
+
+    for (int i = 0; i < ABILITIES_COUNT; i++)
+    {
+        width = GetStringWidth(FONT_NORMAL, gAbilitiesInfo[i].name, 0);
+
+        if (width > finalWidth && width < 200)
+        {
+            finalWidth = width;
+            itemId = i;
+            DebugPrintf2("width: %d, %S", finalWidth, gAbilitiesInfo[itemId].name);
+        }
+    }
+}
+

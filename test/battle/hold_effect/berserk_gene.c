@@ -182,7 +182,7 @@ SINGLE_BATTLE_TEST("Berserk Gene does not confuse when Safeguard is active")
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Using Berserk Gene, the Attack of Wobbuffet sharply rose!");
-        MESSAGE("Wobbuffet is protected by Safeguard!");
+        MESSAGE("Wobbuffet's party is protected by Safeguard!");
         NOT MESSAGE("Wobbuffet became confused!");
     }
 }
@@ -249,6 +249,6 @@ SINGLE_BATTLE_TEST("Berserk Gene does not cause an infinite loop")
         TURN { MOVE(player, MOVE_BESTOW); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Using Berserk Gene, the Attack of the opposing Wobbuffet sharply rose!");
+        MESSAGE("Using Berserk Gene, the Attack of Foe Wobbuffet sharply rose!");
     }
 }

@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Will-O-Wisp burns target")
         TURN { MOVE(player, MOVE_WILL_O_WISP); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WILL_O_WISP, player);
-        MESSAGE("The opposing Wobbuffet was burned!");
+        MESSAGE("Foe Wobbuffet was burned!");
         STATUS_ICON(opponent, burn: TRUE);
     }
 }

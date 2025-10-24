@@ -12,7 +12,7 @@ SINGLE_BATTLE_TEST("Cursed Body triggers 30% of the time")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AQUA_JET, player);
         ABILITY_POPUP(opponent, ABILITY_CURSED_BODY);
-        MESSAGE("Wobbuffet's Aqua Jet was disabled by the opposing Frillish's Cursed Body!");
+        MESSAGE("Wobbuffet's Aqua Jet was disabled!");
     }
 }
 

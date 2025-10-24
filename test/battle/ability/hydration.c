@@ -24,6 +24,6 @@ SINGLE_BATTLE_TEST("Hydration doesn't cure status conditions if Cloud Nine/Air L
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         NOT ABILITY_POPUP(player, ABILITY_HYDRATION);
-        MESSAGE("Vaporeon was hurt by its burn!");
+        MESSAGE("Vaporeon is hurt by its burn!");
     }
 }

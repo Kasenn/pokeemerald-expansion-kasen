@@ -19,14 +19,14 @@ SINGLE_BATTLE_TEST("Paralysis reduces Speed by 50% (Gen 7+) or 75% (Gen 1-6)")
         if (playerFirst) {
             ONE_OF {
                 MESSAGE("Wobbuffet used Celebrate!");
-                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+                MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
             }
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("Foe Wobbuffet used Celebrate!");
         } else {
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("Foe Wobbuffet used Celebrate!");
             ONE_OF {
                 MESSAGE("Wobbuffet used Celebrate!");
-                MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+                MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
             }
         }
     }
@@ -41,7 +41,7 @@ SINGLE_BATTLE_TEST("Paralysis has a 25% chance of skipping the turn")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+        MESSAGE("Wobbuffet is paralyzed! It can't move!");
     }
 }
 
@@ -74,7 +74,7 @@ SINGLE_BATTLE_TEST("Thunder Wave doesn't affect Electric types in Gen6+")
         TURN { MOVE(player, MOVE_THUNDER_WAVE); }
     } SCENE {
         MESSAGE("Wobbuffet used Thunder Wave!");
-        MESSAGE("It doesn't affect the opposing Pikachu…");
+        MESSAGE("It doesn't affect Foe Pikachu…");
     }
 }
 
@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Thunder Wave doesn't print an effectiveness message")
     } WHEN {
         TURN { MOVE(opponent, MOVE_THUNDER_WAVE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Thunder Wave!");
+        MESSAGE("Foe Wobbuffet used Thunder Wave!");
         NOT MESSAGE("It's super effective!");
     }
 }

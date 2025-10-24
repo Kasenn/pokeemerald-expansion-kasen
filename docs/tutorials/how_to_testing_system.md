@@ -44,7 +44,7 @@ SINGLE_BATTLE_TEST("Stun Spore inflicts paralysis")
         TURN { MOVE(player, MOVE_STUN_SPORE); } // 3.
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
-        MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!"); // 4
+        MESSAGE("Foe Wobbuffet is paralyzed! It may be unable to move!"); // 4
         STATUS_ICON(opponent, paralysis: TRUE); // 4.
     }
 }
@@ -226,7 +226,7 @@ SINGLE_BATTLE_TEST("Paralysis has a 25% chance of skipping the turn")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+        MESSAGE("Wobbuffet is paralyzed! It can't move!");
     }
 }
 ```
@@ -452,7 +452,7 @@ Causes the test to fail if the `SCENE` command succeeds before the following com
 ```
      // Our Wobbuffet does not Celebrate before the foe's.
      NOT MESSAGE("Wobbuffet used Celebrate!");
-     MESSAGE("The opposing Wobbuffet used Celebrate!");
+     MESSAGE("Foe Wobbuffet used Celebrate!");
 ```
 **NOTE**: If this condition fails, the viewable ROM freezes at the NOT command.
 **WARNING: `NOT` is an alias of `NONE_OF`, so it behaves surprisingly when applied to multiple commands wrapped in braces.**
@@ -467,7 +467,7 @@ Causes the test to fail unless one of the `SCENE` commands succeeds.
 ```
      ONE_OF {
          MESSAGE("Wobbuffet used Celebrate!");
-         MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+         MESSAGE("Wobbuffet is paralyzed! It can't move!");
      }
 ```
 
@@ -482,9 +482,9 @@ Causes the test to fail if one of the `SCENE` commands succeeds before the comma
      // Our Wobbuffet does not move before the foe's.
      NONE_OF {
          MESSAGE("Wobbuffet used Celebrate!");
-         MESSAGE("Wobbuffet couldn't move because it's paralyzed!");
+         MESSAGE("Wobbuffet is paralyzed! It can't move!");
      }
-     MESSAGE("The opposing Wobbuffet used Celebrate!");
+     MESSAGE("Foe Wobbuffet used Celebrate!");
 ```
 
 ### `PLAYER_PARTY`

@@ -12,7 +12,7 @@ SINGLE_BATTLE_TEST("Overcoat blocks powder and spore moves")
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_OVERCOAT);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
-        MESSAGE("It doesn't affect the opposing Pineco…");
+        MESSAGE("It doesn't affect Foe Pineco…");
     }
 }
 
@@ -27,7 +27,7 @@ DOUBLE_BATTLE_TEST("Overcoat blocks damage from sandstorm")
         TURN { MOVE(playerLeft, MOVE_SANDSTORM); }
     } SCENE {
         MESSAGE("Wynaut used Sandstorm!");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
         HP_BAR(playerLeft);
         NONE_OF {
             HP_BAR(playerRight);

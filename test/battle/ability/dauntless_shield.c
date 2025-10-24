@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Dauntless Shield raises Defense by one stage")
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+        MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 1);
     }
@@ -30,10 +30,10 @@ SINGLE_BATTLE_TEST("Dauntless Shield raises Defense by one stage every time it s
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+        MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
         ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+        MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 1);
     }
@@ -52,11 +52,11 @@ SINGLE_BATTLE_TEST("Dauntless Shield raises Defense by one stage only once per b
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+        MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+            MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
         }
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE);
@@ -75,9 +75,9 @@ SINGLE_BATTLE_TEST("Dauntless Shield activates when it's no longer effected by N
         ABILITY_POPUP(player, ABILITY_NEUTRALIZING_GAS);
         MESSAGE("Neutralizing gas filled the area!");
         SWITCH_OUT_MESSAGE("Weezing");
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ABILITY_POPUP(opponent, ABILITY_DAUNTLESS_SHIELD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Zamazenta's Dauntless Shield raised its Defense!");
+        MESSAGE("Foe Zamazenta's Dauntless Shield raised its Defense!");
     }
 }

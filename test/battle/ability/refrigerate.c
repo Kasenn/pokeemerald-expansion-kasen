@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Refrigerate doesn't affect Natural Gift's type")
         TURN { MOVE(player, MOVE_NATURAL_GIFT); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_NATURAL_GIFT, player); }
-        MESSAGE("It doesn't affect the opposing Beldum…");
+        MESSAGE("It doesn't affect Foe Beldum…");
     }
 }
 
@@ -114,7 +114,7 @@ SINGLE_BATTLE_TEST("Refrigerate doesn't affect Judgment / Techno Blast / Multi-A
         TURN { MOVE(player, move); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
-        MESSAGE("It doesn't affect the opposing Diglett…");
+        MESSAGE("It doesn't affect Foe Diglett…");
     }
 }
 
@@ -130,7 +130,7 @@ SINGLE_BATTLE_TEST("Refrigerate doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("It doesn't affect the opposing Diglett…");
+        MESSAGE("It doesn't affect Foe Diglett…");
     }
 }
 

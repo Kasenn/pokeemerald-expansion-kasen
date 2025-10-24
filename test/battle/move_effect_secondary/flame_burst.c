@@ -18,8 +18,8 @@ DOUBLE_BATTLE_TEST("Flame Burst Substitute")
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_SUBSTITUTE); MOVE(playerRight, MOVE_FLAME_BURST, target: opponentRight); }
     } SCENE {
-        MESSAGE("The bursting flames hit the opposing Wynaut!");
-        NOT MESSAGE("The substitute took damage for the opposing Wynaut!");
+        MESSAGE("The bursting flames hit Foe Wynaut!");
+        NOT MESSAGE("The substitute took damage for Foe Wynaut!");
     }
 }
 
@@ -51,6 +51,6 @@ DOUBLE_BATTLE_TEST("Flame Burst doesn't crash, player to opponent")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLAME_BURST, playerLeft);
         HP_BAR(opponentRight);
-        MESSAGE("The opposing Wynaut fainted!");
+        MESSAGE("Foe Wynaut fainted!");
     }
 }

@@ -89,7 +89,7 @@ WILD_BATTLE_TEST("Ball Fetch only picks up the first failed ball, once per battl
         MESSAGE("Yamper found a Great Ball!");
         MESSAGE("Yamper used Bestow!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
-        MESSAGE("The wild Metagross received Great Ball from Yamper!");
+        MESSAGE("Wild Metagross received Great Ball from Yamper!");
         NOT ABILITY_POPUP(player, ABILITY_BALL_FETCH);
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);

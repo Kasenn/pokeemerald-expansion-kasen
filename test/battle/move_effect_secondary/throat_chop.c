@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Throat Chop prevents the usage of sound moves")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_THROAT_CHOP, player);
         HP_BAR(opponent);
-        MESSAGE("The effects of Throat Chop prevent the opposing Wobbuffet from using certain moves!");
+        MESSAGE("Foe Wobbuffet can't use Hyper Voice due to Throat Chop!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, opponent);
         }

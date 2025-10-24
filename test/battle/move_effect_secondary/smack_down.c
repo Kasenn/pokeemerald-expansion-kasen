@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Smack Down does not ground mons behind substitutes")
     } WHEN {
         TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_SMACK_DOWN); }
     } SCENE {
-        NOT MESSAGE("The opposing Skarmory fell straight down!");
+        NOT MESSAGE("Foe Skarmory fell straight down!");
     }
 }
 
@@ -27,7 +27,7 @@ SINGLE_BATTLE_TEST("Thousand Arrows does not ground mons behind substitutes")
     } WHEN {
         TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_THOUSAND_ARROWS); }
     } SCENE {
-        NOT MESSAGE("The opposing Skarmory fell straight down!");
+        NOT MESSAGE("Foe Skarmory fell straight down!");
     }
 }
 
@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Smack Down does not ground mons through Protect")
     } WHEN {
         TURN { MOVE(opponent, MOVE_PROTECT); MOVE(player, MOVE_SMACK_DOWN); }
     } SCENE {
-        NOT MESSAGE("The opposing Skarmory fell straight down!");
+        NOT MESSAGE("Foe Skarmory fell straight down!");
     }
 }
 
@@ -54,6 +54,6 @@ SINGLE_BATTLE_TEST("Smack Down does not ground target if target is immune")
     } WHEN {
         TURN { MOVE(opponent, MOVE_ELECTRIFY); MOVE(player, MOVE_SMACK_DOWN); }
     } SCENE {
-        NOT MESSAGE("The opposing Gliscor fell straight down!");
+        NOT MESSAGE("Foe Gliscor fell straight down!");
     }
 }

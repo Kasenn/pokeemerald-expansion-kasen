@@ -23,12 +23,12 @@ SINGLE_BATTLE_TEST("Hazards are applied based on order of set up")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, opponent);
         MESSAGE("Wobbuffet was poisoned!");
         MESSAGE("Pointed stones dug into Wobbuffet!");
-        MESSAGE("Wobbuffet was caught in a sticky web!");
-        MESSAGE("Wobbuffet was hurt by the spikes!");
-        MESSAGE("The poison spikes disappeared from the ground around your team!");
+        MESSAGE("Wobbuffet was caught in a Sticky Web!");
+        MESSAGE("Wobbuffet is hurt by spikes!");
+        MESSAGE("The Poison Spikes disappeared from around your team's feet!");
         MESSAGE("Pointed stones dug into Wynaut!");
-        MESSAGE("Wynaut was caught in a sticky web!");
-        MESSAGE("Wynaut was hurt by the spikes!");
+        MESSAGE("Wynaut was caught in a Sticky Web!");
+        MESSAGE("Wynaut is hurt by spikes!");
     } THEN {
         EXPECT_EQ(gBattleStruct->hazardsQueue[0][0], HAZARDS_STEALTH_ROCK);
         EXPECT_EQ(gBattleStruct->hazardsQueue[0][1], HAZARDS_STICKY_WEB);

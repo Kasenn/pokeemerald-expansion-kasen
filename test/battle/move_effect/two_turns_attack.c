@@ -92,8 +92,8 @@ DOUBLE_BATTLE_TEST("Razor Wind successfully KOs both opponents")
             MESSAGE("Wobbuffet used Razor Wind!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_WIND, playerLeft);
         HP_BAR(opponentLeft);
-        MESSAGE("The opposing Wobbuffet fainted!");
-        MESSAGE("The opposing Wynaut fainted!");
+        MESSAGE("Foe Wobbuffet fainted!");
+        MESSAGE("Foe Wynaut fainted!");
     }
 }
 
@@ -230,29 +230,29 @@ SINGLE_BATTLE_TEST("Solar Beam and Solar Blade can be used instantly in Sunlight
         TURN { SKIP_TURN(player); }
     } SCENE {
         if (move1 == MOVE_SUNNY_DAY) {
-            NOT MESSAGE("Wobbuffet absorbed light!");
+            NOT MESSAGE("Wobbuffet took in sunlight!");
         } else {
             if (move2 == MOVE_SOLAR_BEAM) {
                 if (B_UPDATED_MOVE_DATA >= GEN_5)
                 {
                     MESSAGE("Wobbuffet used Solar Beam!");
-                    MESSAGE("Wobbuffet absorbed light!");
+                    MESSAGE("Wobbuffet took in sunlight!");
                     ANIMATION(ANIM_TYPE_MOVE, move2, player);
                 } else {
                     NOT MESSAGE("Wobbuffet used Solar Beam!");
                     ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                    MESSAGE("Wobbuffet absorbed light!");
+                    MESSAGE("Wobbuffet took in sunlight!");
                 }
                 MESSAGE("Wobbuffet used Solar Beam!");
             } else {
                 if (B_UPDATED_MOVE_DATA >= GEN_5) {
                     MESSAGE("Wobbuffet used Solar Blade!");
-                    MESSAGE("Wobbuffet absorbed light!");
+                    MESSAGE("Wobbuffet took in sunlight!");
                     ANIMATION(ANIM_TYPE_MOVE, move2, player);
                 } else {
                     NOT MESSAGE("Wobbuffet used Solar Blade!");
                     ANIMATION(ANIM_TYPE_MOVE, move2, player);
-                    MESSAGE("Wobbuffet absorbed light!");
+                    MESSAGE("Wobbuffet took in sunlight!");
                 }
                 MESSAGE("Wobbuffet used Solar Blade!");
             }

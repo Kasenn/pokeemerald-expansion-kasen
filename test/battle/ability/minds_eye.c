@@ -36,13 +36,13 @@ SINGLE_BATTLE_TEST("Mind's Eye doesn't bypass a Ghost-type's Wonder Guard")
             HP_BAR(opponent);
         }
         ABILITY_POPUP(opponent, ABILITY_WONDER_GUARD);
-        MESSAGE("The opposing Shedinja avoided damage with Wonder Guard!");
+        MESSAGE("Foe Shedinja avoided damage with Wonder Guard!");
     }
 }
 
 //// AI TESTS ////
 
-AI_SINGLE_BATTLE_TEST("AI doesn't use accuracy-lowering moves if it knows that the foe has Mind's Eye")
+AI_SINGLE_BATTLE_TEST("AI doesn't use accuracy-lowering moves if it knows that the Foe has Mind's Eye")
 {
     u32 abilityAI = ABILITY_NONE;
 

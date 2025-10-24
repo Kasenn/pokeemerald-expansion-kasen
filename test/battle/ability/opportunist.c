@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveCategory(MOVE_SCRATCH) == DAMAGE_CATEGORY_PHYSICAL);
 }
 
-SINGLE_BATTLE_TEST("Opportunist only copies foe's positive stat changes in a turn", s16 damage)
+SINGLE_BATTLE_TEST("Opportunist only copies Foe's positive stat changes in a turn", s16 damage)
 {
     u32 ability;
     PARAMETRIZE { ability = ABILITY_FRISK; }
@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Opportunist only copies foe's positive stat changes in a tur
 }
 
 
-DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimidate against Contrary foe in a double battle", s16 damageLeft, s16 damageRight)
+DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimidate against Contrary Foe in a double battle", s16 damageLeft, s16 damageRight)
 {
     u32 abilityLeft, abilityRight;
 
@@ -60,17 +60,17 @@ DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimid
         ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
         if (abilityLeft == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Spinda's Attack rose!");
+            MESSAGE("Foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("Mightyena's Intimidate cuts the opposing Spinda's Attack!");
+            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
         }
         if (abilityRight == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("The opposing Spinda's Attack rose!");
+            MESSAGE("Foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("Mightyena's Intimidate cuts the opposing Spinda's Attack!");
+            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
         }
 
         if ((abilityLeft == ABILITY_CONTRARY && abilityRight != ABILITY_CONTRARY)
@@ -139,7 +139,7 @@ SINGLE_BATTLE_TEST("Opportunist copies each stat increase individually from abil
     }
 }
 
-SINGLE_BATTLE_TEST("Opportunist doesn't copy foe stat increases gained via Opportunist")
+SINGLE_BATTLE_TEST("Opportunist doesn't copy Foe stat increases gained via Opportunist")
 {
     GIVEN {
         PLAYER(SPECIES_ESPATHRA) { Ability(ABILITY_OPPORTUNIST); }
@@ -155,7 +155,7 @@ SINGLE_BATTLE_TEST("Opportunist doesn't copy foe stat increases gained via Oppor
     }
 }
 
-SINGLE_BATTLE_TEST("Opportunist copies foe stat increase gained via Swagger and Flatter")
+SINGLE_BATTLE_TEST("Opportunist copies Foe stat increase gained via Swagger and Flatter")
 {
     GIVEN {
         PLAYER(SPECIES_ESPATHRA) { Ability(ABILITY_OPPORTUNIST); }

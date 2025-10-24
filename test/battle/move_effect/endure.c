@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Endure does not prevent multiple hits and stat changes occur
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCALE_SHOT, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCALE_SHOT, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCALE_SHOT, player);
-        MESSAGE("The Pokémon was hit 5 time(s)!");
+        MESSAGE("Hit 5 time(s)!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Wobbuffet's Defense fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
@@ -47,10 +47,10 @@ DOUBLE_BATTLE_TEST("Endure is not transferred to a mon that is switched in due t
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENDURE, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, playerLeft);
-        MESSAGE("The opposing Wynaut endured the hit!");
+        MESSAGE("Foe Wynaut endured the hit!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, playerRight);
-        NOT MESSAGE("The opposing Squirtle endured the hit!");
+        NOT MESSAGE("Foe Squirtle endured the hit!");
     }
 }
 

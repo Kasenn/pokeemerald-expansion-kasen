@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Absorb users to lose HP instead of heal")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
         HP_BAR(opponent, captureDamage: &damage);
         HP_BAR(player, captureDamage: &healed);
-        MESSAGE("Wobbuffet sucked up the liquid ooze!");
+        MESSAGE("It sucked up the liquid ooze!");
     } THEN {
         EXPECT_MUL_EQ(damage, Q_4_12(0.5), healed);
     }
@@ -53,7 +53,7 @@ DOUBLE_BATTLE_TEST("Liquid Ooze causes Matcha Gatcha users to lose HP instead of
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MATCHA_GOTCHA, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(playerLeft);
-        MESSAGE("Wobbuffet sucked up the liquid ooze!");
+        MESSAGE("It sucked up the liquid ooze!");
         MESSAGE("Wobbuffet fainted!");
     }
 }
@@ -72,7 +72,7 @@ DOUBLE_BATTLE_TEST("Liquid Ooze will faint Matcha Gatcha users if it deals enoug
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MATCHA_GOTCHA, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(playerLeft);
-        MESSAGE("Wobbuffet sucked up the liquid ooze!");
+        MESSAGE("It sucked up the liquid ooze!");
         MESSAGE("Wobbuffet fainted!");
     }
 }
@@ -95,10 +95,10 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Strength Sap users to lose HP instead of 
         MESSAGE("Wobbuffet used Strength Sap!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Attack fell!");
+        MESSAGE("Foe Wobbuffet's Attack fell!");
         ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
         HP_BAR(player, captureDamage: &lostHp);
-        MESSAGE("Wobbuffet sucked up the liquid ooze!");
+        MESSAGE("It sucked up the liquid ooze!");
         if (atkStat >= 490) {
             MESSAGE("Wobbuffet fainted!");
             SEND_IN_MESSAGE("Wobbuffet");
@@ -127,12 +127,12 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes leech seed victim to faint before seeder"
         // Drain at end of turn
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_LEECH_SEED_DRAIN, opponent);
         if (ability != ABILITY_LIQUID_OOZE) {
-            MESSAGE("The opposing Tentacool fainted!");
-            MESSAGE("The opposing Tentacool's health is sapped by Leech Seed!");
+            MESSAGE("Foe Tentacool fainted!");
+            MESSAGE("Foe Tentacool's health is sapped by Leech Seed!");
         } else {
-            MESSAGE("The opposing Tentacool fainted!");
+            MESSAGE("Foe Tentacool fainted!");
             ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
-            MESSAGE("Bulbasaur sucked up the liquid ooze!");
+            MESSAGE("It sucked up the liquid ooze!");
             MESSAGE("Bulbasaur fainted!");
         }
     }

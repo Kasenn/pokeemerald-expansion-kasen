@@ -15,8 +15,8 @@ SINGLE_BATTLE_TEST("Rapid Spin activates after Toxic Debris")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAPID_SPIN, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
-        MESSAGE("The opposing Wobbuffet blew away Toxic Spikes!");
+        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Foe Wobbuffet blew away Toxic Spikes!");
     }
 }
 
@@ -39,12 +39,12 @@ SINGLE_BATTLE_TEST("Rapid Spin blows away Wrap, hazards and raises Speed (Gen 8+
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Wobbuffet's Speed rose!");
     #endif
-        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap!");
+        MESSAGE("Wobbuffet got free of Foe Wobbuffet's Wrap!");
         MESSAGE("Wobbuffet blew away Stealth Rock!");
     }
 }
 
-SINGLE_BATTLE_TEST("Rapid Spin: Mortal Spin blows away Wrap, hazards and poisons foe")
+SINGLE_BATTLE_TEST("Rapid Spin: Mortal Spin blows away Wrap, hazards and poisons Foe")
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_MORTAL_SPIN) == EFFECT_RAPID_SPIN);
@@ -57,9 +57,9 @@ SINGLE_BATTLE_TEST("Rapid Spin: Mortal Spin blows away Wrap, hazards and poisons
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MORTAL_SPIN, player);
-        MESSAGE("The opposing Wobbuffet was poisoned!");
+        MESSAGE("Foe Wobbuffet was poisoned!");
         STATUS_ICON(opponent, poison: TRUE);
-        MESSAGE("Wobbuffet got free of the opposing Wobbuffet's Wrap!");
+        MESSAGE("Wobbuffet got free of Foe Wobbuffet's Wrap!");
         MESSAGE("Wobbuffet blew away Stealth Rock!");
     }
 }

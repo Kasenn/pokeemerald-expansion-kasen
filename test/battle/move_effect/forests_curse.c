@@ -24,7 +24,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
         {
             MESSAGE("Trevenant used Forest's Curse!");
             HP_BAR(player);
-            MESSAGE("Trevenant laid the forest's curse on The opposing Wobbuffet!");
+            MESSAGE("Trevenant laid the forest's curse on Foe Wobbuffet!");
             HP_BAR(opponent);
         }
         else
@@ -32,17 +32,13 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
             MESSAGE("Wobbuffet used Forest's Curse!");
             NONE_OF {
                 HP_BAR(player);
-                MESSAGE("Wobbuffet laid the forest's curse on The opposing Wobbuffet!");
+                MESSAGE("Wobbuffet laid the forest's curse on Foe Wobbuffet!");
                 HP_BAR(opponent);    
             }
-            MESSAGE("But it failed!");
         }
     }
     THEN {
-        if (species == SPECIES_TREVENANT)
-            EXPECT_EQ(opponent->types[2], TYPE_GRASS);
-        else
-            EXPECT_EQ(opponent->types[2], TYPE_MYSTERY);
+        EXPECT_EQ(opponent->types[2], TYPE_GRASS);
     }
 }
 
@@ -58,7 +54,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will curse even if target is grass-ty
     SCENE {
         MESSAGE("Trevenant used Forest's Curse!");
         HP_BAR(player);
-        MESSAGE("Trevenant laid the forest's curse on The opposing Oddish!");
+        MESSAGE("Trevenant laid the forest's curse on Foe Oddish!");
         HP_BAR(opponent);
     }
     THEN {
@@ -79,7 +75,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is
     SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CURSE, player);
         HP_BAR(player);
-        MESSAGE("Trevenant cut its own HP and put a curse on the opposing Wobbuffet!");
+        MESSAGE("Trevenant cut its own HP and laid a curse on Foe Wobbuffet!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, player);
         NONE_OF {
@@ -87,7 +83,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is
             HP_BAR(player, hp: maxHP / 3);
             MESSAGE("But it failed!");
         }
-        MESSAGE("Trevenant laid the forest's curse on The opposing Wobbuffet!");
+        MESSAGE("Trevenant laid the forest's curse on Foe Wobbuffet!");
     }
     THEN {
         EXPECT_EQ(opponent->types[2], TYPE_GRASS);

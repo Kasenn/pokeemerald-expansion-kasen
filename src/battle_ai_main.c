@@ -1856,6 +1856,7 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             else if (DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             break;
+        case EFFECT_FORESTS_CURSE:
         case EFFECT_CURSE:
             if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
             {
@@ -2719,34 +2720,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
                 ADJUST_SCORE(-10);    // target is already water-only
             break;
         }
-        case EFFECT_FORESTS_CURSE:
         case EFFECT_THIRD_TYPE:
-            switch (move)
-            {
-            case MOVE_TRICK_OR_TREAT:
-                if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GHOST) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
-                    ADJUST_SCORE(-10);
-                break;
-            case MOVE_FORESTS_CURSE:
-                if (gBattleMons[battlerDef].volatiles.cursed
-                  || DoesPartnerHaveSameMoveEffect(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove))
-                    ADJUST_SCORE(-10);
-                else if (aiData->hpPercents[battlerAtk] <= 25)
-                    ADJUST_SCORE(-6);
-
-                if (IS_BATTLER_OF_TYPE(battlerDef, TYPE_GRASS) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
-                    ADJUST_SCORE(-3);
-
-                if (!IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
-                {
-                    ADJUST_SCORE(-30);
-                }
-                break;
-            default:
-                if (IS_BATTLER_OF_TYPE(battlerDef, GetMoveArgType(move)) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
-                    ADJUST_SCORE(-10);
-                break;
-            }
+            if (IS_BATTLER_OF_TYPE(battlerDef, GetMoveArgType(move)) || PartnerMoveIsSameAsAttacker(BATTLE_PARTNER(battlerAtk), battlerDef, move, aiData->partnerMove) || GetActiveGimmick(battlerDef) == GIMMICK_TERA)
+                ADJUST_SCORE(-10);
             break;
         case EFFECT_HEAL_PULSE: // and floral healing
             if (!IsTargetingPartner(battlerAtk, battlerDef)) // Don't heal enemies
@@ -4516,7 +4492,7 @@ static u32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move)
             ADJUST_SCORE(DECENT_EFFECT); // Give target more weaknesses
         if (IS_BATTLER_OF_TYPE(battlerAtk, TYPE_GHOST))
         {
-            if (IsBattlerTrapped(battlerDef, TRUE))
+            if (!AI_CanBattlerEscape(battlerDef) && IsBattlerTrapped(battlerAtk, battlerDef))
                 ADJUST_SCORE(GOOD_EFFECT);
             else
                 ADJUST_SCORE(WEAK_EFFECT);

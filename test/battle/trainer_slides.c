@@ -100,7 +100,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First Down")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEALING_WISH); SEND_OUT(opponent,1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("Foe Wobbuffet fainted!");
         MESSAGE("This message plays after the player KOs one enemy mon.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -117,7 +117,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Enemy Mon Unaffected")
         TURN { MOVE(player, MOVE_SHEER_COLD); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
-        MESSAGE("It doesn't affect the opposing Glalie…");
+        MESSAGE("It doesn't affect Foe Glalie…");
         MESSAGE("Player attacked enemy with ineffective move.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -132,7 +132,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Last Switchin")
     } WHEN {
         TURN { MOVE(opponent, MOVE_HEALING_WISH); SEND_OUT(opponent,1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("Foe Wobbuffet fainted!");
         MESSAGE("This message plays after the enemy switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
     }
 }
@@ -178,7 +178,7 @@ SINGLE_BATTLE_TEST("Trainer Slide: Mega Evolution")
     } SCENE {
         MESSAGE("This message plays before the enemy activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("Foe Lopunny has Mega Evolved into Mega Lopunny!");
     }
 }
 
@@ -192,8 +192,8 @@ SINGLE_BATTLE_TEST("Trainer Slide: Z Move")
         TURN { MOVE(opponent, MOVE_QUICK_ATTACK, gimmick: GIMMICK_Z_MOVE); }
     } SCENE {
         MESSAGE("This message plays before the enemy activates the Z-Move gimmick.{PAUSE_UNTIL_PRESS}");
-        MESSAGE("The opposing Wobbuffet surrounded itself with its Z-Power!");
-        MESSAGE("The opposing Wobbuffet unleashes its full-force Z-Move!");
+        MESSAGE("Foe Wobbuffet surrounded itself with its Z-Power!");
+        MESSAGE("Foe Wobbuffet unleashes its full-force Z-Move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, opponent);
     }
 }

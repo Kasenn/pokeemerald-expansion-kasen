@@ -21,14 +21,14 @@ DOUBLE_BATTLE_TEST("Competitive sharply raises player's Sp. Atk after Intimidate
         //1st mon Intimidate
         ABILITY_POPUP(opponentLeft, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("The opposing Gyarados's Intimidate cuts Igglybuff's Attack!");
+        MESSAGE("Foe Gyarados's Intimidate cuts Igglybuff's Attack!");
         if (abilityLeft == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(playerLeft, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
             MESSAGE("Igglybuff's Sp. Atk sharply rose!");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("The opposing Gyarados's Intimidate cuts Jigglypuff's Attack!");
+        MESSAGE("Foe Gyarados's Intimidate cuts Jigglypuff's Attack!");
         if (abilityRight == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(playerRight, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
@@ -38,14 +38,14 @@ DOUBLE_BATTLE_TEST("Competitive sharply raises player's Sp. Atk after Intimidate
         //2nd mon Intimidate
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("The opposing Arbok's Intimidate cuts Igglybuff's Attack!");
+        MESSAGE("Foe Arbok's Intimidate cuts Igglybuff's Attack!");
         if (abilityLeft == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(playerLeft, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
             MESSAGE("Igglybuff's Sp. Atk sharply rose!");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-        MESSAGE("The opposing Arbok's Intimidate cuts Jigglypuff's Attack!");
+        MESSAGE("Foe Arbok's Intimidate cuts Jigglypuff's Attack!");
         if (abilityRight == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(playerRight, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
@@ -78,35 +78,35 @@ DOUBLE_BATTLE_TEST("Competitive sharply raises opponent's Sp. Atk after Intimida
         //1st mon Intimidate
         ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("Gyarados's Intimidate cuts the opposing Igglybuff's Attack!");
+        MESSAGE("Gyarados's Intimidate cuts Foe Igglybuff's Attack!");
         if (abilityLeft == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(opponentLeft, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Igglybuff's Sp. Atk sharply rose!");
+            MESSAGE("Foe Igglybuff's Sp. Atk sharply rose!");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("Gyarados's Intimidate cuts the opposing Jigglypuff's Attack!");
+        MESSAGE("Gyarados's Intimidate cuts Foe Jigglypuff's Attack!");
         if (abilityRight == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(opponentRight, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("The opposing Jigglypuff's Sp. Atk sharply rose!");
+            MESSAGE("Foe Jigglypuff's Sp. Atk sharply rose!");
         }
 
         //2nd mon Intimidate
         ABILITY_POPUP(playerRight, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("Arbok's Intimidate cuts the opposing Igglybuff's Attack!");
+        MESSAGE("Arbok's Intimidate cuts Foe Igglybuff's Attack!");
         if (abilityLeft == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(opponentLeft, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Igglybuff's Sp. Atk sharply rose!");
+            MESSAGE("Foe Igglybuff's Sp. Atk sharply rose!");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("Arbok's Intimidate cuts the opposing Jigglypuff's Attack!");
+        MESSAGE("Arbok's Intimidate cuts Foe Jigglypuff's Attack!");
         if (abilityRight == ABILITY_COMPETITIVE) {
             ABILITY_POPUP(opponentRight, ABILITY_COMPETITIVE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("The opposing Jigglypuff's Sp. Atk sharply rose!");
+            MESSAGE("Foe Jigglypuff's Sp. Atk sharply rose!");
         }
     } THEN {
         EXPECT_EQ(opponentLeft->statStages[STAT_SPATK], DEFAULT_STAT_STAGE + (abilityLeft == ABILITY_COMPETITIVE ? 4 : 0));
@@ -127,7 +127,7 @@ SINGLE_BATTLE_TEST("Competitive activates after Sticky Web lowers Speed")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, opponent);
         // Switch-in - Sticky Web activates
         SEND_IN_MESSAGE("Igglybuff");
-        MESSAGE("Igglybuff was caught in a sticky web!");
+        MESSAGE("Igglybuff was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Igglybuff's Speed fell!");
         // Competitive activates
@@ -152,7 +152,7 @@ SINGLE_BATTLE_TEST("Competitive doesn't activate after Sticky Web lowers Speed i
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COURT_CHANGE, opponent);
         // Switch-in - Sticky Web activates
         SEND_IN_MESSAGE("Igglybuff");
-        MESSAGE("Igglybuff was caught in a sticky web!");
+        MESSAGE("Igglybuff was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Igglybuff's Speed fell!");
         // Competitive doesn't activate
@@ -180,7 +180,7 @@ SINGLE_BATTLE_TEST("Competitive correctly activates after Sticky Web lowers Spee
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COURT_CHANGE, opponent);
         // Switch-in - Sticky Web activates
         SEND_IN_MESSAGE("Igglybuff");
-        MESSAGE("Igglybuff was caught in a sticky web!");
+        MESSAGE("Igglybuff was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Igglybuff's Speed fell!");
         // Competitive doesn't activate
@@ -225,7 +225,7 @@ DOUBLE_BATTLE_TEST("Competitive is activated by Cotton Down for non-ally pokemon
         MESSAGE("Igglybuff's Sp. Atk sharply rose!");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The opposing Igglybuff's Speed fell!");
+        MESSAGE("Foe Igglybuff's Speed fell!");
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_SPEED], DEFAULT_STAT_STAGE - 1);
         EXPECT_EQ(playerRight->statStages[STAT_SPEED], DEFAULT_STAT_STAGE - 1);
@@ -257,11 +257,11 @@ SINGLE_BATTLE_TEST("Competitive activates before White Herb")
 
         if (move == MOVE_LEER) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Igglybuff returned its stats to normal using its White Herb!");
+            MESSAGE("Igglybuff's White Herb restored its status!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-                MESSAGE("Igglybuff returned its stats to normal using its White Herb!");
+                MESSAGE("Igglybuff's White Herb restored its status!");
             }
         }
     } THEN {

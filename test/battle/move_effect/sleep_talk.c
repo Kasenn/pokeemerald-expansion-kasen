@@ -123,7 +123,7 @@ DOUBLE_BATTLE_TEST("Sleep Talk calls move and that move may be redirected by Lig
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SLEEP_TALK, playerLeft);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SPARK, playerLeft);
-        MESSAGE("The opposing Raichu's Lightning Rod took the attack!");
+        MESSAGE("Foe Raichu's Lightning Rod took the attack!");
         ABILITY_POPUP(opponentRight, ABILITY_LIGHTNING_ROD);
     }
 }
@@ -142,7 +142,7 @@ DOUBLE_BATTLE_TEST("Sleep Talk calls move and that move may be redirected by Sto
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SLEEP_TALK, playerLeft);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, playerLeft);
-        MESSAGE("The opposing Gastrodon's Storm Drain took the attack!");
+        MESSAGE("Foe Gastrodon's Storm Drain took the attack!");
         ABILITY_POPUP(opponentRight, ABILITY_STORM_DRAIN);
     }
 }

@@ -551,6 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
+    callnative(TestSpeciesName)
     return
 }
 script Debug_Script_4{

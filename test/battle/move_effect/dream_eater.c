@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Dream Eater fails on awake targets")
         TURN { MOVE(player, MOVE_DREAM_EATER); }
     } SCENE {
         MESSAGE("Wobbuffet used Dream Eater!");
-        MESSAGE("It doesn't affect the opposing Wobbuffet…");
+        MESSAGE("It doesn't affect Foe Wobbuffet…");
     }
 }
 
@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Dream Eater fails if the target is behind a Substitute (Gen 
         TURN { }
         TURN { MOVE(opponent, MOVE_DREAM_EATER); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Dream Eater!");
+        MESSAGE("Foe Wobbuffet used Dream Eater!");
         MESSAGE("It doesn't affect Wobbuffet…");
     }
 }

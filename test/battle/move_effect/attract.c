@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Attract causes the target to become infatuated with the user
         TURN { MOVE(player, MOVE_ATTRACT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ATTRACT, player);
-        MESSAGE("The opposing Nidoking fell in love!");
+        MESSAGE("Foe Nidoking fell in love!");
     } THEN {
         EXPECT(opponent->volatiles.infatuation);
     }
@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Attract ignores type immunity")
         TURN { MOVE(player, MOVE_ATTRACT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ATTRACT, player);
-        MESSAGE("The opposing Misdreavus fell in love!");
+        MESSAGE("Foe Misdreavus fell in love!");
     } THEN {
         EXPECT(opponent->volatiles.infatuation);
     }
@@ -49,7 +49,7 @@ SINGLE_BATTLE_TEST("Attract bypasses Substitute")
         TURN { MOVE(player, MOVE_ATTRACT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ATTRACT, player);
-        MESSAGE("The opposing Nidoking fell in love!");
+        MESSAGE("Foe Nidoking fell in love!");
     } THEN {
         EXPECT(opponent->volatiles.infatuation);
     }
@@ -65,7 +65,7 @@ SINGLE_BATTLE_TEST("Attract fails if the target is already infatuated")
         TURN { MOVE(player, MOVE_ATTRACT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ATTRACT, player);
-        MESSAGE("The opposing Nidoking fell in love!");
+        MESSAGE("Foe Nidoking fell in love!");
         MESSAGE("Nidoqueen used Attract!");
         MESSAGE("But it failed!");
     } THEN {

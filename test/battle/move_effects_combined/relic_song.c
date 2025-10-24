@@ -31,7 +31,7 @@ SINGLE_BATTLE_TEST("Relic Song is prevented by Soundproof")
         TURN { MOVE(player, MOVE_RELIC_SONG); }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_SOUNDPROOF);
-        MESSAGE("The opposing Voltorb's Soundproof blocks Relic Song!");
+        MESSAGE("Foe Voltorb's Soundproof blocks Relic Song!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RELIC_SONG, player);
             HP_BAR(opponent);
@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Relic Song is blocked by Throat Chop")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_THROAT_CHOP, opponent);
         HP_BAR(player);
-        MESSAGE("The effects of Throat Chop prevent Wobbuffet from using certain moves!");
+        MESSAGE("Wobbuffet can't use Relic Song due to Throat Chop!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_RELIC_SONG, player);
     }
 }

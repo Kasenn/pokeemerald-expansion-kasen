@@ -10,6 +10,6 @@ SINGLE_BATTLE_TEST("Misty Surge creates Misty Terrain when entering the battle")
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_MISTY_SURGE);
-        MESSAGE("Mist swirled around the battlefield!");
+        MESSAGE("Mist swirled about the battlefield!");
     }
 }

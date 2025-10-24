@@ -61,7 +61,7 @@ SINGLE_BATTLE_TEST("Unburden doesn't activate when item is consumed in Neutraliz
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         // Turn 2, no speed increase
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponent);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         // Turn 3, no speed increase
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("Unburden doubling speed effect is ignored by Neutralizing Ga
         ABILITY_POPUP(opponent, ABILITY_NEUTRALIZING_GAS);
         // Turn 3, no speed increase
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponent);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         // Turn 4, doubled speed
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);

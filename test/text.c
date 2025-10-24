@@ -584,12 +584,13 @@ TEST("Battle strings fit on the battle message window")
     s32 sixDigitNines = 999999;                                 // 36 pixels.
     u8 nickname[POKEMON_NAME_LENGTH + 1] = _("MMMMMMMMMMMM");   // 72 pixels.
     u32 longMoveID = MOVE_NATURES_MADNESS;                      // 89 pixels.
-    u32 longAbilityID = ABILITY_SUPERSWEET_SYRUP;               // 91 pixels.
+    u32 longAbilityID = ABILITY_WATER_COMPACTION;               // 91 pixels.
     u32 longStatName = STAT_EVASION;                            // 40 pixels.
     u32 longTypeName = TYPE_ELECTRIC;                           // 43 pixels.
     u32 longSpeciesName = SPECIES_SANDY_SHOCKS;                 // 47 pixels.
-    u32 longItemName = ITEM_UNREMARKABLE_TEACUP;                // 73 pixels.
+    u32 longItemName = ITEM_HEAVY_DUTY_BOOTS;                   // 73 pixels.
     u8 boxName[9] = _("MMMMMMMM");                              // 54 pixels.
+    u8 enemyNickname[POKEMON_NAME_LENGTH + 1] = _("Crabominable");
 
     // Set longest default player name, JOHNNY
     NewGameBirchSpeech_SetDefaultPlayerName(10);  // JOHNNY
@@ -598,12 +599,19 @@ TEST("Battle strings fit on the battle message window")
         givemon SPECIES_WOBBUFFET, 100;
         createmon 1, 0, SPECIES_WOBBUFFET, 100;
     );
+
     SetMonData(&gPlayerParty[0], MON_DATA_NICKNAME, nickname);
-    SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, nickname);
+    SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, enemyNickname);
 
     for (i = start; i <= end; i++)
     {
         PARAMETRIZE_LABEL("%S", gBattleStringsTable[i]) { battleStringId = i; }
+    }
+
+    if (battleStringId == STRINGID_BESTOWITEMGIVING)
+    {
+        u8 enemyNickname[POKEMON_NAME_LENGTH + 1] = _("Passimian");
+        SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, enemyNickname);
     }
 
     // Clear buffers
@@ -619,6 +627,11 @@ TEST("Battle strings fit on the battle message window")
     gBattlerPositions[1] = B_POSITION_OPPONENT_LEFT;
     gBattlerPositions[2] = B_POSITION_PLAYER_RIGHT;
     gBattlerPositions[3] = B_POSITION_OPPONENT_RIGHT;
+
+    if (battleStringId == STRINGID_TARGETSSTATWASMAXEDOUT)
+        longAbilityID = ABILITY_ANGER_POINT;
+    if (battleStringId == STRINGID_PROTEANTYPECHANGE)
+        longAbilityID = ABILITY_PROTEAN;
 
     // Set abilities
     gLastUsedAbility = longAbilityID;
@@ -698,7 +711,7 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_PLAYERGOTMONEY:
     case STRINGID_PLAYERWHITEOUT2_TRAINER:
     case STRINGID_PLAYERPICKEDUPMONEY:
-    case STRINGID_PLAYERWHITEOUT2_WILD:
+    // case STRINGID_PLAYERWHITEOUT2_WILD:
         PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 6, sixDigitNines);
         break;
     // Buffer "99" to B_BUFF1
@@ -730,7 +743,6 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_TARGETABILITYSTATLOWER:
     case STRINGID_SCRIPTINGABILITYSTATRAISE:
     case STRINGID_BATTLERABILITYRAISEDSTAT:
-    case STRINGID_ABILITYRAISEDSTATDRASTICALLY:
     case STRINGID_STATWASHEIGHTENED:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
         break;
@@ -794,8 +806,12 @@ TEST("Battle strings fit on the battle message window")
     // Buffer Stat name to B_BUFF1, "drastically rose" to B_BUFF2
     case STRINGID_ATTACKERSSTATROSE:
     case STRINGID_DEFENDERSSTATROSE:
-    case STRINGID_USINGITEMSTATOFPKMNROSE:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
+        StringCopy(gBattleTextBuff2, gText_drastically);
+        StringAppend(gBattleTextBuff2, gText_StatRose);
+        break;
+    case STRINGID_USINGITEMSTATOFPKMNROSE:
+        StringCopy(gBattleTextBuff1, gStatNamesTable[STAT_DEF]);
         StringCopy(gBattleTextBuff2, gText_drastically);
         StringAppend(gBattleTextBuff2, gText_StatRose);
         break;

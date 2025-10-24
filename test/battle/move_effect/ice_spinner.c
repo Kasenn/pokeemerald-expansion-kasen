@@ -45,7 +45,7 @@ SINGLE_BATTLE_TEST("Ice Spinner and Steel Roller remove a terrain from field")
             MESSAGE("The electricity disappeared from the battlefield.");
             break;
         case MOVE_PSYCHIC_TERRAIN:
-            MESSAGE("The weirdness disappeared from the battlefield!");
+            MESSAGE("The weirdness disappeared from the battlefield.");
             break;
         case MOVE_GRASSY_TERRAIN:
             MESSAGE("The grass disappeared from the battlefield.");
@@ -98,7 +98,7 @@ SINGLE_BATTLE_TEST("Ice Spinner doesn't fail if there is no terrain on the field
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_SPINNER, player);
         NONE_OF {
             MESSAGE("But it failed!");
-            MESSAGE("Mist swirled around the battlefield!");
+            MESSAGE("Mist swirls around the battlefield!");
         }
     }
 }

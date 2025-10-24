@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(gItemsInfo[ITEM_MIRROR_HERB].holdEffect == HOLD_EFFECT_MIRROR_HERB);
 }
 
-SINGLE_BATTLE_TEST("Mirror Herb copies all of foe's positive stat changes in a turn", s16 damage)
+SINGLE_BATTLE_TEST("Mirror Herb copies all of Foe's positive stat changes in a turn", s16 damage)
 {
     u32 item;
     PARAMETRIZE { item = ITEM_NONE; }
@@ -60,7 +60,7 @@ DOUBLE_BATTLE_TEST("Mirror Herb does not trigger for Ally's Soul Heart's stat ra
         TURN { MOVE(playerRight, MOVE_SCRATCH, target:opponentLeft); }
     } SCENE {
         MESSAGE("Wynaut used Scratch!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("Foe Wobbuffet fainted!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);

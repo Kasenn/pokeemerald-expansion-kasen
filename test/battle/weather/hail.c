@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Hail deals 1/16 damage per turn")
     } WHEN {
         TURN {MOVE(player, MOVE_HAIL);}
     } SCENE {
-        MESSAGE("The opposing Wobbuffet is buffeted by the hail!");
+        MESSAGE("Foe Wobbuffet is pelted by hail!");
         HP_BAR(opponent, captureDamage: &hailDamage);
    } THEN { EXPECT_EQ(hailDamage, opponent->maxHP / 16); }
 }
@@ -34,7 +34,7 @@ SINGLE_BATTLE_TEST("Hail damage does not affect Ice-type Pokémon")
     } WHEN {
         TURN {MOVE(player, MOVE_HAIL);}
     } SCENE {
-        NOT MESSAGE("The opposing Glalie is buffeted by the hail!");
+        NOT MESSAGE("Foe Glalie is pelted by hail!");
     }
 }
 

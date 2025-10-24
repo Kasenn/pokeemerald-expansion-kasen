@@ -9,7 +9,7 @@ SINGLE_BATTLE_TEST("Seed Sower sets up Grassy Terrain when hit by an attack")
     } WHEN {
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("Foe Wobbuffet used Scratch!");
         HP_BAR(player);
         ABILITY_POPUP(player);
         MESSAGE("Grass grew to cover the battlefield!");

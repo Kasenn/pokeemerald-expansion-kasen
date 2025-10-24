@@ -43,7 +43,7 @@ SINGLE_BATTLE_TEST("Teleport fails in Trainer Battles (Gen 1-7)")
     } WHEN {
         TURN { MOVE(opponent, MOVE_TELEPORT); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Teleport!");
+        MESSAGE("Foe Wobbuffet used Teleport!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_TELEPORT, opponent);
             MESSAGE("2 sent out Wynaut!");

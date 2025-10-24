@@ -109,7 +109,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Natural Gift's type")
         TURN { MOVE(player, MOVE_NATURAL_GIFT); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_NATURAL_GIFT, player); }
-        MESSAGE("It doesn't affect the opposing Beldum…");
+        MESSAGE("It doesn't affect Foe Beldum…");
     }
 }
 
@@ -137,11 +137,11 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Judgment / Techno Blast / Multi-Att
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
         if (move == MOVE_JUDGMENT)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Judgment useless!");
+            MESSAGE("Foe Vaporeon's Water Absorb made Judgment useless!");
         else if (move == MOVE_TECHNO_BLAST)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Techno Blast useless!");
+            MESSAGE("Foe Vaporeon's Water Absorb made Techno Blast useless!");
         else if (move == MOVE_MULTI_ATTACK)
-            MESSAGE("The opposing Vaporeon's Water Absorb made Multi-Attack useless!");
+            MESSAGE("Foe Vaporeon's Water Absorb made Multi-Attack useless!");
     }
 }
 
@@ -157,7 +157,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("The opposing Vaporeon's Water Absorb made Hidden Power useless!");
+        MESSAGE("Foe Vaporeon's Water Absorb made Hidden Power useless!");
     }
 }
 

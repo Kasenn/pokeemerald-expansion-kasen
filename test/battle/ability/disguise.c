@@ -117,7 +117,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from Rocky Helmet without bre
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         HP_BAR(player);
-        MESSAGE("Mimikyu was hurt by the opposing Wobbuffet's Rocky Helmet!");
+        MESSAGE("Mimikyu is hurt by Foe Wobbuffet's Rocky Helmet!");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
@@ -135,7 +135,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu takes damage from Rough Skin without break
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
         HP_BAR(player);
-        MESSAGE("Mimikyu was hurt by the opposing Carvanha's Rough Skin!");
+        MESSAGE("Mimikyu is hurt by Foe Carvanha's Rough Skin!");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MIMIKYU_DISGUISED);
     }
@@ -165,11 +165,11 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu's types revert back to Ghost/Fairy when Di
         TURN { MOVE(opponent, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SHADOW_CLAW); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Soak!");
+        MESSAGE("Foe Wobbuffet used Soak!");
         MESSAGE("Mimikyu transformed into the Water type!");
-        MESSAGE("The opposing Wobbuffet used Scratch!");
+        MESSAGE("Foe Wobbuffet used Scratch!");
         ABILITY_POPUP(player, ABILITY_DISGUISE);
-        MESSAGE("The opposing Wobbuffet used Shadow Claw!");
+        MESSAGE("Foe Wobbuffet used Shadow Claw!");
         MESSAGE("It's super effective!");
     }
 }
@@ -186,7 +186,7 @@ SINGLE_BATTLE_TEST("Disguised Mimikyu blocks a move after getting Gastro Acid Ba
         TURN { MOVE(opponent, MOVE_SHADOW_CLAW); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GASTRO_ACID, opponent);
-        MESSAGE("Wobbuffet's Ability was suppressed!");
+        MESSAGE("Wobbuffet's ability was suppressed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHADOW_CLAW, opponent);
         ABILITY_POPUP(player, ABILITY_DISGUISE);

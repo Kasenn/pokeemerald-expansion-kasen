@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Dragon Tail switches the target with a random non-fainted re
         TURN { MOVE(player, MOVE_DRAGON_TAIL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
-        MESSAGE("The opposing Bulbasaur was dragged out!");
+        MESSAGE("Foe Bulbasaur was dragged out!");
     }
 }
 
@@ -39,7 +39,7 @@ DOUBLE_BATTLE_TEST("Dragon Tail switches the target with a random non-battler, n
         TURN { MOVE(playerLeft, MOVE_DRAGON_TAIL, target: opponentRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, playerLeft);
-        MESSAGE("The opposing Bulbasaur was dragged out!");
+        MESSAGE("Foe Bulbasaur was dragged out!");
     }
 }
 
@@ -83,10 +83,10 @@ SINGLE_BATTLE_TEST("Dragon Tail switches the target after Rocky Helmet and Iron 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet was hurt by the opposing Togedemaru's Iron Barbs!");
+        MESSAGE("Wobbuffet is hurt by Foe Togedemaru's Iron Barbs!");
         HP_BAR(player);
-        MESSAGE("Wobbuffet was hurt by the opposing Togedemaru's Rocky Helmet!");
-        MESSAGE("The opposing Charmander was dragged out!");
+        MESSAGE("Wobbuffet is hurt by Foe Togedemaru's Rocky Helmet!");
+        MESSAGE("Foe Charmander was dragged out!");
     }
 }
 
@@ -100,7 +100,7 @@ SINGLE_BATTLE_TEST("Dragon Tail effect fails against target with Guard Dog")
         TURN { MOVE(player, MOVE_DRAGON_TAIL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
-        NOT MESSAGE("The opposing Charmander was dragged out!");
+        NOT MESSAGE("Foe Charmander was dragged out!");
     }
 }
 
@@ -115,8 +115,8 @@ SINGLE_BATTLE_TEST("Dragon Tail effect fails against target with Suction Cups")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         ABILITY_POPUP(opponent, ABILITY_SUCTION_CUPS);
-        MESSAGE("The opposing Octillery anchors itself with Suction Cups!");
-        NOT MESSAGE("The opposing Charmander was dragged out!");
+        MESSAGE("Foe Octillery anchors itself with Suction Cups!");
+        NOT MESSAGE("Foe Charmander was dragged out!");
     }
 }
 
@@ -134,7 +134,7 @@ SINGLE_BATTLE_TEST("Dragon Tail switches target out and incoming mon has Immunit
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Snorlax was dragged out!");
+        MESSAGE("Foe Snorlax was dragged out!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
     }
@@ -158,8 +158,8 @@ SINGLE_BATTLE_TEST("Dragon Tail switches target out and incoming mon has Levitat
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Weezing was dragged out!");
-        MESSAGE("The poison spikes disappeared from the ground around the opposing team!");
+        MESSAGE("Foe Weezing was dragged out!");
+        MESSAGE("The Poison Spikes disappeared from around the opposing team's feet!");
         NOT STATUS_ICON(opponent, poison: TRUE);
         HP_BAR(opponent);
     }

@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Inner Focus doesn't prevent intimidate (Gen3-7)")
         HP_BAR(player, captureDamage: &turnOneHit);
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Ekans's Intimidate cuts the opposing Zubat's Attack!");
+        MESSAGE("Ekans's Intimidate cuts Foe Zubat's Attack!");
         // Turn 2
         HP_BAR(player, captureDamage: &turnTwoHit);
     } THEN {
@@ -47,7 +47,7 @@ SINGLE_BATTLE_TEST("Inner Focus prevents intimidate (Gen8+)")
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         NONE_OF { ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent); }
         ABILITY_POPUP(opponent, ABILITY_INNER_FOCUS);
-        MESSAGE("The opposing Zubat's Inner Focus prevents stat loss!");
+        MESSAGE("Foe Zubat's Inner Focus prevents stat loss!");
         HP_BAR(player, captureDamage: &turnTwoHit);
     } THEN {
         EXPECT_EQ(turnOneHit, turnTwoHit);
@@ -65,7 +65,7 @@ SINGLE_BATTLE_TEST("Inner Focus prevents flinching")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player);
-        NONE_OF { MESSAGE("The opposing Zubat flinched and couldn't move!"); }
+        NONE_OF { MESSAGE("Foe Zubat flinched!"); }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }
@@ -79,6 +79,6 @@ SINGLE_BATTLE_TEST("Mold Breaker ignores Inner Focus")
         TURN { MOVE(player, MOVE_FAKE_OUT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player);
-        MESSAGE("The opposing Zubat flinched and couldn't move!");
+        MESSAGE("Foe Zubat flinched!");
     }
 }

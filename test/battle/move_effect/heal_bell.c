@@ -28,7 +28,7 @@ DOUBLE_BATTLE_TEST("Sparkly Swirl cures the entire party")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPARKLY_SWIRL, playerLeft);
         STATUS_ICON(playerLeft, none: TRUE);
         STATUS_ICON(playerRight, none: TRUE);
-        NOT MESSAGE("Wobbuffet was hurt by its poisoning!");
+        NOT MESSAGE("Wobbuffet is hurt by poison!");
         for (i = 0; i < PARTY_SIZE; i++)
             EXPECT_EQ(GetMonData(&gPlayerParty[i], MON_DATA_STATUS), STATUS1_NONE);
     }
@@ -105,9 +105,9 @@ DOUBLE_BATTLE_TEST("Heal Bell does not cure Soundproof partners (Gen 4, Gen 6+)"
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEAL_BELL, playerLeft);
         if (ability == ABILITY_SOUNDPROOF && config != GEN_5) {
-            MESSAGE("Exploud was hurt by its poisoning!");
+            MESSAGE("Exploud is hurt by poison!");
         } else {
-            NOT MESSAGE("Exploud was hurt by its poisoning!");
+            NOT MESSAGE("Exploud is hurt by poison!");
         }
     }
 }
@@ -133,9 +133,9 @@ SINGLE_BATTLE_TEST("Heal Bell cures inactive Soundproof Pokemon (Gen5+)")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEAL_BELL, player);
         SEND_IN_MESSAGE("Exploud");
         if (ability == ABILITY_SCRAPPY || config >= GEN_5) {
-            NOT MESSAGE("Exploud was hurt by its poisoning!");
+            NOT MESSAGE("Exploud is hurt by poison!");
         } else {
-            MESSAGE("Exploud was hurt by its poisoning!");
+            MESSAGE("Exploud is hurt by poison!");
         }
     }
 }
@@ -158,9 +158,9 @@ SINGLE_BATTLE_TEST("Heal Bell cures a Soundproof user (Gen5, Gen8+)")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEAL_BELL, player);
         if (config == GEN_5 || config >= GEN_8) {
-            NOT MESSAGE("Exploud was hurt by its poisoning!");
+            NOT MESSAGE("Exploud is hurt by poison!");
         } else {
-            MESSAGE("Exploud was hurt by its poisoning!");
+            MESSAGE("Exploud is hurt by poison!");
         }
     }
 }

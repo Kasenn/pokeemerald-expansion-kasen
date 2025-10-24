@@ -37,7 +37,7 @@ SINGLE_BATTLE_TEST("Shed Tail fails if the user doesn't have enough HP")
     } WHEN {
         TURN { MOVE(player, MOVE_SHED_TAIL); }
     } SCENE {
-        MESSAGE("But it does not have enough HP left to make a substitute!");
+        MESSAGE("It was too weak to make a substitute!");
     }
 }
 
@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Shed Tail's HP cost can trigger a berry before the user swit
         TURN { MOVE(player, MOVE_SHED_TAIL); SEND_OUT(player, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHED_TAIL, player);
-        MESSAGE("Wobbuffet restored its health using its Sitrus Berry!");
+        MESSAGE("Wobbuffet's Sitrus Berry restored health!");
         SEND_IN_MESSAGE("Wynaut");
     }
 }

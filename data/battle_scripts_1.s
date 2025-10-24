@@ -2274,7 +2274,7 @@ BattleScript_EffectLuckyChant::
 	setluckychant BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	printstring STRINGID_SHIELDEDFROMCRITICALHITS
+	printstring STRINGID_LUCKYCHANTSHIELDED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

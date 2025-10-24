@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Sky Drop does no damage to Flying type Pokémon")
         TURN { MOVE(player, MOVE_SKY_DROP); }
         TURN { SKIP_TURN(player); }
     } SCENE {
-        MESSAGE("Wobbuffet took the opposing Pidgey into the sky!");
+        MESSAGE("Wobbuffet took Foe Pidgey into the air!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_DROP, player);
         NOT HP_BAR(opponent);
     }
@@ -64,7 +64,7 @@ DOUBLE_BATTLE_TEST("Sky Drop is cancelled if Gravity activated")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_DROP, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRAVITY, playerRight);
-        MESSAGE("Wobbuffet fell from the sky due to the gravity!");
+        MESSAGE("Wobbuffet can't stay airborne because of gravity!");
     }
 }
 
@@ -78,7 +78,7 @@ SINGLE_BATTLE_TEST("Sky Drop fails on heavy targets")
         TURN { MOVE(player, MOVE_SKY_DROP); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_DROP, player);
-        MESSAGE("The opposing Metagross is too heavy to be lifted!");
+        MESSAGE("But the target was too heavy!");
     }
 }
 

@@ -18,17 +18,17 @@ SINGLE_BATTLE_TEST("Smelling Salts does not cure paralyzed pokemons behind subst
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMELLING_SALTS, player);
         if (ability == ABILITY_INNER_FOCUS)
         {
-            MESSAGE("The substitute took damage for the opposing Seismitoad!");
+            MESSAGE("The substitute took damage for Foe Seismitoad!");
             NONE_OF
             {
-                MESSAGE("The opposing Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
-                MESSAGE("The opposing Seismitoad was cured of paralysis!");
+                MESSAGE("Foe Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
+                MESSAGE("Foe Seismitoad was healed of paralysis!");
                 STATUS_ICON(opponent, none: TRUE);
             }
         }
         else
         {
-            MESSAGE("The opposing Seismitoad was cured of paralysis!");
+            MESSAGE("Foe Seismitoad was healed of paralysis!");
             STATUS_ICON(opponent, none: TRUE);
         }
     }
@@ -50,12 +50,12 @@ SINGLE_BATTLE_TEST("Smelling Salts get incread power vs. paralyzed targets")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMELLING_SALTS, player);
         if (status1 == STATUS1_PARALYSIS)
         {
-            MESSAGE("The opposing Lotad fainted!");
+            MESSAGE("Foe Lotad fainted!");
         }
         else
         {
-            NOT MESSAGE("The opposing Lotad fainted!");
-            MESSAGE("The opposing Lotad used Celebrate!");
+            NOT MESSAGE("Foe Lotad fainted!");
+            MESSAGE("Foe Lotad used Celebrate!");
         }
     }
 }
@@ -76,15 +76,15 @@ SINGLE_BATTLE_TEST("Wake-Up Slap does not cure paralyzed pokemons behind substit
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WAKE_UP_SLAP, player);
         if (ability == ABILITY_INNER_FOCUS) {
-            MESSAGE("The substitute took damage for the opposing Seismitoad!");
+            MESSAGE("The substitute took damage for Foe Seismitoad!");
             NONE_OF
             {
-                MESSAGE("The opposing Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
-                MESSAGE("The opposing Seismitoad woke up!");
+                MESSAGE("Foe Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
+                MESSAGE("Foe Seismitoad woke up!");
                 STATUS_ICON(opponent, none: TRUE);
             }
         } else {
-            MESSAGE("The opposing Seismitoad woke up!");
+            MESSAGE("Foe Seismitoad woke up!");
             STATUS_ICON(opponent, none: TRUE);
         }
     }
@@ -105,10 +105,10 @@ SINGLE_BATTLE_TEST("Wake-Up Slap gets increased power against sleeping targets")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WAKE_UP_SLAP, player);
         if (status1 == STATUS1_SLEEP) {
-            MESSAGE("The opposing Lotad fainted!");
+            MESSAGE("Foe Lotad fainted!");
         } else {
-            NOT MESSAGE("The opposing Lotad fainted!");
-            MESSAGE("The opposing Lotad used Celebrate!");
+            NOT MESSAGE("Foe Lotad fainted!");
+            MESSAGE("Foe Lotad used Celebrate!");
         }
     }
 }
@@ -127,8 +127,8 @@ DOUBLE_BATTLE_TEST("Sparkling Aria cures burns from all Pokemon on the field and
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_SUBSTITUTE); MOVE(opponentRight, MOVE_CELEBRATE); MOVE(playerRight, MOVE_CELEBRATE); MOVE(playerLeft, MOVE_SPARKLING_ARIA); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet's burn was cured!");
-        MESSAGE("Wobbuffet's burn was cured!");
-        MESSAGE("The opposing Wynaut's burn was cured!");
+        MESSAGE("Foe Wobbuffet's burn was healed!");
+        MESSAGE("Wobbuffet's burn was healed!");
+        MESSAGE("Foe Wynaut's burn was healed!");
     }
 }

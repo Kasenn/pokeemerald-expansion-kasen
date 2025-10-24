@@ -46,7 +46,7 @@
  *           TURN { MOVE(player, MOVE_STUN_SPORE); } // 3.
  *       } SCENE {
  *           ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
- *           MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!"); // 4
+ *           MESSAGE("Foe Wobbuffet is paralyzed! It may be unable to move!"); // 4
  *           STATUS_ICON(opponent, paralysis: TRUE); // 4.
  *       }
  *   }
@@ -272,7 +272,7 @@
  *         } WHEN {
  *             TURN { MOVE(player, MOVE_CELEBRATE); }
  *         } SCENE {
- *             MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *             MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
  *         }
  *     }
  * All BattleRandom calls involving tag will return the same number, so
@@ -458,7 +458,7 @@
  * following command succeeds.
  *     // Our Wobbuffet does not Celebrate before the foe's.
  *     NOT MESSAGE("Wobbuffet used Celebrate!");
- *     MESSAGE("The opposing Wobbuffet used Celebrate!");
+ *     MESSAGE("Foe Wobbuffet used Celebrate!");
  * WARNING: NOT is an alias of NONE_OF, so it behaves surprisingly when
  *          applied to multiple commands wrapped in braces.
  *
@@ -466,7 +466,7 @@
  * Causes the test to fail unless one of the SCENE commands succeeds.
  *     ONE_OF {
  *         MESSAGE("Wobbuffet used Celebrate!");
- *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *         MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
  *     }
  *
  * NONE_OF
@@ -475,9 +475,9 @@
  *     // Our Wobbuffet does not move before the foe's.
  *     NONE_OF {
  *         MESSAGE("Wobbuffet used Celebrate!");
- *         MESSAGE("Wobbuffet is paralyzed, so it may be unable to move!");
+ *         MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
  *     }
- *     MESSAGE("The opposing Wobbuffet used Celebrate!");
+ *     MESSAGE("Foe Wobbuffet used Celebrate!");
  *
  * PLAYER_PARTY and OPPONENT_PARTY
  * Refer to the party members defined in GIVEN, e.g.:
@@ -764,7 +764,7 @@ extern struct BattleTestRunnerState *const gBattleTestRunnerState;
 #define APPEND_COMMA_TRUE(a) , a, TRUE
 #define R_APPEND_TRUE(...) __VA_OPT__(FIRST(__VA_ARGS__), TRUE RECURSIVELY(R_FOR_EACH(APPEND_COMMA_TRUE, EXCEPT_1(__VA_ARGS__))))
 
-#define AI_TRAINER_NAME "{PKMN} TRAINER LEAF"
+#define AI_TRAINER_NAME "{PKMN} Trainer LEAF"
 
 /* Test */
 
@@ -1052,9 +1052,9 @@ void SendOut(u32 sourceLine, struct BattlePokemon *, u32 partyIndex);
 
 #define SEND_IN_MESSAGE(name)    ONE_OF {                                                   \
                                      MESSAGE("Go! " name "!");                              \
-                                     MESSAGE("You're in charge, " name "!");                \
+                                     MESSAGE("Do it! " name "!");                \
                                      MESSAGE("Go for it, " name "!");                       \
-                                     MESSAGE("Your opponent's weak! Get 'em, " name "!");   \
+                                     MESSAGE("Your foe's weak! Get 'em, " name "!");   \
                                  }
 
 enum QueueGroupType

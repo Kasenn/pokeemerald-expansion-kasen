@@ -47,7 +47,7 @@ TO_DO_BATTLE_TEST("Follow Me fails in Single Battles (BDSP+)")
 TO_DO_BATTLE_TEST("Follow Me cannot redirect Sky Drop")
 TO_DO_BATTLE_TEST("Follow Me does not draw attack when the user is being Sky-Dropped")
 
-DOUBLE_BATTLE_TEST("Spotlight redirects single target moves used by the opposing side to Spotlight's target")
+DOUBLE_BATTLE_TEST("Spotlight redirects single target moves used by Foe side to Spotlight's target")
 {
     struct BattlePokemon *moveTarget = NULL;
     PARAMETRIZE { moveTarget = playerRight; }

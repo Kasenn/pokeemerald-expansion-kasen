@@ -28,12 +28,12 @@ SINGLE_BATTLE_TEST("Shield Dust blocks secondary effects")
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         HP_BAR(opponent);
         NONE_OF {
-            MESSAGE("The opposing Vivillon is paralyzed, so it may be unable to move!");
-            MESSAGE("The opposing Vivillon was burned!");
-            MESSAGE("The opposing Vivillon was poisoned!");
-            MESSAGE("The opposing Vivillon flinched and couldn't move!");
+            MESSAGE("Foe Vivillon is paralyzed! It may be unable to move!");
+            MESSAGE("Foe Vivillon was burned!");
+            MESSAGE("Foe Vivillon was poisoned!");
+            MESSAGE("Foe Vivillon flinched!");
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The opposing Vivillon was prevented from healing!");
+            MESSAGE("Foe Vivillon was prevented from healing!");
         }
     } THEN { // Can't find good way to test trapping
         EXPECT(!opponent->volatiles.escapePrevention);
@@ -64,16 +64,16 @@ SINGLE_BATTLE_TEST("Shield Dust does not block primary effects")
         switch (move)
         {
             case MOVE_INFESTATION:
-                MESSAGE("The opposing Vivillon has been afflicted with an infestation by Wobbuffet!");
+                MESSAGE("Foe Vivillon has been afflicted with an infestation!");
                 break;
             case MOVE_THOUSAND_ARROWS:
-                MESSAGE("The opposing Vivillon fell straight down!");
+                MESSAGE("Foe Vivillon fell straight down!");
                 break;
             case MOVE_JAW_LOCK:
                 MESSAGE("Neither Pokémon can run away!");
                 break;
             case MOVE_PAY_DAY:
-                MESSAGE("Coins were scattered everywhere!");
+                MESSAGE("Coins scattered everywhere!");
                 break;
         }
     } THEN { // Can't find good way to test trapping
@@ -136,11 +136,11 @@ DOUBLE_BATTLE_TEST("Shield Dust does or does not block Sparkling Aria depending 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPARKLING_ARIA, playerLeft);
         if (moveToUse == MOVE_SCRATCH) {
-            MESSAGE("The opposing Vivillon's burn was cured!");
+            MESSAGE("Foe Vivillon's burn was healed!");
             STATUS_ICON(opponentLeft, none: TRUE);
         } else {
             NONE_OF {
-                MESSAGE("The opposing Vivillon's burn was cured!");
+                MESSAGE("Foe Vivillon's burn was healed!");
                 STATUS_ICON(opponentLeft, none: TRUE);
             }
         }
@@ -157,7 +157,7 @@ DOUBLE_BATTLE_TEST("Shield Dust blocks Sparkling Aria if all other targets avoid
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_FLY, target:playerLeft); MOVE(opponentRight, MOVE_PROTECT); MOVE(playerRight, MOVE_CELEBRATE); MOVE(playerLeft, MOVE_SPARKLING_ARIA); }
     } SCENE {
-        NOT MESSAGE("Vivillon's burn was cured!");
+        NOT MESSAGE("Vivillon's burn was healed!");
     }
 }
 
@@ -171,7 +171,7 @@ SINGLE_BATTLE_TEST("Shield Dust blocks Sparkling Aria in singles")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPARKLING_ARIA, player);
         NONE_OF {
-            MESSAGE("The opposing Vivillon's burn was cured!");
+            MESSAGE("Foe Vivillon's burn was healed!");
             STATUS_ICON(opponent, none: TRUE);
         }
     }

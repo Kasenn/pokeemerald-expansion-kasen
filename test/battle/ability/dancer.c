@@ -90,7 +90,7 @@ SINGLE_BATTLE_TEST("Dancer doesn't trigger if the original user flinches")
         TURN { MOVE(opponent, MOVE_FAKE_OUT); MOVE(player, MOVE_DRAGON_DANCE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
-        MESSAGE("Wobbuffet flinched and couldn't move!");
+        MESSAGE("Wobbuffet flinched!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_DANCER);
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, opponent);
@@ -114,14 +114,14 @@ DOUBLE_BATTLE_TEST("Dancer still triggers if another dancer flinches")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, playerRight);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         ABILITY_POPUP(playerLeft, ABILITY_DANCER);
-        MESSAGE("Oricorio flinched and couldn't move!");
+        MESSAGE("Oricorio flinched!");
         NONE_OF {
             MESSAGE("Oricorio used Dragon Dance!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         }
         ABILITY_POPUP(opponentLeft, ABILITY_DANCER);
-        MESSAGE("The opposing Oricorio used Dragon Dance!");
+        MESSAGE("Foe Oricorio used Dragon Dance!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
     }
@@ -265,7 +265,7 @@ DOUBLE_BATTLE_TEST("Dancer still activates after Red Card")
         HP_BAR(opponentLeft);
         // Red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
+        MESSAGE("Foe Wobbuffet held up its Red Card against Wobbuffet!");
         MESSAGE("Chansey was dragged out!");
         // Dancer
         ABILITY_POPUP(playerRight, ABILITY_DANCER);
@@ -291,7 +291,7 @@ DOUBLE_BATTLE_TEST("Dancer still activate after Red Card even if blocked by Suct
         HP_BAR(opponentLeft);
         // red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
+        MESSAGE("Foe Wobbuffet held up its Red Card against Wobbuffet!");
         MESSAGE("Wobbuffet anchors itself with Suction Cups!");
         NOT MESSAGE("Chansey was dragged out!");
         // Dancer

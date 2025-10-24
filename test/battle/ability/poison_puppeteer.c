@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Poison Puppeteer confuses target if it was poisoned by a dam
         STATUS_ICON(opponent, poison: TRUE);
         ABILITY_POPUP(player, ABILITY_POISON_PUPPETEER);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponent);
-        MESSAGE("The opposing Wobbuffet became confused!");
+        MESSAGE("Foe Wobbuffet became confused!");
     }
 }
 
@@ -42,7 +42,7 @@ SINGLE_BATTLE_TEST("Poison Puppeteer confuses target if it was (badly) poisoned 
             STATUS_ICON(opponent, badPoison: TRUE);
         ABILITY_POPUP(player, ABILITY_POISON_PUPPETEER);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponent);
-        MESSAGE("The opposing Wobbuffet became confused!");
+        MESSAGE("Foe Wobbuffet became confused!");
     }
 }
 
@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Poison Puppeteer does not trigger if poison is Toxic Spikes 
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_POISON_PUPPETEER);
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponent);
-            MESSAGE("The opposing Wobbuffet became confused!");
+            MESSAGE("Foe Wobbuffet became confused!");
         }
     }
 }
