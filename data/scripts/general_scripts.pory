@@ -551,7 +551,10 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    callnative(TestSpeciesName)
+    givemon(SPECIES_DEWGONG, 100, abilityNum=2)
+    givemon(SPECIES_PARASECT, 100, abilityNum=1)
+    givemon(SPECIES_LUDICOLO, 100, abilityNum=1)
+    givemon(SPECIES_CHARIZARD, 100)
     return
 }
 script Debug_Script_4{

@@ -1074,6 +1074,12 @@ static u32 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *pl
 
 static u8 GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u32 transitionFlags, u16 metatileBehavior, enum MapType mapType)
 {
+    u8 dirOverride = VarGet(VAR_DIRECTION_OVERRIDE);
+    if (dirOverride != 0)
+    {
+        VarSet(VAR_DIRECTION_OVERRIDE, 0);
+        return dirOverride;
+    }
     if (FlagGet(FLAG_SYS_CRUISE_MODE) && mapType == MAP_TYPE_OCEAN_ROUTE)
         return DIR_EAST;
     else if (MetatileBehavior_IsDeepSouthWarp(metatileBehavior) == TRUE)

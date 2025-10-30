@@ -163,7 +163,7 @@ The actual usage of `TryInitializeTrainerSlideEnemyLandsFirstCriticalHit` is add
      }
  }
  
-+SINGLE_BATTLE_TEST("Trainer Slide: Enemy Lands First Critical Hit")
++SINGLE_BATTLE_TEST("YTrainer Slide: Enemy Lands First Critical Hit")
 +{
 +    gBattleTestRunnerState->data.recordedBattle.opponentA = TRAINER_SLIDE_ENEMY_LANDS_FIRST_CRITICAL_HIT;
 +
@@ -182,7 +182,7 @@ The actual usage of `TryInitializeTrainerSlideEnemyLandsFirstCriticalHit` is add
 +    }
 +}
 +
- SINGLE_BATTLE_TEST("Trainer Slide: Player Lands First STAB Hit")
+ SINGLE_BATTLE_TEST("YTrainer Slide: Player Lands First STAB Hit")
  {
      gBattleTestRunnerState->data.recordedBattle.opponentA = TRAINER_SLIDE_PLAYER_LANDS_FIRST_STAB_MOVE;
 diff --git a/test/battle/trainer_slides.h b/test/battle/trainer_slides.h

@@ -18,6 +18,9 @@
 #include "constants/field_poison.h"
 #include "constants/form_change_types.h"
 #include "constants/party_menu.h"
+#include "constants/abilities.h"
+#include "field_weather.h"
+#include "constants/weather.h"
 
 static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 {
@@ -126,26 +129,69 @@ s32 DoPoisonFieldEffect(void)
 {
     int i;
     u32 hp;
+    u32 maxhp;
     struct Pokemon *pokemon = gPlayerParty;
     u32 numPoisoned = 0;
     u32 numFainted = 0;
+    u32 weather = GetCurrentWeather();
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
-        {
-            // Apply poison damage
-            hp = GetMonData(pokemon, MON_DATA_HP);
-            if (OW_POISON_DAMAGE < GEN_4 && (hp == 0 || --hp == 0))
-            {
-                TryFormChange(i, B_SIDE_PLAYER, FORM_CHANGE_FAINT);
-                numFainted++;
-            }
-            else if (OW_POISON_DAMAGE >= GEN_4 && (hp == 1 || --hp == 1))
-                numFainted++;
+        u32 ability = GetMonAbility(pokemon);
 
-            SetMonData(pokemon, MON_DATA_HP, &hp);
-            numPoisoned++;
+        if ((!GetMonData(pokemon, MON_DATA_SANITY_IS_EGG)) && (weather == WEATHER_RAIN || weather == WEATHER_RAIN_THUNDERSTORM || weather == WEATHER_DOWNPOUR) && (ability == ABILITY_DRY_SKIN || ability == ABILITY_RAIN_DISH))
+        {
+            hp = GetMonData(pokemon, MON_DATA_HP);
+            maxhp = GetMonData(pokemon, MON_DATA_MAX_HP);
+
+            if (hp < maxhp && hp != 0)
+            {
+                hp++;
+                SetMonData(pokemon, MON_DATA_HP, &hp);
+            }
+        }
+        else if ((!GetMonData(pokemon, MON_DATA_SANITY_IS_EGG)) && (weather == WEATHER_BLIZZARD || weather == WEATHER_SNOW) && ability == ABILITY_ICE_BODY)
+        {
+            hp = GetMonData(pokemon, MON_DATA_HP);
+            maxhp = GetMonData(pokemon, MON_DATA_MAX_HP);
+
+            if (hp < maxhp && hp != 0)
+            {
+                hp++;
+                SetMonData(pokemon, MON_DATA_HP, &hp);
+            }
+        }
+        else if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN
+        && ability != ABILITY_IMMUNITY && ability != ABILITY_MAGIC_GUARD)
+        {
+            hp = GetMonData(pokemon, MON_DATA_HP);
+            maxhp = GetMonData(pokemon, MON_DATA_MAX_HP);
+
+            // Apply poison damage
+            if (ability == ABILITY_POISON_HEAL && hp != 0)
+            {
+                if (hp < maxhp)
+                {
+                    hp++;
+                    SetMonData(pokemon, MON_DATA_HP, &hp);
+                }
+            }
+            else
+            {
+                hp = GetMonData(pokemon, MON_DATA_HP);
+                if (OW_POISON_DAMAGE < GEN_4 && (hp == 0 || --hp == 0))
+                {
+                    TryFormChange(i, B_SIDE_PLAYER, FORM_CHANGE_FAINT);
+                    numFainted++;
+                }
+                else if (OW_POISON_DAMAGE >= GEN_4 && (hp == 1 || --hp == 1))
+                {
+                    numFainted++;
+                }
+
+                SetMonData(pokemon, MON_DATA_HP, &hp);
+                numPoisoned++;
+            }
         }
         pokemon++;
     }

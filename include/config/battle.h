@@ -374,6 +374,6 @@
 
 #define B_APPLY_DNS_TO_BACKGROUND           TRUE     // Applies the day and night system to the background during battles (assuming the current map is also affected)
 #define B_APPLY_DNS_TO_SPRITES              TRUE     // Applies the day and night system to the Pokémon, trainer, and ball sprites during battles. Not vanilla game behavior
-#define B_SPRITE_BRIGHTNESS                 120      // Controls how bright the sprites will appear. 100 is the default DNS blending, 120 is 20% brighter
+#define B_SPRITE_BRIGHTNESS                 150      // Controls how bright the sprites will appear. 100 is the default DNS blending, 120 is 20% brighter
 
 #endif // GUARD_CONFIG_BATTLE_H

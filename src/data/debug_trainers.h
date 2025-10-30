@@ -67,7 +67,7 @@
         {
             {
 #line 39
-            .species = SPECIES_ARIADOS_MEGA,
+            .species = SPECIES_ARIADOS,
             .gender = TRAINER_MON_RANDOM_GENDER,
 #line 43
             .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
@@ -81,9 +81,9 @@
             .moves = {
 #line 44
                 MOVE_LIGHT_SCREEN,
-                MOVE_PSYCHIC,
-                MOVE_REFLECT,
-                MOVE_METAL_CLAW,
+                MOVE_MIST,
+                MOVE_AURORA_VEIL,
+                MOVE_SAFEGUARD,
             },
             },
             {
