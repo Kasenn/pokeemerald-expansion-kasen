@@ -4566,14 +4566,14 @@ static void BufferStatRoseMessage(s32 statIdx)
     StringCopy(gBattleTextBuff1, gStatNamesTable[sStatsToRaise[statIdx]]);
     if (B_X_ITEMS_BUFF >= GEN_7)
     {
-        StringCopy(gBattleTextBuff2, gText_StatSharply);
-        StringAppend(gBattleTextBuff2, gText_StatRose);
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
+        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATSHARPLY]);
     }
     else
     {
-        StringCopy(gBattleTextBuff2, gText_StatRose);
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
     }
-    BattleStringExpandPlaceholdersToDisplayedString(gText_DefendersStatRose);
+    BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_DEFENDERSSTATROSE]);
 }
 
 u8 *UseStatIncreaseItem(u16 itemId)
@@ -4601,7 +4601,7 @@ u8 *UseStatIncreaseItem(u16 itemId)
     if (itemEffect[0] & ITEM0_DIRE_HIT)
     {
         gBattlerAttacker = gBattlerInMenuId;
-        BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnGettingPumped);
+        BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_PKMNGETTINGPUMPED]);
     }
 
     switch (itemEffect[1])
@@ -4629,7 +4629,7 @@ u8 *UseStatIncreaseItem(u16 itemId)
     if (itemEffect[3] & ITEM3_GUARD_SPEC)
     {
         gBattlerAttacker = gBattlerInMenuId;
-        BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnShroudedInMist);
+        BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_PKMNSHROUDEDINMIST]);
     }
 
     return gDisplayedStringBattle;
@@ -6353,7 +6353,7 @@ void SetMonPreventsSwitchingString(void)
 
     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff2, gBattlerInMenuId, GetPartyIdFromBattlePartyId(gBattlerPartyIndexes[gBattlerInMenuId]))
 
-    BattleStringExpandPlaceholders(gText_PkmnsXPreventsSwitching, gStringVar4, sizeof(gStringVar4));
+    BattleStringExpandPlaceholders(gBattleStringsTable[STRINGID_POKMNSXPREVENTSSWITCHING], gStringVar4, sizeof(gStringVar4));
 }
 
 static s32 GetWildMonTableIdInAlteringCave(u16 species)

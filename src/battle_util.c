@@ -135,7 +135,7 @@ static const struct BattleWeatherInfo sBattleWeatherInfo[BATTLE_WEATHER_COUNT] =
         .flag = B_WEATHER_RAIN_NORMAL,
         .rock = HOLD_EFFECT_DAMP_ROCK,
         .endMessage = B_MSG_WEATHER_END_RAIN,
-        .continuesMessage = B_MSG_WEATHER_TURN_DOWNPOUR,
+        .continuesMessage = B_MSG_WEATHER_TURN_RAIN,
         .animation = B_ANIM_RAIN_CONTINUES,
     },
 
@@ -2412,7 +2412,7 @@ static enum MoveCanceller CancellerProtean(void)
             gDisableStructs[gBattlerAttacker].usedProteanLibero = TRUE;
         PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
         gBattlerAbility = gBattlerAttacker;
-        PrepareStringBattle(STRINGID_EMPTYSTRING3, gBattlerAttacker);
+        PrepareStringBattle(STRINGID_EMPTYSTRING, gBattlerAttacker);
         gBattleCommunication[MSG_DISPLAY] = 1;
         BattleScriptCall(BattleScript_ProteanActivates);
         return MOVE_STEP_BREAK;
@@ -4326,6 +4326,26 @@ u32 AbilityBattleEffects(u32 caseID, u32 battler, u32 ability, u32 special, u32 
                     if (gBattleMons[battler].status1 & (STATUS1_FREEZE | STATUS1_FROSTBITE))
                         StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
 
+                    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
+                    }
                     gBattleMons[battler].status1 = 0;
                     gBattleMons[battler].volatiles.nightmare = FALSE;
                     gBattleScripting.battler = battler;
@@ -6500,31 +6520,54 @@ static u8 ItemEffectMoveEnd(u32 battler, enum ItemHoldEffect holdEffect)
     case HOLD_EFFECT_CURE_STATUS:
         if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].volatiles.confusionTurns > 0) && !UnnerveOn(battler, gLastUsedItem))
         {
+            u32 string = 0;
+            u32 status = 0;
+            
             if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+            {
                 StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
-
+                string++;
+                status = B_MSG_PSN;
+            }
             if (gBattleMons[battler].status1 & STATUS1_SLEEP)
             {
                 gBattleMons[battler].volatiles.nightmare = FALSE;
                 StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
                 TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
+                string++;
+                status = B_MSG_SLEEP;
             }
-
             if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+            {
                 StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
-
+                string++;
+                status = B_MSG_PARALYSIS;
+            }
             if (gBattleMons[battler].status1 & STATUS1_BURN)
+            {
                 StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
-
+                string++;
+                status = B_MSG_BURN;
+            }
             if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+            {
                 StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
-
+                string++;
+                status = B_MSG_FREEZE;
+            }
             if (gBattleMons[battler].volatiles.confusionTurns > 0)
+            {
                 StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
+                string++;
+                status = B_MSG_CONFUSION;
+            }
 
             gBattleMons[battler].status1 = 0;
             RemoveConfusionStatus(battler);
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
+            if (string <= 1)
+                gBattleCommunication[MULTISTRING_CHOOSER] = status;
+            else
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
             BattleScriptCall(BattleScript_BerryCureChosenStatusRet);
             effect = ITEM_STATUS_CHANGE;
         }
@@ -6558,6 +6601,7 @@ static inline bool32 TryCureStatus(u32 battler, enum ItemCaseId caseId)
 {
     u32 effect = ITEM_NO_EFFECT;
     u32 string = 0;
+    u32 status = 0;
 
     if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].volatiles.confusionTurns > 0) && !UnnerveOn(battler, gLastUsedItem))
     {
@@ -6565,36 +6609,42 @@ static inline bool32 TryCureStatus(u32 battler, enum ItemCaseId caseId)
         {
             StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
             string++;
+            status = B_MSG_PSN;
         }
         if (gBattleMons[battler].status1 & STATUS1_SLEEP)
         {
             gBattleMons[battler].volatiles.nightmare = FALSE;
             StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
             string++;
+            status = B_MSG_SLEEP;
             TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
         }
         if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
         {
             StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
             string++;
+            status = B_MSG_PARALYSIS;
         }
         if (gBattleMons[battler].status1 & STATUS1_BURN)
         {
             StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
             string++;
+            status = B_MSG_BURN;
         }
         if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
         {
             StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
             string++;
+            status = B_MSG_FREEZE;
         }
         if (gBattleMons[battler].volatiles.confusionTurns > 0)
         {
             StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
             string++;
+            status = B_MSG_CONFUSION;
         }
         if (string <= 1)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
+            gBattleCommunication[MULTISTRING_CHOOSER] = status;
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
         gBattleMons[battler].status1 = 0;
@@ -9862,7 +9912,10 @@ static inline uq4_12_t CalcTypeEffectivenessMultiplierInternal(struct DamageCont
             gLastUsedAbility = gBattleMons[ctx->battlerDef].ability;
             gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_MISSED;
             gLastLandedMoves[ctx->battlerDef] = 0;
-            gBattleStruct->missStringId[ctx->battlerDef] = B_MSG_AVOIDED_DMG;
+            if (ctx->abilityDef == ABILITY_WONDER_GUARD)
+                gBattleStruct->missStringId[ctx->battlerDef] = B_MSG_GROUND_MISS;
+            else
+                gBattleStruct->missStringId[ctx->battlerDef] = B_MSG_AVOIDED_DMG;
             RecordAbilityBattle(ctx->battlerDef, gBattleMons[ctx->battlerDef].ability);
         }
     }
@@ -10574,6 +10627,40 @@ u32 TryImmunityAbilityHealStatus(u32 battler, u32 caseID)
         else if (gDisableStructs[battler].tauntTimer != 0)
             effect = 4;
         break;
+    }
+
+    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_BURN)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
+    }
+    if (gBattleMons[battler].volatiles.infatuation)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_INFATUATION;
+    }
+    if (gBattleMons[battler].volatiles.confusionTurns > 0)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
+    }
+    if (gDisableStructs[battler].tauntTimer != 0)
+    {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TAUNT;
     }
 
     if (effect != 0)

@@ -4731,13 +4731,13 @@ static void Cmd_getexp(void)
                     {
                         // check if the Pokémon doesn't belong to the player
                         // if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
-                        i = STRINGID_EMPTYSTRING4;
+                        i = STRINGID_EMPTYSTRING;
                         // else
                             // i = STRINGID_ABOOSTED;
                     }
                     else
                     {
-                        i = STRINGID_EMPTYSTRING4;
+                        i = STRINGID_EMPTYSTRING;
                     }
 
                     // get exp getter battler
@@ -9347,9 +9347,9 @@ static bool32 TryDefogClear(u32 battlerAtk, bool32 clear)
         if (GetBattlerSide(battlerAtk) != i)
         {
             gBattlerAttacker = i; // For correct battle string. Ally's / Foe's
-            DEFOG_CLEAR(SIDE_STATUS_REFLECT, reflectTimer, BattleScript_SideStatusWoreOffReturn, MOVE_REFLECT);
-            DEFOG_CLEAR(SIDE_STATUS_LIGHTSCREEN, lightscreenTimer, BattleScript_SideStatusWoreOffReturn, MOVE_LIGHT_SCREEN);
-            DEFOG_CLEAR(SIDE_STATUS_MIST, mistTimer, BattleScript_SideStatusWoreOffReturn, MOVE_MIST);
+            DEFOG_CLEAR(SIDE_STATUS_REFLECT, reflectTimer, BattleScript_ReflectLightScreenWoreOffReturn, MOVE_REFLECT);
+            DEFOG_CLEAR(SIDE_STATUS_LIGHTSCREEN, lightscreenTimer, BattleScript_ReflectLightScreenWoreOffReturn, MOVE_LIGHT_SCREEN);
+            DEFOG_CLEAR(SIDE_STATUS_MIST, mistTimer, BattleScript_MistWoreOffReturn, MOVE_MIST);
             DEFOG_CLEAR(SIDE_STATUS_AURORA_VEIL, auroraVeilTimer, BattleScript_SideStatusWoreOffReturn, MOVE_AURORA_VEIL);
             DEFOG_CLEAR(SIDE_STATUS_SAFEGUARD, safeguardTimer, BattleScript_SideStatusWoreOffReturn, MOVE_SAFEGUARD);
         }
@@ -10464,20 +10464,32 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, u32 statId, union StatChan
             if (statValue == -2)
             {
                 gBattleTextBuff2[1] = B_BUFF_STRING;
-                gBattleTextBuff2[2] = STRINGID_STATHARSHLY;
-                gBattleTextBuff2[3] = STRINGID_STATHARSHLY >> 8;
-                index = 4;
+                gBattleTextBuff2[2] = STRINGID_STATFELL2;
+                gBattleTextBuff2[3] = STRINGID_STATFELL2 >> 8;
+
+                gBattleTextBuff2[4] = B_BUFF_STRING;
+                gBattleTextBuff2[5] = STRINGID_STATHARSHLY;
+                gBattleTextBuff2[6] = STRINGID_STATHARSHLY >> 8;
+                index = 7;
             }
             else if (statValue <= -3)
             {
                 gBattleTextBuff2[1] = B_BUFF_STRING;
-                gBattleTextBuff2[2] = STRINGID_SEVERELY & 0xFF;
-                gBattleTextBuff2[3] = STRINGID_SEVERELY >> 8;
+                gBattleTextBuff2[2] = STRINGID_STATFELL2;
+                gBattleTextBuff2[3] = STRINGID_STATFELL2 >> 8;
+
+                gBattleTextBuff2[4] = B_BUFF_STRING;
+                gBattleTextBuff2[5] = STRINGID_SEVERELY & 0xFF;
+                gBattleTextBuff2[6] = STRINGID_SEVERELY >> 8;
+                index = 7;
+            }
+            else
+            {
+                gBattleTextBuff2[1] = B_BUFF_STRING;
+                gBattleTextBuff2[2] = STRINGID_STATFELL;
+                gBattleTextBuff2[3] = STRINGID_STATFELL >> 8;
                 index = 4;
             }
-            gBattleTextBuff2[index++] = B_BUFF_STRING;
-            gBattleTextBuff2[index++] = STRINGID_STATFELL;
-            gBattleTextBuff2[index++] = STRINGID_STATFELL >> 8;
             gBattleTextBuff2[index] = B_BUFF_EOS;
 
             gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_FELL or B_MSG_DEFENDER_STAT_FELL
@@ -10505,20 +10517,32 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, u32 statId, union StatChan
         if (statValue == 2)
         {
             gBattleTextBuff2[1] = B_BUFF_STRING;
-            gBattleTextBuff2[2] = STRINGID_STATSHARPLY;
-            gBattleTextBuff2[3] = STRINGID_STATSHARPLY >> 8;
-            index = 4;
+            gBattleTextBuff2[2] = STRINGID_STATROSE2;
+            gBattleTextBuff2[3] = STRINGID_STATROSE2 >> 8;
+
+            gBattleTextBuff2[4] = B_BUFF_STRING;
+            gBattleTextBuff2[5] = STRINGID_STATSHARPLY;
+            gBattleTextBuff2[6] = STRINGID_STATSHARPLY >> 8;
+            index = 7;
         }
         else if (statValue >= 3)
         {
             gBattleTextBuff2[1] = B_BUFF_STRING;
-            gBattleTextBuff2[2] = STRINGID_DRASTICALLY & 0xFF;
-            gBattleTextBuff2[3] = STRINGID_DRASTICALLY >> 8;
+            gBattleTextBuff2[2] = STRINGID_STATROSE2;
+            gBattleTextBuff2[3] = STRINGID_STATROSE2 >> 8;
+
+            gBattleTextBuff2[4] = B_BUFF_STRING;
+            gBattleTextBuff2[5] = STRINGID_DRASTICALLY & 0xFF;
+            gBattleTextBuff2[6] = STRINGID_DRASTICALLY >> 8;
+            index = 7;
+        }
+        else
+        {
+            gBattleTextBuff2[1] = B_BUFF_STRING;
+            gBattleTextBuff2[2] = STRINGID_STATROSE;
+            gBattleTextBuff2[3] = STRINGID_STATROSE >> 8;
             index = 4;
         }
-        gBattleTextBuff2[index++] = B_BUFF_STRING;
-        gBattleTextBuff2[index++] = STRINGID_STATROSE;
-        gBattleTextBuff2[index++] = STRINGID_STATROSE >> 8;
         gBattleTextBuff2[index] = B_BUFF_EOS;
 
         gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_ROSE or B_MSG_DEFENDER_STAT_ROSE
@@ -12483,6 +12507,7 @@ static void Cmd_rapidspinfree(void)
     }
     else if (gBattleMons[gBattlerAttacker].volatiles.leechSeed)
     {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LEECH_SEED);
         gBattleMons[gBattlerAttacker].volatiles.leechSeed = 0;
         BattleScriptCall(BattleScript_LeechSeedFree);
     }
@@ -12847,6 +12872,27 @@ static void Cmd_curestatuswithmove(void)
 
     if (shouldHeal)
     {
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_PSN_ANY)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+        }
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
+        }
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
+        }
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_BURN)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
+        }
+        if (gBattleMons[gBattlerAttacker].status1 & STATUS1_FREEZE || gBattleMons[gBattlerAttacker].status1 & STATUS1_FROSTBITE)
+        {
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
+        }
+
         if (gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP)
             TryDeactivateSleepClause(GetBattlerSide(gBattlerAttacker), gBattlerPartyIndexes[gBattlerAttacker]);
 
@@ -13826,6 +13872,15 @@ static void Cmd_removescreens(void)
     else
         failed = FALSE;
 
+    if (!failed)
+    {
+        if (gSideStatuses[side] & SIDE_STATUS_REFLECT)
+            gBattleCustomString |= SIDE_STATUS_REFLECT;
+        if (gSideStatuses[side] & SIDE_STATUS_LIGHTSCREEN)
+            gBattleCustomString |= SIDE_STATUS_LIGHTSCREEN;
+        if (gSideStatuses[side] & SIDE_STATUS_AURORA_VEIL)
+            gBattleCustomString |= SIDE_STATUS_AURORA_VEIL;
+    }
     if (!failed && gSideStatuses[side] & SIDE_STATUS_SCREEN_ANY)
     {
         gSideStatuses[side] &= ~SIDE_STATUS_SCREEN_ANY;
@@ -15689,6 +15744,33 @@ void BS_SetPledgeStatus(void)
     }
     else
         gBattlescriptCurrInstr = BattleScript_MoveEnd;
+}
+
+void BS_trybufferscreen(void)
+{
+    NATIVE_ARGS(u8 sidestatus, const u8 *jumpInstr);
+    u8 sideStatus = cmd->sidestatus;
+
+    if (gBattleCustomString & sideStatus)
+    {
+        if (sideStatus == SIDE_STATUS_REFLECT)
+        {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_REFLECT);
+        }
+        else if (sideStatus == SIDE_STATUS_LIGHTSCREEN)
+        {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LIGHT_SCREEN);
+        }
+        else if (sideStatus == SIDE_STATUS_AURORA_VEIL)
+        {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_AURORA_VEIL);
+        }
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else
+    {
+        gBattlescriptCurrInstr = cmd->jumpInstr;
+    }
 }
 
 void BS_TryTrainerSlideZMoveMsg(void)
@@ -17912,6 +17994,26 @@ void BS_CureStatus(void)
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
         TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
 
+    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_BURN)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
+    }
+    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
+    }
     gBattleMons[battler].status1 = 0;
     BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[battler].status1), &gBattleMons[battler].status1);
     MarkBattlerForControllerExec(battler);
@@ -18386,7 +18488,7 @@ void BS_JumpIfNotRototillerAffected(void)
     }
     else
     {
-        gBattlescriptCurrInstr = cmd->jumpInstr;   // Unaffected by rototiller - print STRINGID_NOEFFECTONTARGET
+        gBattlescriptCurrInstr = cmd->jumpInstr;   // Unaffected by rototiller - print STRINGID_BUTNOEFFECT
     }
 }
 
@@ -18547,6 +18649,7 @@ void BS_CureCertainStatuses(void)
     // Check heal block
     if (gBattleMons[gBattlerTarget].volatiles.healBlock)
     {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_HEAL_BLOCK);
         gBattleMons[gBattlerTarget].volatiles.healBlock = FALSE;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_HEALBLOCK;
     }

@@ -261,3 +261,45 @@ SINGLE_BATTLE_TEST("My own Hive Leader reduces damage taken from Fire-type moves
         EXPECT_GT(damage1, damage2);
     }
 }
+
+SINGLE_BATTLE_TEST("My own Screens print the correct text")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_SNOW_WARNING); Speed(2); }
+        OPPONENT(SPECIES_WOBBUFFET) {Speed(1); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_SAFEGUARD); MOVE(opponent, MOVE_SAFEGUARD); }
+        TURN { MOVE(player, MOVE_LIGHT_SCREEN); MOVE(opponent, MOVE_LIGHT_SCREEN); }
+        TURN { MOVE(player, MOVE_MIST); MOVE(opponent, MOVE_MIST); }
+        TURN { MOVE(player, MOVE_AURORA_VEIL); MOVE(opponent, MOVE_AURORA_VEIL);}
+        TURN { MOVE(player, MOVE_AURORA_VEIL); MOVE(opponent, MOVE_AURORA_VEIL);}
+        TURN { MOVE(player, MOVE_AURORA_VEIL); MOVE(opponent, MOVE_AURORA_VEIL);}
+        TURN { MOVE(player, MOVE_AURORA_VEIL); MOVE(opponent, MOVE_AURORA_VEIL);}
+        TURN { MOVE(player, MOVE_AURORA_VEIL); MOVE(opponent, MOVE_AURORA_VEIL);}
+    } SCENE {
+        // Safeguard
+        MESSAGE("Your team became cloaked in a mystical veil!");
+        MESSAGE("The foe's team became cloaked in a mystical veil!");
+        // Light Screen
+        MESSAGE("Light Screen raised your team's Special Defense!");
+        MESSAGE("Light Screen raised the opposing team's Special Defense!");
+        // Mist
+        MESSAGE("Your team became shrouded in mist!");
+        MESSAGE("The foe's team became shrouded in mist!");
+        // Aurora Veil
+        MESSAGE("Your team became cloaked in a mystical veil!");
+        MESSAGE("The foe's team became cloaked in a mystical veil!");
+        // Safeguard END
+        MESSAGE("Your team is no longer protected by Safeguard!");
+        MESSAGE("The foe's team is no longer protected by Safeguard!");
+        // Light Screen END
+        MESSAGE("Your team's Light Screen wore off!");
+        MESSAGE("The opposing team's Light Screen wore off!");//currently "foe's"
+        // Mist END
+        MESSAGE("Your team is no longer protected by mist!");//both print foe. also mist is incorrectly upper-case
+        MESSAGE("The foe's team is no longer protected by mist!");//both print foe. also mist is incorrectly upper-case
+        // Aurora Veil END
+        MESSAGE("Your team is no longer protected by Aurora Veil!");//both print foe
+        MESSAGE("The foe's team is no longer protected by Aurora Veil!");//both print foe
+    }
+}

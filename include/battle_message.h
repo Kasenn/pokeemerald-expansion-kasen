@@ -27,13 +27,12 @@
 #define B_TXT_LINK_OPPONENT_MON1_NAME 0xA
 #define B_TXT_LINK_PLAYER_MON2_NAME 0xB
 #define B_TXT_LINK_OPPONENT_MON2_NAME 0xC
-#define B_TXT_ATK_NAME_WITH_PREFIX_MON1 0xD
+#define B_ATK_NAME_PREFIX_MON1 0xD
 #define B_TXT_ATK_PARTNER_NAME 0xE
-#define B_TXT_ATK_NAME_WITH_PREFIX 0xF
-#define B_TXT_DEF_NAME_WITH_PREFIX 0x10
-#define B_TXT_EFF_NAME_WITH_PREFIX 0x11 // EFF = short for gEffectBank
-// #define B_TXT_ACTIVE_NAME_WITH_PREFIX 0x12 - removed
-#define B_TXT_SCR_ACTIVE_NAME_WITH_PREFIX 0x13
+#define B_ATK_NAME_PREFIX 0xF
+#define B_DEF_NAME_PREFIX 0x10
+#define B_EFF_NAME_PREFIX 0x11 // EFF = short for gEffectBank
+#define B_SCR_NAME_PREFIX 0x13
 #define B_TXT_CURRENT_MOVE 0x14
 #define B_TXT_LAST_MOVE 0x15
 #define B_TXT_LAST_ITEM 0x16
@@ -76,16 +75,22 @@
 #define B_TXT_DEF_TEAM2 0x3B // your/the opposing
 #define B_TXT_DEF_PARTNER_NAME 0x3C
 // #define B_UNUSED_0x3D 0x3D
-#define B_TXT_ATK_NAME_WITH_PREFIX2 0x3E //lowercase
-#define B_TXT_DEF_NAME_WITH_PREFIX2 0x3F //lowercase
-#define B_TXT_EFF_NAME_WITH_PREFIX2 0x40 //lowercase
-#define B_TXT_SCR_ACTIVE_NAME_WITH_PREFIX2 0x41 //lowercase
+#define B_ATK_NAME_PREFIX_LOWERCASE 0x3E //lowercase
+#define B_DEF_NAME_PREFIX_LOWERCASE 0x3F //lowercase
+#define B_EFF_NAME_PREFIX_LOWERCASE 0x40 //lowercase
+#define B_SCR_NAME_PREFIX_LOWERCASE 0x41 //lowercase
 #define B_TXT_TRAINER1_NAME_WITH_CLASS 0x42
 #define B_TXT_TRAINER2_NAME_WITH_CLASS 0x43
 #define B_TXT_PARTNER_NAME_WITH_CLASS 0x44
 #define B_TXT_ATK_TRAINER_NAME_WITH_CLASS 0x45
 #define B_TXT_EFF_TEAM1 0x46
 #define B_TXT_EFF_TEAM2 0x47
+#define B_TXT_HAZARD_FEET 0x48
+#define B_ATK_TEAM3 0x49
+#define B_ATK_TEAM4 0x4A
+#define B_DEF_TEAM3 0x4B
+#define B_DEF_TEAM4 0x4C
+#define B_TXT_EFF_TEAM3 0x4D
 
 #define B_BUFF_STRING                       0
 #define B_BUFF_NUMBER                       1
@@ -256,6 +261,8 @@ void SetPpNumbersPaletteInMoveSelection(u32 battler);
 u8 GetCurrentPpToMaxPpState(u8 currentPp, u8 maxPp);
 void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst);
 
+extern bool8 gAutoScrollMessage;
+
 extern struct BattleMsgData *gBattleMsgDataPtr;
 
 extern const u8 *const gBattleStringsTable[];
@@ -306,15 +313,6 @@ extern const u8 gText_BattleWallyName[];
 extern const u8 gText_Win[];
 extern const u8 gText_Loss[];
 extern const u8 gText_Draw[];
-extern const u8 gText_StatSharply[];
-extern const u8 gText_StatRose[];
-extern const u8 gText_StatFell[];
-extern const u8 gText_drastically[];
-extern const u8 gText_severely[];
-extern const u8 gText_DefendersStatRose[];
-extern const u8 gText_PkmnGettingPumped[];
-extern const u8 gText_PkmnShroudedInMist[];
-extern const u8 gText_PkmnsXPreventsSwitching[];
 extern const u8 gText_TheGreatNewHope[];
 extern const u8 gText_WillChampionshipDreamComeTrue[];
 extern const u8 gText_AFormerChampion[];
@@ -327,7 +325,6 @@ extern const u8 gText_Mind[];
 extern const u8 gText_Skill[];
 extern const u8 gText_Body[];
 extern const u8 gText_Judgment[];
-extern const u8 gText_EmptyString3[];
 extern const u8 gText_RecordBattleToPass[];
 extern const u8 gText_BattleRecordedOnPass[];
 extern const u8 gText_BattleTourney[];

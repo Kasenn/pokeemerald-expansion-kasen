@@ -1356,6 +1356,12 @@
 	.4byte \func
 	.endm
 
+	.macro trybufferscreen sidestatus:req, jumpInstr:req
+	callnative BS_trybufferscreen
+	.byte \sidestatus
+	.4byte \jumpInstr
+	.endm
+
 	.macro savetarget
 	callnative BS_SaveTarget
 	.endm
@@ -2524,7 +2530,7 @@
 	.endm
 
 	.macro flushtextbox
-	printstring STRINGID_EMPTYSTRING3
+	printstring STRINGID_EMPTYSTRING
 	waitmessage 1
 	.endm
 

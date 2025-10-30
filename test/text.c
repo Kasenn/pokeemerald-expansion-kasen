@@ -615,9 +615,9 @@ TEST("Battle strings fit on the battle message window")
     }
 
     // Clear buffers
-    PREPARE_STRING_BUFFER(gBattleTextBuff1, STRINGID_EMPTYSTRING3);
-    PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING3);
-    PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_EMPTYSTRING3);
+    PREPARE_STRING_BUFFER(gBattleTextBuff1, STRINGID_EMPTYSTRING);
+    PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
+    PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_EMPTYSTRING);
     *gStringVar1 = EOS;
     *gStringVar2 = EOS;
     *gStringVar3 = EOS;
@@ -630,8 +630,6 @@ TEST("Battle strings fit on the battle message window")
 
     if (battleStringId == STRINGID_TARGETSSTATWASMAXEDOUT)
         longAbilityID = ABILITY_ANGER_POINT;
-    if (battleStringId == STRINGID_PROTEANTYPECHANGE)
-        longAbilityID = ABILITY_PROTEAN;
 
     // Set abilities
     gLastUsedAbility = longAbilityID;
@@ -690,15 +688,13 @@ TEST("Battle strings fit on the battle message window")
         break;
     // Buffer Move name to B_BUFF1
     case STRINGID_PKMNLEARNEDMOVE2:
-    case STRINGID_TEAMSTOPPEDWORKING: // Unused
-    case STRINGID_FOESTOPPEDWORKING: // Unused
     case STRINGID_PKMNHURTBY:
     case STRINGID_PKMNFREEDFROM:
     case STRINGID_PKMNMOVEWASDISABLED:
     case STRINGID_PKMNSKETCHEDMOVE:
-    case STRINGID_PKMNGOTFREE:
     case STRINGID_PKMNLOSTPPGRUDGE:
     case STRINGID_PKMNSITEMRESTOREDPP:
+    case STRINGID_PKMNSMISTWOREOFF:
     case STRINGID_PKMNSXWOREOFF:
     case STRINGID_BUFFERENDS:
     case STRINGID_FOREWARNACTIVATES:
@@ -709,7 +705,7 @@ TEST("Battle strings fit on the battle message window")
         break;
     // Buffer "999999" to B_BUFF1
     case STRINGID_PLAYERGOTMONEY:
-    case STRINGID_PLAYERWHITEOUT2_TRAINER:
+    case STRINGID_PLAYERWHITEOUT_TRAINER:
     case STRINGID_PLAYERPICKEDUPMONEY:
     // case STRINGID_PLAYERWHITEOUT2_WILD:
         PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 6, sixDigitNines);
@@ -725,11 +721,6 @@ TEST("Battle strings fit on the battle message window")
         PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 1, 9);
         break;
     // Buffer Ability name to B_BUFF1
-    case STRINGID_PKMNMADESLEEP:
-    case STRINGID_PKMNPOISONEDBY:
-    case STRINGID_PKMNBURNEDBY:
-    case STRINGID_PKMNFROZENBY:
-    case STRINGID_PKMNWASPARALYZEDBY:
     case STRINGID_CANACTFASTERTHANKSTO:
         PREPARE_ABILITY_BUFFER(gBattleTextBuff1, longAbilityID);
         break;
@@ -741,16 +732,13 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_TARGETSSTATWASMAXEDOUT:
     case STRINGID_ATTACKERABILITYSTATRAISE:
     case STRINGID_TARGETABILITYSTATLOWER:
-    case STRINGID_SCRIPTINGABILITYSTATRAISE:
     case STRINGID_BATTLERABILITYRAISEDSTAT:
     case STRINGID_STATWASHEIGHTENED:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
         break;
     // Buffer Type name to B_BUFF1
     case STRINGID_PKMNCHANGEDTYPE:
-    case STRINGID_PKMNCHANGEDTYPEWITH:
     case STRINGID_TARGETCHANGEDTYPE:
-    case STRINGID_PROTEANTYPECHANGE:
     case STRINGID_THIRDTYPEADDED:
     case STRINGID_ATTACKERLOSTITSTYPE:
     case STRINGID_PKMNTERASTALLIZEDINTO:
@@ -784,7 +772,6 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_PKMNCURIOUSABOUTX:
     case STRINGID_PKMNENTHRALLEDBYX:
     case STRINGID_PKMNIGNOREDX:
-    case STRINGID_PREVENTEDFROMWORKING:
     case STRINGID_PKMNOBTAINEDX:
     case STRINGID_ABOUTTOUSEPOLTERGEIST:
         PREPARE_ITEM_BUFFER(gBattleTextBuff1, longItemName);
@@ -807,26 +794,20 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_ATTACKERSSTATROSE:
     case STRINGID_DEFENDERSSTATROSE:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
-        StringCopy(gBattleTextBuff2, gText_drastically);
-        StringAppend(gBattleTextBuff2, gText_StatRose);
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_DRASTICALLY]);
+        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
         break;
     case STRINGID_USINGITEMSTATOFPKMNROSE:
         StringCopy(gBattleTextBuff1, gStatNamesTable[STAT_DEF]);
-        StringCopy(gBattleTextBuff2, gText_drastically);
-        StringAppend(gBattleTextBuff2, gText_StatRose);
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_DRASTICALLY]);
+        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
         break;
     // Buffer Stat name to B_BUFF1, "severely fell" to B_BUFF2
     case STRINGID_ATTACKERSSTATFELL:
     case STRINGID_DEFENDERSSTATFELL:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
-        StringCopy(gBattleTextBuff2, gText_severely);
-        StringAppend(gBattleTextBuff2, gText_StatFell);
-        break;
-    // Buffer Status name to B_BUFF2
-    case STRINGID_PKMNSITEMCUREDPROBLEM:
-    case STRINGID_PKMNSXCUREDYPROBLEM:
-    case STRINGID_PKMNSXCUREDITSYPROBLEM:
-        StringCopy(gBattleTextBuff1, gText_Confusion);
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_SEVERELY]);
+        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATFELL]);
         break;
     // Buffer Box name to STR_VAR_1 and STR_VAR_3, Nickname to STR_VAR_2
     case STRINGID_PKMNTRANSFERREDSOMEONESPC:

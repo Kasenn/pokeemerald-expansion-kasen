@@ -440,7 +440,7 @@ void BattleTv_SetDataBasedOnString(enum StringID stringId)
             tvPtr->side[scriptingSide].faintCause = FNT_SPIKES;
         }
         break;
-    case STRINGID_PKMNBLEWAWAYSPIKES:
+    case STRINGID_SPIKESDISAPPEARED:
         tvPtr->side[atkSide].spikesMonId = 0;
         tvPtr->side[atkSide].spikesMoveSlot = 0;
         break;
@@ -480,15 +480,14 @@ void BattleTv_SetDataBasedOnString(enum StringID stringId)
         }
         break;
     case STRINGID_PKMNRAISEDDEF:
-    case STRINGID_PKMNRAISEDDEFALITTLE:
         tvPtr->side[atkSide].reflectMonId = gBattlerPartyIndexes[gBattlerAttacker] + 1;
         tvPtr->side[atkSide].reflectMoveSlot = moveSlot;
         break;
     case STRINGID_PKMNRAISEDSPDEF:
-    case STRINGID_PKMNRAISEDSPDEFALITTLE:
         tvPtr->side[atkSide].lightScreenMonId = gBattlerPartyIndexes[gBattlerAttacker] + 1;
         tvPtr->side[atkSide].lightScreenMoveSlot = moveSlot;
         break;
+    case STRINGID_PKMNSMISTWOREOFF:
     case STRINGID_PKMNSXWOREOFF:
         if (*finishedMoveId == MOVE_REFLECT)
         {
@@ -526,7 +525,7 @@ void BattleTv_SetDataBasedOnString(enum StringID stringId)
         if (tvPtr->side[defSide].mistMonId != 0)
             AddMovePoints(PTS_MIST, 0, tvPtr->side[defSide].mistMonId - 1, tvPtr->side[defSide].mistMoveSlot);
         break;
-    case STRINGID_THEWALLSHATTERED:
+    case STRINGID_PKMNSSCREENWOREOFF:
         tvPtr->side[defSide].reflectMonId = 0;
         tvPtr->side[defSide].reflectMoveSlot = 0;
         tvPtr->side[defSide].lightScreenMonId = 0;

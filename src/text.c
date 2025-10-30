@@ -983,11 +983,11 @@ void SetResultWithButtonPress(bool32 *result)
 bool32 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
 {
     bool32 result = FALSE;
-    if (gTextFlags.autoScroll != 0 || AUTO_SCROLL_TEXT)
+    if (gTextFlags.autoScroll != 0 || AUTO_SCROLL_TEXT || gAutoScrollMessage)
     {
         result = TextPrinterWaitAutoMode(textPrinter);
 
-        if (AUTO_SCROLL_TEXT)
+        if (AUTO_SCROLL_TEXT || gAutoScrollMessage)
             SetResultWithButtonPress(&result);
     }
     else
@@ -1001,11 +1001,11 @@ bool32 TextPrinterWaitWithDownArrow(struct TextPrinter *textPrinter)
 bool32 TextPrinterWait(struct TextPrinter *textPrinter)
 {
     bool32 result = FALSE;
-    if (gTextFlags.autoScroll != 0 || AUTO_SCROLL_TEXT)
+    if (gTextFlags.autoScroll != 0 || AUTO_SCROLL_TEXT || gAutoScrollMessage)
     {
         result = TextPrinterWaitAutoMode(textPrinter);
 
-        if (AUTO_SCROLL_TEXT)
+        if (AUTO_SCROLL_TEXT || gAutoScrollMessage)
             SetResultWithButtonPress(&result);
     }
     else
@@ -1650,7 +1650,7 @@ s32 GetStringLineWidth(u8 fontId, const u8 *str, s16 letterSpacing, u32 lineNum,
             StringCopyN(strCopy, str, strLen);
             strWidth = GetStringWidth(fontId, strCopy, letterSpacing);
             strLen = StringLineLength(strCopy);
-            StringAppend(strCopy, gText_EmptyString3);
+            StringAppend(strCopy, gBattleStringsTable[STRINGID_EMPTYSTRING]);
         }
         str += strLen + 1;
     }

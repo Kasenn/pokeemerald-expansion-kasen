@@ -1173,7 +1173,7 @@ static bool32 HandleEndTurnSecondEventBlock(u32 battler)
         {
             gBattlerAttacker = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_REFLECT;
-            BattleScriptExecute(BattleScript_SideStatusWoreOff);
+            BattleScriptExecute(BattleScript_ReflectLightScreenWoreOff);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_REFLECT);
             effect = TRUE;
@@ -1185,7 +1185,7 @@ static bool32 HandleEndTurnSecondEventBlock(u32 battler)
         {
             gBattlerAttacker = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_LIGHTSCREEN;
-            BattleScriptExecute(BattleScript_SideStatusWoreOff);
+            BattleScriptExecute(BattleScript_ReflectLightScreenWoreOff);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LIGHT_SCREEN);
             effect = TRUE;
@@ -1207,7 +1207,7 @@ static bool32 HandleEndTurnSecondEventBlock(u32 battler)
         {
             gBattlerAttacker = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_MIST;
-            BattleScriptExecute(BattleScript_SideStatusWoreOff);
+            BattleScriptExecute(BattleScript_MistWoreOff);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_MIST);
             effect = TRUE;

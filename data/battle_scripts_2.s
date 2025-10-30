@@ -39,7 +39,7 @@ BattleScript_ItemEnd:
 	end
 
 BattleScript_UseItemMessage:
-	printstring STRINGID_EMPTYSTRING3
+	printstring STRINGID_EMPTYSTRING
 	pause B_WAIT_TIME_MED
 	playse SE_USE_ITEM
 	getbattlerside BS_ATTACKER
@@ -206,7 +206,7 @@ BattleScript_SuccessBallThrowEnd::
 	finishturn
 
 BattleScript_WallyBallThrow::
-	printstring STRINGID_GOTCHAPKMNCAUGHTWALLY
+	printstring STRINGID_GOTCHAPKMNCAUGHTPLAYER
 	setbyte gBattleOutcome, B_OUTCOME_CAUGHT
 	finishturn
 
@@ -262,8 +262,6 @@ BattleScript_ActionWallyThrow:
 	waitstate
 	trainerslidein BS_PLAYER1
 	waitstate
-	printstring STRINGID_YOUTHROWABALLNOWRIGHT
-	waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_TrainerASlideMsgRet::

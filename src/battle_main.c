@@ -209,6 +209,7 @@ EWRAM_DATA u8 gSentPokesToOpponent[2] = {0};
 EWRAM_DATA struct BattleEnigmaBerry gEnigmaBerries[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA struct BattleScripting gBattleScripting = {0};
 EWRAM_DATA struct BattleStruct *gBattleStruct = NULL;
+EWRAM_DATA u8 gBattleCustomString = 0;
 
 EWRAM_DATA struct AiThinkingStruct *gAiThinkingStruct = NULL;
 EWRAM_DATA struct AiLogicData *gAiLogicData = NULL;
@@ -4002,7 +4003,7 @@ static void TryDoEventsBeforeFirstTurn(void)
         }
         TurnValuesCleanUp(FALSE);
         SpecialStatusesClear();
-        BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
+        BattlePutTextOnWindow(gBattleStringsTable[STRINGID_EMPTYSTRING], B_WIN_MSG);
         AssignUsableGimmicks();
         gBattleMainFunc = HandleTurnActionSelectionState;
         ResetSentPokesToOpponentValue();
@@ -4125,7 +4126,7 @@ void BattleTurnPassed(void)
 
     gFieldStatuses &= ~STATUS_FIELD_ION_DELUGE;
 
-    BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
+    BattlePutTextOnWindow(gBattleStringsTable[STRINGID_EMPTYSTRING], B_WIN_MSG);
     AssignUsableGimmicks();
     SetShellSideArmCategory();
     SetAiLogicDataForTurn(gAiLogicData); // get assumed abilities, hold effects, etc of all battlers
@@ -5641,6 +5642,7 @@ static void HandleEndTurn_RanFromBattle(void)
     }
     else
     {
+        gAutoScrollMessage = TRUE;
         switch (gProtectStructs[gBattlerAttacker].fleeType)
         {
         default:
@@ -5660,6 +5662,7 @@ static void HandleEndTurn_RanFromBattle(void)
 
 static void HandleEndTurn_MonFled(void)
 {
+    gAutoScrollMessage = TRUE;
     gCurrentActionFuncId = 0;
 
     PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, gBattlerAttacker, gBattlerPartyIndexes[gBattlerAttacker]);
@@ -5738,6 +5741,7 @@ static void HandleEndTurn_FinishBattle(void)
             TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
+        gAutoScrollMessage = 0;
         if(FlagGet(FLAG_PARTNER_HEALS)){
             HealPlayerParty();
         }
