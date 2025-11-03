@@ -33,7 +33,18 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs remove Light Screen, Reflect a
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-        MESSAGE("The wall shattered!");
+        switch (move)
+        {
+        case MOVE_LIGHT_SCREEN:
+            MESSAGE("The opposing team's Light Screen wore off!");
+            break;
+        case MOVE_REFLECT:
+            MESSAGE("The opposing team's Reflect wore off!");
+            break;
+        case MOVE_AURORA_VEIL:
+            MESSAGE("The foe team is no longer protected by Aurora Veil!");
+            break;
+        }
         HP_BAR(opponent);
     }
 }
@@ -61,7 +72,18 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -91,7 +113,18 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -120,7 +153,18 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -153,7 +197,18 @@ DOUBLE_BATTLE_TEST("Brick Break and Psychic Fangs can remove Light Screen, Refle
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, breakingMove, playerRight);
-        MESSAGE("The wall shattered!");
+        switch (move)
+        {
+        case MOVE_LIGHT_SCREEN:
+            MESSAGE("Your team's Light Screen wore off!");
+            break;
+        case MOVE_REFLECT:
+            MESSAGE("Your team's Reflect wore off!");
+            break;
+        case MOVE_AURORA_VEIL:
+            MESSAGE("Your team is no longer protected by Aurora Veil!");
+            break;
+        }
         HP_BAR(playerLeft);
     }
 }

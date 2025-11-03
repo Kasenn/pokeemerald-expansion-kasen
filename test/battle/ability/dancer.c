@@ -121,7 +121,7 @@ DOUBLE_BATTLE_TEST("Dancer still triggers if another dancer flinches")
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         }
         ABILITY_POPUP(opponentLeft, ABILITY_DANCER);
-        MESSAGE("Foe Oricorio used Dragon Dance!");
+        MESSAGE("The foe Oricorio used Dragon Dance!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
     }
@@ -265,7 +265,7 @@ DOUBLE_BATTLE_TEST("Dancer still activates after Red Card")
         HP_BAR(opponentLeft);
         // Red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Foe Wobbuffet held up its Red Card against Wobbuffet!");
+        MESSAGE("The foe Wobbuffet held up its Red Card against Wobbuffet!");
         MESSAGE("Chansey was dragged out!");
         // Dancer
         ABILITY_POPUP(playerRight, ABILITY_DANCER);
@@ -291,7 +291,7 @@ DOUBLE_BATTLE_TEST("Dancer still activate after Red Card even if blocked by Suct
         HP_BAR(opponentLeft);
         // red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Foe Wobbuffet held up its Red Card against Wobbuffet!");
+        MESSAGE("The foe Wobbuffet held up its Red Card against Wobbuffet!");
         MESSAGE("Wobbuffet anchors itself with Suction Cups!");
         NOT MESSAGE("Chansey was dragged out!");
         // Dancer

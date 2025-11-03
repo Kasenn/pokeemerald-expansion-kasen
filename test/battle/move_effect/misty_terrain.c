@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Misty Terrain protects grounded battlers from non-volatile s
         TURN { MOVE(player, MOVE_TOXIC); }
     } SCENE {
         MESSAGE("Wobbuffet used Misty Terrain!");
-        MESSAGE("Foe Claydol used Toxic!");
+        MESSAGE("The foe Claydol used Toxic!");
         MESSAGE("Wobbuffet surrounds itself with a protective mist!");
         NOT { STATUS_ICON(opponent, badPoison: TRUE); }
         MESSAGE("Wobbuffet used Toxic!");
@@ -71,18 +71,18 @@ SINGLE_BATTLE_TEST("Misty Terrain lasts for 5 turns")
         TURN {}
         TURN {}
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MISTY_TERRAIN, player);
         MESSAGE("Mist swirled about the battlefield!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("The mist disappeared from the battlefield.");
     }

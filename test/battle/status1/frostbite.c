@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Frostbite deals 1/16th (Gen7+) or 1/8th damage to affected P
     } WHEN {
         TURN {}
     } SCENE {
-        MESSAGE("Foe Wobbuffet is hurt by its frostbite!");
+        MESSAGE("The foe Wobbuffet is hurt by its frostbite!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_FRZ, opponent);
         HP_BAR(opponent, captureDamage: &frostbiteDamage);
    } THEN { EXPECT_EQ(frostbiteDamage, opponent->maxHP / ((B_BURN_DAMAGE >= GEN_7) ? 16 : 8)); }
@@ -58,10 +58,10 @@ SINGLE_BATTLE_TEST("Frostbite is healed if hit with a thawing move")
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         if (move == MOVE_EMBER) {
             NONE_OF {
-                MESSAGE("Foe Wobbuffet's frostbite was cured!");
+                MESSAGE("The foe Wobbuffet's frostbite was cured!");
             }
         } else {
-            MESSAGE("Foe Wobbuffet's frostbite was cured!");
+            MESSAGE("The foe Wobbuffet's frostbite was cured!");
         }
    }
 }

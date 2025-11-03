@@ -119,7 +119,7 @@ SINGLE_BATTLE_TEST("Aerilate doesn't affect Natural Gift's type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_NATURAL_GIFT, player); }
-        MESSAGE("It doesn't affect Foe Salamence…");
+        MESSAGE("It doesn't affect the foe Salamence…");
     }
 }
 
@@ -150,7 +150,7 @@ SINGLE_BATTLE_TEST("Aerilate doesn't affect Judgment / Techno Blast / Multi-Atta
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
-        MESSAGE("It doesn't affect Foe Diglett…");
+        MESSAGE("It doesn't affect the foe Diglett…");
     }
 }
 
@@ -166,7 +166,7 @@ SINGLE_BATTLE_TEST("Aerilate doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("It doesn't affect Foe Diglett…");
+        MESSAGE("It doesn't affect the foe Diglett…");
     }
 }
 

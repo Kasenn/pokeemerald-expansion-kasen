@@ -20,7 +20,7 @@ DOUBLE_BATTLE_TEST("Healer cures adjacent ally's status condition 30% of the tim
     } WHEN {
         TURN { }
     } SCENE {
-        MESSAGE("Foe Chansey's Healer cured Foe Wobbuffet's problem!");
+        MESSAGE("The foe Chansey's Healer cured the foe Wobbuffet's problem!");
     }
 }
 
@@ -40,8 +40,8 @@ DOUBLE_BATTLE_TEST("Healer cures status condition before burn or poison damage i
     } WHEN {
         TURN {}
     } SCENE {
-        NOT MESSAGE("Foe Wobbuffet fainted!");
-        MESSAGE("Foe Chansey's Healer cured Foe Wobbuffet's problem!");
+        NOT MESSAGE("The foe Wobbuffet fainted!");
+        MESSAGE("The foe Chansey's Healer cured the foe Wobbuffet's problem!");
     }
 }
 

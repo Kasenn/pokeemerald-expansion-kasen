@@ -81,7 +81,7 @@ SINGLE_BATTLE_TEST("Stomping Tantrum will not deal double damage if target prote
         HP_BAR(opponent, captureDamage: &damage[0]);
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
-        MESSAGE("Foe Wobbuffet protected itself!");
+        MESSAGE("The foe Wobbuffet protected itself!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STOMPING_TANTRUM, player);
         HP_BAR(opponent, captureDamage: &damage[1]);
@@ -125,7 +125,7 @@ SINGLE_BATTLE_TEST("Stomping Tantrum will deal double damage if user was immune 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STOMPING_TANTRUM, player);
         HP_BAR(opponent, captureDamage: &damage[0]);
-        MESSAGE("It doesn't affect Foe Pidgey…");
+        MESSAGE("It doesn't affect the foe Pidgey…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STOMPING_TANTRUM, player);
         HP_BAR(opponent, captureDamage: &damage[1]);
     } THEN {

@@ -46,13 +46,13 @@ DOUBLE_BATTLE_TEST("After You does nothing if the target has already moved")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentLeft);
-        MESSAGE("Foe Wynaut used After You!");
+        MESSAGE("The foe Wynaut used After You!");
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerRight);
     }
 }
 
-DOUBLE_BATTLE_TEST("After You calculates correct turn order if only one Pokémon is left on Foe side")
+DOUBLE_BATTLE_TEST("After You calculates correct turn order if only one Pokémon is left on the foe side")
 {
     GIVEN {
         PLAYER(SPECIES_GRENINJA) { Speed(120); }
@@ -75,7 +75,7 @@ DOUBLE_BATTLE_TEST("After You calculates correct turn order if only one Pokémon
         MESSAGE("Regirock took the kind offer!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_EDGE, playerRight);
         HP_BAR(opponentLeft);
-        MESSAGE("Foe Pidgeot fainted!");
+        MESSAGE("The foe Pidgeot fainted!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AFTER_YOU, playerLeft);
@@ -103,7 +103,7 @@ DOUBLE_BATTLE_TEST("After You fails if the turn order remains the same after Aft
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerLeft);
-        MESSAGE("Foe Wynaut used After You!");
+        MESSAGE("The foe Wynaut used After You!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_AFTER_YOU, opponentRight);
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentLeft);

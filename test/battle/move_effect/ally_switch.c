@@ -54,13 +54,13 @@ DOUBLE_BATTLE_TEST("Ally Switch changes the position of battlers")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
         MESSAGE("Wobbuffet and Wynaut switched places!");
 
-        MESSAGE("Foe Kadabra used Screech!");
+        MESSAGE("The foe Kadabra used Screech!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wynaut's Defense harshly fell!");
+        MESSAGE("Wynaut's Defense fell harshly!");
 
-        MESSAGE("Foe Abra used Screech!");
+        MESSAGE("The foe Abra used Screech!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
-        MESSAGE("Wynaut's Defense harshly fell!");
+        MESSAGE("Wynaut's Defense fell harshly!");
     } THEN {
         EXPECT_EQ(playerLeft->speed, 4);
         EXPECT_EQ(playerLeft->species, SPECIES_WYNAUT);
@@ -84,7 +84,7 @@ DOUBLE_BATTLE_TEST("Ally Switch does not redirect the target of Snipe Shot")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
         MESSAGE("Wobbuffet and Wynaut switched places!");
 
-        MESSAGE("Foe Kadabra used Snipe Shot!");
+        MESSAGE("The foe Kadabra used Snipe Shot!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNIPE_SHOT, opponentLeft);
         HP_BAR(playerRight);
     }
@@ -109,7 +109,7 @@ DOUBLE_BATTLE_TEST("Ally Switch does not redirect moves done by Pokémon with St
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
         MESSAGE("Wobbuffet and Wynaut switched places!");
 
-        MESSAGE("Foe Kadabra used Scratch!");
+        MESSAGE("The foe Kadabra used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         HP_BAR((ability == ABILITY_STALWART || ability == ABILITY_PROPELLER_TAIL) ? playerLeft : playerRight);
     }
@@ -250,15 +250,15 @@ DOUBLE_BATTLE_TEST("Ally switch swaps sky drop targets if being used by partner"
         TURN { MOVE(playerRight, MOVE_ALLY_SWITCH); SKIP_TURN(playerLeft); MOVE(opponentRight, MOVE_MUD_SPORT); MOVE(opponentLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
         MESSAGE("Fearow used Sky Drop!");
-        MESSAGE("Fearow took Foe Aron into the air!");
+        MESSAGE("Fearow took the foe Aron into the air!");
         // turn 2
         MESSAGE("Xatu used Ally Switch!");
         MESSAGE("Xatu and Fearow switched places!");
         MESSAGE("Fearow used Sky Drop!");
         HP_BAR(opponentLeft);
-        MESSAGE("Foe Wynaut used Mud Sport!");
+        MESSAGE("The foe Wynaut used Mud Sport!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MUD_SPORT, opponentRight);
-        MESSAGE("Foe Aron used Iron Defense!");
+        MESSAGE("The foe Aron used Iron Defense!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_IRON_DEFENSE, opponentLeft);
     } THEN {
         // all battlers should be visible
@@ -286,12 +286,12 @@ DOUBLE_BATTLE_TEST("Ally switch swaps opposing sky drop targets if partner is be
         TURN { MOVE(opponentLeft, MOVE_SKY_DROP, target: playerLeft); }
         TURN { MOVE(opponentRight, MOVE_ALLY_SWITCH); SKIP_TURN(opponentLeft); MOVE(playerRight, MOVE_MUD_SPORT); MOVE(playerLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
-        MESSAGE("Foe Fearow used Sky Drop!");
-        MESSAGE("Foe Fearow took Aron into the air!");
+        MESSAGE("The foe Fearow used Sky Drop!");
+        MESSAGE("The foe Fearow took Aron into the air!");
         // turn 2
-        MESSAGE("Foe Xatu used Ally Switch!");
-        MESSAGE("Foe Xatu and Foe Fearow switched places!");
-        MESSAGE("Foe Fearow used Sky Drop!");
+        MESSAGE("The foe Xatu used Ally Switch!");
+        MESSAGE("The foe Xatu and the foe Fearow switched places!");
+        MESSAGE("The foe Fearow used Sky Drop!");
         HP_BAR(playerLeft);
         MESSAGE("Wynaut used Mud Sport!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MUD_SPORT, playerRight);
@@ -343,8 +343,8 @@ DOUBLE_BATTLE_TEST("Ally switch updates last used moves for Mimic")
         MESSAGE("Xatu used Ally Switch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
         MESSAGE("Xatu and Riolu switched places!");
-        MESSAGE("Foe Fearow used Mimic!");
-        MESSAGE("Foe Fearow learned Fake Out!");
+        MESSAGE("The foe Fearow used Mimic!");
+        MESSAGE("The foe Fearow learned Fake Out!");
     }
 }
 
@@ -361,15 +361,15 @@ DOUBLE_BATTLE_TEST("Ally Switch does not update leech seed battler")
         TURN { ; }
     } SCENE {
         // turn 1
-        MESSAGE("Foe Bulbasaur used Leech Seed!");
+        MESSAGE("The foe Bulbasaur used Leech Seed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LEECH_SEED, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_LEECH_SEED_DRAIN, playerLeft);
         HP_BAR(playerLeft);
         HP_BAR(opponentLeft);
         
-        MESSAGE("Foe Ralts used Ally Switch!");
+        MESSAGE("The foe Ralts used Ally Switch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, opponentRight);
-        MESSAGE("Foe Ralts and Foe Bulbasaur switched places!");
+        MESSAGE("The foe Ralts and the foe Bulbasaur switched places!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_LEECH_SEED_DRAIN, playerLeft);
         HP_BAR(playerLeft);
         HP_BAR(opponentLeft); // Ralts now gets hp gain
@@ -396,13 +396,13 @@ DOUBLE_BATTLE_TEST("Ally Switch updates attract battler")
         HP_BAR(opponentLeft);
         ABILITY_POPUP(opponentLeft, ABILITY_CUTE_CHARM);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_INFATUATION, playerLeft);
-        MESSAGE("Foe Clefairy's Cute Charm infatuated Wobbuffet!");
+        MESSAGE("Wobbuffet fell in love!");
         // turn 2
-        MESSAGE("Foe Ralts used Ally Switch!");
+        MESSAGE("The foe Ralts used Ally Switch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, opponentRight);
-        MESSAGE("Foe Ralts and Foe Clefairy switched places!");
+        MESSAGE("The foe Ralts and the foe Clefairy switched places!");
         // turn 3
-        MESSAGE("Wobbuffet is in love with Foe Clefairy!"); // tracks attract battler
+        MESSAGE("Wobbuffet is in love with the foe Clefairy!"); // tracks attract battler
     }
 }
 

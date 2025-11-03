@@ -28,7 +28,18 @@ SINGLE_BATTLE_TEST("Raging Bull removes Light Screen, Reflect and Aurora Veil fr
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-        MESSAGE("The wall shattered!");
+        switch (move)
+        {
+        case MOVE_LIGHT_SCREEN:
+            MESSAGE("The opposing team's Light Screen wore off!");
+            break;
+        case MOVE_REFLECT:
+            MESSAGE("The opposing team's Reflect wore off!");
+            break;
+        case MOVE_AURORA_VEIL:
+            MESSAGE("The opposing team's Aurora Veil wore off!");
+            break;
+        }
         HP_BAR(opponent);
     }
 }
@@ -52,7 +63,18 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -78,7 +100,18 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -103,7 +136,18 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, player);
-            MESSAGE("The wall shattered!");
+            switch (move)
+            {
+            case MOVE_LIGHT_SCREEN:
+                MESSAGE("The opposing team's Light Screen wore off!");
+                break;
+            case MOVE_REFLECT:
+                MESSAGE("The opposing team's Reflect wore off!");
+                break;
+            case MOVE_AURORA_VEIL:
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            }
             HP_BAR(opponent);
         }
     }
@@ -132,7 +176,18 @@ DOUBLE_BATTLE_TEST("Raging Bull can remove Light Screen, Reflect and Aurora Veil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGING_BULL, playerRight);
-        MESSAGE("The wall shattered!");
+        switch (move)
+        {
+        case MOVE_LIGHT_SCREEN:
+            MESSAGE("Your team's Light Screen wore off!");
+            break;
+        case MOVE_REFLECT:
+            MESSAGE("Your team's Reflect wore off!");
+            break;
+        case MOVE_AURORA_VEIL:
+            MESSAGE("Your team is no longer protected by Aurora Veil!");
+            break;
+        }
         HP_BAR(playerLeft);
     }
 }

@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Aftermath damages the attacker by 1/4th of its max HP if fai
     } WHEN {
         TURN {MOVE(opponent, MOVE_SCRATCH);}
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         MESSAGE("Voltorb fainted!");
         ABILITY_POPUP(player, ABILITY_AFTERMATH);
@@ -30,7 +30,7 @@ SINGLE_BATTLE_TEST("Aftermath ability pop-up will be displayed correctly: player
         TURN {MOVE(player, MOVE_HEADBUTT);}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEADBUTT, player);
-        MESSAGE("Foe Voltorb fainted!");
+        MESSAGE("The foe Voltorb fainted!");
         ABILITY_POPUP(opponent, ABILITY_AFTERMATH);
     }
 }

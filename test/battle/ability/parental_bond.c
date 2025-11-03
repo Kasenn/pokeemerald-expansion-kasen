@@ -94,7 +94,7 @@ DOUBLE_BATTLE_TEST("Parental Bond does not convert multi-target moves into a two
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         HP_BAR(opponentLeft);
         MESSAGE("It doesn't affect Pidgey…");
-        MESSAGE("It doesn't affect Foe Pidgey…");
+        MESSAGE("It doesn't affect the foe Pidgey…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
@@ -267,9 +267,9 @@ SINGLE_BATTLE_TEST("Parental Bond Smack Down effect triggers after 2nd hit")
         MESSAGE("Kangaskhan has Mega Evolved into Mega Kangaskhan!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
         HP_BAR(opponent);
-        NOT MESSAGE("Foe Skarmory fell straight down!");
+        NOT MESSAGE("The foe Skarmory fell straight down!");
         HP_BAR(opponent);
-        MESSAGE("Foe Skarmory fell straight down!");
+        MESSAGE("The foe Skarmory fell straight down!");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_KANGASKHAN_MEGA);
     }
@@ -311,7 +311,7 @@ SINGLE_BATTLE_TEST("Parental Bond only triggers Dragon Tail's target switch out 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         HP_BAR(opponent);
         HP_BAR(opponent);
-        MESSAGE("Foe Wynaut was dragged out!");
+        MESSAGE("The foe Wynaut was dragged out!");
     }
     THEN {
         EXPECT_EQ(player->species, SPECIES_KANGASKHAN_MEGA);

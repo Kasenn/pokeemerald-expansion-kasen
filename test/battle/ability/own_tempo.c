@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Own Tempo doesn't prevent Intimidate (Gen3-7)")
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-            MESSAGE("Foe Slowpoke's Own Tempo prevents stat loss!");
+            MESSAGE("The foe Slowpoke's stats were not lowered!");
         }
     }
 }
@@ -31,11 +31,11 @@ SINGLE_BATTLE_TEST("Own Tempo prevents Intimidate but no other stat down changes
     } SCENE {
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("Foe Slowpoke's Own Tempo prevents stat loss!");
+        MESSAGE("The foe Slowpoke's stats were not lowered!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCARY_FACE, player);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-            MESSAGE("Foe Slowpoke's Own Tempo prevents stat loss!");
+            MESSAGE("The foe Slowpoke's stats were not lowered!");
         }
     }
 }
@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Own Tempo prevents confusion from moves by the opponent")
         TURN { MOVE(player, MOVE_CONFUSE_RAY); }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("Foe Slowpoke's Own Tempo prevents confusion!");
+        MESSAGE("The foe Slowpoke doesn't become confused!");
     }
 }
 
@@ -70,7 +70,7 @@ SINGLE_BATTLE_TEST("Own Tempo prevents confusion from moves by the user")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PETAL_DANCE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PETAL_DANCE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PETAL_DANCE, opponent);
-        NONE_OF { MESSAGE("Foe Slowpoke became confused due to fatigue!"); }
+        NONE_OF { MESSAGE("The foe Slowpoke became confused due to fatigue!"); }
     }
 }
 
@@ -84,7 +84,7 @@ SINGLE_BATTLE_TEST("Mold Breaker ignores Own Tempo")
         TURN { MOVE(player, MOVE_CONFUSE_RAY); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        NOT MESSAGE("Foe Slowpoke's Own Tempo prevents confusion!");
+        NOT MESSAGE("The foe Slowpoke doesn't become confused!");
     }
 }
 
@@ -98,12 +98,12 @@ SINGLE_BATTLE_TEST("Mold Breaker does not prevent Own Tempo from curing confusio
         TURN { MOVE(player, MOVE_CONFUSE_RAY); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        MESSAGE("Foe Slowpoke became confused!");
+        MESSAGE("The foe Slowpoke became confused!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponent);
         }
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("Foe Slowpoke's Own Tempo cured its confusion problem!");
+        MESSAGE("The foe Slowpoke's Own Tempo cured its confusion problem!");
     }
 }
 
@@ -121,10 +121,10 @@ SINGLE_BATTLE_TEST("Own Tempo cures confusion if it's obtained via Skill Swap")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        MESSAGE("Foe Wobbuffet became confused!");
+        MESSAGE("The foe Wobbuffet became confused!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, player);
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("Foe Wobbuffet's Own Tempo cured its confusion problem!");
+        MESSAGE("The foe Wobbuffet's Own Tempo cured its confusion problem!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }

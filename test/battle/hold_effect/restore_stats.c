@@ -56,11 +56,11 @@ DOUBLE_BATTLE_TEST("White Herb restores stats after Attack was lowered by Intimi
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Foe Wobbuffet's White Herb restored its status!");
+        MESSAGE("The foe Wobbuffet's White Herb restored its status!");
 
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
-        MESSAGE("Foe Wynaut's White Herb restored its status!");
+        MESSAGE("The foe Wynaut's White Herb restored its status!");
     } THEN {
         EXPECT(opponentLeft->item == ITEM_NONE);
         EXPECT(opponentLeft->statStages[STAT_DEF] = DEFAULT_STAT_STAGE);
@@ -145,9 +145,9 @@ SINGLE_BATTLE_TEST("White Herb wont have time to activate if it is knocked off o
         MESSAGE("Slugma's Weak Armor lowered its Defense!");
         MESSAGE("Slugma's Weak Armor raised its Speed!");
         if (move == MOVE_KNOCK_OFF) {
-            MESSAGE("Foe Wobbuffet knocked off Slugma's White Herb!");
+            MESSAGE("The foe Wobbuffet knocked off Slugma's White Herb!");
         } else if (move == MOVE_THIEF) {
-            MESSAGE("Foe Wobbuffet stole Slugma's White Herb!");
+            MESSAGE("The foe Wobbuffet stole Slugma's White Herb!");
         }
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
@@ -173,7 +173,7 @@ SINGLE_BATTLE_TEST("White Herb wont have time to activate if Magician steals it"
         MESSAGE("Slugma's Weak Armor lowered its Defense!");
         MESSAGE("Slugma's Weak Armor raised its Speed!");
         ABILITY_POPUP(opponent, ABILITY_MAGICIAN);
-        MESSAGE("Foe Fennekin stole Slugma's White Herb!");
+        MESSAGE("The foe Fennekin stole Slugma's White Herb!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             MESSAGE("Wobbuffet's status returned to normal!");

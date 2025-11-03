@@ -24,11 +24,11 @@ SINGLE_BATTLE_TEST("Baddy Bad sets up Reflect when it was succesful")
         if (moveSuccess == TRUE)
         {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_BADDY_BAD, player);
-            MESSAGE("Ally's Baddy Bad raised Defense!");
+            MESSAGE("Baddy Bad raised your team's Defense!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_BADDY_BAD, player);
-                MESSAGE("Ally's Baddy Bad raised Defense!");
+                MESSAGE("Baddy Bad raised your team's Defense!");
             }
         }
     }

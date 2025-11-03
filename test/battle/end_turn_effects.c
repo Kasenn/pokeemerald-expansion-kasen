@@ -14,12 +14,12 @@ DOUBLE_BATTLE_TEST("End Turn Effects: First Event Block is executed correctly")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_GRASSY_TERRAIN); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet is healed by the grassy terrain!");
+        MESSAGE("The foe Wobbuffet is healed by the grassy terrain!");
         HP_BAR(opponentRight, captureDamage: &healed);
         HP_BAR(opponentRight, captureDamage: &damage);
-        MESSAGE("Foe Wobbuffet is hurt by its Black Sludge!");
-        MESSAGE("Foe Wynaut is healed by the grassy terrain!");
-        MESSAGE("Foe Wynaut's Leftovers restored its HP a little!");
+        MESSAGE("The foe Wobbuffet is hurt by its Black Sludge!");
+        MESSAGE("The foe Wynaut is healed by the grassy terrain!");
+        MESSAGE("The foe Wynaut's Leftovers restored its HP a little!");
         MESSAGE("Ekans is healed by the grassy terrain!");
         MESSAGE("Ekans's Shed Skin cured its burn problem!");
         MESSAGE("Wynaut is healed by the grassy terrain!");

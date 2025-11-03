@@ -22,11 +22,11 @@ SINGLE_BATTLE_TEST("Triple Arrows may lower Defense by one stage")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRIPLE_ARROWS, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Wobbuffet's Defense fell!");
+        MESSAGE("The foe Wobbuffet's Defense fell!");
     }
 }
 
-SINGLE_BATTLE_TEST("Triple Arrows makes the Foe flinch 30% of the time")
+SINGLE_BATTLE_TEST("Triple Arrows makes the the foe flinch 30% of the time")
 {
     u32 ability;
     u32 chance;
@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Triple Arrows makes the Foe flinch 30% of the time")
         TURN { MOVE(player, MOVE_TRIPLE_ARROWS); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRIPLE_ARROWS, player);
-        MESSAGE("Foe Wobbuffet flinched!");
+        MESSAGE("The foe Wobbuffet flinched!");
     }
 }
 
@@ -76,8 +76,8 @@ SINGLE_BATTLE_TEST("Triple Arrows can lower Defense and cause flinch at the time
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRIPLE_ARROWS, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Wobbuffet's Defense fell!");
-        MESSAGE("Foe Wobbuffet flinched!");
+        MESSAGE("The foe Wobbuffet's Defense fell!");
+        MESSAGE("The foe Wobbuffet flinched!");
     }
 }
 
@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("Triple Arrows's flinching is prevented by Inner Focus")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRIPLE_ARROWS, player);
-        NONE_OF { MESSAGE("Foe Wobbuffet flinched!"); }
+        NONE_OF { MESSAGE("The foe Wobbuffet flinched!"); }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }

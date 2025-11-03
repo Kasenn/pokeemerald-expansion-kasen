@@ -15,7 +15,7 @@ SINGLE_BATTLE_TEST("Magician gets self-damage recoil after stealing Life Orb")
         // 1st turn
         MESSAGE("Delphox used Scratch!");
         ABILITY_POPUP(player, ABILITY_MAGICIAN);
-        MESSAGE("Delphox stole Foe Wobbuffet's Life Orb!");
+        MESSAGE("Delphox stole the foe Wobbuffet's Life Orb!");
         HP_BAR(player);
         MESSAGE("Delphox is hurt by its Life Orb!");
         // 2nd turn - Life Orb recoil happens now

@@ -218,7 +218,7 @@ SINGLE_BATTLE_TEST("(TERA) Terastallization changes type effectiveness", s16 dam
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: tera); MOVE(opponent, MOVE_WATER_GUN); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Water Gun!");
+        MESSAGE("The foe Wobbuffet used Water Gun!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, opponent);
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
@@ -234,7 +234,7 @@ SINGLE_BATTLE_TEST("(TERA) Terastallization changes type effectiveness")
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); MOVE(opponent, MOVE_EARTHQUAKE); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Earthquake!");
+        MESSAGE("The foe Wobbuffet used Earthquake!");
         MESSAGE("It doesn't affect Wobbuffet…");
         NOT { HP_BAR(player); }
     }
@@ -253,11 +253,11 @@ SINGLE_BATTLE_TEST("(TERA) Terastallization persists across switches")
         TURN { MOVE(opponent, MOVE_EARTHQUAKE); }
     } SCENE {
         // turn 1
-        MESSAGE("Foe Wobbuffet used Earthquake!");
+        MESSAGE("The foe Wobbuffet used Earthquake!");
         MESSAGE("It doesn't affect Wobbuffet…");
         NOT { HP_BAR(player); }
         // turn 4
-        MESSAGE("Foe Wobbuffet used Earthquake!");
+        MESSAGE("The foe Wobbuffet used Earthquake!");
         MESSAGE("It doesn't affect Wobbuffet…");
         NOT { HP_BAR(player); }
     }
@@ -275,7 +275,7 @@ SINGLE_BATTLE_TEST("(TERA) Terastallization changes the effect of Curse")
     } SCENE {
         MESSAGE("Wobbuffet used Curse!");
         HP_BAR(player);
-        MESSAGE("Wobbuffet cut its own HP and laid a curse on Foe Wobbuffet!");
+        MESSAGE("Wobbuffet cut its own HP and laid a curse on the foe Wobbuffet!");
         NOT { ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player); }
     }
 }
@@ -290,7 +290,7 @@ SINGLE_BATTLE_TEST("(TERA) Roost does not remove the user's Flying type while Te
     } SCENE {
         MESSAGE("Zapdos used Roost!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROOST, player);
-        MESSAGE("Foe Wobbuffet used Ice Beam!");
+        MESSAGE("The foe Wobbuffet used Ice Beam!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_BEAM, opponent);
         MESSAGE("It's super effective!");
     }
@@ -365,11 +365,11 @@ SINGLE_BATTLE_TEST("(TERA) Reflect Type copies a Terastallized Pokemon's Tera Ty
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
         // turn 2
-        MESSAGE("Foe Wobbuffet used Reflect Type!");
+        MESSAGE("The foe Wobbuffet used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, opponent);
         // turn 3
         MESSAGE("Wobbuffet used Scratch!");
-        MESSAGE("It doesn't affect Foe Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Wobbuffet…");
         NOT { HP_BAR(opponent); }
     }
 }
@@ -384,10 +384,10 @@ SINGLE_BATTLE_TEST("(TERA) Synchronoise uses a Terastallized Pokemon's Tera Type
         TURN { MOVE(opponent, MOVE_SYNCHRONOISE, gimmick: GIMMICK_TERA); }
     } SCENE {
         // turn 1
-        MESSAGE("Foe Wobbuffet used Synchronoise!");
+        MESSAGE("The foe Wobbuffet used Synchronoise!");
         MESSAGE("It doesn't affect Wobbuffet…");
         // turn 2
-        MESSAGE("Foe Wobbuffet used Synchronoise!");
+        MESSAGE("The foe Wobbuffet used Synchronoise!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SYNCHRONOISE, opponent);
     }
 }
@@ -402,7 +402,7 @@ SINGLE_BATTLE_TEST("(TERA) Revelation Dance uses a Terastallized Pokemon's Tera 
         TURN { MOVE(player, MOVE_REVELATION_DANCE, gimmick: GIMMICK_TERA); }
     } SCENE {
         MESSAGE("Oricorio used Revelation Dance!");
-        MESSAGE("It doesn't affect Foe Gengar…");
+        MESSAGE("It doesn't affect the foe Gengar…");
         NOT { HP_BAR(opponent); }
     }
 }
@@ -463,7 +463,7 @@ SINGLE_BATTLE_TEST("(TERA) Stellar type does not change the user's defensive pro
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: tera); MOVE(opponent, MOVE_PSYCHIC); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Psychic!");
+        MESSAGE("The foe Wobbuffet used Psychic!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCHIC, opponent);
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
@@ -482,11 +482,11 @@ SINGLE_BATTLE_TEST("(TERA) Reflect Type copies a Stellar-type Pokemon's base typ
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
         // turn 2
-        MESSAGE("Foe Wobbuffet used Reflect Type!");
+        MESSAGE("The foe Wobbuffet used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, opponent);
         // turn 3
         MESSAGE("Banette used Scratch!");
-        MESSAGE("It doesn't affect Foe Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Wobbuffet…");
         NOT { HP_BAR(opponent); }
     }
 }
@@ -501,7 +501,7 @@ SINGLE_BATTLE_TEST("(TERA) Revelation Dance uses a Stellar-type Pokemon's base t
         TURN { MOVE(player, MOVE_REVELATION_DANCE, gimmick: GIMMICK_TERA); }
     } SCENE {
         MESSAGE("Oricorio used Revelation Dance!");
-        MESSAGE("It doesn't affect Foe Gumshoos…");
+        MESSAGE("It doesn't affect the foe Gumshoos…");
         NOT { HP_BAR(opponent); }
     }
 }
@@ -520,7 +520,7 @@ SINGLE_BATTLE_TEST("(TERA) Conversion2 fails if last hit by a Stellar-type move"
         MESSAGE("Wobbuffet used Tera Blast!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_BLAST, player);
         // turn 2
-        MESSAGE("Foe Wobbuffet used Conversion 2!");
+        MESSAGE("The foe Wobbuffet used Conversion 2!");
         MESSAGE("But it failed!");
     }
 }
@@ -536,7 +536,7 @@ SINGLE_BATTLE_TEST("(TERA) Roost does not remove Flying-type ground immunity whe
     } SCENE {
         MESSAGE("Zapdos used Roost!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROOST, player);
-        MESSAGE("Foe Wobbuffet used Ice Beam!");
+        MESSAGE("The foe Wobbuffet used Ice Beam!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_BEAM, opponent);
         MESSAGE("It's super effective!");
     }
@@ -649,7 +649,7 @@ SINGLE_BATTLE_TEST("(TERA) Protean cannot change the type of a Terastallized Pok
                MOVE(opponent, MOVE_EMBER); }
     } SCENE {
         MESSAGE("Greninja used Bubble!");
-        MESSAGE("Foe Wobbuffet used Ember!");
+        MESSAGE("The foe Wobbuffet used Ember!");
         MESSAGE("It's super effective!");
     }
 }

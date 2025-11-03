@@ -35,7 +35,7 @@ DOUBLE_BATTLE_TEST("Flower Veil prevents Toxic bad poison on partner - right tar
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ABILITY_POPUP(opponentLeft, ABILITY_FLOWER_VEIL);
-        MESSAGE("Foe Chikorita surrounded itself with a veil of petals!");
+        MESSAGE("The foe Chikorita surrounded itself with a veil of petals!");
     }
 }
 
@@ -59,7 +59,7 @@ DOUBLE_BATTLE_TEST("Flower Veil prevents Toxic bad poison on partner - left targ
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         ABILITY_POPUP(opponentRight, ABILITY_FLOWER_VEIL);
-        MESSAGE("Foe Chikorita surrounded itself with a veil of petals!");
+        MESSAGE("The foe Chikorita surrounded itself with a veil of petals!");
     }
 }
 

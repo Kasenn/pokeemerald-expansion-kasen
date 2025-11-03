@@ -108,7 +108,7 @@ SINGLE_BATTLE_TEST("Hit Escape: U-turn switches the user out after Ice Face acti
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_ICE_FACE);
-        MESSAGE("Foe Eiscue transformed!");
+        MESSAGE("The foe Eiscue transformed!");
         SEND_IN_MESSAGE("Wynaut");
     }
 }

@@ -219,7 +219,7 @@ DOUBLE_BATTLE_TEST("Stockpile's Def and Sp. Def boost is lost after using Spit U
             MESSAGE("Wobbuffet's Defense fell!");
         }
         else if (count == 2) {
-            MESSAGE("Wobbuffet's Defense harshly fell!");
+            MESSAGE("Wobbuffet's Defense fell harshly!");
         }
         else {
             MESSAGE("Wobbuffet's Defense severely fell!");
@@ -230,7 +230,7 @@ DOUBLE_BATTLE_TEST("Stockpile's Def and Sp. Def boost is lost after using Spit U
             MESSAGE("Wobbuffet's Sp. Def fell!");
         }
         else if (count == 2) {
-            MESSAGE("Wobbuffet's Sp. Def harshly fell!");
+            MESSAGE("Wobbuffet's Sp. Def fell harshly!");
         }
         else {
             MESSAGE("Wobbuffet's Sp. Def severely fell!");

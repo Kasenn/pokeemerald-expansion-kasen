@@ -583,11 +583,11 @@ TEST("Battle strings fit on the battle message window")
 
     s32 sixDigitNines = 999999;                                 // 36 pixels.
     u8 nickname[POKEMON_NAME_LENGTH + 1] = _("MMMMMMMMMMMM");   // 72 pixels.
-    u32 longMoveID = MOVE_NATURES_MADNESS;                      // 89 pixels.
+    u32 longMoveID = MOVE_STOMPING_TANTRUM;                      // 89 pixels.
     u32 longAbilityID = ABILITY_WATER_COMPACTION;               // 91 pixels.
     u32 longStatName = STAT_EVASION;                            // 40 pixels.
     u32 longTypeName = TYPE_ELECTRIC;                           // 43 pixels.
-    u32 longSpeciesName = SPECIES_SANDY_SHOCKS;                 // 47 pixels.
+    u32 longSpeciesName = SPECIES_CRABOMINABLE;                 // 47 pixels.
     u32 longItemName = ITEM_HEAVY_DUTY_BOOTS;                   // 73 pixels.
     u8 boxName[9] = _("MMMMMMMM");                              // 54 pixels.
     u8 enemyNickname[POKEMON_NAME_LENGTH + 1] = _("Crabominable");
@@ -608,10 +608,54 @@ TEST("Battle strings fit on the battle message window")
         PARAMETRIZE_LABEL("%S", gBattleStringsTable[i]) { battleStringId = i; }
     }
 
-    if (battleStringId == STRINGID_BESTOWITEMGIVING)
+    switch (battleStringId)
     {
-        u8 enemyNickname[POKEMON_NAME_LENGTH + 1] = _("Passimian");
-        SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, enemyNickname);
+    case STRINGID_TARGETSSTATWASMAXEDOUT:
+        longAbilityID = ABILITY_ANGER_POINT;
+        break;
+    case STRINGID_PKMNWASDEFROSTEDBY:
+        longMoveID = MOVE_FUSION_FLARE;
+        break;
+    case STRINGID_PKMNSITEMCUREDPOISON:
+        longItemName = ITEM_PECHA_BERRY;
+        break;
+    case STRINGID_PKMNSITEMDEFROSTEDIT:
+        longItemName = ITEM_ASPEAR_BERRY;
+        break;
+    case STRINGID_PKMNSITEMWOKEIT:
+        longItemName = ITEM_CHESTO_BERRY;
+        break;
+    case STRINGID_PKMNSITEMNORMALIZEDSTATUS:
+        longItemName = ITEM_LUM_BERRY;
+        break;
+    case STRINGID_POWERHERB:
+        longItemName = ITEM_POWER_HERB;
+        break;
+    case STRINGID_BUFFERENDS:
+        longMoveID = MOVE_MAGNET_RISE;
+    case STRINGID_MEGAEVOREACTING:
+        longItemName = ITEM_ABOMASITE;
+        longSpeciesName = SPECIES_ABOMASNOW;
+        break;
+    case STRINGID_MEGAEVOEVOLVED:
+        SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, COMPOUND_STRING("Abomasnow"));
+        longSpeciesName = SPECIES_ABOMASNOW;
+        break;
+    case STRINGID_INCINERATEBURN:
+        longItemName = ITEM_MARANGA_BERRY;
+        break;
+    case STRINGID_RECEIVERABILITYTAKEOVER:
+        longAbilityID = ABILITY_RECEIVER;
+        break;
+    case STRINGID_POWERCONSTRUCTTRANSFORM:
+        SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, COMPOUND_STRING("Zygarde"));
+        longSpeciesName = SPECIES_ZYGARDE;
+        break;
+    case STRINGID_TARGETISHURTBYMEGAEXHAUSTION:
+        SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, COMPOUND_STRING("Abomasnow"));
+        break;
+    default:
+        break;
     }
 
     // Clear buffers
@@ -627,9 +671,6 @@ TEST("Battle strings fit on the battle message window")
     gBattlerPositions[1] = B_POSITION_OPPONENT_LEFT;
     gBattlerPositions[2] = B_POSITION_PLAYER_RIGHT;
     gBattlerPositions[3] = B_POSITION_OPPONENT_RIGHT;
-
-    if (battleStringId == STRINGID_TARGETSSTATWASMAXEDOUT)
-        longAbilityID = ABILITY_ANGER_POINT;
 
     // Set abilities
     gLastUsedAbility = longAbilityID;
@@ -799,8 +840,7 @@ TEST("Battle strings fit on the battle message window")
         break;
     case STRINGID_USINGITEMSTATOFPKMNROSE:
         StringCopy(gBattleTextBuff1, gStatNamesTable[STAT_DEF]);
-        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_DRASTICALLY]);
-        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
+        StringCopy(gBattleTextBuff2, COMPOUND_STRING("lowered"));
         break;
     // Buffer Stat name to B_BUFF1, "severely fell" to B_BUFF2
     case STRINGID_ATTACKERSSTATFELL:

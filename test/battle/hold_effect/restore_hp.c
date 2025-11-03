@@ -22,9 +22,9 @@ DOUBLE_BATTLE_TEST("Restore HP Item effects do not miss timing")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRE_PLEDGE, playerRight);
         MESSAGE("A sea of fire enveloped the opposing team!");
-        MESSAGE("Foe Wynaut is hurt by the sea of fire!");
+        MESSAGE("The foe Wynaut is hurt by the sea of fire!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Foe Wobbuffet is hurt by the sea of fire!");
+        MESSAGE("The foe Wobbuffet is hurt by the sea of fire!");
     }
 }
 

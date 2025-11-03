@@ -28,11 +28,11 @@ SINGLE_BATTLE_TEST("Spikes damage on switch in")
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         for (count = 0; count < layers; ++count) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, player);
-            MESSAGE("Spikes were scattered all around the opposing team!");
+            MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         }
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP / divisor);
-        MESSAGE("Foe Wynaut is hurt by spikes!");
+        MESSAGE("The foe Wynaut is hurt by spikes!");
     }
 }
 
@@ -51,16 +51,16 @@ SINGLE_BATTLE_TEST("Spikes fails after 3 layers")
     } SCENE {
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, player);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, player);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, player);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         MESSAGE("Wobbuffet used Spikes!");
         MESSAGE("But it failed!");
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP / 4);
-        MESSAGE("Foe Wynaut is hurt by spikes!");
+        MESSAGE("The foe Wynaut is hurt by spikes!");
     }
 }
 
@@ -79,10 +79,10 @@ SINGLE_BATTLE_TEST("Spikes damage on subsequent switch ins")
         s32 maxHP1 = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP1 / 8);
-        MESSAGE("Foe Wynaut is hurt by spikes!");
+        MESSAGE("The foe Wynaut is hurt by spikes!");
         MESSAGE("2 sent out Wobbuffet!");
         HP_BAR(opponent, damage: maxHP0 / 8);
-        MESSAGE("Foe Wobbuffet is hurt by spikes!");
+        MESSAGE("The foe Wobbuffet is hurt by spikes!");
     }
 }
 

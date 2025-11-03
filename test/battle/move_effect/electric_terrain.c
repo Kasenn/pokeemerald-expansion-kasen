@@ -11,10 +11,10 @@ SINGLE_BATTLE_TEST("Electric Terrain protects grounded battlers from falling asl
         TURN { MOVE(player, MOVE_SPORE); }
     } SCENE {
         MESSAGE("Wobbuffet used Electric Terrain!");
-        MESSAGE("Foe Claydol used Spore!");
+        MESSAGE("The foe Claydol used Spore!");
         MESSAGE("Wobbuffet surrounds itself with electrified terrain!");
         MESSAGE("Wobbuffet used Spore!");
-        MESSAGE("Foe Claydol fell asleep!");
+        MESSAGE("The foe Claydol fell asleep!");
         STATUS_ICON(opponent, sleep: TRUE);
     }
 }
@@ -54,18 +54,18 @@ SINGLE_BATTLE_TEST("Electric Terrain lasts for 5 turns")
         TURN {}
         TURN {}
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, player);
         MESSAGE("An electric current runs across the battlefield!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("The electricity disappeared from the battlefield.");
     }

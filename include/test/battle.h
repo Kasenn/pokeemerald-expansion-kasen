@@ -46,7 +46,7 @@
  *           TURN { MOVE(player, MOVE_STUN_SPORE); } // 3.
  *       } SCENE {
  *           ANIMATION(ANIM_TYPE_MOVE, MOVE_STUN_SPORE, player);
- *           MESSAGE("Foe Wobbuffet is paralyzed! It may be unable to move!"); // 4
+ *           MESSAGE("The foe Wobbuffet is paralyzed! It may be unable to move!"); // 4
  *           STATUS_ICON(opponent, paralysis: TRUE); // 4.
  *       }
  *   }
@@ -85,7 +85,7 @@
  * 2. Battle a wild Oddish.
  * 3. Use Stun Spore.
  * 4. Check that the move animation does not play.
- * 5. Check that a "It doesn't affect Foe Oddish…" message is shown.
+ * 5. Check that a "It doesn't affect the foe Oddish…" message is shown.
  *
  * This can again be translated as follows:
  *
@@ -458,7 +458,7 @@
  * following command succeeds.
  *     // Our Wobbuffet does not Celebrate before the foe's.
  *     NOT MESSAGE("Wobbuffet used Celebrate!");
- *     MESSAGE("Foe Wobbuffet used Celebrate!");
+ *     MESSAGE("The foe Wobbuffet used Celebrate!");
  * WARNING: NOT is an alias of NONE_OF, so it behaves surprisingly when
  *          applied to multiple commands wrapped in braces.
  *
@@ -477,7 +477,7 @@
  *         MESSAGE("Wobbuffet used Celebrate!");
  *         MESSAGE("Wobbuffet is paralyzed! It may be unable to move!");
  *     }
- *     MESSAGE("Foe Wobbuffet used Celebrate!");
+ *     MESSAGE("The foe Wobbuffet used Celebrate!");
  *
  * PLAYER_PARTY and OPPONENT_PARTY
  * Refer to the party members defined in GIVEN, e.g.:
@@ -1044,15 +1044,15 @@ void SendOut(u32 sourceLine, struct BattlePokemon *, u32 partyIndex);
     (B_USE_FROSTBITE ? STATUS_ICON(battler, frostbite: isFrostbite) : STATUS_ICON(battler, freeze: isFrostbite))
 
 #define SWITCH_OUT_MESSAGE(name) ONE_OF {                                         \
-                                     MESSAGE(name ", that's enough! Come back!"); \
+                                     MESSAGE(name ", switch out! Come back!");    \
                                      MESSAGE(name ", come back!");                \
-                                     MESSAGE(name ", OK! Come back!");            \
-                                     MESSAGE(name ", good! Come back!");          \
+                                     MESSAGE(name ", enough! Come back!");        \
+                                     MESSAGE(name ", good job! Get back!");       \
                                  }
 
 #define SEND_IN_MESSAGE(name)    ONE_OF {                                                   \
                                      MESSAGE("Go! " name "!");                              \
-                                     MESSAGE("Do it! " name "!");                \
+                                     MESSAGE("You're in charge, " name "!");                \
                                      MESSAGE("Go for it, " name "!");                       \
                                      MESSAGE("Your foe's weak! Get 'em, " name "!");   \
                                  }

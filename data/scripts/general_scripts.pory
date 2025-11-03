@@ -551,10 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    givemon(SPECIES_DEWGONG, 100, abilityNum=2)
-    givemon(SPECIES_PARASECT, 100, abilityNum=1)
-    givemon(SPECIES_LUDICOLO, 100, abilityNum=1)
-    givemon(SPECIES_CHARIZARD, 100)
+    givemon(SPECIES_NINJASK, 100, 0,0,NATURE_TIMID,0, 0,0,0,0,252,0,0,0,0,0,31,0,0,MOVE_TRICK_ROOM, MOVE_AGILITY)
     return
 }
 script Debug_Script_4{

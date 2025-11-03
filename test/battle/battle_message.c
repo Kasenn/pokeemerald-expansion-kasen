@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Battle Message: Send-in message depends on foe HP")
         if (hp > 69)
             MESSAGE("Go! Wynaut!");
         else if (hp > 39)
-            MESSAGE("Do it! Wynaut!");
+            MESSAGE("You're in charge, Wynaut!");
         else if (hp > 9)
             MESSAGE("Go for it, Wynaut!");
         else

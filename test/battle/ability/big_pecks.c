@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Big Pecks prevents Defense stage reduction from moves")
         TURN { MOVE(player, MOVE_LEER); }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-        MESSAGE("Foe Pidgey's Big Pecks prevents Defense loss!");
+        MESSAGE("The foe Pidgey's Defense was not lowered!");
     }
 }
 
@@ -27,10 +27,10 @@ SINGLE_BATTLE_TEST("Big Pecks is ignored by Mold Breaker")
         ABILITY_POPUP(player, ABILITY_MOLD_BREAKER);
         MESSAGE("Pinsir breaks the mold!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
-        MESSAGE("Foe Pidgey's Defense fell!");
+        MESSAGE("The foe Pidgey's Defense fell!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-            MESSAGE("Foe Pidgey's Big Pecks prevents Defense loss!");
+            MESSAGE("The foe Pidgey's Big Pecks prevents Defense loss!");
         }
     }
 }
@@ -46,8 +46,8 @@ SINGLE_BATTLE_TEST("Big Pecks doesn't prevent Defense stage reduction from moves
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUPERPOWER, opponent);
-        MESSAGE("Foe Pidgey's Attack fell!");
-        MESSAGE("Foe Pidgey's Defense fell!");
+        MESSAGE("The foe Pidgey's Attack fell!");
+        MESSAGE("The foe Pidgey's Defense fell!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 1);
     }
@@ -64,9 +64,9 @@ SINGLE_BATTLE_TEST("Big Pecks doesn't prevent Topsy-Turvy")
         TURN { MOVE(opponent, MOVE_HARDEN); MOVE(player, MOVE_TOPSY_TURVY); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, opponent);
-        MESSAGE("Foe Pidgey's Defense rose!");
+        MESSAGE("The foe Pidgey's Defense rose!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOPSY_TURVY, player);
-        MESSAGE("Foe Pidgey's stat changes were all reversed!");
+        MESSAGE("The foe Pidgey's stat changes were all reversed!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 1);
     }
@@ -85,7 +85,7 @@ SINGLE_BATTLE_TEST("Big Pecks doesn't prevent Spectral Thief from resetting posi
         TURN { MOVE(opponent, MOVE_HARDEN); MOVE(player, MOVE_SPECTRAL_THIEF); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HARDEN, opponent);
-        MESSAGE("Foe Pidgey's Defense rose!");
+        MESSAGE("The foe Pidgey's Defense rose!");
         MESSAGE("Wobbuffet stole the target's boosted stats!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPECTRAL_THIEF, player);
     } THEN {

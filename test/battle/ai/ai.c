@@ -27,7 +27,7 @@ AI_SINGLE_BATTLE_TEST("AI prefers Bubble over Water Gun if it's slower")
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI prefers Water Gun over Bubble if it knows that Foe has Contrary")
+AI_SINGLE_BATTLE_TEST("AI prefers Water Gun over Bubble if it knows that the foe has Contrary")
 {
     u32 abilityAI;
 
@@ -473,7 +473,7 @@ AI_SINGLE_BATTLE_TEST("AI will not choose Burn Up if the user lost the Fire typi
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI will only choose Surf 1/3 times if Foe mon has Volt Absorb")
+AI_SINGLE_BATTLE_TEST("AI will only choose Surf 1/3 times if the foe mon has Volt Absorb")
 {
     PASSES_RANDOMLY(1, 3, RNG_AI_ABILITY);
     GIVEN {
@@ -485,12 +485,12 @@ AI_SINGLE_BATTLE_TEST("AI will only choose Surf 1/3 times if Foe mon has Volt Ab
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
     } SCENE {
-        MESSAGE("Foe Lanturn used Surf!");
-        MESSAGE("Foe Lanturn used Surf!");
+        MESSAGE("The foe Lanturn used Surf!");
+        MESSAGE("The foe Lanturn used Surf!");
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI will choose Thunderbolt then Surf 2/3 times if Foe mon has Volt Absorb")
+AI_SINGLE_BATTLE_TEST("AI will choose Thunderbolt then Surf 2/3 times if the foe mon has Volt Absorb")
 {
     PASSES_RANDOMLY(2, 3, RNG_AI_ABILITY);
     GIVEN {
@@ -502,8 +502,8 @@ AI_SINGLE_BATTLE_TEST("AI will choose Thunderbolt then Surf 2/3 times if Foe mon
         TURN { EXPECT_MOVE(opponent, MOVE_THUNDERBOLT); }
         TURN { EXPECT_MOVE(opponent, MOVE_SURF); }
     } SCENE {
-        MESSAGE("Foe Lanturn used Thunderbolt!");
-        MESSAGE("Foe Lanturn used Surf!");
+        MESSAGE("The foe Lanturn used Thunderbolt!");
+        MESSAGE("The foe Lanturn used Surf!");
     }
 }
 

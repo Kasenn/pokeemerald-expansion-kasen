@@ -22,7 +22,7 @@ SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe")
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit attacks a Foe using Volt Switch / U-Turn / Parting Shot to switch out")
+SINGLE_BATTLE_TEST("Pursuit attacks a the foe using Volt Switch / U-Turn / Parting Shot to switch out")
 {
     u32 move;
     PARAMETRIZE { move = MOVE_VOLT_SWITCH; }
@@ -45,7 +45,7 @@ SINGLE_BATTLE_TEST("Pursuit attacks a Foe using Volt Switch / U-Turn / Parting S
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit doesn't attack a Foe using Teleport / Baton Pass to switch out")
+DOUBLE_BATTLE_TEST("Pursuit doesn't attack a the foe using Teleport / Baton Pass to switch out")
 {
     u32 move;
     PARAMETRIZE { move = MOVE_TELEPORT; }
@@ -71,7 +71,7 @@ DOUBLE_BATTLE_TEST("Pursuit doesn't attack a Foe using Teleport / Baton Pass to 
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit doesn't attack switching Foe if user already acted that turn")
+SINGLE_BATTLE_TEST("Pursuit doesn't attack switching the foe if user already acted that turn")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -155,7 +155,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks switching foes even if not targetting them (
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit attacks a switching Foe from fastest to slowest")
+DOUBLE_BATTLE_TEST("Pursuit attacks a switching the foe from fastest to slowest")
 {
     u32 speedLeft, speedRight;
     PARAMETRIZE { speedLeft = 5; speedRight = 3; }
@@ -186,7 +186,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks a switching Foe from fastest to slowest")
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit attacks a switching Foe but not switching allies")
+DOUBLE_BATTLE_TEST("Pursuit attacks a switching the foe but not switching allies")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -238,7 +238,7 @@ DOUBLE_BATTLE_TEST("Pursuit only attacks the first switching Foe")
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit only attacks a switching Foe if Foe is alive")
+DOUBLE_BATTLE_TEST("Pursuit only attacks a switching the foe if the foe is alive")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { HP(1); }
@@ -260,7 +260,7 @@ DOUBLE_BATTLE_TEST("Pursuit only attacks a switching Foe if Foe is alive")
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit attacks the second switching Foe if the first faints from pursuit")
+DOUBLE_BATTLE_TEST("Pursuit attacks the second switching the foe if the first faints from pursuit")
 {
     // This test does not make sense for B_PURSUIT_TARGET < GEN_4
     GIVEN {
@@ -286,7 +286,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks the second switching Foe if the first faints
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit only attacks a switching Foe if user is alive")
+DOUBLE_BATTLE_TEST("Pursuit only attacks a switching the foe if user is alive")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -299,13 +299,13 @@ DOUBLE_BATTLE_TEST("Pursuit only attacks a switching Foe if user is alive")
         TURN { MOVE(playerLeft, MOVE_VOLT_SWITCH, target: opponentLeft); MOVE(opponentLeft, MOVE_PURSUIT, target: playerLeft); SEND_OUT(playerLeft, 2); SEND_OUT(opponentLeft, 2); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VOLT_SWITCH, playerLeft);
-        MESSAGE("Foe Wynaut fainted!");
+        MESSAGE("The foe Wynaut fainted!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         SEND_IN_MESSAGE("Grimer");
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe but fails if user is asleep")
+SINGLE_BATTLE_TEST("Pursuit attacks a switching the foe but fails if user is asleep")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -315,13 +315,13 @@ SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe but fails if user is asleep"
         TURN { SWITCH(player, 1); MOVE(opponent, MOVE_PURSUIT); }
     } SCENE {
         SWITCH_OUT_MESSAGE("Wobbuffet");
-        MESSAGE("Foe Wynaut is fast asleep.");
+        MESSAGE("The foe Wynaut is fast asleep.");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         SEND_IN_MESSAGE("Zigzagoon");
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe and takes Life Orb damage")
+SINGLE_BATTLE_TEST("Pursuit attacks a switching the foe and takes Life Orb damage")
 {
     GIVEN {
         ASSUME(gItemsInfo[ITEM_LIFE_ORB].holdEffect == HOLD_EFFECT_LIFE_ORB);
@@ -338,7 +338,7 @@ SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe and takes Life Orb damage")
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit attacks a switching Foe but isn't affected by Follow Me")
+DOUBLE_BATTLE_TEST("Pursuit attacks a switching the foe but isn't affected by Follow Me")
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_FOLLOW_ME) == EFFECT_FOLLOW_ME);
@@ -357,7 +357,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks a switching Foe but isn't affected by Follow
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching Foe and hits twice if user has Parental Bond")
+SINGLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching the foe and hits twice if user has Parental Bond")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -375,7 +375,7 @@ SINGLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching Foe a
     }
 }
 
-DOUBLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching Foe and others mega evolve after switch")
+DOUBLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching the foe and others mega evolve after switch")
 {
     GIVEN {
         PLAYER(SPECIES_CHARIZARD) { Item(ITEM_CHARIZARDITE_X); }
@@ -397,7 +397,7 @@ DOUBLE_BATTLE_TEST("Pursuit user mega evolves before attacking a switching Foe a
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit user terastalizes before attacking a switching Foe and gets the damage boost from the tera type", s16 damage)
+SINGLE_BATTLE_TEST("Pursuit user terastalizes before attacking a switching the foe and gets the damage boost from the tera type", s16 damage)
 {
     u32 tera;
     PARAMETRIZE { tera = GIMMICK_NONE; }
@@ -473,7 +473,7 @@ SINGLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         ABILITY_POPUP(player, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Wynaut's Speed fell!");
+        MESSAGE("The foe Wynaut's Speed fell!");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -493,11 +493,11 @@ DOUBLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("Foe Wynaut's Speed fell!");
+        MESSAGE("The foe Wynaut's Speed fell!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_TANGLING_HAIR);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("Foe Wobbuffet's Speed fell!");
+        MESSAGE("The foe Wobbuffet's Speed fell!");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -535,19 +535,19 @@ DOUBLE_BATTLE_TEST("Pursuited mon correctly switches out after it got hit and ac
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_COTTON_DOWN);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("Foe Wynaut's Speed fell!");
+        MESSAGE("The foe Wynaut's Speed fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         MESSAGE("Wobbuffet's Speed fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("Foe Wobbuffet's Speed fell!");
+        MESSAGE("The foe Wobbuffet's Speed fell!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_COTTON_DOWN);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("Foe Wynaut's Speed fell!");
+        MESSAGE("The foe Wynaut's Speed fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         MESSAGE("Wobbuffet's Speed fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("Foe Wobbuffet's Speed fell!");
+        MESSAGE("The foe Wobbuffet's Speed fell!");
         SEND_IN_MESSAGE("Wobbuffet");
     }
 }
@@ -573,7 +573,7 @@ SINGLE_BATTLE_TEST("Pursuit becomes a locked move after being used on switch-out
     }
 }
 
-SINGLE_BATTLE_TEST("Pursuit attacks a switching Foe and switchin is correctly stored")
+SINGLE_BATTLE_TEST("Pursuit attacks a switching the foe and switchin is correctly stored")
 {
     u32 switchin;
     PARAMETRIZE { switchin = 1; }
@@ -644,7 +644,7 @@ SINGLE_BATTLE_TEST("Pursuit user gets forced out by Red Card and target still sw
         SWITCH_OUT_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Foe Voltorb was dragged out!");
+        MESSAGE("The foe Voltorb was dragged out!");
         SEND_IN_MESSAGE("Voltorb");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_VOLTORB);
@@ -666,7 +666,7 @@ SINGLE_BATTLE_TEST("Pursuit user faints to Life Orb and target still switches ou
         SWITCH_OUT_MESSAGE("Wobbuffet");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponent);
         HP_BAR(opponent);
-        MESSAGE("Foe Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         SEND_IN_MESSAGE("Voltorb");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_VOLTORB);

@@ -16,11 +16,11 @@ SINGLE_BATTLE_TEST("Primordial Sea blocks damaging Fire-type moves")
         TURN { MOVE(opponent, MOVE_EMBER); }
         TURN { MOVE(opponent, MOVE_EMBER); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Ember!");
+        MESSAGE("The foe Wobbuffet used Ember!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
         MESSAGE("The Fire-type attack fizzled out in the heavy rain!");
         NOT HP_BAR(player);
-        MESSAGE("Foe Wobbuffet used Ember!");
+        MESSAGE("The foe Wobbuffet used Ember!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
         MESSAGE("The Fire-type attack fizzled out in the heavy rain!");
         NOT HP_BAR(player);
@@ -42,7 +42,7 @@ DOUBLE_BATTLE_TEST("Primordial Sea blocks damaging Fire-type moves and prints th
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_ERUPTION); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Eruption!");
+        MESSAGE("The foe Wobbuffet used Eruption!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ERUPTION, opponentLeft);
         MESSAGE("The Fire-type attack fizzled out in the heavy rain!");
         NOT MESSAGE("The Fire-type attack fizzled out in the heavy rain!");
@@ -61,6 +61,6 @@ SINGLE_BATTLE_TEST("Primordial Sea does not block a move if Pokémon is asleep a
         TURN { MOVE(opponent, MOVE_EMBER); }
     } SCENE {
         NOT MESSAGE("The Fire-type attack fizzled out in the heavy rain!");
-        MESSAGE("Foe Wobbuffet is fast asleep.");
+        MESSAGE("The foe Wobbuffet is fast asleep.");
     }
 }

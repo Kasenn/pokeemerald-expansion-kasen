@@ -19,7 +19,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Ability and Item effects activate correctly af
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
-        MESSAGE("Foe Wobbuffet is switched out with the Eject Button!");
+        MESSAGE("The foe Wobbuffet is switched out with the Eject Button!");
         MESSAGE("2 sent out Pikachu!");
         NONE_OF {
             ABILITY_POPUP(opponentLeft, ABILITY_EMERGENCY_EXIT);
@@ -66,9 +66,9 @@ DOUBLE_BATTLE_TEST("Spread Moves: A spread move attack will activate both resist
         TURN { MOVE(playerLeft, MOVE_HYPER_VOICE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("Chilan Berry weakened the damage to Foe Raichu!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Raichu!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
-        MESSAGE("Chilan Berry weakened the damage to Foe Sandslash!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Sandslash!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerLeft);
         HP_BAR(opponentLeft, captureDamage: &opponentLeftDmg[0]);
@@ -98,7 +98,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: If a spread move attack will activate a resist
         TURN { MOVE(playerLeft, MOVE_HYPER_VOICE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
-        MESSAGE("Chilan Berry weakened the damage to Foe Sandslash!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Sandslash!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerLeft);
         HP_BAR(opponentLeft, captureDamage: &opponentLeftDmg[0]);
@@ -182,8 +182,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: Spread move, Gem Boosted, vs Resist Berries")
         TURN { MOVE(playerLeft, MOVE_HYPER_VOICE); }
     } SCENE {
         MESSAGE("Normal Gem strengthened Wobbuffet's power!");
-        MESSAGE("Chilan Berry weakened the damage to Foe Wobbuffet!");
-        MESSAGE("Chilan Berry weakened the damage to Foe Wynaut!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Wobbuffet!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Wynaut!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
@@ -202,8 +202,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: Explosion, Gem Boosted, vs Resist Berries")
         TURN { MOVE(playerLeft, MOVE_EXPLOSION); }
     } SCENE {
         MESSAGE("Normal Gem strengthened Wobbuffet's power!");
-        MESSAGE("Chilan Berry weakened the damage to Foe Wobbuffet!");
-        MESSAGE("Chilan Berry weakened the damage to Foe Wynaut!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Wobbuffet!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Wynaut!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
@@ -227,7 +227,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Spread move vs Eiscue and Mimikyu with 1 Eject
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAZOR_LEAF, playerLeft);
         ABILITY_POPUP(opponentLeft, ABILITY_DISGUISE);
         ABILITY_POPUP(opponentRight, ABILITY_ICE_FACE);
-        MESSAGE("Foe Mimikyu is switched out with the Eject Button!");
+        MESSAGE("The foe Mimikyu is switched out with the Eject Button!");
     }
 }
 
@@ -244,7 +244,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Spread move vs Wide Guard")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WIDE_GUARD, playerLeft);
         MESSAGE("Wide Guard protected your team!");
-        MESSAGE("Foe Wobbuffet used Hyper Voice!");
+        MESSAGE("The foe Wobbuffet used Hyper Voice!");
         MESSAGE("Wobbuffet protected itself!");
         MESSAGE("Wynaut protected itself!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerLeft);
@@ -262,9 +262,9 @@ DOUBLE_BATTLE_TEST("Spread Moves: Spread move vs one protecting mon")
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_PROTECT); MOVE(playerLeft, MOVE_HYPER_VOICE); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Protect!");
+        MESSAGE("The foe Wobbuffet used Protect!");
         MESSAGE("Wobbuffet used Hyper Voice!");
-        MESSAGE("Foe Wobbuffet protected itself!");
+        MESSAGE("The foe Wobbuffet protected itself!");
     }
 }
 
@@ -352,7 +352,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Doesn't affect message on both opposing mons")
         TURN { MOVE(playerLeft, MOVE_PRECIPICE_BLADES); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PRECIPICE_BLADES, playerLeft);
-        MESSAGE("It doesn't affect Foe Pidgey and Hoothoot…");
+        MESSAGE("It doesn't affect the foe Pidgey and Hoothoot…");
     }
 }
 
@@ -389,11 +389,11 @@ DOUBLE_BATTLE_TEST("Spread Moves: Focus Sash activates correctly")
         TURN { MOVE(playerRight, MOVE_HYPER_VOICE); MOVE(playerLeft, MOVE_EXPLOSION); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, playerRight);
-        MESSAGE("Foe Wynaut hung on using its Focus Sash!");
-        MESSAGE("Foe Wobbuffet hung on using its Focus Sash!");
+        MESSAGE("The foe Wynaut hung on using its Focus Sash!");
+        MESSAGE("The foe Wobbuffet hung on using its Focus Sash!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, playerLeft);
-        MESSAGE("Foe Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Wynaut hung on using its Focus Sash!");
-        MESSAGE("Foe Wynaut fainted!");
+        MESSAGE("The foe Wynaut fainted!");
     }
 }

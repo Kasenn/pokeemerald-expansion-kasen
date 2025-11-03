@@ -52,7 +52,7 @@ AI_DOUBLE_BATTLE_TEST("AI will not use Helping Hand if partner does not have any
                     SCORE_LT_VAL(opponentLeft, MOVE_HELPING_HAND, AI_SCORE_DEFAULT, target:opponentLeft);
                  }
     } SCENE {
-        NOT MESSAGE("Foe Wobbuffet used Helping Hand!");
+        NOT MESSAGE("The foe Wobbuffet used Helping Hand!");
     }
 }
 
@@ -81,7 +81,7 @@ AI_DOUBLE_BATTLE_TEST("AI will not use a status move if partner already chose He
                     SCORE_LT_VAL(opponentRight, statusMove, AI_SCORE_DEFAULT, target:opponentLeft);
                  }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Helping Hand!");
+        MESSAGE("The foe Wobbuffet used Helping Hand!");
     }
 }
 

@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Opportunist only copies Foe's positive stat changes in a tur
 }
 
 
-DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimidate against Contrary Foe in a double battle", s16 damageLeft, s16 damageRight)
+DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimidate against Contrary the foe in a double battle", s16 damageLeft, s16 damageRight)
 {
     u32 abilityLeft, abilityRight;
 
@@ -60,17 +60,17 @@ DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimid
         ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
         if (abilityLeft == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
         if (abilityRight == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
 
         if ((abilityLeft == ABILITY_CONTRARY && abilityRight != ABILITY_CONTRARY)
@@ -81,7 +81,7 @@ DOUBLE_BATTLE_TEST("Opportunist raises Attack only once when partner has Intimid
         } else if (abilityLeft == ABILITY_CONTRARY && abilityRight == ABILITY_CONTRARY) {
             ABILITY_POPUP(playerRight, ABILITY_OPPORTUNIST);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
-            MESSAGE("Espathra's Attack sharply rose!");
+            MESSAGE("Espathra's Attack rose sharply!");
         }
 
         HP_BAR(playerLeft, captureDamage: &results[i].damageLeft);
@@ -139,7 +139,7 @@ SINGLE_BATTLE_TEST("Opportunist copies each stat increase individually from abil
     }
 }
 
-SINGLE_BATTLE_TEST("Opportunist doesn't copy Foe stat increases gained via Opportunist")
+SINGLE_BATTLE_TEST("Opportunist doesn't copy the foe stat increases gained via Opportunist")
 {
     GIVEN {
         PLAYER(SPECIES_ESPATHRA) { Ability(ABILITY_OPPORTUNIST); }
@@ -155,7 +155,7 @@ SINGLE_BATTLE_TEST("Opportunist doesn't copy Foe stat increases gained via Oppor
     }
 }
 
-SINGLE_BATTLE_TEST("Opportunist copies Foe stat increase gained via Swagger and Flatter")
+SINGLE_BATTLE_TEST("Opportunist copies the foe stat increase gained via Swagger and Flatter")
 {
     GIVEN {
         PLAYER(SPECIES_ESPATHRA) { Ability(ABILITY_OPPORTUNIST); }
@@ -225,7 +225,7 @@ DOUBLE_BATTLE_TEST("Opportunist copies the stat of each Pokémon that were raise
         ABILITY_POPUP(opponentRight, ABILITY_INTREPID_SWORD);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
         ABILITY_POPUP(playerRight, ABILITY_OPPORTUNIST);
-        MESSAGE("Espathra's Attack sharply rose!");
+        MESSAGE("Espathra's Attack rose sharply!");
     } THEN {
         EXPECT_EQ(playerRight->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
     }

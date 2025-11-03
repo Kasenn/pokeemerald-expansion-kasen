@@ -959,7 +959,7 @@ void TestSpeciesName(void)
     s32 finalWidth = 0;
     s32 species = 0;
     s32 width = 0;
-
+    DebugPrintf2("==========SPECIES==========");
     for (int i = 0; i < NUM_SPECIES; i++)
     {
         width = GetStringWidth(FONT_NORMAL, gSpeciesInfo[i].speciesName, 0);
@@ -968,7 +968,7 @@ void TestSpeciesName(void)
         {
             finalWidth = width;
             species = i;
-            DebugPrintf2("width: %d, species %d", finalWidth, species);
+            DebugPrintf2("width: %d, %S", finalWidth, gSpeciesInfo[species].speciesName);
         }
     }
 }
@@ -978,7 +978,7 @@ void TestItemName(void)
     s32 finalWidth = 0;
     s32 itemId = 0;
     s32 width = 0;
-
+    DebugPrintf2("==========ITEMS==========");
     for (int i = 0; i < ITEMS_COUNT; i++)
     {
         width = GetStringWidth(FONT_NORMAL, gItemsInfo[i].name, 0);
@@ -997,7 +997,7 @@ void TestAbilityName(void)
     s32 finalWidth = 0;
     s32 itemId = 0;
     s32 width = 0;
-
+    DebugPrintf2("==========ABILITIES==========");
     for (int i = 0; i < ABILITIES_COUNT; i++)
     {
         width = GetStringWidth(FONT_NORMAL, gAbilitiesInfo[i].name, 0);
@@ -1007,6 +1007,28 @@ void TestAbilityName(void)
             finalWidth = width;
             itemId = i;
             DebugPrintf2("width: %d, %S", finalWidth, gAbilitiesInfo[itemId].name);
+        }
+    }
+}
+
+void TestMoveName(void)
+{
+    s32 finalWidth = 0;
+    s32 moveId = 0;
+    s32 width = 0;
+    DebugPrintf2("==========MOVES==========");
+    for (int i = 0; i < MOVES_COUNT; i++)
+    {
+        width = GetStringWidth(FONT_NORMAL, gMovesInfo[i].name, 0);
+
+        if (MoveThawsUser(i))
+                DebugPrintf2("move thaws user: %S, width: %d", gMovesInfo[i].name, width);
+
+        if (width > finalWidth && width < 200)
+        {
+            finalWidth = width;
+            moveId = i;
+            DebugPrintf2("width: %d, %S", finalWidth, gMovesInfo[moveId].name);
         }
     }
 }

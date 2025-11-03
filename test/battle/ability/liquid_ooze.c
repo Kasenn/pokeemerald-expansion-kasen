@@ -95,7 +95,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Strength Sap users to lose HP instead of 
         MESSAGE("Wobbuffet used Strength Sap!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Wobbuffet's Attack fell!");
+        MESSAGE("The foe Wobbuffet's Attack fell!");
         ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
         HP_BAR(player, captureDamage: &lostHp);
         MESSAGE("It sucked up the liquid ooze!");
@@ -127,10 +127,10 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes leech seed victim to faint before seeder"
         // Drain at end of turn
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_LEECH_SEED_DRAIN, opponent);
         if (ability != ABILITY_LIQUID_OOZE) {
-            MESSAGE("Foe Tentacool fainted!");
-            MESSAGE("Foe Tentacool's health is sapped by Leech Seed!");
+            MESSAGE("The foe Tentacool fainted!");
+            MESSAGE("The foe Tentacool's health is sapped by Leech Seed!");
         } else {
-            MESSAGE("Foe Tentacool fainted!");
+            MESSAGE("The foe Tentacool fainted!");
             ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
             MESSAGE("It sucked up the liquid ooze!");
             MESSAGE("Bulbasaur fainted!");

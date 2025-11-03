@@ -32,7 +32,7 @@ SINGLE_BATTLE_TEST("Anger Point does not trigger when already at maximum Attack 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BELLY_DRUM, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("Primeape cut its own HP and maximized Attack!");
+        MESSAGE("Primeape cut its own HP and maximized its Attack!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FROST_BREATH, opponent);
         MESSAGE("A critical hit!");
         NONE_OF {

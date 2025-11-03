@@ -241,7 +241,7 @@ SINGLE_BATTLE_TEST("Rage Fist base power is not increased if move had no affect"
         for (turns = 0; turns < 2; turns++) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_RAGE_FIST, player);
             HP_BAR(opponent, captureDamage: &timesGotHit[turns]);
-            MESSAGE("Foe Regirock used Scratch!");
+            MESSAGE("The foe Regirock used Scratch!");
             MESSAGE("It doesn't affect Gastly…");
         }
     } THEN {

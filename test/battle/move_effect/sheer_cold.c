@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Sheer Cold doesn't affect Ice-type Pokémon (Gen3-6)")
     } WHEN {
         TURN { MOVE(player, MOVE_SHEER_COLD); }
     } SCENE {
-        NOT MESSAGE("It doesn't affect Foe Glalie…");
+        NOT MESSAGE("It doesn't affect the foe Glalie…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
         HP_BAR(opponent, hp: 0);
     }
@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Sheer Cold doesn't affect Ice-type Pokémon (Gen7+)")
         TURN { MOVE(player, MOVE_SHEER_COLD); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
-        MESSAGE("It doesn't affect Foe Glalie…");
+        MESSAGE("It doesn't affect the foe Glalie…");
     }
 }
 
@@ -62,7 +62,7 @@ SINGLE_BATTLE_TEST("Sheer Cold can be endured by Focus Sash")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("Foe Wobbuffet hung on using its Focus Sash!");
+        MESSAGE("The foe Wobbuffet hung on using its Focus Sash!");
     }
 }
 

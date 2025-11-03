@@ -20,10 +20,10 @@ SINGLE_BATTLE_TEST("Contrary raises Attack when Intimidated in a single battle",
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         if (ability == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
         HP_BAR(player, captureDamage: &results[i].damage);
     } THEN {
@@ -53,17 +53,17 @@ DOUBLE_BATTLE_TEST("Contrary raises Attack when Intimidated in a double battle",
         ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
         if (abilityLeft == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
         if (abilityRight == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         } else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("Mightyena's Intimidate cuts Foe Spinda's Attack!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
         HP_BAR(playerLeft, captureDamage: &results[i].damageLeft);
         HP_BAR(playerRight, captureDamage: &results[i].damageRight);
@@ -90,28 +90,28 @@ SINGLE_BATTLE_TEST("Contrary raises stats after using a move which would normall
         TURN { MOVE(opponent, MOVE_OVERHEAT); }
         TURN { MOVE(opponent, MOVE_OVERHEAT); }
     } SCENE {
-        MESSAGE("Foe Spinda used Overheat!");
+        MESSAGE("The foe Spinda used Overheat!");
         HP_BAR(player, captureDamage: &results[i].damageBefore);
         if (ability == ABILITY_CONTRARY) {
             // ABILITY_POPUP(opponent, ABILITY_CONTRARY);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Sp. Atk sharply rose!");
+            MESSAGE("The foe Spinda's Sp. Atk rose sharply!");
         }
         else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Sp. Atk harshly fell!");
+            MESSAGE("The foe Spinda's Sp. Atk fell harshly!");
         }
 
-        // MESSAGE("Foe Spinda used Overheat!");
+        // MESSAGE("The foe Spinda used Overheat!");
         HP_BAR(player, captureDamage: &results[i].damageAfter);
         if (ability == ABILITY_CONTRARY) {
             // ABILITY_POPUP(opponent, ABILITY_CONTRARY);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Sp. Atk sharply rose!");
+            MESSAGE("The foe Spinda's Sp. Atk rose sharply!");
         }
         else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Sp. Atk harshly fell!");
+            MESSAGE("The foe Spinda's Sp. Atk fell harshly!");
         }
     }
     FINALLY {
@@ -134,21 +134,21 @@ SINGLE_BATTLE_TEST("Contrary lowers a stat after using a move which would normal
         TURN { MOVE(opponent, MOVE_SWORDS_DANCE); }
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Foe Spinda used Scratch!");
+        MESSAGE("The foe Spinda used Scratch!");
         HP_BAR(player, captureDamage: &results[i].damageBefore);
 
-        //MESSAGE("Foe Spinda used Swords Dance!");
+        //MESSAGE("The foe Spinda used Swords Dance!");
         if (ability == ABILITY_CONTRARY) {
             // ABILITY_POPUP(opponent, ABILITY_CONTRARY);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Attack harshly fell!");
+            MESSAGE("The foe Spinda's Attack fell harshly!");
         }
         else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Attack sharply rose!");
+            MESSAGE("The foe Spinda's Attack rose sharply!");
         }
 
-        // MESSAGE("Foe Spinda used Scratch!");
+        // MESSAGE("The foe Spinda used Scratch!");
         HP_BAR(player, captureDamage: &results[i].damageAfter);
     }
     FINALLY {
@@ -173,14 +173,14 @@ SINGLE_BATTLE_TEST("Contrary raises a stat after using a move which would normal
         if (ability == ABILITY_CONTRARY) {
             // ABILITY_POPUP(opponent, ABILITY_CONTRARY);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Attack rose!");
+            MESSAGE("The foe Spinda's Attack rose!");
         }
         else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda's Attack fell!");
+            MESSAGE("The foe Spinda's Attack fell!");
         }
 
-        MESSAGE("Foe Spinda used Scratch!");
+        MESSAGE("The foe Spinda used Scratch!");
         HP_BAR(player, captureDamage: &results[i].damage);
     }
     FINALLY {
@@ -202,16 +202,16 @@ SINGLE_BATTLE_TEST("Contrary lowers a stat after using a move which would normal
         TURN { MOVE(opponent, MOVE_BELLY_DRUM); }
         TURN { MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
-        MESSAGE("Foe Spinda used Scratch!");
+        MESSAGE("The foe Spinda used Scratch!");
         HP_BAR(player, captureDamage: &results[i].damageBefore);
 
         if (ability == ABILITY_CONTRARY) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda cut its own HP and maximized Attack!"); //Message stays the same
+            MESSAGE("The foe Spinda cut its own HP and maximized its Attack!"); //Message stays the same
         }
         else {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("Foe Spinda cut its own HP and maximized Attack!");
+            MESSAGE("The foe Spinda cut its own HP and maximized its Attack!");
         }
 
         HP_BAR(player, captureDamage: &results[i].damageAfter);
@@ -236,9 +236,9 @@ SINGLE_BATTLE_TEST("Sticky Web raises Speed by 1 for Contrary mon on switch-in")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
         MESSAGE("A sticky web spreads out on the ground around the opposing team!");
         MESSAGE("2 sent out Snivy!");
-        MESSAGE("Foe Snivy was caught in a Sticky Web!");
+        MESSAGE("The foe Snivy was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("Foe Snivy's Speed rose!");
+        MESSAGE("The foe Snivy's Speed rose!");
     }
 }
 

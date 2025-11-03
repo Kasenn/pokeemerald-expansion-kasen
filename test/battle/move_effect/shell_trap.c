@@ -108,14 +108,14 @@ DOUBLE_BATTLE_TEST("Shell Trap activates immediately after being hit on turn 1 a
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SHELL_TRAP_SETUP, playerLeft);
         MESSAGE("Wobbuffet set a shell trap!");
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         MESSAGE("Wobbuffet used Shell Trap!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_TRAP, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wynaut used Celebrate!");
+        MESSAGE("The foe Wynaut used Celebrate!");
     }
 }
 
@@ -132,8 +132,8 @@ DOUBLE_BATTLE_TEST("Shell Trap activates immediately after being hit on turn 2 a
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SHELL_TRAP_SETUP, playerLeft);
         MESSAGE("Wobbuffet set a shell trap!");
-        MESSAGE("Foe Wynaut used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wynaut used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         MESSAGE("Wobbuffet used Shell Trap!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_TRAP, playerLeft);
@@ -157,8 +157,8 @@ DOUBLE_BATTLE_TEST("Shell Trap activates immediately after being hit on turn 3 a
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SHELL_TRAP_SETUP, playerLeft);
         MESSAGE("Wobbuffet set a shell trap!");
         MESSAGE("Wobbuffet used Celebrate!");
-        MESSAGE("Foe Wynaut used Celebrate!");
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wynaut used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         MESSAGE("Wobbuffet used Shell Trap!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_TRAP, playerLeft);
@@ -188,7 +188,7 @@ DOUBLE_BATTLE_TEST("Shell Trap targets correctly if one of the opponents has fai
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SHELL_TRAP_SETUP, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SHELL_TRAP, playerRight);
-        MESSAGE("Foe Scizor fainted!");
+        MESSAGE("The foe Scizor fainted!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerLeft);
 

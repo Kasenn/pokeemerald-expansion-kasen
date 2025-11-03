@@ -45,7 +45,7 @@ WILD_BATTLE_TEST("Ball Fetch doesn't trigger if the Pokémon is already holding 
     } SCENE {
         if (item == ITEM_NONE)
         {
-            MESSAGE("You used Great Ball!");
+            MESSAGE("1 used the Great Ball!");
             ABILITY_POPUP(player, ABILITY_BALL_FETCH);
             MESSAGE("Yamper found a Great Ball!");
         }
@@ -84,12 +84,12 @@ WILD_BATTLE_TEST("Ball Fetch only picks up the first failed ball, once per battl
         TURN { MOVE(player, MOVE_BESTOW); }
         TURN { USE_ITEM(player, item2, WITH_RNG(RNG_BALLTHROW_SHAKE, MAX_u16)); }
     } SCENE {
-        MESSAGE("You used Great Ball!");
+        MESSAGE("1 used the Great Ball!");
         ABILITY_POPUP(player, ABILITY_BALL_FETCH);
         MESSAGE("Yamper found a Great Ball!");
         MESSAGE("Yamper used Bestow!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
-        MESSAGE("Wild Metagross received Great Ball from Yamper!");
+        MESSAGE("The wild Metagross received Great Ball from Yamper!");
         NOT ABILITY_POPUP(player, ABILITY_BALL_FETCH);
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);

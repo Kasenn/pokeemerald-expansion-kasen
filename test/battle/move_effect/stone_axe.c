@@ -22,7 +22,7 @@ SINGLE_BATTLE_TEST("Stone Axe sets up hazards after hitting the target")
         MESSAGE("Pointed stones float in the air around the opposing team!");
         MESSAGE("2 sent out Wobbuffet!");
         HP_BAR(opponent, damage: maxHP / 8);
-        MESSAGE("Pointed stones dug into Foe Wobbuffet!");
+        MESSAGE("Pointed stones dug into the foe Wobbuffet!");
     }
 }
 
@@ -59,7 +59,7 @@ SINGLE_BATTLE_TEST("Stone Axe can set up pointed stones only once")
 
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP / 8);
-        MESSAGE("Pointed stones dug into Foe Wynaut!");
+        MESSAGE("Pointed stones dug into the foe Wynaut!");
     }
 }
 
@@ -88,7 +88,7 @@ SINGLE_BATTLE_TEST("Stone Axe fails to set up hazards if user faints")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by Foe Wobbuffet's Rocky Helmet!");
-        NOT MESSAGE("Pointed stones float in the air around Foe team!");
+        MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
+        NOT MESSAGE("Pointed stones float in the air around the foe team!");
     }
 }

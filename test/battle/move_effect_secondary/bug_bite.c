@@ -52,26 +52,26 @@ SINGLE_BATTLE_TEST("Bug Bite eats the target's berry and immediately gains its e
         HP_BAR(opponent);
         if (effect == HOLD_EFFECT_RESTORE_HP || effect == HOLD_EFFECT_ENIGMA_BERRY) {
             if (item == ITEM_ORAN_BERRY) {
-                MESSAGE("Wobbuffet stole and ate Foe Wobbuffet's Oran Berry!");
+                MESSAGE("Wobbuffet stole and ate its target's Oran Berry!");
             } else if (item == ITEM_SITRUS_BERRY) {
-                MESSAGE("Wobbuffet stole and ate Foe Wobbuffet's Sitrus Berry!");
+                MESSAGE("Wobbuffet stole and ate its target's Sitrus Berry!");
             } else {
-                MESSAGE("Wobbuffet stole and ate Foe Wobbuffet's Enigma Berry!");
+                MESSAGE("Wobbuffet stole and ate its target's Enigma Berry!");
             }
             HP_BAR(player);
         }
         else if (effect == HOLD_EFFECT_RESTORE_PP) {
-            MESSAGE("Wobbuffet's Leppa Berry restored Bug Bite's PP!");
+            MESSAGE("Wobbuffet restored Bug Bite's PP using its Leppa Berry!");
         }
         else if (status1 != STATUS1_NONE) {
             if (status1 == STATUS1_BURN) {
                 MESSAGE("Wobbuffet's Rawst Berry healed its burn!");
             } else if (status1 == STATUS1_SLEEP) {
-                MESSAGE("Wobbuffet's Chesto Berry woke it from its sleep!");
+                MESSAGE("Wobbuffet's Chesto Berry woke it up!");
             } else if (status1 == STATUS1_PARALYSIS) {
-                MESSAGE("Wobbuffet's Cheri Berry cured paralysis!");
+                MESSAGE("Wobbuffet's Cheri Berry cured its paralysis!");
             } else if (status1 == STATUS1_TOXIC_POISON || status1 == STATUS1_POISON) {
-                MESSAGE("Wobbuffet's Pecha Berry cured poison!");
+                MESSAGE("Wobbuffet's Pecha Berry cured its poison!");
             } else if (status1 == STATUS1_FROSTBITE) {
                 MESSAGE("Wobbuffet's Aspear Berry cured its frostbite!");
             }
@@ -80,23 +80,23 @@ SINGLE_BATTLE_TEST("Bug Bite eats the target's berry and immediately gains its e
         else if (statId != 0) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
             if (statId == STAT_ATK) {
-                MESSAGE("Using Liechi Berry, the Attack of Wobbuffet rose!");
+                MESSAGE("The Liechi Berry raised Wobbuffet's Attack!");
             } else if (statId == STAT_DEF) {
                 if (item == ITEM_GANLON_BERRY) {
-                    MESSAGE("Using Ganlon Berry, the Defense of Wobbuffet rose!");
+                    MESSAGE("The Ganlon Berry raised Wobbuffet's Defense!");
                 } else {
-                    MESSAGE("Using Kee Berry, the Defense of Wobbuffet rose!");
+                    MESSAGE("The Kee Berry raised Wobbuffet's Defense!");
                 }
             } else if (statId == STAT_SPDEF) {
                 if (item == ITEM_APICOT_BERRY) {
-                    MESSAGE("Using Apicot Berry, the Sp. Def of Wobbuffet rose!");
+                    MESSAGE("The Apicot Berry raised Wobbuffet's Sp. Def!");
                 } else {
-                    MESSAGE("Using Maranga Berry, the Sp. Def of Wobbuffet rose!");
+                    MESSAGE("The Maranga Berry raised Wobbuffet's Sp. Def!");
                 }
             } else if (statId == STAT_SPEED) {
-                MESSAGE("Using Salac Berry, the Speed of Wobbuffet rose!");
+                MESSAGE("The Salac Berry raised Wobbuffet's Speed!");
             } else if (statId == STAT_SPATK) {
-                MESSAGE("Using Petaya Berry, the Sp. Atk of Wobbuffet rose!");
+                MESSAGE("The Petaya Berry raised Wobbuffet's Sp. Atk!");
             }
         }
     } THEN {
@@ -126,7 +126,7 @@ SINGLE_BATTLE_TEST("Tanga Berry activates before Bug Bite")
     } SCENE {
         MESSAGE("Wobbuffet used Bug Bite!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("Tanga Berry weakened the damage to Foe Wobbuffet!");
+        MESSAGE("Tanga Berry weakened the damage to the foe Wobbuffet!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BUG_BITE, player);
         HP_BAR(opponent);
     } THEN {

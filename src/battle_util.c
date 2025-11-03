@@ -11073,16 +11073,28 @@ void BufferStatChange(u32 battler, u8 statId, enum StringID stringId)
     if (stringId == STRINGID_STATFELL)
     {
         if (hasContrary)
+        {
             PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATROSE)
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATROSE3)
+        }
         else
+        {
             PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATFELL)
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATFELL3)
+        }
     }
     else if (stringId == STRINGID_STATROSE)
     {
         if (hasContrary)
+        {
             PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATFELL)
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATFELL3)
+        }
         else
+        {
             PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATROSE)
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATROSE3)
+        }
     }
     else
     {

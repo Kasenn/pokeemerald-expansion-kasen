@@ -51,7 +51,7 @@ SINGLE_BATTLE_TEST("Burn Up fails if the user has Protean/Libero and is not a Fi
     } WHEN {
         TURN { MOVE(opponent, MOVE_BURN_UP); }
     } SCENE {
-        MESSAGE("Foe Kecleon used Burn Up!");
+        MESSAGE("The foe Kecleon used Burn Up!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player); }
         MESSAGE("But it failed!");
     }

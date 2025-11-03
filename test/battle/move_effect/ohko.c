@@ -43,7 +43,7 @@ SINGLE_BATTLE_TEST("OHKO moves can can be endured by Focus Sash")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FISSURE, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("Foe Wobbuffet hung on using its Focus Sash!");
+        MESSAGE("The foe Wobbuffet hung on using its Focus Sash!");
     }
 }
 

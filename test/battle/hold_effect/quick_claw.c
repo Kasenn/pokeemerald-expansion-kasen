@@ -17,6 +17,6 @@ SINGLE_BATTLE_TEST("Quick Claw activates 20% of the time")
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
         MESSAGE("Wobbuffet used Scratch!");
-        MESSAGE("Foe Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
     }
 }

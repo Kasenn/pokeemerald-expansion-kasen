@@ -19,10 +19,10 @@ SINGLE_BATTLE_TEST("Ceaseless Edge sets up hazards after hitting the target")
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(opponent);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         MESSAGE("2 sent out Wobbuffet!");
         HP_BAR(opponent, damage: maxHP / 8);
-        MESSAGE("Foe Wobbuffet is hurt by spikes!");
+        MESSAGE("The foe Wobbuffet is hurt by spikes!");
     }
 }
 
@@ -43,23 +43,23 @@ SINGLE_BATTLE_TEST("Ceaseless Edge can set up to 3 layers of Spikes")
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(opponent);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(opponent);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(opponent);
-        MESSAGE("Spikes were scattered all around the opposing team!");
+        MESSAGE("Spikes were scattered all around the feet of the foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(opponent);
-        NOT MESSAGE("Spikes were scattered all around the opposing team!");
+        NOT MESSAGE("Spikes were scattered all around the feet of the foe's team!");
 
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP / 4);
-        MESSAGE("Foe Wynaut is hurt by spikes!");
+        MESSAGE("The foe Wynaut is hurt by spikes!");
     }
 }
 
@@ -74,8 +74,8 @@ SINGLE_BATTLE_TEST("Ceaseless Edge fails to set up hazards if user faints")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by Foe Wobbuffet's Rocky Helmet!");
-        NOT MESSAGE("Spikes were scattered all around Foe team!");
+        MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
+        NOT MESSAGE("Spikes were scattered all around the feet of the foe's team!");
     }
 }
 
@@ -90,7 +90,7 @@ SINGLE_BATTLE_TEST("Ceaseless Edge does not set up hazards if target was not hit
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, player);
-            MESSAGE("Spikes were scattered all around the opposing team!");
+            MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         }
     }
 }

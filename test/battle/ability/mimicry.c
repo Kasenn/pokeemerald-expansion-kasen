@@ -27,10 +27,10 @@ SINGLE_BATTLE_TEST("Mimicry changes the battler's type based on Terrain")
         ABILITY_POPUP(opponent);
         switch (terrainMove)
         {
-        case MOVE_ELECTRIC_TERRAIN: MESSAGE("Foe Stunfisk's type changed to Electric!"); break;
-        case MOVE_PSYCHIC_TERRAIN:  MESSAGE("Foe Stunfisk's type changed to Psychic!"); break;
-        case MOVE_GRASSY_TERRAIN:   MESSAGE("Foe Stunfisk's type changed to Grass!"); break;
-        case MOVE_MISTY_TERRAIN:    MESSAGE("Foe Stunfisk's type changed to Fairy!"); break;
+        case MOVE_ELECTRIC_TERRAIN: MESSAGE("The foe Stunfisk's type changed to Electric!"); break;
+        case MOVE_PSYCHIC_TERRAIN:  MESSAGE("The foe Stunfisk's type changed to Psychic!"); break;
+        case MOVE_GRASSY_TERRAIN:   MESSAGE("The foe Stunfisk's type changed to Grass!"); break;
+        case MOVE_MISTY_TERRAIN:    MESSAGE("The foe Stunfisk's type changed to Fairy!"); break;
         }
     } THEN {
         EXPECT_EQ(gBattleMons[B_POSITION_OPPONENT_LEFT].types[0], terrainType);
@@ -81,11 +81,11 @@ DOUBLE_BATTLE_TEST("Mimicry can trigger multiple times in a turn")
     } WHEN {
         TURN { MOVE(opponentRight, MOVE_ELECTRIC_TERRAIN); MOVE(opponentLeft, MOVE_MISTY_TERRAIN); }
     } SCENE {
-        MESSAGE("Foe Bagon used Electric Terrain!");
+        MESSAGE("The foe Bagon used Electric Terrain!");
         ABILITY_POPUP(playerLeft, ABILITY_MIMICRY);
         MESSAGE("Stunfisk's type changed to Electric!");
         // igglybuff
-        MESSAGE("Foe Igglybuff used Misty Terrain!");
+        MESSAGE("The foe Igglybuff used Misty Terrain!");
         ABILITY_POPUP(playerLeft, ABILITY_MIMICRY);
         MESSAGE("Stunfisk's type changed to Fairy!");
     } THEN {

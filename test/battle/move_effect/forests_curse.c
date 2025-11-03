@@ -24,7 +24,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
         {
             MESSAGE("Trevenant used Forest's Curse!");
             HP_BAR(player);
-            MESSAGE("Trevenant laid the forest's curse on Foe Wobbuffet!");
+            MESSAGE("Trevenant laid the forest's curse on the foe Wobbuffet!");
             HP_BAR(opponent);
         }
         else
@@ -32,7 +32,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
             MESSAGE("Wobbuffet used Forest's Curse!");
             NONE_OF {
                 HP_BAR(player);
-                MESSAGE("Wobbuffet laid the forest's curse on Foe Wobbuffet!");
+                MESSAGE("Wobbuffet laid the forest's curse on the foe Wobbuffet!");
                 HP_BAR(opponent);    
             }
         }
@@ -54,7 +54,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will curse even if target is grass-ty
     SCENE {
         MESSAGE("Trevenant used Forest's Curse!");
         HP_BAR(player);
-        MESSAGE("Trevenant laid the forest's curse on Foe Oddish!");
+        MESSAGE("Trevenant laid the forest's curse on the foe Oddish!");
         HP_BAR(opponent);
     }
     THEN {
@@ -75,7 +75,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is
     SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CURSE, player);
         HP_BAR(player);
-        MESSAGE("Trevenant cut its own HP and laid a curse on Foe Wobbuffet!");
+        MESSAGE("Trevenant cut its own HP and laid a curse on the foe Wobbuffet!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, player);
         NONE_OF {
@@ -83,7 +83,7 @@ SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is
             HP_BAR(player, hp: maxHP / 3);
             MESSAGE("But it failed!");
         }
-        MESSAGE("Trevenant laid the forest's curse on Foe Wobbuffet!");
+        MESSAGE("Trevenant laid the forest's curse on the foe Wobbuffet!");
     }
     THEN {
         EXPECT_EQ(opponent->types[2], TYPE_GRASS);

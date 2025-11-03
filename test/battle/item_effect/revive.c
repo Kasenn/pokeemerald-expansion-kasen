@@ -91,7 +91,7 @@ DOUBLE_BATTLE_TEST("Revive works for a partner in a double battle")
         TURN { MOVE(opponentRight, MOVE_EXPLOSION); } // Everyone dies, the test can finish.
     } SCENE {
         MESSAGE("Wynaut fainted!");
-        MESSAGE("You used Revive!");
+        MESSAGE("1 used the Revive!");
         // Switch-in animation
         MESSAGE("Wobbuffet fainted!");
         HP_BAR(playerLeft);

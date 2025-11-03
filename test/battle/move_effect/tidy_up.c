@@ -61,12 +61,12 @@ SINGLE_BATTLE_TEST("Tidy Up removes Substitute")
     } WHEN {
         TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_TIDY_UP); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Substitute!");
+        MESSAGE("The foe Wobbuffet used Substitute!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        MESSAGE("Foe Wobbuffet made a substitute!");
+        MESSAGE("The foe Wobbuffet made a substitute!");
         MESSAGE("Wobbuffet used Tidy Up!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TIDY_UP, player);
-        MESSAGE("Foe Wobbuffet's substitute faded!");
+        MESSAGE("The foe Wobbuffet's substitute faded!");
         MESSAGE("Tidying up complete!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Wobbuffet's Attack rose!");

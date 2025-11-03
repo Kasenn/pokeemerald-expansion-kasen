@@ -104,7 +104,7 @@ DOUBLE_BATTLE_TEST("Prankster-affected moves called via Instruct do not affect D
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, playerLeft);
         } else {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, playerLeft);
-            MESSAGE("It doesn't affect Foe Umbreon…");
+            MESSAGE("It doesn't affect the foe Umbreon…");
         }
         MESSAGE("Wobbuffet used Instruct!");
         MESSAGE("Volbeat used Confuse Ray!");
@@ -112,7 +112,7 @@ DOUBLE_BATTLE_TEST("Prankster-affected moves called via Instruct do not affect D
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, playerLeft);
         } else {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, playerLeft);
-            MESSAGE("It doesn't affect Foe Umbreon…");
+            MESSAGE("It doesn't affect the foe Umbreon…");
         }
     }
 }
@@ -146,7 +146,7 @@ DOUBLE_BATTLE_TEST("Moves called via Prankster-affected After you affect Dark-ty
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AFTER_YOU, playerLeft);
         MESSAGE("Wobbuffet used Confuse Ray!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, playerRight);
-        MESSAGE("Foe Umbreon became confused!");
+        MESSAGE("The foe Umbreon became confused!");
     }
 }
 
@@ -188,10 +188,10 @@ SINGLE_BATTLE_TEST("Prankster-affected moves can still be bounced back by Dark-t
         TURN { MOVE(player, MOVE_MAGIC_COAT); MOVE(opponent, MOVE_CONFUSE_RAY); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MAGIC_COAT, player);
-        MESSAGE("Foe Volbeat used Confuse Ray!");
+        MESSAGE("The foe Volbeat used Confuse Ray!");
         MESSAGE("Umbreon bounced the Confuse Ray back!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        MESSAGE("Foe Volbeat became confused!");
+        MESSAGE("The foe Volbeat became confused!");
     }
 }
 
@@ -211,14 +211,14 @@ SINGLE_BATTLE_TEST("Prankster-affected moves which are reflected by Magic Coat c
     } SCENE {
         MESSAGE("Sableye used Magic Coat!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MAGIC_COAT, player);
-        MESSAGE("Foe Murkrow used Confuse Ray!");
+        MESSAGE("The foe Murkrow used Confuse Ray!");
         MESSAGE("Sableye bounced the Confuse Ray back!");
         if (sableyeAbility == ABILITY_PRANKSTER) {
             NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-            MESSAGE("It doesn't affect Foe Murkrow…");
+            MESSAGE("It doesn't affect the foe Murkrow…");
         } else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-            MESSAGE("Foe Murkrow became confused!");
+            MESSAGE("The foe Murkrow became confused!");
         }
     }
 }
@@ -246,7 +246,7 @@ SINGLE_BATTLE_TEST("Prankster-affected moves that are bounced back by Magic Boun
     } SCENE {
         MESSAGE("Absol bounced the Confuse Ray back!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        MESSAGE("Foe Murkrow became confused!");
+        MESSAGE("The foe Murkrow became confused!");
     }
 }
 

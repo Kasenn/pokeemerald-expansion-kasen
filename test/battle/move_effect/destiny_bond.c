@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveEffect(MOVE_DESTINY_BOND) == EFFECT_DESTINY_BOND);
 }
 
-SINGLE_BATTLE_TEST("Destiny Bond faints Foe mon if it fainted from the attack")
+SINGLE_BATTLE_TEST("Destiny Bond faints the foe mon if it fainted from the attack")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { HP(1); }
@@ -16,8 +16,8 @@ SINGLE_BATTLE_TEST("Destiny Bond faints Foe mon if it fainted from the attack")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet took Foe Wobbuffet with it!");
-        MESSAGE("Foe Wobbuffet fainted!");
+        MESSAGE("Wobbuffet took the foe Wobbuffet with it!");
+        MESSAGE("The foe Wobbuffet fainted!");
     }
 }
 
@@ -105,9 +105,9 @@ SINGLE_BATTLE_TEST("(DYNAMAX) Dynamaxed Pokemon are not affected by Destiny Bond
     } WHEN {
         TURN { MOVE(opponent, MOVE_DESTINY_BOND); MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Destiny Bond!");
+        MESSAGE("The foe Wobbuffet used Destiny Bond!");
         MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("Foe Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         NONE_OF { HP_BAR(player); }
     }
 }

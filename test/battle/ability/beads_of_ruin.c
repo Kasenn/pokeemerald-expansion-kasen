@@ -70,7 +70,7 @@ SINGLE_BATTLE_TEST("Beads of Ruin's message displays correctly after all battler
         SEND_IN_MESSAGE("Wobbuffet");
         MESSAGE("2 sent out Chi-Yu!");
         ABILITY_POPUP(opponent, ABILITY_BEADS_OF_RUIN);
-        MESSAGE("Foe Chi-Yu's Beads of Ruin weakened the Sp. Def of all surrounding Pokémon!");
+        MESSAGE("The foe Chi-Yu's Beads of Ruin weakened the Sp. Def of all surrounding Pokémon!");
     }
 }
 

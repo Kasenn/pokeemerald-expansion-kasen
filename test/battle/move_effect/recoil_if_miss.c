@@ -78,9 +78,9 @@ SINGLE_BATTLE_TEST("Recoil if miss: Jump Kick's recoil happens after Spiky Shiel
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKY_SHIELD, opponent);
         MESSAGE("Wobbuffet used Jump Kick!");
-        MESSAGE("Foe Wobbuffet protected itself!");
+        MESSAGE("The foe Wobbuffet protected itself!");
         HP_BAR(player, damage: maxHp / 8);
-        MESSAGE("Wobbuffet is hurt by Foe Wobbuffet's Spiky Shield!");
+        MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Spiky Shield!");
         if (faintOnSpiky){
             MESSAGE("Wobbuffet fainted!");
             SEND_IN_MESSAGE("Wynaut");
@@ -111,7 +111,7 @@ SINGLE_BATTLE_TEST("Recoil if miss: Jump Kick recoil happens after Spiky Shield 
         s32 maxHP = GetMonData(&PLAYER_PARTY[0], MON_DATA_MAX_HP);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKY_SHIELD, opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_JUMP_KICK, player);
-        MESSAGE("Wobbuffet is hurt by Foe Wobbuffet's Spiky Shield!");
+        MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Spiky Shield!");
         MESSAGE("Wobbuffet kept going and crashed!");
         HP_BAR(player, damage: maxHP / 2);
     }

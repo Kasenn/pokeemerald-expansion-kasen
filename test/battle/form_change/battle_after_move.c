@@ -66,7 +66,7 @@ SINGLE_BATTLE_TEST("Relic Song transformation is the last thing that happens aft
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RELIC_SONG, player);
         HP_BAR(opponent);
-        MESSAGE("Foe Gossifleur fainted!");
+        MESSAGE("The foe Gossifleur fainted!");
         ABILITY_POPUP(opponent, ABILITY_COTTON_DOWN);
         MESSAGE("Meloetta's Speed fell!");
         MESSAGE("Meloetta transformed!");
@@ -123,7 +123,7 @@ SINGLE_BATTLE_TEST("Relic Song transforms Meloetta after Magician was activated"
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RELIC_SONG, player);
         HP_BAR(opponent);
         ABILITY_POPUP(player, ABILITY_MAGICIAN);
-        MESSAGE("Meloetta stole Foe Delphox's Potion!");
+        MESSAGE("Meloetta stole the foe Delphox's Potion!");
         MESSAGE("Meloetta transformed!");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_MELOETTA_PIROUETTE);

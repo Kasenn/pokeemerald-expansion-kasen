@@ -25,7 +25,7 @@ SINGLE_BATTLE_TEST("Neutralizing Gas prevents opponent's switch-in ability from 
         ABILITY_POPUP(player, ABILITY_NEUTRALIZING_GAS);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_TERAVOLT);
-            MESSAGE("Foe Zekrom is radiating a bursting aura!");
+            MESSAGE("The foe Zekrom is radiating a bursting aura!");
         }
     }
 }

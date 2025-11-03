@@ -60,7 +60,7 @@ AI_SINGLE_BATTLE_TEST("AI_FLAG_SEQUENCE_SWITCHING: Roar and Dragon Tail still fo
         TURN { MOVE(player, move); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
-        MESSAGE("Foe Bulbasaur was dragged out!");
+        MESSAGE("The foe Bulbasaur was dragged out!");
     }
 }
 

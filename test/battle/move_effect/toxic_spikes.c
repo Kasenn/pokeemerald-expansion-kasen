@@ -18,7 +18,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on switch in")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
         MESSAGE("2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
@@ -38,9 +38,9 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts bad poison on switch in")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
         MESSAGE("2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, badPoison: TRUE);
@@ -61,9 +61,9 @@ SINGLE_BATTLE_TEST("Toxic Spikes fails after 2 layers")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
-        MESSAGE("Poison Spikes were scattered all around the opposing team's feet!");
+        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
         MESSAGE("Wobbuffet used Toxic Spikes!");
         MESSAGE("But it failed!");
         MESSAGE("2 sent out Wynaut!");
@@ -199,7 +199,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes are not removed by Poison-type Pokémon affecte
         TURN { MOVE(player, MOVE_TOXIC_SPIKES); MOVE(opponent, MOVE_BATON_PASS); SEND_OUT(opponent, 1); }
         TURN { SWITCH(opponent, 0); }
     } SCENE {
-        NOT MESSAGE("The Poison Spikes disappeared from the ground around Foe team!");
+        NOT MESSAGE("The Poison Spikes disappeared from the ground around the foe team!");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }
@@ -217,7 +217,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on switch in after Primal Rever
         TURN { SWITCH(player, 1); }
         TURN { MOVE(player, MOVE_MEMENTO); SEND_OUT(player, 2); }
     } SCENE {
-        MESSAGE("Foe Wobbuffet used Toxic Spikes!");
+        MESSAGE("The foe Wobbuffet used Toxic Spikes!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, opponent);
         MESSAGE("Poison Spikes were scattered all around your team's feet!");
         // Switch in
@@ -247,7 +247,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes print normal poison for 1 layer")
         TURN { SWITCH(opponent, 1); }
         TURN {}
     } SCENE {
-        MESSAGE("Foe Wynaut was poisoned!");
+        MESSAGE("The foe Wynaut was poisoned!");
     }
 }
 
@@ -263,7 +263,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes print bad poison for 2 layers")
         TURN { SWITCH(opponent, 1); }
         TURN {}
     } SCENE {
-        MESSAGE("Foe Wynaut is badly poisoned!");
+        MESSAGE("The foe Wynaut is badly poisoned!");
     }
 }
 

@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Ion Duldge turns normal moves into electric for the remainde
         MESSAGE("Krabby used Ion Deluge!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ION_DELUGE, player);
         MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         MESSAGE("It's super effective!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Plasma Fists turns normal moves into electric for the remain
         MESSAGE("Krabby used Plasma Fists!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
         MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("Foe Wobbuffet used Scratch!");
+        MESSAGE("The foe Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         MESSAGE("It's super effective!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
@@ -61,7 +61,7 @@ SINGLE_BATTLE_TEST("Plasma Fists does not set up Ion Deluge if it does not conne
             ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
             MESSAGE("A deluge of ions showers the battlefield!");
         }
-        MESSAGE("Foe Phanpy used Scratch!");
+        MESSAGE("The foe Phanpy used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         NOT MESSAGE("It's super effective!");
     }
@@ -78,7 +78,7 @@ SINGLE_BATTLE_TEST("Plasma Fists type-changing effect does not override Pixilate
         MESSAGE("Krabby used Plasma Fists!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
         MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("Foe Sylveon used Scratch!");
+        MESSAGE("The foe Sylveon used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         NOT MESSAGE("It's super effective!");
     }
@@ -95,7 +95,7 @@ SINGLE_BATTLE_TEST("Plasma Fists type-changing effect is applied after Normalize
         MESSAGE("Krabby used Plasma Fists!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
         MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("Foe Skitty used Ember!");
+        MESSAGE("The foe Skitty used Ember!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EMBER, opponent);
         MESSAGE("It's super effective!");
     }
@@ -112,7 +112,7 @@ SINGLE_BATTLE_TEST("Plasma Fists turns normal type dynamax-moves into electric t
         MESSAGE("Krabby used Plasma Fists!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
         MESSAGE("A deluge of ions showers the battlefield!");
-        MESSAGE("Foe Wobbuffet used Max Lightning!");
+        MESSAGE("The foe Wobbuffet used Max Lightning!");
         MESSAGE("It's super effective!");
     }
 }

@@ -18,10 +18,10 @@ SINGLE_BATTLE_TEST("Gale Wings only grants priority at full HP (Gen 7+)")
     } SCENE {
         if (hp == 100 || config <= GEN_6) {
             MESSAGE("Talonflame used Aerial Ace!");
-            MESSAGE("Foe Wobbuffet used Celebrate!");
+            MESSAGE("The foe Wobbuffet used Celebrate!");
         }
         else {
-            MESSAGE("Foe Wobbuffet used Celebrate!");
+            MESSAGE("The foe Wobbuffet used Celebrate!");
             MESSAGE("Talonflame used Aerial Ace!");
         }
     }
@@ -42,10 +42,10 @@ SINGLE_BATTLE_TEST("Gale Wings only grants priority to Flying-type moves")
     } SCENE {
         if (move == MOVE_AERIAL_ACE) {
             MESSAGE("Talonflame used Aerial Ace!");
-            MESSAGE("Foe Wobbuffet used Celebrate!");
+            MESSAGE("The foe Wobbuffet used Celebrate!");
         }
         else {
-            MESSAGE("Foe Wobbuffet used Celebrate!");
+            MESSAGE("The foe Wobbuffet used Celebrate!");
             MESSAGE("Talonflame used Flare Blitz!");
         }
     }
@@ -74,16 +74,16 @@ SINGLE_BATTLE_TEST("Gale Wings doesn't increase priority of Flying-type Natural 
     } SCENE {
             MESSAGE("Wobbuffet used Celebrate!");
         if (move == MOVE_NATURAL_GIFT) {
-            MESSAGE("Foe Talonflame used Natural Gift!");
+            MESSAGE("The foe Talonflame used Natural Gift!");
         }
         else if (move == MOVE_JUDGMENT) {
-            MESSAGE("Foe Talonflame used Judgment!");
+            MESSAGE("The foe Talonflame used Judgment!");
         }
         else if (move == MOVE_HIDDEN_POWER) {
-            MESSAGE("Foe Talonflame used Hidden Power!");
+            MESSAGE("The foe Talonflame used Hidden Power!");
         }
         else {
-            MESSAGE("Foe Talonflame used Tera Blast!");
+            MESSAGE("The foe Talonflame used Tera Blast!");
         }
     }
 }

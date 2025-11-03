@@ -425,7 +425,7 @@ BattleScript_EffectCorrosiveGas::
 	jumpifcantloseitem BS_TARGET, BattleScript_CorrosiveGasFail
 	attackanimation
 	waitanimation
-	jumpifability BS_TARGET, ABILITY_STICKY_HOLD, BattleScript_StickyHoldActivates
+	jumpifability BS_TARGET, ABILITY_STICKY_HOLD, BattleScript_StickyHoldActivates2
 	setlastuseditem BS_TARGET
 	removeitem BS_TARGET
 	printstring STRINGID_PKMNITEMMELTED
@@ -4851,15 +4851,15 @@ BattleScript_BrickBreakAnim::
 	jumpifbyte CMP_LESS_THAN, sB_ANIM_TURN, 2, BattleScript_BrickBreakDoHit
 BattleScript_BrickBreak_Reflect::
 	trybufferscreen SIDE_STATUS_REFLECT, BattleScript_BrickBreak_LightScreen
-	printstring STRINGID_PKMNSSCREENWOREOFF
+	printstring STRINGID_PKMNSSCREENWOREOFF2
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreak_LightScreen::
 	trybufferscreen SIDE_STATUS_LIGHTSCREEN, BattleScript_BrickBreak_AuroraVeil
-	printstring STRINGID_PKMNSSCREENWOREOFF
+	printstring STRINGID_PKMNSSCREENWOREOFF2
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreak_AuroraVeil::
 	trybufferscreen SIDE_STATUS_AURORA_VEIL, BattleScript_BrickBreakDoHit
-	printstring STRINGID_PKMNSSCREENWOREOFF
+	printstring STRINGID_PKMNSSCREENWOREOFF2
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreakDoHit::
 	typecalc
@@ -8061,6 +8061,13 @@ BattleScript_StickyHoldActivates::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_PKMNSXMADEYINEFFECTIVE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_StickyHoldActivates2::
+	pause B_WAIT_TIME_SHORT
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_PKMNSXMADEYINEFFECTIVE2
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
