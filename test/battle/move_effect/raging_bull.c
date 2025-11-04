@@ -185,7 +185,7 @@ DOUBLE_BATTLE_TEST("Raging Bull can remove Light Screen, Reflect and Aurora Veil
             MESSAGE("Your team's Reflect wore off!");
             break;
         case MOVE_AURORA_VEIL:
-            MESSAGE("Your team is no longer protected by Aurora Veil!");
+            MESSAGE("Your team's Aurora Veil wore off!");
             break;
         }
         HP_BAR(playerLeft);

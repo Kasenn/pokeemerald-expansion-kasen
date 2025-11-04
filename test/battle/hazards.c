@@ -25,7 +25,7 @@ SINGLE_BATTLE_TEST("Hazards are applied based on order of set up")
         MESSAGE("Pointed stones dug into Wobbuffet!");
         MESSAGE("Wobbuffet was caught in a Sticky Web!");
         MESSAGE("Wobbuffet is hurt by spikes!");
-        MESSAGE("The Poison Spikes disappeared from around your team's feet!");
+        MESSAGE("The poison spikes disappeared from around your team's feet!");
         MESSAGE("Pointed stones dug into Wynaut!");
         MESSAGE("Wynaut was caught in a Sticky Web!");
         MESSAGE("Wynaut is hurt by spikes!");

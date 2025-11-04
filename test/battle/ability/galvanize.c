@@ -137,11 +137,11 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Judgment / Techno Blast / Multi-Att
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
         if (move == MOVE_JUDGMENT)
-            MESSAGE("The foe Vaporeon's Water Absorb made Judgment useless!");
+            MESSAGE("It doesn't affect the foe Vaporeon…");
         else if (move == MOVE_TECHNO_BLAST)
-            MESSAGE("The foe Vaporeon's Water Absorb made Techno Blast useless!");
+            MESSAGE("It doesn't affect the foe Vaporeon…");
         else if (move == MOVE_MULTI_ATTACK)
-            MESSAGE("The foe Vaporeon's Water Absorb made Multi-Attack useless!");
+            MESSAGE("It doesn't affect the foe Vaporeon…");
     }
 }
 
@@ -157,7 +157,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("The foe Vaporeon's Water Absorb made Hidden Power useless!");
+        MESSAGE("It doesn't affect the foe Vaporeon…");
     }
 }
 

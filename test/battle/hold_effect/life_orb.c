@@ -12,7 +12,7 @@ SINGLE_BATTLE_TEST("Life Orb activates when users attack is succesful")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
         HP_BAR(opponent);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by its Life Orb!");
+        MESSAGE("Wobbuffet lost some of its HP!");
     }
 }
 
@@ -27,7 +27,7 @@ SINGLE_BATTLE_TEST("Life Orb activates if it hits a Substitute")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TACKLE, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by its Life Orb!");
+        MESSAGE("Wobbuffet lost some of its HP!");
     }
 }
 
@@ -128,7 +128,7 @@ SINGLE_BATTLE_TEST("Life Orb activates if move connected but no damage was dealt
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FALSE_SWIPE, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by its Life Orb!");
+        MESSAGE("Wobbuffet lost some of its HP!");
     }
 }
 

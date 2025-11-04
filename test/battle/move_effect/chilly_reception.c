@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Chilly Reception switches the user out, even if the weather 
     } SCENE {
         MESSAGE("Slowking is preparing to tell a chillingly bad joke!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CHILLY_RECEPTION, player);
-        MESSAGE("There is no relief from this heavy rain!");
+        MESSAGE("Error 08: something has gone awry. Please inform the romhack creator!");
         MESSAGE("Slowking went back to 1!");
         SEND_IN_MESSAGE("Slowpoke");
         MESSAGE("Rain continues to fall.");

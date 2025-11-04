@@ -61,7 +61,7 @@ SINGLE_BATTLE_TEST("Eject Button will not activate under Substitute")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        MESSAGE("The foe Raichu made a substitute!");
+        MESSAGE("The foe Raichu put in a substitute!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         MESSAGE("The substitute took damage for the foe Raichu!");
         NONE_OF {

@@ -268,11 +268,11 @@ SINGLE_BATTLE_TEST("Defiant activates before White Herb")
 
         if (move == MOVE_LEER) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Mankey's White Herb restored its status!");
+            MESSAGE("Mankey restored its status using its White Herb!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-                MESSAGE("Mankey's White Herb restored its status!");
+                MESSAGE("Mankey restored its status using its White Herb!");
             }
         }
     } THEN {

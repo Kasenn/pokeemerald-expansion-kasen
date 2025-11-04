@@ -250,7 +250,6 @@ DOUBLE_BATTLE_TEST("Commander doesn't prevent Imposter from working on a Command
         ABILITY_POPUP(playerRight, ABILITY_COMMANDER);
         MESSAGE("Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
         ABILITY_POPUP(opponentLeft, ABILITY_IMPOSTER);
-        MESSAGE("The foe Ditto transformed into Tatsugiri!");
     }
 }
 

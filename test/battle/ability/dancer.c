@@ -292,7 +292,7 @@ DOUBLE_BATTLE_TEST("Dancer still activate after Red Card even if blocked by Suct
         // red card trigger
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
         MESSAGE("The foe Wobbuffet held up its Red Card against Wobbuffet!");
-        MESSAGE("Wobbuffet anchors itself with Suction Cups!");
+        MESSAGE("Wobbuffet anchors itself!");
         NOT MESSAGE("Chansey was dragged out!");
         // Dancer
         ABILITY_POPUP(playerRight, ABILITY_DANCER);

@@ -6048,6 +6048,14 @@ static enum ItemEffect RandomStatRaiseBerry(u32 battler, u32 itemId, enum ItemCa
         gBattlerAttacker = savedAttacker;
 
         PREPARE_STAT_BUFFER(gBattleTextBuff1, stat);
+        if (battlerAbility == ABILITY_CONTRARY)
+        {
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATFELL3)
+        }
+        else
+        {
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATROSE3)
+        }
         stringId = (battlerAbility == ABILITY_CONTRARY) ? STRINGID_STATFELL : STRINGID_STATROSE;
         gBattleTextBuff2[0] = B_BUFF_PLACEHOLDER_BEGIN;
         gBattleTextBuff2[1] = B_BUFF_STRING;

@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Teraform Zero can be replaced")
         MESSAGE("Terapagos acquired Insomnia!");
         MESSAGE("Terapagos used Rest!");
         ABILITY_POPUP(player, ABILITY_INSOMNIA);
-        MESSAGE("Terapagos stayed awake using its Insomnia!");
+        MESSAGE("Terapagos stays awake!");
     }
 }
 

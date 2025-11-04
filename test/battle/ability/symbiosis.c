@@ -20,7 +20,7 @@ DOUBLE_BATTLE_TEST("Symbiosis transfers its item to an ally after it consumes an
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         MESSAGE("Oranguru passed its Toxic Orb to an ally!");
         // end of turn, wobb gets poisoned
-        MESSAGE("Wobbuffet is badly poisoned!");
+        MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
     } THEN {
         EXPECT_EQ(playerLeft->item, ITEM_TOXIC_ORB);
@@ -44,12 +44,12 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partners berry eaten from bug bite"
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BUG_BITE, opponentLeft);
         HP_BAR(playerLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-        MESSAGE("The Liechi Berry raised the foe Staravia's attack!");
+        MESSAGE("The Liechi Berry raised the foe Staravia's Attack!");
         // symbiosis triggers
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         MESSAGE("Oranguru passed its Toxic Orb to an ally!");
         // end of turn, wobb gets poisoned
-        MESSAGE("Wobbuffet is badly poisoned!");
+        MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
     } THEN {
         EXPECT_EQ(playerLeft->item, ITEM_TOXIC_ORB);
@@ -74,10 +74,10 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partner bestows its item")
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         MESSAGE("Oranguru passed its Toxic Orb to an ally!");
         // end of turn, wobb gets poisoned
-        MESSAGE("Wobbuffet is badly poisoned!");
+        MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
         // staravia gets burned
-        MESSAGE("The foe Staravia was burned!");
+        MESSAGE("The foe Staravia was burned by the Flame Orb!");
         STATUS_ICON(opponentLeft, STATUS1_BURN);
     } THEN {
         EXPECT_EQ(playerLeft->item, ITEM_TOXIC_ORB);
@@ -104,7 +104,7 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partner flings its item")
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         MESSAGE("Oranguru passed its Toxic Orb to an ally!");
         // end of turn, wobb gets poisoned
-        MESSAGE("Wobbuffet is badly poisoned!");
+        MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
     } THEN {
         EXPECT_EQ(playerLeft->item, ITEM_TOXIC_ORB);

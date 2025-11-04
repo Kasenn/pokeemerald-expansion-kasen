@@ -31,7 +31,7 @@ WILD_BATTLE_TEST("Poke Toy lets the player escape from a wild battle even if a m
         // Turn 1
         MESSAGE("The wild Wobbuffet used Mean Look!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MEAN_LOOK, opponent);
-        MESSAGE("Wobbuffet can't escape now!");
+        MESSAGE("Wobbuffet can no longer escape!");
         // Turn 2
         MESSAGE("{PLAY_SE SE_FLEE}Got away safely!\p");
     }

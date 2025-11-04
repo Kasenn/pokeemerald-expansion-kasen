@@ -191,8 +191,8 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNSLEPTHEALTHY]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX} slept and\nbecame healthy!"),
     [STRINGID_PKMNFASTASLEEP]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is fast\nasleep."),
     [STRINGID_PKMNWOKEUP]                           = COMPOUND_STRING("{B_ATK_NAME_PREFIX} woke up!"),
-    [STRINGID_TARGETWOKEUP]                         = COMPOUND_STRING("{B_DEF_NAME_PREFIX} woke up!"),
     [STRINGID_PKMNSITEMWOKEIT]                      = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_LAST_ITEM}\nwoke it up!"),
+    [STRINGID_PKMNSTAYSAWAKE]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX} stays awake!"),
 
     // Sleep / Uproar
     [STRINGID_PKMNCAUSEDUPROAR]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX} caused\nan uproar!"),
@@ -209,11 +209,11 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNALREADYPOISONED]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is already\npoisoned."),
     [STRINGID_PKMNBADLYPOISONED]                    = COMPOUND_STRING("{B_EFF_NAME_PREFIX} is badly\npoisoned!"),
     [STRINGID_PKMNSITEMCUREDPOISON]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_LAST_ITEM}\ncured its poison!"),
+    [STRINGID_PKMNBADLYPOISONEDBY]                  = COMPOUND_STRING("{B_EFF_NAME_PREFIX} was badly\npoisoned by the Toxic Orb!"),
 
     // Freeze
     [STRINGID_PKMNWASFROZEN]                        = COMPOUND_STRING("{B_EFF_NAME_PREFIX} was\nfrozen solid!"),
     [STRINGID_PKMNISFROZEN]                         = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is\nfrozen solid!"),
-    [STRINGID_PKMNWASDEFROSTED]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} thawed out!"),
     [STRINGID_PKMNWASDEFROSTED2]                    = COMPOUND_STRING("{B_ATK_NAME_PREFIX} thawed out!"),
     [STRINGID_PKMNWASDEFROSTEDBY]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s {B_CURRENT_MOVE}\ndefrosted it!"),
     [STRINGID_PKMNSITEMDEFROSTEDIT]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_LAST_ITEM}\ndefrosted it!"),
@@ -223,15 +223,40 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNHURTBYBURN]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was hurt\nby its burn!"),
     [STRINGID_PKMNSITEMHEALEDBURN]                  = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s\n{B_LAST_ITEM} healed its burn!"),
     [STRINGID_PKMNALREADYHASBURN]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} already\nhas a burn."),
-    [STRINGID_BRNBYITEM]                            = COMPOUND_STRING("{B_EFF_NAME_PREFIX} was burned\nby {B_LAST_ITEM}!"),
-    [STRINGID_PKMNBURNHEALED]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s burn was healed!"),
+    [STRINGID_BRNBYITEM]                            = COMPOUND_STRING("{B_EFF_NAME_PREFIX} was burned\nby the {B_LAST_ITEM}!"),
 
     // Paralysis
     [STRINGID_PKMNWASPARALYZED]                     = COMPOUND_STRING("{B_EFF_NAME_PREFIX} is paralyzed!\nIt may be unable to move!"),
     [STRINGID_PKMNISPARALYZED]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is paralyzed!\nIt can't move!"),
     [STRINGID_PKMNISALREADYPARALYZED]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is\nalready paralyzed!"),
-    [STRINGID_PKMNHEALEDPARALYSIS]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured of\nparalysis."),
     [STRINGID_PKMNSITEMCUREDPARALYSIS]              = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s\n{B_LAST_ITEM} cured its paralysis!"),
+
+    [STRINGID_DEF_CURE_CONFUSION]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} snapped\nout of confusion!"),
+    [STRINGID_DEF_CURE_TORMENT]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s\ntorment wore off!"),
+    [STRINGID_DEF_CURE_INFATUATION]                 = COMPOUND_STRING("{B_DEF_NAME_PREFIX} got over\nits infatuation!"), //unused
+    [STRINGID_DEF_CURE_POISON]                      = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured\nof its poisoning!"),
+    [STRINGID_DEF_CURE_SLEEP]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX} woke up!"),
+    [STRINGID_DEF_CURE_FREEZE]                      = COMPOUND_STRING("{B_DEF_NAME_PREFIX} thawed out!"),
+    [STRINGID_DEF_CURE_BURN]                        = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s burn was healed!"),
+    [STRINGID_DEF_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured of\nparalysis."),
+
+    [STRINGID_ATK_CURE_CONFUSION]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} snapped\nout of confusion!"),
+    [STRINGID_ATK_CURE_TORMENT]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s\ntorment wore off!"),
+    [STRINGID_ATK_CURE_INFATUATION]                 = COMPOUND_STRING("{B_ATK_NAME_PREFIX} got over\nits infatuation!"), //unused
+    [STRINGID_ATK_CURE_POISON]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was cured\nof its poisoning!"),
+    [STRINGID_ATK_CURE_SLEEP]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} woke up!"),
+    [STRINGID_ATK_CURE_FREEZE]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} thawed out!"),
+    [STRINGID_ATK_CURE_BURN]                        = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s burn was healed!"),
+    [STRINGID_ATK_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was cured of\nparalysis."),
+
+    [STRINGID_SCR_CURE_CONFUSION]                   = COMPOUND_STRING("{B_SCR_NAME_PREFIX} snapped\nout of confusion!"),
+    [STRINGID_SCR_CURE_TORMENT]                     = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s\ntorment wore off!"),
+    [STRINGID_SCR_CURE_INFATUATION]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX} got over\nits infatuation!"), //unused
+    [STRINGID_SCR_CURE_POISON]                      = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured\nof its poisoning!"),
+    [STRINGID_SCR_CURE_SLEEP]                       = COMPOUND_STRING("{B_SCR_NAME_PREFIX} woke up!"),
+    [STRINGID_SCR_CURE_FREEZE]                      = COMPOUND_STRING("{B_SCR_NAME_PREFIX} thawed out!"),
+    [STRINGID_SCR_CURE_BURN]                        = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s burn was healed!"),
+    [STRINGID_SCR_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured of\nparalysis."),
 
     // Weather
     [STRINGID_ITISRAINING]                          = COMPOUND_STRING("It is raining."),
@@ -349,8 +374,9 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
 
     // Entry Hazards
     [STRINGID_POISONSPIKESSCATTERED]                = COMPOUND_STRING("Poison spikes were scattered all {B_HAZARD_FEET}"),
-    [STRINGID_TOXICSPIKESDISAPPEARED]               = COMPOUND_STRING("The Poison Spikes disappeared from {B_HAZARD_FEET}"),
+    [STRINGID_TOXICSPIKESDISAPPEARED]               = COMPOUND_STRING("The poison spikes disappeared from {B_HAZARD_FEET}"),
     [STRINGID_TOXICSPIKESPOISONED]                  = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was poisoned!"),
+    [STRINGID_TOXICSPIKESABSORBED]                  = COMPOUND_STRING("The poison spikes disappeared from around {B_EFF_TEAM4} team's feet!"),
     [STRINGID_SPIKESSCATTERED]                      = COMPOUND_STRING("Spikes were scattered all {B_HAZARD_FEET}"),
     [STRINGID_SPIKESDISAPPEARED]                    = COMPOUND_STRING("The spikes disappeared from {B_HAZARD_FEET}"),
     [STRINGID_PKMNHURTBYSPIKES]                     = COMPOUND_STRING("{B_SCR_NAME_PREFIX} is hurt\nby spikes!"),
@@ -396,7 +422,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PREVENTSESCAPE]                       = COMPOUND_STRING("{B_SCR_NAME_PREFIX} prevents\nescape with {B_SCR_ABILITY}!\p"),
     [STRINGID_PKMNENERGYDRAINED]                    = COMPOUND_STRING("{B_DEF_NAME_PREFIX} had its\nenergy drained!"),
     [STRINGID_PKMNFELLINLOVE]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX}\nfell in love!"),
-    [STRINGID_PKMNINLOVE]                           = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is in love\nwith {B_SCR_NAME_PREFIX}!"),
+    [STRINGID_PKMNINLOVE]                           = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is in love\nwith {B_SCR_NAME_PREFIX_LOWERCASE}!"),
     [STRINGID_PKMNIMMOBILIZEDBYLOVE]                = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is\nimmobilized by love!"),
     [STRINGID_DESTINYKNOTACTIVATES]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX}\nfell in love from the {B_LAST_ITEM}!"),
     [STRINGID_PKMNCHANGEDTYPE]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} transformed\ninto the {B_BUFF1} type!"),
@@ -495,7 +521,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ELECTROMAGNETISM]                     = COMPOUND_STRING("electromagnetism"),
     [STRINGID_TURBOBLAZEENTERS]                     = COMPOUND_STRING("{B_SCR_NAME_PREFIX} is radiating\na blazing aura!"),
     [STRINGID_TELEKINESISENDS]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was freed\nfrom the telekinesis!"),
-    [STRINGID_PKMNACQUIREDSIMPLE]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} acquired\nSimple!"),
+    [STRINGID_PKMNACQUIREDSIMPLE]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s Ability\nbecame Simple!"),
     [STRINGID_KINDOFFER]                            = COMPOUND_STRING("{B_DEF_NAME_PREFIX}\ntook the kind offer!"),
     [STRINGID_SLOWSTARTEND]                         = COMPOUND_STRING("{B_ATK_NAME_PREFIX} finally got\nits act together!"),
     [STRINGID_POSTPONETARGETMOVE]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s move\nwas postponed!"),
@@ -523,7 +549,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_SWAPSDEFANDSPDEFOFALLPOKEMON]         = COMPOUND_STRING("It created a bizarre area in which the\nDefense and Sp. Def stats are swapped!"),
     [STRINGID_HELDITEMSLOSEEFFECTS]                 = COMPOUND_STRING("It created a bizarre area in which\nheld items lose their effects!"),
     [STRINGID_PKMNSITEMNORMALIZEDSTATUS]            = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_LAST_ITEM}\nnormalized its status!"),
-    [STRINGID_PKMNSITEMRESTOREDSTATUS]              = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s restored its\nstatus using its {B_LAST_ITEM}!"),
+    [STRINGID_PKMNSITEMRESTOREDSTATUS]              = COMPOUND_STRING("{B_SCR_NAME_PREFIX} restored its\nstatus using its {B_LAST_ITEM}!"),
     [STRINGID_PKMNSTATUSNORMAL]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s status\nreturned to normal!"),
     [STRINGID_PKMNSXWOREOFF]                        = COMPOUND_STRING("{B_ATK_TEAM3} team is no longer protected by {B_BUFF1}!"),
     [STRINGID_PKMNSMISTWOREOFF]                     = COMPOUND_STRING("{B_ATK_TEAM3} team is no longer protected by mist!"),
@@ -573,7 +599,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNWRAPPEDBY]                        = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was wrapped\nby {B_ATK_NAME_PREFIX_LOWERCASE}!"),
     [STRINGID_PKMNFREEDFROM]                        = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was freed\nfrom {B_BUFF1}!"),
     [STRINGID_ITEMSCANTBEUSEDNOW]                   = COMPOUND_STRING("Items can't be used now.{PAUSE 64}"),
-    [STRINGID_PKMNCANNOTUSEX]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX}\ncannot use {B_CURRENT_MOVE}!"),
+    [STRINGID_PKMNCANNOTUSEX]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX}\ncannot use {B_CURRENT_MOVE}!"),
     [STRINGID_TARGETCHANGEDTYPE]                    = COMPOUND_STRING("{B_DEF_NAME_PREFIX} transformed\ninto the {B_BUFF1} type!"),
     [STRINGID_PKMNRAISEDFIREPOWERWITH]              = COMPOUND_STRING("The power of {B_DEF_NAME_PREFIX}'s\nFire-type moves rose!"),
     [STRINGID_PKMNANCHORSITSELFWITH]                = COMPOUND_STRING("{B_DEF_NAME_PREFIX} anchors itself!"),
@@ -586,7 +612,6 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNSXMADEYINEFFECTIVE2]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s item\ncannot be corroded!"),
     [STRINGID_PKMNSXTOOKATTACK]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX}\ntook the attack!"),
     [STRINGID_PKMNSWILLPERISHIN3TURNS]              = COMPOUND_STRING("Both Pokémon will perish\nin three turns!"),
-    [STRINGID_PKMNHEALEDCONFUSION2]                  = COMPOUND_STRING("{B_SCR_NAME_PREFIX} snapped\nout of confusion!"),
     [STRINGID_AVOIDEDDAMAGE]                        = COMPOUND_STRING("{B_DEF_NAME_PREFIX} avoids attacks\nby its ally Pokémon!"),
     [STRINGID_PKMNSTOCKPILED]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} stockpiled {B_BUFF1}!"),
     [STRINGID_PLAYERPICKEDUPMONEY]                  = COMPOUND_STRING("{B_PLAYER_NAME} picked up\n¥{B_BUFF1}!\p"),
@@ -630,7 +655,6 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_MUDSPORTENDS]                         = COMPOUND_STRING("The effects of Mud Sport have faded."),
     [STRINGID_WATERSPORTENDS]                       = COMPOUND_STRING("The effects of Water Sport have faded."),
     [STRINGID_AQUARINGHEAL]                         = COMPOUND_STRING("Aqua Ring restored\n{B_ATK_NAME_PREFIX_LOWERCASE}'s HP!"),
-    [STRINGID_TARGETABILITYSTATRAISE]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s {B_DEF_ABILITY} raised its {B_BUFF1}!"),
     [STRINGID_SLOWSTARTENTERS]                      = COMPOUND_STRING("{B_SCR_NAME_PREFIX} can't get it going!"),
     [STRINGID_ANTICIPATIONACTIVATES]                = COMPOUND_STRING("{B_SCR_NAME_PREFIX} shuddered!"),
     [STRINGID_HARVESTBERRY]                         = COMPOUND_STRING("{B_ATK_NAME_PREFIX} harvested\none {B_LAST_ITEM}!"),
@@ -656,7 +680,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_CELEBRATEMESSAGE]                     = COMPOUND_STRING("Congratulations, {B_PLAYER_NAME}!"),
     [STRINGID_SAFETYGOGGLESPROTECTED]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is not affected, thanks to its {B_LAST_ITEM}!"),
     [STRINGID_HEALINGWISHCAMETRUE]                  = COMPOUND_STRING("The healing wish came true\nfor {B_ATK_NAME_PREFIX_LOWERCASE}!"),
-    [STRINGID_ATTACKERACQUIREDABILITY]              = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s ability\nbecame {B_ATK_ABILITY}!"),
+    [STRINGID_ATTACKERACQUIREDABILITY]              = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s Ability\nbecame {B_ATK_ABILITY}!"),
     [STRINGID_TARGETABILITYSTATLOWER]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s {B_BUFF1} fell!"),
     [STRINGID_QUASHSUCCESS]                         = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s move\nwas postponed!"),
     [STRINGID_BURSTINGFLAMESHIT]                    = COMPOUND_STRING("The bursting flame\nhit {B_SCR_NAME_PREFIX_LOWERCASE}!"),
@@ -685,6 +709,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ITEMRESTOREDSPECIESHEALTH]            = COMPOUND_STRING("{B_BUFF1} had its\nHP restored!"),
     [STRINGID_ITEMCUREDSPECIESSTATUS]               = COMPOUND_STRING("{B_BUFF1} had its\nstatus healed!"),
     [STRINGID_ITEMRESTOREDSPECIESPP]                = COMPOUND_STRING("{B_BUFF1} had its\nPP restored!"),
+    [STRINGID_PKMNRESTOREDHPUSING]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX} had its HP restored."),
 
     // Gen 5+ Mechanics
     [STRINGID_ATTACKERCUREDTARGETSTATUS]            = COMPOUND_STRING("{B_ATK_NAME_PREFIX} cured\n{B_DEF_NAME_PREFIX_LOWERCASE}'s problem!"),
@@ -700,7 +725,6 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ASONEENTERS]                          = COMPOUND_STRING("{B_SCR_NAME_PREFIX} has two Abilities!"),
     [STRINGID_CURIOUSMEDICINEENTERS]                = COMPOUND_STRING("{B_EFF_NAME_PREFIX}'s\nstat changes were reset!"),
     [STRINGID_PKMNSHOOKOFFTHETAUNT]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX} shook off\nthe taunt!"), //unused
-    [STRINGID_PKMNGOTOVERITSINFATUATION]            = COMPOUND_STRING("{B_SCR_NAME_PREFIX} got over\nits infatuation!"), //unused
     [STRINGID_ATTACKERBECAMEFULLYCHARGED]           = COMPOUND_STRING("{B_ATK_NAME_PREFIX} became fully charged due to its bond with its trainer!\p"),
     [STRINGID_ATTACKERBECAMEASHSPECIES]             = COMPOUND_STRING("{B_ATK_NAME_PREFIX} became Ash-{B_BUFF1}!\p"),
     [STRINGID_STUFFCHEEKSCANTSELECT]                = COMPOUND_STRING("Stuff Cheeks cannot be\nselected without a Berry!\p"),
@@ -744,7 +768,6 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKNMABSORBINGPOWER]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is absorbing power!"),
     [STRINGID_NOONEWILLBEABLETORUNAWAY]             = COMPOUND_STRING("No one will be able to run away\nduring the next turn!"),
     [STRINGID_PASTELVEILPROTECTED]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is protected\nby a pastel veil!"),
-    [STRINGID_PASTELVEILENTERS]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured\nof its poisoning!"),
     [STRINGID_ASSAULTVESTDOESNTALLOW]               = COMPOUND_STRING("{B_LAST_ITEM}'s effects prevent\nstatus moves from being used!\p"),
     [STRINGID_GRAVITYPREVENTSUSAGE]                 = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can't use\n{B_CURRENT_MOVE} because of gravity!\p"),
     [STRINGID_IONDELUGEON]                          = COMPOUND_STRING("A deluge of ions showers\nthe battlefield!"),
@@ -769,7 +792,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_SYMBIOSISITEMPASS]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX} passed its\n{B_LAST_ITEM} to an ally!"),
     [STRINGID_POKEMONCANNOTUSEMOVE]                 = COMPOUND_STRING("{B_ATK_NAME_PREFIX} cannot\nuse {B_CURRENT_MOVE}!"),
     [STRINGID_CLEARAMULETWONTLOWERSTATS]            = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s Clear Amulet prevents its stats from being lowered!"),
-    [STRINGID_BATTLERABILITYRAISEDSTAT]             = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_SCR_ABILITY} raised its {B_BUFF1}!"),
+    [STRINGID_BATTLERABILITYRAISEDSTAT]             = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_BUFF1}\n{B_BUFF2}"),
     [STRINGID_TARGETTOOHEAVY]                       = COMPOUND_STRING("But the target\nwas too heavy!"),
 
     // Unused Gimmicks
@@ -827,21 +850,21 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNATTACK]                           = COMPOUND_STRING("{B_BUFF1}'s attack!"),
 
     // Mega Groudon/Kyogre weathers
-    [STRINGID_EXTREMELYHARSHSUNLIGHT]               = COMPOUND_STRING("Error 01: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_EXTREMESUNLIGHTFADED]                 = COMPOUND_STRING("Error 02: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_MOVEEVAPORATEDINTHEHARSHSUNLIGHT]     = COMPOUND_STRING("Error 03: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_EXTREMELYHARSHSUNLIGHTWASNOTLESSENED] = COMPOUND_STRING("Error 04: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_HEAVYRAIN]                            = COMPOUND_STRING("Error 05: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_HEAVYRAINLIFTED]                      = COMPOUND_STRING("Error 06: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_MOVEFIZZLEDOUTINTHEHEAVYRAIN]         = COMPOUND_STRING("Error 07: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_NORELIEFROMHEAVYRAIN]                 = COMPOUND_STRING("Error 08: something has gone awry.\nPlease inform the romhack creator!"),
+    [STRINGID_EXTREMELYHARSHSUNLIGHT]               = COMPOUND_STRING("Error 01: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_EXTREMESUNLIGHTFADED]                 = COMPOUND_STRING("Error 02: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_MOVEEVAPORATEDINTHEHARSHSUNLIGHT]     = COMPOUND_STRING("Error 03: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_EXTREMELYHARSHSUNLIGHTWASNOTLESSENED] = COMPOUND_STRING("Error 04: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_HEAVYRAIN]                            = COMPOUND_STRING("Error 05: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_HEAVYRAINLIFTED]                      = COMPOUND_STRING("Error 06: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_MOVEFIZZLEDOUTINTHEHEAVYRAIN]         = COMPOUND_STRING("Error 07: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_NORELIEFROMHEAVYRAIN]                 = COMPOUND_STRING("Error 08: something has gone awry.\nPlease inform the romhack creator!\p"),
 
     // Unused. Keep in case a test needs it
-    [STRINGID_ATTACKERSHOOKITSELFAWAKE]             = COMPOUND_STRING("Error 09: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_ATTACKEREXPELLEDTHEPOISON]            = COMPOUND_STRING("Error 10: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_ATTACKERMELTEDTHEICE]                 = COMPOUND_STRING("Error 11: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_ATTACKERHEALEDITSBURN]                = COMPOUND_STRING("Error 12: something has gone awry.\nPlease inform the romhack creator!"),
-    [STRINGID_ATTACKERBROKETHROUGHPARALYSIS]        = COMPOUND_STRING("Error 13: something has gone awry.\nPlease inform the romhack creator!"),
+    [STRINGID_ATTACKERSHOOKITSELFAWAKE]             = COMPOUND_STRING("Error 09: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_ATTACKEREXPELLEDTHEPOISON]            = COMPOUND_STRING("Error 10: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_ATTACKERMELTEDTHEICE]                 = COMPOUND_STRING("Error 11: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_ATTACKERHEALEDITSBURN]                = COMPOUND_STRING("Error 12: something has gone awry.\nPlease inform the romhack creator!\p"),
+    [STRINGID_ATTACKERBROKETHROUGHPARALYSIS]        = COMPOUND_STRING("Error 13: something has gone awry.\nPlease inform the romhack creator!\p"),
 };
 
 const u16 gTrainerUsedItemStringIds[] =
@@ -939,7 +962,7 @@ const u16 gSwitchInAbilityStringIds[] =
     [B_MSG_SWITCHIN_SCREENCLEANER] = STRINGID_SCREENCLEANERENTERS,
     [B_MSG_SWITCHIN_ASONE] = STRINGID_ASONEENTERS,
     [B_MSG_SWITCHIN_CURIOUS_MEDICINE] = STRINGID_CURIOUSMEDICINEENTERS,
-    [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_PASTELVEILENTERS,
+    [B_MSG_SWITCHIN_PASTEL_VEIL] = STRINGID_DEF_CURE_POISON,
     [B_MSG_SWITCHIN_NEUTRALIZING_GAS] = STRINGID_NEUTRALIZINGGASENTERS,
 };
 
@@ -948,7 +971,7 @@ const u16 gMissStringIds[] =
     [B_MSG_MISSED]      = STRINGID_ATTACKMISSED,
     [B_MSG_PROTECTED]   = STRINGID_PKMNPROTECTEDITSELF,
     [B_MSG_AVOIDED_ATK] = STRINGID_PKMNAVOIDEDATTACK,
-    [B_MSG_AVOIDED_DMG] = STRINGID_AVOIDEDDAMAGE,
+    [B_MSG_AVOIDED_DMG] = STRINGID_ITDOESNTAFFECT,
     [B_MSG_GROUND_MISS] = STRINGID_ITDOESNTAFFECT
 };
 
@@ -1285,16 +1308,40 @@ const u16 gBerryEffectStringIds[] =
     [B_MSG_CONFUSION]         = STRINGID_PKMNSITEMSNAPPEDOUT,
 };
 
-const u16 gRefreshStringIds[] =
+const u16 gCureProblemStringIds_Defender[] =
 {
-    [B_MSG_PSN]               = STRINGID_PASTELVEILENTERS,
-    [B_MSG_SLEEP]             = STRINGID_TARGETWOKEUP,
-    [B_MSG_PARALYSIS]         = STRINGID_PKMNHEALEDPARALYSIS,
-    [B_MSG_BURN]              = STRINGID_PKMNBURNHEALED,
-    [B_MSG_FREEZE]            = STRINGID_PKMNWASDEFROSTED,
-    [B_MSG_CONFUSION]         = STRINGID_PKMNHEALEDCONFUSION2,
-    [B_MSG_INFATUATION]       = STRINGID_PKMNGOTOVERITSINFATUATION,
-    [B_MSG_TAUNT]             = STRINGID_BUFFERENDS,
+    [B_MSG_PSN]               = STRINGID_DEF_CURE_POISON,
+    [B_MSG_SLEEP]             = STRINGID_DEF_CURE_SLEEP,
+    [B_MSG_PARALYSIS]         = STRINGID_DEF_CURE_PARALYSIS,
+    [B_MSG_BURN]              = STRINGID_DEF_CURE_BURN,
+    [B_MSG_FREEZE]            = STRINGID_DEF_CURE_FREEZE,
+    [B_MSG_CONFUSION]         = STRINGID_DEF_CURE_CONFUSION,
+    [B_MSG_INFATUATION]       = STRINGID_DEF_CURE_INFATUATION,
+    [B_MSG_TAUNT]             = STRINGID_DEF_CURE_TORMENT,
+};
+
+const u16 gCureProblemStringIds_Attacker[] =
+{
+    [B_MSG_PSN]               = STRINGID_ATK_CURE_POISON,
+    [B_MSG_SLEEP]             = STRINGID_ATK_CURE_SLEEP,
+    [B_MSG_PARALYSIS]         = STRINGID_ATK_CURE_PARALYSIS,
+    [B_MSG_BURN]              = STRINGID_ATK_CURE_BURN,
+    [B_MSG_FREEZE]            = STRINGID_ATK_CURE_FREEZE,
+    [B_MSG_CONFUSION]         = STRINGID_ATK_CURE_CONFUSION,
+    [B_MSG_INFATUATION]       = STRINGID_ATK_CURE_INFATUATION,
+    [B_MSG_TAUNT]             = STRINGID_ATK_CURE_TORMENT,
+};
+
+const u16 gCureProblemStringIds_Script[] =
+{
+    [B_MSG_PSN]               = STRINGID_SCR_CURE_POISON,
+    [B_MSG_SLEEP]             = STRINGID_SCR_CURE_SLEEP,
+    [B_MSG_PARALYSIS]         = STRINGID_SCR_CURE_PARALYSIS,
+    [B_MSG_BURN]              = STRINGID_SCR_CURE_BURN,
+    [B_MSG_FREEZE]            = STRINGID_SCR_CURE_FREEZE,
+    [B_MSG_CONFUSION]         = STRINGID_SCR_CURE_CONFUSION,
+    [B_MSG_INFATUATION]       = STRINGID_SCR_CURE_INFATUATION,
+    [B_MSG_TAUNT]             = STRINGID_SCR_CURE_TORMENT,
 };
 
 const u16 gStatusPreventionStringIds[] =
@@ -1371,7 +1418,7 @@ const u16 gDamageNonTypesDmgStringIds[] =
 const u16 gDefogHazardsStringIds[] =
 {
     [HAZARDS_SPIKES] = STRINGID_SPIKESDISAPPEARED,
-    [HAZARDS_STICKY_WEB] = SAVE_MENU_LOCATION,
+    [HAZARDS_STICKY_WEB] = STRINGID_BLEWAWAYSTICKYWEB,
     [HAZARDS_TOXIC_SPIKES] = STRINGID_TOXICSPIKESDISAPPEARED,
     [HAZARDS_STEALTH_ROCK] = STRINGID_STEALTHROCKDISAPPEARED,
     [HAZARDS_STEELSURGE] = STRINGID_SHARPSTEELDISAPPEAREDFROMTEAM,
@@ -2084,15 +2131,17 @@ void BufferStringBattle(enum StringID stringID, u32 battler)
         }
         else
         {
-            if (gBattleTypeFlags & BATTLE_TYPE_RECORDED || gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
-                stringPtr = sTrainerSentOutLink;
-            else if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(BATTLE_PARTNER(battler))))
+            if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(BATTLE_PARTNER(battler))))
             {
-                if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                if (BATTLE_TWO_VS_ONE_OPPONENT)
+                    stringPtr = sTrainerSentOutDouble;
+                else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
                     stringPtr = sTwoTrainersSentOut;
                 else
                     stringPtr = sTrainerSentOutDouble;
             }
+            else if (gBattleTypeFlags & BATTLE_TYPE_RECORDED || gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
+                stringPtr = sTrainerSentOutLink;
             else
             {
                 stringPtr = sTrainerSentOut;
@@ -2571,10 +2620,10 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 GetBattlerNick(gBattlerTarget, text);
                 toCpy = text;
                 break;
-            case B_TXT_DEF_PARTNER_NAME: // partner target name
-                GetBattlerNick(BATTLE_PARTNER(gBattlerTarget), text);
-                toCpy = text;
-                break;
+            // case B_TXT_DEF_PARTNER_NAME: // partner target name
+            //     GetBattlerNick(BATTLE_PARTNER(gBattlerTarget), text);
+            //     toCpy = text;
+            //     break;
             case B_EFF_NAME_PREFIX: // effect battler name with prefix
                 HANDLE_NICKNAME_STRING_CASE(gEffectBattler)
                 break;
@@ -2994,12 +3043,21 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 else
                     toCpy = sText_Foe1;
                 break;
+            case B_TXT_EFF_TEAM4:
+                if (IsOnPlayerSide(gEffectBattler))
+                    toCpy = sText_Your2;
+                else
+                    toCpy = sText_Foe2;
+                break;
             case B_TXT_HAZARD_FEET:
                 toCpy = gBattleStringsTable[sHazardString];
                 sHazardString = 0;
                 break;
             case B_ATK_NAME_PREFIX_LOWERCASE:
                 HANDLE_NICKNAME_STRING_LOWERCASE(gBattlerAttacker)
+                break;
+            case B_TXT_DEF_PARTNER_NAME:
+                HANDLE_NICKNAME_STRING_LOWERCASE(BATTLE_PARTNER(gBattlerTarget));
                 break;
             case B_DEF_NAME_PREFIX_LOWERCASE:
                 HANDLE_NICKNAME_STRING_LOWERCASE(gBattlerTarget)

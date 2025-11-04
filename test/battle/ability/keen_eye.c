@@ -27,11 +27,11 @@ SINGLE_BATTLE_TEST("Keen Eye, Gen9+ Illuminate & Minds Eye prevent accuracy stag
         ABILITY_POPUP(opponent, ability);
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         if (species == SPECIES_HITMONCHAN)
-            MESSAGE("The foe Hitmonchan's Keen Eye prevents accuracy loss!");
+            MESSAGE("The foe Hitmonchan's accuracy was not lowered!");
         else if (species == SPECIES_STARYU)
-            MESSAGE("The foe Staryu's Illuminate prevents accuracy loss!");
+            MESSAGE("The foe Staryu's accuracy was not lowered!");
         else
-            MESSAGE("The foe Ursaluna's Mind's Eye prevents accuracy loss!");
+            MESSAGE("The foe Ursaluna's accuracy was not lowered!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }

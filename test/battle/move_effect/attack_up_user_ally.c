@@ -88,7 +88,7 @@ DOUBLE_BATTLE_TEST("Howl does not work on partner if it has Soundproof")
             MESSAGE("Wynaut's Attack rose!");
         }
         ABILITY_POPUP(playerRight, ABILITY_SOUNDPROOF);
-        MESSAGE("Voltorb's Soundproof blocks Howl!");
+        MESSAGE("It doesn't affect Voltorb…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
         HP_BAR(opponentLeft, captureDamage: &damage[1]);
     } THEN {

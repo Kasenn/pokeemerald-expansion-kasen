@@ -42,9 +42,9 @@ SINGLE_BATTLE_TEST("Tidy Up removes hazards and raises Stats")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, opponent);
         MESSAGE("Wobbuffet used Tidy Up!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TIDY_UP, player);
-        MESSAGE("The spikes disappeared from the ground around your team!");
-        MESSAGE("The sticky web has disappeared from the ground around your team!");
-        MESSAGE("The Poison Spikes disappeared from the ground around your team!");
+        MESSAGE("The spikes disappeared from around your team's feet!");
+        MESSAGE("The sticky web disappeared from around your team's feet!");
+        MESSAGE("The poison spikes disappeared from around your team's feet!");
         MESSAGE("The pointed stones disappeared from around your team!");
         MESSAGE("Tidying up complete!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Tidy Up removes Substitute")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Substitute!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        MESSAGE("The foe Wobbuffet made a substitute!");
+        MESSAGE("The foe Wobbuffet put in a substitute!");
         MESSAGE("Wobbuffet used Tidy Up!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TIDY_UP, player);
         MESSAGE("The foe Wobbuffet's substitute faded!");

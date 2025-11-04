@@ -67,8 +67,6 @@ SINGLE_BATTLE_TEST("Damp prevents damage from Aftermath")
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); SEND_OUT(opponent, 1); }
     } SCENE {
-        ABILITY_POPUP(opponent, ABILITY_AFTERMATH);
-        ABILITY_POPUP(player, ABILITY_DAMP);
         NONE_OF { HP_BAR(player); }
     }
 }

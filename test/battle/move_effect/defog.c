@@ -73,8 +73,8 @@ DOUBLE_BATTLE_TEST("Defog removes Reflect and Light Screen from target's side", 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LIGHT_SCREEN, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         if (move == MOVE_DEFOG) {
-            MESSAGE("The foe's Reflect wore off!");
-            MESSAGE("The foe's Light Screen wore off!");
+            MESSAGE("The opposing team's Reflect wore off!");
+            MESSAGE("The opposing team's Light Screen wore off!");
         }
         MESSAGE("Wobbuffet used Scratch!");
         HP_BAR(opponentLeft, captureDamage: &results[i].damagePhysical);
@@ -108,7 +108,7 @@ DOUBLE_BATTLE_TEST("Defog removes Mist and Safeguard from target's side")
         if (move == MOVE_DEFOG) {
             ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
             MESSAGE("The foe's team is no longer protected by mist!");
-            MESSAGE("The foe's Safeguard wore off!");
+            MESSAGE("The foe's team is no longer protected by Safeguard!");
         }
         MESSAGE("Wobbuffet used Screech!");
         if (move == MOVE_DEFOG) {
@@ -154,7 +154,7 @@ DOUBLE_BATTLE_TEST("Defog removes Stealth Rock and Sticky Web from user's side (
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         if (move == MOVE_DEFOG && B_DEFOG_EFFECT_CLEARING >= GEN_6) {
-            MESSAGE("The sticky web has disappeared from the ground around your team!");
+            MESSAGE("The sticky web disappeared from around your team's feet!");
             MESSAGE("The pointed stones disappeared from around your team!");
         }
         // Switch happens
@@ -198,7 +198,7 @@ SINGLE_BATTLE_TEST("Defog removes Spikes from user's side (Gen 6+)")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, opponent);
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         if (move == MOVE_DEFOG && B_DEFOG_EFFECT_CLEARING >= GEN_6)
-            MESSAGE("The spikes disappeared from the ground around your team!");
+            MESSAGE("The spikes disappeared from around your team's feet!");
         // Switch happens
         SWITCH_OUT_MESSAGE("Wobbuffet");
         SEND_IN_MESSAGE("Wobbuffet");
@@ -277,7 +277,7 @@ SINGLE_BATTLE_TEST("Defog removes Toxic Spikes from user's side (Gen 6+)")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         if (move == MOVE_DEFOG && B_DEFOG_EFFECT_CLEARING >= GEN_6)
-            MESSAGE("The Poison Spikes disappeared from the ground around the opposing team!");
+            MESSAGE("The poison spikes disappeared from around the foe's team's feet!");
         // Switch happens
         MESSAGE("2 sent out Wobbuffet!");
         if (move != MOVE_DEFOG || B_DEFOG_EFFECT_CLEARING <= GEN_5) {
@@ -361,19 +361,19 @@ DOUBLE_BATTLE_TEST("Defog removes everything it can")
         MESSAGE("Your team's Light Screen wore off!");
         MESSAGE("Your team is no longer protected by mist!");
         MESSAGE("Your team is no longer protected by Aurora Veil!");
-        MESSAGE("Your team's Safeguard wore off!");
+        MESSAGE("Your team is no longer protected by Safeguard!");
 
         if (B_DEFOG_EFFECT_CLEARING >= GEN_6) {
-            MESSAGE("The spikes disappeared from the ground around your team!");
-            MESSAGE("The sticky web has disappeared from the ground around your team!");
-            MESSAGE("The Poison Spikes disappeared from the ground around your team!");
+            MESSAGE("The spikes disappeared from around your team's feet!");
+            MESSAGE("The sticky web disappeared from around your team's feet!");
+            MESSAGE("The poison spikes disappeared from around your team's feet!");
             MESSAGE("The pointed stones disappeared from around your team!");
 
             // Opponent side
-            MESSAGE("The spikes disappeared from the ground around the opposing team!");
-            MESSAGE("The sticky web has disappeared from the ground around the opposing team!");
-            MESSAGE("The Poison Spikes disappeared from the ground around the opposing team!");
-            MESSAGE("The pointed stones disappeared from around the opposing team!");
+            MESSAGE("The spikes disappeared from around the foe's team's feet!");
+            MESSAGE("The sticky web disappeared from around the foe's team's feet!");
+            MESSAGE("The poison spikes disappeared from around the foe's team's feet!");
+            MESSAGE("The pointed stones disappeared from around your foe's team!");
         }
     } THEN {
         EXPECT_EQ(gBattleStruct->hazardsQueue[0][0], HAZARDS_NONE);
@@ -406,6 +406,6 @@ SINGLE_BATTLE_TEST("Defog is used on the correct side if opposing mon is behind 
         MESSAGE("Wobbuffet used Defog!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DEFOG, player);
         MESSAGE("The foe Wobbuffet's evasiveness fell!");
-        MESSAGE("The foe's Light Screen wore off!");
+        MESSAGE("The opposing team's Light Screen wore off!");
     }
 }

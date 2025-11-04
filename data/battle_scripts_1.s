@@ -1626,7 +1626,7 @@ BattleScript_EffectPsychoShiftCanWork:
 	statusanimation BS_TARGET
 	updatestatusicon BS_TARGET
 	curestatus BS_ATTACKER
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Attacker
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_ATTACKER
 	goto BattleScript_MoveEnd
@@ -2859,7 +2859,7 @@ BattleScript_AbilityProtectsDoesntAffect::
 BattleScript_InsomniaProtects:
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_PKMNWOKEUP
+	printstring STRINGID_PKMNSTAYSAWAKE
 	waitmessage B_WAIT_TIME_LONG
 	setmoveresultflags MOVE_RESULT_FAILED
 	goto BattleScript_MoveEnd
@@ -4965,7 +4965,7 @@ BattleScript_EffectRefresh::
 	curestatuswithmove BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Attacker
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_ATTACKER
 	goto BattleScript_MoveEnd
@@ -6031,7 +6031,7 @@ BattleScript_PrintHurtByDmgHazards::
 	return
 
 BattleScript_ToxicSpikesAbsorbed::
-	printstring STRINGID_TOXICSPIKESDISAPPEARED
+	printstring STRINGID_TOXICSPIKESABSORBED
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -6929,7 +6929,7 @@ BattleScript_MoveUsedUnfrostbite::
 	return
 
 BattleScript_DefrostedViaFireMove::
-	printstring STRINGID_PKMNWASDEFROSTED
+	printstring STRINGID_DEF_CURE_FREEZE
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
@@ -7086,25 +7086,25 @@ BattleScript_CurseTurnDmg::
 	goto BattleScript_DoTurnDmg
 
 BattleScript_TargetPRLZHeal::
-	printstring STRINGID_PKMNHEALEDPARALYSIS
+	printstring STRINGID_DEF_CURE_PARALYSIS
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
 
 BattleScript_TargetWokeUp::
-	printstring STRINGID_TARGETWOKEUP
+	printstring STRINGID_DEF_CURE_SLEEP
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
 
 BattleScript_TargetBurnHeal::
-	printstring STRINGID_PKMNBURNHEALED
+	printstring STRINGID_DEF_CURE_BURN
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
 
 BattleScript_TargetPoisonHealed::
-	printstring STRINGID_PASTELVEILENTERS
+	printstring STRINGID_DEF_CURE_POISON
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return
@@ -7151,7 +7151,7 @@ BattleScript_BufferEndTurn::
 BattleScript_ToxicOrb::
 	setbyte cMULTISTRING_CHOOSER, 0
 	copybyte gEffectBattler, gBattlerAttacker
-	call BattleScript_MoveEffectToxic
+	call BattleScript_EffectToxicOrb
 	end2
 
 BattleScript_FlameOrb::
@@ -7201,6 +7201,12 @@ BattleScript_MoveEffectUproar::
 BattleScript_MoveEffectToxic::
 	statusanimation BS_EFFECT_BATTLER
 	printstring STRINGID_PKMNBADLYPOISONED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_UpdateEffectStatusIconRet
+
+BattleScript_EffectToxicOrb::
+	statusanimation BS_EFFECT_BATTLER
+	printstring STRINGID_PKMNBADLYPOISONEDBY
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_UpdateEffectStatusIconRet
 
@@ -7466,7 +7472,7 @@ BattleScript_HealerActivates::
 	call BattleScript_AbilityPopUp
 	curestatus BS_SCRIPTING
 	updatestatusicon BS_SCRIPTING
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Script
 	waitmessage B_WAIT_TIME_LONG
 	end3
 
@@ -7490,7 +7496,7 @@ BattleScript_SandSpitActivates::
 
 BattleScript_ShedSkinActivates::
 	call BattleScript_AbilityPopUp
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Script
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_ATTACKER
 	end3
@@ -7894,7 +7900,7 @@ BattleScript_TookAttack::
 BattleScript_SturdyPreventsOHKO::
 	pause B_WAIT_TIME_SHORT
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_PKMNENDUREDHIT
+	printstring STRINGID_ITDOESNTAFFECT
 	pause B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -7916,7 +7922,7 @@ BattleScript_MoveHPDrain::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
-	printstring STRINGID_ITDOESNTAFFECT
+	printstring STRINGID_PKMNRESTOREDHPUSING
 	waitmessage B_WAIT_TIME_LONG
 	setmoveresultflags MOVE_RESULT_DOESNT_AFFECT_FOE
 	goto BattleScript_MoveEnd
@@ -7932,7 +7938,7 @@ BattleScript_MoveStatDrain::
 	printfromtable gStatUpStringIds
 	waitmessage B_WAIT_TIME_LONG
 .else
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_DEFENDERSSTATROSE
 	waitmessage B_WAIT_TIME_LONG
 .endif
 BattleScript_MoveStatDrain_Cont:
@@ -8202,7 +8208,7 @@ BattleScript_WeakArmorDoSpeed:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_WeakArmorActivatesEnd
 BattleScript_WeakArmorSpeedPrintString:
-	printstring STRINGID_TARGETABILITYSTATRAISE
+	printstring STRINGID_DEFENDERSSTATROSE
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_WeakArmorActivatesEnd:
 	return
@@ -8433,14 +8439,14 @@ BattleScript_NoItemSteal::
 
 BattleScript_AbilityCuredStatus::
 	call BattleScript_AbilityPopUp
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Script
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_SCRIPTING
 	return
 
 BattleScript_AbilityCuredStatusEnd3::
     call BattleScript_AbilityPopUp
-	printfromtable gRefreshStringIds
+	printfromtable gCureProblemStringIds_Script
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_SCRIPTING
 	end3
@@ -8453,7 +8459,7 @@ BattleScript_BattlerShookOffTaunt::
 
 BattleScript_BattlerGotOverItsInfatuation::
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_PKMNGOTOVERITSINFATUATION
+	printstring STRINGID_SCR_CURE_INFATUATION
 	waitmessage B_WAIT_TIME_LONG
 	return
 

@@ -18,11 +18,11 @@ SINGLE_BATTLE_TEST("Desolate Land blocks damaging Water-type moves")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Water Gun!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, opponent);
-        MESSAGE("The Water-type attack evaporated in the harsh sunlight!");
+        MESSAGE("Error 03: something has gone awry. Please inform the romhack creator!");
         NOT HP_BAR(player);
         MESSAGE("The foe Wobbuffet used Water Gun!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_GUN, opponent);
-        MESSAGE("The Water-type attack evaporated in the harsh sunlight!");
+        MESSAGE("Error 03: something has gone awry. Please inform the romhack creator!");
         NOT HP_BAR(player);
     } THEN {
         EXPECT_EQ(player->hp, player->maxHP);
@@ -44,8 +44,8 @@ DOUBLE_BATTLE_TEST("Desolate Land blocks damaging Water-type moves and prints th
     } SCENE {
         MESSAGE("The foe Wobbuffet used Surf!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SURF, opponentLeft);
-        MESSAGE("The Water-type attack evaporated in the harsh sunlight!");
-        NOT MESSAGE("The Water-type attack evaporated in the harsh sunlight!");
+        MESSAGE("Error 03: something has gone awry. Please inform the romhack creator!");
+        NOT MESSAGE("Error 03: something has gone awry. Please inform the romhack creator!");
     } THEN {
         EXPECT_EQ(playerLeft->hp, playerLeft->maxHP);
         EXPECT_EQ(playerRight->hp, playerRight->maxHP);
@@ -95,6 +95,6 @@ SINGLE_BATTLE_TEST("Desolate Land is removed immediately if user faints")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponent);
         NOT MESSAGE("The sunlight is strong.");
-        MESSAGE("The extreme sunlight faded!{PAUSE 64}");
+        MESSAGE("Error 02: something has gone awry. Please inform the romhack creator!");
     }
 }

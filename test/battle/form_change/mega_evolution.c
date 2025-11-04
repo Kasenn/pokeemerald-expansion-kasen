@@ -187,7 +187,7 @@ SINGLE_BATTLE_TEST("Mega Evolved Pokemon do not change abilities after fainting"
         MESSAGE("The foe Garchomp fainted!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
-            MESSAGE("Wobbuffet is hurt by the foe Garchomp's Rough Skin!");
+            MESSAGE("Wobbuffet was hurt by the Rough Skin!");
             HP_BAR(player);
         }
     }

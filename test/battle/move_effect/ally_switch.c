@@ -250,7 +250,7 @@ DOUBLE_BATTLE_TEST("Ally switch swaps sky drop targets if being used by partner"
         TURN { MOVE(playerRight, MOVE_ALLY_SWITCH); SKIP_TURN(playerLeft); MOVE(opponentRight, MOVE_MUD_SPORT); MOVE(opponentLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
         MESSAGE("Fearow used Sky Drop!");
-        MESSAGE("Fearow took the foe Aron into the air!");
+        MESSAGE("Fearow took the foe Aron into the sky!");
         // turn 2
         MESSAGE("Xatu used Ally Switch!");
         MESSAGE("Xatu and Fearow switched places!");
@@ -287,7 +287,7 @@ DOUBLE_BATTLE_TEST("Ally switch swaps opposing sky drop targets if partner is be
         TURN { MOVE(opponentRight, MOVE_ALLY_SWITCH); SKIP_TURN(opponentLeft); MOVE(playerRight, MOVE_MUD_SPORT); MOVE(playerLeft, MOVE_IRON_DEFENSE); }
     } SCENE {
         MESSAGE("The foe Fearow used Sky Drop!");
-        MESSAGE("The foe Fearow took Aron into the air!");
+        MESSAGE("The foe Fearow took Aron into the sky!");
         // turn 2
         MESSAGE("The foe Xatu used Ally Switch!");
         MESSAGE("The foe Xatu and the foe Fearow switched places!");

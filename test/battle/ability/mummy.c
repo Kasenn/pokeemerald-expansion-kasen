@@ -20,16 +20,16 @@ SINGLE_BATTLE_TEST("Mummy/Lingering Aroma replace the attacker's ability on cont
         if (MoveMakesContact(move)) {
             ABILITY_POPUP(opponent, ability);
             if (ability == ABILITY_MUMMY)
-                MESSAGE("Wobbuffet acquired Mummy!");
+                MESSAGE("Wobbuffet's Ability became Mummy!");
             else
-                MESSAGE("Wobbuffet acquired Lingering Aroma!");
+                MESSAGE("Wobbuffet's Ability became Lingering Aroma!");
         } else {
             NONE_OF {
                 ABILITY_POPUP(opponent, ability);
                 if (ability == ABILITY_MUMMY)
-                    MESSAGE("Wobbuffet acquired Mummy!");
+                    MESSAGE("Wobbuffet's Ability became Mummy!");
                 else
-                    MESSAGE("Wobbuffet acquired Lingering Aroma!");
+                    MESSAGE("Wobbuffet's Ability became Lingering Aroma!");
             }
         }
     }
@@ -56,10 +56,10 @@ SINGLE_BATTLE_TEST("Mummy and Lingering Aroma don't replace each other")
             ABILITY_POPUP(player, ability2);
             ABILITY_POPUP(opponent, ability1);
             ABILITY_POPUP(opponent, ability2);
-            MESSAGE("Yamask acquired Mummy!");
-            MESSAGE("Yamask acquired Lingering Aroma!");
-            MESSAGE("Oinkologne acquired Mummy!");
-            MESSAGE("Oinkologne acquired Lingering Aroma!");
+            MESSAGE("Yamask's Ability became Mummy!");
+            MESSAGE("Yamask's Ability became Lingering Aroma!");
+            MESSAGE("Oinkologne's Ability became Mummy!");
+            MESSAGE("Oinkologne's Ability became Lingering Aroma!");
         }
     }
 }

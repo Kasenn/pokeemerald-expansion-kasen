@@ -67,7 +67,7 @@ SINGLE_BATTLE_TEST("Entrainment causes primal weather to revert")
         TURN { MOVE(player, MOVE_ENTRAINMENT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENTRAINMENT, player);
-        MESSAGE("The extreme sunlight faded!{PAUSE 64}");
+        MESSAGE("Error 02: something has gone awry. Please inform the romhack creator!");
     } THEN {
         EXPECT(opponent->ability == ABILITY_TELEPATHY);
     }

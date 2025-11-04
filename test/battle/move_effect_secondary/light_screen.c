@@ -24,11 +24,11 @@ SINGLE_BATTLE_TEST("Glitzy Glow sets up Light Screen when it was succesful")
         if (moveSuccess == TRUE)
         {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_GLITZY_GLOW, player);
-            MESSAGE("Glitzy Glow raised your team's Sp. Def!");
+            MESSAGE("Glitzy Glow raised your team's Special Defense!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_GLITZY_GLOW, player);
-                MESSAGE("Glitzy Glow raised your team's Sp. Def!");
+                MESSAGE("Glitzy Glow raised your team's Special Defense!");
             }
         }
     }

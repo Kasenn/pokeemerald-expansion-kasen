@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Levitate activates when targeted by ground type moves")
         TURN { MOVE(opponent, MOVE_MUD_SLAP); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_LEVITATE);
-        MESSAGE("Lunatone makes Ground moves miss with Levitate!");
+        MESSAGE("It doesn't affect Lunatone…");
     }
 }
 
@@ -26,7 +26,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate if protected")
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("Lunatone makes Ground moves miss with Levitate!");
+            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }
@@ -43,7 +43,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate on status moves")
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("Lunatone makes Ground moves miss with Levitate!");
+            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }
@@ -59,7 +59,7 @@ SINGLE_BATTLE_TEST("Levitate does not activate if attacked by an opponent with M
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("Lunatone makes Ground moves miss with Levitate!");
+            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }

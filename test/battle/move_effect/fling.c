@@ -182,7 +182,7 @@ SINGLE_BATTLE_TEST("Fling doesn't consume the item if Pokémon is asleep/frozen/
     } SCENE {
         if (status == STATUS1_FREEZE) {
             MESSAGE("Wobbuffet is frozen solid!");
-            MESSAGE("Wobbuffet was defrosted!");
+            MESSAGE("Wobbuffet thawed out!");
         }
         else if (status == STATUS1_PARALYSIS) {
             MESSAGE("Wobbuffet is paralyzed! It can't move!");
@@ -288,7 +288,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
                     MESSAGE("The foe Wobbuffet was burned!");
                     STATUS_ICON(opponent, STATUS1_BURN);
                 }
-                MESSAGE("The Flame Orb was used up…");
             }
             break;
         case ITEM_LIGHT_BALL:
@@ -297,7 +296,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
                     MESSAGE("The foe Wobbuffet is paralyzed! It may be unable to move!");
                     STATUS_ICON(opponent, STATUS1_PARALYSIS);
                 }
-                MESSAGE("The Light Ball was used up…");
             }
             break;
         case ITEM_POISON_BARB:
@@ -306,7 +304,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
                     MESSAGE("The foe Wobbuffet was poisoned!");
                     STATUS_ICON(opponent, STATUS1_POISON);
                 }
-                MESSAGE("The Poison Barb was used up…");
             }
             break;
         case ITEM_TOXIC_ORB:
@@ -315,7 +312,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
                     MESSAGE("The foe Wobbuffet is badly poisoned!");
                     STATUS_ICON(opponent, STATUS1_TOXIC_POISON);
                 }
-                MESSAGE("The Toxic Orb was used up…");
             }
             break;
         case ITEM_RAZOR_FANG:
@@ -323,15 +319,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
             {
                 NONE_OF {
                     MESSAGE("The foe Wobbuffet flinched!");
-                }
-                switch (item)
-                {
-                    case ITEM_RAZOR_FANG:
-                        MESSAGE("The Razor Fang was used up…");
-                        break;
-                    case ITEM_KINGS_ROCK:
-                        MESSAGE("The King's Rock was used up…");
-                        break;
                 }
             }
             break;
@@ -376,16 +363,16 @@ SINGLE_BATTLE_TEST("Fling - thrown berry's effect activates for the target even 
         HP_BAR(opponent);
         if (effect == HOLD_EFFECT_RESTORE_HP) {
             if (item == ITEM_ORAN_BERRY) {
-                MESSAGE("The foe Wobbuffet's Oran Berry restored health!");
+                MESSAGE("The foe Wobbuffet restored its health using its Oran Berry!");
             } else if (item == ITEM_SITRUS_BERRY) {
-                MESSAGE("The foe Wobbuffet's Sitrus Berry restored health!");
+                MESSAGE("The foe Wobbuffet restored its health using its Sitrus Berry!");
             } else {
-                MESSAGE("Wobbuffet's Enigma Berry restored health!");
+                MESSAGE("Wobbuffet restored its health using its Enigma Berry!");
             }
             HP_BAR(opponent);
         }
         else if (effect == HOLD_EFFECT_RESTORE_PP) {
-            MESSAGE("The foe Wobbuffet's Leppa Berry restored Celebrate's PP!");
+            MESSAGE("The foe Wobbuffet restored Celebrate's PP using its Leppa Berry!");
         }
         else if (status1 != STATUS1_NONE) {
             if (status1 == STATUS1_BURN) {
@@ -406,7 +393,7 @@ SINGLE_BATTLE_TEST("Fling - thrown berry's effect activates for the target even 
         else if (statId != 0) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
             if (statId == STAT_ATK) {
-                MESSAGE("The Liechi Berry raised the foe Wobbuffet's attack!");
+                MESSAGE("The Liechi Berry raised the foe Wobbuffet's Attack!");
             } else if (statId == STAT_DEF) {
                 if (item == ITEM_GANLON_BERRY) {
                     MESSAGE("The Ganlon Berry raised the foe Wobbuffet's Defense!");

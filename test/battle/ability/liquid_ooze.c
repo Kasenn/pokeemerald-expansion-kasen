@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Absorb users to lose HP instead of heal")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
         HP_BAR(opponent, captureDamage: &damage);
         HP_BAR(player, captureDamage: &healed);
-        MESSAGE("It sucked up the liquid ooze!");
+        MESSAGE("Wobbuffet sucked up the liquid ooze!");
     } THEN {
         EXPECT_MUL_EQ(damage, Q_4_12(0.5), healed);
     }
@@ -53,7 +53,7 @@ DOUBLE_BATTLE_TEST("Liquid Ooze causes Matcha Gatcha users to lose HP instead of
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MATCHA_GOTCHA, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(playerLeft);
-        MESSAGE("It sucked up the liquid ooze!");
+        MESSAGE("Wobbuffet sucked up the liquid ooze!");
         MESSAGE("Wobbuffet fainted!");
     }
 }
@@ -72,7 +72,7 @@ DOUBLE_BATTLE_TEST("Liquid Ooze will faint Matcha Gatcha users if it deals enoug
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MATCHA_GOTCHA, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(playerLeft);
-        MESSAGE("It sucked up the liquid ooze!");
+        MESSAGE("Wobbuffet sucked up the liquid ooze!");
         MESSAGE("Wobbuffet fainted!");
     }
 }
@@ -98,7 +98,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes Strength Sap users to lose HP instead of 
         MESSAGE("The foe Wobbuffet's Attack fell!");
         ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
         HP_BAR(player, captureDamage: &lostHp);
-        MESSAGE("It sucked up the liquid ooze!");
+        MESSAGE("Wobbuffet sucked up the liquid ooze!");
         if (atkStat >= 490) {
             MESSAGE("Wobbuffet fainted!");
             SEND_IN_MESSAGE("Wobbuffet");
@@ -132,7 +132,7 @@ SINGLE_BATTLE_TEST("Liquid Ooze causes leech seed victim to faint before seeder"
         } else {
             MESSAGE("The foe Tentacool fainted!");
             ABILITY_POPUP(opponent, ABILITY_LIQUID_OOZE);
-            MESSAGE("It sucked up the liquid ooze!");
+            MESSAGE("Bulbasaur sucked up the liquid ooze!");
             MESSAGE("Bulbasaur fainted!");
         }
     }

@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Stone Axe sets up hazards after hitting the target")
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(opponent);
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Pointed stones float in the air around your foe's team!");
         MESSAGE("2 sent out Wobbuffet!");
         HP_BAR(opponent, damage: maxHP / 8);
         MESSAGE("Pointed stones dug into the foe Wobbuffet!");
@@ -43,19 +43,19 @@ SINGLE_BATTLE_TEST("Stone Axe can set up pointed stones only once")
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(opponent);
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Pointed stones float in the air around your foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(opponent);
-        NOT MESSAGE("Pointed stones float in the air around the opposing team!");
+        NOT MESSAGE("Pointed stones float in the air around your foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(opponent);
-        NOT MESSAGE("Pointed stones float in the air around the opposing team!");
+        NOT MESSAGE("Pointed stones float in the air around your foe's team!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(opponent);
-        NOT MESSAGE("Pointed stones float in the air around the opposing team!");
+        NOT MESSAGE("Pointed stones float in the air around your foe's team!");
 
         MESSAGE("2 sent out Wynaut!");
         HP_BAR(opponent, damage: maxHP / 8);
@@ -73,7 +73,7 @@ SINGLE_BATTLE_TEST("Stone Axe sets up hazards after any ability activation")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         ABILITY_POPUP(opponent, ABILITY_WEAK_ARMOR);
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Pointed stones float in the air around your foe's team!");
     }
 }
 
@@ -89,6 +89,6 @@ SINGLE_BATTLE_TEST("Stone Axe fails to set up hazards if user faints")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, player);
         HP_BAR(player);
         MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
-        NOT MESSAGE("Pointed stones float in the air around the foe team!");
+        NOT MESSAGE("Pointed stones float in the air around your foe's team!");
     }
 }

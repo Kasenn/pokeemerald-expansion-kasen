@@ -301,7 +301,7 @@ DOUBLE_BATTLE_TEST("Red Card activates but fails if the attacker has Suction Cup
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
         MESSAGE("Wobbuffet held up its Red Card against the foe Octillery!");
-        MESSAGE("The foe Octillery anchors itself with Suction Cups!");
+        MESSAGE("The foe Octillery anchors itself!");
         NOT MESSAGE("The foe Unown was dragged out!");
 
         // Red Card already consumed so cannot activate.

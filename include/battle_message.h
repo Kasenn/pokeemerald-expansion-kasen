@@ -91,6 +91,7 @@
 #define B_DEF_TEAM3 0x4B
 #define B_DEF_TEAM4 0x4C
 #define B_TXT_EFF_TEAM3 0x4D
+#define B_TXT_EFF_TEAM4 0x4E
 
 #define B_BUFF_STRING                       0
 #define B_BUFF_NUMBER                       1

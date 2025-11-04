@@ -79,7 +79,7 @@ SINGLE_BATTLE_TEST("Spicy Extract Defense loss is prevented by Big Pecks")
             MESSAGE("The foe Wobbuffet's Defense fell harshly!");
         }
         ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-        MESSAGE("The foe Pidgey's Big Pecks prevents Defense loss!");
+        MESSAGE("The foe Pidgey's Defense was not lowered!");
     }
 }
 

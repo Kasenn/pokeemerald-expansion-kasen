@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Hydration cures non-volatile Status conditions if it is rain
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_HYDRATION);
-        MESSAGE("Vaporeon's Hydration cured its burn problem!");
+        MESSAGE("Vaporeon's burn was healed!");
         STATUS_ICON(player, none: TRUE);
     }
 }
@@ -24,6 +24,6 @@ SINGLE_BATTLE_TEST("Hydration doesn't cure status conditions if Cloud Nine/Air L
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         NOT ABILITY_POPUP(player, ABILITY_HYDRATION);
-        MESSAGE("Vaporeon is hurt by its burn!");
+        MESSAGE("Vaporeon was hurt by its burn!");
     }
 }

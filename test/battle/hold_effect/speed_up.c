@@ -80,10 +80,10 @@ DOUBLE_BATTLE_TEST("Salac Berry does not miss timing miss timing")
         TURN { MOVE(playerLeft, MOVE_FIRE_PLEDGE, target: opponentRight); MOVE(playerRight, MOVE_GRASS_PLEDGE, target: opponentRight); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRE_PLEDGE, playerRight);
-        MESSAGE("A sea of fire enveloped the opposing team!");
+        MESSAGE("A sea of fire enveloped the foe's team!");
         MESSAGE("The foe Wynaut is hurt by the sea of fire!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
-        MESSAGE("The Salac Berry raised the foe Wynauts's Speed!");
+        MESSAGE("The Salac Berry raised the foe Wynaut's Speed!");
         MESSAGE("The foe Wobbuffet is hurt by the sea of fire!");
     }
 }

@@ -42,7 +42,7 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs remove Light Screen, Reflect a
             MESSAGE("The opposing team's Reflect wore off!");
             break;
         case MOVE_AURORA_VEIL:
-            MESSAGE("The foe team is no longer protected by Aurora Veil!");
+            MESSAGE("The opposing team's Aurora Veil wore off!");
             break;
         }
         HP_BAR(opponent);
@@ -206,7 +206,7 @@ DOUBLE_BATTLE_TEST("Brick Break and Psychic Fangs can remove Light Screen, Refle
             MESSAGE("Your team's Reflect wore off!");
             break;
         case MOVE_AURORA_VEIL:
-            MESSAGE("Your team is no longer protected by Aurora Veil!");
+            MESSAGE("Your team's Aurora Veil wore off!");
             break;
         }
         HP_BAR(playerLeft);

@@ -15,7 +15,7 @@ SINGLE_BATTLE_TEST("Steath Rock: Rock from G-Max Stonesurge are set up before an
         TURN { MOVE(player, MOVE_WATERFALL, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_G_MAX_STONESURGE, player);
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Pointed stones float in the air around your foe's team!");
         ABILITY_POPUP(opponent, ABILITY_WEAK_ARMOR);
     }
 }

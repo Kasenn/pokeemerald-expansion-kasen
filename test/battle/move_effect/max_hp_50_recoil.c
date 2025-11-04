@@ -143,7 +143,7 @@ SINGLE_BATTLE_TEST("Steel Beam is not blocked by Damp")
         HP_BAR(player, damage: 200);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_DAMP);
-            MESSAGE("The foe Golduck's Damp prevents Wobbuffet from using Steel Beam!");
+            MESSAGE("Wobbuffet cannot use Steel Beam!");
         }
     }
 }

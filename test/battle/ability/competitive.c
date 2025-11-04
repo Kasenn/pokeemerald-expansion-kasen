@@ -257,11 +257,11 @@ SINGLE_BATTLE_TEST("Competitive activates before White Herb")
 
         if (move == MOVE_LEER) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-            MESSAGE("Igglybuff's White Herb restored its status!");
+            MESSAGE("Igglybuff restored its status using its White Herb!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-                MESSAGE("Igglybuff's White Herb restored its status!");
+                MESSAGE("Igglybuff restored its status using its White Herb!");
             }
         }
     } THEN {

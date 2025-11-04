@@ -294,12 +294,146 @@ SINGLE_BATTLE_TEST("My own Screens print the correct text")
         MESSAGE("The foe's team is no longer protected by Safeguard!");
         // Light Screen END
         MESSAGE("Your team's Light Screen wore off!");
-        MESSAGE("The opposing team's Light Screen wore off!");//currently "foe's"
+        MESSAGE("The opposing team's Light Screen wore off!");
         // Mist END
-        MESSAGE("Your team is no longer protected by mist!");//both print foe. also mist is incorrectly upper-case
-        MESSAGE("The foe's team is no longer protected by mist!");//both print foe. also mist is incorrectly upper-case
+        MESSAGE("Your team is no longer protected by mist!");
+        MESSAGE("The foe's team is no longer protected by mist!");
         // Aurora Veil END
-        MESSAGE("Your team is no longer protected by Aurora Veil!");//both print foe
-        MESSAGE("The foe's team is no longer protected by Aurora Veil!");//both print foe
+        MESSAGE("Your team is no longer protected by Aurora Veil!");
+        MESSAGE("The foe's team is no longer protected by Aurora Veil!");
+    }
+}
+
+SINGLE_BATTLE_TEST("My own screen breakers print the correct text 1")
+{
+    u32 move;
+    u32 breakingMove;
+
+    PARAMETRIZE { move = MOVE_LIGHT_SCREEN; breakingMove = MOVE_BRICK_BREAK; }
+    PARAMETRIZE { move = MOVE_REFLECT;      breakingMove = MOVE_BRICK_BREAK; }
+    PARAMETRIZE { move = MOVE_AURORA_VEIL;  breakingMove = MOVE_BRICK_BREAK; }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SNOWSCAPE); }
+        TURN { MOVE(opponent, move); MOVE(player, breakingMove); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
+        ANIMATION(ANIM_TYPE_MOVE, move, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
+        switch (move)
+        {
+        case MOVE_LIGHT_SCREEN:
+            MESSAGE("The opposing team's Light Screen wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                MESSAGE("The opposing team's Reflect wore off!");
+            }
+            break;
+        case MOVE_REFLECT:
+            MESSAGE("The opposing team's Reflect wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                MESSAGE("The opposing team's Light Screen wore off!");
+            }
+            break;
+        case MOVE_AURORA_VEIL:
+            MESSAGE("The opposing team's Aurora Veil wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Light Screen wore off!");
+                MESSAGE("The opposing team's Reflect wore off!");
+            }
+            break;
+  
+        }
+        HP_BAR(opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("My own screen breakers print the correct text 2")
+{
+    u32 move1;
+    u32 move2;
+    u32 breakingMove;
+
+    PARAMETRIZE { move1 = MOVE_LIGHT_SCREEN; move2 = MOVE_REFLECT;      breakingMove = MOVE_BRICK_BREAK; }
+    PARAMETRIZE { move1 = MOVE_LIGHT_SCREEN; move2 = MOVE_AURORA_VEIL;  breakingMove = MOVE_BRICK_BREAK; }
+    PARAMETRIZE { move1 = MOVE_REFLECT;      move2 = MOVE_AURORA_VEIL;  breakingMove = MOVE_BRICK_BREAK; }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SNOWSCAPE); }
+        TURN { MOVE(opponent, move1); }
+        TURN { MOVE(opponent, move2); MOVE(player, breakingMove); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
+        ANIMATION(ANIM_TYPE_MOVE, move1, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, move2, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
+
+        if ((move1 == MOVE_LIGHT_SCREEN && move2 == MOVE_REFLECT) ||
+            (move1 == MOVE_REFLECT && move2 == MOVE_LIGHT_SCREEN))
+        {
+            MESSAGE("The opposing team's Reflect wore off!");
+            MESSAGE("The opposing team's Light Screen wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+            }
+        }
+        else if ((move1 == MOVE_LIGHT_SCREEN && move2 == MOVE_AURORA_VEIL) ||
+                 (move1 == MOVE_AURORA_VEIL && move2 == MOVE_LIGHT_SCREEN))
+        {
+            MESSAGE("The opposing team's Light Screen wore off!");
+            MESSAGE("The opposing team's Aurora Veil wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Reflect wore off!");
+            }
+        }
+        else if ((move1 == MOVE_REFLECT && move2 == MOVE_AURORA_VEIL) ||
+                 (move1 == MOVE_AURORA_VEIL && move2 == MOVE_REFLECT))
+        {
+            MESSAGE("The opposing team's Reflect wore off!");
+            MESSAGE("The opposing team's Aurora Veil wore off!");
+            NONE_OF {
+                MESSAGE("The opposing team's Light Screen wore off!");
+            }
+        }
+        HP_BAR(opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("My own screen breakers print the correct text 3")
+{
+    u32 move1;
+    u32 move2;
+    u32 move3;
+    u32 breakingMove;
+
+    PARAMETRIZE { move1 = MOVE_LIGHT_SCREEN; move2 = MOVE_REFLECT;  move3 = MOVE_AURORA_VEIL;   breakingMove = MOVE_BRICK_BREAK; }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SNOWSCAPE); }
+        TURN { MOVE(opponent, move1); }
+        TURN { MOVE(opponent, move2); }
+        TURN { MOVE(opponent, move3); MOVE(player, breakingMove); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SNOWSCAPE, player);
+        ANIMATION(ANIM_TYPE_MOVE, move1, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, move2, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, move3, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, breakingMove, player);
+
+        MESSAGE("The opposing team's Reflect wore off!");
+        MESSAGE("The opposing team's Light Screen wore off!");
+        MESSAGE("The opposing team's Aurora Veil wore off!");
+
+        HP_BAR(opponent);
     }
 }

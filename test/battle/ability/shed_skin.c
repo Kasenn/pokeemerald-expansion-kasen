@@ -15,7 +15,7 @@ SINGLE_BATTLE_TEST("Shed Skin triggers 33% of the time")
         TURN;
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_SHED_SKIN);
-        MESSAGE("The foe Arbok's Shed Skin cured its poison problem!");
+        MESSAGE("The foe Arbok was cured of its poisoning!");
         STATUS_ICON(opponent, poison: FALSE);
     }
 }

@@ -118,7 +118,7 @@ SINGLE_BATTLE_TEST("Reflect Type copies a target's dual types")
     } SCENE {
         MESSAGE("Arcanine used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Arcanine's type changed to match the the foe Poliwrath's!");
+        MESSAGE("Arcanine's type changed to match the foe Poliwrath's!");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_WATER);
         EXPECT_EQ(player->types[1], TYPE_FIGHTING);
@@ -140,7 +140,7 @@ SINGLE_BATTLE_TEST("Reflect Type copies a target's pure type")
     } SCENE {
         MESSAGE("Arcanine used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Arcanine's type changed to match the the foe Sudowoodo's!");
+        MESSAGE("Arcanine's type changed to match the foe Sudowoodo's!");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_ROCK);
         EXPECT_EQ(player->types[1], TYPE_ROCK);
@@ -174,7 +174,7 @@ SINGLE_BATTLE_TEST("Reflect Type defaults to Normal type for the user's types[0]
         // Turn 3
         MESSAGE("Trevenant used Reflect Type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT_TYPE, player);
-        MESSAGE("Trevenant's type changed to match the the foe Arcanine's!");
+        MESSAGE("Trevenant's type changed to match the foe Arcanine's!");
     } THEN {
         EXPECT_EQ(player->types[0], TYPE_NORMAL);
         EXPECT_EQ(player->types[1], TYPE_NORMAL);

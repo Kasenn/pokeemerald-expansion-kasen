@@ -440,6 +440,7 @@ B_ATK_TEAM4 = FD 4A
 B_DEF_TEAM3 = FD 4B
 B_DEF_TEAM4 = FD 4C
 B_EFF_TEAM3 = FD 4D
+B_EFF_TEAM4 = FD 4E
 
 @ indicates the end of a town/city name (before " TOWN" or " CITY")
 NAME_END = FC 00

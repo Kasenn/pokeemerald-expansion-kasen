@@ -22,11 +22,11 @@ SINGLE_BATTLE_TEST("Toxic Debris sets Toxic Spikes on the foe side if hit by a p
     } SCENE {
         if (move == MOVE_SCRATCH) {
             ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-            MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+            MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         } else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-                MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+                MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
             }
         }
     }
@@ -44,14 +44,14 @@ SINGLE_BATTLE_TEST("Toxic Debris does not activate if two layers of Toxic Spikes
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-            MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+            MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         }
     }
 }
@@ -69,7 +69,7 @@ SINGLE_BATTLE_TEST("If a Substitute is hit, Toxic Debris does not set Toxic Spik
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-            MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+            MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         }
     }
 }
@@ -84,10 +84,10 @@ SINGLE_BATTLE_TEST("Each hit of a Multi Hit move activates Toxic Debris")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_SWIPES, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FURY_SWIPES, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
     }
 }
 
@@ -102,7 +102,7 @@ SINGLE_BATTLE_TEST("Toxic Debris activates if user faints after physical hit")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         MESSAGE("Glimmora fainted!");
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
     }
 }
 
@@ -116,7 +116,7 @@ SINGLE_BATTLE_TEST("Air Balloon is popped after Toxic Debris activates")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison Spikes were scattered all around the feet of the foe's team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         MESSAGE("Glimmora's Air Balloon popped!");
     }
 }

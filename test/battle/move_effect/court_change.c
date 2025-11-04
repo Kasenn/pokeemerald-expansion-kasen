@@ -145,12 +145,12 @@ DOUBLE_BATTLE_TEST("Court Change used by the opponent swaps Mist, Safeguard, Aur
         MESSAGE("The foe Wynaut swapped the battle effects affecting each side!");
         // The effects now end for the player side.
         MESSAGE("The snow stopped.");
-        MESSAGE("The foe's party is no longer protected by Safeguard!");
+        MESSAGE("The foe's team is no longer protected by Safeguard!");
         MESSAGE("The foe's team is no longer protected by mist!");
-        MESSAGE("The foe's Reflect wore off!");
-        MESSAGE("The opposing team's Tailwind petered out!");
-        MESSAGE("The opposing team's Aurora Veil wore off!");
-        MESSAGE("The foe's Light Screen wore off!");
+        MESSAGE("The opposing team's Reflect wore off!");
+        MESSAGE("The foe's team's Tailwind petered out!");
+        MESSAGE("The foe's team is no longer protected by Aurora Veil!");
+        MESSAGE("The opposing team's Light Screen wore off!");
     }
 }
 

@@ -30,7 +30,7 @@ SINGLE_BATTLE_TEST("Big Pecks is ignored by Mold Breaker")
         MESSAGE("The foe Pidgey's Defense fell!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-            MESSAGE("The foe Pidgey's Big Pecks prevents Defense loss!");
+            MESSAGE("The foe Pidgey's Defense was not lowered!");
         }
     }
 }

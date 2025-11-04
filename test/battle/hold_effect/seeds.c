@@ -127,7 +127,7 @@ SINGLE_BATTLE_TEST("Psychic Seed raises the holder's Sp. Defense on Psychic Terr
         MESSAGE("The Psychic Seed raised Wobbuffet's Sp. Def!");
         if (item == ITEM_PSYCHIC_SEED) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-            MESSAGE("The Psychic Seed raised the foe Tapu Lele's Sp. Def!!");
+            MESSAGE("The Psychic Seed raised the foe Tapu Lele's Sp. Def!");
         }
         SWITCH_OUT_MESSAGE("Wobbuffet");
         SEND_IN_MESSAGE("Wobbuffet");

@@ -26,7 +26,7 @@ DOUBLE_BATTLE_TEST("Water and Fire Pledge create a rainbow on the user's side of
         MESSAGE("Wobbuffet used Water Pledge!");
         MESSAGE("Wobbuffet is waiting for Wynaut's move…{PAUSE 16}");
         MESSAGE("Wynaut used Fire Pledge!");
-        MESSAGE("The two moves become one! It's a combined move!{PAUSE 16}");
+        MESSAGE("The two moves are joined! It's a combined move!{PAUSE 16}");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WATER_PLEDGE, playerRight);
         HP_BAR(opponentRight);
         MESSAGE("A rainbow appeared in the sky on your team's side!");
@@ -94,10 +94,10 @@ DOUBLE_BATTLE_TEST("Fire and Grass Pledge summons Sea Of Fire for four turns tha
         MESSAGE("Wobbuffet used Fire Pledge!");
         MESSAGE("Wobbuffet is waiting for Wynaut's move…{PAUSE 16}");
         MESSAGE("Wynaut used Grass Pledge!");
-        MESSAGE("The two moves become one! It's a combined move!{PAUSE 16}");
+        MESSAGE("The two moves are joined! It's a combined move!{PAUSE 16}");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRE_PLEDGE, playerRight);
         HP_BAR(opponentRight);
-        MESSAGE("A sea of fire enveloped the opposing team!");
+        MESSAGE("A sea of fire enveloped the foe's team!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SEA_OF_FIRE, opponentRight);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_BRN, opponentLeft);
         MESSAGE("The foe Wobbuffet is hurt by the sea of fire!");
@@ -111,7 +111,7 @@ DOUBLE_BATTLE_TEST("Fire and Grass Pledge summons Sea Of Fire for four turns tha
         MESSAGE("The foe Wobbuffet is hurt by the sea of fire!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_BRN, opponentRight);
         MESSAGE("The foe Wynaut is hurt by the sea of fire!");
-        MESSAGE("The sea of fire around the opposing team disappeared!");
+        MESSAGE("The sea of fire around the foe's team disappeared!");
     }
 }
 
@@ -152,11 +152,11 @@ DOUBLE_BATTLE_TEST("Grass and Water Pledge create a swamp on the user's side of 
         MESSAGE("Wobbuffet used Grass Pledge!");
         MESSAGE("Wobbuffet is waiting for Wynaut's move…{PAUSE 16}");
         MESSAGE("Wynaut used Water Pledge!");
-        MESSAGE("The two moves become one! It's a combined move!{PAUSE 16}");
+        MESSAGE("The two moves are joined! It's a combined move!{PAUSE 16}");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASS_PLEDGE, playerRight);
         HP_BAR(opponentRight);
-        MESSAGE("A swamp enveloped the opposing team!");
-        MESSAGE("The swamp around the opposing team disappeared!");
+        MESSAGE("A swamp enveloped the foe's team!");
+        MESSAGE("The swamp around the foe's team disappeared!");
     }
 }
 
@@ -257,13 +257,13 @@ DOUBLE_BATTLE_TEST("Pledge status timer does not reset if combined move is used 
         }
         if (pledgeMove1 == MOVE_FIRE_PLEDGE && pledgeMove2 == MOVE_GRASS_PLEDGE)
         {
-            NOT MESSAGE("A sea of fire enveloped the opposing team!");
-            MESSAGE("The sea of fire around the opposing team disappeared!");
+            NOT MESSAGE("A sea of fire enveloped the foe's team!");
+            MESSAGE("The sea of fire around the foe's team disappeared!");
         }
         if (pledgeMove1 == MOVE_GRASS_PLEDGE && pledgeMove2 == MOVE_WATER_PLEDGE)
         {
-            NOT MESSAGE("A swamp enveloped the opposing team!");
-            MESSAGE("The swamp around the opposing team disappeared!");
+            NOT MESSAGE("A swamp enveloped the foe's team!");
+            MESSAGE("The swamp around the foe's team disappeared!");
         }
     }
 }

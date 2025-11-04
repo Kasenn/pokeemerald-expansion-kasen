@@ -103,7 +103,7 @@ SINGLE_BATTLE_TEST("Mold Breaker does not prevent Own Tempo from curing confusio
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_CONFUSION, opponent);
         }
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("The foe Slowpoke's Own Tempo cured its confusion problem!");
+        MESSAGE("The foe Slowpoke snapped out of confusion!");
     }
 }
 
@@ -124,7 +124,7 @@ SINGLE_BATTLE_TEST("Own Tempo cures confusion if it's obtained via Skill Swap")
         MESSAGE("The foe Wobbuffet became confused!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, player);
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("The foe Wobbuffet's Own Tempo cured its confusion problem!");
+        MESSAGE("The foe Wobbuffet snapped out of confusion!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
     }
 }

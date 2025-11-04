@@ -19,7 +19,7 @@ WILD_BATTLE_TEST("Ion Deluge works the same way as always when used by a mon wit
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_VOLT_ABSORB);
             HP_BAR(opponent);
-            MESSAGE("The wild Lanturn restored HP using its Volt Absorb!");
+            MESSAGE("The wild Lanturn had its HP restored.");
         }
         MESSAGE("A deluge of ions showers the battlefield!");
     }

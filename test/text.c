@@ -654,6 +654,10 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_TARGETISHURTBYMEGAEXHAUSTION:
         SetMonData(&gEnemyParty[0], MON_DATA_NICKNAME, COMPOUND_STRING("Abomasnow"));
         break;
+    case STRINGID_CANACTFASTERTHANKSTO:
+        longItemName = ITEM_CUSTAP_BERRY;
+        longAbilityID = ABILITY_QUICK_DRAW;
+        break;
     default:
         break;
     }
@@ -769,7 +773,6 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_STATSWONTINCREASE:
     case STRINGID_STATSWONTDECREASE:
     case STRINGID_PKMNSXPREVENTSYLOSS:
-    case STRINGID_TARGETABILITYSTATRAISE:
     case STRINGID_TARGETSSTATWASMAXEDOUT:
     case STRINGID_ATTACKERABILITYSTATRAISE:
     case STRINGID_TARGETABILITYSTATLOWER:
@@ -831,7 +834,7 @@ TEST("Battle strings fit on the battle message window")
         PREPARE_MON_NICK_WITH_PREFIX_LOWER_BUFFER(gBattleTextBuff1, 1, 0);
         PREPARE_ABILITY_BUFFER(gBattleTextBuff2, longAbilityID);
         break;
-    // Buffer Stat name to B_BUFF1, "drastically rose" to B_BUFF2
+    // Buffer Stat name to B_BUFF1, "rose drastically" to B_BUFF2
     case STRINGID_ATTACKERSSTATROSE:
     case STRINGID_DEFENDERSSTATROSE:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);

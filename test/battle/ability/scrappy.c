@@ -89,6 +89,6 @@ SINGLE_BATTLE_TEST("Scrappy doesn't bypass a Ghost-type's Wonder Guard")
             HP_BAR(opponent);
         }
         ABILITY_POPUP(opponent, ABILITY_WONDER_GUARD);
-        MESSAGE("The foe Shedinja avoided damage with Wonder Guard!");
+        MESSAGE("It doesn't affect the foe Shedinja…");
     }
 }

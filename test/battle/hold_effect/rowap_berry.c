@@ -27,11 +27,11 @@ SINGLE_BATTLE_TEST("Rowap Berry causes the attacker to lose 1/8 of its max HP if
         if (move == MOVE_SWIFT) {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
             HP_BAR(player, captureDamage: &damage);
-            MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Rowap Berry!");
+            MESSAGE("Wobbuffet was hurt by the Rowap Berry!");
         } else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-                MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Rowap Berry!");
+                MESSAGE("Wobbuffet was hurt by the Rowap Berry!");
             }
         }
     } THEN {
@@ -53,7 +53,7 @@ SINGLE_BATTLE_TEST("Rowap Berry is not triggered by a physical move")
         HP_BAR(opponent);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Rowap Berry!");
+            MESSAGE("Wobbuffet was hurt by the Rowap Berry!");
         }
     }
 }
@@ -69,6 +69,6 @@ SINGLE_BATTLE_TEST("Rowap Berry is triggered even if berry user dies")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWIFT, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet is hurt by the foe Wobbuffet's Rowap Berry!");
+        MESSAGE("Wobbuffet was hurt by the Rowap Berry!");
     }
 }

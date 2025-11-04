@@ -20,15 +20,15 @@ DOUBLE_BATTLE_TEST("Gravity cancels fly and sky drop if they are in the air")
     } SCENE {
         // turn 1
         MESSAGE("The foe Pidgey used Sky Drop!");
-        MESSAGE("The foe Pidgey took Wynaut into the air!");
+        MESSAGE("The foe Pidgey took Wynaut into the sky!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_DROP, opponentLeft);
         MESSAGE("The foe Rookidee used Fly!");
         MESSAGE("The foe Rookidee flew up high!");
         // turn 2
         MESSAGE("Wobbuffet used Gravity!");
         MESSAGE("Gravity intensified!");
-        MESSAGE("The foe Pidgey can't stay airborne because of gravity!");
-        MESSAGE("The foe Rookidee can't stay airborne because of gravity!");
+        MESSAGE("The foe Pidgey couldn't stay airborne because of gravity!");
+        MESSAGE("The foe Rookidee couldn't stay airborne because of gravity!");
         MESSAGE("The foe Pidgey can't use Sky Drop because of gravity!");
         MESSAGE("The foe Rookidee can't use Fly because of gravity!");
     } THEN {

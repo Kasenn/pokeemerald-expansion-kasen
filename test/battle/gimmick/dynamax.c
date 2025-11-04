@@ -329,7 +329,7 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon can have their ability changed or
     } SCENE {
         MESSAGE("Wobbuffet used Max Strike!");
         MESSAGE("The foe Wobbuffet used Simple Beam!");
-        MESSAGE("Wobbuffet acquired Simple!");
+        MESSAGE("Wobbuffet's Ability became Simple!");
     } THEN {
         EXPECT_EQ(player->ability, ABILITY_SIMPLE);
     }
@@ -412,7 +412,7 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon lose their substitutes")
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_SCRATCH); }
     } SCENE {
         MESSAGE("Wobbuffet used Substitute!");
-        MESSAGE("Wobbuffet made a substitute!");
+        MESSAGE("Wobbuffet put in a substitute!");
         MESSAGE("Wobbuffet used Max Strike!");
         MESSAGE("The foe Wobbuffet used Scratch!");
         HP_BAR(player);
@@ -675,7 +675,7 @@ SINGLE_BATTLE_TEST("Dynamax: Sitrus Berries heal based on a Pokemon's non-Dynama
     } WHEN {
         TURN { MOVE(opponent, MOVE_FLING); MOVE(player, MOVE_SCRATCH, gimmick: dynamax); }
     } SCENE {
-        MESSAGE("Wobbuffet's Sitrus Berry restored health!");
+        MESSAGE("Wobbuffet restored its health using its Sitrus Berry!");
         HP_BAR(player, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
@@ -816,7 +816,7 @@ SINGLE_BATTLE_TEST("Dynamax: Max Flare sets up sunlight")
         TURN { MOVE(player, MOVE_EMBER, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         MESSAGE("Wobbuffet used Max Flare!");
-        MESSAGE("The sunlight got bright!");
+        MESSAGE("The sunlight turned harsh!");
         MESSAGE("The foe Wobbuffet used Celebrate!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SUN_CONTINUES);
     }
@@ -961,7 +961,7 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Stonesurge sets up Stealth Rocks")
     } SCENE {
         // turn 1
         MESSAGE("Drednaw used G-Max Stonesurge!");
-        MESSAGE("Pointed stones float in the air around the opposing team!");
+        MESSAGE("Pointed stones float in the air around your foe's team!");
         // turn 2
         MESSAGE("Pointed stones dug into the foe Wobbuffet!");
     }
@@ -983,13 +983,13 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Steelsurge sets up sharp steel")
     } SCENE {
         // turn 1
         MESSAGE("Copperajah used G-Max Steelsurge!");
-        MESSAGE("Sharp-pointed steel floats around the opposing team!");
+        MESSAGE("Sharp-pointed steel floats in the air around the opposing team!");
         // turn 2
         MESSAGE("2 sent out Hatterene!");
         MESSAGE("Sharp steel bit into the foe Hatterene!");
         // turn 4
         MESSAGE("The foe Hatterene used Defog!");
-        MESSAGE("The sharp steel disappeared from the ground around the opposing team!");
+        MESSAGE("The sharp steel disappeared from around the opposing team!");
     } THEN {
         EXPECT_MUL_EQ(opponent->maxHP, Q_4_12(0.75), opponent->hp);
     }
@@ -1228,8 +1228,8 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Terror traps both opponents")
         TURN { MOVE(playerLeft, MOVE_LICK, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); }
     } SCENE {
         MESSAGE("Gengar used G-Max Terror!");
-        MESSAGE("The foe Wobbuffet can't escape now!");
-        MESSAGE("The foe Wobbuffet can't escape now!");
+        MESSAGE("The foe Wobbuffet can no longer escape!");
+        MESSAGE("The foe Wobbuffet can no longer escape!");
     } THEN { // Can't find good way to test trapping
         EXPECT(opponentLeft->volatiles.escapePrevention);
     }
@@ -1282,8 +1282,8 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Meltdown torments both opponents for 3 turns"
         MESSAGE("The foe Wobbuffet used Celebrate!");
         MESSAGE("The foe Wynaut used Celebrate!");
         // end of turn 3
-        MESSAGE("The foe Wobbuffet is tormented no more!");
-        MESSAGE("The foe Wynaut is tormented no more!");
+        MESSAGE("The foe Wobbuffet's torment wore off!");
+        MESSAGE("The foe Wynaut's torment wore off!");
     }
 }
 
@@ -1378,7 +1378,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Snooze makes only the target drowsy")
     } SCENE {
         // turn 1
         MESSAGE("Grimmsnarl used G-Max Snooze!");
-        MESSAGE("Grimmsnarl made the foe Blissey drowsy!");
+        MESSAGE("The foe Blissey grew drowsy!");
         // turn 2
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_SLP, opponentLeft);
         MESSAGE("The foe Blissey fell asleep!");
@@ -1509,7 +1509,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Depletion takes away 2 PP from the target's l
     } SCENE {
         MESSAGE("The foe Sableye used Celebrate!");
         MESSAGE("Duraludon used G-Max Depletion!");
-        MESSAGE("Reduced the foe Sableye's Celebrate by 2!");
+        MESSAGE("It reduced the PP of the foe Sableye's Celebrate by 2!");
     } THEN {
         EXPECT_EQ(opponentLeft->pp[0], GetMovePP(MOVE_CELEBRATE) - 3); // 1 from regular use + 2 from G-Max Depletion
     }

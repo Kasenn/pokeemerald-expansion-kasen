@@ -99,7 +99,7 @@ SINGLE_BATTLE_TEST("Roar fails to switch out target with Suction Cups")
         MESSAGE("Wobbuffet used Roar!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROAR, player);
         ABILITY_POPUP(opponent, ABILITY_SUCTION_CUPS);
-        MESSAGE("The foe Octillery anchors itself with Suction Cups!");
+        MESSAGE("The foe Octillery anchors itself!");
         NOT MESSAGE("The foe Charmander was dragged out!");
     }
 }

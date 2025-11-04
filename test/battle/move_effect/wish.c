@@ -19,7 +19,6 @@ SINGLE_BATTLE_TEST("Wish restores 50% of max player HP")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         MESSAGE("Wynaut's wish came true!");
         HP_BAR(player, hp: 100);
-        MESSAGE("Wynaut regained health!");
     }
 }
 

@@ -14,7 +14,6 @@ SINGLE_BATTLE_TEST("Rain Dish recovers 1/16th of Max HP in Rain")
         TURN { MOVE(opponent, MOVE_RAIN_DANCE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_RAIN_DISH);
-        MESSAGE("Ludicolo's Rain Dish restored its HP a little!");
         HP_BAR(player, damage:  -(100 / 16));
     }
 }

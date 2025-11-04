@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Octolock decreases Defense and Sp. Def by at the end of the 
         TURN { MOVE(player, MOVE_OCTOLOCK); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OCTOLOCK, player);
-        MESSAGE("The foe Wobbuffet can no longer escape because of Octolock!");
+        MESSAGE("The foe Wobbuffet can no longer escape!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Wobbuffet's Defense fell!");
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
@@ -37,7 +37,7 @@ SINGLE_BATTLE_TEST("Octolock reduction is prevented by Clear Body, White Smoke a
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         if (species == SPECIES_BELDUM)
         {
-            MESSAGE("The foe Beldum can no longer escape because of Octolock!");
+            MESSAGE("The foe Beldum can no longer escape!");
             ABILITY_POPUP(opponent, ABILITY_CLEAR_BODY);
             MESSAGE("The foe Beldum's stats were not lowered!");
             NONE_OF {
@@ -47,7 +47,7 @@ SINGLE_BATTLE_TEST("Octolock reduction is prevented by Clear Body, White Smoke a
         }
         else if (species == SPECIES_TORKOAL)
         {
-            MESSAGE("The foe Torkoal can no longer escape because of Octolock!");
+            MESSAGE("The foe Torkoal can no longer escape!");
             ABILITY_POPUP(opponent, ABILITY_WHITE_SMOKE);
             MESSAGE("The foe Torkoal's stats were not lowered!");
             NONE_OF {
@@ -57,7 +57,7 @@ SINGLE_BATTLE_TEST("Octolock reduction is prevented by Clear Body, White Smoke a
         }
         else if (species == SPECIES_SOLGALEO)
         {
-            MESSAGE("The foe Solgaleo can no longer escape because of Octolock!");
+            MESSAGE("The foe Solgaleo can no longer escape!");
             ABILITY_POPUP(opponent, ABILITY_FULL_METAL_BODY);
             MESSAGE("The foe Solgaleo's stats were not lowered!");
             NONE_OF {
@@ -77,10 +77,10 @@ SINGLE_BATTLE_TEST("Octolock Defense reduction is prevented by Big Pecks")
         TURN { MOVE(player, MOVE_OCTOLOCK); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OCTOLOCK, player);
-        MESSAGE("The foe Pidgey can no longer escape because of Octolock!");
+        MESSAGE("The foe Pidgey can no longer escape!");
         NOT MESSAGE("The foe Pidgey's Defense fell!");
         ABILITY_POPUP(opponent, ABILITY_BIG_PECKS);
-        MESSAGE("The foe Pidgey's Big Pecks prevents Defense loss!");
+        MESSAGE("The foe Pidgey's Defense was not lowered!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Pidgey's Sp. Def fell!");
     }
@@ -96,7 +96,7 @@ SINGLE_BATTLE_TEST("Octolock reduction is prevented by Clear Amulet")
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OCTOLOCK, player);
-        MESSAGE("The foe Wobbuffet can no longer escape because of Octolock!");
+        MESSAGE("The foe Wobbuffet can no longer escape!");
         MESSAGE("The foe Wobbuffet's Clear Amulet prevents its stats from being lowered!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
@@ -141,7 +141,7 @@ SINGLE_BATTLE_TEST("Octolock triggers Defiant for both stat reductions")
         TURN { MOVE(player, MOVE_OCTOLOCK); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OCTOLOCK, player);
-        MESSAGE("The foe Bisharp can no longer escape because of Octolock!");
+        MESSAGE("The foe Bisharp can no longer escape!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Bisharp's Defense fell!");
         ABILITY_POPUP(opponent, ABILITY_DEFIANT);
@@ -166,7 +166,7 @@ SINGLE_BATTLE_TEST("Octolock ends after user that set the lock switches out")
         TURN { SWITCH(player, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_OCTOLOCK, player);
-        MESSAGE("The foe Wobbuffet can no longer escape because of Octolock!");
+        MESSAGE("The foe Wobbuffet can no longer escape!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Wobbuffet's Defense fell!");
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);

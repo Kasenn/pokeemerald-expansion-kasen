@@ -25,7 +25,7 @@ SINGLE_BATTLE_TEST("Solar Beam does not need a charging turn if Sun is up")
     } SCENE {
         if (ability == ABILITY_WHITE_SMOKE) {
             MESSAGE("Torkoal used Solar Beam!");
-            MESSAGE("Torkoal took in sunlight!");
+            MESSAGE("Torkoal absorbed light!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         }
         MESSAGE("Torkoal used Solar Beam!");

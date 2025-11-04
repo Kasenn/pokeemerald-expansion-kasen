@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Destiny Bond faints the foe mon if it fainted from the attac
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet took the foe Wobbuffet with it!");
+        MESSAGE("Wobbuffet took its attacker down with it!");
         MESSAGE("The foe Wobbuffet fainted!");
     }
 }

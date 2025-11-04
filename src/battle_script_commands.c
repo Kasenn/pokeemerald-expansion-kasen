@@ -10461,6 +10461,7 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, u32 statId, union StatChan
                 statValue = -2;
             gBattleTextBuff2[0] = B_BUFF_PLACEHOLDER_BEGIN;
             index = 1;
+            PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATFELL3)
             if (statValue == -2)
             {
                 gBattleTextBuff2[1] = B_BUFF_STRING;
@@ -10514,6 +10515,7 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, u32 statId, union StatChan
             statValue = 2;
         gBattleTextBuff2[0] = B_BUFF_PLACEHOLDER_BEGIN;
         index = 1;
+        PREPARE_STRING_BUFFER(gBattleTextBuff3, STRINGID_STATROSE3)
         if (statValue == 2)
         {
             gBattleTextBuff2[1] = B_BUFF_STRING;
@@ -13861,6 +13863,7 @@ static void Cmd_removescreens(void)
 
     u8 side;
     bool32 failed;
+    gBattleCustomString = 0;
 
     if (B_BRICK_BREAK >= GEN_4)
         side = GetBattlerSide(gBattlerTarget); // From Gen 4 onwards, Brick Break can remove screens on the user's side if used on an ally

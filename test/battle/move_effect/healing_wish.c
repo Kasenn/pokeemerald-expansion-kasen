@@ -23,7 +23,6 @@ SINGLE_BATTLE_TEST("Healing Wish causes the user to faint and fully heals the re
         MESSAGE("The healing wish came true for Wynaut!");
         HP_BAR(player, hp: 100);
         STATUS_ICON(player, none: TRUE);
-        MESSAGE("Wynaut regained health!");
     }
 }
 
@@ -45,7 +44,6 @@ DOUBLE_BATTLE_TEST("Lunar Dance causes the user to faint and fully heals the rep
         MESSAGE("Wynaut became cloaked in mystical moonlight!");
         HP_BAR(playerLeft, hp: 100);
         STATUS_ICON(playerLeft, none: TRUE);
-        MESSAGE("Wynaut regained health!");
     }
 }
 
@@ -63,7 +61,6 @@ SINGLE_BATTLE_TEST("Healing Wish effect activates even if the the switched Poké
         HP_BAR(player, hp: 0);
         MESSAGE("Gardevoir fainted!");
         MESSAGE("The healing wish came true for Ninjask!");
-        MESSAGE("Ninjask regained health!");
     }
 }
 
@@ -84,12 +81,10 @@ SINGLE_BATTLE_TEST("Healing Wish effect activates only if the switched Pokémon 
         MESSAGE("Gardevoir fainted!");
         NONE_OF {
             MESSAGE("The healing wish came true for Ninjask!");
-            MESSAGE("Ninjask regained health!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         MESSAGE("The healing wish came true for Wynaut!");
         HP_BAR(player, hp: 100);
         STATUS_ICON(player, none: TRUE);
-        MESSAGE("Wynaut regained health!");
     }
 }
