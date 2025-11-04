@@ -5630,6 +5630,7 @@ BattleScript_IceBodyHeal::
 	playanimation BS_ATTACKER, B_ANIM_SIMPLE_HEAL
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
+	pause B_WAIT_TIME_SHORT
 	end3
 
 BattleScript_OverworldStatusStarts::
@@ -6894,6 +6895,7 @@ BattleScript_DoTurnDmgEnd:
 BattleScript_PoisonHealActivates::
 	copybyte gBattlerAbility, gBattlerAttacker
 	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_SHORT
 	statusanimation BS_ATTACKER
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
 	healthbarupdate BS_ATTACKER
@@ -7424,6 +7426,7 @@ BattleScript_ReceiverActivates::
 
 BattleScript_AbilityHpHeal:
 	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_SHORT
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
@@ -7463,6 +7466,7 @@ BattleScript_HarvestActivatesEnd:
 BattleScript_SolarPowerActivates::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
 	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_SHORT
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER
 	tryfaintmon BS_ATTACKER
