@@ -10045,7 +10045,7 @@ const struct Item gItemsInfo[] =
             "in battle."),
         .pocket = POCKET_BERRIES,
         .sortType = ITEM_TYPE_BERRY,
-        .type = ITEM_USE_BAG_MENU,
+        .type = ITEM_USE_PARTY_MENU,
         .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
         .battleUsage = EFFECT_ITEM_CURE_STATUS,
         .effect = gItemEffect_PersimBerry,

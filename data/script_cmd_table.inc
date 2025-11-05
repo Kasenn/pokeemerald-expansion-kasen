@@ -252,12 +252,13 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_DYNMULTICHOICE                ScrCmd_dynmultichoice,              requests_effects=1  @ 0xe3
 	script_cmd_table_entry SCR_OP_DYNMULTIPUSH                  ScrCmd_dynmultipush,                requests_effects=1  @ 0xe4
 	script_cmd_table_entry SCR_OP_WILDBATTLERANGE 				ScrCmd_setwildbattlelevelrange, 	requests_effects=0  @ 0xe5
-	script_cmd_table_entry SCR_OP_CHECKDEXMON 					ScrCmd_checkdexmon,					requests_effects=0	@ 0xe8
-	script_cmd_table_entry SCR_OP_CHECKPARTYLEVEL 				ScrCmd_checkpartylevel,				requests_effects=0	@ 0xef
-	script_cmd_table_entry SCR_OP_BPMART 						ScrCmd_bpmart,						requests_effects=0  @ 0xf0
-	script_cmd_table_entry SCR_OP_GETFOLLOWERXY 				ScrCmd_getfollowerxy,				requests_effects=0	@ 0xf1
-	script_cmd_table_entry SCR_OP_HOWMANYBOX 					ScrCmd_howmanybox,					requests_effects=0	@ 0xf2
-	script_cmd_table_entry SCR_OP_GETOBJECTXY 					ScrCmd_getobjectxy,					requests_effects=0	@ 0xf3
+	script_cmd_table_entry SCR_OP_CHECKDEXMON 					ScrCmd_checkdexmon,					requests_effects=0	@ 0xe6
+	script_cmd_table_entry SCR_OP_CHECKPARTYLEVEL 				ScrCmd_checkpartylevel,				requests_effects=0	@ 0xe7
+	script_cmd_table_entry SCR_OP_BPMART 						ScrCmd_bpmart,						requests_effects=0  @ 0xe8
+	script_cmd_table_entry SCR_OP_GETFOLLOWERXY 				ScrCmd_getfollowerxy,				requests_effects=0	@ 0xe9
+	script_cmd_table_entry SCR_OP_HOWMANYBOX 					ScrCmd_howmanybox,					requests_effects=0	@ 0xea
+	script_cmd_table_entry SCR_OP_GETOBJECTXY 					ScrCmd_getobjectxy,					requests_effects=0	@ 0xeb
+	script_cmd_table_entry SCR_OP_HIDEFOLLOWER                  ScrCmd_hidefollower,                requests_effects=1  @ 0xec
 
 	.if ALLOCATE_SCRIPT_CMD_TABLE
 gScriptCmdTableEnd::
