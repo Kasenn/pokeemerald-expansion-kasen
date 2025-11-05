@@ -178,7 +178,7 @@ CoastTownHarbor_EventScript_BoardFerry::
 # 81 "data/maps/CoastTownHarbor/scripts.pory"
 	delay 30
 # 82 "data/maps/CoastTownHarbor/scripts.pory"
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 # 83 "data/maps/CoastTownHarbor/scripts.pory"
 	call Common2_EventScript_FerryDepart3
 	return

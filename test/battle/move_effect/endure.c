@@ -69,9 +69,9 @@ SINGLE_BATTLE_TEST("Endure only lasts for one turn")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENDURE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
-        MESSAGE("The opposing Wobbuffet endured the hit!");
+        MESSAGE("The foe Wobbuffet endured the hit!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
-        NOT MESSAGE("The opposing Wobbuffet endured the hit!");
+        NOT MESSAGE("The foe Wobbuffet endured the hit!");
     }
 }
 

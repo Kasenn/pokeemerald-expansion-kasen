@@ -217,7 +217,7 @@ Harbor_BoardFerryGoingWest::
 # 119 "data/maps/Shoreslate_Harbor/scripts.pory"
 	delay 30
 # 120 "data/maps/Shoreslate_Harbor/scripts.pory"
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 # 121 "data/maps/Shoreslate_Harbor/scripts.pory"
 	call Common2_EventScript_FerryDepart4
 	return

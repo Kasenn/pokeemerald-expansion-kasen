@@ -117,7 +117,7 @@ script Harbor_BoardFerryGoingWest{
 	call_if_eq(VAR_FACING, DIR_NORTH, ShoreslateHarbor_EventScript_BoardFerryNorth)
 	call_if_eq(VAR_FACING, DIR_WEST,  ShoreslateHarbor_EventScript_BoardFerryWest)
 	delay(30)
-	hideobjectat(LOCALID_PLAYER, 0)
+	hideplayer
 	call(Common2_EventScript_FerryDepart4)
 	return
 }

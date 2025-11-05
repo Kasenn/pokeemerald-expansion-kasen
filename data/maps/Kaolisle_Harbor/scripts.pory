@@ -129,7 +129,7 @@ script Harbor_BoardFerryGoingEast{
 	call_if_eq(VAR_FACING, DIR_NORTH, Harbor_BoardFerryNorth)
 	call_if_eq(VAR_FACING, DIR_EAST, Harbor_BoardFerryEast)
 	delay(30)
-	hideobjectat(LOCALID_PLAYER, 0)
+	hideplayer
 	call(FerryDepart_East)
 	return
 }

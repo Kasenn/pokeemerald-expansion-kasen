@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Aegislash reverts to Shield Form upon fainting (start as Shi
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, MOVE_GUST); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Gust!");
+        MESSAGE("The foe Wobbuffet used Gust!");
         MESSAGE("Aegislash fainted!");
     } THEN {
         EXPECT_EQ(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), SPECIES_AEGISLASH_SHIELD);

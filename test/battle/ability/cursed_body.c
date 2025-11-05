@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Cursed Body can trigger if the attacker is behind a Substitu
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AQUA_JET, player);
         ABILITY_POPUP(opponent, ABILITY_CURSED_BODY);
-        MESSAGE("Wobbuffet's Aqua Jet was disabled by the opposing Frillish's Cursed Body!");
+        MESSAGE("Wobbuffet's Aqua Jet was disabled!");
     }
 }
 
@@ -82,7 +82,7 @@ SINGLE_BATTLE_TEST("Cursed Body does not stop a multistrike move mid-execution")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROCK_BLAST, player);
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_CURSED_BODY);
-        MESSAGE("Wobbuffet's Rock Blast was disabled by the opposing Frillish's Cursed Body!");
+        MESSAGE("Wobbuffet's Rock Blast was disabled!");
         HP_BAR(opponent);
     }
 }

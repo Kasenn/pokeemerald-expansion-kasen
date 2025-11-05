@@ -137,6 +137,6 @@ DOUBLE_BATTLE_TEST("Toxic Debris sets Toxic Spikes on the opposing side even whe
         TURN { MOVE(user, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_TOXIC_DEBRIS);
-        MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
+        MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
     }
 }

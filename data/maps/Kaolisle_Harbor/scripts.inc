@@ -219,7 +219,7 @@ Harbor_BoardFerryGoingEast::
 # 131 "data/maps/Kaolisle_Harbor/scripts.pory"
 	delay 30
 # 132 "data/maps/Kaolisle_Harbor/scripts.pory"
-	hideobjectat LOCALID_PLAYER, 0
+	hideplayer
 # 133 "data/maps/Kaolisle_Harbor/scripts.pory"
 	call FerryDepart_East
 	return

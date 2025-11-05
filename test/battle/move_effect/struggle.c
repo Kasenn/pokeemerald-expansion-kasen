@@ -51,9 +51,9 @@ SINGLE_BATTLE_TEST("Struggle does not receive normal-type STAB")
 {
     // Compare with Cut, which does receive normal-type STAB
     ASSUME(GetSpeciesType(SPECIES_ZANGOOSE, 0) == GetMoveType(MOVE_STRUGGLE));
-    ASSUME(GetMovePower(MOVE_CUT) == GetMovePower(MOVE_STRUGGLE));
-    ASSUME(GetMoveCategory(MOVE_CUT) == GetMoveCategory(MOVE_STRUGGLE));
-    ASSUME(GetMoveType(MOVE_CUT) == GetMoveType(MOVE_STRUGGLE));
+    ASSUME(GetMovePower(MOVE_RAPID_SPIN) == GetMovePower(MOVE_STRUGGLE));
+    ASSUME(GetMoveCategory(MOVE_RAPID_SPIN) == GetMoveCategory(MOVE_STRUGGLE));
+    ASSUME(GetMoveType(MOVE_RAPID_SPIN) == GetMoveType(MOVE_STRUGGLE));
 
     s16 cutDamage;
     s16 struggleDamage;
@@ -62,10 +62,10 @@ SINGLE_BATTLE_TEST("Struggle does not receive normal-type STAB")
         PLAYER(SPECIES_ZANGOOSE);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_CUT); }
+        TURN { MOVE(player, MOVE_RAPID_SPIN); }
         TURN { MOVE(player, MOVE_STRUGGLE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CUT, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_RAPID_SPIN, player);
         HP_BAR(opponent, captureDamage: &cutDamage);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
         HP_BAR(opponent, captureDamage: &struggleDamage);

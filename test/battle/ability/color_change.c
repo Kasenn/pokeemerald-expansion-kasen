@@ -165,11 +165,11 @@ SINGLE_BATTLE_TEST("Color Change does not change the type to Normal when a Pokem
         TURN { }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SOAK, player);
-        MESSAGE("The opposing Kecleon transformed into the Water type!");
+        MESSAGE("The foe Kecleon transformed into the Water type!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_COLOR_CHANGE);
-            MESSAGE("The opposing Kecleon's Color Change made it the Normal type!");
+            MESSAGE("The foe Kecleon's Color Change made it the Normal type!");
         }
     }
 }
