@@ -1756,29 +1756,31 @@ void UpdateTimeOfDay(void)
     s32 minuteOverride = VarGet(VAR_MINUTE_OVERRIDE);
     s32 hours, minutes;
     RtcCalcLocalTime();
-    hours = hourOverride ? hourOverride : gLocalTime.hours;
-    minutes = minuteOverride ? minuteOverride : gLocalTime.minutes;
+    hours = sHoursOverride ? sHoursOverride : gLocalTime.hours;
+    minutes = gLocalTime.minutes;
 
     if (FlagGet(FLAG_PERMA_NIGHT))
     {
         hours = 0;
         minutes = 0;
     }
-    if (FlagGet(FLAG_PERMA_DAY))
+    else if (FlagGet(FLAG_PERMA_DAY))
     {
         hours = 12;
         minutes = 0;
     }
-
-    if (hourOverride >= 1 || minuteOverride >= 1)
+    else
     {
-        u8 realBrightness = GetSmoothBrightnessValue(hours, minutes);
-        u8 overrideBrightness = GetSmoothBrightnessValue(hourOverride, minuteOverride);
-
-        if (overrideBrightness > realBrightness)
+        if (hourOverride != 0 || minuteOverride != 0)
         {
-            hours = hourOverride;
-            minutes = minuteOverride;
+            u8 realBrightness = GetSmoothBrightnessValue(hours, minutes);
+            u8 overrideBrightness = GetSmoothBrightnessValue(hourOverride, minuteOverride);
+
+            if (overrideBrightness > realBrightness)
+            {
+                hours = hourOverride;
+                minutes = minuteOverride;
+            }
         }
     }
 

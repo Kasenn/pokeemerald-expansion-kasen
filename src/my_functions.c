@@ -1032,3 +1032,30 @@ void TestMoveName(void)
         }
     }
 }
+
+void BufferGogoatRecordTime(void)
+{
+    u32 oldRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 23 : 39;
+    u16 raceRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 1;
+
+    if (MAP(MAP_ROUTE20))
+    {
+        if (gSaveBlock1Ptr->pos.y < 20)
+        {
+            oldRecord = 23;
+            raceRecord = 0;
+        }
+        else
+        {
+            oldRecord = 39;
+            raceRecord = 1;
+        }
+    }
+
+    u32 buffer = gSaveBlock1Ptr->gogoatRaceRecord[raceRecord];
+
+    if (buffer > oldRecord || buffer == 0)
+        buffer = oldRecord;
+
+    ConvertIntToDecimalStringN(gStringVar2, buffer, STR_CONV_MODE_LEFT_ALIGN, CountDigits(buffer));
+}

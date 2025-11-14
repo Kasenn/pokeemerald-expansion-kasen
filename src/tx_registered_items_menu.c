@@ -95,9 +95,9 @@ static void TxRegItemsMenu_RemoveWindow(void);
 static void TxRegItemsMenu_RemoveScrollIndicator(void);
 static void TxRegItemsMenu_FreeStructs(void);
 
-#define TAG_ITEM_ICON       5110
+#define TAG_ITEM_ICON       (5110 | 1 << 15)
 #define TAG_INDICATOR_ARROWS       TAG_ITEM_ICON//109
-#define TILE_TAG_INDICATOR_ARROWS  0x13f8
+#define TILE_TAG_INDICATOR_ARROWS  (0x13F8 | (1 << 15))
 #define TAG_SCROLL_ARROW    TAG_ITEM_ICON//5112
 
 static const struct WindowTemplate TxRegItemsMenu_WindowTemplates[1] =

@@ -52,7 +52,8 @@ script StartMenu_GiveUpGogoatRace{
 }
 
 text ForfeitGogoatRaceMenu{
-    "wip"
+    "Forfeit the race and\n"
+    "return back to start?"
 }
 
 script Race1_GiveUp{
@@ -69,13 +70,16 @@ script Race1_GiveUp{
 }
 
 text Race1_InProgress{
-    "wip"
+    "Are you sure you want to\n"
+    "forfeit the race?"
 }
 text ReadyToRace1{
-    "wip"
+    "Alright, we ready to do some\n"
+    "Gogoat racing?"
 }
 text ForfeitRace1{
-    "wip"
+    "What's that?\n"
+    "You want to quit now?"
 }
 
 script RanchRace_Flag1{
@@ -155,6 +159,7 @@ script Race1_FinishMain{
     // have finished the race before //
     if(var(VAR_GOGOAT_RACE) >= STORY_RACE_1_REWARD_EARNED){ 
         if(flag(FLAG_TEMP_D)){ // broke personal record
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN)
             msgbox(Race1_YouWonAgain)
             callnative(TurnGogoatToBike)
             setvar(VAR_RACE_START, 1)
@@ -162,6 +167,7 @@ script Race1_FinishMain{
             waitstate
         }
         else{ // did not break personal record, thus no record was broken
+            callnative(BufferGogoatRecordTime)
             msgbox(Race1_FailedToImprove)
             if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race1_LetsGetYouOff)
@@ -191,7 +197,8 @@ script Race1_FinishMain{
             waitstate
         }
         else{ // did not finish in time
-            msgbox(Race1_YouLost)
+            callnative(BufferGogoatRecordTime)
+            msgbox(Race1_YouLostTheRace)
             if(msgbox(Race1_TryAgain, MSGBOX_YESNO) == FALSE){
                 msgbox(Race1_LetsGetYouOff)
                 if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_IN_PROGRESS){ setvar(VAR_GOGOAT_RACE, STORY_RACE_1_FAILED) }
@@ -213,32 +220,40 @@ script Race1_FinishMain{
 }
 
 text FinishRace1_CalculateScore{
-    "wip"
+    "Alright, looks like you managed\n"
+    "to grab all the flags!\l"
+    "Now, let's see how well you did…"
 }
 text Race1_YouWon{
-    "wip"
+    "{STR_VAR_1}!?\n"
+    "That's a new record!\p"
+    "I believe congratulations are\n"
+    "in order, but first, let's get you\l"
+    "off that Gogoat…"
 }
 text Race1_YouLostTheRace{
-    "wip"
-}
-text Race1_GiveUsASecond{
-    "wip"
-}
-text Race1_TakingYouBack{
-    "wip"
+    "{STR_VAR_1}…\p"
+    "I'm sorry, but that's not fast enough\n"
+    "to break the current record of\l"
+    "{STR_VAR_2} seconds."
 }
 text Race1_YouWonAgain{
-    "wip"
+    "{STR_VAR_1}!?\n"
+    "That's yet another new record!\p"
+    "I believe congratulations are\n"
+    "in order, but first, let's get you\l"
+    "off that Gogoat…"
 }
 text Race1_FailedToImprove{
-    "wip"
+    "{STR_VAR_1}…\p"
+    "It looks like you didn't manage to\n"
+    "improve your current record of\l"
+    "{STR_VAR_2} seconds."
 }
 text Race1_TryAgain{
-    "wip"
+    "Would you like to have another try?"
 }
 text Race1_LetsGetYouOff{
-    "wip"
-}
-text Race1_YouLost{
-    "wip"
+    "Very well then.\n"
+    "Let's get you off that Gogoat…"
 }

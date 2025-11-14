@@ -2926,7 +2926,7 @@ void UpdateLightSprite(struct Sprite *sprite)
         return;
     }
 
-    if (gTimeOfDay != TIME_NIGHT)
+    if (gTimeBlend.altWeight > 175)
     {
         sprite->invisible = TRUE;
         return;
@@ -6808,14 +6808,7 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
         curObject = &gObjectEvents[i];
         if (curObject->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && curObject->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP)
             return OBJECT_EVENTS_COUNT;
-        // if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
-        //     return i;
-        // if (curObject->graphicsId > OBJ_EVENT_GFX_SPECIES(BULBASAUR) && curObject->graphicsId < OBJ_EVENT_GFX_SPECIES(MIRAIDON))
-        //     return FALSE;
-        // if (curObject->mapNum == MAP_NUM(KAOLISLE_CITY)
-        //  && curObject->mapGroup == MAP_GROUP(KAOLISLE_CITY)
-        //  && curObject->graphicsId == OBJ_EVENT_GFX_SPECIES(HAUNTER))
-        //     return FALSE;
+
         if (curObject->active && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent
          && !FollowerNPC_IsCollisionExempt(curObject, objectEvent)
          )

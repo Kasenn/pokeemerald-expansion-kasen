@@ -166,7 +166,6 @@ void AgbMainLoop(void)
                 gLinkTransferringData = FALSE;
             }
         }
-
         PlayTimeCounter_Update();
         MapMusicMain();
         WaitForVBlank();

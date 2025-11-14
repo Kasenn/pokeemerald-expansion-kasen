@@ -67,10 +67,12 @@
 #define STORY_RACE_1_FAILED                      3
 #define STORY_RACE_1_COMPLETE                    4
 #define STORY_RACE_1_REWARD_EARNED               5
-#define STORY_RACE_2_INTRO                       6
-#define STORY_RACE_2_IN_PROGRESS                 7
-#define STORY_RACE_2_FAILED                      8
-#define STORY_RACE_2_COMPLETE                    9
-#define STORY_RACE_2_REWARD_EARNED               10
+#define STORY_RACE_1_COMPLETE_AGAIN              6
+#define STORY_RACE_1_REWARD_EARNED_AGAIN         7
+#define STORY_RACE_2_INTRO                       8
+#define STORY_RACE_2_IN_PROGRESS                 9
+#define STORY_RACE_2_FAILED                      10
+#define STORY_RACE_2_COMPLETE                    11
+#define STORY_RACE_2_REWARD_EARNED               12
 
 #endif // GUARD_CONSTANTS_STORY_H

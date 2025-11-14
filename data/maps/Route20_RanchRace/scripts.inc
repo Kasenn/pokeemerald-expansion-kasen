@@ -116,402 +116,417 @@ StartMenu_GiveUpGogoatRace_12:
 
 
 Race1_GiveUp::
-# 59 "data/maps/Route20_RanchRace/scripts.pory"
-	lock
 # 60 "data/maps/Route20_RanchRace/scripts.pory"
+	lock
+# 61 "data/maps/Route20_RanchRace/scripts.pory"
 	faceplayer
 	msgbox Race1_InProgress, MSGBOX_YESNO
 # 0 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Race1_GiveUp_2
 Race1_GiveUp_1:
-# 68 "data/maps/Route20_RanchRace/scripts.pory"
+# 69 "data/maps/Route20_RanchRace/scripts.pory"
 	release
 	return
 
 Race1_GiveUp_2:
-# 62 "data/maps/Route20_RanchRace/scripts.pory"
-	msgbox Race1_LetsGetYouOff
 # 63 "data/maps/Route20_RanchRace/scripts.pory"
+	msgbox Race1_LetsGetYouOff
+# 64 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 	goto_if_eq Race1_GiveUp_5
 Race1_GiveUp_4:
-# 64 "data/maps/Route20_RanchRace/scripts.pory"
-	warp MAP_ROUTE20, 1
 # 65 "data/maps/Route20_RanchRace/scripts.pory"
-	callnative TurnGogoatToBike
+	warp MAP_ROUTE20, 1
 # 66 "data/maps/Route20_RanchRace/scripts.pory"
+	callnative TurnGogoatToBike
+# 67 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	goto Race1_GiveUp_1
 
 Race1_GiveUp_5:
-# 63 "data/maps/Route20_RanchRace/scripts.pory"
+# 64 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_1_FAILED
 	goto Race1_GiveUp_4
 
 
 RanchRace_Flag1::
-# 82 "data/maps/Route20_RanchRace/scripts.pory"
+# 86 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_1
-# 83 "data/maps/Route20_RanchRace/scripts.pory"
+# 87 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag2::
-# 85 "data/maps/Route20_RanchRace/scripts.pory"
+# 89 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_2
-# 86 "data/maps/Route20_RanchRace/scripts.pory"
+# 90 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag3::
-# 88 "data/maps/Route20_RanchRace/scripts.pory"
+# 92 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_3
-# 89 "data/maps/Route20_RanchRace/scripts.pory"
+# 93 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag4::
-# 91 "data/maps/Route20_RanchRace/scripts.pory"
+# 95 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_4
-# 92 "data/maps/Route20_RanchRace/scripts.pory"
+# 96 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag5::
-# 94 "data/maps/Route20_RanchRace/scripts.pory"
+# 98 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_5
-# 95 "data/maps/Route20_RanchRace/scripts.pory"
+# 99 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag6::
-# 97 "data/maps/Route20_RanchRace/scripts.pory"
+# 101 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_6
-# 98 "data/maps/Route20_RanchRace/scripts.pory"
+# 102 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag7::
-# 100 "data/maps/Route20_RanchRace/scripts.pory"
+# 104 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_7
-# 101 "data/maps/Route20_RanchRace/scripts.pory"
+# 105 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag8::
-# 103 "data/maps/Route20_RanchRace/scripts.pory"
+# 107 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_8
-# 104 "data/maps/Route20_RanchRace/scripts.pory"
+# 108 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag9::
-# 106 "data/maps/Route20_RanchRace/scripts.pory"
+# 110 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_9
-# 107 "data/maps/Route20_RanchRace/scripts.pory"
+# 111 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 RanchRace_Flag10::
-# 109 "data/maps/Route20_RanchRace/scripts.pory"
+# 113 "data/maps/Route20_RanchRace/scripts.pory"
 	removeobject LOCALID_FLAG_10
-# 110 "data/maps/Route20_RanchRace/scripts.pory"
+# 114 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_Flag_Main
 	return
 
 
 Race1_Flag_Main::
-# 112 "data/maps/Route20_RanchRace/scripts.pory"
+# 116 "data/maps/Route20_RanchRace/scripts.pory"
 	addvar VAR_TEMP_0, 1
-# 113 "data/maps/Route20_RanchRace/scripts.pory"
+# 117 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_TEMP_0, 10
 	goto_if_eq Race1_Flag_Main_2
-# 117 "data/maps/Route20_RanchRace/scripts.pory"
+# 121 "data/maps/Route20_RanchRace/scripts.pory"
 	playse SE_PIN
 Race1_Flag_Main_1:
-# 119 "data/maps/Route20_RanchRace/scripts.pory"
+# 123 "data/maps/Route20_RanchRace/scripts.pory"
 	release
 	return
 
 Race1_Flag_Main_2:
-# 114 "data/maps/Route20_RanchRace/scripts.pory"
+# 118 "data/maps/Route20_RanchRace/scripts.pory"
 	playse SE_SUCCESS
 	goto Race1_Flag_Main_1
 
 
 Race1_FinishNorth::
-# 123 "data/maps/Route20_RanchRace/scripts.pory"
+# 127 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_2, DIR_NORTH
-# 124 "data/maps/Route20_RanchRace/scripts.pory"
+# 128 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_FinishMain
 	return
 
 
 Race1_FinishEast::
-# 126 "data/maps/Route20_RanchRace/scripts.pory"
+# 130 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_2, DIR_EAST
-# 127 "data/maps/Route20_RanchRace/scripts.pory"
+# 131 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_FinishMain
 	return
 
 
 Race1_FinishSouth::
-# 129 "data/maps/Route20_RanchRace/scripts.pory"
+# 133 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_2, DIR_SOUTH
-# 130 "data/maps/Route20_RanchRace/scripts.pory"
+# 134 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_FinishMain
 	return
 
 
 Race1_FinishWest::
-# 132 "data/maps/Route20_RanchRace/scripts.pory"
+# 136 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_2, DIR_WEST
-# 133 "data/maps/Route20_RanchRace/scripts.pory"
+# 137 "data/maps/Route20_RanchRace/scripts.pory"
 	goto Race1_FinishMain
 	return
 
 
 Race1_FinishMain::
-# 137 "data/maps/Route20_RanchRace/scripts.pory"
-	lock
-# 138 "data/maps/Route20_RanchRace/scripts.pory"
-	callnative FinishGogoatRace
-# 139 "data/maps/Route20_RanchRace/scripts.pory"
-	switch VAR_TEMP_2
-# 140 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_NORTH, Race1_FinishMain_3
 # 141 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_EAST, Race1_FinishMain_4
+	lock
 # 142 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_WEST, Race1_FinishMain_5
+	callnative FinishGogoatRace
 # 143 "data/maps/Route20_RanchRace/scripts.pory"
+	switch VAR_TEMP_2
+# 144 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_NORTH, Race1_FinishMain_3
+# 145 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_EAST, Race1_FinishMain_4
+# 146 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_WEST, Race1_FinishMain_5
+# 147 "data/maps/Route20_RanchRace/scripts.pory"
 	case DIR_SOUTH, Race1_FinishMain_6
 Race1_FinishMain_1:
-# 145 "data/maps/Route20_RanchRace/scripts.pory"
-	playse SE_PIN
-# 146 "data/maps/Route20_RanchRace/scripts.pory"
-	exclamationmark 1
-# 147 "data/maps/Route20_RanchRace/scripts.pory"
-	switch VAR_TEMP_2
-# 148 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_NORTH, Race1_FinishMain_9
 # 149 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_EAST, Race1_FinishMain_10
+	playse SE_PIN
 # 150 "data/maps/Route20_RanchRace/scripts.pory"
-	case DIR_WEST, Race1_FinishMain_11
+	exclamationmark 1
 # 151 "data/maps/Route20_RanchRace/scripts.pory"
+	switch VAR_TEMP_2
+# 152 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_NORTH, Race1_FinishMain_9
+# 153 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_EAST, Race1_FinishMain_10
+# 154 "data/maps/Route20_RanchRace/scripts.pory"
+	case DIR_WEST, Race1_FinishMain_11
+# 155 "data/maps/Route20_RanchRace/scripts.pory"
 	case DIR_SOUTH, Race1_FinishMain_12
 Race1_FinishMain_7:
-# 153 "data/maps/Route20_RanchRace/scripts.pory"
+# 157 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox FinishRace1_CalculateScore
-# 156 "data/maps/Route20_RanchRace/scripts.pory"
+# 160 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED
 	goto_if_ge Race1_FinishMain_13
-# 185 "data/maps/Route20_RanchRace/scripts.pory"
+# 191 "data/maps/Route20_RanchRace/scripts.pory"
 	goto_if_set FLAG_TEMP_C, Race1_FinishMain_19
-# 194 "data/maps/Route20_RanchRace/scripts.pory"
-	msgbox Race1_YouLost
+# 200 "data/maps/Route20_RanchRace/scripts.pory"
+	callnative BufferGogoatRecordTime
+# 201 "data/maps/Route20_RanchRace/scripts.pory"
+	msgbox Race1_YouLostTheRace
 	msgbox Race1_TryAgain, MSGBOX_YESNO
 # 0 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Race1_FinishMain_25
-# 205 "data/maps/Route20_RanchRace/scripts.pory"
+# 212 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox LetsGetGogoatRacing
-# 206 "data/maps/Route20_RanchRace/scripts.pory"
+# 213 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
-# 207 "data/maps/Route20_RanchRace/scripts.pory"
+# 214 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20_RANCH_RACE, 0
-# 208 "data/maps/Route20_RanchRace/scripts.pory"
+# 215 "data/maps/Route20_RanchRace/scripts.pory"
 	callnative TurnBikeToGogoat
-# 209 "data/maps/Route20_RanchRace/scripts.pory"
+# 216 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
 
 Race1_FinishMain_3:
-# 140 "data/maps/Route20_RanchRace/scripts.pory"
+# 144 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject 1, DIR_NORTH
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_4:
-# 141 "data/maps/Route20_RanchRace/scripts.pory"
+# 145 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject 1, DIR_EAST
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_5:
-# 142 "data/maps/Route20_RanchRace/scripts.pory"
+# 146 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject 1, DIR_WEST
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_6:
-# 143 "data/maps/Route20_RanchRace/scripts.pory"
+# 147 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject 1, DIR_SOUTH
 	goto Race1_FinishMain_1
 
 Race1_FinishMain_9:
-# 148 "data/maps/Route20_RanchRace/scripts.pory"
+# 152 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_SOUTH
 	goto Race1_FinishMain_7
 
 Race1_FinishMain_10:
-# 149 "data/maps/Route20_RanchRace/scripts.pory"
+# 153 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_WEST
 	goto Race1_FinishMain_7
 
 Race1_FinishMain_11:
-# 150 "data/maps/Route20_RanchRace/scripts.pory"
+# 154 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_EAST
 	goto Race1_FinishMain_7
 
 Race1_FinishMain_12:
-# 151 "data/maps/Route20_RanchRace/scripts.pory"
+# 155 "data/maps/Route20_RanchRace/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto Race1_FinishMain_7
 
 Race1_FinishMain_13:
-# 157 "data/maps/Route20_RanchRace/scripts.pory"
+# 161 "data/maps/Route20_RanchRace/scripts.pory"
 	goto_if_set FLAG_TEMP_D, Race1_FinishMain_16
-# 165 "data/maps/Route20_RanchRace/scripts.pory"
+# 170 "data/maps/Route20_RanchRace/scripts.pory"
+	callnative BufferGogoatRecordTime
+# 171 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_FailedToImprove
 	msgbox Race1_TryAgain, MSGBOX_YESNO
 # 0 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Race1_FinishMain_22
-# 175 "data/maps/Route20_RanchRace/scripts.pory"
+# 181 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox LetsGetGogoatRacing
-# 176 "data/maps/Route20_RanchRace/scripts.pory"
+# 182 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20_RANCH_RACE, 0
-# 177 "data/maps/Route20_RanchRace/scripts.pory"
+# 183 "data/maps/Route20_RanchRace/scripts.pory"
 	callnative TurnBikeToGogoat
-# 178 "data/maps/Route20_RanchRace/scripts.pory"
+# 184 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
 
 Race1_FinishMain_16:
-# 158 "data/maps/Route20_RanchRace/scripts.pory"
-	msgbox Race1_YouWonAgain
-# 159 "data/maps/Route20_RanchRace/scripts.pory"
-	callnative TurnGogoatToBike
-# 160 "data/maps/Route20_RanchRace/scripts.pory"
-	setvar VAR_TEMP_1, 1
-# 161 "data/maps/Route20_RanchRace/scripts.pory"
-	warp MAP_ROUTE20, 1
 # 162 "data/maps/Route20_RanchRace/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN
+# 163 "data/maps/Route20_RanchRace/scripts.pory"
+	msgbox Race1_YouWonAgain
+# 164 "data/maps/Route20_RanchRace/scripts.pory"
+	callnative TurnGogoatToBike
+# 165 "data/maps/Route20_RanchRace/scripts.pory"
+	setvar VAR_TEMP_1, 1
+# 166 "data/maps/Route20_RanchRace/scripts.pory"
+	warp MAP_ROUTE20, 1
+# 167 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
 
 Race1_FinishMain_19:
-# 186 "data/maps/Route20_RanchRace/scripts.pory"
+# 192 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE
-# 187 "data/maps/Route20_RanchRace/scripts.pory"
+# 193 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_YouWon
-# 188 "data/maps/Route20_RanchRace/scripts.pory"
+# 194 "data/maps/Route20_RanchRace/scripts.pory"
 	callnative TurnGogoatToBike
-# 189 "data/maps/Route20_RanchRace/scripts.pory"
+# 195 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_TEMP_1, 1
-# 190 "data/maps/Route20_RanchRace/scripts.pory"
+# 196 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
-# 191 "data/maps/Route20_RanchRace/scripts.pory"
+# 197 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
 	return
 
 Race1_FinishMain_22:
-# 167 "data/maps/Route20_RanchRace/scripts.pory"
+# 173 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_LetsGetYouOff
-# 168 "data/maps/Route20_RanchRace/scripts.pory"
+# 174 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
-# 169 "data/maps/Route20_RanchRace/scripts.pory"
+# 175 "data/maps/Route20_RanchRace/scripts.pory"
 	callnative TurnGogoatToBike
-# 170 "data/maps/Route20_RanchRace/scripts.pory"
+# 176 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
-# 171 "data/maps/Route20_RanchRace/scripts.pory"
+# 177 "data/maps/Route20_RanchRace/scripts.pory"
 	release
 	end
 
 Race1_FinishMain_25:
-# 196 "data/maps/Route20_RanchRace/scripts.pory"
+# 203 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox Race1_LetsGetYouOff
-# 197 "data/maps/Route20_RanchRace/scripts.pory"
+# 204 "data/maps/Route20_RanchRace/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
 	goto_if_eq Race1_FinishMain_29
 Race1_FinishMain_28:
-# 198 "data/maps/Route20_RanchRace/scripts.pory"
+# 205 "data/maps/Route20_RanchRace/scripts.pory"
 	warp MAP_ROUTE20, 1
-# 199 "data/maps/Route20_RanchRace/scripts.pory"
+# 206 "data/maps/Route20_RanchRace/scripts.pory"
 	callnative TurnGogoatToBike
-# 200 "data/maps/Route20_RanchRace/scripts.pory"
+# 207 "data/maps/Route20_RanchRace/scripts.pory"
 	waitstate
-# 201 "data/maps/Route20_RanchRace/scripts.pory"
+# 208 "data/maps/Route20_RanchRace/scripts.pory"
 	release
 	end
 
 Race1_FinishMain_29:
-# 197 "data/maps/Route20_RanchRace/scripts.pory"
+# 204 "data/maps/Route20_RanchRace/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_1_FAILED
 	goto Race1_FinishMain_28
 
 
 ForfeitGogoatRaceMenu::
 # 54 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+	.string "Forfeit the race and\n"
+	.string "return back to start?$"
 
 Race1_InProgress::
-# 71 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 72 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "Are you sure you want to\n"
+	.string "forfeit the race?$"
 
 ReadyToRace1::
-# 74 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 76 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "Alright, we ready to do some\n"
+	.string "Gogoat racing?$"
 
 ForfeitRace1::
-# 77 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 80 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "What's that?\n"
+	.string "You want to quit now?$"
 
 FinishRace1_CalculateScore::
-# 215 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 222 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "Alright, looks like you managed\n"
+	.string "to grab all the flags!\l"
+	.string "Now, let's see how well you did…$"
 
 Race1_YouWon::
-# 218 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 227 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "{STR_VAR_1}!?\n"
+	.string "That's a new record!\p"
+	.string "I believe congratulations are\n"
+	.string "in order, but first, let's get you\l"
+	.string "off that Gogoat…$"
 
 Race1_YouLostTheRace::
-# 221 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
-
-Race1_GiveUsASecond::
-# 224 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
-
-Race1_TakingYouBack::
-# 227 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 234 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "{STR_VAR_1}…\p"
+	.string "I'm sorry, but that's not fast enough\n"
+	.string "to break the current record of\l"
+	.string "{STR_VAR_2} seconds.$"
 
 Race1_YouWonAgain::
-# 230 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 240 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "{STR_VAR_1}!?\n"
+	.string "That's yet another new record!\p"
+	.string "I believe congratulations are\n"
+	.string "in order, but first, let's get you\l"
+	.string "off that Gogoat…$"
 
 Race1_FailedToImprove::
-# 233 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 247 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "{STR_VAR_1}…\p"
+	.string "It looks like you didn't manage to\n"
+	.string "improve your current record of\l"
+	.string "{STR_VAR_2} seconds.$"
 
 Race1_TryAgain::
-# 236 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 253 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "Would you like to have another try?$"
 
 Race1_LetsGetYouOff::
-# 239 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
-
-Race1_YouLost::
-# 242 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "wip$"
+# 256 "data/maps/Route20_RanchRace/scripts.pory"
+	.string "Very well then.\n"
+	.string "Let's get you off that Gogoat…$"

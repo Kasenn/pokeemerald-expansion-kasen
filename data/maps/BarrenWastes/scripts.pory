@@ -1,6 +1,8 @@
 mapscripts BarrenWastes_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
         setescapewarp(MAP_BARREN_WASTES, 14, 6)
+        setvar(VAR_HOUR_OVERRIDE, 0)
+        setvar(VAR_MINUTE_OVERRIDE, 0)
     }
 }
 

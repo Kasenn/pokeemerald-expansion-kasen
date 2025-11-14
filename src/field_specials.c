@@ -4627,6 +4627,12 @@ void FinishGogoatRace(void)
     u32 oldRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 23 : 39;
     u16 raceRecord = (MAP(MAP_ROUTE20_RANCH_RACE)) ? 0 : 1;
 
+    u8 tempHours[8] = {0};
+    u8 tempMinutes[4] = {0};
+    u8 tempSeconds[4] = {0};
+
+    *gStringVar1 = EOS;
+
     if (totalSeconds < gSaveBlock1Ptr->gogoatRaceRecord[raceRecord] && totalSeconds < oldRecord)
     {
         gSaveBlock1Ptr->gogoatRaceRecord[raceRecord] = totalSeconds;
@@ -4637,11 +4643,11 @@ void FinishGogoatRace(void)
         FlagSet(FLAG_TEMP_C);
 
     if (hours)
-        ConvertIntToDecimalStringN(gStringVar1, hours, STR_CONV_MODE_LEFT_ALIGN, CountDigits(hours));
+        ConvertIntToDecimalStringN(tempHours, hours, STR_CONV_MODE_LEFT_ALIGN, CountDigits(hours));
     if (minutes)
-        ConvertIntToDecimalStringN(gStringVar2, minutes, STR_CONV_MODE_LEFT_ALIGN, CountDigits(minutes));
+        ConvertIntToDecimalStringN(tempMinutes, minutes, STR_CONV_MODE_LEFT_ALIGN, CountDigits(minutes));
 
-    ConvertIntToDecimalStringN(gStringVar3, seconds, STR_CONV_MODE_LEFT_ALIGN, CountDigits(seconds));
+    ConvertIntToDecimalStringN(tempSeconds, seconds, STR_CONV_MODE_LEFT_ALIGN, CountDigits(seconds));
 
     switch (hours)
     {
@@ -4651,50 +4657,64 @@ void FinishGogoatRace(void)
             case 0:
                 break;
             case 1:
-                StringAppend(gStringVar2, COMPOUND_STRING(" minute and "));
+                StringCopy(gStringVar1, tempMinutes);
+                StringAppend(gStringVar1, COMPOUND_STRING(" minute and "));
                 break;
             default:
-                StringAppend(gStringVar2, COMPOUND_STRING(" minutes and "));
+                StringCopy(gStringVar1, tempMinutes);
+                StringAppend(gStringVar1, COMPOUND_STRING(" minutes and "));
                 break;
         }
         break;
     case 1:
         if (minutes == 0)
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hour and "));
         }
         else if (minutes == 1)
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hour, "));
-            StringAppend(gStringVar2, COMPOUND_STRING(" minute, and "));
+            StringAppend(gStringVar1, tempMinutes);
+            StringAppend(gStringVar1, COMPOUND_STRING(" minute, and "));
         }
         else
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hour, "));
-            StringAppend(gStringVar2, COMPOUND_STRING(" minutes, and "));
+            StringAppend(gStringVar1, tempMinutes);
+            StringAppend(gStringVar1, COMPOUND_STRING(" minutes, and "));
         }
         break;
     default:
         if (minutes == 0)
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hours and "));
         }
         else if (minutes == 1)
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hours, "));
-            StringAppend(gStringVar2, COMPOUND_STRING(" minute, and "));
+            StringAppend(gStringVar1, tempMinutes);
+            StringAppend(gStringVar1, COMPOUND_STRING(" minute, and "));
         }
         else
         {
+            StringCopy(gStringVar1, tempHours);
             StringAppend(gStringVar1, COMPOUND_STRING(" hours, "));
-            StringAppend(gStringVar2, COMPOUND_STRING(" minutes, and "));
+            StringAppend(gStringVar1, tempMinutes);
+            StringAppend(gStringVar1, COMPOUND_STRING(" minutes, and "));
         }
         break;
     }
+
+    StringAppend(gStringVar1, tempSeconds);
     if (seconds == 1)
-        StringAppend(gStringVar3, COMPOUND_STRING(" second"));
+        StringAppend(gStringVar1, COMPOUND_STRING(" second"));
     else
-        StringAppend(gStringVar3, COMPOUND_STRING(" seconds"));
+        StringAppend(gStringVar1, COMPOUND_STRING(" seconds"));
 }
 
 void SetHiddenNature(void)

@@ -219,7 +219,8 @@ static void MachBikeTransition_TurnDirection(u8 direction)
     if (CanBikeFaceDirOnMetatile(direction, playerObjEvent->currentMetatileBehavior))
     {
         PlayerTurnInPlace(direction);
-        Bike_SetBikeStill();
+        // Bike_SetBikeStill();
+        //wip the above change should make the bike more responsive
     }
     else
     {

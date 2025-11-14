@@ -5,6 +5,8 @@ const OBJ_RUFFLET = 25
 mapscripts FrostfireCity_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_TEMP_3)
+        setvar(VAR_HOUR_OVERRIDE, 0)
+        setvar(VAR_MINUTE_OVERRIDE, 0)
         setflag(FLAG_VISITED_FROSTHEARTH)
         switch(var(VAR_FROSTHEARTH_RUFFLET)){
             case 2:

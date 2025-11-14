@@ -27,6 +27,10 @@ mapscripts Route20_MapScripts {
             if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE){
                 setvar(VAR_AUTOPLAY, RACE_1_SUCCESS)
             }
+            elif(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN)
+            {
+                setvar(VAR_AUTOPLAY, RACE_1_SUCCESS)
+            }
             else{
                 setvar(VAR_AUTOPLAY, RACE_1_FAIL)
             }
@@ -54,24 +58,52 @@ script GogoatRace1Failed{
     msgbox(GogoatRace1Failed_Text, MSGBOX_AUTOCLOSE)
 }
 text GogoatRace1Failed_Text{
-    "wip"
+    "I hope you enjoyed your time\n"
+    "Gogoat racing.\p"
+    "Let me know if you'd like to\n"
+    "give it another go!"
 }
 script GogoatRace1RewardCeremony{
     setvar(VAR_AUTOPLAY, 0)
-    msgbox(GogoatRace1RewardCeremony_Reward)
-    giveitem(ITEM_PP_UP)
-    if(var(VAR_RESULT) == FALSE){
-        goto(ZeBagIsFull)
+    if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN){
+        callnative(BufferGogoatRecordTime)
+        msgbox(GogoatRace1RewardCeremony_Reward_Again)
+        giveitem(ITEM_LEMONADE)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN)
+        clearflag(FLAG_RACEBOY)
     }
-    setvar(VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE)
-    clearflag(FLAG_RACEBOY)
+    else{
+        callnative(BufferGogoatRecordTime)
+        msgbox(GogoatRace1RewardCeremony_Reward)
+        giveitem(ITEM_PP_UP)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        clearflag(FLAG_RACEBOY)
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED)
+    }
     msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
 }
 text GogoatRace1RewardCeremony_Reward{
-    "wip"
+    "We have a new winner!\p"
+    "With a record time of {STR_VAR_2} seconds,\n"
+    "you are our new record holder!\p"
+    "As a reward, I want you to have this."
+}
+text GogoatRace1RewardCeremony_Reward_Again{
+    "We have a winner!\p"
+    "With a record time of {STR_VAR_2} seconds,\n"
+    "you are still our new record holder!\p"
+    "Unfortunately you already received\n"
+    "the grand prize, so all I've got to offer\l"
+    "is this consolation prize."
 }
 text GogoatRace1RewardCeremony_WelcomeBackAnyTime{
-    "wip"
+    "If you'd like to try and improve\n"
+    "your record, come talk to me!"
 }
 script GogoatRace2Failed{
     setvar(VAR_AUTOPLAY, 0)
@@ -89,7 +121,8 @@ script GogoatRace2RewardCeremony{
 
 }
 text GogoatRace2Failed_Text{
-    "wip"
+    "Let me know if you'd like to\n"
+    "try the race again."
 }
 
 script Route20_BrotherTrigger1{
@@ -203,30 +236,37 @@ text Route20_Sign_Text{
 }
 
 script Route20_RanchRace{
-    lock
     faceplayer
-    if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE){
+    release
+    if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN){
+        msgbox(GogoatRace1RewardCeremony_Reward_Again)
+        giveitem(ITEM_LEMONADE)
+        if(var(VAR_RESULT) == FALSE){
+            goto(ZeBagIsFull)
+        }
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN)
+        clearflag(FLAG_RACEBOY)
+        msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+        end
+    }
+    elif(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE){
         msgbox(GogoatRace1RewardCeremony_Reward)
         giveitem(ITEM_PP_UP)
         if(var(VAR_RESULT) == FALSE){
             goto(ZeBagIsFull)
         }
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE)
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED)
         clearflag(FLAG_RACEBOY)
         msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
         end
     }
+    callnative(BufferGogoatRecordTime)
     if(var(VAR_GOGOAT_RACE) == 0){
         msgbox(GogoatRaceIntro)
         setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO)
         callnative(ResetGogoatRaceRecords)
     }
-    if(flag(FLAG_GOGOAT_INTRO1)){
-        message(WannaGogoatRaceShort)
-    }
-    else{
-        message(WannaGogoatRace)
-    }
+    message(WannaGogoatRace)
     waitmessage
     dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
     switch(var(VAR_RESULT)){
@@ -315,17 +355,41 @@ text GogoatRaceRulesText2{
 }
 
 text GogoatRaceIntro{
-    "wip"
-}
-text WannaGogoatRaceShort{
-    "wip"
+    "Howdy partner!\p"
+    "Are you here to take part in our\n"
+    "world-famous Gogoat racing?\p"
+    "It's real simple: We'll lend you one\n"
+    "of our Gogoats and set up a bunch of\l"
+    "flags around the farm.\p"
+    "All you need to do is grab all the\n"
+    "flags and then return them to me.\p"
+    "Sounds real simple, eh?\p"
+    "Well, our Gogoats are renowned for\n"
+    "their speed, so it can be real hard\l"
+    "to control them!\p"
+    "If you can beat the current record\n"
+    "holder, we'll even give you a prize!\l"
+    "The current record is {STR_VAR_2} seconds."
 }
 text WannaGogoatRace{
-    "wip"
+    "Up for some Gogoat racing?"
 }
 text LetsGetGogoatRacing{
-    "wip"
+    "Alright!\n"
+    "Let's Gogoat!"
 }
 text GogoatRaceRulesText{
-    "wip"
+    "The rules are real simple:\p"
+    "We'll lend you one of our Gogoats\n"
+    "and set up a bunch of flags around\l"
+    "the farm.\p"
+    "All you need to do is grab all the\n"
+    "flags and then return them to me.\p"
+    "Sounds real simple, eh?\p"
+    "Well, our Gogoats are renowned for\n"
+    "their speed, so it can be real hard\l"
+    "to control them!\p"
+    "If you can beat the current record\n"
+    "holder, we'll even give you a prize!\l"
+    "The current record is {STR_VAR_2} seconds."
 }

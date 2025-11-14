@@ -953,7 +953,10 @@ static void Route17PerStepCallback(u8 taskId)
 #define X_PLATEAU_START 58
 #define X_PLATEAU_END   102
 #define X_MAX           112
-#define X_MIN           45
+#define X_MIN           49
+
+#define START_HOUR      4
+#define END_HOUR        12
 
 static void Route18PerStepCallback(u8 taskId)
 {
@@ -970,11 +973,10 @@ static void Route18PerStepCallback(u8 taskId)
 
     if (x < X_PLATEAU_START)
     {
-        // Left slope: Map [X_MIN, X_PLATEAU_START) -> [0:00 to 12:00]
         s16 range = X_PLATEAU_START - X_MIN;
         s16 offsetX = x - X_MIN;
-        s32 totalMinutes = (offsetX * 12 * 60) / range;
-        s16 hours = totalMinutes / 60;
+        s32 totalMinutes = (offsetX * (END_HOUR - START_HOUR) * 60) / range;
+        s16 hours = START_HOUR + totalMinutes / 60;
         s16 minutes = totalMinutes % 60;
 
         VarSet(VAR_HOUR_OVERRIDE, hours);
@@ -983,16 +985,15 @@ static void Route18PerStepCallback(u8 taskId)
     else if (x <= X_PLATEAU_END)
     {
         // Plateau: full daylight
-        VarSet(VAR_HOUR_OVERRIDE, 12);
+        VarSet(VAR_HOUR_OVERRIDE, END_HOUR);
         VarSet(VAR_MINUTE_OVERRIDE, 0);
     }
     else if (x <= X_MAX)
     {
-        // Right slope: Map (X_PLATEAU_END, X_MAX] -> [12:00 to 0:00]
         s16 range = X_MAX - X_PLATEAU_END;
         s16 offsetX = X_MAX - x;
-        s32 totalMinutes = (offsetX * 12 * 60) / range;
-        s16 hours = totalMinutes / 60;
+        s32 totalMinutes = (offsetX * (END_HOUR - START_HOUR) * 60) / range;
+        s16 hours = START_HOUR + totalMinutes / 60;
         s16 minutes = totalMinutes % 60;
 
         VarSet(VAR_HOUR_OVERRIDE, hours);
@@ -1000,7 +1001,6 @@ static void Route18PerStepCallback(u8 taskId)
     }
     else
     {
-        // Just in case x > X_MAX somehow
         VarSet(VAR_HOUR_OVERRIDE, 0);
         VarSet(VAR_MINUTE_OVERRIDE, 0);
     }
