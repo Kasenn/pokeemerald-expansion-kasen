@@ -1004,7 +1004,7 @@ const struct Tileset gTileset_TestRoom =
     .palettes = gTilesetPalettes_TestRoom,
     .metatiles = gMetatiles_TestRoom,
     .metatileAttributes = gMetatileAttributes_TestRoom,
-    .callback = NULL,
+    .callback = InitTilesetAnim_TestRoom,
 };
 
 const struct Tileset gTileset_PokemonWorldTournament =

@@ -876,7 +876,7 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	givemon SPECIES_NINJASK, 100, 0, 0, NATURE_TIMID, 0, 0, 0, 0, 0, 252, 0, 0, 0, 0, 0, 31, 0, 0, MOVE_TRICK_ROOM, MOVE_AGILITY
+	callnative ForceCanopy
 	return
 
 

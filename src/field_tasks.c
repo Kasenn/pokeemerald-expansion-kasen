@@ -23,6 +23,7 @@
 #include "battle_setup.h"
 #include "field_specials.h"
 #include "event_object_movement.h"
+#include "bg.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.

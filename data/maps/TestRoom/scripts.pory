@@ -1,5 +1,18 @@
 mapscripts TestRoom_MapScripts {
     // MAP_SCRIPT_ON_TRANSITION{
+    //     callnative(ForceCanopy)
+    // }
+    // MAP_SCRIPT_ON_RESUME{
+    //     callnative(ForceCanopy)
+    //     setstepcallback(STEP_CB_ROPE_BRIDGE)
+    // }
+    // MAP_SCRIPT_ON_FRAME_TABLE[
+    //     VAR_TEMP_1, 0{
+    //         callnative(ForceCanopy)
+    //         setvar(VAR_TEMP_1, 1)
+    //     }
+    // ]
+    // MAP_SCRIPT_ON_TRANSITION{
     //     callnative(UpdateFollowingPokemon)
     //     setobjectxy(OBJ_EVENT_ID_FOLLOWER, 6, 25)
     //     showobjectat(OBJ_EVENT_ID_FOLLOWER, MAP_TEST_ROOM)
@@ -10,9 +23,9 @@ mapscripts TestRoom_MapScripts {
     // MAP_SCRIPT_ON_FRAME_TABLE[
     //     VAR_TEMP_0, 0: TestFollowerMacro
     // ]
-    MAP_SCRIPT_ON_RESUME{
-        setstepcallback(STEP_CB_ROPE_BRIDGE)
-    }
+    // MAP_SCRIPT_ON_RESUME{
+    //     setstepcallback(STEP_CB_ROPE_BRIDGE)
+    // }
 }
 
 const X = VAR_0x8001

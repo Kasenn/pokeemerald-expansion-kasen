@@ -949,6 +949,13 @@ if (I_VS_SEEKER_CHARGING != 0)
 
     if (gMapHeader.regionMapSectionId != sLastMapSectionId)
         ShowMapNamePopup();
+
+    if (MAP(MAP_TEST_ROOM))
+    {
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(8, 12));
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+        SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR);
+    }
 }
 
 static void LoadMapFromWarp(bool32 a1)
@@ -1009,6 +1016,12 @@ if (I_VS_SEEKER_CHARGING != 0)
     {
         UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
         // InitSecretBaseAppearance(TRUE);
+    }
+    if (MAP(MAP_TEST_ROOM))
+    {
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(8, 12));
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+        SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR);
     }
 }
 
@@ -2615,6 +2628,12 @@ static void InitOverworldGraphicsRegisters(void)
     SetGpuReg(REG_OFFSET_BLDCNT, gOverworldBackgroundLayerFlags[1] | gOverworldBackgroundLayerFlags[2] | gOverworldBackgroundLayerFlags[3]
                                | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
     SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(13, 7));
+    if (MAP(MAP_TEST_ROOM))
+    {
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(8, 12));
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+        SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR);
+    }
     InitOverworldBgs();
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);

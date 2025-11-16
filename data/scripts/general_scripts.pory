@@ -551,7 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    givemon(SPECIES_NINJASK, 100, 0,0,NATURE_TIMID,0, 0,0,0,0,252,0,0,0,0,0,31,0,0,MOVE_TRICK_ROOM, MOVE_AGILITY)
+    callnative(ForceCanopy)
     return
 }
 script Debug_Script_4{

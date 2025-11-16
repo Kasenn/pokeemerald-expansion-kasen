@@ -44,6 +44,7 @@ static void TilesetAnim_EverGrande(u16);
 static void TilesetAnim_Pacifidlog(u16);
 static void TilesetAnim_Kaolisle(u16);
 static void TilesetAnim_Amberock(u16);
+static void TilesetAnim_TestRoom(u16);
 static void TilesetAnim_Sootopolis(u16);
 static void TilesetAnim_BattleFrontierOutsideWest(u16);
 static void TilesetAnim_BattleFrontierOutsideEast(u16);
@@ -217,6 +218,23 @@ const u16 *const gTilesetAnims_Amberock_Water[] = {
     gTilesetAnims_Amberock_Water_Frame5,
     gTilesetAnims_Amberock_Water_Frame6,
     gTilesetAnims_Amberock_Water_Frame7
+};
+
+const u16 gTilesetAnims_TestRoom_Canopy_Frame0[] = INCBIN_U16("data/tilesets/secondary/test_room/anim/canopy/0.4bpp");
+const u16 gTilesetAnims_TestRoom_Canopy_Frame1[] = INCBIN_U16("data/tilesets/secondary/test_room/anim/canopy/1.4bpp");
+const u16 gTilesetAnims_TestRoom_Canopy_Frame2[] = INCBIN_U16("data/tilesets/secondary/test_room/anim/canopy/2.4bpp");
+
+const u16 *const gTilesetAnims_TestRoom_Canopy[] = {
+    gTilesetAnims_TestRoom_Canopy_Frame0,
+    gTilesetAnims_TestRoom_Canopy_Frame1,
+    gTilesetAnims_TestRoom_Canopy_Frame2,
+    gTilesetAnims_TestRoom_Canopy_Frame1,
+    gTilesetAnims_TestRoom_Canopy_Frame0,
+    gTilesetAnims_TestRoom_Canopy_Frame1,
+    gTilesetAnims_TestRoom_Canopy_Frame2,
+    gTilesetAnims_TestRoom_Canopy_Frame1,
+    gTilesetAnims_TestRoom_Canopy_Frame0,
+    gTilesetAnims_TestRoom_Canopy_Frame1,
 };
 
 const u16 gTilesetAnims_General_SandWaterEdge_Frame0[] = INCBIN_U16("data/tilesets/primary/general/anim/sand_water_edge/0.4bpp");
@@ -991,6 +1009,11 @@ static void QueueAnimTiles_Amberock_Water(u16 timer)
     AppendTilesetAnimToBuffer(gTilesetAnims_Amberock_Water[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x3D0)), 2 * TILE_SIZE_4BPP);
 }
 
+static void QueueAnimTiles_TestRoom(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_TestRoom_Canopy);
+    AppendTilesetAnimToBuffer(gTilesetAnims_TestRoom_Canopy[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(512)), 94 * TILE_SIZE_4BPP);
+}
 
 static void QueueAnimTiles_General_SandWaterEdge(u16 timer)
 {
@@ -1135,6 +1158,13 @@ void InitTilesetAnim_Amberock(void)
     sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
     sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
     sSecondaryTilesetAnimCallback = TilesetAnim_Amberock;
+}
+
+void InitTilesetAnim_TestRoom(void)
+{
+    sSecondaryTilesetAnimCounter = sPrimaryTilesetAnimCounter;
+    sSecondaryTilesetAnimCounterMax = sPrimaryTilesetAnimCounterMax;
+    sSecondaryTilesetAnimCallback = TilesetAnim_TestRoom;
 }
 
 void InitTilesetAnim_Sootopolis(void)
@@ -1404,6 +1434,12 @@ static void TilesetAnim_Amberock(u16 timer)
 {
     if (timer % 16 == 1)
         QueueAnimTiles_Amberock_Water(timer / 16);
+}
+
+static void TilesetAnim_TestRoom(u16 timer)
+{
+    if (timer % 32 == 1)
+        QueueAnimTiles_TestRoom(timer / 32);
 }
 
 static void TilesetAnim_Sootopolis(u16 timer)

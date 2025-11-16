@@ -1059,3 +1059,11 @@ void BufferGogoatRecordTime(void)
 
     ConvertIntToDecimalStringN(gStringVar2, buffer, STR_CONV_MODE_LEFT_ALIGN, CountDigits(buffer));
 }
+
+void ForceCanopy(void)
+{
+    SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(8, 12));
+    // SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(4, 12));
+    SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT1_BG1 | BLDCNT_TGT2_BG2 | BLDCNT_TGT2_BG3 | BLDCNT_TGT2_OBJ | BLDCNT_EFFECT_BLEND);
+    SetGpuRegBits(REG_OFFSET_WININ, WININ_WIN0_CLR);
+}
