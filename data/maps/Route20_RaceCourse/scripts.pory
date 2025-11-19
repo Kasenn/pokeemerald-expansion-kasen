@@ -38,10 +38,11 @@ script Route20RaceCourseStart{
 }
 
 text ReadyToRace{
-    "wip"
+    "Alright, are you ready to race?"
 }
 text ForfeitRace{
-    "wip"
+    "What's that?\n"
+    "You'd rather forfeit?"
 }
 text GetSetReadyGo{
     "Ready…{PAUSE 60} Set…{PAUSE 60}\n"
@@ -72,6 +73,7 @@ script Route20_RaceCourse_Finish5{
 script Route20_RaceCourse_Finish{
     lock
     callnative(FinishGogoatRace)
+    callnative(BufferGogoatRecordTime)
     playse(SE_PIN)
     exclamationmark(1)
     switch(var(VAR_TEMP_1)){
@@ -155,14 +157,14 @@ text BackFromRace{
 text Race2_YouWon{
     "{STR_VAR_3}?!\n"
     "That's a new record!\p"
-    "wip"
+    "I did promise a reward for beating\n"
+    "the record, but first, let's get back\l"
+    "to the farm…"
 }
 text Race2_YouLost{
     "{STR_VAR_1}{STR_VAR_2}{STR_VAR_3}.\n"
     "I'm sorry, but that's not good enough\l"
-    "to beat the record.\p"
-    "Would you like to try again?"
-    "wip"
+    "to beat the record."
 }
 text GiveUsASecond{
     "Sure thing. Give us a second so we\n"
@@ -180,14 +182,22 @@ script Route20_RaceCourse_Flag{
 }
 
 text Race2_YouWonAgain{
-    "wip"
+    "{STR_VAR_3}?!\n"
+    "You beat the record again!\l"
+    "Now it feels like you're just\l"
+    "showing off!\p"
+    "Come on, let's get back to the farm."
 }
 text Race2_FailedToImprove{
-    "wip"
+    "{STR_VAR_3}…\p"
+    "Hmm… Looks like you failed to\n"
+    "improve your record…"
 }
 text Race2_TryAgain{
-    "wip"
+    "Would you like to give the course\n"
+    "another try?"
 }
 text Race2_LetsGetYouOff{
-    "wip"
+    "Okay then, let's head back\n"
+    "to the farm…"
 }

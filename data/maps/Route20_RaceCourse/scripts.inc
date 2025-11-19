@@ -74,260 +74,271 @@ Route20RaceCourseStart_5:
 
 
 Route20_RaceCourse_Finish1::
-# 52 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_1, 1
 # 53 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_1, 1
+# 54 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto Route20_RaceCourse_Finish
 	return
 
 
 Route20_RaceCourse_Finish2::
-# 56 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_1, 2
 # 57 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_1, 2
+# 58 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto Route20_RaceCourse_Finish
 	return
 
 
 Route20_RaceCourse_Finish3::
-# 60 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_1, 3
 # 61 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_1, 3
+# 62 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto Route20_RaceCourse_Finish
 	return
 
 
 Route20_RaceCourse_Finish4::
-# 64 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_1, 4
 # 65 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_1, 4
+# 66 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto Route20_RaceCourse_Finish
 	return
 
 
 Route20_RaceCourse_Finish5::
-# 68 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_1, 5
 # 69 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_1, 5
+# 70 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto Route20_RaceCourse_Finish
 	return
 
 
 Route20_RaceCourse_Finish::
-# 73 "data/maps/Route20_RaceCourse/scripts.pory"
-	lock
 # 74 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative FinishGogoatRace
+	lock
 # 75 "data/maps/Route20_RaceCourse/scripts.pory"
-	playse SE_PIN
+	callnative FinishGogoatRace
 # 76 "data/maps/Route20_RaceCourse/scripts.pory"
-	exclamationmark 1
+	callnative BufferGogoatRecordTime
 # 77 "data/maps/Route20_RaceCourse/scripts.pory"
-	switch VAR_TEMP_1
+	playse SE_PIN
 # 78 "data/maps/Route20_RaceCourse/scripts.pory"
-	case 1, Route20_RaceCourse_Finish_3
+	exclamationmark 1
+# 79 "data/maps/Route20_RaceCourse/scripts.pory"
+	switch VAR_TEMP_1
 # 80 "data/maps/Route20_RaceCourse/scripts.pory"
-	case 2, Route20_RaceCourse_Finish_4
+	case 1, Route20_RaceCourse_Finish_3
 # 82 "data/maps/Route20_RaceCourse/scripts.pory"
-	case 3, Route20_RaceCourse_Finish_5
+	case 2, Route20_RaceCourse_Finish_4
 # 84 "data/maps/Route20_RaceCourse/scripts.pory"
+	case 3, Route20_RaceCourse_Finish_5
+# 86 "data/maps/Route20_RaceCourse/scripts.pory"
 	case 4, Route20_RaceCourse_Finish_6
 Route20_RaceCourse_Finish_1:
-# 87 "data/maps/Route20_RaceCourse/scripts.pory"
+# 89 "data/maps/Route20_RaceCourse/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_EAST
-# 88 "data/maps/Route20_RaceCourse/scripts.pory"
+# 90 "data/maps/Route20_RaceCourse/scripts.pory"
 	msgbox BackFromRace
-# 91 "data/maps/Route20_RaceCourse/scripts.pory"
+# 93 "data/maps/Route20_RaceCourse/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_2_REWARD_EARNED
 	goto_if_ge Route20_RaceCourse_Finish_7
-# 120 "data/maps/Route20_RaceCourse/scripts.pory"
+# 122 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto_if_set FLAG_TEMP_C, Route20_RaceCourse_Finish_13
-# 129 "data/maps/Route20_RaceCourse/scripts.pory"
+# 131 "data/maps/Route20_RaceCourse/scripts.pory"
 	msgbox Race2_YouLost
 	msgbox Race2_TryAgain, MSGBOX_YESNO
 # 0 "data/maps/Route20_RaceCourse/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route20_RaceCourse_Finish_19
-# 140 "data/maps/Route20_RaceCourse/scripts.pory"
-	msgbox GiveUsASecond
-# 141 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS
 # 142 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20_RACE_COURSE, 0
+	msgbox GiveUsASecond
 # 143 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnBikeToGogoat
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS
 # 144 "data/maps/Route20_RaceCourse/scripts.pory"
+	warp MAP_ROUTE20_RACE_COURSE, 0
+# 145 "data/maps/Route20_RaceCourse/scripts.pory"
+	callnative TurnBikeToGogoat
+# 146 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitstate
 	return
 
 Route20_RaceCourse_Finish_3:
-# 79 "data/maps/Route20_RaceCourse/scripts.pory"
+# 81 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitmove 1, Walk4Left
 	goto Route20_RaceCourse_Finish_1
 
 Route20_RaceCourse_Finish_4:
-# 81 "data/maps/Route20_RaceCourse/scripts.pory"
+# 83 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitmove 1, Walk3Left
 	goto Route20_RaceCourse_Finish_1
 
 Route20_RaceCourse_Finish_5:
-# 83 "data/maps/Route20_RaceCourse/scripts.pory"
+# 85 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitmove 1, Walk2Left
 	goto Route20_RaceCourse_Finish_1
 
 Route20_RaceCourse_Finish_6:
-# 85 "data/maps/Route20_RaceCourse/scripts.pory"
+# 87 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitmove 1, Walk1Left
 	goto Route20_RaceCourse_Finish_1
 
 Route20_RaceCourse_Finish_7:
-# 92 "data/maps/Route20_RaceCourse/scripts.pory"
+# 94 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto_if_set FLAG_TEMP_D, Route20_RaceCourse_Finish_10
-# 100 "data/maps/Route20_RaceCourse/scripts.pory"
+# 102 "data/maps/Route20_RaceCourse/scripts.pory"
 	msgbox Race2_FailedToImprove
 	msgbox Race2_TryAgain, MSGBOX_YESNO
 # 0 "data/maps/Route20_RaceCourse/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Route20_RaceCourse_Finish_16
-# 110 "data/maps/Route20_RaceCourse/scripts.pory"
-	msgbox LetsGetGogoatRacing2
-# 111 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20_RACE_COURSE, 0
 # 112 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnBikeToGogoat
+	msgbox LetsGetGogoatRacing2
 # 113 "data/maps/Route20_RaceCourse/scripts.pory"
+	warp MAP_ROUTE20_RACE_COURSE, 0
+# 114 "data/maps/Route20_RaceCourse/scripts.pory"
+	callnative TurnBikeToGogoat
+# 115 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitstate
 	return
 
 Route20_RaceCourse_Finish_10:
-# 93 "data/maps/Route20_RaceCourse/scripts.pory"
-	msgbox Race2_YouWonAgain
-# 94 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnGogoatToBike
 # 95 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_0, 1
+	msgbox Race2_YouWonAgain
 # 96 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20, 2
+	callnative TurnGogoatToBike
 # 97 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 98 "data/maps/Route20_RaceCourse/scripts.pory"
+	warp MAP_ROUTE20, 2
+# 99 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitstate
 	return
 
 Route20_RaceCourse_Finish_13:
-# 121 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
-# 122 "data/maps/Route20_RaceCourse/scripts.pory"
-	msgbox Race2_YouWon
 # 123 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnGogoatToBike
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
 # 124 "data/maps/Route20_RaceCourse/scripts.pory"
-	setvar VAR_TEMP_0, 1
+	msgbox Race2_YouWon
 # 125 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20, 2
+	callnative TurnGogoatToBike
 # 126 "data/maps/Route20_RaceCourse/scripts.pory"
+	setvar VAR_TEMP_0, 1
+# 127 "data/maps/Route20_RaceCourse/scripts.pory"
+	warp MAP_ROUTE20, 2
+# 128 "data/maps/Route20_RaceCourse/scripts.pory"
 	waitstate
 	return
 
 Route20_RaceCourse_Finish_16:
-# 102 "data/maps/Route20_RaceCourse/scripts.pory"
-	msgbox Race2_LetsGetYouOff
-# 103 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20, 2
 # 104 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnGogoatToBike
+	msgbox Race2_LetsGetYouOff
 # 105 "data/maps/Route20_RaceCourse/scripts.pory"
-	waitstate
+	warp MAP_ROUTE20, 2
 # 106 "data/maps/Route20_RaceCourse/scripts.pory"
+	callnative TurnGogoatToBike
+# 107 "data/maps/Route20_RaceCourse/scripts.pory"
+	waitstate
+# 108 "data/maps/Route20_RaceCourse/scripts.pory"
 	release
 	end
 
 Route20_RaceCourse_Finish_19:
-# 131 "data/maps/Route20_RaceCourse/scripts.pory"
+# 133 "data/maps/Route20_RaceCourse/scripts.pory"
 	msgbox Race2_LetsGetYouOff
-# 132 "data/maps/Route20_RaceCourse/scripts.pory"
+# 134 "data/maps/Route20_RaceCourse/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS
 	goto_if_eq Route20_RaceCourse_Finish_23
 Route20_RaceCourse_Finish_22:
-# 133 "data/maps/Route20_RaceCourse/scripts.pory"
-	warp MAP_ROUTE20, 2
-# 134 "data/maps/Route20_RaceCourse/scripts.pory"
-	callnative TurnGogoatToBike
 # 135 "data/maps/Route20_RaceCourse/scripts.pory"
-	waitstate
+	warp MAP_ROUTE20, 2
 # 136 "data/maps/Route20_RaceCourse/scripts.pory"
+	callnative TurnGogoatToBike
+# 137 "data/maps/Route20_RaceCourse/scripts.pory"
+	waitstate
+# 138 "data/maps/Route20_RaceCourse/scripts.pory"
 	release
 	end
 
 Route20_RaceCourse_Finish_23:
-# 132 "data/maps/Route20_RaceCourse/scripts.pory"
+# 134 "data/maps/Route20_RaceCourse/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_2_FAILED
 	goto Route20_RaceCourse_Finish_22
 
 
 Route20_RaceCourse_Flag::
-# 177 "data/maps/Route20_RaceCourse/scripts.pory"
-	removeobject 2
-# 178 "data/maps/Route20_RaceCourse/scripts.pory"
-	playse SE_SUCCESS
 # 179 "data/maps/Route20_RaceCourse/scripts.pory"
+	removeobject 2
+# 180 "data/maps/Route20_RaceCourse/scripts.pory"
+	playse SE_SUCCESS
+# 181 "data/maps/Route20_RaceCourse/scripts.pory"
 	release
 	return
 
 
 ReadyToRace::
 # 40 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+	.string "Alright, are you ready to race?$"
 
 ForfeitRace::
 # 43 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+	.string "What's that?\n"
+	.string "You'd rather forfeit?$"
 
 GetSetReadyGo::
-# 46 "data/maps/Route20_RaceCourse/scripts.pory"
+# 47 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "Ready…{PAUSE 60} Set…{PAUSE 60}\n"
 	.string "GO!!{PAUSE 60}$"
 
 BackFromRace::
-# 150 "data/maps/Route20_RaceCourse/scripts.pory"
+# 152 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "Back with the flag I see.\p"
 	.string "Let's see how fast you raced\n"
 	.string "through the course…$"
 
 Race2_YouWon::
-# 155 "data/maps/Route20_RaceCourse/scripts.pory"
+# 157 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "{STR_VAR_3}?!\n"
 	.string "That's a new record!\p"
-	.string "wip$"
+	.string "I did promise a reward for beating\n"
+	.string "the record, but first, let's get back\l"
+	.string "to the farm…$"
 
 Race2_YouLost::
-# 160 "data/maps/Route20_RaceCourse/scripts.pory"
+# 164 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "{STR_VAR_1}{STR_VAR_2}{STR_VAR_3}.\n"
 	.string "I'm sorry, but that's not good enough\l"
-	.string "to beat the record.\p"
-	.string "Would you like to try again?"
-	.string "wip$"
+	.string "to beat the record.$"
 
 GiveUsASecond::
-# 167 "data/maps/Route20_RaceCourse/scripts.pory"
+# 169 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "Sure thing. Give us a second so we\n"
 	.string "can get the flag back to its place.$"
 
 TakingYouBack::
-# 171 "data/maps/Route20_RaceCourse/scripts.pory"
+# 173 "data/maps/Route20_RaceCourse/scripts.pory"
 	.string "Understood. Follow me and\n"
 	.string "we'll get back to the farm.$"
 
 Race2_YouWonAgain::
-# 182 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+# 184 "data/maps/Route20_RaceCourse/scripts.pory"
+	.string "{STR_VAR_3}?!\n"
+	.string "You beat the record again!\l"
+	.string "Now it feels like you're just\l"
+	.string "showing off!\p"
+	.string "Come on, let's get back to the farm.$"
 
 Race2_FailedToImprove::
-# 185 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+# 191 "data/maps/Route20_RaceCourse/scripts.pory"
+	.string "{STR_VAR_3}…\p"
+	.string "Hmm… Looks like you failed to\n"
+	.string "improve your record…$"
 
 Race2_TryAgain::
-# 188 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+# 196 "data/maps/Route20_RaceCourse/scripts.pory"
+	.string "Would you like to give the course\n"
+	.string "another try?$"
 
 Race2_LetsGetYouOff::
-# 191 "data/maps/Route20_RaceCourse/scripts.pory"
-	.string "wip$"
+# 200 "data/maps/Route20_RaceCourse/scripts.pory"
+	.string "Okay then, let's head back\n"
+	.string "to the farm…$"
