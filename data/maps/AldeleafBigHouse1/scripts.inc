@@ -592,7 +592,7 @@ AldeleafBigHouse3_3F_PokeBall_Stop::
 AldeleafBigHouse3_3F_PokeBall_GiveThatBack::
 # 316 "data/maps/AldeleafBigHouse1/scripts.pory"
 	.string "What do you think you're doing,\n"
-	.string "stealing other people's Pokémon!?\l"
+	.string "stealing other people's Pokémon?!\l"
 	.string "Now give it back!$"
 
 AldeleafBigHouse3_3F_PokeBall_GetOut::

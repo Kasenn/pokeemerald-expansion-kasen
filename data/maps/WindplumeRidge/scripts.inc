@@ -335,7 +335,7 @@ Windplume_Guide_Text::
 Windplume_Text_Trainer1Intro::
 # 98 "data/maps/WindplumeRidge/scripts.pory"
 	.string "I have the wind on my side!\n"
-	.string "What chance do you thing you got!?$"
+	.string "What chance do you thing you got?!$"
 
 Windplume_Text_Trainer1Defeat::
 # 102 "data/maps/WindplumeRidge/scripts.pory"

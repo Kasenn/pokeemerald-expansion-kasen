@@ -780,5 +780,7 @@ const u32 gObjectEventPic_MayContestSnow6Px[] =              INCBIN_U32("graphic
 const u32 gObjectEventPic_MayContestSnow8Px[] =              INCBIN_U32("graphics/object_events/pics/people/may/contest/MayRSSnow8Px.4bpp");
 const u32 gObjectEventPic_MayContestSnow10Px[] =             INCBIN_U32("graphics/object_events/pics/people/may/contest/MayRSSnow10Px.4bpp");//wip
 
+const u32 gObjectEventPic_Spotlight[] =                      INCBIN_U32("graphics/object_events/pics/people/spotlight.4bpp");
+
 #undef ZOBJ_PIC
 #undef ZOBJ_PAL

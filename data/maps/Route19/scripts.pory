@@ -37,13 +37,16 @@ script Route19_Tr1_SwimmerF {
     end
 }
 text R19Tr1_Intro {
-    "wip"
+    "Let's warm up by having\n"
+    "a Pokémon battle!"
 }
 text R19Tr1_Lose {
-    "wip"
+    "Ice cold…"
 }
 text R19Tr1_PostBattle {
-    "wip"
+    "Being able to swim in these waters\n"
+    "requires a strong spirit,\l"
+    "whether it be people or Pokémon!"
 }
 
 script Route19_Tr2_SwimmerM {
@@ -52,13 +55,14 @@ script Route19_Tr2_SwimmerM {
     end
 }
 text R19Tr2_Intro {
-    "wip"
+    "I'm a natural-born winner!"
 }
 text R19Tr2_Lose {
-    "wip"
+    "I'm a natural-born loser…"
 }
 text R19Tr2_PostBattle {
-    "wip"
+    "I used to get angry whenever I lost,\n"
+    "but I've learned to keep my head cool."
 }
 
 script Route19_Tr3_SwimmerM {
@@ -67,13 +71,18 @@ script Route19_Tr3_SwimmerM {
     end
 }
 text R19Tr3_Intro {
-    "wip"
+    "Do you ever swim\n"
+    "beside your Pokémon?"
 }
 text R19Tr3_Lose {
-    "wip"
+    "Can't believe I lost\n"
+    "on my home field…"
 }
 text R19Tr3_PostBattle {
-    "wip"
+    "You should get yourself a swimsuit\n"
+    "and see how your Pokémon feel when\l"
+    "they dip into this ice-cold water.\l"
+    "It really opens up your eyes."
 }
 
 script Route19_Tr4_SwimmerCoupleM{
@@ -82,16 +91,20 @@ script Route19_Tr4_SwimmerCoupleM{
 	end
 }
 text Route19_Tr4_SwimmerCoupleM_Intro{
-    "wip"
+    "Jesse: We've been honing our Pokémon\n"
+    "to their limit. You cannot win!"
 }
 text Route19_Tr4_SwimmerCoupleM_Defeat{
-    "wip"
+    "Jesse: I was sure we had it…"
 }
 text Route19_Tr4_SwimmerCoupleM_NotEnoughMons{
-    "wip"
+    "Jesse: You're going to need more\n"
+    "Pokémon if you want to challenge us!"
 }
 text Route19_Tr4_SwimmerCoupleM_PostBattle{
-    "wip"
+    "Jesse: To excel in double battles,\n"
+    "you need to think about the synergy\l"
+    "between your Pokémon."
 }
 
 script Route19_Tr4_SwimmerCoupleF{
@@ -100,16 +113,19 @@ script Route19_Tr4_SwimmerCoupleF{
 	end
 }
 text Route19_Tr4_SwimmerCoupleF_Intro{
-    "wip"
+    "Heidi: We've been honing our Pokémon\n"
+    "to their limit. You cannot win!"
 }
 text Route19_Tr4_SwimmerCoupleF_Defeat{
-    "wip"
+    "Heidi: I was sure we had it…"
 }
 text Route19_Tr4_SwimmerCoupleF_NotEnoughMons{
-    "wip"
+    "Heidi: You're going to need more\n"
+    "Pokémon if you want to challenge us!"
 }
 text Route19_Tr4_SwimmerCoupleF_PostBattle{
-    "wip"
+    "Heidi: If we want to grow stronger,\n"
+    "we need to work on our synergy."
 }
 
 
@@ -119,13 +135,16 @@ script Route19_Tr5_SwimmerF {
     end
 }
 text R19Tr5_Intro {
-    "wip"
+    "My Pokémon like to play with others.\n"
+    "Won't you entertain them?"
 }
 text R19Tr5_Lose {
-    "wip"
+    "You're being too rough…"
 }
 text R19Tr5_PostBattle {
-    "wip"
+    "Don't worry about my Pokémon.\n"
+    "They'll be fine once they relax\l"
+    "in the water for a moment."
 }
 
 script Route19_Tr6_SwimmerM {
@@ -134,13 +153,18 @@ script Route19_Tr6_SwimmerM {
     end
 }
 text R19Tr6_Intro {
-    "wip"
+    "The longer my Pokémon endure\n"
+    "these waters, the faster they get!"
 }
 text R19Tr6_Lose {
-    "wip"
+    "Even with our speed,\n"
+    "we lagged behind…"
 }
 text R19Tr6_PostBattle {
-    "wip"
+    "Speed is everything for us swimmers.\p"
+    "For example, the faster I finish my\n"
+    "workout and get myself in front of\l"
+    "a warm hearth, the better."
 }
 
 script Route19_Tr7_BlackBelt {
@@ -149,13 +173,16 @@ script Route19_Tr7_BlackBelt {
     end
 }
 text R19Tr7_Intro {
-    "wip"
+    "You dare interrupt my\n"
+    "training regimen?!"
 }
 text R19Tr7_Lose {
-    "wip"
+    "Hmph… Got lucky,\n"
+    "I guess."
 }
 text R19Tr7_PostBattle {
-    "wip"
+    "Leave me be.\n"
+    "I'm in the middle of training."
 }
 
 script Route19_Tr8_Hiker {
@@ -164,13 +191,17 @@ script Route19_Tr8_Hiker {
     end
 }
 text R19Tr8_Intro {
-    "wip"
+    "Ah, an up-and-coming young trainer!\n"
+    "Witness the power of ice!"
 }
 text R19Tr8_Lose {
-    "wip"
+    "What? How?!"
 }
 text R19Tr8_PostBattle {
-    "wip"
+    "Some believe us hikers to be focused\n"
+    "on mostly Rock-type Pokémon.\p"
+    "The truth is, we use whatever excels\n"
+    "in the current climate we're in."
 }
 
 script Route19_Tr9_Picnicker {
@@ -200,7 +231,8 @@ text R19Tr10_Lose {
     "wip"
 }
 text R19Tr10_PostBattle {
-    "wip"}
+    "wip"
+}
 
 script Route19_Bergmite{
     lock
@@ -271,4 +303,15 @@ script Route19_Bergmite{
 	setflag(FLAG_ROUTE19_BERGMITE)
 	release
 	end
+}
+
+script Route19_Camper{
+    msgbox(Route19_Camper_Text, MSGBOX_NPC)
+}
+text Route19_Camper_Text{
+    "Have you seen any interesting\n"
+    "Pokémon around lately?\p"
+    "I've heard talks of some Pokémon\n"
+    "disguising themselves as icebergs, but\l"
+    "I've yet to see it with my own eyes."
 }

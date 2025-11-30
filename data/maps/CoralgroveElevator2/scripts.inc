@@ -309,7 +309,7 @@ CoralgroveElevator2_Bail_Male::
 # 20 "data/maps/CoralgroveElevator2/scripts.pory"
 	.string "{RIVAL}: Hey!\p"
 	.string "You're not planning to bail on me,\n"
-	.string "are you!?$"
+	.string "are you?!$"
 
 CoralgroveElevator2_Bail_Female::
 # 25 "data/maps/CoralgroveElevator2/scripts.pory"

@@ -1137,7 +1137,7 @@ PokeRanchRocket1Defeat::
 
 PokeRanchRocket2Defeat::
 # 436 "data/maps/PokeRanch/scripts.pory"
-	.string "We lost!?$"
+	.string "We lost?!$"
 
 Ranch_RocketEscape::
 # 516 "data/maps/PokeRanch/scripts.pory"
@@ -1218,7 +1218,7 @@ VolknerRantB::
 VolknerRantC::
 # 610 "data/maps/PokeRanch/scripts.pory"
 	.string "Rocket Grunt 3: There's two\n"
-	.string "gym leaders here!?$"
+	.string "gym leaders here?!$"
 
 VolknerRantD::
 # 614 "data/maps/PokeRanch/scripts.pory"

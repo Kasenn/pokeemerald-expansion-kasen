@@ -20,7 +20,7 @@ script CoralgroveElevator2_Bail{
 text CoralgroveElevator2_Bail_Male{
     "{RIVAL}: Hey!\p"
     "You're not planning to bail on me,\n"
-    "are you!?"
+    "are you?!"
 }
 text CoralgroveElevator2_Bail_Female{
     "{RIVAL}: You're not planning to bail\n"

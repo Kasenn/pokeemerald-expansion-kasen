@@ -876,7 +876,7 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	callnative ForceCanopy
+	callnative TestSpotlight
 	return
 
 

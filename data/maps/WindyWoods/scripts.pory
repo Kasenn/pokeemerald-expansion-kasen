@@ -85,7 +85,7 @@ text WindyWoods_LassIntro{
     "Have you seen any hidden grottos?"
 }
 text WindyWoods_LassDefeated{
-    "Why can I never win!?"
+    "Why can I never win?!"
 }
 text WindyWoods_LassPostBattle{
     "I'm looking for a hidden grotto but\nas the name would suggest,\lit truly is hidden."

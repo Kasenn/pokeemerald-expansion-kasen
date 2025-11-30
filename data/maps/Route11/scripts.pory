@@ -821,7 +821,7 @@ text R11_AngryMayDefeated{
 }
 text R11_MayDefeated{
     "We lost again! How does this\n"
-    "keep happening!?"
+    "keep happening?!"
 }
 text R11_BrendanDefeated{
     "I can't believe I lost again…"

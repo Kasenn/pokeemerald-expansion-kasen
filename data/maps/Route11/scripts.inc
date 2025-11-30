@@ -1310,7 +1310,7 @@ R11_AngryMayDefeated::
 R11_MayDefeated::
 # 822 "data/maps/Route11/scripts.pory"
 	.string "We lost again! How does this\n"
-	.string "keep happening!?$"
+	.string "keep happening?!$"
 
 R11_BrendanDefeated::
 # 826 "data/maps/Route11/scripts.pory"

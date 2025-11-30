@@ -7171,13 +7171,13 @@ static const struct TrainerMon sParty_TRAINER_R19_TR3_SWIMMER_M[] = {
 static const struct TrainerMon sParty_TRAINER_R19_TR4_SWIMMER_COUPLE[] = {
     {
     .iv = IVs_ALL(10),
-    .lvl = 44,
+    .lvl = 46,
     .species = SPECIES_EMPOLEON,
     .moves = {MOVE_RAZOR_GALE, MOVE_PECK, MOVE_AQUA_JET, MOVE_SWAGGER}
     },
     {
     .iv = IVs_ALL(12),
-    .lvl = 44,
+    .lvl = 46,
     .species = SPECIES_BLASTOISE,
     .moves = {MOVE_FLASH_CANNON, MOVE_WITHDRAW, MOVE_PROTECT, MOVE_WATER_PULSE}
     }
@@ -7200,7 +7200,7 @@ static const struct TrainerMon sParty_TRAINER_R19_TR5_SWIMMER_F[] = {
     .iv = IVs_ALL(12),
     .lvl = 46,
     .species = SPECIES_AZUMARILL,
-    .moves = {MOVE_DOUBLE_EDGE, MOVE_AQUA_TAIL, MOVE_PLAY_ROUGH}
+    .moves = {MOVE_DOUBLE_EDGE, MOVE_AQUA_TAIL, MOVE_PLAY_ROUGH, MOVE_AQUA_RING}
     },
 };
 
@@ -7209,12 +7209,14 @@ static const struct TrainerMon sParty_TRAINER_R19_TR6_SWIMMER_M[] = {
     .iv = IVs_ALL(9),
     .lvl = 45,
     .species = SPECIES_CARVANHA,
+    .ability = ABILITY_SPEED_BOOST,
     .moves = {MOVE_AQUA_JET, MOVE_SCREECH, MOVE_BITE}
     },
     {
     .iv = IVs_ALL(12),
     .lvl = 47,
     .species = SPECIES_SHARPEDO,
+    .ability = ABILITY_SPEED_BOOST,
     .moves = {MOVE_AQUA_JET, MOVE_SLASH, MOVE_CRUNCH}
     },
 };
@@ -7231,7 +7233,7 @@ static const struct TrainerMon sParty_TRAINER_R19_TR7_BLACKBELT[] = {
 static const struct TrainerMon sParty_TRAINER_R19_TR8_HIKER[] = {
     {
     .iv = IVs_ALL(9),
-    .lvl = 44,
+    .lvl = 43,
     .species = SPECIES_BERGMITE,
     },
     {
@@ -7241,7 +7243,7 @@ static const struct TrainerMon sParty_TRAINER_R19_TR8_HIKER[] = {
     },
     {
     .iv = IVs_ALL(9),
-    .lvl = 46,
+    .lvl = 47,
     .species = SPECIES_AVALUGG,
     },
 };
@@ -7249,7 +7251,7 @@ static const struct TrainerMon sParty_TRAINER_R19_TR8_HIKER[] = {
 static const struct TrainerMon sParty_TRAINER_R19_TR9_PICNICKER[] = {
     {
     .iv = IVs_ALL(9),
-    .lvl = 45,
+    .lvl = 47,
     .species = SPECIES_GLACEON,
     }
 };

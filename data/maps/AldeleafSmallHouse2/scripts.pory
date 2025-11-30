@@ -237,11 +237,11 @@ text AldeleafSmallHouse2_Woman_ItMovedAgain{
     "I swear I'm not lying!"
 }
 text AldeleafSmallHouse2_Woman_ItJustMoved{
-    "Did you see that!?\n"
+    "Did you see that?!\n"
     "It just moved!!"
 }
 text AldeleafSmallHouse2_Woman_ImMoving{
-    "Maybe the whole house is haunted!?\n"
+    "Maybe the whole house is haunted?!\n"
     "I'm definitely moving as soon as I can…"
 }
 

@@ -397,6 +397,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLati
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiosShiny;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SpecialLatiosShinyHead;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LatiBallUp;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Spotlight;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_LatiBallDown;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Normal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Bike;
@@ -806,6 +807,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY_HEAD] =     &gObjectEventGraphicsInfo_SpecialLatiosShinyHead,
     [OBJ_EVENT_GFX_LATI_BALL_DOWN] =                &gObjectEventGraphicsInfo_LatiBallDown,
     [OBJ_EVENT_GFX_LATI_BALL_UP] =                  &gObjectEventGraphicsInfo_LatiBallUp,
+    [OBJ_EVENT_GFX_SPOTLIGHT] =                     &gObjectEventGraphicsInfo_Spotlight,
     [OBJ_EVENT_GFX_SHORESLATE_WINDOW1] =            &gObjectEventGraphicsInfo_SHORESLATE_WINDOW1,
     [OBJ_EVENT_GFX_BRENDAN_CONTEST_NORMAL] =        &gObjectEventGraphicsInfo_BrendanContest_Normal,
     [OBJ_EVENT_GFX_BRENDAN_CONTEST_BIKE] =          &gObjectEventGraphicsInfo_BrendanContest_Bike,

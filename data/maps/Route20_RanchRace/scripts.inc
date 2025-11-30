@@ -494,7 +494,7 @@ FinishRace1_CalculateScore::
 
 Race1_YouWon::
 # 227 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "{STR_VAR_1}!?\n"
+	.string "{STR_VAR_1}?!\n"
 	.string "That's a new record!\p"
 	.string "I believe congratulations are\n"
 	.string "in order, but first, let's get you\l"
@@ -509,7 +509,7 @@ Race1_YouLostTheRace::
 
 Race1_YouWonAgain::
 # 240 "data/maps/Route20_RanchRace/scripts.pory"
-	.string "{STR_VAR_1}!?\n"
+	.string "{STR_VAR_1}?!\n"
 	.string "That's yet another new record!\p"
 	.string "I believe congratulations are\n"
 	.string "in order, but first, let's get you\l"

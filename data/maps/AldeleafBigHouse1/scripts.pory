@@ -315,7 +315,7 @@ text AldeleafBigHouse3_3F_PokeBall_Stop{
 }
 text AldeleafBigHouse3_3F_PokeBall_GiveThatBack{
     "What do you think you're doing,\n"
-    "stealing other people's Pokémon!?\l"
+    "stealing other people's Pokémon?!\l"
     "Now give it back!"
 }
 text AldeleafBigHouse3_3F_PokeBall_GetOut{

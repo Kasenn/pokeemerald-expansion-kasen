@@ -543,7 +543,7 @@ WindyWoods_LassIntro::
 
 WindyWoods_LassDefeated::
 # 87 "data/maps/WindyWoods/scripts.pory"
-	.string "Why can I never win!?$"
+	.string "Why can I never win?!$"
 
 WindyWoods_LassPostBattle::
 # 90 "data/maps/WindyWoods/scripts.pory"

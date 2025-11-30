@@ -463,7 +463,7 @@ movement Aldeleaf_TrainerMoveShort{
 }
 text Aldeleaf_Text_OnceAnOddTreePastHere{
     "Oh wow! So the tree was\n"
-	"a wild Pokémon!?\l"
+	"a wild Pokémon?!\l"
 	"Thanks for clearing the way!"
 }
 text Aldeleaf_OddTreeHereSeemsToWiggle{

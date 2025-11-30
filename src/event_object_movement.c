@@ -1868,6 +1868,82 @@ void AnimateSpirits(struct Sprite *sprite)
     sprite->animPaused = FALSE;
 }
 
+static void AnimSpotlight(struct Sprite *sprite)
+{
+    struct ObjectEvent *objEvent = &gObjectEvents[sprite->sObjEventId];
+    if (objEvent->trainerRange_berryTreeId == LOCALID_PLAYER)
+    {
+        sprite->x = DISPLAY_WIDTH / 2;  // Center X of screen (240px / 2)
+        sprite->y = DISPLAY_HEIGHT / 2;   // Center Y (160px / 2)
+        sprite->coordOffsetEnabled = FALSE; // Prevent map scrolling movement
+    }
+
+    SetGpuReg(REG_OFFSET_WINOUT, WINOUT_WIN01_BG_ALL | WINOUT_WIN01_OBJ | WINOUT_WIN01_CLR | WINOUT_WINOBJ_BG_ALL | WINOUT_WINOBJ_OBJ);
+    SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+    gBattle_WIN0H = 0;
+    gBattle_WIN0V = 0;
+    SetGpuReg(REG_OFFSET_WIN0H, gBattle_WIN0H);
+    SetGpuReg(REG_OFFSET_WIN0V, gBattle_WIN0V);
+
+    sprite->oam.objMode = ST_OAM_OBJ_WINDOW;
+    sprite->invisible = FALSE;
+}
+
+static void ApplySpecialObjectEventSettings(struct Sprite *sprite, struct ObjectEvent *objectEvent, const struct ObjectEventTemplate *objectEventTemplate)
+{
+    switch (objectEvent->graphicsId)
+    {
+    case OBJ_EVENT_GFX_SS_TIDAL_REAR:
+        sprite->x -= 8;
+        break;
+    case OBJ_EVENT_GFX_SPECIAL_LATIAS:
+    case OBJ_EVENT_GFX_SPECIAL_LATIAS_HEAD:
+    case OBJ_EVENT_GFX_SPECIAL_LATIOS:
+    case OBJ_EVENT_GFX_SPECIAL_LATIOS_HEAD:
+    case OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY:
+    case OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY_HEAD:
+    case OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY:
+    case OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY_HEAD:
+        sprite->y -= 8;
+        break;
+    case OBJ_EVENT_GFX_FISHERMAN_SOUTH:
+        sprite->y += 8;
+        break;
+    case OBJ_EVENT_GFX_SPOTLIGHT:
+        sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+        sprite->oam.objMode = ST_OAM_OBJ_NORMAL;
+        if (objectEventTemplate->trainerRange_berryTreeId == LOCALID_PLAYER)
+        {
+            sprite->x = DISPLAY_WIDTH / 2;
+            sprite->y = DISPLAY_HEIGHT / 2;
+            sprite->coordOffsetEnabled = FALSE;
+        }
+        sprite->callback = AnimSpotlight;
+        break;
+    case OBJ_EVENT_GFX_LIGHT_SPRITE:
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 1;
+        objectEvent->currentElevation = 4;
+        objectEvent->previousElevation = 4;
+        break;
+    case OBJ_EVENT_GFX_SPIRIT_BLUE:
+    case OBJ_EVENT_GFX_SPIRIT_YELLOW:
+    case OBJ_EVENT_GFX_SPIRIT_GREEN:
+    case OBJ_EVENT_GFX_SPIRIT_RED:
+        sprite->y -= 2;
+        sprite->x += 1;
+        sprite->oam.priority = 1;
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0;
+        objectEvent->currentElevation = 4;
+        objectEvent->previousElevation = 4;
+        sprite->callback = AnimateSpirits;
+        break;
+    default:
+        break;
+    }
+}
+
 static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 spriteId;
@@ -1912,15 +1988,6 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
     sprite->x += 8;
     sprite->y += 16 + sprite->centerToCornerVecY;
-    if (objectEvent->graphicsId == OBJ_EVENT_GFX_SS_TIDAL_REAR){
-        sprite->x -= 8;
-    }
-    if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
-        sprite->y += 8;
-    }
-    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && objectEvent->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP){
-        sprite->y -= 8;
-    }
     sprite->coordOffsetEnabled = TRUE;
     sprite->sObjEventId = objectEventId;
     objectEvent->spriteId = spriteId;
@@ -1930,23 +1997,8 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
-    if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
-        objectEvent->fixedPriority = TRUE;
-        sprite->subpriority = 1;
-        objectEvent->currentElevation = 4;
-        objectEvent->previousElevation = 4;
-    }
-    if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
-    {
-        sprite->y -= 2;
-        sprite->x += 1;
-        sprite->oam.priority = 1;
-        objectEvent->fixedPriority = TRUE;
-        sprite->subpriority = 0;
-        objectEvent->currentElevation = 4;
-        objectEvent->previousElevation = 4;
-        sprite->callback = AnimateSpirits;
-    }
+
+    ApplySpecialObjectEventSettings(sprite, objectEvent, objectEventTemplate);
     return objectEventId;
 }
 
@@ -3195,15 +3247,6 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
         sprite->centerToCornerVecY = -(graphicsInfo->height >> 1);
         sprite->x += 8;
         sprite->y += 16 + sprite->centerToCornerVecY;
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_SS_TIDAL_REAR){
-            sprite->x -= 8;
-        }
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_FISHERMAN_SOUTH){
-            sprite->y += 8;
-        }
-        if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && objectEvent->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP){
-            sprite->y -= 8;
-        }
         sprite->images = graphicsInfo->images;
         if (objectEvent->movementType == MOVEMENT_TYPE_PLAYER)
         {
@@ -3221,23 +3264,9 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
         ResetObjectEventFldEffData(objectEvent);
         SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
-        if (objectEvent->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE){
-            objectEvent->fixedPriority = TRUE;
-            sprite->subpriority = 1;
-            objectEvent->currentElevation = 4;
-            objectEvent->previousElevation = 4;
-        }
-        if (objectEvent->graphicsId >= OBJ_EVENT_GFX_SPIRIT_BLUE && objectEvent->graphicsId <= OBJ_EVENT_GFX_SPIRIT_RED)
-        {
-            sprite->y -= 2;
-            sprite->x += 1;
-            sprite->oam.priority = 1;
-            objectEvent->fixedPriority = TRUE;
-            sprite->subpriority = 0;
-            objectEvent->currentElevation = 4;
-            objectEvent->previousElevation = 4;
-            sprite->callback = AnimateSpirits;
-        }
+
+        const struct ObjectEventTemplate *objectEventTemplate = GetObjectEventTemplateByLocalIdAndMap(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup);
+        ApplySpecialObjectEventSettings(sprite, objectEvent, objectEventTemplate);
     }
 }
 
@@ -6789,6 +6818,27 @@ static bool8 IsMetatileDirectionallyImpassable(struct ObjectEvent *objectEvent, 
     return FALSE;
 }
 
+static bool8 NoCollisionObject(u16 graphicsId)
+{
+    switch (graphicsId)
+    {
+        case OBJ_EVENT_GFX_SPECIAL_LATIAS:
+        case OBJ_EVENT_GFX_SPECIAL_LATIAS_HEAD:
+        case OBJ_EVENT_GFX_SPECIAL_LATIOS:
+        case OBJ_EVENT_GFX_SPECIAL_LATIOS_HEAD:
+        case OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY:
+        case OBJ_EVENT_GFX_SPECIAL_LATIAS_SHINY_HEAD:
+        case OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY:
+        case OBJ_EVENT_GFX_SPECIAL_LATIOS_SHINY_HEAD:
+        case OBJ_EVENT_GFX_LATI_BALL_DOWN:
+        case OBJ_EVENT_GFX_LATI_BALL_UP:
+        case OBJ_EVENT_GFX_FLAG:
+        case OBJ_EVENT_GFX_SPOTLIGHT:
+            return TRUE;
+    }
+    return FALSE;
+}
+
 u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, bool32 addCoords)
 {
     u8 i;
@@ -6806,8 +6856,6 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
-        if (curObject->graphicsId >= OBJ_EVENT_GFX_SPECIAL_LATIAS && curObject->graphicsId <= OBJ_EVENT_GFX_LATI_BALL_UP)
-            return OBJECT_EVENTS_COUNT;
 
         if (curObject->active && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent
          && !FollowerNPC_IsCollisionExempt(curObject, objectEvent)
@@ -6818,7 +6866,7 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
             {
                 if (AreElevationsCompatible(objectEvent->currentElevation, curObject->currentElevation))
                 {
-                    if (curObject->graphicsId == OBJ_EVENT_GFX_FLAG)
+                    if (NoCollisionObject(curObject->graphicsId))
                         return OBJECT_EVENTS_COUNT;
                     return i;
                 }

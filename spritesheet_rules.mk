@@ -22,6 +22,9 @@ $(OBJEVENTGFXDIR)/pokemon/ball_lati_up.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/pokemon/ball_lati_down.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/spotlight.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+
 $(OBJEVENTGFXDIR)/people/elite_four/drake.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 

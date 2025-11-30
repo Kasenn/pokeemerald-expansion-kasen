@@ -1591,7 +1591,7 @@
 #define FLAG_DAILY_GROTTO_5                           (DAILY_FLAGS_START + 0x17) // 
 #define FLAG_DAILY_BASALEK_CHECKER                           (DAILY_FLAGS_START + 0x18) // 
 #define FLAG_DAILY_FROSTHEARTH_TYPE_CHECK                           (DAILY_FLAGS_START + 0x19) // 
-#define FLAG_ALT_CONNECTION                           (DAILY_FLAGS_START + 0x1A) // 
+#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A) // 
 #define FLAG_OBTAIN_CONTEST_OUTFIT                           (DAILY_FLAGS_START + 0x1B) // 
 #define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C) // 
 #define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D) // 
@@ -1967,7 +1967,7 @@
 #define FLAG_LATIOSISLAND_ITEM_3			    (EXTENDED_FLAG_START + 308)
 #define FLAG_WILDS_CAN_FLEE			    (EXTENDED_FLAG_START + 309)
 #define FLAG_DEFAULT_BIKE			    (EXTENDED_FLAG_START + 310)
-#define FLAG_UNUSED_EXTENDED_0312			    (EXTENDED_FLAG_START + 311)
+#define FLAG_ALT_CONNECTION			    (EXTENDED_FLAG_START + 311)
 #define FLAG_UNUSED_EXTENDED_0313			    (EXTENDED_FLAG_START + 312)
 #define FLAG_UNUSED_EXTENDED_0314			    (EXTENDED_FLAG_START + 313)
 #define FLAG_UNUSED_EXTENDED_0315			    (EXTENDED_FLAG_START + 314)

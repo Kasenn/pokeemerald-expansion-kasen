@@ -77,365 +77,410 @@ Route19_Tr1_SwimmerF::
 
 
 Route19_Tr2_SwimmerM::
-# 50 "data/maps/Route19/scripts.pory"
+# 53 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR2_SWIMMER_M, R19Tr2_Intro, R19Tr2_Lose
-# 51 "data/maps/Route19/scripts.pory"
+# 54 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr3_SwimmerM::
-# 65 "data/maps/Route19/scripts.pory"
+# 69 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR3_SWIMMER_M, R19Tr3_Intro, R19Tr3_Lose
-# 66 "data/maps/Route19/scripts.pory"
+# 70 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr4_SwimmerCoupleM::
-# 80 "data/maps/Route19/scripts.pory"
+# 89 "data/maps/Route19/scripts.pory"
 	trainerbattle_double TRAINER_R19_TR4_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleM_Intro, Route19_Tr4_SwimmerCoupleM_Defeat, Route19_Tr4_SwimmerCoupleM_NotEnoughMons
-# 81 "data/maps/Route19/scripts.pory"
+# 90 "data/maps/Route19/scripts.pory"
 	msgbox Route19_Tr4_SwimmerCoupleM_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr4_SwimmerCoupleF::
-# 98 "data/maps/Route19/scripts.pory"
+# 111 "data/maps/Route19/scripts.pory"
 	trainerbattle_double TRAINER_R19_TR4_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleF_Intro, Route19_Tr4_SwimmerCoupleF_Defeat, Route19_Tr4_SwimmerCoupleF_NotEnoughMons
-# 99 "data/maps/Route19/scripts.pory"
+# 112 "data/maps/Route19/scripts.pory"
 	msgbox Route19_Tr4_SwimmerCoupleF_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr5_SwimmerF::
-# 117 "data/maps/Route19/scripts.pory"
+# 133 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR5_SWIMMER_F, R19Tr5_Intro, R19Tr5_Lose
-# 118 "data/maps/Route19/scripts.pory"
+# 134 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr6_SwimmerM::
-# 132 "data/maps/Route19/scripts.pory"
+# 151 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR6_SWIMMER_M, R19Tr6_Intro, R19Tr6_Lose
-# 133 "data/maps/Route19/scripts.pory"
+# 152 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr7_BlackBelt::
-# 147 "data/maps/Route19/scripts.pory"
+# 171 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR7_BLACKBELT, R19Tr7_Intro, R19Tr7_Lose
-# 148 "data/maps/Route19/scripts.pory"
+# 172 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr8_Hiker::
-# 162 "data/maps/Route19/scripts.pory"
+# 189 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR8_HIKER, R19Tr8_Intro, R19Tr8_Lose
-# 163 "data/maps/Route19/scripts.pory"
+# 190 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr9_Picnicker::
-# 177 "data/maps/Route19/scripts.pory"
+# 208 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR9_PICNICKER, R19Tr9_Intro, R19Tr9_Lose
-# 178 "data/maps/Route19/scripts.pory"
+# 209 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Tr10_SwimmerM::
-# 192 "data/maps/Route19/scripts.pory"
+# 223 "data/maps/Route19/scripts.pory"
 	trainerbattle_single TRAINER_R19_TR10_SWIMMER_M, R19Tr10_Intro, R19Tr10_Lose
-# 193 "data/maps/Route19/scripts.pory"
+# 224 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route19_Bergmite::
-# 206 "data/maps/Route19/scripts.pory"
+# 238 "data/maps/Route19/scripts.pory"
 	lock
-# 207 "data/maps/Route19/scripts.pory"
+# 239 "data/maps/Route19/scripts.pory"
 	faceplayer
-# 208 "data/maps/Route19/scripts.pory"
+# 240 "data/maps/Route19/scripts.pory"
 	waitse
-# 209 "data/maps/Route19/scripts.pory"
+# 241 "data/maps/Route19/scripts.pory"
 	playmoncry SPECIES_BERGMITE, CRY_MODE_ENCOUNTER
-# 210 "data/maps/Route19/scripts.pory"
+# 242 "data/maps/Route19/scripts.pory"
 	delay 40
-# 211 "data/maps/Route19/scripts.pory"
+# 243 "data/maps/Route19/scripts.pory"
 	waitmoncry
-# 212 "data/maps/Route19/scripts.pory"
+# 244 "data/maps/Route19/scripts.pory"
 	setwildbattle SPECIES_BERGMITE, 35
-# 213 "data/maps/Route19/scripts.pory"
+# 245 "data/maps/Route19/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-# 214 "data/maps/Route19/scripts.pory"
+# 246 "data/maps/Route19/scripts.pory"
 	dowildbattle
-# 215 "data/maps/Route19/scripts.pory"
+# 247 "data/maps/Route19/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 216 "data/maps/Route19/scripts.pory"
+# 248 "data/maps/Route19/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 217 "data/maps/Route19/scripts.pory"
+# 249 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Route19_Bergmite_2
-# 235 "data/maps/Route19/scripts.pory"
+# 267 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq Route19_Bergmite_5
 Route19_Bergmite_4:
-# 253 "data/maps/Route19/scripts.pory"
+# 285 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq Route19_Bergmite_8
 Route19_Bergmite_7:
-# 271 "data/maps/Route19/scripts.pory"
+# 303 "data/maps/Route19/scripts.pory"
 	setflag FLAG_ROUTE19_BERGMITE
-# 272 "data/maps/Route19/scripts.pory"
+# 304 "data/maps/Route19/scripts.pory"
 	release
 	end
 
 Route19_Bergmite_2:
-# 218 "data/maps/Route19/scripts.pory"
+# 250 "data/maps/Route19/scripts.pory"
 	setflag FLAG_ROUTE19_BERGMITE
-# 219 "data/maps/Route19/scripts.pory"
+# 251 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 220 "data/maps/Route19/scripts.pory"
+# 252 "data/maps/Route19/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 221 "data/maps/Route19/scripts.pory"
+# 253 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 3, 0x170, FALSE
-# 222 "data/maps/Route19/scripts.pory"
+# 254 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 3, 0x170, FALSE
-# 223 "data/maps/Route19/scripts.pory"
+# 255 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 3, 0x170, FALSE
-# 224 "data/maps/Route19/scripts.pory"
+# 256 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 4, 0x170, FALSE
-# 225 "data/maps/Route19/scripts.pory"
+# 257 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 4, 0x170, FALSE
-# 226 "data/maps/Route19/scripts.pory"
+# 258 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 4, 0x170, FALSE
-# 227 "data/maps/Route19/scripts.pory"
+# 259 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 5, 0x170, FALSE
-# 228 "data/maps/Route19/scripts.pory"
+# 260 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 5, 0x170, FALSE
-# 229 "data/maps/Route19/scripts.pory"
+# 261 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 5, 0x170, FALSE
-# 230 "data/maps/Route19/scripts.pory"
+# 262 "data/maps/Route19/scripts.pory"
 	special DrawWholeMapView
-# 231 "data/maps/Route19/scripts.pory"
+# 263 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 232 "data/maps/Route19/scripts.pory"
+# 264 "data/maps/Route19/scripts.pory"
 	release
 	end
 
 Route19_Bergmite_5:
-# 236 "data/maps/Route19/scripts.pory"
+# 268 "data/maps/Route19/scripts.pory"
 	setvar VAR_0x8004, SPECIES_BERGMITE
-# 237 "data/maps/Route19/scripts.pory"
+# 269 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 238 "data/maps/Route19/scripts.pory"
+# 270 "data/maps/Route19/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 239 "data/maps/Route19/scripts.pory"
+# 271 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 3, 0x170, FALSE
-# 240 "data/maps/Route19/scripts.pory"
+# 272 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 3, 0x170, FALSE
-# 241 "data/maps/Route19/scripts.pory"
+# 273 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 3, 0x170, FALSE
-# 242 "data/maps/Route19/scripts.pory"
+# 274 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 4, 0x170, FALSE
-# 243 "data/maps/Route19/scripts.pory"
+# 275 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 4, 0x170, FALSE
-# 244 "data/maps/Route19/scripts.pory"
+# 276 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 4, 0x170, FALSE
-# 245 "data/maps/Route19/scripts.pory"
+# 277 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 5, 0x170, FALSE
-# 246 "data/maps/Route19/scripts.pory"
+# 278 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 5, 0x170, FALSE
-# 247 "data/maps/Route19/scripts.pory"
+# 279 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 5, 0x170, FALSE
-# 248 "data/maps/Route19/scripts.pory"
+# 280 "data/maps/Route19/scripts.pory"
 	special DrawWholeMapView
-# 249 "data/maps/Route19/scripts.pory"
+# 281 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 250 "data/maps/Route19/scripts.pory"
+# 282 "data/maps/Route19/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_0x8004
-# 251 "data/maps/Route19/scripts.pory"
+# 283 "data/maps/Route19/scripts.pory"
 	msgbox gText_LegendaryRanAway
 	goto Route19_Bergmite_4
 
 Route19_Bergmite_8:
-# 254 "data/maps/Route19/scripts.pory"
+# 286 "data/maps/Route19/scripts.pory"
 	setvar VAR_0x8004, SPECIES_BERGMITE
-# 255 "data/maps/Route19/scripts.pory"
+# 287 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 256 "data/maps/Route19/scripts.pory"
+# 288 "data/maps/Route19/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 257 "data/maps/Route19/scripts.pory"
+# 289 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 3, 0x170, FALSE
-# 258 "data/maps/Route19/scripts.pory"
+# 290 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 3, 0x170, FALSE
-# 259 "data/maps/Route19/scripts.pory"
+# 291 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 3, 0x170, FALSE
-# 260 "data/maps/Route19/scripts.pory"
+# 292 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 4, 0x170, FALSE
-# 261 "data/maps/Route19/scripts.pory"
+# 293 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 4, 0x170, FALSE
-# 262 "data/maps/Route19/scripts.pory"
+# 294 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 4, 0x170, FALSE
-# 263 "data/maps/Route19/scripts.pory"
+# 295 "data/maps/Route19/scripts.pory"
 	setmetatile 81, 5, 0x170, FALSE
-# 264 "data/maps/Route19/scripts.pory"
+# 296 "data/maps/Route19/scripts.pory"
 	setmetatile 82, 5, 0x170, FALSE
-# 265 "data/maps/Route19/scripts.pory"
+# 297 "data/maps/Route19/scripts.pory"
 	setmetatile 83, 5, 0x170, FALSE
-# 266 "data/maps/Route19/scripts.pory"
+# 298 "data/maps/Route19/scripts.pory"
 	special DrawWholeMapView
-# 267 "data/maps/Route19/scripts.pory"
+# 299 "data/maps/Route19/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 268 "data/maps/Route19/scripts.pory"
+# 300 "data/maps/Route19/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_0x8004
-# 269 "data/maps/Route19/scripts.pory"
+# 301 "data/maps/Route19/scripts.pory"
 	msgbox gText_LegendaryRanAway
 	goto Route19_Bergmite_7
 
 
+Route19_Camper::
+# 309 "data/maps/Route19/scripts.pory"
+	msgbox Route19_Camper_Text, MSGBOX_NPC
+	return
+
+
 R19Tr1_Intro::
 # 39 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+	.string "Let's warm up by having\n"
+	.string "a Pokémon battle!$"
 
 R19Tr1_Lose::
-# 42 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 43 "data/maps/Route19/scripts.pory"
+	.string "Ice cold…$"
 
 R19Tr1_PostBattle::
-# 45 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 46 "data/maps/Route19/scripts.pory"
+	.string "Being able to swim in these waters\n"
+	.string "requires a strong spirit,\l"
+	.string "whether it be people or Pokémon!$"
 
 R19Tr2_Intro::
-# 54 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 57 "data/maps/Route19/scripts.pory"
+	.string "I'm a natural-born winner!$"
 
 R19Tr2_Lose::
-# 57 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 60 "data/maps/Route19/scripts.pory"
+	.string "I'm a natural-born loser…$"
 
 R19Tr2_PostBattle::
-# 60 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 63 "data/maps/Route19/scripts.pory"
+	.string "I used to get angry whenever I lost,\n"
+	.string "but I've learned to keep my head cool.$"
 
 R19Tr3_Intro::
-# 69 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 73 "data/maps/Route19/scripts.pory"
+	.string "Do you ever swim\n"
+	.string "beside your Pokémon?$"
 
 R19Tr3_Lose::
-# 72 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 77 "data/maps/Route19/scripts.pory"
+	.string "Can't believe I lost\n"
+	.string "on my home field…$"
 
 R19Tr3_PostBattle::
-# 75 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 81 "data/maps/Route19/scripts.pory"
+	.string "You should get yourself a swimsuit\n"
+	.string "and see how your Pokémon feel when\l"
+	.string "they dip into this ice-cold water.\l"
+	.string "It really opens up your eyes.$"
 
 Route19_Tr4_SwimmerCoupleM_Intro::
-# 84 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 93 "data/maps/Route19/scripts.pory"
+	.string "Jesse: We've been honing our Pokémon\n"
+	.string "to their limit. You cannot win!$"
 
 Route19_Tr4_SwimmerCoupleM_Defeat::
-# 87 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 97 "data/maps/Route19/scripts.pory"
+	.string "Jesse: I was sure we had it…$"
 
 Route19_Tr4_SwimmerCoupleM_NotEnoughMons::
-# 90 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 100 "data/maps/Route19/scripts.pory"
+	.string "Jesse: You're going to need more\n"
+	.string "Pokémon if you want to challenge us!$"
 
 Route19_Tr4_SwimmerCoupleM_PostBattle::
-# 93 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 104 "data/maps/Route19/scripts.pory"
+	.string "Jesse: To excel in double battles,\n"
+	.string "you need to think about the synergy\l"
+	.string "between your Pokémon.$"
 
 Route19_Tr4_SwimmerCoupleF_Intro::
-# 102 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 115 "data/maps/Route19/scripts.pory"
+	.string "Heidi: We've been honing our Pokémon\n"
+	.string "to their limit. You cannot win!$"
 
 Route19_Tr4_SwimmerCoupleF_Defeat::
-# 105 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 119 "data/maps/Route19/scripts.pory"
+	.string "Heidi: I was sure we had it…$"
 
 Route19_Tr4_SwimmerCoupleF_NotEnoughMons::
-# 108 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 122 "data/maps/Route19/scripts.pory"
+	.string "Heidi: You're going to need more\n"
+	.string "Pokémon if you want to challenge us!$"
 
 Route19_Tr4_SwimmerCoupleF_PostBattle::
-# 111 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 126 "data/maps/Route19/scripts.pory"
+	.string "Heidi: If we want to grow stronger,\n"
+	.string "we need to work on our synergy.$"
 
 R19Tr5_Intro::
-# 121 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 137 "data/maps/Route19/scripts.pory"
+	.string "My Pokémon like to play with others.\n"
+	.string "Won't you entertain them?$"
 
 R19Tr5_Lose::
-# 124 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 141 "data/maps/Route19/scripts.pory"
+	.string "You're being too rough…$"
 
 R19Tr5_PostBattle::
-# 127 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 144 "data/maps/Route19/scripts.pory"
+	.string "Don't worry about my Pokémon.\n"
+	.string "They'll be fine once they relax\l"
+	.string "in the water for a moment.$"
 
 R19Tr6_Intro::
-# 136 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 155 "data/maps/Route19/scripts.pory"
+	.string "The longer my Pokémon endure\n"
+	.string "these waters, the faster they get!$"
 
 R19Tr6_Lose::
-# 139 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 159 "data/maps/Route19/scripts.pory"
+	.string "Even with our speed,\n"
+	.string "we lagged behind…$"
 
 R19Tr6_PostBattle::
-# 142 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 163 "data/maps/Route19/scripts.pory"
+	.string "Speed is everything for us swimmers.\p"
+	.string "For example, the faster I finish my\n"
+	.string "workout and get myself in front of\l"
+	.string "a warm hearth, the better.$"
 
 R19Tr7_Intro::
-# 151 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 175 "data/maps/Route19/scripts.pory"
+	.string "You dare interrupt my\n"
+	.string "training regimen?!$"
 
 R19Tr7_Lose::
-# 154 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 179 "data/maps/Route19/scripts.pory"
+	.string "Hmph… Got lucky,\n"
+	.string "I guess.$"
 
 R19Tr7_PostBattle::
-# 157 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 183 "data/maps/Route19/scripts.pory"
+	.string "Leave me be.\n"
+	.string "I'm in the middle of training.$"
 
 R19Tr8_Intro::
-# 166 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 193 "data/maps/Route19/scripts.pory"
+	.string "Ah, an up-and-coming young trainer!\n"
+	.string "Witness the power of ice!$"
 
 R19Tr8_Lose::
-# 169 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 197 "data/maps/Route19/scripts.pory"
+	.string "What? How?!$"
 
 R19Tr8_PostBattle::
-# 172 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+# 200 "data/maps/Route19/scripts.pory"
+	.string "Some believe us hikers to be focused\n"
+	.string "on mostly Rock-type Pokémon.\p"
+	.string "The truth is, we use whatever excels\n"
+	.string "in the current climate we're in.$"
 
 R19Tr9_Intro::
-# 181 "data/maps/Route19/scripts.pory"
+# 212 "data/maps/Route19/scripts.pory"
 	.string "wip$"
 
 R19Tr9_Lose::
-# 184 "data/maps/Route19/scripts.pory"
+# 215 "data/maps/Route19/scripts.pory"
 	.string "wip$"
 
 R19Tr9_PostBattle::
-# 187 "data/maps/Route19/scripts.pory"
+# 218 "data/maps/Route19/scripts.pory"
 	.string "wip$"
 
 R19Tr10_Intro::
-# 196 "data/maps/Route19/scripts.pory"
+# 227 "data/maps/Route19/scripts.pory"
 	.string "wip$"
 
 R19Tr10_Lose::
-# 199 "data/maps/Route19/scripts.pory"
+# 230 "data/maps/Route19/scripts.pory"
 	.string "wip$"
 
 R19Tr10_PostBattle::
-# 202 "data/maps/Route19/scripts.pory"
+# 233 "data/maps/Route19/scripts.pory"
 	.string "wip$"
+
+Route19_Camper_Text::
+# 311 "data/maps/Route19/scripts.pory"
+	.string "Have you seen any interesting\n"
+	.string "Pokémon around lately?\p"
+	.string "I've heard talks of some Pokémon\n"
+	.string "disguising themselves as icebergs, but\l"
+	.string "I've yet to see it with my own eyes.$"

@@ -225,7 +225,7 @@ text FinishRace1_CalculateScore{
     "Now, let's see how well you did…"
 }
 text Race1_YouWon{
-    "{STR_VAR_1}!?\n"
+    "{STR_VAR_1}?!\n"
     "That's a new record!\p"
     "I believe congratulations are\n"
     "in order, but first, let's get you\l"
@@ -238,7 +238,7 @@ text Race1_YouLostTheRace{
     "{STR_VAR_2} seconds."
 }
 text Race1_YouWonAgain{
-    "{STR_VAR_1}!?\n"
+    "{STR_VAR_1}?!\n"
     "That's yet another new record!\p"
     "I believe congratulations are\n"
     "in order, but first, let's get you\l"

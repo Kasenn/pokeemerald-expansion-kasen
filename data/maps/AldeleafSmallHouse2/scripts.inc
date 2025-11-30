@@ -486,12 +486,12 @@ AldeleafSmallHouse2_Woman_ItMovedAgain::
 
 AldeleafSmallHouse2_Woman_ItJustMoved::
 # 239 "data/maps/AldeleafSmallHouse2/scripts.pory"
-	.string "Did you see that!?\n"
+	.string "Did you see that?!\n"
 	.string "It just moved!!$"
 
 AldeleafSmallHouse2_Woman_ImMoving::
 # 243 "data/maps/AldeleafSmallHouse2/scripts.pory"
-	.string "Maybe the whole house is haunted!?\n"
+	.string "Maybe the whole house is haunted?!\n"
 	.string "I'm definitely moving as soon as I can…$"
 
 AldeleafSmallHouse2_JustADoll::

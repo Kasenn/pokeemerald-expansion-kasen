@@ -377,6 +377,18 @@ static const struct SpriteFrameImage sPicTable_PushableBoulder[] = {
     obj_frame_tiles(gObjectEventPic_PushableBoulder),
 };
 
+static const struct SpriteFrameImage sPicTable_Spotlight[] = {
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+    overworld_frame(gObjectEventPic_Spotlight, 8, 8, 0),
+};
+
 static const struct SpriteFrameImage sPicTable_Mart_Door[] = {
     obj_frame_tiles(gObjectEventPic_Mart_Door),
 };

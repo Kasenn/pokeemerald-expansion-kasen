@@ -434,7 +434,7 @@ text PokeRanchRocket1Defeat{
 }
 
 text PokeRanchRocket2Defeat{
-    "We lost!?"
+    "We lost?!"
 }
 
 script PokeRanch_SpecialBattleWon{
@@ -609,7 +609,7 @@ text VolknerRantB{
 }
 text VolknerRantC{
     "Rocket Grunt 3: There's two\n"
-    "gym leaders here!?"
+    "gym leaders here?!"
 }
 text VolknerRantD{
     "Rocket Grunt 5: We're done for!"

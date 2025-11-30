@@ -275,8 +275,8 @@ PRMeadow_MayTimeToHeadBack::
 	.string "be able to take on the Pokémon League\l"
 	.string "in no time!\p"
 	.string "…What do you mean, “What Pokédex?”\p"
-	.string "…WHAT!?\n"
-	.string "My dad didn't give you one!?\p"
+	.string "…WHAT?!\n"
+	.string "My dad didn't give you one?!\p"
 	.string "Oh I'll make sure he hears about this.\n"
 	.string "Come on, let's get back to the lab!$"
 

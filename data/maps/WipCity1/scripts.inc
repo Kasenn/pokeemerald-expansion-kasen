@@ -880,7 +880,7 @@ WantToWaterTree::
 Aldeleaf_Text_OnceAnOddTreePastHere::
 # 464 "data/maps/WipCity1/scripts.pory"
 	.string "Oh wow! So the tree was\n"
-	.string "a wild Pokémon!?\l"
+	.string "a wild Pokémon?!\l"
 	.string "Thanks for clearing the way!$"
 
 Aldeleaf_OddTreeHereSeemsToWiggle::

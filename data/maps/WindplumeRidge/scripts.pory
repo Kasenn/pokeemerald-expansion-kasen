@@ -97,7 +97,7 @@ script Windplume_Trainer1{
 }
 text Windplume_Text_Trainer1Intro{
     "I have the wind on my side!\n"
-    "What chance do you thing you got!?"
+    "What chance do you thing you got?!"
 }
 text Windplume_Text_Trainer1Defeat{
     "Even with the wind on my side,\n"
