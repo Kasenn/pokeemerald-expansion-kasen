@@ -157,6 +157,16 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_GOTCHAPKMNCAUGHTPLAYER]               = COMPOUND_STRING("Gotcha!\n{B_DEF_NAME} was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}\p"),
     [STRINGID_GIVENICKNAMECAPTURED]                 = COMPOUND_STRING("Give a nickname to the\ncaught {B_DEF_NAME}?"),
     [STRINGID_PKMNDATAADDEDTODEX]                   = COMPOUND_STRING("{B_DEF_NAME}'s data was\nadded to the Pokédex.\p"),
+    [STRINGID_PKMNMOVEDISABLEDNOMORE]               = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s move is no longer disabled!"), //wip
+    [STRINGID_PKMNENCOREENDED]                      = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} ended its encore!"), //wip
+    [STRINGID_PKMNSTOLEITEM]                        = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} stole {B_EFF_NAME_WITH_PREFIX2}'s {B_LAST_ITEM}!"), //wip
+    [STRINGID_PKMNCHANGEDTYPEWITH]                  = COMPOUND_STRING("{B_EFF_NAME_WITH_PREFIX}'s {B_EFF_ABILITY} made it the {B_BUFF1} type!"), //not in gen 5+, ability popup //wip
+    [STRINGID_ATTACKERSSTATROSE]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} {B_BUFF2}rose!"), //wip
+    [STRINGID_DEFENDERSSTATROSE]                    = gText_DefendersStatRose, //wip
+    [STRINGID_ATTACKERSSTATFELL]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} {B_BUFF2}fell!"), //wip
+    [STRINGID_DEFENDERSSTATFELL]                    = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} {B_BUFF2}fell!"), //wip
+    [STRINGID_USINGITEMSTATOFPKMNROSE]              = COMPOUND_STRING("Using {B_LAST_ITEM}, the {B_BUFF1} of {B_SCR_NAME_WITH_PREFIX2} {B_BUFF2}rose!"), //todo: update this, will require code changes //wip
+    [STRINGID_USINGITEMSTATOFPKMNFELL]              = COMPOUND_STRING("Using {B_LAST_ITEM}, the {B_BUFF1} of {B_SCR_NAME_WITH_PREFIX2} {B_BUFF2}fell!"), //wip
     [STRINGID_PKMNTRANSFERREDSOMEONESPC]            = gText_PkmnTransferredSomeonesPC,
     [STRINGID_PKMNTRANSFERREDLANETTESPC]            = gText_PkmnTransferredLanettesPC,
     [STRINGID_PKMNBOXSOMEONESPCFULL]                = gText_PkmnTransferredSomeonesPCBoxFull,
@@ -732,6 +742,18 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ABILITYALLOWSONLYMOVE]                = COMPOUND_STRING("{B_ATK_ABILITY} allows the\nuse of only {B_CURRENT_MOVE}!\p"),
     [STRINGID_SWAPPEDABILITIES]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} swapped Abilities\nwith its target!"),
     [STRINGID_BATTLERTYPECHANGEDTO]                 = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s type\nchanged to {B_BUFF1}!"),
+    [STRINGID_BUFFERENDS]                           = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s {B_BUFF1} wore off!"), //wip
+    [STRINGID_TARGETABILITYSTATRAISE]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} {B_BUFF2}raised its {B_BUFF1}!"), //wip
+    [STRINGID_TARGETSSTATWASMAXEDOUT]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} maxed its {B_BUFF1}!"), //wip
+    [STRINGID_ATTACKERABILITYSTATRAISE]             = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s {B_SCR_ABILITY} {B_BUFF2}raised its {B_BUFF1}!"), //wip
+    [STRINGID_FOREWARNACTIVATES]                    = COMPOUND_STRING("{B_SCR_ABILITY} alerted {B_SCR_NAME_WITH_PREFIX2} to {B_EFF_NAME_WITH_PREFIX2}'s {B_BUFF1}!"), //wip
+    [STRINGID_CURSEDBODYDISABLED]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1} was disabled by {B_DEF_NAME_WITH_PREFIX2}'s {B_DEF_ABILITY}!"), //wip
+    [STRINGID_TARGETABILITYSTATLOWER]               = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX}'s {B_DEF_ABILITY} {B_BUFF2}lowered its {B_BUFF1}!"), //wip
+    [STRINGID_SCRIPTINGABILITYSTATRAISE]            = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s {B_SCR_ABILITY} {B_BUFF2}raised its {B_BUFF1}!"), //wip
+    [STRINGID_DESTINYKNOTACTIVATES]                 = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} fell in love because of the {B_LAST_ITEM}!"), //wip
+    [STRINGID_ATKGOTOVERINFATUATION]                = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} got over its infatuation!"), //wip
+    [STRINGID_TORMENTEDNOMORE]                      = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} is no longer tormented!"), //wip
+    [STRINGID_HEALBLOCKEDNOMORE]                    = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} is cured of its heal block!"), //wip
     [STRINGID_BOTHCANNOLONGERESCAPE]                = COMPOUND_STRING("Neither Pokémon can run away!"),
     [STRINGID_CANTESCAPEDUETOUSEDMOVE]              = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can no\nlonger escape!"),
     [STRINGID_PKMNBECAMEWEAKERTOFIRE]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX} became\nweaker to fire!"),
@@ -1061,22 +1083,10 @@ const u16 gUproarOverTurnStringIds[] =
     [B_MSG_UPROAR_ENDS]      = STRINGID_PKMNCALMEDDOWN
 };
 
-const u16 gStockpileUsedStringIds[] =
-{
-    [B_MSG_STOCKPILED]     = STRINGID_PKMNSTOCKPILED,
-    [B_MSG_CANT_STOCKPILE] = STRINGID_BUTITFAILED,
-};
-
 const u16 gWokeUpStringIds[] =
 {
     [B_MSG_WOKE_UP]        = STRINGID_PKMNWOKEUP,
     [B_MSG_WOKE_UP_UPROAR] = STRINGID_PKMNWOKEUPINUPROAR
-};
-
-const u16 gSwallowFailStringIds[] =
-{
-    [B_MSG_SWALLOW_FAILED]  = STRINGID_BUTITFAILED,
-    [B_MSG_SWALLOW_FULL_HP] = STRINGID_PKMNHPFULL
 };
 
 const u16 gUproarAwakeStringIds[] =
@@ -1087,20 +1097,21 @@ const u16 gUproarAwakeStringIds[] =
 
 const u16 gStatUpStringIds[] =
 {
-    [B_MSG_ATTACKER_STAT_ROSE] = STRINGID_ATTACKERSSTATROSE,
-    [B_MSG_DEFENDER_STAT_ROSE] = STRINGID_DEFENDERSSTATROSE,
-    [B_MSG_STAT_WONT_INCREASE] = STRINGID_STATSWONTINCREASE,
-    [B_MSG_STAT_ROSE_EMPTY]    = STRINGID_EMPTYSTRING,
-    [B_MSG_STAT_ROSE_ITEM]     = STRINGID_USINGITEMSTATOFPKMNROSE,
+    [B_MSG_ATTACKER_STAT_CHANGED] = STRINGID_ATTACKERSSTATROSE,
+    [B_MSG_DEFENDER_STAT_CHANGED] = STRINGID_DEFENDERSSTATROSE,
+    [B_MSG_STAT_WONT_CHANGE] = STRINGID_STATSWONTINCREASE,
+    [B_MSG_STAT_CHANGE_EMPTY]    = STRINGID_EMPTYSTRING,
+    [B_MSG_STAT_CHANGED_ITEM]     = STRINGID_USINGITEMSTATOFPKMNROSE,
     [B_MSG_USED_DIRE_HIT]      = STRINGID_PKMNUSEDXTOGETPUMPED,
 };
 
 const u16 gStatDownStringIds[] =
 {
-    [B_MSG_ATTACKER_STAT_FELL] = STRINGID_ATTACKERSSTATFELL,
-    [B_MSG_DEFENDER_STAT_FELL] = STRINGID_DEFENDERSSTATFELL,
-    [B_MSG_STAT_WONT_DECREASE] = STRINGID_STATSWONTDECREASE,
-    [B_MSG_STAT_FELL_EMPTY]    = STRINGID_EMPTYSTRING,
+    [B_MSG_ATTACKER_STAT_CHANGED] = STRINGID_ATTACKERSSTATFELL,
+    [B_MSG_DEFENDER_STAT_CHANGED] = STRINGID_DEFENDERSSTATFELL,
+    [B_MSG_STAT_WONT_CHANGE] = STRINGID_STATSWONTDECREASE,
+    [B_MSG_STAT_CHANGE_EMPTY]    = STRINGID_EMPTYSTRING,
+    [B_MSG_STAT_CHANGED_ITEM]     = STRINGID_USINGITEMSTATOFPKMNFELL,
 };
 
 // Index copied from move's index in sTrappingMoves
@@ -1297,7 +1308,7 @@ const u16 gSafariPokeblockResultStringIds[] =
     [B_MSG_MON_IGNORED]    = STRINGID_PKMNIGNOREDX
 };
 
-const u16 gBerryEffectStringIds[] =
+const u16 CureStatusBerryEffectStringID[] =
 {
     [B_MSG_NORMALIZED_STATUS] = STRINGID_PKMNSITEMNORMALIZEDSTATUS,
     [B_MSG_PSN]               = STRINGID_PKMNSITEMCUREDPOISON,
@@ -2151,7 +2162,9 @@ void BufferStringBattle(enum StringID stringID, u32 battler)
     case STRINGID_RETURNMON: // sending poke to ball msg
         if (IsOnPlayerSide(battler))
         {
-            if (*(&gBattleStruct->hpScale) == 0)
+            if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT)
+                stringPtr = sText_InGamePartnerWithdrewPkmn2;
+            else if (*(&gBattleStruct->hpScale) == 0)
                 stringPtr = sReturnPlayerMon1;
             else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
                 stringPtr = sReturnPlayerMon2;
@@ -2165,13 +2178,28 @@ void BufferStringBattle(enum StringID stringID, u32 battler)
             if (gBattleTypeFlags & BATTLE_TYPE_RECORDED || gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
                 stringPtr = sReturnTrainerMonLink;
             else
-                stringPtr = sReturnTrainerMon;
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                {
+                    if (GetBattlerPosition(battler) == B_POSITION_OPPONENT_LEFT)
+                        stringPtr = sText_Trainer1WithdrewPkmn;
+                    else
+                        stringPtr = sText_Trainer2WithdrewPkmn;
+
+                }
+                else
+                {
+                    stringPtr = sText_Trainer1WithdrewPkmn;
+                }
+            }
         }
         break;
     case STRINGID_SWITCHINMON: // switch-in msg
         if (IsOnPlayerSide(gBattleScripting.battler))
         {
-            if (*(&gBattleStruct->hpScale) == 0 || IsDoubleBattle())
+            if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && (GetBattlerAtPosition(gBattleScripting.battler) == 2))
+                stringPtr = sText_InGamePartnerSentOutPkmn2;
+            else if (*(&gBattleStruct->hpScale) == 0 || IsDoubleBattle())
                 stringPtr = sSwitchInPlayerMon1;
             else if (*(&gBattleStruct->hpScale) == 1)
                 stringPtr = sSwitchInPlayerMon2;
@@ -2189,7 +2217,41 @@ void BufferStringBattle(enum StringID stringID, u32 battler)
                 if (gBattleScripting.battler == 1)
                     stringPtr = sSwitchInTrainer1Mon;
                 else
-                    stringPtr = sSwitchInTrainer2Mon;
+                {
+                    if (TESTING && gBattleTypeFlags & BATTLE_TYPE_MULTI)
+                    {
+                        if (gBattleScripting.battler == 1)
+                        {
+                            stringPtr = sText_Trainer1SentOutPkmn;
+                        }
+                        else
+                        {
+                            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                                stringPtr = sText_Trainer2SentOutPkmn;
+                            else
+                                stringPtr = sText_Trainer1SentOutPkmn2;
+                        }
+                    }
+                    else if (TESTING && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                    {
+                        if (gBattleScripting.battler == 1)
+                            stringPtr = sText_Trainer1SentOutPkmn;
+                        else
+                            stringPtr = sText_Trainer2SentOutPkmn;
+                    }
+                    else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+                    {
+                        stringPtr = sText_LinkTrainerMultiSentOutPkmn;
+                    }
+                    else if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_UNION_ROOM)
+                    {
+                        stringPtr = sText_Trainer1SentOutPkmn2;
+                    }
+                    else
+                    {
+                        stringPtr = sText_LinkTrainerSentOutPkmn2;
+                    }
+                }
             }
             else
             {

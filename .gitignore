@@ -54,6 +54,7 @@ newmagma.png
 Image71.png
 newmagma.bin
 include/constants/heal_locations.h
+include/constants/script_commands.h
 tools/trainerproc/trainerproc
 tools/compresSmol/compresSmol
 tools/compresSmol/compresSmolTilemap

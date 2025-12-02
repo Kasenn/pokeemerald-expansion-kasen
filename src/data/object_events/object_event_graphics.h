@@ -784,3 +784,4 @@ const u32 gObjectEventPic_Spotlight[] =                      INCBIN_U32("graphic
 
 #undef ZOBJ_PIC
 #undef ZOBJ_PAL
+const u32 gObjectEventPic_ApricornTree[] = INCBIN_U32("graphics/object_events/pics/misc/apricorn_tree.4bpp");

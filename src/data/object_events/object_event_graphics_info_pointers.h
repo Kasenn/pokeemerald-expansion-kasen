@@ -421,6 +421,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_6PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_8PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_10PX_SNOW;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
 
 const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
     // [OBJ_EVENT_GFX_TUCKER] =                     &gObjectEventGraphicsInfo_Tucker,
@@ -831,6 +832,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_MAY_CONTEST_6PX_SNOW] =          &gObjectEventGraphicsInfo_CONTEST_MAY_6PX_SNOW,
     [OBJ_EVENT_GFX_MAY_CONTEST_8PX_SNOW] =          &gObjectEventGraphicsInfo_CONTEST_MAY_8PX_SNOW,
     [OBJ_EVENT_GFX_MAY_CONTEST_10PX_SNOW] =         &gObjectEventGraphicsInfo_CONTEST_MAY_10PX_SNOW,
+    [OBJ_EVENT_GFX_APRICORN_TREE] =            &gObjectEventGraphicsInfo_ApricornTree,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

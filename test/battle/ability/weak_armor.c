@@ -29,28 +29,10 @@ SINGLE_BATTLE_TEST("Weak Armor lowers Defense by 1 and boosts Speed by 1 (Gen5-6
         if (move == MOVE_SCRATCH) {
             ABILITY_POPUP(player, ABILITY_WEAK_ARMOR);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-            MESSAGE("Slugma's Defense fell!");
-            if (gen == GEN_6)
-            {
-                MESSAGE("Slugma's Speed rose!");
-            }
-            else
-            {
-                MESSAGE("Slugma's Speed rose sharply!");
-            }
         } else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_WEAK_ARMOR);
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-                MESSAGE("Slugma's Defense fell!");
-                if (gen == GEN_6)
-                {
-                    MESSAGE("Slugma's Speed rose!");
-                }
-                else
-                {
-                    MESSAGE("Slugma's Speed rose sharply!");
-                }
             }
         }
     } THEN {

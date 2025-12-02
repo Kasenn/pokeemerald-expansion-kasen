@@ -531,5 +531,6 @@ void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame);
 bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent);
 
 void ReturnFollowingMonToBall(void);
+u8 GetObjectEventApricornTreeId(u8 objectEventId);
 
 #endif //GUARD_EVENT_OBJECT_MOVEMENT_H

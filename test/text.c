@@ -513,7 +513,7 @@ TEST("Ability names fit on Pokemon Summary Screen")
 {
     u32 i;
     const u32 fontId = FONT_NORMAL, widthPx = 144;
-    u32 ability = ABILITY_NONE;
+    enum Ability ability = ABILITY_NONE;
     for (i = 1; i < ABILITIES_COUNT; i++)
     {
         PARAMETRIZE_LABEL("%S", gAbilitiesInfo[i].name) { ability = i; }
@@ -525,7 +525,7 @@ TEST("Ability names fit on Ability Pop-Up")
 {
     u32 i;
     const u32 fontId = FONT_SMALL_NARROWER, widthPx = 76;
-    u32 ability = ABILITY_NONE;
+    enum Ability ability = ABILITY_NONE;
     for (i = 1; i < ABILITIES_COUNT; i++)
     {
         PARAMETRIZE_LABEL("%S", gAbilitiesInfo[i].name) { ability = i; }
@@ -537,7 +537,7 @@ TEST("Ability descriptions fit on Pokemon Summary Screen")
 {
     u32 i;
     const u32 fontId = FONT_NORMAL, widthPx = 146;
-    u32 ability = ABILITY_NONE;
+    enum Ability ability = ABILITY_NONE;
     for (i = 1; i < ABILITIES_COUNT; i++)
     {
         PARAMETRIZE_LABEL("%S", gAbilitiesInfo[i].description) { ability = i; }
@@ -549,7 +549,7 @@ TEST("Type names fit on Battle Screen")
 {
     u32 i;
     const u32 fontId = FONT_NARROWER, widthPx = 39;
-    u32 type = TYPE_NORMAL;
+    enum Type type = TYPE_NORMAL;
     for (i = 0; i < NUMBER_OF_MON_TYPES; i++)
     {
         PARAMETRIZE_LABEL("%S", gTypesInfo[i].name) { type = i; }
@@ -561,7 +561,7 @@ TEST("Type names fit on Pokedex Search Screen")
 {
     u32 i;
     const u32 fontId = FONT_NARROWER, widthPx = 38;
-    u32 type = TYPE_NORMAL;
+    enum Type type = TYPE_NORMAL;
     for (i = 0; i < NUMBER_OF_MON_TYPES; i++)
     {
         PARAMETRIZE_LABEL("%S", gTypesInfo[i].name) { type = i; }
@@ -777,6 +777,7 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_ATTACKERABILITYSTATRAISE:
     case STRINGID_TARGETABILITYSTATLOWER:
     case STRINGID_BATTLERABILITYRAISEDSTAT:
+    case STRINGID_SCRIPTINGABILITYSTATRAISE:
     case STRINGID_STATWASHEIGHTENED:
         StringCopy(gBattleTextBuff1, gStatNamesTable[longStatName]);
         break;

@@ -2403,3 +2403,6 @@ static const struct SpriteFrameImage sPicTable_MayContest_Snow8Px[] =    {overwo
 static const struct SpriteFrameImage sPicTable_MayContest_Snow10Px[] =   {overworld_ascending_frames(gObjectEventPic_MayContestSnow10Px, 4, 4)};
 
 #undef ZOBJ_PIC
+static const struct SpriteFrameImage sPicTable_ApricornTree[] = {
+    overworld_frame(gObjectEventPic_ApricornTree, 2, 2, 0),
+};

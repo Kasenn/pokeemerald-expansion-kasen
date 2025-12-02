@@ -487,3 +487,6 @@ gSpecials::
 	def_special ShowJournalPopupAdd
 	def_special ShowJournalPopupRemove
 	def_special SetHiddenNature
+	def_special SetAbility
+	def_special ObjectEventInteractionGetApricornTreeData
+	def_special ObjectEventInteractionPickApricornTree

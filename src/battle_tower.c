@@ -40,6 +40,8 @@
 #include "constants/trainers.h"
 #include "constants/event_objects.h"
 #include "constants/moves.h"
+#include "test/battle.h"
+#include "test/test_runner_battle.h"
 
 // EWRAM vars.
 EWRAM_DATA const struct BattleFrontierTrainer *gFacilityTrainers = NULL;
@@ -1566,7 +1568,8 @@ void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32
 {
     u8 ball = (fmon->ball == 0xFF) ? Random() % POKEBALL_COUNT : fmon->ball;
     u16 move;
-    u32 personality = 0, ability, friendship, j;
+    u32 personality = 0, friendship, j;
+    enum Ability ability;
 
     if (fmon->gender == TRAINER_MON_MALE)
     {
@@ -1626,7 +1629,7 @@ void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32
 
     if (fmon->isShiny)
     {
-        u32 data = TRUE;
+        bool32 data = TRUE;
         SetMonData(dst, MON_DATA_IS_SHINY, &data);
     }
     if (fmon->dynamaxLevel > 0)
@@ -1641,7 +1644,7 @@ void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32
     }
     if (fmon->teraType)
     {
-        u32 data = fmon->teraType;
+        enum Type data = fmon->teraType;
         SetMonData(dst, MON_DATA_TERA_TYPE, &data);
     }
 
@@ -3396,5 +3399,53 @@ u16 FacilityClassToGraphicsId(u8 facilityClass)
     else
     {
         return OBJ_EVENT_GFX_BOY_1;
+    }
+}
+
+bool32 ValidateBattleTowerRecord(u8 recordId) // unused
+{
+    s32 i;
+    u32 *record = (u32 *)(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
+    u32 checksum = 0;
+    u32 hasData = 0;
+    for (i = 0; i < offsetof(struct EmeraldBattleTowerRecord, checksum) / sizeof(u32); i++)
+    {
+        checksum += record[i];
+        hasData |= record[i];
+    }
+
+    if (checksum == 0 && hasData == 0)
+    {
+        return FALSE;
+    }
+    else if (gSaveBlock2Ptr->frontier.towerRecords[recordId].checksum != checksum)
+    {
+        ClearBattleTowerRecord(&gSaveBlock2Ptr->frontier.towerRecords[recordId]);
+        return FALSE;
+    }
+    else
+    {
+        return TRUE;
+    }
+}
+
+void TrySetLinkBattleTowerEnemyPartyLevel(void)
+{
+    if (!IsMultibattleTest())
+    {
+        if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
+        {
+            u8 enemyLevel = SetFacilityPtrsGetLevel();
+
+            for (u32 i = 0; i < PARTY_SIZE; i++)
+            {
+                u32 species = GetMonData(&gEnemyParty[i], MON_DATA_SPECIES, NULL);
+                if (species)
+                {
+                    SetMonData(&gEnemyParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][enemyLevel]);
+                    CalculateMonStats(&gEnemyParty[i]);
+                }
+            }
+        }
     }
 }

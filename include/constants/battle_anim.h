@@ -533,9 +533,10 @@
 #define BG_STEEL_BEAM_OPPONENT 78
 #define BG_STEEL_BEAM_PLAYER 79
 #define BG_CHLOROBLAST 80
-#define BG_RAINBOW 81
-#define BG_SWAMP 82
-#define BG_ROCKY_TERRAIN 83
+#define BG_RAINBOW_PLAYER 81
+#define BG_RAINBOW_OPPONENT 82
+#define BG_SWAMP 83
+#define BG_ROCKY_TERRAIN 84
 
 // table ids for general animations (sBattleAnims_General)
 #define B_ANIM_STATS_CHANGE             0
@@ -617,8 +618,9 @@
 #define B_ANIM_STATUS_FRZ               6
 #define B_ANIM_STATUS_CURSED            7
 #define B_ANIM_STATUS_NIGHTMARE         8
+#define B_ANIM_STATUS_FRB               9
 
-#define NUM_B_ANIMS_STATUS              9
+#define NUM_B_ANIMS_STATUS              10
 
 // Tasks with return values often assign them to gBattleAnimArgs[7].
 #define ARG_RET_ID 7
@@ -667,6 +669,14 @@
 #define ANIM_ORDER_UP_CURLY          1
 #define ANIM_ORDER_UP_DROOPY         2
 #define ANIM_ORDER_UP_STRETCHY       3
+
+// AnimTask_TransformMon variations
+enum SpeciesGfxChange
+{
+    SPECIES_GFX_CHANGE_TRANSFORM,
+    SPECIES_GFX_CHANGE_FORM_CHANGE,
+    SPECIES_GFX_CHANGE_ILLUSION_OFF,
+};
 
 // Flags given to various functions to indicate which palettes to consider.
 // Handled by UnpackSelectedBattlePalettes

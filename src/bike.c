@@ -6,6 +6,7 @@
 #include "fieldmap.h"
 #include "field_specials.h"
 #include "metatile_behavior.h"
+#include "oras_dowse.h"
 #include "overworld.h"
 #include "sound.h"
 #include "constants/songs.h"
@@ -1022,6 +1023,23 @@ bool8 IsPlayerNotUsingAcroBikeOnBumpySlope(void)
         return FALSE;
     else
         return TRUE;
+}
+
+void GetOnOffBike(u8 transitionFlags)
+{
+    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+    {
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        Overworld_ClearSavedMusic();
+        Overworld_PlaySpecialMapMusic();
+    }
+    else
+    {
+        EndORASDowsing();
+        SetPlayerAvatarTransitionFlags(transitionFlags);
+        Overworld_SetSavedMusic(MUS_CYCLING);
+        Overworld_ChangeMusicTo(MUS_CYCLING);
+    }
 }
 
 void BikeClearState(int newDirHistory, int newAbStartHistory)

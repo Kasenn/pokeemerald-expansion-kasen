@@ -28,8 +28,7 @@ enum StringID
     STRINGID_STATSWONTINCREASE2,
     STRINGID_AVOIDEDDAMAGE,
     STRINGID_ITDOESNTAFFECT,
-    STRINGID_ATTACKERFAINTED,
-    STRINGID_TARGETFAINTED,
+    STRINGID_BATTLERFAINTED,
     STRINGID_PLAYERGOTMONEY,
     STRINGID_PLAYERWHITEOUT,
     STRINGID_PLAYERWHITEOUT_TRAINER,
@@ -289,6 +288,7 @@ enum StringID
     STRINGID_SOOTHINGAROMA,
     STRINGID_ITEMSCANTBEUSEDNOW,
     STRINGID_USINGITEMSTATOFPKMNROSE,
+    STRINGID_USINGITEMSTATOFPKMNFELL,
     STRINGID_PKMNUSEDXTOGETPUMPED,
     STRINGID_PKMNTRAPPEDBYSANDTOMB,
     STRINGID_ABOOSTED,
@@ -705,24 +705,15 @@ enum StringID
 // They are assigned to the MULTISTRING_CHOOSER byte of gBattleCommunication
 // and read when e.g. the command printfromtable is used.
 
-// gStatUpStringIds
-enum StatUpStringID
+// gStatUpStringIds and gStatDownStringIds
+enum StatChangedStringID
 {
-    B_MSG_ATTACKER_STAT_ROSE,
-    B_MSG_DEFENDER_STAT_ROSE,
-    B_MSG_STAT_WONT_INCREASE,
-    B_MSG_STAT_ROSE_EMPTY,
-    B_MSG_STAT_ROSE_ITEM,
+    B_MSG_ATTACKER_STAT_CHANGED,
+    B_MSG_DEFENDER_STAT_CHANGED,
+    B_MSG_STAT_WONT_CHANGE,
+    B_MSG_STAT_CHANGE_EMPTY,
+    B_MSG_STAT_CHANGED_ITEM,
     B_MSG_USED_DIRE_HIT,
-};
-
-// gStatDownStringIds
-enum StatDownStringID
-{
-    B_MSG_ATTACKER_STAT_FELL = 0,
-    B_MSG_DEFENDER_STAT_FELL = 1,
-    B_MSG_STAT_WONT_DECREASE,
-    B_MSG_STAT_FELL_EMPTY,
 };
 
 // gMissStringIds
@@ -731,7 +722,7 @@ enum MissStringID
     B_MSG_MISSED,
     B_MSG_PROTECTED,
     B_MSG_AVOIDED_ATK,
-    // Ability-related messages need to below this comment
+    // Ability-related messages need to be below this comment
     B_MSG_AVOIDED_DMG,
     B_MSG_GROUND_MISS,
 };
@@ -843,20 +834,6 @@ enum UproarOverTurnStringID
 {
     B_MSG_UPROAR_CONTINUES,
     B_MSG_UPROAR_ENDS,
-};
-
-// gStockpileUsedStringIds
-enum StockpileUsedStringID
-{
-    B_MSG_STOCKPILED,
-    B_MSG_CANT_STOCKPILE,
-};
-
-// gSwallowFailStringIds
-enum SwallowFailStringID
-{
-    B_MSG_SWALLOW_FAILED,
-    B_MSG_SWALLOW_FULL_HP,
 };
 
 // gKOFailedStringIds
@@ -982,9 +959,16 @@ enum FlashFireStringID
     B_MSG_FLASH_FIRE_NO_BOOST,
 };
 
-// gBerryEffectStringIds
-enum BerryEffectStringID
+// CureStatusBerryEffectStringID
+enum CureStatusBerryEffectStringID
 {
+    B_MSG_CURED_PARALYSIS,
+    B_MSG_CURED_POISON,
+    B_MSG_CURED_BURN,
+    B_MSG_CURED_FREEEZE,
+    B_MSG_CURED_FROSTBITE,
+    B_MSG_CURED_SLEEP,
+    B_MSG_CURED_PROBLEM,
     B_MSG_NORMALIZED_STATUS,
     B_MSG_PSN,
     B_MSG_SLEEP,
@@ -1011,17 +995,6 @@ enum GotStatusedStringID
 {
     B_MSG_STATUSED,
     B_MSG_STATUSED_BY_ABILITY,
-};
-
-// gStatusPreventionStringIds
-enum StatusPreventionStringID
-{
-    B_MSG_ABILITY_PREVENTS_MOVE_BURN,
-    B_MSG_ABILITY_PREVENTS_MOVE_PARALYSIS,
-    B_MSG_ABILITY_PREVENTS_MOVE_POISON,
-    B_MSG_ABILITY_PREVENTS_ABILITY_STATUS,
-    B_MSG_STATUS_HAD_NO_EFFECT,
-    B_MSG_ABILITY_PASTEL_VEIL,
 };
 
 // gGotDefrostedStringIds
