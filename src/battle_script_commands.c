@@ -10483,17 +10483,19 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, enum Stat statId, union St
             else if (gBattleMons[battler].statStages[statId] == 2 && statValue < -2)
                 statValue = -2;
 
+            StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATFELL]);
+
             if (statValue == -2)
             {
-                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATHARSHLY);
+                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATHARSHLY]);
             }
             else if (statValue <= -3)
             {
-                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_SEVERELY);
+                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_SEVERELY]);
             }
             else
             {
-                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
+                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_EXCLAMATION]);
             }
 
             gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_CHANGED or B_MSG_DEFENDER_STAT_CHANGED
@@ -10519,17 +10521,19 @@ static u32 ChangeStatBuffs(u32 battler, s8 statValue, enum Stat statId, union St
         else if (gBattleMons[battler].statStages[statId] == 10 && statValue > 2)
             statValue = 2;
 
+        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
+
         if (statValue == 2)
         {
-            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATSHARPLY);
+            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATSHARPLY]);
         }
         else if (statValue >= 3)
         {
-            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_DRASTICALLY);
+            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_DRASTICALLY]);
         }
         else
         {
-            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
+            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_EXCLAMATION]);
         }
 
         gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_CHANGED or B_MSG_DEFENDER_STAT_CHANGED
