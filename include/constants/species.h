@@ -1673,18 +1673,17 @@
 #define SPECIES_SCRAFTY_MEGA                            1558
 #define SPECIES_EELEKTROSS_MEGA                         1559
 #define SPECIES_CHANDELURE_MEGA                         1560
-#define SPECIES_CHESNAUGHT_MEGA                         1561
-#define SPECIES_DELPHOX_MEGA                            1562
-#define SPECIES_GRENINJA_MEGA                           1563
-#define SPECIES_PYROAR_MEGA                             1564
-#define SPECIES_MALAMAR_MEGA                            1565
-#define SPECIES_DRAGALGE_MEGA                           1566
-#define SPECIES_HAWLUCHA_MEGA                           1567
-#define SPECIES_FLOETTE_MEGA                            1568
-#define SPECIES_BARBARACLE_MEGA                         1569
-#define SPECIES_ZYGARDE_MEGA                            1570
-#define SPECIES_DRAMPA_MEGA                             1571
-#define SPECIES_FALINKS_MEGA                            1572
+#define SPECIES_DELPHOX_MEGA                            1561
+#define SPECIES_GRENINJA_MEGA                           1562
+#define SPECIES_PYROAR_MEGA                             1563
+#define SPECIES_MALAMAR_MEGA                            1564
+#define SPECIES_DRAGALGE_MEGA                           1565
+#define SPECIES_HAWLUCHA_MEGA                           1566
+#define SPECIES_FLOETTE_MEGA                            1567
+#define SPECIES_BARBARACLE_MEGA                         1568
+#define SPECIES_ZYGARDE_MEGA                            1569
+#define SPECIES_DRAMPA_MEGA                             1570
+#define SPECIES_FALINKS_MEGA                            1571
 
 #define SPECIES_EGG                                     (SPECIES_FALINKS_MEGA + 1)
 
@@ -1737,7 +1736,7 @@
 #define SPECIES_LILLIGANT_HISUIAN                SPECIES_LILLIGANT_HISUI                        
 #define SPECIES_ZORUA_HISUIAN                    SPECIES_ZORUA_HISUI                            
 #define SPECIES_ZOROARK_HISUIAN                  SPECIES_ZOROARK_HISUI                          
-#define SPECIES_BRAVIARY_HISUIAN                 SPECIES_BRAVIARY_HISUI                         
+#define SPECIES_BRAVIARY_OUTSIDER                 SPECIES_BRAVIARY_HISUI                         
 #define SPECIES_SLIGGOO_HISUIAN                  SPECIES_SLIGGOO_HISUI                          
 #define SPECIES_GOODRA_HISUIAN                   SPECIES_GOODRA_HISUI                           
 #define SPECIES_AVALUGG_HISUIAN                  SPECIES_AVALUGG_HISUI                          

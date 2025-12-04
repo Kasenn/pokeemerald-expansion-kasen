@@ -551,7 +551,10 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    callnative(TestSpotlight)
+    givemon(SPECIES_FLAAFFY, 100)
+    givemon(SPECIES_AMPHAROS, 100)
+    givemon(SPECIES_CHINCHOU, 100)
+    givemon(SPECIES_LANTURN, 100)
     return
 }
 script Debug_Script_4{

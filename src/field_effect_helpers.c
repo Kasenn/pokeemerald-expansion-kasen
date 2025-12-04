@@ -2195,8 +2195,8 @@ void UpdateGogoatFieldEffect(struct Sprite *sprite)
 {
     struct ObjectEvent *playerObj = &gObjectEvents[sprite->sPlayerObjId];
     struct Sprite *playerSprite = &gSprites[playerObj->spriteId];
-    SynchroniseSurfAnim(playerObj, sprite);
-    SynchroniseSurfPosition(playerObj, sprite);
+    SynchronizeSurfAnim(playerObj, sprite);
+    SynchronizeSurfPosition(playerObj, sprite);
     UpdateGogoatBobbing(playerObj, playerSprite, sprite);
     sprite->oam.priority = playerSprite->oam.priority;
 }

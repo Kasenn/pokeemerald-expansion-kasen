@@ -3432,24 +3432,19 @@ BattleScript_Effect_Forests_Curse::
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_ForestsCurseEqualByte
 	attackcanceler
 	jumpiftype BS_ATTACKER, TYPE_GHOST, BattleScript_DoForestsCurse
-	attackstring
-	ppreduce
 	goto BattleScript_ButItFailed
 BattleScript_ForestsCurseEqualByte::
 	jumpifbytenotequal gBattlerAttacker, gBattlerTarget, BattleScript_DoForestsCurse
 	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
-	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
-	attackstring
-	ppreduce
+	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
 	forestscursetarget BattleScript_ButItFailed
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	setbyte sB_ANIM_TURN, 0
 	attackanimation
 	waitanimation
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
+	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
+	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	printstring STRINGID_FORESTCURSE
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
@@ -3523,8 +3518,6 @@ BattleScript_EffectSandstorm::
 
 BattleScript_WindStarter::
 	attackcanceler
-	attackstring
-	ppreduce
 	call BattleScript_CheckPrimalWeather
 	setfieldweather BATTLE_WEATHER_STRONG_WINDS
 	goto BattleScript_MoveWeatherChange
@@ -7265,9 +7258,8 @@ BattleScript_GrassyTerrainHeals::
 BattleScript_RockyTerrainDamages::
 	printstring STRINGID_ROCKYTERRAINDAMAGES
 	waitmessage B_WAIT_TIME_LONG
-	orword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
+	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
+	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	tryfaintmon BS_ATTACKER
 	checkteamslost BattleScript_DoTurnDmgEnd
 	end2
@@ -7943,9 +7935,8 @@ BattleScript_BerrySleepHealEnd2_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
 	waitmessage B_WAIT_TIME_LONG
-	orword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
-	healthbarupdate BS_SCRIPTING
-	datahpupdate BS_SCRIPTING
+	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
 	printstring STRINGID_SLEEPBERRY
 	waitmessage B_WAIT_TIME_LONG
 	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
@@ -7976,9 +7967,8 @@ BattleScript_BerrySleepHealRet_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
 	waitmessage B_WAIT_TIME_LONG
-	orword gHitMarker, HITMARKER_IGNORE_BIDE | HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
-	healthbarupdate BS_SCRIPTING
-	datahpupdate BS_SCRIPTING
+	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
 	printstring STRINGID_SLEEPBERRY
 	waitmessage B_WAIT_TIME_LONG
 	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
@@ -9013,8 +9003,6 @@ BattleScript_ForfeitBattleGaveMoney::
 
 BattleScript_EffectFlash::
 	attackcanceler
-	attackstring
-	ppreduce
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ACC, MIN_STAT_STAGE, BattleScript_FlashDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
 BattleScript_FlashDoMoveAnim::
@@ -9024,13 +9012,13 @@ BattleScript_FlashDoMoveAnim::
 	setbyte sSTAT_ANIM_PLAYED, FALSE
 	setstatchanger STAT_ACC, 1, TRUE
 	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed, BIT_ACC | BIT_SPEED
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashTryLowerSpeed
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_FlashTryLowerSpeed
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_FlashTryLowerSpeed::
 	setstatchanger STAT_SPEED, 1, TRUE
 	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd, BIT_SPEED
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_FlashEnd
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_FlashEnd
 	printfromtable gStatDownStringIds
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_FlashEnd::
@@ -9039,9 +9027,8 @@ BattleScript_FlashEnd::
 BattleScript_MegaExhaustion::
 	printstring STRINGID_TARGETISHURTBYMEGAEXHAUSTION
 	waitmessage B_WAIT_TIME_LONG
-	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_HP_UPDATE
-	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER
+	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
+	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	tryfaintmon BS_ATTACKER
 	checkteamslost BattleScript_DoTurnDmgEnd
 	end2

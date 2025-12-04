@@ -5085,7 +5085,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
              && IsBattlerAlive(gBattlerAttacker)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && IsBattlerTurnDamaged(gBattlerTarget)
-             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move))
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
                 gBattleStruct->moveDamage[battler] = GetNonDynamaxMaxHP(gBattlerAttacker) / 6;
                 if (gBattleStruct->moveDamage[battler] == 0)
@@ -5272,15 +5272,15 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
              && !(gBattleMons[gBattlerAttacker].volatiles.wrapped)
-             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move))
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
                 gBattleMons[gBattlerAttacker].volatiles.wrapped = TRUE;
-                if (GetBattlerHoldEffect(gBattlerTarget, TRUE) == HOLD_EFFECT_GRIP_CLAW)
+                if (GetBattlerHoldEffect(gBattlerTarget) == HOLD_EFFECT_GRIP_CLAW)
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
                 else
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
-                gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
-                gBattleStruct->wrappedBy[gEffectBattler] = gBattlerTarget;
+                gBattleMons[gEffectBattler].volatiles.wrappedMove = MOVE_INFESTATION;
+                gBattleMons[gEffectBattler].volatiles.wrappedBy = gBattlerTarget;
 
                 BattleScriptCall(BattleScript_HiveLeaderGotHit);
                 effect++;
@@ -5453,16 +5453,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
             if (IsBattlerAlive(gBattlerTarget)
              && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
              && !(gBattleMons[gBattlerTarget].volatiles.wrapped)
-             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker, TRUE), move)
+             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move)
              && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
                 gBattleMons[gEffectBattler].volatiles.wrapped = TRUE;
-                if (GetBattlerHoldEffect(gBattlerAttacker, TRUE) == HOLD_EFFECT_GRIP_CLAW)
+                if (GetBattlerHoldEffect(gBattlerAttacker) == HOLD_EFFECT_GRIP_CLAW)
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
                 else
                     gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
-                gBattleStruct->wrappedMove[gEffectBattler] = MOVE_INFESTATION;
-                gBattleStruct->wrappedBy[gEffectBattler] = gBattlerAttacker;
+                gBattleMons[gEffectBattler].volatiles.wrappedMove = MOVE_INFESTATION;
+                gBattleMons[gEffectBattler].volatiles.wrappedBy = gBattlerAttacker;
 
                 BattleScriptCall(BattleScript_HiveLeaderAttacks);
                 effect++;
@@ -7396,9 +7396,9 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct DamageContext *ctx)
         modifier = uq4_12_multiply(modifier, UQ_4_12(1.5));
     if (IsBattlerTerrainAffected(battlerAtk, ctx->abilityAtk, ctx->holdEffectAtk, STATUS_FIELD_GRASSY_TERRAIN) && moveType == TYPE_GRASS)
         modifier = uq4_12_multiply(modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8 ? UQ_4_12(1.3) : UQ_4_12(1.5)));
-    if (IsBattlerTerrainAffected(battlerAtk, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_ROCK)
+    if (IsBattlerTerrainAffected(battlerAtk, ctx->abilityAtk, ctx->holdEffectAtk, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_ROCK)
         modifier = uq4_12_multiply(modifier, (B_TERRAIN_TYPE_BOOST >= GEN_8 ? UQ_4_12(1.3) : UQ_4_12(1.5)));
-    if (IsBattlerTerrainAffected(battlerDef, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_WATER)
+    if (IsBattlerTerrainAffected(battlerDef, ctx->abilityDef, ctx->holdEffectDef, STATUS_FIELD_ROCKY_TERRAIN) && moveType == TYPE_WATER)
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));
     if (IsBattlerTerrainAffected(battlerDef, ctx->abilityDef, ctx->holdEffectDef, STATUS_FIELD_MISTY_TERRAIN) && moveType == TYPE_DRAGON)
         modifier = uq4_12_multiply(modifier, UQ_4_12(0.5));

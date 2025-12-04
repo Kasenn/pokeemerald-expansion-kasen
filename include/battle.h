@@ -213,9 +213,8 @@ struct SpecialStatus
     u8 criticalHit:1;
     // End of byte
     u8 rapidFistsState:2;
-    u8 dancerUsedMove:1;
     u8 dancerOriginalTarget:3;
-    u8 unused:2;
+    u8 unused:3;
     // End of byte
 };
 

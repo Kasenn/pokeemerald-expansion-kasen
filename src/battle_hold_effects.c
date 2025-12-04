@@ -475,6 +475,7 @@ static enum ItemEffect TryMentalHerb(u32 battler)
         // Check heal block
         if (gBattleMons[battler].volatiles.healBlock)
         {
+            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_HEAL_BLOCK);
             gBattleMons[battler].volatiles.healBlock = FALSE;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MENTALHERBCURE_HEALBLOCK;
             effect = ITEM_EFFECT_OTHER;
@@ -966,6 +967,31 @@ static enum ItemEffect HealConfuseBerry(u32 battler, u32 itemId, u32 flavorId, A
     return effect;
 }
 
+static enum ItemEffect HealSleepBerry(u32 battler, u32 itemId, ActivationTiming timing)
+{
+    enum ItemEffect effect = ITEM_NO_EFFECT;
+    u32 hpFraction = B_CONFUSE_BERRIES_HEAL >= GEN_7 ? 4 : 2;
+    u32 ability = GetBattlerAbility(battler);
+
+    if (HasEnoughHpToEatBerry(battler, ability, hpFraction, itemId)
+     && !(B_HEAL_BLOCKING >= GEN_5 && gBattleMons[battler].volatiles.healBlock))
+    {
+        s32 healAmount = GetNonDynamaxMaxHP(battler);
+        SetHealAmount(battler, healAmount);
+        if (timing == IsOnSwitchInFirstTurnActivation)
+        {
+            BattleScriptExecute(BattleScript_BerrySleepHealEnd2);
+        }
+        else
+        {
+            BattleScriptCall(BattleScript_BerrySleepHealRet);
+        }
+        effect = ITEM_HP_CHANGE;
+    }
+
+    return effect;
+}
+
 static enum ItemEffect StatRaiseBerry(u32 battler, u32 itemId, enum Stat statId, ActivationTiming timing)
 {
     enum ItemEffect effect = ITEM_NO_EFFECT;
@@ -1228,6 +1254,9 @@ enum ItemEffect ItemBattleEffects(u32 itemBattler, u32 battler, enum HoldEffect 
         break;
     case HOLD_EFFECT_CONFUSE_SOUR: // Iapapa Berry
         effect = HealConfuseBerry(itemBattler, item, FLAVOR_SOUR, timing);
+        break;
+    case HOLD_EFFECT_SLEEP_BERRY:
+        effect = HealSleepBerry(itemBattler, item, timing);
         break;
     case HOLD_EFFECT_ATTACK_UP: // Liechi Berry
         effect = StatRaiseBerry(itemBattler, item, STAT_ATK, timing);

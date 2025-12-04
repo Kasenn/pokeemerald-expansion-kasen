@@ -375,13 +375,13 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
     case FIRST_EVENT_BLOCK_ROCKY_TERRAIN_DAMAGE:
         if ((gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
         && IsBattlerAlive(battler)
-        && IsBattlerGrounded(battler)
+        && IsBattlerGrounded(battler, GetBattlerAbility(battler), GetBattlerHoldEffect(battler))
         && !(IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)
           || IS_BATTLER_OF_TYPE(battler, TYPE_GROUND)
           || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)))
         {
             gBattlerAttacker = battler;
-            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(gMovesInfo[MOVE_STEALTH_ROCK].type, battler);
+            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
             if (gBattleStruct->moveDamage[battler] > (GetNonDynamaxMaxHP(battler) / 6))
             {
                 gBattleStruct->moveDamage[battler] = (GetNonDynamaxMaxHP(battler) / 6);
@@ -392,12 +392,12 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
             BattleScriptExecute(BattleScript_RockyTerrainDamages);
             effect = TRUE;
         }
-        gBattleStruct->eventBlockCounter++;
+        gBattleStruct->eventState.endTurnBlock++;
         break;
     case FIRST_EVENT_BLOCK_MEGA_EXHAUSTION:
         if (TESTING)
         {
-            gBattleStruct->eventBlockCounter++;
+            gBattleStruct->eventState.endTurnBlock++;
             break;
         }
         if (IsBattlerMegaEvolved(battler) && IsBattlerAlive(battler))
@@ -429,7 +429,7 @@ static bool32 HandleEndTurnFirstEventBlock(u32 battler)
             BattleScriptExecute(BattleScript_MegaExhaustion);
             effect = TRUE;
         }
-        gBattleStruct->eventBlockCounter++;
+        gBattleStruct->eventState.endTurnBlock++;
         break;
     case FIRST_EVENT_BLOCK_ABILITIES:
     {

@@ -1025,22 +1025,22 @@ bool8 IsPlayerNotUsingAcroBikeOnBumpySlope(void)
         return TRUE;
 }
 
-void GetOnOffBike(u8 transitionFlags)
-{
-    if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
-    {
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
-        Overworld_ClearSavedMusic();
-        Overworld_PlaySpecialMapMusic();
-    }
-    else
-    {
-        EndORASDowsing();
-        SetPlayerAvatarTransitionFlags(transitionFlags);
-        Overworld_SetSavedMusic(MUS_CYCLING);
-        Overworld_ChangeMusicTo(MUS_CYCLING);
-    }
-}
+// void GetOnOffBike(u8 transitionFlags)
+// {
+//     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE)
+//     {
+//         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+//         Overworld_ClearSavedMusic();
+//         Overworld_PlaySpecialMapMusic();
+//     }
+//     else
+//     {
+//         EndORASDowsing();
+//         SetPlayerAvatarTransitionFlags(transitionFlags);
+//         Overworld_SetSavedMusic(MUS_CYCLING);
+//         Overworld_ChangeMusicTo(MUS_CYCLING);
+//     }
+// }
 
 void BikeClearState(int newDirHistory, int newAbStartHistory)
 {

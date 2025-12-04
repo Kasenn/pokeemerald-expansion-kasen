@@ -52,7 +52,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
-#include "fishing.h"
+#include "wild_encounter.h"
 
 enum TransitionType
 {
@@ -598,7 +598,7 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
     u16 tileBehavior;
     s16 x, y;
 
-    if (ShouldUseFishingEnvironmentInBattle())
+    if (gIsFishingEncounter)
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
     else
         PlayerGetDestCoords(&x, &y);
