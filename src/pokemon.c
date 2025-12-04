@@ -98,7 +98,6 @@ EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GF
 EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
 EWRAM_DATA u8 gCustomBattleFlags = 0;
-EWRAM_DATA u8 gFaintFromPoison = 0;
 
 #include "data/abilities.h"
 #if P_TUTOR_MOVES_ARRAY
