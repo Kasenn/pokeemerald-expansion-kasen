@@ -1512,16 +1512,6 @@ static const u16 sGenesectFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_GENESECT
 
-#if P_FAMILY_CHESPIN
-static const u16 sChesnaughtFormSpeciesIdTable[] = {
-    SPECIES_CHESNAUGHT,
-#if P_GEN_9_MEGA_EVOLUTIONS
-    SPECIES_CHESNAUGHT_MEGA,
-#endif
-    FORM_SPECIES_END,
-};
-#endif //P_FAMILY_CHESPIN
-
 #if P_FAMILY_FENNEKIN
 static const u16 sDelphoxFormSpeciesIdTable[] = {
     SPECIES_DELPHOX,

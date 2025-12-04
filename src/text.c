@@ -328,14 +328,9 @@ u32 GetPlayerTextSpeed(void)
 {
     if (gTextFlags.forceMidTextSpeed)
         return OPTIONS_TEXT_SPEED_MID;
-
-    if (gSaveBlock2Ptr->optionsTextSpeed > OPTIONS_TEXT_SPEED_INSTANT)
-        gSaveBlock2Ptr->optionsTextSpeed = OPTIONS_TEXT_SPEED_FAST;
-
     if (FlagGet(FLAG_TEXT_SPEED_INSTANT) || TEXT_SPEED_INSTANT)
         return OPTIONS_TEXT_SPEED_INSTANT;
-
-    return gSaveBlock2Ptr->optionsTextSpeed;
+    return OPTIONS_TEXT_SPEED_FAST;
 }
 
 u32 GetPlayerTextSpeedDelay(void)

@@ -20,7 +20,6 @@
 #include "field_player_avatar.h"
 #include "field_specials.h"
 #include "field_weather.h"
-#include "fishing.h"
 #include "follower_npc.h"
 #include "graphics.h"
 #include "item.h"
@@ -99,6 +98,7 @@ EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GF
 EWRAM_DATA static u8 sTriedEvolving = 0;
 EWRAM_DATA u16 gFollowerSteps = 0;
 EWRAM_DATA u8 gCustomBattleFlags = 0;
+EWRAM_DATA u8 gFaintFromPoison = 0;
 
 #include "data/abilities.h"
 #if P_TUTOR_MOVES_ARRAY
@@ -1309,7 +1309,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
             else
                 totalRerolls += VarGet(VAR_SHINY_MULTIPLIER);
 
-            totalRerolls += CalculateChainFishingShinyRolls();
             // if (gDexNavSpecies)
             //     totalRerolls += CalculateDexNavShinyRolls();
 

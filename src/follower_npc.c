@@ -892,7 +892,7 @@ u32 DetermineFollowerNPCState(struct ObjectEvent *follower, u32 state, u32 direc
     newPlayerMB = MapGridGetMetatileBehaviorAt(playerDestX, playerDestY);
 
     if (IsPlayerForcedOntoSameTile(newPlayerMB, playerMoveDirection)
-     && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_MACH_BIKE && playerMoveDirection == DIR_NORTH && newPlayerMB == MB_MUDDY_SLOPE && GetPlayerSpeed() >= PLAYER_SPEED_FAST))
+     && !(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_BIKE && playerMoveDirection == DIR_NORTH && newPlayerMB == MB_MUDDY_SLOPE && GetPlayerSpeed() >= PLAYER_SPEED_FAST))
     {
         SetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, FNPC_FORCED_STAY);
         SetFollowerNPCData(FNPC_DATA_DELAYED_STATE, 0);

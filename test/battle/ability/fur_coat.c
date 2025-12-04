@@ -13,7 +13,7 @@ SINGLE_BATTLE_TEST("Fur Coat doubles Defense", s16 damage)
     PARAMETRIZE { ability = ABILITY_RATTLED; }
 
     GIVEN {
-        PLAYER(SPECIES_PERSIAN_ALOLA) { Ability(ability); }
+        PLAYER(SPECIES_PERSIAN) { Ability(ability); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(opponent, MOVE_SCRATCH); }
@@ -31,7 +31,7 @@ SINGLE_BATTLE_TEST("Fur Coat has no effect on self-inflicted confusion damage", 
     PARAMETRIZE { ability = ABILITY_RATTLED; }
 
     GIVEN {
-        PLAYER(SPECIES_PERSIAN_ALOLA) { Ability(ability); }
+        PLAYER(SPECIES_PERSIAN) { Ability(ability); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN { MOVE(opponent, MOVE_CONFUSE_RAY); MOVE(player, MOVE_POUND, WITH_RNG(RNG_CONFUSION, TRUE)); }

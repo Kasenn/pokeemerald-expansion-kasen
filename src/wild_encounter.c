@@ -4,7 +4,6 @@
 #include "battle_pyramid.h"
 #include "event_data.h"
 #include "fieldmap.h"
-#include "fishing.h"
 #include "follower_npc.h"
 #include "random.h"
 #include "field_player_avatar.h"
@@ -596,7 +595,6 @@ static u16 GenerateFishingWildMon(const struct WildPokemonInfo *wildMonInfo, u8 
     u16 wildMonSpecies = wildMonInfo->wildPokemon[wildMonIndex].species;
     u8 level = ChooseWildMonLevel(wildMonInfo->wildPokemon, wildMonIndex, WILD_AREA_FISHING);
 
-    UpdateChainFishingStreak();
     CreateWildMon(wildMonSpecies, level);
     return wildMonSpecies;
 }
