@@ -895,7 +895,7 @@ static void Task_InitDexNavSearch(u8 taskId)
     sDexNavSearchDataPtr->isHiddenMon = (environment == ENCOUNTER_TYPE_HIDDEN) ? TRUE : FALSE;
     sDexNavSearchDataPtr->monLevel = DexNavTryGenerateMonLevel(species, environment);
 
-    if (GetFlashLevel() > 0)
+    if (GetFlashLevel() < FLASHLEVEL_FULLYBRIGHT)
     {
         DexNavSearchBail(taskId, EventScript_TooDark);
         return;
@@ -2516,7 +2516,7 @@ bool8 TryFindHiddenPokemon(void)
     if (DEXNAV_ENABLED == 0
             || !FlagGet(DN_FLAG_DETECTOR_MODE)
             || FlagGet(DN_FLAG_SEARCHING)
-            || GetFlashLevel() > 0)
+            || GetFlashLevel() < FLASHLEVEL_FULLYBRIGHT)
     {
         if (stepPtr != NULL)
             (*stepPtr) = 0;

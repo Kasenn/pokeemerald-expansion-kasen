@@ -63,7 +63,7 @@ static void ForceStairsMovement(u32, s16*, s16*);
 #define tState       data[0]
 
 // Smaller flash level -> larger flash radius
-static const u16 sFlashLevelToRadius[] = { 200, 72, 64, 56, 48, 40, 32, 24, 0 };
+static const u16 sFlashLevelToRadius[] = { 0, 24, 32, 40, 48, 56, 64, 72, 200 };
 const s32 gMaxFlashLevel = ARRAY_COUNT(sFlashLevelToRadius) - 1;
 
 static const struct ScanlineEffectParams sFlashEffectParams =
@@ -832,40 +832,50 @@ void DoContestHallWarp(void)
     CreateTask(Task_DoContestHallWarp, 10);
 }
 
-static void SetFlashScanlineEffectWindowBoundary(u16 *dest, u32 y, s32 left, s32 right)
-{
-    if (y <= 160)
-    {
-        if (left < 0)
-            left = 0;
-        if (left > 255)
-            left = 255;
-        if (right < 0)
-            right = 0;
-        if (right > 255)
-            right = 255;
-        dest[y] = (left << 8) | right;
-    }
-}
+// static void SetFlashScanlineEffectWindowBoundary(u16 *dest, u32 y, s32 left, s32 right)
+// {
+//     if (y <= 160)
+//     {
+//         if (left < 0)
+//             left = 0;
+//         if (left > 255)
+//             left = 255;
+//         if (right < 0)
+//             right = 0;
+//         if (right > 255)
+//             right = 255;
+//         dest[y] = (left << 8) | right;
+//     }
+// }
 
+// NOTE: this is chatgpt garbage. replace this later
 static void SetFlashScanlineEffectWindowBoundaries(u16 *dest, s32 centerX, s32 centerY, s32 radius)
 {
-    s32 r = radius;
-    s32 v2 = radius;
-    s32 v3 = 0;
-    while (r >= v3)
+    for (s32 y = 0; y < DISPLAY_HEIGHT; y++)
     {
-        SetFlashScanlineEffectWindowBoundary(dest, centerY - v3, centerX - r, centerX + r);
-        SetFlashScanlineEffectWindowBoundary(dest, centerY + v3, centerX - r, centerX + r);
-        SetFlashScanlineEffectWindowBoundary(dest, centerY - r, centerX - v3, centerX + v3);
-        SetFlashScanlineEffectWindowBoundary(dest, centerY + r, centerX - v3, centerX + v3);
-        v2 -= (v3 * 2) - 1;
-        v3++;
-        if (v2 < 0)
+        s32 dy = y - centerY;
+        if (dy < 0)
+            dy = -dy;
+
+        if (dy > radius)
         {
-            v2 += 2 * (r - 1);
-            r--;
+            // No light reaches this scanline: fully closed window
+            dest[y] = 0;
+            continue;
         }
+
+        // dx = sqrt(r^2 - dy^2)
+        s32 dx = Sqrt(radius * radius - dy * dy);
+
+        s32 left  = centerX - dx;
+        s32 right = centerX + dx;
+
+        if (left < 0)   left = 0;
+        if (left > 255) left = 255;
+        if (right < 0)  right = 0;
+        if (right > 255) right = 255;
+
+        dest[y] = (left << 8) | right;
     }
 }
 
@@ -927,7 +937,7 @@ static void UpdateFlashLevelEffect(u8 taskId)
         SetFlashScanlineEffectWindowBoundaries(gScanlineEffectRegBuffers[gScanlineEffect.srcBuffer], tFlashCenterX, tFlashCenterY, tCurFlashRadius);
         tState = 0;
         tCurFlashRadius += tFlashRadiusDelta;
-        if (tCurFlashRadius > tDestFlashRadius)
+        if ((tFlashRadiusDelta > 0 && tCurFlashRadius >= tDestFlashRadius) || (tFlashRadiusDelta < 0 && tCurFlashRadius <= tDestFlashRadius))
         {
             if (tClearScanlineEffect == 1)
             {
@@ -1044,7 +1054,7 @@ void AnimateFlash(u8 newFlashLevel)
 {
     u8 curFlashLevel = GetFlashLevel();
     bool8 fullBrightness = FALSE;
-    if (newFlashLevel == 0)
+    if (newFlashLevel == FLASHLEVEL_FULLYBRIGHT)
         fullBrightness = TRUE;
     StartUpdateFlashLevelEffect(DISPLAY_WIDTH / 2, DISPLAY_HEIGHT / 2, sFlashLevelToRadius[curFlashLevel], sFlashLevelToRadius[newFlashLevel], fullBrightness, 1);
     StartWaitForFlashUpdate();

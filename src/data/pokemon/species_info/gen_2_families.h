@@ -297,6 +297,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sCyndaquilTeachableLearnset,
         .eggMoveLearnset = sCyndaquilEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 14, SPECIES_QUILAVA}),
+        .flashLevel = FLASHLEVEL_SMALLER,
     },
 
     [SPECIES_QUILAVA] =
@@ -366,6 +367,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .teachableLearnset = sQuilavaTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_TYPHLOSION},
                                 {EVO_NONE, 0, SPECIES_TYPHLOSION_HISUI}),
+        .flashLevel = FLASHLEVEL_LARGE,
     },
 
 #if P_UPDATED_EXP_YIELDS >= GEN_8

@@ -19,20 +19,20 @@ DewfordTown_Gym_EventScript_SetFlashLevel::
 	goto DewfordTown_Gym_EventScript_SetFlashLevel1
 
 DewfordTown_Gym_EventScript_SetLightsOn::
-	setflashlevel 0
+	setflashlevel 8
 	return
 
 @ Brightest
 DewfordTown_Gym_EventScript_SetFlashLevel1::
-	setflashlevel 1
+	setflashlevel 7
 	return
 
 DewfordTown_Gym_EventScript_SetFlashLevel2::
-	setflashlevel 2
+	setflashlevel 6
 	return
 
 DewfordTown_Gym_EventScript_SetFlashLevel3::
-	setflashlevel 3
+	setflashlevel 5
 	return
 
 DewfordTown_Gym_EventScript_SetFlashLevel4::
@@ -40,16 +40,16 @@ DewfordTown_Gym_EventScript_SetFlashLevel4::
 	return
 
 DewfordTown_Gym_EventScript_SetFlashLevel5::
-	setflashlevel 5
+	setflashlevel 3
 	return
 
 DewfordTown_Gym_EventScript_SetFlashLevel6::
-	setflashlevel 6
+	setflashlevel 2
 	return
 
 @ Darkest
 DewfordTown_Gym_EventScript_SetFlashLevel7::
-	setflashlevel 7
+	setflashlevel 1
 	return
 
 DewfordTown_Gym_EventScript_BrightenRoom::
@@ -67,16 +67,15 @@ DewfordTown_Gym_EventScript_BrightenRoom::
 DewfordTown_Gym_EventScript_NoLightChange::
 	return
 
-@ NOTE: A little confusingly, a larger animateflash param value is a smaller flash radius
 DewfordTown_Gym_EventScript_AnimateFlash1Trainer::
 	playse SE_SWITCH
-	animateflash 6
+	animateflash 2
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash2Trainers::
 	playse SE_SWITCH
-	animateflash 5
+	animateflash 3
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 
@@ -88,25 +87,25 @@ DewfordTown_Gym_EventScript_AnimateFlash3Trainers::
 
 DewfordTown_Gym_EventScript_AnimateFlash4Trainers::
 	playse SE_SWITCH
-	animateflash 3
+	animateflash 5
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash5Trainers::
 	playse SE_SWITCH
-	animateflash 2
+	animateflash 6
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlash6Trainers::
 	playse SE_SWITCH
-	animateflash 1
+	animateflash 7
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 
 DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
 	playse SE_SWITCH
-	animateflash 0
+	animateflash 8
 	call DewfordTown_Gym_EventScript_SetFlashLevel
 	return
 

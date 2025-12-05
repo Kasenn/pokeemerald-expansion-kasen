@@ -387,6 +387,8 @@ struct SpeciesInfo /*0xC4*/
     u8 friendship;
     u8 growthRate;
     u8 eggGroups[2];
+    u16 flashLevel;
+    u16 flashHue;
     u16 abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
     u8 safariZoneFleeRate;
 
@@ -830,5 +832,6 @@ uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier)
 u32 GetRegionalFormByRegion(u32 species, u32 region);
 bool32 IsSpeciesForeignRegionalForm(u32 species, u32 currentRegion);
 u32 GetTeraTypeFromPersonality(struct Pokemon *mon);
+u32 GetFollowerFlashLevel(void);
 
 #endif // GUARD_POKEMON_H

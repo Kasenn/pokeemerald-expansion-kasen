@@ -694,7 +694,7 @@ static u8 GetBattleTransitionTypeByMap(void)
     PlayerGetDestCoords(&x, &y);
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if (GetFlashLevel())
+    if (GetFlashLevel() != FLASHLEVEL_FULLYBRIGHT)
         return TRANSITION_TYPE_FLASH;
 
     if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))

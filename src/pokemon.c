@@ -7168,3 +7168,13 @@ u32 GetTeraTypeFromPersonality(struct Pokemon *mon)
     const u8 *types = gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].types;
     return (GetMonData(mon, MON_DATA_PERSONALITY) & 0x1) == 0 ? types[0] : types[1];
 }
+
+u32 GetFollowerFlashLevel(void)
+{
+    u32 species = GetMonData(GetFirstLiveMon(), MON_DATA_SPECIES);
+    u32 monFlashLevel = gSpeciesInfo[species].flashLevel;
+
+    if (!(monFlashLevel))
+        return FLASHLEVEL_SMALLEST;
+    return monFlashLevel;
+}

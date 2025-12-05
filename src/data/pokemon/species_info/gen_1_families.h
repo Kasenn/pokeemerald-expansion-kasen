@@ -430,6 +430,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sCharmanderTeachableLearnset,
         .eggMoveLearnset = sCharmanderEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 16, SPECIES_CHARMELEON}),
+        .flashLevel = FLASHLEVEL_SMALL,
     },
 
     [SPECIES_CHARMELEON] =
@@ -499,6 +500,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sCharmeleonLevelUpLearnset,
         .teachableLearnset = sCharmeleonTeachableLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 36, SPECIES_CHARIZARD}),
+        .flashLevel = FLASHLEVEL_MEDIUM,
     },
 
     [SPECIES_CHARIZARD] =
@@ -573,6 +575,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .teachableLearnset = sCharizardTeachableLearnset,
         .formSpeciesIdTable = sCharizardFormSpeciesIdTable,
         .formChangeTable = sCharizardFormChangeTable,
+        .flashLevel = FLASHLEVEL_LARGEST,
     },
 
 #if P_MEGA_EVOLUTIONS

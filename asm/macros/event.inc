@@ -1349,8 +1349,8 @@
 	.byte \speed
 	.endm
 
-	@ Sets the flash level. A level of 0 is fully bright, a level of 1 is the largest flash radius, a level
-	@ of 7 is the smallest flash radius, a level of 8 is fully black.
+	@ Sets the flash level. A level of 8 is fully bright, a level of 7 is the largest flash radius, a level
+	@ of 1 is the smallest flash radius, a level of 0 is fully black.
 	.macro setflashlevel level:req
 	.byte SCR_OP_SETFLASHLEVEL
 	.2byte \level

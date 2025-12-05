@@ -20,6 +20,16 @@
 #define WARP_ID_SECRET_BASE 0x7E
 #define WARP_ID_DYNAMIC     0x7F
 
+#define FLASHLEVEL_FULLYBLACK   0
+#define FLASHLEVEL_SMALLEST     1
+#define FLASHLEVEL_SMALLER      2
+#define FLASHLEVEL_SMALL        3
+#define FLASHLEVEL_MEDIUM       4
+#define FLASHLEVEL_LARGE        5
+#define FLASHLEVEL_LARGER       6
+#define FLASHLEVEL_LARGEST      7
+#define FLASHLEVEL_FULLYBRIGHT  8
+
 // Used to indicate an invalid warp id, for dummy warps or when a warp should
 // use the given coordinates rather than the coordinates of a target warp.
 #define WARP_ID_NONE (-1)

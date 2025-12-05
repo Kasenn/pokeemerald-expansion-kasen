@@ -1046,24 +1046,32 @@ bool32 Overworld_IsBikingAllowed(void)
         return TRUE;
 }
 
-// Flash level of 0 is fully bright
-// Flash level of 1 is the largest flash radius
-// Flash level of 7 is the smallest flash radius
-// Flash level of 8 is fully black
+// Flash level of 8 is fully bright
+// Flash level of 7 is the largest flash radius
+// Flash level of 1 is the smallest flash radius
+// Flash level of 0 is fully black
 void SetDefaultFlashLevel(void)
 {
+    u32 monFlashLevel = GetFollowerFlashLevel();
+
     if (!gMapHeader.cave)
-        gSaveBlock1Ptr->flashLevel = 0;
-    else if (FlagGet(FLAG_SYS_USE_FLASH))
-        gSaveBlock1Ptr->flashLevel = 1;
+        gSaveBlock1Ptr->flashLevel = FLASHLEVEL_FULLYBRIGHT;
+    else if (monFlashLevel == FLASHLEVEL_FULLYBLACK)
+        gSaveBlock1Ptr->flashLevel = FLASHLEVEL_SMALLEST;
+    else if (monFlashLevel > FLASHLEVEL_SMALLEST)
+        gSaveBlock1Ptr->flashLevel = monFlashLevel;
     else
-        gSaveBlock1Ptr->flashLevel = gMaxFlashLevel - 1;
+        gSaveBlock1Ptr->flashLevel = FLASHLEVEL_SMALLEST;
 }
 
 void SetFlashLevel(s32 flashLevel)
 {
+    u32 monFlashLevel = GetFollowerFlashLevel();
+
     if (flashLevel < 0 || flashLevel > gMaxFlashLevel)
-        flashLevel = 0;
+        flashLevel = FLASHLEVEL_FULLYBRIGHT;
+    else if (monFlashLevel >= FLASHLEVEL_SMALLEST)
+        flashLevel = monFlashLevel;
     gSaveBlock1Ptr->flashLevel = flashLevel;
 }
 
@@ -3577,7 +3585,7 @@ void ScriptShowItemDescription(struct ScriptContext *ctx)
     u8 *dst;
     bool8 handleFlash = FALSE;
 
-    if (GetFlashLevel() > 0 || InBattlePyramid_())
+    if (GetFlashLevel() < FLASHLEVEL_FULLYBRIGHT || InBattlePyramid_())
         handleFlash = TRUE;
 
     if (headerType == 1) // berry
@@ -3678,7 +3686,7 @@ static void DestroyItemIconSprite(void)
     FreeSpriteOamMatrix(&gSprites[sItemIconSpriteId]);
     DestroySprite(&gSprites[sItemIconSpriteId]);
 
-    if ((GetFlashLevel() > 0 || InBattlePyramid_()) && sItemIconSpriteId2 != MAX_SPRITES)
+    if ((GetFlashLevel() < FLASHLEVEL_FULLYBRIGHT || InBattlePyramid_()) && sItemIconSpriteId2 != MAX_SPRITES)
     {
         FreeSpriteOamMatrix(&gSprites[sItemIconSpriteId2]);
         DestroySprite(&gSprites[sItemIconSpriteId2]);

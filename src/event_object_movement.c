@@ -57,6 +57,7 @@
 #include "constants/trainer_types.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "field_screen_effect.h"
 
 #define SPECIAL_LOCALIDS_START (min(LOCALID_CAMERA, \
                                 min(LOCALID_PLAYER, \
@@ -5715,6 +5716,11 @@ bool8 FollowablePlayerMovement_Step(struct ObjectEvent *objectEvent, struct Spri
         }
         MoveObjectEventToMapCoords(objectEvent, targetX, targetY);
         ObjectEventSetSingleMovement(objectEvent, sprite, MOVEMENT_ACTION_EXIT_POKEBALL);
+        if (gMapHeader.cave)
+        {
+            AnimateFlash(GetFollowerFlashLevel());
+            SetDefaultFlashLevel();
+        }
         objectEvent->singleMovementActive = TRUE;
         sprite->sTypeFuncId = 2;
         if (OW_FOLLOWERS_BOBBING == TRUE)
