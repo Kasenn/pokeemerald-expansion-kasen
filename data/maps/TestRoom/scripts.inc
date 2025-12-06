@@ -1,5 +1,12 @@
 TestRoom_MapScripts::
+# 26 "data/maps/TestRoom/scripts.pory"
+	map_script MAP_SCRIPT_ON_RESUME, TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME
 	.byte 0
+
+TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME:
+# 27 "data/maps/TestRoom/scripts.pory"
+	setstepcallback STEP_CB_WAILORD
+	return
 
 
 TestFollowerMacro::

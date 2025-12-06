@@ -24,6 +24,7 @@
 #include "field_specials.h"
 #include "event_object_movement.h"
 #include "bg.h"
+#include "event_object_movement.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.
@@ -67,6 +68,7 @@ static void Route17PerStepCallback(u8);
 static void Route18PerStepCallback(u8);
 static void LatiasIslandPerStepCallback(u8);
 static void LatiosIslandPerStepCallback(u8);
+static void WailordPerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
@@ -86,6 +88,7 @@ static const TaskFunc sPerStepCallbacks[] =
     [STEP_CB_ROUTE_18]     = Route18PerStepCallback,
     [STEP_CB_LATIASISLAND] = LatiasIslandPerStepCallback,
     [STEP_CB_LATIOSISLAND] = LatiosIslandPerStepCallback,
+    [STEP_CB_WAILORD]      = WailordPerStepCallback,
 };
 
 // Each array has 4 pairs of data, each pair representing two metatiles of a log and their relative position.
@@ -389,12 +392,317 @@ static bool32 ShouldSinkPacifidlogLogs(s16 newX, s16 newY, s16 oldX, s16 oldY)
     return TRUE;
 }
 
+const u8 sWailordSpriteUp1[] = INCBIN_U8("graphics/biigwailord/wailordup1.4bpp");
+const u8 sWailordSpriteUp2[] = INCBIN_U8("graphics/biigwailord/wailordup2.4bpp");
+const u8 sWailordSpriteUp3[] = INCBIN_U8("graphics/biigwailord/wailordup3.4bpp");
+const u8 sWailordSpriteUp4[] = INCBIN_U8("graphics/biigwailord/wailordup4.4bpp");
+const u8 sWailordSpriteUp5[] = INCBIN_U8("graphics/biigwailord/wailordup5.4bpp");
+const u8 sWailordSpriteUp6[] = INCBIN_U8("graphics/biigwailord/wailordup6.4bpp");
+
+const u8 sWailordSpriteDown1[] = INCBIN_U8("graphics/biigwailord/wailorddown1.4bpp");
+const u8 sWailordSpriteDown2[] = INCBIN_U8("graphics/biigwailord/wailorddown2.4bpp");
+const u8 sWailordSpriteDown3[] = INCBIN_U8("graphics/biigwailord/wailorddown3.4bpp");
+const u8 sWailordSpriteDown4[] = INCBIN_U8("graphics/biigwailord/wailorddown4.4bpp");
+const u8 sWailordSpriteDown5[] = INCBIN_U8("graphics/biigwailord/wailorddown5.4bpp");
+const u8 sWailordSpriteDown6[] = INCBIN_U8("graphics/biigwailord/wailorddown6.4bpp");
+
+const u8 sWailordSpriteLeft1[] = INCBIN_U8("graphics/biigwailord/wailordleft1.4bpp");
+const u8 sWailordSpriteLeft2[] = INCBIN_U8("graphics/biigwailord/wailordleft2.4bpp");
+const u8 sWailordSpriteLeft3[] = INCBIN_U8("graphics/biigwailord/wailordleft3.4bpp");
+const u8 sWailordSpriteLeft4[] = INCBIN_U8("graphics/biigwailord/wailordleft4.4bpp");
+const u8 sWailordSpriteLeft5[] = INCBIN_U8("graphics/biigwailord/wailordleft5.4bpp");
+const u8 sWailordSpriteLeft6[] = INCBIN_U8("graphics/biigwailord/wailordleft6.4bpp");
+
+const u8 sWailordSpriteRight1[] = INCBIN_U8("graphics/biigwailord/wailordright1.4bpp");
+const u8 sWailordSpriteRight2[] = INCBIN_U8("graphics/biigwailord/wailordright2.4bpp");
+const u8 sWailordSpriteRight3[] = INCBIN_U8("graphics/biigwailord/wailordright3.4bpp");
+const u8 sWailordSpriteRight4[] = INCBIN_U8("graphics/biigwailord/wailordright4.4bpp");
+const u8 sWailordSpriteRight5[] = INCBIN_U8("graphics/biigwailord/wailordright5.4bpp");
+const u8 sWailordSpriteRight6[] = INCBIN_U8("graphics/biigwailord/wailordright6.4bpp");
+
+const u16 sWailordPal[] = INCBIN_U16("graphics/biigwailord/wailord.gbapal");
+
 #define tState    data[1]
-#define tPrevX    data[2]
-#define tPrevY    data[3]
 #define tToRaiseX data[4]
 #define tToRaiseY data[5]
 #define tDelay    data[6]
+
+#define tWailordDir     data[1]
+#define tPrevX          data[2]
+#define tPrevY          data[3]
+#define tFacingDir      data[4]
+#define tSpritesSpawned data[5]
+#define tSprite(i)      data[6 + (i)]
+
+#define WAILORD_COLUMNS 3
+#define WAILORD_ROWS 2
+#define WAILORD_SPRITE_COUNT (WAILORD_COLUMNS * WAILORD_ROWS)
+
+static EWRAM_DATA u8 sBobbingFrames = 0;
+
+enum {
+    TAG_WAILORD_FRAME1 = 4612,
+    TAG_WAILORD_FRAME2,
+    TAG_WAILORD_FRAME3,
+    TAG_WAILORD_FRAME4,
+    TAG_WAILORD_FRAME5,
+    TAG_WAILORD_FRAME6,
+};
+
+#define PAL_TAG_WAILORD 4609
+
+static void BobWailordSpriteUpDown(struct Sprite *sprite)
+{
+    sprite->y2 = 1 - ((sBobbingFrames / 8) & 1);
+}
+
+static const struct OamData sWailordSpriteOamData =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(64x64),
+    .x = 0,
+    .size = SPRITE_SIZE(64x64),
+    .tileNum = 0,
+    .priority = 2,
+    .paletteNum = 0,
+};
+
+#define WAILORD_SPRITE_TEMPLATE                     \
+    .paletteTag = PAL_TAG_WAILORD,                  \
+    .oam = &sWailordSpriteOamData,                  \
+    .anims = gDummySpriteAnimTable,                 \
+    .images = NULL,                                 \
+    .affineAnims = gDummySpriteAffineAnimTable,     \
+    .callback = BobWailordSpriteUpDown,
+
+
+static const struct SpriteTemplate sWailordSpriteTemplate[WAILORD_SPRITE_COUNT] =
+{
+    {
+        .tileTag = TAG_WAILORD_FRAME1,
+        WAILORD_SPRITE_TEMPLATE
+    },
+    {
+        .tileTag = TAG_WAILORD_FRAME2,
+        WAILORD_SPRITE_TEMPLATE
+    },
+    {
+        .tileTag = TAG_WAILORD_FRAME3,
+        WAILORD_SPRITE_TEMPLATE
+    },
+    {
+        .tileTag = TAG_WAILORD_FRAME4,
+        WAILORD_SPRITE_TEMPLATE
+    },
+    {
+        .tileTag = TAG_WAILORD_FRAME5,
+        WAILORD_SPRITE_TEMPLATE
+    },
+    {
+        .tileTag = TAG_WAILORD_FRAME6,
+        WAILORD_SPRITE_TEMPLATE
+    },
+};
+
+static const struct SpriteSheet sWailordSpriteSheetUp[WAILORD_SPRITE_COUNT] =
+{
+    { sWailordSpriteUp1, sizeof(sWailordSpriteUp1), TAG_WAILORD_FRAME1 },
+    { sWailordSpriteUp2, sizeof(sWailordSpriteUp2), TAG_WAILORD_FRAME2 },
+    { sWailordSpriteUp3, sizeof(sWailordSpriteUp3), TAG_WAILORD_FRAME3 },
+    { sWailordSpriteUp4, sizeof(sWailordSpriteUp4), TAG_WAILORD_FRAME4 },
+    { sWailordSpriteUp5, sizeof(sWailordSpriteUp5), TAG_WAILORD_FRAME5 },
+    { sWailordSpriteUp6, sizeof(sWailordSpriteUp6), TAG_WAILORD_FRAME6 },
+};
+
+static const struct SpriteSheet sWailordSpriteSheetDown[WAILORD_SPRITE_COUNT] =
+{
+    { sWailordSpriteDown1, sizeof(sWailordSpriteDown1), TAG_WAILORD_FRAME1 },
+    { sWailordSpriteDown2, sizeof(sWailordSpriteDown2), TAG_WAILORD_FRAME2 },
+    { sWailordSpriteDown3, sizeof(sWailordSpriteDown3), TAG_WAILORD_FRAME3 },
+    { sWailordSpriteDown4, sizeof(sWailordSpriteDown4), TAG_WAILORD_FRAME4 },
+    { sWailordSpriteDown5, sizeof(sWailordSpriteDown5), TAG_WAILORD_FRAME5 },
+    { sWailordSpriteDown6, sizeof(sWailordSpriteDown6), TAG_WAILORD_FRAME6 },
+};
+
+static const struct SpriteSheet sWailordSpriteSheetLeft[WAILORD_SPRITE_COUNT] =
+{
+    { sWailordSpriteLeft1, sizeof(sWailordSpriteLeft1), TAG_WAILORD_FRAME1 },
+    { sWailordSpriteLeft2, sizeof(sWailordSpriteLeft2), TAG_WAILORD_FRAME2 },
+    { sWailordSpriteLeft3, sizeof(sWailordSpriteLeft3), TAG_WAILORD_FRAME3 },
+    { sWailordSpriteLeft4, sizeof(sWailordSpriteLeft4), TAG_WAILORD_FRAME4 },
+    { sWailordSpriteLeft5, sizeof(sWailordSpriteLeft5), TAG_WAILORD_FRAME5 },
+    { sWailordSpriteLeft6, sizeof(sWailordSpriteLeft6), TAG_WAILORD_FRAME6 },
+};
+
+static const struct SpriteSheet sWailordSpriteSheetRight[WAILORD_SPRITE_COUNT] =
+{
+    { sWailordSpriteRight3, sizeof(sWailordSpriteRight3), TAG_WAILORD_FRAME1 },
+    { sWailordSpriteRight2, sizeof(sWailordSpriteRight2), TAG_WAILORD_FRAME2 },
+    { sWailordSpriteRight1, sizeof(sWailordSpriteRight1), TAG_WAILORD_FRAME3 },
+    { sWailordSpriteRight6, sizeof(sWailordSpriteRight6), TAG_WAILORD_FRAME4 },
+    { sWailordSpriteRight5, sizeof(sWailordSpriteRight5), TAG_WAILORD_FRAME5 },
+    { sWailordSpriteRight4, sizeof(sWailordSpriteRight4), TAG_WAILORD_FRAME6 },
+};
+
+static const struct SpritePalette sWailordPalette =
+{
+    .data = sWailordPal,
+    .tag = PAL_TAG_WAILORD
+};
+
+static void WailordPerStepCallback(u8 taskId)
+{
+    u8 spriteId;
+    s16 x, y, i;
+    s16 *data = gTasks[taskId].data;
+    u32 species = GetMonData(GetFirstLiveMon(), MON_DATA_SPECIES);
+    struct ObjectEvent *followerObject = GetFollowerObject();
+    
+    // End the effect if the follower is not Wailord
+    if (species != SPECIES_WAILORD)
+    {
+        if (tSpritesSpawned)
+        {
+            followerObject->invisible = FALSE;
+            tSpritesSpawned = FALSE;
+            for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+            {
+                if (tSprite(i) != MAX_SPRITES)
+                    DestroySprite(&gSprites[tSprite(i)]);
+                tSprite(i) = MAX_SPRITES;
+            }
+        }
+        return;
+    }
+
+    // End if no follower exists
+    if (followerObject == NULL)
+        return;
+
+    u8 facingDir = GetPlayerFacingDirection();
+    PlayerGetDestCoords(&x, &y);
+
+    if (!(tSpritesSpawned))
+    {
+        LoadSpritePalette(&sWailordPalette);
+        for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+        {
+            spriteId = CreateSprite(&sWailordSpriteTemplate[i], 0, 0, 2);
+            if (spriteId == MAX_SPRITES)
+                break;
+
+            tSprite(i) = spriteId;
+        }
+
+        tSpritesSpawned = TRUE;
+    }
+    
+    sBobbingFrames++;
+    if (sBobbingFrames >= 16)
+        sBobbingFrames = 0;
+
+    followerObject->invisible = TRUE;
+
+    // End if player hasn't moved
+    if (x == tPrevX && y == tPrevY && facingDir == tFacingDir)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+    tFacingDir = GetPlayerFacingDirection();
+
+    switch (tFacingDir)
+    {
+    case DIR_SOUTH:
+        if (tWailordDir == DIR_NORTH)
+            break;
+        tWailordDir = DIR_NORTH;
+
+        for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+        {
+            
+            struct Sprite *sprite = &gSprites[tSprite(i)];
+            u8 col = i % WAILORD_COLUMNS;
+            u8 row = i / WAILORD_COLUMNS;
+
+            sprite->x = 56 + (col * 64);
+            sprite->y = (row * 64) + 31;
+
+            SetObjectInvisibility(255, 0, 0, FALSE);
+            if (sprite->sheetTileStart != 0)
+                FreeSpriteTilesByTag(sprite->template->tileTag);
+            sprite->oam.tileNum = LoadSpriteSheet(&sWailordSpriteSheetUp[i]);
+        }
+        break;
+    case DIR_WEST:
+        if (tWailordDir == DIR_EAST)
+            break;
+        tWailordDir = DIR_EAST;
+
+        for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+        {
+            
+            struct Sprite *sprite = &gSprites[tSprite(i)];
+            u8 col = i % WAILORD_COLUMNS;
+            u8 row = i / WAILORD_COLUMNS;
+
+            sprite->x = 128 + (col * 64);
+            sprite->y = (row * 64) - 10;
+
+            SetObjectInvisibility(255, 0, 0, FALSE);
+            if (sprite->sheetTileStart != 0)
+                FreeSpriteTilesByTag(sprite->template->tileTag);
+            sprite->oam.tileNum = LoadSpriteSheet(&sWailordSpriteSheetLeft[i]); 
+        }
+        break;
+    case DIR_NORTH:
+        if (tWailordDir == DIR_SOUTH)
+            break;
+        tWailordDir = DIR_SOUTH;
+
+        for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+        {
+            
+            struct Sprite *sprite = &gSprites[tSprite(i)];
+            u8 col = i % WAILORD_COLUMNS;
+            u8 row = i / WAILORD_COLUMNS;
+
+            sprite->x = 56 + (col * 64);
+            sprite->y = (row * 64) + 96;
+
+            SetObjectInvisibility(255, 0, 0, TRUE);
+            if (sprite->sheetTileStart != 0)
+                FreeSpriteTilesByTag(sprite->template->tileTag);
+            sprite->oam.tileNum = LoadSpriteSheet(&sWailordSpriteSheetDown[i]); 
+        }
+        break;
+    case DIR_EAST:
+        if (tWailordDir == DIR_WEST)
+            break;
+        tWailordDir = DIR_WEST;
+
+        for (i = 0; i < WAILORD_SPRITE_COUNT; i++)
+        {
+            
+            struct Sprite *sprite = &gSprites[tSprite(i)];
+            u8 col = i % WAILORD_COLUMNS;
+            u8 row = i / WAILORD_COLUMNS;
+
+            sprite->x = (col * 64) - 16;
+            sprite->y = (row * 64) - 10;
+
+            SetObjectInvisibility(255, 0, 0, FALSE);
+            if (sprite->sheetTileStart != 0)
+                FreeSpriteTilesByTag(sprite->template->tileTag);
+            sprite->oam.tileNum = LoadSpriteSheet(&sWailordSpriteSheetRight[i]); 
+        }
+        break;
+    default: break;
+    }
+}
 
 static void PacifidlogBridgePerStepCallback(u8 taskId)
 {

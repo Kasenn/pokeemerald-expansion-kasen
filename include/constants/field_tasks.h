@@ -17,5 +17,6 @@
 #define STEP_CB_ROUTE_18            13
 #define STEP_CB_LATIASISLAND        14
 #define STEP_CB_LATIOSISLAND        15
+#define STEP_CB_WAILORD             16
 
 #endif // GUARD_CONSTANTS_FIELD_TASKS_H
