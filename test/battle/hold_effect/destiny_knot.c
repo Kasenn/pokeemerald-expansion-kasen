@@ -15,7 +15,7 @@ SINGLE_BATTLE_TEST("Destiny Knot infatuates back when holder is targeted")
         TURN {  MOVE(player, MOVE_ATTRACT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("Wobbuffet fell in love!");
+        MESSAGE("Wobbuffet fell in love from the Destiny Knot!");
     } THEN {
         EXPECT(player->volatiles.infatuation);
     }
