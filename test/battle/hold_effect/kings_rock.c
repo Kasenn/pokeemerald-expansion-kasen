@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Kings Rock holder will flinch the target 10% of the time")
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
-        MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+        MESSAGE("The foe Wobbuffet flinched!");
     }
 }
 

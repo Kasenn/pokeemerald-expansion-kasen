@@ -426,7 +426,7 @@ SINGLE_BATTLE_TEST("Fling - thrown berry's effect activates for the target even 
             } else if (status1 == STATUS1_FREEZE) {
                 MESSAGE("The foe Wobbuffet's Aspear Berry defrosted it!");
             } else if (status1 == STATUS1_FROSTBITE) {
-                MESSAGE("The foe Wobbuffet's Aspear Berry cured its frostbite!");
+                MESSAGE("The foe Wobbuffet's Aspear Berry defrosted it!");
             } else if (status1 == STATUS1_PARALYSIS) {
                 MESSAGE("The foe Wobbuffet's Cheri Berry cured its paralysis!");
             } else if (status1 == STATUS1_TOXIC_POISON || status1 == STATUS1_POISON) {

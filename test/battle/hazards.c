@@ -86,7 +86,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes can be removed after fainting to other hazards"
         MESSAGE("The poison spikes disappeared from the ground around your team!");
         NONE_OF {
             MESSAGE("Grimer was caught in a Sticky Web!");
-            MESSAGE("Grimer is hurt by the spikes!");
+            MESSAGE("Grimer is hurt by spikes!");
         }
     } THEN {
         EXPECT_EQ(gBattleStruct->hazardsQueue[0][0], HAZARDS_STEALTH_ROCK);
@@ -120,12 +120,12 @@ SINGLE_BATTLE_TEST("Hazards can trigger Emergency Exit and other hazards don't a
         NONE_OF {
             MESSAGE("Golisopod was poisoned!");
             MESSAGE("Golisopod was caught in a Sticky Web!");
-            MESSAGE("Golisopod is hurt by the spikes!");
+            MESSAGE("Golisopod is hurt by spikes!");
         }
         MESSAGE("Pointed stones dug into Wobbuffet!");
         MESSAGE("Wobbuffet was poisoned!");
         MESSAGE("Wobbuffet was caught in a Sticky Web!");
-        MESSAGE("Wobbuffet is hurt by the spikes!");
+        MESSAGE("Wobbuffet is hurt by spikes!");
         NOT MESSAGE("Pointed stones dug into Wobbuffet!"); // Because the previous switch in effects instruction is still kept
     }
 }
@@ -159,15 +159,15 @@ DOUBLE_BATTLE_TEST("Hazards can trigger Emergency Exit and hazards still activat
         NONE_OF {
             MESSAGE("Golisopod was poisoned!");
             MESSAGE("Golisopod was caught in a Sticky Web!");
-            MESSAGE("Golisopod is hurt by the spikes!");
+            MESSAGE("Golisopod is hurt by spikes!");
         }
         MESSAGE("Pointed stones dug into Wobbuffet!");
         MESSAGE("Wobbuffet was poisoned!");
         MESSAGE("Wobbuffet was caught in a Sticky Web!");
-        MESSAGE("Wobbuffet is hurt by the spikes!");
+        MESSAGE("Wobbuffet is hurt by spikes!");
         MESSAGE("Pointed stones dug into Wynaut!");
         MESSAGE("Wynaut was poisoned!");
         MESSAGE("Wynaut was caught in a Sticky Web!");
-        MESSAGE("Wynaut is hurt by the spikes!");
+        MESSAGE("Wynaut is hurt by spikes!");
     }
 }

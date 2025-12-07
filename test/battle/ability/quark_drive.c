@@ -99,7 +99,7 @@ SINGLE_BATTLE_TEST("Quark Drive retains its boosted stat after Neutralizing Gas 
         HP_BAR(opponent, captureDamage: &damage[0]);
         ABILITY_POPUP(opponent, ABILITY_NEUTRALIZING_GAS);
         MESSAGE("Neutralizing gas filled the area!");
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROUND, player);
         HP_BAR(opponent, captureDamage: &damage[1]);
     } THEN {

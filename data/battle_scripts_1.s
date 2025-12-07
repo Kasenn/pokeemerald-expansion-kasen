@@ -7293,7 +7293,7 @@ BattleScript_StickyHoldActivates2::
 
 BattleScript_ColorChangeActivates::
 	call BattleScript_AbilityPopUp
-	printstring STRINGID_TARGETCHANGEDTYPE
+	printstring STRINGID_PKMNCHANGEDTYPEWITH
 	waitmessage B_WAIT_TIME_LONG
 	return
 

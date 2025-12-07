@@ -44,7 +44,7 @@ SINGLE_BATTLE_TEST("Bad Dreams causes Pokémon with Comatose to lose 1/8 of HP")
         TURN {;}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_BAD_DREAMS);
-        MESSAGE("The opposing Komala is tormented!");
+        MESSAGE("The foe Komala is tormented!");
         HP_BAR(opponent);
     } THEN {
         EXPECT_EQ(opponent->hp, opponent->maxHP - opponent->maxHP / 8);

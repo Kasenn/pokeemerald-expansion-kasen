@@ -329,7 +329,7 @@ SINGLE_BATTLE_TEST("Neutralizing Gas exiting the field does not activate Air Loc
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         NOT ABILITY_POPUP(player, ABILITY_AIR_LOCK);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         NOT ABILITY_POPUP(player, ABILITY_AIR_LOCK);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAIN_DANCE, player);
         NOT ABILITY_POPUP(opponent, ABILITY_RAIN_DISH);
@@ -349,8 +349,8 @@ SINGLE_BATTLE_TEST("Neutralizing Gas only displays exiting message for the last 
         ABILITY_POPUP(player, ABILITY_NEUTRALIZING_GAS);
         ABILITY_POPUP(opponent, ABILITY_NEUTRALIZING_GAS);
         SEND_IN_MESSAGE("Wobbuffet");
-        MESSAGE("The effects of the neutralizing gas wore off!");
-        NOT MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
+        NOT MESSAGE("The effects of neutralizing gas wore off!");
     }
 }
 

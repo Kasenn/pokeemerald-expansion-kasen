@@ -329,7 +329,7 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon can have their ability changed or
     } SCENE {
         MESSAGE("Wobbuffet used Max Strike!");
         MESSAGE("The foe Wobbuffet used Simple Beam!");
-        MESSAGE("Wobbuffet's Ability became Simple!");
+        MESSAGE("Wobbuffet acquired Simple!");
     } THEN {
         EXPECT_EQ(player->ability, ABILITY_SIMPLE);
     }

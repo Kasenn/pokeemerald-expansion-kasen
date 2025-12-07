@@ -600,6 +600,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ITEMSCANTBEUSEDNOW]                   = COMPOUND_STRING("Items can't be used now.{PAUSE 64}"),
     [STRINGID_PKMNCANNOTUSEX]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX}\ncannot use {B_CURRENT_MOVE}!"),
     [STRINGID_TARGETCHANGEDTYPE]                    = COMPOUND_STRING("{B_DEF_NAME_PREFIX} transformed\ninto the {B_BUFF1} type!"),
+    [STRINGID_PKMNCHANGEDTYPEWITH]                = COMPOUND_STRING("{B_EFF_NAME_PREFIX} transformed\ninto the {B_BUFF1} type!"),
     [STRINGID_PKMNRAISEDFIREPOWERWITH]              = COMPOUND_STRING("The power of {B_DEF_NAME_PREFIX}'s\nFire-type moves rose!"),
     [STRINGID_PKMNANCHORSITSELFWITH]                = COMPOUND_STRING("{B_DEF_NAME_PREFIX} anchors itself!"),
     [STRINGID_NOPPLEFT]                             = COMPOUND_STRING("There's no PP left for\nthis move!\p"),
