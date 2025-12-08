@@ -11,7 +11,7 @@ SINGLE_BATTLE_TEST("Psychic Terrain protects grounded battlers from priority mov
         TURN { MOVE(player, MOVE_QUICK_ATTACK); MOVE(opponent, MOVE_QUICK_ATTACK); }
     } SCENE {
         MESSAGE("Claydol used Psychic Terrain!");
-        MESSAGE("The opposing Wobbuffet is protected by the Psychic Terrain!");
+        MESSAGE("The foe Wobbuffet is protected by the Psychic Terrain!");
         NOT { HP_BAR(opponent); }
         MESSAGE("The foe Wobbuffet used Quick Attack!");
         HP_BAR(player);

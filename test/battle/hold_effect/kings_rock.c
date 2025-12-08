@@ -31,6 +31,6 @@ SINGLE_BATTLE_TEST("Kings Rock does not increase flinch chance of a move that ha
         TURN { MOVE(player, MOVE_HEADBUTT); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEADBUTT, player);
-        MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+        MESSAGE("The foe Wobbuffet flinched!");
     }
 }

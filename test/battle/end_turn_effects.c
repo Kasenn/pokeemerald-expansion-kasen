@@ -70,11 +70,11 @@ MULTI_BATTLE_TEST("End Turn Effects: First Event Block is executed correctly (mu
         MESSAGE("The foe Wobbuffet is healed by the grassy terrain!");
         HP_BAR(opponentRight, captureDamage: &healed);
         HP_BAR(opponentRight, captureDamage: &damage);
-        MESSAGE("The foe Wobbuffet was hurt by the Black Sludge!");
+        MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
         MESSAGE("Ekans is healed by the grassy terrain!");
-        MESSAGE("Ekans's Shed Skin cured its burn problem!");
+        MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
     } THEN {
         EXPECT_GT(0, healed);
@@ -99,11 +99,11 @@ TWO_VS_ONE_BATTLE_TEST("End Turn Effects: First Event Block is executed correctl
         MESSAGE("The foe Wobbuffet is healed by the grassy terrain!");
         HP_BAR(opponentRight, captureDamage: &healed);
         HP_BAR(opponentRight, captureDamage: &damage);
-        MESSAGE("The foe Wobbuffet was hurt by the Black Sludge!");
+        MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
         MESSAGE("Ekans is healed by the grassy terrain!");
-        MESSAGE("Ekans's Shed Skin cured its burn problem!");
+        MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
     } THEN {
         EXPECT_GT(0, healed);
@@ -128,11 +128,11 @@ ONE_VS_TWO_BATTLE_TEST("End Turn Effects: First Event Block is executed correctl
         MESSAGE("The foe Wobbuffet is healed by the grassy terrain!");
         HP_BAR(opponentRight, captureDamage: &healed);
         HP_BAR(opponentRight, captureDamage: &damage);
-        MESSAGE("The foe Wobbuffet was hurt by the Black Sludge!");
+        MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
         MESSAGE("Ekans is healed by the grassy terrain!");
-        MESSAGE("Ekans's Shed Skin cured its burn problem!");
+        MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
     } THEN {
         EXPECT_GT(0, healed);

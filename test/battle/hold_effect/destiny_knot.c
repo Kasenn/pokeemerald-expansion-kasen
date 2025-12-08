@@ -30,7 +30,7 @@ SINGLE_BATTLE_TEST("Destiny Knot infatuates back when holder is attacking")
         TURN {  MOVE(player, MOVE_TACKLE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("The foe Clefairy fell in love!");
+        MESSAGE("The foe Clefairy fell in love from the Destiny Knot!");
     } THEN {
         EXPECT(opponent->volatiles.infatuation);
     }

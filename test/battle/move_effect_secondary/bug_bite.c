@@ -73,7 +73,7 @@ SINGLE_BATTLE_TEST("Bug Bite eats the target's berry and immediately gains its e
             } else if (status1 == STATUS1_TOXIC_POISON || status1 == STATUS1_POISON) {
                 MESSAGE("Wobbuffet's Pecha Berry cured its poison!");
             } else if (status1 == STATUS1_FROSTBITE) {
-                MESSAGE("Wobbuffet's Aspear Berry defrosted!");
+                MESSAGE("Wobbuffet's Aspear Berry defrosted it!");
             }
             NOT STATUS_ICON(player, status1);
         }
