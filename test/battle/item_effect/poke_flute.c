@@ -33,7 +33,7 @@ DOUBLE_BATTLE_TEST("Poke Flute does not heal battlers with Soundproof from being
     } WHEN {
         TURN { USE_ITEM(playerLeft, ITEM_POKE_FLUTE, partyIndex: 0); }
     } SCENE {
-        MESSAGE("The Pokémon hearing the flute awoke!");
+        MESSAGE("The Pokémon hearing the flute woke up!");
     } THEN {
         EXPECT_EQ(playerLeft->status1, STATUS1_NONE);
         EXPECT_NE(playerRight->status1, STATUS1_NONE);

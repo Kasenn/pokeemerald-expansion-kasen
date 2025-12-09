@@ -334,7 +334,7 @@ SINGLE_BATTLE_TEST("Eject Pack does not activate if mon is switched in due to Ej
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BULLDOZE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         MESSAGE("The foe Wobbuffet is switched out with the Eject Button!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
     }
 }

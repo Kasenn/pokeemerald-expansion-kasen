@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Destiny Bond doesn't fail if used sequentially (Gen2-6)")
         TURN { MOVE(player, MOVE_DESTINY_BOND); SWITCH(opponent, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("{PKMN} Trainer 2 sent out Zigzagoon!");
         NOT { MESSAGE("But it failed!"); }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
     }
@@ -57,7 +57,7 @@ SINGLE_BATTLE_TEST("Destiny Bond fails if used sequentially (Gen7+)")
         TURN { MOVE(player, MOVE_DESTINY_BOND); SWITCH(opponent, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("{PKMN} Trainer 2 sent out Zigzagoon!");
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player); }
         MESSAGE("But it failed!");
     }
@@ -76,7 +76,7 @@ SINGLE_BATTLE_TEST("Destiny Bond does not fail if used repeatedly separated by o
         TURN { MOVE(player, MOVE_DESTINY_BOND); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("{PKMN} Trainer 2 sent out Zigzagoon!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
         NOT { MESSAGE("But it failed!"); }
     }
@@ -95,7 +95,7 @@ SINGLE_BATTLE_TEST("Destiny Bond does not fail if used after failing (Gen7+)")
         TURN { MOVE(player, MOVE_DESTINY_BOND); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);
-        MESSAGE("2 sent out Zigzagoon!");
+        MESSAGE("{PKMN} Trainer 2 sent out Zigzagoon!");
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player); }
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DESTINY_BOND, player);

@@ -79,7 +79,7 @@ SINGLE_BATTLE_TEST("Download doesn't activate if target hasn't been sent out yet
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
             MESSAGE("Porygon's Attack rose!");
         }
-        MESSAGE("2 sent out Porygon2!");
+        MESSAGE("{PKMN} Trainer 2 sent out Porygon2!");
 
         if (ability == ABILITY_DOWNLOAD)
         {

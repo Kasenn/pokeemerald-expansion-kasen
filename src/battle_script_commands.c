@@ -12703,7 +12703,7 @@ static void Cmd_curestatuswithmove(void)
     {
         if (gBattleMons[gBattlerAttacker].status1 & STATUS1_PSN_ANY)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
         }
         if (gBattleMons[gBattlerAttacker].status1 & STATUS1_SLEEP)
         {
@@ -17694,7 +17694,7 @@ void BS_CureStatus(void)
 
     if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
     {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
     }
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
     {

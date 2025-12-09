@@ -75,7 +75,7 @@ SINGLE_BATTLE_TEST("Hit Escape: U-turn does not switch the user out if Wimp Out 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_WIMP_OUT);
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
     }
 }
 
@@ -128,7 +128,7 @@ SINGLE_BATTLE_TEST("Hit Escape: Held items are consumed immediately after a mon 
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         NOT ABILITY_POPUP(player, ABILITY_INTIMIDATE);
     } THEN {
         EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 1);
@@ -148,7 +148,7 @@ SINGLE_BATTLE_TEST("Hit Escape: Held items are consumed immediately after a mon 
         ABILITY_POPUP(player, ABILITY_ELECTRIC_SURGE);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         HP_BAR(opponent);
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         NOT ABILITY_POPUP(player, ABILITY_INTIMIDATE);

@@ -152,7 +152,7 @@ SINGLE_BATTLE_TEST("Zero to Hero's message displays correctly after all battlers
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, opponent);
         // Everyone faints.
         SEND_IN_MESSAGE("Palafin");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
         ABILITY_POPUP(player, ABILITY_ZERO_TO_HERO);
         MESSAGE("Palafin underwent a heroic transformation!");
     }
@@ -175,7 +175,7 @@ SINGLE_BATTLE_TEST("Zero to Hero's message displays correctly after all battlers
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, player);
         // Everyone faints.
         SEND_IN_MESSAGE("Wobbuffet");
-        MESSAGE("2 sent out Palafin!");
+        MESSAGE("{PKMN} Trainer 2 sent out Palafin!");
         ABILITY_POPUP(opponent, ABILITY_ZERO_TO_HERO);
         MESSAGE("The foe Palafin underwent a heroic transformation!");
     }

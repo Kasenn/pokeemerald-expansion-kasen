@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Baton Pass used after Memento works correctly")
         MESSAGE("Wobbuffet used Memento!");
         MESSAGE("Wobbuffet fainted!");
         MESSAGE("The foe Wynaut used Baton Pass!");
-        MESSAGE("2 sent out Caterpie!");
+        MESSAGE("{PKMN} Trainer 2 sent out Caterpie!");
         MESSAGE("Go! Wobbuffet!");
     }
 }

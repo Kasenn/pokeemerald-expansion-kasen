@@ -86,7 +86,7 @@ SINGLE_BATTLE_TEST("Eject Button is not blocked by trapping abilities or moves")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         MESSAGE("The foe Wobbuffet is switched out with the Eject Button!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
     }
 }
 

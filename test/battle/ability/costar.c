@@ -17,7 +17,7 @@ DOUBLE_BATTLE_TEST("Costar copies an ally's stat stages upon entering battle")
         MESSAGE("The foe Wobbuffet used Swords Dance!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
         // Turn 2 - Switch into Flamigo
-        MESSAGE("2 sent out Flamigo!");
+        MESSAGE("{PKMN} Trainer 2 sent out Flamigo!");
         ABILITY_POPUP(opponentRight, ABILITY_COSTAR);
         MESSAGE("The foe Flamigo copied the foe Wobbuffet's stat changes!");
     } THEN {

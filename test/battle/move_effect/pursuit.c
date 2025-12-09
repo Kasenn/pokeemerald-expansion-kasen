@@ -202,9 +202,9 @@ DOUBLE_BATTLE_TEST("Pursuit attacks a switching the foe but not switching allies
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         SEND_IN_MESSAGE("Grimer");
-        MESSAGE("2 withdrew Linoone!");
+        MESSAGE("{PKMN} Trainer 2 withdrew Linoone!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
-        MESSAGE("2 sent out Abra!");
+        MESSAGE("{PKMN} Trainer 2 sent out Abra!");
     }
 }
 
@@ -566,7 +566,7 @@ SINGLE_BATTLE_TEST("Pursuit becomes a locked move after being used on switch-out
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, player);
         HP_BAR(opponent);
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
 
         MESSAGE("Wobbuffet used Struggle!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);

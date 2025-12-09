@@ -279,7 +279,7 @@ SINGLE_BATTLE_TEST("Defog removes Toxic Spikes from user's side (Gen 6+)")
         if (move == MOVE_DEFOG && B_DEFOG_EFFECT_CLEARING >= GEN_6)
             MESSAGE("The poison spikes disappeared from around the foe's team's feet!");
         // Switch happens
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
         if (move != MOVE_DEFOG || B_DEFOG_EFFECT_CLEARING <= GEN_5) {
             MESSAGE("The foe Wobbuffet was poisoned!");
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);

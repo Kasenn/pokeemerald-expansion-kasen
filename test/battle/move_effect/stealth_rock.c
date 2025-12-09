@@ -26,7 +26,7 @@ SINGLE_BATTLE_TEST("Stealth Rock damage on switch in based on typing")
     } SCENE {
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
-        // MESSAGE("2 sent out species!");
+        // MESSAGE("{PKMN} Trainer 2 sent out species!");
         HP_BAR(opponent, damage: maxHP / divisor);
     }
 }

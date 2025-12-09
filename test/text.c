@@ -616,16 +616,16 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_PKMNWASDEFROSTEDBY:
         longMoveID = MOVE_FUSION_FLARE;
         break;
-    case STRINGID_PKMNSITEMCUREDPOISON:
+    case STRINGID_HELDITEMCURESTATUS_POISON:
         longItemName = ITEM_PECHA_BERRY;
         break;
-    case STRINGID_PKMNSITEMDEFROSTEDIT:
+    case STRINGID_HELDITEMCURESTATUS_FREEZE:
         longItemName = ITEM_ASPEAR_BERRY;
         break;
-    case STRINGID_PKMNSITEMWOKEIT:
+    case STRINGID_HELDITEMCURESTATUS_SLEEP:
         longItemName = ITEM_CHESTO_BERRY;
         break;
-    case STRINGID_PKMNSITEMNORMALIZEDSTATUS:
+    case STRINGID_HELDITEMCURESTATUS_NORMALIZE:
         longItemName = ITEM_LUM_BERRY;
         break;
     case STRINGID_POWERHERB:
@@ -657,6 +657,13 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_CANACTFASTERTHANKSTO:
         longItemName = ITEM_CUSTAP_BERRY;
         longAbilityID = ABILITY_QUICK_DRAW;
+        break;
+    case STRINGID_HELDITEMCURESTATUS_POISONCONFUSION:
+    case STRINGID_HELDITEMCURESTATUS_SLEEPCONFUSION:
+    case STRINGID_HELDITEMCURESTATUS_PARALYSISCONFUSION:
+    case STRINGID_HELDITEMCURESTATUS_BURNCONFUSION:
+    case STRINGID_HELDITEMCURESTATUS_FREEZECONFUSION:
+        longItemName = ITEM_LUM_BERRY;
         break;
     default:
         break;

@@ -34,7 +34,7 @@ DOUBLE_BATTLE_TEST("Court Change swaps entry hazards used by the opponent")
             MESSAGE("Wynaut is hurt by spikes!");
             MESSAGE("Wynaut was poisoned!");
         }
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
         MESSAGE("The foe Wobbuffet was caught in a Sticky Web!");
         MESSAGE("Pointed stones dug into the foe Wobbuffet!");
         MESSAGE("The foe Wobbuffet is hurt by spikes!");
@@ -68,7 +68,7 @@ DOUBLE_BATTLE_TEST("Court Change swaps entry hazards used by the player")
         MESSAGE("Pointed stones dug into Wobbuffet!");
         MESSAGE("Wobbuffet is hurt by spikes!");
         MESSAGE("Wobbuffet was poisoned!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         NONE_OF {
             MESSAGE("The foe Wynaut was caught in a Sticky Web!");
             MESSAGE("Pointed stones dug into the foe Wynaut!");

@@ -84,8 +84,8 @@ DOUBLE_BATTLE_TEST("Ultra Burst happens after switching, but before Focus Punch-
         TURN { SWITCH(opponentRight, 2); MOVE(playerRight, MOVE_FOCUS_PUNCH, gimmick: GIMMICK_ULTRA_BURST, target: opponentLeft); MOVE(playerLeft, MOVE_FOCUS_PUNCH, target: opponentLeft); }
         TURN {}
     } SCENE {
-        MESSAGE("2 withdrew Wobbuffet!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 withdrew Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
 
         MESSAGE("Bright light is about to burst out of Necrozma!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ULTRA_BURST, playerRight);

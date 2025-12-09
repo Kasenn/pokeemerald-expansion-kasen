@@ -60,7 +60,7 @@ const struct HoldEffectInfo gHoldEffectsInfo[HOLD_EFFECT_COUNT] =
         .onStatusChange = TRUE,
     },
 
-    [HOLD_EFFECT_CURE_STATUS] =
+    [HOLD_EFFECT_LUM_BERRY] =
     {
         .onSwitchIn = TRUE,
         .onSwitchInFirstTurn = TRUE,

@@ -703,7 +703,7 @@ static enum ItemEffect TryCurePoison(u32 battler, ActivationTiming timing)
     if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
     {
         gBattleMons[battler].status1 &= ~(STATUS1_PSN_ANY | STATUS1_TOXIC_COUNTER);
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
         if (timing == IsOnSwitchInFirstTurnActivation)
             BattleScriptExecute(BattleScript_BerryCureStatusEnd2);
         else
@@ -801,45 +801,49 @@ static enum ItemEffect TryCureAnyStatus(u32 battler, ActivationTiming timing)
 {
     enum ItemEffect effect = ITEM_NO_EFFECT;
     u32 string = 0;
+    u32 msg = 0;
 
-    if ((gBattleMons[battler].status1 & STATUS1_ANY || gBattleMons[battler].volatiles.confusionTurns > 0))
+    if (gBattleMons[battler].status1 & STATUS1_ANY)
     {
+        string++;
+
         if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
-        {
-            StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
-            string++;
-        }
+            msg = B_MSG_POISON;
+        if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+            msg = B_MSG_PARALYSIS;
+        if (gBattleMons[battler].status1 & STATUS1_BURN)
+            msg = B_MSG_BURN;
+        if ((gBattleMons[battler].status1 & STATUS1_FREEZE) || (gBattleMons[battler].status1 & STATUS1_FROSTBITE))
+            msg = B_MSG_FREEZE;
         if (gBattleMons[battler].status1 & STATUS1_SLEEP)
         {
             gBattleMons[battler].volatiles.nightmare = FALSE;
-            StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
             TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
-            string++;
+            msg = B_MSG_SLEEP;
         }
-        if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+    }
+    if (gBattleMons[battler].volatiles.confusionTurns > 0)
+    {
+        string++;
+        if (string == 1)
+            msg = B_MSG_CONFUSION;
+    }
+
+    // Change battle message if battler has non-volatile status and confusion
+    if (string == 2)
+    {
+        switch (msg)
         {
-            StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
-            string++;
+        case B_MSG_POISON:      msg = B_MSG_POISONCONFUSION;    break;
+        case B_MSG_SLEEP:       msg = B_MSG_SLEEPCONFUSION;     break;
+        case B_MSG_PARALYSIS:   msg = B_MSG_PARALYSISCONFUSION; break;
+        case B_MSG_BURN:        msg = B_MSG_BURNCONFUSION;      break;
+        case B_MSG_FREEZE:      msg = B_MSG_FREEZECONFUSION;    break;
         }
-        if (gBattleMons[battler].status1 & STATUS1_BURN)
-        {
-            StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
-            string++;
-        }
-        if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
-        {
-            StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
-            string++;
-        }
-        if (gBattleMons[battler].volatiles.confusionTurns > 0)
-        {
-            StringCopy(gBattleTextBuff1, gStatusConditionString_ConfusionJpn);
-            string++;
-        }
-        if (string <= 1)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PROBLEM;
-        else
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_NORMALIZED_STATUS;
+    }
+    if (string)
+    {
+        gBattleCommunication[MULTISTRING_CHOOSER] = msg;
         gBattleMons[battler].status1 = 0;
         RemoveConfusionStatus(battler);
         if (timing == IsOnSwitchInFirstTurnActivation)
@@ -1228,7 +1232,7 @@ enum ItemEffect ItemBattleEffects(u32 itemBattler, u32 battler, enum HoldEffect 
     case HOLD_EFFECT_CURE_CONFUSION: // Persim Berry
         effect = TryCureConfusion(itemBattler, timing);
         break;
-    case HOLD_EFFECT_CURE_STATUS: // Lum Berry
+    case HOLD_EFFECT_LUM_BERRY: // Lum Berry
         effect = TryCureAnyStatus(itemBattler, timing);
         break;
     case HOLD_EFFECT_RESTORE_HP: // Oran / Sitrus Berry / Berry Juice

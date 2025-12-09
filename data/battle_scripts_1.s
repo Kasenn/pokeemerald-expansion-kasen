@@ -7756,7 +7756,7 @@ BattleScript_BerryCureConfusionEnd2::
 
 BattleScript_BerryCureConfusionRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
-	printstring STRINGID_PKMNSITEMSNAPPEDOUT
+	printstring STRINGID_HELDITEMCURESTATUS_CONFUSION
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
 	return

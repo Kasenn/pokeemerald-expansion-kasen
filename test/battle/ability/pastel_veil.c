@@ -130,7 +130,7 @@ SINGLE_BATTLE_TEST("Pastel Veil prevents Toxic Spikes poison")
         TURN { MOVE(player, MOVE_TOXIC_SPIKES); }
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("2 sent out Ponyta!");
+        MESSAGE("{PKMN} Trainer 2 sent out Ponyta!");
         NOT STATUS_ICON(opponent, poison: TRUE);
     }
 }
@@ -148,7 +148,7 @@ DOUBLE_BATTLE_TEST("Pastel Veil prevents Toxic Spikes poison on partner")
         TURN { MOVE(playerLeft, MOVE_TOXIC_SPIKES); }
         TURN { SWITCH(opponentRight, 2); }
     } SCENE {
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         NOT STATUS_ICON(opponentRight, poison: TRUE);
     }
 }
@@ -181,7 +181,7 @@ DOUBLE_BATTLE_TEST("Pastel Veil cures partner's poison on switch in")
     } WHEN {
         TURN { SWITCH(opponentRight, 2); }
     } SCENE {
-        MESSAGE("2 sent out Ponyta!");
+        MESSAGE("{PKMN} Trainer 2 sent out Ponyta!");
         ABILITY_POPUP(opponentRight, ABILITY_PASTEL_VEIL);
         MESSAGE("The foe Wobbuffet was cured of its poisoning!");
         STATUS_ICON(opponentLeft, none: TRUE);

@@ -987,7 +987,7 @@ SINGLE_BATTLE_TEST("Dynamax: G-Max Steelsurge sets up sharp steel")
         MESSAGE("Copperajah used G-Max Steelsurge!");
         MESSAGE("Sharp-pointed steel floats in the air around the opposing team!");
         // turn 2
-        MESSAGE("2 sent out Hatterene!");
+        MESSAGE("{PKMN} Trainer 2 sent out Hatterene!");
         MESSAGE("Sharp steel bit into the foe Hatterene!");
         // turn 4
         MESSAGE("The foe Hatterene used Defog!");

@@ -82,13 +82,13 @@ DOUBLE_BATTLE_TEST("Intimidate doesn't activate on an empty field in a double ba
             ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
         }
-        MESSAGE("2 sent out Arbok!");
+        MESSAGE("{PKMN} Trainer 2 sent out Arbok!");
         NONE_OF {
             ABILITY_POPUP(opponentLeft, ABILITY_INTIMIDATE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         }
         SEND_IN_MESSAGE("Abra");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         // Intimidate activates after all battlers have been brought out
         ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
@@ -121,7 +121,7 @@ SINGLE_BATTLE_TEST("Intimidate and Eject Button don't force the opponent to Atta
         ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
         MESSAGE("The foe Wobbuffet is switched out with the Eject Button!");
-        MESSAGE("2 sent out Hitmontop!");
+        MESSAGE("{PKMN} Trainer 2 sent out Hitmontop!");
         ABILITY_POPUP(opponent, ABILITY_INTIMIDATE);
         MESSAGE("Wobbuffet's Attack fell!");
         NONE_OF {
@@ -241,8 +241,8 @@ DOUBLE_BATTLE_TEST("Intimidate is not going to trigger if a mon switches out thr
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, playerLeft);
         HP_BAR(opponentLeft);
         NOT ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
-        MESSAGE("2 sent out Treecko!");
-        MESSAGE("2 sent out Torchic!");
+        MESSAGE("{PKMN} Trainer 2 sent out Treecko!");
+        MESSAGE("{PKMN} Trainer 2 sent out Torchic!");
         NOT ABILITY_POPUP(playerLeft, ABILITY_INTIMIDATE);
     }
 }

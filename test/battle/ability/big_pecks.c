@@ -109,7 +109,7 @@ SINGLE_BATTLE_TEST("Big Pecks doesn't prevent receiving negative Defense stage c
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Pidgey!");
+        MESSAGE("{PKMN} Trainer 2 sent out Pidgey!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 1);
     }

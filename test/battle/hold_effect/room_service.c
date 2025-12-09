@@ -23,7 +23,7 @@ SINGLE_BATTLE_TEST("Room Serive decreases the holder's seep by one stage")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, player);
         HP_BAR(opponent);
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         ABILITY_POPUP(player, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);

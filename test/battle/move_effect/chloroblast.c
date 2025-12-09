@@ -128,7 +128,7 @@ SINGLE_BATTLE_TEST("Chloroblast does not cause the user to lose HP if there is n
         }
         MESSAGE("Wobbuffet used Chloroblast!");
         MESSAGE("But it failed!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
     }
 }
 

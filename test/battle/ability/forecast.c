@@ -422,7 +422,7 @@ SINGLE_BATTLE_TEST("Forecast transforms Castform when Cloud Nine ability user le
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUNNY_DAY, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
         ABILITY_POPUP(player, ABILITY_FORECAST);
         MESSAGE("Castform transformed!");
     }

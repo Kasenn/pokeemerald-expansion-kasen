@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Sticky Web lowers Speed by 1 on switch-in")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
         MESSAGE("A sticky web spreads out all around the feet of the foe's team!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         MESSAGE("The foe Wynaut was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Wynaut's Speed fell!");
@@ -64,8 +64,8 @@ DOUBLE_BATTLE_TEST("Sticky Web lowers Speed by 1 in a double battle after Explos
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, playerRight);
         MESSAGE("A sticky web spreads out all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, playerLeft);
-        MESSAGE("2 sent out Wynaut!");
-        MESSAGE("2 sent out Alakazam!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Alakazam!");
         MESSAGE("The foe Alakazam was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
         MESSAGE("The foe Alakazam's Speed fell!");
@@ -88,7 +88,7 @@ SINGLE_BATTLE_TEST("Sticky Web raises Speed by 1 for a Pokemon with Contrary")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
         MESSAGE("A sticky web spreads out all around the feet of the foe's team!");
-        MESSAGE("2 sent out Shuckle!");
+        MESSAGE("{PKMN} Trainer 2 sent out Shuckle!");
         MESSAGE("The foe Shuckle was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Shuckle's Speed rose!");
@@ -222,7 +222,7 @@ DOUBLE_BATTLE_TEST("Sticky Web has correct interactions with Mirror Armor - no o
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MEMENTO, opponentLeft);
         MESSAGE("The foe Caterpie fainted!");
         if (hasReplacement) {
-            MESSAGE("2 sent out Pidgey!");
+            MESSAGE("{PKMN} Trainer 2 sent out Pidgey!");
         }
 
         SEND_IN_MESSAGE("Corviknight");

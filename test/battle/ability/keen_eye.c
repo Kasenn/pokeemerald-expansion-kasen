@@ -158,11 +158,11 @@ SINGLE_BATTLE_TEST("Keen Eye, Gen9+ Illuminate & Minds Eye don't prevent receivi
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SAND_ATTACK, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
         if (species == SPECIES_HITMONCHAN)
-            MESSAGE("2 sent out Hitmonchan!");
+            MESSAGE("{PKMN} Trainer 2 sent out Hitmonchan!");
         else if (species == SPECIES_STARYU)
-            MESSAGE("2 sent out Staryu!");
+            MESSAGE("{PKMN} Trainer 2 sent out Staryu!");
         else
-            MESSAGE("2 sent out Ursaluna!");
+            MESSAGE("{PKMN} Trainer 2 sent out Ursaluna!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ACC], DEFAULT_STAT_STAGE - 1);
     }

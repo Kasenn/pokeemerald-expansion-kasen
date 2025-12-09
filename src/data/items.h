@@ -10509,7 +10509,7 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("Lum Berry"),
         .pluralName = ITEM_PLURAL_NAME("Lum Berries"),
         .price = (I_BERRY_PRICE >= GEN_8) ? 80 : 20,
-        .holdEffect = HOLD_EFFECT_CURE_STATUS,
+        .holdEffect = HOLD_EFFECT_LUM_BERRY,
         .description = COMPOUND_STRING(
             "A hold item that\n"
             "heals any status\n"

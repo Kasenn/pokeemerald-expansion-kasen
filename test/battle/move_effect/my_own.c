@@ -437,3 +437,110 @@ SINGLE_BATTLE_TEST("My own screen breakers print the correct text 3")
         HP_BAR(opponent);
     }
 }
+
+SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 1")
+{
+    u32 j = 0;
+    u32 move = 0;
+
+    static const u32 sMoves[] = {
+        MOVE_POISON_GAS,
+        MOVE_SLEEP_POWDER,
+        MOVE_THUNDER_WAVE,
+        MOVE_WILL_O_WISP,
+        MOVE_POWDER_SNOW,
+        MOVE_CONFUSE_RAY,
+    };
+
+    for (j = 0; j < ARRAY_COUNT(sMoves); j++)
+    {
+        PARAMETRIZE { move = sMoves[j]; }
+    }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Speed(2); Item(ITEM_LUM_BERRY); }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
+    } WHEN {
+        TURN { MOVE(player, move); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+        TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        switch (move)
+        {
+        case MOVE_POISON_GAS:
+            MESSAGE("The foe Wobbuffet's Lum Berry cured its poison!");
+            NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+            break;
+        case MOVE_SLEEP_POWDER:
+            MESSAGE("The foe Wobbuffet's Lum Berry woke it up!");
+            NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+            break;
+        case MOVE_THUNDER_WAVE:
+            MESSAGE("The foe Wobbuffet's Lum Berry cured its paralysis!");
+            NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+            break;
+        case MOVE_WILL_O_WISP:
+            MESSAGE("The foe Wobbuffet's Lum Berry healed its burn!");
+            NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+            break;
+        case MOVE_POWDER_SNOW:
+            MESSAGE("The foe Wobbuffet's Lum Berry defrosted it!");
+            NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+            break;
+        case MOVE_CONFUSE_RAY:
+            MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        }
+    }
+}
+
+SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 2")
+{
+    u32 j = 0;
+    u32 move = 0;
+
+    static const u32 sMoves[] = {
+        MOVE_POISON_GAS,
+        MOVE_SLEEP_POWDER,
+        MOVE_THUNDER_WAVE,
+        MOVE_WILL_O_WISP,
+        MOVE_POWDER_SNOW,
+    };
+
+    for (j = 0; j < ARRAY_COUNT(sMoves); j++)
+    {
+        PARAMETRIZE { move = sMoves[j]; }
+    }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) {Speed(2); Item(ITEM_LUM_BERRY); }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
+    } WHEN {
+        TURN { MOVE(player, move); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+        TURN { MOVE(player, MOVE_CONFUSE_RAY); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+        TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        switch (move)
+        {
+        case MOVE_POISON_GAS:
+            MESSAGE("The foe Wobbuffet's Lum Berry cured its poison! The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case MOVE_SLEEP_POWDER:
+            MESSAGE("The foe Wobbuffet's Lum Berry woke it up! The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case MOVE_THUNDER_WAVE:
+            MESSAGE("The foe Wobbuffet's Lum Berry cured its paralysis! The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case MOVE_WILL_O_WISP:
+            MESSAGE("The foe Wobbuffet's Lum Berry healed its burn! The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case MOVE_POWDER_SNOW:
+            MESSAGE("The foe Wobbuffet's Lum Berry defrosted it! The foe Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        }
+        NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
+    }
+}

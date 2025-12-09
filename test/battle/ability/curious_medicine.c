@@ -22,7 +22,7 @@ DOUBLE_BATTLE_TEST("Curious Medicine resets ally's stat stages upon entering bat
         MESSAGE("The foe Scolipede used Quiver Dance!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
         // Turn 2 - Switch into Slowking
-        MESSAGE("2 sent out Slowking!");
+        MESSAGE("{PKMN} Trainer 2 sent out Slowking!");
         if (ability == ABILITY_CURIOUS_MEDICINE)
         {
             ABILITY_POPUP(opponentRight, ABILITY_CURIOUS_MEDICINE);

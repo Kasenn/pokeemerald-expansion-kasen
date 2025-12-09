@@ -354,7 +354,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't prevent Mega Evolution")
         // Turn 2
         MESSAGE("The foe Wobbuffet used Baton Pass!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Charizard!");
+        MESSAGE("{PKMN} Trainer 2 sent out Charizard!");
         // Turn 3
         MESSAGE("The foe Charizard's Charizardite Y is reacting to 2's Mega Ring!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponent);
@@ -379,7 +379,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't prevent Primal Reversion")
         // Turn 2
         MESSAGE("The foe Wobbuffet used Baton Pass!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Groudon!");
+        MESSAGE("{PKMN} Trainer 2 sent out Groudon!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_PRIMAL_REVERSION, opponent);
         MESSAGE("The foe Groudon's Primal Reversion! It reverted to its primal form!");
         ABILITY_POPUP(opponent);

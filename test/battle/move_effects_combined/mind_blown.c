@@ -183,6 +183,6 @@ SINGLE_BATTLE_TEST("Mind Blown does not cause the user to lose HP if there is no
         }
         MESSAGE("Wobbuffet used Mind Blown!");
         MESSAGE("But it failed!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
     }
 }

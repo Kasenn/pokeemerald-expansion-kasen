@@ -23,6 +23,16 @@
     .mugshotColor = MUGSHOT_COLOR_MAY,                          \
     .isRival = TRUE
 
+#define LEAF_INFO                                                               \
+    .trainerClass = TRAINER_CLASS_RIVAL,                                        \
+    .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,   \
+    .trainerPic = TRAINER_PIC_LEAF,                                             \
+    .trainerName = _("LEAF"),                                                   \
+    .items = {},                                                                \
+    .battleType = TRAINER_BATTLE_TYPE_SINGLES,                                  \
+    .aiFlags = 0,                                                               \
+    .party = TRAINER_PARTY(sParty_Leaf),
+
 #define DUMB_AI         .aiFlags = AI_FLAG_CHECK_BAD_MOVE
 #define BASIC_AI        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT
 #define ADVANCED_AI     .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
@@ -397,6 +407,22 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         .party = NULL,
     },
 
+#if TESTING
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_1_PEARLWOOD] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_2_ROUTE28] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_3_ROUTE28] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_4_ROUTE28] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_5_FISHINGVILLAGE] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_BROTHER_6_ROUTE20] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_7_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_8_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_9_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_10_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_11_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_12_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_13_] = { LEAF_INFO },
+    [DIFFICULTY_NORMAL][TRAINER_UNUSED_14_] = { LEAF_INFO },
+#else
     [DIFFICULTY_NORMAL][TRAINER_BROTHER_1_PEARLWOOD] =
     {
         BROTHER_INFO,
@@ -483,6 +509,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 
     [DIFFICULTY_NORMAL][TRAINER_UNUSED_14_] =
     {},
+#endif
 
     [DIFFICULTY_NORMAL][TRAINER_UNUSED_15_] =
     {},

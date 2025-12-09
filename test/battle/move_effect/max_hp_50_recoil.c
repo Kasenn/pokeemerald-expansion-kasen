@@ -127,7 +127,7 @@ SINGLE_BATTLE_TEST("Steel Beam does not cause the user to lose HP if there is no
         }
         MESSAGE("Wobbuffet used Steel Beam!");
         MESSAGE("But it failed!");
-        MESSAGE("2 sent out Wobbuffet!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
     }
 }
 

@@ -149,7 +149,7 @@ SINGLE_BATTLE_TEST("Hyper Cutter doesn't prevent receiving negative Attack stage
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Krabby!");
+        MESSAGE("{PKMN} Trainer 2 sent out Krabby!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE - 1);
     }

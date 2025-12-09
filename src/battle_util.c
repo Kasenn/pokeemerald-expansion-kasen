@@ -4713,7 +4713,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
 
                     if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
                     {
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
                     }
                     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
                     {
@@ -9689,7 +9689,7 @@ u32 TryImmunityAbilityHealStatus(u32 battler, enum AbilityEffect caseID)
 
     if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
     {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PSN;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
     }
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
     {

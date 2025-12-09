@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on switch in")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
     }
@@ -41,7 +41,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts bad poison on switch in")
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, badPoison: TRUE);
     }
@@ -66,7 +66,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes fails after 2 layers")
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         MESSAGE("Wobbuffet used Toxic Spikes!");
         MESSAGE("But it failed!");
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, badPoison: TRUE);
     }
@@ -84,7 +84,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes inflicts poison on subsequent switch ins")
         TURN { SWITCH(opponent, 0); }
         TURN {}
     } SCENE {
-        MESSAGE("2 sent out Wynaut!");
+        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }
