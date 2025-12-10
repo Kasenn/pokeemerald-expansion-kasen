@@ -2304,7 +2304,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
     [DIFFICULTY_NORMAL][TRAINER_SANDSTONE_NURSE] =
     {
         NURSE_INFO,
-        .party = TRAINER_PARTY(Party_Sandstone_Nurse),
+        .party = TRAINER_PARTY(sParty_Sandstone_Nurse),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R16_TR6_SWIMMER_F] =
@@ -2344,7 +2344,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         BLACK_BELT_INFO,
         BASIC_AI,
         .trainerName = _("Terry"),
-        .party = TRAINER_PARTY(Party_FcTr1_Blackbelt),
+        .party = TRAINER_PARTY(sParty_FcTr1_Blackbelt),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_FC_TR2_BATTLEGIRL] =
@@ -2352,7 +2352,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         BATTLE_GIRL_INFO,
         BASIC_AI,
         .trainerName = _("Hailey"),
-        .party = TRAINER_PARTY(Party_FcTr2_Battlegirl),
+        .party = TRAINER_PARTY(sParty_FcTr2_Battlegirl),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_FC_TR3_CAMPER] =
@@ -2360,7 +2360,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         CAMPER_INFO,
         BASIC_AI,
         .trainerName = _("Barton"),
-        .party = TRAINER_PARTY(Party_FcTr3_Camper),
+        .party = TRAINER_PARTY(sParty_FcTr3_Camper),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_FC_TR4_HIKER] =
@@ -2368,7 +2368,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .trainerName = _("Gordon"),
-        .party = TRAINER_PARTY(Party_FcTr4_Hiker),
+        .party = TRAINER_PARTY(sParty_FcTr4_Hiker),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R14_TR1_RUNNING_F] =
@@ -2376,7 +2376,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         RUNNING_TRIATHLETE_F_INFO,
         BASIC_AI,
         .trainerName = _("Penelope"),
-        .party = TRAINER_PARTY(Party_R14Tr1_RunnerF),
+        .party = TRAINER_PARTY(sParty_R14Tr1_RunnerF),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R14_TR2_HIKER] =
@@ -2384,7 +2384,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .trainerName = _("Walter"),
-        .party = TRAINER_PARTY(Party_R14Tr2_Hiker),
+        .party = TRAINER_PARTY(sParty_R14Tr2_Hiker),
     },
     [DIFFICULTY_NORMAL][TRAINER_UNUSED_SIDNEY] =
     {
@@ -3704,7 +3704,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         MOREBP,
         .trainerName = _("Aino"),
         .items = {ITEM_FULL_RESTORE},
-        .party = TRAINER_PARTY(s_Party_TRAINER_AZURETIDE_CELEBI_TR1),
+        .party = TRAINER_PARTY(sParty_TRAINER_AZURETIDE_CELEBI_TR1),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_KAOLISLE_CELEBI_TR2] =
@@ -3714,7 +3714,7 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
         MOREBP,
         .trainerName = _("Pentti"),
         .items = {ITEM_FULL_RESTORE},
-        .party = TRAINER_PARTY(s_Party_TRAINER_KAOLISLE_CELEBI_TR2),
+        .party = TRAINER_PARTY(sParty_TRAINER_KAOLISLE_CELEBI_TR2),
     },
 
     [DIFFICULTY_NORMAL][TRAINER_R19_TR1_SWIMMER_F] =

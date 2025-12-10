@@ -551,10 +551,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    givemon(SPECIES_FLAAFFY, 100)
-    givemon(SPECIES_AMPHAROS, 100)
-    givemon(SPECIES_CHINCHOU, 100)
-    givemon(SPECIES_LANTURN, 100)
+    setwildbattle(SPECIES_BULBASAUR, 5, ITEM_NONE, SPECIES_CHARMANDER, 5)
+    dowildbattle
     return
 }
 script Debug_Script_4{

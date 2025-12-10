@@ -24,8 +24,8 @@
             {
             .species = SPECIES_RATTATA_OUTSIDER,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            EVS(0, 252, 252, 0, 6, 0),
+            IVS(31, 31, 31, 31, 31, 31),
             .lvl = 5,
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -36,8 +36,8 @@
             {
             .species = SPECIES_RATTATA_OUTSIDER,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            EVS(0, 252, 252, 0, 6, 0),
+            IVS(31, 31, 31, 31, 31, 31),
             .lvl = 5,
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
@@ -48,8 +48,8 @@
             {
             .species = SPECIES_RATTATA_OUTSIDER,
             .gender = TRAINER_MON_RANDOM_GENDER,
-            .ev = TRAINER_PARTY_EVS(0, 252, 252, 0, 6, 0),
-            .iv = TRAINER_PARTY_IVS(31, 31, 31, 31, 31, 31),
+            EVS(0, 252, 252, 0, 6, 0),
+            IVS(31, 31, 31, 31, 31, 31),
             .lvl = 5,
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,

@@ -53,8 +53,41 @@ struct TrainerBacksprite
 #define MON_COORDS_SIZE(width, height) (DIV_ROUND_UP(width, 8) << 4 | DIV_ROUND_UP(height, 8))
 #define GET_MON_COORDS_WIDTH(size) ((size >> 4) * 8)
 #define GET_MON_COORDS_HEIGHT(size) ((size & 0xF) * 8)
-#define TRAINER_PARTY_IVS(hp, atk, def, speed, spatk, spdef) (hp | (atk << 5) | (def << 10) | (speed << 15) | (spatk << 20) | (spdef << 25))
-#define TRAINER_PARTY_EVS(hp, atk, def, speed, spatk, spdef) ((const u8[6]){hp,atk,def,spatk,spdef,speed})
+
+#define IVS(hp, atk, def, speed, spatk, spdef) .iv = (hp | (atk << 5) | (def << 10) | (speed << 15) | (spatk << 20) | (spdef << 25))
+#define EVS(hp, atk, def, speed, spatk, spdef) .ev =((const u8[6]){hp,atk,def,spatk,spdef,speed})
+
+#define IVS_HP(val1, val2)      IVS(val1, val2, val2, val2, val2, val2)
+#define IVS_ATK(val1, val2)     IVS(val2, val1, val2, val2, val2, val2)
+#define IVS_DEF(val1, val2)     IVS(val2, val2, val1, val2, val2, val2)
+#define IVS_SPEED(val1, val2)   IVS(val2, val2, val2, val1, val2, val2)
+#define IVS_SPATK(val1, val2)   IVS(val2, val2, val2, val2, val1, val2)
+#define IVS_SPDEF(val1, val2)   IVS(val2, val2, val2, val2, val2, val1)
+
+#define EVS_HP(val1, val2)      EVS(val1, val2, val2, val2, val2, val2)
+#define EVS_ATK(val1, val2)     EVS(val2, val1, val2, val2, val2, val2)
+#define EVS_DEF(val1, val2)     EVS(val2, val2, val1, val2, val2, val2)
+#define EVS_SPEED(val1, val2)   EVS(val2, val2, val2, val1, val2, val2)
+#define EVS_SPATK(val1, val2)   EVS(val2, val2, val2, val2, val1, val2)
+#define EVS_SPDEF(val1, val2)   EVS(val2, val2, val2, val2, val2, val1)
+
+#define IVS_ALL(value)      IVS(value, value, value, value, value, value)
+#define EVS_ALL(value)      EVS(value, value, value, value, value, value)
+
+
+#define POKEMON(mon, level) \
+    .species = mon,         \
+    .lvl = level
+
+#define POKEMON_F(mon, level) \
+    .species = mon,           \
+    .lvl = level,             \
+    .gender = TRAINER_MON_FEMALE
+
+#define POKEMON_M(mon, level) \
+    .species = mon,           \
+    .lvl = level,             \
+    .gender = TRAINER_MON_MALE
 
 // Shared by both trainer and frontier mons
 // See CreateNPCTrainerPartyFromTrainer and CreateFacilityMon
@@ -83,6 +116,7 @@ struct TrainerMon
 };
 
 #define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)
+#define TRAINER_MONS(name)  static const struct TrainerMon sParty_##name[]
 
 enum TrainerBattleType
 {

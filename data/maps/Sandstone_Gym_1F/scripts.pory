@@ -20,7 +20,7 @@ script ResetCheckpoint{
         call(RemoveGymWall)
         special(DrawWholeMapView)
     }
-    copyvar(VAR_GYM_TELEPORT, 1)
+    copyvar(VAR_GYM_TELEPORT, 1, warn=FALSE)
     end
 }
 script RemoveGymWall2{

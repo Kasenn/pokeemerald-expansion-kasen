@@ -384,17 +384,6 @@ bool8 CheckForTrainersWantingBattle(void)
         trainerObjects[trainerObjectsCount++] = i;
     }
 
-        // numTrainers = CheckTrainer(i); //wip
-        // if (numTrainers == 0xFF) // non-trainerbatle script
-        // {
-        //     u32 objectEventId = gApproachingTrainers[gNoOfApproachingTrainers - 1].objectEventId;
-        //     gSelectedObjectEvent = objectEventId;
-        //     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-        //     ScriptContext_SetupScript(EventScript_ObjectApproachPlayer);
-        //     LockPlayerFieldControls();
-        //     return TRUE;
-        // }
-//wip 
     // Sorts array by localId
     for (i = 1; i <= trainerObjectsCount; i++)
     {
@@ -418,11 +407,10 @@ bool8 CheckForTrainersWantingBattle(void)
             gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr = GetObjectEventScriptPointerByObjectEventId(objectEventId);
             gSelectedObjectEvent = objectEventId;
             gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
-            ScriptContext_SetupScript(EventScript_ObjectApproachPlayer);
+            ScriptContext_SetupScript(gApproachingTrainers[gNoOfApproachingTrainers - 1].trainerScriptPtr);
             LockPlayerFieldControls();
             return TRUE;
         }
-//wip
 
         if (numTrainers == 2)
             break;

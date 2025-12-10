@@ -690,7 +690,6 @@ static void ItemStorage_Exit(u8 taskId)
     {
         ScriptContext_Enable();
         DestroyTask(taskId);
-        // ReshowPlayerPC(taskId);//wip
     }
 }
 

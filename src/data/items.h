@@ -12580,11 +12580,15 @@ const struct Item gItemsInfo[] =
         .name = ITEM_NAME("TM61"),
         .bpCost = 32,
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user shoots a sinister\n"
+            "bluish-white flame at the\n"
+            "target to inflict a burn."
+        ),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM, //wip, Not In-Game Yet
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
     [ITEM_TM_ACROBATICS] =
@@ -12689,11 +12693,16 @@ const struct Item gItemsInfo[] =
     {
         .name = ITEM_NAME("TM70"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "Creates a veil that\n"
+            "reduces damage from\n"
+            "attacks. Can only\n"
+            "be used during hail."
+        ),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM, //wip, Not In-Game Yet
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
     [ITEM_TM_STONE_EDGE] =

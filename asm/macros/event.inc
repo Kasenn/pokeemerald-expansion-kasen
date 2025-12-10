@@ -2691,7 +2691,7 @@
 	@ Running this command will not affect normal wild battles. You start the prepared battle with dowildbattle.
 	@ If the player only has one Pokemon, a scripted double battle will be buggy.
 	.macro setwildbattlelevelrange species:req, level:req, item=ITEM_NONE, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
-	.byte SCR_OP_WILDBATTLERANGE
+	callnative ScrCmd_setwildbattlelevelrange
 	.2byte \species
 	.byte \level
 	.2byte \item
@@ -2720,7 +2720,7 @@
 	@ Checks if the player has caught the specified Pokemon. Sets VAR_RESULT to TRUE if the player has
 	@ caught the mon; otherwise sets VAR_RESULT to FALSE
 	.macro checkdexmon species:req
-	.byte SCR_OP_CHECKDEXMON
+	callnative ScrCmd_checkdexmon
 	.2byte \species
 	.endm
 
@@ -2728,7 +2728,7 @@
 	@ (zero-indexed) slot number of the first Pokemon that knows the move. If not, VAR_RESULT is set to PARTY_SIZE.
 	@ VAR_0x8004 is also set to this Pokemon's species.
 	.macro checkpartylevel monLevel:req
-	.byte SCR_OP_CHECKPARTYLEVEL
+	callnative ScrCmd_checkpartylevel
 	.2byte \monLevel
 	.endm
 
@@ -2785,14 +2785,14 @@
 	@ Uses BP as currency, with the prices based on the .bpCost value
 	@ in src/data/items.h.
 	.macro bpmart products:req, isMoveTutor:req
-	.byte SCR_OP_BPMART
+	callnative ScrCmd_bpmart
 	.4byte \products
 	.2byte \isMoveTutor
 	.endm
 
 	@ Retrieves the followers's zero-indexed x- and y-coordinates in the map, and stores them in the specified variables.
 	.macro getfollowerxy x:req, y:req
-	.byte SCR_OP_GETFOLLOWERXY
+	callnative ScrCmd_getfollowerxy
 	.2byte \x
 	.2byte \y
 	.endm
@@ -2800,14 +2800,14 @@
 	@ Displays a "How many" multichoice box at the specified coordinates, and blocks script execution until the user makes a selection.
 	@ Their selection is stored in VAR_RESULT as NO (0) or value (X). Pressing B is equivalent to answering NO
 	.macro howmanybox x:req, y:req
-	.byte SCR_OP_HOWMANYBOX
+	callnative ScrCmd_howmanybox
 	.byte \x
 	.byte \y
 	.endm
 
 	@ Retrieves the object's zero-indexed x- and y-coordinates in the map, and stores them in VAR_0x8001 and VAR_0x8002.
 	.macro getobjectxy id:req
-	.byte SCR_OP_GETOBJECTXY
+	callnative ScrCmd_getobjectxy
 	.2byte \id
 	.endm
 

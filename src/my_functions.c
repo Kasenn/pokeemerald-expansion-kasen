@@ -247,7 +247,6 @@ bool8 ScrCmd_dowildbattlenorunning(struct ScriptContext *ctx)
 
 bool8 ScrCmd_dowildgrottobattle(struct ScriptContext *ctx)
 {
-    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
     u8 value = 2;
 
     if (sIsScriptedWildDouble == FALSE)

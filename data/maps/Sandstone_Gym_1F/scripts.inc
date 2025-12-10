@@ -27,7 +27,7 @@ ResetCheckpoint::
 	goto_if_set FLAG_BADGE04_GET, ResetCheckpoint_2
 ResetCheckpoint_1:
 # 23 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	copyvar VAR_GYM_TELEPORT, 1
+	copyvar VAR_GYM_TELEPORT, 1, warn = FALSE
 	end
 
 ResetCheckpoint_2:

@@ -580,8 +580,8 @@
     },
     {
       "type": "trigger",
-      "x": 30,
-      "y": 32,
+      "x": 31,
+      "y": 33,
       "elevation": 0,
       "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
       "var_value": "0",
