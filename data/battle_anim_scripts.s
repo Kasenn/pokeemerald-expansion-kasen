@@ -22202,6 +22202,15 @@ FuryCutterStrongest:
 	createsprite gComplexPaletteBlendSpriteTemplate, ANIM_ATTACKER, 2, F_PAL_BG | F_PAL_BATTLERS, 3, 3, RGB(9, 8, 10), 4, RGB_BLACK, 0
 	goto FuryCutterContinue2
 
+gBattleAnimMove_Fickle::
+	loadspritegfx ANIM_TAG_EXPLOSION
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 9, RGB_RED
+	createvisualtask AnimTask_ShakeMon2, 5, ANIM_ATTACKER, 6, 0, 38, 1
+	call SelfDestructExplode
+	waitforvisualfinish
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 9, 0, RGB_RED
+	end
+
 gBattleAnimMove_SelfDestruct::
 	loadspritegfx ANIM_TAG_EXPLOSION
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 9, RGB_RED

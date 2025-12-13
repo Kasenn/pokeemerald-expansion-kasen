@@ -601,8 +601,8 @@ EVTraining_Intro::
 
 EVTraining_Type::
 # 62 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	.string "Which type of training would\n"
-	.string "you like to have?$"
+	.string "Which type of training would you\n"
+	.string "like to have?$"
 
 TrainingFinished::
 # 67 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"

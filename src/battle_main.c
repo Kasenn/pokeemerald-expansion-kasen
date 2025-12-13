@@ -376,6 +376,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_DARKNESS_ROCKET_ADMIN]     = { _("Executive"), 10},
     [TRAINER_CLASS_ELITE]            = { _("Elite Trainer"), 25},
     [TRAINER_CLASS_NURSE]            = { _("{PKMN} Center"), 0},
+    [TRAINER_CLASS_EV_NURSE]         = { _("{PKMN} Center"), 0},
     [TRAINER_CLASS_KASEN]            = { _("Game Dev"), 25},
     [TRAINER_CLASS_GYMMEMBER]        = { _("Gym Trainer"), 15},
     [TRAINER_CLASS_GYMMEMBER_DOUBLE] = { _("Gym Trainers"), 20},

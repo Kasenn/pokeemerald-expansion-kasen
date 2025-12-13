@@ -4590,17 +4590,61 @@ static u32 GetMonHoldEffect(struct Pokemon *mon)
     return holdEffect;
 }
 
+static u32 GetSpeciesEvYield(u16 defeatedSpecies)
+{
+    if (gSpeciesInfo[defeatedSpecies].evYield_HP)
+        return MON_DATA_HP_EV;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Attack)
+        return MON_DATA_ATK_EV;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Defense)
+        return MON_DATA_DEF_EV;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Speed)
+        return MON_DATA_SPEED_EV;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_SpAttack)
+        return MON_DATA_SPATK_EV;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_SpDefense)
+        return MON_DATA_SPDEF_EV;
+    return 0;
+}
+
+static u32 GetStatToPrintFromEvYield(u16 defeatedSpecies)
+{
+    if (gSpeciesInfo[defeatedSpecies].evYield_HP)
+        return STAT_HP;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Attack)
+        return STAT_ATK;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Defense)
+        return STAT_DEF;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_Speed)
+        return STAT_SPEED;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_SpAttack)
+        return STAT_SPATK;
+    else if (gSpeciesInfo[defeatedSpecies].evYield_SpDefense)
+        return STAT_SPDEF;
+    return 0;
+}
+
 static void Cmd_getexp(void)
 {
     CMD_ARGS(u8 battler);
 
     enum HoldEffect holdEffect;
-    s32 i; // also used as stringId
+    s32 i, j; // also used as stringId
     u8 *expMonId = &gBattleStruct->expGetterMonId;
-    u8 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
     u32 currLvl;
+    u32 newLeadMonEvTeam = 0;
+    u32 oldEvTeam = 0;
+    u8 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
+    u32 statEv = GetSpeciesEvYield(gBattleMons[gBattlerFainted].species);
 
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
+
+    if (!gBattleScripting.recordEvCalc)
+    {
+        for (j = 1; j < PARTY_SIZE; j++)
+            oldEvTeam += GetMonData(&gPlayerParty[j], statEv);
+    }
+    gBattleScripting.recordEvCalc = TRUE;
 
     switch (gBattleScripting.getexpState)
     {
@@ -4717,7 +4761,7 @@ static void Cmd_getexp(void)
                 gBattleStruct->battlerExpReward = 0;
             }
             else if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
-                  || GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) == MAX_LEVEL)
+                  || (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) == MAX_LEVEL && trainerClass != TRAINER_CLASS_EV_NURSE))
             {
                 gBattleScripting.getexpState = 5;
                 gBattleStruct->battlerExpReward = 0;
@@ -4752,6 +4796,9 @@ static void Cmd_getexp(void)
                     }
 
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
+
+                    if(trainerClass == TRAINER_CLASS_EV_NURSE)
+                        gBattleStruct->battlerExpReward = 0;
 
                     if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
                     {
@@ -4794,22 +4841,47 @@ static void Cmd_getexp(void)
                     }
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, *expMonId);
-                    // buffer 'gained' or 'gained a boosted'
-                    PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
-                    PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleStruct->battlerExpReward);
 
-                    if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
+                    if (trainerClass == TRAINER_CLASS_EV_NURSE)
                     {
-                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
-                    }
-                    else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
-                    {
-                        gLastUsedItem = ITEM_EXP_SHARE;
-                        PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
-                        gBattleStruct->teamGotExpMsgPrinted = TRUE;
-                    }
+                        u32 oldLeadMonEv = 0;
+                        u32 newLeadMonEv = 0;
+                        u32 stat = GetStatToPrintFromEvYield(gBattleMons[gBattlerFainted].species);
 
-                    MonGainEVs(&gPlayerParty[*expMonId], gBattleMons[gBattlerFainted].species);
+                        oldLeadMonEv = GetMonData(&gPlayerParty[0], statEv);
+                        MonGainEVs(&gPlayerParty[*expMonId], gBattleMons[gBattlerFainted].species);
+                        newLeadMonEv = GetMonData(&gPlayerParty[*expMonId], statEv);
+
+                        StringCopy(gBattleTextBuff2, gStatNamesTable[stat]);
+
+
+                        if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
+                        {
+                            if (oldLeadMonEv == newLeadMonEv)
+                                PrepareStringBattle(PKMNDIDNTGAINEV, gBattleStruct->expGetterBattlerId);
+                            else
+                                PrepareStringBattle(STRINGID_PKMNGAINEDEV, gBattleStruct->expGetterBattlerId);
+                        }
+                    }
+                    else
+                    {
+                        // buffer 'gained' or 'gained a boosted'
+                        PREPARE_STRING_BUFFER(gBattleTextBuff2, i);
+                        PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff3, 6, gBattleStruct->battlerExpReward);
+
+                        if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
+                        {
+                            PrepareStringBattle(STRINGID_PKMNGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                        }
+                        else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
+                        {
+                            gLastUsedItem = ITEM_EXP_SHARE;
+                            PrepareStringBattle(STRINGID_TEAMGAINEDEXP, gBattleStruct->expGetterBattlerId);
+                            gBattleStruct->teamGotExpMsgPrinted = TRUE;
+                        }
+
+                        MonGainEVs(&gPlayerParty[*expMonId], gBattleMons[gBattlerFainted].species);
+                    }
                 }
                 gBattleScripting.getexpState++;
             }
@@ -4907,7 +4979,23 @@ static void Cmd_getexp(void)
     case 6: // increment instruction
         if (gBattleControllerExecFlags == 0)
         {
+            if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted)
+            {
+                for (int j = 1; j < PARTY_SIZE; j++)
+                {
+                    newLeadMonEvTeam += GetMonData(&gPlayerParty[j], statEv);
+                }
+
+                gLastUsedItem = ITEM_EXP_SHARE;
+                if (oldEvTeam == newLeadMonEvTeam)
+                    PrepareStringBattle(TEAMDIDNTGAINEV, gBattleStruct->expGetterBattlerId);
+                else
+                    PrepareStringBattle(STRINGID_TEAMGAINEDEV, gBattleStruct->expGetterBattlerId);
+                gBattleStruct->teamGotExpMsgPrinted = TRUE;
+            }
+
             // not sure why gf clears the item and ability here
+            gBattleScripting.recordEvCalc = FALSE;
             gBattleStruct->expOrderId = 0;
             gBattleStruct->teamGotExpMsgPrinted = FALSE;
             gBattlescriptCurrInstr = cmd->nextInstr;
@@ -7934,6 +8022,8 @@ void TryHazardsOnSwitchIn(u32 battler, u32 side, enum Hazards hazardType)
          && IsBattlerAffectedByHazards(battler, FALSE)
          && IsBattlerGrounded(battler, ability, GetBattlerHoldEffect(battler)))
         {
+            if (ability == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             s32 spikesDmg = GetNonDynamaxMaxHP(battler) / ((5 - gSideTimers[side].spikesAmount) * 2);
             SetPassiveDamageAmount(battler, spikesDmg);
             SetDmgHazardsBattlescript(battler, B_MSG_PKMNHURTBYSPIKES);
@@ -7983,6 +8073,8 @@ void TryHazardsOnSwitchIn(u32 battler, u32 side, enum Hazards hazardType)
     case HAZARDS_STEALTH_ROCK:
         if (IsBattlerAffectedByHazards(battler, FALSE) && GetBattlerAbility(battler) != ABILITY_MAGIC_GUARD)
         {
+            if (GetBattlerAbility(battler) == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
                 SetDmgHazardsBattlescript(battler, B_MSG_STEALTHROCKDMG);
@@ -7991,6 +8083,8 @@ void TryHazardsOnSwitchIn(u32 battler, u32 side, enum Hazards hazardType)
     case HAZARDS_STEELSURGE:
         if (IsBattlerAffectedByHazards(battler, FALSE) && GetBattlerAbility(battler) != ABILITY_MAGIC_GUARD)
         {
+            if (GetBattlerAbility(battler) == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_SHARP_STEEL, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
                 SetDmgHazardsBattlescript(battler, B_MSG_SHARPSTEELDMG);
@@ -8545,7 +8639,7 @@ u32 GetTrainerMoneyToGive(u16 trainerId)
     {
         moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
     }
-    else if (trainerClass == TRAINER_CLASS_NURSE)
+    else if (trainerClass == TRAINER_CLASS_NURSE || trainerClass == TRAINER_CLASS_EV_NURSE)
     {
         moneyReward = 0;
     }

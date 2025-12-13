@@ -2444,4 +2444,18 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
     },
+
+    [ABILITY_FICKLE] =
+    {
+        .name = _("Flimsy"),
+        .description = COMPOUND_STRING("Explodes on contact."),
+        .aiRating = 5,
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
+        .cantBeTraced = TRUE,
+        .cantBeSuppressed = TRUE,
+        .cantBeOverwritten = TRUE,
+        .breakable = FALSE,
+        .failsOnImposter = TRUE,
+    },
 };

@@ -562,28 +562,28 @@ TRAINER_MONS(Felix) = {
     {
     .lvl = 1,
     .species = SPECIES_HPBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_HPBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_HPBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_HPBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_HPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -591,28 +591,28 @@ TRAINER_MONS(Violet) = {
     {
     .lvl = 1,
     .species = SPECIES_ATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_ATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_ATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_ATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_ATKBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -620,28 +620,28 @@ TRAINER_MONS(Rose2) = {
     {
     .lvl = 1,
     .species = SPECIES_DEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_DEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_DEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_DEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_DEFBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -649,28 +649,28 @@ TRAINER_MONS(Rose3) = {
     {
     .lvl = 1,
     .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPATKBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -678,28 +678,28 @@ TRAINER_MONS(Rose4) = {
     {
     .lvl = 1,
     .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPDEFBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -707,28 +707,28 @@ TRAINER_MONS(Rose5) = {
     {
     .lvl = 1,
     .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 1,
     .species = SPECIES_SPEEDBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -737,37 +737,37 @@ TRAINER_MONS(Dusty1) = {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 6,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -858,37 +858,37 @@ TRAINER_MONS(GabbyAndTy2) = {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 8,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -1111,37 +1111,37 @@ TRAINER_MONS(Randall) = {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 16,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -2129,37 +2129,37 @@ TRAINER_MONS(Shoreslate_Nurse) = {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 25,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -2676,37 +2676,37 @@ TRAINER_MONS(MarigorgeNurse) = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -3197,37 +3197,37 @@ TRAINER_MONS(RockliffeNurse) = {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 30,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -3909,37 +3909,37 @@ TRAINER_MONS(R12Tr7_Triath) = {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 45,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -4021,37 +4021,37 @@ TRAINER_MONS(Sandstone_Nurse) = {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 33,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -5168,37 +5168,37 @@ TRAINER_MONS(DRISLEDGE_NURSE) = {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_HEALING_WISH}
+    .moves = {MOVE_UNUSABLE}
     },
     {
     .lvl = 40,
     .species = SPECIES_EXPBOT,
     .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_MEMENTO}
+    .moves = {MOVE_UNUSABLE}
     }
 };
 

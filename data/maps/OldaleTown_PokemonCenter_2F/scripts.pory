@@ -60,8 +60,8 @@ text EVTraining_Intro{
 	"5 Battle Points."
 }
 text EVTraining_Type{
-	"Which type of training would\n"
-	"you like to have?"
+	"Which type of training would you\n"
+	"like to have?"
 }
 
 text TrainingFinished{

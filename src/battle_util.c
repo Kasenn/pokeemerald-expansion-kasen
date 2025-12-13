@@ -2335,6 +2335,18 @@ static enum MoveCanceler CancelerParalyzed(struct BattleContext *ctx)
     return MOVE_STEP_SUCCESS;
 }
 
+static enum MoveCanceler CancelerTrainingBot(struct BattleContext *ctx)
+{
+    if (ctx->currentMove == MOVE_UNUSABLE)
+    {
+        gProtectStructs[ctx->battlerAtk].nonVolatileStatusImmobility = TRUE;
+        gBattlescriptCurrInstr = BattleScript_DoNothing;
+        gHitMarker |= HITMARKER_UNABLE_TO_USE_MOVE;
+        return MOVE_STEP_FAILURE;
+    }
+    return MOVE_STEP_SUCCESS;
+}
+
 static enum MoveCanceler CancelerInfatuation(struct BattleContext *ctx)
 {
     if (gBattleMons[ctx->battlerAtk].volatiles.infatuation)
@@ -3036,6 +3048,7 @@ static enum MoveCanceler (*const sMoveSuccessOrderCancelers[])(struct BattleCont
     [CANCELER_EXPLODING_DAMP] = CancelerExplodingDamp,
     [CANCELER_MULTIHIT_MOVES] = CancelerMultihitMoves,
     [CANCELER_MULTI_TARGET_MOVES] = CancelerMultiTargetMoves,
+    [CANCELER_TRAININGBOT] = CancelerTrainingBot,
 };
 
 enum MoveCanceler AtkCanceler_MoveSuccessOrder(struct BattleContext *ctx)
@@ -4213,6 +4226,25 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
                     BattleScriptPushCursorAndCallback(BattleScript_AttackerAbilityStatRaiseEnd3);
                     effect++;
                 }
+            }
+            break;
+        case ABILITY_FICKLE:
+            if (!gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && IsBattlerTurnDamaged(gBattlerTarget)
+             && IsBattlerAlive(gBattlerTarget))
+            {
+                gBattlerAttacker = gBattlerTarget;
+                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
+                BattleScriptCall(BattleScript_FickleActivates);
+                effect++;
+            }
+            else if (gBattleStruct->setToFaint[battler] == TRUE)
+            {
+                gBattleStruct->setToFaint[battler] = FALSE;
+                gBattlerAttacker = gBattlerTarget;
+                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
+                BattleScriptCall(BattleScript_FickleActivatesOnSwitchIn);
+                effect++;
             }
             break;
         case ABILITY_PRESSURE:

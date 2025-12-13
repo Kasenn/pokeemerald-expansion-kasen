@@ -790,6 +790,7 @@ struct BattleStruct
     u8 incrementEchoedVoice:1;
     u8 echoedVoiceCounter:3;
     u8 padding3:4;
+    u8 setToFaint[MAX_BATTLERS_COUNT];
 };
 
 struct AiBattleData
@@ -909,7 +910,7 @@ struct BattleScripting
     u8 specialTrainerBattleType;
     bool8 monCaught;
     s32 savedDmg;
-    u16 unused_0x2c;
+    u16 recordEvCalc;
     u16 moveEffect;
     u16 unused_0x30;
     u8 illusionNickHack; // To properly display nick in STRINGID_ENEMYABOUTTOSWITCHPKMN.

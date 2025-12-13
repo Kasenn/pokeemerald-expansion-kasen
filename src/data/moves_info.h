@@ -5495,6 +5495,25 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+    [MOVE_UNUSABLE] =
+    {
+        .name = COMPOUND_STRING("Hold Out"),
+        .description = COMPOUND_STRING("Has no effect."),
+        .effect = EFFECT_HIT,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 10,
+        .target = MOVE_TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .metronomeBanned = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .sketchBanned = TRUE,
+        .assistBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_None,
+    },
+
     [MOVE_GIGA_DRAIN] =
     {
         .name = COMPOUND_STRING("Giga Drain"),

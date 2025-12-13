@@ -257,6 +257,7 @@ extern const u8 BattleScript_ShakeBallThrow[];
 extern const u8 BattleScript_TrainerBallBlock[];
 extern const u8 BattleScript_RunByUsingItem[];
 extern const u8 BattleScript_ActionWatchesCarefully[];
+extern const u8 BattleScript_DoNothing[];
 extern const u8 BattleScript_ActionGetNear[];
 extern const u8 BattleScript_ActionThrowPokeblock[];
 extern const u8 BattleScript_EmbargoEndTurn[];
@@ -861,5 +862,7 @@ extern const u8 BattleScript_MetronomeAttackstring[];
 extern const u8 BattleScript_SleepTalkAttackstring[];
 extern const u8 BattleScript_NaturePowerAttackstring[];
 extern const u8 BattleScript_PokemonCantUseTheMove[];
+extern const u8 BattleScript_FickleActivates[];
+extern const u8 BattleScript_FickleActivatesOnSwitchIn[];
 
 #endif // GUARD_BATTLE_SCRIPTS_H

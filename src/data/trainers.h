@@ -131,6 +131,15 @@
     .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE |     \
     AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING
 
+#define EV_NURSE_INFO                                           \
+    .trainerClass = TRAINER_CLASS_EV_NURSE,                     \
+    .encounterMusic_gender = F_TRAINER_FEMALE |                 \
+                             TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
+    .trainerPic = TRAINER_PIC_AROMA_LADY,                       \
+    .trainerName = _("Tutor"),                                  \
+    .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE |     \
+    AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING
+
 #define HIKER_INFO                                              \
     .trainerClass = TRAINER_CLASS_HIKER,                        \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,     \
@@ -682,32 +691,32 @@ const struct Trainer gTrainers[DIFFICULTY_COUNT][TRAINERS_COUNT] =
 
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_HP] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Felix),
     },
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_ATK] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Violet),
     },
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_DEF] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Rose2),
     },
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_SPATK] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Rose3),
     },
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_SPDEF] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Rose4),
     },
     [DIFFICULTY_NORMAL][TRAINER_EV_TRAINING_SPEED] =
     {
-        NURSE_INFO,
+        EV_NURSE_INFO,
         .party = TRAINER_PARTY(sParty_Rose5),
     },
     [DIFFICULTY_NORMAL][TRAINER_EXPBOT_1] =

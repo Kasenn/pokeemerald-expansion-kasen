@@ -551,8 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    setwildbattle(SPECIES_BULBASAUR, 5, ITEM_NONE, SPECIES_CHARMANDER, 5)
-    dowildbattle
+    givemon(SPECIES_HERACROSS, 40, move1=MOVE_SPIKES, move2=MOVE_FALSE_SWIPE)
     return
 }
 script Debug_Script_4{

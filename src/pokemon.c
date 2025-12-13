@@ -6350,6 +6350,7 @@ u16 GetBattleBGM(void)
         case TRAINER_CLASS_GYMMEMBER_DOUBLE:
             return MUS_BWTRAINERBATTLE;
         case TRAINER_CLASS_NURSE:
+        case TRAINER_CLASS_EV_NURSE:
             return MUS_VS_TRAINER;
         case TRAINER_CLASS_PYRAMID_KING:
             return MUS_VS_FRONTIER_BRAIN;

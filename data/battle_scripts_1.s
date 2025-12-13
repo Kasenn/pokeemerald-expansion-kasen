@@ -5465,6 +5465,29 @@ BattleScript_WindPowerActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_FickleActivates::
+	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER B_ANIM_EXPLODE
+	tryexplosion
+	setatkhptozero
+	waitstate
+	tryfaintmon BS_ATTACKER
+	return
+
+BattleScript_FickleActivatesOnSwitchIn::
+	call BattleScript_AbilityPopUp
+	pause B_WAIT_TIME_SHORT
+	playanimation BS_ATTACKER B_ANIM_EXPLODE
+	tryexplosion
+	setatkhptozero
+	waitstate
+	tryfaintmon BS_ATTACKER
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_ATTACKER
+	moveendall
+	goto BattleScript_HandleFaintedMon
+
 BattleScript_ToxicDebrisActivates::
 	call BattleScript_AbilityPopUp
 	pause B_WAIT_TIME_SHORT
@@ -6216,6 +6239,12 @@ BattleScript_MoveUsedIsParalyzed::
 	waitmessage B_WAIT_TIME_LONG
 	incrementgamestat GAME_STAT_PARALYZED
 	statusanimation BS_ATTACKER
+	cancelmultiturnmoves
+	goto BattleScript_MoveEnd
+
+BattleScript_DoNothing::
+	printstring STRINGID_PKMNDOESNOTHING
+	waitmessage B_WAIT_TIME_LONG
 	cancelmultiturnmoves
 	goto BattleScript_MoveEnd
 

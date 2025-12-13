@@ -132,6 +132,10 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
 {
     // Level-up
     [STRINGID_PKMNGAINEDEXP]                        = COMPOUND_STRING("{B_BUFF1} gained{B_BUFF2}\n{B_BUFF3} Exp. Points!\p"),
+    [STRINGID_PKMNGAINEDEV]                         = COMPOUND_STRING("{B_BUFF1}'s {B_BUFF2}\nimproved greatly!\p"),
+    [STRINGID_TEAMGAINEDEV]                         = COMPOUND_STRING("The rest of your team improved its\n{B_BUFF2} thanks to the {B_LAST_ITEM}!\p"),
+    [PKMNDIDNTGAINEV]                               = COMPOUND_STRING("{B_BUFF1}'s {B_BUFF2}\ndidn't improve any further!\p"),
+    [TEAMDIDNTGAINEV]                               = COMPOUND_STRING("The rest of your team's {B_BUFF2}\nfailed to improve any further!\p"),
     [STRINGID_PKMNGREWTOLV]                         = COMPOUND_STRING("{B_BUFF1} grew to\nLv. {B_BUFF2}!{WAIT_SE}\p"),
     [STRINGID_PKMNLEARNEDMOVE]                      = COMPOUND_STRING("{B_BUFF1} learned\n{B_BUFF2}!{WAIT_SE}\p"),
     [STRINGID_TRYTOLEARNMOVE1]                      = COMPOUND_STRING("{B_BUFF1} wants to learn the\nmove {B_BUFF2}.\p"),
@@ -494,6 +498,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_CREPTCLOSER]                          = COMPOUND_STRING("{B_PLAYER_NAME} crept closer to\n{B_OPPONENT_MON1_NAME}!"),
     [STRINGID_CANTGETCLOSER]                        = COMPOUND_STRING("{B_PLAYER_NAME} can't get any closer!"),
     [STRINGID_PKMNWATCHINGCAREFULLY]                = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is watching\ncarefully!"),
+    [STRINGID_PKMNDOESNOTHING]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is struggling to keep itself together!"),
     [STRINGID_PKMNCURIOUSABOUTX]                    = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is curious about\nthe {B_BUFF1}!"),
     [STRINGID_PKMNENTHRALLEDBYX]                    = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} is enthralled by\nthe {B_BUFF1}!"),
     [STRINGID_PKMNIGNOREDX]                         = COMPOUND_STRING("{B_OPPONENT_MON1_NAME} completely ignored\nthe {B_BUFF1}!"),
