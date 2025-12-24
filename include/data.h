@@ -115,7 +115,7 @@ struct TrainerMon
     u32 tags;
 };
 
-#define TRAINER_PARTY(partyArray) partyArray, .partySize = ARRAY_COUNT(partyArray)
+#define TRAINER_PARTY(partyArray) .party = partyArray, .partySize = ARRAY_COUNT(partyArray)
 #define TRAINER_MONS(name)  static const struct TrainerMon sParty_##name[]
 
 enum TrainerBattleType

@@ -12971,6 +12971,12 @@ static const struct LevelUpMove sScolipedeLevelUpLearnset[] = {
     LEVEL_UP_MOVE(55, MOVE_MEGAHORN),
     LEVEL_UP_END
 };
+
+static const struct LevelUpMove sTrainingBotLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 0, MOVE_UNUSABLE),
+    LEVEL_UP_MOVE( 1, MOVE_UNUSABLE),
+    LEVEL_UP_END
+};
 #endif //P_FAMILY_VENIPEDE
 
 #if P_FAMILY_COTTONEE

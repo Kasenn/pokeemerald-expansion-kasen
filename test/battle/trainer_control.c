@@ -164,7 +164,7 @@ static const struct Trainer sTestTrainer2 =
 {
     .trainerName = _("Test2"),
     .trainerClass = TRAINER_CLASS_BLACK_BELT,
-    .party = TRAINER_PARTY(sTestParty2),
+    TRAINER_PARTY(sTestParty2),
 };
 
 TEST("Trainer Class Balls apply to the entire party")

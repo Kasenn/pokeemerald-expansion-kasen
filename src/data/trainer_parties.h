@@ -392,155 +392,92 @@ TRAINER_MONS(GruntSpaceCenter1) = {
 };
 
 TRAINER_MONS(GruntMtPyre1) = {
-    {
-    POKEMON(SPECIES_RIOLU, 5)
-    },
-    {
-    POKEMON(SPECIES_SCRAGGY, 7)
-    }
+    {POKEMON(SPECIES_RIOLU, 5)},
+    {POKEMON(SPECIES_SCRAGGY, 7)}
 };
 
 TRAINER_MONS(GruntMtPyre2) = {
-    {
-    POKEMON(SPECIES_RATTATA, 7)
-    }
+    {POKEMON(SPECIES_RATTATA, 7)}
 };
 
 TRAINER_MONS(GruntMtPyre3) = {
-    {
-    POKEMON(SPECIES_RALTS, 6)
-    },
-    {
-    POKEMON(SPECIES_PIKACHU, 6)
-    }
+    {POKEMON(SPECIES_RALTS, 6)},
+    {POKEMON(SPECIES_PIKACHU, 6)}
 };
 
 TRAINER_MONS(GruntWeatherInst4) = {
-    {
-    .lvl = 6,
-    .species = SPECIES_SCATTERBUG,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_SCATTERBUG,
-    }
+    {POKEMON(SPECIES_SCATTERBUG, 6)},
+    {POKEMON(SPECIES_SCATTERBUG, 7)}
 };
 
 TRAINER_MONS(GruntAquaHideout5) = {
-    {
-    .lvl = 6,
-    .species = SPECIES_RATTATA,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_VULPIX,
-    }
+    {POKEMON(SPECIES_RATTATA, 6)},
+    {POKEMON(SPECIES_VULPIX, 7)}
 };
 
 TRAINER_MONS(GruntAquaHideout6) = {
+    {POKEMON(SPECIES_WEEDLE, 6)},
     {
-    .lvl = 6,
-    .species = SPECIES_WEEDLE,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_KAKUNA,
+    POKEMON(SPECIES_KAKUNA, 7),
     .moves = {MOVE_POISON_STING, MOVE_STRING_SHOT, MOVE_HARDEN},
     }
 };
 
 TRAINER_MONS(TRAINER_WW_CAMPER) = {
+    {POKEMON(SPECIES_PIKACHU, 6)},
     {
-    .lvl = 6,
-    .species = SPECIES_PIKACHU,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_BUIZEL,
+    POKEMON(SPECIES_BUIZEL, 7),
     .moves = {MOVE_TACKLE, MOVE_GROWL, MOVE_WATER_SPORT},
     }
 };
 
 TRAINER_MONS(Matt) = {
-    {
-    .lvl = 7,
-    .species = SPECIES_BUNEARY,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_RIOLU,
-    }
+    {POKEMON(SPECIES_BUNEARY, 7)},
+    {POKEMON(SPECIES_RIOLU, 7)}
 };
 
 TRAINER_MONS(Zander) = {
-    {
-    .lvl = 7,
-    .species = SPECIES_RATTATA,
-    },
-    {
-    .lvl = 7,
-    .species = SPECIES_STUNKY,
-    }
+    {POKEMON(SPECIES_RATTATA, 7)},
+    {POKEMON(SPECIES_STUNKY, 7)}
 };
 
 TRAINER_MONS(ShellyWeatherInstitute) = {
+    {POKEMON(SPECIES_MURKROW, 8)},
     {
-    .lvl = 8,
-    .species = SPECIES_MURKROW,
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_SPEWPA,
+    POKEMON(SPECIES_SPEWPA, 9),
     .moves = {MOVE_TACKLE, MOVE_STRING_SHOT, MOVE_STUN_SPORE, MOVE_PROTECT},
     },
-    {
-    .lvl = 8,
-    .species = SPECIES_CHINCHOU,
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_PINSIR,
-    }
+    {POKEMON(SPECIES_CHINCHOU, 8)},
+    {POKEMON(SPECIES_PINSIR, 9)}
 };
 
 TRAINER_MONS(ShellySeafloorCavern) = {
-    {
-    .lvl = 7,
-    .species = SPECIES_ZUBAT,
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_CROAGUNK,
-    }
+    {POKEMON(SPECIES_ZUBAT, 7)},
+    {POKEMON(SPECIES_CROAGUNK, 8)}
 };
 
 TRAINER_MONS(Archie) = {
     {
-    .lvl = 7,
-    .species = SPECIES_NINJASK,
+    POKEMON(SPECIES_NINJASK, 7),
     .ability = ABILITY_SPEED_BOOST,
     .moves = {MOVE_PROTECT, MOVE_SUBSTITUTE, MOVE_BATON_PASS, MOVE_SWORDS_DANCE},
-
     },
     {
-    .lvl = 9,
-    .species = SPECIES_ROGGENROLA,
+    POKEMON(SPECIES_ROGGENROLA, 9),
     .moves = {MOVE_ROCK_TOMB, MOVE_BULLDOZE, MOVE_HEADBUTT},
     },
 };
 
 TRAINER_MONS(Leah) = {
     {
-    .lvl = 9,
-    .species = SPECIES_GLIGAR,
+    POKEMON(SPECIES_GLIGAR, 9),
     .moves = {MOVE_SUBSTITUTE, MOVE_PROTECT, MOVE_SAND_ATTACK, MOVE_TOXIC},
     }
 };
 
 TRAINER_MONS(Daisy) = {
     {
-    .lvl = 7,
-    .species = SPECIES_KOMALA,
+    POKEMON(SPECIES_KOMALA, 7),
     .ability = ABILITY_COMATOSE,
     .heldItem = ITEM_CHOICE_BAND,
     .moves = {MOVE_SLEEP_TALK, MOVE_LAST_RESORT},
@@ -550,8 +487,7 @@ TRAINER_MONS(Daisy) = {
 
 TRAINER_MONS(Rose1) = {
     {
-    .lvl = 9,
-    .species = SPECIES_BRELOOM,
+    POKEMON(SPECIES_BRELOOM, 9),
     .ability = ABILITY_POISON_HEAL,
     .heldItem = ITEM_TOXIC_ORB,
     .moves = {MOVE_SUBSTITUTE, MOVE_FOCUS_PUNCH, MOVE_MEGA_DRAIN},
@@ -559,590 +495,283 @@ TRAINER_MONS(Rose1) = {
 };
 
 TRAINER_MONS(Felix) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_HPBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_HPBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_HPBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_HPBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_HPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_HPBOT, 1)},
+    {POKEMON(SPECIES_HPBOT, 1)},
+    {POKEMON(SPECIES_HPBOT, 1)},
+    {POKEMON(SPECIES_HPBOT, 1)},
+    {POKEMON(SPECIES_HPBOT, 1)}
 };
 
 TRAINER_MONS(Violet) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_ATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_ATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_ATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_ATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_ATKBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_ATKBOT, 1)},
+    {POKEMON(SPECIES_ATKBOT, 1)},
+    {POKEMON(SPECIES_ATKBOT, 1)},
+    {POKEMON(SPECIES_ATKBOT, 1)},
+    {POKEMON(SPECIES_ATKBOT, 1)}
 };
 
 TRAINER_MONS(Rose2) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_DEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_DEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_DEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_DEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_DEFBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_DEFBOT, 1)},
+    {POKEMON(SPECIES_DEFBOT, 1)},
+    {POKEMON(SPECIES_DEFBOT, 1)},
+    {POKEMON(SPECIES_DEFBOT, 1)},
+    {POKEMON(SPECIES_DEFBOT, 1)}
 };
 
 TRAINER_MONS(Rose3) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPATKBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPATKBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_SPATKBOT, 1)},
+    {POKEMON(SPECIES_SPATKBOT, 1)},
+    {POKEMON(SPECIES_SPATKBOT, 1)},
+    {POKEMON(SPECIES_SPATKBOT, 1)},
+    {POKEMON(SPECIES_SPATKBOT, 1)}
 };
 
 TRAINER_MONS(Rose4) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPDEFBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPDEFBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_SPDEFBOT, 1)},
+    {POKEMON(SPECIES_SPDEFBOT, 1)},
+    {POKEMON(SPECIES_SPDEFBOT, 1)},
+    {POKEMON(SPECIES_SPDEFBOT, 1)},
+    {POKEMON(SPECIES_SPDEFBOT, 1)}
 };
 
 TRAINER_MONS(Rose5) = {
-    {
-    .lvl = 1,
-    .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPEEDBOT,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 1,
-    .species = SPECIES_SPEEDBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_SPEEDBOT, 1)},
+    {POKEMON(SPECIES_SPEEDBOT, 1)},
+    {POKEMON(SPECIES_SPEEDBOT, 1)},
+    {POKEMON(SPECIES_SPEEDBOT, 1)},
+    {POKEMON(SPECIES_SPEEDBOT, 1)}
 };
 
 TRAINER_MONS(Dusty1) = {
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 6,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_EXPBOT, 6)},
+    {POKEMON(SPECIES_EXPBOT, 6)},
+    {POKEMON(SPECIES_EXPBOT, 6)},
+    {POKEMON(SPECIES_EXPBOT, 6)},
+    {POKEMON(SPECIES_EXPBOT, 6)}
+};
+
+TRAINER_MONS(GabbyAndTy2) = {
+    {POKEMON(SPECIES_EXPBOT, 8)},
+    {POKEMON(SPECIES_EXPBOT, 8)},
+    {POKEMON(SPECIES_EXPBOT, 8)},
+    {POKEMON(SPECIES_EXPBOT, 8)},
+    {POKEMON(SPECIES_EXPBOT, 8)},
+    {POKEMON(SPECIES_EXPBOT, 8)}
+};
+
+TRAINER_MONS(Randall) = {
+    {POKEMON(SPECIES_EXPBOT, 16)},
+    {POKEMON(SPECIES_EXPBOT, 16)},
+    {POKEMON(SPECIES_EXPBOT, 16)},
+    {POKEMON(SPECIES_EXPBOT, 16)},
+    {POKEMON(SPECIES_EXPBOT, 16)},
+    {POKEMON(SPECIES_EXPBOT, 16)}
+};
+
+TRAINER_MONS(Shoreslate_Nurse) = {
+    {POKEMON(SPECIES_EXPBOT, 25)},
+    {POKEMON(SPECIES_EXPBOT, 25)},
+    {POKEMON(SPECIES_EXPBOT, 25)},
+    {POKEMON(SPECIES_EXPBOT, 25)},
+    {POKEMON(SPECIES_EXPBOT, 25)},
+    {POKEMON(SPECIES_EXPBOT, 25)}
+};
+
+TRAINER_MONS(MarigorgeNurse) = {
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)}
+};
+
+TRAINER_MONS(RockliffeNurse) = {
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)},
+    {POKEMON(SPECIES_EXPBOT, 30)}
+};
+
+TRAINER_MONS(Sandstone_Nurse) = {
+    {POKEMON(SPECIES_EXPBOT, 33)},
+    {POKEMON(SPECIES_EXPBOT, 33)},
+    {POKEMON(SPECIES_EXPBOT, 33)},
+    {POKEMON(SPECIES_EXPBOT, 33)},
+    {POKEMON(SPECIES_EXPBOT, 33)},
+    {POKEMON(SPECIES_EXPBOT, 33)}
+};
+
+TRAINER_MONS(DRISLEDGE_NURSE) = {
+    {POKEMON(SPECIES_EXPBOT, 40)},
+    {POKEMON(SPECIES_EXPBOT, 40)},
+    {POKEMON(SPECIES_EXPBOT, 40)},
+    {POKEMON(SPECIES_EXPBOT, 40)},
+    {POKEMON(SPECIES_EXPBOT, 40)},
+    {POKEMON(SPECIES_EXPBOT, 40)}
+};
+
+TRAINER_MONS(FROSTHEARTH_NURSE) = {
+    {POKEMON(SPECIES_EXPBOT, 45)},
+    {POKEMON(SPECIES_EXPBOT, 45)},
+    {POKEMON(SPECIES_EXPBOT, 45)},
+    {POKEMON(SPECIES_EXPBOT, 45)},
+    {POKEMON(SPECIES_EXPBOT, 45)},
+    {POKEMON(SPECIES_EXPBOT, 45)}
 };
 
 TRAINER_MONS(Chip) = {
+    {POKEMON(SPECIES_SCATTERBUG, 8)},
     {
-    .lvl = 8,
-    .species = SPECIES_SCATTERBUG,
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_SPEWPA,
+    POKEMON(SPECIES_SPEWPA, 9),
     .moves = {MOVE_TACKLE, MOVE_STRING_SHOT, MOVE_STUN_SPORE, MOVE_PROTECT},
     },
 };
 
 TRAINER_MONS(Foster) = {
-    {
-    .lvl = 9,
-    .species = SPECIES_KRICKETOT,
-    },
-    {
-    .lvl = 9,
-    .species = SPECIES_NINCADA,
-    }
+    {POKEMON(SPECIES_KRICKETOT, 9)},
+    {POKEMON(SPECIES_NINCADA, 9)}
 };
 
 TRAINER_MONS(Dusty2) = {
-    {
-    .lvl = 9,
-    .species = SPECIES_CUTIEFLY,
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_COMBEE,
-    .gender = TRAINER_MON_FEMALE,
-    }
+    {POKEMON(SPECIES_CUTIEFLY, 9)},
+    {POKEMON_F(SPECIES_COMBEE, 10)}
 };
 
 TRAINER_MONS(Dusty3) = {
     {
-    .lvl = 10,
-    .species = SPECIES_BEEDRILL,
+    POKEMON(SPECIES_BEEDRILL, 10),
     .moves = {MOVE_POISON_STING, MOVE_FURY_ATTACK}
     }
 };
 
 TRAINER_MONS(Dusty4) = {
-    {
-    .lvl = 10,
-    .species = SPECIES_GRUBBIN,
-    },
-    {
-    .lvl = 10,
-    .species = SPECIES_VENIPEDE,
-    }
+    {POKEMON(SPECIES_GRUBBIN, 10)},
+    {POKEMON(SPECIES_VENIPEDE, 10)}
 };
 
 TRAINER_MONS(Dusty5) = {
-    {
-    .lvl = 11,
-    .species = SPECIES_VENONAT,
-    }
+    {POKEMON(SPECIES_VENONAT, 11)}
 };
 
 TRAINER_MONS(GabbyAndTy1) = {
     {
-    .lvl = 11,
-    .species = SPECIES_CUTIEFLY,
-    .heldItem = ITEM_NONE,
+    POKEMON(SPECIES_CUTIEFLY, 11),
     .moves = {MOVE_U_TURN, MOVE_FAIRY_WIND}
     },
     {
-    .lvl = 11,
-    .species = SPECIES_KRICKETUNE,
-    .heldItem = ITEM_NONE,
+    POKEMON(SPECIES_KRICKETUNE, 11),
     .moves = {MOVE_FURY_CUTTER, MOVE_BIDE, MOVE_GROWL}
     },
     {
-    IVS_ALL(4),
-    .lvl = 14,
-    .species = SPECIES_BEEDRILL,
+    POKEMON(SPECIES_BEEDRILL, 14), IVS_ALL(4),
     .moves = {MOVE_U_TURN, MOVE_TWINEEDLE, MOVE_FURY_ATTACK, MOVE_POISON_STING},
     }
 };
 
-TRAINER_MONS(GabbyAndTy2) = {
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 8,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
-};
-
 TRAINER_MONS(GabbyAndTy3) = {
-    {
-        .lvl = 10,
-        .species = SPECIES_TIMBURR,
-    },
-    {
-        .lvl = 10,
-        .species = SPECIES_ONIX,
-    }
+    {POKEMON(SPECIES_TIMBURR, 10)},
+    {POKEMON(SPECIES_ONIX, 10)}
 };
 
 TRAINER_MONS(GabbyAndTy4) = {
-    {
-        .lvl = 11,
-        .species = SPECIES_JIGGLYPUFF,
-    },
-    {
-        .lvl = 12,
-        .species = SPECIES_TOGEPI,
-    }
+    {POKEMON(SPECIES_JIGGLYPUFF, 11)},
+    {POKEMON(SPECIES_TOGEPI, 12)}
 };
 
 TRAINER_MONS(GabbyAndTy5) = {
-    {
-        .lvl = 11,
-        .species = SPECIES_GRIMER,
-    },
-    {
-        .lvl = 13,
-        .species = SPECIES_TRUBBISH,
-    }
+    {POKEMON(SPECIES_GRIMER, 11)},
+    {POKEMON(SPECIES_TRUBBISH, 13)}
 };
 
 TRAINER_MONS(GabbyAndTy6) = {
-    {
-        .lvl = 10,
-        .species = SPECIES_PARAS,
-    },
-    {
-        .lvl = 10,
-        .species = SPECIES_SPINARAK,
-    },
-    {
-        .lvl = 11,
-        .species = SPECIES_NINCADA,
-    }
+    {POKEMON(SPECIES_PARAS, 10)},
+    {POKEMON(SPECIES_SPINARAK, 10)},
+    {POKEMON(SPECIES_NINCADA, 11)}
 };
 
 TRAINER_MONS(Lola1) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_MARILL,
-    },
-    {
-        .lvl = 12,
-        .species = SPECIES_PIKACHU,
-    }
+    {POKEMON(SPECIES_MARILL, 12)},
+    {POKEMON(SPECIES_PIKACHU, 12)}
 };
 
 TRAINER_MONS(TRAINER_R16_TR1_SWIMMER_M) = {
     {
-    IVS_ALL(9),
-    .lvl = 39,
-    .species = SPECIES_REMORAID,
+        POKEMON(SPECIES_REMORAID, 39), IVS_ALL(9)
     },
     {
-    IVS_ALL(9),
-    .lvl = 41,
-    .species = SPECIES_OCTILLERY,
-    .moves = {MOVE_ICE_BEAM, MOVE_SIGNAL_BEAM, MOVE_WRING_OUT, MOVE_OCTAZOOKA}
+        POKEMON(SPECIES_OCTILLERY, 41), IVS_ALL(9),
+        .moves = {MOVE_ICE_BEAM, MOVE_SIGNAL_BEAM, MOVE_WRING_OUT, MOVE_OCTAZOOKA}
     },
 };
 
 TRAINER_MONS(Gwen) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_DODUO,
-    },
-    {
-        .lvl = 13,
-        .species = SPECIES_ELECTRIKE,
-    }
+    {POKEMON(SPECIES_DODUO, 12)},
+    {POKEMON(SPECIES_ELECTRIKE, 13)}
 };
 
 TRAINER_MONS(Lola2) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_HOUNDOUR,
-    },
-    {
-        .lvl = 13,
-        .species = SPECIES_SANDILE,
-    },
+    {POKEMON(SPECIES_HOUNDOUR, 12)},
+    {POKEMON(SPECIES_SANDILE, 13)},
 };
 
 TRAINER_MONS(Lola3) = {
-    {
-        .lvl = 11,
-        .species = SPECIES_SCRAGGY,
-    },
-    {
-        .lvl = 12,
-        .species = SPECIES_MIENFOO,
-    }
+    {POKEMON(SPECIES_SCRAGGY, 11)},
+    {POKEMON(SPECIES_MIENFOO, 12)}
 };
 
 TRAINER_MONS(Lola4) = {
-    {
-        .lvl = 11,
-        .species = SPECIES_GROWLITHE,
-    },
-    {
-        .lvl = 12,
-        .species = SPECIES_ROSELIA,
-    }
+    {POKEMON(SPECIES_GROWLITHE, 11)},
+    {POKEMON(SPECIES_ROSELIA, 12)}
 };
 
 TRAINER_MONS(Lola5) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_STARLY,
-    },
-    {
-        .lvl = 14,
-        .species = SPECIES_STARAVIA,
-    },
+    {POKEMON(SPECIES_STARLY, 12)},
+    {POKEMON(SPECIES_STARAVIA, 14)},
 };
 
 
 TRAINER_MONS(Ricky1) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_RATTATA,
-    },
-    {
-        .lvl = 13,
-        .species = SPECIES_RATTATA,
-    }
+    {POKEMON(SPECIES_RATTATA, 12)},
+    {POKEMON(SPECIES_RATTATA, 13)}
 };
 
 TRAINER_MONS(Simon) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_FARFETCHD,
-    },
-    {
-        .lvl = 13,
-        .species = SPECIES_STARAVIA,
-    }
+    {POKEMON(SPECIES_FARFETCHD, 12)},
+    {POKEMON(SPECIES_STARLY, 13)}
 };
 
 TRAINER_MONS(Charlie) = {
-    {
-        .lvl = 12,
-        .species = SPECIES_PETILIL,
-    },
-    {
-        .lvl = 12,
-        .species = SPECIES_BUNEARY,
-    }
+    {POKEMON(SPECIES_PETILIL, 12)},
+    {POKEMON(SPECIES_BUNEARY, 12)}
 };
 
 
 TRAINER_MONS(Ricky2) = {
-    {
-    .lvl = 12,
-    .species = SPECIES_COTTONEE,
-    },
-    {
-    .lvl = 12,
-    .species = SPECIES_RATTATA,
-    }
+    {POKEMON(SPECIES_COTTONEE, 12)},
+    {POKEMON(SPECIES_RATTATA, 12)}
 };
 
 
 TRAINER_MONS(Ricky3) = {
     {
-    .lvl = 12,
-    .species = SPECIES_TOGEDEMARU,
+    POKEMON(SPECIES_TOGEDEMARU, 12),
     .moves = {MOVE_TACKLE, MOVE_THUNDER_SHOCK, MOVE_DEFENSE_CURL}
     },
-    {
-    .lvl = 13,
-    .species = SPECIES_PONYTA,
-    }
+    {POKEMON(SPECIES_PONYTA, 13)}
 };
 
 
 TRAINER_MONS(Ricky4) = {
-    {
-    IVS_ALL(4),
-    .lvl = 13,
-    .species = SPECIES_RATTATA,
-    },
-    {
-    IVS_ALL(4),
-    .lvl = 13,
-    .species = SPECIES_GRIMER,
-    }
+    {POKEMON(SPECIES_RATTATA, 13), IVS_ALL(4)},
+    {POKEMON(SPECIES_GRIMER, 13), IVS_ALL(4)}
 };
 
 TRAINER_MONS(Ricky5) = {
-    {
-    IVS_ALL(4),
-    .lvl = 13,
-    .species = SPECIES_KOFFING,
-    },
-    {
-    IVS_ALL(4),
-    .lvl = 14,
-    .species = SPECIES_STUNKY,
-    }
-};
-
-TRAINER_MONS(Randall) = {
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 16,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
+    {POKEMON(SPECIES_KOFFING, 13), IVS_ALL(4)},
+    {POKEMON(SPECIES_STUNKY, 13), IVS_ALL(4)}
 };
 
 TRAINER_MONS(Parker) = {
@@ -2124,45 +1753,6 @@ TRAINER_MONS(R8Tr11_BirdKeeper) = {
     }
 };
 
-TRAINER_MONS(Shoreslate_Nurse) = {
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 25,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
-};
-
 TRAINER_MONS(DC1F_Rocket1) = {
     {
     IVS_ALL(6),
@@ -2671,45 +2261,6 @@ TRAINER_MONS(Route7Tr10_NinjaBoy) = {
     }
 };
 
-TRAINER_MONS(MarigorgeNurse) = {
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
-};
-
 TRAINER_MONS(KG_Tr1_Camper1) = {
     {
     IVS_ALL(6),
@@ -3189,45 +2740,6 @@ TRAINER_MONS(LeaderKorrina) = {
     .heldItem = ITEM_LUCARIONITE,
     .species = SPECIES_LUCARIO,
     .moves = {MOVE_ICE_PUNCH, MOVE_METAL_CLAW, MOVE_POWER_UP_PUNCH, MOVE_BONE_RUSH}
-    }
-};
-
-TRAINER_MONS(RockliffeNurse) = {
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 30,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -3904,45 +3416,6 @@ TRAINER_MONS(R12Tr6_Triath) = {
     },
 };
 
-TRAINER_MONS(R12Tr7_Triath) = {
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 45,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
-};
-
 TRAINER_MONS(TRAINER_R16_TR5_SWIMMER_F) = {
     {
     IVS_ALL(9),
@@ -4013,45 +3486,6 @@ TRAINER_MONS(R12Tr13_Ninja) = {
     .lvl = 31,
     IVS_ALL(7),
     .species = SPECIES_CROBAT,
-    }
-};
-
-TRAINER_MONS(Sandstone_Nurse) = {
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 33,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
     }
 };
 
@@ -5161,45 +4595,6 @@ TRAINER_MONS(TRAINER_R23_TR12_ACETRAINER) = {
     // .moves = {MOVE_JET_PUNCH, MOVE_MUDDY_WATER, MOVE_ROCK_SLIDE, MOVE_MUD_BOMB},
     // .heldItem = ITEM_SWAMPERTITE,
     // },
-};
-
-TRAINER_MONS(DRISLEDGE_NURSE) = {
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    },
-    {
-    .lvl = 40,
-    .species = SPECIES_EXPBOT,
-    .heldItem = ITEM_TOXIC_ORB,
-    .moves = {MOVE_UNUSABLE}
-    }
 };
 
 TRAINER_MONS(DRISLEDGEGYM_TRAINER1) = {

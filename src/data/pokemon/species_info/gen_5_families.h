@@ -4218,7 +4218,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4266,7 +4266,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4314,7 +4314,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4362,7 +4362,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4410,7 +4410,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4458,7 +4458,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 
@@ -4506,7 +4506,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
         .iconSprite = gMonIcon_Scolipede,
         .iconPalIndex = 2,
         FOOTPRINT(Scolipede)
-        .levelUpLearnset = sScolipedeLevelUpLearnset,
+        .levelUpLearnset = sTrainingBotLevelUpLearnset,
         .teachableLearnset = sScolipedeTeachableLearnset,
     },
 

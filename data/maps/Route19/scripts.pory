@@ -210,10 +210,12 @@ script Route19_Tr9_Picnicker {
     end
 }
 text R19Tr9_Intro {
-    "wip"
+    "My partner was built for this.\n"
+    "Behold!"
 }
 text R19Tr9_Lose {
-    "wip"
+    "We tried our best, and that's\n"
+    "all that matters."
 }
 text R19Tr9_PostBattle {
     "wip"
