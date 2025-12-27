@@ -455,7 +455,7 @@ R19Tr8_PostBattle::
 
 R19Tr9_Intro::
 # 212 "data/maps/Route19/scripts.pory"
-	.string "My partner was built for this.\n"
+	.string "My partner was built for this weather.\n"
 	.string "Behold!$"
 
 R19Tr9_Lose::

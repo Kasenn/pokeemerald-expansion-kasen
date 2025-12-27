@@ -210,7 +210,7 @@ script Route19_Tr9_Picnicker {
     end
 }
 text R19Tr9_Intro {
-    "My partner was built for this.\n"
+    "My partner was built for this weather.\n"
     "Behold!"
 }
 text R19Tr9_Lose {
