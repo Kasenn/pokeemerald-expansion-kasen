@@ -876,7 +876,9 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	givemon SPECIES_HERACROSS, 40, move1 = MOVE_SPIKES, move2 = MOVE_FALSE_SWIPE
+	msgbox Debug_Script_3_Text_0
+# 555 "data/scripts/general_scripts.pory"
+	msgbox Debug_Script_3_Text_1
 	return
 
 
@@ -897,38 +899,38 @@ Debug_Script_7::
 
 
 Debug_Script_8::
-# 570 "data/scripts/general_scripts.pory"
-	special EnterCode
-# 571 "data/scripts/general_scripts.pory"
-	waitstate
 # 572 "data/scripts/general_scripts.pory"
-	special GetCodeFeedback
+	special EnterCode
 # 573 "data/scripts/general_scripts.pory"
-	release
+	waitstate
 # 574 "data/scripts/general_scripts.pory"
+	special GetCodeFeedback
+# 575 "data/scripts/general_scripts.pory"
+	release
+# 576 "data/scripts/general_scripts.pory"
 	end
 	return
 
 
 Debug_Script_81::
-# 579 "data/scripts/general_scripts.pory"
-	special EnterCode
-# 580 "data/scripts/general_scripts.pory"
-	waitstate
 # 581 "data/scripts/general_scripts.pory"
-	special GetCodeFeedback
+	special EnterCode
 # 582 "data/scripts/general_scripts.pory"
+	waitstate
+# 583 "data/scripts/general_scripts.pory"
+	special GetCodeFeedback
+# 584 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Debug_Script_81_2
 Debug_Script_81_1:
-# 585 "data/scripts/general_scripts.pory"
+# 587 "data/scripts/general_scripts.pory"
 	release
-# 586 "data/scripts/general_scripts.pory"
+# 588 "data/scripts/general_scripts.pory"
 	end
 	return
 
 Debug_Script_81_2:
-# 583 "data/scripts/general_scripts.pory"
+# 585 "data/scripts/general_scripts.pory"
 	msgbox Debug_Script_81_Text_0
 	goto Debug_Script_81_1
 
@@ -938,1254 +940,1254 @@ ResetAdamantTower::
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ResetAdamantTower_2
-# 614 "data/scripts/general_scripts.pory"
+# 616 "data/scripts/general_scripts.pory"
 	lock
-# 615 "data/scripts/general_scripts.pory"
+# 617 "data/scripts/general_scripts.pory"
 	faceplayer
 	msgbox ResetAdamantTower_YesNo, MSGBOX_YESNO
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ResetAdamantTower_5
-# 620 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_2F_TR2_MAN3
-# 621 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_2F_TR2_WOMAN5
 # 622 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_2F_TR1_PSYCHIC
+	cleartrainerflag TRAINER_AT_2F_TR2_MAN3
 # 623 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_2F_TR1_MAN5
+	cleartrainerflag TRAINER_AT_2F_TR2_WOMAN5
 # 624 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	cleartrainerflag TRAINER_AT_2F_TR1_PSYCHIC
 # 625 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_F
+	cleartrainerflag TRAINER_AT_2F_TR1_MAN5
 # 626 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
+	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_M
 # 627 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_3F_TR2_PSYCHICF
+	cleartrainerflag TRAINER_AT_3F_TR1_EXPERT_F
 # 628 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR1_BLACKBELT
+	cleartrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
 # 629 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR1_HEXMANIAC
+	cleartrainerflag TRAINER_AT_3F_TR2_PSYCHICF
 # 630 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR2_LASS
+	cleartrainerflag TRAINER_AT_4F_TR1_BLACKBELT
 # 631 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR2_YOUNGSTER
+	cleartrainerflag TRAINER_AT_4F_TR1_HEXMANIAC
 # 632 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	cleartrainerflag TRAINER_AT_4F_TR2_LASS
 # 633 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_4F_TR3_BLACKBELT
+	cleartrainerflag TRAINER_AT_4F_TR2_YOUNGSTER
 # 634 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_M
+	cleartrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
 # 635 "data/scripts/general_scripts.pory"
-	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_F
+	cleartrainerflag TRAINER_AT_4F_TR3_BLACKBELT
 # 636 "data/scripts/general_scripts.pory"
-	removeitem ITEM_MEGA_RING
+	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_M
 # 637 "data/scripts/general_scripts.pory"
-	clearflag FLAG_OBTAINED_MEGA_RING
+	cleartrainerflag TRAINER_AT_5F_COOLTRAINER_F
 # 638 "data/scripts/general_scripts.pory"
-	clearflag FLAG_REUNITE_WITH_RIVAL
+	removeitem ITEM_MEGA_RING
 # 639 "data/scripts/general_scripts.pory"
-	setflag FLAG_DISABLE_SAVING
+	clearflag FLAG_OBTAINED_MEGA_RING
 # 640 "data/scripts/general_scripts.pory"
+	clearflag FLAG_REUNITE_WITH_RIVAL
+# 641 "data/scripts/general_scripts.pory"
+	setflag FLAG_DISABLE_SAVING
+# 642 "data/scripts/general_scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED
 	msgbox ResetAdamantTower_ResetTeam, MSGBOX_YESNO
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ResetAdamantTower_8
-# 645 "data/scripts/general_scripts.pory"
+# 647 "data/scripts/general_scripts.pory"
 	setpartylevel 38
-# 646 "data/scripts/general_scripts.pory"
+# 648 "data/scripts/general_scripts.pory"
 	msgbox PartyHasBeenReset, MSGBOX_NPC
 	end
 
 ResetAdamantTower_2:
-# 611 "data/scripts/general_scripts.pory"
+# 613 "data/scripts/general_scripts.pory"
 	msgbox ThisIsForTesting, MSGBOX_NPC
 	end
 
 ResetAdamantTower_5:
-# 617 "data/scripts/general_scripts.pory"
+# 619 "data/scripts/general_scripts.pory"
 	release
 	end
 
 ResetAdamantTower_8:
-# 642 "data/scripts/general_scripts.pory"
+# 644 "data/scripts/general_scripts.pory"
 	release
 	end
 
 
 EndOfBetaBlock::
-# 677 "data/scripts/general_scripts.pory"
+# 679 "data/scripts/general_scripts.pory"
 	goto_if_unset FLAG_BETA_BLOCK, EndOfBetaBlock_2
 EndOfBetaBlock_1:
-# 682 "data/scripts/general_scripts.pory"
+# 684 "data/scripts/general_scripts.pory"
 	release
 	end
 
 EndOfBetaBlock_2:
-# 678 "data/scripts/general_scripts.pory"
-	msgbox EndOfBeta, MSGBOX_AUTOCLOSE
-# 679 "data/scripts/general_scripts.pory"
-	applymovement 0xFF, Walk1Up
 # 680 "data/scripts/general_scripts.pory"
+	msgbox EndOfBeta, MSGBOX_AUTOCLOSE
+# 681 "data/scripts/general_scripts.pory"
+	applymovement 0xFF, Walk1Up
+# 682 "data/scripts/general_scripts.pory"
 	waitmovement 0
 	goto EndOfBetaBlock_1
 
 
 BarrenWastes_Block1::
-# 693 "data/scripts/general_scripts.pory"
-	msgbox EndOfBeta2, MSGBOX_SIGN
-# 694 "data/scripts/general_scripts.pory"
-	applymovement 0xFF, Walk1Right
 # 695 "data/scripts/general_scripts.pory"
-	waitmovement 0
+	msgbox EndOfBeta2, MSGBOX_SIGN
 # 696 "data/scripts/general_scripts.pory"
+	applymovement 0xFF, Walk1Right
+# 697 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 698 "data/scripts/general_scripts.pory"
 	release
 	end
 
 
 BarrenWastes_Block2::
-# 700 "data/scripts/general_scripts.pory"
-	msgbox EndOfBeta2, MSGBOX_SIGN
-# 701 "data/scripts/general_scripts.pory"
-	applymovement 0xFF, Walk1Down
 # 702 "data/scripts/general_scripts.pory"
-	waitmovement 0
+	msgbox EndOfBeta2, MSGBOX_SIGN
 # 703 "data/scripts/general_scripts.pory"
+	applymovement 0xFF, Walk1Down
+# 704 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 705 "data/scripts/general_scripts.pory"
 	release
 	end
 
 
 SkipToShoreslate::
-# 713 "data/scripts/general_scripts.pory"
-	call ClearRoute1
-# 714 "data/scripts/general_scripts.pory"
-	call ClearRoute2
 # 715 "data/scripts/general_scripts.pory"
-	call ClearWindyWoods
+	call ClearRoute1
 # 716 "data/scripts/general_scripts.pory"
-	call ClearCoralgrove
+	call ClearRoute2
 # 717 "data/scripts/general_scripts.pory"
-	call ClearAzuretide
+	call ClearWindyWoods
 # 718 "data/scripts/general_scripts.pory"
-	call ClearRoute4
+	call ClearCoralgrove
 # 719 "data/scripts/general_scripts.pory"
-	call ClearRanch
+	call ClearAzuretide
 # 720 "data/scripts/general_scripts.pory"
-	call ClearAldeleaf
+	call ClearRoute4
 # 721 "data/scripts/general_scripts.pory"
-	call ClearRoute28
+	call ClearRanch
 # 722 "data/scripts/general_scripts.pory"
-	call ClearWindplume
+	call ClearAldeleaf
 # 723 "data/scripts/general_scripts.pory"
-	call ClearRoute5
+	call ClearRoute28
 # 724 "data/scripts/general_scripts.pory"
-	call ClearFlowerFields
+	call ClearWindplume
 # 725 "data/scripts/general_scripts.pory"
-	call ClearSkyloch
+	call ClearRoute5
 # 726 "data/scripts/general_scripts.pory"
-	call ClearRoute6
+	call ClearFlowerFields
 # 727 "data/scripts/general_scripts.pory"
-	call ClearRoute8
+	call ClearSkyloch
 # 728 "data/scripts/general_scripts.pory"
+	call ClearRoute6
+# 729 "data/scripts/general_scripts.pory"
+	call ClearRoute8
+# 730 "data/scripts/general_scripts.pory"
 	call ClearShoreslate
 	return
 
 
 ClearRoute1::
-# 732 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R1_COOLTRAINER
-# 733 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R1_YOUNGSTER
 # 734 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R1_FISHER
+	defeattrainer TRAINER_R1_COOLTRAINER
 # 735 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R1_BUG_CATCHER
+	defeattrainer TRAINER_R1_YOUNGSTER
 # 736 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R1_TUBER
+	defeattrainer TRAINER_R1_FISHER
 # 737 "data/scripts/general_scripts.pory"
-	addbp 10
+	defeattrainer TRAINER_R1_BUG_CATCHER
 # 738 "data/scripts/general_scripts.pory"
-	additem ITEM_EXP_SHARE
+	defeattrainer TRAINER_R1_TUBER
 # 739 "data/scripts/general_scripts.pory"
-	setflag FLAG_INTRO_TO_BP
+	addbp 10
 # 740 "data/scripts/general_scripts.pory"
+	additem ITEM_EXP_SHARE
+# 741 "data/scripts/general_scripts.pory"
+	setflag FLAG_INTRO_TO_BP
+# 742 "data/scripts/general_scripts.pory"
 	msgbox ClearRoute1_Text_0
 	return
 
 
 ClearRoute2::
-# 743 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE2_PEARL1
-# 744 "data/scripts/general_scripts.pory"
-	additem ITEM_PEARL
 # 745 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_PEARL1
 # 746 "data/scripts/general_scripts.pory"
-	additem ITEM_BIG_PEARL
+	additem ITEM_PEARL
 # 747 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R2_FISHER
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL
 # 748 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R2_LASS
+	additem ITEM_BIG_PEARL
 # 749 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R2_BLACKBELT
+	defeattrainer TRAINER_R2_FISHER
 # 750 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R2_YOUNGSTER
+	defeattrainer TRAINER_R2_LASS
 # 751 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R2_SCHOOL_KID_F
+	defeattrainer TRAINER_R2_BLACKBELT
 # 752 "data/scripts/general_scripts.pory"
-	setflag FLAG_ITEM_ROUTE2_X_ATTACK
+	defeattrainer TRAINER_R2_YOUNGSTER
 # 753 "data/scripts/general_scripts.pory"
-	additem ITEM_X_ATTACK
+	defeattrainer TRAINER_R2_SCHOOL_KID_F
 # 754 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setflag FLAG_ITEM_ROUTE2_X_ATTACK
 # 755 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_X_ATTACK
 # 756 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_CHERI, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
 # 757 "data/scripts/general_scripts.pory"
-	additem ITEM_ORAN_BERRY, 2
+	setberrytree BERRY_TREE_ROUTE_2_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 758 "data/scripts/general_scripts.pory"
-	additem ITEM_CHERI_BERRY, 2
+	setberrytree BERRY_TREE_ROUTE_2_CHERI, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 # 759 "data/scripts/general_scripts.pory"
-	additem ITEM_PECHA_BERRY, 2
+	additem ITEM_ORAN_BERRY, 2
 # 760 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL
+	additem ITEM_CHERI_BERRY, 2
 # 761 "data/scripts/general_scripts.pory"
-	additem ITEM_GREAT_BALL
+	additem ITEM_PECHA_BERRY, 2
 # 762 "data/scripts/general_scripts.pory"
-	setflag FLAG_ITEM_ROUTE2_REVIVE
+	setflag FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL
 # 763 "data/scripts/general_scripts.pory"
-	additem ITEM_REVIVE
+	additem ITEM_GREAT_BALL
 # 764 "data/scripts/general_scripts.pory"
-	trystrangeseed
+	setflag FLAG_ITEM_ROUTE2_REVIVE
 # 765 "data/scripts/general_scripts.pory"
+	additem ITEM_REVIVE
+# 766 "data/scripts/general_scripts.pory"
+	trystrangeseed
+# 767 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute2_2
 ClearRoute2_1:
-# 768 "data/scripts/general_scripts.pory"
+# 770 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 769 "data/scripts/general_scripts.pory"
+# 771 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute2_5
 ClearRoute2_4:
-# 772 "data/scripts/general_scripts.pory"
+# 774 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 773 "data/scripts/general_scripts.pory"
+# 775 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute2_8
 ClearRoute2_7:
 	return
 
 ClearRoute2_2:
-# 766 "data/scripts/general_scripts.pory"
+# 768 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute2_1
 
 ClearRoute2_5:
-# 770 "data/scripts/general_scripts.pory"
+# 772 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute2_4
 
 ClearRoute2_8:
-# 774 "data/scripts/general_scripts.pory"
+# 776 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute2_7
 
 
 ClearWindyWoods::
-# 779 "data/scripts/general_scripts.pory"
-	setflag FLAG_ITEM_WW_PARLYZ
-# 780 "data/scripts/general_scripts.pory"
-	additem ITEM_PARLYZ_HEAL
 # 781 "data/scripts/general_scripts.pory"
-	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
+	setflag FLAG_ITEM_WW_PARLYZ
 # 782 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_BUGCATCHER
+	additem ITEM_PARLYZ_HEAL
 # 783 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_LADY
+	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
 # 784 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_BUGCATCHER_2
+	defeattrainer TRAINER_WW_BUGCATCHER
 # 785 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_CAMPER
+	defeattrainer TRAINER_WW_LADY
 # 786 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_LASS
+	defeattrainer TRAINER_WW_BUGCATCHER_2
 # 787 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_YOUNGSTER
+	defeattrainer TRAINER_WW_CAMPER
 # 788 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WW_ACE_TRAINER
+	defeattrainer TRAINER_WW_LASS
 # 789 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SHELLY_SEAFLOOR_CAVERN
+	defeattrainer TRAINER_WW_YOUNGSTER
 # 790 "data/scripts/general_scripts.pory"
-	setflag FLAG_WW_COOLTRAINERREWARD
+	defeattrainer TRAINER_WW_ACE_TRAINER
 # 791 "data/scripts/general_scripts.pory"
-	switch VAR_STARTER_MON
+	defeattrainer TRAINER_SHELLY_SEAFLOOR_CAVERN
 # 792 "data/scripts/general_scripts.pory"
-	case SPECIES_ROWLET, ClearWindyWoods_3
+	setflag FLAG_WW_COOLTRAINERREWARD
+# 793 "data/scripts/general_scripts.pory"
+	switch VAR_STARTER_MON
 # 794 "data/scripts/general_scripts.pory"
-	case SPECIES_TORCHIC, ClearWindyWoods_4
+	case SPECIES_ROWLET, ClearWindyWoods_3
 # 796 "data/scripts/general_scripts.pory"
+	case SPECIES_TORCHIC, ClearWindyWoods_4
+# 798 "data/scripts/general_scripts.pory"
 	case SPECIES_PIPLUP, ClearWindyWoods_5
 ClearWindyWoods_1:
-# 799 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_WINDY_WOODS
-# 800 "data/scripts/general_scripts.pory"
-	setflag FLAG_GLADE_PUZZLE
 # 801 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_LOST_GLADE
+	setflag FLAG_LANDMARK_WINDY_WOODS
 # 802 "data/scripts/general_scripts.pory"
+	setflag FLAG_GLADE_PUZZLE
+# 803 "data/scripts/general_scripts.pory"
+	setflag FLAG_LANDMARK_LOST_GLADE
+# 804 "data/scripts/general_scripts.pory"
 	addbp 10
 	return
 
 ClearWindyWoods_3:
-# 793 "data/scripts/general_scripts.pory"
+# 795 "data/scripts/general_scripts.pory"
 	additem ITEM_MIRACLE_SEED
 	goto ClearWindyWoods_1
 
 ClearWindyWoods_4:
-# 795 "data/scripts/general_scripts.pory"
+# 797 "data/scripts/general_scripts.pory"
 	additem ITEM_CHARCOAL
 	goto ClearWindyWoods_1
 
 ClearWindyWoods_5:
-# 797 "data/scripts/general_scripts.pory"
+# 799 "data/scripts/general_scripts.pory"
 	additem ITEM_MYSTIC_WATER
 	goto ClearWindyWoods_1
 
 
 ClearCoralgrove::
-# 806 "data/scripts/general_scripts.pory"
-	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
-# 807 "data/scripts/general_scripts.pory"
-	setflag FLAG_VISITED_CORALGROVE_CITY
 # 808 "data/scripts/general_scripts.pory"
-	setflag FLAG_0x267_CG_HIDEGHOST
+	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 # 809 "data/scripts/general_scripts.pory"
-	setflag FLAG_CORALGROVE_CUTSCENE
+	setflag FLAG_VISITED_CORALGROVE_CITY
 # 810 "data/scripts/general_scripts.pory"
-	clearflag FLAG_OBTAINED_PIDGEOTITE
+	setflag FLAG_0x267_CG_HIDEGHOST
 # 811 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY
+	setflag FLAG_CORALGROVE_CUTSCENE
 # 812 "data/scripts/general_scripts.pory"
-	additem ITEM_RARE_CANDY
+	clearflag FLAG_OBTAINED_PIDGEOTITE
 # 813 "data/scripts/general_scripts.pory"
-	setflag FLAG_CORAL_GREATBALL
+	setflag FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY
 # 814 "data/scripts/general_scripts.pory"
-	additem ITEM_GREAT_BALL
+	additem ITEM_RARE_CANDY
 # 815 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SCHOOLHALL_1
+	setflag FLAG_CORAL_GREATBALL
 # 816 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SCHOOLHALL_2
+	additem ITEM_GREAT_BALL
 # 817 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SCHOOLHALL_3
+	defeattrainer TRAINER_SCHOOLHALL_1
 # 818 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SCHOOLHALL_4
+	defeattrainer TRAINER_SCHOOLHALL_2
 # 819 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_FALSE_SWIPE
+	defeattrainer TRAINER_SCHOOLHALL_3
 # 820 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_CHIP
+	defeattrainer TRAINER_SCHOOLHALL_4
 # 821 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_FOSTER
+	additem ITEM_TM_FALSE_SWIPE
 # 822 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DUSTY_2
+	defeattrainer TRAINER_CHIP
 # 823 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DUSTY_3
+	defeattrainer TRAINER_FOSTER
 # 824 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DUSTY_4
+	defeattrainer TRAINER_DUSTY_2
 # 825 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DUSTY_5
+	defeattrainer TRAINER_DUSTY_3
 # 826 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_LEADER_AARON
+	defeattrainer TRAINER_DUSTY_4
 # 827 "data/scripts/general_scripts.pory"
-	setflag FLAG_BADGE01_GET
+	defeattrainer TRAINER_DUSTY_5
 # 828 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_LEADER_AARON
+# 829 "data/scripts/general_scripts.pory"
+	setflag FLAG_BADGE01_GET
+# 830 "data/scripts/general_scripts.pory"
 	additem ITEM_TM_U_TURN
 	checkplayergender
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq ClearCoralgrove_2
-# 833 "data/scripts/general_scripts.pory"
+# 835 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 ClearCoralgrove_1:
-# 835 "data/scripts/general_scripts.pory"
+# 837 "data/scripts/general_scripts.pory"
 	msgbox ClearCoralgrove_Text_0, MSGBOX_YESNO
-# 836 "data/scripts/general_scripts.pory"
+# 838 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq ClearCoralgrove_6
-# 840 "data/scripts/general_scripts.pory"
+# 842 "data/scripts/general_scripts.pory"
 	setflag FLAG_RIVAL_HARBOR_ANGRY
 ClearCoralgrove_5:
-# 842 "data/scripts/general_scripts.pory"
-	setflag FLAG_DEFEATED_RIVAL_HARBOR
-# 843 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_REST
 # 844 "data/scripts/general_scripts.pory"
-	additem ITEM_OLD_ROD
+	setflag FLAG_DEFEATED_RIVAL_HARBOR
 # 845 "data/scripts/general_scripts.pory"
-	setflag FLAG_HARBOR_GREATBALL
+	additem ITEM_TM_REST
 # 846 "data/scripts/general_scripts.pory"
-	additem ITEM_GREAT_BALL
+	additem ITEM_OLD_ROD
 # 847 "data/scripts/general_scripts.pory"
-	setflag FLAG_HARBOR_PEARL
+	setflag FLAG_HARBOR_GREATBALL
 # 848 "data/scripts/general_scripts.pory"
+	additem ITEM_GREAT_BALL
+# 849 "data/scripts/general_scripts.pory"
+	setflag FLAG_HARBOR_PEARL
+# 850 "data/scripts/general_scripts.pory"
 	additem ITEM_PEARL
 	return
 
 ClearCoralgrove_2:
-# 830 "data/scripts/general_scripts.pory"
+# 832 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto ClearCoralgrove_1
 
 ClearCoralgrove_6:
-# 837 "data/scripts/general_scripts.pory"
+# 839 "data/scripts/general_scripts.pory"
 	additem ITEM_ITEMFINDER
 	goto ClearCoralgrove_5
 
 
 ClearAzuretide::
-# 852 "data/scripts/general_scripts.pory"
-	setflag FLAG_VISITED_AZURETIDE
-# 853 "data/scripts/general_scripts.pory"
-	additem ITEM_HONEY, 3
 # 854 "data/scripts/general_scripts.pory"
-	setflag FLAG_AZURETIDE_HONEY
+	setflag FLAG_VISITED_AZURETIDE
 # 855 "data/scripts/general_scripts.pory"
-	additem ITEM_TOWN_MAP
+	additem ITEM_HONEY, 3
 # 856 "data/scripts/general_scripts.pory"
-	setflag FLAG_COASTTOWN_PEARL
+	setflag FLAG_AZURETIDE_HONEY
 # 857 "data/scripts/general_scripts.pory"
-	setflag FLAG_COASTTOWN_REDSHARD
+	additem ITEM_TOWN_MAP
 # 858 "data/scripts/general_scripts.pory"
-	setflag FLAG_COASTTOWN_HEATROCK
+	setflag FLAG_COASTTOWN_PEARL
 # 859 "data/scripts/general_scripts.pory"
-	additem ITEM_PEARL
+	setflag FLAG_COASTTOWN_REDSHARD
 # 860 "data/scripts/general_scripts.pory"
-	additem ITEM_RED_SHARD
+	setflag FLAG_COASTTOWN_HEATROCK
 # 861 "data/scripts/general_scripts.pory"
+	additem ITEM_PEARL
+# 862 "data/scripts/general_scripts.pory"
+	additem ITEM_RED_SHARD
+# 863 "data/scripts/general_scripts.pory"
 	additem ITEM_HEAT_ROCK
 	return
 
 
 ClearRoute4::
-# 865 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
-# 866 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 867 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
 # 868 "data/scripts/general_scripts.pory"
-	additem ITEM_ORAN_BERRY, 2
+	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 869 "data/scripts/general_scripts.pory"
-	additem ITEM_LEPPA_BERRY, 2
+	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 # 870 "data/scripts/general_scripts.pory"
-	additem ITEM_CHERI_BERRY, 2
+	additem ITEM_ORAN_BERRY, 2
 # 871 "data/scripts/general_scripts.pory"
-	trystrangeseed
+	additem ITEM_LEPPA_BERRY, 2
 # 872 "data/scripts/general_scripts.pory"
-	compare VAR_0x8004, 60
-	goto_if_ge ClearRoute4_2
-ClearRoute4_1:
+	additem ITEM_CHERI_BERRY, 2
 # 873 "data/scripts/general_scripts.pory"
 	trystrangeseed
 # 874 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
-	goto_if_ge ClearRoute4_5
-ClearRoute4_4:
+	goto_if_ge ClearRoute4_2
+ClearRoute4_1:
 # 875 "data/scripts/general_scripts.pory"
 	trystrangeseed
 # 876 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
+	goto_if_ge ClearRoute4_5
+ClearRoute4_4:
+# 877 "data/scripts/general_scripts.pory"
+	trystrangeseed
+# 878 "data/scripts/general_scripts.pory"
+	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute4_8
 ClearRoute4_7:
-# 877 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL
-# 878 "data/scripts/general_scripts.pory"
-	additem ITEM_POKE_BALL
 # 879 "data/scripts/general_scripts.pory"
-	setflag FLAG_ITEM_ROUTE3_ANTIDOTE
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL
 # 880 "data/scripts/general_scripts.pory"
-	additem ITEM_ANTIDOTE
+	additem ITEM_POKE_BALL
 # 881 "data/scripts/general_scripts.pory"
-	setflag FLAG_ITEM_ROUTE3_GIGADRAIN
+	setflag FLAG_ITEM_ROUTE3_ANTIDOTE
 # 882 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_GRASS_KNOT
+	additem ITEM_ANTIDOTE
 # 883 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE3_REVIVE
+	setflag FLAG_ITEM_ROUTE3_GIGADRAIN
 # 884 "data/scripts/general_scripts.pory"
-	additem ITEM_REVIVE
+	additem ITEM_TM_GRASS_KNOT
 # 885 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE3_ETHER
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_REVIVE
 # 886 "data/scripts/general_scripts.pory"
-	additem ITEM_ETHER
+	additem ITEM_REVIVE
 # 887 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_ETHER
 # 888 "data/scripts/general_scripts.pory"
-	additem ITEM_SUPER_REPEL
+	additem ITEM_ETHER
 # 889 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_HIKER
+	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
 # 890 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_UNUSED_54_
+	additem ITEM_SUPER_REPEL
 # 891 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_POKEMANIAC
+	defeattrainer TRAINER_R4_HIKER
 # 892 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_BUGCATCHER
+	defeattrainer TRAINER_UNUSED_54_
 # 893 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_TWINS
+	defeattrainer TRAINER_R4_POKEMANIAC
 # 894 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_TRIATHLETE
+	defeattrainer TRAINER_R4_BUGCATCHER
 # 895 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_CAMPER
+	defeattrainer TRAINER_R4_TWINS
 # 896 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_COOL_F
+	defeattrainer TRAINER_R4_TRIATHLETE
 # 897 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_COOL_M
+	defeattrainer TRAINER_R4_CAMPER
 # 898 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_BIRDKEEPER
+	defeattrainer TRAINER_R4_COOL_F
 # 899 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_YOUNGSTER
+	defeattrainer TRAINER_R4_COOL_M
 # 900 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_BIRDKEEPER_2
+	defeattrainer TRAINER_R4_BIRDKEEPER
 # 901 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_DOUBLE_LASS
+	defeattrainer TRAINER_R4_YOUNGSTER
 # 902 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R4_DOUBLE_YOUNGSTER
+	defeattrainer TRAINER_R4_BIRDKEEPER_2
 # 903 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_R4_DOUBLE_LASS
+# 904 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_R4_DOUBLE_YOUNGSTER
+# 905 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_R4_TRIATHLETE_2
 	return
 
 ClearRoute4_2:
-# 872 "data/scripts/general_scripts.pory"
+# 874 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute4_1
 
 ClearRoute4_5:
-# 874 "data/scripts/general_scripts.pory"
+# 876 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute4_4
 
 ClearRoute4_8:
-# 876 "data/scripts/general_scripts.pory"
+# 878 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute4_7
 
 
 ClearRanch::
-# 907 "data/scripts/general_scripts.pory"
-	setflag FLAG_RANCH_EVENT_NPC
-# 908 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_POKE_RANCH
 # 909 "data/scripts/general_scripts.pory"
-	setflag FLAG_RANCH_HELPED
+	setflag FLAG_RANCH_EVENT_NPC
 # 910 "data/scripts/general_scripts.pory"
-	clearflag FLAG_HIDE_RANCH_OWNER
+	setflag FLAG_LANDMARK_POKE_RANCH
 # 911 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDE_VOLKNER_2
+	setflag FLAG_RANCH_HELPED
 # 912 "data/scripts/general_scripts.pory"
-	additem ITEM_HM01
+	clearflag FLAG_HIDE_RANCH_OWNER
 # 913 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDE_VOLKNER_1
+	setflag FLAG_HIDE_VOLKNER_2
 # 914 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_HM_CUT
+	additem ITEM_HM01
 # 915 "data/scripts/general_scripts.pory"
-	setflag FLAG_VOLKNER_HELPED
+	setflag FLAG_HIDE_VOLKNER_1
 # 916 "data/scripts/general_scripts.pory"
-	setflag FLAG_JASMINE_HELPED
+	setflag FLAG_RECEIVED_HM_CUT
 # 917 "data/scripts/general_scripts.pory"
-	setvar VAR_POKERANCH, 1
+	setflag FLAG_VOLKNER_HELPED
 # 918 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_RICKY_4
+	setflag FLAG_JASMINE_HELPED
 # 919 "data/scripts/general_scripts.pory"
+	setvar VAR_POKERANCH, 1
+# 920 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_RICKY_4
+# 921 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_RICKY_5
 	return
 
 
 ClearAldeleaf::
-# 923 "data/scripts/general_scripts.pory"
-	setflag FLAG_VISITED_WIP_CITY1
-# 924 "data/scripts/general_scripts.pory"
-	setflag FLAG_HIDE_AMPHAROS
 # 925 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_VITO
+	setflag FLAG_VISITED_WIP_CITY1
 # 926 "data/scripts/general_scripts.pory"
-	setflag FLAG_SHELL_BELL_RECEIVED
+	setflag FLAG_HIDE_AMPHAROS
 # 927 "data/scripts/general_scripts.pory"
-	additem ITEM_SHELL_BELL
+	defeattrainer TRAINER_VITO
 # 928 "data/scripts/general_scripts.pory"
-	additem ITEM_QUICK_BALL, 1
+	setflag FLAG_SHELL_BELL_RECEIVED
 # 929 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_QUICK_BALL
+	additem ITEM_SHELL_BELL
 # 930 "data/scripts/general_scripts.pory"
-	setflag FLAG_KEY_RETURNED
+	additem ITEM_QUICK_BALL, 1
 # 931 "data/scripts/general_scripts.pory"
-	additem ITEM_BLACK_FLUTE, 1
+	setflag FLAG_ALDELEAF_QUICK_BALL
 # 932 "data/scripts/general_scripts.pory"
-	setflag FLAG_WHITEFLUTE_RECEIVED
+	setflag FLAG_KEY_RETURNED
 # 933 "data/scripts/general_scripts.pory"
-	additem ITEM_LAVA_COOKIE
+	additem ITEM_BLACK_FLUTE, 1
 # 934 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_LAVA_COOKIE
+	setflag FLAG_WHITEFLUTE_RECEIVED
 # 935 "data/scripts/general_scripts.pory"
-	setflag FLAG_TOUCHPOKEBALL
+	additem ITEM_LAVA_COOKIE
 # 936 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_SWITCH1
+	setflag FLAG_RECEIVED_LAVA_COOKIE
 # 937 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_SWITCH2
+	setflag FLAG_TOUCHPOKEBALL
 # 938 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_SWITCH3
+	setflag FLAG_ALDELEAF_SWITCH1
 # 939 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_SWITCH_ALL
+	setflag FLAG_ALDELEAF_SWITCH2
 # 940 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_MUSHROOM2
+	setflag FLAG_ALDELEAF_SWITCH3
 # 941 "data/scripts/general_scripts.pory"
-	additem ITEM_TINY_MUSHROOM
+	setflag FLAG_ALDELEAF_SWITCH_ALL
 # 942 "data/scripts/general_scripts.pory"
-	setflag FLAG_ALDELEAF_LOST_KEY
+	setflag FLAG_ALDELEAF_MUSHROOM2
 # 943 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_PARKER
+	additem ITEM_TINY_MUSHROOM
 # 944 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_GEORGE
+	setflag FLAG_ALDELEAF_LOST_KEY
 # 945 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_BERKE
+	defeattrainer TRAINER_PARKER
 # 946 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_BRAXTON
+	defeattrainer TRAINER_GEORGE
 # 947 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_VINCENT
+	defeattrainer TRAINER_BERKE
 # 948 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_LEROY
+	defeattrainer TRAINER_BRAXTON
 # 949 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WILTON_1
+	defeattrainer TRAINER_VINCENT
 # 950 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_EDGAR
+	defeattrainer TRAINER_LEROY
 # 951 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_ALBERT
+	defeattrainer TRAINER_WILTON_1
 # 952 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SAMUEL
+	defeattrainer TRAINER_EDGAR
 # 953 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_OWEN
+	defeattrainer TRAINER_ALBERT
 # 954 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WILTON_2
+	defeattrainer TRAINER_SAMUEL
 # 955 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WILTON_3
+	defeattrainer TRAINER_OWEN
 # 956 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WILTON_4
+	defeattrainer TRAINER_WILTON_2
 # 957 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WILTON_5
+	defeattrainer TRAINER_WILTON_3
 # 958 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WARREN
+	defeattrainer TRAINER_WILTON_4
 # 959 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_LEADER_VOLKNER
+	defeattrainer TRAINER_WILTON_5
 # 960 "data/scripts/general_scripts.pory"
-	setflag FLAG_DEFEATED_DEWFORD_GYM
+	defeattrainer TRAINER_WARREN
 # 961 "data/scripts/general_scripts.pory"
-	setflag FLAG_BADGE02_GET
+	defeattrainer TRAINER_LEADER_VOLKNER
 # 962 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_CHARGE_BEAM
+	setflag FLAG_DEFEATED_DEWFORD_GYM
 # 963 "data/scripts/general_scripts.pory"
-	setflag FLAG_ANGEREDGUYINALDELEAF
+	setflag FLAG_BADGE02_GET
 # 964 "data/scripts/general_scripts.pory"
+	additem ITEM_TM_CHARGE_BEAM
+# 965 "data/scripts/general_scripts.pory"
+	setflag FLAG_ANGEREDGUYINALDELEAF
+# 966 "data/scripts/general_scripts.pory"
 	msgbox ClearAldeleaf_Text_0
 	return
 
 
 ClearRoute28::
-# 967 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE28_DESPAWN_BROTHER
-# 968 "data/scripts/general_scripts.pory"
-	msgbox ClearRoute28_Text_0, MSGBOX_YESNO
 # 969 "data/scripts/general_scripts.pory"
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
+# 970 "data/scripts/general_scripts.pory"
+	msgbox ClearRoute28_Text_0, MSGBOX_YESNO
+# 971 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq ClearRoute28_2
 ClearRoute28_1:
-# 972 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_SECRET_POWER
-# 973 "data/scripts/general_scripts.pory"
-	additem ITEM_FULL_HEAL
 # 974 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R28_TR1_BUGCATCHER
+	additem ITEM_TM_SECRET_POWER
 # 975 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R28_TR2_HIKER
+	additem ITEM_FULL_HEAL
 # 976 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R28_TR3_NINJABOY
+	defeattrainer TRAINER_R28_TR1_BUGCATCHER
 # 977 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R28_TR4_PSYCHIC
+	defeattrainer TRAINER_R28_TR2_HIKER
 # 978 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE28_TM
+	defeattrainer TRAINER_R28_TR3_NINJABOY
 # 979 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE28_ITEMBALL
+	defeattrainer TRAINER_R28_TR4_PSYCHIC
 # 980 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE28_HIDDENBALL
+	setflag FLAG_ROUTE28_TM
 # 981 "data/scripts/general_scripts.pory"
+	setflag FLAG_ROUTE28_ITEMBALL
+# 982 "data/scripts/general_scripts.pory"
+	setflag FLAG_ROUTE28_HIDDENBALL
+# 983 "data/scripts/general_scripts.pory"
 	additem ITEM_GREAT_BALL
 	return
 
 ClearRoute28_2:
-# 970 "data/scripts/general_scripts.pory"
+# 972 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_BROTHER_4_ROUTE28
 	goto ClearRoute28_1
 
 
 ClearWindplume::
-# 984 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_WINDPLUME_VALLEY
-# 985 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR1_BIRDKEEPER
 # 986 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR2_TRIATH
+	setflag FLAG_LANDMARK_WINDPLUME_VALLEY
 # 987 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR3_BATTLEGIRL
+	defeattrainer TRAINER_WPV_TR1_BIRDKEEPER
 # 988 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR4_CAMPER
+	defeattrainer TRAINER_WPV_TR2_TRIATH
 # 989 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR5_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR3_BATTLEGIRL
 # 990 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR6_MANIAC
+	defeattrainer TRAINER_WPV_TR4_CAMPER
 # 991 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR7_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR5_BIRDKEEPER
 # 992 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR8_NINJABOY
+	defeattrainer TRAINER_WPV_TR6_MANIAC
 # 993 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR9_LASS
+	defeattrainer TRAINER_WPV_TR7_BIRDKEEPER
 # 994 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR10_TRIATH
+	defeattrainer TRAINER_WPV_TR8_NINJABOY
 # 995 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR11_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR9_LASS
 # 996 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR12_BATTLEGIRL
+	defeattrainer TRAINER_WPV_TR10_TRIATH
 # 997 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR13_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TR11_BIRDKEEPER
 # 998 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_WPV_TR14_SKYLA
+	defeattrainer TRAINER_WPV_TR12_BATTLEGIRL
 # 999 "data/scripts/general_scripts.pory"
-	additem ITEM_HM02
+	defeattrainer TRAINER_WPV_TR13_BIRDKEEPER
 # 1000 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_HM_FLY
+	defeattrainer TRAINER_WPV_TR14_SKYLA
 # 1001 "data/scripts/general_scripts.pory"
-	additem ITEM_PRETTY_FEATHER, 6
+	additem ITEM_HM02
 # 1002 "data/scripts/general_scripts.pory"
-	additem ITEM_HYPER_POTION
+	setflag FLAG_RECEIVED_HM_FLY
 # 1003 "data/scripts/general_scripts.pory"
-	additem ITEM_IRON_BALL
+	additem ITEM_PRETTY_FEATHER, 6
 # 1004 "data/scripts/general_scripts.pory"
-	additem ITEM_ELIXIR
+	additem ITEM_HYPER_POTION
 # 1005 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_HYPER_POTION
+	additem ITEM_IRON_BALL
 # 1006 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_FEATHER3
+	additem ITEM_ELIXIR
 # 1007 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_FEATHER1
+	setflag FLAG_WPV_HYPER_POTION
 # 1008 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_FEATHER2
+	setflag FLAG_WPV_FEATHER3
 # 1009 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_FEATHER4
+	setflag FLAG_WPV_FEATHER1
 # 1010 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_IRON_BALL
+	setflag FLAG_WPV_FEATHER2
 # 1011 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_ELIXIR
+	setflag FLAG_WPV_FEATHER4
 # 1012 "data/scripts/general_scripts.pory"
-	setflag FLAG_WPV_FEATHER5
+	setflag FLAG_WPV_IRON_BALL
 # 1013 "data/scripts/general_scripts.pory"
+	setflag FLAG_WPV_ELIXIR
+# 1014 "data/scripts/general_scripts.pory"
+	setflag FLAG_WPV_FEATHER5
+# 1015 "data/scripts/general_scripts.pory"
 	setflag FLAG_WPV_FEATHER6
 	return
 
 
 ClearRoute5::
-# 1017 "data/scripts/general_scripts.pory"
-	setberrytree 31, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
-# 1018 "data/scripts/general_scripts.pory"
-	setberrytree 21, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 1019 "data/scripts/general_scripts.pory"
-	setberrytree 13, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 31, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
 # 1020 "data/scripts/general_scripts.pory"
-	additem ITEM_PECHA_BERRY, 2
+	setberrytree 21, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 1021 "data/scripts/general_scripts.pory"
-	additem ITEM_RAWST_BERRY, 2
+	setberrytree 13, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 # 1022 "data/scripts/general_scripts.pory"
-	additem ITEM_SITRUS_BERRY, 2
+	additem ITEM_PECHA_BERRY, 2
 # 1023 "data/scripts/general_scripts.pory"
-	trystrangeseed
+	additem ITEM_RAWST_BERRY, 2
 # 1024 "data/scripts/general_scripts.pory"
+	additem ITEM_SITRUS_BERRY, 2
+# 1025 "data/scripts/general_scripts.pory"
+	trystrangeseed
+# 1026 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute5_2
 ClearRoute5_1:
-# 1027 "data/scripts/general_scripts.pory"
+# 1029 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1028 "data/scripts/general_scripts.pory"
+# 1030 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute5_5
 ClearRoute5_4:
-# 1031 "data/scripts/general_scripts.pory"
+# 1033 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1032 "data/scripts/general_scripts.pory"
+# 1034 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute5_8
 ClearRoute5_7:
-# 1035 "data/scripts/general_scripts.pory"
-	trystrangeseed
-# 1036 "data/scripts/general_scripts.pory"
-	compare VAR_0x8004, 80
-	goto_if_ge ClearRoute5_11
-ClearRoute5_10:
 # 1037 "data/scripts/general_scripts.pory"
 	trystrangeseed
 # 1038 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
-	goto_if_ge ClearRoute5_14
-ClearRoute5_13:
+	goto_if_ge ClearRoute5_11
+ClearRoute5_10:
 # 1039 "data/scripts/general_scripts.pory"
 	trystrangeseed
 # 1040 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
-	goto_if_ge ClearRoute5_17
-ClearRoute5_16:
+	goto_if_ge ClearRoute5_14
+ClearRoute5_13:
 # 1041 "data/scripts/general_scripts.pory"
 	trystrangeseed
 # 1042 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
+	goto_if_ge ClearRoute5_17
+ClearRoute5_16:
+# 1043 "data/scripts/general_scripts.pory"
+	trystrangeseed
+# 1044 "data/scripts/general_scripts.pory"
+	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute5_20
 ClearRoute5_19:
-# 1043 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_HIDDENITEM1
-# 1044 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_HIDDENITEM2
 # 1045 "data/scripts/general_scripts.pory"
-	additem ITEM_TINY_MUSHROOM, 2
+	setflag FLAG_ROUTE5_HIDDENITEM1
 # 1046 "data/scripts/general_scripts.pory"
-	additem ITEM_SUPER_REPEL
+	setflag FLAG_ROUTE5_HIDDENITEM2
 # 1047 "data/scripts/general_scripts.pory"
-	additem ITEM_GREAT_BALL
+	additem ITEM_TINY_MUSHROOM, 2
 # 1048 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_ROCK_TOMB
+	additem ITEM_SUPER_REPEL
 # 1049 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_ITEM1
+	additem ITEM_GREAT_BALL
 # 1050 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_ITEM2
+	additem ITEM_TM_ROCK_TOMB
 # 1051 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_ITEM3
+	setflag FLAG_ROUTE5_ITEM1
 # 1052 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_HIDDENITEM5
+	setflag FLAG_ROUTE5_ITEM2
 # 1053 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_HIDDENITEM4
+	setflag FLAG_ROUTE5_ITEM3
 # 1054 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE5_HIDDENITEM3
+	setflag FLAG_ROUTE5_HIDDENITEM5
 # 1055 "data/scripts/general_scripts.pory"
-	additem ITEM_MAX_ETHER
+	setflag FLAG_ROUTE5_HIDDENITEM4
 # 1056 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR15_COOLTRAINER
+	setflag FLAG_ROUTE5_HIDDENITEM3
 # 1057 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR1_FISHER
+	additem ITEM_MAX_ETHER
 # 1058 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR2_BEAUTY
+	defeattrainer TRAINER_R5_TR15_COOLTRAINER
 # 1059 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR3_YOUNGCOUPLE
+	defeattrainer TRAINER_R5_TR1_FISHER
 # 1060 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR4_LASS1
+	defeattrainer TRAINER_R5_TR2_BEAUTY
 # 1061 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR5_POKEFAN_F
+	defeattrainer TRAINER_R5_TR3_YOUNGCOUPLE
 # 1062 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR6_LASS2
+	defeattrainer TRAINER_R5_TR4_LASS1
 # 1063 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR7_GENTLEMAN
+	defeattrainer TRAINER_R5_TR5_POKEFAN_F
 # 1064 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR8_YOUNGSTER
+	defeattrainer TRAINER_R5_TR6_LASS2
 # 1065 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR9_TRIATHLETE
+	defeattrainer TRAINER_R5_TR7_GENTLEMAN
 # 1066 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR10_RICHBOY
+	defeattrainer TRAINER_R5_TR8_YOUNGSTER
 # 1067 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR11_MAN_5
+	defeattrainer TRAINER_R5_TR9_TRIATHLETE
 # 1068 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR12_BUGCATCHER
+	defeattrainer TRAINER_R5_TR10_RICHBOY
 # 1069 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR13_NINJABOY
+	defeattrainer TRAINER_R5_TR11_MAN_5
 # 1070 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R5_TR14_HIKER
+	defeattrainer TRAINER_R5_TR12_BUGCATCHER
 # 1071 "data/scripts/general_scripts.pory"
-	additem ITEM_EVIOLITE
+	defeattrainer TRAINER_R5_TR13_NINJABOY
 # 1072 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_R5_TR14_HIKER
+# 1073 "data/scripts/general_scripts.pory"
+	additem ITEM_EVIOLITE
+# 1074 "data/scripts/general_scripts.pory"
 	addbp 20
 	return
 
 ClearRoute5_2:
-# 1025 "data/scripts/general_scripts.pory"
+# 1027 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_1
 
 ClearRoute5_5:
-# 1029 "data/scripts/general_scripts.pory"
+# 1031 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_4
 
 ClearRoute5_8:
-# 1033 "data/scripts/general_scripts.pory"
+# 1035 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_7
 
 ClearRoute5_11:
-# 1036 "data/scripts/general_scripts.pory"
+# 1038 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_10
 
 ClearRoute5_14:
-# 1038 "data/scripts/general_scripts.pory"
+# 1040 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_13
 
 ClearRoute5_17:
-# 1040 "data/scripts/general_scripts.pory"
+# 1042 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_16
 
 ClearRoute5_20:
-# 1042 "data/scripts/general_scripts.pory"
+# 1044 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute5_19
 
 
 ClearFlowerFields::
-# 1076 "data/scripts/general_scripts.pory"
-	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_INTRODUCED
-# 1077 "data/scripts/general_scripts.pory"
-	setflag FLAG_FLOWERFIELDS_ITEM_1
 # 1078 "data/scripts/general_scripts.pory"
-	setflag FLAG_FLOWERFIELDS_ITEM_2
+	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_INTRODUCED
 # 1079 "data/scripts/general_scripts.pory"
-	setflag FLAG_FLOWERFIELDS_ITEM_3
+	setflag FLAG_FLOWERFIELDS_ITEM_1
 # 1080 "data/scripts/general_scripts.pory"
-	additem ITEM_ORAN_BERRY
+	setflag FLAG_FLOWERFIELDS_ITEM_2
 # 1081 "data/scripts/general_scripts.pory"
-	additem ITEM_HONEY
+	setflag FLAG_FLOWERFIELDS_ITEM_3
 # 1082 "data/scripts/general_scripts.pory"
-	additem ITEM_HONEY
+	additem ITEM_ORAN_BERRY
 # 1083 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_FLOWER_FIELDS
+	additem ITEM_HONEY
 # 1084 "data/scripts/general_scripts.pory"
+	additem ITEM_HONEY
+# 1085 "data/scripts/general_scripts.pory"
+	setflag FLAG_LANDMARK_FLOWER_FIELDS
+# 1086 "data/scripts/general_scripts.pory"
 	additem ITEM_RARE_CANDY
 	return
 
 
 ClearSkyloch::
-# 1088 "data/scripts/general_scripts.pory"
-	setflag FLAG_VISITED_WIP_TOWN2
-# 1089 "data/scripts/general_scripts.pory"
-	additem ITEM_OCCA_BERRY, 1
 # 1090 "data/scripts/general_scripts.pory"
-	setflag FLAG_SKYLOCH_CASTELIACONE
+	setflag FLAG_VISITED_WIP_TOWN2
 # 1091 "data/scripts/general_scripts.pory"
-	additem ITEM_BERRY_JUICE, 1
+	additem ITEM_OCCA_BERRY, 1
 # 1092 "data/scripts/general_scripts.pory"
+	setflag FLAG_SKYLOCH_CASTELIACONE
+# 1093 "data/scripts/general_scripts.pory"
+	additem ITEM_BERRY_JUICE, 1
+# 1094 "data/scripts/general_scripts.pory"
 	setflag FLAG_SKYLOCH_JUICE
 	return
 
 
 ClearRoute6::
-# 1096 "data/scripts/general_scripts.pory"
-	setflag FLAG_DEVON_RESCUED
-# 1097 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R6_TR1_RANGER_M
 # 1098 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R6_TR3_CAMPER_F
+	setflag FLAG_DEVON_RESCUED
 # 1099 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R6_TR5_HIKER
+	defeattrainer TRAINER_R6_TR1_RANGER_M
 # 1100 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R6_TR6_CAMPER_M2
+	defeattrainer TRAINER_R6_TR3_CAMPER_F
 # 1101 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_R6_TR5_HIKER
+# 1102 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_R6_TR6_CAMPER_M2
+# 1103 "data/scripts/general_scripts.pory"
 	defeattrainer TRAINER_R6_TR7_KINDLER
 	return
 
 
 ClearRoute8::
-# 1105 "data/scripts/general_scripts.pory"
-	additem ITEM_GREAT_BALL
-# 1106 "data/scripts/general_scripts.pory"
-	additem ITEM_TM_ROCK_POLISH
 # 1107 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR1_PARASOLLADY
+	additem ITEM_GREAT_BALL
 # 1108 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR2_SRJR
+	additem ITEM_TM_ROCK_POLISH
 # 1109 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR3_AROMALADY
+	defeattrainer TRAINER_R8_TR1_PARASOLLADY
 # 1110 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR4_YOUNGSTER
+	defeattrainer TRAINER_R8_TR2_SRJR
 # 1111 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR5_PSYCHIC_F
+	defeattrainer TRAINER_R8_TR3_AROMALADY
 # 1112 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR6_ENTHUSIAST
+	defeattrainer TRAINER_R8_TR4_YOUNGSTER
 # 1113 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR7_TRIATHLETE_M
+	defeattrainer TRAINER_R8_TR5_PSYCHIC_F
 # 1114 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR8_GENTLEMAN
+	defeattrainer TRAINER_R8_TR6_ENTHUSIAST
 # 1115 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR9_HIKER
+	defeattrainer TRAINER_R8_TR7_TRIATHLETE_M
 # 1116 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR10_OLDCOUPLE
+	defeattrainer TRAINER_R8_TR8_GENTLEMAN
 # 1117 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_R8_TR11_BIRDKEEPER
+	defeattrainer TRAINER_R8_TR9_HIKER
 # 1118 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE8_ITEM1
+	defeattrainer TRAINER_R8_TR10_OLDCOUPLE
 # 1119 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE8_ITEM2
+	defeattrainer TRAINER_R8_TR11_BIRDKEEPER
 # 1120 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE8_ITEM3
+	setflag FLAG_ROUTE8_ITEM1
 # 1121 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE8_ITEM5
+	setflag FLAG_ROUTE8_ITEM2
 # 1122 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE8_ITEM6
+	setflag FLAG_ROUTE8_ITEM3
 # 1123 "data/scripts/general_scripts.pory"
-	additem ITEM_REVIVE
+	setflag FLAG_ROUTE8_ITEM5
 # 1124 "data/scripts/general_scripts.pory"
-	additem ITEM_ORAN_BERRY
+	setflag FLAG_ROUTE8_ITEM6
 # 1125 "data/scripts/general_scripts.pory"
-	additem ITEM_FULL_HEAL
+	additem ITEM_REVIVE
 # 1126 "data/scripts/general_scripts.pory"
-	setflag FLAG_LANDMARK_FLOWER_SHOP
+	additem ITEM_ORAN_BERRY
 # 1127 "data/scripts/general_scripts.pory"
-	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
+	additem ITEM_FULL_HEAL
 # 1128 "data/scripts/general_scripts.pory"
-	additem ITEM_WAILMER_PAIL
+	setflag FLAG_LANDMARK_FLOWER_SHOP
 # 1129 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_WAILMER_PAIL
+	setflag FLAG_MET_PRETTY_PETAL_SHOP_OWNER
 # 1130 "data/scripts/general_scripts.pory"
-	setberrytree 15, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	additem ITEM_WAILMER_PAIL
 # 1131 "data/scripts/general_scripts.pory"
-	setberrytree 22, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setflag FLAG_RECEIVED_WAILMER_PAIL
 # 1132 "data/scripts/general_scripts.pory"
-	setberrytree 24, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 15, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
 # 1133 "data/scripts/general_scripts.pory"
-	setberrytree 33, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 22, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
 # 1134 "data/scripts/general_scripts.pory"
-	additem ITEM_POMEG_BERRY, 2
+	setberrytree 24, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 # 1135 "data/scripts/general_scripts.pory"
-	additem ITEM_RAWST_BERRY, 2
+	setberrytree 33, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
 # 1136 "data/scripts/general_scripts.pory"
-	additem ITEM_PECHA_BERRY, 2
+	additem ITEM_POMEG_BERRY, 2
 # 1137 "data/scripts/general_scripts.pory"
-	additem ITEM_SITRUS_BERRY, 2
+	additem ITEM_RAWST_BERRY, 2
 # 1138 "data/scripts/general_scripts.pory"
-	trystrangeseed
+	additem ITEM_PECHA_BERRY, 2
 # 1139 "data/scripts/general_scripts.pory"
+	additem ITEM_SITRUS_BERRY, 2
+# 1140 "data/scripts/general_scripts.pory"
+	trystrangeseed
+# 1141 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute8_2
 ClearRoute8_1:
-# 1142 "data/scripts/general_scripts.pory"
+# 1144 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1143 "data/scripts/general_scripts.pory"
+# 1145 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute8_5
 ClearRoute8_4:
-# 1146 "data/scripts/general_scripts.pory"
+# 1148 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1147 "data/scripts/general_scripts.pory"
+# 1149 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute8_8
 ClearRoute8_7:
-# 1150 "data/scripts/general_scripts.pory"
+# 1152 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1151 "data/scripts/general_scripts.pory"
+# 1153 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge ClearRoute8_11
 ClearRoute8_10:
-# 1154 "data/scripts/general_scripts.pory"
+# 1156 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1155 "data/scripts/general_scripts.pory"
+# 1157 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_14
 ClearRoute8_13:
-# 1158 "data/scripts/general_scripts.pory"
+# 1160 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1159 "data/scripts/general_scripts.pory"
+# 1161 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_17
 ClearRoute8_16:
-# 1163 "data/scripts/general_scripts.pory"
+# 1165 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1164 "data/scripts/general_scripts.pory"
+# 1166 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_20
 ClearRoute8_19:
-# 1168 "data/scripts/general_scripts.pory"
+# 1170 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1169 "data/scripts/general_scripts.pory"
+# 1171 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_23
 ClearRoute8_22:
-# 1173 "data/scripts/general_scripts.pory"
+# 1175 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1174 "data/scripts/general_scripts.pory"
+# 1176 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_26
 ClearRoute8_25:
-# 1178 "data/scripts/general_scripts.pory"
+# 1180 "data/scripts/general_scripts.pory"
 	trystrangeseed
-# 1179 "data/scripts/general_scripts.pory"
+# 1181 "data/scripts/general_scripts.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge ClearRoute8_29
 ClearRoute8_28:
 	return
 
 ClearRoute8_2:
-# 1140 "data/scripts/general_scripts.pory"
+# 1142 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_1
 
 ClearRoute8_5:
-# 1144 "data/scripts/general_scripts.pory"
+# 1146 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_4
 
 ClearRoute8_8:
-# 1148 "data/scripts/general_scripts.pory"
+# 1150 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_7
 
 ClearRoute8_11:
-# 1152 "data/scripts/general_scripts.pory"
+# 1154 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_10
 
 ClearRoute8_14:
-# 1156 "data/scripts/general_scripts.pory"
+# 1158 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_13
 
 ClearRoute8_17:
-# 1160 "data/scripts/general_scripts.pory"
+# 1162 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_16
 
 ClearRoute8_20:
-# 1165 "data/scripts/general_scripts.pory"
+# 1167 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_19
 
 ClearRoute8_23:
-# 1170 "data/scripts/general_scripts.pory"
+# 1172 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_22
 
 ClearRoute8_26:
-# 1175 "data/scripts/general_scripts.pory"
+# 1177 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_25
 
 ClearRoute8_29:
-# 1180 "data/scripts/general_scripts.pory"
+# 1182 "data/scripts/general_scripts.pory"
 	additem ITEM_STRANGE_SEED
 	goto ClearRoute8_28
 
 
 ClearShoreslate::
-# 1185 "data/scripts/general_scripts.pory"
-	additem ITEM_SUPER_POTION
-# 1186 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_SHORESLATE_POTION
 # 1187 "data/scripts/general_scripts.pory"
-	setrespawn HEAL_LOCATION_SHORESLATE_CITY
-# 1188 "data/scripts/general_scripts.pory"
-	setflag FLAG_VISITED_SHORESLATE
-# 1189 "data/scripts/general_scripts.pory"
-	setflag FLAG_ROUTE28_DESPAWN_BROTHER
-# 1190 "data/scripts/general_scripts.pory"
-	additem ITEM_AIR_BALLOON
-# 1191 "data/scripts/general_scripts.pory"
-	setflag FLAG_GIVEN_CASTELIATOGIRL
-# 1192 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_SHORESLATE_ROCKET
-# 1193 "data/scripts/general_scripts.pory"
-	giveitem ITEM_GO_GOGGLES
-# 1194 "data/scripts/general_scripts.pory"
-	setvar VAR_DESERT_BYPASS, 1
-# 1195 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC1F_ROCKET_1
-# 1196 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC1F_ROCKET_2
-# 1197 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_1
-# 1198 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_2
-# 1199 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_3
-# 1200 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_4
-# 1201 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_1
-# 1202 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_2
-# 1203 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_3
-# 1204 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_4
-# 1205 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_5
-# 1206 "data/scripts/general_scripts.pory"
-	defeattrainer TRAINER_DC3F_ROCKET_1
-# 1207 "data/scripts/general_scripts.pory"
 	additem ITEM_SUPER_POTION
+# 1188 "data/scripts/general_scripts.pory"
+	setflag FLAG_RECEIVED_SHORESLATE_POTION
+# 1189 "data/scripts/general_scripts.pory"
+	setrespawn HEAL_LOCATION_SHORESLATE_CITY
+# 1190 "data/scripts/general_scripts.pory"
+	setflag FLAG_VISITED_SHORESLATE
+# 1191 "data/scripts/general_scripts.pory"
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
+# 1192 "data/scripts/general_scripts.pory"
+	additem ITEM_AIR_BALLOON
+# 1193 "data/scripts/general_scripts.pory"
+	setflag FLAG_GIVEN_CASTELIATOGIRL
+# 1194 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_SHORESLATE_ROCKET
+# 1195 "data/scripts/general_scripts.pory"
+	giveitem ITEM_GO_GOGGLES
+# 1196 "data/scripts/general_scripts.pory"
+	setvar VAR_DESERT_BYPASS, 1
+# 1197 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC1F_ROCKET_1
+# 1198 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC1F_ROCKET_2
+# 1199 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC_BASEROCKET_1
+# 1200 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC_BASEROCKET_2
+# 1201 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC_BASEROCKET_3
+# 1202 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC_BASEROCKET_4
+# 1203 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_1
+# 1204 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_2
+# 1205 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_3
+# 1206 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_4
+# 1207 "data/scripts/general_scripts.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_5
 # 1208 "data/scripts/general_scripts.pory"
-	setflag FLAG_BASEMENT_SUPERPOTION
+	defeattrainer TRAINER_DC3F_ROCKET_1
 # 1209 "data/scripts/general_scripts.pory"
-	additem ITEM_QUICK_BALL
+	additem ITEM_SUPER_POTION
 # 1210 "data/scripts/general_scripts.pory"
-	setflag FLAG_DEVONCORP_BASEMENT_BALL
+	setflag FLAG_BASEMENT_SUPERPOTION
 # 1211 "data/scripts/general_scripts.pory"
-	setflag FLAG_DEVON_UNDER_ATTACK
+	additem ITEM_QUICK_BALL
 # 1212 "data/scripts/general_scripts.pory"
-	setflag FLAG_HELPED_DEVON_CORP
+	setflag FLAG_DEVONCORP_BASEMENT_BALL
 # 1213 "data/scripts/general_scripts.pory"
-	clearflag FLAG_HIDE_SHORESLATE_BOAT
+	setflag FLAG_DEVON_UNDER_ATTACK
 # 1214 "data/scripts/general_scripts.pory"
-	additem ITEM_HM05
+	setflag FLAG_HELPED_DEVON_CORP
 # 1215 "data/scripts/general_scripts.pory"
-	setflag FLAG_RECEIVED_BIKE
+	clearflag FLAG_HIDE_SHORESLATE_BOAT
 # 1216 "data/scripts/general_scripts.pory"
+	additem ITEM_HM05
+# 1217 "data/scripts/general_scripts.pory"
+	setflag FLAG_RECEIVED_BIKE
+# 1218 "data/scripts/general_scripts.pory"
 	additem ITEM_ACRO_BIKE
 	return
 
 
 Pearlwood_Debug::
-# 1221 "data/scripts/general_scripts.pory"
+# 1223 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_BADGE01_GET, Pearlwood_Debug_2
-# 1227 "data/scripts/general_scripts.pory"
+# 1229 "data/scripts/general_scripts.pory"
 	goto_if_unset FLAG_SYS_POKEDEX_GET, Pearlwood_Debug_5
-# 1232 "data/scripts/general_scripts.pory"
-	msgbox Pearlwood_Debug_Text_2
-# 1233 "data/scripts/general_scripts.pory"
-	call SkipToShoreslate
 # 1234 "data/scripts/general_scripts.pory"
-	msgbox Pearlwood_Debug_Text_3, MSGBOX_YESNO
+	msgbox Pearlwood_Debug_Text_2
 # 1235 "data/scripts/general_scripts.pory"
+	call SkipToShoreslate
+# 1236 "data/scripts/general_scripts.pory"
+	msgbox Pearlwood_Debug_Text_3, MSGBOX_YESNO
+# 1237 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Pearlwood_Debug_8
-# 1241 "data/scripts/general_scripts.pory"
+# 1243 "data/scripts/general_scripts.pory"
 	msgbox Pearlwood_Debug_Text_4
-# 1242 "data/scripts/general_scripts.pory"
+# 1244 "data/scripts/general_scripts.pory"
 	removeobject 7
 Pearlwood_Debug_7:
-# 1244 "data/scripts/general_scripts.pory"
+# 1246 "data/scripts/general_scripts.pory"
 	release
 	end
 
 Pearlwood_Debug_2:
-# 1222 "data/scripts/general_scripts.pory"
-	msgbox Pearlwood_Debug_Text_0
-# 1223 "data/scripts/general_scripts.pory"
-	removeobject 7
 # 1224 "data/scripts/general_scripts.pory"
+	msgbox Pearlwood_Debug_Text_0
+# 1225 "data/scripts/general_scripts.pory"
+	removeobject 7
+# 1226 "data/scripts/general_scripts.pory"
 	release
 	end
 
 Pearlwood_Debug_5:
-# 1228 "data/scripts/general_scripts.pory"
+# 1230 "data/scripts/general_scripts.pory"
 	msgbox Pearlwood_Debug_Text_1
-# 1229 "data/scripts/general_scripts.pory"
+# 1231 "data/scripts/general_scripts.pory"
 	release
 	end
 
 Pearlwood_Debug_8:
-# 1236 "data/scripts/general_scripts.pory"
-	setflag FLAG_OPENED_MAP_FROM_SIGN
-# 1237 "data/scripts/general_scripts.pory"
-	fadescreen FADE_TO_BLACK
 # 1238 "data/scripts/general_scripts.pory"
+	setflag FLAG_OPENED_MAP_FROM_SIGN
+# 1239 "data/scripts/general_scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 1240 "data/scripts/general_scripts.pory"
 	callnative OpenFlyMapFromSign
 	goto Pearlwood_Debug_7
 
@@ -2300,44 +2302,52 @@ Debug_Script_2_Text_3:
 # 546 "data/scripts/general_scripts.pory"
 	.string "Setting time to permanent night.$"
 
+Debug_Script_3_Text_0:
+# 554 "data/scripts/general_scripts.pory"
+	.string "{JPN}おはこんハロチャオ$"
+
+Debug_Script_3_Text_1:
+# 555 "data/scripts/general_scripts.pory"
+	.string "{PAL_CHANGE COLOR_1 RGB_RED RGB_GREEN}{PAL_CHANGE COLOR_2 RGB_BLUE RGB_PURPLE}{PAL_CHANGE COLOR_3 RGB_CYAN RGB_MAGENTA} Test {CUSTOM COLOR_1}Test {CUSTOM COLOR_2}Test {CUSTOM COLOR_3}Test$"
+
 Debug_Script_81_Text_0:
-# 583 "data/scripts/general_scripts.pory"
+# 585 "data/scripts/general_scripts.pory"
 	.string "I'm sorry, but that's not a code\nI recognize.$"
 
 ClearRoute1_Text_0:
-# 740 "data/scripts/general_scripts.pory"
+# 742 "data/scripts/general_scripts.pory"
 	.string "Obtained Exp. Share.\nDon't forget to turn it on!$"
 
 ClearCoralgrove_Text_0:
-# 835 "data/scripts/general_scripts.pory"
+# 837 "data/scripts/general_scripts.pory"
 	.string "Was {RIVAL} defeated in\nCoralgrove Harbor?$"
 
 ClearAldeleaf_Text_0:
-# 964 "data/scripts/general_scripts.pory"
+# 966 "data/scripts/general_scripts.pory"
 	.string "Aldeleaf City has been cleared, but\nthe events with Mimikyu and Sudowoodo\lare still intact.$"
 
 ClearRoute28_Text_0:
-# 968 "data/scripts/general_scripts.pory"
+# 970 "data/scripts/general_scripts.pory"
 	.string "Has brother been defeated on the\nroute north of Aldeleaf City?$"
 
 Pearlwood_Debug_Text_0:
-# 1222 "data/scripts/general_scripts.pory"
+# 1224 "data/scripts/general_scripts.pory"
 	.string "Oops, I should no longer be here.\pBye!$"
 
 Pearlwood_Debug_Text_1:
-# 1228 "data/scripts/general_scripts.pory"
+# 1230 "data/scripts/general_scripts.pory"
 	.string "Come back after obtaining\nthe Pokédex.$"
 
 Pearlwood_Debug_Text_2:
-# 1232 "data/scripts/general_scripts.pory"
+# 1234 "data/scripts/general_scripts.pory"
 	.string "Hello, I am here to help you skip\na bunch of stuff you've already done.$"
 
 Pearlwood_Debug_Text_3:
-# 1234 "data/scripts/general_scripts.pory"
+# 1236 "data/scripts/general_scripts.pory"
 	.string "All items, trainers, and story events\nup to Shoreslate have been completed.\pYou will have to catch your own\nPokémon though.\pWould you like me to fly you\nsomewhere?$"
 
 Pearlwood_Debug_Text_4:
-# 1241 "data/scripts/general_scripts.pory"
+# 1243 "data/scripts/general_scripts.pory"
 	.string "Okay then.\nBye!$"
 
 FollowerSpottedAnItemNearby_Text::
@@ -2523,7 +2533,7 @@ SceneAltered::
 	.string "altered scene?$"
 
 LevelSetIntro::
-# 593 "data/scripts/general_scripts.pory"
+# 595 "data/scripts/general_scripts.pory"
 	.string "This option will set the level of your\n"
 	.string "entire team to the specified level.\p"
 	.string "This is meant for testing purposes so\n"
@@ -2536,23 +2546,23 @@ LevelSetIntro::
 	.string "EVs earned will remain unchanged.$"
 
 WhichLevelToSet::
-# 604 "data/scripts/general_scripts.pory"
+# 606 "data/scripts/general_scripts.pory"
 	.string "Which level would you like to set\n"
 	.string "your team?$"
 
 ThisIsForTesting::
-# 650 "data/scripts/general_scripts.pory"
+# 652 "data/scripts/general_scripts.pory"
 	.string "Hi. I'm here to help testing\n"
 	.string "the partner AI.$"
 
 ResetAdamantTower_YesNo::
-# 654 "data/scripts/general_scripts.pory"
+# 656 "data/scripts/general_scripts.pory"
 	.string "Hi. I'm here to help testing\n"
 	.string "the partner AI.\p"
 	.string "Would you like to reset the tower?$"
 
 ResetAdamantTower_ResetTeam::
-# 659 "data/scripts/general_scripts.pory"
+# 661 "data/scripts/general_scripts.pory"
 	.string "Tower progress has been reset.\p"
 	.string "This could break saves, so I've\n"
 	.string "disabled saving for the duration\l"
@@ -2566,17 +2576,17 @@ ResetAdamantTower_ResetTeam::
 	.string "to lvl 38?$"
 
 PartyHasBeenReset::
-# 672 "data/scripts/general_scripts.pory"
+# 674 "data/scripts/general_scripts.pory"
 	.string "Team has been set to lvl 38.$"
 
 EndOfBeta::
-# 686 "data/scripts/general_scripts.pory"
+# 688 "data/scripts/general_scripts.pory"
 	.string "This is currently the end of beta.\p"
 	.string "In the meanwhile, why don't you\n"
 	.string "try exploring some other areas?$"
 
 EndOfBeta2::
-# 706 "data/scripts/general_scripts.pory"
+# 708 "data/scripts/general_scripts.pory"
 	.string "This is currently the end of beta.\p"
 	.string "In the meanwhile, why don't you\n"
 	.string "try exploring some other areas?$"

@@ -1183,6 +1183,19 @@ static u16 RenderText(struct TextPrinter *textPrinter)
             textPrinter->printerTemplate.currentChar++;
             switch (currChar)
             {
+            case EXT_CTRL_CODE_PAL_CHANGE:
+                u8 index = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+
+                u16 fgColor = textPrinter->printerTemplate.currentChar[0] | (textPrinter->printerTemplate.currentChar[1] << 8);
+                textPrinter->printerTemplate.currentChar += 2;
+
+                u16 shadowColor = textPrinter->printerTemplate.currentChar[0] | (textPrinter->printerTemplate.currentChar[1] << 8);
+                textPrinter->printerTemplate.currentChar += 2;
+
+                FillPalette(fgColor, BG_PLTT_ID(15) + index, PLTT_SIZEOF(1));
+                FillPalette(shadowColor, BG_PLTT_ID(15) + index + 1, PLTT_SIZEOF(1));
+                return RENDER_REPEAT;
             case EXT_CTRL_CODE_COLOR:
                 textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
@@ -1190,6 +1203,12 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_HIGHLIGHT:
                 textPrinter->printerTemplate.bgColor = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.currentChar++;
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                return RENDER_REPEAT;
+            case EXT_CTRL_CODE_CUSTOM:
+                textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.shadowColor = textPrinter->printerTemplate.fgColor + 1;
                 textPrinter->printerTemplate.currentChar++;
                 GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
                 return RENDER_REPEAT;
@@ -1501,6 +1520,7 @@ static u32 UNUSED GetStringWidthFixedWidthFont(const u8 *str, u8 fontId, u8 lett
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
                 ++strPos;
+            case EXT_CTRL_CODE_PAL_CHANGE:
             case EXT_CTRL_CODE_COLOR:
             case EXT_CTRL_CODE_HIGHLIGHT:
             case EXT_CTRL_CODE_SHADOW:
@@ -1655,6 +1675,7 @@ s32 GetStringWidth(u8 fontId, const u8 *str, s16 letterSpacing)
             case EXT_CTRL_CODE_PLAY_BGM:
             case EXT_CTRL_CODE_PLAY_SE:
                 ++str;
+            case EXT_CTRL_CODE_PAL_CHANGE:
             case EXT_CTRL_CODE_COLOR:
             case EXT_CTRL_CODE_HIGHLIGHT:
             case EXT_CTRL_CODE_SHADOW:
@@ -1804,6 +1825,24 @@ u8 RenderTextHandleBold(u8 *pixels, u8 fontId, u8 *str)
                 fgColor = strLocal[strPos++];
                 bgColor = strLocal[strPos++];
                 shadowColor = strLocal[strPos++];
+                GenerateFontHalfRowLookupTable(fgColor, bgColor, shadowColor);
+                continue;
+            case EXT_CTRL_CODE_PAL_CHANGE:
+                u8 index = strLocal[strPos++];
+
+                u16 color1 = strLocal[strPos] | (strLocal[strPos + 1] << 8);
+                strPos += 2;
+
+                u16 color2 = strLocal[strPos] | (strLocal[strPos + 1] << 8);
+                strPos += 2;
+
+                FillPalette(color1, BG_PLTT_ID(15) + index, PLTT_SIZEOF(1));
+                FillPalette(color2, BG_PLTT_ID(15) + index + 1, PLTT_SIZEOF(1));
+                GenerateFontHalfRowLookupTable(fgColor, bgColor, shadowColor);
+                continue;
+            case EXT_CTRL_CODE_CUSTOM:
+                fgColor = strLocal[strPos++];
+                shadowColor = fgColor + 1;
                 GenerateFontHalfRowLookupTable(fgColor, bgColor, shadowColor);
                 continue;
             case EXT_CTRL_CODE_COLOR:

@@ -236,6 +236,8 @@
 #define EXT_CTRL_CODE_PAUSE_MUSIC            0x17
 #define EXT_CTRL_CODE_RESUME_MUSIC           0x18
 #define EXT_CTRL_CODE_SPEAKER                0x19
+#define EXT_CTRL_CODE_PAL_CHANGE             0x20
+#define EXT_CTRL_CODE_CUSTOM                 0x21
 
 #define TEXT_COLOR_TRANSPARENT  0x0
 #define TEXT_COLOR_WHITE        0x1

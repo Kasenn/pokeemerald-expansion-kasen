@@ -716,8 +716,10 @@ u8 GetExtCtrlCodeLength(u8 code)
     static const u8 lengths[] =
     {
         [0]                                    = 1,
+        [EXT_CTRL_CODE_PAL_CHANGE]             = 3,
         [EXT_CTRL_CODE_COLOR]                  = 2,
         [EXT_CTRL_CODE_HIGHLIGHT]              = 2,
+        [EXT_CTRL_CODE_CUSTOM]                 = 2,
         [EXT_CTRL_CODE_SHADOW]                 = 2,
         [EXT_CTRL_CODE_COLOR_HIGHLIGHT_SHADOW] = 4,
         [EXT_CTRL_CODE_PALETTE]                = 2,

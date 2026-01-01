@@ -551,7 +551,9 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    givemon(SPECIES_HERACROSS, 40, move1=MOVE_SPIKES, move2=MOVE_FALSE_SWIPE)
+    msgbox("{JPN}おはこんハロチャオ")
+    msgbox("{PAL_CHANGE COLOR_1 RGB_RED RGB_GREEN}{PAL_CHANGE COLOR_2 RGB_BLUE RGB_PURPLE}{PAL_CHANGE COLOR_3 RGB_CYAN RGB_MAGENTA}
+            Test {CUSTOM COLOR_1}Test {CUSTOM COLOR_2}Test {CUSTOM COLOR_3}Test")
     return
 }
 script Debug_Script_4{

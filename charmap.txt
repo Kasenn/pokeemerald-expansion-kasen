@@ -475,6 +475,8 @@ ENG = FC 16
 PAUSE_MUSIC = FC 17
 RESUME_MUSIC = FC 18
 SPEAKER = FC 19
+PAL_CHANGE = FC 20
+CUSTOM = FC 21
 
 @ Speaker names, the order must be matching with include/constants/speaker_names.h
 NAME_NONE = 00
@@ -1152,3 +1154,18 @@ EMOJI_BIGANGER = F9 FE
 '\l' = FA @ scroll up window text
 '\p' = FB @ new paragraph
 '\n' = FE @ new line
+
+COLOR_1 = 04
+COLOR_2 = 06
+COLOR_3 = 08
+
+RGB_BLACK = 00 00
+RGB_WHITE = FF 7F
+RGB_GRAY = EF 3D
+RGB_RED = 1F 00
+RGB_GREEN = E0 03
+RGB_BLUE = 00 7C
+RGB_PURPLE = 18 60
+RGB_YELLOW = FF 03
+RGB_MAGENTA = 1F 7C
+RGB_CYAN = E0 7F
