@@ -245,7 +245,7 @@ static const struct SpriteFrameImage sPicTable_PechaBerryTree[];
 static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction);
 static void UpdatePlayerDeepSnowDepth(struct ObjectEvent *);
-
+static bool8 IsObjectSteppable(struct ObjectEvent *, s16, s16);
 
 const u8 gReflectionEffectPaletteMap[16] = {
         [PALSLOT_PLAYER]                 = PALSLOT_PLAYER_REFLECTION,
@@ -6663,6 +6663,8 @@ static u8 GetVanillaCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, u8 
 {
     if (IsCoordOutsideObjectEventMovementRange(objectEvent, x, y))
         return COLLISION_OUTSIDE_RANGE;
+    else if (IsObjectSteppable(objectEvent, x, y))
+        return COLLISION_NONE;
     else if (MapGridGetCollisionAt(x, y) || GetMapBorderIdAt(x, y) == -1 || IsMetatileDirectionallyImpassable(objectEvent, x, y, direction))
         return COLLISION_IMPASSABLE;
     else if (objectEvent->trackedByCamera && !CanCameraMoveInDirection(direction))
@@ -10544,6 +10546,30 @@ void ObjectEventUpdateElevation(struct ObjectEvent *objEvent, struct Sprite *spr
         return;
     }
 
+    if (objEvent->isPlayer || objEvent->movementType == MOVEMENT_TYPE_FOLLOW_PLAYER)
+    {
+        s16 x, y;
+        PlayerGetDestCoords(&x, &y);
+        struct ObjectEvent *curObject;
+
+        for (int i = 0; i < OBJECT_EVENTS_COUNT; i++)
+        {
+            curObject = &gObjectEvents[i];
+
+            if (curObject->active
+            && curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER
+            && !curObject->isPlayer
+            && curObject->trainerRange_berryTreeId == 0xFF)
+            {
+                if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y)
+                 || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
+                {
+                    return;
+                }
+            }
+        }
+    }
+
     objEvent->currentElevation = curElevation;
 
     if (curElevation != 0 && curElevation != 15)
@@ -12600,4 +12626,29 @@ bool8 MovementAction_SurfStillRight_Step1(struct ObjectEvent *objectEvent, struc
 u8 GetObjectEventApricornTreeId(u8 objectEventId)
 {
     return gObjectEvents[objectEventId].trainerRange_berryTreeId;
+}
+
+static bool8 IsObjectSteppable(struct ObjectEvent *objectEvent, s16 x, s16 y)
+{
+    u8 i;
+    struct ObjectEvent *curObject;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        curObject = &gObjectEvents[i];
+
+        if (curObject->active
+        && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId])
+        && curObject != objectEvent
+        && !FollowerNPC_IsCollisionExempt(curObject, objectEvent)
+        && curObject->trainerRange_berryTreeId == 0xFF
+        && objectEvent->currentElevation > curObject->currentElevation)
+        {
+            if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
+            {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
 }
