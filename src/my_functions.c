@@ -1071,3 +1071,24 @@ void TestSpotlight(void)
 {
     BeginHardwarePaletteFade((BLDCNT_TGT1_BG3 | BLDCNT_TGT1_BG2 | BLDCNT_TGT1_BG1 | BLDCNT_TGT1_BD | BLDCNT_EFFECT_DARKEN), 0, 0, 16, FALSE);
 }
+
+void FlipInkay(void)
+{
+    struct Pokemon *mon = GetFirstLiveMon();
+    struct ObjectEvent *objectEvent = GetFollowerObject();
+
+    u16 species1 = SPECIES_INKAY;
+    u16 species2 = SPECIES_INKAY_FLIPPED;
+
+    if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_INKAY)
+    {
+        SetMonData(mon, MON_DATA_SPECIES, &species2);
+        FollowerSetGraphics(objectEvent, SPECIES_INKAY_FLIPPED, OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
+    }
+    else if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_INKAY_FLIPPED)
+    {
+        SetMonData(mon, MON_DATA_SPECIES, &species1);
+        FollowerSetGraphics(objectEvent, SPECIES_INKAY, OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
+    }
+    RefreshFollowerGraphics(objectEvent);
+}

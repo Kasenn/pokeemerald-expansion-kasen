@@ -90,6 +90,8 @@ enum MessageCondition
 enum ConditionalMessage
 {
     COND_MSG_CELEBI,
+    COND_MSG_INKAY,
+    COND_MSG_INKAY_FLIPPED,
     COND_MSG_FIRE,
     COND_MSG_EVER_GRANDE,
     COND_MSG_ROUTE_112,

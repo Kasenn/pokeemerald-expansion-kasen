@@ -4883,6 +4883,9 @@ static const struct SpriteFrameImage sPicTable_Slurpuff[] = {
 static const struct SpriteFrameImage sPicTable_Inkay[] = {
     overworld_ascending_frames(gObjectEventPic_Inkay, 4, 4),
 };
+static const struct SpriteFrameImage sPicTable_InkayFlipped[] = {
+    overworld_ascending_frames(gObjectEventPic_InkayFlipped, 4, 4),
+};
 static const struct SpriteFrameImage sPicTable_Malamar[] = {
     overworld_ascending_frames(gObjectEventPic_Malamar, 4, 4),
 };

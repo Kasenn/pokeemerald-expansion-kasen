@@ -3591,6 +3591,77 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
         .levelUpLearnset = sInkayLevelUpLearnset,
         .teachableLearnset = sInkayTeachableLearnset,
         .eggMoveLearnset = sInkayEggMoveLearnset,
+        .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MALAMAR, CONDITIONS({IF_IN_MAPSEC, MAPSEC_NEW_MAUVILLE})}),
+    },
+
+    [SPECIES_INKAY_FLIPPED] =
+    {
+        .baseHP        = 53,
+        .baseAttack    = 54,
+        .baseDefense   = 53,
+        .baseSpeed     = 45,
+        .baseSpAttack  = 37,
+        .baseSpDefense = 46,
+        .types = MON_TYPES(TYPE_DARK, TYPE_PSYCHIC),
+        .catchRate = 190,
+        .expYield = 58,
+        .evYield_Attack = 1,
+        .genderRatio = PERCENT_FEMALE(50),
+        .eggCycles = 20,
+        .friendship = STANDARD_FRIENDSHIP,
+        .growthRate = GROWTH_MEDIUM_FAST,
+        .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_WATER_2),
+        .abilities = { ABILITY_CONTRARY, ABILITY_SUCTION_CUPS, ABILITY_INFILTRATOR },
+        .bodyColor = BODY_COLOR_BLUE,
+        .speciesName = _("Inkay"),
+        .cryId = CRY_INKAY,
+        .natDexNum = NATIONAL_DEX_INKAY,
+        .categoryName = _("Revolving"),
+        .height = 4,
+        .weight = 35,
+        .description = COMPOUND_STRING(
+            "It flashes the light-emitting spots on its\n"
+            "body, which drains its opponent's will\n"
+            "to fight. It takes the opportunity to\n"
+            "scuttle away and hide."),
+        .pokemonScale = 491,
+        .pokemonOffset = 12,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_InkayFlipped,
+        .frontPicSize = MON_COORDS_SIZE(48, 48),
+        .frontPicYOffset = 14,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(1, 25),
+            ANIMCMD_FRAME(0, 25),
+            ANIMCMD_FRAME(1, 25),
+            ANIMCMD_FRAME(0, 25),
+        ),
+        .frontAnimId = ANIM_V_SLIDE_WOBBLE,
+        .enemyMonElevation = 14,
+        .backPic = gMonBackPic_InkayFlipped,
+        .backPicSize = MON_COORDS_SIZE(56, 64),
+        .backPicYOffset = 9,
+        .backAnimId = BACK_ANIM_SHRINK_GROW,
+        .palette = gMonPalette_Inkay,
+        .shinyPalette = gMonShinyPalette_Inkay,
+        .iconSprite = gMonIcon_InkayFlipped,
+        .iconPalIndex = 0,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(-1, 11, SHADOW_SIZE_S)
+        FOOTPRINT(Inkay)
+        OVERWORLD(
+            sPicTable_InkayFlipped,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Inkay,
+            gShinyOverworldPalette_Inkay
+        )
+        .levelUpLearnset = sInkayLevelUpLearnset,
+        .teachableLearnset = sInkayTeachableLearnset,
+        .eggMoveLearnset = sInkayEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 30, SPECIES_MALAMAR}),
     },
 

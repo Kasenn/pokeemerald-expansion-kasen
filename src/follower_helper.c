@@ -18,6 +18,9 @@
 static const u8 sCondMsg00[] = _("{STR_VAR_1} danced happily.");
 static const u8 sCondMsg01[] = _("{STR_VAR_1} danced beautifully.");
 static const u8* const sCelebiTexts[] = {sCondMsg00, sCondMsg01, NULL};
+static const u8 sCondMsg00a[] = _("{STR_VAR_1} danced happily, and\nsomehow flipped itself upside-down!");
+static const u8 sCondMsg01a[] = _("{STR_VAR_1} danced beautifully, and\nsomehow flipped itself upside-down!");
+static const u8* const sInkayTexts[] = {sCondMsg00a, sCondMsg01a, NULL};
 static const u8 sCondMsg02[] = _("{STR_VAR_1} emitted fire and shouted.");
 static const u8 sCondMsg03[] = _("{STR_VAR_1} is vigorously producing\nfire!");
 static const u8 sCondMsg04[] = _("{STR_VAR_1} spat fire!");
@@ -88,6 +91,28 @@ const struct FollowerMsgInfoExtended gFollowerConditionalMessages[COND_MSG_COUNT
         .conditions =
         {
             MATCH_SPECIES(SPECIES_CELEBI),
+        },
+    },
+    [COND_MSG_INKAY] =
+    {
+        .text = (u8*)sInkayTexts,
+        .textSpread = 1,
+        .script = EventScript_FollowerDanceInkay,
+        .emotion = FOLLOWER_EMOTION_NEUTRAL,
+        .conditions =
+        {
+            MATCH_SPECIES(SPECIES_INKAY),
+        },
+    },
+    [COND_MSG_INKAY_FLIPPED] =
+    {
+        .text = (u8*)sInkayTexts,
+        .textSpread = 1,
+        .script = EventScript_FollowerDanceInkay,
+        .emotion = FOLLOWER_EMOTION_NEUTRAL,
+        .conditions =
+        {
+            MATCH_SPECIES(SPECIES_INKAY_FLIPPED),
         },
     },
     [COND_MSG_FIRE] =

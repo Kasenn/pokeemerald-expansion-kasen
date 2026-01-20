@@ -1684,8 +1684,9 @@
 #define SPECIES_ZYGARDE_MEGA                            1569
 #define SPECIES_DRAMPA_MEGA                             1570
 #define SPECIES_FALINKS_MEGA                            1571
+#define SPECIES_INKAY_FLIPPED                           1572
 
-#define SPECIES_EGG                                     (SPECIES_FALINKS_MEGA + 1)
+#define SPECIES_EGG                                     (SPECIES_INKAY_FLIPPED + 1)
 
 #define NUM_SPECIES SPECIES_EGG
 

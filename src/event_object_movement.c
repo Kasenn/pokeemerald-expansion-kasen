@@ -217,7 +217,7 @@ static void SetSpriteDataForNormalStep(struct Sprite *, u8, u8);
 static void InitSpriteForFigure8Anim(struct Sprite *);
 static bool8 AnimateSpriteInFigure8(struct Sprite *);
 u8 GetDirectionToFace(s16 x1, s16 y1, s16 x2, s16 y2);
-static void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
+void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
 static void ObjectEventSetGraphics(struct ObjectEvent *, const struct ObjectEventGraphicsInfo *);
 static void SpriteCB_VirtualObject(struct Sprite *);
 static void DoShadowFieldEffect(struct ObjectEvent *);
@@ -2400,7 +2400,7 @@ static u32 LoadDynamicFollowerPalette(u32 species, bool32 shiny, bool32 female)
 }
 
 // Set graphics & sprite for a follower object event by species & shininess.
-static void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female)
+void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female)
 {
     const struct ObjectEventGraphicsInfo *graphicsInfo = SpeciesToGraphicsInfo(species, shiny, female);
     ObjectEventSetGraphics(objEvent, graphicsInfo);
@@ -2418,7 +2418,7 @@ static void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool3
 
 // Like FollowerSetGraphics, but does not recenter sprite on a metatile
 // Intended to be used for mid-movement form changes, etc.
-static void RefreshFollowerGraphics(struct ObjectEvent *objEvent)
+void RefreshFollowerGraphics(struct ObjectEvent *objEvent)
 {
     u32 species = OW_SPECIES(objEvent);
     bool32 shiny = OW_SHINY(objEvent);

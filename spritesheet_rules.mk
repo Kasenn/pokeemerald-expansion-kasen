@@ -3549,6 +3549,9 @@ $(POKEMONGFXDIR)/swirlix/overworld.4bpp: %.4bpp: %.png
 $(POKEMONGFXDIR)/slurpuff/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(POKEMONGFXDIR)/inkay/overworld_flipped.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(POKEMONGFXDIR)/inkay/overworld.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 

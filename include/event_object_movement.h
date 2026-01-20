@@ -271,6 +271,8 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
 bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female);
 const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u32 species, bool32 shiny, bool32 female);
 u16 GetObjectEventFlagIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
+void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
+void RefreshFollowerGraphics(struct ObjectEvent *objEvent);
 
 void MovementType_None(struct Sprite *sprite);
 void MovementType_LookAround(struct Sprite *sprite);

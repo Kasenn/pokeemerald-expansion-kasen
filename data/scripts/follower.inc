@@ -619,6 +619,13 @@ EventScript_FollowerDance::
 	waitmovement 0
 	goto EventScript_FollowerGenericSkipFace
 
+EventScript_FollowerDanceInkay::
+	faceplayer
+	callnative FlipInkay
+	applymovement OBJ_EVENT_ID_FOLLOWER FollowerDance
+	waitmovement 0
+	goto EventScript_FollowerGenericSkipFace
+
 EventScript_FollowerFaceUp::
 	applymovement OBJ_EVENT_ID_FOLLOWER Common_Movement_FaceUp
 	waitmovement OBJ_EVENT_ID_FOLLOWER
