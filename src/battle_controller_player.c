@@ -555,7 +555,7 @@ static void HandleInputChooseAction(u32 battler)
     // {
     //     SwapHpBarsWithHpText();
     // }
-    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(L_BUTTON) && FlagGet(FLAG_ENABLE_DEBUG))
+    else if (DEBUG_BATTLE_MENU == TRUE && JOY_NEW(L_BUTTON) && FlagGet(FLAG_KONAMI_CODE))
     {
         BtlController_EmitTwoReturnValues(battler, B_COMM_TO_ENGINE, B_ACTION_DEBUG, 0);
         BtlController_Complete(battler);

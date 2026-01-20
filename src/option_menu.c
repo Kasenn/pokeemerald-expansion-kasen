@@ -15,6 +15,9 @@
 #include "window.h"
 #include "gba/m4a_internal.h"
 #include "constants/rgb.h"
+#include "constants/songs.h"
+#include "sound.h"
+#include "event_data.h"
 
 #define tMenuSelection data[0]
 #define tTextSpeed data[1]
@@ -24,6 +27,24 @@
 #define tButtonMode data[5]
 #define tWindowFrameType data[6]
 #define tNamingScreenType data[7]
+#define tKonamiTimer data[8]
+#define tKonamiSequence data [9]
+
+enum
+{
+    INPUT_START,
+    UP_1,
+    UP_2,
+    DOWN_1,
+    DOWN_2,
+    LEFT_1,
+    RIGHT_1,
+    LEFT_2,
+    RIGHT_2,
+    B_PRESS,
+    A_PRESS,
+    START_PRESS,
+};
 
 enum
 {
@@ -266,18 +287,85 @@ static void Task_OptionMenuFadeIn(u8 taskId)
         gTasks[taskId].func = Task_OptionMenuProcessInput;
 }
 
+static void ResetKonamiSequence(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    tKonamiTimer = 0;
+    tKonamiSequence = INPUT_START;
+}
+
+#define KONAMI_CODE_FRAMES  30
+
 static void Task_OptionMenuProcessInput(u8 taskId)
 {
+    s16 *data = gTasks[taskId].data;
+
+    DebugPrintf2("timer %d, stage %d", tKonamiTimer, tKonamiSequence);
+
+    if (tKonamiTimer > 0)
+    {
+        tKonamiTimer++;
+        if (tKonamiTimer > KONAMI_CODE_FRAMES + 1)
+            ResetKonamiSequence(taskId);
+    }
+
     if (JOY_NEW(A_BUTTON))
     {
-        gTasks[taskId].func = Task_OptionMenuSave;
+        if (tKonamiSequence == B_PRESS && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else
+        {
+            ResetKonamiSequence(taskId);
+            gTasks[taskId].func = Task_OptionMenuSave;
+        }
     }
     else if (JOY_NEW(B_BUTTON))
     {
-        gTasks[taskId].func = Task_OptionMenuSave;
+        if (tKonamiSequence == RIGHT_2 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else
+        {
+            ResetKonamiSequence(taskId);
+            gTasks[taskId].func = Task_OptionMenuSave;
+        }
+    }
+    else if (JOY_NEW(START_BUTTON))
+    {
+        if (tKonamiSequence == A_PRESS && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 0;
+            tKonamiSequence = INPUT_START;
+            PlaySE(SE_SUCCESS);
+            FlagToggle(FLAG_KONAMI_CODE);
+        }
+        else
+        {
+            ResetKonamiSequence(taskId);
+        }
     }
     else if (JOY_NEW(DPAD_UP))
     {
+        if (tKonamiSequence == INPUT_START)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else if (tKonamiSequence == UP_1 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else
+        {
+            ResetKonamiSequence(taskId);
+        }
         if (gTasks[taskId].tMenuSelection > 0)
             gTasks[taskId].tMenuSelection--;
         else
@@ -286,6 +374,20 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     }
     else if (JOY_NEW(DPAD_DOWN))
     {
+        if (tKonamiSequence == UP_2 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else if (tKonamiSequence == DOWN_1 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+        {
+            tKonamiTimer = 1;
+            tKonamiSequence++;
+        }
+        else
+        {
+            ResetKonamiSequence(taskId);
+        }
         if (gTasks[taskId].tMenuSelection < MENUITEM_CANCEL)
             gTasks[taskId].tMenuSelection++;
         else
@@ -296,65 +398,105 @@ static void Task_OptionMenuProcessInput(u8 taskId)
     {
         u8 previousOption;
 
-        switch (gTasks[taskId].tMenuSelection)
+        if (tKonamiSequence > INPUT_START)
         {
-        case MENUITEM_TEXTSPEED:
-            previousOption = gTasks[taskId].tTextSpeed;
-            gTasks[taskId].tTextSpeed = TextSpeed_ProcessInput(gTasks[taskId].tTextSpeed);
-
-            if (previousOption != gTasks[taskId].tTextSpeed)
-                TextSpeed_DrawChoices(gTasks[taskId].tTextSpeed);
-            break;
-        case MENUITEM_BATTLESCENE:
-            previousOption = gTasks[taskId].tBattleSceneOff;
-            gTasks[taskId].tBattleSceneOff = BattleScene_ProcessInput(gTasks[taskId].tBattleSceneOff);
-
-            if (previousOption != gTasks[taskId].tBattleSceneOff)
-                BattleScene_DrawChoices(gTasks[taskId].tBattleSceneOff);
-            break;
-        case MENUITEM_BATTLESTYLE:
-            previousOption = gTasks[taskId].tBattleStyle;
-            gTasks[taskId].tBattleStyle = BattleStyle_ProcessInput(gTasks[taskId].tBattleStyle);
-
-            if (previousOption != gTasks[taskId].tBattleStyle)
-                BattleStyle_DrawChoices(gTasks[taskId].tBattleStyle);
-            break;
-        case MENUITEM_SOUND:
-            previousOption = gTasks[taskId].tSound;
-            gTasks[taskId].tSound = Sound_ProcessInput(gTasks[taskId].tSound);
-
-            if (previousOption != gTasks[taskId].tSound)
-                Sound_DrawChoices(gTasks[taskId].tSound);
-            break;
-        case MENUITEM_BUTTONMODE:
-            previousOption = gTasks[taskId].tButtonMode;
-            gTasks[taskId].tButtonMode = ButtonMode_ProcessInput(gTasks[taskId].tButtonMode);
-
-            if (previousOption != gTasks[taskId].tButtonMode)
-                ButtonMode_DrawChoices(gTasks[taskId].tButtonMode);
-            break;
-        case MENUITEM_FRAMETYPE:
-            previousOption = gTasks[taskId].tWindowFrameType;
-            gTasks[taskId].tWindowFrameType = FrameType_ProcessInput(gTasks[taskId].tWindowFrameType);
-
-            if (previousOption != gTasks[taskId].tWindowFrameType)
-                FrameType_DrawChoices(gTasks[taskId].tWindowFrameType);
-            break;
-        case MENUITEM_CANCEL:
-            previousOption = gTasks[taskId].tNamingScreenType;
-            gTasks[taskId].tNamingScreenType = BattleStyle_ProcessInput(gTasks[taskId].tNamingScreenType);
-
-            if (previousOption != gTasks[taskId].tNamingScreenType)
-                NamingScreenType_DrawChoices(gTasks[taskId].tNamingScreenType);
-            break;
-        default:
-            return;
+            if (JOY_NEW(DPAD_LEFT))
+            {
+                if (tKonamiSequence == DOWN_2 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+                {
+                    tKonamiTimer = 1;
+                    tKonamiSequence++;
+                }
+                else if (tKonamiSequence == RIGHT_1 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+                {
+                    tKonamiTimer = 1;
+                    tKonamiSequence++;
+                }
+                else
+                {
+                    ResetKonamiSequence(taskId);
+                }
+            }
+            else if (JOY_NEW(DPAD_RIGHT))
+            {
+                if (tKonamiSequence == LEFT_1 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+                {
+                    tKonamiTimer = 1;
+                    tKonamiSequence++;
+                }
+                else if (tKonamiSequence == LEFT_2 && tKonamiTimer <= KONAMI_CODE_FRAMES)
+                {
+                    tKonamiTimer = 1;
+                    tKonamiSequence++;
+                }
+                else
+                {
+                    ResetKonamiSequence(taskId);
+                }
+            }
         }
-
-        if (sArrowPressed)
+        else
         {
-            sArrowPressed = FALSE;
-            CopyWindowToVram(WIN_OPTIONS, COPYWIN_GFX);
+            switch (gTasks[taskId].tMenuSelection)
+            {
+            case MENUITEM_TEXTSPEED:
+                previousOption = gTasks[taskId].tTextSpeed;
+                gTasks[taskId].tTextSpeed = TextSpeed_ProcessInput(gTasks[taskId].tTextSpeed);
+
+                if (previousOption != gTasks[taskId].tTextSpeed)
+                    TextSpeed_DrawChoices(gTasks[taskId].tTextSpeed);
+                break;
+            case MENUITEM_BATTLESCENE:
+                previousOption = gTasks[taskId].tBattleSceneOff;
+                gTasks[taskId].tBattleSceneOff = BattleScene_ProcessInput(gTasks[taskId].tBattleSceneOff);
+
+                if (previousOption != gTasks[taskId].tBattleSceneOff)
+                    BattleScene_DrawChoices(gTasks[taskId].tBattleSceneOff);
+                break;
+            case MENUITEM_BATTLESTYLE:
+                previousOption = gTasks[taskId].tBattleStyle;
+                gTasks[taskId].tBattleStyle = BattleStyle_ProcessInput(gTasks[taskId].tBattleStyle);
+
+                if (previousOption != gTasks[taskId].tBattleStyle)
+                    BattleStyle_DrawChoices(gTasks[taskId].tBattleStyle);
+                break;
+            case MENUITEM_SOUND:
+                previousOption = gTasks[taskId].tSound;
+                gTasks[taskId].tSound = Sound_ProcessInput(gTasks[taskId].tSound);
+
+                if (previousOption != gTasks[taskId].tSound)
+                    Sound_DrawChoices(gTasks[taskId].tSound);
+                break;
+            case MENUITEM_BUTTONMODE:
+                previousOption = gTasks[taskId].tButtonMode;
+                gTasks[taskId].tButtonMode = ButtonMode_ProcessInput(gTasks[taskId].tButtonMode);
+
+                if (previousOption != gTasks[taskId].tButtonMode)
+                    ButtonMode_DrawChoices(gTasks[taskId].tButtonMode);
+                break;
+            case MENUITEM_FRAMETYPE:
+                previousOption = gTasks[taskId].tWindowFrameType;
+                gTasks[taskId].tWindowFrameType = FrameType_ProcessInput(gTasks[taskId].tWindowFrameType);
+
+                if (previousOption != gTasks[taskId].tWindowFrameType)
+                    FrameType_DrawChoices(gTasks[taskId].tWindowFrameType);
+                break;
+            case MENUITEM_CANCEL:
+                previousOption = gTasks[taskId].tNamingScreenType;
+                gTasks[taskId].tNamingScreenType = BattleStyle_ProcessInput(gTasks[taskId].tNamingScreenType);
+
+                if (previousOption != gTasks[taskId].tNamingScreenType)
+                    NamingScreenType_DrawChoices(gTasks[taskId].tNamingScreenType);
+                break;
+            default:
+                return;
+            }
+
+            if (sArrowPressed)
+            {
+                sArrowPressed = FALSE;
+                CopyWindowToVram(WIN_OPTIONS, COPYWIN_GFX);
+            }
         }
     }
 }

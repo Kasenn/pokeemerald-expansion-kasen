@@ -272,7 +272,7 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     {
         PlaySE(SE_WIN_OPEN);
         FreezeObjectEvents();
-        if (FlagGet(FLAG_ENABLE_DEBUG))
+        if (FlagGet(FLAG_KONAMI_CODE))
             Debug_ShowMainMenu();
         else
             Debug_ShowMainMenuLimited();
