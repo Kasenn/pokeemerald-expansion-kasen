@@ -3197,7 +3197,7 @@ void AnimHyperBeamOrb(struct Sprite *sprite)
     u16 speed;
     u16 animNum = Random2();
 
-    StartSpriteAnim(sprite, animNum % 8);
+    StartSpriteAnim(sprite, animNum % ARRAY_COUNT(gSolarBeamBigOrbAnimTable));
     sprite->x = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
     sprite->y = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
     if (!IsOnPlayerSide(gBattleAnimAttacker))
@@ -6626,9 +6626,9 @@ static void TrySwapWishBattlerIds(u32 battlerAtk, u32 battlerPartner)
     }
 
     // swap wish party indices
-    if (gBattleStruct->wish.counter[battlerAtk] > 0
-     || gBattleStruct->wish.counter[battlerPartner] > 0)
-        SWAP(gBattleStruct->wish.partyId[battlerAtk], gBattleStruct->wish.partyId[battlerPartner], temp);
+    if (gBattleStruct->wish[battlerAtk].counter > 0
+     || gBattleStruct->wish[battlerPartner].counter > 0)
+        SWAP(gBattleStruct->wish[battlerAtk].partyId, gBattleStruct->wish[battlerPartner].partyId, temp);
 }
 
 static void TrySwapAttractBattlerIds(u32 battlerAtk, u32 battlerPartner)
