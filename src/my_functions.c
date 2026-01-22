@@ -1092,3 +1092,34 @@ void FlipInkay(void)
     }
     RefreshFollowerGraphics(objectEvent);
 }
+
+void ScrCmd_isachest(void)
+{
+    u16 localId = gSpecialVar_LastTalked;
+    const struct ObjectEventTemplate *obj = GetObjectEventTemplateByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+
+    if (GetChestType(obj->graphicsId))
+        gSpecialVar_0x8008 = TRUE;
+    else
+        gSpecialVar_0x8008 = FALSE;
+}
+
+void ScrCmd_openchest(void)
+{
+    u16 localId = gSpecialVar_LastTalked;
+    const struct ObjectEventTemplate *obj = GetObjectEventTemplateByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+    u8 objectEventId;
+
+    if (!TryGetObjectEventIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, &objectEventId))
+    {
+        u16 flag = GetObjectEventFlagIdByLocalIdAndMap(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
+        if (FlagGet(flag))
+            gSpecialVar_0x8008 = TRUE;
+        else
+            gSpecialVar_0x8008 = FALSE;
+        FlagSet(flag);
+        ObjectEventSetGraphicsId(&gObjectEvents[gSelectedObjectEvent], GetChestType(obj->graphicsId));
+        if (gObjectEvents[gSelectedObjectEvent].active)
+            ObjectEventFaceOppositeDirection(&gObjectEvents[gSelectedObjectEvent], DIR_NORTH);
+    }
+}

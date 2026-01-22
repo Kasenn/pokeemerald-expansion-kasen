@@ -1951,13 +1951,17 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
     struct Sprite *sprite;
     struct ObjectEvent *objectEvent;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
+    u16 chestType = GetChestType(objectEventTemplate->graphicsId);
 
     objectEventId = InitObjectEventStateFromTemplate(objectEventTemplate, mapNum, mapGroup);
     if (objectEventId == OBJECT_EVENTS_COUNT)
         return OBJECT_EVENTS_COUNT;
 
     objectEvent = &gObjectEvents[objectEventId];
-    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
+    if (FlagGet(objectEventTemplate->flagId) && chestType != 0)
+        graphicsInfo = GetObjectEventGraphicsInfo(chestType);
+    else
+        graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
     if (spriteTemplate->paletteTag != TAG_NONE && spriteTemplate->paletteTag != OBJ_EVENT_PAL_TAG_DYNAMIC)
         LoadObjectEventPalette(spriteTemplate->paletteTag);
 
@@ -2010,6 +2014,10 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     struct SpriteFrameImage spriteFrameImage;
     const struct ObjectEventGraphicsInfo *graphicsInfo;
     const struct SubspriteTable *subspriteTables = NULL;
+    u16 chestType = GetChestType(objectEventTemplate->graphicsId);
+
+    if (FlagGet(objectEventTemplate->flagId) && chestType != 0)
+        graphicsId = chestType;
 
     graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
     CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEventTemplate->movementType, &spriteTemplate, &subspriteTables);
@@ -3124,7 +3132,9 @@ void TrySpawnObjectEvents(s16 cameraX, s16 cameraY)
             s16 npcX = template->x + MAP_OFFSET;
             s16 npcY = template->y + MAP_OFFSET;
 
-            if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX && !FlagGet(template->flagId))
+            if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX && GetChestType(template->graphicsId) != 0)
+                TrySpawnObjectEventTemplate(template, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, cameraX, cameraY);
+            else if (top <= npcY && bottom >= npcY && left <= npcX && right >= npcX && !FlagGet(template->flagId))
             {
                 if (template->graphicsId == OBJ_EVENT_GFX_LIGHT_SPRITE)
                     SpawnLightSprite(npcX, npcY, cameraX, cameraY, template->trainerRange_berryTreeId); // light sprite instead
@@ -3208,13 +3218,22 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
     objectEvent = &gObjectEvents[objectEventId];
     subspriteTables = NULL;
-    graphicsInfo = GetObjectEventGraphicsInfo(objectEvent->graphicsId);
-    CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(objectEvent->graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
+    const struct ObjectEventTemplate *objectEventTemplate = GetObjectEventTemplateByLocalIdAndMap(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup);
+    u16 chestType = GetChestType(objectEventTemplate->graphicsId);
+    u16 graphicsId;
+
+    if (FlagGet(objectEventTemplate->flagId) && chestType != 0)
+        graphicsId = chestType;
+    else
+        graphicsId = objectEvent->graphicsId;
+
+    graphicsInfo = GetObjectEventGraphicsInfo(graphicsId);
+    CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(graphicsId, objectEvent->movementType, &spriteTemplate, &subspriteTables);
     spriteFrameImage.size = graphicsInfo->size;
     spriteTemplate.images = &spriteFrameImage;
 
     if (OW_GFX_COMPRESS)
-        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, objectEvent->graphicsId, NULL);
+        spriteTemplate.tileTag = LoadSheetGraphicsInfo(graphicsInfo, graphicsId, NULL);
 
     if (spriteTemplate.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
     {
@@ -12650,4 +12669,14 @@ static bool8 IsObjectSteppable(struct ObjectEvent *objectEvent, s16 x, s16 y)
         }
     }
     return FALSE;
+}
+
+u16 GetChestType(u16 chestType)
+{
+    switch (chestType)
+    {
+    case OBJ_EVENT_GFX_RAYQUAZA:    return OBJ_EVENT_GFX_GROUDON_ASLEEP; // Replace these with the OBJ_EVENT_GFXs for your chests. First one is open chest, the 2nd is closed chest.
+    // Add more chest variants here if needed.
+    default:                        return 0;
+    }
 }
