@@ -1308,7 +1308,9 @@ void ItemUseOutOfBattle_EvolutionStone(u8 taskId)
 
 static u32 GetBallThrowableState(void)
 {
-    if (IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
+    if (GetFoughtRouteFlag())
+        return BALL_THROW_UNABLE_NUZLOCKE;
+    else if (IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
      && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)))
         return BALL_THROW_UNABLE_TWO_MONS;
     else if (IsPlayerPartyAndPokemonStorageFull() == TRUE)
@@ -1329,6 +1331,7 @@ bool32 CanThrowBall(void)
 static const u8 sText_CantThrowPokeBall_TwoMons[] = _("Cannot throw a ball!\nThere are two Pokémon out there!\p");
 static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Pokémon in sight!\p");
 static const u8 sText_CantThrowPokeBall_Disabled[] = _("Poké Balls cannot be used\nright now!\p");
+static const u8 sText_CantThrowBecauseNuzlocke[] = _("The mysterious power of the Nuzlocke\nprevents you from throwing a ball!\p");
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
     switch (GetBallThrowableState())
@@ -1346,6 +1349,12 @@ void ItemUseInBattle_PokeBall(u8 taskId)
             DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_TwoMons, CloseItemMessage);
         else
             DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowPokeBall_TwoMons, Task_CloseBattlePyramidBagMessage);
+        break;
+    case BALL_THROW_UNABLE_NUZLOCKE:
+        if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
+            DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowBecauseNuzlocke, CloseItemMessage);
+        else
+            DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowBecauseNuzlocke, Task_CloseBattlePyramidBagMessage);
         break;
     case BALL_THROW_UNABLE_NO_ROOM:
         if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
@@ -1454,6 +1463,10 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
     case EFFECT_ITEM_THROW_BALL:
         switch (GetBallThrowableState())
         {
+        case BALL_THROW_UNABLE_NUZLOCKE:
+            failStr = sText_CantThrowBecauseNuzlocke;
+            cannotUse = TRUE;
+            break;
         case BALL_THROW_UNABLE_TWO_MONS:
             failStr = sText_CantThrowPokeBall_TwoMons;
             cannotUse = TRUE;
@@ -1790,3 +1803,40 @@ void ItemUseOutOfBattle_PokeFlute(u8 taskId)
 // }
 
 #undef tUsingRegisteredKeyItem
+
+static const u16 sEncounterFlags[][2] =
+{
+    { MAPSEC_SINKO_ROUTE_1,     FLAG_TEMP_1 },
+    { MAPSEC_SINKO_ROUTE_2,     FLAG_TEMP_2 },
+    { MAPSEC_SINKO_ROUTE_3,     FLAG_TEMP_3 },
+    { MAPSEC_SINKO_ROUTE_4,     FLAG_TEMP_4 },
+    { MAPSEC_SINKO_ROUTE_5,     FLAG_TEMP_5 },
+};
+
+u16 GetFoughtRouteFlag(void)
+{
+    u16 i;
+
+    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
+    {
+        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0]
+         && FlagGet(sEncounterFlags[i][1]))
+            return sEncounterFlags[i][1];
+    }
+    
+    return 0;
+}
+
+void SetFoughtRouteFlag(void)
+{
+    u16 i;
+
+    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
+    {
+        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0])
+        {
+            FlagSet(sEncounterFlags[i][1]);
+            return;
+        }
+    }
+}
