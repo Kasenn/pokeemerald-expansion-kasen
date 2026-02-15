@@ -48,6 +48,7 @@
 #include "constants/item_effects.h"
 #include "constants/items.h"
 #include "constants/songs.h"
+#include "pokedex.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -1306,6 +1307,60 @@ void ItemUseOutOfBattle_EvolutionStone(u8 taskId)
     SetUpItemUseCallback(taskId);
 }
 
+static const u16 sEncounterFlags[][2] =
+{
+    { MAPSEC_SINKO_ROUTE_1,     FLAG_TEMP_1 },
+    { MAPSEC_SINKO_ROUTE_2,     FLAG_TEMP_2 },
+    { MAPSEC_SINKO_ROUTE_3,     FLAG_TEMP_3 },
+    { MAPSEC_SINKO_ROUTE_4,     FLAG_TEMP_4 },
+    { MAPSEC_SINKO_ROUTE_5,     FLAG_TEMP_5 },
+};
+
+u16 GetFoughtRouteFlag(void)
+{
+    u16 i;
+
+    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
+    {
+        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0]
+         && FlagGet(sEncounterFlags[i][1]))
+            return sEncounterFlags[i][1];
+    }
+    
+    return 0;
+}
+
+void SetFoughtRouteFlag(void)
+{
+    u16 i;
+    u32 battler;
+    bool8 monsCaught = TRUE;
+
+    for (battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+            continue;
+
+        if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_GET_CAUGHT))
+        {
+            monsCaught = FALSE;
+            break;
+        }
+    }
+
+    if (monsCaught)
+        return;
+
+    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
+    {
+        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0])
+        {
+            FlagSet(sEncounterFlags[i][1]);
+            return;
+        }
+    }
+}
+
 static u32 GetBallThrowableState(void)
 {
     if (GetFoughtRouteFlag())
@@ -1803,40 +1858,3 @@ void ItemUseOutOfBattle_PokeFlute(u8 taskId)
 // }
 
 #undef tUsingRegisteredKeyItem
-
-static const u16 sEncounterFlags[][2] =
-{
-    { MAPSEC_SINKO_ROUTE_1,     FLAG_TEMP_1 },
-    { MAPSEC_SINKO_ROUTE_2,     FLAG_TEMP_2 },
-    { MAPSEC_SINKO_ROUTE_3,     FLAG_TEMP_3 },
-    { MAPSEC_SINKO_ROUTE_4,     FLAG_TEMP_4 },
-    { MAPSEC_SINKO_ROUTE_5,     FLAG_TEMP_5 },
-};
-
-u16 GetFoughtRouteFlag(void)
-{
-    u16 i;
-
-    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
-    {
-        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0]
-         && FlagGet(sEncounterFlags[i][1]))
-            return sEncounterFlags[i][1];
-    }
-    
-    return 0;
-}
-
-void SetFoughtRouteFlag(void)
-{
-    u16 i;
-
-    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
-    {
-        if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0])
-        {
-            FlagSet(sEncounterFlags[i][1]);
-            return;
-        }
-    }
-}
