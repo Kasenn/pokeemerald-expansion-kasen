@@ -57,6 +57,7 @@ void DisplayZygardeCubeItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnFi
 void ItemUseOutOfBattle_PokeFlute(u8 taskId);
 bool8 ItemfinderCheckForHiddenItems(const struct MapEvents *, u8);
 u8 GetDirectionToHiddenItem(s16, s16);
+void SetFoughtRouteFlag(void);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,
@@ -64,6 +65,8 @@ enum {
     BALL_THROW_UNABLE_SEMI_INVULNERABLE,
     BALL_THROW_ABLE,
     BALL_THROW_UNABLE_DISABLED_FLAG,
+    BALL_THROW_UNABLE_NUZLOCKE,
+    BALL_THROW_UNABLE_MON_CAUGHT,
 };
 
 bool32 CanThrowBall(void);

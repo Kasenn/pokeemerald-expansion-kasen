@@ -79,6 +79,7 @@
 #include "constants/weather.h"
 #include "cable_club.h"
 #include "test/test_runner_battle.h"
+#include "item_use.h"
 
 extern const struct BgTemplate gBattleBgTemplates[];
 extern const struct WindowTemplate *const gBattleWindowTemplates[];
@@ -5722,6 +5723,19 @@ static void HandleEndTurn_FinishBattle(void)
                 }
             }
             TryPutPokemonTodayOnAir();
+        }
+
+        if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
+                                | BATTLE_TYPE_RECORDED_LINK
+                                | BATTLE_TYPE_TRAINER
+                                | BATTLE_TYPE_FIRST_BATTLE
+                                | BATTLE_TYPE_SAFARI
+                                | BATTLE_TYPE_FRONTIER
+                                | BATTLE_TYPE_EREADER_TRAINER
+                                | BATTLE_TYPE_BROTHER_BATTLE))
+            && (FlagGet(FLAG_SYS_POKEDEX_GET)))
+        {
+            SetFoughtRouteFlag();
         }
 
         if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK
