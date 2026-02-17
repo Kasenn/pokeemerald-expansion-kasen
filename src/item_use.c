@@ -49,6 +49,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "pokedex.h"
+#include "daycare.h"
 
 static void SetUpItemUseCallback(u8);
 static void FieldCB_UseItemOnField(void);
@@ -1316,32 +1317,84 @@ static const u16 sEncounterFlags[][2] =
     { MAPSEC_SINKO_ROUTE_5,     FLAG_TEMP_5 },
 };
 
+enum
+{
+    NUZLOCKE_CATCH_AVAILABLE,
+    NUZLOCKE_CATCH_LOCKED,
+    NUZLOCKE_MON_CAUGHT,
+    NUZLOCKE_TWO_MONS,
+};
+
+bool8 HasFamilyBeenCaught(u16 species)
+{
+    u32 i, j;
+    u16 baseSpecies = GetEggSpecies(species);
+
+    if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(baseSpecies), FLAG_GET_CAUGHT))
+        return TRUE;
+
+    const struct Evolution *evolutions = GetSpeciesEvolutions(baseSpecies);
+    if (evolutions == NULL)
+        return FALSE;
+
+    for (i = 0; evolutions[i].method != EVOLUTIONS_END; i++)
+    {
+        u16 targetSpecies = evolutions[i].targetSpecies;
+
+        if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(targetSpecies), FLAG_GET_CAUGHT))
+            return TRUE;
+
+        const struct Evolution *nextEvolutions = GetSpeciesEvolutions(targetSpecies);
+        if (nextEvolutions == NULL)
+            continue;
+
+        for (j = 0; nextEvolutions[j].method != EVOLUTIONS_END; j++)
+        {
+            if (GetSetPokedexFlag(SpeciesToNationalPokedexNum(nextEvolutions[j].targetSpecies), FLAG_GET_CAUGHT))
+                return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
 u16 GetFoughtRouteFlag(void)
 {
-    u16 i;
+    if (IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
+     && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)))
+        return NUZLOCKE_TWO_MONS;
 
-    for (i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
+    for (u32 i = 0; i < ARRAY_COUNT(sEncounterFlags); i++)
     {
         if (gMapHeader.regionMapSectionId == sEncounterFlags[i][0]
          && FlagGet(sEncounterFlags[i][1]))
-            return sEncounterFlags[i][1];
+            return NUZLOCKE_CATCH_LOCKED;
     }
-    
-    return 0;
+
+    for (u32 battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER || !IsBattlerAlive(battler))
+            continue;
+
+        if (HasFamilyBeenCaught(gBattleMons[battler].species))
+            return NUZLOCKE_MON_CAUGHT;
+    }
+
+    return NUZLOCKE_CATCH_AVAILABLE;
 }
 
 void SetFoughtRouteFlag(void)
 {
-    u16 i;
+    u32 i;
     u32 battler;
     bool8 monsCaught = TRUE;
 
     for (battler = 0; battler < gBattlersCount; battler++)
     {
-        if (GetBattlerSide(battler) == B_SIDE_PLAYER)
+        if (GetBattlerSide(battler) == B_SIDE_PLAYER || !IsBattlerAlive(battler))
             continue;
 
-        if (!GetSetPokedexFlag(SpeciesToNationalPokedexNum(gBattleMons[battler].species), FLAG_GET_CAUGHT))
+        if (!HasFamilyBeenCaught(gBattleMons[battler].species))
         {
             monsCaught = FALSE;
             break;
@@ -1363,10 +1416,11 @@ void SetFoughtRouteFlag(void)
 
 static u32 GetBallThrowableState(void)
 {
-    if (GetFoughtRouteFlag())
+    u16 nuzlockeRule = GetFoughtRouteFlag();
+
+    if (nuzlockeRule == NUZLOCKE_CATCH_LOCKED)
         return BALL_THROW_UNABLE_NUZLOCKE;
-    else if (IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT))
-     && IsBattlerAlive(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT)))
+    else if (nuzlockeRule == NUZLOCKE_TWO_MONS)
         return BALL_THROW_UNABLE_TWO_MONS;
     else if (IsPlayerPartyAndPokemonStorageFull() == TRUE)
         return BALL_THROW_UNABLE_NO_ROOM;
@@ -1374,6 +1428,8 @@ static u32 GetBallThrowableState(void)
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
     else if (FlagGet(B_FLAG_NO_CATCHING) || !IsAllowedToUseBag())
         return BALL_THROW_UNABLE_DISABLED_FLAG;
+    else if (nuzlockeRule == NUZLOCKE_MON_CAUGHT)
+        return BALL_THROW_UNABLE_MON_CAUGHT;
 
     return BALL_THROW_ABLE;
 }
@@ -1387,6 +1443,7 @@ static const u8 sText_CantThrowPokeBall_TwoMons[] = _("Cannot throw a ball!\nThe
 static const u8 sText_CantThrowPokeBall_SemiInvulnerable[] = _("Cannot throw a ball!\nThere's no Pokémon in sight!\p");
 static const u8 sText_CantThrowPokeBall_Disabled[] = _("Poké Balls cannot be used\nright now!\p");
 static const u8 sText_CantThrowBecauseNuzlocke[] = _("The mysterious power of the Nuzlocke\nprevents you from throwing a ball!\p");
+static const u8 sText_CantThrowBecauseNuzlockeCaught[] = _("You've already caught a Pokémon\nof that family!\p");
 void ItemUseInBattle_PokeBall(u8 taskId)
 {
     switch (GetBallThrowableState())
@@ -1404,6 +1461,12 @@ void ItemUseInBattle_PokeBall(u8 taskId)
             DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowPokeBall_TwoMons, CloseItemMessage);
         else
             DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowPokeBall_TwoMons, Task_CloseBattlePyramidBagMessage);
+        break;
+    case BALL_THROW_UNABLE_MON_CAUGHT:
+        if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
+            DisplayItemMessage(taskId, FONT_NORMAL, sText_CantThrowBecauseNuzlockeCaught, CloseItemMessage);
+        else
+            DisplayItemMessageInBattlePyramid(taskId, sText_CantThrowBecauseNuzlockeCaught, Task_CloseBattlePyramidBagMessage);
         break;
     case BALL_THROW_UNABLE_NUZLOCKE:
         if (CurrentBattlePyramidLocation() == PYRAMID_LOCATION_NONE)
@@ -1518,6 +1581,10 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
     case EFFECT_ITEM_THROW_BALL:
         switch (GetBallThrowableState())
         {
+        case BALL_THROW_UNABLE_MON_CAUGHT:
+            failStr = sText_CantThrowBecauseNuzlockeCaught;
+            cannotUse = TRUE;
+            break;
         case BALL_THROW_UNABLE_NUZLOCKE:
             failStr = sText_CantThrowBecauseNuzlocke;
             cannotUse = TRUE;
