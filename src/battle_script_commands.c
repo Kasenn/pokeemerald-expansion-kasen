@@ -73,6 +73,7 @@
 #include "follower_npc.h"
 #include "load_save.h"
 #include "test/test_runner_battle.h"
+#include "item_use.h"
 
 // table to avoid ugly powing on gba (courtesy of doesnt)
 // this returns (i^2.5)/4
@@ -14291,6 +14292,7 @@ static void Cmd_trysetcaughtmondexflags(void)
     }
     else
     {
+        SetFoughtRouteFlag();
         HandleSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT, personality);
         gBattlescriptCurrInstr = cmd->nextInstr;
     }
