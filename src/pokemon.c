@@ -68,6 +68,7 @@
 #include "constants/trainers.h"
 #include "constants/union_room.h"
 #include "constants/weather.h"
+#include "nuzlocke.h"
 
 #define FRIENDSHIP_EVO_THRESHOLD ((P_FRIENDSHIP_EVO_THRESHOLD >= GEN_8) ? 160 : 220)
 
@@ -2694,6 +2695,30 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
                 }
             }
             break;
+        case MON_DATA_OPPONENT_SPECIES_1:
+            {
+                struct PokemonSubstruct1 *substruct1 = GetSubstruct1(boxMon);
+                retVal = substruct1->evolutionTracker1;
+            }
+            break;
+        case MON_DATA_OPPONENT_SPECIES_2:
+            {
+                struct PokemonSubstruct1 *substruct1 = GetSubstruct1(boxMon);
+                retVal = substruct1->evolutionTracker2;
+            }
+            break;
+        case MON_DATA_OPPONENT_SPECIES_3:
+            {
+                struct PokemonSubstruct1 *substruct1 = GetSubstruct1(boxMon);
+                retVal = substruct1->unused_04;
+            }
+            break;
+        case MON_DATA_OPPONENT_TRAINER:
+            {
+                struct PokemonSubstruct1 *substruct1 = GetSubstruct1(boxMon);
+                retVal = substruct1->unused_06;
+            }
+            break;
         case MON_DATA_EVOLUTION_TRACKER:
             {
                 struct PokemonSubstruct1 *substruct1 = GetSubstruct1(boxMon);
@@ -3120,6 +3145,18 @@ void SetBoxMonData(struct BoxPokemon *boxMon, s32 field, const void *dataArg)
         case MON_DATA_TERA_TYPE:
             SET8(GetSubstruct0(boxMon)->teraType);
             break;
+        case MON_DATA_OPPONENT_SPECIES_1:
+            SET16(GetSubstruct1(boxMon)->evolutionTracker1);
+            break;
+        case MON_DATA_OPPONENT_SPECIES_2:
+            SET16(GetSubstruct1(boxMon)->evolutionTracker2);
+            break;
+        case MON_DATA_OPPONENT_SPECIES_3:
+            SET16(GetSubstruct1(boxMon)->unused_04);
+            break;
+        case MON_DATA_OPPONENT_TRAINER:
+            SET16(GetSubstruct1(boxMon)->unused_06);
+            break;
         case MON_DATA_EVOLUTION_TRACKER:
         {
             union EvolutionTracker evoTracker;
@@ -3238,6 +3275,9 @@ u8 CopyMonToPC(struct Pokemon *mon)
     SetPCBoxToSendMon(VarGet(VAR_PC_BOX_TO_SEND_MON));
 
     boxNo = StorageGetCurrentBox();
+    if (boxNo >= LIVE_BOXES_COUNT)
+        boxNo = 0;
+    s32 startBox = boxNo;
 
     do
     {
@@ -3258,9 +3298,9 @@ u8 CopyMonToPC(struct Pokemon *mon)
         }
 
         boxNo++;
-        if (boxNo == TOTAL_BOXES_COUNT)
+        if (boxNo == LIVE_BOXES_COUNT)
             boxNo = 0;
-    } while (boxNo != StorageGetCurrentBox());
+    } while (boxNo != startBox);
 
     return MON_CANT_GIVE;
 }

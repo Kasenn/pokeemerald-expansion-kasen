@@ -57,5 +57,12 @@ u8 GetMoveSlotToReplace(void);
 void SummaryScreen_SetAnimDelayTaskId(u8 taskId);
 void ShowRelearnPrompt(void);
 void TryUpdateRelearnType(enum IncrDecrUpdateValues delta);
+bool8 IsInGamePartnerMon(void);
+void GetMetLevelString(u8 *);
+bool8 DoesMonOTMatchOwner(void);
+bool8 DidMonComeFromGBAGames(void);
+metloc_u8_t GetSummaryMonMetLocation(void);
+u8 GetSummaryMonMetLevel(void);
+struct BoxPokemon *GetSummaryScreenCurrentBoxMon(void);
 
 #endif // GUARD_POKEMON_SUMMARY_SCREEN_H

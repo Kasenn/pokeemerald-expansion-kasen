@@ -68,6 +68,7 @@
 #include "rtc.h"
 #include "fake_rtc.h"
 #include "save.h"
+#include "nuzlocke.h"
 
 enum FollowerNPCCreateDebugMenu
 {
@@ -3122,7 +3123,7 @@ static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffini
 
     CreateBoxMon(&boxMon, species, 100, USE_RANDOM_IVS, FALSE, personality, OT_ID_PLAYER_ID, 0);
 
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    for (boxId = 0; boxId < LIVE_BOXES_COUNT; boxId++)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++, species++)
         {
@@ -3150,7 +3151,7 @@ static void DebugAction_PCBag_Fill_PCBoxes_Slow(u8 taskId)
     u32 species = SPECIES_BULBASAUR;
     bool8 spaceAvailable = FALSE;
 
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
+    for (boxId = 0; boxId < LIVE_BOXES_COUNT; boxId++)
     {
         for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
         {

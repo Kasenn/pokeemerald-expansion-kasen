@@ -42,6 +42,7 @@
 #include "trainer_hill.h"
 #include "fldeff.h"
 #include "battle.h"
+#include "nuzlocke.h"
 
 static void Task_ExitNonAnimDoor(u8);
 static void Task_ExitNonDoor(u8);
@@ -1393,7 +1394,7 @@ enum {
     WHITEOUT_CUTSCENE_HEAL_SCRIPT,
 };
 
-static const u8 *GenerateRecoveryMessage(u8 taskId)
+static const u8 UNUSED *GenerateRecoveryMessage(u8 taskId)
 {
     bool32 forfeitTrainer = DidPlayerForfeitNormalTrainerBattle();
     bool32 destinationIsPlayersHouse = (gTasks[taskId].tIsPlayerHouse == TRUE);
@@ -1427,9 +1428,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         break;
     case WHITEOUT_CUTSCENE_PRINT_MSG:
     {
-        const u8 *recoveryMessage = GenerateRecoveryMessage(taskId);
-
-        if (PrintWhiteOutRecoveryMessage(taskId, recoveryMessage, 2, 8))
+        if (PrintWhiteOutRecoveryMessage(taskId, gText_GameOver, 2, 8))
         {
             ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
             gTasks[taskId].tState = WHITEOUT_CUTSCENE_LEAVE_MSG_SCREEN;
@@ -1448,10 +1447,7 @@ static void Task_RushInjuredPokemonToCenter(u8 taskId)
         if (WaitForWeatherFadeIn() == TRUE)
         {
             DestroyTask(taskId);
-            if (gTasks[taskId].tIsPlayerHouse)
-                ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
-            else
-                ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
+            ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
         }
         break;
     }

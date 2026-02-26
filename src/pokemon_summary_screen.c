@@ -50,6 +50,7 @@
 #include "constants/region_map_sections.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "nuzlocke.h"
 
 // Screen titles (upper left)
 #define PSS_LABEL_WINDOW_POKEMON_INFO_TITLE 0
@@ -89,6 +90,7 @@
 #define PSS_DATA_WINDOW_INFO_ID 1
 #define PSS_DATA_WINDOW_INFO_ABILITY 2
 #define PSS_DATA_WINDOW_INFO_MEMO 3
+#define PSS_DATA_WINDOW_INFO_DEATHBOX 4
 
 // Dynamic fields for the Pokémon Skills page
 #define PSS_DATA_WINDOW_SKILLS_HELD_ITEM 0
@@ -263,10 +265,6 @@ static void PrintMonAbilityDescription(void);
 static void BufferMonTrainerMemo(void);
 static void PrintMonTrainerMemo(void);
 static void BufferNatureString(void);
-static void GetMetLevelString(u8 *);
-static bool8 DoesMonOTMatchOwner(void);
-static bool8 DidMonComeFromGBAGames(void);
-static bool8 IsInGamePartnerMon(void);
 static void PrintEggOTName(void);
 static void PrintEggOTID(void);
 static void PrintEggState(void);
@@ -334,6 +332,7 @@ static u8 AddWindowFromTemplateList(const struct WindowTemplate *template, u8 te
 static u8 IncrementSkillsStatsMode(u8 mode);
 static void ClearStatLabel(u32 length, u32 statsCoordX, u32 statsCoordY);
 u32 GetAdjustedIvData(struct Pokemon *mon, u32 stat);
+void PrintMonTrainerMemoDeathbox(void);
 
 static const struct BgTemplate sBgTemplates[] =
 {
@@ -644,6 +643,15 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .height = 6,
         .paletteNum = 6,
         .baseBlock = 575,
+    },
+    [PSS_DATA_WINDOW_INFO_DEATHBOX] = {
+        .bg = 0,
+        .tilemapLeft = 11,
+        .tilemapTop = 9,
+        .width = 18,
+        .height = 10,
+        .paletteNum = 6,
+        .baseBlock = 503,
     },
 };
 static const struct WindowTemplate sPageSkillsTemplate[] =
@@ -1204,7 +1212,7 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     if (gInitialSummaryScreenCallback == NULL)
         gInitialSummaryScreenCallback = callback;
 
-    if (mode == SUMMARY_MODE_BOX)
+    if (mode == SUMMARY_MODE_BOX || gCurrentBoxOption == OPTION_DEATHBOX)
         sMonSummaryScreen->isBoxMon = TRUE;
     else
         sMonSummaryScreen->isBoxMon = FALSE;
@@ -1217,7 +1225,10 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     case SUMMARY_MODE_RELEARNER_BATTLE:
     case SUMMARY_MODE_RELEARNER_CONTEST:
         sMonSummaryScreen->minPageIndex = 0;
-        sMonSummaryScreen->maxPageIndex = PSS_PAGE_COUNT - 1;
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+            sMonSummaryScreen->maxPageIndex = PSS_PAGE_INFO;
+        else
+            sMonSummaryScreen->maxPageIndex = PSS_PAGE_COUNT - 1;
         break;
     case SUMMARY_MODE_LOCK_MOVES:
         sMonSummaryScreen->minPageIndex = 0;
@@ -1441,7 +1452,10 @@ static bool8 DecompressGraphics(void)
     case 1:
         if (FreeTempTileDataBuffersIfPossible() != 1)
         {
-            DecompressDataWithHeaderWram(gSummaryPage_Info_Tilemap, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_INFO][0]);
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+                DecompressDataWithHeaderWram(gSummaryPage_Info_Tilemap_Deathbox, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_INFO][0]);
+            else
+                DecompressDataWithHeaderWram(gSummaryPage_Info_Tilemap, sMonSummaryScreen->bgTilemapBuffers[PSS_PAGE_INFO][0]);
             sMonSummaryScreen->switchCounter++;
         }
         break;
@@ -1720,11 +1734,13 @@ static void Task_HandleInput(u8 taskId)
         }
         else if (JOY_NEW(DPAD_LEFT))
         {
-            ChangePage(taskId, -1);
+            if (gCurrentBoxOption != OPTION_DEATHBOX)
+                ChangePage(taskId, -1);
         }
         else if (JOY_NEW(DPAD_RIGHT))
         {
-            ChangePage(taskId, 1);
+            if (gCurrentBoxOption != OPTION_DEATHBOX)
+                ChangePage(taskId, 1);
         }
         else if (JOY_NEW(A_BUTTON))
         {
@@ -2869,6 +2885,9 @@ u8 GetMoveSlotToReplace(void)
 
 static void DrawPagination(void) // Updates the pagination dots at the top of the summary screen
 {
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+        return;
+
     u16 *tilemap = Alloc(8 * PSS_PAGE_COUNT);
     u8 i;
 
@@ -3580,10 +3599,18 @@ static void PrintInfoPageText(void)
     {
         PrintMonOTName();
         PrintMonOTID();
-        PrintMonAbilityName();
-        PrintMonAbilityDescription();
-        BufferMonTrainerMemo();
-        PrintMonTrainerMemo();
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+        {
+            BufferMonTrainerMemoDeathbox();
+            PrintMonTrainerMemoDeathbox();
+        }
+        else
+        {
+            PrintMonAbilityName();
+            PrintMonAbilityDescription();
+            BufferMonTrainerMemo();
+            PrintMonTrainerMemo();
+        }
     }
 }
 
@@ -3605,10 +3632,16 @@ static void Task_PrintInfoPage(u8 taskId)
         PrintMonAbilityDescription();
         break;
     case 5:
-        BufferMonTrainerMemo();
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+            BufferMonTrainerMemoDeathbox();
+        else
+            BufferMonTrainerMemo();
         break;
     case 6:
-        PrintMonTrainerMemo();
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+            PrintMonTrainerMemoDeathbox();
+        else
+            PrintMonTrainerMemo();
         break;
     case 7:
         DestroyTask(taskId);
@@ -3719,7 +3752,7 @@ static void BufferNatureString(void)
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(5, gText_EmptyString5);
 }
 
-static void GetMetLevelString(u8 *output)
+void GetMetLevelString(u8 *output)
 {
     u8 level = sMonSummaryScreen->summary.metLevel;
     if (level == 0)
@@ -3728,7 +3761,7 @@ static void GetMetLevelString(u8 *output)
     DynamicPlaceholderTextUtil_SetPlaceholderPtr(3, output);
 }
 
-static bool8 DoesMonOTMatchOwner(void)
+bool8 DoesMonOTMatchOwner(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
     u32 trainerId;
@@ -3754,7 +3787,7 @@ static bool8 DoesMonOTMatchOwner(void)
         return TRUE;
 }
 
-static bool8 DidMonComeFromGBAGames(void)
+bool8 DidMonComeFromGBAGames(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
     if (sum->metGame > 0 && sum->metGame <= VERSION_LEAF_GREEN)
@@ -3770,7 +3803,7 @@ bool8 DidMonComeFromRSE(void)
     return FALSE;
 }
 
-static bool8 IsInGamePartnerMon(void)
+bool8 IsInGamePartnerMon(void)
 {
     if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && gMain.inBattle)
     {
@@ -4834,7 +4867,8 @@ static inline bool32 ShouldShowMoveRelearner(void)
          && sMonSummaryScreen->hasRelearnableMoves
          && !InBattleFactory()
          && !InSlateportBattleTent()
-         && !NoMovesAvailableToRelearn());
+         && !NoMovesAvailableToRelearn()
+         && gCurrentBoxOption != OPTION_DEATHBOX);
 }
 
 static inline bool32 ShouldShowRename(void)
@@ -4847,7 +4881,8 @@ static inline bool32 ShouldShowRename(void)
          && sMonSummaryScreen->mode != SUMMARY_MODE_BOX_CURSOR
          && !InBattleFactory()
          && !InSlateportBattleTent()
-         && GetPlayerIDAsU32() == sMonSummaryScreen->summary.OTID);
+         && GetPlayerIDAsU32() == sMonSummaryScreen->summary.OTID
+         && gCurrentBoxOption != OPTION_DEATHBOX);
 }
 
 static inline bool32 ShouldShowIvEvPrompt(void)
@@ -4986,4 +5021,34 @@ static void CB2_PssChangePokemonNickname(void)
     DoNamingScreen(NAMING_SCREEN_NICKNAME, gStringVar2, GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_SPECIES, NULL),
                    GetMonGender(&gPlayerParty[gSpecialVar_0x8004]), GetMonData(&gPlayerParty[gSpecialVar_0x8004], MON_DATA_PERSONALITY, NULL),
                    CB2_ReturnToSummaryScreenFromNamingScreen);
+}
+
+metloc_u8_t GetSummaryMonMetLocation(void)
+{
+    if (sMonSummaryScreen == NULL)
+        return MAPSEC_NONE;
+    return sMonSummaryScreen->summary.metLocation;
+}
+
+u8 GetSummaryMonMetLevel(void)
+{
+    if (sMonSummaryScreen == NULL)
+        return 0;
+    return sMonSummaryScreen->summary.metLevel;
+}
+
+void PrintMonTrainerMemoDeathbox(void)
+{
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_DEATHBOX), gStringVar4, 0, 1, 0, 0);
+}
+
+struct BoxPokemon *GetSummaryScreenCurrentBoxMon(void)
+{
+    if (sMonSummaryScreen == NULL)
+        return NULL;
+
+    if (!sMonSummaryScreen->isBoxMon)
+        return NULL;
+
+    return &sMonSummaryScreen->monList.boxMons[sMonSummaryScreen->curMonIndex];
 }

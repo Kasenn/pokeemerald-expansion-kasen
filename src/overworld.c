@@ -77,6 +77,7 @@
 #include "constants/songs.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "constants/heal_locations.h"
 
 STATIC_ASSERT((B_FLAG_FOLLOWERS_DISABLED == 0 || OW_FOLLOWERS_ENABLED), FollowersFlagAssignedWithoutEnablingThem);
 
@@ -711,7 +712,7 @@ void SetWarpDestinationToHealLocation(u8 healLocationId)
         SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
 }
 
-static bool32 IsWhiteoutCutscene(void)
+static bool32 UNUSED IsWhiteoutCutscene(void)
 {
     if (OW_WHITEOUT_CUTSCENE < GEN_4)
         return FALSE;
@@ -720,10 +721,8 @@ static bool32 IsWhiteoutCutscene(void)
 
 void SetWarpDestinationToLastHealLocation(void)
 {
-    if (IsWhiteoutCutscene())
-        SetWhiteoutRespawnWarpAndHealerNPC(&sWarpDestination);
-    else
-        sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
+    SetLastHealLocationWarp(HEAL_LOCATION_LIMBO);
+    sWarpDestination = gSaveBlock1Ptr->lastHealLocation;
 }
 
 void SetWarpDestinationForTeleport(void)
@@ -1823,10 +1822,7 @@ void CB2_WhiteOut(void)
         ResetInitialPlayerAvatarState();
         ScriptContext_Init();
         UnlockPlayerFieldControls();
-        if (IsWhiteoutCutscene())
-            gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
-        else
-            gFieldCallback = FieldCB_WarpExitFadeFromBlack;
+        gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
         state = 0;
         SetFollowerNPCData(FNPC_DATA_SURF_BLOB, FNPC_SURF_BLOB_NONE);
         DoMapLoadLoop(&state);

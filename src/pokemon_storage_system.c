@@ -43,6 +43,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "constants/pokemon_icon.h"
+#include "nuzlocke.h"
 
 /*
     NOTE: This file is large. Some general groups of functions have
@@ -51,26 +52,6 @@
           hard and fast rules, but give a basic idea of where certain
           types of functions are likely located.
 */
-
-// PC main menu options
-enum {
-#if OW_PC_MOVE_ORDER <= GEN_3
-    OPTION_WITHDRAW,
-    OPTION_DEPOSIT,
-    OPTION_MOVE_MONS,
-#elif OW_PC_MOVE_ORDER >= GEN_4 && OW_PC_MOVE_ORDER <= GEN_6_XY
-    OPTION_DEPOSIT,
-    OPTION_WITHDRAW,
-    OPTION_MOVE_MONS,
-#elif OW_PC_MOVE_ORDER >= GEN_7
-    OPTION_MOVE_MONS,
-    OPTION_DEPOSIT,
-    OPTION_WITHDRAW,
-#endif
-    OPTION_MOVE_ITEMS,
-    OPTION_EXIT,
-    OPTIONS_COUNT
-};
 
 // IDs for messages to print with PrintMessage
 enum {
@@ -536,7 +517,6 @@ EWRAM_DATA static u8 sPreviousBoxOption = 0;
 EWRAM_DATA static struct ChooseBoxMenu *sChooseBoxMenu = NULL;
 EWRAM_DATA static struct PokemonStorageSystemData *sStorage = NULL;
 EWRAM_DATA static bool8 sInPartyMenu = 0;
-EWRAM_DATA static u8 sCurrentBoxOption = 0;
 EWRAM_DATA static u8 sDepositBoxId = 0;
 EWRAM_DATA static u8 sWhichToReshow = 0;
 EWRAM_DATA static u8 sLastUsedBox = 0;
@@ -860,6 +840,7 @@ struct {
     [OPTION_DEPOSIT]    = {COMPOUND_STRING("DEPOSIT POKéMON"),  COMPOUND_STRING("Store POKéMON in your party in BOXES.")},
     [OPTION_MOVE_MONS]  = {COMPOUND_STRING("MOVE POKéMON"),     COMPOUND_STRING("Organize the POKéMON in BOXES and\nin your party.")},
     [OPTION_MOVE_ITEMS] = {COMPOUND_STRING("MOVE ITEMS"),       COMPOUND_STRING("Move items held by any POKéMON\nin a BOX or your party.")},
+    [OPTION_DEATHBOX]   = {COMPOUND_STRING("VIEW DEATH BOX"),   COMPOUND_STRING("View your fainted and released\nPOKéMON.")},
     [OPTION_EXIT]       = {COMPOUND_STRING("SEE YA!"),          COMPOUND_STRING("Return to the previous menu.")}
 };
 
@@ -869,7 +850,7 @@ static const struct WindowTemplate sWindowTemplate_MainMenu =
     .tilemapLeft = 1,
     .tilemapTop = 1,
     .width = 17,
-    .height = 10,
+    .height = 12,
     .paletteNum = 15,
     .baseBlock = 0x1,
 };
@@ -1716,7 +1697,10 @@ void ResetPokemonStorageSystem(void)
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
     {
         u8 *dest = StringCopy(GetBoxNamePtr(boxId), gText_Box);
-        ConvertIntToDecimalStringN(dest, boxId + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
+        if (boxId >= LIVE_BOXES_COUNT)
+            ConvertIntToDecimalStringN(dest, boxId - 7 + 1, STR_CONV_MODE_LEFT_ALIGN, 2);
+        else
+            ConvertIntToDecimalStringN(dest, boxId + 1, STR_CONV_MODE_LEFT_ALIGN, 2);    
     }
 
     for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
@@ -1884,14 +1868,25 @@ static void ChooseBoxMenu_DestroySprites(void)
 
 static void ChooseBoxMenu_MoveRight(void)
 {
-    if (++sChooseBoxMenu->curBox >= TOTAL_BOXES_COUNT)
-        sChooseBoxMenu->curBox = 0;
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+    {
+        if (++sChooseBoxMenu->curBox >= TOTAL_BOXES_COUNT)
+            sChooseBoxMenu->curBox = LIVE_BOXES_COUNT;
+    }
+    else
+    {
+        if (++sChooseBoxMenu->curBox >= LIVE_BOXES_COUNT)
+            sChooseBoxMenu->curBox = 0;
+    }
     ChooseBoxMenu_PrintInfo();
 }
 
 static void ChooseBoxMenu_MoveLeft(void)
 {
-    sChooseBoxMenu->curBox = (sChooseBoxMenu->curBox == 0 ? TOTAL_BOXES_COUNT - 1 : sChooseBoxMenu->curBox - 1);
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+        sChooseBoxMenu->curBox = (sChooseBoxMenu->curBox == LIVE_BOXES_COUNT ? TOTAL_BOXES_COUNT - 1 : sChooseBoxMenu->curBox - 1);
+    else
+        sChooseBoxMenu->curBox = (sChooseBoxMenu->curBox == 0 ? LIVE_BOXES_COUNT - 1 : sChooseBoxMenu->curBox - 1);
     ChooseBoxMenu_PrintInfo();
 }
 
@@ -1977,7 +1972,7 @@ static void CB2_PokeStorage(void)
 void EnterPokeStorage(u8 boxOption)
 {
     ResetTasks();
-    sCurrentBoxOption = boxOption;
+    gCurrentBoxOption = boxOption;
     sStorage = Alloc(sizeof(*sStorage));
     if (sStorage == NULL)
     {
@@ -1991,6 +1986,16 @@ void EnterPokeStorage(u8 boxOption)
         sStorage->state = 0;
         sStorage->taskId = CreateTask(Task_InitPokeStorage, 3);
         sLastUsedBox = StorageGetCurrentBox();
+        if (sLastUsedBox >= LIVE_BOXES_COUNT && gCurrentBoxOption != OPTION_DEATHBOX)
+        {
+            sLastUsedBox = 0;
+            SetCurrentBox(sLastUsedBox);
+        }
+        else if (sLastUsedBox < LIVE_BOXES_COUNT && gCurrentBoxOption == OPTION_DEATHBOX)
+        {
+            sLastUsedBox = LIVE_BOXES_COUNT;
+            SetCurrentBox(sLastUsedBox);
+        }
         SetMainCallback2(CB2_PokeStorage);
     }
 }
@@ -2005,7 +2010,7 @@ static void CB2_ReturnToPokeStorage(void)
     }
     else
     {
-        sStorage->boxOption = sCurrentBoxOption;
+        sStorage->boxOption = gCurrentBoxOption;
         sStorage->isReopening = TRUE;
         sStorage->state = 0;
         sStorage->taskId = CreateTask(Task_InitPokeStorage, 3);
@@ -2297,8 +2302,16 @@ static void Task_PokeStorageMain(u8 taskId)
         case INPUT_SCROLL_RIGHT:
             PlaySE(SE_SELECT);
             sStorage->newCurrBoxId = StorageGetCurrentBox() + 1;
-            if (sStorage->newCurrBoxId >= TOTAL_BOXES_COUNT)
-                sStorage->newCurrBoxId = 0;
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+            {
+                if (sStorage->newCurrBoxId >= TOTAL_BOXES_COUNT)
+                    sStorage->newCurrBoxId = LIVE_BOXES_COUNT;
+            }
+            else
+            {
+                if (sStorage->newCurrBoxId >= LIVE_BOXES_COUNT)
+                    sStorage->newCurrBoxId = 0;
+            }
             if (sStorage->boxOption != OPTION_MOVE_ITEMS)
             {
                 SetUpScrollToBox(sStorage->newCurrBoxId);
@@ -2313,8 +2326,16 @@ static void Task_PokeStorageMain(u8 taskId)
         case INPUT_SCROLL_LEFT:
             PlaySE(SE_SELECT);
             sStorage->newCurrBoxId = StorageGetCurrentBox() - 1;
-            if (sStorage->newCurrBoxId < 0)
-                sStorage->newCurrBoxId = TOTAL_BOXES_COUNT - 1;
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+            {
+                if (sStorage->newCurrBoxId < LIVE_BOXES_COUNT)
+                    sStorage->newCurrBoxId = TOTAL_BOXES_COUNT - 1;
+            }
+            else
+            {
+                if (sStorage->newCurrBoxId < 0)
+                    sStorage->newCurrBoxId = LIVE_BOXES_COUNT - 1;
+            }
             if (sStorage->boxOption != OPTION_MOVE_ITEMS)
             {
                 SetUpScrollToBox(sStorage->newCurrBoxId);
@@ -3487,7 +3508,10 @@ static void Task_JumpBox(u8 taskId)
     case 0:
         PrintMessage(MSG_JUMP_TO_WHICH_BOX);
         LoadChooseBoxMenuGfx(&sStorage->chooseBoxMenu, GFXTAG_CHOOSE_BOX_MENU, PALTAG_MISC_1, 3, FALSE);
-        CreateChooseBoxMenuSprites(StorageGetCurrentBox());
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+            CreateChooseBoxMenuSprites(LIVE_BOXES_COUNT);
+        else
+            CreateChooseBoxMenuSprites(StorageGetCurrentBox());
         sStorage->state++;
         break;
     case 1:
@@ -4040,7 +4064,10 @@ static void UpdateWaveformAnimation(void)
 
 static void InitSupplementalTilemaps(void)
 {
-    DecompressDataWithHeaderWram(gStorageSystemPartyMenu_Tilemap, sStorage->partyMenuTilemapBuffer);
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+        DecompressDataWithHeaderWram(gStorageSystemPartyMenu_Tilemap_Deathbox, sStorage->partyMenuTilemapBuffer);
+    else
+        DecompressDataWithHeaderWram(gStorageSystemPartyMenu_Tilemap, sStorage->partyMenuTilemapBuffer);
     LoadPalette(gStorageSystemPartyMenu_Pal, BG_PLTT_ID(1), PLTT_SIZE_4BPP);
     TilemapUtil_SetMap(TILEMAPID_PARTY_MENU, 1, sStorage->partyMenuTilemapBuffer, 12, 22);
     TilemapUtil_SetMap(TILEMAPID_CLOSE_BUTTON, 1, sCloseBoxButton_Tilemap, 9, 4);
@@ -4368,7 +4395,7 @@ static void AddWallpapersMenu(u8 wallpaperSet)
 
 static u8 GetCurrentBoxOption(void)
 {
-    return sCurrentBoxOption;
+    return gCurrentBoxOption;
 }
 
 static void InitCursorItemIcon(void)
@@ -5206,6 +5233,8 @@ static void CreateInitBoxTask(u8 boxId)
 {
     u8 taskId = CreateTask(Task_InitBox, 2);
 
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+        boxId = LIVE_BOXES_COUNT;
     gTasks[taskId].tBoxId = boxId;
 }
 
@@ -5313,11 +5342,20 @@ static s8 DetermineBoxScrollDirection(u8 boxId)
     for (i = 0; currentBox != boxId; i++)
     {
         currentBox++;
-        if (currentBox >= TOTAL_BOXES_COUNT)
-            currentBox = 0;
+
+        if (gCurrentBoxOption == OPTION_DEATHBOX)
+        {
+            if (currentBox >= TOTAL_BOXES_COUNT)
+                currentBox = LIVE_BOXES_COUNT;
+        }
+        else
+        {
+            if (currentBox >= LIVE_BOXES_COUNT)
+                currentBox = 0;
+        }
     }
 
-    return (i < TOTAL_BOXES_COUNT / 2) ? 1 : -1;
+    return (i <= (LIVE_BOXES_COUNT / 2)) ? 1 : -1;
 }
 
 
@@ -6498,17 +6536,31 @@ static void ReleaseMon(void)
     }
     else
     {
+        u16 value = TRAINERS_COUNT;
+
         if (sCursorArea == CURSOR_AREA_IN_PARTY)
         {
             boxId = TOTAL_BOXES_COUNT;
             if (OW_PC_RELEASE_ITEM >= GEN_8)
                 item = GetMonData(&gPlayerParty[sCursorPosition], MON_DATA_HELD_ITEM);
+            SetMonData(&gPlayerParty[sCursorPosition], MON_DATA_MOVE2, &value);
         }
         else
         {
             boxId = StorageGetCurrentBox();
             if (OW_PC_RELEASE_ITEM >= GEN_8)
                 item = GetBoxMonDataAt(boxId, sCursorPosition, MON_DATA_HELD_ITEM);
+            SetBoxMonData(&gPokemonStoragePtr->boxes[boxId][sCursorPosition], MON_DATA_MOVE2, &value);
+        }
+        SetMovingMonData(boxId, sCursorPosition);
+        for (int i = LIVE_BOXES_COUNT; i < TOTAL_BOXES_COUNT; i++)
+        {
+            s16 slot = GetFirstFreeBoxSpot(i);
+            if (slot >= 0)
+            {
+                SetPlacedMonData(i, slot);
+                break;
+            }
         }
 
         PurgeMonOrBoxMon(boxId, sCursorPosition);
@@ -7111,7 +7163,10 @@ static u8 InBoxInput_Normal(void)
             {
                 cursorArea = CURSOR_AREA_BUTTONS;
                 cursorPosition -= IN_BOX_COUNT;
-                cursorPosition /= 3;
+                if (gCurrentBoxOption == OPTION_DEATHBOX)
+                    cursorPosition = 1;
+                else
+                    cursorPosition /= 3;
                 sStorage->cursorVerticalWrap = 1;
                 sStorage->cursorFlipTimer = 1;
             }
@@ -7510,7 +7565,10 @@ static u8 HandleInput_OnBox(void)
         {
             retVal = INPUT_MOVE_CURSOR;
             cursorArea = CURSOR_AREA_BUTTONS;
-            cursorPosition = 0;
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+                cursorPosition = 1;
+            else
+                cursorPosition = 0;
             sStorage->cursorFlipTimer = 1;
             break;
         }
@@ -7604,14 +7662,18 @@ static u8 HandleInput_OnButtons(void)
         if (JOY_REPEAT(DPAD_LEFT))
         {
             retVal = INPUT_MOVE_CURSOR;
-            if (--cursorPosition < 0)
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+                return INPUT_NONE;
+            else if (--cursorPosition < 0)
                 cursorPosition = 1;
             break;
         }
         else if (JOY_REPEAT(DPAD_RIGHT))
         {
             retVal = INPUT_MOVE_CURSOR;
-            if (++cursorPosition > 1)
+            if (gCurrentBoxOption == OPTION_DEATHBOX)
+                return INPUT_NONE;
+            else if (++cursorPosition > 1)
                 cursorPosition = 0;
             break;
         }
@@ -7716,6 +7778,10 @@ static bool8 SetMenuTexts_Mon(void)
                 return FALSE;
         }
         break;
+    case OPTION_DEATHBOX:
+        if (species == SPECIES_NONE)
+            return FALSE;
+        break;
     case OPTION_MOVE_ITEMS:
     default:
         return FALSE;
@@ -7731,7 +7797,8 @@ static bool8 SetMenuTexts_Mon(void)
     }
 
     SetMenuText(MENU_MARK);
-    SetMenuText(MENU_RELEASE);
+    if (sStorage->boxOption != OPTION_DEATHBOX)
+        SetMenuText(MENU_RELEASE);
     SetMenuText(MENU_CANCEL);
     return TRUE;
 }
@@ -7926,6 +7993,8 @@ static void CreateCursorSprites(void)
 
 static void ToggleCursorAutoAction(void)
 {
+    if (gCurrentBoxOption == OPTION_DEATHBOX)
+        return;
     sAutoActionOn = !sAutoActionOn;
     sStorage->cursorSprite->oam.paletteNum = sStorage->cursorPalNums[sAutoActionOn];
 }
@@ -9649,7 +9718,7 @@ bool8 CheckFreePokemonStorageSpace(void)
 {
     s32 i, j;
 
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    for (i = 0; i < LIVE_BOXES_COUNT; i++)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
@@ -9678,7 +9747,7 @@ u32 CountStorageNonEggMons(void)
     s32 i, j;
     u32 count = 0;
 
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    for (i = 0; i < LIVE_BOXES_COUNT; i++)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
@@ -9696,7 +9765,7 @@ u32 CountAllStorageMons(void)
     s32 i, j;
     u32 count = 0;
 
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    for (i = 0; i < LIVE_BOXES_COUNT; i++)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
@@ -9714,7 +9783,7 @@ bool32 AnyStorageMonWithMove(u16 move)
     u16 moves[] = {move, MOVES_COUNT};
     s32 i, j;
 
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
+    for (i = 0; i < LIVE_BOXES_COUNT; i++)
     {
         for (j = 0; j < IN_BOX_COUNT; j++)
         {
