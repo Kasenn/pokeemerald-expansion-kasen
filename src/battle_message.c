@@ -797,6 +797,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_SWEETVEILPROTECTED]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} surrounded itself\nwith a veil of sweetness!"),
     [STRINGID_AROMAVEILPROTECTED]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is protected\nby an aromatic veil!"),
     [STRINGID_USEDINSTRUCTEDMOVE]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} used the move\ninstructed by {B_BUFF1}!"),
+    [STRINGID_USEDINSTRUCTEDMOVE]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} followed {B_ATK_NAME_WITH_PREFIX2}'s instructions!"),//wip
     [STRINGID_THROATCHOPENDS]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can\nuse sound-based moves again!"),
     [STRINGID_PKMNCANTUSEMOVETHROATCHOP]            = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can't use\n{B_CURRENT_MOVE} due to Throat Chop!\p"),
     [STRINGID_LASERFOCUS]                           = COMPOUND_STRING("{B_ATK_NAME_PREFIX}\nconcentrated intensely!"),

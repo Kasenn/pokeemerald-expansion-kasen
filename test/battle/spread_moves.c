@@ -116,6 +116,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: If a spread move attack will activate a resist
 DOUBLE_BATTLE_TEST("Spread Moves: AOE move vs Disguise, Volt Absorb (right) and Lightning Rod (left)")
 {
     GIVEN {
+        WITH_CONFIG(CONFIG_REDIRECT_ABILITY_IMMUNITY, GEN_5);
         ASSUME(GetMoveTarget(MOVE_DISCHARGE) == MOVE_TARGET_FOES_AND_ALLY);
         ASSUME(GetMoveType(MOVE_DISCHARGE) == TYPE_ELECTRIC);
         PLAYER(SPECIES_WOBBUFFET);
@@ -135,6 +136,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: AOE move vs Disguise, Volt Absorb (right) and 
 DOUBLE_BATTLE_TEST("Spread Moves: AOE move vs Disguise, Volt Absorb (left) and Lightning Rod (right)")
 {
     GIVEN {
+        WITH_CONFIG(CONFIG_REDIRECT_ABILITY_IMMUNITY, GEN_5);
         ASSUME(GetMoveTarget(MOVE_DISCHARGE) == MOVE_TARGET_FOES_AND_ALLY);
         ASSUME(GetMoveType(MOVE_DISCHARGE) == TYPE_ELECTRIC);
         PLAYER(SPECIES_WOBBUFFET);
