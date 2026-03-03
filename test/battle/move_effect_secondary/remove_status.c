@@ -19,8 +19,7 @@ SINGLE_BATTLE_TEST("Smelling Salts does not cure paralyzed pokemons behind subst
         if (ability == ABILITY_INNER_FOCUS)
         {
             MESSAGE("The substitute took damage for the foe Seismitoad!");
-            NONE_OF
-            {
+            NONE_OF {
                 MESSAGE("The foe Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
                 MESSAGE("The foe Seismitoad was cured of paralysis.");
                 STATUS_ICON(opponent, none: TRUE);
@@ -77,8 +76,7 @@ SINGLE_BATTLE_TEST("Wake-Up Slap does not cure paralyzed pokemons behind substit
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WAKE_UP_SLAP, player);
         if (ability == ABILITY_INNER_FOCUS) {
             MESSAGE("The substitute took damage for the foe Seismitoad!");
-            NONE_OF
-            {
+            NONE_OF {
                 MESSAGE("The foe Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
                 MESSAGE("The foe Seismitoad woke up!");
                 STATUS_ICON(opponent, none: TRUE);

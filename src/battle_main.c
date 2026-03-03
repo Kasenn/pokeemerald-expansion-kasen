@@ -1817,7 +1817,8 @@ void CB2_QuitRecordedBattle(void)
             if (taskId != TASK_NONE)
                 DestroyTask(taskId);
 
-            TestRunner_Battle_AfterLastTurn();
+            gCurrentActionFuncId = B_ACTION_FINISHED;
+            sEndTurnFuncsTable[gBattleOutcome & 0x7F](); // Contains TestRunner_Battle_AfterLastTurn
         }
         FreeRestoreBattleData();
         FreeAllWindowBuffers();
@@ -3398,8 +3399,10 @@ const u8* FaintClearSetData(u32 battler)
         gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
 
     bool32 keepGastroAcid = gBattleMons[battler].volatiles.gastroAcid;
+    bool32 keepTransformed = gBattleMons[battler].volatiles.transformed;
     memset(&gBattleMons[battler].volatiles, 0, sizeof(struct Volatiles));
     gBattleMons[battler].volatiles.gastroAcid = keepGastroAcid; // Edge case: Keep Gastro Acid if pokemon's ability can have effect after fainting, for example Innards Out.
+    gBattleMons[battler].volatiles.transformed = keepTransformed; // Edge case: Keep Transformed status to prevent triggering FORM_CHANGE_FAINT on transformed mons.
 
     for (i = 0; i < gBattlersCount; i++)
     {
@@ -3830,7 +3833,7 @@ static void DoBattleIntro(void)
     case BATTLE_INTRO_STATE_SET_DEX_AND_BATTLE_VARS:
         if (!gBattleControllerExecFlags)
         {
-            gBattleStruct->eventState.beforeFristTurn = 0;
+            gBattleStruct->eventState.beforeFirstTurn = 0;
             gBattleStruct->switchInBattlerCounter = 0;
             Ai_InitPartyStruct(); // Save mons party counts, and first 2/4 mons on the battlefield.
 
@@ -3868,7 +3871,7 @@ static void TryDoEventsBeforeFirstTurn(void)
     if (gBattleControllerExecFlags)
         return;
 
-    switch (gBattleStruct->eventState.beforeFristTurn)
+    switch (gBattleStruct->eventState.beforeFirstTurn)
     {
     case FIRST_TURN_EVENTS_START:
         // Set invalid mons as absent(for example when starting a double battle with only one pokemon).
@@ -3918,20 +3921,20 @@ static void TryDoEventsBeforeFirstTurn(void)
                     SwapTurnOrder(i, j);
             }
         }
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_OVERWORLD_WEATHER:
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         if (TryFieldEffects(FIELD_EFFECT_OVERWORLD_WEATHER))
             return;
         break;
     case FIRST_TURN_EVENTS_TERRAIN:
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         if (TryFieldEffects(FIELD_EFFECT_OVERWORLD_TERRAIN))
             return;
         break;
     case FIRST_TURN_EVENTS_STARTING_STATUS:
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         if (TryFieldEffects(FIELD_EFFECT_TRAINER_STATUSES))
             return;
         break;
@@ -3946,7 +3949,7 @@ static void TryDoEventsBeforeFirstTurn(void)
             }
         }
         memset(gQueuedStatBoosts, 0, sizeof(gQueuedStatBoosts)); // erase all totem boosts for Mirror Herb and Opportunist
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_NEUTRALIZING_GAS:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -3956,7 +3959,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_SWITCH_IN_ABILITIES:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -3973,7 +3976,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_ITEM_EFFECTS:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -3983,7 +3986,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_WHITE_HERB:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -3993,7 +3996,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_OPPORTUNIST:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -4003,7 +4006,7 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_MIRROR_HERB:
         while (gBattleStruct->switchInBattlerCounter < gBattlersCount) // From fastest to slowest
@@ -4013,10 +4016,10 @@ static void TryDoEventsBeforeFirstTurn(void)
                 return;
         }
         gBattleStruct->switchInBattlerCounter = 0;
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         break;
     case FIRST_TURN_EVENTS_EJECT_PACK:
-        gBattleStruct->eventState.beforeFristTurn++;
+        gBattleStruct->eventState.beforeFirstTurn++;
         if (TrySwitchInEjectPack(FIRST_TURN))
             return;
         break;
@@ -4055,7 +4058,7 @@ static void TryDoEventsBeforeFirstTurn(void)
 
         if ((i = ShouldDoTrainerSlide(GetBattlerAtPosition(B_POSITION_OPPONENT_LEFT), TRAINER_SLIDE_BEFORE_FIRST_TURN)))
             BattleScriptExecute(i == 1 ? BattleScript_TrainerASlideMsgEnd2 : BattleScript_TrainerBSlideMsgEnd2);
-        gBattleStruct->eventState.beforeFristTurn = 0;
+        gBattleStruct->eventState.beforeFirstTurn = 0;
         break;
     }
 }
@@ -4203,7 +4206,7 @@ u8 IsRunningFromBattleImpossible(u32 battler)
 
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
         return BATTLE_RUN_SUCCESS;
-    if (B_GHOSTS_ESCAPE >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
+    if (GetConfig(CONFIG_GHOSTS_ESCAPE) >= GEN_6 && IS_BATTLER_OF_TYPE(battler, TYPE_GHOST))
         return BATTLE_RUN_SUCCESS;
     if (gBattleTypeFlags & BATTLE_TYPE_LINK)
         return BATTLE_RUN_SUCCESS;
@@ -5755,9 +5758,6 @@ static void HandleEndTurn_FinishBattle(void)
             TryPutBreakingNewsOnAir();
         }
 
-        RecordedBattle_SetPlaybackFinished();
-        if (gTestRunnerEnabled)
-            TestRunner_Battle_AfterLastTurn();
         BeginFastPaletteFade(3);
         FadeOutMapMusic(5);
         gAutoScrollMessage = 0;
@@ -5770,13 +5770,6 @@ static void HandleEndTurn_FinishBattle(void)
         if (B_TRAINERS_KNOCK_OFF_ITEMS == TRUE || B_RESTORE_HELD_BATTLE_ITEMS >= GEN_9)
             TryRestoreHeldItems();
 
-        // Undo Dynamax HP multiplier before recalculating stats.
-        for (battler = 0; battler < gBattlersCount; ++battler)
-        {
-            if (GetActiveGimmick(battler) == GIMMICK_DYNAMAX)
-                UndoDynamax(battler);
-        }
-
         for (i = 0; i < PARTY_SIZE; i++)
         {
             bool32 changedForm = TryRevertPartyMonFormChange(i);
@@ -5785,6 +5778,9 @@ static void HandleEndTurn_FinishBattle(void)
             if (!changedForm && B_RECALCULATE_STATS >= GEN_5)
                 CalculateMonStats(&gPlayerParty[i]);
         }
+        RecordedBattle_SetPlaybackFinished();
+        if (gTestRunnerEnabled)
+            TestRunner_Battle_AfterLastTurn();
         // Clear battle mon species to avoid a bug on the next battle that causes
         // healthboxes loading incorrectly due to it trying to create a Mega Indicator
         // if the previous battler would've had it.

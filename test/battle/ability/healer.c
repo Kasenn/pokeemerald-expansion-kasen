@@ -18,7 +18,7 @@ DOUBLE_BATTLE_TEST("Healer cures adjacent ally's status condition 30% of the tim
         OPPONENT(SPECIES_WOBBUFFET) { Status1(status); }
         OPPONENT(SPECIES_CHANSEY) { Ability(ABILITY_HEALER); }
     } WHEN {
-        TURN { }
+        TURN {}
     } SCENE {
         switch (status)
         {
