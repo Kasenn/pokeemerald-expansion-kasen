@@ -1237,7 +1237,7 @@
 	.endm
 
 	.macro jumpifbreachpierces jumpInstr:req
-	.byte 0xe6
+	.byte B_SCR_OP_JUMPIFBREACHPIERCE
 	.4byte \jumpInstr
 	.endm
 
