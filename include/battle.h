@@ -62,6 +62,7 @@ struct DisableStruct
 {
     u32 transformedMonPersonality;
     bool8 transformedMonShininess;
+    u16 transformedMonSpecies;
     u16 disabledMove;
     u16 encoredMove;
     u8 protectUses:4;
