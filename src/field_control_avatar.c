@@ -496,7 +496,7 @@ static const u8 *GetInteractedBackgroundEventScript(struct MapPosition *position
     case 5:
     case 6:
     case BG_EVENT_HIDDEN_ITEM:
-        gSpecialVar_0x8004 = ((u32)bgEvent->bgUnion.script >> 16) + FLAG_HIDDEN_ITEMS_START;
+        gSpecialVar_0x8004 = ((u32)bgEvent->bgUnion.script >> 16);
         gSpecialVar_0x8005 = (u32)bgEvent->bgUnion.script;
         if (FlagGet(gSpecialVar_0x8004) == TRUE)
             return NULL;
@@ -774,7 +774,7 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             for (i = 0; i < events->bgEventCount; i++)
             {
                 // Check if there are any hidden items on the current map that haven't been picked up
-                if (events->bgEvents[i].kind == BG_EVENT_HIDDEN_ITEM && !FlagGet(events->bgEvents[i].bgUnion.hiddenItem.hiddenItemId + FLAG_HIDDEN_ITEMS_START))
+                if (events->bgEvents[i].kind == BG_EVENT_HIDDEN_ITEM && !FlagGet(events->bgEvents[i].bgUnion.hiddenItem.hiddenItemId))
                 {
                     itemX = (u16)events->bgEvents[i].x + MAP_OFFSET;
                     distanceX = itemX - playerX;
