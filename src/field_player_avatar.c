@@ -395,7 +395,7 @@ static const struct PACKED
 {
     u16 graphicsId;
     u8 playerFlag;
-} sPlayerAvatarGfxToStateFlag[OUTFIT_COUNT][GENDER_COUNT][10][2] =
+} sPlayerAvatarGfxToStateFlag[OUTFIT_COUNT][GENDER_COUNT][10] =
 {
     [OUTFIT_RUBYSAPPHIRE] =
     {
