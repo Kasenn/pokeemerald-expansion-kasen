@@ -80,6 +80,7 @@ SINGLE_BATTLE_TEST("Steel Beam causes the user & the target to faint when below 
         MESSAGE("The foe Wobbuffet fainted!");
         HP_BAR(player, hp: 0);
         MESSAGE("Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
     }
 }
 

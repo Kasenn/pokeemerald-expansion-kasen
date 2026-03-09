@@ -133,6 +133,52 @@
 #define MULTI_TESTMEGASTARTER              122
 #define MULTI_BERRY_PLOT                   123
 #define MULTI_OUTFIT                       124
+#define MULTI_BIKE_SHOP                    125
+#define MULTI_EEVEELUTIONS                 126
+#define MULTI_ISLAND_23                    127
+#define MULTI_ISLAND_13                    128
+#define MULTI_ISLAND_12                    129
+#define MULTI_SEVII_NAVEL                  130
+#define MULTI_SEVII_BIRTH                  131
+#define MULTI_SEVII_NAVEL_BIRTH            132
+#define MULTI_SEAGALLOP_123                133
+#define MULTI_SEAGALLOP_V23                134
+#define MULTI_SEAGALLOP_V13                135
+#define MULTI_SEAGALLOP_V12                136
+#define MULTI_SEAGALLOP_VERMILION          137
+#define MULTI_GAME_CORNER_POKEMON_PRIZES   138
+#define MULTI_GAME_CORNER_TMPRIZES         139
+#define MULTI_GAME_CORNER_BATTLE_ITEM_PRIZES             140
+#define MULTI_DEPT_STORE_ELEVATOR                        141
+#define MULTI_GAME_CORNER_COIN_PURCHASE_COUNTER          142
+#define MULTI_LINKED_DIRECT_UNION                        143
+#define MULTI_CELADON_VENDING_MACHINE                    144
+#define MULTI_THIRSTY_GIRL_FRESH_WATER                   145
+#define MULTI_THIRSTY_GIRL_SODA_POP                      146
+#define MULTI_THIRSTY_GIRL_FRESH_WATER_SODA_POP          147
+#define MULTI_THIRSTY_GIRL_LEMONADE                      148
+#define MULTI_THIRSTY_GIRL_FRESH_WATER_LEMONADE          149
+#define MULTI_THIRSTY_GIRL_SODA_POP_LEMONADE             150
+#define MULTI_THIRSTY_GIRL_FRESH_WATER_SODA_POP_LEMONADE 151
+#define MULTI_ROCKET_HIDEOUT_ELEVATOR                    152
+#define MULTI_HELIX                                      153
+#define MULTI_DOME                                       154
+#define MULTI_AMBER                                      155
+#define MULTI_HELIX_AMBER                                156
+#define MULTI_DOME_AMBER                                 157
+#define MULTI_MUSHROOMS                                  158
+#define MULTI_ROOFTOP_B1F                                159
+#define MULTI_TRAINER_TOWER_MODE                         160
+#define MULTI_TRAINER_CARD_ICON_TINT                     161
+#define MULTI_HOF_QUIT                                   162
+#define MULTI_EGGS_QUIT                                  163
+#define MULTI_VICTORIES_QUIT                             164
+#define MULTI_HOF_EGGS_QUIT                              165
+#define MULTI_HOF_VICTORIES_QUIT                         166
+#define MULTI_EGGS_VICTORIES_QUIT                        167
+#define MULTI_HOF_EGGS_VICTORIES_QUIT                    168
+
+#define MULTI_NONE 255
 
 // Lilycove SS Tidal Multichoice Selections
 #define SSTIDAL_SELECTION_SLATEPORT        0
@@ -178,6 +224,15 @@
 #define STDSTRING_MEDICINE         30
 #define STDSTRING_MEGA_STONES      31
 #define STDSTRING_FREESPACE        32
+#define STDSTRING_BOULDER_BADGE    33
+#define STDSTRING_CASCADE_BADGE    34
+#define STDSTRING_THUNDER_BADGE    35
+#define STDSTRING_RAINBOW_BADGE    36
+#define STDSTRING_SOUL_BADGE       37
+#define STDSTRING_MARSH_BADGE      38
+#define STDSTRING_VOLCANO_BADGE    39
+#define STDSTRING_EARTH_BADGE      40
+#define STDSTRING_COINS            41
 
 // Dynamic Multichoice Callbacks
 

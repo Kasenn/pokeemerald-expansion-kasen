@@ -37,5 +37,7 @@ void GetObjectPosition(u16*, u16*, u32, u32);
 bool32 CheckObjectAtXY(u32, u32);
 bool32 CheckPartyHasSpecies(u32);
 void ShakeCameraParameterized(u16 horizontalPan, u16 verticalPan, u16 delay, u16 numShakes);
+bool8 CutMoveRuinValleyCheck(void);
+void CutMoveOpenDottedHoleDoor(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

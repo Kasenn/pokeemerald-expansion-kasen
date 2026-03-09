@@ -62,6 +62,7 @@ SINGLE_BATTLE_TEST("Rototiller doesn't affect Pokémon that are semi-invulnerabl
         TURN { MOVE(opponent, MOVE_DIG); MOVE(player, MOVE_ROTOTILLER); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
+        MESSAGE("The opposing Tangela avoided the attack!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("But it had no effect!");
@@ -88,7 +89,7 @@ SINGLE_BATTLE_TEST("Rototiller fails if the only valid target is semi-invulnerab
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
         MESSAGE("Wobbuffet used Rototiller!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
-        MESSAGE("But it failed!");
+        MESSAGE("The opposing Tangela avoided the attack!");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(player->statStages[STAT_SPATK], DEFAULT_STAT_STAGE);

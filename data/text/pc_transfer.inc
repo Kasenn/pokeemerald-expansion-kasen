@@ -4,7 +4,13 @@ gText_PkmnTransferredSomeonesPC::
 
 gText_PkmnTransferredLanettesPC::
 	.string "{STR_VAR_2} was transferred to\n"
-	.string "box {STR_VAR_1} in Lanette's PC.$"
+#if IS_FRLG
+	.string "Bill's PC.\p"
+#else
+	.string "Lanette's PC.\p"
+#endif
+	.string "It was placed in \n"
+	.string "box “{STR_VAR_1}.”$"
 
 gText_PkmnTransferredSomeonesPCBoxFull::
 	.string "Box {STR_VAR_3} on\n"
@@ -13,10 +19,18 @@ gText_PkmnTransferredSomeonesPCBoxFull::
 	.string "box {STR_VAR_1}.$"
 
 gText_PkmnTransferredLanettesPCBoxFull::
-	.string "Box {STR_VAR_3} on\n"
+	.string "BOX “{STR_VAR_3}” on\n"
+#if IS_FRLG
+	.string "BILL'S PC was full.\p"
+#else
 	.string "Lanette's PC was full.\p"
+#endif
 	.string "{STR_VAR_2} was transferred to\n"
 	.string "box {STR_VAR_1}.$"
+
+gText_PlayerObtainedTheMon::
+	.string "{PLAYER} obtained\n"
+	.string "the {STR_VAR_1}!$"
 
 gText_NoMoreRoomForPokemon::
 	.string "There's no more room for Pokémon!\p"

@@ -787,7 +787,8 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
     anyRS = Link_AnyPartnersPlayingRubyOrSapphire();
     for (i = 0; i < GetLinkPlayerCount(); i++)
     {
-        u32 language, version;
+        enum Language language;
+        enum GameVersion version;
 
         mixMail = (void *)records + i * recordSize;
         language = gLinkPlayers[i].language;
@@ -795,7 +796,7 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
 
         for (j = 0; j < mixMail->numDaycareMons; j++)
         {
-            u16 otNameLanguage, nicknameLanguage;
+            enum Language otNameLanguage, nicknameLanguage;
             struct DaycareMail *daycareMail = &mixMail->mail[j];
 
             if (daycareMail->message.itemId == ITEM_NONE)
@@ -899,7 +900,7 @@ static void ReceiveDaycareMailData(struct RecordMixingDaycareMail *records, size
             // Both daycare slots can hold an item, choose which one to use.
             // If either one is the only one to have associated mail, use that one.
             // If both do or don't have associated mail, choose one randomly.
-            u32 itemId1, itemId2;
+            enum Item itemId1, itemId2;
             idxs[j][MULTIPLAYER_ID] = i;
             itemId1 = GetDaycareMailItemId(&mixMail->mail[0]);
             itemId2 = GetDaycareMailItemId(&mixMail->mail[1]);

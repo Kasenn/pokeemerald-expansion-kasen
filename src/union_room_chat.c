@@ -781,9 +781,6 @@ static const struct SpriteTemplate sSpriteTemplate_KeyboardCursor =
     .paletteTag = PALTAG_INTERFACE,
     .oam = &sOam_KeyboardCursor,
     .anims = sAnims_KeyboardCursor,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
 };
 
 static const struct OamData sOam_TextEntrySprite = {
@@ -797,9 +794,6 @@ static const struct SpriteTemplate sSpriteTemplate_TextEntryCursor =
     .tileTag = GFXTAG_TEXT_ENTRY_CURSOR,
     .paletteTag = PALTAG_INTERFACE,
     .oam = &sOam_TextEntrySprite,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_TextEntryCursor
 };
 
@@ -808,9 +802,6 @@ static const struct SpriteTemplate sSpriteTemplate_TextEntryArrow =
     .tileTag = GFXTAG_TEXT_ENTRY_ARROW,
     .paletteTag = PALTAG_INTERFACE,
     .oam = &sOam_TextEntrySprite,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_TextEntryArrow
 };
 
@@ -858,10 +849,6 @@ static const struct SpriteTemplate sSpriteTemplate_RButtonIcon =
     .tileTag = GFXTAG_RBUTTON_ICON,
     .paletteTag = PALTAG_INTERFACE,
     .oam = &sOam_RButtonIcon,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
 };
 
 static const struct SpriteTemplate sSpriteTemplate_RButtonLabels =
@@ -870,9 +857,6 @@ static const struct SpriteTemplate sSpriteTemplate_RButtonLabels =
     .paletteTag = PALTAG_INTERFACE,
     .oam = &sOam_RButtonLabel,
     .anims = sAnims_RButtonLabels,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
 };
 
 void EnterUnionRoomChat(void)
@@ -2057,12 +2041,12 @@ static void Task_ReceiveChatMessage(u8 taskId)
         buffer = (u8 *)gBlockRecvBuffer[tI];
         switch (buffer[0])
         {
-            default:
-            case CHAT_MESSAGE_CHAT:    tNextState = 3; break;
-            case CHAT_MESSAGE_JOIN:    tNextState = 3; break;
-            case CHAT_MESSAGE_LEAVE:   tNextState = 4; break;
-            case CHAT_MESSAGE_DROP:    tNextState = 5; break;
-            case CHAT_MESSAGE_DISBAND: tNextState = 6; break;
+        default:
+        case CHAT_MESSAGE_CHAT:    tNextState = 3; break;
+        case CHAT_MESSAGE_JOIN:    tNextState = 3; break;
+        case CHAT_MESSAGE_LEAVE:   tNextState = 4; break;
+        case CHAT_MESSAGE_DROP:    tNextState = 5; break;
+        case CHAT_MESSAGE_DISBAND: tNextState = 6; break;
         }
 
         if (ProcessReceivedChatMessage(sChat->receivedMessage, (u8 *)gBlockRecvBuffer[tI]))

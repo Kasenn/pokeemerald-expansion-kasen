@@ -133,6 +133,15 @@ void SetUnlockedPokedexFlags(void)
     // gSaveBlock2Ptr->gcnLinkFlags |= (1 << 3);
 }
 
+void SetPostgameFlags(void)
+{
+    gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
+    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 1);
+    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 2);
+    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 3);
+    gSaveBlock2Ptr->gcnLinkFlags |= (1 << 15);
+}
+
 void SetChampionSaveWarp(void)
 {
     gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;

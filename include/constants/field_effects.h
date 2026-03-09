@@ -95,6 +95,9 @@
 #define FLDEFF_TALL_GRASS_RED            90
 #define FLDEFF_ROCK_CLIMB_DUST           91
 #define FLDEFF_ORAS_DOWSE                92
+#define FLDEFF_SMILEY_FACE_ICON          93
+#define FLDEFF_HALL_OF_FAME_RECORD_FRLG  94
+#define FLDEFF_PHOTO_FLASH               95
 
 #define FLDEFFOBJ_SHADOW_S              0
 #define FLDEFFOBJ_SHADOW_M              1

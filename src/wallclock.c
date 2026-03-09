@@ -223,8 +223,6 @@ static const struct SpriteTemplate sSpriteTemplate_MinuteHand =
     .paletteTag = PALTAG_WALL_CLOCK_MALE,
     .oam = &sOam_ClockHand,
     .anims = sAnims_MinuteHand,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_MinuteHand,
 };
 
@@ -234,8 +232,6 @@ static const struct SpriteTemplate sSpriteTemplate_HourHand =
     .paletteTag = PALTAG_WALL_CLOCK_MALE,
     .oam = &sOam_ClockHand,
     .anims = sAnims_HourHand,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_HourHand,
 };
 
@@ -275,8 +271,6 @@ static const struct SpriteTemplate sSpriteTemplate_PM =
     .paletteTag = PALTAG_WALL_CLOCK_MALE,
     .oam = &sOam_PeriodIndicator,
     .anims = sAnims_PM,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_PMIndicator
 };
 
@@ -286,8 +280,6 @@ static const struct SpriteTemplate sSpriteTemplate_AM =
     .paletteTag = PALTAG_WALL_CLOCK_MALE,
     .oam = &sOam_PeriodIndicator,
     .anims = sAnims_AM,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
     .callback = SpriteCB_AMIndicator
 };
 

@@ -1,4 +1,5 @@
 #include "config/battle.h"
+#include "constants/global.h"
 #include "constants/battle.h"
 #include "constants/battle_script_commands.h"
 #include "constants/battle_anim.h"
@@ -35,6 +36,8 @@ gBattlescriptsForSafariActions::
 	.4byte BattleScript_ActionThrowPokeblock
 	.4byte BattleScript_ActionWallyThrow
 	.4byte BattleScript_ActionLayLow
+	.4byte BattleScript_ActionThrowRock
+	.4byte BattleScript_ActionThrowBait
 
 BattleScript_ItemEnd:
 	end
@@ -83,6 +86,7 @@ BattleScript_ItemRestoreHP_SendOutRevivedBattler:
 	switchinanim BS_SCRIPTING, FALSE, FALSE
 	waitstate
 	switchineffects BS_SCRIPTING
+	switchinevents
 	end
 
 BattleScript_ItemCureStatus::
@@ -149,6 +153,7 @@ BattleScript_ItemSetMist::
 
 BattleScript_ItemSetFocusEnergy::
 	call BattleScript_UseItemMessage
+	itemincreasestat
 	jumpifvolatile BS_ATTACKER, VOLATILE_DRAGON_CHEER, BattleScript_ButItFailed
 	jumpifvolatile BS_ATTACKER, VOLATILE_FOCUS_ENERGY, BattleScript_ButItFailed
 	setfocusenergy BS_ATTACKER
@@ -168,6 +173,7 @@ BattleScript_ItemRestorePP::
 
 BattleScript_ItemIncreaseAllStats::
 	call BattleScript_UseItemMessage
+	itemincreasestat
 	call BattleScript_AllStatsUp
 	end
 
@@ -247,8 +253,11 @@ BattleScript_RunByUsingItem::
 	finishturn
 
 BattleScript_ActionWatchesCarefully:
-	printstring STRINGID_PKMNWATCHINGCAREFULLY
+	printfromtable gSafariReactionStringIds
 	waitmessage B_WAIT_TIME_LONG
+#if IS_FRLG
+	playanimation BS_OPPONENT1, B_ANIM_SAFARI_REACTION
+#endif
 	end2
 
 BattleScript_ActionGetNear:
@@ -299,6 +308,19 @@ BattleScript_TrainerBSlideMsgEnd2::
 	call BattleScript_TrainerBSlideMsgRet
 	end2
 
+BattleScript_TrainerPartnerSlideMsgRet::
+	trainerslidein BS_PLAYER2
+	handletrainerslidemsg BS_SCRIPTING, PRINT_SLIDE_MESSAGE
+	waitstate
+	trainerslideout BS_PLAYER2
+	waitstate
+	handletrainerslidemsg BS_SCRIPTING, RESTORE_BATTLER_SLIDE_CONTROL
+	return
+
+BattleScript_TrainerPartnerSlideMsgEnd2::
+	call BattleScript_TrainerPartnerSlideMsgRet
+	end2
+
 BattleScript_GhostBallDodge::
 	waitmessage B_WAIT_TIME_LONG
 	printstring STRINGID_ITDODGEDBALL
@@ -309,3 +331,15 @@ BattleScript_ActionLayLow:
     printfromtable gSafariGetNearStringIds
     waitmessage B_WAIT_TIME_LONG
     end2
+
+BattleScript_ActionThrowRock::
+	printstring STRINGID_THREWROCK
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_ROCK_THROW
+	end2
+
+BattleScript_ActionThrowBait::
+	printstring STRINGID_THREWBAIT
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_POKEBLOCK_THROW
+	end2
