@@ -4441,7 +4441,6 @@ const struct ItemInfo gItemsInfo[] =
         .name = ITEM_NAME("Upgrade"),
         .bpCost = (I_PRICE_BP <= GEN_7) ? 32 : ((I_PRICE_BP == GEN_8) ? 5 : 250),
         .price = 7000,
-        .holdEffect = HOLD_EFFECT_UPGRADE,
         .description = COMPOUND_STRING(
             "A peculiar box made\n"
             "by Silph Co."),

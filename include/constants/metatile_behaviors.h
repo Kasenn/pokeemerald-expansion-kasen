@@ -229,7 +229,6 @@ enum {
     MB_GLACEON_ROCK,
     MB_RHH_ROCK_CLIMB,
     NUM_METATILE_BEHAVIORS, // past this are unused FRLG ones
-    MB_STRENGTH_BUTTON,
     MB_FAST_WATER,
     MB_CYCLING_ROAD_WATER,
     MB_UNUSED_2E,

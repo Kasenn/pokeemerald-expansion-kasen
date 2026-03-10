@@ -2654,7 +2654,7 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
 }
 
 // FRLG
-static void GhostBallDodge(struct Sprite *sprite)
+static void UNUSED GhostBallDodge(struct Sprite *sprite)
 {
     sprite->x += sprite->x2;
     sprite->y += sprite->y2;

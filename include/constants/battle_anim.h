@@ -600,16 +600,14 @@ enum AnimBattler
 #define B_ANIM_EXPLODE                  54
 #define B_ANIM_SWAP_TO_SUBSTITUTE       55
 #define B_ANIM_SWAP_FROM_SUBSTITUTE     56
-#define B_ANIM_SWAP_TO_SUBSTITUTE       57
-#define B_ANIM_SWAP_FROM_SUBSTITUTE     58
-#define B_ANIM_MON_SCARED               59
-#define B_ANIM_GHOST_GET_OUT            60
-#define B_ANIM_SILPH_SCOPED             61
-#define B_ANIM_ROCK_THROW               62
-#define B_ANIM_SAFARI_REACTION          63
-#define B_ANIM_FORM_CHANGE_INSTANT      64
-#define B_ANIM_FORM_CHANGE_DISGUISE     65
-#define NUM_B_ANIMS_GENERAL             66
+#define B_ANIM_MON_SCARED               57
+#define B_ANIM_GHOST_GET_OUT            58
+#define B_ANIM_SILPH_SCOPED             59
+#define B_ANIM_ROCK_THROW               60
+#define B_ANIM_SAFARI_REACTION          61
+#define B_ANIM_FORM_CHANGE_INSTANT      62
+#define B_ANIM_FORM_CHANGE_DISGUISE     63
+#define NUM_B_ANIMS_GENERAL             64
 
 // special animations table (sBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

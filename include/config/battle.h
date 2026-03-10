@@ -75,6 +75,7 @@
 #define B_HIDDEN_POWER_COUNTER      GEN_LATEST // Prior to Gen4, Counter and Mirror Coat treat Hidden Power as Physical regardless of type.
 #define B_MODERN_TRICK_CHOICE_LOCK  GEN_LATEST // In Gen5+, if a Choice Item is swapped for a Choice Item, the Trick/Switcheroo user can pick another move, and then they'll be locked into it.
 #define B_PROTECT_FAILURE_RATE      GEN_LATEST // In Gen5+, protect moves fails 1/3 of the time instead of 1/2
+#define B_MOVE_TUTOR_COSTS          GEN_LATEST // Updates the default move tutor costs of some moves.
 
 // Ability data settings
 #define B_UPDATED_ABILITY_DATA      GEN_LATEST // Affects flags

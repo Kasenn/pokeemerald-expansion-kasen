@@ -262,8 +262,6 @@ enum BattleScriptOpcode
     B_SCR_OP_UNUSED_26,
     B_SCR_OP_UNUSED_27,
     B_SCR_OP_UNUSED_28,
-    B_SCR_OP_UNUSED_29,
-    B_SCR_OP_UNUSED_30,
     B_SCR_OP_CALLNATIVE,
 };
 

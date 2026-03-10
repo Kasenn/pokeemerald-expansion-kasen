@@ -352,9 +352,8 @@ string generate_map_events_text(Json map_data) {
                      << json_to_string(bg_event, "y") << ", "
                      << json_to_string(bg_event, "elevation") << ", "
                      << json_to_string(bg_event, "item") << ", "
-                     << json_to_string(bg_event, "flag") << ", "
-                     << quantity << ", "
-                     << underfoot << "\n";
+                     << json_to_string(bg_event, "flag");
+                text << "\n";
             }
             else if (type == "secret_base") {
                 text << "\tbg_secret_base_event "

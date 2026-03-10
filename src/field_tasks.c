@@ -2051,7 +2051,7 @@ void SetIcefallCaveCrackedIceMetatiles(void)
         {
             int x = sIcefallCaveIceCoords[i][0] + MAP_OFFSET;
             int y = sIcefallCaveIceCoords[i][1] + MAP_OFFSET;
-            MapGridSetMetatileIdAt(x, y, METATILE_SeafoamIslands_CrackedIce);
+            MapGridSetMetatileIdAt(x, y, 0);
         }
     }
 }
@@ -2114,7 +2114,7 @@ static void IcefallCaveIcePerStepCallback(u8 taskId)
             x = tIceX;
             y = tIceY;
             PlaySE(SE_ICE_CRACK);
-            MapGridSetMetatileIdAt(x, y, METATILE_SeafoamIslands_CrackedIce);
+            MapGridSetMetatileIdAt(x, y, 0);
             CurrentMapDrawMetatileAt(x, y);
             tState = 1;
         }
@@ -2130,7 +2130,7 @@ static void IcefallCaveIcePerStepCallback(u8 taskId)
             x = tIceX;
             y = tIceY;
             PlaySE(SE_ICE_BREAK);
-            MapGridSetMetatileIdAt(x, y, METATILE_SeafoamIslands_IceHole);
+            MapGridSetMetatileIdAt(x, y, 0);
             CurrentMapDrawMetatileAt(x, y);
             VarSet(VAR_TEMP_1, 1);
             tState = 1;

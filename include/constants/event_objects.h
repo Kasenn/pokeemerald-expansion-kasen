@@ -436,8 +436,6 @@ enum
     OBJ_EVENT_GFX_SWIMMER_F_LAND,
     OBJ_EVENT_GFX_WORKER_M,
     OBJ_EVENT_GFX_WORKER_F,
-    OBJ_EVENT_GFX_ROCKET_M,
-    OBJ_EVENT_GFX_ROCKET_F,
     OBJ_EVENT_GFX_GBA_KID,
     OBJ_EVENT_GFX_SUPER_NERD,
     OBJ_EVENT_GFX_BIKER,
@@ -462,14 +460,11 @@ enum
     OBJ_EVENT_GFX_LORELEI,
     OBJ_EVENT_GFX_MR_FUJI,
     OBJ_EVENT_GFX_BRUNO,
-    OBJ_EVENT_GFX_BROCK,
     OBJ_EVENT_GFX_MISTY,
     OBJ_EVENT_GFX_LT_SURGE,
     OBJ_EVENT_GFX_ERIKA,
     OBJ_EVENT_GFX_KOGA,
     OBJ_EVENT_GFX_SABRINA,
-    OBJ_EVENT_GFX_BLAINE,
-    OBJ_EVENT_GFX_GIOVANNI,
     OBJ_EVENT_GFX_CELIO,
     OBJ_EVENT_GFX_TEACHY_TV_HOST,
     OBJ_EVENT_GFX_GYM_GUY,
@@ -510,7 +505,6 @@ enum
     OBJ_EVENT_GFX_CUBONE,
     OBJ_EVENT_GFX_POLIWRATH,
     OBJ_EVENT_GFX_CLEFAIRY,
-    OBJ_EVENT_GFX_PIDGEOT,
     OBJ_EVENT_GFX_JIGGLYPUFF,
     OBJ_EVENT_GFX_PIDGEY,
     OBJ_EVENT_GFX_CHANSEY,
@@ -575,8 +569,6 @@ enum
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
 // is 65519, but even considering follower Pokémon, this should be more than enough :)
-#define NUM_OBJ_EVENT_GFX                        388
-
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.

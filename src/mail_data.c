@@ -184,20 +184,7 @@ u8 SaveMailToPC(struct Mail *mail)
 
 u8 TakeMailFromMonAndSave(struct Pokemon *mon)
 {
-    u32 heldItem;
-    u32 mailId, newMailId;
-
-    mailId = GetMonData(mon, MON_DATA_MAIL);
-    newMailId = SaveMailToPC(&gSaveBlock1Ptr->mail[mailId]);
-    if (newMailId != MAIL_NONE)
-    {
-        gSaveBlock1Ptr->mail[mailId].itemId = ITEM_NONE;
-        mailId = MAIL_NONE;
-        SetMonData(mon, MON_DATA_MAIL, &mailId);
-        heldItem = ITEM_NONE;
-        SetMonData(mon, MON_DATA_HELD_ITEM, &heldItem);
-    }
-    return newMailId;
+    return 0;
 }
 
 bool8 ItemIsMail(enum Item itemId)

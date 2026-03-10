@@ -371,13 +371,13 @@ static u32 OpponentGetTrainerPicId(enum BattlerId battlerId)
         trainerPicId = GetTrainerPicFromId(TRAINER_BATTLE_PARAM.opponentA);
     }
 
-    if ((trainerPicId == TRAINER_PIC_MAY) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
+    if ((trainerPicId == TRAINER_PIC_FRONT_MAY) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
     {
-        trainerPicId = TRAINER_PIC_MAY_ORAS;
+        trainerPicId = TRAINER_PIC_FRONT_MAY_ORAS;
     }
-    if ((trainerPicId == TRAINER_PIC_BRENDAN) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
+    if ((trainerPicId == TRAINER_PIC_FRONT_BRENDAN) && (FlagGet(FLAG_RIVAL_COSTUME_CHANGE)))
     {
-        trainerPicId = TRAINER_PIC_BRENDAN_ORAS;
+        trainerPicId = TRAINER_PIC_FRONT_BRENDAN_ORAS;
     }
 
     return trainerPicId;

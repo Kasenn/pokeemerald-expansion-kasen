@@ -842,9 +842,6 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_UNUSED_25]                             = Cmd_dummy,
     [B_SCR_OP_UNUSED_26]                             = Cmd_dummy,
     [B_SCR_OP_UNUSED_27]                             = Cmd_dummy,
-    [B_SCR_OP_UNUSED_28]                             = Cmd_dummy,
-    [B_SCR_OP_UNUSED_29]                             = Cmd_dummy,
-    [B_SCR_OP_UNUSED_30]                             = Cmd_dummy,
     [B_SCR_OP_CALLNATIVE]                            = Cmd_callnative,
 };
 
@@ -1100,6 +1097,9 @@ static bool32 ShouldSkipAccuracyCalcPastFirstHit(enum BattlerId battlerAtk, enum
     if (gSpecialStatuses[battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
         return TRUE;
 
+    if (gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_2ND_HIT || gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_3RD_HIT)
+        return TRUE;
+
     if (!gSpecialStatuses[battlerAtk].multiHitOn)
         return FALSE;
 
@@ -1226,15 +1226,6 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
             gBattleStruct->moveResultFlags[gBattlerTarget] = MOVE_RESULT_DOESNT_AFFECT_FOE;
         else
             gBattleStruct->moveResultFlags[gBattlerTarget] = MOVE_RESULT_MISSED;
-    }
-    else if ((gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT
-        || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT)
-        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
-        && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
-        || !(effect == EFFECT_TRIPLE_KICK || effect == EFFECT_POPULATION_BOMB))))
-    {
-        // No acc checks for second hit of Parental Bond or multi hit moves, except Triple Kick/Triple Axel/Population Bomb
-        gBattlescriptCurrInstr = nextInstr;
     }
     else
     {

@@ -2070,19 +2070,19 @@ static enum TrainerPicID PlayerGetTrainerBackPicId(void)
         switch (VarGet(VAR_CHOSEN_OUTFIT))
         {
         case OUTFIT_RUBYSAPPHIRE:
-            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_RUBY_SAPPHIRE_BRENDAN;
             break;
         case OUTFIT_EMERALD:
-            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_BRENDAN;
             break;
         case OUTFIT_ORAS:
-            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_BRENDAN_ORAS;
             break;
         case OUTFIT_CONTEST:
-            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_CONTEST;
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_BRENDAN_CONTEST;
             break;
         default:
-            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
+            trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_BRENDAN;
             break;
         }
     

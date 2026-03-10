@@ -395,7 +395,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         {
             gBattlerTarget = battler;
 
-            struct DamageContext ctx;
+            struct BattleContext ctx = {0};
             ctx.battlerAtk = ctx.battlerDef = gBattlerAttacker;
             ctx.move = MOVE_NONE;
             ctx.moveType = TYPE_MYSTERY;

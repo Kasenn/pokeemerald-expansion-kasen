@@ -3179,7 +3179,7 @@ BattleScript_ForestsCurseEqualByte::
 	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
-	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	accuracycheck BattleScript_MoveMissedPause
 	forestscursetarget BattleScript_ButItFailed
 	setbyte sB_ANIM_TURN, 0
 	attackanimation
@@ -3793,6 +3793,7 @@ BattleScript_BrickBreak_LightScreen::
 BattleScript_BrickBreak_AuroraVeil::
 	trybufferscreen SIDE_STATUS_AURORA_VEIL, BattleScript_BrickBreakDoHit
 	printstring STRINGID_PKMNSSCREENWOREOFF2
+BattleScript_BrickBreakDoHit::
 	return
 
 BattleScript_StealStats::
@@ -4503,7 +4504,7 @@ BattleScript_WeatherAbilityActivatesContinue:
 	return
 
 BattleScript_SandSpitActivates::
-	printstring STRINGID_ASANDSTORMKICKEDUP
+	printstring STRINGID_SANDSTORMBREWED
 	goto BattleScript_WeatherAbilityActivatesContinue
 
 BattleScript_WeatherContinues::
@@ -8349,7 +8350,7 @@ BattleScript_EffectFlash::
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ACC, MIN_STAT_STAGE, BattleScript_FlashDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
 BattleScript_FlashDoMoveAnim::
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	accuracycheck BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE

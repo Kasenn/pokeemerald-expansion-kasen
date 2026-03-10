@@ -218,7 +218,6 @@ static void InitSpriteForFigure8Anim(struct Sprite *);
 static bool8 AnimateSpriteInFigure8(struct Sprite *);
 void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
 enum Direction GetDirectionToFace(s16 x1, s16 y1, s16 x2, s16 y2);
-static void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
 static void ObjectEventSetGraphics(struct ObjectEvent *, const struct ObjectEventGraphicsInfo *);
 static void SpriteCB_VirtualObject(struct Sprite *);
 static void DoShadowFieldEffect(struct ObjectEvent *);
@@ -10609,7 +10608,7 @@ enum Direction GetLedgeJumpDirection(s16 x, s16 y, enum Direction direction)
     return DIR_NONE;
 }
 
-u8 GetLongLedgeJumpDirection(s16 x, s16 y, u8 direction)
+u8 GetLongLedgeJumpDirection(s16 x, s16 y, udir direction)
 {
     static bool8 (*const ledgeBehaviorFuncs[])(u8) = {
         [DIR_SOUTH - 1] = MetatileBehavior_IsRampSouth,
@@ -12332,7 +12331,7 @@ static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite 
     InitNpcForWalkSlow(objectEvent, sprite, direction);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
 }
-static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, udir direction)
 {
     InitNpcForWalkSuperSlow(objectEvent, sprite, direction);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));

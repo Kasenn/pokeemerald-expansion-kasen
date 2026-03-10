@@ -354,10 +354,10 @@ static inline const enum TrainerPicID GetTrainerPicFromId(u16 trainerId)
     if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
         return gBattlePartners[partnerDifficulty][trainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerPic;
 
-    if (GetTrainerStructFromId(trainerId)->trainerPic == TRAINER_PIC_BRENDAN && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
-        return TRAINER_PIC_BRENDAN_ORAS;
-    if (GetTrainerStructFromId(trainerId)->trainerPic == TRAINER_PIC_MAY && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
-        return TRAINER_PIC_MAY_ORAS;
+    if (GetTrainerStructFromId(trainerId)->trainerPic == TRAINER_PIC_FRONT_BRENDAN && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+        return TRAINER_PIC_FRONT_BRENDAN_ORAS;
+    if (GetTrainerStructFromId(trainerId)->trainerPic == TRAINER_PIC_FRONT_MAY && FlagGet(FLAG_RIVAL_COSTUME_CHANGE))
+        return TRAINER_PIC_FRONT_MAY_ORAS;
     return GetTrainerStructFromId(trainerId)->trainerPic;
 }
 

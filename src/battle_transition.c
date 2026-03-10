@@ -2634,8 +2634,8 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
 
     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_LEADER_PRYCE || TRAINER_BATTLE_PARAM.opponentA == TRAINER_LEADER_BLAINE)
     {
-        trainerAPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
-        trainerBPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
+        trainerAPicId = TRAINER_PIC_FRONT_LEADER_TATE_AND_LIZA;
+        trainerBPicId = TRAINER_PIC_FRONT_LEADER_TATE_AND_LIZA;
         addX = 208;
     }
 
@@ -2643,7 +2643,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     s16 opponentBRotationScales = 0;
 
     gReservedSpritePaletteCount = 10;
-    if (TRAINER_BATTLE_PARAM.opponentB != TRAINER_NONE && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && trainerAPicId != TRAINER_PIC_LEADER_TATE_AND_LIZA)
+    if (TRAINER_BATTLE_PARAM.opponentB != TRAINER_NONE && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS && trainerAPicId != TRAINER_PIC_FRONT_LEADER_TATE_AND_LIZA)
     {
         task->tOpponentSpriteBId = CreateTrainerSprite(trainerBPicId,
                                                     gTrainerSprites[trainerBPicId].mugshotCoords.x - 240,

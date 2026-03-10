@@ -3325,7 +3325,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_FICKLE:
-            if (!gProtectStructs[gBattlerAttacker].confusionSelfDmg
+            if (!gBattleStruct->unableToUseMove
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget))
             {
@@ -4106,7 +4106,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         case ABILITY_SPIKE_BODY:
             if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
              && IsBattlerAlive(gBattlerAttacker)
-             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && !gBattleStruct->unableToUseMove
              && IsBattlerTurnDamaged(gBattlerTarget)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
@@ -4291,17 +4291,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         case ABILITY_HIVE_LEADER:
             if (IsBattlerAlive(gBattlerAttacker)
-             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && !gBattleStruct->unableToUseMove
              && IsBattlerTurnDamaged(gBattlerTarget)
              && IsBattlerAlive(gBattlerTarget)
              && !(gBattleMons[gBattlerAttacker].volatiles.wrapped)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
                 gBattleMons[gBattlerAttacker].volatiles.wrapped = TRUE;
-                if (GetBattlerHoldEffect(gBattlerTarget) == HOLD_EFFECT_GRIP_CLAW)
-                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
-                else
-                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
+
+                SetWrapTurns(gEffectBattler, GetBattlerHoldEffect(gBattlerTarget));
+
                 gBattleMons[gEffectBattler].volatiles.wrappedMove = MOVE_INFESTATION;
                 gBattleMons[gEffectBattler].volatiles.wrappedBy = gBattlerTarget;
 
@@ -4449,16 +4448,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             break;
         case ABILITY_HIVE_LEADER:
             if (IsBattlerAlive(gBattlerTarget)
-             && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+             && !gBattleStruct->unableToUseMove
              && !(gBattleMons[gBattlerTarget].volatiles.wrapped)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move)
              && IsBattlerTurnDamaged(gBattlerTarget)) // Need to actually hit the target
             {
                 gBattleMons[gEffectBattler].volatiles.wrapped = TRUE;
-                if (GetBattlerHoldEffect(gBattlerAttacker) == HOLD_EFFECT_GRIP_CLAW)
-                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? 7 : 5;
-                else
-                    gDisableStructs[gEffectBattler].wrapTurns = B_BINDING_TURNS >= GEN_5 ? (Random() % 2) + 4 : (Random() % 4) + 2;
+
+                SetWrapTurns(gEffectBattler, GetBattlerHoldEffect(gBattlerAttacker));
                 gBattleMons[gEffectBattler].volatiles.wrappedMove = MOVE_INFESTATION;
                 gBattleMons[gEffectBattler].volatiles.wrappedBy = gBattlerAttacker;
 
@@ -8299,7 +8296,6 @@ s32 GetAdjustedDamage(struct BattleContext *ctx, s32 damage)
 
     bool32 enduredHit = FALSE;
     u32 rand = Random() % 100;
-    u32 affectionScore = GetBattlerAffectionHearts(ctx->battlerDef);
 
     if (GetMoveEffect(ctx->move) == EFFECT_FALSE_SWIPE)
     {
@@ -8331,15 +8327,10 @@ s32 GetAdjustedDamage(struct BattleContext *ctx, s32 damage)
         gLastUsedItem = gBattleMons[ctx->battlerDef].item;
         gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_HUNG_ON;
     }
-    else if (B_AFFECTION_MECHANICS == TRUE && IsOnPlayerSide(ctx->battlerDef) && affectionScore >= AFFECTION_THREE_HEARTS)
+    else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && IsOnPlayerSide(ctx->battlerDef))
     {
-        if ((affectionScore == AFFECTION_FIVE_HEARTS && rand < 20)
-         || (affectionScore == AFFECTION_FOUR_HEARTS && rand < 15)
-         || (affectionScore == AFFECTION_THREE_HEARTS && rand < 10))
-        {
-            enduredHit = TRUE;
-            gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
-        }
+        enduredHit = TRUE;
+        gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;
     }
 
     if (enduredHit)
@@ -8834,6 +8825,8 @@ void ActivateMegaEvolution(enum BattlerId battler)
     gLastUsedItem = gBattleMons[battler].item;
     SetActiveGimmick(battler, GIMMICK_MEGA);
     SetGimmickAsActivated(battler, GIMMICK_MEGA);
+    if (IsOnPlayerSide(battler))
+        FlagSet(FLAG_SPECIAL_USED_MEGA_EVO_IN_BATTLE);
 
     if (TryBattleFormChange(battler, FORM_CHANGE_BATTLE_MEGA_EVOLUTION_MOVE, ability))
     {
@@ -9252,7 +9245,7 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     {
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
     }
-    if (gDisableStructs[battler].tauntTimer != 0)
+    if (gBattleMons[battler].volatiles.tauntTimer != 0)
     {
         PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TAUNT;

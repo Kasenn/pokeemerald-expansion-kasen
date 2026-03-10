@@ -418,7 +418,7 @@ void BattleArena_DeductSkillPoints(enum BattlerId battler, enum StringID stringI
     switch (stringId)
     {
     case STRINGID_PKMNSXBLOCKSY:
-    case STRINGID_PKMNSXBLOCKSY2:
+    // case STRINGID_PKMNSXBLOCKSY2:
     case STRINGID_PKMNSXPREVENTSYLOSS:
     case STRINGID_PKMNSXMADEYINEFFECTIVE:
     case STRINGID_PKMNCANNOTUSEX:

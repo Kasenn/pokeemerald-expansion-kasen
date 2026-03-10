@@ -1442,7 +1442,7 @@ static enum CancelerResult CancelerProtean(struct BattleContext *ctx)
             gBattleMons[ctx->battlerAtk].volatiles.usedProteanLibero = TRUE;
         PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
         gBattlerAbility = ctx->battlerAtk;
-        PrepareStringBattle(STRINGID_EMPTYSTRING3, ctx->battlerAtk);
+        PrepareStringBattle(STRINGID_EMPTYSTRING, ctx->battlerAtk);
         gBattleCommunication[MSG_DISPLAY] = 1;
         BattleScriptCall(BattleScript_ProteanActivates);
         return CANCELER_RESULT_BREAK;
@@ -1483,6 +1483,18 @@ static bool32 CanTwoTurnMoveFireThisTurn(struct BattleContext *ctx)
         return FALSE;
     return TRUE;
 }
+
+static bool32 DoStrongWindsBoostTurnSpeed(struct BattleContext *ctx)
+{
+    if (gBattleWeather & B_WEATHER_STRONG_WINDS
+    && (ctx->move == MOVE_SKY_ATTACK
+     || ctx->move == MOVE_RAZOR_WIND
+     || ctx->move == MOVE_BOUNCE
+     || ctx->move == MOVE_FLY))
+        return TRUE;
+
+    return FALSE;
+};
 
 static enum CancelerResult HandleSkyDropResult(struct BattleContext *ctx)
 {
@@ -1586,6 +1598,14 @@ static enum CancelerResult CancelerCharging(struct BattleContext *ctx)
             gBattleScripting.animTargetsHit = 0;
             gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
             result = CANCELER_RESULT_SUCCESS;
+        }
+        else if (DoStrongWindsBoostTurnSpeed(ctx))
+        {
+            gBattleScripting.animTurn = 1;
+            gBattleScripting.animTargetsHit = 0;
+            gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
+            BattleScriptCall(BattleScript_StrongWindsActivation);
+            result = CANCELER_RESULT_BREAK;
         }
         else if (ctx->holdEffectAtk == HOLD_EFFECT_POWER_HERB)
         {
@@ -1867,6 +1887,22 @@ static bool32 IsMoveParentalBondAffected(struct BattleContext *ctx)
     return TRUE;
 }
 
+static bool32 IsMoveRapidFistsAffected(struct BattleContext *ctx)
+{
+    if (ctx->abilityAtk != ABILITY_RAPID_FISTS
+     || gBattleStruct->numSpreadTargets > 1
+     || IsMoveRapidFistsBanned(ctx->move)
+     || !IsPunchingMove(ctx->move)
+     || GetMoveCategory(ctx->move) == DAMAGE_CATEGORY_STATUS
+     || GetMoveEffect(ctx->move) == EFFECT_SEMI_INVULNERABLE
+     || GetMoveEffect(ctx->move) == EFFECT_TWO_TURNS_ATTACK
+     || GetActiveGimmick(ctx->battlerAtk) == GIMMICK_Z_MOVE
+     || ctx->move == MOVE_STRUGGLE)
+        return FALSE;
+
+    return TRUE;
+}
+
 static void SetPossibleNewSmartTarget(u32 move)
 {
     if (!IsBattlerUnaffectedByMove(gBattlerTarget)
@@ -1963,11 +1999,28 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleContext *ctx)
         gMultiHitCounter = 2;
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
     }
+    else if (IsMoveRapidFistsAffected(ctx))
+    {
+        gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_1ST_HIT;
+        gMultiHitCounter = 3;
+        PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+    }
     else
     {
         gMultiHitCounter = 0;
     }
 
+    return CANCELER_RESULT_SUCCESS;
+}
+
+static enum CancelerResult CancelerTrainingBot(struct BattleContext *ctx)
+{
+    if (ctx->move == MOVE_UNUSABLE)
+    {
+        CancelMultiTurnMoves(gBattlerAttacker, SKY_DROP_ATTACKCANCELER_CHECK);
+        gBattlescriptCurrInstr = BattleScript_DoNothing;
+        return CANCELER_RESULT_FAILURE;
+    }
     return CANCELER_RESULT_SUCCESS;
 }
 
@@ -2018,6 +2071,7 @@ static enum CancelerResult (*const sMoveSuccessOrderCancelers[])(struct BattleCo
     [CANCELER_TARGET_FAILURE] = CancelerTargetFailure,
     [CANCELER_NOT_FULLY_PROTECTED] = CancelerNotFullyProtected,
     [CANCELER_MULTIHIT_MOVES] = CancelerMultihitMoves,
+    [CANCELER_TRAININGBOT] = CancelerTrainingBot,
 };
 
 enum CancelerResult DoAttackCanceler(void)
@@ -2828,6 +2882,8 @@ static enum MoveEndResult MoveEndMultihitMove(void)
             {
                 if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                     gSpecialStatuses[gBattlerAttacker].parentalBondState--;
+                else if (gSpecialStatuses[gBattlerAttacker].rapidFistsState)
+                    gSpecialStatuses[gBattlerAttacker].rapidFistsState--;
 
                 gBattleScripting.animTargetsHit = 0;
                 gBattleScripting.moveendState = 0;
@@ -2847,6 +2903,7 @@ static enum MoveEndResult MoveEndMultihitMove(void)
 
     gMultiHitCounter = 0;
     gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF;
+    gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_OFF;
     gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
     gBattleScripting.moveendState++;
     return result;
@@ -4118,6 +4175,8 @@ enum Move GetNaturePowerMove(void)
         move = MOVE_ENERGY_BALL;
     else if (gFieldStatuses & STATUS_FIELD_PSYCHIC_TERRAIN)
         move = MOVE_PSYCHIC;
+    else if (gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        move = MOVE_ROCK_SLIDE;
     else if (gBattleEnvironmentInfo[gBattleEnvironment].naturePower == MOVE_NONE)
         move = B_NATURE_POWER_MOVES >= GEN_4 ? MOVE_TRI_ATTACK : MOVE_SWIFT;
 

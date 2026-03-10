@@ -1895,37 +1895,21 @@ bool32 EmeraldBattleTowerRecordToRuby(struct EmeraldBattleTowerRecord *src, stru
     }
 }
 
-void CalcApprenticeChecksum(struct Apprentice *apprentice)
+static void UNUSED ClearApprentice(struct Apprentice *apprentice){}
+
+static void UNUSED ValidateApprenticesChecksums(void)
 {
-    s32 i;
+    // s32 i, j;
 
-    apprentice->checksum = 0;
-    for (i = 0; i < offsetof(struct Apprentice, checksum) / sizeof(u32); i++)
-        apprentice->checksum += ((u32 *)apprentice)[i];
-}
-
-static void ClearApprentice(struct Apprentice *apprentice)
-{
-    s32 i;
-
-    for (i = 0; i < sizeof(struct Apprentice) / sizeof(u32); i++)
-        ((u32 *)apprentice)[i] = 0;
-    ResetApprenticeStruct(apprentice);
-}
-
-static void ValidateApprenticesChecksums(void)
-{
-    s32 i, j;
-
-    for (i = 0; i < APPRENTICE_COUNT; i++)
-    {
-        u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
-        u32 checksum = 0;
-        for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
-            checksum += data[j];
-        if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
-            ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
-    }
+    // for (i = 0; i < APPRENTICE_COUNT; i++)
+    // {
+    //     u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
+    //     u32 checksum = 0;
+    //     for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
+    //         checksum += data[j];
+    //     if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
+    //         ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
+    // }
 }
 
 void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId)

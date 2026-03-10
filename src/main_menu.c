@@ -2648,7 +2648,7 @@ static void Task_NewGameBirchSpeech_ReturnFromNamingScreenShowTextboxBrother(u8 
 {
     if (gTasks[taskId].tTimer-- <= 0)
     {
-        NewGameBirchSpeech_ShowDialogueWindow(0, 1);
+        DrawDialogFrameWithCustomTile(0, TRUE, BIRCH_DLG_BASE_TILE_NUM);
         gTasks[taskId].func = Task_NewGameBirchSpeech_SoItsBrotherName;
     }
 }

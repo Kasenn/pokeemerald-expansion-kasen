@@ -70,13 +70,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_GRASS] =
     {
         .name = _("Grass"),
-    #if B_NATURE_POWER_MOVES >= GEN_6
         .naturePower = MOVE_ENERGY_BALL,
-    #elif B_NATURE_POWER_MOVES >= GEN_4
-        .naturePower = MOVE_SEED_BOMB,
-    #else
-        .naturePower = MOVE_STUN_SPORE,
-    #endif
         .secretPowerAnimation = gBattleAnimMove_NeedleArm,
         .secretPowerEffect = B_SECRET_POWER_EFFECT >= GEN_4 ? MOVE_EFFECT_SLEEP : MOVE_EFFECT_POISON,
         .camouflageType = TYPE_GRASS,
@@ -105,51 +99,6 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .background = ENVIRONMENT_BACKGROUND(LongGrass),
         .palette = gBattleEnvironmentPalette_LongGrass,
         .battleIntroSlide = BattleIntroSlide1,
-    },
-
-    [BATTLE_ENVIRONMENT_SNOW] =
-    {
-        .secretPowerEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
-        .secretPowerAnimation = B_SECRET_POWER_ANIMATION >= GEN_7 ? gBattleAnimMove_IceShard : gBattleAnimMove_Avalanche,
-        .camouflageType = TYPE_ICE,
-        .naturePower = MOVE_ICE_BEAM,
-        .background = {
-            .tileset = gBattleEnvironmentTiles_Sand,
-            .tilemap = gBattleEnvironmentTilemap_Sand,
-            .entryTileset = gBattleEnvironmentAnimTiles_Sand,
-            .entryTilemap = gBattleEnvironmentAnimTilemap_Sand,
-            .palette = gBattleTerrainPalette_Snow,
-        }
-        .name = _("Snow"),
-        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
-    },
-
-    [BATTLE_ENVIRONMENT_MUD] =
-    {
-        .secretPowerEffect = MOVE_EFFECT_ACC_MINUS_1,
-        .camouflageType = TYPE_GROUND,
-        .naturePower = MOVE_MUD_BOMB,
-        .background = {
-            .tileset = gBattleTerrainTiles_Mud,
-            .tilemap = gBattleTerrainTilemap_Mud,
-            .entryTileset = gBattleEnvironmentAnimTiles_Building,
-            .entryTilemap = gBattleEnvironmentAnimTilemap_Building,
-            .palette = gBattleTerrainPalette_Mud,
-        }
-    },
-
-    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
-    {
-        .naturePower = MOVE_ENERGY_BALL,
-        .secretPowerEffect = MOVE_EFFECT_SLEEP,
-        .camouflageType = TYPE_GRASS,
-        .background = {
-            .tileset = gBattleTerrainTiles_LongGrassAutumn,
-            .tilemap = gBattleEnvironmentTilemap_LongGrass,
-            .entryTileset = gBattleEnvironmentAnimTiles_LongGrass,
-            .entryTilemap = gBattleEnvironmentAnimTilemap_LongGrass,
-            .palette = gBattlePalette_LongGrassAutumn,
-        }
     },
 
     [BATTLE_ENVIRONMENT_SAND] =
@@ -448,16 +397,6 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .battleIntroSlide = PLAIN_BATTLE_INTRO_SLIDE,
     },
 
-    [BATTLE_ENVIRONMENT_SOARING] =
-    {
-        .name = _("Soaring"),
-        .naturePower = MOVE_AIR_SLASH,
-        .secretPowerAnimation = gBattleAnimMove_Gust,
-        .secretPowerEffect = MOVE_EFFECT_SPD_MINUS_1,
-        .camouflageType = TYPE_FLYING,
-        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
-    },
-
     [BATTLE_ENVIRONMENT_SKY_PILLAR] =
     {
         .name = _("Sky Pillar"),
@@ -555,6 +494,71 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .secretPowerAnimation = gBattleAnimMove_Psywave,
         .secretPowerEffect = MOVE_EFFECT_DEF_MINUS_1,
         .camouflageType = TYPE_PSYCHIC,
+        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+    },
+
+    ///////////////////////////////////////////////////////////
+    ///////////////////// MY ENVIRONMENTS /////////////////////
+    ///////////////////////////////////////////////////////////
+
+    [BATTLE_ENVIRONMENT_SNOW] =
+    {
+        .name = _("Snow"),
+        .naturePower = MOVE_ICE_BEAM,
+        .secretPowerAnimation = gBattleAnimMove_IceShard,
+        .secretPowerEffect = MOVE_EFFECT_FREEZE_OR_FROSTBITE,
+        .camouflageType = TYPE_ICE,
+        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(Sand),
+        .background = {
+            .tileset = gBattleEnvironmentTiles_Sand,
+            .tilemap = gBattleEnvironmentTilemap_Sand,
+        },
+        .palette = gBattleTerrainPalette_Snow,
+        .battleIntroSlide = BattleIntroSlide2
+    },
+
+    [BATTLE_ENVIRONMENT_MUD] =
+    {
+        .name = _("Mud"),
+        .naturePower = MOVE_MUD_BOMB,
+        .secretPowerAnimation = gBattleAnimMove_MudBomb,
+        .secretPowerEffect = MOVE_EFFECT_ACC_MINUS_1,
+        .camouflageType = TYPE_GROUND,
+        .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
+        .entry = ENVIRONMENT_ENTRY(Building),
+        .background = {
+            .tileset = gBattleTerrainTiles_Mud,
+            .tilemap = gBattleTerrainTilemap_Mud,
+        },
+        .palette = gBattleTerrainPalette_Mud,
+        .battleIntroSlide = BattleIntroSlide3
+    },
+
+    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
+    {
+        .name = _("Autumn"),
+        .naturePower = MOVE_ENERGY_BALL,
+        .secretPowerAnimation = gBattleAnimMove_MagicalLeaf,
+        .secretPowerEffect = MOVE_EFFECT_SLEEP,
+        .camouflageType = TYPE_GRASS,
+        .camouflageBlend = RGB(0, 15, 2),
+        .entry = ENVIRONMENT_ENTRY(LongGrass),
+        .background = {
+            .tileset = gBattleTerrainTiles_LongGrassAutumn,
+            .tilemap = gBattleEnvironmentTilemap_LongGrass,
+        },
+        .palette = gBattlePalette_LongGrassAutumn,
+        .battleIntroSlide = BattleIntroSlide1
+    },
+
+    [BATTLE_ENVIRONMENT_SOARING] = //wip
+    {
+        .name = _("Soaring"),
+        .naturePower = MOVE_AIR_SLASH,
+        .secretPowerAnimation = gBattleAnimMove_Gust,
+        .secretPowerEffect = MOVE_EFFECT_SPD_MINUS_1,
+        .camouflageType = TYPE_FLYING,
         .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
     },
 };

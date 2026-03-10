@@ -106,7 +106,7 @@ static s32 (*const sBattleAiFuncTable[])(enum BattlerId, enum BattlerId, enum Mo
     [28] = NULL,                     // AI_FLAG_ASSUME_STAB
     [29] = NULL,                     // AI_FLAG_ASSUME_STATUS_MOVES
     [30] = AI_AttacksPartner,        // AI_FLAG_ATTACKS_PARTNER
-    [31] = AI_WildCanFlee,                     // Unused
+    [31] = AI_WildCanFlee,           // AI_FLAG_WILD_CAN_FLEE
     [32] = NULL,                     // Unused
     [33] = NULL,                     // Unused
     [34] = NULL,                     // Unused
@@ -7108,7 +7108,7 @@ static s32 AI_FirstBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef, 
     return score;
 }
 
-static s32 AI_WildCanFlee(ubat battlerAtk, ubat battlerDef, u32 move, s32 score)
+static s32 AI_WildCanFlee(ubat battlerAtk, ubat battlerDef, umov move, s32 score)
 {
     bool8 wildCanFlee = FALSE;
     u32 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);

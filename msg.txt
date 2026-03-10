@@ -1,0 +1,325 @@
+tools/scaninc/scaninc -M build/emerald/data/battle_scripts_2.d -I include -I "" data/battle_scripts_2.s
+tools/scaninc/scaninc -M build/emerald/data/battle_scripts_1.d -I include -I "" data/battle_scripts_1.s
+tools/scaninc/scaninc -M build/emerald/src/vs_seeker.d -I include -I tools/agbcc/include src/vs_seeker.c
+tools/scaninc/scaninc -M build/emerald/src/union_room_battle.d -I include -I tools/agbcc/include src/union_room_battle.c
+tools/scaninc/scaninc -M build/emerald/src/union_room.d -I include -I tools/agbcc/include src/union_room.c
+tools/scaninc/scaninc -M build/emerald/src/type_icons.d -I include -I tools/agbcc/include src/type_icons.c
+tools/scaninc/scaninc -M build/emerald/src/tv.d -I include -I tools/agbcc/include src/tv.c
+tools/scaninc/scaninc -M build/emerald/src/trainer_tower.d -I include -I tools/agbcc/include src/trainer_tower.c
+tools/scaninc/scaninc -M build/emerald/src/trainer_slide.d -I include -I tools/agbcc/include src/trainer_slide.c
+tools/scaninc/scaninc -M build/emerald/src/trainer_hill.d -I include -I tools/agbcc/include src/trainer_hill.c
+tools/scaninc/scaninc -M build/emerald/src/trainer_fan_club.d -I include -I tools/agbcc/include src/trainer_fan_club.c
+tools/scaninc/scaninc -M build/emerald/src/trade.d -I include -I tools/agbcc/include src/trade.c
+tools/scaninc/scaninc -M build/emerald/src/title_screen.d -I include -I tools/agbcc/include src/title_screen.c
+tools/scaninc/scaninc -M build/emerald/src/text.d -I include -I tools/agbcc/include src/text.c
+tools/scaninc/scaninc -M build/emerald/src/sound.d -I include -I tools/agbcc/include src/sound.c
+tools/scaninc/scaninc -M build/emerald/src/secret_base.d -I include -I tools/agbcc/include src/secret_base.c
+tools/scaninc/scaninc -M build/emerald/src/script_pokemon_util.d -I include -I tools/agbcc/include src/script_pokemon_util.c
+tools/scaninc/scaninc -M build/emerald/src/scrcmd.d -I include -I tools/agbcc/include src/scrcmd.c
+tools/scaninc/scaninc -M build/emerald/src/scanline_effect.d -I include -I tools/agbcc/include src/scanline_effect.c
+tools/scaninc/scaninc -M build/emerald/src/safari_zone.d -I include -I tools/agbcc/include src/safari_zone.c
+tools/scaninc/scaninc -M build/emerald/src/reshow_battle_screen.d -I include -I tools/agbcc/include src/reshow_battle_screen.c
+tools/scaninc/scaninc -M build/emerald/src/recorded_battle.d -I include -I tools/agbcc/include src/recorded_battle.c
+tools/scaninc/scaninc -M build/emerald/src/pokenav_match_call_data.d -I include -I tools/agbcc/include src/pokenav_match_call_data.c
+tools/scaninc/scaninc -M build/emerald/src/pokemon_summary_screen.d -I include -I tools/agbcc/include src/pokemon_summary_screen.c
+tools/scaninc/scaninc -M build/emerald/src/pokemon_sprite_visualizer.d -I include -I tools/agbcc/include src/pokemon_sprite_visualizer.c
+tools/scaninc/scaninc -M build/emerald/src/pokemon_jump.d -I include -I tools/agbcc/include src/pokemon_jump.c
+tools/scaninc/scaninc -M build/emerald/src/pokemon_animation.d -I include -I tools/agbcc/include src/pokemon_animation.c
+tools/scaninc/scaninc -M build/emerald/src/pokemon.d -I include -I tools/agbcc/include src/pokemon.c
+tools/scaninc/scaninc -M build/emerald/src/pokedex.d -I include -I tools/agbcc/include src/pokedex.c
+tools/scaninc/scaninc -M build/emerald/src/pokeblock_feed.d -I include -I tools/agbcc/include src/pokeblock_feed.c
+tools/scaninc/scaninc -M build/emerald/src/pokeblock.d -I include -I tools/agbcc/include src/pokeblock.c
+tools/scaninc/scaninc -M build/emerald/src/pokeball.d -I include -I tools/agbcc/include src/pokeball.c
+tools/scaninc/scaninc -M build/emerald/src/party_menu.d -I include -I tools/agbcc/include src/party_menu.c
+tools/scaninc/scaninc -M build/emerald/src/my_functions.d -I include -I tools/agbcc/include src/my_functions.c
+tools/scaninc/scaninc -M build/emerald/src/move_relearner.d -I include -I tools/agbcc/include src/move_relearner.c
+tools/scaninc/scaninc -M build/emerald/src/move.d -I include -I tools/agbcc/include src/move.c
+tools/scaninc/scaninc -M build/emerald/src/match_call.d -I include -I tools/agbcc/include src/match_call.c
+tools/scaninc/scaninc -M build/emerald/src/main.d -I include -I tools/agbcc/include src/main.c
+tools/scaninc/scaninc -M build/emerald/src/link_rfu_2.d -I include -I tools/agbcc/include src/link_rfu_2.c
+tools/scaninc/scaninc -M build/emerald/src/link.d -I include -I tools/agbcc/include src/link.c
+tools/scaninc/scaninc -M build/emerald/src/item_use.d -I include -I tools/agbcc/include src/item_use.c
+tools/scaninc/scaninc -M build/emerald/src/item_menu.d -I include -I tools/agbcc/include src/item_menu.c
+tools/scaninc/scaninc -M build/emerald/src/item.d -I include -I tools/agbcc/include src/item.c
+tools/scaninc/scaninc -M build/emerald/src/intro.d -I include -I tools/agbcc/include src/intro.c
+tools/scaninc/scaninc -M build/emerald/src/frontier_util.d -I include -I tools/agbcc/include src/frontier_util.c
+tools/scaninc/scaninc -M build/emerald/src/frontier_pass.d -I include -I tools/agbcc/include src/frontier_pass.c
+tools/scaninc/scaninc -M build/emerald/src/follower_npc.d -I include -I tools/agbcc/include src/follower_npc.c
+tools/scaninc/scaninc -M build/emerald/src/field_weather_effect.d -I include -I tools/agbcc/include src/field_weather_effect.c
+tools/scaninc/scaninc -M build/emerald/src/field_specials.d -I include -I tools/agbcc/include src/field_specials.c
+tools/scaninc/scaninc -M build/emerald/src/field_screen_effect.d -I include -I tools/agbcc/include src/field_screen_effect.c
+tools/scaninc/scaninc -M build/emerald/src/field_poison.d -I include -I tools/agbcc/include src/field_poison.c
+tools/scaninc/scaninc -M build/emerald/src/fame_checker.d -I include -I tools/agbcc/include src/fame_checker.c
+tools/scaninc/scaninc -M build/emerald/src/evolution_scene.d -I include -I tools/agbcc/include src/evolution_scene.c
+tools/scaninc/scaninc -M build/emerald/src/event_object_movement.d -I include -I tools/agbcc/include src/event_object_movement.c
+tools/scaninc/scaninc -M build/emerald/src/egg_hatch.d -I include -I tools/agbcc/include src/egg_hatch.c
+tools/scaninc/scaninc -M build/emerald/src/debug.d -I include -I tools/agbcc/include src/debug.c
+tools/scaninc/scaninc -M build/emerald/src/daycare.d -I include -I tools/agbcc/include src/daycare.c
+tools/scaninc/scaninc -M build/emerald/src/data.d -I include -I tools/agbcc/include src/data.c
+tools/scaninc/scaninc -M build/emerald/src/contest_util.d -I include -I tools/agbcc/include src/contest_util.c
+tools/scaninc/scaninc -M build/emerald/src/contest_painting.d -I include -I tools/agbcc/include src/contest_painting.c
+tools/scaninc/scaninc -M build/emerald/src/contest_ai.d -I include -I tools/agbcc/include src/contest_ai.c
+tools/scaninc/scaninc -M build/emerald/src/contest.d -I include -I tools/agbcc/include src/contest.c
+tools/scaninc/scaninc -M build/emerald/src/caps.d -I include -I tools/agbcc/include src/caps.c
+tools/scaninc/scaninc -M build/emerald/src/cable_club.d -I include -I tools/agbcc/include src/cable_club.c
+tools/scaninc/scaninc -M build/emerald/src/berry_crush.d -I include -I tools/agbcc/include src/berry_crush.c
+tools/scaninc/scaninc -M build/emerald/src/battle_z_move.d -I include -I tools/agbcc/include src/battle_z_move.c
+tools/scaninc/scaninc -M build/emerald/src/battle_util2.d -I include -I tools/agbcc/include src/battle_util2.c
+tools/scaninc/scaninc -M build/emerald/src/battle_util.d -I include -I tools/agbcc/include src/battle_util.c
+tools/scaninc/scaninc -M build/emerald/src/battle_tv.d -I include -I tools/agbcc/include src/battle_tv.c
+tools/scaninc/scaninc -M build/emerald/src/battle_transition.d -I include -I tools/agbcc/include src/battle_transition.c
+tools/scaninc/scaninc -M build/emerald/src/battle_tower.d -I include -I tools/agbcc/include src/battle_tower.c
+tools/scaninc/scaninc -M build/emerald/src/battle_terastal.d -I include -I tools/agbcc/include src/battle_terastal.c
+tools/scaninc/scaninc -M build/emerald/src/battle_tent.d -I include -I tools/agbcc/include src/battle_tent.c
+tools/scaninc/scaninc -M build/emerald/src/battle_switch_in.d -I include -I tools/agbcc/include src/battle_switch_in.c
+tools/scaninc/scaninc -M build/emerald/src/battle_special.d -I include -I tools/agbcc/include src/battle_special.c
+tools/scaninc/scaninc -M build/emerald/src/battle_setup.d -I include -I tools/agbcc/include src/battle_setup.c
+tools/scaninc/scaninc -M build/emerald/src/battle_script_commands.d -I include -I tools/agbcc/include src/battle_script_commands.c
+tools/scaninc/scaninc -M build/emerald/src/battle_records.d -I include -I tools/agbcc/include src/battle_records.c
+tools/scaninc/scaninc -M build/emerald/src/battle_pyramid_bag.d -I include -I tools/agbcc/include src/battle_pyramid_bag.c
+tools/scaninc/scaninc -M build/emerald/src/battle_pyramid.d -I include -I tools/agbcc/include src/battle_pyramid.c
+tools/scaninc/scaninc -M build/emerald/src/battle_pike.d -I include -I tools/agbcc/include src/battle_pike.c
+tools/scaninc/scaninc -M build/emerald/src/battle_partner.d -I include -I tools/agbcc/include src/battle_partner.c
+tools/scaninc/scaninc -M build/emerald/src/battle_move_resolution.d -I include -I tools/agbcc/include src/battle_move_resolution.c
+tools/scaninc/scaninc -M build/emerald/src/battle_message.d -I include -I tools/agbcc/include src/battle_message.c
+tools/scaninc/scaninc -M build/emerald/src/battle_main.d -I include -I tools/agbcc/include src/battle_main.c
+tools/scaninc/scaninc -M build/emerald/src/battle_intro.d -I include -I tools/agbcc/include src/battle_intro.c
+tools/scaninc/scaninc -M build/emerald/src/battle_interface.d -I include -I tools/agbcc/include src/battle_interface.c
+tools/scaninc/scaninc -M build/emerald/src/battle_hold_effects.d -I include -I tools/agbcc/include src/battle_hold_effects.c
+tools/scaninc/scaninc -M build/emerald/src/battle_gimmick.d -I include -I tools/agbcc/include src/battle_gimmick.c
+tools/scaninc/scaninc -M build/emerald/src/battle_gfx_sfx_util.d -I include -I tools/agbcc/include src/battle_gfx_sfx_util.c
+tools/scaninc/scaninc -M build/emerald/src/battle_frontier.d -I include -I tools/agbcc/include src/battle_frontier.c
+tools/scaninc/scaninc -M build/emerald/src/battle_factory_screen.d -I include -I tools/agbcc/include src/battle_factory_screen.c
+tools/scaninc/scaninc -M build/emerald/src/battle_factory.d -I include -I tools/agbcc/include src/battle_factory.c
+tools/scaninc/scaninc -M build/emerald/src/battle_end_turn.d -I include -I tools/agbcc/include src/battle_end_turn.c
+tools/scaninc/scaninc -M build/emerald/src/battle_dynamax.d -I include -I tools/agbcc/include src/battle_dynamax.c
+tools/scaninc/scaninc -M build/emerald/src/battle_dome.d -I include -I tools/agbcc/include src/battle_dome.c
+tools/scaninc/scaninc -M build/emerald/src/battle_debug.d -I include -I tools/agbcc/include src/battle_debug.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controllers.d -I include -I tools/agbcc/include src/battle_controllers.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_wally.d -I include -I tools/agbcc/include src/battle_controller_wally.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_safari.d -I include -I tools/agbcc/include src/battle_controller_safari.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_recorded_player.d -I include -I tools/agbcc/include src/battle_controller_recorded_player.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_recorded_partner.d -I include -I tools/agbcc/include src/battle_controller_recorded_partner.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_recorded_opponent.d -I include -I tools/agbcc/include src/battle_controller_recorded_opponent.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_player_partner.d -I include -I tools/agbcc/include src/battle_controller_player_partner.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_player.d -I include -I tools/agbcc/include src/battle_controller_player.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_opponent.d -I include -I tools/agbcc/include src/battle_controller_opponent.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_oak_old_man.d -I include -I tools/agbcc/include src/battle_controller_oak_old_man.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_link_partner.d -I include -I tools/agbcc/include src/battle_controller_link_partner.c
+tools/scaninc/scaninc -M build/emerald/src/battle_controller_link_opponent.d -I include -I tools/agbcc/include src/battle_controller_link_opponent.c
+tools/scaninc/scaninc -M build/emerald/src/battle_bg.d -I include -I tools/agbcc/include src/battle_bg.c
+tools/scaninc/scaninc -M build/emerald/src/battle_arena.d -I include -I tools/agbcc/include src/battle_arena.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_water.d -I include -I tools/agbcc/include src/battle_anim_water.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_utility_funcs.d -I include -I tools/agbcc/include src/battle_anim_utility_funcs.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_throw.d -I include -I tools/agbcc/include src/battle_anim_throw.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_status_effects.d -I include -I tools/agbcc/include src/battle_anim_status_effects.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_sound_tasks.d -I include -I tools/agbcc/include src/battle_anim_sound_tasks.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_rock.d -I include -I tools/agbcc/include src/battle_anim_rock.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_psychic.d -I include -I tools/agbcc/include src/battle_anim_psychic.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_poison.d -I include -I tools/agbcc/include src/battle_anim_poison.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_normal.d -I include -I tools/agbcc/include src/battle_anim_normal.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_new.d -I include -I tools/agbcc/include src/battle_anim_new.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_mons.d -I include -I tools/agbcc/include src/battle_anim_mons.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_mon_movement.d -I include -I tools/agbcc/include src/battle_anim_mon_movement.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_ice.d -I include -I tools/agbcc/include src/battle_anim_ice.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_ground.d -I include -I tools/agbcc/include src/battle_anim_ground.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_ghost.d -I include -I tools/agbcc/include src/battle_anim_ghost.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_flying.d -I include -I tools/agbcc/include src/battle_anim_flying.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_fire.d -I include -I tools/agbcc/include src/battle_anim_fire.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_fight.d -I include -I tools/agbcc/include src/battle_anim_fight.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_electric.d -I include -I tools/agbcc/include src/battle_anim_electric.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_effects_3.d -I include -I tools/agbcc/include src/battle_anim_effects_3.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_effects_2.d -I include -I tools/agbcc/include src/battle_anim_effects_2.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_effects_1.d -I include -I tools/agbcc/include src/battle_anim_effects_1.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_dragon.d -I include -I tools/agbcc/include src/battle_anim_dragon.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_dark.d -I include -I tools/agbcc/include src/battle_anim_dark.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim_bug.d -I include -I tools/agbcc/include src/battle_anim_bug.c
+tools/scaninc/scaninc -M build/emerald/src/battle_anim.d -I include -I tools/agbcc/include src/battle_anim.c
+tools/scaninc/scaninc -M build/emerald/src/battle_ai_util.d -I include -I tools/agbcc/include src/battle_ai_util.c
+tools/scaninc/scaninc -M build/emerald/src/battle_ai_switch.d -I include -I tools/agbcc/include src/battle_ai_switch.c
+tools/scaninc/scaninc -M build/emerald/src/battle_ai_main.d -I include -I tools/agbcc/include src/battle_ai_main.c
+tools/scaninc/scaninc -M build/emerald/src/battle_ai_items.d -I include -I tools/agbcc/include src/battle_ai_items.c
+tools/scaninc/scaninc -M build/emerald/src/battle_ai_field_statuses.d -I include -I tools/agbcc/include src/battle_ai_field_statuses.c
+tools/scaninc/scaninc -M build/emerald/src/apprentice.d -I include -I tools/agbcc/include src/apprentice.c
+python3 tools/learnset_helpers/make_tutors.py tools/learnset_helpers/build/all_tutors.json
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/apprentice.o src/apprentice.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_ai_field_statuses.o src/battle_ai_field_statuses.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_ai_items.o src/battle_ai_items.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_ai_main.o src/battle_ai_main.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_ai_switch.o src/battle_ai_switch.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim.o src/battle_anim.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_ai_util.o src/battle_ai_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_bug.o src/battle_anim_bug.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_dark.o src/battle_anim_dark.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_dragon.o src/battle_anim_dragon.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_effects_1.o src/battle_anim_effects_1.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_effects_3.o src/battle_anim_effects_3.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_electric.o src/battle_anim_electric.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_effects_2.o src/battle_anim_effects_2.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_fight.o src/battle_anim_fight.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_fire.o src/battle_anim_fire.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_flying.o src/battle_anim_flying.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_ghost.o src/battle_anim_ghost.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_ground.o src/battle_anim_ground.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_ice.o src/battle_anim_ice.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_mon_movement.o src/battle_anim_mon_movement.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_mons.o src/battle_anim_mons.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_new.o src/battle_anim_new.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_normal.o src/battle_anim_normal.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_poison.o src/battle_anim_poison.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_psychic.o src/battle_anim_psychic.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_rock.o src/battle_anim_rock.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_sound_tasks.o src/battle_anim_sound_tasks.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_status_effects.o src/battle_anim_status_effects.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_throw.o src/battle_anim_throw.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_utility_funcs.o src/battle_anim_utility_funcs.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_anim_water.o src/battle_anim_water.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_arena.o src/battle_arena.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_bg.o src/battle_bg.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_link_opponent.o src/battle_controller_link_opponent.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_link_partner.o src/battle_controller_link_partner.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_oak_old_man.o src/battle_controller_oak_old_man.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_opponent.o src/battle_controller_opponent.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_player.o src/battle_controller_player.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_player_partner.o src/battle_controller_player_partner.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_recorded_opponent.o src/battle_controller_recorded_opponent.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_recorded_partner.o src/battle_controller_recorded_partner.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_recorded_player.o src/battle_controller_recorded_player.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_safari.o src/battle_controller_safari.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_dome.o src/battle_dome.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controllers.o src/battle_controllers.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_controller_wally.o src/battle_controller_wally.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_dynamax.o src/battle_dynamax.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_debug.o src/battle_debug.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_end_turn.o src/battle_end_turn.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_factory.o src/battle_factory.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_factory_screen.o src/battle_factory_screen.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_frontier.o src/battle_frontier.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_gfx_sfx_util.o src/battle_gfx_sfx_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_gimmick.o src/battle_gimmick.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_hold_effects.o src/battle_hold_effects.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_interface.o src/battle_interface.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_intro.o src/battle_intro.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_main.o src/battle_main.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_message.o src/battle_message.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_move_resolution.o src/battle_move_resolution.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_partner.o src/battle_partner.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_pike.o src/battle_pike.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_pyramid.o src/battle_pyramid.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_pyramid_bag.o src/battle_pyramid_bag.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_records.o src/battle_records.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_setup.o src/battle_setup.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_special.o src/battle_special.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_script_commands.o src/battle_script_commands.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_switch_in.o src/battle_switch_in.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_tent.o src/battle_tent.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_terastal.o src/battle_terastal.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_tower.o src/battle_tower.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_transition.o src/battle_transition.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_util.o src/battle_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_tv.o src/battle_tv.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_util2.o src/battle_util2.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/battle_z_move.o src/battle_z_move.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/berry_crush.o src/berry_crush.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/cable_club.o src/cable_club.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/caps.o src/caps.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/contest.o src/contest.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/contest_ai.o src/contest_ai.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/contest_painting.o src/contest_painting.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/data.o src/data.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/contest_util.o src/contest_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/daycare.o src/daycare.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/debug.o src/debug.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/egg_hatch.o src/egg_hatch.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/event_object_movement.o src/event_object_movement.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/evolution_scene.o src/evolution_scene.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/fame_checker.o src/fame_checker.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/field_poison.o src/field_poison.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/field_screen_effect.o src/field_screen_effect.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/field_specials.o src/field_specials.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/field_weather_effect.o src/field_weather_effect.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/follower_npc.o src/follower_npc.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/frontier_pass.o src/frontier_pass.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/frontier_util.o src/frontier_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/intro.o src/intro.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/item.o src/item.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/item_menu.o src/item_menu.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/item_use.o src/item_use.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/link.o src/link.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/link_rfu_2.o src/link_rfu_2.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/main.o src/main.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/match_call.o src/match_call.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/move.o src/move.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/move_relearner.o src/move_relearner.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/my_functions.o src/my_functions.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/party_menu.o src/party_menu.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokeball.o src/pokeball.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokeblock.o src/pokeblock.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokeblock_feed.o src/pokeblock_feed.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokedex.o src/pokedex.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokemon.o src/pokemon.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokemon_animation.o src/pokemon_animation.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokemon_jump.o src/pokemon_jump.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokemon_sprite_visualizer.o src/pokemon_sprite_visualizer.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokemon_summary_screen.o src/pokemon_summary_screen.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/pokenav_match_call_data.o src/pokenav_match_call_data.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/recorded_battle.o src/recorded_battle.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/reshow_battle_screen.o src/reshow_battle_screen.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/safari_zone.o src/safari_zone.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/scanline_effect.o src/scanline_effect.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/scrcmd.o src/scrcmd.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/script_pokemon_util.o src/script_pokemon_util.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/sound.o src/sound.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/secret_base.o src/secret_base.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/text.o src/text.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/title_screen.o src/title_screen.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/trade.o src/trade.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/trainer_fan_club.o src/trainer_fan_club.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/trainer_hill.o src/trainer_hill.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/trainer_slide.o src/trainer_slide.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/trainer_tower.o src/trainer_tower.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/tv.o src/tv.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/type_icons.o src/type_icons.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/union_room.o src/union_room.c
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/union_room_battle.o src/union_room_battle.c
+tools/preproc/preproc data/battle_scripts_1.s charmap.txt | arm-none-eabi-cpp -iquote include -Wno-trigraphs -DMODERN=1 -DTESTING=0 -DEMERALD -std=gnu17 -I include - | tools/preproc/preproc -ie data/battle_scripts_1.s charmap.txt | arm-none-eabi-as -mcpu=arm7tdmi -march=armv4t -meabi=5 --defsym MODERN=1 --defsym EMERALD=1 -o build/emerald/data/battle_scripts_1.o
+tools/preproc/preproc data/battle_scripts_2.s charmap.txt | arm-none-eabi-cpp -iquote include -Wno-trigraphs -DMODERN=1 -DTESTING=0 -DEMERALD -std=gnu17 -I include - | tools/preproc/preproc -ie data/battle_scripts_2.s charmap.txt | arm-none-eabi-as -mcpu=arm7tdmi -march=armv4t -meabi=5 --defsym MODERN=1 --defsym EMERALD=1 -o build/emerald/data/battle_scripts_2.o
+/usr/lib/gcc/arm-none-eabi/13.2.1/cc1 -quiet <flags> -o build/emerald/src/vs_seeker.o src/vs_seeker.c
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_House3/map.json data/layouts/layouts.json data/maps/FrosthearthCity_House3
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_House4/map.json data/layouts/layouts.json data/maps/FrosthearthCity_House4
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_Mart/map.json data/layouts/layouts.json data/maps/FrosthearthCity_Mart
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_Motel/map.json data/layouts/layouts.json data/maps/FrosthearthCity_Motel
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_Motel_2F/map.json data/layouts/layouts.json data/maps/FrosthearthCity_Motel_2F
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_PokeCenter/map.json data/layouts/layouts.json data/maps/FrosthearthCity_PokeCenter
+tools/mapjson/mapjson map emerald data/maps/FrosthearthCity_PokemonFanClub/map.json data/layouts/layouts.json data/maps/FrosthearthCity_PokemonFanClub
+tools/mapjson/mapjson map emerald data/maps/GalewindCity/map.json data/layouts/layouts.json data/maps/GalewindCity
+tools/mapjson/mapjson map emerald data/maps/GraniteCave_1F/map.json data/layouts/layouts.json data/maps/GraniteCave_1F
+tools/mapjson/mapjson map emerald data/maps/GraniteCave_B1F/map.json data/layouts/layouts.json data/maps/GraniteCave_B1F
+tools/mapjson/mapjson map emerald data/maps/GraniteCave_B2F/map.json data/layouts/layouts.json data/maps/GraniteCave_B2F
+tools/mapjson/mapjson map emerald data/maps/GraniteCave_StevensRoom/map.json data/layouts/layouts.json data/maps/GraniteCave_StevensRoom
+tools/mapjson/mapjson map emerald data/maps/HoundoomCave/map.json data/layouts/layouts.json data/maps/HoundoomCave
+tools/mapjson/mapjson map emerald data/maps/IceperchCity/map.json data/layouts/layouts.json data/maps/IceperchCity
+tools/mapjson/mapjson map emerald data/maps/InsideOfTruck/map.json data/layouts/layouts.json data/maps/InsideOfTruck
+tools/mapjson/mapjson map emerald data/maps/IslandCave/map.json data/layouts/layouts.json data/maps/IslandCave
+tools/mapjson/mapjson map emerald data/maps/JaggedPass/map.json data/layouts/layouts.json data/maps/JaggedPass
+tools/mapjson/mapjson map emerald data/maps/KaolisleCity/map.json data/layouts/layouts.json data/maps/KaolisleCity
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_BP_Shop/map.json data/layouts/layouts.json data/maps/Kaolisle_BP_Shop
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_BirdHouse/map.json data/layouts/layouts.json data/maps/Kaolisle_BirdHouse
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_FishingAssociation/map.json data/layouts/layouts.json data/maps/Kaolisle_FishingAssociation
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Gym/map.json data/layouts/layouts.json data/maps/Kaolisle_Gym
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Harbor/map.json data/layouts/layouts.json data/maps/Kaolisle_Harbor
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_1F/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_1F
+data/battle_scripts_1.s: tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_2F/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_2F
+Assembler messages:
+data/battle_scripts_1.s:3182: Error: too many positional arguments
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_2F_Rooms/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_2F_Rooms
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_3F/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_3F
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_3F_Rooms/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_3F_Rooms
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_4F/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_4F
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_4F_Rooms/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_4F_Rooms
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_5F/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_5F
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_5F_Rooms/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_5F_Rooms
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_Hotel_Elevator/map.json data/layouts/layouts.json data/maps/Kaolisle_Hotel_Elevator
+tools/mapjson/mapjson map emerald data/maps/Kaolisle_House1/map.json data/layouts/layouts.json data/maps/Kaolisle_House1
+make: *** [Makefile:540: build/emerald/data/battle_scripts_1.o] Error 1
+make: *** Waiting for unfinished jobs....

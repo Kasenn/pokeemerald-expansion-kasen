@@ -930,7 +930,7 @@ static enum ItemEffect HealConfuseBerry(enum BattlerId battler, enum Item itemId
     return effect;
 }
 
-static enum ItemEffect HealSleepBerry(u32 battler, u32 itemId, ActivationTiming timing)//wip
+static enum ItemEffect HealSleepBerry(enum BattlerId battler, enum Item itemId)
 {
     enum ItemEffect effect = ITEM_NO_EFFECT;
     u32 hpFraction = B_CONFUSE_BERRIES_HEAL >= GEN_7 ? 4 : 2;
@@ -941,14 +941,8 @@ static enum ItemEffect HealSleepBerry(u32 battler, u32 itemId, ActivationTiming 
     {
         s32 healAmount = GetNonDynamaxMaxHP(battler);
         SetHealAmount(battler, healAmount);
-        if (timing == IsOnSwitchInFirstTurnActivation)
-        {
-            BattleScriptExecute(BattleScript_BerrySleepHealEnd2);
-        }
-        else
-        {
-            BattleScriptCall(BattleScript_BerrySleepHealRet);
-        }
+        BattleScriptCall(BattleScript_BerrySleepHeal);
+
         effect = ITEM_HP_CHANGE;
     }
 
@@ -1206,7 +1200,7 @@ enum ItemEffect ItemBattleEffects(enum BattlerId itemBattler, enum BattlerId bat
         effect = HealConfuseBerry(itemBattler, item, FLAVOR_SOUR);
         break;
     case HOLD_EFFECT_SLEEP_BERRY:
-        effect = HealSleepBerry(itemBattler, item, timing);
+        effect = HealSleepBerry(itemBattler, item);
         break;
     case HOLD_EFFECT_ATTACK_UP: // Liechi Berry
         effect = StatRaiseBerry(itemBattler, item, STAT_ATK);

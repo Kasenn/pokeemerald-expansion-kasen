@@ -30,7 +30,7 @@ void PlayerAcroTurnJump(enum Direction direction);
 void PlayerSetAnimId(u8 movementActionId, enum CopyMovement copyableMovement);
 bool8 IsPlayerCollidingWithFarawayIslandMew(enum Direction direction);
 void PlayerOnBikeCollideWithFarawayIslandMew(enum Direction direction);
-enum Collision CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, enum Direction direction, u8 metatileBehavior);
+enum Collision CheckForObjectEventCollision(struct ObjectEvent *objectEvent, s16 x, s16 y, udir direction, u8 metatileBehavior);
 u8 PlayerGetElevation(void);
 void SetPlayerAvatarTransitionFlags(u32 transitionFlags);
 void CancelPlayerForcedMovement(void);

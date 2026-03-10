@@ -2759,7 +2759,7 @@ bool8 IsFrontierTrainerFemale(u16 trainerId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = 0;
     }
 
     // Search female classes.
@@ -2888,7 +2888,7 @@ void SetBattleFacilityTrainerGfxId(u16 trainerId, u8 tempVarId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = 0;
     }
 
     // Search male classes.
@@ -2979,7 +2979,7 @@ u16 GetBattleFacilityTrainerGfxId(u16 trainerId)
     }
     else
     {
-        facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+        facilityClass = 0;
     }
 
     // Search male classes.
@@ -3040,10 +3040,7 @@ u8 GetFrontierTrainerFrontSpriteId(u16 trainerId)
     }
     else
     {
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-            return gFacilityClassToPicIndex[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
-        else
-            return gFacilityClassToPicIndex[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+        return 0;
     }
 }
 
@@ -3088,11 +3085,11 @@ enum TrainerClassID GetFrontierOpponentClass(u16 trainerId)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
         {
-            trainerClass = gFacilityClassToTrainerClass[gApprentices[GetRecordedBattleApprenticeId()].facilityClass];
+            trainerClass = 0;
         }
         else
         {
-            trainerClass = gFacilityClassToTrainerClass[gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass];
+            trainerClass = 0;
         }
     }
 
@@ -3126,9 +3123,9 @@ u8 GetFrontierTrainerFacilityClass(u16 trainerId)
     else
     {
         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-            facilityClass = gApprentices[GetRecordedBattleApprenticeId()].facilityClass;
+            facilityClass = 0;
         else
-            facilityClass = gApprentices[gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE].id].facilityClass;
+            facilityClass = 0;
     }
 
     return facilityClass;
@@ -3178,20 +3175,6 @@ void GetFrontierTrainerName(u8 *dst, u16 trainerId)
     }
     else
     {
-        u8 id, language;
-
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
-        {
-            id = GetRecordedBattleApprenticeId();
-            language = GetRecordedBattleApprenticeLanguage();
-        }
-        else
-        {
-            struct Apprentice *apprentice = &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE];
-            id = apprentice->id;
-            language = apprentice->language;
-        }
-        TVShowConvertInternationalString(dst, GetApprenticeNameInLanguage(id, language), language);
         return;
     }
 

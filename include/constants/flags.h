@@ -2744,7 +2744,6 @@
 #define FLAG_HIDE_OAK_IN_CHAMP_ROOM                        0
 #define FLAG_HIDE_GAME_CORNER_ROCKET                       0
 #define FLAG_HIDE_CERULEAN_CAVE_GUARD                      0
-#define FLAG_HIDE_ZAPDOS                                   0
 #define FLAG_HIDE_TOWER_ROCKET_1                           0
 #define FLAG_HIDE_CELADON_ROCKETS                          0
 #define FLAG_HIDE_DOJO_HITMONLEE_BALL                      0
@@ -3461,8 +3460,6 @@
 #define FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL                0
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       0
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        0
-
-#endif
 
 #if TESTING
 #define TESTING_FLAGS_START                     0x5000

@@ -32,6 +32,12 @@ typedef vu8  vbool8;
 typedef vu16 vbool16;
 typedef vu32 vbool32;
 
+typedef enum Item uit;
+typedef enum Direction udir;
+typedef enum Gender ugen;
+typedef enum Move umov;
+typedef enum BattlerId ubat;
+
 struct BgCnt
 {
     u16 priority:2;

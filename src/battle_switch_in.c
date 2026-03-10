@@ -314,6 +314,8 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
          && IsBattlerAffectedByHazards(battler, holdEffect, FALSE)
          && IsBattlerGrounded(battler, ability, holdEffect))
         {
+            if (GetBattlerAbility(battler) == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             s32 spikesDmg = GetNonDynamaxMaxHP(battler) / ((5 - gSideTimers[side].spikesAmount) * 2);
             SetPassiveDamageAmount(battler, spikesDmg);
             SetDmgHazardsBattlescript(battler, B_MSG_PKMNHURTBYSPIKES);
@@ -367,6 +369,8 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
     case HAZARDS_STEALTH_ROCK:
         if (IsBattlerAffectedByHazards(battler, holdEffect, FALSE) && ability != ABILITY_MAGIC_GUARD)
         {
+            if (GetBattlerAbility(battler) == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
             {
@@ -378,6 +382,8 @@ static bool32 TryHazardsOnSwitchIn(enum BattlerId battler, enum Ability ability,
     case HAZARDS_STEELSURGE:
         if (IsBattlerAffectedByHazards(battler, holdEffect, FALSE) && ability != ABILITY_MAGIC_GUARD)
         {
+            if (GetBattlerAbility(battler) == ABILITY_FICKLE)
+                gBattleStruct->setToFaint[battler] = TRUE;
             gBattleStruct->passiveHpUpdate[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_SHARP_STEEL, battler);
             if (gBattleStruct->passiveHpUpdate[battler] != 0)
             {

@@ -11,9 +11,8 @@
     {
         .trainerName = _("Player"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
-        .trainerPic = TRAINER_PIC_BRENDAN,
-        .encounterMusic_gender =
-            TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_FRONT_BRENDAN,
+        .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -39,9 +38,8 @@
     {
         .trainerName = _("Debugger"),
         .trainerClass = TRAINER_CLASS_RIVAL,
-        .trainerPic = TRAINER_PIC_STEVEN,
-        .encounterMusic_gender =
-            TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerPic = TRAINER_PIC_FRONT_STEVEN,
+        .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 3,
         .party = (const struct TrainerMon[])

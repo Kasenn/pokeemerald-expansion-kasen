@@ -116,6 +116,8 @@ static EWRAM_DATA u16 sElevatorScroll = 0;
 static EWRAM_DATA u16 sElevatorCursorPos = 0;
 static EWRAM_DATA u8 sBrailleTextCursorSpriteID = 0;
 
+static EWRAM_DATA u16 sLilycoveDeptStore_NeverRead = 0;
+
 void TryLoseFansFromPlayTime(void);
 void SetPlayerGotFirstFans(void);
 u16 GetNumFansOfPlayerInTrainerFanClub(void);
@@ -1051,7 +1053,7 @@ static bool32 IsBuildingPCTile(u32 tileId)
     return (MetatileBehavior_IsPC(GetAttributeByMetatileIdAndMapLayout(tileId, METATILE_ATTRIBUTE_BEHAVIOR, FALSE)));
 }
 
-static bool32 IsBuildingPCTileFrlg(u32 tileId)
+static bool32 UNUSED IsBuildingPCTileFrlg(u32 tileId)
 {
     if (IS_FRLG)
         return gMapHeader.mapLayout->primaryTileset == &gTileset_BuildingFrlg && (tileId == METATILE_BuildingFrlg_PCOn || tileId == METATILE_BuildingFrlg_PCOff);
@@ -1081,12 +1083,8 @@ static bool32 IsPlayerHousePCTile(u32 tileId)
             || tileId == METATILE_BrendansMaysHouse_MayPC_Off);
 }
 
-static bool32 IsPlayerHousePCTileFrlg(u32 tileId)
+static bool32 UNUSED IsPlayerHousePCTileFrlg(u32 tileId)
 {
-    if (IS_FRLG)
-        return gMapHeader.mapLayout->secondaryTileset == &gTileset_GenericBuilding1
-            && (tileId == METATILE_GenericBuilding1_PlayersPCOn || tileId == METATILE_GenericBuilding1_PlayersPCOff);
-
     return FALSE;
 }
 
@@ -1184,7 +1182,7 @@ static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
         else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
             metatileId = METATILE_BrendansMaysHouse_MayPC_Off;
         else if (gSpecialVar_0x8004 == PC_LOCATION_PLAYER_HOUSE_FRLG)
-            metatileId = METATILE_GenericBuilding1_PlayersPCOff;
+            metatileId = 0;
     }
     else
     {
@@ -1196,7 +1194,7 @@ static void PCTurnOnEffect_SetMetatile(s16 isScreenOn, s8 dx, s8 dy)
         else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
             metatileId = METATILE_BrendansMaysHouse_MayPC_On;
         else if (gSpecialVar_0x8004 == PC_LOCATION_PLAYER_HOUSE_FRLG)
-            metatileId = METATILE_GenericBuilding1_PlayersPCOn;
+            metatileId = 0;
     }
     MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + dx + MAP_OFFSET, gSaveBlock1Ptr->pos.y + dy + MAP_OFFSET, metatileId | MAPGRID_IMPASSABLE);
 }
@@ -1243,7 +1241,7 @@ static void PCTurnOffEffect(void)
     else if (gSpecialVar_0x8004 == PC_LOCATION_MAYS_HOUSE)
         metatileId = METATILE_BrendansMaysHouse_MayPC_Off;
     else if (gSpecialVar_0x8004 == PC_LOCATION_PLAYER_HOUSE_FRLG)
-        metatileId = METATILE_GenericBuilding1_PlayersPCOff;
+        metatileId = 0;
 
     MapGridSetMetatileIdAt(gSaveBlock1Ptr->pos.x + dx + MAP_OFFSET, gSaveBlock1Ptr->pos.y + dy + MAP_OFFSET, metatileId | MAPGRID_IMPASSABLE);
     DrawWholeMapView();
@@ -5021,13 +5019,13 @@ static void Task_DrawTeleporterHousing(u8 taskId)
         // Alternate the teleporter light / brightness of the teleporter door
         if ((tState & 1) == 0)
         {
-            MapGridSetMetatileIdAt(tX, tY, METATILE_SeaCottage_Teleporter_Light_Yellow | MAPGRID_COLLISION_MASK);
-            MapGridSetMetatileIdAt(tX, tY + 2, METATILE_SeaCottage_Teleporter_Door_HalfGlowing | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY, 0 | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY + 2, 0 | MAPGRID_COLLISION_MASK);
         }
         else
         {
-            MapGridSetMetatileIdAt(tX, tY, METATILE_SeaCottage_Teleporter_Light_Red | MAPGRID_COLLISION_MASK);
-            MapGridSetMetatileIdAt(tX, tY + 2, METATILE_SeaCottage_Teleporter_Door_FullGlowing | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY, 0 | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY + 2, 0 | MAPGRID_COLLISION_MASK);
         }
         CurrentMapDrawMetatileAt(tX, tY);
         CurrentMapDrawMetatileAt(tX, tY + 2);
@@ -5042,8 +5040,8 @@ static void Task_DrawTeleporterHousing(u8 taskId)
     if (tState != 13)
         return;
 
-    MapGridSetMetatileIdAt(tX, tY, METATILE_SeaCottage_Teleporter_Light_Green | MAPGRID_COLLISION_MASK);
-    MapGridSetMetatileIdAt(tX, tY + 2, METATILE_SeaCottage_Teleporter_Door | MAPGRID_COLLISION_MASK);
+    MapGridSetMetatileIdAt(tX, tY, 0 | MAPGRID_COLLISION_MASK);
+    MapGridSetMetatileIdAt(tX, tY + 2, 0 | MAPGRID_COLLISION_MASK);
     CurrentMapDrawMetatileAt(tX, tY);
     CurrentMapDrawMetatileAt(tX, tY + 2);
     DestroyTask(taskId);
@@ -5083,8 +5081,8 @@ static void Task_DrawTeleporterCable(u8 taskId)
         if (tState != 0)
         {
             // Set default cable tiles to clear the ball
-            MapGridSetMetatileIdAt(tX, tY, METATILE_SeaCottage_Teleporter_Cable_Top | MAPGRID_COLLISION_MASK);
-            MapGridSetMetatileIdAt(tX, tY + 1, METATILE_SeaCottage_Teleporter_Cable_Bottom | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY, 0 | MAPGRID_COLLISION_MASK);
+            MapGridSetMetatileIdAt(tX, tY + 1, 0 | MAPGRID_COLLISION_MASK);
             CurrentMapDrawMetatileAt(tX, tY);
             CurrentMapDrawMetatileAt(tX, tY + 1);
 
@@ -5099,8 +5097,8 @@ static void Task_DrawTeleporterCable(u8 taskId)
         }
 
         // Draw the cable ball
-        MapGridSetMetatileIdAt(tX, tY, METATILE_SeaCottage_Teleporter_CableBall_Top | MAPGRID_COLLISION_MASK);
-        MapGridSetMetatileIdAt(tX, tY + 1, METATILE_SeaCottage_Teleporter_CableBall_Bottom | MAPGRID_COLLISION_MASK);
+        MapGridSetMetatileIdAt(tX, tY, 0 | MAPGRID_COLLISION_MASK);
+        MapGridSetMetatileIdAt(tX, tY + 1, 0 | MAPGRID_COLLISION_MASK);
         CurrentMapDrawMetatileAt(tX, tY);
         CurrentMapDrawMetatileAt(tX, tY + 1);
     }
@@ -5694,7 +5692,7 @@ static void Task_AnimateElevatorWindowView(u8 taskId)
 void ForcePlayerOntoBike(void)
 {
     if (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT)
-        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ACRO_BIKE);
+        SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_BIKE);
     Overworld_SetSavedMusic(MUS_CYCLING);
     Overworld_ChangeMusicTo(MUS_CYCLING);
 }
