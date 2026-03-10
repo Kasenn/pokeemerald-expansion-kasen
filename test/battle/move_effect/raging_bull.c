@@ -40,6 +40,8 @@ SINGLE_BATTLE_TEST("Raging Bull removes Light Screen, Reflect and Aurora Veil fr
         case MOVE_AURORA_VEIL:
             MESSAGE("The opposing team's Aurora Veil wore off!");
             break;
+        default:
+            break;
         }
         HP_BAR(opponent);
     }
@@ -74,6 +76,8 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
                 break;
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            default:
                 break;
             }
             HP_BAR(opponent);
@@ -112,6 +116,8 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
                 break;
+            default:
+                break;
             }
             HP_BAR(opponent);
         }
@@ -147,6 +153,8 @@ SINGLE_BATTLE_TEST("Raging Bull doesn't remove Light Screen, Reflect and Aurora 
                 break;
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            default:
                 break;
             }
             HP_BAR(opponent);
@@ -187,6 +195,8 @@ DOUBLE_BATTLE_TEST("Raging Bull can remove Light Screen, Reflect and Aurora Veil
             break;
         case MOVE_AURORA_VEIL:
             MESSAGE("Your team's Aurora Veil wore off!");
+            break;
+        default:
             break;
         }
         HP_BAR(playerLeft);

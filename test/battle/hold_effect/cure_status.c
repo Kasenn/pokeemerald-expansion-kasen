@@ -144,7 +144,7 @@ SINGLE_BATTLE_TEST("Chesto and Lum Berries don't trigger if the holder has Comat
 
     GIVEN {
         ASSUME(gItemsInfo[ITEM_CHESTO_BERRY].holdEffect == HOLD_EFFECT_CURE_SLP);
-        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_CURE_STATUS);
+        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_LUM_BERRY);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_KOMALA) { Ability(ABILITY_COMATOSE); Item(item); }
     } WHEN {

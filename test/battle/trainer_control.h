@@ -16,8 +16,8 @@
 #line 3
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 4
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 6
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 7
@@ -96,8 +96,8 @@
 #line 35
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 36
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 38
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 39
@@ -127,8 +127,8 @@
 #line 47
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 48
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 50
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 51
@@ -158,8 +158,8 @@
 #line 59
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 60
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 62
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 63
@@ -189,8 +189,8 @@
 #line 71
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 72
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 74
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 75
@@ -219,8 +219,8 @@
 #line 83
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 84
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 86
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 87
@@ -284,8 +284,8 @@
 #line 100
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 101
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 103
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 104
@@ -379,8 +379,8 @@
 #line 125
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 126
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 128
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 129
@@ -528,8 +528,8 @@
 #line 163
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 164
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 166
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 167
@@ -590,8 +590,8 @@
 #line 182
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 183
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 185
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 186
@@ -650,8 +650,8 @@
 #line 200
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 201
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 203
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 204
@@ -712,8 +712,8 @@
 #line 219
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 220
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 222
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 223
@@ -755,8 +755,8 @@
 #line 232
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 233
-        .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .trainerPic = TRAINER_PIC_FRONT_RED,
+        .encounterMusic =
 #line 235
             TRAINER_ENCOUNTER_MUSIC_MALE,
 #line 236

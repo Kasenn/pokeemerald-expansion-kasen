@@ -45,6 +45,8 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs remove Light Screen, Reflect a
         case MOVE_AURORA_VEIL:
             MESSAGE("The opposing team's Aurora Veil wore off!");
             break;
+        default:
+            break;
         }
         HP_BAR(opponent);
     }
@@ -83,6 +85,8 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
                 break;
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            default:
                 break;
             }
             HP_BAR(opponent);
@@ -125,6 +129,8 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
                 break;
+            default:
+                break;
             }
             HP_BAR(opponent);
         }
@@ -164,6 +170,8 @@ SINGLE_BATTLE_TEST("Brick Break and Psychic Fangs don't remove Light Screen, Ref
                 break;
             case MOVE_AURORA_VEIL:
                 MESSAGE("The opposing team's Aurora Veil wore off!");
+                break;
+            default:
                 break;
             }
             HP_BAR(opponent);
@@ -208,6 +216,8 @@ DOUBLE_BATTLE_TEST("Brick Break and Psychic Fangs can remove Light Screen, Refle
             break;
         case MOVE_AURORA_VEIL:
             MESSAGE("Your team's Aurora Veil wore off!");
+            break;
+        default:
             break;
         }
         HP_BAR(playerLeft);
