@@ -504,7 +504,7 @@ ReassemblyUnit_Assemble10Forme_4:
 # 452 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10
 # 453 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
-	givemon SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0
+	givemon SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, SHINY_MODE_NEVER, 0, 0
 # 454 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	call GiveMon_Script
 # 455 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
@@ -616,7 +616,7 @@ ReassemblyUnit_Assemble50Forme_7:
 # 524 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_50
 # 525 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
-	givemon SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, FALSE, 0, 0
+	givemon SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, SHINY_MODE_NEVER, 0, 0
 # 526 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	call GiveMon_Script
 # 527 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"

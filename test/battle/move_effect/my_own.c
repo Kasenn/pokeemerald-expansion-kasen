@@ -544,3 +544,309 @@ SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 2")
         NONE_OF { MESSAGE("The foe Wobbuffet's Lum Berry snapped it out of its confusion!"); }
     }
 }
+
+SINGLE_BATTLE_TEST("Custom - (Z-MOVE) Genesis Supernova sets up psychic terrain when the target is behind a Substitute")
+{
+    GIVEN {
+        ASSUME(MoveHasAdditionalEffect(MOVE_GENESIS_SUPERNOVA, MOVE_EFFECT_PSYCHIC_TERRAIN));
+        PLAYER(SPECIES_MEW) { Item(ITEM_MEWNIUM_Z); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_PSYCHIC, gimmick: GIMMICK_Z_MOVE); }
+        TURN { MOVE(player, MOVE_QUICK_ATTACK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GENESIS_SUPERNOVA, player);
+        SUB_HIT(opponent);
+        NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player); }
+        MESSAGE("The foe Wobbuffet is protected by the Psychic Terrain!");
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - (Z-MOVE) Splintered Stormshards removes terrain when the target is behind a Substitute")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_SPLINTERED_STORMSHARDS) == EFFECT_ICE_SPINNER);
+        PLAYER(SPECIES_LYCANROC_DUSK) { Item(ITEM_LYCANIUM_Z); }
+        OPPONENT(SPECIES_TAPU_LELE) { Ability(ABILITY_PSYCHIC_SURGE); HP(1000); MaxHP(1000); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_STONE_EDGE, gimmick: GIMMICK_Z_MOVE); }
+        TURN { MOVE(player, MOVE_QUICK_ATTACK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SPLINTERED_STORMSHARDS, player);
+        SUB_HIT(opponent);
+        MESSAGE("The weirdness disappeared from the battlefield.");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Absorb recovers 50% of the damage dealt to a Substitute")
+{
+    u16 damage;
+    s16 healing;
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET) { HP(1); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_ABSORB); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, opponent);
+        SUB_HIT(player, captureDamage: &damage);
+        HP_BAR(opponent, captureDamage: &healing);
+    } THEN {
+        EXPECT_MUL_EQ(damage, Q_4_12(-0.5), healing);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Ceaseless Edge will set up rocks if the target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_CEASELESS_EDGE); }
+        TURN { SWITCH(player, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, opponent);
+        SUB_HIT(player);
+        HP_BAR(player);
+    }
+}
+
+
+SINGLE_BATTLE_TEST("Custom - Chloroblast has recoil if the target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET) { HP(400); MaxHP(400); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_CHLOROBLAST); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHLOROBLAST, opponent);
+        SUB_HIT(player);
+        HP_BAR(opponent, damage: 200);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Core Enforcer suppresses the ability of targets that have already acted")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_CORE_ENFORCER); }
+        TURN { MOVE(player, MOVE_EARTHQUAKE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
+        HP_BAR(opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Core Enforcer doesn't suppresses the ability of targets that haven't acted")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_CORE_ENFORCER); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_EARTHQUAKE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
+        HP_BAR(opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        NONE_OF {
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
+            HP_BAR(opponent);
+        }
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Core Enforcer suppresses the ability of targets that have already acted that are behind Substitutes")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_CORE_ENFORCER); }
+        TURN { MOVE(player, MOVE_EARTHQUAKE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
+        SUB_HIT(opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
+        SUB_HIT(opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Hit Escape: U-turn will switch if the target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_U_TURN); SEND_OUT(opponent, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Ice Spinner will remove terrain if target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_ICE_SPINNER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_SPINNER, opponent);
+        SUB_HIT(player);
+        NOT HP_BAR(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Steel Beam inflicts recoil if it hits a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { HP(400); MaxHP(400); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_STEEL_BEAM); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEEL_BEAM, player);
+        SUB_HIT(opponent);
+        HP_BAR(player, damage: 200);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Rapid Spin and Mortal Spin will remove hazards if the target is behind a Substitute")
+{
+    u32 move;
+
+    PARAMETRIZE { move = MOVE_RAPID_SPIN; }
+    PARAMETRIZE { move = MOVE_MORTAL_SPIN; }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN { MOVE(player, MOVE_STEALTH_ROCK); }
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, move); }
+        TURN { SWITCH(opponent, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, move, opponent);
+        SUB_HIT(player);
+        NOT HP_BAR(opponent);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Steel Roller will remove terrain if target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_STEEL_ROLLER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEEL_ROLLER, opponent);
+        NOT HP_BAR(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Stone Axe will set up rocks if the target is behind a Substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_STONE_AXE); }
+        TURN { SWITCH(player, 1); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, opponent);
+        SUB_HIT(player);
+        HP_BAR(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Brick Break and Psychic Fangs can remove screens when the target is behind a Substitute")
+{
+    u32 move;
+
+    PARAMETRIZE { move = MOVE_BRICK_BREAK; }
+    PARAMETRIZE { move = MOVE_PSYCHIC_FANGS; }
+
+    GIVEN {
+
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_REFLECT); }
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, move); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, move, opponent);
+        MESSAGE("Your team's Reflect wore off!");
+        SUB_HIT(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Plasma Fists turns normal moves into electric moves even if it hits a substitute")
+{
+    GIVEN {
+        PLAYER(SPECIES_JOLTEON) { Ability(ABILITY_VOLT_ABSORB); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_SUBSTITUTE); }
+        TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
+        SUB_HIT(opponent);
+        NONE_OF {
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
+            HP_BAR(player);
+        }
+    }
+}
+
+SINGLE_BATTLE_TEST("Custom - Recoil: Hitting substitutes inflicts recoil")
+{
+    u16 damage;
+    s16 recoil;
+    GIVEN {
+        ASSUME(GetMoveRecoil(MOVE_TAKE_DOWN) == 25);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_TAKE_DOWN); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TAKE_DOWN, opponent);
+        SUB_HIT(player, captureDamage: &damage);
+        HP_BAR(opponent, captureDamage: &recoil);
+    } THEN {
+        EXPECT_MUL_EQ(damage, Q_4_12(0.25), recoil);
+    }
+}

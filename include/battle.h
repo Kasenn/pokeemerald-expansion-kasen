@@ -1134,11 +1134,18 @@ static inline bool32 IsBattlerAlive(u32 battler)
         return TRUE;
 }
 
-static inline bool32 IsBattlerTurnDamaged(u32 battler)
+enum SubCheck
+{
+    EXCLUDING_SUBSTITUTES,
+    INCLUDING_SUBSTITUTES
+};
+
+static inline bool32 IsBattlerTurnDamaged(u32 battler, enum SubCheck subCheck)
 {
     return gSpecialStatuses[battler].physicalDmg != 0
         || gSpecialStatuses[battler].specialDmg != 0
-        || gSpecialStatuses[battler].enduredDamage;
+        || gSpecialStatuses[battler].enduredDamage
+        || ((subCheck == INCLUDING_SUBSTITUTES) && gBattleStruct->moveDamage[battler] > 0);
 }
 
 static inline bool32 IsBattlerAtMaxHp(u32 battler)
