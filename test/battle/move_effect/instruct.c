@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Instruct causes the target to use its last used move again")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_INSTRUCT, opponent);
-        MESSAGE("Wobbuffet followed the opposing Wynaut's instructions!");
+        MESSAGE("Wobbuffet followed the foe Wynaut's instructions!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
     }
 }
@@ -411,11 +411,11 @@ DOUBLE_BATTLE_TEST("Instruct message references the correct battlers")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
-        MESSAGE("The opposing Wynaut used Instruct!");
+        MESSAGE("The foe Wynaut used Instruct!");
         NONE_OF {
-            MESSAGE("Sceptile followed the opposing Wobbuffet's instructions!");
+            MESSAGE("Sceptile followed the foe Wobbuffet's instructions!");
         }
-        MESSAGE("Sceptile followed the opposing Wynaut's instructions!");
+        MESSAGE("Sceptile followed the foe Wynaut's instructions!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
     }
 }

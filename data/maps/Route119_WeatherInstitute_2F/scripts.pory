@@ -613,10 +613,10 @@ script ReassemblyUnit_CoreMoves{
     dynmultistack(23, 0, FALSE, 6, FALSE, 0, 0)
     switch(var(VAR_RESULT)){
         case 0:
-            setvar(VAR_0x8005, MOVE_EXTREME_SPEED_ZYG)
+            setvar(VAR_0x8005, MOVE_EXTREME_SPEED)
             goto(ZygardeTeachCoreMove)
         case 1:
-            setvar(VAR_0x8005, MOVE_DRAGON_DANCE_ZYG)
+            setvar(VAR_0x8005, MOVE_DRAGON_DANCE)
             goto(ZygardeTeachCoreMove)
         case 2:
             setvar(VAR_0x8005, MOVE_CORE_ENFORCER)
@@ -635,7 +635,8 @@ script ReassemblyUnit_CoreMoves{
 }
 script ZygardeTeachCoreMove{
     msgbox(SelectZygardeToTeachMove)
-    call(MoveTutor_EventScript_OpenPartyMenu)
+    special(ChooseZygardeForMoveTutor)
+	waitstate
     if(var(VAR_RESULT) == 0){
         msgbox(ZygardeMoveAborted)
     }

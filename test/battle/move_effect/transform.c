@@ -24,7 +24,7 @@ SINGLE_BATTLE_TEST("Transform fails on semi-invulnerable target in Gen2+")
         if (expectFail)
             MESSAGE("But it failed!");
         else
-            MESSAGE("The opposing Ditto transformed into Wobbuffet!");
+            MESSAGE("The foe Ditto transformed into Wobbuffet!");
     }
 }
 
@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Transform fails on transformed target in Gen2+")
         if (expectFail)
             MESSAGE("But it failed!");
         else
-            MESSAGE("The opposing Wobbuffet transformed into Wobbuffet!");
+            MESSAGE("The foe Wobbuffet transformed into Wobbuffet!");
     }
 }
 
@@ -68,11 +68,11 @@ SINGLE_BATTLE_TEST("Transform fails when the user is already transformed in Gen5
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_TRANSFORM); }
     } SCENE {
-        MESSAGE("The opposing Ditto transformed into Wobbuffet!");
+        MESSAGE("The foe Ditto transformed into Wobbuffet!");
         if (expectFail)
             MESSAGE("But it failed!");
         else
-            MESSAGE("The opposing Ditto transformed into Wobbuffet!");
+            MESSAGE("The foe Ditto transformed into Wobbuffet!");
     }
 }
 
@@ -94,7 +94,7 @@ SINGLE_BATTLE_TEST("Transform fails on target behind substitute in Gen5+")
         if (expectFail)
             MESSAGE("But it failed!");
         else
-            MESSAGE("The opposing Ditto transformed into Wobbuffet!");
+            MESSAGE("The foe Ditto transformed into Wobbuffet!");
     }
 }
 

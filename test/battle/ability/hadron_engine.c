@@ -10,7 +10,7 @@ SINGLE_BATTLE_TEST("Hadron Engine creates Electric Terrain when entering the bat
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_HADRON_ENGINE);
-        MESSAGE("An electric current ran across the battlefield!");
+        MESSAGE("An electric current runs across the battlefield!");
     }
 }
 

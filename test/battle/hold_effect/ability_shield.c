@@ -48,19 +48,19 @@ DOUBLE_BATTLE_TEST("Ability Shield prevents Intimidate from reactivating after N
         ABILITY_POPUP(opponentLeft, ABILITY_NEUTRALIZING_GAS);
         MESSAGE("Neutralizing gas filled the area!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentRight);
-        MESSAGE("The opposing Gyarados's Ability is protected by the effects of its Ability Shield!");
+        MESSAGE("The foe Gyarados's Ability is protected by the effects of its Ability Shield!");
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(opponentLeft);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         NONE_OF {
             ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         }
-        MESSAGE("The opposing Koffing fainted!");
+        MESSAGE("The foe Koffing fainted!");
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE - 1);
         EXPECT_EQ(playerRight->statStages[STAT_ATK], DEFAULT_STAT_STAGE - 1);

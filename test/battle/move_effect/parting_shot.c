@@ -42,7 +42,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Soundproof and Good as Gold block Parting Shot
     } SCENE {
         ABILITY_POPUP(opponent, ability);
         if (ability == ABILITY_SOUNDPROOF)
-            MESSAGE("The opposing Exploud's Soundproof blocks Parting Shot!");
+            MESSAGE("It doesn't affect the foe Exploud…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player);
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
@@ -121,15 +121,15 @@ SINGLE_BATTLE_TEST("Parting Shot: Mirror Armor switches the user even if reflect
         ABILITY_POPUP(opponent, ABILITY_MIRROR_ARMOR);
         if (ability == ABILITY_CLEAR_BODY) {
             ABILITY_POPUP(player, ABILITY_CLEAR_BODY);
-            MESSAGE("Metagross's Clear Body prevents stat loss!");
+            MESSAGE("Metagross's stats were not lowered!");
         } else if (ability == ABILITY_WHITE_SMOKE) {
             ABILITY_POPUP(player, ABILITY_WHITE_SMOKE);
-            MESSAGE("Torkoal's White Smoke prevents stat loss!");
+            MESSAGE("Torkoal's stats were not lowered!");
         } else if (ability == ABILITY_FULL_METAL_BODY) {
             ABILITY_POPUP(player, ABILITY_FULL_METAL_BODY);
-            MESSAGE("Solgaleo's Full Metal Body prevents stat loss!");
+            MESSAGE("Solgaleo's stats were not lowered!");
         } else if (item == ITEM_CLEAR_AMULET) {
-            MESSAGE("The effects of the Clear Amulet held by Lucario prevents its stats from being lowered!");
+            MESSAGE("Lucario's Clear Amulet prevents its stats from being lowered!");
         }
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
@@ -173,7 +173,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if both stats are at minimum (
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Omastar's stats won't go any lower!");
+        MESSAGE("The foe Omastar's stats won't go any lower!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MIN_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], MIN_STAT_STAGE);
@@ -195,7 +195,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if Contrary is at maximum stat
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Inkay's stats won't go any higher!");
+        MESSAGE("The foe Inkay's stats won't go any higher!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MAX_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], MAX_STAT_STAGE);
@@ -283,7 +283,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Switches if both stats are at minimum (Gen6)")
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The opposing Omastar's stats won't go any lower!");
+        MESSAGE("The foe Omastar's stats won't go any lower!");
         SEND_IN_MESSAGE("Wynaut");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MIN_STAT_STAGE);
@@ -306,7 +306,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Switches if Contrary is at maximum stats (Gen6
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The opposing Inkay's stats won't go any higher!");
+        MESSAGE("The foe Inkay's stats won't go any higher!");
         SEND_IN_MESSAGE("Wynaut");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MAX_STAT_STAGE);

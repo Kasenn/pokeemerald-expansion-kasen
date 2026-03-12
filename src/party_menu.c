@@ -1171,7 +1171,7 @@ static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8 slot)
     struct Pokemon *currentPokemon = &gPlayerParty[slot];
     u16 item = gSpecialVar_ItemId;
 
-    if (gPartyMenu.action == PARTY_ACTION_MOVE_TUTOR)
+    if (gPartyMenu.action == PARTY_ACTION_MOVE_TUTOR || gPartyMenu.action == PARTY_ACTION_REASSEMBLY_UNIT)
     {
         gSpecialVar_Result = FALSE;
         DisplayPartyPokemonDataToTeachMove(slot, gSpecialVar_0x8005);
@@ -1515,6 +1515,7 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
                 gItemUseCB(taskId, Task_ClosePartyMenuAfterText);
             }
             break;
+        case PARTY_ACTION_REASSEMBLY_UNIT:
         case PARTY_ACTION_MOVE_TUTOR:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
             {
@@ -2326,7 +2327,19 @@ static void Task_HandleCancelParticipationYesNoInput(u8 taskId)
 
 static u8 CanTeachMove(struct Pokemon *mon, u16 move)
 {
-    if (GetMonData(mon, MON_DATA_IS_EGG))
+    u16 species = GetMonData(mon, MON_DATA_SPECIES);
+
+    if (gPartyMenu.action == PARTY_ACTION_REASSEMBLY_UNIT
+        && (species != SPECIES_ZYGARDE
+         && species != SPECIES_ZYGARDE_50
+         && species != SPECIES_ZYGARDE_10
+         && species != SPECIES_ZYGARDE_10_AURA_BREAK
+         && species != SPECIES_ZYGARDE_10_POWER_CONSTRUCT
+         && species != SPECIES_ZYGARDE_50_POWER_CONSTRUCT
+         && species != SPECIES_ZYGARDE_COMPLETE
+         && species != SPECIES_ZYGARDE_MEGA))
+         return CANNOT_LEARN_MOVE;
+    else if (GetMonData(mon, MON_DATA_IS_EGG))
         return CANNOT_LEARN_MOVE_IS_EGG;
     else if (!CanLearnTeachableMove(GetMonData(mon, MON_DATA_SPECIES_OR_EGG), move))
         return CANNOT_LEARN_MOVE;
@@ -7767,6 +7780,11 @@ void ChooseMonForTradingBoard(u8 menuType, MainCallback callback)
 void ChooseMonForMoveTutor(void)
 {
     InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_MOVE_TUTOR, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
+}
+
+void ChooseZygardeForMoveTutor(void)
+{
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_REASSEMBLY_UNIT, FALSE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScriptPlayMapMusic);
 }
 
 void ChooseMonForWirelessMinigame(void)

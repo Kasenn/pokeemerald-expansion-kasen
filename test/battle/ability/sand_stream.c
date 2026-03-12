@@ -15,10 +15,10 @@ SINGLE_BATTLE_TEST("Sand Stream sets up sandstorm for 5 turns (Gen6+)")
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SAND_STREAM);
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         MESSAGE("The sandstorm subsided.");
     }
 }
@@ -40,13 +40,13 @@ SINGLE_BATTLE_TEST("Sand Stream sets up sandstorm for 8 turns with Smooth Rock (
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SAND_STREAM);
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         MESSAGE("The sandstorm subsided.");
     }
 }
@@ -69,15 +69,15 @@ SINGLE_BATTLE_TEST("Sand Stream sets up permanent sandstorm (Gen3-5)")
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SAND_STREAM);
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         NOT MESSAGE("The sandstorm subsided.");
     }
 }

@@ -283,7 +283,7 @@ SINGLE_BATTLE_TEST("Contrary does not invert stat changes that have been Baton-p
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("2 sent out Snivy!");
+        MESSAGE("{PKMN} Trainer 2 sent out Snivy!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
     }

@@ -557,31 +557,37 @@ static const struct FormChange sAbsolFormChangeTable[] =
 
 static const struct FormChange sEmpoleonFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_EMPOLEON_MEGA, ITEM_EMPOLEONITE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_EMPOLEON},
     {FORM_CHANGE_TERMINATOR},
 };
 
 static const struct FormChange sDecidueyeFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_DECIDUEYE_MEGA, ITEM_DECIDUEITE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_DECIDUEYE},
     {FORM_CHANGE_TERMINATOR},
 };
 
 static const struct FormChange sIncineroarFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_INCINEROAR_MEGA, ITEM_INCINEROARITE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_INCINEROAR},
     {FORM_CHANGE_TERMINATOR},
 };
 
 static const struct FormChange sAriadosFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_ARIADOS_MEGA, ITEM_ARIADOSITE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_ARIADOS},
     {FORM_CHANGE_TERMINATOR},
 };
 
 static const struct FormChange sChesnaughtFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_CHESNAUGHT_MEGA, ITEM_CHESNAUGHTITE},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_CHESNAUGHT},
     {FORM_CHANGE_TERMINATOR},
 };
 
 static const struct FormChange sPorygonZFormChangeTable[] = {
     {FORM_CHANGE_BATTLE_MEGA_EVOLUTION_ITEM,    SPECIES_PORYGON_Z_MEGA, ITEM_PROCESSOR},
+    {FORM_CHANGE_END_BATTLE,                    SPECIES_PORYGON_Z},
     {FORM_CHANGE_TERMINATOR},
 };
 

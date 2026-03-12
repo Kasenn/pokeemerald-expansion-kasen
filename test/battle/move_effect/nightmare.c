@@ -13,7 +13,7 @@ SINGLE_BATTLE_TEST("Nightmare damages sleeping targets at end of turn")
         TURN { MOVE(player, MOVE_NIGHTMARE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_NIGHTMARE, player);
-        MESSAGE("The opposing Wobbuffet began having a nightmare!");
+        MESSAGE("The foe Wobbuffet began having a nightmare!");
         HP_BAR(opponent, captureDamage: &damage);
     } THEN {
         EXPECT_EQ(damage, 40);
@@ -32,7 +32,7 @@ SINGLE_BATTLE_TEST("Nightmare affects Pokémon with Comatose")
         TURN { MOVE(player, MOVE_NIGHTMARE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_NIGHTMARE, player);
-        MESSAGE("The opposing Komala began having a nightmare!");
+        MESSAGE("The foe Komala began having a nightmare!");
         HP_BAR(opponent, captureDamage: &damage);
     } THEN {
         EXPECT_EQ(damage, 40);

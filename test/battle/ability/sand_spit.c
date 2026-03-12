@@ -13,14 +13,14 @@ SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 5 turns when hit")
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Tackle!");
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         MESSAGE("The sandstorm subsided.");
     }
 }
@@ -40,17 +40,17 @@ SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 8 turns when hit with Smooth
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Tackle!");
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         MESSAGE("The sandstorm subsided.");
     }
 }
@@ -65,13 +65,13 @@ SINGLE_BATTLE_TEST("Sand Spit triggers even if the user is knocked out by the hi
         TURN { MOVE(opponent, MOVE_TACKLE); SEND_OUT(player, 1); }
         TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Tackle!");
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The opposing Landorus used Celebrate!");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The foe Landorus used Celebrate!");
         MESSAGE("Landorus used Celebrate!");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
     }
 }

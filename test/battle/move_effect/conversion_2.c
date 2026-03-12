@@ -238,7 +238,7 @@ SINGLE_BATTLE_TEST("Conversion 2 fails if last hit by a Stellar-type move (Gen 1
         MESSAGE("Wobbuffet used Tera Blast!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_BLAST, player);
         // turn 2
-        MESSAGE("The opposing Wobbuffet used Conversion 2!");
+        MESSAGE("The foe Wobbuffet used Conversion 2!");
         MESSAGE("But it failed!");
     }
 }

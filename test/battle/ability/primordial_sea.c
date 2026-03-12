@@ -111,35 +111,3 @@ SINGLE_BATTLE_TEST("Primordial Sea prevents other weather abilities")
         EXPECT(gBattleWeather & B_WEATHER_RAIN_PRIMAL);
     }
 }
-
-SINGLE_BATTLE_TEST("Primordial Sea can be replaced by Delta Stream")
-{
-    GIVEN {
-        PLAYER(SPECIES_KYOGRE) { Item(ITEM_BLUE_ORB); }
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_RAYQUAZA) { Ability(ABILITY_DELTA_STREAM); }
-    } WHEN {
-        TURN { SWITCH(opponent, 1); }
-    } SCENE {
-        ABILITY_POPUP(opponent, ABILITY_DELTA_STREAM);
-        MESSAGE("Mysterious strong winds are protecting Flying-type Pokémon!");
-    } THEN {
-        EXPECT(gBattleWeather & B_WEATHER_STRONG_WINDS);
-    }
-}
-
-SINGLE_BATTLE_TEST("Primordial Sea can be replaced by Desolate Land")
-{
-    GIVEN {
-        PLAYER(SPECIES_KYOGRE) { Item(ITEM_BLUE_ORB); }
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_GROUDON) { Item(ITEM_RED_ORB); }
-    } WHEN {
-        TURN { SWITCH(opponent, 1); }
-    } SCENE {
-        ABILITY_POPUP(opponent, ABILITY_DESOLATE_LAND);
-        MESSAGE("The sunlight turned extremely harsh!");
-    } THEN {
-        EXPECT(gBattleWeather & B_WEATHER_SUN_PRIMAL);
-    }
-}

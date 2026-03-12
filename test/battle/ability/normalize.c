@@ -323,7 +323,7 @@ SINGLE_BATTLE_TEST("Normalize doesn't affect Terrain Pulse's type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_TERRAIN_PULSE, player); }
-        MESSAGE("It doesn't affect the opposing Sandshrew…");
+        MESSAGE("It doesn't affect the foe Sandshrew…");
     }
 }
 

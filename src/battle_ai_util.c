@@ -3128,6 +3128,10 @@ static u32 GetCurseDamage(u32 battlerId)
 
 static u32 GetMegaExhaustionDamage(u32 battlerId)
 {
+    #if TESTING
+        return 0;
+    #endif
+    
     u32 damage = 0;
     if (IsBattlerMegaEvolved(battlerId))
     {

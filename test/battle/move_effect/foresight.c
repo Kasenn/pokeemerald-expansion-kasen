@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Foresight always hits unless the target is semi-invulnerable
             TURN { MOVE(player, MOVE_SPLASH); SKIP_TURN(opponent); }
     } SCENE {
         if (semiInvulnerable) {
-            MESSAGE("The opposing Squawkabilly avoided the attack!");
+            MESSAGE("The foe Squawkabilly avoided the attack!");
         } else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_TEAM, opponent);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);

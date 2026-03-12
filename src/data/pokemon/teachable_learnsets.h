@@ -46737,6 +46737,7 @@ static const u16 sZygardeTeachableLearnset[] = {
     MOVE_SWAGGER,
     MOVE_SWIFT,
     MOVE_ZEN_HEADBUTT,
+    MOVE_EXTREME_SPEED,
     MOVE_UNAVAILABLE,
 };
 #endif //P_FAMILY_ZYGARDE

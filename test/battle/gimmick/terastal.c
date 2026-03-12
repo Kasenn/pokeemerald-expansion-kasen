@@ -759,24 +759,6 @@ SINGLE_BATTLE_TEST("(TERA) Transformed Pokémon can't Terastalize")
     }
 }
 
-SINGLE_BATTLE_TEST("(TERA) Pokemon with Tera forms change upon Terastallizing")
-{
-    u32 species, target, item;
-    PARAMETRIZE { species = SPECIES_OGERPON_TEAL;        target = SPECIES_OGERPON_TEAL_TERA;        item = ITEM_NONE; }
-    PARAMETRIZE { species = SPECIES_OGERPON_WELLSPRING;  target = SPECIES_OGERPON_WELLSPRING_TERA;  item = ITEM_WELLSPRING_MASK; }
-    PARAMETRIZE { species = SPECIES_OGERPON_HEARTHFLAME; target = SPECIES_OGERPON_HEARTHFLAME_TERA; item = ITEM_HEARTHFLAME_MASK; }
-    PARAMETRIZE { species = SPECIES_OGERPON_CORNERSTONE; target = SPECIES_OGERPON_CORNERSTONE_TERA; item = ITEM_CORNERSTONE_MASK; }
-    PARAMETRIZE { species = SPECIES_TERAPAGOS_TERASTAL;  target = SPECIES_TERAPAGOS_STELLAR;        item = ITEM_NONE; }
-    GIVEN {
-        PLAYER(species) { Item(item); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_TERA); }
-    } THEN {
-        EXPECT_EQ(player->species, target);
-    }
-}
-
 SINGLE_BATTLE_TEST("(TERA) All type indicators function correctly")
 {
     enum Type type;

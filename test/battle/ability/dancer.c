@@ -287,7 +287,7 @@ SINGLE_BATTLE_TEST("Dancer-called moves can be reflected by Magic Bounce")
         ABILITY_POPUP(opponent, ABILITY_DANCER);
         ABILITY_POPUP(player, ABILITY_MAGIC_BOUNCE);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_FEATHER_DANCE, opponent);
-        MESSAGE("The opposing Oricorio's Feather Dance was bounced back by Espeon's Magic Bounce!");
+        MESSAGE("Espeon bounced the Feather Dance back!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FEATHER_DANCE, player);
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
@@ -590,11 +590,11 @@ SINGLE_BATTLE_TEST("Dancer user may hit itself in confusion instead of copying a
         TURN { MOVE(player, MOVE_DRAGON_DANCE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CONFUSE_RAY, player);
-        MESSAGE("The opposing Oricorio became confused!");
+        MESSAGE("The foe Oricorio became confused!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DANCE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         ABILITY_POPUP(opponent, ABILITY_DANCER);
-        MESSAGE("The opposing Oricorio is confused!");
+        MESSAGE("The foe Oricorio is confused!");
         MESSAGE("It hurt itself in its confusion!");
         HP_BAR(opponent);
         NONE_OF {
@@ -689,7 +689,7 @@ SINGLE_BATTLE_TEST("Dancer can still copy a move even if it's being forced into 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENCORE, player);
-        MESSAGE("The opposing Oricorio must do an encore!");
+        MESSAGE("The foe Oricorio received an encore!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         ABILITY_POPUP(opponent, ABILITY_DANCER);

@@ -98,13 +98,13 @@ SINGLE_BATTLE_TEST("Poison Touch activates when user has Protective Pads, but no
         if (item != ITEM_PUNCHING_GLOVE) {
             ABILITY_POPUP(player, ABILITY_POISON_TOUCH);
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
-            MESSAGE("The opposing Wobbuffet was poisoned by Grimer's Poison Touch!");
+            MESSAGE("The foe Wobbuffet was poisoned!");
             STATUS_ICON(opponent, poison: TRUE);
         } else {
             NONE_OF {
                 ABILITY_POPUP(player, ABILITY_POISON_TOUCH);
                 ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
-                MESSAGE("The opposing Wobbuffet was poisoned by Grimer's Poison Touch!");
+                MESSAGE("The foe Wobbuffet was poisoned!");
                 STATUS_ICON(opponent, poison: TRUE);
             }
         }

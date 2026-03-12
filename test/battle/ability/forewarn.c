@@ -12,7 +12,7 @@ DOUBLE_BATTLE_TEST("Forewarn warns about the highest power move among all opposi
         TURN {}
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_FOREWARN);
-        MESSAGE("Forewarn alerted Musharna to the opposing Excadrill's Fissure!");
+        MESSAGE("It was alerted to the foe Excadrill's Fissure!");
     }
 }
 
@@ -28,7 +28,7 @@ SINGLE_BATTLE_TEST("Forewarn randomly chooses between same-power moves on one op
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_FOREWARN);
-        MESSAGE("Forewarn alerted Musharna to the opposing Zubat's Tackle!");
+        MESSAGE("It was alerted to the foe Zubat's Tackle!");
     }
 }
 
@@ -47,7 +47,7 @@ DOUBLE_BATTLE_TEST("Forewarn randomly chooses between opponents with same-power 
         TURN {}
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_FOREWARN);
-        MESSAGE("Forewarn alerted Musharna to the opposing Zubat's Tackle!");
+        MESSAGE("It was alerted to the foe Zubat's Tackle!");
     }
 }
 
@@ -77,8 +77,8 @@ DOUBLE_BATTLE_TEST("Forewarn does not trigger if a mon switches in while the opp
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, playerLeft);
         HP_BAR(opponentLeft);
         NOT ABILITY_POPUP(playerLeft, ABILITY_FOREWARN);
-        MESSAGE("2 sent out Treecko!");
-        MESSAGE("2 sent out Torchic!");
+        MESSAGE("{PKMN} Trainer 2 sent out Treecko!");
+        MESSAGE("{PKMN} Trainer 2 sent out Torchic!");
         NOT ABILITY_POPUP(playerLeft, ABILITY_FOREWARN);
     }
 }

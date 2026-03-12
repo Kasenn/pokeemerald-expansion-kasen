@@ -1737,7 +1737,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Finale heals allies by 1/6 of their health, e
     }
 }
 
-DOUBLE_BATTLE_TEST("Dynamax: G-Max Replenish recycles allies' berries 50\% of the time, even if it faints the foe")
+DOUBLE_BATTLE_TEST("Dynamax: G-Max Replenish recycles allies' berries 50 of the time, even if it faints the foe")
 {
     PASSES_RANDOMLY(1, 2, RNG_G_MAX_REPLENISH);
     GIVEN {
@@ -1757,8 +1757,8 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Replenish recycles allies' berries 50\% of th
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft, gimmick: GIMMICK_DYNAMAX); SEND_OUT(opponentLeft, 2);}
     } SCENE {
         // turn 1
-        MESSAGE("Using Apicot Berry, the Sp. Def of Snorlax rose!");
-        MESSAGE("Using Apicot Berry, the Sp. Def of Munchlax rose!");
+        MESSAGE("The Apicot Berry raised Snorlax's Sp. Def!");
+        MESSAGE("The Apicot Berry raised Munchlax's Sp. Def!");
         // turn 2
         MESSAGE("Snorlax used G-Max Replenish!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_G_MAX_REPLENISH, playerLeft);
@@ -1786,7 +1786,7 @@ DOUBLE_BATTLE_TEST("Dynamax: G-Max Volt Crash paralyzes other opponent even if i
             STATUS_ICON(opponentLeft, paralysis: TRUE);
         }
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PRZ, opponentRight);
-        MESSAGE("The opposing Wynaut is paralyzed, so it may be unable to move!");
+        MESSAGE("The foe Wynaut is paralyzed! It may be unable to move!");
         STATUS_ICON(opponentRight, paralysis: TRUE);
     }
 }

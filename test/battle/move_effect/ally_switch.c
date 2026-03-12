@@ -109,8 +109,6 @@ DOUBLE_BATTLE_TEST("Ally Switch does not redirect moves done by Pokémon with St
         MESSAGE("Wobbuffet used Ally Switch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ALLY_SWITCH, playerLeft);
         MESSAGE("Wobbuffet and Wynaut switched places!");
-
-        MESSAGE("The foe Kadabra used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         HP_BAR((ability == ABILITY_STALWART || ability == ABILITY_PROPELLER_TAIL) ? playerLeft : playerRight);
     }

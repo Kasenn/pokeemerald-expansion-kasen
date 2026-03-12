@@ -81,7 +81,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes can be removed after fainting to other hazards"
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPIKES, opponent);
         MESSAGE("Pointed stones dug into Grimer!");
         MESSAGE("Grimer fainted!");
-        MESSAGE("The poison spikes disappeared from the ground around your team!");
+        MESSAGE("The poison spikes disappeared from around your team's feet!");
         NONE_OF {
             MESSAGE("Grimer was caught in a Sticky Web!");
             MESSAGE("Grimer is hurt by spikes!");

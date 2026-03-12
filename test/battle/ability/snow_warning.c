@@ -16,10 +16,10 @@ SINGLE_BATTLE_TEST("Snow Warning sets up hail for 5 turns (Gen6-8)")
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SNOW_WARNING);
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
         MESSAGE("The hail stopped.");
     }
 }
@@ -42,13 +42,13 @@ SINGLE_BATTLE_TEST("Snow Warning sets up hail for 8 turns with Icy Rock (Gen6-8)
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SNOW_WARNING);
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
         MESSAGE("The hail stopped.");
     }
 }
@@ -72,15 +72,15 @@ SINGLE_BATTLE_TEST("Snow Warning sets up permanent hail (Gen4-5)")
         TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_SNOW_WARNING);
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
         NOT MESSAGE("The hail stopped.");
     }
 }

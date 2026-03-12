@@ -191,7 +191,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't change Tera Blast's type when Terastallize
         TURN { MOVE(player, MOVE_TERA_BLAST, gimmick: GIMMICK_TERA); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_BLAST, player);
-        NOT { MESSAGE("It doesn't affect the opposing Sandshrew…"); }
+        NOT { MESSAGE("It doesn't affect the foe Sandshrew…"); }
     }
 }
 

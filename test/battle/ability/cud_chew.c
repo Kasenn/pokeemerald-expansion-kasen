@@ -51,7 +51,7 @@ SINGLE_BATTLE_TEST("Cud Chew will activate Oran Berry effect again on the next t
 SINGLE_BATTLE_TEST("Cud Chew will activate Lum Berry effect again on the next turn")
 {
     GIVEN {
-        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_CURE_STATUS);
+        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_LUM_BERRY);
         ASSUME(GetMoveEffect(MOVE_THUNDER_WAVE) == EFFECT_NON_VOLATILE_STATUS);
         ASSUME(GetMoveNonVolatileStatus(MOVE_THUNDER_WAVE) == MOVE_EFFECT_PARALYSIS);
         PLAYER(SPECIES_WOBBUFFET);

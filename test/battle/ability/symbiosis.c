@@ -146,7 +146,7 @@ DOUBLE_BATTLE_TEST("Symbiosis transfers its item after Gem consumption and move 
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
-        MESSAGE("The Normal Gem strengthened Wobbuffet's power!");
+        MESSAGE("Normal Gem strengthened Wobbuffet's power!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
@@ -169,7 +169,7 @@ DOUBLE_BATTLE_TEST("Symbiosis transfers its item after Gem consumption, but befo
         TURN { MOVE(playerLeft, MOVE_SCRATCH, target: opponentLeft); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
-        MESSAGE("The Normal Gem strengthened Wobbuffet's power!");
+        MESSAGE("Normal Gem strengthened Wobbuffet's power!");
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);

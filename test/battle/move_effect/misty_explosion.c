@@ -34,7 +34,7 @@ SINGLE_BATTLE_TEST("Misty Explosion causes the user & the target to faint")
         HP_BAR(player, hp: 0);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MISTY_EXPLOSION, player);
         HP_BAR(opponent, hp: 0);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Wobbuffet fainted!");
     }
 }
@@ -69,9 +69,9 @@ DOUBLE_BATTLE_TEST("Misty Explosion causes everyone to faint in a double battle"
         HP_BAR(opponentLeft, hp: 0);
         HP_BAR(playerRight, hp: 0);
         HP_BAR(opponentRight, hp: 0);
-        MESSAGE("The opposing Abra fainted!");
+        MESSAGE("The foe Abra fainted!");
         MESSAGE("Wynaut fainted!");
-        MESSAGE("The opposing Kadabra fainted!");
+        MESSAGE("The foe Kadabra fainted!");
         MESSAGE("Wobbuffet fainted!");
     }
 }

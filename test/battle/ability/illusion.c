@@ -128,6 +128,6 @@ SINGLE_BATTLE_TEST("Illusion breaks when attacked behind a substitute")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SWAP_FROM_SUBSTITUTE, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ILLUSION_OFF, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SWAP_TO_SUBSTITUTE, opponent);
-        MESSAGE("The opposing Zoroark's illusion wore off!");
+        MESSAGE("The foe Zoroark's illusion wore off!");
     }
 }

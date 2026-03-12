@@ -9019,7 +9019,7 @@ BattleScript_MoveBlockedByDynamax::
 
 BattleScript_PokemonCantUseTheMove::
 	pause B_WAIT_TIME_SHORT
-	printstring STRINGID_BUTITFAILED
+	printstring STRINGID_BUTPOKEMONCANTUSETHEMOVE
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

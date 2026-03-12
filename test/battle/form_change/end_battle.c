@@ -133,7 +133,7 @@ SINGLE_BATTLE_TEST("Battle Bond Greninja returns to base form upon battle end af
         TURN { MOVE(player, MOVE_WATER_GUN); SEND_OUT(opponent, 1); }
     } SCENE {
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         ABILITY_POPUP(player, ABILITY_BATTLE_BOND);
         MESSAGE("Greninja became fully charged due to its bond with its trainer!");
         MESSAGE("Greninja became Ash-Greninja!");
@@ -250,7 +250,7 @@ SINGLE_BATTLE_TEST("Morpeko Hangry reverts to Full Belly Form upon battle end af
         TURN { MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
         MESSAGE("Morpeko used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, player);
     } THEN {
         EXPECT_EQ(GetMonData(&gPlayerParty[0], MON_DATA_SPECIES), SPECIES_MORPEKO_FULL_BELLY);

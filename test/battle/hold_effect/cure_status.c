@@ -144,7 +144,7 @@ SINGLE_BATTLE_TEST("Chesto and Lum Berries don't trigger if the holder has Comat
 
     GIVEN {
         ASSUME(gItemsInfo[ITEM_CHESTO_BERRY].holdEffect == HOLD_EFFECT_CURE_SLP);
-        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_CURE_STATUS);
+        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_LUM_BERRY);
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_KOMALA) { Ability(ABILITY_COMATOSE); Item(item); }
     } WHEN {
@@ -350,7 +350,25 @@ SINGLE_BATTLE_TEST("Lum Berry properly cures a battler affected by a non-volatil
         TURN { MOVE(opponent, MOVE_SWITCHEROO); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet's Lum Berry normalized its status!");
+        switch (status)
+        {
+        case STATUS1_BURN:
+            MESSAGE("Wobbuffet's Lum Berry healed its burn! Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case STATUS1_FREEZE:
+            MESSAGE("Wobbuffet's Lum Berry defrosted it! Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case STATUS1_PARALYSIS:
+            MESSAGE("Wobbuffet's Lum Berry cured its paralysis! Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case STATUS1_POISON:
+        case STATUS1_TOXIC_POISON:
+            MESSAGE("Wobbuffet's Lum Berry cured its poison! Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        case STATUS1_SLEEP:
+            MESSAGE("Wobbuffet's Lum Berry woke it up! Wobbuffet's Lum Berry snapped it out of its confusion!");
+            break;
+        }
     } THEN {
         EXPECT_EQ(player->status1, STATUS1_NONE);
         EXPECT(player->volatiles.confusionTurns == 0);

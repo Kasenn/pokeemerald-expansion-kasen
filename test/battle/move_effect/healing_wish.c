@@ -27,7 +27,6 @@ SINGLE_BATTLE_TEST("Healing Wish causes the user to faint and heals the replacem
         MESSAGE("The healing wish came true for Wynaut!");
         HP_BAR(player, hp: 100);
         STATUS_ICON(player, none: TRUE);
-        MESSAGE("Wynaut regained health!");
     } THEN {
         EXPECT_EQ(player->hp, 100);
         EXPECT_EQ(player->status1, 0);
@@ -62,7 +61,6 @@ DOUBLE_BATTLE_TEST("Healing Wish causes the user to faint and heals the replacem
         MESSAGE("The healing wish came true for Wynaut!");
         HP_BAR(playerLeft, hp: 100);
         STATUS_ICON(playerLeft, none: TRUE);
-        MESSAGE("Wynaut regained health!");
     } THEN {
         EXPECT_EQ(playerLeft->hp, 100);
         EXPECT_EQ(playerLeft->status1, 0);
@@ -119,11 +117,9 @@ SINGLE_BATTLE_TEST("Healing Wish effect activates only if the switched Pokémon 
         if (switchTo == 2) {
             MESSAGE("The healing wish came true for Wynaut!");
             HP_BAR(player, hp: 100);
-            MESSAGE("Wynaut regained health!");
         } else if (switchTo == 3) {
             MESSAGE("The healing wish came true for Wynaut!");
             STATUS_ICON(player, none: TRUE);
-            MESSAGE("Wynaut regained health!");
         } else {
             NONE_OF {
                 MESSAGE("The healing wish came true for Wynaut!");

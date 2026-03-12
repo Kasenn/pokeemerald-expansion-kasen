@@ -60,6 +60,7 @@ DOUBLE_BATTLE_TEST("Infiltrator doesn't bypass an ally's Light Screen/Reflect/Au
         ANIMATION(ANIM_TYPE_MOVE, screenMove, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, attackingMove, playerLeft);
         HP_BAR(playerRight, captureDamage: &results[i].damage);
+        DebugPrintf("dmg value: %d", results[i].damage);
     } FINALLY {
         EXPECT_EQ(results[0].damage, results[1].damage);
         EXPECT_EQ(results[2].damage, results[3].damage);

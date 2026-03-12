@@ -182,7 +182,7 @@ SINGLE_BATTLE_TEST("Berserk Gene does not confuse when Safeguard is active")
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("The Berserk Gene raised Wobbuffet's Attack!");
-        MESSAGE("Your team is protected by Safeguard!");
+        MESSAGE("Wobbuffet is protected by Safeguard!");
         NOT MESSAGE("Wobbuffet became confused!");
     }
 }

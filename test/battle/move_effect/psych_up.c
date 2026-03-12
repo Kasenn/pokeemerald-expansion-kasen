@@ -17,7 +17,7 @@ SINGLE_BATTLE_TEST("Psych Up displays the correct battlers when used by the play
         TURN { MOVE(player, MOVE_PSYCH_UP); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, opponent);
-        MESSAGE("Tornadus copied the opposing Landorus's stat changes!");
+        MESSAGE("Tornadus copied the foe Landorus's stat changes!");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], opponent->statStages[STAT_ATK]);
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Psych Up displays the correct battlers when used by the oppo
         TURN { MOVE(opponent, MOVE_PSYCH_UP); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, player);
-        MESSAGE("The opposing Landorus copied Tornadus's stat changes!");
+        MESSAGE("The foe Landorus copied Tornadus's stat changes!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], player->statStages[STAT_ATK]);
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
@@ -65,11 +65,11 @@ SINGLE_BATTLE_TEST("Psych Up ignores Spiky Shield and Baneful Bunker but fails a
         if (shouldFail) {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCH_UP, player);
-                MESSAGE("Tornadus copied the opposing Landorus's stat changes!");
+                MESSAGE("Tornadus copied the foe Landorus's stat changes!");
             }
         } else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCH_UP, player);
-            MESSAGE("Tornadus copied the opposing Landorus's stat changes!");
+            MESSAGE("Tornadus copied the foe Landorus's stat changes!");
         }
     } THEN {
         if (shouldFail) {
@@ -94,7 +94,7 @@ SINGLE_BATTLE_TEST("Psych Up does not copy the target's critical hit ratio (Gen5
         TURN { MOVE(player, MOVE_PSYCH_UP); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCH_UP, player);
-        MESSAGE("Tornadus copied the opposing Landorus's stat changes!");
+        MESSAGE("Tornadus copied the foe Landorus's stat changes!");
     } THEN {
         EXPECT(opponent->volatiles.focusEnergy);
         EXPECT(!player->volatiles.focusEnergy);
@@ -114,7 +114,7 @@ SINGLE_BATTLE_TEST("Psych Up copies the target's critical hit ratio (Gen6+)")
         TURN { MOVE(player, MOVE_PSYCH_UP); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCH_UP, player);
-        MESSAGE("Tornadus copied the opposing Landorus's stat changes!");
+        MESSAGE("Tornadus copied the foe Landorus's stat changes!");
     } THEN {
         EXPECT(opponent->volatiles.focusEnergy);
         EXPECT(player->volatiles.focusEnergy);

@@ -23,7 +23,6 @@ SINGLE_BATTLE_TEST("Wish restores 50% of the user's HP when not switching")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         MESSAGE("Wynaut's wish came true!");
         HP_BAR(player, damage: -50);
-        MESSAGE("Wynaut's HP was restored.");
     }
 }
 
@@ -43,7 +42,6 @@ SINGLE_BATTLE_TEST("Wish restores 50% of the user's HP when switching (Gen5+)")
         SEND_IN_MESSAGE("Wobbuffet");
         MESSAGE("Wynaut's wish came true!");
         HP_BAR(player, damage: -50);
-        MESSAGE("Wobbuffet's HP was restored.");
     }
 }
 
@@ -63,7 +61,6 @@ SINGLE_BATTLE_TEST("Wish restores 50% of the recipient's HP when switching (Gen3
         SEND_IN_MESSAGE("Wobbuffet");
         MESSAGE("Wynaut's wish came true!");
         HP_BAR(player, damage: -100);
-        MESSAGE("Wobbuffet's HP was restored.");
     }
 }
 

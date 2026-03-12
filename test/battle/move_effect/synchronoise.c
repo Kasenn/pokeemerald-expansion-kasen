@@ -106,9 +106,9 @@ DOUBLE_BATTLE_TEST("Synchronoise will fail for a typeless user even if a target 
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SYNCHRONOISE, playerLeft);
         MESSAGE("Arcanine used Synchronoise!");
-        MESSAGE("It doesn't affect the opposing Arcanine…");
+        MESSAGE("It doesn't affect the foe Arcanine…");
         MESSAGE("It doesn't affect Wobbuffet…");
-        MESSAGE("It doesn't affect the opposing Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Wobbuffet…");
         NOT MESSAGE("But it failed!");
     }
 }

@@ -77,7 +77,7 @@ DOUBLE_BATTLE_TEST("Flower Veil's stat reduction protection considers Contrary")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWAGGER, playerLeft);
         ABILITY_POPUP(opponentLeft, ABILITY_FLOWER_VEIL);
-        MESSAGE("The opposing Snivy surrounded itself with a veil of petals!");
+        MESSAGE("The foe Snivy surrounded itself with a veil of petals!");
     } THEN {
         EXPECT_EQ(opponentRight->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
     }

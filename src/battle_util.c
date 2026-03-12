@@ -8528,7 +8528,7 @@ static inline uq4_12_t GetScreensModifier(struct DamageContext *ctx)
     {
         return UQ_4_12(1.0);
     }
-    if (ctx->isCrit || ctx->abilityAtk == ABILITY_INFILTRATOR || gProtectStructs[ctx->battlerAtk].confusionSelfDmg)
+    if (ctx->isCrit || ctx->isSelfInflicted)
     {
         return UQ_4_12(1.0);
     }

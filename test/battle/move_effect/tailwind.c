@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Tailwind applies for 3 turns (Gen4) or 4 turns (Gen5+)")
 
         if (config >= GEN_5) {
             MESSAGE("Wobbuffet used Celebrate!");
-            MESSAGE("The opposing Wobbuffet used Celebrate!");
+            MESSAGE("The foe Wobbuffet used Celebrate!");
         }
 
         MESSAGE("The foe Wobbuffet used Celebrate!");

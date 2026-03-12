@@ -149,7 +149,7 @@ SINGLE_BATTLE_TEST("Pixilate doesn't override Electrify")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIFY, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player); }
-        MESSAGE("It doesn't affect the opposing Sandshrew…");
+        MESSAGE("It doesn't affect the foe Sandshrew…");
     }
 }
 
@@ -197,7 +197,7 @@ SINGLE_BATTLE_TEST("Pixilate doesn't change Tera Blast's type when Terastallized
         TURN { MOVE(player, MOVE_TERA_BLAST, gimmick: GIMMICK_TERA); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_BLAST, player); }
-        MESSAGE("It doesn't affect the opposing Misdreavus…");
+        MESSAGE("It doesn't affect the foe Misdreavus…");
     }
 }
 
@@ -215,7 +215,7 @@ SINGLE_BATTLE_TEST("Pixilate doesn't affect Terrain Pulse's type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_TERRAIN_PULSE, player); }
-        MESSAGE("It doesn't affect the opposing Sandshrew…");
+        MESSAGE("It doesn't affect the foe Sandshrew…");
     }
 }
 

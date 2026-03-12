@@ -134,7 +134,7 @@ SINGLE_BATTLE_TEST("Beak Blast doesn't burn when charging a two turn move")
         NONE_OF {
             HP_BAR(player);
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_BRN, opponent);
-            MESSAGE("The opposing Wobbuffet was burned!");
+            MESSAGE("The foe Wobbuffet was burned!");
             STATUS_ICON(opponent, burn: TRUE);
         }
     }

@@ -732,13 +732,13 @@ DOUBLE_BATTLE_TEST("Crafty Shield does not protect against entry hazard moves")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CRAFTY_SHIELD, opponentLeft);
         if (move == MOVE_SPIKES) {
-            MESSAGE("Spikes were scattered on the ground all around the opposing team!");
+            MESSAGE("Spikes were scattered all around the feet of the foe's team!");
         } else if (move == MOVE_TOXIC_SPIKES) {
-            MESSAGE("Poison spikes were scattered on the ground all around the opposing team!");
+            MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         } else if (move == MOVE_STEALTH_ROCK) {
-            MESSAGE("Pointed stones float in the air around the opposing team!");
+            MESSAGE("Pointed stones float in the air around your foe's team!");
         } else {
-            MESSAGE("A sticky web has been laid out on the ground around the opposing team!");
+            MESSAGE("A sticky web spreads out all around the feet of the foe's team!");
         }
     }
 }
@@ -816,18 +816,18 @@ DOUBLE_BATTLE_TEST("Crafty Shield does not protect against moves that target all
             MESSAGE("Tangela's Defense rose!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLOWER_SHIELD, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Sunkern's Defense rose!");
+            MESSAGE("The foe Sunkern's Defense rose!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLOWER_SHIELD, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
             MESSAGE("Tangrowth's Defense rose!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_FLOWER_SHIELD, playerLeft);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-            MESSAGE("The opposing Sunflora's Defense rose!");
+            MESSAGE("The foe Sunflora's Defense rose!");
         } else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_PERISH_SONG, playerLeft);
             NONE_OF {
-                MESSAGE("The opposing Sunkern protected itself!");
-                MESSAGE("The opposing Sunflora protected itself!");
+                MESSAGE("The foe Sunkern protected itself!");
+                MESSAGE("The foe Sunflora protected itself!");
             }
         }
     }

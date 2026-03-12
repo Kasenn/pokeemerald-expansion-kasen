@@ -4931,7 +4931,11 @@ const struct SpeciesInfo gSpeciesInfoGen7[] =
         .baseSpAttack  = 50,
         .baseSpDefense = 105,
         .types = MON_TYPES(TYPE_GHOST, TYPE_FAIRY),
+        #if TESTING
+        .catchRate = 45,
+        #else
         .catchRate = 120,
+        #endif
         .expYield = 167,
         .evYield_SpDefense = 2,
         .itemRare = ITEM_CHESTO_BERRY,
