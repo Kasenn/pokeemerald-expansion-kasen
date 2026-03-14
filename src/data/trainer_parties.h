@@ -1,5 +1,5 @@
 
-TRAINER_MONS(Brother1_Squirtle) = {
+static const struct TrainerMon sParty_Brother1_Squirtle[] = {
     {
     POKEMON_M(SPECIES_SQUIRTLE, 5),
     .nature = NATURE_ADAMANT,
@@ -8,7 +8,7 @@ TRAINER_MONS(Brother1_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother1_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother1_Bulbasaur[] = {
     {
     POKEMON_M(SPECIES_BULBASAUR, 5),
     .nature = NATURE_ADAMANT,
@@ -17,7 +17,7 @@ TRAINER_MONS(Brother1_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother1_Charmander) = {
+static const struct TrainerMon sParty_Brother1_Charmander[] = {
     {
     POKEMON_M(SPECIES_CHARMANDER, 5),
     .nature = NATURE_ADAMANT,
@@ -26,7 +26,7 @@ TRAINER_MONS(Brother1_Charmander) = {
     }
 };
 
-TRAINER_MONS(Brother2_Squirtle) = {
+static const struct TrainerMon sParty_Brother2_Squirtle[] = {
     {
     POKEMON(SPECIES_GROWLITHE, 14), IVS_ALL(7),
     .nature = NATURE_JOLLY,
@@ -45,7 +45,7 @@ TRAINER_MONS(Brother2_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother2_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother2_Bulbasaur[] = {
     {
     POKEMON(SPECIES_MUDBRAY, 14), IVS_ALL(7),
     .nature = NATURE_NAIVE,
@@ -64,7 +64,7 @@ TRAINER_MONS(Brother2_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother2_Charmander) = {
+static const struct TrainerMon sParty_Brother2_Charmander[] = {
     {
     POKEMON(SPECIES_ROSELIA, 14), IVS_ALL(7),
     .nature = NATURE_JOLLY,
@@ -83,7 +83,7 @@ TRAINER_MONS(Brother2_Charmander) = {
     }
 };
 
-TRAINER_MONS(Brother3_Squirtle) = {
+static const struct TrainerMon sParty_Brother3_Squirtle[] = {
     {
     POKEMON(SPECIES_GROWLITHE, 17), IVS_ALL(7),
     .nature = NATURE_JOLLY,
@@ -102,7 +102,7 @@ TRAINER_MONS(Brother3_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother3_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother3_Bulbasaur[] = {
     {
         POKEMON(SPECIES_MUDBRAY, 17), IVS_ALL(7),
     .nature = NATURE_NAIVE,
@@ -121,7 +121,7 @@ TRAINER_MONS(Brother3_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother3_Charmander) = {
+static const struct TrainerMon sParty_Brother3_Charmander[] = {
     {
         POKEMON(SPECIES_MUDBRAY, 17), IVS_ALL(7),
     .nature = NATURE_NAIVE,
@@ -140,7 +140,7 @@ TRAINER_MONS(Brother3_Charmander) = {
     }
 };
 
-TRAINER_MONS(Brother4_Squirtle) = {
+static const struct TrainerMon sParty_Brother4_Squirtle[] = {
     {
     POKEMON(SPECIES_GROWLITHE, 19), IVS_ALL(7),
     .nature = NATURE_JOLLY,
@@ -159,7 +159,7 @@ TRAINER_MONS(Brother4_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother4_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother4_Bulbasaur[] = {
     {
     POKEMON(SPECIES_MUDBRAY, 19), IVS_ALL(7),
     .nature = NATURE_NAIVE,
@@ -178,7 +178,7 @@ TRAINER_MONS(Brother4_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother4_Charmander) = {
+static const struct TrainerMon sParty_Brother4_Charmander[] = {
     {
     POKEMON(SPECIES_MUDBRAY, 19), IVS_ALL(7),
     .nature = NATURE_NAIVE,
@@ -197,7 +197,7 @@ TRAINER_MONS(Brother4_Charmander) = {
     }
 };
 
-TRAINER_MONS(Brother5_Squirtle) = {
+static const struct TrainerMon sParty_Brother5_Squirtle[] = {
     {
     POKEMON(SPECIES_ARCANINE, 38), IVS_ALL(13),
     .nature = NATURE_JOLLY,
@@ -221,7 +221,7 @@ TRAINER_MONS(Brother5_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother5_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother5_Bulbasaur[] = {
     {
     POKEMON(SPECIES_MUDSDALE, 38), IVS_ALL(13),
     .nature = NATURE_NAIVE,
@@ -245,7 +245,7 @@ TRAINER_MONS(Brother5_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother5_Charmander) = {
+static const struct TrainerMon sParty_Brother5_Charmander[] = {
     {
     POKEMON(SPECIES_ROSERADE, 38), IVS_ALL(13),
     .nature = NATURE_JOLLY,
@@ -269,7 +269,7 @@ TRAINER_MONS(Brother5_Charmander) = {
     }
 };
 
-TRAINER_MONS(Brother6_Squirtle) = {
+static const struct TrainerMon sParty_Brother6_Squirtle[] = {
     {
     POKEMON(SPECIES_URSARING, 51), IVS_ALL(16),
     .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
@@ -296,7 +296,7 @@ TRAINER_MONS(Brother6_Squirtle) = {
     }
 };
 
-TRAINER_MONS(Brother6_Bulbasaur) = {
+static const struct TrainerMon sParty_Brother6_Bulbasaur[] = {
     {
     POKEMON(SPECIES_URSARING, 51), IVS_ALL(16),
     .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
@@ -323,7 +323,7 @@ TRAINER_MONS(Brother6_Bulbasaur) = {
     }
 };
 
-TRAINER_MONS(Brother6_Charmander) = {
+static const struct TrainerMon sParty_Brother6_Charmander[] = {
     {
     POKEMON(SPECIES_URSARING, 51), IVS_ALL(16),
     .moves = {MOVE_REST, MOVE_SNORE, MOVE_SLASH, MOVE_SHADOW_CLAW},
@@ -350,12 +350,12 @@ TRAINER_MONS(Brother6_Charmander) = {
     }
 };
 
-TRAINER_MONS(GruntRusturfTunnel) = {
+static const struct TrainerMon sParty_GruntRusturfTunnel[] = {
     {POKEMON(SPECIES_RATTATA, 3)},
     {POKEMON(SPECIES_TORCHIC, 4)}
 };
 
-TRAINER_MONS(GruntWeatherInst1) = {
+static const struct TrainerMon sParty_GruntWeatherInst1[] = {
     {POKEMON(SPECIES_GOLDEEN, 3)},
     {
     POKEMON(SPECIES_QWILFISH, 4),
@@ -364,58 +364,58 @@ TRAINER_MONS(GruntWeatherInst1) = {
     }
 };
 
-TRAINER_MONS(GruntWeatherInst2) = {
+static const struct TrainerMon sParty_GruntWeatherInst2[] = {
     {POKEMON(SPECIES_WEEDLE, 3)},
     {POKEMON(SPECIES_ROWLET, 4)}
 };
 
-TRAINER_MONS(GruntWeatherInst3) = {
+static const struct TrainerMon sParty_GruntWeatherInst3[] = {
     {
     POKEMON(SPECIES_PIPLUP, 5), IVS_SPEED(31, 0), EVS_SPEED(252, 0),
     .nature = NATURE_NAIVE,
     }
 };
 
-TRAINER_MONS(GruntMuseum1) = {
+static const struct TrainerMon sParty_GruntMuseum1[] = {
     {POKEMON(SPECIES_RIOLU, 5)},
     {POKEMON(SPECIES_POLIWAG, 6)},
     {POKEMON(SPECIES_PIKACHU, 6)}
 };
 
-TRAINER_MONS(GruntMuseum2) = {
+static const struct TrainerMon sParty_GruntMuseum2[] = {
     {POKEMON(SPECIES_POLIWAG, 4)},
     {POKEMON(SPECIES_HORSEA, 5)}
 };
 
-TRAINER_MONS(GruntSpaceCenter1) = {
+static const struct TrainerMon sParty_GruntSpaceCenter1[] = {
     {POKEMON(SPECIES_CUTIEFLY, 6)}
 };
 
-TRAINER_MONS(GruntMtPyre1) = {
+static const struct TrainerMon sParty_GruntMtPyre1[] = {
     {POKEMON(SPECIES_RIOLU, 5)},
     {POKEMON(SPECIES_SCRAGGY, 7)}
 };
 
-TRAINER_MONS(GruntMtPyre2) = {
+static const struct TrainerMon sParty_GruntMtPyre2[] = {
     {POKEMON(SPECIES_RATTATA, 7)}
 };
 
-TRAINER_MONS(GruntMtPyre3) = {
+static const struct TrainerMon sParty_GruntMtPyre3[] = {
     {POKEMON(SPECIES_RALTS, 6)},
     {POKEMON(SPECIES_PIKACHU, 6)}
 };
 
-TRAINER_MONS(GruntWeatherInst4) = {
+static const struct TrainerMon sParty_GruntWeatherInst4[] = {
     {POKEMON(SPECIES_SCATTERBUG, 6)},
     {POKEMON(SPECIES_SCATTERBUG, 7)}
 };
 
-TRAINER_MONS(GruntAquaHideout5) = {
+static const struct TrainerMon sParty_GruntAquaHideout5[] = {
     {POKEMON(SPECIES_RATTATA, 6)},
     {POKEMON(SPECIES_VULPIX, 7)}
 };
 
-TRAINER_MONS(GruntAquaHideout6) = {
+static const struct TrainerMon sParty_GruntAquaHideout6[] = {
     {POKEMON(SPECIES_WEEDLE, 6)},
     {
     POKEMON(SPECIES_KAKUNA, 7),
@@ -423,7 +423,7 @@ TRAINER_MONS(GruntAquaHideout6) = {
     }
 };
 
-TRAINER_MONS(TRAINER_WW_CAMPER) = {
+static const struct TrainerMon sParty_TRAINER_WW_CAMPER[] = {
     {POKEMON(SPECIES_PIKACHU, 6)},
     {
     POKEMON(SPECIES_BUIZEL, 7),
@@ -431,17 +431,17 @@ TRAINER_MONS(TRAINER_WW_CAMPER) = {
     }
 };
 
-TRAINER_MONS(Matt) = {
+static const struct TrainerMon sParty_Matt[] = {
     {POKEMON(SPECIES_BUNEARY, 7)},
     {POKEMON(SPECIES_RIOLU, 7)}
 };
 
-TRAINER_MONS(Zander) = {
+static const struct TrainerMon sParty_Zander[] = {
     {POKEMON(SPECIES_RATTATA, 7)},
     {POKEMON(SPECIES_STUNKY, 7)}
 };
 
-TRAINER_MONS(ShellyWeatherInstitute) = {
+static const struct TrainerMon sParty_ShellyWeatherInstitute[] = {
     {POKEMON(SPECIES_MURKROW, 8)},
     {
     POKEMON(SPECIES_SPEWPA, 9),
@@ -451,12 +451,12 @@ TRAINER_MONS(ShellyWeatherInstitute) = {
     {POKEMON(SPECIES_PINSIR, 9)}
 };
 
-TRAINER_MONS(ShellySeafloorCavern) = {
+static const struct TrainerMon sParty_ShellySeafloorCavern[] = {
     {POKEMON(SPECIES_ZUBAT, 7)},
     {POKEMON(SPECIES_CROAGUNK, 8)}
 };
 
-TRAINER_MONS(Archie) = {
+static const struct TrainerMon sParty_Archie[] = {
     {
     POKEMON(SPECIES_NINJASK, 7),
     .ability = ABILITY_SPEED_BOOST,
@@ -468,14 +468,14 @@ TRAINER_MONS(Archie) = {
     },
 };
 
-TRAINER_MONS(Leah) = {
+static const struct TrainerMon sParty_Leah[] = {
     {
     POKEMON(SPECIES_GLIGAR, 9),
     .moves = {MOVE_SUBSTITUTE, MOVE_PROTECT, MOVE_SAND_ATTACK, MOVE_TOXIC},
     }
 };
 
-TRAINER_MONS(Daisy) = {
+static const struct TrainerMon sParty_Daisy[] = {
     {
     POKEMON(SPECIES_KOMALA, 7),
     .ability = ABILITY_COMATOSE,
@@ -485,7 +485,7 @@ TRAINER_MONS(Daisy) = {
     }
 };
 
-TRAINER_MONS(Rose1) = {
+static const struct TrainerMon sParty_Rose1[] = {
     {
     POKEMON(SPECIES_BRELOOM, 9),
     .ability = ABILITY_POISON_HEAL,
@@ -494,7 +494,7 @@ TRAINER_MONS(Rose1) = {
     },
 };
 
-TRAINER_MONS(Felix) = {
+static const struct TrainerMon sParty_Felix[] = {
     {POKEMON(SPECIES_HPBOT, 1)},
     {POKEMON(SPECIES_HPBOT, 1)},
     {POKEMON(SPECIES_HPBOT, 1)},
@@ -502,7 +502,7 @@ TRAINER_MONS(Felix) = {
     {POKEMON(SPECIES_HPBOT, 1)}
 };
 
-TRAINER_MONS(Violet) = {
+static const struct TrainerMon sParty_Violet[] = {
     {POKEMON(SPECIES_ATKBOT, 1)},
     {POKEMON(SPECIES_ATKBOT, 1)},
     {POKEMON(SPECIES_ATKBOT, 1)},
@@ -510,7 +510,7 @@ TRAINER_MONS(Violet) = {
     {POKEMON(SPECIES_ATKBOT, 1)}
 };
 
-TRAINER_MONS(Rose2) = {
+static const struct TrainerMon sParty_Rose2[] = {
     {POKEMON(SPECIES_DEFBOT, 1)},
     {POKEMON(SPECIES_DEFBOT, 1)},
     {POKEMON(SPECIES_DEFBOT, 1)},
@@ -518,7 +518,7 @@ TRAINER_MONS(Rose2) = {
     {POKEMON(SPECIES_DEFBOT, 1)}
 };
 
-TRAINER_MONS(Rose3) = {
+static const struct TrainerMon sParty_Rose3[] = {
     {POKEMON(SPECIES_SPATKBOT, 1)},
     {POKEMON(SPECIES_SPATKBOT, 1)},
     {POKEMON(SPECIES_SPATKBOT, 1)},
@@ -526,7 +526,7 @@ TRAINER_MONS(Rose3) = {
     {POKEMON(SPECIES_SPATKBOT, 1)}
 };
 
-TRAINER_MONS(Rose4) = {
+static const struct TrainerMon sParty_Rose4[] = {
     {POKEMON(SPECIES_SPDEFBOT, 1)},
     {POKEMON(SPECIES_SPDEFBOT, 1)},
     {POKEMON(SPECIES_SPDEFBOT, 1)},
@@ -534,7 +534,7 @@ TRAINER_MONS(Rose4) = {
     {POKEMON(SPECIES_SPDEFBOT, 1)}
 };
 
-TRAINER_MONS(Rose5) = {
+static const struct TrainerMon sParty_Rose5[] = {
     {POKEMON(SPECIES_SPEEDBOT, 1)},
     {POKEMON(SPECIES_SPEEDBOT, 1)},
     {POKEMON(SPECIES_SPEEDBOT, 1)},
@@ -542,7 +542,7 @@ TRAINER_MONS(Rose5) = {
     {POKEMON(SPECIES_SPEEDBOT, 1)}
 };
 
-TRAINER_MONS(Dusty1) = {
+static const struct TrainerMon sParty_Dusty1[] = {
     {POKEMON(SPECIES_EXPBOT, 6)},
     {POKEMON(SPECIES_EXPBOT, 6)},
     {POKEMON(SPECIES_EXPBOT, 6)},
@@ -550,7 +550,7 @@ TRAINER_MONS(Dusty1) = {
     {POKEMON(SPECIES_EXPBOT, 6)}
 };
 
-TRAINER_MONS(GabbyAndTy2) = {
+static const struct TrainerMon sParty_GabbyAndTy2[] = {
     {POKEMON(SPECIES_EXPBOT, 8)},
     {POKEMON(SPECIES_EXPBOT, 8)},
     {POKEMON(SPECIES_EXPBOT, 8)},
@@ -559,7 +559,7 @@ TRAINER_MONS(GabbyAndTy2) = {
     {POKEMON(SPECIES_EXPBOT, 8)}
 };
 
-TRAINER_MONS(Randall) = {
+static const struct TrainerMon sParty_Randall[] = {
     {POKEMON(SPECIES_EXPBOT, 16)},
     {POKEMON(SPECIES_EXPBOT, 16)},
     {POKEMON(SPECIES_EXPBOT, 16)},
@@ -568,7 +568,7 @@ TRAINER_MONS(Randall) = {
     {POKEMON(SPECIES_EXPBOT, 16)}
 };
 
-TRAINER_MONS(Shoreslate_Nurse) = {
+static const struct TrainerMon sParty_Shoreslate_Nurse[] = {
     {POKEMON(SPECIES_EXPBOT, 25)},
     {POKEMON(SPECIES_EXPBOT, 25)},
     {POKEMON(SPECIES_EXPBOT, 25)},
@@ -577,7 +577,7 @@ TRAINER_MONS(Shoreslate_Nurse) = {
     {POKEMON(SPECIES_EXPBOT, 25)}
 };
 
-TRAINER_MONS(MarigorgeNurse) = {
+static const struct TrainerMon sParty_MarigorgeNurse[] = {
     {POKEMON(SPECIES_EXPBOT, 30)},
     {POKEMON(SPECIES_EXPBOT, 30)},
     {POKEMON(SPECIES_EXPBOT, 30)},
@@ -586,7 +586,7 @@ TRAINER_MONS(MarigorgeNurse) = {
     {POKEMON(SPECIES_EXPBOT, 30)}
 };
 
-TRAINER_MONS(RockliffeNurse) = {
+static const struct TrainerMon sParty_RockliffeNurse[] = {
     {POKEMON(SPECIES_EXPBOT, 30)},
     {POKEMON(SPECIES_EXPBOT, 30)},
     {POKEMON(SPECIES_EXPBOT, 30)},
@@ -595,7 +595,7 @@ TRAINER_MONS(RockliffeNurse) = {
     {POKEMON(SPECIES_EXPBOT, 30)}
 };
 
-TRAINER_MONS(Sandstone_Nurse) = {
+static const struct TrainerMon sParty_Sandstone_Nurse[] = {
     {POKEMON(SPECIES_EXPBOT, 33)},
     {POKEMON(SPECIES_EXPBOT, 33)},
     {POKEMON(SPECIES_EXPBOT, 33)},
@@ -604,7 +604,7 @@ TRAINER_MONS(Sandstone_Nurse) = {
     {POKEMON(SPECIES_EXPBOT, 33)}
 };
 
-TRAINER_MONS(DRISLEDGE_NURSE) = {
+static const struct TrainerMon sParty_DRISLEDGE_NURSE[] = {
     {POKEMON(SPECIES_EXPBOT, 40)},
     {POKEMON(SPECIES_EXPBOT, 40)},
     {POKEMON(SPECIES_EXPBOT, 40)},
@@ -613,7 +613,7 @@ TRAINER_MONS(DRISLEDGE_NURSE) = {
     {POKEMON(SPECIES_EXPBOT, 40)}
 };
 
-TRAINER_MONS(FROSTHEARTH_NURSE) = {
+static const struct TrainerMon sParty_FROSTHEARTH_NURSE[] = {
     {POKEMON(SPECIES_EXPBOT, 45)},
     {POKEMON(SPECIES_EXPBOT, 45)},
     {POKEMON(SPECIES_EXPBOT, 45)},
@@ -622,7 +622,7 @@ TRAINER_MONS(FROSTHEARTH_NURSE) = {
     {POKEMON(SPECIES_EXPBOT, 45)}
 };
 
-TRAINER_MONS(Chip) = {
+static const struct TrainerMon sParty_Chip[] = {
     {POKEMON(SPECIES_SCATTERBUG, 8)},
     {
     POKEMON(SPECIES_SPEWPA, 9),
@@ -630,33 +630,33 @@ TRAINER_MONS(Chip) = {
     },
 };
 
-TRAINER_MONS(Foster) = {
+static const struct TrainerMon sParty_Foster[] = {
     {POKEMON(SPECIES_KRICKETOT, 9)},
     {POKEMON(SPECIES_NINCADA, 9)}
 };
 
-TRAINER_MONS(Dusty2) = {
+static const struct TrainerMon sParty_Dusty2[] = {
     {POKEMON(SPECIES_CUTIEFLY, 9)},
     {POKEMON_F(SPECIES_COMBEE, 10)}
 };
 
-TRAINER_MONS(Dusty3) = {
+static const struct TrainerMon sParty_Dusty3[] = {
     {
     POKEMON(SPECIES_BEEDRILL, 10),
     .moves = {MOVE_POISON_STING, MOVE_FURY_ATTACK}
     }
 };
 
-TRAINER_MONS(Dusty4) = {
+static const struct TrainerMon sParty_Dusty4[] = {
     {POKEMON(SPECIES_GRUBBIN, 10)},
     {POKEMON(SPECIES_VENIPEDE, 10)}
 };
 
-TRAINER_MONS(Dusty5) = {
+static const struct TrainerMon sParty_Dusty5[] = {
     {POKEMON(SPECIES_VENONAT, 11)}
 };
 
-TRAINER_MONS(GabbyAndTy1) = {
+static const struct TrainerMon sParty_GabbyAndTy1[] = {
     {
     POKEMON(SPECIES_CUTIEFLY, 11),
     .moves = {MOVE_U_TURN, MOVE_FAIRY_WIND}
@@ -671,33 +671,33 @@ TRAINER_MONS(GabbyAndTy1) = {
     }
 };
 
-TRAINER_MONS(GabbyAndTy3) = {
+static const struct TrainerMon sParty_GabbyAndTy3[] = {
     {POKEMON(SPECIES_TIMBURR, 10)},
     {POKEMON(SPECIES_ONIX, 10)}
 };
 
-TRAINER_MONS(GabbyAndTy4) = {
+static const struct TrainerMon sParty_GabbyAndTy4[] = {
     {POKEMON(SPECIES_JIGGLYPUFF, 11)},
     {POKEMON(SPECIES_TOGEPI, 12)}
 };
 
-TRAINER_MONS(GabbyAndTy5) = {
+static const struct TrainerMon sParty_GabbyAndTy5[] = {
     {POKEMON(SPECIES_GRIMER, 11)},
     {POKEMON(SPECIES_TRUBBISH, 13)}
 };
 
-TRAINER_MONS(GabbyAndTy6) = {
+static const struct TrainerMon sParty_GabbyAndTy6[] = {
     {POKEMON(SPECIES_PARAS, 10)},
     {POKEMON(SPECIES_SPINARAK, 10)},
     {POKEMON(SPECIES_NINCADA, 11)}
 };
 
-TRAINER_MONS(Lola1) = {
+static const struct TrainerMon sParty_Lola1[] = {
     {POKEMON(SPECIES_MARILL, 12)},
     {POKEMON(SPECIES_PIKACHU, 12)}
 };
 
-TRAINER_MONS(TRAINER_R16_TR1_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR1_SWIMMER_M[] = {
     {
         POKEMON(SPECIES_REMORAID, 39), IVS_ALL(9)
     },
@@ -707,55 +707,55 @@ TRAINER_MONS(TRAINER_R16_TR1_SWIMMER_M) = {
     },
 };
 
-TRAINER_MONS(Gwen) = {
+static const struct TrainerMon sParty_Gwen[] = {
     {POKEMON(SPECIES_DODUO, 12)},
     {POKEMON(SPECIES_ELECTRIKE, 13)}
 };
 
-TRAINER_MONS(Lola2) = {
+static const struct TrainerMon sParty_Lola2[] = {
     {POKEMON(SPECIES_HOUNDOUR, 12)},
     {POKEMON(SPECIES_SANDILE, 13)},
 };
 
-TRAINER_MONS(Lola3) = {
+static const struct TrainerMon sParty_Lola3[] = {
     {POKEMON(SPECIES_SCRAGGY, 11)},
     {POKEMON(SPECIES_MIENFOO, 12)}
 };
 
-TRAINER_MONS(Lola4) = {
+static const struct TrainerMon sParty_Lola4[] = {
     {POKEMON(SPECIES_GROWLITHE, 11)},
     {POKEMON(SPECIES_ROSELIA, 12)}
 };
 
-TRAINER_MONS(Lola5) = {
+static const struct TrainerMon sParty_Lola5[] = {
     {POKEMON(SPECIES_STARLY, 12)},
     {POKEMON(SPECIES_STARAVIA, 14)},
 };
 
 
-TRAINER_MONS(Ricky1) = {
+static const struct TrainerMon sParty_Ricky1[] = {
     {POKEMON(SPECIES_RATTATA, 12)},
     {POKEMON(SPECIES_RATTATA, 13)}
 };
 
-TRAINER_MONS(Simon) = {
+static const struct TrainerMon sParty_Simon[] = {
     {POKEMON(SPECIES_FARFETCHD, 12)},
     {POKEMON(SPECIES_STARLY, 13)}
 };
 
-TRAINER_MONS(Charlie) = {
+static const struct TrainerMon sParty_Charlie[] = {
     {POKEMON(SPECIES_PETILIL, 12)},
     {POKEMON(SPECIES_BUNEARY, 12)}
 };
 
 
-TRAINER_MONS(Ricky2) = {
+static const struct TrainerMon sParty_Ricky2[] = {
     {POKEMON(SPECIES_COTTONEE, 12)},
     {POKEMON(SPECIES_RATTATA, 12)}
 };
 
 
-TRAINER_MONS(Ricky3) = {
+static const struct TrainerMon sParty_Ricky3[] = {
     {
     POKEMON(SPECIES_TOGEDEMARU, 12),
     .moves = {MOVE_TACKLE, MOVE_THUNDER_SHOCK, MOVE_DEFENSE_CURL}
@@ -764,17 +764,17 @@ TRAINER_MONS(Ricky3) = {
 };
 
 
-TRAINER_MONS(Ricky4) = {
+static const struct TrainerMon sParty_Ricky4[] = {
     {POKEMON(SPECIES_RATTATA, 13), IVS_ALL(4)},
     {POKEMON(SPECIES_GRIMER, 13), IVS_ALL(4)}
 };
 
-TRAINER_MONS(Ricky5) = {
+static const struct TrainerMon sParty_Ricky5[] = {
     {POKEMON(SPECIES_KOFFING, 13), IVS_ALL(4)},
     {POKEMON(SPECIES_STUNKY, 13), IVS_ALL(4)}
 };
 
-TRAINER_MONS(Parker) = {
+static const struct TrainerMon sParty_Parker[] = {
     {
     IVS_ALL(3),
     .lvl = 13,
@@ -787,7 +787,7 @@ TRAINER_MONS(Parker) = {
     }
 };
 
-TRAINER_MONS(George) = {
+static const struct TrainerMon sParty_George[] = {
     {
     IVS_ALL(3),
     .lvl = 13,
@@ -800,7 +800,7 @@ TRAINER_MONS(George) = {
     }
 };
 
-TRAINER_MONS(Berke) = {
+static const struct TrainerMon sParty_Berke[] = {
     {
     IVS_ALL(3),
     .lvl = 15,
@@ -808,7 +808,7 @@ TRAINER_MONS(Berke) = {
     }
 };
 
-TRAINER_MONS(Braxton) = {
+static const struct TrainerMon sParty_Braxton[] = {
     {
     IVS_ALL(3),
     .lvl = 15,
@@ -816,7 +816,7 @@ TRAINER_MONS(Braxton) = {
     }
 };
 
-TRAINER_MONS(Vincent) = {
+static const struct TrainerMon sParty_Vincent[] = {
     {
     IVS_ALL(3),
     .lvl = 13,
@@ -829,7 +829,7 @@ TRAINER_MONS(Vincent) = {
     }
 };
 
-TRAINER_MONS(Leroy) = {
+static const struct TrainerMon sParty_Leroy[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -843,7 +843,7 @@ TRAINER_MONS(Leroy) = {
     }
 };
 
-TRAINER_MONS(Wilton1) = {
+static const struct TrainerMon sParty_Wilton1[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -856,7 +856,7 @@ TRAINER_MONS(Wilton1) = {
     }
 };
 
-TRAINER_MONS(Edgar) = {
+static const struct TrainerMon sParty_Edgar[] = {
     {
     IVS_ALL(3),
     .lvl = 15,
@@ -864,7 +864,7 @@ TRAINER_MONS(Edgar) = {
     }
 };
 
-TRAINER_MONS(Albert) = {
+static const struct TrainerMon sParty_Albert[] = {
     {
     IVS_ALL(3),
     .lvl = 13,
@@ -878,7 +878,7 @@ TRAINER_MONS(Albert) = {
     }
 };
 
-TRAINER_MONS(Samuel) = {
+static const struct TrainerMon sParty_Samuel[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -902,7 +902,7 @@ TRAINER_MONS(Samuel) = {
     }
 };
 
-TRAINER_MONS(Vito) = {
+static const struct TrainerMon sParty_Vito[] = {
     {
     .lvl = 12,
     .species = SPECIES_BRONZOR,
@@ -914,7 +914,7 @@ TRAINER_MONS(Vito) = {
     }
 };
 
-TRAINER_MONS(Owen) = {
+static const struct TrainerMon sParty_Owen[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -927,7 +927,7 @@ TRAINER_MONS(Owen) = {
     }
 };
 
-TRAINER_MONS(Wilton2) = {
+static const struct TrainerMon sParty_Wilton2[] = {
     {
     IVS_ALL(3),
     .lvl = 16,
@@ -936,7 +936,7 @@ TRAINER_MONS(Wilton2) = {
     }
 };
 
-TRAINER_MONS(Wilton3) = {
+static const struct TrainerMon sParty_Wilton3[] = {
     {
     IVS_ALL(4),
     .lvl = 100,
@@ -949,7 +949,7 @@ TRAINER_MONS(Wilton3) = {
     }
 };
 
-TRAINER_MONS(Wilton4) = {
+static const struct TrainerMon sParty_Wilton4[] = {
     {
     IVS_ALL(4),
     .lvl = 100,
@@ -962,7 +962,7 @@ TRAINER_MONS(Wilton4) = {
     }
 };
 
-TRAINER_MONS(Wilton5) = {
+static const struct TrainerMon sParty_Wilton5[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -975,7 +975,7 @@ TRAINER_MONS(Wilton5) = {
     }
 };
 
-TRAINER_MONS(Warren) = {
+static const struct TrainerMon sParty_Warren[] = {
     {
     IVS_ALL(3),
     .lvl = 14,
@@ -988,7 +988,7 @@ TRAINER_MONS(Warren) = {
     }
 };
 
-TRAINER_MONS(Mary) = {
+static const struct TrainerMon sParty_Mary[] = {
     {
     .lvl = 19,
     .species = SPECIES_FLAAFFY,
@@ -1006,7 +1006,7 @@ TRAINER_MONS(Mary) = {
     },
 };
 
-TRAINER_MONS(WpvTr1Birdkeeper) = {
+static const struct TrainerMon sParty_WpvTr1Birdkeeper[] = {
     {
     IVS_ALL(5),
     .lvl = 15,
@@ -1019,7 +1019,7 @@ TRAINER_MONS(WpvTr1Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(WpvTr2Triath) = {
+static const struct TrainerMon sParty_WpvTr2Triath[] = {
     {
     IVS_ALL(5),
     .lvl = 15,
@@ -1032,7 +1032,7 @@ TRAINER_MONS(WpvTr2Triath) = {
     }
 };
 
-TRAINER_MONS(WpvTr3Battlegirl) = {
+static const struct TrainerMon sParty_WpvTr3Battlegirl[] = {
     {
     IVS_ALL(5),
     .lvl = 15,
@@ -1047,7 +1047,7 @@ TRAINER_MONS(WpvTr3Battlegirl) = {
     }
 };
 
-TRAINER_MONS(WpvTr4Camper) = {
+static const struct TrainerMon sParty_WpvTr4Camper[] = {
     {
     IVS_ALL(5),
     .lvl = 14,
@@ -1061,7 +1061,7 @@ TRAINER_MONS(WpvTr4Camper) = {
     }
 };
 
-TRAINER_MONS(WpvTr5Birdkeeper) = {
+static const struct TrainerMon sParty_WpvTr5Birdkeeper[] = {
     {
     IVS_ALL(5),
     .lvl = 15,
@@ -1075,7 +1075,7 @@ TRAINER_MONS(WpvTr5Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(WpvTr6Maniac) = {
+static const struct TrainerMon sParty_WpvTr6Maniac[] = {
     {
     IVS_ALL(5),
     .lvl = 19,
@@ -1083,7 +1083,7 @@ TRAINER_MONS(WpvTr6Maniac) = {
     },
 };
 
-TRAINER_MONS(WpvTr7Birdkeeper) = {
+static const struct TrainerMon sParty_WpvTr7Birdkeeper[] = {
     {
     IVS_ALL(5),
     .lvl = 15,
@@ -1106,7 +1106,7 @@ TRAINER_MONS(WpvTr7Birdkeeper) = {
     },
 };
 
-TRAINER_MONS(WpvTr8Ninjaboy) = {
+static const struct TrainerMon sParty_WpvTr8Ninjaboy[] = {
     {
     IVS_ALL(5),
     .lvl = 16,
@@ -1120,7 +1120,7 @@ TRAINER_MONS(WpvTr8Ninjaboy) = {
     }
 };
 
-TRAINER_MONS(WpvTr9Lass) = {
+static const struct TrainerMon sParty_WpvTr9Lass[] = {
     {
     IVS_ALL(5),
     .lvl = 16,
@@ -1135,7 +1135,7 @@ TRAINER_MONS(WpvTr9Lass) = {
     },
 };
 
-TRAINER_MONS(WpvTr10Triath) = {
+static const struct TrainerMon sParty_WpvTr10Triath[] = {
     {
     IVS_ALL(5),
     .lvl = 19,
@@ -1144,7 +1144,7 @@ TRAINER_MONS(WpvTr10Triath) = {
     },
 };
 
-TRAINER_MONS(WpvTr11Birdkeeper) = {
+static const struct TrainerMon sParty_WpvTr11Birdkeeper[] = {
     {
     IVS_ALL(5),
     .lvl = 16,
@@ -1158,7 +1158,7 @@ TRAINER_MONS(WpvTr11Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(WpvTr12Battlegirl) = {
+static const struct TrainerMon sParty_WpvTr12Battlegirl[] = {
     {
     IVS_ALL(5),
     .lvl = 17,
@@ -1167,7 +1167,7 @@ TRAINER_MONS(WpvTr12Battlegirl) = {
     },
 };
 
-TRAINER_MONS(WpvTr13Birdkeeper) = {
+static const struct TrainerMon sParty_WpvTr13Birdkeeper[] = {
     {
     IVS_ALL(5),
     .lvl = 17,
@@ -1176,7 +1176,7 @@ TRAINER_MONS(WpvTr13Birdkeeper) = {
     },
 };
 
-TRAINER_MONS(WpvTr14Skyla) = {
+static const struct TrainerMon sParty_WpvTr14Skyla[] = {
     {
     IVS_ALL(5),
     .lvl = 20,
@@ -1202,7 +1202,7 @@ TRAINER_MONS(WpvTr14Skyla) = {
     }
 };
 
-TRAINER_MONS(R28_Tr1_BugCatcher) = {
+static const struct TrainerMon sParty_R28_Tr1_BugCatcher[] = {
     {
     .lvl = 15,
     .species = SPECIES_KRICKETOT,
@@ -1218,7 +1218,7 @@ TRAINER_MONS(R28_Tr1_BugCatcher) = {
     }
 };
 
-TRAINER_MONS(R28_Tr2_Hiker) = {
+static const struct TrainerMon sParty_R28_Tr2_Hiker[] = {
     {
     .lvl = 16,
     .species = SPECIES_GEODUDE,
@@ -1229,7 +1229,7 @@ TRAINER_MONS(R28_Tr2_Hiker) = {
     }
 };
 
-TRAINER_MONS(R28_Tr3_NinjaBoy) = {
+static const struct TrainerMon sParty_R28_Tr3_NinjaBoy[] = {
     {
     .lvl = 16,
     .species = SPECIES_NINCADA,
@@ -1240,7 +1240,7 @@ TRAINER_MONS(R28_Tr3_NinjaBoy) = {
     }
 };
 
-TRAINER_MONS(R28_Tr4_Psychic) = {
+static const struct TrainerMon sParty_R28_Tr4_Psychic[] = {
     {
     .lvl = 17,
     .species = SPECIES_ABRA,
@@ -1261,7 +1261,7 @@ TRAINER_MONS(R28_Tr4_Psychic) = {
     },
 };
 
-TRAINER_MONS(R5Tr1_Fisher) = {
+static const struct TrainerMon sParty_R5Tr1_Fisher[] = {
     {
     .lvl = 8,
     .species = SPECIES_MAGIKARP,
@@ -1276,7 +1276,7 @@ TRAINER_MONS(R5Tr1_Fisher) = {
     }
 };
 
-TRAINER_MONS(R5Tr2_Beauty) = {
+static const struct TrainerMon sParty_R5Tr2_Beauty[] = {
     {
     .lvl = 16,
     .species = SPECIES_PETILIL,
@@ -1287,7 +1287,7 @@ TRAINER_MONS(R5Tr2_Beauty) = {
     }
 };
 
-TRAINER_MONS(R5Tr3_YoungCouple) = {
+static const struct TrainerMon sParty_R5Tr3_YoungCouple[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1310,7 +1310,7 @@ TRAINER_MONS(R5Tr3_YoungCouple) = {
     },
 };
 
-TRAINER_MONS(R5Tr4_Lass1) = {
+static const struct TrainerMon sParty_R5Tr4_Lass1[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1323,7 +1323,7 @@ TRAINER_MONS(R5Tr4_Lass1) = {
     }
 };
 
-TRAINER_MONS(R5Tr5_PokeFanF) = {
+static const struct TrainerMon sParty_R5Tr5_PokeFanF[] = {
     {
     IVS_ALL(4),
     .lvl = 16,
@@ -1336,7 +1336,7 @@ TRAINER_MONS(R5Tr5_PokeFanF) = {
     }
 };
 
-TRAINER_MONS(R5Tr6_Lass2) = {
+static const struct TrainerMon sParty_R5Tr6_Lass2[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1349,7 +1349,7 @@ TRAINER_MONS(R5Tr6_Lass2) = {
     }
 };
 
-TRAINER_MONS(R5Tr7_Gentleman) = {
+static const struct TrainerMon sParty_R5Tr7_Gentleman[] = {
     {
     IVS_ALL(4),
     .lvl = 18,
@@ -1364,7 +1364,7 @@ TRAINER_MONS(R5Tr7_Gentleman) = {
     }
 };
 
-TRAINER_MONS(R5Tr8_Youngster) = {
+static const struct TrainerMon sParty_R5Tr8_Youngster[] = {
     {
     IVS_ALL(4),
     .lvl = 16,
@@ -1377,7 +1377,7 @@ TRAINER_MONS(R5Tr8_Youngster) = {
     }
 };
 
-TRAINER_MONS(R5Tr9_Triathlete) = {
+static const struct TrainerMon sParty_R5Tr9_Triathlete[] = {
     {
     IVS_ALL(4),
     .lvl = 16,
@@ -1395,7 +1395,7 @@ TRAINER_MONS(R5Tr9_Triathlete) = {
     }
 };
 
-TRAINER_MONS(R5Tr10_RichBoy) = {
+static const struct TrainerMon sParty_R5Tr10_RichBoy[] = {
     {
     IVS_ALL(4),
     .lvl = 16,
@@ -1408,7 +1408,7 @@ TRAINER_MONS(R5Tr10_RichBoy) = {
     }
 };
 
-TRAINER_MONS(R5Tr11_Man5) = {
+static const struct TrainerMon sParty_R5Tr11_Man5[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1427,7 +1427,7 @@ TRAINER_MONS(R5Tr11_Man5) = {
     }
 };
 
-TRAINER_MONS(R5Tr12_BugCatcher) = {
+static const struct TrainerMon sParty_R5Tr12_BugCatcher[] = {
     {
     IVS_ALL(4),
     .lvl = 15,
@@ -1446,7 +1446,7 @@ TRAINER_MONS(R5Tr12_BugCatcher) = {
     }
 };
 
-TRAINER_MONS(R5Tr13_NinjaBoy) = {
+static const struct TrainerMon sParty_R5Tr13_NinjaBoy[] = {
     {
     IVS_ALL(4),
     .lvl = 20,
@@ -1459,7 +1459,7 @@ TRAINER_MONS(R5Tr13_NinjaBoy) = {
     }
 };
 
-TRAINER_MONS(R5Tr14_Hiker) = {
+static const struct TrainerMon sParty_R5Tr14_Hiker[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1477,7 +1477,7 @@ TRAINER_MONS(R5Tr14_Hiker) = {
     }
 };
 
-TRAINER_MONS(R5Tr15_CoolTrainer) = {
+static const struct TrainerMon sParty_R5Tr15_CoolTrainer[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -1500,7 +1500,7 @@ TRAINER_MONS(R5Tr15_CoolTrainer) = {
     }
 };
 
-TRAINER_MONS(R6Tr1_RangerM) = {
+static const struct TrainerMon sParty_R6Tr1_RangerM[] = {
     {
     IVS_ALL(4),
     .lvl = 20,
@@ -1513,7 +1513,7 @@ TRAINER_MONS(R6Tr1_RangerM) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR2_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR2_SWIMMER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -1527,7 +1527,7 @@ TRAINER_MONS(TRAINER_R16_TR2_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(R6Tr3_CamperF) = {
+static const struct TrainerMon sParty_R6Tr3_CamperF[] = {
     {
     IVS_ALL(4),
     .lvl = 19,
@@ -1540,7 +1540,7 @@ TRAINER_MONS(R6Tr3_CamperF) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R16_TR12_NINJABOY2) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR12_NINJABOY2[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -1549,7 +1549,7 @@ TRAINER_MONS(TRAINER_R16_TR12_NINJABOY2) = {
     },
 };
 
-TRAINER_MONS(R6Tr5_Hiker) = {
+static const struct TrainerMon sParty_R6Tr5_Hiker[] = {
     {
     IVS_ALL(4),
     .lvl = 18,
@@ -1567,7 +1567,7 @@ TRAINER_MONS(R6Tr5_Hiker) = {
     }
 };
 
-TRAINER_MONS(R6Tr6_CamperM2) = {
+static const struct TrainerMon sParty_R6Tr6_CamperM2[] = {
     {
     IVS_ALL(4),
     .lvl = 19,
@@ -1581,7 +1581,7 @@ TRAINER_MONS(R6Tr6_CamperM2) = {
     }
 };
 
-TRAINER_MONS(R6Tr7_Kindler) = {
+static const struct TrainerMon sParty_R6Tr7_Kindler[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1595,7 +1595,7 @@ TRAINER_MONS(R6Tr7_Kindler) = {
     },
 };
 
-TRAINER_MONS(R8Tr1_ParasolLady) = {
+static const struct TrainerMon sParty_R8Tr1_ParasolLady[] = {
     {
     IVS_ALL(4),
     .lvl = 21,
@@ -1603,7 +1603,7 @@ TRAINER_MONS(R8Tr1_ParasolLady) = {
     }
 };
 
-TRAINER_MONS(R8Tr2_SrJr) = {
+static const struct TrainerMon sParty_R8Tr2_SrJr[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1623,7 +1623,7 @@ TRAINER_MONS(R8Tr2_SrJr) = {
     }
 };
 
-TRAINER_MONS(R8Tr3_AromaLady) = {
+static const struct TrainerMon sParty_R8Tr3_AromaLady[] = {
     {
     IVS_ALL(4),
     .lvl = 19,
@@ -1636,7 +1636,7 @@ TRAINER_MONS(R8Tr3_AromaLady) = {
     },
 };
 
-TRAINER_MONS(R8Tr4_Youngster) = {
+static const struct TrainerMon sParty_R8Tr4_Youngster[] = {
     {
     IVS_ALL(4),
     .lvl = 17,
@@ -1649,7 +1649,7 @@ TRAINER_MONS(R8Tr4_Youngster) = {
     }
 };
 
-TRAINER_MONS(R8Tr5_PsychicF) = {
+static const struct TrainerMon sParty_R8Tr5_PsychicF[] = {
     {
     IVS_ALL(4),
     .lvl = 13,
@@ -1669,7 +1669,7 @@ TRAINER_MONS(R8Tr5_PsychicF) = {
     }
 };
 
-TRAINER_MONS(R8Tr6_CamperM) = {
+static const struct TrainerMon sParty_R8Tr6_CamperM[] = {
     {
     IVS_ALL(4),
     .lvl = 20,
@@ -1683,7 +1683,7 @@ TRAINER_MONS(R8Tr6_CamperM) = {
     }
 };
 
-TRAINER_MONS(R8Tr7_TriathleteM) = {
+static const struct TrainerMon sParty_R8Tr7_TriathleteM[] = {
     {
     IVS_ALL(4),
     .lvl = 20,
@@ -1696,7 +1696,7 @@ TRAINER_MONS(R8Tr7_TriathleteM) = {
     }
 };
 
-TRAINER_MONS(R8Tr8_Gentleman) = {
+static const struct TrainerMon sParty_R8Tr8_Gentleman[] = {
     {
     IVS_ALL(4),
     .lvl = 23,
@@ -1705,7 +1705,7 @@ TRAINER_MONS(R8Tr8_Gentleman) = {
     }
 };
 
-TRAINER_MONS(R8Tr9_Hiker) = {
+static const struct TrainerMon sParty_R8Tr9_Hiker[] = {
     {
     IVS_ALL(4),
     .lvl = 21,
@@ -1718,7 +1718,7 @@ TRAINER_MONS(R8Tr9_Hiker) = {
     }
 };
 
-TRAINER_MONS(R8Tr10_OldCouple) = {
+static const struct TrainerMon sParty_R8Tr10_OldCouple[] = {
     {
     IVS_ALL(4),
     .lvl = 23,
@@ -1735,7 +1735,7 @@ TRAINER_MONS(R8Tr10_OldCouple) = {
     }
 };
 
-TRAINER_MONS(R8Tr11_BirdKeeper) = {
+static const struct TrainerMon sParty_R8Tr11_BirdKeeper[] = {
     {
     IVS_ALL(4),
     .lvl = 18,
@@ -1753,7 +1753,7 @@ TRAINER_MONS(R8Tr11_BirdKeeper) = {
     }
 };
 
-TRAINER_MONS(DC1F_Rocket1) = {
+static const struct TrainerMon sParty_DC1F_Rocket1[] = {
     {
     IVS_ALL(6),
     .lvl = 20,
@@ -1766,7 +1766,7 @@ TRAINER_MONS(DC1F_Rocket1) = {
     }
 };
 
-TRAINER_MONS(DC1F_Rocket2) = {
+static const struct TrainerMon sParty_DC1F_Rocket2[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1780,7 +1780,7 @@ TRAINER_MONS(DC1F_Rocket2) = {
     }
 };
 
-TRAINER_MONS(DC_BaseRocket1) = {
+static const struct TrainerMon sParty_DC_BaseRocket1[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -1789,7 +1789,7 @@ TRAINER_MONS(DC_BaseRocket1) = {
     }
 };
 
-TRAINER_MONS(DC_BaseRocket2) = {
+static const struct TrainerMon sParty_DC_BaseRocket2[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1802,7 +1802,7 @@ TRAINER_MONS(DC_BaseRocket2) = {
     }
 };
 
-TRAINER_MONS(DC_BaseRocket3) = {
+static const struct TrainerMon sParty_DC_BaseRocket3[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1816,7 +1816,7 @@ TRAINER_MONS(DC_BaseRocket3) = {
     }
 };
 
-TRAINER_MONS(DC_BaseRocket4) = {
+static const struct TrainerMon sParty_DC_BaseRocket4[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1836,7 +1836,7 @@ TRAINER_MONS(DC_BaseRocket4) = {
     }
 };
 
-TRAINER_MONS(DC2F_Rocket1) = {
+static const struct TrainerMon sParty_DC2F_Rocket1[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1849,7 +1849,7 @@ TRAINER_MONS(DC2F_Rocket1) = {
     }
 };
 
-TRAINER_MONS(DC2F_Rocket2) = {
+static const struct TrainerMon sParty_DC2F_Rocket2[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -1858,7 +1858,7 @@ TRAINER_MONS(DC2F_Rocket2) = {
     }
 };
 
-TRAINER_MONS(DC2F_Rocket3) = {
+static const struct TrainerMon sParty_DC2F_Rocket3[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -1867,7 +1867,7 @@ TRAINER_MONS(DC2F_Rocket3) = {
     }
 };
 
-TRAINER_MONS(DC2F_Rocket4) = {
+static const struct TrainerMon sParty_DC2F_Rocket4[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1880,7 +1880,7 @@ TRAINER_MONS(DC2F_Rocket4) = {
     }
 };
 
-TRAINER_MONS(DC2F_Rocket5) = {
+static const struct TrainerMon sParty_DC2F_Rocket5[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1893,7 +1893,7 @@ TRAINER_MONS(DC2F_Rocket5) = {
     },
 };
 
-TRAINER_MONS(DC3F_Rocket1) = {
+static const struct TrainerMon sParty_DC3F_Rocket1[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -1908,7 +1908,7 @@ TRAINER_MONS(DC3F_Rocket1) = {
     }
 };
 
-TRAINER_MONS(DC3F_Rocket_Proton) = {
+static const struct TrainerMon sParty_DC3F_Rocket_Proton[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -1929,7 +1929,7 @@ TRAINER_MONS(DC3F_Rocket_Proton) = {
     }
 };
 
-TRAINER_MONS(Shoreslate_Rocket) = {
+static const struct TrainerMon sParty_Shoreslate_Rocket[] = {
     {
     IVS_ALL(6),
     .lvl = 21,
@@ -1938,7 +1938,7 @@ TRAINER_MONS(Shoreslate_Rocket) = {
     }
 };
 
-TRAINER_MONS(DesertTr1_Camper) = {
+static const struct TrainerMon sParty_DesertTr1_Camper[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -1951,7 +1951,7 @@ TRAINER_MONS(DesertTr1_Camper) = {
     }
 };
 
-TRAINER_MONS(DesertTr2_Camper2) = {
+static const struct TrainerMon sParty_DesertTr2_Camper2[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -1970,7 +1970,7 @@ TRAINER_MONS(DesertTr2_Camper2) = {
     }
 };
 
-TRAINER_MONS(DesertTr3_Picnicker) = {
+static const struct TrainerMon sParty_DesertTr3_Picnicker[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -1984,7 +1984,7 @@ TRAINER_MONS(DesertTr3_Picnicker) = {
     }
 };
 
-TRAINER_MONS(DesertTr4_Picnicker2) = {
+static const struct TrainerMon sParty_DesertTr4_Picnicker2[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -1999,7 +1999,7 @@ TRAINER_MONS(DesertTr4_Picnicker2) = {
     }
 };
 
-TRAINER_MONS(DesertTr5_Hiker) = {
+static const struct TrainerMon sParty_DesertTr5_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2008,7 +2008,7 @@ TRAINER_MONS(DesertTr5_Hiker) = {
     }
 };
 
-TRAINER_MONS(DesertTr6_Blackbelt) = {
+static const struct TrainerMon sParty_DesertTr6_Blackbelt[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2021,7 +2021,7 @@ TRAINER_MONS(DesertTr6_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(DesertTr7_Picnicker3) = {
+static const struct TrainerMon sParty_DesertTr7_Picnicker3[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2039,7 +2039,7 @@ TRAINER_MONS(DesertTr7_Picnicker3) = {
     }
 };
 
-TRAINER_MONS(DesertTr8_Hiker2) = {
+static const struct TrainerMon sParty_DesertTr8_Hiker2[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -2053,7 +2053,7 @@ TRAINER_MONS(DesertTr8_Hiker2) = {
     }
 };
 
-TRAINER_MONS(DesertTr9_Hiker3) = {
+static const struct TrainerMon sParty_DesertTr9_Hiker3[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2063,7 +2063,7 @@ TRAINER_MONS(DesertTr9_Hiker3) = {
     }
 };
 
-TRAINER_MONS(DesertTr10_Firebreather) = {
+static const struct TrainerMon sParty_DesertTr10_Firebreather[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2076,7 +2076,7 @@ TRAINER_MONS(DesertTr10_Firebreather) = {
     }
 };
 
-TRAINER_MONS(DesertTr11_Blackbelt2) = {
+static const struct TrainerMon sParty_DesertTr11_Blackbelt2[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2085,7 +2085,7 @@ TRAINER_MONS(DesertTr11_Blackbelt2) = {
     }
 };
 
-TRAINER_MONS(DesertTr12_Hiker4) = {
+static const struct TrainerMon sParty_DesertTr12_Hiker4[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -2103,7 +2103,7 @@ TRAINER_MONS(DesertTr12_Hiker4) = {
     }
 };
 
-TRAINER_MONS(DesertTr13_Psychic_F) = {
+static const struct TrainerMon sParty_DesertTr13_Psychic_F[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2111,7 +2111,7 @@ TRAINER_MONS(DesertTr13_Psychic_F) = {
     },
 };
 
-TRAINER_MONS(DesertTr14_Cooltrainer) = {
+static const struct TrainerMon sParty_DesertTr14_Cooltrainer[] = {
     {
     IVS_ALL(9),
     .lvl = 28,
@@ -2134,7 +2134,7 @@ TRAINER_MONS(DesertTr14_Cooltrainer) = {
     }
 };
 
-TRAINER_MONS(Route7Tr1_Camper) = {
+static const struct TrainerMon sParty_Route7Tr1_Camper[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2149,7 +2149,7 @@ TRAINER_MONS(Route7Tr1_Camper) = {
     },
 };
 
-TRAINER_MONS(Route7Tr2_Picnicker) = {
+static const struct TrainerMon sParty_Route7Tr2_Picnicker[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2162,7 +2162,7 @@ TRAINER_MONS(Route7Tr2_Picnicker) = {
     }
 };
 
-TRAINER_MONS(Route7Tr3_Ninjaboy) = {
+static const struct TrainerMon sParty_Route7Tr3_Ninjaboy[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2175,7 +2175,7 @@ TRAINER_MONS(Route7Tr3_Ninjaboy) = {
     }
 };
 
-TRAINER_MONS(Route7Tr4_Birdkeeper) = {
+static const struct TrainerMon sParty_Route7Tr4_Birdkeeper[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2183,7 +2183,7 @@ TRAINER_MONS(Route7Tr4_Birdkeeper) = {
     },
 };
 
-TRAINER_MONS(Route7Tr5_Blackbelt) = {
+static const struct TrainerMon sParty_Route7Tr5_Blackbelt[] = {
     {
     IVS_ALL(6),
     EVS(0, 0, 0, 150, 0, 0),
@@ -2198,7 +2198,7 @@ TRAINER_MONS(Route7Tr5_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(Route7Tr6_Picnicker2) = {
+static const struct TrainerMon sParty_Route7Tr6_Picnicker2[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2211,7 +2211,7 @@ TRAINER_MONS(Route7Tr6_Picnicker2) = {
     }
 };
 
-TRAINER_MONS(Route7Tr7_Fisherman) = {
+static const struct TrainerMon sParty_Route7Tr7_Fisherman[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -2229,7 +2229,7 @@ TRAINER_MONS(Route7Tr7_Fisherman) = {
     }
 };
 
-TRAINER_MONS(Route7Tr8_Hiker) = {
+static const struct TrainerMon sParty_Route7Tr8_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2238,7 +2238,7 @@ TRAINER_MONS(Route7Tr8_Hiker) = {
     }
 };
 
-TRAINER_MONS(Route7Tr9_Parasollady) = {
+static const struct TrainerMon sParty_Route7Tr9_Parasollady[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2252,7 +2252,7 @@ TRAINER_MONS(Route7Tr9_Parasollady) = {
     }
 };
 
-TRAINER_MONS(Route7Tr10_NinjaBoy) = {
+static const struct TrainerMon sParty_Route7Tr10_NinjaBoy[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2261,7 +2261,7 @@ TRAINER_MONS(Route7Tr10_NinjaBoy) = {
     }
 };
 
-TRAINER_MONS(KG_Tr1_Camper1) = {
+static const struct TrainerMon sParty_KG_Tr1_Camper1[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2275,7 +2275,7 @@ TRAINER_MONS(KG_Tr1_Camper1) = {
     }
 };
 
-TRAINER_MONS(KG_Tr2_Picnicker1) = {
+static const struct TrainerMon sParty_KG_Tr2_Picnicker1[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2289,7 +2289,7 @@ TRAINER_MONS(KG_Tr2_Picnicker1) = {
     }
 };
 
-TRAINER_MONS(KG_Tr3_Hiker1) = {
+static const struct TrainerMon sParty_KG_Tr3_Hiker1[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2302,7 +2302,7 @@ TRAINER_MONS(KG_Tr3_Hiker1) = {
     }
 };
 
-TRAINER_MONS(KG_Tr4_Camper2) = {
+static const struct TrainerMon sParty_KG_Tr4_Camper2[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2316,7 +2316,7 @@ TRAINER_MONS(KG_Tr4_Camper2) = {
     },
 };
 
-TRAINER_MONS(KG_Tr5_Hiker2) = {
+static const struct TrainerMon sParty_KG_Tr5_Hiker2[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2334,7 +2334,7 @@ TRAINER_MONS(KG_Tr5_Hiker2) = {
     },
 };
 
-TRAINER_MONS(KG_Tr6_Hiker3) = {
+static const struct TrainerMon sParty_KG_Tr6_Hiker3[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2344,7 +2344,7 @@ TRAINER_MONS(KG_Tr6_Hiker3) = {
     }
 };
 
-TRAINER_MONS(KG_Tr7_Picnicker2) = {
+static const struct TrainerMon sParty_KG_Tr7_Picnicker2[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2362,7 +2362,7 @@ TRAINER_MONS(KG_Tr7_Picnicker2) = {
     }
 };
 
-TRAINER_MONS(KG_Tr8_Camper3) = {
+static const struct TrainerMon sParty_KG_Tr8_Camper3[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2377,7 +2377,7 @@ TRAINER_MONS(KG_Tr8_Camper3) = {
     }
 };
 
-TRAINER_MONS(KG_Tr9_Picnicker3) = {
+static const struct TrainerMon sParty_KG_Tr9_Picnicker3[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2391,7 +2391,7 @@ TRAINER_MONS(KG_Tr9_Picnicker3) = {
     }
 };
 
-TRAINER_MONS(KG_Tr10_Hiker4) = {
+static const struct TrainerMon sParty_KG_Tr10_Hiker4[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2399,7 +2399,7 @@ TRAINER_MONS(KG_Tr10_Hiker4) = {
     }
 };
 
-TRAINER_MONS(KG_Clay) = {
+static const struct TrainerMon sParty_KG_Clay[] = {
     {
     IVS_ALL(9),
     .lvl = 31,
@@ -2428,7 +2428,7 @@ TRAINER_MONS(KG_Clay) = {
     },
 };
 
-TRAINER_MONS(KM_Tr1_Picnicker) = {
+static const struct TrainerMon sParty_KM_Tr1_Picnicker[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2437,7 +2437,7 @@ TRAINER_MONS(KM_Tr1_Picnicker) = {
     }
 };
 
-TRAINER_MONS(KM_Tr2_Blackbelt) = {
+static const struct TrainerMon sParty_KM_Tr2_Blackbelt[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2452,7 +2452,7 @@ TRAINER_MONS(KM_Tr2_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(KM_Tr3_Camper) = {
+static const struct TrainerMon sParty_KM_Tr3_Camper[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2471,7 +2471,7 @@ TRAINER_MONS(KM_Tr3_Camper) = {
     }
 };
 
-TRAINER_MONS(KM_Tr4_Hiker) = {
+static const struct TrainerMon sParty_KM_Tr4_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -2479,7 +2479,7 @@ TRAINER_MONS(KM_Tr4_Hiker) = {
     }
 };
 
-TRAINER_MONS(KM_Tr5_Hiker) = {
+static const struct TrainerMon sParty_KM_Tr5_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 23,
@@ -2502,7 +2502,7 @@ TRAINER_MONS(KM_Tr5_Hiker) = {
     },
 };
 
-TRAINER_MONS(KM_Tr6_Hiker) = {
+static const struct TrainerMon sParty_KM_Tr6_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2515,7 +2515,7 @@ TRAINER_MONS(KM_Tr6_Hiker) = {
     }
 };
 
-TRAINER_MONS(KM_Tr7_Camper) = {
+static const struct TrainerMon sParty_KM_Tr7_Camper[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -2529,7 +2529,7 @@ TRAINER_MONS(KM_Tr7_Camper) = {
     }
 };
 
-TRAINER_MONS(KM_Tr8_Picnicker) = {
+static const struct TrainerMon sParty_KM_Tr8_Picnicker[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2542,7 +2542,7 @@ TRAINER_MONS(KM_Tr8_Picnicker) = {
     },
 };
 
-TRAINER_MONS(KM_Tr9_Blackbelt) = {
+static const struct TrainerMon sParty_KM_Tr9_Blackbelt[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -2556,7 +2556,7 @@ TRAINER_MONS(KM_Tr9_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(KM_Tr10_Hiker) = {
+static const struct TrainerMon sParty_KM_Tr10_Hiker[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -2569,7 +2569,7 @@ TRAINER_MONS(KM_Tr10_Hiker) = {
     },
 };
 
-TRAINER_MONS(BuffetTrainer1) = {
+static const struct TrainerMon sParty_BuffetTrainer1[] = {
     {
     .species = SPECIES_MIMIKYU,
     .ball = ITEM_DUSK_BALL,
@@ -2594,7 +2594,7 @@ TRAINER_MONS(BuffetTrainer1) = {
     }
 };
 
-TRAINER_MONS(BuffetTrainer2) = {
+static const struct TrainerMon sParty_BuffetTrainer2[] = {
     {
     .species = SPECIES_PRIMARINA,
     .ball = ITEM_DIVE_BALL,
@@ -2624,7 +2624,7 @@ TRAINER_MONS(BuffetTrainer2) = {
     }
 };
 
-TRAINER_MONS(BuffetTrainer3) = {
+static const struct TrainerMon sParty_BuffetTrainer3[] = {
     {
     .lvl = 40,
     .ball = ITEM_PREMIER_BALL,
@@ -2651,7 +2651,7 @@ TRAINER_MONS(BuffetTrainer3) = {
     },
 };
 
-TRAINER_MONS(BuffetTrainer4) = {
+static const struct TrainerMon sParty_BuffetTrainer4[] = {
     {
     .heldItem = ITEM_FLAME_ORB,
     .ability = ABILITY_GUTS,
@@ -2681,7 +2681,7 @@ TRAINER_MONS(BuffetTrainer4) = {
     },
 };
 
-TRAINER_MONS(HotelBirdKeeper) = {
+static const struct TrainerMon sParty_HotelBirdKeeper[] = {
     {
     .lvl = 26,
     .ability = ABILITY_STURDY,
@@ -2696,21 +2696,21 @@ TRAINER_MONS(HotelBirdKeeper) = {
     }
 };
 
-TRAINER_MONS(HotelKid1) = {
+static const struct TrainerMon sParty_HotelKid1[] = {
     {
     .lvl = 25,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(HotelKid2) = {
+static const struct TrainerMon sParty_HotelKid2[] = {
     {
     .lvl = 25,
     .species = SPECIES_SHELLOS_EAST_SEA,
     }
 };
 
-TRAINER_MONS(LeaderKorrina) = {
+static const struct TrainerMon sParty_LeaderKorrina[] = {
     {
     IVS_ALL(14),
     EVS(0, 0, 0, 100, 0, 0),
@@ -2743,7 +2743,7 @@ TRAINER_MONS(LeaderKorrina) = {
     }
 };
 
-TRAINER_MONS(Route11Tr1_Lass) = {
+static const struct TrainerMon sParty_Route11Tr1_Lass[] = {
     {
     IVS_ALL(7),
     .lvl = 26,
@@ -2757,7 +2757,7 @@ TRAINER_MONS(Route11Tr1_Lass) = {
     }
 };
 
-TRAINER_MONS(Route11Tr2_Birdkeeper) = {
+static const struct TrainerMon sParty_Route11Tr2_Birdkeeper[] = {
     {
     IVS_ALL(7),
     .lvl = 26,
@@ -2771,7 +2771,7 @@ TRAINER_MONS(Route11Tr2_Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(Route11Tr3_Bugcatcher) = {
+static const struct TrainerMon sParty_Route11Tr3_Bugcatcher[] = {
     {
     IVS_ALL(7),
     .lvl = 26,
@@ -2791,7 +2791,7 @@ TRAINER_MONS(Route11Tr3_Bugcatcher) = {
     }
 };
 
-TRAINER_MONS(Route11Tr4_Ninjaboy) = {
+static const struct TrainerMon sParty_Route11Tr4_Ninjaboy[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -2804,7 +2804,7 @@ TRAINER_MONS(Route11Tr4_Ninjaboy) = {
     }
 };
 
-TRAINER_MONS(Route11Tr5_Pokemaniac) = {
+static const struct TrainerMon sParty_Route11Tr5_Pokemaniac[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -2817,7 +2817,7 @@ TRAINER_MONS(Route11Tr5_Pokemaniac) = {
     }
 };
 
-TRAINER_MONS(Route11Tr6_Triathlete_F) = {
+static const struct TrainerMon sParty_Route11Tr6_Triathlete_F[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -2825,7 +2825,7 @@ TRAINER_MONS(Route11Tr6_Triathlete_F) = {
     }
 };
 
-TRAINER_MONS(Route11Tr7_Hiker) = {
+static const struct TrainerMon sParty_Route11Tr7_Hiker[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -2838,7 +2838,7 @@ TRAINER_MONS(Route11Tr7_Hiker) = {
     }
 };
 
-TRAINER_MONS(Route11Tr8_Ninjaboy_2) = {
+static const struct TrainerMon sParty_Route11Tr8_Ninjaboy_2[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -2847,7 +2847,7 @@ TRAINER_MONS(Route11Tr8_Ninjaboy_2) = {
     }
 };
 
-TRAINER_MONS(Route11Tr9_Ninjaboy_3) = {
+static const struct TrainerMon sParty_Route11Tr9_Ninjaboy_3[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -2856,7 +2856,7 @@ TRAINER_MONS(Route11Tr9_Ninjaboy_3) = {
     }
 };
 
-TRAINER_MONS(Route11Tr10_Cycler_M) = {
+static const struct TrainerMon sParty_Route11Tr10_Cycler_M[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -2869,7 +2869,7 @@ TRAINER_MONS(Route11Tr10_Cycler_M) = {
     }
 };
 
-TRAINER_MONS(Route11Tr11_Blackbelt) = {
+static const struct TrainerMon sParty_Route11Tr11_Blackbelt[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -2883,7 +2883,7 @@ TRAINER_MONS(Route11Tr11_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(Route11Tr12_Expert) = {
+static const struct TrainerMon sParty_Route11Tr12_Expert[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -2904,7 +2904,7 @@ TRAINER_MONS(Route11Tr12_Expert) = {
     },
 };
 
-TRAINER_MONS(Route11Tr13_Psychic_F) = {
+static const struct TrainerMon sParty_Route11Tr13_Psychic_F[] = {
     {
     IVS_ALL(7),
     .lvl = 28,
@@ -2920,7 +2920,7 @@ TRAINER_MONS(Route11Tr13_Psychic_F) = {
     }
 };
 
-TRAINER_MONS(Route11Tr14_Acetrainer_F) = {
+static const struct TrainerMon sParty_Route11Tr14_Acetrainer_F[] = {
     {
     .lvl = 34,
     .species = SPECIES_STOUTLAND,
@@ -2948,7 +2948,7 @@ TRAINER_MONS(Route11Tr14_Acetrainer_F) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_NORMAL_FIRE[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -2980,7 +2980,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_WATER) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_NORMAL_WATER[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3012,7 +3012,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_NORMAL_GRASS[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3044,7 +3044,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_NORMAL_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_ANGRY_FIRE[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3077,7 +3077,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_WATER) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_ANGRY_WATER[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3110,7 +3110,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_ROUTE_11_ANGRY_GRASS[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3143,7 +3143,7 @@ TRAINER_MONS(TRAINER_BRENDAN_ROUTE_11_ANGRY_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_NORMAL_FIRE[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3175,7 +3175,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_WATER) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_NORMAL_WATER[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3207,7 +3207,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_NORMAL_GRASS[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3239,7 +3239,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_NORMAL_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_ANGRY_FIRE[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3272,7 +3272,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_WATER) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_ANGRY_WATER[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3305,7 +3305,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_MAY_ROUTE_11_ANGRY_GRASS[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -3338,7 +3338,7 @@ TRAINER_MONS(TRAINER_MAY_ROUTE_11_ANGRY_GRASS) = {
     }
 };
 
-TRAINER_MONS(R12Tr1_Triath) = {
+static const struct TrainerMon sParty_R12Tr1_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -3346,7 +3346,7 @@ TRAINER_MONS(R12Tr1_Triath) = {
     }
 };
 
-TRAINER_MONS(R12Tr2_Triath) = {
+static const struct TrainerMon sParty_R12Tr2_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 27,
@@ -3359,7 +3359,7 @@ TRAINER_MONS(R12Tr2_Triath) = {
     }
 };
 
-TRAINER_MONS(R12Tr3_Triath) = {
+static const struct TrainerMon sParty_R12Tr3_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 28,
@@ -3372,7 +3372,7 @@ TRAINER_MONS(R12Tr3_Triath) = {
     },
 };
 
-TRAINER_MONS(R12Tr4_Triath) = {
+static const struct TrainerMon sParty_R12Tr4_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 28,
@@ -3390,7 +3390,7 @@ TRAINER_MONS(R12Tr4_Triath) = {
     }
 };
 
-TRAINER_MONS(R12Tr5_Triath) = {
+static const struct TrainerMon sParty_R12Tr5_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 28,
@@ -3403,7 +3403,7 @@ TRAINER_MONS(R12Tr5_Triath) = {
     },
 };
 
-TRAINER_MONS(R12Tr6_Triath) = {
+static const struct TrainerMon sParty_R12Tr6_Triath[] = {
     {
     IVS_ALL(7),
     .lvl = 29,
@@ -3416,7 +3416,7 @@ TRAINER_MONS(R12Tr6_Triath) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR5_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR5_SWIMMER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -3425,7 +3425,7 @@ TRAINER_MONS(TRAINER_R16_TR5_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(R12Tr9_Psychic) = {
+static const struct TrainerMon sParty_R12Tr9_Psychic[] = {
     {
     IVS_ALL(7),
     .lvl = 28,
@@ -3440,7 +3440,7 @@ TRAINER_MONS(R12Tr9_Psychic) = {
     }
 };
 
-TRAINER_MONS(R12Tr10_Hiker) = {
+static const struct TrainerMon sParty_R12Tr10_Hiker[] = {
     {
     IVS_ALL(7),
     .lvl = 29,
@@ -3454,7 +3454,7 @@ TRAINER_MONS(R12Tr10_Hiker) = {
     },
 };
 
-TRAINER_MONS(R12Tr11_Lass) = {
+static const struct TrainerMon sParty_R12Tr11_Lass[] = {
     {
     .lvl = 28,
     IVS_ALL(7),
@@ -3468,7 +3468,7 @@ TRAINER_MONS(R12Tr11_Lass) = {
     }
 };
 
-TRAINER_MONS(R12Tr12_BugMan) = {
+static const struct TrainerMon sParty_R12Tr12_BugMan[] = {
     {
     .lvl = 29,
     .species = SPECIES_FLOATZEL,
@@ -3481,7 +3481,7 @@ TRAINER_MONS(R12Tr12_BugMan) = {
     }
 };
 
-TRAINER_MONS(R12Tr13_Ninja) = {
+static const struct TrainerMon sParty_R12Tr13_Ninja[] = {
     {
     .lvl = 31,
     IVS_ALL(7),
@@ -3489,7 +3489,7 @@ TRAINER_MONS(R12Tr13_Ninja) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R16_TR6_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR6_SWIMMER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -3510,7 +3510,7 @@ TRAINER_MONS(TRAINER_R16_TR6_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR7_GUITARIST) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR7_GUITARIST[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -3525,7 +3525,7 @@ TRAINER_MONS(TRAINER_R16_TR7_GUITARIST) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR8_HIKER) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR8_HIKER[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -3534,7 +3534,7 @@ TRAINER_MONS(TRAINER_R16_TR8_HIKER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR9_BEAUTY) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR9_BEAUTY[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -3548,7 +3548,7 @@ TRAINER_MONS(TRAINER_R16_TR9_BEAUTY) = {
     },
 };
 
-TRAINER_MONS(FcTr1_Blackbelt) = {
+static const struct TrainerMon sParty_FcTr1_Blackbelt[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -3561,7 +3561,7 @@ TRAINER_MONS(FcTr1_Blackbelt) = {
     }
 };
 
-TRAINER_MONS(FcTr2_Battlegirl) = {
+static const struct TrainerMon sParty_FcTr2_Battlegirl[] = {
     {
     IVS_ALL(7),
     .lvl = 32,
@@ -3569,7 +3569,7 @@ TRAINER_MONS(FcTr2_Battlegirl) = {
     }
 };
 
-TRAINER_MONS(FcTr3_Camper) = {
+static const struct TrainerMon sParty_FcTr3_Camper[] = {
     {
     IVS_ALL(7),
     .lvl = 31,
@@ -3583,7 +3583,7 @@ TRAINER_MONS(FcTr3_Camper) = {
     },
 };
 
-TRAINER_MONS(FcTr4_Hiker) = {
+static const struct TrainerMon sParty_FcTr4_Hiker[] = {
     {
     IVS_ALL(7),
     .lvl = 31,
@@ -3601,7 +3601,7 @@ TRAINER_MONS(FcTr4_Hiker) = {
     },
 };
 
-TRAINER_MONS(R14Tr1_RunnerF) = {
+static const struct TrainerMon sParty_R14Tr1_RunnerF[] = {
     {
     IVS_ALL(7),
     .lvl = 33,
@@ -3609,7 +3609,7 @@ TRAINER_MONS(R14Tr1_RunnerF) = {
     }
 };
 
-TRAINER_MONS(R14Tr2_Hiker) = {
+static const struct TrainerMon sParty_R14Tr2_Hiker[] = {
     {
     IVS_ALL(7),
     .lvl = 31,
@@ -3622,7 +3622,7 @@ TRAINER_MONS(R14Tr2_Hiker) = {
     }
 };
 
-TRAINER_MONS(Sidney) = {
+static const struct TrainerMon sParty_Sidney[] = {
     {
     IVS_ALL(30),
     .lvl = 46,
@@ -3660,7 +3660,7 @@ TRAINER_MONS(Sidney) = {
     }
 };
 
-TRAINER_MONS(Phoebe) = {
+static const struct TrainerMon sParty_Phoebe[] = {
     {
     IVS_ALL(30),
     .lvl = 48,
@@ -3698,7 +3698,7 @@ TRAINER_MONS(Phoebe) = {
     }
 };
 
-TRAINER_MONS(Glacia) = {
+static const struct TrainerMon sParty_Glacia[] = {
     {
     IVS_ALL(30),
     .lvl = 50,
@@ -3736,7 +3736,7 @@ TRAINER_MONS(Glacia) = {
     }
 };
 
-TRAINER_MONS(Drake) = {
+static const struct TrainerMon sParty_Drake[] = {
     {
     IVS_ALL(30),
     .lvl = 52,
@@ -3774,7 +3774,7 @@ TRAINER_MONS(Drake) = {
     }
 };
 
-TRAINER_MONS(SGTr1_CyclistM1) = {
+static const struct TrainerMon sParty_SGTr1_CyclistM1[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3789,7 +3789,7 @@ TRAINER_MONS(SGTr1_CyclistM1) = {
     }
 };
 
-TRAINER_MONS(SGTr2_CyclistF1) = {
+static const struct TrainerMon sParty_SGTr2_CyclistF1[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3804,7 +3804,7 @@ TRAINER_MONS(SGTr2_CyclistF1) = {
     }
 };
 
-TRAINER_MONS(SGTr3_CyclistF2) = {
+static const struct TrainerMon sParty_SGTr3_CyclistF2[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3814,7 +3814,7 @@ TRAINER_MONS(SGTr3_CyclistF2) = {
     }
 };
 
-TRAINER_MONS(SGTr4_CyclistM2) = {
+static const struct TrainerMon sParty_SGTr4_CyclistM2[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3829,7 +3829,7 @@ TRAINER_MONS(SGTr4_CyclistM2) = {
     }
 };
 
-TRAINER_MONS(SGTr5_CyclistF3) = {
+static const struct TrainerMon sParty_SGTr5_CyclistF3[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3839,7 +3839,7 @@ TRAINER_MONS(SGTr5_CyclistF3) = {
     }
 };
 
-TRAINER_MONS(SGTr6_CyclistM3) = {
+static const struct TrainerMon sParty_SGTr6_CyclistM3[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3849,7 +3849,7 @@ TRAINER_MONS(SGTr6_CyclistM3) = {
     }
 };
 
-TRAINER_MONS(SGTr7_CyclistM4) = {
+static const struct TrainerMon sParty_SGTr7_CyclistM4[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 0, 0),
@@ -3865,7 +3865,7 @@ TRAINER_MONS(SGTr7_CyclistM4) = {
     }
 };
 
-TRAINER_MONS(AT2F_Tr2_Man3) = {
+static const struct TrainerMon sParty_AT2F_Tr2_Man3[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3885,7 +3885,7 @@ TRAINER_MONS(AT2F_Tr2_Man3) = {
     },
 };
 
-TRAINER_MONS(AT2F_Tr2_Woman5) = {
+static const struct TrainerMon sParty_AT2F_Tr2_Woman5[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3903,7 +3903,7 @@ TRAINER_MONS(AT2F_Tr2_Woman5) = {
     }
 };
 
-TRAINER_MONS(AT2F_Tr1_Psychic) = {
+static const struct TrainerMon sParty_AT2F_Tr1_Psychic[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3921,7 +3921,7 @@ TRAINER_MONS(AT2F_Tr1_Psychic) = {
     }
 };
 
-TRAINER_MONS(AT2F_Tr1_Man5) = {
+static const struct TrainerMon sParty_AT2F_Tr1_Man5[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3939,7 +3939,7 @@ TRAINER_MONS(AT2F_Tr1_Man5) = {
     },
 };
 
-TRAINER_MONS(AT3F_Tr1_Expert_M) = {
+static const struct TrainerMon sParty_AT3F_Tr1_Expert_M[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3953,7 +3953,7 @@ TRAINER_MONS(AT3F_Tr1_Expert_M) = {
     }
 };
 
-TRAINER_MONS(AT3F_Tr1_Expert_F) = {
+static const struct TrainerMon sParty_AT3F_Tr1_Expert_F[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3966,7 +3966,7 @@ TRAINER_MONS(AT3F_Tr1_Expert_F) = {
     }
 };
 
-TRAINER_MONS(AT3F_Tr2_HexManiac) = {
+static const struct TrainerMon sParty_AT3F_Tr2_HexManiac[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3980,7 +3980,7 @@ TRAINER_MONS(AT3F_Tr2_HexManiac) = {
     }
 };
 
-TRAINER_MONS(AT3F_Tr2_PsychicF) = {
+static const struct TrainerMon sParty_AT3F_Tr2_PsychicF[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -3994,7 +3994,7 @@ TRAINER_MONS(AT3F_Tr2_PsychicF) = {
     }
 };
 
-TRAINER_MONS(AT4F_Tr1_BlackBelt) = {
+static const struct TrainerMon sParty_AT4F_Tr1_BlackBelt[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -4007,7 +4007,7 @@ TRAINER_MONS(AT4F_Tr1_BlackBelt) = {
     }
 };
 
-TRAINER_MONS(AT4F_Tr1_HexManiac) = {
+static const struct TrainerMon sParty_AT4F_Tr1_HexManiac[] = {
     {
     IVS_ALL(10),
     .lvl = 34,
@@ -4021,7 +4021,7 @@ TRAINER_MONS(AT4F_Tr1_HexManiac) = {
     }
 };
 
-TRAINER_MONS(AT4F_Tr2_Lass) = {
+static const struct TrainerMon sParty_AT4F_Tr2_Lass[] = {
     {
     .lvl = 28,
     .species = SPECIES_DITTO,
@@ -4033,7 +4033,7 @@ TRAINER_MONS(AT4F_Tr2_Lass) = {
     },
 };
 
-TRAINER_MONS(AT4F_Tr2_Youngster) = {
+static const struct TrainerMon sParty_AT4F_Tr2_Youngster[] = {
     {
     .lvl = 28,
     .species = SPECIES_SHUPPET,
@@ -4044,7 +4044,7 @@ TRAINER_MONS(AT4F_Tr2_Youngster) = {
     },
 };
 
-TRAINER_MONS(AT4F_Tr3_BattleGirl) = {
+static const struct TrainerMon sParty_AT4F_Tr3_BattleGirl[] = {
     {
     IVS_ALL(10),
     EVS(0, 0, 0, 100, 100, 0),
@@ -4054,7 +4054,7 @@ TRAINER_MONS(AT4F_Tr3_BattleGirl) = {
     }
 };
 
-TRAINER_MONS(AT4F_Tr3_BlackBelt) = {
+static const struct TrainerMon sParty_AT4F_Tr3_BlackBelt[] = {
     {
     IVS_ALL(10),
     EVS(100, 0, 100, 0, 0, 100),
@@ -4064,7 +4064,7 @@ TRAINER_MONS(AT4F_Tr3_BlackBelt) = {
     }
 };
 
-TRAINER_MONS(AT5F_CoolTrainer_M) = {
+static const struct TrainerMon sParty_AT5F_CoolTrainer_M[] = {
     {
     IVS_ALL(10),
     .lvl = 35,
@@ -4085,7 +4085,7 @@ TRAINER_MONS(AT5F_CoolTrainer_M) = {
     }
 };
 
-TRAINER_MONS(AT5F_CoolTrainer_F) = {
+static const struct TrainerMon sParty_AT5F_CoolTrainer_F[] = {
     {
     IVS_ALL(10),
     .lvl = 35,
@@ -4102,7 +4102,7 @@ TRAINER_MONS(AT5F_CoolTrainer_F) = {
     }
 };
 
-TRAINER_MONS(R14Tr3_ParasolLady) = {
+static const struct TrainerMon sParty_R14Tr3_ParasolLady[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4115,7 +4115,7 @@ TRAINER_MONS(R14Tr3_ParasolLady) = {
     }
 };
 
-TRAINER_MONS(R14Tr4_FisherMan) = {
+static const struct TrainerMon sParty_R14Tr4_FisherMan[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4128,7 +4128,7 @@ TRAINER_MONS(R14Tr4_FisherMan) = {
     }
 };
 
-TRAINER_MONS(R14Tr5_ParasolLady) = {
+static const struct TrainerMon sParty_R14Tr5_ParasolLady[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4137,7 +4137,7 @@ TRAINER_MONS(R14Tr5_ParasolLady) = {
     }
 };
 
-TRAINER_MONS(R14Tr6_NinjaBoy) = {
+static const struct TrainerMon sParty_R14Tr6_NinjaBoy[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4150,7 +4150,7 @@ TRAINER_MONS(R14Tr6_NinjaBoy) = {
     }
 };
 
-TRAINER_MONS(R14Tr7_Birdkeeper) = {
+static const struct TrainerMon sParty_R14Tr7_Birdkeeper[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4159,7 +4159,7 @@ TRAINER_MONS(R14Tr7_Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(R14Tr8_Maniac) = {
+static const struct TrainerMon sParty_R14Tr8_Maniac[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4173,7 +4173,7 @@ TRAINER_MONS(R14Tr8_Maniac) = {
     }
 };
 
-TRAINER_MONS(R15Tr1_Birdkeeper) = {
+static const struct TrainerMon sParty_R15Tr1_Birdkeeper[] = {
     {
     IVS_ALL(7),
     .lvl = 32,
@@ -4193,7 +4193,7 @@ TRAINER_MONS(R15Tr1_Birdkeeper) = {
     }
 };
 
-TRAINER_MONS(R15Tr2_RangerF) = {
+static const struct TrainerMon sParty_R15Tr2_RangerF[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4201,7 +4201,7 @@ TRAINER_MONS(R15Tr2_RangerF) = {
     }
 };
 
-TRAINER_MONS(R15Tr3_RangerM) = {
+static const struct TrainerMon sParty_R15Tr3_RangerM[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4210,7 +4210,7 @@ TRAINER_MONS(R15Tr3_RangerM) = {
     }
 };
 
-TRAINER_MONS(R15Tr4_Gentleman) = {
+static const struct TrainerMon sParty_R15Tr4_Gentleman[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4219,7 +4219,7 @@ TRAINER_MONS(R15Tr4_Gentleman) = {
     }
 };
 
-TRAINER_MONS(R15Tr5_Ninjaboy) = {
+static const struct TrainerMon sParty_R15Tr5_Ninjaboy[] = {
     {
     IVS_ALL(7),
     .lvl = 32,
@@ -4242,7 +4242,7 @@ TRAINER_MONS(R15Tr5_Ninjaboy) = {
     },
 };
 
-TRAINER_MONS(R15Tr6_Ninjaboy) = {
+static const struct TrainerMon sParty_R15Tr6_Ninjaboy[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4251,7 +4251,7 @@ TRAINER_MONS(R15Tr6_Ninjaboy) = {
     }
 };
 
-TRAINER_MONS(R15Tr7_Bugcatcher) = {
+static const struct TrainerMon sParty_R15Tr7_Bugcatcher[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -4269,7 +4269,7 @@ TRAINER_MONS(R15Tr7_Bugcatcher) = {
     },
 };
 
-TRAINER_MONS(R15Tr8_Bugmaniac) = {
+static const struct TrainerMon sParty_R15Tr8_Bugmaniac[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4283,7 +4283,7 @@ TRAINER_MONS(R15Tr8_Bugmaniac) = {
     }
 };
 
-TRAINER_MONS(R15Tr9_Beauty) = {
+static const struct TrainerMon sParty_R15Tr9_Beauty[] = {
     {
     IVS_ALL(7),
     .lvl = 29,
@@ -4298,7 +4298,7 @@ TRAINER_MONS(R15Tr9_Beauty) = {
     }
 };
 
-TRAINER_MONS(R15Tr10_Fisherman) = {
+static const struct TrainerMon sParty_R15Tr10_Fisherman[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4311,7 +4311,7 @@ TRAINER_MONS(R15Tr10_Fisherman) = {
     }
 };
 
-TRAINER_MONS(R15Tr11_AceM) = {
+static const struct TrainerMon sParty_R15Tr11_AceM[] = {
     {
     IVS_ALL(13),
     .lvl = 42,
@@ -4330,7 +4330,7 @@ TRAINER_MONS(R15Tr11_AceM) = {
     },
 };
 
-TRAINER_MONS(R15Tr11_AceF) = {
+static const struct TrainerMon sParty_R15Tr11_AceF[] = {
     {
     IVS_ALL(13),
     .lvl = 42,
@@ -4350,7 +4350,7 @@ TRAINER_MONS(R15Tr11_AceF) = {
     }
 };
 
-TRAINER_MONS(R15Tr13_Cooltrainer) = {
+static const struct TrainerMon sParty_R15Tr13_Cooltrainer[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4364,7 +4364,7 @@ TRAINER_MONS(R15Tr13_Cooltrainer) = {
     }
 };
 
-TRAINER_MONS(R15Tr14_Lass) = {
+static const struct TrainerMon sParty_R15Tr14_Lass[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4372,7 +4372,7 @@ TRAINER_MONS(R15Tr14_Lass) = {
     }
 };
 
-TRAINER_MONS(R15Tr15_Scientist) = {
+static const struct TrainerMon sParty_R15Tr15_Scientist[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4387,7 +4387,7 @@ TRAINER_MONS(R15Tr15_Scientist) = {
     },
 };
 
-TRAINER_MONS(R15Tr16_Aromalady) = {
+static const struct TrainerMon sParty_R15Tr16_Aromalady[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4401,7 +4401,7 @@ TRAINER_MONS(R15Tr16_Aromalady) = {
     }
 };
 
-TRAINER_MONS(R15Tr17_RunnerF) = {
+static const struct TrainerMon sParty_R15Tr17_RunnerF[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4410,7 +4410,7 @@ TRAINER_MONS(R15Tr17_RunnerF) = {
     }
 };
 
-TRAINER_MONS(R15Tr18_RocketGrunt) = {
+static const struct TrainerMon sParty_R15Tr18_RocketGrunt[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4418,7 +4418,7 @@ TRAINER_MONS(R15Tr18_RocketGrunt) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R23_TR1_BREEDER_M) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR1_BREEDER_M[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4436,7 +4436,7 @@ TRAINER_MONS(TRAINER_R23_TR1_BREEDER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR2_MANIAC) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR2_MANIAC[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4444,7 +4444,7 @@ TRAINER_MONS(TRAINER_R23_TR2_MANIAC) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR3_TWINS) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR3_TWINS[] = {
     {
     IVS_ALL(7),
     .lvl = 36,
@@ -4458,7 +4458,7 @@ TRAINER_MONS(TRAINER_R23_TR3_TWINS) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR4_BREEDER_F) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR4_BREEDER_F[] = {
     {
     IVS_ALL(7),
     .lvl = 34,
@@ -4486,7 +4486,7 @@ TRAINER_MONS(TRAINER_R23_TR4_BREEDER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR5_HEXMANIAC_1) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR5_HEXMANIAC_1[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4499,7 +4499,7 @@ TRAINER_MONS(TRAINER_R23_TR5_HEXMANIAC_1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR6_PSYCHIC_M) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR6_PSYCHIC_M[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4508,7 +4508,7 @@ TRAINER_MONS(TRAINER_R23_TR6_PSYCHIC_M) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R23_TR7_HEXMANIAC_2) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR7_HEXMANIAC_2[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4527,7 +4527,7 @@ TRAINER_MONS(TRAINER_R23_TR7_HEXMANIAC_2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR8_TRIATHLETE_F) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR8_TRIATHLETE_F[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4536,7 +4536,7 @@ TRAINER_MONS(TRAINER_R23_TR8_TRIATHLETE_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR9_FISHERMAN) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR9_FISHERMAN[] = {
     {
     IVS_ALL(7),
     .lvl = 35,
@@ -4550,7 +4550,7 @@ TRAINER_MONS(TRAINER_R23_TR9_FISHERMAN) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR10_BATTLEGIRL) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR10_BATTLEGIRL[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4559,7 +4559,7 @@ TRAINER_MONS(TRAINER_R23_TR10_BATTLEGIRL) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R23_TR11_NINJABOY) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR11_NINJABOY[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4567,7 +4567,7 @@ TRAINER_MONS(TRAINER_R23_TR11_NINJABOY) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R23_TR12_ACETRAINER) = {
+static const struct TrainerMon sParty_TRAINER_R23_TR12_ACETRAINER[] = {
     {
     .lvl = 43,
     .species = SPECIES_LUDICOLO,
@@ -4597,7 +4597,7 @@ TRAINER_MONS(TRAINER_R23_TR12_ACETRAINER) = {
     // },
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER1) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER1[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4606,7 +4606,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER1) = {
     }
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER2) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER2[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4621,7 +4621,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER2) = {
     }
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER3) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER3[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4630,7 +4630,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER3) = {
     }
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER4) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER4[] = {
     {
     IVS_ALL(7),
     .lvl = 37,
@@ -4644,7 +4644,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER4) = {
     }
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER5) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER5[] = {
     {
     IVS_ALL(7),
     .lvl = 39,
@@ -4653,7 +4653,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER5) = {
     }
 };
 
-TRAINER_MONS(DRISLEDGEGYM_TRAINER6) = {
+static const struct TrainerMon sParty_DRISLEDGEGYM_TRAINER6[] = {
     {
     IVS_ALL(7),
     .lvl = 38,
@@ -4667,7 +4667,7 @@ TRAINER_MONS(DRISLEDGEGYM_TRAINER6) = {
     }
 };
 
-TRAINER_MONS(TRAINER_LEADER_ACEROLA) = {
+static const struct TrainerMon sParty_TRAINER_LEADER_ACEROLA[] = {
     {
     IVS_ALL(17),
     .lvl = 42,
@@ -4696,7 +4696,7 @@ TRAINER_MONS(TRAINER_LEADER_ACEROLA) = {
     }
 };
 
-TRAINER_MONS(LeaderJasmine) = {
+static const struct TrainerMon sParty_LeaderJasmine[] = {
     {
     .lvl = 40,
     .species = SPECIES_MAGNEMITE,
@@ -4715,7 +4715,7 @@ TRAINER_MONS(LeaderJasmine) = {
     }
 };
 
-TRAINER_MONS(LeaderJasmine2) = {
+static const struct TrainerMon sParty_LeaderJasmine2[] = {
     {
     .lvl = 70,
     .heldItem = ITEM_AMPHAROSITE,
@@ -4724,7 +4724,7 @@ TRAINER_MONS(LeaderJasmine2) = {
     },
 };
 
-TRAINER_MONS(Kasen) = {
+static const struct TrainerMon sParty_Kasen[] = {
     {
     .lvl = 50,
     .species = SPECIES_UMBREON,
@@ -4792,7 +4792,7 @@ TRAINER_MONS(Kasen) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R3_TR1_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR1_SWIMMER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -4806,7 +4806,7 @@ TRAINER_MONS(TRAINER_R3_TR1_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR2_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR2_SWIMMER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -4819,7 +4819,7 @@ TRAINER_MONS(TRAINER_R3_TR2_SWIMMER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR3_SWIMMER_OLDSISTER) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR3_SWIMMER_OLDSISTER[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -4827,7 +4827,7 @@ TRAINER_MONS(TRAINER_R3_TR3_SWIMMER_OLDSISTER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR4_TUBER) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR4_TUBER[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -4835,7 +4835,7 @@ TRAINER_MONS(TRAINER_R3_TR4_TUBER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR5_FISHERMAN) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR5_FISHERMAN[] = {
     {
     IVS_ALL(9),
     .lvl = 36,
@@ -4853,7 +4853,7 @@ TRAINER_MONS(TRAINER_R3_TR5_FISHERMAN) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR6_LANDSWIMMER_1) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR6_LANDSWIMMER_1[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -4862,7 +4862,7 @@ TRAINER_MONS(TRAINER_R3_TR6_LANDSWIMMER_1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR7_LANDSWIMMER_2) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR7_LANDSWIMMER_2[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -4875,7 +4875,7 @@ TRAINER_MONS(TRAINER_R3_TR7_LANDSWIMMER_2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR8_SAILOR) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR8_SAILOR[] = {
     {
     IVS_ALL(9),
     .lvl = 36,
@@ -4893,7 +4893,7 @@ TRAINER_MONS(TRAINER_R3_TR8_SAILOR) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR9_SWIMMER_M1) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR9_SWIMMER_M1[] = {
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -4902,7 +4902,7 @@ TRAINER_MONS(TRAINER_R3_TR9_SWIMMER_M1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR10_SWIMMER_M2) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR10_SWIMMER_M2[] = {
     {
     IVS_ALL(9),
     .lvl = 36,
@@ -4915,7 +4915,7 @@ TRAINER_MONS(TRAINER_R3_TR10_SWIMMER_M2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R3_TR11_SWIMMER_F1) = {
+static const struct TrainerMon sParty_TRAINER_R3_TR11_SWIMMER_F1[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -4929,7 +4929,7 @@ TRAINER_MONS(TRAINER_R3_TR11_SWIMMER_F1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR1_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR1_SWIMMER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 36,
@@ -4947,7 +4947,7 @@ TRAINER_MONS(TRAINER_R9_TR1_SWIMMER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR2_BLACKBELT) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR2_BLACKBELT[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -4962,7 +4962,7 @@ TRAINER_MONS(TRAINER_R9_TR2_BLACKBELT) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR3_BIRDKEEPER) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR3_BIRDKEEPER[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -4975,7 +4975,7 @@ TRAINER_MONS(TRAINER_R9_TR3_BIRDKEEPER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR4_BATTLEGIRL) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR4_BATTLEGIRL[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -4988,7 +4988,7 @@ TRAINER_MONS(TRAINER_R9_TR4_BATTLEGIRL) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR5_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR5_SWIMMER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5005,7 +5005,7 @@ TRAINER_MONS(TRAINER_R9_TR5_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR6_FISHERMAN) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR6_FISHERMAN[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5023,7 +5023,7 @@ TRAINER_MONS(TRAINER_R9_TR6_FISHERMAN) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR7_HIKER) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR7_HIKER[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5038,7 +5038,7 @@ TRAINER_MONS(TRAINER_R9_TR7_HIKER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR8_COLLECTOR) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR8_COLLECTOR[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5051,7 +5051,7 @@ TRAINER_MONS(TRAINER_R9_TR8_COLLECTOR) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR9_SWIMMER_M2) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR9_SWIMMER_M2[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5065,7 +5065,7 @@ TRAINER_MONS(TRAINER_R9_TR9_SWIMMER_M2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R9_TR10_LANDSWIMMER) = {
+static const struct TrainerMon sParty_TRAINER_R9_TR10_LANDSWIMMER[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -5080,7 +5080,7 @@ TRAINER_MONS(TRAINER_R9_TR10_LANDSWIMMER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR1_ACESWIMMER) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR1_ACESWIMMER[] = {
     {
     IVS(15, 15, 15, 0, 15, 15),
     .lvl = 44,
@@ -5111,7 +5111,7 @@ TRAINER_MONS(TRAINER_R10_TR1_ACESWIMMER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR2_SWIMMER_F1) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR2_SWIMMER_F1[] = {
     {
     IVS_SPEED(31, 9),
     EVS_SPEED(120, 0),
@@ -5132,7 +5132,7 @@ TRAINER_MONS(TRAINER_R10_TR2_SWIMMER_F1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR3_FISHERMAN) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR3_FISHERMAN[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -5146,7 +5146,7 @@ TRAINER_MONS(TRAINER_R10_TR3_FISHERMAN) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR4_SWIMMER_M1) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR4_SWIMMER_M1[] = {
     {
     IVS_SPEED(31, 9),
     EVS_SPEED(120, 0),
@@ -5167,7 +5167,7 @@ TRAINER_MONS(TRAINER_R10_TR4_SWIMMER_M1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR5_BLACKBELT) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR5_BLACKBELT[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5175,7 +5175,7 @@ TRAINER_MONS(TRAINER_R10_TR5_BLACKBELT) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR6_HIKER) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR6_HIKER[] = {
     {
     IVS_ALL(9),
     .lvl = 38,
@@ -5190,7 +5190,7 @@ TRAINER_MONS(TRAINER_R10_TR6_HIKER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR7_SWIMMER_F2) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR7_SWIMMER_F2[] = {
     {
     IVS(9, 9, 9, 31, 9, 9),
     EVS( 0, 0, 0, 120, 0, 0),
@@ -5211,7 +5211,7 @@ TRAINER_MONS(TRAINER_R10_TR7_SWIMMER_F2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR8_SWIMMER_M2) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR8_SWIMMER_M2[] = {
     {
     IVS(9, 9, 9, 31, 9, 9),
     EVS( 0, 0, 0, 120, 0, 0),
@@ -5233,7 +5233,7 @@ TRAINER_MONS(TRAINER_R10_TR8_SWIMMER_M2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR9_BATTLEGIRL) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR9_BATTLEGIRL[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -5246,7 +5246,7 @@ TRAINER_MONS(TRAINER_R10_TR9_BATTLEGIRL) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R10_TR10_TUBER_M) = {
+static const struct TrainerMon sParty_TRAINER_R10_TR10_TUBER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -5260,7 +5260,7 @@ TRAINER_MONS(TRAINER_R10_TR10_TUBER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR10_NINJABOY) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR10_NINJABOY[] = {
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -5269,7 +5269,7 @@ TRAINER_MONS(TRAINER_R16_TR10_NINJABOY) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_1) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_1[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -5284,7 +5284,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R16_TR11_EXPERT_F) = {
+static const struct TrainerMon sParty_TRAINER_R16_TR11_EXPERT_F[] = {
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -5297,7 +5297,7 @@ TRAINER_MONS(TRAINER_R16_TR11_EXPERT_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_2) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_2[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -5306,7 +5306,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_3) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_3[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -5321,7 +5321,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_3) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_4) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_4[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -5336,7 +5336,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_4) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_5) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_5[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -5351,7 +5351,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_5) = {
     },
 };
 
-TRAINER_MONS(Maria5) = {
+static const struct TrainerMon sParty_Maria5[] = {
     {
     IVS_ALL(4),
     .lvl = 37,
@@ -5359,7 +5359,7 @@ TRAINER_MONS(Maria5) = {
     }
 };
 
-TRAINER_MONS(Camden) = {
+static const struct TrainerMon sParty_Camden[] = {
     {
     .lvl = 33,
     .species = SPECIES_STARYU,
@@ -5370,7 +5370,7 @@ TRAINER_MONS(Camden) = {
     }
 };
 
-TRAINER_MONS(TRAINER_FACTORY_ROCKET_PETREL) = {
+static const struct TrainerMon sParty_TRAINER_FACTORY_ROCKET_PETREL[] = {
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -5403,7 +5403,7 @@ TRAINER_MONS(TRAINER_FACTORY_ROCKET_PETREL) = {
     },
 };
 
-TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_MAY_BASALEK_TOWN_FIRE[] = {
         {
         IVS_ALL(6),
         .lvl = 44,
@@ -5450,7 +5450,7 @@ TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_WATER) = {
+static const struct TrainerMon sParty_TRAINER_MAY_BASALEK_TOWN_WATER[] = {
     {
         IVS_ALL(8),
         .lvl = 44,
@@ -5497,7 +5497,7 @@ TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_MAY_BASALEK_TOWN_GRASS[] = {
         {
         IVS_ALL(8),
         .lvl = 44,
@@ -5544,7 +5544,7 @@ TRAINER_MONS(TRAINER_MAY_BASALEK_TOWN_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_BASALEK_TOWN_FIRE[] = {
     {
         IVS_ALL(8),
         .lvl = 44,
@@ -5591,7 +5591,7 @@ TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_WATER) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_BASALEK_TOWN_WATER[] = {
     {
         IVS_ALL(8),
         .lvl = 44,
@@ -5638,7 +5638,7 @@ TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_BASALEK_TOWN_GRASS[] = {
     {
         IVS_ALL(8),
         .lvl = 44,
@@ -5685,7 +5685,7 @@ TRAINER_MONS(TRAINER_BRENDAN_BASALEK_TOWN_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R17_TR1_CAMPER_M) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR1_CAMPER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -5693,7 +5693,7 @@ TRAINER_MONS(TRAINER_R17_TR1_CAMPER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR2_PICNICKER1) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR2_PICNICKER1[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5706,7 +5706,7 @@ TRAINER_MONS(TRAINER_R17_TR2_PICNICKER1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR3_PICNICKER2) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR3_PICNICKER2[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5720,7 +5720,7 @@ TRAINER_MONS(TRAINER_R17_TR3_PICNICKER2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR4_MANIAC) = { // ton of confuse + toxic spam
+static const struct TrainerMon sParty_TRAINER_R17_TR4_MANIAC[] = { // ton of confuse + toxic spam
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5735,7 +5735,7 @@ TRAINER_MONS(TRAINER_R17_TR4_MANIAC) = { // ton of confuse + toxic spam
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR5_SCIENTIST) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR5_SCIENTIST[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5750,7 +5750,7 @@ TRAINER_MONS(TRAINER_R17_TR5_SCIENTIST) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR6_HIKER1) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR6_HIKER1[] = {
     {
     .lvl = 38,
     .species = SPECIES_GEODUDE,
@@ -5773,7 +5773,7 @@ TRAINER_MONS(TRAINER_R17_TR6_HIKER1) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R17_TR7_HIKER2) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR7_HIKER2[] = {
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -5787,7 +5787,7 @@ TRAINER_MONS(TRAINER_R17_TR7_HIKER2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R17_TR8_COOLTRAINER) = {
+static const struct TrainerMon sParty_TRAINER_R17_TR8_COOLTRAINER[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5801,7 +5801,7 @@ TRAINER_MONS(TRAINER_R17_TR8_COOLTRAINER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR1_HIKER1) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR1_HIKER1[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5814,7 +5814,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR1_HIKER1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR2_BLACKBELT) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR2_BLACKBELT[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5827,7 +5827,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR2_BLACKBELT) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR3_PICNICKER) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR3_PICNICKER[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5840,7 +5840,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR3_PICNICKER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR4_FIREBREATHER) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR4_FIREBREATHER[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5853,7 +5853,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR4_FIREBREATHER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR5_BLACKBELT2) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR5_BLACKBELT2[] = {
     {
     IVS_ALL(9),
     .lvl = 45,
@@ -5862,7 +5862,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR5_BLACKBELT2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR6_CAMPERM) = { //basaltunnel wild encounters
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR6_CAMPERM[] = { //basaltunnel wild encounters
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -5880,7 +5880,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR6_CAMPERM) = { //basaltunnel wild encounters
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR7_PICNICKER2) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR7_PICNICKER2[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5893,7 +5893,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR7_PICNICKER2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR8_HIKER2) = { //self destructs
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR8_HIKER2[] = { //self destructs
     {
     IVS_ALL(9),
     .lvl = 40,
@@ -5914,7 +5914,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR8_HIKER2) = { //self destructs
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR9_BEAUTY) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR9_BEAUTY[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -5927,7 +5927,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR9_BEAUTY) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2) = { // fire pokemon from tunnels
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR10_FIREBREATHER2[] = { // fire pokemon from tunnels
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -5945,7 +5945,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2) = { // fire pokemon from tu
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR11_HIKER3) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR11_HIKER3[] = {
     {
     IVS_ALL(9),
     .lvl = 44,
@@ -5958,7 +5958,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR11_HIKER3) = {
     },
 };
 
-TRAINER_MONS(TRAINER_BASALTUNNEL_TR12_BROCK) = {
+static const struct TrainerMon sParty_TRAINER_BASALTUNNEL_TR12_BROCK[] = {
     {
     IVS_ALL(17),
     .lvl = 47,
@@ -5987,7 +5987,7 @@ TRAINER_MONS(TRAINER_BASALTUNNEL_TR12_BROCK) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R18_TR1_HIKER1) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR1_HIKER1[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -6001,7 +6001,7 @@ TRAINER_MONS(TRAINER_R18_TR1_HIKER1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR2_RANGER_M) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR2_RANGER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 41,
@@ -6015,7 +6015,7 @@ TRAINER_MONS(TRAINER_R18_TR2_RANGER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR3_KINDLER) = { //one super op mon
+static const struct TrainerMon sParty_TRAINER_R18_TR3_KINDLER[] = { //one super op mon
     {
     IVS_ALL(31),
     EVS(252, 0, 120, 0, 0, 132),
@@ -6026,7 +6026,7 @@ TRAINER_MONS(TRAINER_R18_TR3_KINDLER) = { //one super op mon
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR4_HIKER2) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR4_HIKER2[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -6039,7 +6039,7 @@ TRAINER_MONS(TRAINER_R18_TR4_HIKER2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR5_RANGER_F) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR5_RANGER_F[] = {
     {
     IVS_ALL(9),
     .lvl = 39,
@@ -6058,7 +6058,7 @@ TRAINER_MONS(TRAINER_R18_TR5_RANGER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR6_SCIENTIST) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR6_SCIENTIST[] = {
     {
     IVS_ALL(9),
     .lvl = 44,
@@ -6066,7 +6066,7 @@ TRAINER_MONS(TRAINER_R18_TR6_SCIENTIST) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR7_POKEMANIAC) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR7_POKEMANIAC[] = {
     {
     IVS_ALL(9),
     .lvl = 42,
@@ -6080,7 +6080,7 @@ TRAINER_MONS(TRAINER_R18_TR7_POKEMANIAC) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR8_BREEDER_M) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR8_BREEDER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -6093,7 +6093,7 @@ TRAINER_MONS(TRAINER_R18_TR8_BREEDER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R18_TR9_ACE_TRAINER_M) = {
+static const struct TrainerMon sParty_TRAINER_R18_TR9_ACE_TRAINER_M[] = {
     {
     IVS_ALL(18),
     .lvl = 47,
@@ -6123,7 +6123,7 @@ TRAINER_MONS(TRAINER_R18_TR9_ACE_TRAINER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_LEADER_PRYCE) = {
+static const struct TrainerMon sParty_TRAINER_LEADER_PRYCE[] = {
     {
     IVS_ALL(20),
     .lvl = 51,
@@ -6140,7 +6140,7 @@ TRAINER_MONS(TRAINER_LEADER_PRYCE) = {
     },
 };
 
-TRAINER_MONS(TRAINER_LEADER_BLAINE) = {
+static const struct TrainerMon sParty_TRAINER_LEADER_BLAINE[] = {
     {
     IVS_ALL(20),
     .lvl = 51,
@@ -6165,7 +6165,7 @@ TRAINER_MONS(TRAINER_LEADER_BLAINE) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR1_HIKER1) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR1_HIKER1[] = {
     {
     IVS_ALL(12),
     .lvl = 43,
@@ -6180,7 +6180,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR1_HIKER1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR2_KINDLER1) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR2_KINDLER1[] = {
     {
     IVS_ALL(12),
     .lvl = 43,
@@ -6194,7 +6194,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR2_KINDLER1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR3_SENIOR) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR3_SENIOR[] = {
     {
     IVS_ALL(12),
     .lvl = 45,
@@ -6203,7 +6203,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR3_SENIOR) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR4_JUNIOR) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR4_JUNIOR[] = {
     {
     IVS_ALL(12),
     .lvl = 41,
@@ -6212,7 +6212,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR4_JUNIOR) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR5_RANGER_M) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR5_RANGER_M[] = {
     {
     IVS_ALL(12),
     .lvl = 42,
@@ -6227,7 +6227,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR5_RANGER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR6_RANGER_F) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR6_RANGER_F[] = {
     {
     IVS_ALL(12),
     .lvl = 42,
@@ -6242,7 +6242,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR6_RANGER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR7_MANIAC) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR7_MANIAC[] = {
     {
     IVS_ALL(12),
     .lvl = 39,
@@ -6261,7 +6261,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR7_MANIAC) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR8_COLLECTOR) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR8_COLLECTOR[] = {
     {
     IVS_ALL(12),
     .lvl = 41,
@@ -6275,7 +6275,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR8_COLLECTOR) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR9_KINDLER2) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR9_KINDLER2[] = {
     {
     IVS_ALL(12),
     .lvl = 43,
@@ -6289,7 +6289,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR9_KINDLER2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_FROSTGYM_TR10_RANGER_F2) = {
+static const struct TrainerMon sParty_TRAINER_FROSTGYM_TR10_RANGER_F2[] = {
     {
     IVS_ALL(12),
     .lvl = 43,
@@ -6304,7 +6304,7 @@ TRAINER_MONS(TRAINER_FROSTGYM_TR10_RANGER_F2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_AZURETIDE_CELEBI_TR1) = {
+static const struct TrainerMon sParty_TRAINER_AZURETIDE_CELEBI_TR1[] = {
     {
     IVS_ALL(12),
     .lvl = 51,
@@ -6338,7 +6338,7 @@ TRAINER_MONS(TRAINER_AZURETIDE_CELEBI_TR1) = {
     },
 };
 
-TRAINER_MONS(TRAINER_KAOLISLE_CELEBI_TR2) = {
+static const struct TrainerMon sParty_TRAINER_KAOLISLE_CELEBI_TR2[] = {
     {
     IVS_ALL(12),
     .lvl = 51,
@@ -6373,7 +6373,7 @@ TRAINER_MONS(TRAINER_KAOLISLE_CELEBI_TR2) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R19_TR1_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR1_SWIMMER_F[] = {
     {
     IVS_ALL(10),
     .lvl = 45,
@@ -6382,7 +6382,7 @@ TRAINER_MONS(TRAINER_R19_TR1_SWIMMER_F) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR2_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR2_SWIMMER_M[] = {
     {
     IVS_ALL(12),
     .lvl = 46,
@@ -6391,7 +6391,7 @@ TRAINER_MONS(TRAINER_R19_TR2_SWIMMER_M) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR3_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR3_SWIMMER_M[] = {
     {
     IVS_ALL(10),
     .lvl = 45,
@@ -6406,7 +6406,7 @@ TRAINER_MONS(TRAINER_R19_TR3_SWIMMER_M) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR4_SWIMMER_COUPLE) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR4_SWIMMER_COUPLE[] = {
     {
     IVS_ALL(10),
     .lvl = 46,
@@ -6421,7 +6421,7 @@ TRAINER_MONS(TRAINER_R19_TR4_SWIMMER_COUPLE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR5_SWIMMER_F) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR5_SWIMMER_F[] = {
     {
     IVS_ALL(8),
     .lvl = 42,
@@ -6442,7 +6442,7 @@ TRAINER_MONS(TRAINER_R19_TR5_SWIMMER_F) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R19_TR6_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR6_SWIMMER_M[] = {
     {
     IVS_ALL(9),
     .lvl = 45,
@@ -6459,7 +6459,7 @@ TRAINER_MONS(TRAINER_R19_TR6_SWIMMER_M) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R19_TR7_BLACKBELT) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR7_BLACKBELT[] = {
     {
     IVS_ALL(15),
     .lvl = 49,
@@ -6468,7 +6468,7 @@ TRAINER_MONS(TRAINER_R19_TR7_BLACKBELT) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR8_HIKER) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR8_HIKER[] = {
     {
     IVS_ALL(9),
     .lvl = 43,
@@ -6486,7 +6486,7 @@ TRAINER_MONS(TRAINER_R19_TR8_HIKER) = {
     },
 };
 
-TRAINER_MONS(TRAINER_R19_TR9_PICNICKER) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR9_PICNICKER[] = {
     {
     IVS_ALL(9),
     .lvl = 47,
@@ -6494,7 +6494,7 @@ TRAINER_MONS(TRAINER_R19_TR9_PICNICKER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_R19_TR10_SWIMMER_M) = {
+static const struct TrainerMon sParty_TRAINER_R19_TR10_SWIMMER_M[] = {
     {
     IVS_ALL(12),
     .lvl = 49,
@@ -6503,7 +6503,7 @@ TRAINER_MONS(TRAINER_R19_TR10_SWIMMER_M) = {
     },
 };
 
-TRAINER_MONS(Clarissa) = {
+static const struct TrainerMon sParty_Clarissa[] = {
     {
     .lvl = 28,
     .species = SPECIES_ROSELIA,
@@ -6514,7 +6514,7 @@ TRAINER_MONS(Clarissa) = {
     }
 };
 
-TRAINER_MONS(Angelica) = {
+static const struct TrainerMon sParty_Angelica[] = {
     {
     IVS_ALL(6),
     .lvl = 30,
@@ -6523,7 +6523,7 @@ TRAINER_MONS(Angelica) = {
     }
 };
 
-TRAINER_MONS(Madeline2) = {
+static const struct TrainerMon sParty_Madeline2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 29,
@@ -6532,7 +6532,7 @@ TRAINER_MONS(Madeline2) = {
     }
 };
 
-TRAINER_MONS(Madeline3) = {
+static const struct TrainerMon sParty_Madeline3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 32,
@@ -6541,7 +6541,7 @@ TRAINER_MONS(Madeline3) = {
     }
 };
 
-TRAINER_MONS(Madeline4) = {
+static const struct TrainerMon sParty_Madeline4[] = {
     {
     IVS_ALL(3),
     .lvl = 34,
@@ -6556,7 +6556,7 @@ TRAINER_MONS(Madeline4) = {
     }
 };
 
-TRAINER_MONS(Madeline5) = {
+static const struct TrainerMon sParty_Madeline5[] = {
     {
     IVS_ALL(4),
     .lvl = 37,
@@ -6571,7 +6571,7 @@ TRAINER_MONS(Madeline5) = {
     }
 };
 
-TRAINER_MONS(Beverly) = {
+static const struct TrainerMon sParty_Beverly[] = {
     {
     .lvl = 25,
     .species = SPECIES_WINGULL,
@@ -6582,21 +6582,21 @@ TRAINER_MONS(Beverly) = {
     }
 };
 
-TRAINER_MONS(Imani) = {
+static const struct TrainerMon sParty_Imani[] = {
     {
     .lvl = 26,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(Kyla) = {
+static const struct TrainerMon sParty_Kyla[] = {
     {
     .lvl = 26,
     .species = SPECIES_WAILMER,
     }
 };
 
-TRAINER_MONS(Denise) = {
+static const struct TrainerMon sParty_Denise[] = {
     {
     .lvl = 25,
     .species = SPECIES_WINGULL,
@@ -6607,14 +6607,14 @@ TRAINER_MONS(Denise) = {
     }
 };
 
-TRAINER_MONS(Beth) = {
+static const struct TrainerMon sParty_Beth[] = {
     {
     .lvl = 26,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-TRAINER_MONS(Tara) = {
+static const struct TrainerMon sParty_Tara[] = {
     {
     .lvl = 25,
     .species = SPECIES_HORSEA,
@@ -6625,14 +6625,14 @@ TRAINER_MONS(Tara) = {
     }
 };
 
-TRAINER_MONS(Missy) = {
+static const struct TrainerMon sParty_Missy[] = {
     {
     .lvl = 26,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-TRAINER_MONS(Alice) = {
+static const struct TrainerMon sParty_Alice[] = {
     {
     .lvl = 24,
     .species = SPECIES_GOLDEEN,
@@ -6647,35 +6647,35 @@ TRAINER_MONS(Alice) = {
     }
 };
 
-TRAINER_MONS(Jenny1) = {
+static const struct TrainerMon sParty_Jenny1[] = {
     {
     .lvl = 34,
     .species = SPECIES_WAILMER,
     }
 };
 
-TRAINER_MONS(Grace) = {
+static const struct TrainerMon sParty_Grace[] = {
     {
     .lvl = 34,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(Tanya) = {
+static const struct TrainerMon sParty_Tanya[] = {
     {
     .lvl = 34,
     .species = SPECIES_LUVDISC,
     }
 };
 
-TRAINER_MONS(Sharon) = {
+static const struct TrainerMon sParty_Sharon[] = {
     {
     .lvl = 34,
     .species = SPECIES_SEAKING,
     }
 };
 
-TRAINER_MONS(Nikki) = {
+static const struct TrainerMon sParty_Nikki[] = {
     {
     .lvl = 33,
     .species = SPECIES_MARILL,
@@ -6686,14 +6686,14 @@ TRAINER_MONS(Nikki) = {
     }
 };
 
-TRAINER_MONS(Brenda) = {
+static const struct TrainerMon sParty_Brenda[] = {
     {
     .lvl = 34,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-TRAINER_MONS(Katie) = {
+static const struct TrainerMon sParty_Katie[] = {
     {
     .lvl = 33,
     .species = SPECIES_GOLDEEN,
@@ -6704,28 +6704,28 @@ TRAINER_MONS(Katie) = {
     }
 };
 
-TRAINER_MONS(Susie) = {
+static const struct TrainerMon sParty_Susie[] = {
     {
     .lvl = 34,
     .species = SPECIES_LUVDISC,
     }
 };
 
-TRAINER_MONS(Kara) = {
+static const struct TrainerMon sParty_Kara[] = {
     {
     .lvl = 34,
     .species = SPECIES_SEAKING,
     }
 };
 
-TRAINER_MONS(Dana) = {
+static const struct TrainerMon sParty_Dana[] = {
     {
     .lvl = 34,
     .species = SPECIES_AZUMARILL,
     }
 };
 
-TRAINER_MONS(Sienna) = {
+static const struct TrainerMon sParty_Sienna[] = {
     {
     .lvl = 33,
     .species = SPECIES_LUVDISC,
@@ -6736,7 +6736,7 @@ TRAINER_MONS(Sienna) = {
     }
 };
 
-TRAINER_MONS(Debra) = {
+static const struct TrainerMon sParty_Debra[] = {
     {
     .lvl = 30,
     .species = SPECIES_BEWEAR,
@@ -6744,7 +6744,7 @@ TRAINER_MONS(Debra) = {
     }
 };
 
-TRAINER_MONS(Linda) = {
+static const struct TrainerMon sParty_Linda[] = {
     {
     .lvl = 33,
     .species = SPECIES_HORSEA,
@@ -6755,7 +6755,7 @@ TRAINER_MONS(Linda) = {
     }
 };
 
-TRAINER_MONS(Kaylee) = {
+static const struct TrainerMon sParty_Kaylee[] = {
     {
     .lvl = 34,
     .species = SPECIES_LANTURN,
@@ -6766,7 +6766,7 @@ TRAINER_MONS(Kaylee) = {
     }
 };
 
-TRAINER_MONS(Laurel) = {
+static const struct TrainerMon sParty_Laurel[] = {
     {
     .lvl = 33,
     .species = SPECIES_LUVDISC,
@@ -6777,28 +6777,28 @@ TRAINER_MONS(Laurel) = {
     }
 };
 
-TRAINER_MONS(Carlee) = {
+static const struct TrainerMon sParty_Carlee[] = {
     {
     .lvl = 35,
     .species = SPECIES_SEAKING,
     }
 };
 
-TRAINER_MONS(Jenny2) = {
+static const struct TrainerMon sParty_Jenny2[] = {
     {
     .lvl = 38,
     .species = SPECIES_WAILMER,
     }
 };
 
-TRAINER_MONS(Jenny3) = {
+static const struct TrainerMon sParty_Jenny3[] = {
     {
     .lvl = 41,
     .species = SPECIES_WAILMER,
     }
 };
 
-TRAINER_MONS(Jenny4) = {
+static const struct TrainerMon sParty_Jenny4[] = {
     {
     .lvl = 43,
     .species = SPECIES_STARYU,
@@ -6809,7 +6809,7 @@ TRAINER_MONS(Jenny4) = {
     }
 };
 
-TRAINER_MONS(Jenny5) = {
+static const struct TrainerMon sParty_Jenny5[] = {
     {
     .lvl = 45,
     .species = SPECIES_LUVDISC,
@@ -6824,7 +6824,7 @@ TRAINER_MONS(Jenny5) = {
     }
 };
 
-TRAINER_MONS(Heidi) = {
+static const struct TrainerMon sParty_Heidi[] = {
     {
     .lvl = 22,
     .species = SPECIES_SANDSHREW,
@@ -6837,7 +6837,7 @@ TRAINER_MONS(Heidi) = {
     }
 };
 
-TRAINER_MONS(Becky) = {
+static const struct TrainerMon sParty_Becky[] = {
     {
     .lvl = 22,
     .species = SPECIES_SANDSHREW,
@@ -6850,7 +6850,7 @@ TRAINER_MONS(Becky) = {
     }
 };
 
-TRAINER_MONS(Carol) = {
+static const struct TrainerMon sParty_Carol[] = {
     {
     .lvl = 17,
     .species = SPECIES_TAILLOW,
@@ -6861,7 +6861,7 @@ TRAINER_MONS(Carol) = {
     }
 };
 
-TRAINER_MONS(Nancy) = {
+static const struct TrainerMon sParty_Nancy[] = {
     {
     .lvl = 18,
     .species = SPECIES_MARILL,
@@ -6872,7 +6872,7 @@ TRAINER_MONS(Nancy) = {
     }
 };
 
-TRAINER_MONS(Martha) = {
+static const struct TrainerMon sParty_Martha[] = {
     {
     .lvl = 23,
     .species = SPECIES_SKITTY,
@@ -6883,7 +6883,7 @@ TRAINER_MONS(Martha) = {
     }
 };
 
-TRAINER_MONS(Diana1) = {
+static const struct TrainerMon sParty_Diana1[] = {
     {
     .lvl = 19,
     .species = SPECIES_SHROOMISH,
@@ -6898,7 +6898,7 @@ TRAINER_MONS(Diana1) = {
     }
 };
 
-TRAINER_MONS(Cedric) = {
+static const struct TrainerMon sParty_Cedric[] = {
     {
     .lvl = 32,
     .species = SPECIES_WOBBUFFET,
@@ -6906,7 +6906,7 @@ TRAINER_MONS(Cedric) = {
     }
 };
 
-TRAINER_MONS(Irene) = {
+static const struct TrainerMon sParty_Irene[] = {
     {
     .lvl = 17,
     .species = SPECIES_SHROOMISH,
@@ -6917,7 +6917,7 @@ TRAINER_MONS(Irene) = {
     }
 };
 
-TRAINER_MONS(Diana2) = {
+static const struct TrainerMon sParty_Diana2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 25,
@@ -6935,7 +6935,7 @@ TRAINER_MONS(Diana2) = {
     }
 };
 
-TRAINER_MONS(Diana3) = {
+static const struct TrainerMon sParty_Diana3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 28,
@@ -6953,7 +6953,7 @@ TRAINER_MONS(Diana3) = {
     }
 };
 
-TRAINER_MONS(Diana4) = {
+static const struct TrainerMon sParty_Diana4[] = {
     {
     IVS_ALL(3),
     .lvl = 31,
@@ -6971,7 +6971,7 @@ TRAINER_MONS(Diana4) = {
     }
 };
 
-TRAINER_MONS(Diana5) = {
+static const struct TrainerMon sParty_Diana5[] = {
     {
     IVS_ALL(4),
     .lvl = 40,
@@ -6989,7 +6989,7 @@ TRAINER_MONS(Diana5) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv1) = {
+static const struct TrainerMon sParty_AmyAndLiv1[] = {
     {
     .lvl = 15,
     .species = SPECIES_PLUSLE,
@@ -7000,7 +7000,7 @@ TRAINER_MONS(AmyAndLiv1) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv2) = {
+static const struct TrainerMon sParty_AmyAndLiv2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 27,
@@ -7013,7 +7013,7 @@ TRAINER_MONS(AmyAndLiv2) = {
     }
 };
 
-TRAINER_MONS(GinaAndMia1) = {
+static const struct TrainerMon sParty_GinaAndMia1[] = {
     {
     .lvl = 6,
     .species = SPECIES_SEEDOT,
@@ -7024,7 +7024,7 @@ TRAINER_MONS(GinaAndMia1) = {
     }
 };
 
-TRAINER_MONS(MiuAndYuki) = {
+static const struct TrainerMon sParty_MiuAndYuki[] = {
     {
     .lvl = 26,
     .species = SPECIES_BEAUTIFLY,
@@ -7035,7 +7035,7 @@ TRAINER_MONS(MiuAndYuki) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv3) = {
+static const struct TrainerMon sParty_AmyAndLiv3[] = {
     {
     .lvl = 9,
     .species = SPECIES_PLUSLE,
@@ -7046,7 +7046,7 @@ TRAINER_MONS(AmyAndLiv3) = {
     }
 };
 
-TRAINER_MONS(GinaAndMia2) = {
+static const struct TrainerMon sParty_GinaAndMia2[] = {
     {
     .lvl = 10,
     .species = SPECIES_DUSKULL,
@@ -7059,7 +7059,7 @@ TRAINER_MONS(GinaAndMia2) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv4) = {
+static const struct TrainerMon sParty_AmyAndLiv4[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 30,
@@ -7072,7 +7072,7 @@ TRAINER_MONS(AmyAndLiv4) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv5) = {
+static const struct TrainerMon sParty_AmyAndLiv5[] = {
     {
     IVS_ALL(3),
     .lvl = 33,
@@ -7087,7 +7087,7 @@ TRAINER_MONS(AmyAndLiv5) = {
     }
 };
 
-TRAINER_MONS(AmyAndLiv6) = {
+static const struct TrainerMon sParty_AmyAndLiv6[] = {
     {
     IVS_ALL(4),
     .lvl = 36,
@@ -7102,7 +7102,7 @@ TRAINER_MONS(AmyAndLiv6) = {
     }
 };
 
-TRAINER_MONS(Huey) = {
+static const struct TrainerMon sParty_Huey[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 12,
@@ -7115,14 +7115,14 @@ TRAINER_MONS(Huey) = {
     }
 };
 
-TRAINER_MONS(Edmond) = {
+static const struct TrainerMon sParty_Edmond[] = {
     {
     .lvl = 13,
     .species = SPECIES_WINGULL,
     }
 };
 
-TRAINER_MONS(Ernest1) = {
+static const struct TrainerMon sParty_Ernest1[] = {
     {
     .lvl = 33,
     .species = SPECIES_WINGULL,
@@ -7133,7 +7133,7 @@ TRAINER_MONS(Ernest1) = {
     }
 };
 
-TRAINER_MONS(Dwayne) = {
+static const struct TrainerMon sParty_Dwayne[] = {
     {
     .lvl = 11,
     .species = SPECIES_WINGULL,
@@ -7148,7 +7148,7 @@ TRAINER_MONS(Dwayne) = {
     }
 };
 
-TRAINER_MONS(Phillip) = {
+static const struct TrainerMon sParty_Phillip[] = {
     {
     .lvl = 44,
     .species = SPECIES_TENTACRUEL,
@@ -7159,7 +7159,7 @@ TRAINER_MONS(Phillip) = {
     }
 };
 
-TRAINER_MONS(Leonard) = {
+static const struct TrainerMon sParty_Leonard[] = {
     {
     .lvl = 43,
     .species = SPECIES_MACHOP,
@@ -7174,7 +7174,7 @@ TRAINER_MONS(Leonard) = {
     }
 };
 
-TRAINER_MONS(Duncan) = {
+static const struct TrainerMon sParty_Duncan[] = {
     {
     .lvl = 25,
     .species = SPECIES_SPHEAL,
@@ -7185,7 +7185,7 @@ TRAINER_MONS(Duncan) = {
     }
 };
 
-TRAINER_MONS(Ernest2) = {
+static const struct TrainerMon sParty_Ernest2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 36,
@@ -7203,7 +7203,7 @@ TRAINER_MONS(Ernest2) = {
     }
 };
 
-TRAINER_MONS(Ernest3) = {
+static const struct TrainerMon sParty_Ernest3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 39,
@@ -7221,7 +7221,7 @@ TRAINER_MONS(Ernest3) = {
     }
 };
 
-TRAINER_MONS(Ernest4) = {
+static const struct TrainerMon sParty_Ernest4[] = {
     {
     IVS_ALL(3),
     .lvl = 42,
@@ -7239,7 +7239,7 @@ TRAINER_MONS(Ernest4) = {
     }
 };
 
-TRAINER_MONS(Ernest5) = {
+static const struct TrainerMon sParty_Ernest5[] = {
     {
     IVS_ALL(4),
     .lvl = 45,
@@ -7257,7 +7257,7 @@ TRAINER_MONS(Ernest5) = {
     }
 };
 
-TRAINER_MONS(Eli) = {
+static const struct TrainerMon sParty_Eli[] = {
     {
     IVS_ALL(12),
     .lvl = 23,
@@ -7265,7 +7265,7 @@ TRAINER_MONS(Eli) = {
     }
 };
 
-TRAINER_MONS(Annika) = {
+static const struct TrainerMon sParty_Annika[] = {
     {
     IVS_ALL(12),
     .lvl = 39,
@@ -7282,14 +7282,14 @@ TRAINER_MONS(Annika) = {
     }
 };
 
-TRAINER_MONS(Jazmyn) = {
+static const struct TrainerMon sParty_Jazmyn[] = {
     {
     .lvl = 27,
     .species = SPECIES_ABSOL,
     }
 };
 
-TRAINER_MONS(Jonas) = {
+static const struct TrainerMon sParty_Jonas[] = {
     {
     .lvl = 31,
     .species = SPECIES_KOFFING,
@@ -7297,7 +7297,7 @@ TRAINER_MONS(Jonas) = {
     }
 };
 
-TRAINER_MONS(Kayley) = {
+static const struct TrainerMon sParty_Kayley[] = {
     {
     .lvl = 31,
     .species = SPECIES_CASTFORM_NORMAL,
@@ -7305,7 +7305,7 @@ TRAINER_MONS(Kayley) = {
     }
 };
 
-TRAINER_MONS(Auron) = {
+static const struct TrainerMon sParty_Auron[] = {
     {
     .lvl = 33,
     .species = SPECIES_MANECTRIC,
@@ -7316,7 +7316,7 @@ TRAINER_MONS(Auron) = {
     }
 };
 
-TRAINER_MONS(Kelvin) = {
+static const struct TrainerMon sParty_Kelvin[] = {
     {
     IVS_ALL(18),
     .lvl = 33,
@@ -7329,7 +7329,7 @@ TRAINER_MONS(Kelvin) = {
     }
 };
 
-TRAINER_MONS(Marley) = {
+static const struct TrainerMon sParty_Marley[] = {
     {
     IVS_ALL(31),
     .lvl = 34,
@@ -7339,7 +7339,7 @@ TRAINER_MONS(Marley) = {
     }
 };
 
-TRAINER_MONS(Reyna) = {
+static const struct TrainerMon sParty_Reyna[] = {
     {
     IVS_ALL(6),
     .lvl = 33,
@@ -7352,14 +7352,14 @@ TRAINER_MONS(Reyna) = {
     }
 };
 
-TRAINER_MONS(Hudson) = {
+static const struct TrainerMon sParty_Hudson[] = {
     {
     .lvl = 34,
     .species = SPECIES_WAILMER,
     }
 };
 
-TRAINER_MONS(Conor) = {
+static const struct TrainerMon sParty_Conor[] = {
     {
     .lvl = 33,
     .species = SPECIES_CHINCHOU,
@@ -7371,7 +7371,7 @@ TRAINER_MONS(Conor) = {
     }
 };
 
-TRAINER_MONS(Edwin1) = {
+static const struct TrainerMon sParty_Edwin1[] = {
     {
     .lvl = 14,
     .species = SPECIES_LOMBRE,
@@ -7382,7 +7382,7 @@ TRAINER_MONS(Edwin1) = {
     }
 };
 
-TRAINER_MONS(Hector) = {
+static const struct TrainerMon sParty_Hector[] = {
     {
     .lvl = 18,
     .species = SPECIES_ZANGOOSE,
@@ -7393,7 +7393,7 @@ TRAINER_MONS(Hector) = {
     }
 };
 
-TRAINER_MONS(TabithaMossdeep) = {
+static const struct TrainerMon sParty_TabithaMossdeep[] = {
     {
     IVS_ALL(18),
     .lvl = 5,
@@ -7411,7 +7411,7 @@ TRAINER_MONS(TabithaMossdeep) = {
     },
 };
 
-TRAINER_MONS(Edwin2) = {
+static const struct TrainerMon sParty_Edwin2[] = {
     {
     .lvl = 26,
     .species = SPECIES_LOMBRE,
@@ -7422,7 +7422,7 @@ TRAINER_MONS(Edwin2) = {
     }
 };
 
-TRAINER_MONS(Edwin3) = {
+static const struct TrainerMon sParty_Edwin3[] = {
     {
     .lvl = 29,
     .species = SPECIES_LOMBRE,
@@ -7433,7 +7433,7 @@ TRAINER_MONS(Edwin3) = {
     }
 };
 
-TRAINER_MONS(Edwin4) = {
+static const struct TrainerMon sParty_Edwin4[] = {
     {
     .lvl = 32,
     .species = SPECIES_LOMBRE,
@@ -7444,7 +7444,7 @@ TRAINER_MONS(Edwin4) = {
     }
 };
 
-TRAINER_MONS(Edwin5) = {
+static const struct TrainerMon sParty_Edwin5[] = {
     {
     .lvl = 35,
     .species = SPECIES_LUDICOLO,
@@ -7455,7 +7455,7 @@ TRAINER_MONS(Edwin5) = {
     }
 };
 
-TRAINER_MONS(WallyVR1) = {
+static const struct TrainerMon sParty_WallyVR1[] = {
     {
     IVS_ALL(18),
     .lvl = 44,
@@ -7488,7 +7488,7 @@ TRAINER_MONS(WallyVR1) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_PRIMROSE_MEADOW_GRASS[] = {
     {
     .lvl = 5,
     .species = SPECIES_ROWLET,
@@ -7498,7 +7498,7 @@ TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_CORALGROVE_ELEVATOR_GRASS[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7535,7 +7535,7 @@ TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_PRIMROSE_MEADOW_FIRE[] = {
     {
     .lvl = 5,
     .species = SPECIES_TORCHIC,
@@ -7545,7 +7545,7 @@ TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_CORALGROVE_ELEVATOR_FIRE[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7582,7 +7582,7 @@ TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_WATER) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_PRIMROSE_MEADOW_WATER[] = {
     {
     .lvl = 5,
     .species = SPECIES_PIPLUP,
@@ -7592,7 +7592,7 @@ TRAINER_MONS(TRAINER_BRENDAN_PRIMROSE_MEADOW_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_WATER) = {
+static const struct TrainerMon sParty_TRAINER_BRENDAN_CORALGROVE_ELEVATOR_WATER[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7628,7 +7628,7 @@ TRAINER_MONS(TRAINER_BRENDAN_CORALGROVE_ELEVATOR_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_MAY_PRIMROSE_MEADOW_GRASS[] = {
     {
     .lvl = 5,
     .species = SPECIES_ROWLET,
@@ -7637,7 +7637,7 @@ TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_GRASS) = {
+static const struct TrainerMon sParty_TRAINER_MAY_CORALGROVE_ELEVATOR_GRASS[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7673,7 +7673,7 @@ TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_GRASS) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_MAY_PRIMROSE_MEADOW_FIRE[] = {
     {
     .lvl = 5,
     .species = SPECIES_TORCHIC,
@@ -7682,7 +7682,7 @@ TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_FIRE) = {
+static const struct TrainerMon sParty_TRAINER_MAY_CORALGROVE_ELEVATOR_FIRE[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7718,7 +7718,7 @@ TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_FIRE) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_WATER) = {
+static const struct TrainerMon sParty_TRAINER_MAY_PRIMROSE_MEADOW_WATER[] = {
     {
     .lvl = 5,
     .species = SPECIES_PIPLUP,
@@ -7727,7 +7727,7 @@ TRAINER_MONS(TRAINER_MAY_PRIMROSE_MEADOW_WATER) = {
     }
 };
 
-TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_WATER) = {
+static const struct TrainerMon sParty_TRAINER_MAY_CORALGROVE_ELEVATOR_WATER[] = {
     // {
     // IVS_ALL(6),
     // .lvl = 12,
@@ -7762,7 +7762,7 @@ TRAINER_MONS(TRAINER_MAY_CORALGROVE_ELEVATOR_WATER) = {
     }
 };
 
-TRAINER_MONS(Isaac1) = {
+static const struct TrainerMon sParty_Isaac1[] = {
     {
     .lvl = 11,
     .species = SPECIES_WHISMUR,
@@ -7789,14 +7789,14 @@ TRAINER_MONS(Isaac1) = {
     }
 };
 
-TRAINER_MONS(Davis) = {
+static const struct TrainerMon sParty_Davis[] = {
     {
     .lvl = 27,
     .species = SPECIES_PINSIR,
     }
 };
 
-TRAINER_MONS(Mitchell) = {
+static const struct TrainerMon sParty_Mitchell[] = {
     {
     .lvl = 43,
     .species = SPECIES_LUNATONE,
@@ -7809,7 +7809,7 @@ TRAINER_MONS(Mitchell) = {
     }
 };
 
-TRAINER_MONS(Isaac2) = {
+static const struct TrainerMon sParty_Isaac2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 22,
@@ -7842,7 +7842,7 @@ TRAINER_MONS(Isaac2) = {
     }
 };
 
-TRAINER_MONS(Isaac3) = {
+static const struct TrainerMon sParty_Isaac3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 25,
@@ -7875,7 +7875,7 @@ TRAINER_MONS(Isaac3) = {
     }
 };
 
-TRAINER_MONS(Isaac4) = {
+static const struct TrainerMon sParty_Isaac4[] = {
     {
     IVS_ALL(3),
     .lvl = 28,
@@ -7908,7 +7908,7 @@ TRAINER_MONS(Isaac4) = {
     }
 };
 
-TRAINER_MONS(Isaac5) = {
+static const struct TrainerMon sParty_Isaac5[] = {
     {
     IVS_ALL(4),
     .lvl = 31,
@@ -7941,7 +7941,7 @@ TRAINER_MONS(Isaac5) = {
     }
 };
 
-TRAINER_MONS(Lydia1) = {
+static const struct TrainerMon sParty_Lydia1[] = {
     {
     .lvl = 11,
     .species = SPECIES_WINGULL,
@@ -7968,7 +7968,7 @@ TRAINER_MONS(Lydia1) = {
     }
 };
 
-TRAINER_MONS(Halle) = {
+static const struct TrainerMon sParty_Halle[] = {
     {
     .lvl = 43,
     .species = SPECIES_SABLEYE,
@@ -7979,14 +7979,14 @@ TRAINER_MONS(Halle) = {
     }
 };
 
-TRAINER_MONS(Garrison) = {
+static const struct TrainerMon sParty_Garrison[] = {
     {
     .lvl = 26,
     .species = SPECIES_SANDSLASH,
     }
 };
 
-TRAINER_MONS(Lydia2) = {
+static const struct TrainerMon sParty_Lydia2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 22,
@@ -8019,7 +8019,7 @@ TRAINER_MONS(Lydia2) = {
     }
 };
 
-TRAINER_MONS(Lydia3) = {
+static const struct TrainerMon sParty_Lydia3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 25,
@@ -8052,7 +8052,7 @@ TRAINER_MONS(Lydia3) = {
     }
 };
 
-TRAINER_MONS(Lydia4) = {
+static const struct TrainerMon sParty_Lydia4[] = {
     {
     IVS_ALL(3),
     .lvl = 28,
@@ -8085,7 +8085,7 @@ TRAINER_MONS(Lydia4) = {
     }
 };
 
-TRAINER_MONS(Lydia5) = {
+static const struct TrainerMon sParty_Lydia5[] = {
     {
     IVS_ALL(4),
     .lvl = 31,
@@ -8118,7 +8118,7 @@ TRAINER_MONS(Lydia5) = {
     }
 };
 
-TRAINER_MONS(Jackson1) = {
+static const struct TrainerMon sParty_Jackson1[] = {
     {
     IVS_ALL(6),
     .lvl = 27,
@@ -8126,7 +8126,7 @@ TRAINER_MONS(Jackson1) = {
     }
 };
 
-TRAINER_MONS(Lorenzo) = {
+static const struct TrainerMon sParty_Lorenzo[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -8144,7 +8144,7 @@ TRAINER_MONS(Lorenzo) = {
     }
 };
 
-TRAINER_MONS(Sebastian) = {
+static const struct TrainerMon sParty_Sebastian[] = {
     {
     IVS_ALL(6),
     .lvl = 39,
@@ -8152,7 +8152,7 @@ TRAINER_MONS(Sebastian) = {
     }
 };
 
-TRAINER_MONS(Jackson2) = {
+static const struct TrainerMon sParty_Jackson2[] = {
     {
     IVS_ALL(7),
     .lvl = 31,
@@ -8160,7 +8160,7 @@ TRAINER_MONS(Jackson2) = {
     }
 };
 
-TRAINER_MONS(Jackson3) = {
+static const struct TrainerMon sParty_Jackson3[] = {
     {
     IVS(8, 8, 8, 8, 8, 8),
     .lvl = 34,
@@ -8168,7 +8168,7 @@ TRAINER_MONS(Jackson3) = {
     }
 };
 
-TRAINER_MONS(Jackson4) = {
+static const struct TrainerMon sParty_Jackson4[] = {
     {
     IVS_ALL(9),
     .lvl = 37,
@@ -8176,7 +8176,7 @@ TRAINER_MONS(Jackson4) = {
     }
 };
 
-TRAINER_MONS(Jackson5) = {
+static const struct TrainerMon sParty_Jackson5[] = {
     {
     IVS_ALL(10),
     .lvl = 39,
@@ -8189,7 +8189,7 @@ TRAINER_MONS(Jackson5) = {
     }
 };
 
-TRAINER_MONS(Catherine1) = {
+static const struct TrainerMon sParty_Catherine1[] = {
     {
     IVS_ALL(6),
     .lvl = 26,
@@ -8202,7 +8202,7 @@ TRAINER_MONS(Catherine1) = {
     }
 };
 
-TRAINER_MONS(Jenna) = {
+static const struct TrainerMon sParty_Jenna[] = {
     {
     IVS_ALL(6),
     .lvl = 28,
@@ -8220,7 +8220,7 @@ TRAINER_MONS(Jenna) = {
     }
 };
 
-TRAINER_MONS(Sophia) = {
+static const struct TrainerMon sParty_Sophia[] = {
     {
     IVS_ALL(6),
     .lvl = 38,
@@ -8233,7 +8233,7 @@ TRAINER_MONS(Sophia) = {
     }
 };
 
-TRAINER_MONS(Catherine2) = {
+static const struct TrainerMon sParty_Catherine2[] = {
     {
     IVS_ALL(7),
     .lvl = 30,
@@ -8246,7 +8246,7 @@ TRAINER_MONS(Catherine2) = {
     }
 };
 
-TRAINER_MONS(Catherine3) = {
+static const struct TrainerMon sParty_Catherine3[] = {
     {
     IVS(8, 8, 8, 8, 8, 8),
     .lvl = 33,
@@ -8259,7 +8259,7 @@ TRAINER_MONS(Catherine3) = {
     }
 };
 
-TRAINER_MONS(Catherine4) = {
+static const struct TrainerMon sParty_Catherine4[] = {
     {
     IVS_ALL(9),
     .lvl = 36,
@@ -8272,7 +8272,7 @@ TRAINER_MONS(Catherine4) = {
     }
 };
 
-TRAINER_MONS(Catherine5) = {
+static const struct TrainerMon sParty_Catherine5[] = {
     {
     IVS_ALL(10),
     .lvl = 39,
@@ -8285,14 +8285,14 @@ TRAINER_MONS(Catherine5) = {
     }
 };
 
-TRAINER_MONS(Julio) = {
+static const struct TrainerMon sParty_Julio[] = {
     {
     .lvl = 21,
     .species = SPECIES_MAGNEMITE,
     }
 };
 
-TRAINER_MONS(GruntSeafloorCavern5) = {
+static const struct TrainerMon sParty_GruntSeafloorCavern5[] = {
     {
     IVS_ALL(6),
     .lvl = 35,
@@ -8305,7 +8305,7 @@ TRAINER_MONS(GruntSeafloorCavern5) = {
     }
 };
 
-TRAINER_MONS(GruntUnused) = {
+static const struct TrainerMon sParty_GruntUnused[] = {
     {
     .lvl = 31,
     .species = SPECIES_WAILMER,
@@ -8316,7 +8316,7 @@ TRAINER_MONS(GruntUnused) = {
     }
 };
 
-TRAINER_MONS(GruntMtPyre4) = {
+static const struct TrainerMon sParty_GruntMtPyre4[] = {
     {
     .lvl = 30,
     .species = SPECIES_WAILMER,
@@ -8327,7 +8327,7 @@ TRAINER_MONS(GruntMtPyre4) = {
     }
 };
 
-TRAINER_MONS(GruntJaggedPass) = {
+static const struct TrainerMon sParty_GruntJaggedPass[] = {
     {
     IVS_ALL(6),
     .lvl = 22,
@@ -8340,7 +8340,7 @@ TRAINER_MONS(GruntJaggedPass) = {
     }
 };
 
-TRAINER_MONS(Marc) = {
+static const struct TrainerMon sParty_Marc[] = {
     {
     IVS_ALL(14),
     .lvl = 8,
@@ -8353,7 +8353,7 @@ TRAINER_MONS(Marc) = {
     }
 };
 
-TRAINER_MONS(Brenden) = {
+static const struct TrainerMon sParty_Brenden[] = {
     {
     IVS_ALL(12),
     .lvl = 13,
@@ -8361,7 +8361,7 @@ TRAINER_MONS(Brenden) = {
     }
 };
 
-TRAINER_MONS(Lilith) = {
+static const struct TrainerMon sParty_Lilith[] = {
     {
     IVS_ALL(18),
     .lvl = 13,
@@ -8369,7 +8369,7 @@ TRAINER_MONS(Lilith) = {
     }
 };
 
-TRAINER_MONS(Cristian) = {
+static const struct TrainerMon sParty_Cristian[] = {
     {
     IVS(24, 24, 24, 24, 24, 24),
     .lvl = 13,
@@ -8377,7 +8377,7 @@ TRAINER_MONS(Cristian) = {
     }
 };
 
-TRAINER_MONS(Sylvia) = {
+static const struct TrainerMon sParty_Sylvia[] = {
     {
     IVS_ALL(12),
     .lvl = 36,
@@ -8385,14 +8385,14 @@ TRAINER_MONS(Sylvia) = {
     }
 };
 
-TRAINER_MONS(Leonardo) = {
+static const struct TrainerMon sParty_Leonardo[] = {
     {
     .lvl = 34,
     .species = SPECIES_CARVANHA,
     }
 };
 
-TRAINER_MONS(Athena) = {
+static const struct TrainerMon sParty_Athena[] = {
     {
     IVS_ALL(12),
     .lvl = 32,
@@ -8409,35 +8409,35 @@ TRAINER_MONS(Athena) = {
     }
 };
 
-TRAINER_MONS(Harrison) = {
+static const struct TrainerMon sParty_Harrison[] = {
     {
     .lvl = 35,
     .species = SPECIES_TENTACRUEL,
     }
 };
 
-TRAINER_MONS(GruntMtChimney2) = {
+static const struct TrainerMon sParty_GruntMtChimney2[] = {
     {
     .lvl = 20,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(Clarence) = {
+static const struct TrainerMon sParty_Clarence[] = {
     {
     .lvl = 34,
     .species = SPECIES_SHARPEDO,
     }
 };
 
-TRAINER_MONS(Terry) = {
+static const struct TrainerMon sParty_Terry[] = {
     {
     .lvl = 37,
     .species = SPECIES_GIRAFARIG,
     }
 };
 
-TRAINER_MONS(Nate) = {
+static const struct TrainerMon sParty_Nate[] = {
     {
     IVS_ALL(12),
     .lvl = 36,
@@ -8445,7 +8445,7 @@ TRAINER_MONS(Nate) = {
     }
 };
 
-TRAINER_MONS(Kathleen) = {
+static const struct TrainerMon sParty_Kathleen[] = {
     {
     IVS_ALL(12),
     .lvl = 36,
@@ -8453,21 +8453,21 @@ TRAINER_MONS(Kathleen) = {
     }
 };
 
-TRAINER_MONS(Clifford) = {
+static const struct TrainerMon sParty_Clifford[] = {
     {
     .lvl = 36,
     .species = SPECIES_GIRAFARIG,
     }
 };
 
-TRAINER_MONS(Nicholas) = {
+static const struct TrainerMon sParty_Nicholas[] = {
     {
     .lvl = 36,
     .species = SPECIES_WOBBUFFET,
     }
 };
 
-TRAINER_MONS(GruntSpaceCenter3) = {
+static const struct TrainerMon sParty_GruntSpaceCenter3[] = {
     {
     .lvl = 31,
     .species = SPECIES_ZUBAT,
@@ -8478,42 +8478,42 @@ TRAINER_MONS(GruntSpaceCenter3) = {
     }
 };
 
-TRAINER_MONS(GruntSpaceCenter4) = {
+static const struct TrainerMon sParty_GruntSpaceCenter4[] = {
     {
     .lvl = 32,
     .species = SPECIES_BALTOY,
     }
 };
 
-TRAINER_MONS(GruntSpaceCenter5) = {
+static const struct TrainerMon sParty_GruntSpaceCenter5[] = {
     {
     .lvl = 32,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(GruntSpaceCenter6) = {
+static const struct TrainerMon sParty_GruntSpaceCenter6[] = {
     {
     .lvl = 32,
     .species = SPECIES_MIGHTYENA,
     }
 };
 
-TRAINER_MONS(GruntSpaceCenter7) = {
+static const struct TrainerMon sParty_GruntSpaceCenter7[] = {
     {
     .lvl = 32,
     .species = SPECIES_BALTOY,
     }
 };
 
-TRAINER_MONS(Macey) = {
+static const struct TrainerMon sParty_Macey[] = {
     {
     .lvl = 36,
     .species = SPECIES_NATU,
     }
 };
 
-TRAINER_MONS(Paxton) = {
+static const struct TrainerMon sParty_Paxton[] = {
     {
     .lvl = 33,
     .species = SPECIES_SWELLOW,
@@ -8524,14 +8524,14 @@ TRAINER_MONS(Paxton) = {
     }
 };
 
-TRAINER_MONS(Isabella) = {
+static const struct TrainerMon sParty_Isabella[] = {
     {
     .lvl = 34,
     .species = SPECIES_STARYU,
     }
 };
 
-TRAINER_MONS(GruntWeatherInst5) = {
+static const struct TrainerMon sParty_GruntWeatherInst5[] = {
     {
     .lvl = 27,
     .species = SPECIES_ZUBAT,
@@ -8542,7 +8542,7 @@ TRAINER_MONS(GruntWeatherInst5) = {
     }
 };
 
-TRAINER_MONS(TabithaMtChimney) = {
+static const struct TrainerMon sParty_TabithaMtChimney[] = {
     {
     IVS_ALL(6),
     .lvl = 18,
@@ -8565,7 +8565,7 @@ TRAINER_MONS(TabithaMtChimney) = {
     }
 };
 
-TRAINER_MONS(Jonathan) = {
+static const struct TrainerMon sParty_Jonathan[] = {
     {
     .lvl = 33,
     .species = SPECIES_KECLEON,
@@ -8576,7 +8576,7 @@ TRAINER_MONS(Jonathan) = {
     }
 };
 
-TRAINER_MONS(MaxieMagmaHideout) = {
+static const struct TrainerMon sParty_MaxieMagmaHideout[] = {
     {
     IVS_ALL(18),
     .lvl = 37,
@@ -8594,7 +8594,7 @@ TRAINER_MONS(MaxieMagmaHideout) = {
     }
 };
 
-TRAINER_MONS(MaxieMtChimney) = {
+static const struct TrainerMon sParty_MaxieMtChimney[] = {
     {
     IVS_ALL(18),
     .lvl = 24,
@@ -8612,7 +8612,7 @@ TRAINER_MONS(MaxieMtChimney) = {
     }
 };
 
-TRAINER_MONS(Tiana) = {
+static const struct TrainerMon sParty_Tiana[] = {
     {
     .lvl = 4,
     .species = SPECIES_ZIGZAGOON,
@@ -8623,7 +8623,7 @@ TRAINER_MONS(Tiana) = {
     }
 };
 
-TRAINER_MONS(Haley1) = {
+static const struct TrainerMon sParty_Haley1[] = {
     {
     .lvl = 6,
     .species = SPECIES_LOTAD,
@@ -8634,14 +8634,14 @@ TRAINER_MONS(Haley1) = {
     }
 };
 
-TRAINER_MONS(Janice) = {
+static const struct TrainerMon sParty_Janice[] = {
     {
     .lvl = 9,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(Vivi) = {
+static const struct TrainerMon sParty_Vivi[] = {
     {
     IVS_ALL(12),
     .lvl = 15,
@@ -8659,7 +8659,7 @@ TRAINER_MONS(Vivi) = {
     }
 };
 
-TRAINER_MONS(Haley2) = {
+static const struct TrainerMon sParty_Haley2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 26,
@@ -8672,7 +8672,7 @@ TRAINER_MONS(Haley2) = {
     }
 };
 
-TRAINER_MONS(Haley3) = {
+static const struct TrainerMon sParty_Haley3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 29,
@@ -8685,7 +8685,7 @@ TRAINER_MONS(Haley3) = {
     }
 };
 
-TRAINER_MONS(Haley4) = {
+static const struct TrainerMon sParty_Haley4[] = {
     {
     IVS_ALL(3),
     .lvl = 32,
@@ -8698,7 +8698,7 @@ TRAINER_MONS(Haley4) = {
     }
 };
 
-TRAINER_MONS(Haley5) = {
+static const struct TrainerMon sParty_Haley5[] = {
     {
     IVS_ALL(4),
     .lvl = 34,
@@ -8716,14 +8716,14 @@ TRAINER_MONS(Haley5) = {
     }
 };
 
-TRAINER_MONS(Sally) = {
+static const struct TrainerMon sParty_Sally[] = {
     {
     .lvl = 16,
     .species = SPECIES_ODDISH,
     }
 };
 
-TRAINER_MONS(Robin) = {
+static const struct TrainerMon sParty_Robin[] = {
     {
     .lvl = 14,
     .species = SPECIES_SKITTY,
@@ -8738,7 +8738,7 @@ TRAINER_MONS(Robin) = {
     }
 };
 
-TRAINER_MONS(Andrea) = {
+static const struct TrainerMon sParty_Andrea[] = {
     {
     IVS_ALL(12),
     .lvl = 40,
@@ -8746,7 +8746,7 @@ TRAINER_MONS(Andrea) = {
     }
 };
 
-TRAINER_MONS(Crissy) = {
+static const struct TrainerMon sParty_Crissy[] = {
     {
     IVS_ALL(12),
     .lvl = 39,
@@ -8759,7 +8759,7 @@ TRAINER_MONS(Crissy) = {
     }
 };
 
-TRAINER_MONS(Rick) = {
+static const struct TrainerMon sParty_Rick[] = {
     {
     .lvl = 4,
     .species = SPECIES_WURMPLE,
@@ -8770,7 +8770,7 @@ TRAINER_MONS(Rick) = {
     }
 };
 
-TRAINER_MONS(Lyle) = {
+static const struct TrainerMon sParty_Lyle[] = {
     {
     .lvl = 3,
     .species = SPECIES_WURMPLE,
@@ -8789,7 +8789,7 @@ TRAINER_MONS(Lyle) = {
     }
 };
 
-TRAINER_MONS(Jose) = {
+static const struct TrainerMon sParty_Jose[] = {
     {
     IVS_ALL(6),
     .lvl = 8,
@@ -8802,7 +8802,7 @@ TRAINER_MONS(Jose) = {
     }
 };
 
-TRAINER_MONS(Doug) = {
+static const struct TrainerMon sParty_Doug[] = {
     {
     .lvl = 28,
     .species = SPECIES_NINCADA,
@@ -8813,7 +8813,7 @@ TRAINER_MONS(Doug) = {
     }
 };
 
-TRAINER_MONS(Greg) = {
+static const struct TrainerMon sParty_Greg[] = {
     {
     .lvl = 25,
     .species = SPECIES_VOLBEAT,
@@ -8824,14 +8824,14 @@ TRAINER_MONS(Greg) = {
     }
 };
 
-TRAINER_MONS(Kent) = {
+static const struct TrainerMon sParty_Kent[] = {
     {
     .lvl = 25,
     .species = SPECIES_NINJASK,
     }
 };
 
-TRAINER_MONS(James1) = {
+static const struct TrainerMon sParty_James1[] = {
     {
     .lvl = 6,
     .species = SPECIES_NINCADA,
@@ -8842,7 +8842,7 @@ TRAINER_MONS(James1) = {
     }
 };
 
-TRAINER_MONS(James2) = {
+static const struct TrainerMon sParty_James2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 27,
@@ -8850,7 +8850,7 @@ TRAINER_MONS(James2) = {
     }
 };
 
-TRAINER_MONS(James3) = {
+static const struct TrainerMon sParty_James3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 29,
@@ -8863,7 +8863,7 @@ TRAINER_MONS(James3) = {
     }
 };
 
-TRAINER_MONS(James4) = {
+static const struct TrainerMon sParty_James4[] = {
     {
     IVS_ALL(3),
     .lvl = 31,
@@ -8881,7 +8881,7 @@ TRAINER_MONS(James4) = {
     }
 };
 
-TRAINER_MONS(James5) = {
+static const struct TrainerMon sParty_James5[] = {
     {
     IVS_ALL(4),
     .lvl = 33,
@@ -8904,7 +8904,7 @@ TRAINER_MONS(James5) = {
     }
 };
 
-TRAINER_MONS(Brice) = {
+static const struct TrainerMon sParty_Brice[] = {
     {
     .lvl = 17,
     .species = SPECIES_NUMEL,
@@ -8915,7 +8915,7 @@ TRAINER_MONS(Brice) = {
     }
 };
 
-TRAINER_MONS(Trent1) = {
+static const struct TrainerMon sParty_Trent1[] = {
     {
     .lvl = 16,
     .species = SPECIES_GEODUDE,
@@ -8930,7 +8930,7 @@ TRAINER_MONS(Trent1) = {
     }
 };
 
-TRAINER_MONS(Lenny) = {
+static const struct TrainerMon sParty_Lenny[] = {
     {
     .lvl = 18,
     .species = SPECIES_GEODUDE,
@@ -8941,7 +8941,7 @@ TRAINER_MONS(Lenny) = {
     }
 };
 
-TRAINER_MONS(Lucas1) = {
+static const struct TrainerMon sParty_Lucas1[] = {
     {
     .lvl = 18,
     .species = SPECIES_GEODUDE,
@@ -8952,7 +8952,7 @@ TRAINER_MONS(Lucas1) = {
     }
 };
 
-TRAINER_MONS(Alan) = {
+static const struct TrainerMon sParty_Alan[] = {
     {
     .lvl = 22,
     .species = SPECIES_GEODUDE,
@@ -8967,14 +8967,14 @@ TRAINER_MONS(Alan) = {
     }
 };
 
-TRAINER_MONS(Clark) = {
+static const struct TrainerMon sParty_Clark[] = {
     {
     .lvl = 8,
     .species = SPECIES_GEODUDE,
     }
 };
 
-TRAINER_MONS(Eric) = {
+static const struct TrainerMon sParty_Eric[] = {
     {
     .lvl = 20,
     .species = SPECIES_GEODUDE,
@@ -8985,7 +8985,7 @@ TRAINER_MONS(Eric) = {
     }
 };
 
-TRAINER_MONS(Lucas2) = {
+static const struct TrainerMon sParty_Lucas2[] = {
     {
     .lvl = 9,
     .species = SPECIES_WAILMER,
@@ -8993,7 +8993,7 @@ TRAINER_MONS(Lucas2) = {
     }
 };
 
-TRAINER_MONS(Mike1) = {
+static const struct TrainerMon sParty_Mike1[] = {
     {
     .lvl = 10,
     .species = SPECIES_PELIPPER,
@@ -9006,7 +9006,7 @@ TRAINER_MONS(Mike1) = {
     }
 };
 
-TRAINER_MONS(Mike2) = {
+static const struct TrainerMon sParty_Mike2[] = {
     {
     .lvl = 16,
     .species = SPECIES_GEODUDE,
@@ -9021,7 +9021,7 @@ TRAINER_MONS(Mike2) = {
     }
 };
 
-TRAINER_MONS(Trent2) = {
+static const struct TrainerMon sParty_Trent2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 24,
@@ -9044,7 +9044,7 @@ TRAINER_MONS(Trent2) = {
     }
 };
 
-TRAINER_MONS(Trent3) = {
+static const struct TrainerMon sParty_Trent3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 27,
@@ -9067,7 +9067,7 @@ TRAINER_MONS(Trent3) = {
     }
 };
 
-TRAINER_MONS(Trent4) = {
+static const struct TrainerMon sParty_Trent4[] = {
     {
     IVS_ALL(3),
     .lvl = 30,
@@ -9090,7 +9090,7 @@ TRAINER_MONS(Trent4) = {
     }
 };
 
-TRAINER_MONS(Trent5) = {
+static const struct TrainerMon sParty_Trent5[] = {
     {
     IVS_ALL(4),
     .lvl = 33,
@@ -9113,7 +9113,7 @@ TRAINER_MONS(Trent5) = {
     }
 };
 
-TRAINER_MONS(DezAndLuke) = {
+static const struct TrainerMon sParty_DezAndLuke[] = {
     {
     .lvl = 31,
     .species = SPECIES_DELCATTY,
@@ -9124,7 +9124,7 @@ TRAINER_MONS(DezAndLuke) = {
     }
 };
 
-TRAINER_MONS(LeaAndJed) = {
+static const struct TrainerMon sParty_LeaAndJed[] = {
     {
     .lvl = 45,
     .species = SPECIES_LUVDISC,
@@ -9135,7 +9135,7 @@ TRAINER_MONS(LeaAndJed) = {
     }
 };
 
-TRAINER_MONS(KiraAndDan1) = {
+static const struct TrainerMon sParty_KiraAndDan1[] = {
     {
     .lvl = 25,
     .species = SPECIES_VOLBEAT,
@@ -9146,7 +9146,7 @@ TRAINER_MONS(KiraAndDan1) = {
     }
 };
 
-TRAINER_MONS(KiraAndDan2) = {
+static const struct TrainerMon sParty_KiraAndDan2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 30,
@@ -9159,7 +9159,7 @@ TRAINER_MONS(KiraAndDan2) = {
     }
 };
 
-TRAINER_MONS(KiraAndDan3) = {
+static const struct TrainerMon sParty_KiraAndDan3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 33,
@@ -9172,7 +9172,7 @@ TRAINER_MONS(KiraAndDan3) = {
     }
 };
 
-TRAINER_MONS(KiraAndDan4) = {
+static const struct TrainerMon sParty_KiraAndDan4[] = {
     {
     IVS_ALL(3),
     .lvl = 36,
@@ -9185,7 +9185,7 @@ TRAINER_MONS(KiraAndDan4) = {
     }
 };
 
-TRAINER_MONS(KiraAndDan5) = {
+static const struct TrainerMon sParty_KiraAndDan5[] = {
     {
     IVS_ALL(4),
     .lvl = 39,
@@ -9198,14 +9198,14 @@ TRAINER_MONS(KiraAndDan5) = {
     }
 };
 
-TRAINER_MONS(Johanna) = {
+static const struct TrainerMon sParty_Johanna[] = {
     {
     .lvl = 13,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-TRAINER_MONS(Gerald) = {
+static const struct TrainerMon sParty_Gerald[] = {
     {
     IVS_ALL(12),
     .lvl = 23,
@@ -9214,7 +9214,7 @@ TRAINER_MONS(Gerald) = {
     }
 };
 
-TRAINER_MONS(Vivian) = {
+static const struct TrainerMon sParty_Vivian[] = {
     {
     IVS_ALL(12),
     .lvl = 17,
@@ -9229,7 +9229,7 @@ TRAINER_MONS(Vivian) = {
     }
 };
 
-TRAINER_MONS(Danielle) = {
+static const struct TrainerMon sParty_Danielle[] = {
     {
     IVS_ALL(12),
     .lvl = 23,
@@ -9238,7 +9238,7 @@ TRAINER_MONS(Danielle) = {
     }
 };
 
-TRAINER_MONS(Hideo) = {
+static const struct TrainerMon sParty_Hideo[] = {
     {
     .lvl = 25,
     .species = SPECIES_KOFFING,
@@ -9251,7 +9251,7 @@ TRAINER_MONS(Hideo) = {
     }
 };
 
-TRAINER_MONS(Keigo) = {
+static const struct TrainerMon sParty_Keigo[] = {
     {
     .lvl = 28,
     .species = SPECIES_KOFFING,
@@ -9264,7 +9264,7 @@ TRAINER_MONS(Keigo) = {
     }
 };
 
-TRAINER_MONS(Riley) = {
+static const struct TrainerMon sParty_Riley[] = {
     {
     .lvl = 28,
     .species = SPECIES_NINCADA,
@@ -9277,7 +9277,7 @@ TRAINER_MONS(Riley) = {
     }
 };
 
-TRAINER_MONS(Flint) = {
+static const struct TrainerMon sParty_Flint[] = {
     {
     IVS_ALL(18),
     .lvl = 29,
@@ -9290,7 +9290,7 @@ TRAINER_MONS(Flint) = {
     }
 };
 
-TRAINER_MONS(Ashley) = {
+static const struct TrainerMon sParty_Ashley[] = {
     {
     IVS_ALL(12),
     .lvl = 27,
@@ -9308,7 +9308,7 @@ TRAINER_MONS(Ashley) = {
     }
 };
 
-TRAINER_MONS(WallyMauville) = {
+static const struct TrainerMon sParty_WallyMauville[] = {
     {
     IVS_ALL(3),
     .lvl = 16,
@@ -9316,7 +9316,7 @@ TRAINER_MONS(WallyMauville) = {
     }
 };
 
-TRAINER_MONS(WallyVR2) = {
+static const struct TrainerMon sParty_WallyVR2[] = {
     {
     IVS_ALL(18),
     .lvl = 47,
@@ -9349,7 +9349,7 @@ TRAINER_MONS(WallyVR2) = {
     }
 };
 
-TRAINER_MONS(WallyVR3) = {
+static const struct TrainerMon sParty_WallyVR3[] = {
     {
     IVS_ALL(18),
     .lvl = 50,
@@ -9382,7 +9382,7 @@ TRAINER_MONS(WallyVR3) = {
     }
 };
 
-TRAINER_MONS(WallyVR4) = {
+static const struct TrainerMon sParty_WallyVR4[] = {
     {
     IVS_ALL(18),
     .lvl = 53,
@@ -9415,7 +9415,7 @@ TRAINER_MONS(WallyVR4) = {
     }
 };
 
-TRAINER_MONS(WallyVR5) = {
+static const struct TrainerMon sParty_WallyVR5[] = {
     {
     IVS_ALL(18),
     .lvl = 56,
@@ -9448,7 +9448,7 @@ TRAINER_MONS(WallyVR5) = {
     }
 };
 
-TRAINER_MONS(Jonah) = {
+static const struct TrainerMon sParty_Jonah[] = {
     {
     .lvl = 30,
     .species = SPECIES_WAILMER,
@@ -9463,7 +9463,7 @@ TRAINER_MONS(Jonah) = {
     }
 };
 
-TRAINER_MONS(Henry) = {
+static const struct TrainerMon sParty_Henry[] = {
     {
     .lvl = 31,
     .species = SPECIES_CARVANHA,
@@ -9474,7 +9474,7 @@ TRAINER_MONS(Henry) = {
     }
 };
 
-TRAINER_MONS(Roger) = {
+static const struct TrainerMon sParty_Roger[] = {
     {
     .lvl = 15,
     .species = SPECIES_MAGIKARP,
@@ -9489,7 +9489,7 @@ TRAINER_MONS(Roger) = {
     }
 };
 
-TRAINER_MONS(Alexa) = {
+static const struct TrainerMon sParty_Alexa[] = {
     {
     IVS_ALL(12),
     .lvl = 34,
@@ -9502,7 +9502,7 @@ TRAINER_MONS(Alexa) = {
     }
 };
 
-TRAINER_MONS(Ruben) = {
+static const struct TrainerMon sParty_Ruben[] = {
     {
     IVS_ALL(12),
     .lvl = 34,
@@ -9515,14 +9515,14 @@ TRAINER_MONS(Ruben) = {
     }
 };
 
-TRAINER_MONS(Koji1) = {
+static const struct TrainerMon sParty_Koji1[] = {
     {
     .lvl = 34,
     .species = SPECIES_MACHOKE,
     }
 };
 
-TRAINER_MONS(Wayne) = {
+static const struct TrainerMon sParty_Wayne[] = {
     {
     .lvl = 31,
     .species = SPECIES_TENTACOOL,
@@ -9537,7 +9537,7 @@ TRAINER_MONS(Wayne) = {
     }
 };
 
-TRAINER_MONS(Aidan) = {
+static const struct TrainerMon sParty_Aidan[] = {
     {
     .lvl = 32,
     .species = SPECIES_SWELLOW,
@@ -9548,7 +9548,7 @@ TRAINER_MONS(Aidan) = {
     }
 };
 
-TRAINER_MONS(Reed) = {
+static const struct TrainerMon sParty_Reed[] = {
     {
     .lvl = 33,
     .species = SPECIES_SPHEAL,
@@ -9559,14 +9559,14 @@ TRAINER_MONS(Reed) = {
     }
 };
 
-TRAINER_MONS(Tisha) = {
+static const struct TrainerMon sParty_Tisha[] = {
     {
     .lvl = 34,
     .species = SPECIES_CHINCHOU,
     }
 };
 
-TRAINER_MONS(ToriAndTia) = {
+static const struct TrainerMon sParty_ToriAndTia[] = {
     {
     .lvl = 19,
     .species = SPECIES_SPINDA,
@@ -9577,7 +9577,7 @@ TRAINER_MONS(ToriAndTia) = {
     }
 };
 
-TRAINER_MONS(KimAndIris) = {
+static const struct TrainerMon sParty_KimAndIris[] = {
     {
     .lvl = 32,
     .species = SPECIES_SWABLU,
@@ -9590,7 +9590,7 @@ TRAINER_MONS(KimAndIris) = {
     }
 };
 
-TRAINER_MONS(TyraAndIvy) = {
+static const struct TrainerMon sParty_TyraAndIvy[] = {
     {
     .lvl = 18,
     .species = SPECIES_ROSELIA,
@@ -9603,7 +9603,7 @@ TRAINER_MONS(TyraAndIvy) = {
     }
 };
 
-TRAINER_MONS(MelAndPaul) = {
+static const struct TrainerMon sParty_MelAndPaul[] = {
     {
     .lvl = 27,
     .species = SPECIES_DUSTOX,
@@ -9616,7 +9616,7 @@ TRAINER_MONS(MelAndPaul) = {
     }
 };
 
-TRAINER_MONS(JohnAndJay1) = {
+static const struct TrainerMon sParty_JohnAndJay1[] = {
     {
     IVS(24, 24, 24, 24, 24, 24),
     .lvl = 39,
@@ -9631,7 +9631,7 @@ TRAINER_MONS(JohnAndJay1) = {
     }
 };
 
-TRAINER_MONS(JohnAndJay2) = {
+static const struct TrainerMon sParty_JohnAndJay2[] = {
     {
     IVS_ALL(25),
     .lvl = 43,
@@ -9646,7 +9646,7 @@ TRAINER_MONS(JohnAndJay2) = {
     }
 };
 
-TRAINER_MONS(JohnAndJay3) = {
+static const struct TrainerMon sParty_JohnAndJay3[] = {
     {
     IVS(26, 26, 26, 26, 26, 26),
     .lvl = 46,
@@ -9661,7 +9661,7 @@ TRAINER_MONS(JohnAndJay3) = {
     }
 };
 
-TRAINER_MONS(JohnAndJay4) = {
+static const struct TrainerMon sParty_JohnAndJay4[] = {
     {
     IVS(27, 27, 27, 27, 27, 27),
     .lvl = 49,
@@ -9676,7 +9676,7 @@ TRAINER_MONS(JohnAndJay4) = {
     }
 };
 
-TRAINER_MONS(JohnAndJay5) = {
+static const struct TrainerMon sParty_JohnAndJay5[] = {
     {
     IVS(29, 29, 29, 29, 29, 29),
     .lvl = 52,
@@ -9691,7 +9691,7 @@ TRAINER_MONS(JohnAndJay5) = {
     }
 };
 
-TRAINER_MONS(ReliAndIan) = {
+static const struct TrainerMon sParty_ReliAndIan[] = {
     {
     .lvl = 35,
     .species = SPECIES_AZUMARILL,
@@ -9702,7 +9702,7 @@ TRAINER_MONS(ReliAndIan) = {
     }
 };
 
-TRAINER_MONS(LilaAndRoy1) = {
+static const struct TrainerMon sParty_LilaAndRoy1[] = {
     {
     .lvl = 34,
     .species = SPECIES_CHINCHOU,
@@ -9713,7 +9713,7 @@ TRAINER_MONS(LilaAndRoy1) = {
     }
 };
 
-TRAINER_MONS(LilaAndRoy2) = {
+static const struct TrainerMon sParty_LilaAndRoy2[] = {
     {
     .lvl = 42,
     .species = SPECIES_CHINCHOU,
@@ -9724,7 +9724,7 @@ TRAINER_MONS(LilaAndRoy2) = {
     }
 };
 
-TRAINER_MONS(LilaAndRoy3) = {
+static const struct TrainerMon sParty_LilaAndRoy3[] = {
     {
     .lvl = 45,
     .species = SPECIES_LANTURN,
@@ -9735,7 +9735,7 @@ TRAINER_MONS(LilaAndRoy3) = {
     }
 };
 
-TRAINER_MONS(LilaAndRoy4) = {
+static const struct TrainerMon sParty_LilaAndRoy4[] = {
     {
     .lvl = 48,
     .species = SPECIES_LANTURN,
@@ -9746,7 +9746,7 @@ TRAINER_MONS(LilaAndRoy4) = {
     }
 };
 
-TRAINER_MONS(LilaAndRoy5) = {
+static const struct TrainerMon sParty_LilaAndRoy5[] = {
     {
     .lvl = 51,
     .species = SPECIES_LANTURN,
@@ -9757,7 +9757,7 @@ TRAINER_MONS(LilaAndRoy5) = {
     }
 };
 
-TRAINER_MONS(LisaAndRay) = {
+static const struct TrainerMon sParty_LisaAndRay[] = {
     {
     .lvl = 27,
     .species = SPECIES_GOLDEEN,
@@ -9768,7 +9768,7 @@ TRAINER_MONS(LisaAndRay) = {
     }
 };
 
-TRAINER_MONS(Chris) = {
+static const struct TrainerMon sParty_Chris[] = {
     {
     .lvl = 29,
     .species = SPECIES_MAGIKARP,
@@ -9787,7 +9787,7 @@ TRAINER_MONS(Chris) = {
     }
 };
 
-TRAINER_MONS(Dawson) = {
+static const struct TrainerMon sParty_Dawson[] = {
     {
     .lvl = 8,
     .species = SPECIES_ZIGZAGOON,
@@ -9800,7 +9800,7 @@ TRAINER_MONS(Dawson) = {
     }
 };
 
-TRAINER_MONS(Sarah) = {
+static const struct TrainerMon sParty_Sarah[] = {
     {
     .lvl = 8,
     .species = SPECIES_LOTAD,
@@ -9813,21 +9813,21 @@ TRAINER_MONS(Sarah) = {
     }
 };
 
-TRAINER_MONS(Darian) = {
+static const struct TrainerMon sParty_Darian[] = {
     {
     .lvl = 9,
     .species = SPECIES_MAGIKARP,
     }
 };
 
-TRAINER_MONS(Hailey) = {
+static const struct TrainerMon sParty_Hailey[] = {
     {
     .lvl = 13,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(Chandler) = {
+static const struct TrainerMon sParty_Chandler[] = {
     {
     .lvl = 12,
     .species = SPECIES_TENTACOOL,
@@ -9838,7 +9838,7 @@ TRAINER_MONS(Chandler) = {
     }
 };
 
-TRAINER_MONS(Kaleb) = {
+static const struct TrainerMon sParty_Kaleb[] = {
     {
     .lvl = 14,
     .species = SPECIES_MINUN,
@@ -9851,7 +9851,7 @@ TRAINER_MONS(Kaleb) = {
     }
 };
 
-TRAINER_MONS(Joseph) = {
+static const struct TrainerMon sParty_Joseph[] = {
     {
     .lvl = 14,
     .species = SPECIES_ELECTRIKE,
@@ -9862,14 +9862,14 @@ TRAINER_MONS(Joseph) = {
     }
 };
 
-TRAINER_MONS(Alyssa) = {
+static const struct TrainerMon sParty_Alyssa[] = {
     {
     .lvl = 15,
     .species = SPECIES_MAGNEMITE,
     }
 };
 
-TRAINER_MONS(Marcos) = {
+static const struct TrainerMon sParty_Marcos[] = {
     {
     IVS_ALL(12),
     .lvl = 15,
@@ -9877,7 +9877,7 @@ TRAINER_MONS(Marcos) = {
     }
 };
 
-TRAINER_MONS(Rhett) = {
+static const struct TrainerMon sParty_Rhett[] = {
     {
     IVS_ALL(12),
     .lvl = 15,
@@ -9885,35 +9885,35 @@ TRAINER_MONS(Rhett) = {
     }
 };
 
-TRAINER_MONS(Tyron) = {
+static const struct TrainerMon sParty_Tyron[] = {
     {
     .lvl = 19,
     .species = SPECIES_SANDSHREW,
     }
 };
 
-TRAINER_MONS(Celina) = {
+static const struct TrainerMon sParty_Celina[] = {
     {
     .lvl = 18,
     .species = SPECIES_ROSELIA,
     }
 };
 
-TRAINER_MONS(Bianca) = {
+static const struct TrainerMon sParty_Bianca[] = {
     {
     .lvl = 18,
     .species = SPECIES_SHROOMISH,
     }
 };
 
-TRAINER_MONS(Hayden) = {
+static const struct TrainerMon sParty_Hayden[] = {
     {
     .lvl = 18,
     .species = SPECIES_NUMEL,
     }
 };
 
-TRAINER_MONS(Sophie) = {
+static const struct TrainerMon sParty_Sophie[] = {
     {
     .lvl = 17,
     .species = SPECIES_MARILL,
@@ -9924,7 +9924,7 @@ TRAINER_MONS(Sophie) = {
     }
 };
 
-TRAINER_MONS(Coby) = {
+static const struct TrainerMon sParty_Coby[] = {
     {
     .lvl = 17,
     .species = SPECIES_SKARMORY,
@@ -9935,7 +9935,7 @@ TRAINER_MONS(Coby) = {
     }
 };
 
-TRAINER_MONS(Lawrence) = {
+static const struct TrainerMon sParty_Lawrence[] = {
     {
     .lvl = 18,
     .species = SPECIES_BALTOY,
@@ -9946,7 +9946,7 @@ TRAINER_MONS(Lawrence) = {
     }
 };
 
-TRAINER_MONS(Wyatt) = {
+static const struct TrainerMon sParty_Wyatt[] = {
     {
     .lvl = 18,
     .species = SPECIES_ARON,
@@ -9957,7 +9957,7 @@ TRAINER_MONS(Wyatt) = {
     }
 };
 
-TRAINER_MONS(Angelina) = {
+static const struct TrainerMon sParty_Angelina[] = {
     {
     .lvl = 18,
     .species = SPECIES_LOMBRE,
@@ -9968,21 +9968,21 @@ TRAINER_MONS(Angelina) = {
     }
 };
 
-TRAINER_MONS(Kai) = {
+static const struct TrainerMon sParty_Kai[] = {
     {
     .lvl = 19,
     .species = SPECIES_BARBOACH,
     }
 };
 
-TRAINER_MONS(Charlotte) = {
+static const struct TrainerMon sParty_Charlotte[] = {
     {
     .lvl = 19,
     .species = SPECIES_NUZLEAF,
     }
 };
 
-TRAINER_MONS(Deandre) = {
+static const struct TrainerMon sParty_Deandre[] = {
     {
     .lvl = 14,
     .species = SPECIES_ZIGZAGOON,
@@ -9997,28 +9997,28 @@ TRAINER_MONS(Deandre) = {
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout1) = {
+static const struct TrainerMon sParty_GruntMagmaHideout1[] = {
     {
     .lvl = 29,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout2) = {
+static const struct TrainerMon sParty_GruntMagmaHideout2[] = {
     {
     .lvl = 29,
     .species = SPECIES_POOCHYENA,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout3) = {
+static const struct TrainerMon sParty_GruntMagmaHideout3[] = {
     {
     .lvl = 29,
     .species = SPECIES_NUMEL,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout4) = {
+static const struct TrainerMon sParty_GruntMagmaHideout4[] = {
     {
     .lvl = 28,
     .species = SPECIES_BALTOY,
@@ -10029,7 +10029,7 @@ TRAINER_MONS(GruntMagmaHideout4) = {
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout5) = {
+static const struct TrainerMon sParty_GruntMagmaHideout5[] = {
     {
     .lvl = 28,
     .species = SPECIES_BALTOY,
@@ -10040,84 +10040,84 @@ TRAINER_MONS(GruntMagmaHideout5) = {
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout6) = {
+static const struct TrainerMon sParty_GruntMagmaHideout6[] = {
     {
     .lvl = 29,
     .species = SPECIES_MIGHTYENA,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout7) = {
+static const struct TrainerMon sParty_GruntMagmaHideout7[] = {
     {
     .lvl = 29,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout8) = {
+static const struct TrainerMon sParty_GruntMagmaHideout8[] = {
     {
     .lvl = 29,
     .species = SPECIES_POOCHYENA,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout9) = {
+static const struct TrainerMon sParty_GruntMagmaHideout9[] = {
     {
     .lvl = 29,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout10) = {
+static const struct TrainerMon sParty_GruntMagmaHideout10[] = {
     {
     .lvl = 29,
     .species = SPECIES_MIGHTYENA,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout11) = {
+static const struct TrainerMon sParty_GruntMagmaHideout11[] = {
     {
     .lvl = 29,
     .species = SPECIES_BALTOY,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout12) = {
+static const struct TrainerMon sParty_GruntMagmaHideout12[] = {
     {
     .lvl = 29,
     .species = SPECIES_NUMEL,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout13) = {
+static const struct TrainerMon sParty_GruntMagmaHideout13[] = {
     {
     .lvl = 29,
     .species = SPECIES_ZUBAT,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout14) = {
+static const struct TrainerMon sParty_GruntMagmaHideout14[] = {
     {
     .lvl = 29,
     .species = SPECIES_MIGHTYENA,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout15) = {
+static const struct TrainerMon sParty_GruntMagmaHideout15[] = {
     {
     .lvl = 29,
     .species = SPECIES_NUMEL,
     }
 };
 
-TRAINER_MONS(GruntMagmaHideout16) = {
+static const struct TrainerMon sParty_GruntMagmaHideout16[] = {
     {
     .lvl = 29,
     .species = SPECIES_BALTOY,
     }
 };
 
-TRAINER_MONS(TabithaMagmaHideout) = {
+static const struct TrainerMon sParty_TabithaMagmaHideout[] = {
     {
     IVS_ALL(9),
     .lvl = 26,
@@ -10140,7 +10140,7 @@ TRAINER_MONS(TabithaMagmaHideout) = {
     }
 };
 
-TRAINER_MONS(Darcy) = {
+static const struct TrainerMon sParty_Darcy[] = {
     {
     .lvl = 33,
     .species = SPECIES_PELIPPER,
@@ -10151,7 +10151,7 @@ TRAINER_MONS(Darcy) = {
     }
 };
 
-TRAINER_MONS(MaxieMossdeep) = {
+static const struct TrainerMon sParty_MaxieMossdeep[] = {
     {
     IVS_ALL(18),
     .lvl = 5,
@@ -10169,21 +10169,21 @@ TRAINER_MONS(MaxieMossdeep) = {
     },
 };
 
-TRAINER_MONS(Pete) = {
+static const struct TrainerMon sParty_Pete[] = {
     {
     .lvl = 15,
     .species = SPECIES_TENTACOOL,
     }
 };
 
-TRAINER_MONS(Isabelle) = {
+static const struct TrainerMon sParty_Isabelle[] = {
     {
     .lvl = 15,
     .species = SPECIES_MARILL,
     }
 };
 
-TRAINER_MONS(Andres1) = {
+static const struct TrainerMon sParty_Andres1[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -10196,7 +10196,7 @@ TRAINER_MONS(Andres1) = {
     }
 };
 
-TRAINER_MONS(Josue) = {
+static const struct TrainerMon sParty_Josue[] = {
     {
     IVS_ALL(6),
     .lvl = 25,
@@ -10209,14 +10209,14 @@ TRAINER_MONS(Josue) = {
     }
 };
 
-TRAINER_MONS(Camron) = {
+static const struct TrainerMon sParty_Camron[] = {
     {
     .lvl = 26,
     .species = SPECIES_STARYU,
     }
 };
 
-TRAINER_MONS(Cory1) = {
+static const struct TrainerMon sParty_Cory1[] = {
     {
     .lvl = 24,
     .species = SPECIES_WINGULL,
@@ -10231,7 +10231,7 @@ TRAINER_MONS(Cory1) = {
     }
 };
 
-TRAINER_MONS(Carolina) = {
+static const struct TrainerMon sParty_Carolina[] = {
     {
     IVS_ALL(6),
     .lvl = 24,
@@ -10249,7 +10249,7 @@ TRAINER_MONS(Carolina) = {
     }
 };
 
-TRAINER_MONS(Elijah) = {
+static const struct TrainerMon sParty_Elijah[] = {
     {
     .lvl = 25,
     .species = SPECIES_SKARMORY,
@@ -10260,7 +10260,7 @@ TRAINER_MONS(Elijah) = {
     }
 };
 
-TRAINER_MONS(Celia) = {
+static const struct TrainerMon sParty_Celia[] = {
     {
     .lvl = 22,
     .species = SPECIES_MARILL,
@@ -10271,7 +10271,7 @@ TRAINER_MONS(Celia) = {
     }
 };
 
-TRAINER_MONS(Bryan) = {
+static const struct TrainerMon sParty_Bryan[] = {
     {
     .lvl = 22,
     .species = SPECIES_SANDSHREW,
@@ -10282,7 +10282,7 @@ TRAINER_MONS(Bryan) = {
     }
 };
 
-TRAINER_MONS(Branden) = {
+static const struct TrainerMon sParty_Branden[] = {
     {
     .lvl = 22,
     .species = SPECIES_TAILLOW,
@@ -10293,7 +10293,7 @@ TRAINER_MONS(Branden) = {
     }
 };
 
-TRAINER_MONS(Bryant) = {
+static const struct TrainerMon sParty_Bryant[] = {
     {
     .lvl = 18,
     .species = SPECIES_NUMEL,
@@ -10304,7 +10304,7 @@ TRAINER_MONS(Bryant) = {
     }
 };
 
-TRAINER_MONS(Shayla) = {
+static const struct TrainerMon sParty_Shayla[] = {
     {
     .lvl = 18,
     .species = SPECIES_SHROOMISH,
@@ -10315,7 +10315,7 @@ TRAINER_MONS(Shayla) = {
     }
 };
 
-TRAINER_MONS(Kyra) = {
+static const struct TrainerMon sParty_Kyra[] = {
     {
     .lvl = 26,
     .species = SPECIES_DODUO,
@@ -10326,7 +10326,7 @@ TRAINER_MONS(Kyra) = {
     }
 };
 
-TRAINER_MONS(Jaiden) = {
+static const struct TrainerMon sParty_Jaiden[] = {
     {
     .lvl = 26,
     .species = SPECIES_NINJASK,
@@ -10337,7 +10337,7 @@ TRAINER_MONS(Jaiden) = {
     }
 };
 
-TRAINER_MONS(Alix) = {
+static const struct TrainerMon sParty_Alix[] = {
     {
     .lvl = 26,
     .species = SPECIES_KADABRA,
@@ -10348,7 +10348,7 @@ TRAINER_MONS(Alix) = {
     }
 };
 
-TRAINER_MONS(Helene) = {
+static const struct TrainerMon sParty_Helene[] = {
     {
     .lvl = 26,
     .species = SPECIES_MEDITITE,
@@ -10359,7 +10359,7 @@ TRAINER_MONS(Helene) = {
     }
 };
 
-TRAINER_MONS(Marlene) = {
+static const struct TrainerMon sParty_Marlene[] = {
     {
     .lvl = 18,
     .species = SPECIES_MEDITITE,
@@ -10370,7 +10370,7 @@ TRAINER_MONS(Marlene) = {
     }
 };
 
-TRAINER_MONS(Devan) = {
+static const struct TrainerMon sParty_Devan[] = {
     {
     .lvl = 8,
     .species = SPECIES_GEODUDE,
@@ -10381,7 +10381,7 @@ TRAINER_MONS(Devan) = {
     }
 };
 
-TRAINER_MONS(Johnson) = {
+static const struct TrainerMon sParty_Johnson[] = {
     {
     .lvl = 8,
     .species = SPECIES_SHROOMISH,
@@ -10392,28 +10392,28 @@ TRAINER_MONS(Johnson) = {
     }
 };
 
-TRAINER_MONS(Melina) = {
+static const struct TrainerMon sParty_Melina[] = {
     {
     .lvl = 17,
     .species = SPECIES_DODUO,
     }
 };
 
-TRAINER_MONS(Brandi) = {
+static const struct TrainerMon sParty_Brandi[] = {
     {
     .lvl = 17,
     .species = SPECIES_RALTS,
     }
 };
 
-TRAINER_MONS(Aisha) = {
+static const struct TrainerMon sParty_Aisha[] = {
     {
     .lvl = 17,
     .species = SPECIES_MEDITITE,
     }
 };
 
-TRAINER_MONS(Makayla) = {
+static const struct TrainerMon sParty_Makayla[] = {
     {
     .lvl = 33,
     .species = SPECIES_ROSELIA,
@@ -10424,14 +10424,14 @@ TRAINER_MONS(Makayla) = {
     }
 };
 
-TRAINER_MONS(Fabian) = {
+static const struct TrainerMon sParty_Fabian[] = {
     {
     .lvl = 26,
     .species = SPECIES_MANECTRIC,
     }
 };
 
-TRAINER_MONS(Dayton) = {
+static const struct TrainerMon sParty_Dayton[] = {
     {
     .lvl = 25,
     .species = SPECIES_SLUGMA,
@@ -10442,14 +10442,14 @@ TRAINER_MONS(Dayton) = {
     }
 };
 
-TRAINER_MONS(Rachel) = {
+static const struct TrainerMon sParty_Rachel[] = {
     {
     .lvl = 26,
     .species = SPECIES_GOLDEEN,
     }
 };
 
-TRAINER_MONS(Leonel) = {
+static const struct TrainerMon sParty_Leonel[] = {
     {
     IVS_ALL(12),
     .lvl = 30,
@@ -10458,7 +10458,7 @@ TRAINER_MONS(Leonel) = {
     }
 };
 
-TRAINER_MONS(Callie) = {
+static const struct TrainerMon sParty_Callie[] = {
     {
     .lvl = 28,
     .species = SPECIES_MEDITITE,
@@ -10469,7 +10469,7 @@ TRAINER_MONS(Callie) = {
     }
 };
 
-TRAINER_MONS(Cale) = {
+static const struct TrainerMon sParty_Cale[] = {
     {
     .lvl = 29,
     .species = SPECIES_DUSTOX,
@@ -10480,7 +10480,7 @@ TRAINER_MONS(Cale) = {
     }
 };
 
-TRAINER_MONS(Myles) = {
+static const struct TrainerMon sParty_Myles[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 25,
@@ -10513,7 +10513,7 @@ TRAINER_MONS(Myles) = {
     }
 };
 
-TRAINER_MONS(Pat) = {
+static const struct TrainerMon sParty_Pat[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 25,
@@ -10546,7 +10546,7 @@ TRAINER_MONS(Pat) = {
     }
 };
 
-TRAINER_MONS(Cristin1) = {
+static const struct TrainerMon sParty_Cristin1[] = {
     {
     IVS_ALL(12),
     .lvl = 29,
@@ -10559,7 +10559,7 @@ TRAINER_MONS(Cristin1) = {
     }
 };
 
-TRAINER_MONS(Roxanne2) = {
+static const struct TrainerMon sParty_Roxanne2[] = {
     {
     IVS_ALL(31),
     .lvl = 32,
@@ -10590,7 +10590,7 @@ TRAINER_MONS(Roxanne2) = {
     }
 };
 
-TRAINER_MONS(Roxanne3) = {
+static const struct TrainerMon sParty_Roxanne3[] = {
     {
     IVS_ALL(31),
     .lvl = 37,
@@ -10628,7 +10628,7 @@ TRAINER_MONS(Roxanne3) = {
     }
 };
 
-TRAINER_MONS(Roxanne4) = {
+static const struct TrainerMon sParty_Roxanne4[] = {
     {
     IVS_ALL(31),
     .lvl = 42,
@@ -10666,7 +10666,7 @@ TRAINER_MONS(Roxanne4) = {
     }
 };
 
-TRAINER_MONS(Roxanne5) = {
+static const struct TrainerMon sParty_Roxanne5[] = {
     {
     IVS_ALL(31),
     .lvl = 47,
@@ -10711,7 +10711,7 @@ TRAINER_MONS(Roxanne5) = {
     }
 };
 
-TRAINER_MONS(Brawly2) = {
+static const struct TrainerMon sParty_Brawly2[] = {
     {
     IVS_ALL(31),
     .lvl = 33,
@@ -10742,7 +10742,7 @@ TRAINER_MONS(Brawly2) = {
     }
 };
 
-TRAINER_MONS(Brawly3) = {
+static const struct TrainerMon sParty_Brawly3[] = {
     {
     IVS_ALL(31),
     .lvl = 38,
@@ -10773,7 +10773,7 @@ TRAINER_MONS(Brawly3) = {
     }
 };
 
-TRAINER_MONS(Brawly4) = {
+static const struct TrainerMon sParty_Brawly4[] = {
     {
     IVS_ALL(31),
     .lvl = 40,
@@ -10811,7 +10811,7 @@ TRAINER_MONS(Brawly4) = {
     }
 };
 
-TRAINER_MONS(Brawly5) = {
+static const struct TrainerMon sParty_Brawly5[] = {
     {
     IVS_ALL(31),
     .lvl = 46,
@@ -10856,7 +10856,7 @@ TRAINER_MONS(Brawly5) = {
     }
 };
 
-TRAINER_MONS(Wattson2) = {
+static const struct TrainerMon sParty_Wattson2[] = {
     {
     IVS_ALL(31),
     .lvl = 36,
@@ -10887,7 +10887,7 @@ TRAINER_MONS(Wattson2) = {
     }
 };
 
-TRAINER_MONS(Wattson3) = {
+static const struct TrainerMon sParty_Wattson3[] = {
     {
     IVS_ALL(31),
     .lvl = 39,
@@ -10925,7 +10925,7 @@ TRAINER_MONS(Wattson3) = {
     }
 };
 
-TRAINER_MONS(Wattson4) = {
+static const struct TrainerMon sParty_Wattson4[] = {
     {
     IVS_ALL(31),
     .lvl = 44,
@@ -10963,7 +10963,7 @@ TRAINER_MONS(Wattson4) = {
     }
 };
 
-TRAINER_MONS(Wattson5) = {
+static const struct TrainerMon sParty_Wattson5[] = {
     {
     IVS_ALL(31),
     .lvl = 50,
@@ -11008,7 +11008,7 @@ TRAINER_MONS(Wattson5) = {
     }
 };
 
-TRAINER_MONS(Flannery2) = {
+static const struct TrainerMon sParty_Flannery2[] = {
     {
     IVS_ALL(31),
     .lvl = 38,
@@ -11039,7 +11039,7 @@ TRAINER_MONS(Flannery2) = {
     }
 };
 
-TRAINER_MONS(Flannery3) = {
+static const struct TrainerMon sParty_Flannery3[] = {
     {
     IVS_ALL(31),
     .lvl = 41,
@@ -11077,7 +11077,7 @@ TRAINER_MONS(Flannery3) = {
     }
 };
 
-TRAINER_MONS(Flannery4) = {
+static const struct TrainerMon sParty_Flannery4[] = {
     {
     IVS_ALL(31),
     .lvl = 46,
@@ -11122,7 +11122,7 @@ TRAINER_MONS(Flannery4) = {
     }
 };
 
-TRAINER_MONS(Flannery5) = {
+static const struct TrainerMon sParty_Flannery5[] = {
     {
     IVS_ALL(31),
     .lvl = 51,
@@ -11167,7 +11167,7 @@ TRAINER_MONS(Flannery5) = {
     }
 };
 
-TRAINER_MONS(Norman2) = {
+static const struct TrainerMon sParty_Norman2[] = {
     {
     IVS_ALL(31),
     .lvl = 42,
@@ -11198,7 +11198,7 @@ TRAINER_MONS(Norman2) = {
     }
 };
 
-TRAINER_MONS(Norman3) = {
+static const struct TrainerMon sParty_Norman3[] = {
     {
     IVS_ALL(31),
     .lvl = 47,
@@ -11236,7 +11236,7 @@ TRAINER_MONS(Norman3) = {
     }
 };
 
-TRAINER_MONS(Norman4) = {
+static const struct TrainerMon sParty_Norman4[] = {
     {
     IVS_ALL(31),
     .lvl = 52,
@@ -11274,7 +11274,7 @@ TRAINER_MONS(Norman4) = {
     }
 };
 
-TRAINER_MONS(Norman5) = {
+static const struct TrainerMon sParty_Norman5[] = {
     {
     IVS_ALL(31),
     .lvl = 57,
@@ -11319,7 +11319,7 @@ TRAINER_MONS(Norman5) = {
     }
 };
 
-TRAINER_MONS(Winona2) = {
+static const struct TrainerMon sParty_Winona2[] = {
     {
     IVS_ALL(31),
     .lvl = 40,
@@ -11357,7 +11357,7 @@ TRAINER_MONS(Winona2) = {
     }
 };
 
-TRAINER_MONS(Winona3) = {
+static const struct TrainerMon sParty_Winona3[] = {
     {
     IVS_ALL(31),
     .lvl = 43,
@@ -11402,7 +11402,7 @@ TRAINER_MONS(Winona3) = {
     }
 };
 
-TRAINER_MONS(Winona4) = {
+static const struct TrainerMon sParty_Winona4[] = {
     {
     IVS_ALL(31),
     .lvl = 48,
@@ -11447,7 +11447,7 @@ TRAINER_MONS(Winona4) = {
     }
 };
 
-TRAINER_MONS(Winona5) = {
+static const struct TrainerMon sParty_Winona5[] = {
     {
     IVS_ALL(31),
     .lvl = 53,
@@ -11492,7 +11492,7 @@ TRAINER_MONS(Winona5) = {
     }
 };
 
-TRAINER_MONS(TateAndLiza2) = {
+static const struct TrainerMon sParty_TateAndLiza2[] = {
     {
     IVS_ALL(31),
     .lvl = 48,
@@ -11530,7 +11530,7 @@ TRAINER_MONS(TateAndLiza2) = {
     }
 };
 
-TRAINER_MONS(TateAndLiza3) = {
+static const struct TrainerMon sParty_TateAndLiza3[] = {
     {
     IVS_ALL(31),
     .lvl = 53,
@@ -11575,7 +11575,7 @@ TRAINER_MONS(TateAndLiza3) = {
     }
 };
 
-TRAINER_MONS(TateAndLiza4) = {
+static const struct TrainerMon sParty_TateAndLiza4[] = {
     {
     IVS_ALL(31),
     .lvl = 58,
@@ -11620,7 +11620,7 @@ TRAINER_MONS(TateAndLiza4) = {
     }
 };
 
-TRAINER_MONS(TateAndLiza5) = {
+static const struct TrainerMon sParty_TateAndLiza5[] = {
     {
     IVS_ALL(31),
     .lvl = 63,
@@ -11665,7 +11665,7 @@ TRAINER_MONS(TateAndLiza5) = {
     }
 };
 
-TRAINER_MONS(Juan2) = {
+static const struct TrainerMon sParty_Juan2[] = {
     {
     IVS_ALL(31),
     .lvl = 46,
@@ -11703,7 +11703,7 @@ TRAINER_MONS(Juan2) = {
     }
 };
 
-TRAINER_MONS(Juan3) = {
+static const struct TrainerMon sParty_Juan3[] = {
     {
     IVS_ALL(31),
     .lvl = 50,
@@ -11741,7 +11741,7 @@ TRAINER_MONS(Juan3) = {
     }
 };
 
-TRAINER_MONS(Juan4) = {
+static const struct TrainerMon sParty_Juan4[] = {
     {
     IVS_ALL(31),
     .lvl = 56,
@@ -11786,7 +11786,7 @@ TRAINER_MONS(Juan4) = {
     }
 };
 
-TRAINER_MONS(Juan5) = {
+static const struct TrainerMon sParty_Juan5[] = {
     {
     IVS_ALL(31),
     .lvl = 61,
@@ -11831,7 +11831,7 @@ TRAINER_MONS(Juan5) = {
     }
 };
 
-TRAINER_MONS(TRAINER_CASUAL_IRIS) = {
+static const struct TrainerMon sParty_TRAINER_CASUAL_IRIS[] = {
     {
     IVS_ALL(18),
     EVS(80, 0, 80, 0, 0, 80),
@@ -11869,7 +11869,7 @@ TRAINER_MONS(TRAINER_CASUAL_IRIS) = {
     }
 };
 
-TRAINER_MONS(Darius) = {
+static const struct TrainerMon sParty_Darius[] = {
     {
     IVS(24, 24, 24, 24, 24, 24),
     .lvl = 30,
@@ -11877,7 +11877,7 @@ TRAINER_MONS(Darius) = {
     }
 };
 
-TRAINER_MONS(Steven) = {
+static const struct TrainerMon sParty_Steven[] = {
     {
     IVS_ALL(12),
     .lvl = 50,
@@ -11887,56 +11887,56 @@ TRAINER_MONS(Steven) = {
     }
 };
 
-TRAINER_MONS(Anabel) = {
+static const struct TrainerMon sParty_Anabel[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Tucker) = {
+static const struct TrainerMon sParty_Tucker[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Spenser) = {
+static const struct TrainerMon sParty_Spenser[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Greta) = {
+static const struct TrainerMon sParty_Greta[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Noland) = {
+static const struct TrainerMon sParty_Noland[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Lucy) = {
+static const struct TrainerMon sParty_Lucy[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Brandon) = {
+static const struct TrainerMon sParty_Brandon[] = {
     {
     .lvl = 5,
     .species = SPECIES_BELDUM,
     }
 };
 
-TRAINER_MONS(Andres2) = {
+static const struct TrainerMon sParty_Andres2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 31,
@@ -11949,7 +11949,7 @@ TRAINER_MONS(Andres2) = {
     }
 };
 
-TRAINER_MONS(Andres3) = {
+static const struct TrainerMon sParty_Andres3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 33,
@@ -11967,7 +11967,7 @@ TRAINER_MONS(Andres3) = {
     }
 };
 
-TRAINER_MONS(Andres4) = {
+static const struct TrainerMon sParty_Andres4[] = {
     {
     IVS_ALL(3),
     .lvl = 35,
@@ -11985,7 +11985,7 @@ TRAINER_MONS(Andres4) = {
     }
 };
 
-TRAINER_MONS(Andres5) = {
+static const struct TrainerMon sParty_Andres5[] = {
     {
     IVS_ALL(4),
     .lvl = 37,
@@ -12003,7 +12003,7 @@ TRAINER_MONS(Andres5) = {
     }
 };
 
-TRAINER_MONS(Cory2) = {
+static const struct TrainerMon sParty_Cory2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 30,
@@ -12021,7 +12021,7 @@ TRAINER_MONS(Cory2) = {
     }
 };
 
-TRAINER_MONS(Cory3) = {
+static const struct TrainerMon sParty_Cory3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 32,
@@ -12039,7 +12039,7 @@ TRAINER_MONS(Cory3) = {
     }
 };
 
-TRAINER_MONS(Cory4) = {
+static const struct TrainerMon sParty_Cory4[] = {
     {
     IVS_ALL(3),
     .lvl = 34,
@@ -12057,7 +12057,7 @@ TRAINER_MONS(Cory4) = {
     }
 };
 
-TRAINER_MONS(Cory5) = {
+static const struct TrainerMon sParty_Cory5[] = {
     {
     IVS_ALL(4),
     .lvl = 36,
@@ -12075,7 +12075,7 @@ TRAINER_MONS(Cory5) = {
     }
 };
 
-TRAINER_MONS(Pablo2) = {
+static const struct TrainerMon sParty_Pablo2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 37,
@@ -12088,7 +12088,7 @@ TRAINER_MONS(Pablo2) = {
     }
 };
 
-TRAINER_MONS(Pablo3) = {
+static const struct TrainerMon sParty_Pablo3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 39,
@@ -12106,7 +12106,7 @@ TRAINER_MONS(Pablo3) = {
     }
 };
 
-TRAINER_MONS(Pablo4) = {
+static const struct TrainerMon sParty_Pablo4[] = {
     {
     IVS_ALL(3),
     .lvl = 41,
@@ -12124,7 +12124,7 @@ TRAINER_MONS(Pablo4) = {
     }
 };
 
-TRAINER_MONS(Pablo5) = {
+static const struct TrainerMon sParty_Pablo5[] = {
     {
     IVS_ALL(4),
     .lvl = 43,
@@ -12142,7 +12142,7 @@ TRAINER_MONS(Pablo5) = {
     }
 };
 
-TRAINER_MONS(Koji2) = {
+static const struct TrainerMon sParty_Koji2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 37,
@@ -12155,7 +12155,7 @@ TRAINER_MONS(Koji2) = {
     }
 };
 
-TRAINER_MONS(Koji3) = {
+static const struct TrainerMon sParty_Koji3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 39,
@@ -12173,7 +12173,7 @@ TRAINER_MONS(Koji3) = {
     }
 };
 
-TRAINER_MONS(Koji4) = {
+static const struct TrainerMon sParty_Koji4[] = {
     {
     IVS_ALL(3),
     .lvl = 41,
@@ -12191,7 +12191,7 @@ TRAINER_MONS(Koji4) = {
     }
 };
 
-TRAINER_MONS(Koji5) = {
+static const struct TrainerMon sParty_Koji5[] = {
     {
     IVS_ALL(4),
     .lvl = 43,
@@ -12209,7 +12209,7 @@ TRAINER_MONS(Koji5) = {
     }
 };
 
-TRAINER_MONS(Cristin2) = {
+static const struct TrainerMon sParty_Cristin2[] = {
     {
     IVS_ALL(13),
     .lvl = 35,
@@ -12222,7 +12222,7 @@ TRAINER_MONS(Cristin2) = {
     }
 };
 
-TRAINER_MONS(Cristin3) = {
+static const struct TrainerMon sParty_Cristin3[] = {
     {
     IVS_ALL(14),
     .lvl = 37,
@@ -12240,7 +12240,7 @@ TRAINER_MONS(Cristin3) = {
     }
 };
 
-TRAINER_MONS(Cristin4) = {
+static const struct TrainerMon sParty_Cristin4[] = {
     {
     IVS(15, 15, 15, 15, 15, 15),
     .lvl = 39,
@@ -12258,7 +12258,7 @@ TRAINER_MONS(Cristin4) = {
     }
 };
 
-TRAINER_MONS(Cristin5) = {
+static const struct TrainerMon sParty_Cristin5[] = {
     {
     IVS_ALL(17),
     .lvl = 41,
@@ -12276,7 +12276,7 @@ TRAINER_MONS(Cristin5) = {
     }
 };
 
-TRAINER_MONS(Fernando2) = {
+static const struct TrainerMon sParty_Fernando2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 35,
@@ -12294,7 +12294,7 @@ TRAINER_MONS(Fernando2) = {
     }
 };
 
-TRAINER_MONS(Fernando3) = {
+static const struct TrainerMon sParty_Fernando3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 37,
@@ -12312,7 +12312,7 @@ TRAINER_MONS(Fernando3) = {
     }
 };
 
-TRAINER_MONS(Fernando4) = {
+static const struct TrainerMon sParty_Fernando4[] = {
     {
     IVS_ALL(3),
     .lvl = 39,
@@ -12330,7 +12330,7 @@ TRAINER_MONS(Fernando4) = {
     }
 };
 
-TRAINER_MONS(Fernando5) = {
+static const struct TrainerMon sParty_Fernando5[] = {
     {
     IVS_ALL(4),
     .lvl = 41,
@@ -12348,7 +12348,7 @@ TRAINER_MONS(Fernando5) = {
     }
 };
 
-TRAINER_MONS(Sawyer2) = {
+static const struct TrainerMon sParty_Sawyer2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 26,
@@ -12361,7 +12361,7 @@ TRAINER_MONS(Sawyer2) = {
     }
 };
 
-TRAINER_MONS(Sawyer3) = {
+static const struct TrainerMon sParty_Sawyer3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 28,
@@ -12379,7 +12379,7 @@ TRAINER_MONS(Sawyer3) = {
     }
 };
 
-TRAINER_MONS(Sawyer4) = {
+static const struct TrainerMon sParty_Sawyer4[] = {
     {
     IVS_ALL(3),
     .lvl = 30,
@@ -12397,7 +12397,7 @@ TRAINER_MONS(Sawyer4) = {
     }
 };
 
-TRAINER_MONS(Sawyer5) = {
+static const struct TrainerMon sParty_Sawyer5[] = {
     {
     IVS_ALL(4),
     .lvl = 33,
@@ -12415,7 +12415,7 @@ TRAINER_MONS(Sawyer5) = {
     }
 };
 
-TRAINER_MONS(Gabrielle2) = {
+static const struct TrainerMon sParty_Gabrielle2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 31,
@@ -12448,7 +12448,7 @@ TRAINER_MONS(Gabrielle2) = {
     }
 };
 
-TRAINER_MONS(Gabrielle3) = {
+static const struct TrainerMon sParty_Gabrielle3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 33,
@@ -12481,7 +12481,7 @@ TRAINER_MONS(Gabrielle3) = {
     }
 };
 
-TRAINER_MONS(Gabrielle4) = {
+static const struct TrainerMon sParty_Gabrielle4[] = {
     {
     IVS_ALL(3),
     .lvl = 35,
@@ -12514,7 +12514,7 @@ TRAINER_MONS(Gabrielle4) = {
     }
 };
 
-TRAINER_MONS(Gabrielle5) = {
+static const struct TrainerMon sParty_Gabrielle5[] = {
     {
     IVS_ALL(4),
     .lvl = 37,
@@ -12547,7 +12547,7 @@ TRAINER_MONS(Gabrielle5) = {
     }
 };
 
-TRAINER_MONS(Thalia2) = {
+static const struct TrainerMon sParty_Thalia2[] = {
     {
     IVS(1, 1, 1, 1, 1, 1),
     .lvl = 34,
@@ -12560,7 +12560,7 @@ TRAINER_MONS(Thalia2) = {
     }
 };
 
-TRAINER_MONS(Thalia3) = {
+static const struct TrainerMon sParty_Thalia3[] = {
     {
     IVS(2, 2, 2, 2, 2, 2),
     .lvl = 36,
@@ -12578,7 +12578,7 @@ TRAINER_MONS(Thalia3) = {
     }
 };
 
-TRAINER_MONS(Thalia4) = {
+static const struct TrainerMon sParty_Thalia4[] = {
     {
     IVS_ALL(3),
     .lvl = 38,
@@ -12596,7 +12596,7 @@ TRAINER_MONS(Thalia4) = {
     }
 };
 
-TRAINER_MONS(Thalia5) = {
+static const struct TrainerMon sParty_Thalia5[] = {
     {
     IVS_ALL(4),
     .lvl = 40,
@@ -12614,14 +12614,14 @@ TRAINER_MONS(Thalia5) = {
     }
 };
 
-TRAINER_MONS(Mariela) = {
+static const struct TrainerMon sParty_Mariela[] = {
     {
     .lvl = 41,
     .species = SPECIES_CHIMECHO,
     }
 };
 
-TRAINER_MONS(Alvaro) = {
+static const struct TrainerMon sParty_Alvaro[] = {
     {
     .lvl = 41,
     .species = SPECIES_BANETTE,
@@ -12632,35 +12632,35 @@ TRAINER_MONS(Alvaro) = {
     }
 };
 
-TRAINER_MONS(Everett) = {
+static const struct TrainerMon sParty_Everett[] = {
     {
     .lvl = 41,
     .species = SPECIES_WOBBUFFET,
     }
 };
 
-TRAINER_MONS(Red) = {
+static const struct TrainerMon sParty_Red[] = {
     {
     .lvl = 5,
     .species = SPECIES_CHARMANDER,
     }
 };
 
-TRAINER_MONS(Leaf) = {
+static const struct TrainerMon sParty_Leaf[] = {
     {
     .lvl = 5,
     .species = SPECIES_BULBASAUR,
     }
 };
 
-TRAINER_MONS(BrendanLinkPlaceholder) = {
+static const struct TrainerMon sParty_BrendanLinkPlaceholder[] = {
     {
     .lvl = 5,
     .species = SPECIES_GROUDON,
     }
 };
 
-TRAINER_MONS(MayLinkPlaceholder) = {
+static const struct TrainerMon sParty_MayLinkPlaceholder[] = {
     {
     .lvl = 5,
     .species = SPECIES_KYOGRE,

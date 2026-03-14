@@ -2,7 +2,7 @@
     .trainerClass = TRAINER_CLASS_BROTHER,                      \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,      \
     .trainerPic = TRAINER_PIC_BROTHER,                          \
-    .trainerName = _("Thomas"),                                 \
+    NAME("Thomas"),                                             \
     .mugshotColor = MUGSHOT_COLOR_BROTHER,                      \
     .isRival = TRUE
 
@@ -10,7 +10,7 @@
     .trainerClass = TRAINER_CLASS_RIVAL,                        \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,      \
     .trainerPic = TRAINER_PIC_BRENDAN,                          \
-    .trainerName = _("Brendan"),                                \
+    NAME("Brendan"),                                            \
     .mugshotColor = MUGSHOT_COLOR_BRENDAN,                      \
     .isRival = TRUE
 
@@ -19,7 +19,7 @@
     .encounterMusic_gender = F_TRAINER_FEMALE |                 \
                              TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
     .trainerPic = TRAINER_PIC_MAY,                              \
-    .trainerName = _("May"),                                    \
+    NAME("May"),                                                \
     .mugshotColor = MUGSHOT_COLOR_MAY,                          \
     .isRival = TRUE
 
@@ -27,12 +27,13 @@
     .trainerClass = TRAINER_CLASS_RIVAL,                                        \
     .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_MALE,   \
     .trainerPic = TRAINER_PIC_LEAF,                                             \
-    .trainerName = _("LEAF"),                                                   \
+    NAME("LEAF"),                                                               \
     .items = {},                                                                \
     .battleType = TRAINER_BATTLE_TYPE_SINGLES,                                  \
     .aiFlags = 0,                                                               \
     TRAINER_PARTY(sParty_Leaf),
 
+#define NAME(name)      .trainerName = _(name)
 #define DUMB_AI         .aiFlags = AI_FLAG_CHECK_BAD_MOVE
 #define BASIC_AI        .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT
 #define ADVANCED_AI     .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY
@@ -108,14 +109,14 @@
     .trainerClass = TRAINER_CLASS_TEAM_ROCKET,                  \
     .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,      \
     .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,                     \
-    .trainerName = _("Grunt")
+    NAME("Grunt")
 
 #define TEAM_ROCKET_F_INFO                                      \
     .trainerClass = TRAINER_CLASS_TEAM_ROCKET,                  \
     .encounterMusic_gender = F_TRAINER_FEMALE |                 \
                              TRAINER_ENCOUNTER_MUSIC_AQUA,      \
     .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,                     \
-    .trainerName = _("Grunt")
+    NAME("Grunt")
 
 #define SCHOOL_KID_M_INFO                                       \
     .trainerClass = TRAINER_CLASS_SCHOOL_KID,                   \
@@ -127,7 +128,7 @@
     .encounterMusic_gender = F_TRAINER_FEMALE |                 \
                              TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
     .trainerPic = TRAINER_PIC_AROMA_LADY,                       \
-    .trainerName = _("Tutor"),                                  \
+    NAME("Tutor"),                                              \
     .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE |     \
     AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING
 
@@ -136,7 +137,7 @@
     .encounterMusic_gender = F_TRAINER_FEMALE |                 \
                              TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
     .trainerPic = TRAINER_PIC_AROMA_LADY,                       \
-    .trainerName = _("Tutor"),                                  \
+    NAME("Tutor"),                                              \
     .aiFlags = AI_FLAG_ACE_POKEMON | AI_FLAG_WILL_SUICIDE |     \
     AI_FLAG_PREFER_STATUS_MOVES | AI_FLAG_SEQUENCE_SWITCHING
 
@@ -525,127 +526,93 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R1_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Calvin"),
-        TRAINER_PARTY(sParty_GruntRusturfTunnel),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Calvin"), 
+        TRAINER_PARTY(sParty_GruntRusturfTunnel)
     },
     [TRAINER_R1_FISHER] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Phil"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Phil"),
         TRAINER_PARTY(sParty_GruntWeatherInst1),
     },
     [TRAINER_R1_BUG_CATCHER] =
     {
-        BUG_CATCHER_INFO,
-        DUMB_AI,
-        .trainerName = _("Dave"),
+        BUG_CATCHER_INFO, DUMB_AI, NAME("Dave"),
         TRAINER_PARTY(sParty_GruntWeatherInst2),
     },
     [TRAINER_R1_TUBER] =
     {
-        TUBER_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Lola"),
+        TUBER_F_INFO, DUMB_AI, NAME("Lola"),
         TRAINER_PARTY(sParty_GruntWeatherInst3),
     },
     [TRAINER_R1_COOLTRAINER] =
     {
-        BW_ACE_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Tom"),
+        BW_ACE_M_INFO, ADVANCED_AI, NAME("Tom"),
         .items = {ITEM_POTION},
         TRAINER_PARTY(sParty_GruntMuseum1),
     },
     [TRAINER_R2_FISHER] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Andrew"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Andrew"),
         TRAINER_PARTY(sParty_GruntMuseum2),
     },
     [TRAINER_R2_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Tiana"),
+        LASS_INFO, DUMB_AI, NAME("Tiana"),
         TRAINER_PARTY(sParty_GruntSpaceCenter1),
     },
     [TRAINER_R2_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        DUMB_AI,
-        .trainerName = _("Zander"),
+        BLACK_BELT_INFO, DUMB_AI, NAME("Zander"),
         TRAINER_PARTY(sParty_GruntMtPyre1),
     },
     [TRAINER_R2_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Billy"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Billy"),
         TRAINER_PARTY(sParty_GruntMtPyre2),
     },
     [TRAINER_R2_SCHOOL_KID_F] =
     {
-        SCHOOL_KID_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Karen"),
+        SCHOOL_KID_F_INFO, DUMB_AI, NAME("Karen"),
         TRAINER_PARTY(sParty_GruntMtPyre3),
     },
     [TRAINER_WW_BUGCATCHER] =
     {
-        BUG_CATCHER_INFO,
-        DUMB_AI,
-        .trainerName = _("Trevor"),
+        BUG_CATCHER_INFO, DUMB_AI, NAME("Trevor"),
         TRAINER_PARTY(sParty_GruntWeatherInst4),
     },
     [TRAINER_WW_LADY] =
     {
-        LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Cindy"),
+        LADY_INFO, DUMB_AI, NAME("Cindy"),
         .items = {ITEM_FULL_RESTORE},
         TRAINER_PARTY(sParty_GruntAquaHideout5),
     },
     [TRAINER_WW_BUGCATCHER_2] =
     {
-        BUG_CATCHER_INFO,
-        DUMB_AI,
-        .trainerName = _("Rick"),
+        BUG_CATCHER_INFO, DUMB_AI, NAME("Rick"),
         TRAINER_PARTY(sParty_GruntAquaHideout6),
     },
 
     [TRAINER_WW_CAMPER] =
     {
-        CAMPER_INFO,
-        DUMB_AI,
-        .trainerName = _("Drew"),
+        CAMPER_INFO, DUMB_AI, NAME("Drew"),
         TRAINER_PARTY(sParty_TRAINER_WW_CAMPER),
     },
 
     [TRAINER_WW_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Haley"),
+        LASS_INFO, DUMB_AI, NAME("Haley"),
         TRAINER_PARTY(sParty_Matt),
     },
 
     [TRAINER_WW_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Josh"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Josh"),
         TRAINER_PARTY(sParty_Zander),
     },
 
     [TRAINER_WW_ACE_TRAINER] =
     {
-        BW_ACE_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Whitney"),
+        BW_ACE_F_INFO, ADVANCED_AI, NAME("Whitney"),
         .items = {ITEM_SUPER_POTION},
         TRAINER_PARTY(sParty_ShellyWeatherInstitute),
     },
@@ -660,32 +627,26 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_SCHOOLHALL_1] =
     {
         SCHOOL_KID_F_INFO,
-        .trainerName = _("Robin"),
+        NAME("Robin"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_PREFER_BATON_PASS,
         TRAINER_PARTY(sParty_Archie),
     },
 
     [TRAINER_SCHOOLHALL_2] =
     {
-        SCHOOL_KID_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Jerry"),
+        SCHOOL_KID_M_INFO, ADVANCED_AI, NAME("Jerry"),
         TRAINER_PARTY(sParty_Leah),
     },
 
     [TRAINER_SCHOOLHALL_3] =
     {
-        SCHOOL_KID_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Ted"),
+        SCHOOL_KID_M_INFO, ADVANCED_AI, NAME("Ted"),
         TRAINER_PARTY(sParty_Daisy),
     },
 
     [TRAINER_SCHOOLHALL_4] =
     {
-        SCHOOL_KID_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Vicky"),
+        SCHOOL_KID_F_INFO, ADVANCED_AI, NAME("Vicky"),
         TRAINER_PARTY(sParty_Rose1),
     },
 
@@ -729,7 +690,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BUG_MANIAC_INFO,
         DUMB_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Brent"),
+        NAME("Brent"),
         TRAINER_PARTY(sParty_Chip),
     },
     [TRAINER_FOSTER] =
@@ -737,7 +698,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         NINJA_BOY_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Yasu"),
+        NAME("Yasu"),
         TRAINER_PARTY(sParty_Foster),
     },
     [TRAINER_DUSTY_2] =
@@ -745,7 +706,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         LASS_INFO,
         DUMB_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Janice"),
+        NAME("Janice"),
         TRAINER_PARTY(sParty_Dusty2),
     },
     [TRAINER_DUSTY_3] =
@@ -753,7 +714,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BUG_CATCHER_INFO,
         DUMB_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Joey"),
+        NAME("Joey"),
         TRAINER_PARTY(sParty_Dusty3),
     },
     [TRAINER_DUSTY_4] =
@@ -761,7 +722,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BUG_CATCHER_INFO,
         DUMB_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Jack"),
+        NAME("Jack"),
         TRAINER_PARTY(sParty_Dusty4),
     },
     [TRAINER_DUSTY_5] =
@@ -769,7 +730,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BUG_CATCHER_INFO,
         DUMB_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Jeremy"),
+        NAME("Jeremy"),
         TRAINER_PARTY(sParty_Dusty5),
     },
     [TRAINER_LEADER_AARON] =
@@ -777,7 +738,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_LEADER_AARON,
-        .trainerName = _("Aaron"),
+        NAME("Aaron"),
         .items = {ITEM_POTION},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_BUG,
@@ -791,114 +752,82 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     },
     [TRAINER_R4_HIKER] =
     {
-        HIKER_INFO,
-        DUMB_AI,
-        .trainerName = _("Flint"),
+        HIKER_INFO, DUMB_AI, NAME("Flint"),
         TRAINER_PARTY(sParty_GabbyAndTy3),
     },
     [TRAINER_UNUSED_54_] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Sydney"),
+        LASS_INFO, DUMB_AI, NAME("Sydney"),
         TRAINER_PARTY(sParty_GabbyAndTy4),
     },
     [TRAINER_R4_POKEMANIAC] =
     {
-        POKEMANIAC_INFO,
-        DUMB_AI,
-        .trainerName = _("Ross"),
+        POKEMANIAC_INFO, DUMB_AI, NAME("Ross"),
         TRAINER_PARTY(sParty_GabbyAndTy5),
     },
     [TRAINER_R4_BUGCATCHER] =
     {
-        BUG_CATCHER_INFO,
-        DUMB_AI,
-        .trainerName = _("Lewis"),
+        BUG_CATCHER_INFO, DUMB_AI, NAME("Lewis"),
         TRAINER_PARTY(sParty_GabbyAndTy6),
     },
     [TRAINER_R4_TWINS] =
     {
-        TWINS_INFO,
-        DUMB_AI,
-        .trainerName = _("Gina & Mia"),
+        TWINS_INFO, DUMB_AI, NAME("Gina & Mia"),
         TRAINER_PARTY(sParty_Lola1),
     },
     [TRAINER_R16_TR1_SWIMMER_M] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Howard"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Howard"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR1_SWIMMER_M),
     },
     [TRAINER_R4_TRIATHLETE] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Ashley"),
+        RUNNING_TRIATHLETE_F_INFO, DUMB_AI, NAME("Ashley"),
         TRAINER_PARTY(sParty_Gwen),
     },
     [TRAINER_R4_CAMPER] =
     {
-        CAMPER_INFO,
-        DUMB_AI,
-        .trainerName = _("Vincent"),
+        CAMPER_INFO, DUMB_AI, NAME("Vincent"),
         TRAINER_PARTY(sParty_Lola2),
     },
     [TRAINER_R4_COOL_F] =
     {
-        BATTLE_GIRL_INFO,
-        DUMB_AI,
-        .trainerName = _("Serena"),
+        BATTLE_GIRL_INFO, DUMB_AI, NAME("Serena"),
         TRAINER_PARTY(sParty_Lola3),
     },
     [TRAINER_R4_COOL_M] =
     {
-        COOLTRAINER_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Marcus"),
+        COOLTRAINER_M_INFO, ADVANCED_AI, NAME("Marcus"),
         TRAINER_PARTY(sParty_Lola4),
     },
     [TRAINER_R4_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        DUMB_AI,
-        .trainerName = _("Cole"),
+        BIRD_KEEPER_INFO, DUMB_AI, NAME("Cole"),
         TRAINER_PARTY(sParty_Lola5),
     },
     [TRAINER_R4_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Zack"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Zack"),
         TRAINER_PARTY(sParty_Ricky1),
     },
     [TRAINER_R4_BIRDKEEPER_2] =
     {
-        BIRD_KEEPER_INFO,
-        DUMB_AI,
-        .trainerName = _("Simon"),
+        BIRD_KEEPER_INFO, DUMB_AI, NAME("Simon"),
         TRAINER_PARTY(sParty_Simon),
     },
     [TRAINER_R4_DOUBLE_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Rose"),
+        LASS_INFO, DUMB_AI, NAME("Rose"),
         TRAINER_PARTY(sParty_Charlie),
     },
     [TRAINER_R4_DOUBLE_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Duncan"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Duncan"),
         TRAINER_PARTY(sParty_Ricky2),
     },
     [TRAINER_R4_TRIATHLETE_2] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Hannah"),
+        RUNNING_TRIATHLETE_F_INFO, DUMB_AI, NAME("Hannah"),
         TRAINER_PARTY(sParty_Ricky3),
     },
     [TRAINER_RICKY_4] =
@@ -923,7 +852,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         COOLTRAINER_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Parker"),
+        NAME("Parker"),
         TRAINER_PARTY(sParty_Parker),
     },
     [TRAINER_GEORGE] =
@@ -931,7 +860,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         GUITARIST_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("George"),
+        NAME("George"),
         TRAINER_PARTY(sParty_George),
     },
     [TRAINER_BERKE] =
@@ -939,7 +868,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_BREEDER_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Alice"),
+        NAME("Alice"),
         TRAINER_PARTY(sParty_Berke),
     },
     [TRAINER_BRAXTON] =
@@ -947,7 +876,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         POKEMANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Braxton"),
+        NAME("Braxton"),
         TRAINER_PARTY(sParty_Braxton),
     },
     [TRAINER_VINCENT] =
@@ -955,7 +884,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         LASS_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Anya"),
+        NAME("Anya"),
         TRAINER_PARTY(sParty_Vincent),
     },
     [TRAINER_LEROY] =
@@ -963,7 +892,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         GUITARIST_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Leroy"),
+        NAME("Leroy"),
         TRAINER_PARTY(sParty_Leroy),
     },
     [TRAINER_WILTON_1] =
@@ -971,7 +900,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BATTLE_GIRL_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Emma"),
+        NAME("Emma"),
         TRAINER_PARTY(sParty_Wilton1),
     },
     [TRAINER_EDGAR] =
@@ -979,7 +908,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_BREEDER_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Sofia"),
+        NAME("Sofia"),
         TRAINER_PARTY(sParty_Edgar),
     },
     [TRAINER_ALBERT] =
@@ -987,7 +916,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SCHOOL_KID_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Avery"),
+        NAME("Avery"),
         TRAINER_PARTY(sParty_Albert),
     },
     [TRAINER_SAMUEL] =
@@ -995,14 +924,12 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         TWINS_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Teri & Tia"),
+        NAME("Teri & Tia"),
         TRAINER_PARTY(sParty_Samuel),
     },
     [TRAINER_VITO] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Vito"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Vito"),
         TRAINER_PARTY(sParty_Vito),
     },
     [TRAINER_OWEN] =
@@ -1010,7 +937,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CAMPER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Owen"),
+        NAME("Owen"),
         TRAINER_PARTY(sParty_Owen),
     },
     [TRAINER_WILTON_2] =
@@ -1018,7 +945,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         LASS_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Naomi"),
+        NAME("Naomi"),
         TRAINER_PARTY(sParty_Wilton2),
     },
     [TRAINER_WILTON_3] =
@@ -1026,7 +953,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         LASS_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Ruby"),
+        NAME("Ruby"),
         TRAINER_PARTY(sParty_Wilton3),
     },
     [TRAINER_WILTON_4] =
@@ -1034,7 +961,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SCHOOL_KID_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Donald"),
+        NAME("Donald"),
         TRAINER_PARTY(sParty_Wilton4),
     },
     [TRAINER_WILTON_5] =
@@ -1042,7 +969,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         GUITARIST_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Wilton"),
+        NAME("Wilton"),
         TRAINER_PARTY(sParty_Wilton5),
     },
     [TRAINER_WARREN] =
@@ -1050,7 +977,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_RANGER_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Warren"),
+        NAME("Warren"),
         TRAINER_PARTY(sParty_Warren),
     },
     [TRAINER_LEADER_VOLKNER] =
@@ -1058,7 +985,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_LEADER_VOLKNER,
-        .trainerName = _("Volkner"),
+        NAME("Volkner"),
         .items = {ITEM_SUPER_POTION, ITEM_SUPER_POTION},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_ELECTRIC,
@@ -1068,105 +995,79 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_WPV_TR1_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Daniel"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Daniel"),
         TRAINER_PARTY(sParty_WpvTr1Birdkeeper),
     },
 
     [TRAINER_WPV_TR2_TRIATH] =
     {
-        RUNNING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Richard"),
+        RUNNING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Richard"),
         TRAINER_PARTY(sParty_WpvTr2Triath),
     },
 
     [TRAINER_WPV_TR3_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("Elizabeth"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("Elizabeth"),
         TRAINER_PARTY(sParty_WpvTr3Battlegirl),
     },
 
     [TRAINER_WPV_TR4_CAMPER] =
     {
-        PICNICKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Samantha"),
+        PICNICKER_INFO, BASIC_AI, NAME("Samantha"),
         TRAINER_PARTY(sParty_WpvTr4Camper),
     },
 
     [TRAINER_WPV_TR5_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Matthew"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Matthew"),
         TRAINER_PARTY(sParty_WpvTr5Birdkeeper),
     },
 
     [TRAINER_WPV_TR6_MANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Rodney"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Rodney"),
         TRAINER_PARTY(sParty_WpvTr6Maniac),
     },
 
     [TRAINER_WPV_TR7_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Cameron"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Cameron"),
         TRAINER_PARTY(sParty_WpvTr7Birdkeeper),
     },
 
     [TRAINER_WPV_TR8_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Eli"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Eli"),
         TRAINER_PARTY(sParty_WpvTr8Ninjaboy),
     },
 
     [TRAINER_WPV_TR9_LASS] =
     {
-        LASS_INFO,
-        BASIC_AI,
-        .trainerName = _("Jennifer"),
+        LASS_INFO, BASIC_AI, NAME("Jennifer"),
         TRAINER_PARTY(sParty_WpvTr9Lass),
     },
 
     [TRAINER_WPV_TR10_TRIATH] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Chloe"),
+        RUNNING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Chloe"),
         TRAINER_PARTY(sParty_WpvTr10Triath),
     },
 
     [TRAINER_WPV_TR11_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Nicholas"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Nicholas"),
         TRAINER_PARTY(sParty_WpvTr11Birdkeeper),
     },
 
     [TRAINER_WPV_TR12_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("Camille"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("Camille"),
         TRAINER_PARTY(sParty_WpvTr12Battlegirl),
     },
 
     [TRAINER_WPV_TR13_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Jonas"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Jonas"),
         TRAINER_PARTY(sParty_WpvTr13Birdkeeper),
     },
 
@@ -1175,7 +1076,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_ELITE_SKYLA,
-        .trainerName = _("Skyla"),
+        NAME("Skyla"),
         .mugshotColor = MUGSHOT_COLOR_FLYING,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -1185,119 +1086,93 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R28_TR1_BUGCATCHER] =
     {
         BUG_CATCHER_INFO,
-        .trainerName = _("Dylan"),
+        NAME("Dylan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_ACE_POKEMON | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R28_Tr1_BugCatcher),
     },
 
     [TRAINER_R28_TR2_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Bruce"),
+        HIKER_INFO, BASIC_AI, NAME("Bruce"),
         TRAINER_PARTY(sParty_R28_Tr2_Hiker),
     },
 
     [TRAINER_R28_TR3_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Grant"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Grant"),
         TRAINER_PARTY(sParty_R28_Tr3_NinjaBoy),
     },
 
     [TRAINER_R28_TR4_PSYCHIC] =
     {
-        PSYCHIC_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Joseph"),
+        PSYCHIC_M_INFO, BASIC_AI, NAME("Joseph"),
         TRAINER_PARTY(sParty_R28_Tr4_Psychic),
     },
 
     [TRAINER_R5_TR1_FISHER] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Don"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Don"),
         TRAINER_PARTY(sParty_R5Tr1_Fisher),
     },
 
     [TRAINER_R5_TR2_BEAUTY] =
     {
-        BEAUTY_INFO,
-        DUMB_AI,
-        .trainerName = _("Natasha"),
+        BEAUTY_INFO, DUMB_AI, NAME("Natasha"),
         TRAINER_PARTY(sParty_R5Tr2_Beauty),
     },
 
     [TRAINER_R5_TR3_YOUNGCOUPLE] =
     {
-        YOUNG_COUPLE_INFO,
-        BASIC_AI,
-        .trainerName = _("Ella & Evan"),
+        YOUNG_COUPLE_INFO, BASIC_AI, NAME("Ella & Evan"),
         TRAINER_PARTY(sParty_R5Tr3_YoungCouple),
     },
 
     [TRAINER_R5_TR4_LASS1] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Valerie"),
+        LASS_INFO, DUMB_AI, NAME("Valerie"),
         TRAINER_PARTY(sParty_R5Tr4_Lass1),
     },
 
     [TRAINER_R5_TR5_POKEFAN_F] =
     {
-        POKEFAN_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Carol"),
+        POKEFAN_F_INFO, BASIC_AI, NAME("Carol"),
         TRAINER_PARTY(sParty_R5Tr5_PokeFanF),
     },
 
     [TRAINER_R5_TR6_LASS2] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Vera"),
+        LASS_INFO, DUMB_AI, NAME("Vera"),
         TRAINER_PARTY(sParty_R5Tr6_Lass2),
     },
 
     [TRAINER_R5_TR7_GENTLEMAN] =
     {
-        GENTLEMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Sebastian"),
+        GENTLEMAN_INFO, BASIC_AI, NAME("Sebastian"),
         TRAINER_PARTY(sParty_R5Tr7_Gentleman),
     },
 
     [TRAINER_R5_TR8_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Marty"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Marty"),
         TRAINER_PARTY(sParty_R5Tr8_Youngster),
     },
 
     [TRAINER_R5_TR9_TRIATHLETE] =
     {
-        CYCLING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Sara"),
+        CYCLING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Sara"),
         TRAINER_PARTY(sParty_R5Tr9_Triathlete),
     },
 
     [TRAINER_R5_TR10_RICHBOY] =
     {
-        RICH_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Tobias"),
+        RICH_BOY_INFO, DUMB_AI, NAME("Tobias"),
         TRAINER_PARTY(sParty_R5Tr10_RichBoy),
     },
 
     [TRAINER_R5_TR11_MAN_5] =
     {
         KINDLER_INFO,
-        .trainerName = _("Kurt"),
+        NAME("Kurt"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R5Tr11_Man5),
     },
@@ -1305,23 +1180,21 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R5_TR12_BUGCATCHER] =
     {
         BUG_CATCHER_INFO,
-        .trainerName = _("Bill"),
+        NAME("Bill"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_SEQUENCE_SWITCHING, 
         TRAINER_PARTY(sParty_R5Tr12_BugCatcher),
     },
 
     [TRAINER_R5_TR13_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Kenji"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Kenji"),
         TRAINER_PARTY(sParty_R5Tr13_NinjaBoy),
     },
 
     [TRAINER_R5_TR14_HIKER] =
     {
         HIKER_INFO,
-        .trainerName = _("Paul"),
+        NAME("Paul"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R5Tr14_Hiker),
     },
@@ -1329,7 +1202,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R5_TR15_COOLTRAINER] =
     {
         BW_ACE_M_INFO,
-        .trainerName = _("Alex"),
+        NAME("Alex"),
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES,
         TRAINER_PARTY(sParty_R5Tr15_CoolTrainer),
@@ -1337,144 +1210,110 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R6_TR1_RANGER_M] =
     {
-        PKMN_RANGER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Lawrence"),
+        PKMN_RANGER_M_INFO, BASIC_AI, NAME("Lawrence"),
         TRAINER_PARTY(sParty_R6Tr1_RangerM),
     },
 
     [TRAINER_R16_TR2_SWIMMER_F] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Melissa"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Melissa"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR2_SWIMMER_F),
     },
 
     [TRAINER_R6_TR3_CAMPER_F] =
     {
-        PICNICKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Sheila"),
+        PICNICKER_INFO, BASIC_AI, NAME("Sheila"),
         TRAINER_PARTY(sParty_R6Tr3_CamperF),
     },
 
     [TRAINER_R16_TR12_NINJABOY2] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Fabian"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Fabian"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR12_NINJABOY2),
     },
 
     [TRAINER_R6_TR5_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Randy"),
+        HIKER_INFO, BASIC_AI, NAME("Randy"),
         TRAINER_PARTY(sParty_R6Tr5_Hiker),
     },
 
     [TRAINER_R6_TR6_CAMPER_M2] =
     {
-        CAMPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Conner"),
+        CAMPER_INFO, BASIC_AI, NAME("Conner"),
         TRAINER_PARTY(sParty_R6Tr6_CamperM2),
     },
 
     [TRAINER_R6_TR7_KINDLER] =
     {
-        KINDLER_INFO,
-        BASIC_AI,
-        .trainerName = _("Erick"),
+        KINDLER_INFO, BASIC_AI, NAME("Erick"),
         TRAINER_PARTY(sParty_R6Tr7_Kindler),
     },
 
     [TRAINER_R8_TR1_PARASOLLADY] =
     {
-        PARASOL_LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Genna"),
+        PARASOL_LADY_INFO, DUMB_AI, NAME("Genna"),
         TRAINER_PARTY(sParty_R8Tr1_ParasolLady),
     },
 
     [TRAINER_R8_TR2_SRJR] =
     {
-        SR_AND_JR_INFO,
-        BASIC_AI,
-        .trainerName = _("Kate & Joy"),
+        SR_AND_JR_INFO, BASIC_AI, NAME("Kate & Joy"),
         TRAINER_PARTY(sParty_R8Tr2_SrJr),
     },
 
     [TRAINER_R8_TR3_AROMALADY] =
     {
-        AROMA_LADY_INFO,
-        BASIC_AI,
-        .trainerName = _("Jessica"),
+        AROMA_LADY_INFO, BASIC_AI, NAME("Jessica"),
         TRAINER_PARTY(sParty_R8Tr3_AromaLady),
     },
 
     [TRAINER_R8_TR4_YOUNGSTER] =
     {
-        SCHOOL_KID_M_INFO,
-        DUMB_AI,
-        .trainerName = _("Lucas"),
+        SCHOOL_KID_M_INFO, DUMB_AI, NAME("Lucas"),
         TRAINER_PARTY(sParty_R8Tr4_Youngster),
     },
 
     [TRAINER_R8_TR5_PSYCHIC_F] =
     {
-        PSYCHIC_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Briony"),
+        PSYCHIC_F_INFO, BASIC_AI, NAME("Briony"),
         TRAINER_PARTY(sParty_R8Tr5_PsychicF),
     },
 
     [TRAINER_R8_TR6_ENTHUSIAST] =
     {
-        ENTHUSIAST_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Henry"),
+        ENTHUSIAST_M_INFO, BASIC_AI, NAME("Henry"),
         TRAINER_PARTY(sParty_R8Tr6_CamperM),
     },
 
     [TRAINER_R8_TR7_TRIATHLETE_M] =
     {
-        RUNNING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Winston"),
+        RUNNING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Winston"),
         TRAINER_PARTY(sParty_R8Tr7_TriathleteM),
     },
 
     [TRAINER_R8_TR8_GENTLEMAN] =
     {
-        GENTLEMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Phileas"),
+        GENTLEMAN_INFO, BASIC_AI, NAME("Phileas"),
         TRAINER_PARTY(sParty_R8Tr8_Gentleman),
     },
 
     [TRAINER_R8_TR9_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Garret"),
+        HIKER_INFO, BASIC_AI, NAME("Garret"),
         TRAINER_PARTY(sParty_R8Tr9_Hiker),
     },
 
     [TRAINER_R8_TR10_OLDCOUPLE] =
     {
-        OLD_COUPLE_INFO,
-        BASIC_AI,
-        .trainerName = _("John & Jay"),
+        OLD_COUPLE_INFO, BASIC_AI, NAME("John & Jay"),
         TRAINER_PARTY(sParty_R8Tr10_OldCouple),
     },
 
     [TRAINER_R8_TR11_BIRDKEEPER] =
     {
         BIRD_KEEPER_INFO,
-        .trainerName = _("Martin"),
+        NAME("Martin"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R8Tr11_BirdKeeper),
     },
@@ -1525,7 +1364,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_SCIENTIST,
-        .trainerName = _("Scientist"),
+        NAME("Scientist"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_DC_BaseRocket4),
@@ -1578,7 +1417,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ROCKET_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_ADMIN_M,
-        .trainerName = _("Proton"),
+        NAME("Proton"),
         .items = {ITEM_SUPER_POTION},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
@@ -1594,112 +1433,86 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_DESERT_TR1_CAMPER] =
     {
-        CAMPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Jerome"),
+        CAMPER_INFO, BASIC_AI, NAME("Jerome"),
         TRAINER_PARTY(sParty_DesertTr1_Camper),
     },
 
     [TRAINER_DESERT_TR2_CAMPER2] =
     {
-        PKMN_RANGER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Smith"),
+        PKMN_RANGER_M_INFO, BASIC_AI, NAME("Smith"),
         TRAINER_PARTY(sParty_DesertTr2_Camper2),
     },
 
     [TRAINER_DESERT_TR3_PICNICKER] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Aria"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Aria"),
         TRAINER_PARTY(sParty_DesertTr3_Picnicker),
     },
 
     [TRAINER_DESERT_TR4_PICNICKER2] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Clarissa"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Clarissa"),
         TRAINER_PARTY(sParty_DesertTr4_Picnicker2),
     },
 
     [TRAINER_DESERT_TR5_HIKER] =
     {
-        RUIN_MANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Roland"),
+        RUIN_MANIAC_INFO, BASIC_AI, NAME("Roland"),
         TRAINER_PARTY(sParty_DesertTr5_Hiker),
     },
 
     [TRAINER_DESERT_TR6_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Ryan"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Ryan"),
         TRAINER_PARTY(sParty_DesertTr6_Blackbelt),
     },
 
     [TRAINER_DESERT_TR7_PICNICKER3] =
     {
-        PICNICKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Nelly"),
+        PICNICKER_INFO, BASIC_AI, NAME("Nelly"),
         TRAINER_PARTY(sParty_DesertTr7_Picnicker3),
     },
 
     [TRAINER_DESERT_TR8_HIKER2] =
     {
-        RUIN_MANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Stan"),
+        RUIN_MANIAC_INFO, BASIC_AI, NAME("Stan"),
         TRAINER_PARTY(sParty_DesertTr8_Hiker2),
     },
 
     [TRAINER_DESERT_TR9_HIKER3] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Dean"),
+        HIKER_INFO, BASIC_AI, NAME("Dean"),
         TRAINER_PARTY(sParty_DesertTr9_Hiker3),
     },
 
     [TRAINER_DESERT_TR10_FIREBREATHER] =
     {
-        KINDLER_INFO,
-        DUMB_AI,
-        .trainerName = _("Brad"),
+        KINDLER_INFO, DUMB_AI, NAME("Brad"),
         TRAINER_PARTY(sParty_DesertTr10_Firebreather),
     },
 
     [TRAINER_DESERT_TR11_BLACKBELT2] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Steven"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Steven"),
         TRAINER_PARTY(sParty_DesertTr11_Blackbelt2),
     },
 
     [TRAINER_DESERT_TR12_HIKER4] =
     {
-        RUIN_MANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Herman"),
+        RUIN_MANIAC_INFO, BASIC_AI, NAME("Herman"),
         TRAINER_PARTY(sParty_DesertTr12_Hiker4),
     },
 
     [TRAINER_DESERT_TR13_PSYCHIC_F] =
     {
-        PSYCHIC_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Wendy"),
+        PSYCHIC_F_INFO, BASIC_AI, NAME("Wendy"),
         TRAINER_PARTY(sParty_DesertTr13_Psychic_F),
     },
 
     [TRAINER_DESERT_TR14_COOLTRAINER] =
     {
         BW_ACE_F_INFO,
-        .trainerName = _("Olivia"),
+        NAME("Olivia"),
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING,
         TRAINER_PARTY(sParty_DesertTr14_Cooltrainer),
@@ -1707,81 +1520,61 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R7_TR1_CAMPER] =
     {
-        PKMN_RANGER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Franklin"),
+        PKMN_RANGER_M_INFO, BASIC_AI, NAME("Franklin"),
         TRAINER_PARTY(sParty_Route7Tr1_Camper),
     },
 
     [TRAINER_R7_TR2_PICNICKER] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Gemma"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Gemma"),
         TRAINER_PARTY(sParty_Route7Tr2_Picnicker),
     },
 
     [TRAINER_UNUSED_172_] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Kazuma"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Kazuma"),
         TRAINER_PARTY(sParty_Route7Tr3_Ninjaboy),
     },
 
     [TRAINER_R7_TR4_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Dudley"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Dudley"),
         TRAINER_PARTY(sParty_Route7Tr4_Birdkeeper),
     },
 
     [TRAINER_R7_TR5_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Nob"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Nob"),
         TRAINER_PARTY(sParty_Route7Tr5_Blackbelt),
     },
 
     [TRAINER_R7_TR6_PICNICKER2] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Tina"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Tina"),
         TRAINER_PARTY(sParty_Route7Tr6_Picnicker2),
     },
 
     [TRAINER_R7_TR7_FISHERMAN] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Tony"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Tony"),
         TRAINER_PARTY(sParty_Route7Tr7_Fisherman),
     },
 
     [TRAINER_R7_TR8_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Clive"),
+        HIKER_INFO, BASIC_AI, NAME("Clive"),
         TRAINER_PARTY(sParty_Route7Tr8_Hiker),
     },
 
     [TRAINER_R7_TR9_PARASOLLADY] =
     {
-        PARASOL_LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Fiona"),
+        PARASOL_LADY_INFO, DUMB_AI, NAME("Fiona"),
         TRAINER_PARTY(sParty_Route7Tr9_Parasollady),
     },
 
     [TRAINER_R7_TR10_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Goro"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Goro"),
         TRAINER_PARTY(sParty_Route7Tr10_NinjaBoy),
     },
 
@@ -1796,7 +1589,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CAMPER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Mike"),
+        NAME("Mike"),
         TRAINER_PARTY(sParty_KG_Tr1_Camper1),
     },
 
@@ -1805,7 +1598,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PICNICKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Sophie"),
+        NAME("Sophie"),
         TRAINER_PARTY(sParty_KG_Tr2_Picnicker1),
     },
 
@@ -1814,7 +1607,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Ralph"),
+        NAME("Ralph"),
         TRAINER_PARTY(sParty_KG_Tr3_Hiker1),
     },
 
@@ -1823,7 +1616,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CAMPER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Dan"),
+        NAME("Dan"),
         TRAINER_PARTY(sParty_KG_Tr4_Camper2),
     },
 
@@ -1831,7 +1624,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     {
         HIKER_INFO,
         .isGymTrainer = TRUE,
-        .trainerName = _("Mark"),
+        NAME("Mark"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_KG_Tr5_Hiker2),
     },
@@ -1841,7 +1634,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Brett"),
+        NAME("Brett"),
         TRAINER_PARTY(sParty_KG_Tr6_Hiker3),
     },
 
@@ -1850,7 +1643,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PICNICKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Mila"),
+        NAME("Mila"),
         TRAINER_PARTY(sParty_KG_Tr7_Picnicker2),
     },
 
@@ -1859,7 +1652,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_RANGER_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Axel"),
+        NAME("Axel"),
         TRAINER_PARTY(sParty_KG_Tr8_Camper3),
     },
 
@@ -1868,7 +1661,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PICNICKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Anna"),
+        NAME("Anna"),
         TRAINER_PARTY(sParty_KG_Tr9_Picnicker3),
     },
 
@@ -1877,7 +1670,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Kevin"),
+        NAME("Kevin"),
         TRAINER_PARTY(sParty_KG_Tr10_Hiker4),
     },
 
@@ -1886,7 +1679,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_INTENSE,
         .trainerPic = TRAINER_PIC_CLAY,
-        .trainerName = _("Clay"),
+        NAME("Clay"),
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_GROUND,
@@ -1896,97 +1689,75 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_KM_TR1_PICNICKER] =
     {
-        PICNICKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Bella"),
+        PICNICKER_INFO, BASIC_AI, NAME("Bella"),
         TRAINER_PARTY(sParty_KM_Tr1_Picnicker),
     },
 
     [TRAINER_KM_TR2_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Wyatt"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Wyatt"),
         TRAINER_PARTY(sParty_KM_Tr2_Blackbelt),
     },
 
     [TRAINER_KM_TR3_CAMPER] =
     {
-        CAMPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Ike"),
+        CAMPER_INFO, BASIC_AI, NAME("Ike"),
         TRAINER_PARTY(sParty_KM_Tr3_Camper),
     },
 
     [TRAINER_KM_TR4_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Wilson"),
+        HIKER_INFO, BASIC_AI, NAME("Wilson"),
         TRAINER_PARTY(sParty_KM_Tr4_Hiker),
     },
 
     [TRAINER_KM_TR5_HIKER] =
     {
         HIKER_INFO,
-        .trainerName = _("Luke"),
+        NAME("Luke"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_KM_Tr5_Hiker),
     },
 
     [TRAINER_KM_TR6_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Isaac"),
+        HIKER_INFO, BASIC_AI, NAME("Isaac"),
         TRAINER_PARTY(sParty_KM_Tr6_Hiker),
     },
 
     [TRAINER_KM_TR7_CAMPER] =
     {
-        CAMPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Caleb"),
+        CAMPER_INFO, BASIC_AI, NAME("Caleb"),
         TRAINER_PARTY(sParty_KM_Tr7_Camper),
     },
 
     [TRAINER_KM_TR8_PICNICKER] =
     {
-        PICNICKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Maria"),
+        PICNICKER_INFO, BASIC_AI, NAME("Maria"),
         TRAINER_PARTY(sParty_KM_Tr8_Picnicker),
     },
 
     [TRAINER_KM_TR9_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Koji"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Koji"),
         TRAINER_PARTY(sParty_KM_Tr9_Blackbelt),
     },
 
     [TRAINER_KM_TR10_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Everett"),
+        HIKER_INFO, BASIC_AI, NAME("Everett"),
         TRAINER_PARTY(sParty_KM_Tr10_Hiker),
     },
 
     [TRAINER_BUFFET_1] =
     {
-        HEX_MANIAC_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Tarja"),
+        HEX_MANIAC_INFO, ADVANCED_AI, NAME("Tarja"),
         TRAINER_PARTY(sParty_BuffetTrainer1),
     },
 
     [TRAINER_BUFFET_2] =
     {
-        GEN4_SWIMMER_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Gwendolyn"),
+        GEN4_SWIMMER_INFO, ADVANCED_AI, NAME("Gwendolyn"),
         TRAINER_PARTY(sParty_BuffetTrainer2),
     },
 
@@ -1995,7 +1766,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_PAINTER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_ROCKER,
-        .trainerName = _("Pan"),
+        NAME("Pan"),
         .items = {},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -2007,7 +1778,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DANCER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_GIRL,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_PHOEBE,
-        .trainerName = _("Anna"),
+        NAME("Anna"),
         .items = {},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -2017,24 +1788,20 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_HOTEL_BIRDKEEPER] =
     {
         BEAUTY_INFO,
-        .trainerName = _("Kiara"),
+        NAME("Kiara"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES,
         TRAINER_PARTY(sParty_HotelBirdKeeper),
     },
 
     [TRAINER_HOTEL_KID1] =
     {
-        TUBER_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Lucy"),
+        TUBER_F_INFO, DUMB_AI, NAME("Lucy"),
         TRAINER_PARTY(sParty_HotelKid1),
     },
 
     [TRAINER_HOTEL_KID2] =
     {
-        TUBER_M_INFO,
-        DUMB_AI,
-        .trainerName = _("Sam"),
+        TUBER_M_INFO, DUMB_AI, NAME("Sam"),
         TRAINER_PARTY(sParty_HotelKid2),
     },
 
@@ -2043,7 +1810,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_KORRINA,
-        .trainerName = _("Korrina"),
+        NAME("Korrina"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_FIGHTING,
@@ -2059,113 +1826,87 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R11_TR1_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Sally"),
+        LASS_INFO, DUMB_AI, NAME("Sally"),
         TRAINER_PARTY(sParty_Route11Tr1_Lass),
     },
 
     [TRAINER_R11_TR2_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Rudy"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Rudy"),
         TRAINER_PARTY(sParty_Route11Tr2_Birdkeeper),
     },
 
     [TRAINER_R11_TR3_BUGCATCHER] =
     {
-        BUG_MANIAC_INFO,
-        DUMB_AI,
-        .trainerName = _("Larry"),
+        BUG_MANIAC_INFO, DUMB_AI, NAME("Larry"),
         TRAINER_PARTY(sParty_Route11Tr3_Bugcatcher),
     },
 
     [TRAINER_R11_TR4_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Takashi"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Takashi"),
         TRAINER_PARTY(sParty_Route11Tr4_Ninjaboy),
     },
 
     [TRAINER_R11_TR5_POKEMANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Justin"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Justin"),
         TRAINER_PARTY(sParty_Route11Tr5_Pokemaniac),
     },
 
     [TRAINER_R11_TR6_TRIATHLETE_F] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Autumn"),
+        RUNNING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Autumn"),
         TRAINER_PARTY(sParty_Route11Tr6_Triathlete_F),
     },
 
     [TRAINER_R11_TR7_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Ethan"),
+        HIKER_INFO, BASIC_AI, NAME("Ethan"),
         TRAINER_PARTY(sParty_Route11Tr7_Hiker),
     },
 
     [TRAINER_R11_TR8_NINJABOY_2] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Hideo"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Hideo"),
         TRAINER_PARTY(sParty_Route11Tr8_Ninjaboy_2),
     },
 
     [TRAINER_R11_TR9_NINJABOY_3] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Keigo"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Keigo"),
         TRAINER_PARTY(sParty_Route11Tr9_Ninjaboy_3),
     },
 
     [TRAINER_R11_TR10_CYCLER_M] =
     {
-        CYCLING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Gavin"),
+        CYCLING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Gavin"),
         TRAINER_PARTY(sParty_Route11Tr10_Cycler_M),
     },
 
     [TRAINER_R11_TR11_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Cristian"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Cristian"),
         TRAINER_PARTY(sParty_Route11Tr11_Blackbelt),
     },
 
     [TRAINER_R11_TR12_EXPERT] =
     {
-        EXPERT_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Timothy"),
+        EXPERT_M_INFO, ADVANCED_AI, NAME("Timothy"),
         .items = {},
         TRAINER_PARTY(sParty_Route11Tr12_Expert),
     },
 
     [TRAINER_R11_TR13_PSYCHIC_F] =
     {
-        PSYCHIC_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Kayla"),
+        PSYCHIC_F_INFO, BASIC_AI, NAME("Kayla"),
         TRAINER_PARTY(sParty_Route11Tr13_Psychic_F),
     },
 
     [TRAINER_R11_TR14_ACETRAINER_F] =
     {
         BW_ACE_F_INFO,
-        .trainerName = _("Kathrine"),
+        NAME("Kathrine"),
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SMART_SWITCHING | AI_FLAG_CHECK_VIABILITY,
         TRAINER_PARTY(sParty_Route11Tr14_Acetrainer_F),
@@ -2209,50 +1950,38 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R12_TR1_TRIATHLETE_F] =
     {
-        CYCLING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Claire"),
+        CYCLING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Claire"),
         TRAINER_PARTY(sParty_R12Tr1_Triath),
     },
 
     [TRAINER_R12_TR2_TRIATHLETE_M] =
     {
-        CYCLING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Doug"),
+        CYCLING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Doug"),
         TRAINER_PARTY(sParty_R12Tr2_Triath),
     },
 
     [TRAINER_R12_TR3_TRIATHLETE_F2] =
     {
-        CYCLING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Christina"),
+        CYCLING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Christina"),
         TRAINER_PARTY(sParty_R12Tr3_Triath),
     },
 
     [TRAINER_R12_TR4_TRIATHLETE_M2] =
     {
-        CYCLING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Eric"),
+        CYCLING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Eric"),
         TRAINER_PARTY(sParty_R12Tr4_Triath),
     },
 
     [TRAINER_R12_TR5_TRIATHLETE_M3] =
     {
-        CYCLING_TRIATHLETE_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Clark"),
+        CYCLING_TRIATHLETE_M_INFO, BASIC_AI, NAME("Clark"),
         .items = {},
         TRAINER_PARTY(sParty_R12Tr5_Triath),
     },
 
     [TRAINER_R12_TR6_TRIATHLETE_F3] =
     {
-        CYCLING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Nora"),
+        CYCLING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Nora"),
         TRAINER_PARTY(sParty_R12Tr6_Triath),
     },
 
@@ -2264,49 +1993,37 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R16_TR5_SWIMMER_F] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Henna"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Henna"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR5_SWIMMER_F),
     },
 
     [TRAINER_R12_TR9_PSYCHIC_M] =
     {
-        PSYCHIC_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Cedric"),
+        PSYCHIC_M_INFO, BASIC_AI, NAME("Cedric"),
         TRAINER_PARTY(sParty_R12Tr9_Psychic),
     },
 
     [TRAINER_R12_TR10_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Trent"),
+        HIKER_INFO, BASIC_AI, NAME("Trent"),
         TRAINER_PARTY(sParty_R12Tr10_Hiker),
     },
 
     [TRAINER_R12_TR11_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Leah"),
+        LASS_INFO, DUMB_AI, NAME("Leah"),
         TRAINER_PARTY(sParty_R12Tr11_Lass),
     },
 
     [TRAINER_R12_TR12_BUGMANIAC] =
     {
-        ENTHUSIAST_F_INFO,
-        DUMB_AI,
-        .trainerName = _("Vivian"),
+        ENTHUSIAST_F_INFO, DUMB_AI, NAME("Vivian"),
         TRAINER_PARTY(sParty_R12Tr12_BugMan),
     },
 
     [TRAINER_R12_TR13_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        DUMB_AI,
-        .trainerName = _("Riley"),
+        NINJA_BOY_INFO, DUMB_AI, NAME("Riley"),
         TRAINER_PARTY(sParty_R12Tr13_Ninja),
     },
 
@@ -2318,81 +2035,61 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R16_TR6_SWIMMER_F] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Miranda"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Miranda"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR6_SWIMMER_F),
     },
 
     [TRAINER_R16_TR7_GUITARIST] =
     {
-        GUITARIST_INFO,
-        BASIC_AI,
-        .trainerName = _("Marco"),
+        GUITARIST_INFO, BASIC_AI, NAME("Marco"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR7_GUITARIST),
     },
 
     [TRAINER_R16_TR8_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Clayton"),
+        HIKER_INFO, BASIC_AI, NAME("Clayton"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR8_HIKER),
     },
 
     [TRAINER_R16_TR9_BEAUTY] =
     {
-        BEAUTY_INFO,
-        BASIC_AI,
-        .trainerName = _("Vera"),
+        BEAUTY_INFO, BASIC_AI, NAME("Vera"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR9_BEAUTY),
     },
 
     [TRAINER_FC_TR1_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Terry"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Terry"),
         TRAINER_PARTY(sParty_FcTr1_Blackbelt),
     },
 
     [TRAINER_FC_TR2_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("Hailey"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("Hailey"),
         TRAINER_PARTY(sParty_FcTr2_Battlegirl),
     },
 
     [TRAINER_FC_TR3_CAMPER] =
     {
-        CAMPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Barton"),
+        CAMPER_INFO, BASIC_AI, NAME("Barton"),
         TRAINER_PARTY(sParty_FcTr3_Camper),
     },
 
     [TRAINER_FC_TR4_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Gordon"),
+        HIKER_INFO, BASIC_AI, NAME("Gordon"),
         TRAINER_PARTY(sParty_FcTr4_Hiker),
     },
 
     [TRAINER_R14_TR1_RUNNING_F] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Penelope"),
+        RUNNING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Penelope"),
         TRAINER_PARTY(sParty_R14Tr1_RunnerF),
     },
 
     [TRAINER_R14_TR2_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Walter"),
+        HIKER_INFO, BASIC_AI, NAME("Walter"),
         TRAINER_PARTY(sParty_R14Tr2_Hiker),
     },
     [TRAINER_UNUSED_SIDNEY] =
@@ -2400,7 +2097,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_SIDNEY,
-        .trainerName = _("SIDNEY"),
+        NAME("SIDNEY"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
@@ -2412,7 +2109,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_PHOEBE,
-        .trainerName = _("PHOEBE"),
+        NAME("PHOEBE"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_GREEN,
@@ -2424,7 +2121,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_GLACIA,
-        .trainerName = _("GLACIA"),
+        NAME("GLACIA"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_PINK,
@@ -2436,7 +2133,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE_FOUR,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_ELITE_FOUR,
         .trainerPic = TRAINER_PIC_ELITE_FOUR_DRAKE,
-        .trainerName = _("DRAKE"),
+        NAME("DRAKE"),
         .items = {ITEM_FULL_RESTORE, ITEM_FULL_RESTORE, ITEM_NONE, ITEM_NONE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_BLUE,
@@ -2449,7 +2146,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Lloyd"),
+        NAME("Lloyd"),
         TRAINER_PARTY(sParty_SGTr1_CyclistM1),
     },
 
@@ -2458,7 +2155,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Sophia"),
+        NAME("Sophia"),
         TRAINER_PARTY(sParty_SGTr2_CyclistF1),
     },
 
@@ -2467,7 +2164,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Jenna"),
+        NAME("Jenna"),
         TRAINER_PARTY(sParty_SGTr3_CyclistF2),
     },
 
@@ -2476,7 +2173,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Greg"),
+        NAME("Greg"),
         TRAINER_PARTY(sParty_SGTr4_CyclistM2),
     },
 
@@ -2485,7 +2182,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_F_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Emilia"),
+        NAME("Emilia"),
         TRAINER_PARTY(sParty_SGTr5_CyclistF3),
     },
 
@@ -2494,7 +2191,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Dennis"),
+        NAME("Dennis"),
         TRAINER_PARTY(sParty_SGTr6_CyclistM3),
     },
 
@@ -2503,319 +2200,249 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         CYCLING_TRIATHLETE_M_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Harry"),
+        NAME("Harry"),
         TRAINER_PARTY(sParty_SGTr7_CyclistM4),
     },
 
     [TRAINER_AT_2F_TR2_MAN3] =
     {
-        COOLTRAINER_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Liam"),
+        COOLTRAINER_M_INFO, ADVANCED_AI, NAME("Liam"),
         TRAINER_PARTY(sParty_AT2F_Tr2_Man3),
     },
 
     [TRAINER_AT_2F_TR2_WOMAN5] =
     {
-        COOLTRAINER_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Luna"),
+        COOLTRAINER_F_INFO, ADVANCED_AI, NAME("Luna"),
         TRAINER_PARTY(sParty_AT2F_Tr2_Woman5),
     },
 
     [TRAINER_AT_2F_TR1_PSYCHIC] =
     {
-        PSYCHIC_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Gerard"),
+        PSYCHIC_M_INFO, ADVANCED_AI, NAME("Gerard"),
         TRAINER_PARTY(sParty_AT2F_Tr1_Psychic),
     },
 
     [TRAINER_AT_2F_TR1_MAN5] =
     {
-        GUITARIST_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Shaun"),
+        GUITARIST_INFO, ADVANCED_AI, NAME("Shaun"),
         TRAINER_PARTY(sParty_AT2F_Tr1_Man5),
     },
 
     [TRAINER_AT_3F_TR1_EXPERT_M] =
     {
-        EXPERT_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Theodore"),
+        EXPERT_M_INFO, ADVANCED_AI, NAME("Theodore"),
         TRAINER_PARTY(sParty_AT3F_Tr1_Expert_M),
     },
 
     [TRAINER_AT_3F_TR1_EXPERT_F] =
     {
-        EXPERT_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Shelby"),
+        EXPERT_F_INFO, ADVANCED_AI, NAME("Shelby"),
         TRAINER_PARTY(sParty_AT3F_Tr1_Expert_F),
     },
 
     [TRAINER_AT_3F_TR2_HEXMANIAC] =
     {
-        HEX_MANIAC_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Osanna"),
+        HEX_MANIAC_INFO, ADVANCED_AI, NAME("Osanna"),
         TRAINER_PARTY(sParty_AT3F_Tr2_HexManiac),
     },
 
     [TRAINER_AT_3F_TR2_PSYCHICF] =
     {
-        PSYCHIC_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Lynette"),
+        PSYCHIC_F_INFO, ADVANCED_AI, NAME("Lynette"),
         TRAINER_PARTY(sParty_AT3F_Tr2_PsychicF),
     },
 
     [TRAINER_AT_4F_TR1_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Junichi"),
+        BLACK_BELT_INFO, ADVANCED_AI, NAME("Junichi"),
         TRAINER_PARTY(sParty_AT4F_Tr1_BlackBelt),
     },
 
     [TRAINER_AT_4F_TR1_HEXMANIAC] =
     {
-        HEX_MANIAC_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Anina"),
+        HEX_MANIAC_INFO, ADVANCED_AI, NAME("Anina"),
         TRAINER_PARTY(sParty_AT4F_Tr1_HexManiac),
     },
 
     [TRAINER_AT_4F_TR2_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Isabella"),
+        LASS_INFO, DUMB_AI, NAME("Isabella"),
         TRAINER_PARTY(sParty_AT4F_Tr2_Lass),
     },
 
     [TRAINER_AT_4F_TR2_YOUNGSTER] =
     {
-        YOUNGSTER_INFO,
-        DUMB_AI,
-        .trainerName = _("Timmy"),
+        YOUNGSTER_INFO, DUMB_AI, NAME("Timmy"),
         TRAINER_PARTY(sParty_AT4F_Tr2_Youngster),
     },
 
     [TRAINER_AT_4F_TR3_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Andrea"),
+        BATTLE_GIRL_INFO, ADVANCED_AI, NAME("Andrea"),
         TRAINER_PARTY(sParty_AT4F_Tr3_BattleGirl),
     },
 
     [TRAINER_AT_4F_TR3_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Roy"),
+        BLACK_BELT_INFO, ADVANCED_AI, NAME("Roy"),
         TRAINER_PARTY(sParty_AT4F_Tr3_BlackBelt),
     },
 
     [TRAINER_AT_5F_COOLTRAINER_M] =
     {
-        BW_ACE_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Beckett"),
+        BW_ACE_M_INFO, ADVANCED_AI, NAME("Beckett"),
         TRAINER_PARTY(sParty_AT5F_CoolTrainer_M),
     },
 
     [TRAINER_AT_5F_COOLTRAINER_F] =
     {
-        BW_ACE_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Jamie"),
+        BW_ACE_F_INFO, ADVANCED_AI, NAME("Jamie"),
         TRAINER_PARTY(sParty_AT5F_CoolTrainer_F),
     },
 
     [TRAINER_R14_TR3_PARASOLLADY] =
     {
-        PARASOL_LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Alexa"),
+        PARASOL_LADY_INFO, DUMB_AI, NAME("Alexa"),
         TRAINER_PARTY(sParty_R14Tr3_ParasolLady),
     },
 
     [TRAINER_R14_TR4_FISHER] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Ernest"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Ernest"),
         TRAINER_PARTY(sParty_R14Tr4_FisherMan),
     },
 
     [TRAINER_R14_TR5_PARASOLLADY2] =
     {
-        PARASOL_LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Madeline"),
+        PARASOL_LADY_INFO, DUMB_AI, NAME("Madeline"),
         TRAINER_PARTY(sParty_R14Tr5_ParasolLady),
     },
 
     [TRAINER_R14_TR6_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Nick"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Nick"),
         TRAINER_PARTY(sParty_R14Tr6_NinjaBoy),
     },
 
     [TRAINER_R14_TR7_ROCKER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("James"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("James"),
         TRAINER_PARTY(sParty_R14Tr7_Birdkeeper),
     },
 
     [TRAINER_R14_TR8_MANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Cooper"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Cooper"),
         TRAINER_PARTY(sParty_R14Tr8_Maniac),
     },
 
     [TRAINER_R15_TR1_BIRDKEEPER] =
     {
         BIRD_KEEPER_INFO,
-        .trainerName = _("Colton"),
+        NAME("Colton"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R15Tr1_Birdkeeper),
     },
 
     [TRAINER_R15_TR2_RANGERF] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Ashlee"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Ashlee"),
         TRAINER_PARTY(sParty_R15Tr2_RangerF),
     },
 
     [TRAINER_R15_TR3_RANGERM] =
     {
-        PKMN_RANGER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Miguel"),
+        PKMN_RANGER_M_INFO, BASIC_AI, NAME("Miguel"),
         TRAINER_PARTY(sParty_R15Tr3_RangerM),
     },
 
     [TRAINER_R15_TR4_GENTLEMAN] =
     {
-        GENTLEMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Robert"),
+        GENTLEMAN_INFO, BASIC_AI, NAME("Robert"),
         TRAINER_PARTY(sParty_R15Tr4_Gentleman),
     },
 
     [TRAINER_R15_TR5_NINJABOY1] =
     {
         NINJA_BOY_INFO,
-        .trainerName = _("Yoshi"),
+        NAME("Yoshi"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R15Tr5_Ninjaboy),
     },
 
     [TRAINER_R15_TR6_NINJABOY2] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Saki"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Saki"),
         TRAINER_PARTY(sParty_R15Tr6_Ninjaboy),
     },
 
     [TRAINER_R15_TR7_BUGCATCHER] =
     {
         BUG_CATCHER_INFO,
-        .trainerName = _("Tim"),
+        NAME("Tim"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_R15Tr7_Bugcatcher),
     },
 
     [TRAINER_R15_TR8_BUGCATCHER2] =
     {
-        BUG_MANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Fernando"),
+        BUG_MANIAC_INFO, BASIC_AI, NAME("Fernando"),
         TRAINER_PARTY(sParty_R15Tr8_Bugmaniac),
     },
 
     [TRAINER_R15_TR9_BEAUTY] =
     {
-        BEAUTY_INFO,
-        BASIC_AI,
-        .trainerName = _("Isabel"),
+        BEAUTY_INFO, BASIC_AI, NAME("Isabel"),
         TRAINER_PARTY(sParty_R15Tr9_Beauty),
     },
 
     [TRAINER_R15_TR10_FISHER] =
     {
-        FISHERMAN_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Kenneth"),
+        FISHERMAN_INFO, ADVANCED_AI, NAME("Kenneth"),
         TRAINER_PARTY(sParty_R15Tr10_Fisherman),
     },
 
     [TRAINER_R15_ACETRAINER_M] =
     {
-        BW_ACE_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Camden"),
+        BW_ACE_M_INFO, ADVANCED_AI, NAME("Camden"),
         TRAINER_PARTY(sParty_R15Tr11_AceM),
     },
 
     [TRAINER_R15_ACETRAINER_F] =
     {
         BW_ACE_F_INFO,
-        .trainerName = _("Donny"),
+        NAME("Donny"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_HP_AWARE,
         TRAINER_PARTY(sParty_R15Tr11_AceF),
     },
 
     [TRAINER_R15_TR13_COOLTRAINER] =
     {
-        COOLTRAINER_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Jacob"),
+        COOLTRAINER_M_INFO, ADVANCED_AI, NAME("Jacob"),
         TRAINER_PARTY(sParty_R15Tr13_Cooltrainer),
     },
 
     [TRAINER_R15_TR14_LASS] =
     {
-        LASS_INFO,
-        DUMB_AI,
-        .trainerName = _("Kaitlin"),
+        LASS_INFO, DUMB_AI, NAME("Kaitlin"),
         TRAINER_PARTY(sParty_R15Tr14_Lass),
     },
 
     [TRAINER_R15_TR15_SCIENTIST] =
     {
-        SCIENTIST_INFO,
-        BASIC_AI,
-        .trainerName = _("Stephen"),
+        SCIENTIST_INFO, BASIC_AI, NAME("Stephen"),
         TRAINER_PARTY(sParty_R15Tr15_Scientist),
     },
 
     [TRAINER_R15_TR16_AROMALADY] =
     {
-        AROMA_LADY_INFO,
-        DUMB_AI,
-        .trainerName = _("Daisy"),
+        AROMA_LADY_INFO, DUMB_AI, NAME("Daisy"),
         TRAINER_PARTY(sParty_R15Tr16_Aromalady),
     },
 
     [TRAINER_R15_TR17_NINJABOY3] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Ava"),
+        RUNNING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Ava"),
         TRAINER_PARTY(sParty_R15Tr17_RunnerF),
     },
 
@@ -2829,96 +2456,76 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R23_TR1_BREEDER_M] =
     {
         PKMN_BREEDER_M_INFO,
-        .trainerName = _("Galen"),
+        NAME("Galen"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_TRAINER_R23_TR1_BREEDER_M),
     },
 
     [TRAINER_R23_TR2_MANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Shane"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Shane"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR2_MANIAC),
     },
 
     [TRAINER_R23_TR3_TWINS] =
     {
-        TWINS_INFO,
-        DUMB_AI,
-        .trainerName = _("Bella & Belle"),
+        TWINS_INFO, DUMB_AI, NAME("Bella & Belle"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR3_TWINS),
     },
 
     [TRAINER_R23_TR4_BREEDER_F] =
     {
-        PKMN_BREEDER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Brooke"),
+        PKMN_BREEDER_F_INFO, BASIC_AI, NAME("Brooke"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR4_BREEDER_F),
     },
 
     [TRAINER_R23_TR5_HEXMANIAC_1] =
     {
-        HEX_MANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Patricia"),
+        HEX_MANIAC_INFO, BASIC_AI, NAME("Patricia"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR5_HEXMANIAC_1),
     },
 
     [TRAINER_R23_TR6_PSYCHIC_M] =
     {
-        PSYCHIC_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Deandre"),
+        PSYCHIC_M_INFO, BASIC_AI, NAME("Deandre"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR6_PSYCHIC_M),
     },
 
     [TRAINER_R23_TR7_HEXMANIAC_2] =
     {
         HEX_MANIAC_INFO,
-        .trainerName = _("Melanie"),
+        NAME("Melanie"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_TRAINER_R23_TR7_HEXMANIAC_2),
     },
 
     [TRAINER_R23_TR8_TRIATHLETE_F] =
     {
-        RUNNING_TRIATHLETE_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Jean"),
+        RUNNING_TRIATHLETE_F_INFO, BASIC_AI, NAME("Jean"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR8_TRIATHLETE_F),
     },
 
     [TRAINER_R23_TR9_FISHERMAN] =
     {
-        FISHERMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Preston"),
+        FISHERMAN_INFO, BASIC_AI, NAME("Preston"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR9_FISHERMAN),
     },
 
     [TRAINER_R23_TR10_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("Helen"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("Helen"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR10_BATTLEGIRL),
     },
 
     [TRAINER_R23_TR11_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Sasuke"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Sasuke"),
         TRAINER_PARTY(sParty_TRAINER_R23_TR11_NINJABOY),
     },
 
     [TRAINER_R23_TR12_ACETRAINER] =
     {
-        BW_ACE_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Ben"),
+        BW_ACE_M_INFO, ADVANCED_AI, NAME("Ben"),
         .items = {ITEM_HYPER_POTION},
         TRAINER_PARTY(sParty_TRAINER_R23_TR12_ACETRAINER),
     },
@@ -2934,7 +2541,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER1),
     },
 
@@ -2943,7 +2550,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER2),
     },
 
@@ -2952,7 +2559,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER3),
     },
 
@@ -2961,7 +2568,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER4),
     },
 
@@ -2970,7 +2577,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER5),
     },
 
@@ -2979,7 +2586,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HEX_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("???"),
+        NAME("???"),
         TRAINER_PARTY(sParty_DRISLEDGEGYM_TRAINER6),
     },
 
@@ -2988,7 +2595,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_SUSPICIOUS,
         .trainerPic = TRAINER_PIC_ACEROLA,
-        .trainerName = _("Acerola"),
+        NAME("Acerola"),
         .items = {ITEM_FULL_RESTORE},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_GHOST,
@@ -3001,7 +2608,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = F_TRAINER_FEMALE |TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_JASMINE,
-        .trainerName = _("Jasmine"),
+        NAME("Jasmine"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         TRAINER_PARTY(sParty_LeaderJasmine),
@@ -3012,7 +2619,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_JASMINE,
-        .trainerName = _("Jasmine"),
+        NAME("Jasmine"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
         TRAINER_PARTY(sParty_LeaderJasmine2),
@@ -3022,7 +2629,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_KASEN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_PIC_KASEN,
-        .trainerName = _("Kasen"),
+        NAME("Kasen"),
         .mugshotColor = MUGSHOT_COLOR_FLYING,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
@@ -3030,153 +2637,113 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     },
     [TRAINER_R3_TR1_SWIMMER_F] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Ellen"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Ellen"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR1_SWIMMER_F),
     },
     [TRAINER_R3_TR2_SWIMMER_M] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Floyd"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Floyd"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR2_SWIMMER_M),
     },
     [TRAINER_R3_TR3_SWIMMER_OLDSISTER] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Lila"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Lila"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR3_SWIMMER_OLDSISTER),
     },
     [TRAINER_R3_TR4_TUBER] =
     {
-        TUBER_M_INFO,
-        DUMB_AI,
-        .trainerName = _("Roy"),
+        TUBER_M_INFO, DUMB_AI, NAME("Roy"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR4_TUBER),
     },
     [TRAINER_R3_TR5_FISHERMAN] =
     {
-        FISHERMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Clancy"),
+        FISHERMAN_INFO, BASIC_AI, NAME("Clancy"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR5_FISHERMAN),
     },
     [TRAINER_R3_TR6_LANDSWIMMER_1] =
     {
-        GEN4_SWIMMER_INFO,
-        BASIC_AI,
-        .trainerName = _("Bernice"),
+        GEN4_SWIMMER_INFO, BASIC_AI, NAME("Bernice"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR6_LANDSWIMMER_1),
     },
     [TRAINER_R3_TR7_LANDSWIMMER_2] =
     {
-        GEN4_SWIMMER_INFO,
-        BASIC_AI,
-        .trainerName = _("Hilda"),
+        GEN4_SWIMMER_INFO, BASIC_AI, NAME("Hilda"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR7_LANDSWIMMER_2),
     },
     [TRAINER_R3_TR8_SAILOR] =
     {
-        SAILOR_INFO,
-        BASIC_AI,
-        .trainerName = _("Mick"),
+        SAILOR_INFO, BASIC_AI, NAME("Mick"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR8_SAILOR),
     },
     [TRAINER_R3_TR9_SWIMMER_M1] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Anthony"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Anthony"),
         .items = {},
         TRAINER_PARTY(sParty_TRAINER_R3_TR9_SWIMMER_M1),
     },
     [TRAINER_R3_TR10_SWIMMER_M2] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Samuel"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Samuel"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR10_SWIMMER_M2),
     },
     [TRAINER_R3_TR11_SWIMMER_F1] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Nina"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Nina"),
         TRAINER_PARTY(sParty_TRAINER_R3_TR11_SWIMMER_F1),
     },
     [TRAINER_R9_TR1_SWIMMER_M] =
     {
         SWIMMER_M_INFO,
-        .trainerName = _("Elliot"),
+        NAME("Elliot"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_TRAINER_R9_TR1_SWIMMER_M),
     },
     [TRAINER_R9_TR2_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Francis"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Francis"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR2_BLACKBELT),
     },
     [TRAINER_R9_TR3_BIRDKEEPER] =
     {
-        BIRD_KEEPER_INFO,
-        BASIC_AI,
-        .trainerName = _("Dwayne"),
+        BIRD_KEEPER_INFO, BASIC_AI, NAME("Dwayne"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR3_BIRDKEEPER),
     },
     [TRAINER_R9_TR4_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("April"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("April"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR4_BATTLEGIRL),
     },
     [TRAINER_R9_TR5_SWIMMER_F] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Melody"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Melody"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR5_SWIMMER_F),
     },
     [TRAINER_R9_TR6_FISHERMAN] =
     {
-        FISHERMAN_INFO,
-        BASIC_AI,
-        .trainerName = _("Saul"),
+        FISHERMAN_INFO, BASIC_AI, NAME("Saul"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR6_FISHERMAN),
     },
     [TRAINER_R9_TR7_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Damon"),
+        HIKER_INFO, BASIC_AI, NAME("Damon"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR7_HIKER),
     },
 
     [TRAINER_R9_TR8_COLLECTOR] =
     {
-        COLLECTOR_INFO,
-        BASIC_AI,
-        .trainerName = _("Louis"),
+        COLLECTOR_INFO, BASIC_AI, NAME("Louis"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR8_COLLECTOR),
     },
 
     [TRAINER_R9_TR9_SWIMMER_M2] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Hector"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Hector"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR9_SWIMMER_M2),
     },
 
     [TRAINER_R9_TR10_LANDSWIMMER] =
     {
-        GEN4_SWIMMER_INFO,
-        BASIC_AI,
-        .trainerName = _("Carla"),
+        GEN4_SWIMMER_INFO, BASIC_AI, NAME("Carla"),
         TRAINER_PARTY(sParty_TRAINER_R9_TR10_LANDSWIMMER),
     },
 
@@ -3185,7 +2752,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_COOLTRAINER,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_BW_ACE_TRAINER_F_SWIMMER,
-        .trainerName = _("Ida"),
+        NAME("Ida"),
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
@@ -3194,80 +2761,60 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R10_TR2_SWIMMER_F1] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Layla"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Layla"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR2_SWIMMER_F1),
     },
 
     [TRAINER_R10_TR3_FISHERMAN] =
     {
-        FISHERMAN_INFO,
-        DUMB_AI,
-        .trainerName = _("Logan"),
+        FISHERMAN_INFO, DUMB_AI, NAME("Logan"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR3_FISHERMAN),
     },
 
     [TRAINER_R10_TR4_SWIMMER_M1] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Derek"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Derek"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR4_SWIMMER_M1),
     },
     [TRAINER_R10_TR5_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        BASIC_AI,
-        .trainerName = _("Daisuke"),
+        BLACK_BELT_INFO, BASIC_AI, NAME("Daisuke"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR5_BLACKBELT),
     },
 
     [TRAINER_R10_TR6_HIKER] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Wright"),
+        HIKER_INFO, BASIC_AI, NAME("Wright"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR6_HIKER),
     },
 
     [TRAINER_R10_TR7_SWIMMER_F2] =
     {
-        SWIMMER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Coral"),
+        SWIMMER_F_INFO, BASIC_AI, NAME("Coral"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR7_SWIMMER_F2),
     },
 
     [TRAINER_R10_TR8_SWIMMER_M2] =
     {
-        SWIMMER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Kieran"),
+        SWIMMER_M_INFO, BASIC_AI, NAME("Kieran"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR8_SWIMMER_M2),
     },
 
     [TRAINER_R10_TR9_BATTLEGIRL] =
     {
-        BATTLE_GIRL_INFO,
-        BASIC_AI,
-        .trainerName = _("Marissa"),
+        BATTLE_GIRL_INFO, BASIC_AI, NAME("Marissa"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR9_BATTLEGIRL),
     },
 
     [TRAINER_R10_TR10_TUBER_M] =
     {
-        TUBER_M_INFO,
-        DUMB_AI,
-        .trainerName = _("Dillon"),
+        TUBER_M_INFO, DUMB_AI, NAME("Dillon"),
         TRAINER_PARTY(sParty_TRAINER_R10_TR10_TUBER_M),
     },
 
     [TRAINER_R16_TR10_NINJABOY] =
     {
-        NINJA_BOY_INFO,
-        BASIC_AI,
-        .trainerName = _("Hokuto"),
+        NINJA_BOY_INFO, BASIC_AI, NAME("Hokuto"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR10_NINJABOY),
     },
 
@@ -3276,7 +2823,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("Grunt"),
+        NAME("Grunt"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_1),
@@ -3284,9 +2831,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R16_TR11_EXPERT_F] =
     {
-        EXPERT_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Bryn"),
+        EXPERT_F_INFO, ADVANCED_AI, NAME("Bryn"),
         TRAINER_PARTY(sParty_TRAINER_R16_TR11_EXPERT_F),
     },
 
@@ -3295,7 +2840,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
-        .trainerName = _("Grunt"),
+        NAME("Grunt"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_2),
@@ -3306,7 +2851,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_F,
-        .trainerName = _("“Grunt”"),
+        NAME("“Grunt”"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_3),
@@ -3317,7 +2862,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("Grunt"),
+        NAME("Grunt"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_4),
@@ -3328,7 +2873,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
-        .trainerName = _("Grunt"),
+        NAME("Grunt"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FACTORY_ROCKET_5),
@@ -3345,7 +2890,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_DARKNESS_ROCKET_ADMIN,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_AQUA,
         .trainerPic = TRAINER_PIC_PETREL,
-        .trainerName = _("Petrel"),
+        NAME("Petrel"),
         .items = {ITEM_HYPER_POTION},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_ACE_POKEMON,
@@ -3372,150 +2917,116 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
 
     [TRAINER_R17_TR1_CAMPER_M] =
     {
-        PKMN_RANGER_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Isaiah"),
+        PKMN_RANGER_M_INFO, BASIC_AI, NAME("Isaiah"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR1_CAMPER_M),
     },
 
     [TRAINER_R17_TR2_PICNICKER1] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Isobel"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Isobel"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR2_PICNICKER1),
     },
 
     [TRAINER_R17_TR3_PICNICKER2] =
     {
-        PKMN_RANGER_F_INFO,
-        BASIC_AI,
-        .trainerName = _("Janine"),
+        PKMN_RANGER_F_INFO, BASIC_AI, NAME("Janine"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR3_PICNICKER2),
     },
 
     [TRAINER_R17_TR4_MANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Gregory"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Gregory"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR4_MANIAC),
     },
 
     [TRAINER_R17_TR5_SCIENTIST] =
     {
-        SCIENTIST_INFO,
-        BASIC_AI,
-        .trainerName = _("Alan"),
+        SCIENTIST_INFO, BASIC_AI, NAME("Alan"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR5_SCIENTIST),
     },
 
     [TRAINER_R17_TR6_HIKER1] =
     {
         HIKER_INFO,
-        .trainerName = _("Gus"),
+        NAME("Gus"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_SEQUENCE_SWITCHING,
         TRAINER_PARTY(sParty_TRAINER_R17_TR6_HIKER1),
     },
 
     [TRAINER_R17_TR7_HIKER2] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Ron"),
+        HIKER_INFO, BASIC_AI, NAME("Ron"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR7_HIKER2),
     },
 
     [TRAINER_R17_TR8_COOLTRAINER] =
     {
-        KINDLER_INFO,
-        BASIC_AI,
-        .trainerName = _("Theo"),
+        KINDLER_INFO, BASIC_AI, NAME("Theo"),
         TRAINER_PARTY(sParty_TRAINER_R17_TR8_COOLTRAINER),
     },
 
     [TRAINER_BASALTUNNEL_TR1_HIKER1] =
     {
-        HIKER_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Lenny"),
+        HIKER_INFO, ADVANCED_AI, NAME("Lenny"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR1_HIKER1),
     },
 
     [TRAINER_BASALTUNNEL_TR2_BLACKBELT] =
     {
-        BLACK_BELT_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Shinobu"),
+        BLACK_BELT_INFO, ADVANCED_AI, NAME("Shinobu"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR2_BLACKBELT),
     },
 
     [TRAINER_BASALTUNNEL_TR3_PICNICKER] =
     {
-        PKMN_RANGER_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Nicolas"),
+        PKMN_RANGER_F_INFO, ADVANCED_AI, NAME("Nicolas"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR3_PICNICKER),
     },
 
     [TRAINER_BASALTUNNEL_TR4_FIREBREATHER] =
     {
-        KINDLER_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Pedro"),
+        KINDLER_INFO, ADVANCED_AI, NAME("Pedro"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR4_FIREBREATHER),
     },
 
     [TRAINER_BASALTUNNEL_TR5_BLACKBELT2] =
     {
-        BLACK_BELT_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Silas"),
+        BLACK_BELT_INFO, ADVANCED_AI, NAME("Silas"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR5_BLACKBELT2),
     },
 
     [TRAINER_BASALTUNNEL_TR6_CAMPERM] =
     {
-        PKMN_RANGER_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Kyler"),
+        PKMN_RANGER_M_INFO, ADVANCED_AI, NAME("Kyler"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR6_CAMPERM),
     },
 
     [TRAINER_BASALTUNNEL_TR7_PICNICKER2] =
     {
-        PKMN_RANGER_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Allison"),
+        PKMN_RANGER_F_INFO, ADVANCED_AI, NAME("Allison"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR7_PICNICKER2),
     },
 
     [TRAINER_BASALTUNNEL_TR8_HIKER2] =
     {
         HIKER_INFO,
-        .trainerName = _("Cole"),
+        NAME("Cole"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_WILL_SUICIDE,
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR8_HIKER2),
     },
     [TRAINER_BASALTUNNEL_TR9_BEAUTY] =
     {
-        BEAUTY_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Laura"),
+        BEAUTY_INFO, ADVANCED_AI, NAME("Laura"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR9_BEAUTY),
     },
     [TRAINER_BASALTUNNEL_TR10_FIREBREATHER2] =
     {
-        KINDLER_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Hugh"),
+        KINDLER_INFO, ADVANCED_AI, NAME("Hugh"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR10_FIREBREATHER2),
     },
     [TRAINER_BASALTUNNEL_TR11_HIKER3] =
     {
-        HIKER_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Perry"),
+        HIKER_INFO, ADVANCED_AI, NAME("Perry"),
         TRAINER_PARTY(sParty_TRAINER_BASALTUNNEL_TR11_HIKER3),
     },
     [TRAINER_BASALTUNNEL_TR12_BROCK] =
@@ -3523,7 +3034,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_ELITE,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_COOL,
         .trainerPic = TRAINER_PIC_BROCK,
-        .trainerName = _("Brock"),
+        NAME("Brock"),
         .mugshotColor = MUGSHOT_COLOR_GROUND,
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
@@ -3532,65 +3043,47 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     },
     [TRAINER_R18_TR1_HIKER1] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Presley"),
+        HIKER_INFO, BASIC_AI, NAME("Presley"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR1_HIKER1),
     },
     [TRAINER_R18_TR2_RANGER_M] =
     {
-        PKMN_RANGER_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Humberto"),
+        PKMN_RANGER_M_INFO, ADVANCED_AI, NAME("Humberto"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR2_RANGER_M),
     },
     [TRAINER_R18_TR3_KINDLER] =
     {
-        KINDLER_INFO,
-        BASIC_AI,
-        .trainerName = _("Edwardo"),
+        KINDLER_INFO, BASIC_AI, NAME("Edwardo"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR3_KINDLER),
     },
     [TRAINER_R18_TR4_HIKER2] =
     {
-        HIKER_INFO,
-        BASIC_AI,
-        .trainerName = _("Benny"),
+        HIKER_INFO, BASIC_AI, NAME("Benny"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR4_HIKER2),
     },
     [TRAINER_R18_TR5_RANGER_F] =
     {
-        PKMN_RANGER_F_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Alana"),
+        PKMN_RANGER_F_INFO, ADVANCED_AI, NAME("Alana"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR5_RANGER_F),
     },
     [TRAINER_R18_TR6_SCIENTIST] =
     {
-        SCIENTIST_INFO,
-        BASIC_AI,
-        .trainerName = _("Chester"),
+        SCIENTIST_INFO, BASIC_AI, NAME("Chester"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR6_SCIENTIST),
     },
     [TRAINER_R18_TR7_POKEMANIAC] =
     {
-        POKEMANIAC_INFO,
-        BASIC_AI,
-        .trainerName = _("Morgan"),
+        POKEMANIAC_INFO, BASIC_AI, NAME("Morgan"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR7_POKEMANIAC),
     },
     [TRAINER_R18_TR8_BREEDER_M] =
     {
-        ENTHUSIAST_M_INFO,
-        BASIC_AI,
-        .trainerName = _("Glenn"),
+        ENTHUSIAST_M_INFO, BASIC_AI, NAME("Glenn"),
         TRAINER_PARTY(sParty_TRAINER_R18_TR8_BREEDER_M),
     },
     [TRAINER_R18_TR9_ACE_TRAINER_M] =
     {
-        BW_ACE_M_INFO,
-        ADVANCED_AI,
-        .trainerName = _("Tyrone"),
+        BW_ACE_M_INFO, ADVANCED_AI, NAME("Tyrone"),
         .items = {ITEM_HYPER_POTION, ITEM_HYPER_POTION},
         TRAINER_PARTY(sParty_TRAINER_R18_TR9_ACE_TRAINER_M),
     },
@@ -3599,7 +3092,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_PRYCE,
-        .trainerName = _("Pryce"),
+        NAME("Pryce"),
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_BROTHER,
@@ -3611,7 +3104,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_LEADER,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_HIKER,
         .trainerPic = TRAINER_PIC_BLAINE,
-        .trainerName = _("Blaine"),
+        NAME("Blaine"),
         .items = {ITEM_HYPER_POTION, ITEM_FULL_HEAL},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .mugshotColor = MUGSHOT_COLOR_BROTHER,
@@ -3623,7 +3116,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Matti"),
+        NAME("Matti"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR1_HIKER1),
     },
     [TRAINER_FROSTGYM_TR2_KINDLER1] =
@@ -3631,7 +3124,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         KINDLER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Beck"),
+        NAME("Beck"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR2_KINDLER1),
     },
     [TRAINER_FROSTGYM_TR3_SENIOR] =
@@ -3639,7 +3132,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_GYMMEMBER_DOUBLE,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_TWINS,
         .trainerPic = TRAINER_PIC_JUNIOR,
-        .trainerName = _("Helena"),
+        NAME("Helena"),
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR3_SENIOR),
@@ -3649,7 +3142,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .trainerClass = TRAINER_CLASS_GYMMEMBER_DOUBLE,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_TWINS,
         .trainerPic = TRAINER_PIC_SENIOR,
-        .trainerName = _("Irene"),
+        NAME("Irene"),
         .items = {},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT,
@@ -3660,7 +3153,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_RANGER_M_INFO,
         ADVANCED_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Mika"),
+        NAME("Mika"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR5_RANGER_M),
     },
     [TRAINER_FROSTGYM_TR6_RANGER_F] =
@@ -3668,7 +3161,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_RANGER_F_INFO,
         ADVANCED_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Suzanne"),
+        NAME("Suzanne"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR6_RANGER_F),
     },
     [TRAINER_FROSTGYM_TR7_MANIAC] =
@@ -3676,7 +3169,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         RUIN_MANIAC_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Oscar"),
+        NAME("Oscar"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR7_MANIAC),
     },
     [TRAINER_FROSTGYM_TR8_COLLECTOR] =
@@ -3684,7 +3177,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         COLLECTOR_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Laurence"),
+        NAME("Laurence"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR8_COLLECTOR),
     },
 
@@ -3693,7 +3186,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         KINDLER_INFO,
         BASIC_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Emil"),
+        NAME("Emil"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR9_KINDLER2),
     },
 
@@ -3702,7 +3195,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PKMN_RANGER_F_INFO,
         ADVANCED_AI,
         .isGymTrainer = TRUE,
-        .trainerName = _("Elsa"),
+        NAME("Elsa"),
         TRAINER_PARTY(sParty_TRAINER_FROSTGYM_TR10_RANGER_F2),
     },
 
@@ -3711,7 +3204,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         EXPERT_F_INFO,
         ADVANCED_AI,
         MOREBP,
-        .trainerName = _("Aino"),
+        NAME("Aino"),
         .items = {ITEM_FULL_RESTORE},
         TRAINER_PARTY(sParty_TRAINER_AZURETIDE_CELEBI_TR1),
     },
@@ -3721,7 +3214,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         EXPERT_M_INFO,
         ADVANCED_AI,
         MOREBP,
-        .trainerName = _("Pentti"),
+        NAME("Pentti"),
         .items = {ITEM_FULL_RESTORE},
         TRAINER_PARTY(sParty_TRAINER_KAOLISLE_CELEBI_TR2),
     },
@@ -3731,7 +3224,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_F_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Jocelyn"),
+        NAME("Jocelyn"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR1_SWIMMER_F),
     },
 
@@ -3740,7 +3233,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_M_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Harold"),
+        NAME("Harold"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR2_SWIMMER_M),
     },
     [TRAINER_R19_TR3_SWIMMER_M] =
@@ -3748,7 +3241,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_M_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Jeffery"),
+        NAME("Jeffery"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR3_SWIMMER_M),
     },
     [TRAINER_R19_TR4_SWIMMER_COUPLE] =
@@ -3756,7 +3249,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMERS_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Heidi & Jesse"),
+        NAME("Heidi & Jesse"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR4_SWIMMER_COUPLE),
     },
     [TRAINER_R19_TR5_SWIMMER_F] =
@@ -3764,7 +3257,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_F_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Paula"),
+        NAME("Paula"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR5_SWIMMER_F),
     },
     [TRAINER_R19_TR6_SWIMMER_M] =
@@ -3772,7 +3265,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_M_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Casey"),
+        NAME("Casey"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR6_SWIMMER_M),
     },
     [TRAINER_R19_TR7_BLACKBELT] =
@@ -3780,7 +3273,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         BLACK_BELT_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Duane"),
+        NAME("Duane"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR7_BLACKBELT),
     },
     [TRAINER_R19_TR8_HIKER] =
@@ -3788,7 +3281,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         HIKER_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Travis"),
+        NAME("Travis"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR8_HIKER),
     },
     [TRAINER_R19_TR9_PICNICKER] =
@@ -3796,7 +3289,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         PICNICKER_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Cyndy"),
+        NAME("Cyndy"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR9_PICNICKER),
     },
     [TRAINER_R19_TR10_SWIMMER_M] =
@@ -3804,7 +3297,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         SWIMMER_M_INFO,
         BASIC_AI,
         MOREBP,
-        .trainerName = _("Jared"),
+        NAME("Jared"),
         TRAINER_PARTY(sParty_TRAINER_R19_TR10_SWIMMER_M),
     },
     [TRAINER_CLARISSA] =

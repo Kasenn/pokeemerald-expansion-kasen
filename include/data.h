@@ -115,7 +115,6 @@ struct TrainerMon
 };
 
 #define TRAINER_PARTY(partyArray) .party = partyArray, .partySize = ARRAY_COUNT(partyArray)
-#define TRAINER_MONS(name)  static const struct TrainerMon sParty_##name[]
 
 enum TrainerBattleType
 {
