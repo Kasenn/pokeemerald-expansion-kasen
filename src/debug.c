@@ -4298,20 +4298,20 @@ enum DebugTrainerIds
     DEBUG_TRAINERS_COUNT
 };
 
-const struct Trainer sDebugTrainers[DIFFICULTY_COUNT][DEBUG_TRAINERS_COUNT] =
+const struct Trainer sDebugTrainers[DEBUG_TRAINERS_COUNT] =
 {
 #include "data/debug_trainers.h"
 };
 
 const struct Trainer* GetDebugAiTrainer(void)
 {
-    return &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_AI];
+    return &sDebugTrainers[DEBUG_TRAINER_AI];
 }
 
 static void DebugAction_Party_SetParty(u8 taskId)
 {
     ZeroPlayerPartyMons();
-    CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
+    CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }
@@ -4320,11 +4320,11 @@ static void DebugAction_Party_BattleSingle(u8 taskId)
 {
     // ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
-    // CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
+    // CreateNPCTrainerPartyFromTrainer(gPlayerParty, &sDebugTrainers[DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
     CreateNPCTrainerPartyFromTrainer(gEnemyParty, GetDebugAiTrainer(), FALSE, BATTLE_TYPE_TRAINER);
 
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
-    gDebugAIFlags = sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_AI].aiFlags;
+    gDebugAIFlags = sDebugTrainers[DEBUG_TRAINER_AI].aiFlags;
     gIsDebugBattle = TRUE;
     gBattleEnvironment = BattleSetup_GetEnvironmentId();
     CalculateEnemyPartyCount();

@@ -47,7 +47,6 @@
 #include "constants/map_groups.h"
 #include "constants/items.h"
 #include "tx_registered_items_menu.h"
-#include "difficulty.h"
 #include "follower_npc.h"
 
 extern const u8 EventScript_ResetAllMapFlags[];
@@ -228,7 +227,6 @@ void NewGameInitData(void)
     // ResetContestLinkResults();
     memset(&gSaveBlock2Ptr->NPCfollower, 0, sizeof(gSaveBlock2Ptr->NPCfollower));
     gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
-    SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();
     ResetDexNav();
     ClearFollowerNPCData();

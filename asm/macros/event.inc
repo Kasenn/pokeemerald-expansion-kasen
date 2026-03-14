@@ -2511,23 +2511,6 @@
 	.2byte \wait
 	.endm
 
-	.macro increasedifficulty
-	callnative Script_IncreaseDifficulty, requests_effects=1
-	.endm
-
-	.macro decreasedifficulty
-	callnative Script_DecreaseDifficulty, requests_effects=1
-	.endm
-
-	.macro getdifficulty var:req
-	callnative Script_GetDifficulty, requests_effects=1
-	.endm
-
-	.macro setdifficulty difficulty:req
-	callnative Script_SetDifficulty, requests_effects=1
-	.byte \difficulty
-	.endm
-
 	.macro forcesave
 	callnative Script_ForceSaveGame
 	waitstate

@@ -39,6 +39,7 @@
 #include "constants/event_objects.h"
 #include "party_menu.h"
 #include "list_menu.h"
+#include "script.h"
 
 struct FrontierBrainMon
 {

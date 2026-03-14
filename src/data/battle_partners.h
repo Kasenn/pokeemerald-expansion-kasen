@@ -1,6 +1,6 @@
     #include "constants/battle_ai.h"
     
-    [DIFFICULTY_NORMAL][PARTNER_NONE] =
+    [PARTNER_NONE] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
@@ -11,7 +11,7 @@
         {
         },
     },
-    [DIFFICULTY_NORMAL][PARTNER_STEVEN] =
+    [PARTNER_STEVEN] =
     {
         .trainerName = _("STEVEN"),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -60,7 +60,7 @@
         },
     },
 
-    [DIFFICULTY_NORMAL][PARTNER_MAY_ROWLET] =
+    [PARTNER_MAY_ROWLET] =
     {
         TRAINER_PARTY(sParty_MayRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -70,7 +70,7 @@
         .trainerName = _("May"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_MAY_TORCHIC] =
+    [PARTNER_MAY_TORCHIC] =
     {
         TRAINER_PARTY(sParty_MayTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -80,7 +80,7 @@
         .trainerName = _("May"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_MAY_PIPLUP] =
+    [PARTNER_MAY_PIPLUP] =
     {
         TRAINER_PARTY(sParty_MayPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -90,7 +90,7 @@
         .trainerName = _("May"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_MAY_ORAS_ROWLET] =
+    [PARTNER_MAY_ORAS_ROWLET] =
     {
         TRAINER_PARTY(sParty_MayRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -100,7 +100,7 @@
         .trainerName = _("May"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_MAY_ORAS_TORCHIC] =
+    [PARTNER_MAY_ORAS_TORCHIC] =
     {
         TRAINER_PARTY(sParty_MayTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -110,7 +110,7 @@
         .trainerName = _("May"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_MAY_ORAS_PIPLUP] =
+    [PARTNER_MAY_ORAS_PIPLUP] =
     {
         TRAINER_PARTY(sParty_MayPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -121,7 +121,7 @@
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
 
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_ROWLET] =
+    [PARTNER_BRENDAN_ROWLET] =
     {
         TRAINER_PARTY(sParty_BrendanRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -131,7 +131,7 @@
         .trainerName = _("Brendan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_TORCHIC] =
+    [PARTNER_BRENDAN_TORCHIC] =
     {
         TRAINER_PARTY(sParty_BrendanTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -141,7 +141,7 @@
         .trainerName = _("Brendan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_PIPLUP] =
+    [PARTNER_BRENDAN_PIPLUP] =
     {
         TRAINER_PARTY(sParty_BrendanPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -151,7 +151,7 @@
         .trainerName = _("Brendan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_ORAS_ROWLET] =
+    [PARTNER_BRENDAN_ORAS_ROWLET] =
     {
         TRAINER_PARTY(sParty_BrendanRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -161,7 +161,7 @@
         .trainerName = _("Brendan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_ORAS_TORCHIC] =
+    [PARTNER_BRENDAN_ORAS_TORCHIC] =
     {
         TRAINER_PARTY(sParty_BrendanTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
@@ -171,7 +171,7 @@
         .trainerName = _("Brendan"),
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
     },
-    [DIFFICULTY_NORMAL][PARTNER_BRENDAN_ORAS_PIPLUP] =
+    [PARTNER_BRENDAN_ORAS_PIPLUP] =
     {
         TRAINER_PARTY(sParty_BrendanPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,

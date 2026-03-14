@@ -39,7 +39,7 @@
 
 static u32 BattlerHPPercentage(u32 battler, u32 operation, u32 threshold);
 static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive);
-static bool32 DoesTrainerHaveSlideMessage(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId);
+static bool32 DoesTrainerHaveSlideMessage(u32 trainerId, u32 slideId);
 static bool32 ShouldRunTrainerSlidePlayerLandsFirstCriticalHit(enum TrainerSlideType slideId);
 static bool32 ShouldRunTrainerSlideEnemyLandsFirstCriticalHit(enum TrainerSlideType slideId);
 static bool32 ShouldRunTrainerSlidePlayerLandsFirstSuperEffectiveHit(u32 battler, enum TrainerSlideType slideId);
@@ -55,33 +55,19 @@ static bool32 IsSlideInitalizedOrPlayed(enum TrainerSlideType slideId);
 static const u8 sText_BrendanMegaEvolve1[] = _("Okay!\nLet's see what we can do with this!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 static const u8 sText_MayMegaEvolve1[] = _("Alright!\nTime to see what this thing can do!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}");
 
-static const u8* const sTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
+static const u8* const sTrainerSlides[TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
 {
-    [DIFFICULTY_NORMAL] =
-    {
-        [TRAINER_LEADER_KORRINA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
-        [TRAINER_LEADER_ACEROLA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
-        [TRAINER_UNUSED_381_] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
-        [TRAINER_UNUSED_379_] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
-        [TRAINER_UNUSED_380_] = {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_BrendanMegaEvolve1},
-        [TRAINER_UNUSED_378_] =      {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
-        [TRAINER_UNUSED_376_] =      {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
-        [TRAINER_UNUSED_377_] =     {[TRAINER_SLIDE_MEGA_EVOLUTION] = sText_MayMegaEvolve1},
-        [TRAINER_BASALTUNNEL_TR12_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
-        [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
-        [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
-        [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("{PAUSE_MUSIC}Let's see how you deal with this!{PAUSE 90}")},
-    },
+    [TRAINER_LEADER_KORRINA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+    [TRAINER_LEADER_ACEROLA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+    [TRAINER_BASALTUNNEL_TR12_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
+    [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
+    [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
+    [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("{PAUSE_MUSIC}Let's see how you deal with this!{PAUSE 90}")},
 };
 
-static const u8* const sFrontierTrainerSlides[DIFFICULTY_COUNT][FRONTIER_TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
-{
-    [DIFFICULTY_NORMAL] =
-    {
-    },
-};
+static const u8* const sFrontierTrainerSlides[FRONTIER_TRAINERS_COUNT][TRAINER_SLIDE_COUNT] = {};
 
-static const u8* const sTestTrainerSlides[DIFFICULTY_COUNT][TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
+static const u8* const sTestTrainerSlides[TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
 {
 #include "../test/battle/trainer_slides.h"
 };
@@ -122,20 +108,20 @@ static u32 GetEnemyMonCount(u32 firstId, u32 lastId, bool32 onlyAlive)
     return count;
 }
 
-static const u8* const *GetTrainerSlideArray(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId)
+static const u8* const *GetTrainerSlideArray(u32 trainerId, u32 slideId)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)
-        return sFrontierTrainerSlides[difficulty][trainerId];
+        return sFrontierTrainerSlides[trainerId];
     else if (TESTING)
-        return sTestTrainerSlides[difficulty][trainerId];
+        return sTestTrainerSlides[trainerId];
     else
-        return sTrainerSlides[difficulty][trainerId];
+        return sTrainerSlides[trainerId];
 }
 
-static bool32 DoesTrainerHaveSlideMessage(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId)
+static bool32 DoesTrainerHaveSlideMessage(u32 trainerId, u32 slideId)
 {
-    const u8* const *trainerSlides = GetTrainerSlideArray(difficulty, trainerId, slideId);
-    const u8* const *trainerSlidesNormal = GetTrainerSlideArray(DIFFICULTY_NORMAL, trainerId, slideId);
+    const u8* const *trainerSlides = GetTrainerSlideArray(trainerId, slideId);
+    const u8* const *trainerSlidesNormal = GetTrainerSlideArray(trainerId, slideId);
 
     if (trainerSlides[slideId] == NULL)
         return (trainerSlidesNormal[slideId] != NULL);
@@ -143,10 +129,10 @@ static bool32 DoesTrainerHaveSlideMessage(enum DifficultyLevel difficulty, u32 t
         return TRUE;
 }
 
-void SetTrainerSlideMessage(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId)
+void SetTrainerSlideMessage(u32 trainerId, u32 slideId)
 {
-    const u8* const *trainerSlides = GetTrainerSlideArray(difficulty, trainerId, slideId);
-    const u8* const *trainerSlidesNormal = GetTrainerSlideArray(DIFFICULTY_NORMAL, trainerId, slideId);
+    const u8* const *trainerSlides = GetTrainerSlideArray(trainerId, slideId);
+    const u8* const *trainerSlidesNormal = GetTrainerSlideArray(trainerId, slideId);
 
     if (trainerSlides[slideId] != NULL)
         gBattleStruct->trainerSlideMsg = trainerSlides[slideId];
@@ -259,14 +245,13 @@ enum TrainerSlideTargets ShouldDoTrainerSlide(u32 battler, enum TrainerSlideType
         return TRAINER_SLIDE_TARGET_NONE;
 
     SetTrainerSlideParamters(battler, &firstId, &lastId, &trainerId, &retValue);
-    enum DifficultyLevel difficulty = GetCurrentDifficultyLevel();
 
     gBattleScripting.battler = battler;
 
     if (IsTrainerSlidePlayed(slideId))
         return TRAINER_SLIDE_TARGET_NONE;
 
-    if (!DoesTrainerHaveSlideMessage(difficulty,trainerId,slideId))
+    if (!DoesTrainerHaveSlideMessage(trainerId,slideId))
         return TRAINER_SLIDE_TARGET_NONE;
 
     switch (slideId)
@@ -312,7 +297,7 @@ enum TrainerSlideTargets ShouldDoTrainerSlide(u32 battler, enum TrainerSlideType
         return TRAINER_SLIDE_TARGET_NONE;
 
     MarkTrainerSlideAsPlayed(slideId);
-    SetTrainerSlideMessage(difficulty,trainerId,slideId);
+    SetTrainerSlideMessage(trainerId,slideId);
     return retValue;
 }
 

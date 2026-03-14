@@ -7,7 +7,7 @@
 //
 
 
-    [DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER] =
+    [DEBUG_TRAINER_PLAYER] =
     {
         .trainerName = _("Player"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
@@ -35,7 +35,7 @@
             },
         },
     },
-    [DIFFICULTY_NORMAL][DEBUG_TRAINER_AI] =
+    [DEBUG_TRAINER_AI] =
     {
         .trainerName = _("Debugger"),
         .trainerClass = TRAINER_CLASS_RIVAL,

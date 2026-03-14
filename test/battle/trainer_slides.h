@@ -1,5 +1,3 @@
-[DIFFICULTY_NORMAL] =
-{
     [TRAINER_SLIDE_BEFORE_FIRST_TURN] =
     {
         [TRAINER_SLIDE_BEFORE_FIRST_TURN] = COMPOUND_STRING("This message plays before the first turn.{PAUSE_UNTIL_PRESS}"),
@@ -52,5 +50,3 @@
     {
         [TRAINER_SLIDE_DYNAMAX] = COMPOUND_STRING("This message plays before the enemy activates the Dynamax gimmick.{PAUSE_UNTIL_PRESS}"),
     },
-},
-

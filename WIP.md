@@ -28,6 +28,10 @@ make path from magical forest to near sandstone
 redesign pokemon center training bots
 possibly add eevee stones (ow metatile)
 replace linking cord with something more suitable
+give iceperch city more interesting layout + more ice
+
+add pokemon customizer to contest hall:
+ball, ball sparkle, shininess etc
 
 wild encounter changes
 honey tree mons now have 20% chance to have a hidden ability

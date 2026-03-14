@@ -5447,14 +5447,13 @@ s32 GetBattlerMultiplayerId(u16 id)
 u8 GetTrainerEncounterMusicId(u16 trainerOpponentId)
 {
     u32 sanitizedTrainerId = SanitizeTrainerId(trainerOpponentId);
-    enum DifficultyLevel difficulty = GetTrainerDifficultyLevel(sanitizedTrainerId);
 
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
         return GetTrainerEncounterMusicIdInBattlePyramid(trainerOpponentId);
     else if (InTrainerHillChallenge())
         return GetTrainerEncounterMusicIdInTrainerHill(trainerOpponentId);
     else
-        return gTrainers[difficulty][sanitizedTrainerId].encounterMusic_gender & (F_TRAINER_FEMALE - 1);
+        return gTrainers[sanitizedTrainerId].encounterMusic_gender & (F_TRAINER_FEMALE - 1);
 }
 
 u16 ModifyStatByNature(u8 nature, u16 stat, enum Stat statIndex)
