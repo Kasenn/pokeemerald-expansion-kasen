@@ -218,7 +218,10 @@ text R19Tr9_Lose {
     "all that matters."
 }
 text R19Tr9_PostBattle {
-    "wip"
+    "Some Pokémon have very strong\n"
+    "weather-related abilities.\p"
+    "Use them to your advantage\n"
+    "whenever you can."
 }
 
 script Route19_Tr10_SwimmerM {

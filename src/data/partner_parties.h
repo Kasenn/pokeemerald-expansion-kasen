@@ -1,4 +1,4 @@
-static const struct TrainerMon sP_StevenPartner[] = {
+static const struct TrainerMon sParty_StevenPartner[] = {
     {
         .species = SPECIES_METANG,
         .lvl = 45,
@@ -25,7 +25,7 @@ static const struct TrainerMon sP_StevenPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_BrendanRowletPartner[] = {
+static const struct TrainerMon sParty_BrendanRowletPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
@@ -76,7 +76,7 @@ static const struct TrainerMon sP_BrendanRowletPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_BrendanTorchicPartner[] = {
+static const struct TrainerMon sParty_BrendanTorchicPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
@@ -127,7 +127,7 @@ static const struct TrainerMon sP_BrendanTorchicPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_BrendanPiplupPartner[] = {
+static const struct TrainerMon sParty_BrendanPiplupPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
@@ -178,7 +178,7 @@ static const struct TrainerMon sP_BrendanPiplupPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_MayRowletPartner[] = {
+static const struct TrainerMon sParty_MayRowletPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
@@ -229,7 +229,7 @@ static const struct TrainerMon sP_MayRowletPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_MayTorchicPartner[] = {
+static const struct TrainerMon sParty_MayTorchicPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
@@ -280,7 +280,7 @@ static const struct TrainerMon sP_MayTorchicPartner[] = {
     }
 };
 
-static const struct TrainerMon sP_MayPiplupPartner[] = {
+static const struct TrainerMon sParty_MayPiplupPartner[] = {
     {
         IVS(6, 6, 6, 6, 6, 6),
         EVS(100, 0, 100, 0, 0, 100),
