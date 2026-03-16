@@ -4,7 +4,7 @@ mapscripts Route7_MapScripts{
 
 script ClearShinyFlag2{
     clearflag(FLAG_INCREASED_SHINY_ODDS)
-    cleartrainerflag(TRAINER_R8_TR6_ENTHUSIAST)
+    cleartrainerflag(TRAINER_R8_ENTHUSIAST)
     release
     end
 }
@@ -38,7 +38,7 @@ script Route8_Ball2{
 }
 
 script Route8_Trainer1_ParasolLady{
-    trainerbattle_single(TRAINER_R8_TR1_PARASOLLADY, Route8_Trainer1_ParasolLady_Intro, Route8_Trainer1_ParasolLady_Defeat)
+    trainerbattle_single(TRAINER_R8_PARASOLLADY, Route8_Trainer1_ParasolLady_Intro, Route8_Trainer1_ParasolLady_Defeat)
     msgbox(Route8_Trainer1_ParasolLady_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -55,7 +55,7 @@ text Route8_Trainer1_ParasolLady_PostBattle{
 	"the secret behind fashion appeal."
 }
 script Route8_Trainer2_SRJR{
-    trainerbattle_double(TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR_Intro, Route8_Trainer2_SRJR_Defeat, Route8_Trainer2_SRJR_NotEnoughMons)
+    trainerbattle_double(TRAINER_R8_SRJR, Route8_Trainer2_SRJR_Intro, Route8_Trainer2_SRJR_Defeat, Route8_Trainer2_SRJR_NotEnoughMons)
     msgbox(Route8_Trainer2_SRJR_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -78,7 +78,7 @@ text Route8_Trainer2_SRJR_NotEnoughMons{
 	"That would be bullying."
 }
 script Route8_Trainer2_SRJR2{
-    trainerbattle_double(TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons)
+    trainerbattle_double(TRAINER_R8_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons)
     msgbox(Route8_Trainer2_SRJR2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -98,7 +98,7 @@ text Route8_Trainer2_SRJR2_NotEnoughMons{
 	"if you're going to challenge us!"
 }
 script Route8_Trainer3_AromaLady{
-    trainerbattle_single(TRAINER_R8_TR3_AROMALADY, Route8_Trainer3_AromaLady_Intro, Route8_Trainer3_AromaLady_Defeat)
+    trainerbattle_single(TRAINER_R8_AROMALADY, Route8_Trainer3_AromaLady_Intro, Route8_Trainer3_AromaLady_Defeat)
     msgbox(Route8_Trainer3_AromaLady_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -118,7 +118,7 @@ text Route8_Trainer3_AromaLady_PostBattle{
 	"But it's all right if you're busy."
 }
 script Route8_Trainer4_Youngster{
-    trainerbattle_single(TRAINER_R8_TR4_YOUNGSTER, Route8_Trainer4_Youngster_Intro, Route8_Trainer4_Youngster_Defeat)
+    trainerbattle_single(TRAINER_R8_YOUNGSTER, Route8_Trainer4_Youngster_Intro, Route8_Trainer4_Youngster_Defeat)
     msgbox(Route8_Trainer4_Youngster_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -136,7 +136,7 @@ text Route8_Trainer4_Youngster_PostBattle{
     "redo some of the courses…"
 }
 script Route8_Trainer5_Psychic_F{
-    trainerbattle_single(TRAINER_R8_TR5_PSYCHIC_F, Route8_Trainer5_Psychic_F_Intro, Route8_Trainer5_Psychic_F_Defeat)
+    trainerbattle_single(TRAINER_R8_PSYCHIC_F, Route8_Trainer5_Psychic_F_Intro, Route8_Trainer5_Psychic_F_Defeat)
     msgbox(Route8_Trainer5_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -153,7 +153,7 @@ text Route8_Trainer5_Psychic_F_PostBattle{
 	"Don't think you can win all the time!"
 }
 script Route8_Trainer6_Camper_M{
-    trainerbattle_single(TRAINER_R8_TR6_ENTHUSIAST, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat)
+    trainerbattle_single(TRAINER_R8_ENTHUSIAST, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat)
     msgbox(Route8_Trainer6_Camper_M_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -170,7 +170,7 @@ text Route8_Trainer6_Camper_M_PostBattle{
     "battle again soon!"
 }
 script Route8_Trainer7_Triathlete_M{
-    trainerbattle_single(TRAINER_R8_TR7_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat)
+    trainerbattle_single(TRAINER_R8_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat)
     msgbox(Route8_Trainer7_Triathlete_M_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -186,7 +186,7 @@ text Route8_Trainer7_Triathlete_M_PostBattle{
     "Need to keep practicing!"
 }
 script Route8_Trainer8_Gentleman{
-    trainerbattle_single(TRAINER_R8_TR8_GENTLEMAN, Route8_Trainer8_Gentleman_Intro, Route8_Trainer8_Gentleman_Defeat)
+    trainerbattle_single(TRAINER_R8_GENTLEMAN, Route8_Trainer8_Gentleman_Intro, Route8_Trainer8_Gentleman_Defeat)
     msgbox(Route8_Trainer8_Gentleman_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -201,7 +201,7 @@ text Route8_Trainer8_Gentleman_PostBattle{
     "A fine battle that was!"
 }
 script Route8_Trainer9_Hiker{
-    trainerbattle_single(TRAINER_R8_TR9_HIKER, Route8_Trainer9_Hiker_Intro, Route8_Trainer9_Hiker_Defeat)
+    trainerbattle_single(TRAINER_R8_HIKER, Route8_Trainer9_Hiker_Intro, Route8_Trainer9_Hiker_Defeat)
     msgbox(Route8_Trainer9_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -216,7 +216,7 @@ text Route8_Trainer9_Hiker_PostBattle{
 	"types, that's what I ought to do."
 }	
 script Route8_Trainer10_OldCouple{
-    trainerbattle_double(TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple_Intro, Route8_Trainer10_OldCouple_Defeat, Route8_Trainer10_OldCouple_NotEnoughMons)
+    trainerbattle_double(TRAINER_R8_OLDCOUPLE, Route8_Trainer10_OldCouple_Intro, Route8_Trainer10_OldCouple_Defeat, Route8_Trainer10_OldCouple_NotEnoughMons)
     msgbox(Route8_Trainer10_OldCouple_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -242,7 +242,7 @@ text Route8_Trainer10_OldCouple_NotEnoughMons{
 	"have to come back with more Pokémon."
 }
 script Route8_Trainer10_OldCouple2{
-    trainerbattle_double(TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple2_Intro, Route8_Trainer10_OldCouple2_Defeat, Route8_Trainer10_OldCouple2_NotEnoughMons)
+    trainerbattle_double(TRAINER_R8_OLDCOUPLE, Route8_Trainer10_OldCouple2_Intro, Route8_Trainer10_OldCouple2_Defeat, Route8_Trainer10_OldCouple2_NotEnoughMons)
     msgbox(Route8_Trainer10_OldCouple2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -267,7 +267,7 @@ text Route8_Trainer10_OldCouple2_NotEnoughMons{
 	"have to return with more Pokémon."
 }
 script Route8_Trainer11_BirdKeeper{
-    trainerbattle_single(TRAINER_R8_TR11_BIRDKEEPER, Route8_Trainer11_BirdKeeper_Intro, Route8_Trainer11_BirdKeeper_Defeat)
+    trainerbattle_single(TRAINER_R8_BIRDKEEPER, Route8_Trainer11_BirdKeeper_Intro, Route8_Trainer11_BirdKeeper_Defeat)
     msgbox(Route8_Trainer11_BirdKeeper_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

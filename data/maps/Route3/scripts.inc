@@ -199,7 +199,7 @@ Route3_Youngster::
 
 Route3_Bird2::
 # 117 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_R4_BIRDKEEPER_2, Route3_Bird2Intro, Route3_Bird2Defeated
+	trainerbattle_single TRAINER_R4_BIRDKEEPER2, Route3_Bird2Intro, Route3_Bird2Defeated
 # 118 "data/maps/Route3/scripts.pory"
 	msgbox Route3_Bird2PostBattle, MSGBOX_AUTOCLOSE
 # 119 "data/maps/Route3/scripts.pory"
@@ -209,7 +209,7 @@ Route3_Bird2::
 
 Route3_DoubleLass::
 # 123 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_R4_DOUBLE_LASS, Route3_DoubleLassIntro, Route3_DoubleLassDefeated
+	trainerbattle_single TRAINER_R4_LASS, Route3_DoubleLassIntro, Route3_DoubleLassDefeated
 # 124 "data/maps/Route3/scripts.pory"
 	msgbox Route3_DoubleLassPostBattle, MSGBOX_AUTOCLOSE
 # 125 "data/maps/Route3/scripts.pory"
@@ -219,7 +219,7 @@ Route3_DoubleLass::
 
 Route3_DoubleBoy::
 # 129 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_R4_DOUBLE_YOUNGSTER, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
+	trainerbattle_single TRAINER_R4_YOUNGSTER, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
 # 130 "data/maps/Route3/scripts.pory"
 	msgbox Route3_DoubleBoyPostBattle, MSGBOX_AUTOCLOSE
 # 131 "data/maps/Route3/scripts.pory"
@@ -229,7 +229,7 @@ Route3_DoubleBoy::
 
 Route3_HedgeRunner::
 # 135 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_R4_TRIATHLETE_2, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated
+	trainerbattle_single TRAINER_R4_TRIATHLETE2, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated
 # 136 "data/maps/Route3/scripts.pory"
 	msgbox Route3_HedgeRunnerPostBattle, MSGBOX_AUTOCLOSE
 # 137 "data/maps/Route3/scripts.pory"

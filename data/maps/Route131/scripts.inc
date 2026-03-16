@@ -16,12 +16,12 @@ Route131_EventScript_CheckSetAbnormalWeather::
 	return
 
 Route131_EventScript_Richard::
-	trainerbattle_single TRAINER_DESERT_TR11_BLACKBELT2, Route131_Text_RichardIntro, Route131_Text_RichardDefeat
+	trainerbattle_single TRAINER_DESERT_BLACKBELT2, Route131_Text_RichardIntro, Route131_Text_RichardDefeat
 	msgbox Route131_Text_RichardPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Herman::
-	trainerbattle_single TRAINER_DESERT_TR12_HIKER4, Route131_Text_HermanIntro, Route131_Text_HermanDefeat
+	trainerbattle_single TRAINER_DESERT_HIKER4, Route131_Text_HermanIntro, Route131_Text_HermanDefeat
 	msgbox Route131_Text_HermanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -46,12 +46,12 @@ Route131_EventScript_Ian::
 	end
 
 Route131_EventScript_Talia::
-	trainerbattle_single TRAINER_R17_TR4_MANIAC, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
+	trainerbattle_single TRAINER_R17_MANIAC, Route131_Text_TaliaIntro, Route131_Text_TaliaDefeat
 	msgbox Route131_Text_TaliaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route131_EventScript_Kevin::
-	trainerbattle_single TRAINER_R7_TR2_PICNICKER, Route131_Text_KevinIntro, Route131_Text_KevinDefeat
+	trainerbattle_single TRAINER_R7_PICNICKER, Route131_Text_KevinIntro, Route131_Text_KevinDefeat
 	msgbox Route131_Text_KevinPostBattle, MSGBOX_AUTOCLOSE
 	end
 

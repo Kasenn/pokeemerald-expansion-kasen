@@ -3,7 +3,7 @@ mapscripts BasalekTunnels_MapScripts {
 }
 
 script BasaltTunnel_Tr1_Hiker1 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR1_HIKER1, BasaltTr1_Intro, BasaltTr1_Lose)
+    trainerbattle_single(TRAINER_BTUN_HIKER1, BasaltTr1_Intro, BasaltTr1_Lose)
     msgbox(BasaltTr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -22,7 +22,7 @@ text BasaltTr1_PostBattle {
 }
 
 script BasaltTunnel_Tr2_BlackBelt {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR2_BLACKBELT, BasaltTr2_Intro, BasaltTr2_Lose)
+    trainerbattle_single(TRAINER_BTUN_BLACKBELT, BasaltTr2_Intro, BasaltTr2_Lose)
     msgbox(BasaltTr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -40,7 +40,7 @@ text BasaltTr2_PostBattle {
 }
 
 script BasaltTunnel_Tr3_Picnicker {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR3_PICNICKER, BasaltTr3_Intro, BasaltTr3_Lose)
+    trainerbattle_single(TRAINER_BTUN_PICNICKER, BasaltTr3_Intro, BasaltTr3_Lose)
     msgbox(BasaltTr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -60,7 +60,7 @@ text BasaltTr3_PostBattle {
 }
 
 script BasaltTunnel_Tr4_FireBreather {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR4_FIREBREATHER, BasaltTr4_Intro, BasaltTr4_Lose)
+    trainerbattle_single(TRAINER_BTUN_FIREBREATHER, BasaltTr4_Intro, BasaltTr4_Lose)
     msgbox(BasaltTr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -79,7 +79,7 @@ text BasaltTr4_PostBattle {
 }
 
 script BasaltTunnel_Tr5_BlackBelt2 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR5_BLACKBELT2, BasaltTr5_Intro, BasaltTr5_Lose)
+    trainerbattle_single(TRAINER_BTUN_BLACKBELT2, BasaltTr5_Intro, BasaltTr5_Lose)
     msgbox(BasaltTr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -101,7 +101,7 @@ text BasaltTr5_PostBattle {
 }
 
 script BasaltTunnel_Tr6_CamperM {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR6_CAMPERM, BasaltTr6_Intro, BasaltTr6_Lose)
+    trainerbattle_single(TRAINER_BTUN_CAMPERM, BasaltTr6_Intro, BasaltTr6_Lose)
     msgbox(BasaltTr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -120,7 +120,7 @@ text BasaltTr6_PostBattle {
 }
 
 script BasaltTunnel_Tr7_Picnicker2 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR7_PICNICKER2, BasaltTr7_Intro, BasaltTr7_Lose)
+    trainerbattle_single(TRAINER_BTUN_PICNICKER2, BasaltTr7_Intro, BasaltTr7_Lose)
     msgbox(BasaltTr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -139,7 +139,7 @@ text BasaltTr7_PostBattle {
 }
 
 script BasaltTunnel_Tr8_Hiker2 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR8_HIKER2, BasaltTr8_Intro, BasaltTr8_Lose)
+    trainerbattle_single(TRAINER_BTUN_HIKER2, BasaltTr8_Intro, BasaltTr8_Lose)
     msgbox(BasaltTr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -157,7 +157,7 @@ text BasaltTr8_PostBattle {
 }
 
 script BasaltTunnel_Tr9_Beauty {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR9_BEAUTY, BasaltTr9_Intro, BasaltTr9_Lose)
+    trainerbattle_single(TRAINER_BTUN_BEAUTY, BasaltTr9_Intro, BasaltTr9_Lose)
     msgbox(BasaltTr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -176,7 +176,7 @@ text BasaltTr9_PostBattle {
 }
 
 script BasaltTunnel_Tr10_FireBreather2 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2, BasaltTr10_Intro, BasaltTr10_Lose)
+    trainerbattle_single(TRAINER_BTUN_FIREBREATHER2, BasaltTr10_Intro, BasaltTr10_Lose)
     msgbox(BasaltTr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -193,7 +193,7 @@ text BasaltTr10_PostBattle {
 }
 
 script BasaltTunnel_Tr11_Hiker3 {
-    trainerbattle_single(TRAINER_BASALTUNNEL_TR11_HIKER3, BasaltTr11_Intro, BasaltTr11_Lose)
+    trainerbattle_single(TRAINER_BTUN_HIKER3, BasaltTr11_Intro, BasaltTr11_Lose)
     msgbox(BasaltTr11_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -222,7 +222,7 @@ script BasaltTunnel_Tr12_Brock {
     else{
         msgbox(BasaltTr12_IntroYes)
     }
-    trainerbattle_no_intro(TRAINER_BASALTUNNEL_TR12_BROCK, BasaltTr12_Lose)
+    trainerbattle_no_intro(TRAINER_BTUN_BROCK, BasaltTr12_Lose)
     msgbox(BrockPostBat)
     closemessage
     giveitem(ITEM_HM_ROCK_CLIMB)
@@ -290,12 +290,12 @@ text ExplainRockClimb{
 }
 
 script BasalekTunnelGreeter{
-    if(defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+    if(defeated(TRAINER_BTUN_BROCK)){
         msgbox(BasalekTunnelGreeter_Victory, MSGBOX_NPC)
     }
     else{
         msgbox(BasalekTunnelGreeter_Guide, MSGBOX_NPC)
-        if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+        if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BTUN_BROCK)){
             startquest(FLAG_Q38_BASALEK_TUNNELS_START)
             special(ShowJournalPopupAdd)
         }

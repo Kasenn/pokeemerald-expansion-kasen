@@ -2,7 +2,7 @@ mapscripts Route12_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: R12_ResetTrainer
 }
 script R12_ResetTrainer{
-    cleartrainerflag(TRAINER_R12_TR12_BUGMANIAC)
+    cleartrainerflag(TRAINER_R12_BUGMANIAC)
     release
     end
 }
@@ -69,7 +69,7 @@ text R12_GottaGoFast{
 }
 
 script Route12_Tr1_Triathlete_F {
-    trainerbattle_single(TRAINER_R12_TR1_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose)
     msgbox(R12Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -87,7 +87,7 @@ text R12Tr1_PostBattle{
 }
 
 script Route12_Tr2_Triathlete_M {
-    trainerbattle_single(TRAINER_R12_TR2_TRIATHLETE_M, R12Tr2_Intro, R12Tr2_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_M, R12Tr2_Intro, R12Tr2_Lose)
     msgbox(R12Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -106,7 +106,7 @@ text R12Tr2_PostBattle{
 }
 
 script Route12_Tr3_Triathlete_F2 {
-    trainerbattle_single(TRAINER_R12_TR3_TRIATHLETE_F2, R12Tr3_Intro, R12Tr3_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_F2, R12Tr3_Intro, R12Tr3_Lose)
     msgbox(R12Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -123,7 +123,7 @@ text R12Tr3_PostBattle{
 }
 
 script Route12_Tr4_Triathlete_M2 {
-    trainerbattle_single(TRAINER_R12_TR4_TRIATHLETE_M2, R12Tr4_Intro, R12Tr4_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_M2, R12Tr4_Intro, R12Tr4_Lose)
     msgbox(R12Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -140,7 +140,7 @@ text R12Tr4_PostBattle{
 }
 
 script Route12_Tr5_Triathlete_M3 {
-    trainerbattle_single(TRAINER_R12_TR5_TRIATHLETE_M3, R12Tr5_Intro, R12Tr5_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_M3, R12Tr5_Intro, R12Tr5_Lose)
     msgbox(R12Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -157,7 +157,7 @@ text R12Tr5_PostBattle{
 }
 
 script Route12_Tr6_Triathlete_F3 {
-    trainerbattle_single(TRAINER_R12_TR6_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose)
+    trainerbattle_single(TRAINER_R12_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose)
     msgbox(R12Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -174,7 +174,7 @@ text R12Tr6_PostBattle{
 }
 
 script Route12_Tr9_Psychic_M {
-    trainerbattle_single(TRAINER_R12_TR9_PSYCHIC_M, R12Tr9_Intro, R12Tr9_Lose)
+    trainerbattle_single(TRAINER_R12_PSYCHIC_M, R12Tr9_Intro, R12Tr9_Lose)
     msgbox(R12Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -192,7 +192,7 @@ text R12Tr9_PostBattle{
 }
 
 script Route12_Tr10_Hiker {
-    trainerbattle_single(TRAINER_R12_TR10_HIKER, R12Tr10_Intro, R12Tr10_Lose)
+    trainerbattle_single(TRAINER_R12_HIKER, R12Tr10_Intro, R12Tr10_Lose)
     msgbox(R12Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -209,7 +209,7 @@ text R12Tr10_PostBattle{
 }
 
 script Route12_Tr11_Lass {
-    trainerbattle_single(TRAINER_R12_TR11_LASS, R12Tr11_Intro, R12Tr11_Lose)
+    trainerbattle_single(TRAINER_R12_LASS, R12Tr11_Intro, R12Tr11_Lose)
     msgbox(R12Tr11_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -227,7 +227,7 @@ text R12Tr11_PostBattle{
 }
 
 script Route12_Tr12_Bugmaniac {
-    trainerbattle_single(TRAINER_R12_TR12_BUGMANIAC, R12Tr12_Intro, R12Tr12_Lose)
+    trainerbattle_single(TRAINER_R12_BUGMANIAC, R12Tr12_Intro, R12Tr12_Lose)
     msgbox(R12Tr12_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -246,7 +246,7 @@ text R12Tr12_PostBattle{
 }
 
 script Route12_Tr13_Ninjaboy {
-    trainerbattle_single(TRAINER_R12_TR13_NINJABOY, R12Tr13_Intro, R12Tr13_Lose)
+    trainerbattle_single(TRAINER_R12_NINJABOY, R12Tr13_Intro, R12Tr13_Lose)
     msgbox(R12Tr13_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

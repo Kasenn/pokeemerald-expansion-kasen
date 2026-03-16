@@ -16,7 +16,7 @@ Route13_Tr1_Birdkeeper::
 
 Route13_Tr2_Runner_M::
 # 27 "data/maps/Route13/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR6_SWIMMER_F, R13Tr2_Intro, R13Tr2_Lose
+	trainerbattle_single TRAINER_R16_SWIMMER_F, R13Tr2_Intro, R13Tr2_Lose
 # 28 "data/maps/Route13/scripts.pory"
 	msgbox R13Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -24,7 +24,7 @@ Route13_Tr2_Runner_M::
 
 Route13_Tr3_ExpertcoupleMan::
 # 46 "data/maps/Route13/scripts.pory"
-	trainerbattle_double TRAINER_R16_TR7_GUITARIST, R13Tr3_IntroMan, R13Tr3_LoseMan, R13Tr3_NotEnoughMan
+	trainerbattle_double TRAINER_R16_GUITARIST, R13Tr3_IntroMan, R13Tr3_LoseMan, R13Tr3_NotEnoughMan
 # 47 "data/maps/Route13/scripts.pory"
 	msgbox R13Tr3_PostBattleMan, MSGBOX_AUTOCLOSE
 	end
@@ -32,7 +32,7 @@ Route13_Tr3_ExpertcoupleMan::
 
 Route13_Tr3_ExpertcoupleWoman::
 # 73 "data/maps/Route13/scripts.pory"
-	trainerbattle_double TRAINER_R16_TR7_GUITARIST, R13Tr3_IntroWoman, R13Tr3_LoseWoman, R13Tr3_NotEnoughWoman
+	trainerbattle_double TRAINER_R16_GUITARIST, R13Tr3_IntroWoman, R13Tr3_LoseWoman, R13Tr3_NotEnoughWoman
 # 74 "data/maps/Route13/scripts.pory"
 	msgbox R13Tr3_PostBattleWoman, MSGBOX_AUTOCLOSE
 	end
@@ -40,7 +40,7 @@ Route13_Tr3_ExpertcoupleWoman::
 
 Route13_Tr4_Hiker::
 # 101 "data/maps/Route13/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR8_HIKER, R13Tr4_Intro, R13Tr4_Lose
+	trainerbattle_single TRAINER_R16_HIKER, R13Tr4_Intro, R13Tr4_Lose
 # 102 "data/maps/Route13/scripts.pory"
 	msgbox R13Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -48,7 +48,7 @@ Route13_Tr4_Hiker::
 
 Route13_Tr5_Blackbelt::
 # 120 "data/maps/Route13/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR9_BEAUTY, R13Tr5_Intro, R13Tr5_Lose
+	trainerbattle_single TRAINER_R16_BEAUTY, R13Tr5_Intro, R13Tr5_Lose
 # 121 "data/maps/Route13/scripts.pory"
 	msgbox R13Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end

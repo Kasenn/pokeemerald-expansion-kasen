@@ -4,7 +4,7 @@ Route9_MapScripts::
 
 Route9_Tr1_Swimmer_M::
 # 4 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR1_SWIMMER_M, R9Tr1_Intro, R9Tr1_Lose
+	trainerbattle_single TRAINER_R9_SWIMMER_M, R9Tr1_Intro, R9Tr1_Lose
 # 5 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -12,7 +12,7 @@ Route9_Tr1_Swimmer_M::
 
 Route9_Tr2_BlackBelt::
 # 21 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR2_BLACKBELT, R9Tr2_Intro, R9Tr2_Lose
+	trainerbattle_single TRAINER_R9_BLACKBELT, R9Tr2_Intro, R9Tr2_Lose
 # 22 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -20,7 +20,7 @@ Route9_Tr2_BlackBelt::
 
 Route9_Tr3_BirdKeeper::
 # 41 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR3_BIRDKEEPER, R9Tr3_Intro, R9Tr3_Lose
+	trainerbattle_single TRAINER_R9_BIRDKEEPER, R9Tr3_Intro, R9Tr3_Lose
 # 42 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -28,7 +28,7 @@ Route9_Tr3_BirdKeeper::
 
 Route9_Tr4_BattleGirl::
 # 61 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR4_BATTLEGIRL, R9Tr4_Intro, R9Tr4_Lose
+	trainerbattle_single TRAINER_R9_BATTLEGIRL, R9Tr4_Intro, R9Tr4_Lose
 # 62 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -36,7 +36,7 @@ Route9_Tr4_BattleGirl::
 
 Route9_Tr5_Swimmer_F::
 # 78 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR5_SWIMMER_F, R9Tr5_Intro, R9Tr5_Lose
+	trainerbattle_single TRAINER_R9_SWIMMER_F, R9Tr5_Intro, R9Tr5_Lose
 # 79 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -44,7 +44,7 @@ Route9_Tr5_Swimmer_F::
 
 Route9_Tr6_Fisherman::
 # 100 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR6_FISHERMAN, R9Tr6_Intro, R9Tr6_Lose
+	trainerbattle_single TRAINER_R9_FISHERMAN, R9Tr6_Intro, R9Tr6_Lose
 # 101 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -52,7 +52,7 @@ Route9_Tr6_Fisherman::
 
 Route9_Tr7_Hiker::
 # 117 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR7_HIKER, R9Tr7_Intro, R9Tr7_Lose
+	trainerbattle_single TRAINER_R9_HIKER, R9Tr7_Intro, R9Tr7_Lose
 # 118 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -60,7 +60,7 @@ Route9_Tr7_Hiker::
 
 Route9_Tr8_Collector::
 # 135 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR8_COLLECTOR, R9Tr8_Intro, R9Tr8_Lose
+	trainerbattle_single TRAINER_R9_COLLECTOR, R9Tr8_Intro, R9Tr8_Lose
 # 136 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -68,7 +68,7 @@ Route9_Tr8_Collector::
 
 Route9_Tr9_Swimmer_M2::
 # 152 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR9_SWIMMER_M2, R9Tr9_Intro, R9Tr9_Lose
+	trainerbattle_single TRAINER_R9_SWIMMER_M2, R9Tr9_Intro, R9Tr9_Lose
 # 153 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -76,7 +76,7 @@ Route9_Tr9_Swimmer_M2::
 
 Route9_Tr10_LandSwimmer::
 # 170 "data/maps/Route9/scripts.pory"
-	trainerbattle_single TRAINER_R9_TR10_LANDSWIMMER, R9Tr10_Intro, R9Tr10_Lose
+	trainerbattle_single TRAINER_R9_LANDSWIMMER, R9Tr10_Intro, R9Tr10_Lose
 # 171 "data/maps/Route9/scripts.pory"
 	msgbox R9Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end

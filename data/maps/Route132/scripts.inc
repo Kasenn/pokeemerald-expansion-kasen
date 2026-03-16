@@ -2,7 +2,7 @@ Route132_MapScripts::
 	.byte 0
 
 Route132_EventScript_Gilbert::
-	trainerbattle_single TRAINER_DESERT_TR14_COOLTRAINER, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat
+	trainerbattle_single TRAINER_DESERT_ACETRAINER, Route132_Text_GilbertIntro, Route132_Text_GilbertDefeat
 	msgbox Route132_Text_GilbertPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -12,12 +12,12 @@ Route132_EventScript_Dana::
 	end
 
 Route132_EventScript_Ronald::
-	trainerbattle_single TRAINER_R9_TR5_SWIMMER_F, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat
+	trainerbattle_single TRAINER_R9_SWIMMER_F, Route132_Text_RonaldIntro, Route132_Text_RonaldDefeat
 	msgbox Route132_Text_RonaldPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route132_EventScript_Kiyo::
-	trainerbattle_single TRAINER_KAOLGYM_TR1_CAMPER1, Route132_Text_KiyoIntro, Route132_Text_KiyoDefeat
+	trainerbattle_single TRAINER_KAOLGYM_CAMPER1, Route132_Text_KiyoIntro, Route132_Text_KiyoDefeat
 	msgbox Route132_Text_KiyoPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -222,7 +222,7 @@ script FossilScriptEnd{
 }
 
 script KaolMines_Trainer1{
-	trainerbattle_single(TRAINER_KM_TR1_PICNICKER, KaolMines_Text_Trainer1Intro, KaolMines_Text_Trainer1Defeat)
+	trainerbattle_single(TRAINER_KM_PICNICKER, KaolMines_Text_Trainer1Intro, KaolMines_Text_Trainer1Defeat)
 	msgbox(KaolMines_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -241,7 +241,7 @@ text KaolMines_Text_Trainer1PostBattle{
 }
 
 script KaolMines_Trainer2 {
-    trainerbattle_single(TRAINER_KM_TR2_BLACKBELT, KaolMines_Text_Trainer2Intro, KaolMines_Text_Trainer2Defeat)
+    trainerbattle_single(TRAINER_KM_BLACKBELT, KaolMines_Text_Trainer2Intro, KaolMines_Text_Trainer2Defeat)
     msgbox(KaolMines_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -262,7 +262,7 @@ text KaolMines_Text_Trainer2PostBattle {
 }
 
 script KaolMines_Trainer3 {
-    trainerbattle_single(TRAINER_KM_TR3_CAMPER, KaolMines_Text_Trainer3Intro, KaolMines_Text_Trainer3Defeat)
+    trainerbattle_single(TRAINER_KM_CAMPER, KaolMines_Text_Trainer3Intro, KaolMines_Text_Trainer3Defeat)
     msgbox(KaolMines_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -282,7 +282,7 @@ text KaolMines_Text_Trainer3PostBattle {
 }
 
 script KaolMines_Trainer4 {
-    trainerbattle_single(TRAINER_KM_TR4_HIKER, KaolMines_Text_Trainer4Intro, KaolMines_Text_Trainer4Defeat)
+    trainerbattle_single(TRAINER_KM_HIKER, KaolMines_Text_Trainer4Intro, KaolMines_Text_Trainer4Defeat)
     msgbox(KaolMines_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -298,7 +298,7 @@ text KaolMines_Text_Trainer4PostBattle {
 }
 
 script KaolMines_Trainer5 {
-    trainerbattle_single(TRAINER_KM_TR5_HIKER, KaolMines_Text_Trainer5Intro, KaolMines_Text_Trainer5Defeat)
+    trainerbattle_single(TRAINER_KM_HIKER2, KaolMines_Text_Trainer5Intro, KaolMines_Text_Trainer5Defeat)
     msgbox(KaolMines_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -317,7 +317,7 @@ text KaolMines_Text_Trainer5PostBattle {
 }
 
 script KaolMines_Trainer6 {
-    trainerbattle_single(TRAINER_KM_TR6_HIKER, KaolMines_Text_Trainer6Intro, KaolMines_Text_Trainer6Defeat)
+    trainerbattle_single(TRAINER_KM_HIKER3, KaolMines_Text_Trainer6Intro, KaolMines_Text_Trainer6Defeat)
     msgbox(KaolMines_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -335,7 +335,7 @@ text KaolMines_Text_Trainer6PostBattle {
 }
 
 script KaolMines_Trainer7 {
-    trainerbattle_single(TRAINER_KM_TR7_CAMPER, KaolMines_Text_Trainer7Intro, KaolMines_Text_Trainer7Defeat)
+    trainerbattle_single(TRAINER_KM_CAMPER2, KaolMines_Text_Trainer7Intro, KaolMines_Text_Trainer7Defeat)
     msgbox(KaolMines_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -354,7 +354,7 @@ text KaolMines_Text_Trainer7PostBattle {
 }
 
 script KaolMines_Trainer8 {
-    trainerbattle_single(TRAINER_KM_TR8_PICNICKER, KaolMines_Text_Trainer8Intro, KaolMines_Text_Trainer8Defeat)
+    trainerbattle_single(TRAINER_KM_PICNICKER2, KaolMines_Text_Trainer8Intro, KaolMines_Text_Trainer8Defeat)
     msgbox(KaolMines_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -374,7 +374,7 @@ text KaolMines_Text_Trainer8PostBattle {
 }
 
 script KaolMines_Trainer9 {
-    trainerbattle_single(TRAINER_KM_TR9_BLACKBELT, KaolMines_Text_Trainer9Intro, KaolMines_Text_Trainer9Defeat)
+    trainerbattle_single(TRAINER_KM_BLACKBELT2, KaolMines_Text_Trainer9Intro, KaolMines_Text_Trainer9Defeat)
     msgbox(KaolMines_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -390,7 +390,7 @@ text KaolMines_Text_Trainer9PostBattle {
 }
 
 script KaolMines_Trainer10 {
-    trainerbattle_single(TRAINER_KM_TR10_HIKER, KaolMines_Text_Trainer10Intro, KaolMines_Text_Trainer10Defeat)
+    trainerbattle_single(TRAINER_KM_HIKER4, KaolMines_Text_Trainer10Intro, KaolMines_Text_Trainer10Defeat)
     msgbox(KaolMines_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

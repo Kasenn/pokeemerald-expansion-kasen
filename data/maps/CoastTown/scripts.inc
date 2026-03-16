@@ -157,7 +157,7 @@ CoastTown_Swimmer::
 
 AzureTide_MysteryWoman::
 # 135 "data/maps/CoastTown/scripts.pory"
-	checktrainerflag TRAINER_AZURETIDE_CELEBI_TR1
+	checktrainerflag TRAINER_AZURETIDE_CELEBI
 	goto_if 1, AzureTide_MysteryWoman_2
 # 139 "data/maps/CoastTown/scripts.pory"
 	lock
@@ -513,7 +513,7 @@ AzureTide_MysteryWoman_Battle_1:
 # 396 "data/maps/CoastTown/scripts.pory"
 	msgbox AzureTide_MysteryWoman_Battle_Intro
 # 397 "data/maps/CoastTown/scripts.pory"
-	trainerbattle_no_intro TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose
+	trainerbattle_no_intro TRAINER_AZURETIDE_CELEBI, AzureTide_MysteryWoman_Battle_Lose
 # 398 "data/maps/CoastTown/scripts.pory"
 	msgbox AzureTide_MysteryWoman_PostBattle
 # 399 "data/maps/CoastTown/scripts.pory"

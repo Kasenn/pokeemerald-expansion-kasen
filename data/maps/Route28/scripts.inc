@@ -245,7 +245,7 @@ Route28_ItemBall::
 
 Route28_Trainer1_BugCatcher::
 # 177 "data/maps/Route28/scripts.pory"
-	trainerbattle_single TRAINER_R28_TR1_BUGCATCHER, Route28_Trainer1_BugCatcherIntro, Route28_Trainer1_BugCatcherDefeat
+	trainerbattle_single TRAINER_R30_BUGCATCHER, Route28_Trainer1_BugCatcherIntro, Route28_Trainer1_BugCatcherDefeat
 # 178 "data/maps/Route28/scripts.pory"
 	msgbox Route28_Trainer1_BugCatcherPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -253,7 +253,7 @@ Route28_Trainer1_BugCatcher::
 
 Route28_Trainer2_Hiker::
 # 182 "data/maps/Route28/scripts.pory"
-	trainerbattle_single TRAINER_R28_TR2_HIKER, Route28_Trainer2_HikerIntro, Route28_Trainer2_HikerDefeat
+	trainerbattle_single TRAINER_R30_HIKER, Route28_Trainer2_HikerIntro, Route28_Trainer2_HikerDefeat
 # 183 "data/maps/Route28/scripts.pory"
 	msgbox Route28_Trainer2_HikerPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -261,7 +261,7 @@ Route28_Trainer2_Hiker::
 
 Route28_Trainer3_NinjaBoy::
 # 187 "data/maps/Route28/scripts.pory"
-	trainerbattle_single TRAINER_R28_TR3_NINJABOY, Route28_Trainer3_NinjaBoyIntro, Route28_Trainer3_NinjaBoyDefeat
+	trainerbattle_single TRAINER_R30_NINJABOY, Route28_Trainer3_NinjaBoyIntro, Route28_Trainer3_NinjaBoyDefeat
 # 188 "data/maps/Route28/scripts.pory"
 	msgbox Route28_Trainer3_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -269,7 +269,7 @@ Route28_Trainer3_NinjaBoy::
 
 Route28_Trainer4_Psychic::
 # 192 "data/maps/Route28/scripts.pory"
-	trainerbattle_single TRAINER_R28_TR4_PSYCHIC, Route28_Trainer4_PsychicIntro, Route28_Trainer4_PsychicDefeat
+	trainerbattle_single TRAINER_R30_PSYCHIC, Route28_Trainer4_PsychicIntro, Route28_Trainer4_PsychicDefeat
 # 193 "data/maps/Route28/scripts.pory"
 	msgbox Route28_Trainer4_PsychicPostBattle, MSGBOX_AUTOCLOSE
 	end

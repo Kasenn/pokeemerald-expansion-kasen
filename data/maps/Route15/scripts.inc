@@ -268,7 +268,7 @@ R15_GruntEscapes:
 
 Route15_Tr1_Birdkeeper::
 # 167 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR1_BIRDKEEPER, R15Tr1_Intro, R15Tr1_Lose
+	trainerbattle_single TRAINER_R15_BIRDKEEPER, R15Tr1_Intro, R15Tr1_Lose
 # 168 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -276,7 +276,7 @@ Route15_Tr1_Birdkeeper::
 
 Route15_Tr2_RangerF::
 # 187 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR2_RANGERF, R15Tr2_Intro, R15Tr2_Lose
+	trainerbattle_single TRAINER_R15_RANGERF, R15Tr2_Intro, R15Tr2_Lose
 # 188 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -284,7 +284,7 @@ Route15_Tr2_RangerF::
 
 Route15_Tr3_RangerM::
 # 207 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR3_RANGERM, R15Tr3_Intro, R15Tr3_Lose
+	trainerbattle_single TRAINER_R15_RANGERM, R15Tr3_Intro, R15Tr3_Lose
 # 208 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -292,7 +292,7 @@ Route15_Tr3_RangerM::
 
 Route15_Tr4_Gentleman::
 # 226 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR4_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose
+	trainerbattle_single TRAINER_R15_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose
 # 227 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -300,7 +300,7 @@ Route15_Tr4_Gentleman::
 
 Route15_Tr5_Ninjaboy1::
 # 243 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR5_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose
+	trainerbattle_single TRAINER_R15_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose
 # 244 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -308,7 +308,7 @@ Route15_Tr5_Ninjaboy1::
 
 Route15_Tr6_Ninjaboy2::
 # 259 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR6_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose
+	trainerbattle_single TRAINER_R15_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose
 # 260 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -316,7 +316,7 @@ Route15_Tr6_Ninjaboy2::
 
 Route15_Tr7_Bugcatcher::
 # 275 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR7_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose
+	trainerbattle_single TRAINER_R15_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose
 # 276 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -324,7 +324,7 @@ Route15_Tr7_Bugcatcher::
 
 Route15_Tr8_Bugcatcher2::
 # 293 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR8_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose
+	trainerbattle_single TRAINER_R15_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose
 # 294 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -332,7 +332,7 @@ Route15_Tr8_Bugcatcher2::
 
 Route15_Tr9_Beauty::
 # 311 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR9_BEAUTY, R15Tr9_Intro, R15Tr9_Lose
+	trainerbattle_single TRAINER_R15_BEAUTY, R15Tr9_Intro, R15Tr9_Lose
 # 312 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -340,7 +340,7 @@ Route15_Tr9_Beauty::
 
 Route15_Tr10_Fisher::
 # 327 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR10_FISHER, R15Tr10_Intro, R15Tr10_Lose
+	trainerbattle_single TRAINER_R15_FISHER, R15Tr10_Intro, R15Tr10_Lose
 # 328 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -348,7 +348,7 @@ Route15_Tr10_Fisher::
 
 Route15_Tr13_Cooltrainer::
 # 368 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR13_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose
+	trainerbattle_single TRAINER_R15_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose
 # 369 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr13_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -356,7 +356,7 @@ Route15_Tr13_Cooltrainer::
 
 Route15_Tr14_Lass::
 # 389 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR14_LASS, R15Tr14_Intro, R15Tr14_Lose
+	trainerbattle_single TRAINER_R15_LASS, R15Tr14_Intro, R15Tr14_Lose
 # 390 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr14_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -364,7 +364,7 @@ Route15_Tr14_Lass::
 
 Route15_Tr15_Scientist::
 # 407 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose
+	trainerbattle_single TRAINER_R15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose
 # 408 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr15_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -372,7 +372,7 @@ Route15_Tr15_Scientist::
 
 Route15_Tr16_Aromalady::
 # 427 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR16_AROMALADY, R15Tr16_Intro, R15Tr16_Lose
+	trainerbattle_single TRAINER_R15_AROMALADY, R15Tr16_Intro, R15Tr16_Lose
 # 428 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr16_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -380,7 +380,7 @@ Route15_Tr16_Aromalady::
 
 Route15_Tr17_Ninjaboy3::
 # 444 "data/maps/Route15/scripts.pory"
-	trainerbattle_single TRAINER_R15_TR17_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose
+	trainerbattle_single TRAINER_R15_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose
 # 445 "data/maps/Route15/scripts.pory"
 	msgbox R15Tr17_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -410,7 +410,7 @@ R15_AceTrainerInteraction::
 	checktrainerflag TRAINER_R15_ACETRAINER_F
 	goto_if 1, R15_AceTrainerInteraction_1
 # 479 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR1_BIRDKEEPER
+	checktrainerflag TRAINER_R15_BIRDKEEPER
 	goto_if 1, R15_AceTrainerInteraction_4
 R15_AceTrainerInteraction_3:
 # 497 "data/maps/Route15/scripts.pory"
@@ -429,85 +429,85 @@ R15_AceTrainerInteraction_2:
 
 R15_AceTrainerInteraction_4:
 # 480 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR2_RANGERF
+	checktrainerflag TRAINER_R15_RANGERF
 	goto_if 1, R15_AceTrainerInteraction_6
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_6:
 # 481 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR3_RANGERM
+	checktrainerflag TRAINER_R15_RANGERM
 	goto_if 1, R15_AceTrainerInteraction_8
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_8:
 # 482 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR4_GENTLEMAN
+	checktrainerflag TRAINER_R15_GENTLEMAN
 	goto_if 1, R15_AceTrainerInteraction_10
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_10:
 # 483 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR5_NINJABOY1
+	checktrainerflag TRAINER_R15_NINJABOY1
 	goto_if 1, R15_AceTrainerInteraction_12
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_12:
 # 484 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR6_NINJABOY2
+	checktrainerflag TRAINER_R15_NINJABOY2
 	goto_if 1, R15_AceTrainerInteraction_14
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_14:
 # 485 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR7_BUGCATCHER
+	checktrainerflag TRAINER_R15_BUGCATCHER
 	goto_if 1, R15_AceTrainerInteraction_16
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_16:
 # 486 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR8_BUGCATCHER2
+	checktrainerflag TRAINER_R15_BUGCATCHER2
 	goto_if 1, R15_AceTrainerInteraction_18
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_18:
 # 487 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR9_BEAUTY
+	checktrainerflag TRAINER_R15_BEAUTY
 	goto_if 1, R15_AceTrainerInteraction_20
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_20:
 # 488 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR10_FISHER
+	checktrainerflag TRAINER_R15_FISHER
 	goto_if 1, R15_AceTrainerInteraction_22
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_22:
 # 489 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR13_COOLTRAINER
+	checktrainerflag TRAINER_R15_COOLTRAINER
 	goto_if 1, R15_AceTrainerInteraction_24
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_24:
 # 490 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR14_LASS
+	checktrainerflag TRAINER_R15_LASS
 	goto_if 1, R15_AceTrainerInteraction_26
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_26:
 # 491 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR15_SCIENTIST
+	checktrainerflag TRAINER_R15_SCIENTIST
 	goto_if 1, R15_AceTrainerInteraction_28
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_28:
 # 492 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR16_AROMALADY
+	checktrainerflag TRAINER_R15_AROMALADY
 	goto_if 1, R15_AceTrainerInteraction_30
 	goto R15_AceTrainerInteraction_3
 
 R15_AceTrainerInteraction_30:
 # 493 "data/maps/Route15/scripts.pory"
-	checktrainerflag TRAINER_R15_TR17_NINJABOY3
+	checktrainerflag TRAINER_R15_NINJABOY3
 	goto_if 1, R15_AceTrainerInteraction_2
 	goto R15_AceTrainerInteraction_3
 

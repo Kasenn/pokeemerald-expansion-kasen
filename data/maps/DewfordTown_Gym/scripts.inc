@@ -7,7 +7,7 @@ DewfordTown_Gym_OnTransition:
 	end
 
 DewfordTown_Gym_EventScript_SetFlashLevel::
-	goto_if_defeated TRAINER_SANDGYM_TR2_CYCLISTF1, DewfordTown_Gym_EventScript_SetLightsOn
+	goto_if_defeated TRAINER_SANDGYM_CYCLISTF1, DewfordTown_Gym_EventScript_SetLightsOn
 	call DewfordTown_Gym_EventScript_CountTrainersDefeated
 	copyvar VAR_0x8001, VAR_0x8000
 	goto_if_eq VAR_0x8000, 0, DewfordTown_Gym_EventScript_SetFlashLevel7
@@ -112,13 +112,13 @@ DewfordTown_Gym_EventScript_AnimateFlashFullBrightness::
 
 DewfordTown_Gym_EventScript_CountTrainersDefeated::
 	setvar VAR_0x8000, 0
-	goto_if_not_defeated TRAINER_R7_TR10_NINJABOY, DewfordTown_Gym_EventScript_CheckJocelyn
+	goto_if_not_defeated TRAINER_R7_NINJABOY, DewfordTown_Gym_EventScript_CheckJocelyn
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckJocelyn::
-	goto_if_not_defeated TRAINER_R19_TR1_SWIMMER_F, DewfordTown_Gym_EventScript_CheckLaura
+	goto_if_not_defeated TRAINER_R19_SWIMMER_F, DewfordTown_Gym_EventScript_CheckLaura
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckLaura::
-	goto_if_not_defeated TRAINER_R19_TR2_SWIMMER_M, DewfordTown_Gym_EventScript_CheckBrenden
+	goto_if_not_defeated TRAINER_R19_SWIMMER_M, DewfordTown_Gym_EventScript_CheckBrenden
 	addvar VAR_0x8000, 1
 DewfordTown_Gym_EventScript_CheckBrenden::
 	goto_if_not_defeated TRAINER_BRENDEN, DewfordTown_Gym_EventScript_CheckCristian
@@ -133,7 +133,7 @@ DewfordTown_Gym_EventScript_StopCountingTrainers::
 	return
 
 DewfordTown_Gym_EventScript_Brawly::
-	trainerbattle_single TRAINER_SANDGYM_TR2_CYCLISTF1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTF1, DewfordTown_Gym_Text_BrawlyIntro, DewfordTown_Gym_Text_BrawlyDefeat, DewfordTown_Gym_EventScript_BrawlyDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, DewfordTown_Gym_EventScript_BrawlyRematch
 	goto_if_unset FLAG_RECEIVED_TM_BULK_UP, DewfordTown_Gym_EventScript_GiveBulkUp2
@@ -183,12 +183,12 @@ DewfordTown_Gym_EventScript_GiveBulkUp2:
 	end
 
 DewfordTown_Gym_EventScript_BrawlyRematch::
-	trainerbattle_rematch_double TRAINER_SANDGYM_TR2_CYCLISTF1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
+	trainerbattle_rematch_double TRAINER_SANDGYM_CYCLISTF1, DewfordTown_Gym_Text_BrawlyPreRematch, DewfordTown_Gym_Text_BrawlyRematchDefeat, DewfordTown_Gym_Text_BrawlyRematchNeedTwoMons
 	msgbox DewfordTown_Gym_Text_BrawlyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 DewfordTown_Gym_EventScript_Takao::
-	trainerbattle_single TRAINER_R7_TR10_NINJABOY, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
+	trainerbattle_single TRAINER_R7_NINJABOY, DewfordTown_Gym_Text_TakaoIntro, DewfordTown_Gym_Text_TakaoDefeat, DewfordTown_Gym_EventScript_TakaoBrightenRoom
 	msgbox DewfordTown_Gym_Text_TakaoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -198,7 +198,7 @@ DewfordTown_Gym_EventScript_TakaoBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Jocelyn::
-	trainerbattle_single TRAINER_R19_TR1_SWIMMER_F, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat, DewfordTown_Gym_EventScript_JocelynBrightenRoom
+	trainerbattle_single TRAINER_R19_SWIMMER_F, DewfordTown_Gym_Text_JocelynIntro, DewfordTown_Gym_Text_JocelynDefeat, DewfordTown_Gym_EventScript_JocelynBrightenRoom
 	msgbox DewfordTown_Gym_Text_JocelynPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -208,7 +208,7 @@ DewfordTown_Gym_EventScript_JocelynBrightenRoom::
 	end
 
 DewfordTown_Gym_EventScript_Laura::
-	trainerbattle_single TRAINER_R19_TR2_SWIMMER_M, DewfordTown_Gym_Text_LauraIntro, DewfordTown_Gym_Text_LauraDefeat, DewfordTown_Gym_EventScript_LauraBrightenRoom
+	trainerbattle_single TRAINER_R19_SWIMMER_M, DewfordTown_Gym_Text_LauraIntro, DewfordTown_Gym_Text_LauraDefeat, DewfordTown_Gym_EventScript_LauraBrightenRoom
 	msgbox DewfordTown_Gym_Text_LauraPostBattle, MSGBOX_AUTOCLOSE
 	end
 

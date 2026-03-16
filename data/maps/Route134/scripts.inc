@@ -17,12 +17,12 @@ Route134_EventScript_Laurel::
 	end
 
 Route134_EventScript_Alex::
-	trainerbattle_single TRAINER_FROSTGYM_TR1_HIKER1, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
+	trainerbattle_single TRAINER_FROSTGYM_HIKER1, Route134_Text_AlexIntro, Route134_Text_AlexDefeat
 	msgbox Route134_Text_AlexPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route134_EventScript_Aaron::
-	trainerbattle_single TRAINER_BASALTUNNEL_TR8_HIKER2, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
+	trainerbattle_single TRAINER_BTUN_HIKER2, Route134_Text_AaronIntro, Route134_Text_AaronDefeat
 	msgbox Route134_Text_AaronPostBattle, MSGBOX_AUTOCLOSE
 	end
 

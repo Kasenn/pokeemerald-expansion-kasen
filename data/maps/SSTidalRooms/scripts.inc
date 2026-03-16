@@ -28,17 +28,17 @@ SSTidalRooms_EventScript_Bed::
 	end
 
 SSTidalRooms_EventScript_Colton::
-	trainerbattle_single TRAINER_R15_TR1_BIRDKEEPER, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
+	trainerbattle_single TRAINER_R15_BIRDKEEPER, SSTidalRooms_Text_ColtonIntro, SSTidalRooms_Text_ColtonDefeat
 	msgbox SSTidalRooms_Text_ColtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Micah::
-	trainerbattle_single TRAINER_FC_TR1_BLACKBELT, SSTidalRooms_Text_MicahIntro, SSTidalRooms_Text_MicahDefeat
+	trainerbattle_single TRAINER_FC_BLACKBELT, SSTidalRooms_Text_MicahIntro, SSTidalRooms_Text_MicahDefeat
 	msgbox SSTidalRooms_Text_MicahPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Thomas::
-	trainerbattle_single TRAINER_FC_TR2_BATTLEGIRL, SSTidalRooms_Text_ThomasIntro, SSTidalRooms_Text_ThomasDefeat
+	trainerbattle_single TRAINER_FC_BATTLEGIRL, SSTidalRooms_Text_ThomasIntro, SSTidalRooms_Text_ThomasDefeat
 	msgbox SSTidalRooms_Text_ThomasPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -53,12 +53,12 @@ SSTidalRooms_EventScript_Lea::
 	end
 
 SSTidalRooms_EventScript_Garret::
-	trainerbattle_single TRAINER_R8_TR9_HIKER, SSTidalRooms_Text_GarretIntro, SSTidalRooms_Text_GarretDefeat
+	trainerbattle_single TRAINER_R8_HIKER, SSTidalRooms_Text_GarretIntro, SSTidalRooms_Text_GarretDefeat
 	msgbox SSTidalRooms_Text_GarretPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 SSTidalRooms_EventScript_Naomi::
-	trainerbattle_single TRAINER_R5_TR12_BUGCATCHER, SSTidalRooms_Text_NaomiIntro, SSTidalRooms_Text_NaomiDefeat
+	trainerbattle_single TRAINER_R5_BUGCATCHER, SSTidalRooms_Text_NaomiIntro, SSTidalRooms_Text_NaomiDefeat
 	msgbox SSTidalRooms_Text_NaomiPostBattle, MSGBOX_AUTOCLOSE
 	end
 

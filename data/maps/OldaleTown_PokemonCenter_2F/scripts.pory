@@ -216,11 +216,11 @@ script LevelTrainingMain{
 		special(TakeFrontierBattlePoints)
 		switch(var(VAR_POKECENTER_TRAINING)){
 			case 1:
-				trainerbattle_no_intro(TRAINER_EXPBOT_1, TrainingFinished)
+				trainerbattle_no_intro(TRAINER_PRIMROSE_NURSE, TrainingFinished)
 			case 2:
-				trainerbattle_no_intro(TRAINER_EXPBOT_2, TrainingFinished)
+				trainerbattle_no_intro(TRAINER_CORALGROVE_NURSE, TrainingFinished)
 			case 3:
-				trainerbattle_no_intro(TRAINER_RANDALL, TrainingFinished)
+				trainerbattle_no_intro(TRAINER_ALDELEAF_NURSE, TrainingFinished)
 			case 4:
 				trainerbattle_no_intro(TRAINER_SHORESLATE_NURSE, TrainingFinished)
 			case 5:

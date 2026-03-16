@@ -12,27 +12,27 @@ const OBJ_RANGER_F = 10
 mapscripts FrosthearthCity_Gym_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_TEMP_HIDE_FOLLOWER)
-        if(defeated(TRAINER_FROSTGYM_TR1_HIKER1) || defeated(TRAINER_FROSTGYM_TR2_KINDLER1))
+        if(defeated(TRAINER_FROSTGYM_HIKER1) || defeated(TRAINER_FROSTGYM_KINDLER1))
         {
             setobjectxyperm(OBJ_HIKER, 7, 40)
             setobjectxyperm(OBJ_KINDLER1, 7, 39)
         }
-        if(defeated(TRAINER_FROSTGYM_TR3_SENIOR))
+        if(defeated(TRAINER_FROSTGYM_SENIOR))
         {
             setobjectxyperm(OBJ_SENIOR, 14, 23)
             setobjectxyperm(OBJ_JUNIOR, 14, 24)
         }
-        if(defeated(TRAINER_FROSTGYM_TR5_RANGER_M) || defeated(TRAINER_FROSTGYM_TR6_RANGER_F))
+        if(defeated(TRAINER_FROSTGYM_RANGER_M) || defeated(TRAINER_FROSTGYM_RANGER_F))
         {
             setobjectxyperm(OBJ_RANGER_F1, 19, 37)
             setobjectxyperm(OBJ_RANGER_M, 19, 38)
         }
-        if(defeated(TRAINER_FROSTGYM_TR7_MANIAC) || defeated(TRAINER_FROSTGYM_TR8_COLLECTOR))
+        if(defeated(TRAINER_FROSTGYM_MANIAC) || defeated(TRAINER_FROSTGYM_COLLECTOR))
         {
             setobjectxyperm(OBJ_MANIAC, 26, 25)
             setobjectxyperm(OBJ_COLLECTOR, 26, 24)
         }
-        if(defeated(TRAINER_FROSTGYM_TR9_KINDLER2) || defeated(TRAINER_FROSTGYM_TR10_RANGER_F2))
+        if(defeated(TRAINER_FROSTGYM_KINDLER2) || defeated(TRAINER_FROSTGYM_RANGER_F2))
         {
             setobjectxyperm(OBJ_KINDLER2, 33, 31)
             setobjectxyperm(OBJ_RANGER_F, 34, 31)
@@ -58,7 +58,7 @@ script CheckForLiveMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr1_Hiker1{
-    if(!defeated(TRAINER_FROSTGYM_TR1_HIKER1)){
+    if(!defeated(TRAINER_FROSTGYM_HIKER1)){
         call(CheckForLiveMons)
     }
     lock
@@ -67,7 +67,7 @@ script FrostGym_Tr1_Hiker1{
     goto(FrostGym_Tr1_Hiker1_Main)
 }
 script FrostGym_Tr1_Hiker1_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR1_HIKER1)){
+    if(defeated(TRAINER_FROSTGYM_HIKER1)){
         msgbox(FrostGymTr1_PostBattle, MSGBOX_NPC)
         end
     }
@@ -83,15 +83,15 @@ script FrostGym_Tr1_Hiker1_Interact{
 }
 script FrostGym_Tr1_Hiker1_Main{
     msgbox(FrostGymTr1_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose, TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_HIKER1, FrostGymTr1_Lose, TRAINER_FROSTGYM_KINDLER1, FrostGymTr2_Lose)
     delay(30)
     applymovement(OBJ_HIKER, moves(lock_facing_direction, walk_left))
     applymovement(OBJ_KINDLER1, moves(lock_facing_direction, walk_left))
     waitmovement(0)
     setobjectxyperm(OBJ_HIKER, 7, 40)
     setobjectxyperm(OBJ_KINDLER1, 7, 39)
-    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
-    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
+    settrainerflag(TRAINER_FROSTGYM_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER1)
     release
 }
 text FrostGymTr1_Intro {
@@ -116,7 +116,7 @@ text FrostGymTr1_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr2_Kindler1 {
-    if(!defeated(TRAINER_FROSTGYM_TR2_KINDLER1)){
+    if(!defeated(TRAINER_FROSTGYM_KINDLER1)){
         call(CheckForLiveMons)
     }
     lock
@@ -125,7 +125,7 @@ script FrostGym_Tr2_Kindler1 {
     goto(FrostGym_Tr2_Kindler1_Main)
 }
 script FrostGym_Tr2_Kindler1_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR2_KINDLER1)){
+    if(defeated(TRAINER_FROSTGYM_KINDLER1)){
         msgbox(FrostGymTr2_PostBattle, MSGBOX_NPC)
         end
     }
@@ -141,15 +141,15 @@ script FrostGym_Tr2_Kindler1_Interact{
 }
 script FrostGym_Tr2_Kindler1_Main{
     msgbox(FrostGymTr2_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose, TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_KINDLER1, FrostGymTr2_Lose, TRAINER_FROSTGYM_HIKER1, FrostGymTr1_Lose)
     delay(30)
     applymovement(OBJ_HIKER, moves(lock_facing_direction, walk_left))
     applymovement(OBJ_KINDLER1, moves(lock_facing_direction, walk_left))
     waitmovement(0)
     setobjectxyperm(OBJ_HIKER, 7, 40)
     setobjectxyperm(OBJ_KINDLER1, 7, 39)
-    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
-    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
+    settrainerflag(TRAINER_FROSTGYM_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER1)
     release
 }
 text FrostGymTr2_Intro {
@@ -176,7 +176,7 @@ text FrostGymTr2_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr3_Senior {
-    if(!defeated(TRAINER_FROSTGYM_TR3_SENIOR)){
+    if(!defeated(TRAINER_FROSTGYM_SENIOR)){
         call(CheckForLiveMons)
     }
     lock
@@ -185,7 +185,7 @@ script FrostGym_Tr3_Senior {
     goto(FrostGym_Tr3_Senior_Main)
 }
 script FrostGym_Tr3_Senior_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR3_SENIOR)){
+    if(defeated(TRAINER_FROSTGYM_SENIOR)){
         msgbox(FrostGymTr3_PostBattle, MSGBOX_NPC)
         end
     }
@@ -201,15 +201,15 @@ script FrostGym_Tr3_Senior_Interact{
 }
 script FrostGym_Tr3_Senior_Main{
     msgbox(FrostGymTr3_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_SENIOR, FrostGymTr3_Lose)
     delay(30)
     applymovement(OBJ_SENIOR, moves(lock_facing_direction, walk_right))
     applymovement(OBJ_JUNIOR, moves(lock_facing_direction, walk_right))
     waitmovement(0)
     setobjectxyperm(OBJ_SENIOR, 14, 23)
     setobjectxyperm(OBJ_JUNIOR, 14, 24)
-    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
-    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
+    settrainerflag(TRAINER_FROSTGYM_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_JUNIOR)
     release
 }
 text FrostGymTr3_Intro {
@@ -233,7 +233,7 @@ text FrostGymTr3_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr4_Junior {
-    if(!defeated(TRAINER_FROSTGYM_TR4_JUNIOR)){
+    if(!defeated(TRAINER_FROSTGYM_JUNIOR)){
         call(CheckForLiveMons)
     }
     lock
@@ -242,7 +242,7 @@ script FrostGym_Tr4_Junior {
     goto(FrostGym_Tr4_Junior_Main)
 }
 script FrostGym_Tr4_Junior_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR4_JUNIOR)){
+    if(defeated(TRAINER_FROSTGYM_JUNIOR)){
         msgbox(FrostGymTr4_PostBattle, MSGBOX_NPC)
         end
     }
@@ -258,15 +258,15 @@ script FrostGym_Tr4_Junior_Interact{
 }
 script FrostGym_Tr4_Junior_Main{
     msgbox(FrostGymTr4_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_SENIOR, FrostGymTr3_Lose)
     delay(30)
     applymovement(OBJ_SENIOR, moves(lock_facing_direction, walk_right))
     applymovement(OBJ_JUNIOR, moves(lock_facing_direction, walk_right))
     waitmovement(0)
     setobjectxyperm(OBJ_SENIOR, 14, 23)
     setobjectxyperm(OBJ_JUNIOR, 14, 24)
-    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
-    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
+    settrainerflag(TRAINER_FROSTGYM_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_JUNIOR)
     release
 }
 text FrostGymTr4_Intro {
@@ -288,7 +288,7 @@ text FrostGymTr4_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr5_RangerM {
-    if(!defeated(TRAINER_FROSTGYM_TR5_RANGER_M)){
+    if(!defeated(TRAINER_FROSTGYM_RANGER_M)){
         call(CheckForLiveMons)
     }
     lock
@@ -297,7 +297,7 @@ script FrostGym_Tr5_RangerM {
     goto(FrostGym_Tr5_RangerM_Main)
 }
 script FrostGym_Tr5_RangerM_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR5_RANGER_M)){
+    if(defeated(TRAINER_FROSTGYM_RANGER_M)){
         msgbox(FrostGymTr5_PostBattle, MSGBOX_NPC)
         end
     }
@@ -313,15 +313,15 @@ script FrostGym_Tr5_RangerM_Interact{
 }
 script FrostGym_Tr5_RangerM_Main{
     msgbox(FrostGymTr5_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose, TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_RANGER_M, FrostGymTr5_Lose, TRAINER_FROSTGYM_RANGER_F, FrostGymTr6_Lose)
     delay(30)
     applymovement(OBJ_RANGER_F1, moves(lock_facing_direction, walk_right))
     applymovement(OBJ_RANGER_M, moves(lock_facing_direction, walk_right))
     waitmovement(0)
     setobjectxyperm(OBJ_RANGER_F1, 19, 37)
     setobjectxyperm(OBJ_RANGER_M, 19, 38)
-    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
-    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F)
     release
 }
 text FrostGymTr5_Intro {
@@ -345,7 +345,7 @@ text FrostGymTr5_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr6_RangerF {
-    if(!defeated(TRAINER_FROSTGYM_TR6_RANGER_F)){
+    if(!defeated(TRAINER_FROSTGYM_RANGER_F)){
         call(CheckForLiveMons)
     }
     lock
@@ -354,7 +354,7 @@ script FrostGym_Tr6_RangerF {
     goto(FrostGym_Tr6_RangerF_Main)
 }
 script FrostGym_Tr6_RangerF_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR6_RANGER_F)){
+    if(defeated(TRAINER_FROSTGYM_RANGER_F)){
         msgbox(FrostGymTr6_PostBattle, MSGBOX_NPC)
         end
     }
@@ -370,15 +370,15 @@ script FrostGym_Tr6_RangerF_Interact{
 }
 script FrostGym_Tr6_RangerF_Main{
     msgbox(FrostGymTr6_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose, TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_RANGER_F, FrostGymTr6_Lose, TRAINER_FROSTGYM_RANGER_M, FrostGymTr5_Lose)
     delay(30)
     applymovement(OBJ_RANGER_F1, moves(lock_facing_direction, walk_right))
     applymovement(OBJ_RANGER_M, moves(lock_facing_direction, walk_right))
     waitmovement(0)
     setobjectxyperm(OBJ_RANGER_F1, 19, 37)
     setobjectxyperm(OBJ_RANGER_M, 19, 38)
-    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
-    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F)
     release
 }
 text FrostGymTr6_Intro {
@@ -403,7 +403,7 @@ text FrostGymTr6_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr7_Maniac {
-    if(!defeated(TRAINER_FROSTGYM_TR7_MANIAC)){
+    if(!defeated(TRAINER_FROSTGYM_MANIAC)){
         call(CheckForLiveMons)
     }
     lock
@@ -412,7 +412,7 @@ script FrostGym_Tr7_Maniac {
     goto(FrostGym_Tr7_Maniac_Main)
 }
 script FrostGym_Tr7_Maniac_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR7_MANIAC)){
+    if(defeated(TRAINER_FROSTGYM_MANIAC)){
         msgbox(FrostGymTr7_PostBattle, MSGBOX_NPC)
         end
     }
@@ -428,15 +428,15 @@ script FrostGym_Tr7_Maniac_Interact{
 }
 script FrostGym_Tr7_Maniac_Main{
     msgbox(FrostGymTr7_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose, TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_MANIAC, FrostGymTr7_Lose, TRAINER_FROSTGYM_COLLECTOR, FrostGymTr8_Lose)
     delay(30)
     applymovement(OBJ_MANIAC, moves(lock_facing_direction, walk_left))
     applymovement(OBJ_COLLECTOR, moves(lock_facing_direction, walk_left))
     waitmovement(0)
     setobjectxyperm(OBJ_MANIAC, 26, 25)
     setobjectxyperm(OBJ_COLLECTOR, 26, 24)
-    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
-    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
+    settrainerflag(TRAINER_FROSTGYM_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_MANIAC)
     release
 }
 text FrostGymTr7_Intro {
@@ -462,7 +462,7 @@ text FrostGymTr7_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr8_Collector {
-    if(!defeated(TRAINER_FROSTGYM_TR8_COLLECTOR)){
+    if(!defeated(TRAINER_FROSTGYM_COLLECTOR)){
         call(CheckForLiveMons)
     }
     lock
@@ -471,7 +471,7 @@ script FrostGym_Tr8_Collector {
     goto(FrostGym_Tr8_Collector_Main)
 }
 script FrostGym_Tr8_Collector_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR8_COLLECTOR)){
+    if(defeated(TRAINER_FROSTGYM_COLLECTOR)){
         msgbox(FrostGymTr8_PostBattle, MSGBOX_NPC)
         end
     }
@@ -487,15 +487,15 @@ script FrostGym_Tr8_Collector_Interact{
 }
 script FrostGym_Tr8_Collector_Main{
     msgbox(FrostGymTr8_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose, TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_COLLECTOR, FrostGymTr8_Lose, TRAINER_FROSTGYM_MANIAC, FrostGymTr7_Lose)
     delay(30)
     applymovement(OBJ_MANIAC, moves(lock_facing_direction, walk_left))
     applymovement(OBJ_COLLECTOR, moves(lock_facing_direction, walk_left))
     waitmovement(0)
     setobjectxyperm(OBJ_MANIAC, 26, 25)
     setobjectxyperm(OBJ_COLLECTOR, 26, 24)
-    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
-    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
+    settrainerflag(TRAINER_FROSTGYM_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_MANIAC)
     release
 }
 text FrostGymTr8_Intro {
@@ -523,7 +523,7 @@ text FrostGymTr8_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr9_Kindler2 {
-    if(!defeated(TRAINER_FROSTGYM_TR9_KINDLER2)){
+    if(!defeated(TRAINER_FROSTGYM_KINDLER2)){
         call(CheckForLiveMons)
     }
     lock
@@ -532,7 +532,7 @@ script FrostGym_Tr9_Kindler2 {
     goto(FrostGym_Tr9_Kindler2_Main)
 }
 script FrostGym_Tr9_Kindler2_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR9_KINDLER2)){
+    if(defeated(TRAINER_FROSTGYM_KINDLER2)){
         msgbox(FrostGymTr9_PostBattle, MSGBOX_NPC)
         end
     }
@@ -548,15 +548,15 @@ script FrostGym_Tr9_Kindler2_Interact{
 }
 script FrostGym_Tr9_Kindler2_Main{
     msgbox(FrostGymTr9_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose, TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_KINDLER2, FrostGymTr9_Lose, TRAINER_FROSTGYM_RANGER_F2, FrostGymTr10_Lose)
     delay(30)
     applymovement(OBJ_KINDLER2, moves(lock_facing_direction, walk_down))
     applymovement(OBJ_RANGER_F, moves(lock_facing_direction, walk_down))
     waitmovement(0)
     setobjectxyperm(OBJ_KINDLER2, 33, 31)
     setobjectxyperm(OBJ_RANGER_F, 34, 31)
-    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
-    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F2)
     release
 }
 text FrostGymTr9_Intro {
@@ -582,7 +582,7 @@ text FrostGymTr9_NotEnoughMons{
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 script FrostGym_Tr10_RangerF2 {
-    if(!defeated(TRAINER_FROSTGYM_TR10_RANGER_F2)){
+    if(!defeated(TRAINER_FROSTGYM_RANGER_F2)){
         call(CheckForLiveMons)
     }
     lock
@@ -592,7 +592,7 @@ script FrostGym_Tr10_RangerF2 {
     goto(FrostGym_Tr10_RangerF2_Main)
 }
 script FrostGym_Tr10_RangerF2_Interact{
-    if(defeated(TRAINER_FROSTGYM_TR10_RANGER_F2)){
+    if(defeated(TRAINER_FROSTGYM_RANGER_F2)){
         msgbox(FrostGymTr10_PostBattle, MSGBOX_NPC)
         end
     }
@@ -608,15 +608,15 @@ script FrostGym_Tr10_RangerF2_Interact{
 }
 script FrostGym_Tr10_RangerF2_Main{
     msgbox(FrostGymTr10_Intro)
-    trainerbattle_two_trainers(TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose, TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose)
+    trainerbattle_two_trainers(TRAINER_FROSTGYM_RANGER_F2, FrostGymTr10_Lose, TRAINER_FROSTGYM_KINDLER2, FrostGymTr9_Lose)
     delay(30)
     applymovement(OBJ_KINDLER2, moves(lock_facing_direction, walk_down))
     applymovement(OBJ_RANGER_F, moves(lock_facing_direction, walk_down))
     waitmovement(0)
     setobjectxyperm(OBJ_KINDLER2, 33, 31)
     setobjectxyperm(OBJ_RANGER_F, 34, 31)
-    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
-    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F2)
     release
 }
 text FrostGymTr10_Intro {
@@ -744,16 +744,16 @@ script FrosthearthGym_PosBatEvent{
 script SetFrosthearthGymTrainerFlags{
     settrainerflag(TRAINER_LEADER_PRYCE)
     settrainerflag(TRAINER_LEADER_BLAINE)
-    settrainerflag(TRAINER_FROSTGYM_TR1_HIKER1)
-    settrainerflag(TRAINER_FROSTGYM_TR2_KINDLER1)
-    settrainerflag(TRAINER_FROSTGYM_TR3_SENIOR)
-    settrainerflag(TRAINER_FROSTGYM_TR4_JUNIOR)
-    settrainerflag(TRAINER_FROSTGYM_TR5_RANGER_M)
-    settrainerflag(TRAINER_FROSTGYM_TR6_RANGER_F)
-    settrainerflag(TRAINER_FROSTGYM_TR7_MANIAC)
-    settrainerflag(TRAINER_FROSTGYM_TR8_COLLECTOR)
-    settrainerflag(TRAINER_FROSTGYM_TR9_KINDLER2)
-    settrainerflag(TRAINER_FROSTGYM_TR10_RANGER_F2)
+    settrainerflag(TRAINER_FROSTGYM_HIKER1)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER1)
+    settrainerflag(TRAINER_FROSTGYM_SENIOR)
+    settrainerflag(TRAINER_FROSTGYM_JUNIOR)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_M)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F)
+    settrainerflag(TRAINER_FROSTGYM_MANIAC)
+    settrainerflag(TRAINER_FROSTGYM_COLLECTOR)
+    settrainerflag(TRAINER_FROSTGYM_KINDLER2)
+    settrainerflag(TRAINER_FROSTGYM_RANGER_F2)
     return
 }
 

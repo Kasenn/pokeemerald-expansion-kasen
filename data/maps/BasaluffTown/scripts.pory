@@ -164,7 +164,7 @@ text BasalekTown_Sign2_Text{
 }
 script BasalekTown_Man5{
     msgbox(BasalekTown_Man5_Text, MSGBOX_NPC)
-    if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
+    if(!flag(FLAG_Q38_BASALEK_TUNNELS_START) && !defeated(TRAINER_BTUN_BROCK)){
         startquest(FLAG_Q38_BASALEK_TUNNELS_START)
         special(ShowJournalPopupAdd)
     }

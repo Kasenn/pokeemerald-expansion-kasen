@@ -319,7 +319,7 @@ Kaolisle_Gym_Switch4_11:
 
 KaolisleGym_Trainer1_Camper1::
 # 134 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR1_CAMPER1, KaolisleGym_Trainer1_Camper1_Intro, KaolisleGym_Trainer1_Camper1_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_CAMPER1, KaolisleGym_Trainer1_Camper1_Intro, KaolisleGym_Trainer1_Camper1_Defeat
 # 135 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer1_Camper1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -327,7 +327,7 @@ KaolisleGym_Trainer1_Camper1::
 
 KaolisleGym_Trainer2_Picnicker1::
 # 154 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR2_PICNICKER1, KaolisleGym_Trainer2_Picnicker1_Intro, KaolisleGym_Trainer2_Picnicker1_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_PICNICKER1, KaolisleGym_Trainer2_Picnicker1_Intro, KaolisleGym_Trainer2_Picnicker1_Defeat
 # 155 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer2_Picnicker1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -335,7 +335,7 @@ KaolisleGym_Trainer2_Picnicker1::
 
 KaolisleGym_Trainer3_Hiker1::
 # 174 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat
 # 175 "data/maps/Kaolisle_Gym/scripts.pory"
 	lock
 # 176 "data/maps/Kaolisle_Gym/scripts.pory"
@@ -360,7 +360,7 @@ KaolisleGym_Trainer3_Hiker1_2:
 
 KaolisleGym_Trainer4_Camper2::
 # 204 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR4_CAMPER2, KaolisleGym_Trainer4_Camper2_Intro, KaolisleGym_Trainer4_Camper2_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_CAMPER2, KaolisleGym_Trainer4_Camper2_Intro, KaolisleGym_Trainer4_Camper2_Defeat
 # 205 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer4_Camper2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -368,7 +368,7 @@ KaolisleGym_Trainer4_Camper2::
 
 KaolisleGym_Trainer5_Hiker2::
 # 223 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR5_HIKER2, KaolisleGym_Trainer5_Hiker2_Intro, KaolisleGym_Trainer5_Hiker2_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_HIKER2, KaolisleGym_Trainer5_Hiker2_Intro, KaolisleGym_Trainer5_Hiker2_Defeat
 # 224 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer5_Hiker2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -376,7 +376,7 @@ KaolisleGym_Trainer5_Hiker2::
 
 KaolisleGym_Trainer6_Hiker3::
 # 243 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR6_HIKER3, KaolisleGym_Trainer6_Hiker3_Intro, KaolisleGym_Trainer6_Hiker3_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_HIKER3, KaolisleGym_Trainer6_Hiker3_Intro, KaolisleGym_Trainer6_Hiker3_Defeat
 # 244 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer6_Hiker3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -384,7 +384,7 @@ KaolisleGym_Trainer6_Hiker3::
 
 KaolisleGym_Trainer7_Picnicker2::
 # 263 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR7_PICNICKER2, KaolisleGym_Trainer7_Picnicker2_Intro, KaolisleGym_Trainer7_Picnicker2_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_PICNICKER2, KaolisleGym_Trainer7_Picnicker2_Intro, KaolisleGym_Trainer7_Picnicker2_Defeat
 # 264 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer7_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -392,7 +392,7 @@ KaolisleGym_Trainer7_Picnicker2::
 
 KaolisleGym_Trainer8_Camper3::
 # 283 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR8_CAMPER3, KaolisleGym_Trainer8_Camper3_Intro, KaolisleGym_Trainer8_Camper3_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_CAMPER3, KaolisleGym_Trainer8_Camper3_Intro, KaolisleGym_Trainer8_Camper3_Defeat
 # 284 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer8_Camper3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -400,7 +400,7 @@ KaolisleGym_Trainer8_Camper3::
 
 KaolisleGym_Trainer9_Picnicker3::
 # 299 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR9_PICNICKER3, KaolisleGym_Trainer9_Picnicker3_Intro, KaolisleGym_Trainer9_Picnicker3_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_PICNICKER3, KaolisleGym_Trainer9_Picnicker3_Intro, KaolisleGym_Trainer9_Picnicker3_Defeat
 # 300 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer9_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -408,7 +408,7 @@ KaolisleGym_Trainer9_Picnicker3::
 
 KaolisleGym_Trainer10_Hiker4::
 # 319 "data/maps/Kaolisle_Gym/scripts.pory"
-	trainerbattle_single TRAINER_KAOLGYM_TR10_HIKER4, KaolisleGym_Trainer10_Hiker4_Intro, KaolisleGym_Trainer10_Hiker4_Defeat
+	trainerbattle_single TRAINER_KAOLGYM_HIKER4, KaolisleGym_Trainer10_Hiker4_Intro, KaolisleGym_Trainer10_Hiker4_Defeat
 # 320 "data/maps/Kaolisle_Gym/scripts.pory"
 	msgbox KaolisleGym_Trainer10_Hiker4_PostBattle, MSGBOX_AUTOCLOSE
 	end

@@ -318,12 +318,12 @@ Route119_EventScript_WeatherInstituteSign::
 	end
 
 Route119_EventScript_Brent::
-	trainerbattle_single TRAINER_R11_TR13_PSYCHIC_F, Route119_Text_BrentIntro, Route119_Text_BrentDefeat
+	trainerbattle_single TRAINER_R11_PSYCHIC_F, Route119_Text_BrentIntro, Route119_Text_BrentDefeat
 	msgbox Route119_Text_BrentPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Donald::
-	trainerbattle_single TRAINER_R11_TR14_ACETRAINER_F, Route119_Text_DonaldIntro, Route119_Text_DonaldDefeat
+	trainerbattle_single TRAINER_R11_ACETRAINER_F, Route119_Text_DonaldIntro, Route119_Text_DonaldDefeat
 	msgbox Route119_Text_DonaldPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -348,7 +348,7 @@ Route119_EventScript_Kent::
 	end
 
 Route119_EventScript_Jackson::
-	trainerbattle_single TRAINER_R7_TR3_NINJABOYSON_1, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
+	trainerbattle_single TRAINER_R7_NINJABOYSON_1, Route119_Text_JacksonIntro, Route119_Text_JacksonDefeat, Route119_EventScript_RegisterJackson
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route119_EventScript_RematchJackson
 	msgbox Route119_Text_JacksonPostBattle, MSGBOX_DEFAULT
@@ -359,12 +359,12 @@ Route119_EventScript_RegisterJackson::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route119_Text_JacksonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R7_TR3_NINJABOYSON_1
+	register_matchcall TRAINER_R7_NINJABOYSON_1
 	release
 	end
 
 Route119_EventScript_RematchJackson::
-	trainerbattle_rematch TRAINER_R7_TR3_NINJABOYSON_1, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
+	trainerbattle_rematch TRAINER_R7_NINJABOYSON_1, Route119_Text_JacksonRematchIntro, Route119_Text_JacksonRematchDefeat
 	msgbox Route119_Text_JacksonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -390,22 +390,22 @@ Route119_EventScript_RematchCatherine::
 	end
 
 Route119_EventScript_Hugh::
-	trainerbattle_single TRAINER_BASALTUNNEL_TR10_FIREBREATHER2, Route119_Text_HughIntro, Route119_Text_HughDefeat
+	trainerbattle_single TRAINER_BTUN_FIREBREATHER2, Route119_Text_HughIntro, Route119_Text_HughDefeat
 	msgbox Route119_Text_HughPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Phil::
-	trainerbattle_single TRAINER_BASALTUNNEL_TR11_HIKER3, Route119_Text_PhilIntro, Route119_Text_PhilDefeat
+	trainerbattle_single TRAINER_BTUN_HIKER3, Route119_Text_PhilIntro, Route119_Text_PhilDefeat
 	msgbox Route119_Text_PhilPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Yasu::
-	trainerbattle_single TRAINER_FROSTGYM_TR3_SENIOR, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
+	trainerbattle_single TRAINER_FROSTGYM_SENIOR, Route119_Text_YasuIntro, Route119_Text_YasuDefeat
 	msgbox Route119_Text_YasuPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route119_EventScript_Takashi::
-	trainerbattle_single TRAINER_FROSTGYM_TR4_JUNIOR, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
+	trainerbattle_single TRAINER_FROSTGYM_JUNIOR, Route119_Text_TakashiIntro, Route119_Text_TakashiDefeat
 	msgbox Route119_Text_TakashiPostBattle, MSGBOX_AUTOCLOSE
 	end
 

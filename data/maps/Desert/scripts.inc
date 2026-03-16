@@ -304,7 +304,7 @@ DesertItem3::
 
 Desert_Trainer1_Camper::
 # 145 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR1_CAMPER, Desert_Trainer1_Camper_Intro, Desert_Trainer1_Camper_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_CAMPER, Desert_Trainer1_Camper_Intro, Desert_Trainer1_Camper_Defeat, DesertTrainer_IncreaseVar
 # 146 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -312,7 +312,7 @@ Desert_Trainer1_Camper::
 
 Desert_Trainer2_Camper2::
 # 163 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR2_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar
 # 164 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer2_Camper2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -320,7 +320,7 @@ Desert_Trainer2_Camper2::
 
 Desert_Trainer3_Picnicker::
 # 184 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR3_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar
 # 185 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer3_Picnicker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -328,7 +328,7 @@ Desert_Trainer3_Picnicker::
 
 Desert_Trainer4_Picnicker2::
 # 203 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR4_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar
 # 204 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer4_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -336,7 +336,7 @@ Desert_Trainer4_Picnicker2::
 
 Desert_Trainer5_Hiker::
 # 224 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR5_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar
 # 225 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -344,7 +344,7 @@ Desert_Trainer5_Hiker::
 
 Desert_Trainer6_Blackbelt::
 # 245 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR6_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar
 # 246 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer6_Blackbelt_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -352,7 +352,7 @@ Desert_Trainer6_Blackbelt::
 
 Desert_Trainer7_Picnicker3::
 # 265 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR7_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar
 # 266 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer7_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -360,7 +360,7 @@ Desert_Trainer7_Picnicker3::
 
 Desert_Trainer8_Hiker2::
 # 285 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR8_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar
 # 286 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer8_Hiker2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -368,7 +368,7 @@ Desert_Trainer8_Hiker2::
 
 Desert_Trainer9_Hiker3::
 # 308 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR9_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar
 # 309 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer9_Hiker3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -376,7 +376,7 @@ Desert_Trainer9_Hiker3::
 
 Desert_Trainer10_Firebreather::
 # 326 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR10_FIREBREATHER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_KINDLER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar
 # 327 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer10_Firebreather_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -384,7 +384,7 @@ Desert_Trainer10_Firebreather::
 
 Desert_Trainer11_Blackbelt2::
 # 347 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR11_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar
 # 348 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer11_Blackbelt2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -392,7 +392,7 @@ Desert_Trainer11_Blackbelt2::
 
 Desert_Trainer12_Hiker4::
 # 367 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR12_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar
 # 368 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer12_Hiker4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -400,7 +400,7 @@ Desert_Trainer12_Hiker4::
 
 Desert_Trainer13_Psychic_F::
 # 391 "data/maps/Desert/scripts.pory"
-	trainerbattle_single TRAINER_DESERT_TR13_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar
+	trainerbattle_single TRAINER_DESERT_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar
 # 392 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer13_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -478,7 +478,7 @@ Desert_Trainer14_CooltrainerEligibleForBattle_6:
 # 468 "data/maps/Desert/scripts.pory"
 	msgbox Desert_Trainer14_CooltrainerEligibleForBattle_Text_0, MSGBOX_DEFAULT
 # 469 "data/maps/Desert/scripts.pory"
-	trainerbattle_no_intro TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_CooltrainerDefeated
+	trainerbattle_no_intro TRAINER_DESERT_ACETRAINER, Desert_Trainer14_CooltrainerDefeated
 # 470 "data/maps/Desert/scripts.pory"
 	goto Desert_Trainer14_CooltrainerPostBattle
 	end

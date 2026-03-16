@@ -43,12 +43,12 @@ Route123_EventScript_BerryMastersHouseSign::
 	end
 
 Route123_EventScript_Wendy::
-	trainerbattle_single TRAINER_WPV_TR3_BATTLEGIRL, Route123_Text_WendyIntro, Route123_Text_WendyDefeat
+	trainerbattle_single TRAINER_WPV_BATTLEGIRL, Route123_Text_WendyIntro, Route123_Text_WendyDefeat
 	msgbox Route123_Text_WendyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route123_EventScript_Braxton::
-	trainerbattle_single TRAINER_BRAXTON, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat
+	trainerbattle_single TRAINER_ALDEGYM_4, Route123_Text_BraxtonIntro, Route123_Text_BraxtonDefeat
 	msgbox Route123_Text_BraxtonPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -58,7 +58,7 @@ Route123_EventScript_Violet::
 	end
 
 Route123_EventScript_Cameron::
-	trainerbattle_single TRAINER_R12_TR2_TRIATHLETE_M, Route123_Text_CameronIntro, Route123_Text_CameronDefeat, Route123_EventScript_RegisterCameron
+	trainerbattle_single TRAINER_R12_TRIATHLETE_M, Route123_Text_CameronIntro, Route123_Text_CameronDefeat, Route123_EventScript_RegisterCameron
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchCameron
 	msgbox Route123_Text_CameronPostBattle, MSGBOX_DEFAULT
@@ -69,17 +69,17 @@ Route123_EventScript_RegisterCameron::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route123_Text_CameronRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R12_TR2_TRIATHLETE_M
+	register_matchcall TRAINER_R12_TRIATHLETE_M
 	release
 	end
 
 Route123_EventScript_RematchCameron::
-	trainerbattle_rematch TRAINER_R12_TR2_TRIATHLETE_M, Route123_Text_CameronRematchIntro, Route123_Text_CameronRematchDefeat
+	trainerbattle_rematch TRAINER_R12_TRIATHLETE_M, Route123_Text_CameronRematchIntro, Route123_Text_CameronRematchDefeat
 	msgbox Route123_Text_CameronPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route123_EventScript_Jacki::
-	trainerbattle_single TRAINER_R12_TR13_NINJABOY, Route123_Text_JackiIntro, Route123_Text_JackiDefeat, Route123_EventScript_RegisterJacki
+	trainerbattle_single TRAINER_R12_NINJABOY, Route123_Text_JackiIntro, Route123_Text_JackiDefeat, Route123_EventScript_RegisterJacki
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchJacki
 	msgbox Route123_Text_JackiPostBattle, MSGBOX_DEFAULT
@@ -90,12 +90,12 @@ Route123_EventScript_RegisterJacki::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route123_Text_JackiRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R12_TR13_NINJABOY
+	register_matchcall TRAINER_R12_NINJABOY
 	release
 	end
 
 Route123_EventScript_RematchJacki::
-	trainerbattle_rematch TRAINER_R12_TR13_NINJABOY, Route123_Text_JackiRematchIntro, Route123_Text_JackiRematchDefeat
+	trainerbattle_rematch TRAINER_R12_NINJABOY, Route123_Text_JackiRematchIntro, Route123_Text_JackiRematchDefeat
 	msgbox Route123_Text_JackiPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -110,7 +110,7 @@ Route123_EventScript_Yuki::
 	end
 
 Route123_EventScript_Kindra::
-	trainerbattle_single TRAINER_R28_TR3_NINJABOY, Route123_Text_KindraIntro, Route123_Text_KindraDefeat
+	trainerbattle_single TRAINER_R30_NINJABOY, Route123_Text_KindraIntro, Route123_Text_KindraDefeat
 	msgbox Route123_Text_KindraPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -150,7 +150,7 @@ Route123_EventScript_Davis::
 	end
 
 Route123_EventScript_Fernando::
-	trainerbattle_single TRAINER_KM_TR4_HIKER, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat, Route123_EventScript_RegisterFernando
+	trainerbattle_single TRAINER_KM_HIKER, Route123_Text_FernandoIntro, Route123_Text_FernandoDefeat, Route123_EventScript_RegisterFernando
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route123_EventScript_RematchFernando
 	msgbox Route123_Text_FernandoPostBattle, MSGBOX_DEFAULT
@@ -161,12 +161,12 @@ Route123_EventScript_RegisterFernando::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route123_Text_FernandoRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KM_TR4_HIKER
+	register_matchcall TRAINER_KM_HIKER
 	release
 	end
 
 Route123_EventScript_RematchFernando::
-	trainerbattle_rematch TRAINER_KM_TR4_HIKER, Route123_Text_FernandoRematchIntro, Route123_Text_FernandoRematchDefeat
+	trainerbattle_rematch TRAINER_KM_HIKER, Route123_Text_FernandoRematchIntro, Route123_Text_FernandoRematchDefeat
 	msgbox Route123_Text_FernandoPostRematch, MSGBOX_AUTOCLOSE
 	end
 

@@ -323,7 +323,7 @@ WW_RocketStop3::
 # 248 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_RocketStop3_Text_0
 # 249 "data/maps/WindyWoods/scripts.pory"
-	trainerbattle_no_intro TRAINER_SHELLY_SEAFLOOR_CAVERN, WW_Text_RocketDefeated
+	trainerbattle_no_intro TRAINER_WW_ROCKET, WW_Text_RocketDefeated
 # 250 "data/maps/WindyWoods/scripts.pory"
 	goto WW_RockPostBattle
 	return

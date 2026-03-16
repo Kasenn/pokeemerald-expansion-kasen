@@ -66,12 +66,12 @@ Route121_Movement_Grunt3Exit:
 	step_end
 
 Route121_EventScript_Vanessa::
-	trainerbattle_single TRAINER_R15_TR7_BUGCATCHER, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
+	trainerbattle_single TRAINER_R15_BUGCATCHER, Route121_Text_VanessaIntro, Route121_Text_VanessaDefeat
 	msgbox Route121_Text_VanessaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route121_EventScript_Walter::
-	trainerbattle_single TRAINER_R16_TR9_BEAUTY, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
+	trainerbattle_single TRAINER_R16_BEAUTY, Route121_Text_WalterIntro, Route121_Text_WalterDefeat, Route121_EventScript_RegisterWalter
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchWalter
 	msgbox Route121_Text_WalterPostBattle, MSGBOX_DEFAULT
@@ -82,17 +82,17 @@ Route121_EventScript_RegisterWalter::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route121_Text_WalterRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R16_TR9_BEAUTY
+	register_matchcall TRAINER_R16_BEAUTY
 	release
 	end
 
 Route121_EventScript_RematchWalter::
-	trainerbattle_rematch TRAINER_R16_TR9_BEAUTY, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
+	trainerbattle_rematch TRAINER_R16_BEAUTY, Route121_Text_WalterRematchIntro, Route121_Text_WalterRematchDefeat
 	msgbox Route121_Text_WalterPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route121_EventScript_Tammy::
-	trainerbattle_single TRAINER_R28_TR4_PSYCHIC, Route121_Text_TammyIntro, Route121_Text_TammyDefeat
+	trainerbattle_single TRAINER_R30_PSYCHIC, Route121_Text_TammyIntro, Route121_Text_TammyDefeat
 	msgbox Route121_Text_TammyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -107,7 +107,7 @@ Route121_EventScript_Joy::
 	end
 
 Route121_EventScript_Jessica::
-	trainerbattle_single TRAINER_R6_TR5_HIKER, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
+	trainerbattle_single TRAINER_R6_HIKER, Route121_Text_JessicaIntro, Route121_Text_JessicaDefeat, Route121_EventScript_RegisterJessica
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route121_EventScript_RematchJessica
 	msgbox Route121_Text_JessicaPostBattle, MSGBOX_DEFAULT
@@ -118,12 +118,12 @@ Route121_EventScript_RegisterJessica::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route121_Text_JessicaRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R6_TR5_HIKER
+	register_matchcall TRAINER_R6_HIKER
 	release
 	end
 
 Route121_EventScript_RematchJessica::
-	trainerbattle_rematch TRAINER_R6_TR5_HIKER, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
+	trainerbattle_rematch TRAINER_R6_HIKER, Route121_Text_JessicaRematchIntro, Route121_Text_JessicaRematchDefeat
 	msgbox Route121_Text_JessicaPostRematch, MSGBOX_AUTOCLOSE
 	end
 

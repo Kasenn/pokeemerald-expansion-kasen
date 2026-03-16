@@ -107,7 +107,7 @@ text Route11_RepairGuy_Text{
     "the longer route through the south."
 }
 script Route11_Tr1_Lass{
-    trainerbattle_single(TRAINER_R11_TR1_LASS, R11Tr1_Intro, R11Tr1_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_LASS, R11Tr1_Intro, R11Tr1_Lose, IncreaseR11Var)
     msgbox(R11Tr1_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -124,7 +124,7 @@ text R11Tr1_PostBattle{
     "They're cute the way they are, though."
 }
 script Route11_Tr2_Birdkeeper{
-    trainerbattle_single(TRAINER_R11_TR2_BIRDKEEPER, R11Tr2_Intro, R11Tr2_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_BIRDKEEPER, R11Tr2_Intro, R11Tr2_Lose, IncreaseR11Var)
     msgbox(R11Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -141,7 +141,7 @@ text R11Tr2_PostBattle{
     "flying come true!"
 }
 script Route11_Tr3_Bugcatcher {
-    trainerbattle_single(TRAINER_R11_TR3_BUGCATCHER, R11Tr3_Intro, R11Tr3_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_BUGCATCHER, R11Tr3_Intro, R11Tr3_Lose, IncreaseR11Var)
     msgbox(R11Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -163,7 +163,7 @@ text R11Tr3_PostBattle{
     "a bug maniac."
 }
 script Route11_Tr4_Ninjaboy {
-    trainerbattle_single(TRAINER_R11_TR4_NINJABOY, R11Tr4_Intro, R11Tr4_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_NINJABOY, R11Tr4_Intro, R11Tr4_Lose, IncreaseR11Var)
     msgbox(R11Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -180,7 +180,7 @@ text R11Tr4_PostBattle{
     "find in it."
 }
 script Route11_Tr5_Pokemaniac {
-    trainerbattle_single(TRAINER_R11_TR5_POKEMANIAC, R11Tr5_Intro, R11Tr5_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_POKEMANIAC, R11Tr5_Intro, R11Tr5_Lose, IncreaseR11Var)
     msgbox(R11Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -198,7 +198,7 @@ text R11Tr5_PostBattle{
     "I'll try harder…"
 }
 script Route11_Tr6_Triathlete_F {
-    trainerbattle_single(TRAINER_R11_TR6_TRIATHLETE_F, R11Tr6_Intro, R11Tr6_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_TRIATHLETE_F, R11Tr6_Intro, R11Tr6_Lose, IncreaseR11Var)
     msgbox(R11Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -215,7 +215,7 @@ text R11Tr6_PostBattle{
     "will make battle styles change."
 }
 script Route11_Tr7_Hiker {
-    trainerbattle_single(TRAINER_R11_TR7_HIKER, R11Tr7_Intro, R11Tr7_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_HIKER, R11Tr7_Intro, R11Tr7_Lose, IncreaseR11Var)
     msgbox(R11Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -234,7 +234,7 @@ text R11Tr7_PostBattle{
     "like you!"
 }
 script Route11_Tr8_Ninjaboy_2 {
-    trainerbattle_single(TRAINER_R11_TR8_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose)
+    trainerbattle_single(TRAINER_R11_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose)
     msgbox(R11Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -252,7 +252,7 @@ text R11Tr8_PostBattle{
     "That, too, is destiny…"
 }
 script Route11_Tr9_Ninjaboy_3 {
-    trainerbattle_single(TRAINER_R11_TR9_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose)
+    trainerbattle_single(TRAINER_R11_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose)
     msgbox(R11Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -268,7 +268,7 @@ text R11Tr9_PostBattle{
     "failure…"
 }
 script Route11_Tr10_Cycler_M {
-    trainerbattle_single(TRAINER_R11_TR10_CYCLER_M, R11Tr10_Intro, R11Tr10_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_CYCLER_M, R11Tr10_Intro, R11Tr10_Lose, IncreaseR11Var)
     msgbox(R11Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -284,7 +284,7 @@ text R11Tr10_PostBattle{
     "around, but I will prevail!"
 }
 script Route11_Tr11_Blackbelt {
-    trainerbattle_single(TRAINER_R11_TR11_BLACKBELT, R11Tr11_Intro, R11Tr11_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_BLACKBELT, R11Tr11_Intro, R11Tr11_Lose, IncreaseR11Var)
     msgbox(R11Tr11_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -300,7 +300,7 @@ text R11Tr11_PostBattle{
     "you can count on."
 }
 script Route11_Tr12_Expert {
-    trainerbattle_single(TRAINER_R11_TR12_EXPERT, R11Tr12_Intro, R11Tr12_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_EXPERT, R11Tr12_Intro, R11Tr12_Lose, IncreaseR11Var)
     msgbox(R11Tr12_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -318,7 +318,7 @@ text R11Tr12_PostBattle{
     "again with my Pokémon."
 }
 script Route11_Tr13_Psychic_F {
-    trainerbattle_single(TRAINER_R11_TR13_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var)
+    trainerbattle_single(TRAINER_R11_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var)
     msgbox(R11Tr13_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -340,8 +340,8 @@ script Route11_Tr14_Acetrainer_F {
         end
     }
     elif((var(VAR_R11_TRAINERS) <= 10)
-      && (defeated(TRAINER_R11_TR8_NINJABOY_2))
-      && (defeated(TRAINER_R11_TR9_NINJABOY_3)))
+      && (defeated(TRAINER_R11_NINJABOY_2))
+      && (defeated(TRAINER_R11_NINJABOY_3)))
     {
         msgbox(R11_Ace_DefeatMoreTrainers, MSGBOX_NPC)
         end
@@ -354,7 +354,7 @@ script Route11_Tr14_Acetrainer_F {
 script R11_Ace_EligibleForBattle{
     lock
     faceplayer
-    if(defeated(TRAINER_R11_TR14_ACETRAINER_F)){
+    if(defeated(TRAINER_R11_ACETRAINER_F)){
         goto(R11_Ace_PostBattleScript)
     }
     if(!flag(FLAG_TEMP_5)){
@@ -366,7 +366,7 @@ script R11_Ace_EligibleForBattle{
     }
     if(var(VAR_RESULT) == TRUE){
         msgbox(R11_Ace_BeginBattle, MSGBOX_DEFAULT)
-        trainerbattle_no_intro(TRAINER_R11_TR14_ACETRAINER_F, R11_Ace_Lose)
+        trainerbattle_no_intro(TRAINER_R11_ACETRAINER_F, R11_Ace_Lose)
         goto(R11_Ace_PostBattleScript)
     }
     msgbox(R11_Ace_DeclineBattle, MSGBOX_NPC)

@@ -505,7 +505,7 @@ const struct TrainerSprite gTrainerSprites[] =
     TRAINER_SPRITE(TRAINER_PIC_AFICIONADO_F, gTrainerFrontPic_AficionadoF, gTrainerPalette_AficionadoF),
     TRAINER_SPRITE(TRAINER_PIC_SCIENTIST, gTrainerFrontPic_Scientist, gTrainerPalette_Scientist),
     TRAINER_SPRITE(TRAINER_PIC_CLAY, gTrainerFrontPic_Clay, gTrainerPalette_Clay),
-    TRAINER_SPRITE(TRAINER_PIC_ROCKER, gTrainerFrontPic_Rocker, gTrainerPalette_Rocker),
+    TRAINER_SPRITE(TRAINER_PIC_ARTIST, gTrainerFrontPic_Rocker, gTrainerPalette_Rocker),
     TRAINER_SPRITE(TRAINER_PIC_GEN4_SWIMMER_F, gTrainerFrontPic_Gen4SwimmerF, gTrainerPalette_Gen4SwimmerF),
     TRAINER_SPRITE(TRAINER_PIC_KORRINA, gTrainerFrontPic_Korrina, gTrainerPalette_Korrina),
     TRAINER_SPRITE(TRAINER_PIC_BW_ACE_TRAINER_F, gTrainerFrontPic_BWAceTrainerF, gTrainerPalette_BWAceTrainerF),

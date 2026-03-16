@@ -289,7 +289,7 @@ text KeepUpWithReal{
     "real one?"
 }
 script DrisledgeGym_Trainer1{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER1, DrisledgeGym_Trainer4_Intro, DrisledgeGym_Trainer4_Lose, DrisledgeGym_Trainer1_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_1, DrisledgeGym_Trainer4_Intro, DrisledgeGym_Trainer4_Lose, DrisledgeGym_Trainer1_PostScript)
 }
 script DrisledgeGym_Trainer1_PostScript{
     delay(12)
@@ -337,7 +337,7 @@ script DrisledgeMetatiles1{
 
 
 script DrisledgeGym_Trainer2{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER2, DrisledgeGym_Trainer1_Intro, DrisledgeGym_Trainer1_Lose, DrisledgeGym_Trainer2_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_2, DrisledgeGym_Trainer1_Intro, DrisledgeGym_Trainer1_Lose, DrisledgeGym_Trainer2_PostScript)
 }
 script DrisledgeGym_Trainer2_PostScript{
     delay(12)
@@ -393,7 +393,7 @@ script DrisledgeMetatiles2{
 
 
 script DrisledgeGym_Trainer3{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER3, DrisledgeGym_Trainer2_Intro, DrisledgeGym_Trainer2_Lose, DrisledgeGym_Trainer3_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_3, DrisledgeGym_Trainer2_Intro, DrisledgeGym_Trainer2_Lose, DrisledgeGym_Trainer3_PostScript)
 }
 script DrisledgeGym_Trainer3_PostScript{
     delay(12)
@@ -449,7 +449,7 @@ script DrisledgeMetatiles3{
 
 
 script DrisledgeGym_Trainer4{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER4, DrisledgeGym_Trainer3_Intro, DrisledgeGym_Trainer3_Lose, DrisledgeGym_Trainer4_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_4, DrisledgeGym_Trainer3_Intro, DrisledgeGym_Trainer3_Lose, DrisledgeGym_Trainer4_PostScript)
 }
 script DrisledgeGym_Trainer4_PostScript{
     delay(12)
@@ -505,7 +505,7 @@ script DrisledgeMetatiles4{
 
 
 script DrisledgeGym_Trainer5{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER5, DrisledgeGym_Trainer5_Intro, DrisledgeGym_Trainer5_Lose, DrisledgeGym_Trainer5_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_5, DrisledgeGym_Trainer5_Intro, DrisledgeGym_Trainer5_Lose, DrisledgeGym_Trainer5_PostScript)
 }
 script DrisledgeGym_Trainer5_PostScript{
     delay(12)
@@ -561,7 +561,7 @@ script DrisledgeMetatiles5{
 
 
 script DrisledgeGym_Trainer6{
-    trainerbattle_single(TRAINER_DRISLEDGEGYM_TRAINER6, DrisledgeGym_Trainer6_Intro, DrisledgeGym_Trainer6_Lose, DrisledgeGym_Trainer6_PostScript)
+    trainerbattle_single(TRAINER_DRISGYM_6, DrisledgeGym_Trainer6_Intro, DrisledgeGym_Trainer6_Lose, DrisledgeGym_Trainer6_PostScript)
 }
 script DrisledgeGym_Trainer6_PostScript{
     animateflash(0)

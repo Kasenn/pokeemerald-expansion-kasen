@@ -337,7 +337,7 @@ text KaolisleCity_Lass_Couple_Text{
 }
 
 script KaolisleCity_MysteryMan{
-    if(defeated(TRAINER_KAOLISLE_CELEBI_TR2)){
+    if(defeated(TRAINER_KAOLISLE_CELEBI)){
         msgbox(KaolisleCity_MysteryMan_AfterBattleGossip, MSGBOX_NPC)
         end
     }
@@ -888,7 +888,7 @@ script KaolisleCity_MysteryMan_Battle{
         end
     }
     msgbox(KaolisleCity_MysteryMan_Battle_Intro)
-    trainerbattle_no_intro(TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose)
+    trainerbattle_no_intro(TRAINER_KAOLISLE_CELEBI, KaolisleCity_MysteryMan_Battle_Lose)
     msgbox(KaolisleCity_MysteryMan_PostBattle)
     msgbox(KaolisleCity_MysteryMan_PostBattle2)
     giveitem(ITEM_DISC_FRAGMENT)

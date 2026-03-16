@@ -174,22 +174,22 @@ script Route28_ItemBall{
 }
 
 script Route28_Trainer1_BugCatcher{
-    trainerbattle_single(TRAINER_R28_TR1_BUGCATCHER, Route28_Trainer1_BugCatcherIntro, Route28_Trainer1_BugCatcherDefeat)
+    trainerbattle_single(TRAINER_R30_BUGCATCHER, Route28_Trainer1_BugCatcherIntro, Route28_Trainer1_BugCatcherDefeat)
 	msgbox(Route28_Trainer1_BugCatcherPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 script Route28_Trainer2_Hiker{
-    trainerbattle_single(TRAINER_R28_TR2_HIKER, Route28_Trainer2_HikerIntro, Route28_Trainer2_HikerDefeat)
+    trainerbattle_single(TRAINER_R30_HIKER, Route28_Trainer2_HikerIntro, Route28_Trainer2_HikerDefeat)
 	msgbox(Route28_Trainer2_HikerPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 script Route28_Trainer3_NinjaBoy{
-    trainerbattle_single(TRAINER_R28_TR3_NINJABOY, Route28_Trainer3_NinjaBoyIntro, Route28_Trainer3_NinjaBoyDefeat)
+    trainerbattle_single(TRAINER_R30_NINJABOY, Route28_Trainer3_NinjaBoyIntro, Route28_Trainer3_NinjaBoyDefeat)
 	msgbox(Route28_Trainer3_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
 script Route28_Trainer4_Psychic{
-    trainerbattle_single(TRAINER_R28_TR4_PSYCHIC, Route28_Trainer4_PsychicIntro, Route28_Trainer4_PsychicDefeat)
+    trainerbattle_single(TRAINER_R30_PSYCHIC, Route28_Trainer4_PsychicIntro, Route28_Trainer4_PsychicDefeat)
 	msgbox(Route28_Trainer4_PsychicPostBattle, MSGBOX_AUTOCLOSE)
 	end
 }

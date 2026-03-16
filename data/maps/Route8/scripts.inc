@@ -1739,7 +1739,7 @@ RandomizeMudRewards_29:
 
 Route7_Trainer1_Camper::
 # 638 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR1_CAMPER, Route7_Trainer1_Camper_Intro, Route7_Trainer1_Camper_Defeat
+	trainerbattle_single TRAINER_R7_CAMPER, Route7_Trainer1_Camper_Intro, Route7_Trainer1_Camper_Defeat
 # 639 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1747,7 +1747,7 @@ Route7_Trainer1_Camper::
 
 Route7_Trainer2_Picnicker::
 # 657 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR2_PICNICKER, Route7_Trainer2_Picnicker_Intro, Route7_Trainer2_Picnicker_Defeat
+	trainerbattle_single TRAINER_R7_PICNICKER, Route7_Trainer2_Picnicker_Intro, Route7_Trainer2_Picnicker_Defeat
 # 658 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer2_Picnicker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1763,7 +1763,7 @@ Route7_Trainer3_Ninjaboy::
 
 Route7_Trainer4_Birdkeeper::
 # 698 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR4_BIRDKEEPER, Route7_Trainer4_Birdkeeper_Intro, Route7_Trainer4_Birdkeeper_Defeat
+	trainerbattle_single TRAINER_R7_BIRDKEEPER, Route7_Trainer4_Birdkeeper_Intro, Route7_Trainer4_Birdkeeper_Defeat
 # 699 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer4_Birdkeeper_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1771,7 +1771,7 @@ Route7_Trainer4_Birdkeeper::
 
 Route7_Trainer5_Blackbelt::
 # 719 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR5_BLACKBELT, Route7_Trainer5_Blackbelt_Intro, Route7_Trainer5_Blackbelt_Defeat
+	trainerbattle_single TRAINER_R7_BLACKBELT, Route7_Trainer5_Blackbelt_Intro, Route7_Trainer5_Blackbelt_Defeat
 # 720 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer5_Blackbelt_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1779,7 +1779,7 @@ Route7_Trainer5_Blackbelt::
 
 Route7_Trainer6_Picnicker2::
 # 739 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR6_PICNICKER2, Route7_Trainer6_Picnicker2_Intro, Route7_Trainer6_Picnicker2_Defeat
+	trainerbattle_single TRAINER_R7_PICNICKER2, Route7_Trainer6_Picnicker2_Intro, Route7_Trainer6_Picnicker2_Defeat
 # 740 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer6_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1787,7 +1787,7 @@ Route7_Trainer6_Picnicker2::
 
 Route7_Trainer7_Fisherman::
 # 760 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR7_FISHERMAN, Route7_Trainer7_Fisherman_Intro, Route7_Trainer7_Fisherman_Defeat
+	trainerbattle_single TRAINER_R7_FISHERMAN, Route7_Trainer7_Fisherman_Intro, Route7_Trainer7_Fisherman_Defeat
 # 761 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer7_Fisherman_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1795,7 +1795,7 @@ Route7_Trainer7_Fisherman::
 
 Route7_Trainer8_Hiker::
 # 782 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR8_HIKER, Route7_Trainer8_Hiker_Intro, Route7_Trainer8_Hiker_Defeat
+	trainerbattle_single TRAINER_R7_HIKER, Route7_Trainer8_Hiker_Intro, Route7_Trainer8_Hiker_Defeat
 # 783 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer8_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1803,7 +1803,7 @@ Route7_Trainer8_Hiker::
 
 Route7_Trainer9_Parasollady::
 # 804 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR9_PARASOLLADY, Route7_Trainer9_Parasollady_Intro, Route7_Trainer9_Parasollady_Defeat
+	trainerbattle_single TRAINER_R7_PARASOLLADY, Route7_Trainer9_Parasollady_Intro, Route7_Trainer9_Parasollady_Defeat
 # 805 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer9_Parasollady_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -1811,7 +1811,7 @@ Route7_Trainer9_Parasollady::
 
 Route7_Trainer10_NinjaBoy::
 # 825 "data/maps/Route8/scripts.pory"
-	trainerbattle_single TRAINER_R7_TR10_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat
+	trainerbattle_single TRAINER_R7_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat
 # 826 "data/maps/Route8/scripts.pory"
 	msgbox Route7_Trainer10_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE
 	end

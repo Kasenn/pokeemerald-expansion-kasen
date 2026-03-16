@@ -246,7 +246,7 @@ script WW_RocketStop2{
 script WW_RocketStop3{
     lock
     msgbox("Okay, now you're asking for trouble!")
-    trainerbattle_no_intro(TRAINER_SHELLY_SEAFLOOR_CAVERN, WW_Text_RocketDefeated)
+    trainerbattle_no_intro(TRAINER_WW_ROCKET, WW_Text_RocketDefeated)
     goto(WW_RockPostBattle)
 }
 text WW_Text_RocketDefeated{

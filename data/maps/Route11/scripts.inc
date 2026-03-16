@@ -169,7 +169,7 @@ Route11_RepairGuy::
 
 Route11_Tr1_Lass::
 # 110 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR1_LASS, R11Tr1_Intro, R11Tr1_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_LASS, R11Tr1_Intro, R11Tr1_Lose, IncreaseR11Var
 # 111 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -177,7 +177,7 @@ Route11_Tr1_Lass::
 
 Route11_Tr2_Birdkeeper::
 # 127 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR2_BIRDKEEPER, R11Tr2_Intro, R11Tr2_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_BIRDKEEPER, R11Tr2_Intro, R11Tr2_Lose, IncreaseR11Var
 # 128 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -185,7 +185,7 @@ Route11_Tr2_Birdkeeper::
 
 Route11_Tr3_Bugcatcher::
 # 144 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR3_BUGCATCHER, R11Tr3_Intro, R11Tr3_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_BUGCATCHER, R11Tr3_Intro, R11Tr3_Lose, IncreaseR11Var
 # 145 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -193,7 +193,7 @@ Route11_Tr3_Bugcatcher::
 
 Route11_Tr4_Ninjaboy::
 # 166 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR4_NINJABOY, R11Tr4_Intro, R11Tr4_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_NINJABOY, R11Tr4_Intro, R11Tr4_Lose, IncreaseR11Var
 # 167 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -201,7 +201,7 @@ Route11_Tr4_Ninjaboy::
 
 Route11_Tr5_Pokemaniac::
 # 183 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR5_POKEMANIAC, R11Tr5_Intro, R11Tr5_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_POKEMANIAC, R11Tr5_Intro, R11Tr5_Lose, IncreaseR11Var
 # 184 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -209,7 +209,7 @@ Route11_Tr5_Pokemaniac::
 
 Route11_Tr6_Triathlete_F::
 # 201 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR6_TRIATHLETE_F, R11Tr6_Intro, R11Tr6_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_TRIATHLETE_F, R11Tr6_Intro, R11Tr6_Lose, IncreaseR11Var
 # 202 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -217,7 +217,7 @@ Route11_Tr6_Triathlete_F::
 
 Route11_Tr7_Hiker::
 # 218 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR7_HIKER, R11Tr7_Intro, R11Tr7_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_HIKER, R11Tr7_Intro, R11Tr7_Lose, IncreaseR11Var
 # 219 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -225,7 +225,7 @@ Route11_Tr7_Hiker::
 
 Route11_Tr8_Ninjaboy_2::
 # 237 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR8_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose
+	trainerbattle_single TRAINER_R11_NINJABOY_2, R11Tr8_Intro, R11Tr8_Lose
 # 238 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -233,7 +233,7 @@ Route11_Tr8_Ninjaboy_2::
 
 Route11_Tr9_Ninjaboy_3::
 # 255 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR9_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose
+	trainerbattle_single TRAINER_R11_NINJABOY_3, R11Tr9_Intro, R11Tr9_Lose
 # 256 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -241,7 +241,7 @@ Route11_Tr9_Ninjaboy_3::
 
 Route11_Tr10_Cycler_M::
 # 271 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR10_CYCLER_M, R11Tr10_Intro, R11Tr10_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_CYCLER_M, R11Tr10_Intro, R11Tr10_Lose, IncreaseR11Var
 # 272 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -249,7 +249,7 @@ Route11_Tr10_Cycler_M::
 
 Route11_Tr11_Blackbelt::
 # 287 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR11_BLACKBELT, R11Tr11_Intro, R11Tr11_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_BLACKBELT, R11Tr11_Intro, R11Tr11_Lose, IncreaseR11Var
 # 288 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr11_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -257,7 +257,7 @@ Route11_Tr11_Blackbelt::
 
 Route11_Tr12_Expert::
 # 303 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR12_EXPERT, R11Tr12_Intro, R11Tr12_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_EXPERT, R11Tr12_Intro, R11Tr12_Lose, IncreaseR11Var
 # 304 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr12_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -265,7 +265,7 @@ Route11_Tr12_Expert::
 
 Route11_Tr13_Psychic_F::
 # 321 "data/maps/Route11/scripts.pory"
-	trainerbattle_single TRAINER_R11_TR13_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var
+	trainerbattle_single TRAINER_R11_PSYCHIC_F, R11Tr13_Intro, R11Tr13_Lose, IncreaseR11Var
 # 322 "data/maps/Route11/scripts.pory"
 	msgbox R11Tr13_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -295,13 +295,13 @@ Route11_Tr14_Acetrainer_F_2:
 
 Route11_Tr14_Acetrainer_F_4:
 # 343 "data/maps/Route11/scripts.pory"
-	checktrainerflag TRAINER_R11_TR8_NINJABOY_2
+	checktrainerflag TRAINER_R11_NINJABOY_2
 	goto_if 1, Route11_Tr14_Acetrainer_F_6
 	goto Route11_Tr14_Acetrainer_F_3
 
 Route11_Tr14_Acetrainer_F_6:
 # 344 "data/maps/Route11/scripts.pory"
-	checktrainerflag TRAINER_R11_TR9_NINJABOY_3
+	checktrainerflag TRAINER_R11_NINJABOY_3
 	goto_if 1, Route11_Tr14_Acetrainer_F_2
 	goto Route11_Tr14_Acetrainer_F_3
 
@@ -312,7 +312,7 @@ R11_Ace_EligibleForBattle::
 # 356 "data/maps/Route11/scripts.pory"
 	faceplayer
 # 357 "data/maps/Route11/scripts.pory"
-	checktrainerflag TRAINER_R11_TR14_ACETRAINER_F
+	checktrainerflag TRAINER_R11_ACETRAINER_F
 	goto_if 1, R11_Ace_EligibleForBattle_2
 R11_Ace_EligibleForBattle_1:
 # 360 "data/maps/Route11/scripts.pory"
@@ -344,7 +344,7 @@ R11_Ace_EligibleForBattle_9:
 # 368 "data/maps/Route11/scripts.pory"
 	msgbox R11_Ace_BeginBattle, MSGBOX_DEFAULT
 # 369 "data/maps/Route11/scripts.pory"
-	trainerbattle_no_intro TRAINER_R11_TR14_ACETRAINER_F, R11_Ace_Lose
+	trainerbattle_no_intro TRAINER_R11_ACETRAINER_F, R11_Ace_Lose
 # 370 "data/maps/Route11/scripts.pory"
 	goto R11_Ace_PostBattleScript
 	goto R11_Ace_EligibleForBattle_8

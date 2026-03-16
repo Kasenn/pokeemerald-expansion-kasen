@@ -164,7 +164,7 @@ movement R15_GruntEscapes{
 }
 
 script Route15_Tr1_Birdkeeper {
-    trainerbattle_single(TRAINER_R15_TR1_BIRDKEEPER, R15Tr1_Intro, R15Tr1_Lose)
+    trainerbattle_single(TRAINER_R15_BIRDKEEPER, R15Tr1_Intro, R15Tr1_Lose)
     msgbox(R15Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -184,7 +184,7 @@ text R15Tr1_PostBattle{
 }
 
 script Route15_Tr2_RangerF {
-    trainerbattle_single(TRAINER_R15_TR2_RANGERF, R15Tr2_Intro, R15Tr2_Lose)
+    trainerbattle_single(TRAINER_R15_RANGERF, R15Tr2_Intro, R15Tr2_Lose)
     msgbox(R15Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -204,7 +204,7 @@ text R15Tr2_PostBattle{
 }
 
 script Route15_Tr3_RangerM {
-    trainerbattle_single(TRAINER_R15_TR3_RANGERM, R15Tr3_Intro, R15Tr3_Lose)
+    trainerbattle_single(TRAINER_R15_RANGERM, R15Tr3_Intro, R15Tr3_Lose)
     msgbox(R15Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -223,7 +223,7 @@ text R15Tr3_PostBattle{
 }
 
 script Route15_Tr4_Gentleman {
-    trainerbattle_single(TRAINER_R15_TR4_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose)
+    trainerbattle_single(TRAINER_R15_GENTLEMAN, R15Tr4_Intro, R15Tr4_Lose)
     msgbox(R15Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -240,7 +240,7 @@ text R15Tr4_PostBattle{
 }
 
 script Route15_Tr5_Ninjaboy1 {
-    trainerbattle_single(TRAINER_R15_TR5_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose)
+    trainerbattle_single(TRAINER_R15_NINJABOY1, R15Tr5_Intro, R15Tr5_Lose)
     msgbox(R15Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -256,7 +256,7 @@ text R15Tr5_PostBattle{
 }
 
 script Route15_Tr6_Ninjaboy2 {
-    trainerbattle_single(TRAINER_R15_TR6_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose)
+    trainerbattle_single(TRAINER_R15_NINJABOY2, R15Tr6_Intro, R15Tr6_Lose)
     msgbox(R15Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -272,7 +272,7 @@ text R15Tr6_PostBattle{
 }
 
 script Route15_Tr7_Bugcatcher {
-    trainerbattle_single(TRAINER_R15_TR7_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose)
+    trainerbattle_single(TRAINER_R15_BUGCATCHER, R15Tr7_Intro, R15Tr7_Lose)
     msgbox(R15Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -290,7 +290,7 @@ text R15Tr7_PostBattle{
 }
 
 script Route15_Tr8_Bugcatcher2 {
-    trainerbattle_single(TRAINER_R15_TR8_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose)
+    trainerbattle_single(TRAINER_R15_BUGCATCHER2, R15Tr8_Intro, R15Tr8_Lose)
     msgbox(R15Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -308,7 +308,7 @@ text R15Tr8_PostBattle{
 }
 
 script Route15_Tr9_Beauty {
-    trainerbattle_single(TRAINER_R15_TR9_BEAUTY, R15Tr9_Intro, R15Tr9_Lose)
+    trainerbattle_single(TRAINER_R15_BEAUTY, R15Tr9_Intro, R15Tr9_Lose)
     msgbox(R15Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -324,7 +324,7 @@ text R15Tr9_PostBattle{
 }
 
 script Route15_Tr10_Fisher {
-    trainerbattle_single(TRAINER_R15_TR10_FISHER, R15Tr10_Intro, R15Tr10_Lose)
+    trainerbattle_single(TRAINER_R15_FISHER, R15Tr10_Intro, R15Tr10_Lose)
     msgbox(R15Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -365,7 +365,7 @@ text R15Tr10_PostBattle{
 // }
 
 script Route15_Tr13_Cooltrainer {
-    trainerbattle_single(TRAINER_R15_TR13_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose)
+    trainerbattle_single(TRAINER_R15_COOLTRAINER, R15Tr13_Intro, R15Tr13_Lose)
     msgbox(R15Tr13_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -386,7 +386,7 @@ text R15Tr13_PostBattle{
 }
 
 script Route15_Tr14_Lass {
-    trainerbattle_single(TRAINER_R15_TR14_LASS, R15Tr14_Intro, R15Tr14_Lose)
+    trainerbattle_single(TRAINER_R15_LASS, R15Tr14_Intro, R15Tr14_Lose)
     msgbox(R15Tr14_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -404,7 +404,7 @@ text R15Tr14_PostBattle{
 }
 
 script Route15_Tr15_Scientist {
-    trainerbattle_single(TRAINER_R15_TR15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose)
+    trainerbattle_single(TRAINER_R15_SCIENTIST, R15Tr15_Intro, R15Tr15_Lose)
     msgbox(R15Tr15_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -424,7 +424,7 @@ text R15Tr15_PostBattle{
 }
 
 script Route15_Tr16_Aromalady {
-    trainerbattle_single(TRAINER_R15_TR16_AROMALADY, R15Tr16_Intro, R15Tr16_Lose)
+    trainerbattle_single(TRAINER_R15_AROMALADY, R15Tr16_Intro, R15Tr16_Lose)
     msgbox(R15Tr16_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -441,7 +441,7 @@ text R15Tr16_PostBattle{
 }
 
 script Route15_Tr17_Ninjaboy3 {
-    trainerbattle_single(TRAINER_R15_TR17_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose)
+    trainerbattle_single(TRAINER_R15_NINJABOY3, R15Tr17_Intro, R15Tr17_Lose)
     msgbox(R15Tr17_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -476,21 +476,21 @@ script R15_AceTrainerInteraction{
     if((defeated(TRAINER_R15_ACETRAINER_M)) || (defeated(TRAINER_R15_ACETRAINER_F))){
         goto(R15_AceTrainerPostBattle)
     }
-    elif((defeated(TRAINER_R15_TR1_BIRDKEEPER))
-    && (defeated(TRAINER_R15_TR2_RANGERF))
-    && (defeated(TRAINER_R15_TR3_RANGERM))
-    && (defeated(TRAINER_R15_TR4_GENTLEMAN))
-    && (defeated(TRAINER_R15_TR5_NINJABOY1))
-    && (defeated(TRAINER_R15_TR6_NINJABOY2))
-    && (defeated(TRAINER_R15_TR7_BUGCATCHER))
-    && (defeated(TRAINER_R15_TR8_BUGCATCHER2))
-    && (defeated(TRAINER_R15_TR9_BEAUTY))
-    && (defeated(TRAINER_R15_TR10_FISHER))
-    && (defeated(TRAINER_R15_TR13_COOLTRAINER))
-    && (defeated(TRAINER_R15_TR14_LASS))
-    && (defeated(TRAINER_R15_TR15_SCIENTIST))
-    && (defeated(TRAINER_R15_TR16_AROMALADY))
-    && (defeated(TRAINER_R15_TR17_NINJABOY3))){
+    elif((defeated(TRAINER_R15_BIRDKEEPER))
+    && (defeated(TRAINER_R15_RANGERF))
+    && (defeated(TRAINER_R15_RANGERM))
+    && (defeated(TRAINER_R15_GENTLEMAN))
+    && (defeated(TRAINER_R15_NINJABOY1))
+    && (defeated(TRAINER_R15_NINJABOY2))
+    && (defeated(TRAINER_R15_BUGCATCHER))
+    && (defeated(TRAINER_R15_BUGCATCHER2))
+    && (defeated(TRAINER_R15_BEAUTY))
+    && (defeated(TRAINER_R15_FISHER))
+    && (defeated(TRAINER_R15_COOLTRAINER))
+    && (defeated(TRAINER_R15_LASS))
+    && (defeated(TRAINER_R15_SCIENTIST))
+    && (defeated(TRAINER_R15_AROMALADY))
+    && (defeated(TRAINER_R15_NINJABOY3))){
         goto(R15_AceTrainerBattle)
     }
     else{

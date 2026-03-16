@@ -8,7 +8,7 @@ ClearShinyFlag2::
 # 6 "data/maps/Route7/scripts.pory"
 	clearflag FLAG_INCREASED_SHINY_ODDS
 # 7 "data/maps/Route7/scripts.pory"
-	cleartrainerflag TRAINER_R8_TR6_ENTHUSIAST
+	cleartrainerflag TRAINER_R8_ENTHUSIAST
 # 8 "data/maps/Route7/scripts.pory"
 	release
 	end
@@ -40,7 +40,7 @@ Route8_Ball2::
 
 Route8_Trainer1_ParasolLady::
 # 41 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR1_PARASOLLADY, Route8_Trainer1_ParasolLady_Intro, Route8_Trainer1_ParasolLady_Defeat
+	trainerbattle_single TRAINER_R8_PARASOLLADY, Route8_Trainer1_ParasolLady_Intro, Route8_Trainer1_ParasolLady_Defeat
 # 42 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer1_ParasolLady_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -48,7 +48,7 @@ Route8_Trainer1_ParasolLady::
 
 Route8_Trainer2_SRJR::
 # 58 "data/maps/Route7/scripts.pory"
-	trainerbattle_double TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR_Intro, Route8_Trainer2_SRJR_Defeat, Route8_Trainer2_SRJR_NotEnoughMons
+	trainerbattle_double TRAINER_R8_SRJR, Route8_Trainer2_SRJR_Intro, Route8_Trainer2_SRJR_Defeat, Route8_Trainer2_SRJR_NotEnoughMons
 # 59 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer2_SRJR_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -56,7 +56,7 @@ Route8_Trainer2_SRJR::
 
 Route8_Trainer2_SRJR2::
 # 81 "data/maps/Route7/scripts.pory"
-	trainerbattle_double TRAINER_R8_TR2_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons
+	trainerbattle_double TRAINER_R8_SRJR, Route8_Trainer2_SRJR2_Intro, Route8_Trainer2_SRJR2_Defeat, Route8_Trainer2_SRJR2_NotEnoughMons
 # 82 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer2_SRJR2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -64,7 +64,7 @@ Route8_Trainer2_SRJR2::
 
 Route8_Trainer3_AromaLady::
 # 101 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR3_AROMALADY, Route8_Trainer3_AromaLady_Intro, Route8_Trainer3_AromaLady_Defeat
+	trainerbattle_single TRAINER_R8_AROMALADY, Route8_Trainer3_AromaLady_Intro, Route8_Trainer3_AromaLady_Defeat
 # 102 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer3_AromaLady_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -72,7 +72,7 @@ Route8_Trainer3_AromaLady::
 
 Route8_Trainer4_Youngster::
 # 121 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR4_YOUNGSTER, Route8_Trainer4_Youngster_Intro, Route8_Trainer4_Youngster_Defeat
+	trainerbattle_single TRAINER_R8_YOUNGSTER, Route8_Trainer4_Youngster_Intro, Route8_Trainer4_Youngster_Defeat
 # 122 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer4_Youngster_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -80,7 +80,7 @@ Route8_Trainer4_Youngster::
 
 Route8_Trainer5_Psychic_F::
 # 139 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR5_PSYCHIC_F, Route8_Trainer5_Psychic_F_Intro, Route8_Trainer5_Psychic_F_Defeat
+	trainerbattle_single TRAINER_R8_PSYCHIC_F, Route8_Trainer5_Psychic_F_Intro, Route8_Trainer5_Psychic_F_Defeat
 # 140 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer5_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -88,7 +88,7 @@ Route8_Trainer5_Psychic_F::
 
 Route8_Trainer6_Camper_M::
 # 156 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR6_ENTHUSIAST, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat
+	trainerbattle_single TRAINER_R8_ENTHUSIAST, Route8_Trainer6_Camper_M_Intro, Route8_Trainer6_Camper_M_Defeat
 # 157 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer6_Camper_M_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -96,7 +96,7 @@ Route8_Trainer6_Camper_M::
 
 Route8_Trainer7_Triathlete_M::
 # 173 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR7_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat
+	trainerbattle_single TRAINER_R8_TRIATHLETE_M, Route8_Trainer7_Triathlete_M_Intro, Route8_Trainer7_Triathlete_M_Defeat
 # 174 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer7_Triathlete_M_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -104,7 +104,7 @@ Route8_Trainer7_Triathlete_M::
 
 Route8_Trainer8_Gentleman::
 # 189 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR8_GENTLEMAN, Route8_Trainer8_Gentleman_Intro, Route8_Trainer8_Gentleman_Defeat
+	trainerbattle_single TRAINER_R8_GENTLEMAN, Route8_Trainer8_Gentleman_Intro, Route8_Trainer8_Gentleman_Defeat
 # 190 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer8_Gentleman_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -112,7 +112,7 @@ Route8_Trainer8_Gentleman::
 
 Route8_Trainer9_Hiker::
 # 204 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR9_HIKER, Route8_Trainer9_Hiker_Intro, Route8_Trainer9_Hiker_Defeat
+	trainerbattle_single TRAINER_R8_HIKER, Route8_Trainer9_Hiker_Intro, Route8_Trainer9_Hiker_Defeat
 # 205 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer9_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -120,7 +120,7 @@ Route8_Trainer9_Hiker::
 
 Route8_Trainer10_OldCouple::
 # 219 "data/maps/Route7/scripts.pory"
-	trainerbattle_double TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple_Intro, Route8_Trainer10_OldCouple_Defeat, Route8_Trainer10_OldCouple_NotEnoughMons
+	trainerbattle_double TRAINER_R8_OLDCOUPLE, Route8_Trainer10_OldCouple_Intro, Route8_Trainer10_OldCouple_Defeat, Route8_Trainer10_OldCouple_NotEnoughMons
 # 220 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer10_OldCouple_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -128,7 +128,7 @@ Route8_Trainer10_OldCouple::
 
 Route8_Trainer10_OldCouple2::
 # 245 "data/maps/Route7/scripts.pory"
-	trainerbattle_double TRAINER_R8_TR10_OLDCOUPLE, Route8_Trainer10_OldCouple2_Intro, Route8_Trainer10_OldCouple2_Defeat, Route8_Trainer10_OldCouple2_NotEnoughMons
+	trainerbattle_double TRAINER_R8_OLDCOUPLE, Route8_Trainer10_OldCouple2_Intro, Route8_Trainer10_OldCouple2_Defeat, Route8_Trainer10_OldCouple2_NotEnoughMons
 # 246 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer10_OldCouple2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -136,7 +136,7 @@ Route8_Trainer10_OldCouple2::
 
 Route8_Trainer11_BirdKeeper::
 # 270 "data/maps/Route7/scripts.pory"
-	trainerbattle_single TRAINER_R8_TR11_BIRDKEEPER, Route8_Trainer11_BirdKeeper_Intro, Route8_Trainer11_BirdKeeper_Defeat
+	trainerbattle_single TRAINER_R8_BIRDKEEPER, Route8_Trainer11_BirdKeeper_Intro, Route8_Trainer11_BirdKeeper_Defeat
 # 271 "data/maps/Route7/scripts.pory"
 	msgbox Route8_Trainer11_BirdKeeper_PostBattle, MSGBOX_AUTOCLOSE
 	end

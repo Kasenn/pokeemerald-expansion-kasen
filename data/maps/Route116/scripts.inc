@@ -227,7 +227,7 @@ Route116_Movement_GlassesManExitEast:
 	step_end
 
 Route116_EventScript_Joey::
-	trainerbattle_single TRAINER_R23_TR11_NINJABOY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat
+	trainerbattle_single TRAINER_R23_NINJABOY, Route116_Text_JoeyIntro, Route116_Text_JoeyDefeat
 	msgbox Route116_Text_JoeyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -237,10 +237,10 @@ Route116_EventScript_Jose::
 	end
 
 Route116_EventScript_Jerry::
-	trainerbattle_single TRAINER_AT_2F_TR2_WOMAN5, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_EventScript_TryRegisterJerryAfterBattle
+	trainerbattle_single TRAINER_AT_2F_WOMAN5, Route116_Text_JerryIntro, Route116_Text_JerryDefeat, Route116_EventScript_TryRegisterJerryAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchJerry
-	setvar VAR_0x8004, TRAINER_AT_2F_TR2_WOMAN5
+	setvar VAR_0x8004, TRAINER_AT_2F_WOMAN5
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterJerry
 	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
@@ -256,7 +256,7 @@ Route116_EventScript_RegisterJerryAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route116_Text_JerryRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AT_2F_TR2_WOMAN5
+	register_matchcall TRAINER_AT_2F_WOMAN5
 	release
 	end
 
@@ -268,12 +268,12 @@ Route116_EventScript_TryRegisterJerry::
 
 Route116_EventScript_RegisterJerry::
 	msgbox Route116_Text_JerryRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AT_2F_TR2_WOMAN5
+	register_matchcall TRAINER_AT_2F_WOMAN5
 	release
 	end
 
 Route116_EventScript_RematchJerry::
-	trainerbattle_rematch TRAINER_AT_2F_TR2_WOMAN5, Route116_Text_JerryRematchIntro, Route116_Text_JerryRematchDefeat
+	trainerbattle_rematch TRAINER_AT_2F_WOMAN5, Route116_Text_JerryRematchIntro, Route116_Text_JerryRematchDefeat
 	msgbox Route116_Text_JerryPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -288,10 +288,10 @@ Route116_EventScript_Janice::
 	end
 
 Route116_EventScript_Karen::
-	trainerbattle_single TRAINER_AT_4F_TR1_BLACKBELT, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_EventScript_TryRegisterKarenAfterBattle
+	trainerbattle_single TRAINER_AT_4F_BLACKBELT, Route116_Text_KarenIntro, Route116_Text_KarenDefeat, Route116_EventScript_TryRegisterKarenAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route116_EventScript_RematchKaren
-	setvar VAR_0x8004, TRAINER_AT_4F_TR1_BLACKBELT
+	setvar VAR_0x8004, TRAINER_AT_4F_BLACKBELT
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_TryRegisterKaren
 	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
@@ -307,7 +307,7 @@ Route116_EventScript_RegisterKarenAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route116_Text_KarenRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AT_4F_TR1_BLACKBELT
+	register_matchcall TRAINER_AT_4F_BLACKBELT
 	release
 	end
 
@@ -319,12 +319,12 @@ Route116_EventScript_TryRegisterKaren::
 
 Route116_EventScript_RegisterKaren::
 	msgbox Route116_Text_KarenRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_AT_4F_TR1_BLACKBELT
+	register_matchcall TRAINER_AT_4F_BLACKBELT
 	release
 	end
 
 Route116_EventScript_RematchKaren::
-	trainerbattle_rematch TRAINER_AT_4F_TR1_BLACKBELT, Route116_Text_KarenRematchIntro, Route116_Text_KarenRematchDefeat
+	trainerbattle_rematch TRAINER_AT_4F_BLACKBELT, Route116_Text_KarenRematchIntro, Route116_Text_KarenRematchDefeat
 	msgbox Route116_Text_KarenPostRematch, MSGBOX_AUTOCLOSE
 	end
 

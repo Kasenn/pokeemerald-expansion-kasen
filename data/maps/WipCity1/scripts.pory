@@ -39,7 +39,7 @@ script AldeleafCity_Boy{
 script AldeleafCity_Maniac{
 	lock
 	faceplayer
-	if(defeated(TRAINER_VITO)){
+	if(defeated(TRAINER_ALDELEAF_MANIAC)){
 		if(flag(FLAG_SHELL_BELL_RECEIVED)){
 			msgbox(AldeleafCity_Maniac_PostBattle, MSGBOX_NPC)
 			end
@@ -58,7 +58,7 @@ script AldeleafCity_Maniac{
 	else{
 		msgbox(AldeleafCity_Maniac_Text, MSGBOX_YESNO)
 		if(var(VAR_RESULT) == YES){
-		trainerbattle_no_intro(TRAINER_VITO, AldeleafCity_Maniac_Defeated)
+		trainerbattle_no_intro(TRAINER_ALDELEAF_MANIAC, AldeleafCity_Maniac_Defeated)
 		}
 		else{
 			msgbox(AldeleafCity_Maniac_DeclineBattle, MSGBOX_NPC)

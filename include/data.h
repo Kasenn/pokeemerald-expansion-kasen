@@ -74,19 +74,39 @@ struct TrainerBacksprite
 #define EVS_ALL(value)      EVS(value, value, value, value, value, value)
 
 
-#define POKEMON(mon, level) \
-    .species = mon,         \
+#define POKEMON(mon, level)     \
+    .species = mon,             \
     .lvl = level
 
-#define POKEMON_F(mon, level) \
-    .species = mon,           \
-    .lvl = level,             \
+#define POKEMON_F(mon, level)   \
+    .species = mon,             \
+    .lvl = level,               \
     .gender = TRAINER_MON_FEMALE
 
-#define POKEMON_M(mon, level) \
-    .species = mon,           \
-    .lvl = level,             \
+#define POKEMON_M(mon, level)   \
+    .species = mon,             \
+    .lvl = level,               \
     .gender = TRAINER_MON_MALE
+
+#define POKEMON_N(mon, level, nature1)          \
+    .species = mon,                             \
+    .lvl = level,                               \
+    .nature = nature1
+
+#define POKEMON_FN(mon, level, nature1)         \
+    .species = mon,                             \
+    .lvl = level,                               \
+    .gender = TRAINER_MON_FEMALE,               \
+    .nature = nature1
+
+#define POKEMON_MN(mon, level, nature1)         \
+    .species = mon,                             \
+    .lvl = level,                               \
+    .gender = TRAINER_MON_MALE,                 \
+    .nature = nature1
+
+#define MOVES(...)      .moves = { __VA_ARGS__ }
+#define HELD(item)      .heldItem = item
 
 // Shared by both trainer and frontier mons
 // See CreateNPCTrainerPartyFromTrainer and CreateFacilityMon
@@ -114,7 +134,7 @@ struct TrainerMon
     u32 tags;
 };
 
-#define TRAINER_PARTY(partyArray) .party = partyArray, .partySize = ARRAY_COUNT(partyArray)
+#define TPARTY(partyArray) .party = partyArray, .partySize = ARRAY_COUNT(partyArray)
 
 enum TrainerBattleType
 {

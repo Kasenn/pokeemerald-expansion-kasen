@@ -18,7 +18,7 @@ FC_Hiker::
 
 FightingClub_Tr1_Blackbelt::
 # 21 "data/maps/FloodedCave1F/scripts.pory"
-	trainerbattle_single TRAINER_FC_TR1_BLACKBELT, FCTr1_Intro, FCTr1_Lose
+	trainerbattle_single TRAINER_FC_BLACKBELT, FCTr1_Intro, FCTr1_Lose
 # 22 "data/maps/FloodedCave1F/scripts.pory"
 	msgbox FCTr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -26,7 +26,7 @@ FightingClub_Tr1_Blackbelt::
 
 FightingClub_Tr2_Battlegirl::
 # 41 "data/maps/FloodedCave1F/scripts.pory"
-	trainerbattle_single TRAINER_FC_TR2_BATTLEGIRL, FCTr2_Intro, FCTr2_Lose
+	trainerbattle_single TRAINER_FC_BATTLEGIRL, FCTr2_Intro, FCTr2_Lose
 # 42 "data/maps/FloodedCave1F/scripts.pory"
 	msgbox FCTr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -34,7 +34,7 @@ FightingClub_Tr2_Battlegirl::
 
 FightingClub_Tr3_Camper::
 # 58 "data/maps/FloodedCave1F/scripts.pory"
-	trainerbattle_single TRAINER_FC_TR3_CAMPER, FCTr3_Intro, FCTr3_Lose
+	trainerbattle_single TRAINER_FC_CAMPER, FCTr3_Intro, FCTr3_Lose
 # 59 "data/maps/FloodedCave1F/scripts.pory"
 	msgbox FCTr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -42,7 +42,7 @@ FightingClub_Tr3_Camper::
 
 FightingClub_Tr4_Hiker::
 # 76 "data/maps/FloodedCave1F/scripts.pory"
-	trainerbattle_single TRAINER_FC_TR4_HIKER, FCTr4_Intro, FCTr4_Lose
+	trainerbattle_single TRAINER_FC_HIKER, FCTr4_Intro, FCTr4_Lose
 # 77 "data/maps/FloodedCave1F/scripts.pory"
 	msgbox FCTr4_PostBattle, MSGBOX_AUTOCLOSE
 	end

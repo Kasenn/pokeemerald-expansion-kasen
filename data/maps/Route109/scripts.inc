@@ -375,7 +375,7 @@ Route109_EventScript_TrainerTipsSign::
 	end
 
 Route109_EventScript_David::
-	trainerbattle_single TRAINER_DESERT_TR3_PICNICKER, Route109_Text_DavidIntro, Route109_Text_DavidDefeated
+	trainerbattle_single TRAINER_DESERT_PICNICKER, Route109_Text_DavidIntro, Route109_Text_DavidDefeated
 	msgbox Route109_Text_DavidPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -437,7 +437,7 @@ Route109_EventScript_LolaRematch::
 	end
 
 Route109_EventScript_Austina::
-	trainerbattle_single TRAINER_R16_TR1_SWIMMER_M, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
+	trainerbattle_single TRAINER_R16_SWIMMER_M, Route109_Text_AustinaIntro, Route109_Text_AustinaDefeated
 	msgbox Route109_Text_AustinaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -447,7 +447,7 @@ Route109_EventScript_Gwen::
 	end
 
 Route109_EventScript_Carter::
-	trainerbattle_single TRAINER_R3_TR11_SWIMMER_F1, Route109_Text_CarterIntro, Route109_Text_CarterDefeated
+	trainerbattle_single TRAINER_R3_SWIMMER_F1, Route109_Text_CarterIntro, Route109_Text_CarterDefeated
 	msgbox Route109_Text_CarterPostBattle, MSGBOX_AUTOCLOSE
 	end
 

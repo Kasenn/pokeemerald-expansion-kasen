@@ -1,7 +1,7 @@
 mapscripts Route10_MapScripts {}
 
 script Route10_Tr2_Swimmer_F1 {
-    trainerbattle_single(TRAINER_R10_TR2_SWIMMER_F1, R10Tr2_Intro, R10Tr2_Lose)
+    trainerbattle_single(TRAINER_R10_SWIMMER_F1, R10Tr2_Intro, R10Tr2_Lose)
     msgbox(R10Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -18,7 +18,7 @@ text R10Tr2_PostBattle{
 }
 
 script Route10_Tr3_Fisherman {
-    trainerbattle_single(TRAINER_R10_TR3_FISHERMAN, R10Tr3_Intro, R10Tr3_Lose)
+    trainerbattle_single(TRAINER_R10_FISHERMAN, R10Tr3_Intro, R10Tr3_Lose)
     msgbox(R10Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -37,7 +37,7 @@ text R10Tr3_PostBattle{
 }
 
 script Route10_Tr4_Swimmer_M1 {
-    trainerbattle_single(TRAINER_R10_TR4_SWIMMER_M1, R10Tr4_Intro, R10Tr4_Lose)
+    trainerbattle_single(TRAINER_R10_SWIMMER_M1, R10Tr4_Intro, R10Tr4_Lose)
     msgbox(R10Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -55,7 +55,7 @@ text R10Tr4_PostBattle{
 }
 
 script Route10_Tr5_BlackBelt {
-    trainerbattle_single(TRAINER_R10_TR5_BLACKBELT, R10Tr5_Intro, R10Tr5_Lose)
+    trainerbattle_single(TRAINER_R10_BLACKBELT, R10Tr5_Intro, R10Tr5_Lose)
     msgbox(R10Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -73,7 +73,7 @@ text R10Tr5_PostBattle{
 }
 
 script Route10_Tr6_Hiker {
-    trainerbattle_single(TRAINER_R10_TR6_HIKER, R10Tr6_Intro, R10Tr6_Lose)
+    trainerbattle_single(TRAINER_R10_HIKER, R10Tr6_Intro, R10Tr6_Lose)
     msgbox(R10Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -90,7 +90,7 @@ text R10Tr6_PostBattle{
 }
 
 script Route10_Tr7_Swimmer_F2 {
-    trainerbattle_single(TRAINER_R10_TR7_SWIMMER_F2, R10Tr7_Intro, R10Tr7_Lose)
+    trainerbattle_single(TRAINER_R10_SWIMMER_F2, R10Tr7_Intro, R10Tr7_Lose)
     msgbox(R10Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -107,7 +107,7 @@ text R10Tr7_PostBattle{
 }
 
 script Route10_Tr8_Swimmer_M2 {
-    trainerbattle_single(TRAINER_R10_TR8_SWIMMER_M2, R10Tr8_Intro, R10Tr8_Lose)
+    trainerbattle_single(TRAINER_R10_SWIMMER_M2, R10Tr8_Intro, R10Tr8_Lose)
     msgbox(R10Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -125,7 +125,7 @@ text R10Tr8_PostBattle{
 }
 
 script Route10_Tr9_BattleGirl {
-    trainerbattle_single(TRAINER_R10_TR9_BATTLEGIRL, R10Tr9_Intro, R10Tr9_Lose)
+    trainerbattle_single(TRAINER_R10_BATTLEGIRL, R10Tr9_Intro, R10Tr9_Lose)
     msgbox(R10Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -145,7 +145,7 @@ text R10Tr9_PostBattle{
 }
 
 script Route10_Tr10_Tuber_M {
-    trainerbattle_single(TRAINER_R10_TR10_TUBER_M, R10Tr10_Intro, R10Tr10_Lose)
+    trainerbattle_single(TRAINER_R10_TUBER_M, R10Tr10_Intro, R10Tr10_Lose)
     msgbox(R10Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -182,13 +182,13 @@ text Route10_Beachgoer_F_Text{
 }
 
 script Route10_Tr1_AceSwimmer {
-    if(defeated(TRAINER_R10_TR1_ACESWIMMER)){
+    if(defeated(TRAINER_R10_ACESWIMMER)){
         goto(R10_Ace_PostBattle)
     }
-    elif(defeated(TRAINER_R10_TR2_SWIMMER_F1)
-      && defeated(TRAINER_R10_TR4_SWIMMER_M1)
-      && defeated(TRAINER_R10_TR7_SWIMMER_F2)
-      && defeated(TRAINER_R10_TR8_SWIMMER_M2))
+    elif(defeated(TRAINER_R10_SWIMMER_F1)
+      && defeated(TRAINER_R10_SWIMMER_M1)
+      && defeated(TRAINER_R10_SWIMMER_F2)
+      && defeated(TRAINER_R10_SWIMMER_M2))
     {
         goto(R10_Ace_EligibleForBattle)
     }
@@ -209,7 +209,7 @@ script R10_Ace_EligibleForBattle{
     }
     if(var(VAR_RESULT) == TRUE){
         msgbox(R10_Ace_BeginBattle, MSGBOX_DEFAULT)
-        trainerbattle_no_intro(TRAINER_R10_TR1_ACESWIMMER, R10_Ace_Lose)
+        trainerbattle_no_intro(TRAINER_R10_ACESWIMMER, R10_Ace_Lose)
         goto(R10_Ace_PostBattle)
     }
     msgbox(R10_Ace_DeclineBattle, MSGBOX_NPC)

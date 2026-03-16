@@ -387,7 +387,7 @@ FossilScriptEnd::
 
 KaolMines_Trainer1::
 # 225 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR1_PICNICKER, KaolMines_Text_Trainer1Intro, KaolMines_Text_Trainer1Defeat
+	trainerbattle_single TRAINER_KM_PICNICKER, KaolMines_Text_Trainer1Intro, KaolMines_Text_Trainer1Defeat
 # 226 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -395,7 +395,7 @@ KaolMines_Trainer1::
 
 KaolMines_Trainer2::
 # 244 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR2_BLACKBELT, KaolMines_Text_Trainer2Intro, KaolMines_Text_Trainer2Defeat
+	trainerbattle_single TRAINER_KM_BLACKBELT, KaolMines_Text_Trainer2Intro, KaolMines_Text_Trainer2Defeat
 # 245 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -403,7 +403,7 @@ KaolMines_Trainer2::
 
 KaolMines_Trainer3::
 # 265 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR3_CAMPER, KaolMines_Text_Trainer3Intro, KaolMines_Text_Trainer3Defeat
+	trainerbattle_single TRAINER_KM_CAMPER, KaolMines_Text_Trainer3Intro, KaolMines_Text_Trainer3Defeat
 # 266 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -411,7 +411,7 @@ KaolMines_Trainer3::
 
 KaolMines_Trainer4::
 # 285 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR4_HIKER, KaolMines_Text_Trainer4Intro, KaolMines_Text_Trainer4Defeat
+	trainerbattle_single TRAINER_KM_HIKER, KaolMines_Text_Trainer4Intro, KaolMines_Text_Trainer4Defeat
 # 286 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -419,7 +419,7 @@ KaolMines_Trainer4::
 
 KaolMines_Trainer5::
 # 301 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR5_HIKER, KaolMines_Text_Trainer5Intro, KaolMines_Text_Trainer5Defeat
+	trainerbattle_single TRAINER_KM_HIKER2, KaolMines_Text_Trainer5Intro, KaolMines_Text_Trainer5Defeat
 # 302 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -427,7 +427,7 @@ KaolMines_Trainer5::
 
 KaolMines_Trainer6::
 # 320 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR6_HIKER, KaolMines_Text_Trainer6Intro, KaolMines_Text_Trainer6Defeat
+	trainerbattle_single TRAINER_KM_HIKER3, KaolMines_Text_Trainer6Intro, KaolMines_Text_Trainer6Defeat
 # 321 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -435,7 +435,7 @@ KaolMines_Trainer6::
 
 KaolMines_Trainer7::
 # 338 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR7_CAMPER, KaolMines_Text_Trainer7Intro, KaolMines_Text_Trainer7Defeat
+	trainerbattle_single TRAINER_KM_CAMPER2, KaolMines_Text_Trainer7Intro, KaolMines_Text_Trainer7Defeat
 # 339 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -443,7 +443,7 @@ KaolMines_Trainer7::
 
 KaolMines_Trainer8::
 # 357 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR8_PICNICKER, KaolMines_Text_Trainer8Intro, KaolMines_Text_Trainer8Defeat
+	trainerbattle_single TRAINER_KM_PICNICKER2, KaolMines_Text_Trainer8Intro, KaolMines_Text_Trainer8Defeat
 # 358 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -451,7 +451,7 @@ KaolMines_Trainer8::
 
 KaolMines_Trainer9::
 # 377 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR9_BLACKBELT, KaolMines_Text_Trainer9Intro, KaolMines_Text_Trainer9Defeat
+	trainerbattle_single TRAINER_KM_BLACKBELT2, KaolMines_Text_Trainer9Intro, KaolMines_Text_Trainer9Defeat
 # 378 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -459,7 +459,7 @@ KaolMines_Trainer9::
 
 KaolMines_Trainer10::
 # 393 "data/maps/Kaolisle_Mines/scripts.pory"
-	trainerbattle_single TRAINER_KM_TR10_HIKER, KaolMines_Text_Trainer10Intro, KaolMines_Text_Trainer10Defeat
+	trainerbattle_single TRAINER_KM_HIKER4, KaolMines_Text_Trainer10Intro, KaolMines_Text_Trainer10Defeat
 # 394 "data/maps/Kaolisle_Mines/scripts.pory"
 	msgbox KaolMines_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE
 	end

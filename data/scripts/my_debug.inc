@@ -650,8 +650,12 @@ UpdateGame_7:
 	goto_if_eq UpdateGame_11
 UpdateGame_10:
 # 302 "data/scripts/my_debug.pory"
+	compare VAR_DEBUG, 6
+	goto_if_eq UpdateGame_14
+UpdateGame_13:
+# 307 "data/scripts/my_debug.pory"
 	msgbox GameIsUpToDate
-# 303 "data/scripts/my_debug.pory"
+# 308 "data/scripts/my_debug.pory"
 	release
 	return
 
@@ -683,122 +687,131 @@ UpdateGame_11:
 	setvar VAR_DEBUG, 6
 	goto UpdateGame_10
 
+UpdateGame_14:
+# 303 "data/scripts/my_debug.pory"
+	cleartrainerflag TRAINER_UNUSED_54_
+# 304 "data/scripts/my_debug.pory"
+	cleartrainerflag TRAINER_UNUSED_172_
+# 305 "data/scripts/my_debug.pory"
+	setvar VAR_DEBUG, 7
+	goto UpdateGame_13
+
 
 TestMegaMon::
-# 307 "data/scripts/my_debug.pory"
+# 312 "data/scripts/my_debug.pory"
 	message WhichMonWouldYouTest
-# 308 "data/scripts/my_debug.pory"
+# 313 "data/scripts/my_debug.pory"
 	waitmessage
-# 309 "data/scripts/my_debug.pory"
+# 314 "data/scripts/my_debug.pory"
 	setvar VAR_0x8008, 40
-# 310 "data/scripts/my_debug.pory"
+# 315 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_BADGE05_GET, TestMegaMon_2
 TestMegaMon_1:
-# 313 "data/scripts/my_debug.pory"
+# 318 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_BADGE06_GET, TestMegaMon_5
 TestMegaMon_4:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	dynmultichoice 23, 0, FALSE, 5, 0, 0, TestMegaMon_Text_0, TestMegaMon_Text_1, TestMegaMon_Text_2, TestMegaMon_Text_3, TestMegaMon_Text_4, TestMegaMon_Text_5, UpdateGuy_Text_6
-# 317 "data/scripts/my_debug.pory"
+# 322 "data/scripts/my_debug.pory"
 	switch VAR_RESULT
-# 318 "data/scripts/my_debug.pory"
-	case 0, TestMegaMon_8
 # 323 "data/scripts/my_debug.pory"
-	case 1, TestMegaMon_9
+	case 0, TestMegaMon_8
 # 328 "data/scripts/my_debug.pory"
-	case 2, TestMegaMon_10
+	case 1, TestMegaMon_9
 # 333 "data/scripts/my_debug.pory"
-	case 3, TestMegaMon_11
+	case 2, TestMegaMon_10
 # 338 "data/scripts/my_debug.pory"
-	case 4, TestMegaMon_12
+	case 3, TestMegaMon_11
 # 343 "data/scripts/my_debug.pory"
-	case 5, TestMegaMon_13
+	case 4, TestMegaMon_12
 # 348 "data/scripts/my_debug.pory"
+	case 5, TestMegaMon_13
+# 353 "data/scripts/my_debug.pory"
 	case 6, TestMegaMon_14
-# 349 "data/scripts/my_debug.pory"
+# 354 "data/scripts/my_debug.pory"
 	case MULTI_B_PRESSED, TestMegaMon_14
 	return
 
 TestMegaMon_2:
-# 311 "data/scripts/my_debug.pory"
+# 316 "data/scripts/my_debug.pory"
 	setvar VAR_0x8008, 45
 	goto TestMegaMon_1
 
 TestMegaMon_5:
-# 314 "data/scripts/my_debug.pory"
+# 319 "data/scripts/my_debug.pory"
 	setvar VAR_0x8008, 53
 	goto TestMegaMon_4
 
 TestMegaMon_8:
-# 319 "data/scripts/my_debug.pory"
-	givemon SPECIES_DECIDUEYE, VAR_0x8008, ITEM_DECIDUEITE
-# 320 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_DECIDUEYE
-# 321 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DECIDUEYE
-# 322 "data/scripts/my_debug.pory"
-	goto ReceiveMegaStarter
-	return
-
-TestMegaMon_9:
 # 324 "data/scripts/my_debug.pory"
-	givemon SPECIES_EMPOLEON, VAR_0x8008, ITEM_EMPOLEONITE
+	givemon SPECIES_DECIDUEYE, VAR_0x8008, ITEM_DECIDUEITE
 # 325 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_EMPOLEON
+	bufferspeciesname STR_VAR_1, SPECIES_DECIDUEYE
 # 326 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EMPOLEON
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_DECIDUEYE
 # 327 "data/scripts/my_debug.pory"
 	goto ReceiveMegaStarter
 	return
 
-TestMegaMon_10:
+TestMegaMon_9:
 # 329 "data/scripts/my_debug.pory"
-	givemon SPECIES_CHESNAUGHT, VAR_0x8008, ITEM_CHESNAUGHTITE
+	givemon SPECIES_EMPOLEON, VAR_0x8008, ITEM_EMPOLEONITE
 # 330 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_CHESNAUGHT
+	bufferspeciesname STR_VAR_1, SPECIES_EMPOLEON
 # 331 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHESNAUGHT
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_EMPOLEON
 # 332 "data/scripts/my_debug.pory"
 	goto ReceiveMegaStarter
 	return
 
-TestMegaMon_11:
+TestMegaMon_10:
 # 334 "data/scripts/my_debug.pory"
-	givemon SPECIES_INCINEROAR, VAR_0x8008, ITEM_INCINEROARITE
+	givemon SPECIES_CHESNAUGHT, VAR_0x8008, ITEM_CHESNAUGHTITE
 # 335 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_INCINEROAR
+	bufferspeciesname STR_VAR_1, SPECIES_CHESNAUGHT
 # 336 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_INCINEROAR
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_CHESNAUGHT
 # 337 "data/scripts/my_debug.pory"
 	goto ReceiveMegaStarter
 	return
 
-TestMegaMon_12:
+TestMegaMon_11:
 # 339 "data/scripts/my_debug.pory"
-	givemon SPECIES_PORYGON_Z, VAR_0x8008, ITEM_PROCESSOR
+	givemon SPECIES_INCINEROAR, VAR_0x8008, ITEM_INCINEROARITE
 # 340 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_PORYGON_Z
+	bufferspeciesname STR_VAR_1, SPECIES_INCINEROAR
 # 341 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PORYGON_Z
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_INCINEROAR
 # 342 "data/scripts/my_debug.pory"
 	goto ReceiveMegaStarter
 	return
 
-TestMegaMon_13:
+TestMegaMon_12:
 # 344 "data/scripts/my_debug.pory"
-	givemon SPECIES_ARIADOS, VAR_0x8008, ITEM_ARIADOSITE
+	givemon SPECIES_PORYGON_Z, VAR_0x8008, ITEM_PROCESSOR
 # 345 "data/scripts/my_debug.pory"
-	bufferspeciesname STR_VAR_1, SPECIES_ARIADOS
+	bufferspeciesname STR_VAR_1, SPECIES_PORYGON_Z
 # 346 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARIADOS
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_PORYGON_Z
 # 347 "data/scripts/my_debug.pory"
 	goto ReceiveMegaStarter
 	return
 
-TestMegaMon_14:
+TestMegaMon_13:
+# 349 "data/scripts/my_debug.pory"
+	givemon SPECIES_ARIADOS, VAR_0x8008, ITEM_ARIADOSITE
 # 350 "data/scripts/my_debug.pory"
-	msgbox TestMegaMon_Text_6, MSGBOX_AUTOCLOSE
+	bufferspeciesname STR_VAR_1, SPECIES_ARIADOS
 # 351 "data/scripts/my_debug.pory"
+	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ARIADOS
+# 352 "data/scripts/my_debug.pory"
+	goto ReceiveMegaStarter
+	return
+
+TestMegaMon_14:
+# 355 "data/scripts/my_debug.pory"
+	msgbox TestMegaMon_Text_6, MSGBOX_AUTOCLOSE
+# 356 "data/scripts/my_debug.pory"
 	release
 	end
 
@@ -808,750 +821,750 @@ UnstuckPlayer::
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq UnstuckPlayer_2
-# 361 "data/scripts/my_debug.pory"
+# 366 "data/scripts/my_debug.pory"
 	warp MAP_PEARLWOOD_POINT, 14, 24
-# 362 "data/scripts/my_debug.pory"
+# 367 "data/scripts/my_debug.pory"
 	waitstate
-# 363 "data/scripts/my_debug.pory"
+# 368 "data/scripts/my_debug.pory"
 	release
 	end
 
 UnstuckPlayer_2:
-# 358 "data/scripts/my_debug.pory"
+# 363 "data/scripts/my_debug.pory"
 	release
 	end
 
 
 SkipContent::
-# 405 "data/scripts/my_debug.pory"
+# 410 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_1, SkipContent_2
 SkipContent_1:
-# 410 "data/scripts/my_debug.pory"
-	message ChooseContentToSkip
-# 411 "data/scripts/my_debug.pory"
-	waitmessage
-# 413 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_3
-# 414 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_4
 # 415 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_5
+	message ChooseContentToSkip
 # 416 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_6
-# 417 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_7
+	waitmessage
 # 418 "data/scripts/my_debug.pory"
-	clearflag FLAG_TEMP_8
+	clearflag FLAG_TEMP_3
 # 419 "data/scripts/my_debug.pory"
-	setvar VAR_TEMP_B, 0
+	clearflag FLAG_TEMP_4
+# 420 "data/scripts/my_debug.pory"
+	clearflag FLAG_TEMP_5
 # 421 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_0, 0
+	clearflag FLAG_TEMP_6
 # 422 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_1, 1
+	clearflag FLAG_TEMP_7
 # 423 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_2, 2
+	clearflag FLAG_TEMP_8
 # 424 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_3, 3
-# 425 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_4, 4
+	setvar VAR_TEMP_B, 0
 # 426 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_5, 5
+	dynmultipush SkipContent_Text_0, 0
 # 427 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_6, 6
+	dynmultipush SkipContent_Text_1, 1
 # 428 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_7, 7
+	dynmultipush SkipContent_Text_2, 2
 # 429 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_8, 8
+	dynmultipush SkipContent_Text_3, 3
 # 430 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_9, 9
+	dynmultipush SkipContent_Text_4, 4
 # 431 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_10, 10
+	dynmultipush SkipContent_Text_5, 5
 # 432 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_11, 11
+	dynmultipush SkipContent_Text_6, 6
 # 433 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_12, 12
+	dynmultipush SkipContent_Text_7, 7
 # 434 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_13, 13
+	dynmultipush SkipContent_Text_8, 8
 # 435 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_14, 14
+	dynmultipush SkipContent_Text_9, 9
 # 436 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_15, 15
+	dynmultipush SkipContent_Text_10, 10
 # 437 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_16, 16
+	dynmultipush SkipContent_Text_11, 11
 # 438 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_17, 17
+	dynmultipush SkipContent_Text_12, 12
 # 439 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_18, 18
+	dynmultipush SkipContent_Text_13, 13
 # 440 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_19, 19
+	dynmultipush SkipContent_Text_14, 14
 # 441 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_20, 20
+	dynmultipush SkipContent_Text_15, 15
 # 442 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_21, 21
+	dynmultipush SkipContent_Text_16, 16
 # 443 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_22, 22
+	dynmultipush SkipContent_Text_17, 17
 # 444 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_23, 23
+	dynmultipush SkipContent_Text_18, 18
 # 445 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_24, 24
+	dynmultipush SkipContent_Text_19, 19
 # 446 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_25, 25
+	dynmultipush SkipContent_Text_20, 20
 # 447 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_26, 26
+	dynmultipush SkipContent_Text_21, 21
 # 448 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_27, 27
+	dynmultipush SkipContent_Text_22, 22
 # 449 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_28, 28
+	dynmultipush SkipContent_Text_23, 23
 # 450 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_29, 29
+	dynmultipush SkipContent_Text_24, 24
 # 451 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_30, 30
+	dynmultipush SkipContent_Text_25, 25
 # 452 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_31, 31
+	dynmultipush SkipContent_Text_26, 26
 # 453 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_32, 32
+	dynmultipush SkipContent_Text_27, 27
 # 454 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_33, 33
+	dynmultipush SkipContent_Text_28, 28
 # 455 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_34, 34
+	dynmultipush SkipContent_Text_29, 29
 # 456 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_35, 35
+	dynmultipush SkipContent_Text_30, 30
 # 457 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_36, 36
+	dynmultipush SkipContent_Text_31, 31
 # 458 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_37, 37
+	dynmultipush SkipContent_Text_32, 32
 # 459 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_38, 38
+	dynmultipush SkipContent_Text_33, 33
 # 460 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_39, 39
+	dynmultipush SkipContent_Text_34, 34
 # 461 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_40, 40
+	dynmultipush SkipContent_Text_35, 35
 # 462 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_41, 41
+	dynmultipush SkipContent_Text_36, 36
 # 463 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_42, 42
+	dynmultipush SkipContent_Text_37, 37
 # 464 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_43, 43
+	dynmultipush SkipContent_Text_38, 38
 # 465 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_44, 44
+	dynmultipush SkipContent_Text_39, 39
 # 466 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_Text_45, 45
+	dynmultipush SkipContent_Text_40, 40
 # 467 "data/scripts/my_debug.pory"
-	dynmultistack 23, 0, FALSE, 6, 0, VAR_TEMP_A, 0
+	dynmultipush SkipContent_Text_41, 41
 # 468 "data/scripts/my_debug.pory"
-	switch VAR_RESULT
+	dynmultipush SkipContent_Text_42, 42
 # 469 "data/scripts/my_debug.pory"
-	case 0, SkipContent_5
+	dynmultipush SkipContent_Text_43, 43
+# 470 "data/scripts/my_debug.pory"
+	dynmultipush SkipContent_Text_44, 44
+# 471 "data/scripts/my_debug.pory"
+	dynmultipush SkipContent_Text_45, 45
 # 472 "data/scripts/my_debug.pory"
+	dynmultistack 23, 0, FALSE, 6, 0, VAR_TEMP_A, 0
+# 473 "data/scripts/my_debug.pory"
+	switch VAR_RESULT
+# 474 "data/scripts/my_debug.pory"
+	case 0, SkipContent_5
+# 477 "data/scripts/my_debug.pory"
 	case 1, SkipContent_6
-# 475 "data/scripts/my_debug.pory"
+# 480 "data/scripts/my_debug.pory"
 	case 2, SkipContent_7
-# 478 "data/scripts/my_debug.pory"
+# 483 "data/scripts/my_debug.pory"
 	case 3, SkipContent_8
-# 481 "data/scripts/my_debug.pory"
+# 486 "data/scripts/my_debug.pory"
 	case 4, SkipContent_9
-# 484 "data/scripts/my_debug.pory"
+# 489 "data/scripts/my_debug.pory"
 	case 5, SkipContent_10
-# 487 "data/scripts/my_debug.pory"
+# 492 "data/scripts/my_debug.pory"
 	case 6, SkipContent_11
-# 490 "data/scripts/my_debug.pory"
+# 495 "data/scripts/my_debug.pory"
 	case 7, SkipContent_12
-# 493 "data/scripts/my_debug.pory"
+# 498 "data/scripts/my_debug.pory"
 	case 8, SkipContent_13
-# 496 "data/scripts/my_debug.pory"
+# 501 "data/scripts/my_debug.pory"
 	case 9, SkipContent_14
-# 499 "data/scripts/my_debug.pory"
+# 504 "data/scripts/my_debug.pory"
 	case 10, SkipContent_15
-# 502 "data/scripts/my_debug.pory"
+# 507 "data/scripts/my_debug.pory"
 	case 11, SkipContent_16
-# 505 "data/scripts/my_debug.pory"
+# 510 "data/scripts/my_debug.pory"
 	case 12, SkipContent_17
-# 508 "data/scripts/my_debug.pory"
+# 513 "data/scripts/my_debug.pory"
 	case 13, SkipContent_18
-# 511 "data/scripts/my_debug.pory"
+# 516 "data/scripts/my_debug.pory"
 	case 14, SkipContent_19
-# 514 "data/scripts/my_debug.pory"
+# 519 "data/scripts/my_debug.pory"
 	case 15, SkipContent_20
-# 517 "data/scripts/my_debug.pory"
+# 522 "data/scripts/my_debug.pory"
 	case 16, SkipContent_21
-# 520 "data/scripts/my_debug.pory"
+# 525 "data/scripts/my_debug.pory"
 	case 17, SkipContent_22
-# 523 "data/scripts/my_debug.pory"
+# 528 "data/scripts/my_debug.pory"
 	case 18, SkipContent_23
-# 526 "data/scripts/my_debug.pory"
+# 531 "data/scripts/my_debug.pory"
 	case 19, SkipContent_24
-# 529 "data/scripts/my_debug.pory"
+# 534 "data/scripts/my_debug.pory"
 	case 20, SkipContent_25
-# 532 "data/scripts/my_debug.pory"
+# 537 "data/scripts/my_debug.pory"
 	case 21, SkipContent_26
-# 535 "data/scripts/my_debug.pory"
+# 540 "data/scripts/my_debug.pory"
 	case 22, SkipContent_27
-# 538 "data/scripts/my_debug.pory"
+# 543 "data/scripts/my_debug.pory"
 	case 23, SkipContent_28
-# 541 "data/scripts/my_debug.pory"
+# 546 "data/scripts/my_debug.pory"
 	case 24, SkipContent_29
-# 544 "data/scripts/my_debug.pory"
+# 549 "data/scripts/my_debug.pory"
 	case 25, SkipContent_30
-# 547 "data/scripts/my_debug.pory"
+# 552 "data/scripts/my_debug.pory"
 	case 26, SkipContent_31
-# 550 "data/scripts/my_debug.pory"
+# 555 "data/scripts/my_debug.pory"
 	case 27, SkipContent_32
-# 553 "data/scripts/my_debug.pory"
+# 558 "data/scripts/my_debug.pory"
 	case 28, SkipContent_33
-# 556 "data/scripts/my_debug.pory"
+# 561 "data/scripts/my_debug.pory"
 	case 29, SkipContent_34
-# 559 "data/scripts/my_debug.pory"
+# 564 "data/scripts/my_debug.pory"
 	case 30, SkipContent_35
-# 562 "data/scripts/my_debug.pory"
+# 567 "data/scripts/my_debug.pory"
 	case 31, SkipContent_36
-# 565 "data/scripts/my_debug.pory"
+# 570 "data/scripts/my_debug.pory"
 	case 32, SkipContent_37
-# 568 "data/scripts/my_debug.pory"
+# 573 "data/scripts/my_debug.pory"
 	case 33, SkipContent_38
-# 571 "data/scripts/my_debug.pory"
+# 576 "data/scripts/my_debug.pory"
 	case 34, SkipContent_39
-# 574 "data/scripts/my_debug.pory"
+# 579 "data/scripts/my_debug.pory"
 	case 35, SkipContent_40
-# 577 "data/scripts/my_debug.pory"
+# 582 "data/scripts/my_debug.pory"
 	case 36, SkipContent_41
-# 580 "data/scripts/my_debug.pory"
+# 585 "data/scripts/my_debug.pory"
 	case 37, SkipContent_42
-# 583 "data/scripts/my_debug.pory"
+# 588 "data/scripts/my_debug.pory"
 	case 38, SkipContent_43
-# 586 "data/scripts/my_debug.pory"
+# 591 "data/scripts/my_debug.pory"
 	case 39, SkipContent_44
-# 589 "data/scripts/my_debug.pory"
+# 594 "data/scripts/my_debug.pory"
 	case 40, SkipContent_45
-# 592 "data/scripts/my_debug.pory"
+# 597 "data/scripts/my_debug.pory"
 	case 41, SkipContent_46
-# 595 "data/scripts/my_debug.pory"
+# 600 "data/scripts/my_debug.pory"
 	case 42, SkipContent_47
-# 598 "data/scripts/my_debug.pory"
+# 603 "data/scripts/my_debug.pory"
 	case 43, SkipContent_48
-# 601 "data/scripts/my_debug.pory"
+# 606 "data/scripts/my_debug.pory"
 	case 44, SkipContent_49
-# 604 "data/scripts/my_debug.pory"
+# 609 "data/scripts/my_debug.pory"
 	case 45, SkipContent_50
-# 605 "data/scripts/my_debug.pory"
+# 610 "data/scripts/my_debug.pory"
 	case MULTI_B_PRESSED, SkipContent_50
 	return
 
 SkipContent_2:
-# 407 "data/scripts/my_debug.pory"
+# 412 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_1
-# 408 "data/scripts/my_debug.pory"
+# 413 "data/scripts/my_debug.pory"
 	msgbox SkipContent_Text
 	goto SkipContent_1
 
 SkipContent_5:
-# 470 "data/scripts/my_debug.pory"
+# 475 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 471 "data/scripts/my_debug.pory"
+# 476 "data/scripts/my_debug.pory"
 	goto SkipContent_Route1
 	return
 
 SkipContent_6:
-# 473 "data/scripts/my_debug.pory"
+# 478 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 474 "data/scripts/my_debug.pory"
+# 479 "data/scripts/my_debug.pory"
 	goto SkipContent_Route2
 	return
 
 SkipContent_7:
-# 476 "data/scripts/my_debug.pory"
+# 481 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 477 "data/scripts/my_debug.pory"
+# 482 "data/scripts/my_debug.pory"
 	goto SkipContent_WindyWoods
 	return
 
 SkipContent_8:
-# 479 "data/scripts/my_debug.pory"
+# 484 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 480 "data/scripts/my_debug.pory"
+# 485 "data/scripts/my_debug.pory"
 	goto SkipContent_CoralgroveCity
 	return
 
 SkipContent_9:
-# 482 "data/scripts/my_debug.pory"
+# 487 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 483 "data/scripts/my_debug.pory"
+# 488 "data/scripts/my_debug.pory"
 	goto SkipContent_AzuretideTown
 	return
 
 SkipContent_10:
-# 485 "data/scripts/my_debug.pory"
+# 490 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 486 "data/scripts/my_debug.pory"
+# 491 "data/scripts/my_debug.pory"
 	goto SkipContent_Route4
 	return
 
 SkipContent_11:
-# 488 "data/scripts/my_debug.pory"
+# 493 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 489 "data/scripts/my_debug.pory"
+# 494 "data/scripts/my_debug.pory"
 	goto SkipContent_PokemonRanch
 	return
 
 SkipContent_12:
-# 491 "data/scripts/my_debug.pory"
+# 496 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 492 "data/scripts/my_debug.pory"
+# 497 "data/scripts/my_debug.pory"
 	goto SkipContent_AldeleafCity
 	return
 
 SkipContent_13:
-# 494 "data/scripts/my_debug.pory"
+# 499 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 495 "data/scripts/my_debug.pory"
+# 500 "data/scripts/my_debug.pory"
 	goto SkipContent_Route30
 	return
 
 SkipContent_14:
-# 497 "data/scripts/my_debug.pory"
+# 502 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 498 "data/scripts/my_debug.pory"
+# 503 "data/scripts/my_debug.pory"
 	goto SkipContent_WindplumeValley
 	return
 
 SkipContent_15:
-# 500 "data/scripts/my_debug.pory"
+# 505 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 501 "data/scripts/my_debug.pory"
+# 506 "data/scripts/my_debug.pory"
 	goto SkipContent_Route5
 	return
 
 SkipContent_16:
-# 503 "data/scripts/my_debug.pory"
+# 508 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 504 "data/scripts/my_debug.pory"
+# 509 "data/scripts/my_debug.pory"
 	goto SkipContent_FlowerFields
 	return
 
 SkipContent_17:
-# 506 "data/scripts/my_debug.pory"
+# 511 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 507 "data/scripts/my_debug.pory"
+# 512 "data/scripts/my_debug.pory"
 	goto SkipContent_SkylochVillage
 	return
 
 SkipContent_18:
-# 509 "data/scripts/my_debug.pory"
+# 514 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 510 "data/scripts/my_debug.pory"
+# 515 "data/scripts/my_debug.pory"
 	goto SkipContent_Route6
 	return
 
 SkipContent_19:
-# 512 "data/scripts/my_debug.pory"
+# 517 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 513 "data/scripts/my_debug.pory"
+# 518 "data/scripts/my_debug.pory"
 	goto SkipContent_Route8
 	return
 
 SkipContent_20:
-# 515 "data/scripts/my_debug.pory"
+# 520 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 516 "data/scripts/my_debug.pory"
+# 521 "data/scripts/my_debug.pory"
 	goto SkipContent_ShoreslateCity
 	return
 
 SkipContent_21:
-# 518 "data/scripts/my_debug.pory"
+# 523 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 519 "data/scripts/my_debug.pory"
+# 524 "data/scripts/my_debug.pory"
 	goto SkipContent_ScorchedDesert
 	return
 
 SkipContent_22:
-# 521 "data/scripts/my_debug.pory"
+# 526 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 522 "data/scripts/my_debug.pory"
+# 527 "data/scripts/my_debug.pory"
 	goto SkipContent_Route7
 	return
 
 SkipContent_23:
-# 524 "data/scripts/my_debug.pory"
+# 529 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 525 "data/scripts/my_debug.pory"
+# 530 "data/scripts/my_debug.pory"
 	goto SkipContent_MarigorgeTown
 	return
 
 SkipContent_24:
-# 527 "data/scripts/my_debug.pory"
+# 532 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 528 "data/scripts/my_debug.pory"
+# 533 "data/scripts/my_debug.pory"
 	goto SkipContent_KaolisleCity
 	return
 
 SkipContent_25:
-# 530 "data/scripts/my_debug.pory"
+# 535 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 531 "data/scripts/my_debug.pory"
+# 536 "data/scripts/my_debug.pory"
 	goto SkipContent_RockliffeTown
 	return
 
 SkipContent_26:
-# 533 "data/scripts/my_debug.pory"
+# 538 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 534 "data/scripts/my_debug.pory"
+# 539 "data/scripts/my_debug.pory"
 	goto SkipContent_Route11
 	return
 
 SkipContent_27:
-# 536 "data/scripts/my_debug.pory"
+# 541 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 537 "data/scripts/my_debug.pory"
+# 542 "data/scripts/my_debug.pory"
 	goto SkipContent_Route12
 	return
 
 SkipContent_28:
-# 539 "data/scripts/my_debug.pory"
+# 544 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 540 "data/scripts/my_debug.pory"
+# 545 "data/scripts/my_debug.pory"
 	goto SkipContent_SandstoneCity
 	return
 
 SkipContent_29:
-# 542 "data/scripts/my_debug.pory"
+# 547 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 543 "data/scripts/my_debug.pory"
+# 548 "data/scripts/my_debug.pory"
 	goto SkipContent_Route13
 	return
 
 SkipContent_30:
-# 545 "data/scripts/my_debug.pory"
+# 550 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 546 "data/scripts/my_debug.pory"
+# 551 "data/scripts/my_debug.pory"
 	goto SkipContent_AdamantTower
 	return
 
 SkipContent_31:
-# 548 "data/scripts/my_debug.pory"
+# 553 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 549 "data/scripts/my_debug.pory"
+# 554 "data/scripts/my_debug.pory"
 	goto SkipContent_Route14
 	return
 
 SkipContent_32:
-# 551 "data/scripts/my_debug.pory"
+# 556 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 552 "data/scripts/my_debug.pory"
+# 557 "data/scripts/my_debug.pory"
 	goto SkipContent_Route15
 	return
 
 SkipContent_33:
-# 554 "data/scripts/my_debug.pory"
+# 559 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 555 "data/scripts/my_debug.pory"
+# 560 "data/scripts/my_debug.pory"
 	goto SkipContent_FishingVillage
 	return
 
 SkipContent_34:
-# 557 "data/scripts/my_debug.pory"
+# 562 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 558 "data/scripts/my_debug.pory"
+# 563 "data/scripts/my_debug.pory"
 	goto SkipContent_Route23
 	return
 
 SkipContent_35:
-# 560 "data/scripts/my_debug.pory"
+# 565 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 561 "data/scripts/my_debug.pory"
+# 566 "data/scripts/my_debug.pory"
 	goto SkipContent_DrisledgeTown
 	return
 
 SkipContent_36:
-# 563 "data/scripts/my_debug.pory"
+# 568 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 564 "data/scripts/my_debug.pory"
+# 569 "data/scripts/my_debug.pory"
 	goto SkipContent_AmberockTown
 	return
 
 SkipContent_37:
-# 566 "data/scripts/my_debug.pory"
+# 571 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 567 "data/scripts/my_debug.pory"
+# 572 "data/scripts/my_debug.pory"
 	goto SkipContent_Route3
 	return
 
 SkipContent_38:
-# 569 "data/scripts/my_debug.pory"
+# 574 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 570 "data/scripts/my_debug.pory"
+# 575 "data/scripts/my_debug.pory"
 	goto SkipContent_Route9
 	return
 
 SkipContent_39:
-# 572 "data/scripts/my_debug.pory"
+# 577 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 573 "data/scripts/my_debug.pory"
+# 578 "data/scripts/my_debug.pory"
 	goto SkipContent_Route10
 	return
 
 SkipContent_40:
-# 575 "data/scripts/my_debug.pory"
+# 580 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 576 "data/scripts/my_debug.pory"
+# 581 "data/scripts/my_debug.pory"
 	goto SkipContent_WindplumeMountain
 	return
 
 SkipContent_41:
-# 578 "data/scripts/my_debug.pory"
+# 583 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 579 "data/scripts/my_debug.pory"
+# 584 "data/scripts/my_debug.pory"
 	goto SkipContent_Route16
 	return
 
 SkipContent_42:
-# 581 "data/scripts/my_debug.pory"
+# 586 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 582 "data/scripts/my_debug.pory"
+# 587 "data/scripts/my_debug.pory"
 	goto SkipContent_BasalekTown
 	return
 
 SkipContent_43:
-# 584 "data/scripts/my_debug.pory"
+# 589 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 585 "data/scripts/my_debug.pory"
+# 590 "data/scripts/my_debug.pory"
 	goto SkipContent_Route17
 	return
 
 SkipContent_44:
-# 587 "data/scripts/my_debug.pory"
+# 592 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 588 "data/scripts/my_debug.pory"
+# 593 "data/scripts/my_debug.pory"
 	goto SkipContent_Route18
 	return
 
 SkipContent_45:
-# 590 "data/scripts/my_debug.pory"
+# 595 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 591 "data/scripts/my_debug.pory"
+# 596 "data/scripts/my_debug.pory"
 	goto SkipContent_FrosthearthCity
 	return
 
 SkipContent_46:
-# 593 "data/scripts/my_debug.pory"
+# 598 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 594 "data/scripts/my_debug.pory"
+# 599 "data/scripts/my_debug.pory"
 	goto SkipContent_RockClimb
 	return
 
 SkipContent_47:
-# 596 "data/scripts/my_debug.pory"
+# 601 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 597 "data/scripts/my_debug.pory"
+# 602 "data/scripts/my_debug.pory"
 	goto SkipContent_DesertRuins
 	return
 
 SkipContent_48:
-# 599 "data/scripts/my_debug.pory"
+# 604 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 600 "data/scripts/my_debug.pory"
+# 605 "data/scripts/my_debug.pory"
 	goto SkipContent_SafariZone
 	return
 
 SkipContent_49:
-# 602 "data/scripts/my_debug.pory"
+# 607 "data/scripts/my_debug.pory"
 	copyvar VAR_TEMP_A, VAR_RESULT
-# 603 "data/scripts/my_debug.pory"
+# 608 "data/scripts/my_debug.pory"
 	goto SkipContent_MiscSurfing
 	return
 
 SkipContent_50:
-# 606 "data/scripts/my_debug.pory"
+# 611 "data/scripts/my_debug.pory"
 	msgbox TestMegaMon_Text_6, MSGBOX_AUTOCLOSE
-# 607 "data/scripts/my_debug.pory"
+# 612 "data/scripts/my_debug.pory"
 	release
 	end
 
 
 SkipContent_BufferChoices::
-# 634 "data/scripts/my_debug.pory"
-	bufferstring STR_VAR_1, SkipContent_BufferChoices_Text_0
-# 635 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_3, SkipContent_BufferChoices_2
 # 639 "data/scripts/my_debug.pory"
+	bufferstring STR_VAR_1, SkipContent_BufferChoices_Text_0
+# 640 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_3, SkipContent_BufferChoices_2
+# 644 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_2, 0
 SkipContent_BufferChoices_1:
-# 642 "data/scripts/my_debug.pory"
+# 647 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, SkipContent_BufferChoices_6
-# 646 "data/scripts/my_debug.pory"
+# 651 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_4, 1
 SkipContent_BufferChoices_5:
-# 649 "data/scripts/my_debug.pory"
+# 654 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, SkipContent_BufferChoices_10
-# 653 "data/scripts/my_debug.pory"
+# 658 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_6, 2
 SkipContent_BufferChoices_9:
-# 657 "data/scripts/my_debug.pory"
+# 662 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_7, 3
-# 658 "data/scripts/my_debug.pory"
+# 663 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_8, 4
-# 659 "data/scripts/my_debug.pory"
-	dynmultipush SkipContent_BufferChoices_Text_9, 5
-# 660 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_6, SkipContent_BufferChoices_14
 # 664 "data/scripts/my_debug.pory"
+	dynmultipush SkipContent_BufferChoices_Text_9, 5
+# 665 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_6, SkipContent_BufferChoices_14
+# 669 "data/scripts/my_debug.pory"
 	message SkipContent_BufferChoices_Text_11
 SkipContent_BufferChoices_13:
-# 666 "data/scripts/my_debug.pory"
+# 671 "data/scripts/my_debug.pory"
 	waitmessage
-# 667 "data/scripts/my_debug.pory"
-	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
-# 668 "data/scripts/my_debug.pory"
-	setflag FLAG_TEMP_6
-# 669 "data/scripts/my_debug.pory"
-	switch VAR_RESULT
-# 670 "data/scripts/my_debug.pory"
-	case 0, SkipContent_BufferChoices_19
 # 672 "data/scripts/my_debug.pory"
-	case 1, SkipContent_BufferChoices_20
+	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
+# 673 "data/scripts/my_debug.pory"
+	setflag FLAG_TEMP_6
 # 674 "data/scripts/my_debug.pory"
-	case 2, SkipContent_BufferChoices_21
-# 676 "data/scripts/my_debug.pory"
-	case 3, SkipContent_BufferChoices_22
-# 678 "data/scripts/my_debug.pory"
-	case 5, SkipContent_BufferChoices_23
+	switch VAR_RESULT
+# 675 "data/scripts/my_debug.pory"
+	case 0, SkipContent_BufferChoices_19
+# 677 "data/scripts/my_debug.pory"
+	case 1, SkipContent_BufferChoices_20
 # 679 "data/scripts/my_debug.pory"
+	case 2, SkipContent_BufferChoices_21
+# 681 "data/scripts/my_debug.pory"
+	case 3, SkipContent_BufferChoices_22
+# 683 "data/scripts/my_debug.pory"
+	case 5, SkipContent_BufferChoices_23
+# 684 "data/scripts/my_debug.pory"
 	case MULTI_B_PRESSED, SkipContent_BufferChoices_23
 SkipContent_BufferChoices_17:
 	return
 
 SkipContent_BufferChoices_2:
-# 636 "data/scripts/my_debug.pory"
+# 641 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_1, 0
 	goto SkipContent_BufferChoices_1
 
 SkipContent_BufferChoices_6:
-# 643 "data/scripts/my_debug.pory"
+# 648 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_3, 1
 	goto SkipContent_BufferChoices_5
 
 SkipContent_BufferChoices_10:
-# 650 "data/scripts/my_debug.pory"
+# 655 "data/scripts/my_debug.pory"
 	dynmultipush SkipContent_BufferChoices_Text_5, 2
 	goto SkipContent_BufferChoices_9
 
 SkipContent_BufferChoices_14:
-# 661 "data/scripts/my_debug.pory"
+# 666 "data/scripts/my_debug.pory"
 	message SkipContent_BufferChoices_Text_10
 	goto SkipContent_BufferChoices_13
 
 SkipContent_BufferChoices_19:
-# 671 "data/scripts/my_debug.pory"
+# 676 "data/scripts/my_debug.pory"
 	goto BufferChoices0
 	goto SkipContent_BufferChoices_17
 
 SkipContent_BufferChoices_20:
-# 673 "data/scripts/my_debug.pory"
+# 678 "data/scripts/my_debug.pory"
 	goto BufferChoices1
 	goto SkipContent_BufferChoices_17
 
 SkipContent_BufferChoices_21:
-# 675 "data/scripts/my_debug.pory"
+# 680 "data/scripts/my_debug.pory"
 	goto BufferChoices2
 	goto SkipContent_BufferChoices_17
 
 SkipContent_BufferChoices_22:
-# 677 "data/scripts/my_debug.pory"
+# 682 "data/scripts/my_debug.pory"
 	goto BufferChoices4
 	goto SkipContent_BufferChoices_17
 
 SkipContent_BufferChoices_23:
-# 680 "data/scripts/my_debug.pory"
+# 685 "data/scripts/my_debug.pory"
 	goto SkipContent
 	goto SkipContent_BufferChoices_17
 
 
 BufferChoices0::
-# 686 "data/scripts/my_debug.pory"
+# 691 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_3, BufferChoices0_2
-# 690 "data/scripts/my_debug.pory"
+# 695 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_3
 BufferChoices0_1:
-# 692 "data/scripts/my_debug.pory"
+# 697 "data/scripts/my_debug.pory"
 	goto SkipContent_BufferChoices
 	return
 
 BufferChoices0_2:
-# 687 "data/scripts/my_debug.pory"
+# 692 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_3
 	goto BufferChoices0_1
 
 
 BufferChoices1::
-# 695 "data/scripts/my_debug.pory"
+# 700 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_4, BufferChoices1_2
-# 699 "data/scripts/my_debug.pory"
+# 704 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_4
 BufferChoices1_1:
-# 701 "data/scripts/my_debug.pory"
+# 706 "data/scripts/my_debug.pory"
 	goto SkipContent_BufferChoices
 	return
 
 BufferChoices1_2:
-# 696 "data/scripts/my_debug.pory"
+# 701 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_4
 	goto BufferChoices1_1
 
 
 BufferChoices2::
-# 704 "data/scripts/my_debug.pory"
+# 709 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_5, BufferChoices2_2
-# 708 "data/scripts/my_debug.pory"
+# 713 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_5
 BufferChoices2_1:
-# 710 "data/scripts/my_debug.pory"
+# 715 "data/scripts/my_debug.pory"
 	goto SkipContent_BufferChoices
 	return
 
 BufferChoices2_2:
-# 705 "data/scripts/my_debug.pory"
+# 710 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_5
 	goto BufferChoices2_1
 
 
 BufferChoices4::
-# 713 "data/scripts/my_debug.pory"
+# 718 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_3, BufferChoices4_2
-# 713 "data/scripts/my_debug.pory"
+# 718 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_4, BufferChoices4_2
-# 713 "data/scripts/my_debug.pory"
+# 718 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_TEMP_5, BufferChoices4_2
-# 719 "data/scripts/my_debug.pory"
+# 724 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_3
-# 720 "data/scripts/my_debug.pory"
+# 725 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_4
-# 721 "data/scripts/my_debug.pory"
+# 726 "data/scripts/my_debug.pory"
 	clearflag FLAG_TEMP_5
 BufferChoices4_1:
-# 723 "data/scripts/my_debug.pory"
+# 728 "data/scripts/my_debug.pory"
 	goto SkipContent_BufferChoices
 	return
 
 BufferChoices4_2:
-# 714 "data/scripts/my_debug.pory"
+# 719 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_3
-# 715 "data/scripts/my_debug.pory"
+# 720 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_4
-# 716 "data/scripts/my_debug.pory"
+# 721 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_5
 	goto BufferChoices4_1
 
 
 SkipContent_Route1::
-# 727 "data/scripts/my_debug.pory"
+# 732 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_0
-# 728 "data/scripts/my_debug.pory"
+# 733 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 729 "data/scripts/my_debug.pory"
+# 734 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route1_2
 SkipContent_Route1_1:
-# 734 "data/scripts/my_debug.pory"
+# 739 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route1
-# 735 "data/scripts/my_debug.pory"
+# 740 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1563,23 +1576,23 @@ SkipContent_Route1_2:
 	goto SkipContent_Route1_1
 
 SkipContent_Route1_4:
-# 731 "data/scripts/my_debug.pory"
+# 736 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route1_1
 
 
 SkipContent_Route2::
-# 738 "data/scripts/my_debug.pory"
+# 743 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_1
-# 739 "data/scripts/my_debug.pory"
+# 744 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 740 "data/scripts/my_debug.pory"
+# 745 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route2_2
 SkipContent_Route2_1:
-# 745 "data/scripts/my_debug.pory"
+# 750 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route2
-# 746 "data/scripts/my_debug.pory"
+# 751 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1591,23 +1604,23 @@ SkipContent_Route2_2:
 	goto SkipContent_Route2_1
 
 SkipContent_Route2_4:
-# 742 "data/scripts/my_debug.pory"
+# 747 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route2_1
 
 
 SkipContent_WindyWoods::
-# 749 "data/scripts/my_debug.pory"
+# 754 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_2
-# 750 "data/scripts/my_debug.pory"
+# 755 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 751 "data/scripts/my_debug.pory"
+# 756 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindyWoods_2
 SkipContent_WindyWoods_1:
-# 756 "data/scripts/my_debug.pory"
+# 761 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_WindyWoods
-# 757 "data/scripts/my_debug.pory"
+# 762 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1619,23 +1632,23 @@ SkipContent_WindyWoods_2:
 	goto SkipContent_WindyWoods_1
 
 SkipContent_WindyWoods_4:
-# 753 "data/scripts/my_debug.pory"
+# 758 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_WindyWoods_1
 
 
 SkipContent_CoralgroveCity::
-# 760 "data/scripts/my_debug.pory"
+# 765 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_3
-# 761 "data/scripts/my_debug.pory"
+# 766 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 762 "data/scripts/my_debug.pory"
+# 767 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_CoralgroveCity_2
 SkipContent_CoralgroveCity_1:
-# 767 "data/scripts/my_debug.pory"
+# 772 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_CoralgroveCity
-# 768 "data/scripts/my_debug.pory"
+# 773 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1647,23 +1660,23 @@ SkipContent_CoralgroveCity_2:
 	goto SkipContent_CoralgroveCity_1
 
 SkipContent_CoralgroveCity_4:
-# 764 "data/scripts/my_debug.pory"
+# 769 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_CoralgroveCity_1
 
 
 SkipContent_AzuretideTown::
-# 771 "data/scripts/my_debug.pory"
+# 776 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_4
-# 772 "data/scripts/my_debug.pory"
+# 777 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 773 "data/scripts/my_debug.pory"
+# 778 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AzuretideTown_2
 SkipContent_AzuretideTown_1:
-# 778 "data/scripts/my_debug.pory"
+# 783 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_AzuretideTown
-# 779 "data/scripts/my_debug.pory"
+# 784 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1675,23 +1688,23 @@ SkipContent_AzuretideTown_2:
 	goto SkipContent_AzuretideTown_1
 
 SkipContent_AzuretideTown_4:
-# 775 "data/scripts/my_debug.pory"
+# 780 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_AzuretideTown_1
 
 
 SkipContent_Route4::
-# 782 "data/scripts/my_debug.pory"
+# 787 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_5
-# 783 "data/scripts/my_debug.pory"
+# 788 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 784 "data/scripts/my_debug.pory"
+# 789 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route4_2
 SkipContent_Route4_1:
-# 789 "data/scripts/my_debug.pory"
+# 794 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route4
-# 790 "data/scripts/my_debug.pory"
+# 795 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1703,23 +1716,23 @@ SkipContent_Route4_2:
 	goto SkipContent_Route4_1
 
 SkipContent_Route4_4:
-# 786 "data/scripts/my_debug.pory"
+# 791 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route4_1
 
 
 SkipContent_PokemonRanch::
-# 793 "data/scripts/my_debug.pory"
+# 798 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_PokemonRanch_Text_0
-# 794 "data/scripts/my_debug.pory"
+# 799 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 795 "data/scripts/my_debug.pory"
+# 800 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_PokemonRanch_2
 SkipContent_PokemonRanch_1:
-# 800 "data/scripts/my_debug.pory"
+# 805 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_PokemonRanch
-# 801 "data/scripts/my_debug.pory"
+# 806 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1731,23 +1744,23 @@ SkipContent_PokemonRanch_2:
 	goto SkipContent_PokemonRanch_1
 
 SkipContent_PokemonRanch_4:
-# 797 "data/scripts/my_debug.pory"
+# 802 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_PokemonRanch_1
 
 
 SkipContent_AldeleafCity::
-# 804 "data/scripts/my_debug.pory"
+# 809 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_7
-# 805 "data/scripts/my_debug.pory"
+# 810 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 806 "data/scripts/my_debug.pory"
+# 811 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AldeleafCity_2
 SkipContent_AldeleafCity_1:
-# 811 "data/scripts/my_debug.pory"
+# 816 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_AldeleafCity
-# 812 "data/scripts/my_debug.pory"
+# 817 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1759,23 +1772,23 @@ SkipContent_AldeleafCity_2:
 	goto SkipContent_AldeleafCity_1
 
 SkipContent_AldeleafCity_4:
-# 808 "data/scripts/my_debug.pory"
+# 813 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_AldeleafCity_1
 
 
 SkipContent_Route30::
-# 815 "data/scripts/my_debug.pory"
+# 820 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_8
-# 816 "data/scripts/my_debug.pory"
+# 821 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 817 "data/scripts/my_debug.pory"
+# 822 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route30_2
 SkipContent_Route30_1:
-# 822 "data/scripts/my_debug.pory"
+# 827 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route30
-# 823 "data/scripts/my_debug.pory"
+# 828 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1787,23 +1800,23 @@ SkipContent_Route30_2:
 	goto SkipContent_Route30_1
 
 SkipContent_Route30_4:
-# 819 "data/scripts/my_debug.pory"
+# 824 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route30_1
 
 
 SkipContent_WindplumeValley::
-# 826 "data/scripts/my_debug.pory"
+# 831 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_9
-# 827 "data/scripts/my_debug.pory"
+# 832 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 828 "data/scripts/my_debug.pory"
+# 833 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindplumeValley_2
 SkipContent_WindplumeValley_1:
-# 833 "data/scripts/my_debug.pory"
+# 838 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_WindplumeValley
-# 834 "data/scripts/my_debug.pory"
+# 839 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1815,23 +1828,23 @@ SkipContent_WindplumeValley_2:
 	goto SkipContent_WindplumeValley_1
 
 SkipContent_WindplumeValley_4:
-# 830 "data/scripts/my_debug.pory"
+# 835 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_WindplumeValley_1
 
 
 SkipContent_Route5::
-# 837 "data/scripts/my_debug.pory"
+# 842 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_10
-# 838 "data/scripts/my_debug.pory"
+# 843 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 839 "data/scripts/my_debug.pory"
+# 844 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route5_2
 SkipContent_Route5_1:
-# 844 "data/scripts/my_debug.pory"
+# 849 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route5
-# 845 "data/scripts/my_debug.pory"
+# 850 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1843,23 +1856,23 @@ SkipContent_Route5_2:
 	goto SkipContent_Route5_1
 
 SkipContent_Route5_4:
-# 841 "data/scripts/my_debug.pory"
+# 846 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route5_1
 
 
 SkipContent_FlowerFields::
-# 848 "data/scripts/my_debug.pory"
+# 853 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_11
-# 849 "data/scripts/my_debug.pory"
+# 854 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 850 "data/scripts/my_debug.pory"
+# 855 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FlowerFields_2
 SkipContent_FlowerFields_1:
-# 855 "data/scripts/my_debug.pory"
+# 860 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_FlowerFields
-# 856 "data/scripts/my_debug.pory"
+# 861 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1871,23 +1884,23 @@ SkipContent_FlowerFields_2:
 	goto SkipContent_FlowerFields_1
 
 SkipContent_FlowerFields_4:
-# 852 "data/scripts/my_debug.pory"
+# 857 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_FlowerFields_1
 
 
 SkipContent_SkylochVillage::
-# 859 "data/scripts/my_debug.pory"
+# 864 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_12
-# 860 "data/scripts/my_debug.pory"
+# 865 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 861 "data/scripts/my_debug.pory"
+# 866 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SkylochVillage_2
 SkipContent_SkylochVillage_1:
-# 866 "data/scripts/my_debug.pory"
+# 871 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_SkylochVillage
-# 867 "data/scripts/my_debug.pory"
+# 872 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1899,23 +1912,23 @@ SkipContent_SkylochVillage_2:
 	goto SkipContent_SkylochVillage_1
 
 SkipContent_SkylochVillage_4:
-# 863 "data/scripts/my_debug.pory"
+# 868 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_SkylochVillage_1
 
 
 SkipContent_Route6::
-# 870 "data/scripts/my_debug.pory"
+# 875 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_13
-# 871 "data/scripts/my_debug.pory"
+# 876 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 872 "data/scripts/my_debug.pory"
+# 877 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route6_2
 SkipContent_Route6_1:
-# 877 "data/scripts/my_debug.pory"
+# 882 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route6
-# 878 "data/scripts/my_debug.pory"
+# 883 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1927,23 +1940,23 @@ SkipContent_Route6_2:
 	goto SkipContent_Route6_1
 
 SkipContent_Route6_4:
-# 874 "data/scripts/my_debug.pory"
+# 879 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route6_1
 
 
 SkipContent_Route8::
-# 881 "data/scripts/my_debug.pory"
+# 886 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_14
-# 882 "data/scripts/my_debug.pory"
+# 887 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 883 "data/scripts/my_debug.pory"
+# 888 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route8_2
 SkipContent_Route8_1:
-# 888 "data/scripts/my_debug.pory"
+# 893 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route8
-# 889 "data/scripts/my_debug.pory"
+# 894 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1955,23 +1968,23 @@ SkipContent_Route8_2:
 	goto SkipContent_Route8_1
 
 SkipContent_Route8_4:
-# 885 "data/scripts/my_debug.pory"
+# 890 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route8_1
 
 
 SkipContent_ShoreslateCity::
-# 892 "data/scripts/my_debug.pory"
+# 897 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_15
-# 893 "data/scripts/my_debug.pory"
+# 898 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 894 "data/scripts/my_debug.pory"
+# 899 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_ShoreslateCity_2
 SkipContent_ShoreslateCity_1:
-# 899 "data/scripts/my_debug.pory"
+# 904 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_ShoreslateCity
-# 900 "data/scripts/my_debug.pory"
+# 905 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -1983,23 +1996,23 @@ SkipContent_ShoreslateCity_2:
 	goto SkipContent_ShoreslateCity_1
 
 SkipContent_ShoreslateCity_4:
-# 896 "data/scripts/my_debug.pory"
+# 901 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_ShoreslateCity_1
 
 
 SkipContent_ScorchedDesert::
-# 903 "data/scripts/my_debug.pory"
+# 908 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_16
-# 904 "data/scripts/my_debug.pory"
+# 909 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 905 "data/scripts/my_debug.pory"
+# 910 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_ScorchedDesert_2
 SkipContent_ScorchedDesert_1:
-# 910 "data/scripts/my_debug.pory"
+# 915 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_ScorchedDesert
-# 911 "data/scripts/my_debug.pory"
+# 916 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2011,23 +2024,23 @@ SkipContent_ScorchedDesert_2:
 	goto SkipContent_ScorchedDesert_1
 
 SkipContent_ScorchedDesert_4:
-# 907 "data/scripts/my_debug.pory"
+# 912 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_ScorchedDesert_1
 
 
 SkipContent_Route7::
-# 914 "data/scripts/my_debug.pory"
+# 919 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_17
-# 915 "data/scripts/my_debug.pory"
+# 920 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 916 "data/scripts/my_debug.pory"
+# 921 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route7_2
 SkipContent_Route7_1:
-# 921 "data/scripts/my_debug.pory"
+# 926 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route7
-# 922 "data/scripts/my_debug.pory"
+# 927 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2039,23 +2052,23 @@ SkipContent_Route7_2:
 	goto SkipContent_Route7_1
 
 SkipContent_Route7_4:
-# 918 "data/scripts/my_debug.pory"
+# 923 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route7_1
 
 
 SkipContent_MarigorgeTown::
-# 925 "data/scripts/my_debug.pory"
+# 930 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_18
-# 926 "data/scripts/my_debug.pory"
+# 931 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 927 "data/scripts/my_debug.pory"
+# 932 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_MarigorgeTown_2
 SkipContent_MarigorgeTown_1:
-# 932 "data/scripts/my_debug.pory"
+# 937 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_MarigorgeTown
-# 933 "data/scripts/my_debug.pory"
+# 938 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2067,23 +2080,23 @@ SkipContent_MarigorgeTown_2:
 	goto SkipContent_MarigorgeTown_1
 
 SkipContent_MarigorgeTown_4:
-# 929 "data/scripts/my_debug.pory"
+# 934 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_MarigorgeTown_1
 
 
 SkipContent_KaolisleCity::
-# 936 "data/scripts/my_debug.pory"
+# 941 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_19
-# 937 "data/scripts/my_debug.pory"
+# 942 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 938 "data/scripts/my_debug.pory"
+# 943 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_KaolisleCity_2
 SkipContent_KaolisleCity_1:
-# 943 "data/scripts/my_debug.pory"
+# 948 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_KaolisleCity
-# 944 "data/scripts/my_debug.pory"
+# 949 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2095,23 +2108,23 @@ SkipContent_KaolisleCity_2:
 	goto SkipContent_KaolisleCity_1
 
 SkipContent_KaolisleCity_4:
-# 940 "data/scripts/my_debug.pory"
+# 945 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_KaolisleCity_1
 
 
 SkipContent_RockliffeTown::
-# 947 "data/scripts/my_debug.pory"
+# 952 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_20
-# 948 "data/scripts/my_debug.pory"
+# 953 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 949 "data/scripts/my_debug.pory"
+# 954 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_RockliffeTown_2
 SkipContent_RockliffeTown_1:
-# 954 "data/scripts/my_debug.pory"
+# 959 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_RockliffeTown
-# 955 "data/scripts/my_debug.pory"
+# 960 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2123,23 +2136,23 @@ SkipContent_RockliffeTown_2:
 	goto SkipContent_RockliffeTown_1
 
 SkipContent_RockliffeTown_4:
-# 951 "data/scripts/my_debug.pory"
+# 956 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_RockliffeTown_1
 
 
 SkipContent_Route11::
-# 958 "data/scripts/my_debug.pory"
+# 963 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_21
-# 959 "data/scripts/my_debug.pory"
+# 964 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 960 "data/scripts/my_debug.pory"
+# 965 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route11_2
 SkipContent_Route11_1:
-# 965 "data/scripts/my_debug.pory"
+# 970 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route11
-# 966 "data/scripts/my_debug.pory"
+# 971 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2151,23 +2164,23 @@ SkipContent_Route11_2:
 	goto SkipContent_Route11_1
 
 SkipContent_Route11_4:
-# 962 "data/scripts/my_debug.pory"
+# 967 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route11_1
 
 
 SkipContent_Route12::
-# 969 "data/scripts/my_debug.pory"
+# 974 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_22
-# 970 "data/scripts/my_debug.pory"
+# 975 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 971 "data/scripts/my_debug.pory"
+# 976 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route12_2
 SkipContent_Route12_1:
-# 976 "data/scripts/my_debug.pory"
+# 981 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route12
-# 977 "data/scripts/my_debug.pory"
+# 982 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2179,23 +2192,23 @@ SkipContent_Route12_2:
 	goto SkipContent_Route12_1
 
 SkipContent_Route12_4:
-# 973 "data/scripts/my_debug.pory"
+# 978 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route12_1
 
 
 SkipContent_SandstoneCity::
-# 980 "data/scripts/my_debug.pory"
+# 985 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_23
-# 981 "data/scripts/my_debug.pory"
+# 986 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 982 "data/scripts/my_debug.pory"
+# 987 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SandstoneCity_2
 SkipContent_SandstoneCity_1:
-# 987 "data/scripts/my_debug.pory"
+# 992 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_SandstoneCity
-# 988 "data/scripts/my_debug.pory"
+# 993 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2207,23 +2220,23 @@ SkipContent_SandstoneCity_2:
 	goto SkipContent_SandstoneCity_1
 
 SkipContent_SandstoneCity_4:
-# 984 "data/scripts/my_debug.pory"
+# 989 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_SandstoneCity_1
 
 
 SkipContent_Route13::
-# 991 "data/scripts/my_debug.pory"
+# 996 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_24
-# 992 "data/scripts/my_debug.pory"
+# 997 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 993 "data/scripts/my_debug.pory"
+# 998 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route13_2
 SkipContent_Route13_1:
-# 998 "data/scripts/my_debug.pory"
+# 1003 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route13
-# 999 "data/scripts/my_debug.pory"
+# 1004 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2235,23 +2248,23 @@ SkipContent_Route13_2:
 	goto SkipContent_Route13_1
 
 SkipContent_Route13_4:
-# 995 "data/scripts/my_debug.pory"
+# 1000 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route13_1
 
 
 SkipContent_AdamantTower::
-# 1002 "data/scripts/my_debug.pory"
+# 1007 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_25
-# 1003 "data/scripts/my_debug.pory"
+# 1008 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1004 "data/scripts/my_debug.pory"
+# 1009 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AdamantTower_2
 SkipContent_AdamantTower_1:
-# 1009 "data/scripts/my_debug.pory"
+# 1014 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_AdamantTower
-# 1010 "data/scripts/my_debug.pory"
+# 1015 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2263,23 +2276,23 @@ SkipContent_AdamantTower_2:
 	goto SkipContent_AdamantTower_1
 
 SkipContent_AdamantTower_4:
-# 1006 "data/scripts/my_debug.pory"
+# 1011 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_AdamantTower_1
 
 
 SkipContent_Route14::
-# 1013 "data/scripts/my_debug.pory"
+# 1018 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_26
-# 1014 "data/scripts/my_debug.pory"
+# 1019 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1015 "data/scripts/my_debug.pory"
+# 1020 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route14_2
 SkipContent_Route14_1:
-# 1020 "data/scripts/my_debug.pory"
+# 1025 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route14
-# 1021 "data/scripts/my_debug.pory"
+# 1026 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2291,23 +2304,23 @@ SkipContent_Route14_2:
 	goto SkipContent_Route14_1
 
 SkipContent_Route14_4:
-# 1017 "data/scripts/my_debug.pory"
+# 1022 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route14_1
 
 
 SkipContent_Route15::
-# 1024 "data/scripts/my_debug.pory"
+# 1029 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_27
-# 1025 "data/scripts/my_debug.pory"
+# 1030 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1026 "data/scripts/my_debug.pory"
+# 1031 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route15_2
 SkipContent_Route15_1:
-# 1031 "data/scripts/my_debug.pory"
+# 1036 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route15
-# 1032 "data/scripts/my_debug.pory"
+# 1037 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2319,23 +2332,23 @@ SkipContent_Route15_2:
 	goto SkipContent_Route15_1
 
 SkipContent_Route15_4:
-# 1028 "data/scripts/my_debug.pory"
+# 1033 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route15_1
 
 
 SkipContent_FishingVillage::
-# 1035 "data/scripts/my_debug.pory"
+# 1040 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_28
-# 1036 "data/scripts/my_debug.pory"
+# 1041 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1037 "data/scripts/my_debug.pory"
+# 1042 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FishingVillage_2
 SkipContent_FishingVillage_1:
-# 1042 "data/scripts/my_debug.pory"
+# 1047 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_FishingVillage
-# 1043 "data/scripts/my_debug.pory"
+# 1048 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2347,23 +2360,23 @@ SkipContent_FishingVillage_2:
 	goto SkipContent_FishingVillage_1
 
 SkipContent_FishingVillage_4:
-# 1039 "data/scripts/my_debug.pory"
+# 1044 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_FishingVillage_1
 
 
 SkipContent_Route23::
-# 1046 "data/scripts/my_debug.pory"
+# 1051 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_29
-# 1047 "data/scripts/my_debug.pory"
+# 1052 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1048 "data/scripts/my_debug.pory"
+# 1053 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route23_2
 SkipContent_Route23_1:
-# 1053 "data/scripts/my_debug.pory"
+# 1058 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route23
-# 1054 "data/scripts/my_debug.pory"
+# 1059 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2375,23 +2388,23 @@ SkipContent_Route23_2:
 	goto SkipContent_Route23_1
 
 SkipContent_Route23_4:
-# 1050 "data/scripts/my_debug.pory"
+# 1055 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route23_1
 
 
 SkipContent_DrisledgeTown::
-# 1057 "data/scripts/my_debug.pory"
+# 1062 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_30
-# 1058 "data/scripts/my_debug.pory"
+# 1063 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1059 "data/scripts/my_debug.pory"
+# 1064 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_DrisledgeTown_2
 SkipContent_DrisledgeTown_1:
-# 1064 "data/scripts/my_debug.pory"
+# 1069 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_DrisledgeTown
-# 1065 "data/scripts/my_debug.pory"
+# 1070 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2403,23 +2416,23 @@ SkipContent_DrisledgeTown_2:
 	goto SkipContent_DrisledgeTown_1
 
 SkipContent_DrisledgeTown_4:
-# 1061 "data/scripts/my_debug.pory"
+# 1066 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_DrisledgeTown_1
 
 
 SkipContent_AmberockTown::
-# 1068 "data/scripts/my_debug.pory"
+# 1073 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_31
-# 1069 "data/scripts/my_debug.pory"
+# 1074 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1070 "data/scripts/my_debug.pory"
+# 1075 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_AmberockTown_2
 SkipContent_AmberockTown_1:
-# 1075 "data/scripts/my_debug.pory"
+# 1080 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_AmberockTown
-# 1076 "data/scripts/my_debug.pory"
+# 1081 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2431,23 +2444,23 @@ SkipContent_AmberockTown_2:
 	goto SkipContent_AmberockTown_1
 
 SkipContent_AmberockTown_4:
-# 1072 "data/scripts/my_debug.pory"
+# 1077 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_AmberockTown_1
 
 
 SkipContent_Route3::
-# 1079 "data/scripts/my_debug.pory"
+# 1084 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_32
-# 1080 "data/scripts/my_debug.pory"
+# 1085 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1081 "data/scripts/my_debug.pory"
+# 1086 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route3_2
 SkipContent_Route3_1:
-# 1086 "data/scripts/my_debug.pory"
+# 1091 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route3
-# 1087 "data/scripts/my_debug.pory"
+# 1092 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2459,23 +2472,23 @@ SkipContent_Route3_2:
 	goto SkipContent_Route3_1
 
 SkipContent_Route3_4:
-# 1083 "data/scripts/my_debug.pory"
+# 1088 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route3_1
 
 
 SkipContent_Route9::
-# 1090 "data/scripts/my_debug.pory"
+# 1095 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_33
-# 1091 "data/scripts/my_debug.pory"
+# 1096 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1092 "data/scripts/my_debug.pory"
+# 1097 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route9_2
 SkipContent_Route9_1:
-# 1097 "data/scripts/my_debug.pory"
+# 1102 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route9
-# 1098 "data/scripts/my_debug.pory"
+# 1103 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2487,23 +2500,23 @@ SkipContent_Route9_2:
 	goto SkipContent_Route9_1
 
 SkipContent_Route9_4:
-# 1094 "data/scripts/my_debug.pory"
+# 1099 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route9_1
 
 
 SkipContent_Route10::
-# 1101 "data/scripts/my_debug.pory"
+# 1106 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_34
-# 1102 "data/scripts/my_debug.pory"
+# 1107 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1103 "data/scripts/my_debug.pory"
+# 1108 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route10_2
 SkipContent_Route10_1:
-# 1108 "data/scripts/my_debug.pory"
+# 1113 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route10
-# 1109 "data/scripts/my_debug.pory"
+# 1114 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2515,23 +2528,23 @@ SkipContent_Route10_2:
 	goto SkipContent_Route10_1
 
 SkipContent_Route10_4:
-# 1105 "data/scripts/my_debug.pory"
+# 1110 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route10_1
 
 
 SkipContent_WindplumeMountain::
-# 1112 "data/scripts/my_debug.pory"
+# 1117 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_35
-# 1113 "data/scripts/my_debug.pory"
+# 1118 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1114 "data/scripts/my_debug.pory"
+# 1119 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_WindplumeMountain_2
 SkipContent_WindplumeMountain_1:
-# 1119 "data/scripts/my_debug.pory"
+# 1124 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_WindplumeMountain
-# 1120 "data/scripts/my_debug.pory"
+# 1125 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2543,23 +2556,23 @@ SkipContent_WindplumeMountain_2:
 	goto SkipContent_WindplumeMountain_1
 
 SkipContent_WindplumeMountain_4:
-# 1116 "data/scripts/my_debug.pory"
+# 1121 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_WindplumeMountain_1
 
 
 SkipContent_Route16::
-# 1123 "data/scripts/my_debug.pory"
+# 1128 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_36
-# 1124 "data/scripts/my_debug.pory"
+# 1129 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1125 "data/scripts/my_debug.pory"
+# 1130 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route16_2
 SkipContent_Route16_1:
-# 1130 "data/scripts/my_debug.pory"
+# 1135 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route16
-# 1131 "data/scripts/my_debug.pory"
+# 1136 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2571,23 +2584,23 @@ SkipContent_Route16_2:
 	goto SkipContent_Route16_1
 
 SkipContent_Route16_4:
-# 1127 "data/scripts/my_debug.pory"
+# 1132 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route16_1
 
 
 SkipContent_BasalekTown::
-# 1134 "data/scripts/my_debug.pory"
+# 1139 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_37
-# 1135 "data/scripts/my_debug.pory"
+# 1140 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1136 "data/scripts/my_debug.pory"
+# 1141 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_BasalekTown_2
 SkipContent_BasalekTown_1:
-# 1141 "data/scripts/my_debug.pory"
+# 1146 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_BasalekTown
-# 1142 "data/scripts/my_debug.pory"
+# 1147 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2599,23 +2612,23 @@ SkipContent_BasalekTown_2:
 	goto SkipContent_BasalekTown_1
 
 SkipContent_BasalekTown_4:
-# 1138 "data/scripts/my_debug.pory"
+# 1143 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_BasalekTown_1
 
 
 SkipContent_Route17::
-# 1145 "data/scripts/my_debug.pory"
+# 1150 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_38
-# 1146 "data/scripts/my_debug.pory"
+# 1151 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1147 "data/scripts/my_debug.pory"
+# 1152 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route17_2
 SkipContent_Route17_1:
-# 1152 "data/scripts/my_debug.pory"
+# 1157 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route17
-# 1153 "data/scripts/my_debug.pory"
+# 1158 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2627,23 +2640,23 @@ SkipContent_Route17_2:
 	goto SkipContent_Route17_1
 
 SkipContent_Route17_4:
-# 1149 "data/scripts/my_debug.pory"
+# 1154 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route17_1
 
 
 SkipContent_Route18::
-# 1156 "data/scripts/my_debug.pory"
+# 1161 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_39
-# 1157 "data/scripts/my_debug.pory"
+# 1162 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1158 "data/scripts/my_debug.pory"
+# 1163 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_Route18_2
 SkipContent_Route18_1:
-# 1163 "data/scripts/my_debug.pory"
+# 1168 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_Route18
-# 1164 "data/scripts/my_debug.pory"
+# 1169 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2655,23 +2668,23 @@ SkipContent_Route18_2:
 	goto SkipContent_Route18_1
 
 SkipContent_Route18_4:
-# 1160 "data/scripts/my_debug.pory"
+# 1165 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_Route18_1
 
 
 SkipContent_FrosthearthCity::
-# 1167 "data/scripts/my_debug.pory"
+# 1172 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_Text_40
-# 1168 "data/scripts/my_debug.pory"
+# 1173 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1169 "data/scripts/my_debug.pory"
+# 1174 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_FrosthearthCity_2
 SkipContent_FrosthearthCity_1:
-# 1174 "data/scripts/my_debug.pory"
+# 1179 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_FrosthearthCity
-# 1175 "data/scripts/my_debug.pory"
+# 1180 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
@@ -2683,921 +2696,921 @@ SkipContent_FrosthearthCity_2:
 	goto SkipContent_FrosthearthCity_1
 
 SkipContent_FrosthearthCity_4:
-# 1171 "data/scripts/my_debug.pory"
+# 1176 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_7
 	goto SkipContent_FrosthearthCity_1
 
 
 SkipContent_RockClimb::
-# 1178 "data/scripts/my_debug.pory"
+# 1183 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_RockClimb_Text_0
-# 1179 "data/scripts/my_debug.pory"
+# 1184 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1180 "data/scripts/my_debug.pory"
+# 1185 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_RockClimb_2
 SkipContent_RockClimb_1:
-# 1183 "data/scripts/my_debug.pory"
+# 1188 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_RockClimb
-# 1184 "data/scripts/my_debug.pory"
+# 1189 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
 SkipContent_RockClimb_2:
-# 1181 "data/scripts/my_debug.pory"
+# 1186 "data/scripts/my_debug.pory"
 	msgbox SkipContent_RockClimb_Text_1
 	goto SkipContent_RockClimb_1
 
 
 SkipContent_DesertRuins::
-# 1187 "data/scripts/my_debug.pory"
+# 1192 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_DesertRuins_Text_0
-# 1188 "data/scripts/my_debug.pory"
+# 1193 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1189 "data/scripts/my_debug.pory"
+# 1194 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_DesertRuins_2
 SkipContent_DesertRuins_1:
-# 1192 "data/scripts/my_debug.pory"
+# 1197 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_DesertRuins
-# 1193 "data/scripts/my_debug.pory"
+# 1198 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
 SkipContent_DesertRuins_2:
-# 1190 "data/scripts/my_debug.pory"
+# 1195 "data/scripts/my_debug.pory"
 	msgbox SkipContent_DesertRuins_Text_1
 	goto SkipContent_DesertRuins_1
 
 
 SkipContent_SafariZone::
-# 1196 "data/scripts/my_debug.pory"
+# 1201 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_SafariZone_Text_0
-# 1197 "data/scripts/my_debug.pory"
+# 1202 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1198 "data/scripts/my_debug.pory"
+# 1203 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_SafariZone_2
 SkipContent_SafariZone_1:
-# 1201 "data/scripts/my_debug.pory"
+# 1206 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_SafariZone
-# 1202 "data/scripts/my_debug.pory"
+# 1207 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
 SkipContent_SafariZone_2:
-# 1199 "data/scripts/my_debug.pory"
+# 1204 "data/scripts/my_debug.pory"
 	msgbox SkipContent_SafariZone_Text_1
 	goto SkipContent_SafariZone_1
 
 
 SkipContent_MiscSurfing::
-# 1206 "data/scripts/my_debug.pory"
+# 1211 "data/scripts/my_debug.pory"
 	bufferstring STR_VAR_2, SkipContent_MiscSurfing_Text_0
-# 1207 "data/scripts/my_debug.pory"
+# 1212 "data/scripts/my_debug.pory"
 	call SkipContent_BufferChoices
-# 1208 "data/scripts/my_debug.pory"
+# 1213 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 4
 	goto_if_eq SkipContent_MiscSurfing_2
 SkipContent_MiscSurfing_1:
-# 1211 "data/scripts/my_debug.pory"
+# 1216 "data/scripts/my_debug.pory"
 	call ContentSkipper_SkipContent_MiscSurfing
-# 1212 "data/scripts/my_debug.pory"
+# 1217 "data/scripts/my_debug.pory"
 	goto SkipContentEnd
 	return
 
 SkipContent_MiscSurfing_2:
-# 1209 "data/scripts/my_debug.pory"
+# 1214 "data/scripts/my_debug.pory"
 	msgbox SkipContent_MiscSurfing_Text_1
 	goto SkipContent_MiscSurfing_1
 
 
 SkipContentEnd::
-# 1233 "data/scripts/my_debug.pory"
+# 1238 "data/scripts/my_debug.pory"
 	msgbox ContentHasBeenSkipped
-# 1234 "data/scripts/my_debug.pory"
+# 1239 "data/scripts/my_debug.pory"
 	release
 	end
 
 
 ContentSkipper_SkipContent_Route1::
-# 1240 "data/scripts/my_debug.pory"
+# 1245 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route1_2
-# 1244 "data/scripts/my_debug.pory"
+# 1249 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_1
 ContentSkipper_SkipContent_Route1_1:
 	return
 
 ContentSkipper_SkipContent_Route1_2:
-# 1241 "data/scripts/my_debug.pory"
+# 1246 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route1_1
 
 
 ContentSkipper_SkipContent_Route2::
-# 1250 "data/scripts/my_debug.pory"
+# 1255 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route2_2
-# 1254 "data/scripts/my_debug.pory"
+# 1259 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_2
 ContentSkipper_SkipContent_Route2_1:
 	return
 
 ContentSkipper_SkipContent_Route2_2:
-# 1251 "data/scripts/my_debug.pory"
+# 1256 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route2_1
 
 
 ContentSkipper_SkipContent_WindyWoods::
-# 1260 "data/scripts/my_debug.pory"
+# 1265 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 1
-# 1261 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1262 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindyWoods_2
 # 1266 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1267 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindyWoods_2
+# 1271 "data/scripts/my_debug.pory"
 	call CompleteArea_Windy_Woods
 ContentSkipper_SkipContent_WindyWoods_1:
 	return
 
 ContentSkipper_SkipContent_WindyWoods_2:
-# 1263 "data/scripts/my_debug.pory"
+# 1268 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_WindyWoods_1
 
 
 ContentSkipper_SkipContent_CoralgroveCity::
-# 1272 "data/scripts/my_debug.pory"
+# 1277 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 2
-# 1273 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1274 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_CoralgroveCity_2
 # 1278 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1279 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_CoralgroveCity_2
+# 1283 "data/scripts/my_debug.pory"
 	call CompleteArea_Coralgrove_City
 ContentSkipper_SkipContent_CoralgroveCity_1:
 	return
 
 ContentSkipper_SkipContent_CoralgroveCity_2:
-# 1275 "data/scripts/my_debug.pory"
+# 1280 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_CoralgroveCity_1
 
 
 ContentSkipper_SkipContent_AzuretideTown::
-# 1284 "data/scripts/my_debug.pory"
+# 1289 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 2
-# 1285 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1286 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AzuretideTown_2
 # 1290 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1291 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AzuretideTown_2
+# 1295 "data/scripts/my_debug.pory"
 	call CompleteArea_Azuretide_Town
 ContentSkipper_SkipContent_AzuretideTown_1:
 	return
 
 ContentSkipper_SkipContent_AzuretideTown_2:
-# 1287 "data/scripts/my_debug.pory"
+# 1292 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_AzuretideTown_1
 
 
 ContentSkipper_SkipContent_Route4::
-# 1296 "data/scripts/my_debug.pory"
+# 1301 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 2
-# 1297 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1298 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route4_2
 # 1302 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1303 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route4_2
+# 1307 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_4
 ContentSkipper_SkipContent_Route4_1:
 	return
 
 ContentSkipper_SkipContent_Route4_2:
-# 1299 "data/scripts/my_debug.pory"
+# 1304 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route4_1
 
 
 ContentSkipper_SkipContent_PokemonRanch::
-# 1308 "data/scripts/my_debug.pory"
+# 1313 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 3
-# 1309 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1310 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_PokemonRanch_2
 # 1314 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1315 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_PokemonRanch_2
+# 1319 "data/scripts/my_debug.pory"
 	call CompleteArea_Pokemon_Ranch
 ContentSkipper_SkipContent_PokemonRanch_1:
 	return
 
 ContentSkipper_SkipContent_PokemonRanch_2:
-# 1311 "data/scripts/my_debug.pory"
+# 1316 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_PokemonRanch_1
 
 
 ContentSkipper_SkipContent_AldeleafCity::
-# 1320 "data/scripts/my_debug.pory"
+# 1325 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1321 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1322 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AldeleafCity_2
 # 1326 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1327 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AldeleafCity_2
+# 1331 "data/scripts/my_debug.pory"
 	call CompleteArea_Aldeleaf_City
 ContentSkipper_SkipContent_AldeleafCity_1:
 	return
 
 ContentSkipper_SkipContent_AldeleafCity_2:
-# 1323 "data/scripts/my_debug.pory"
+# 1328 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_AldeleafCity_1
 
 
 ContentSkipper_SkipContent_Route30::
-# 1332 "data/scripts/my_debug.pory"
+# 1337 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1333 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1334 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route30_2
 # 1338 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1339 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route30_2
+# 1343 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_30
 ContentSkipper_SkipContent_Route30_1:
 	return
 
 ContentSkipper_SkipContent_Route30_2:
-# 1335 "data/scripts/my_debug.pory"
+# 1340 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route30_1
 
 
 ContentSkipper_SkipContent_WindplumeValley::
-# 1344 "data/scripts/my_debug.pory"
+# 1349 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1345 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1346 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindplumeValley_2
 # 1350 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1351 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindplumeValley_2
+# 1355 "data/scripts/my_debug.pory"
 	call CompleteArea_Windplume_Valley
 ContentSkipper_SkipContent_WindplumeValley_1:
 	return
 
 ContentSkipper_SkipContent_WindplumeValley_2:
-# 1347 "data/scripts/my_debug.pory"
+# 1352 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_WindplumeValley_1
 
 
 ContentSkipper_SkipContent_Route5::
-# 1356 "data/scripts/my_debug.pory"
+# 1361 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1357 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1358 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route5_2
 # 1362 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1363 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route5_2
+# 1367 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_5
 ContentSkipper_SkipContent_Route5_1:
 	return
 
 ContentSkipper_SkipContent_Route5_2:
-# 1359 "data/scripts/my_debug.pory"
+# 1364 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route5_1
 
 
 ContentSkipper_SkipContent_FlowerFields::
-# 1368 "data/scripts/my_debug.pory"
+# 1373 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1369 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1370 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FlowerFields_2
 # 1374 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1375 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FlowerFields_2
+# 1379 "data/scripts/my_debug.pory"
 	call CompleteArea_Flower_Fields
 ContentSkipper_SkipContent_FlowerFields_1:
 	return
 
 ContentSkipper_SkipContent_FlowerFields_2:
-# 1371 "data/scripts/my_debug.pory"
+# 1376 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_FlowerFields_1
 
 
 ContentSkipper_SkipContent_SkylochVillage::
-# 1380 "data/scripts/my_debug.pory"
+# 1385 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1381 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1382 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_SkylochVillage_2
 # 1386 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1387 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_SkylochVillage_2
+# 1391 "data/scripts/my_debug.pory"
 	call CompleteArea_Skyloch_Village
 ContentSkipper_SkipContent_SkylochVillage_1:
 	return
 
 ContentSkipper_SkipContent_SkylochVillage_2:
-# 1383 "data/scripts/my_debug.pory"
+# 1388 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_SkylochVillage_1
 
 
 ContentSkipper_SkipContent_Route6::
-# 1392 "data/scripts/my_debug.pory"
+# 1397 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1393 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1394 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route6_2
 # 1398 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1399 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route6_2
+# 1403 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_6
 ContentSkipper_SkipContent_Route6_1:
 	return
 
 ContentSkipper_SkipContent_Route6_2:
-# 1395 "data/scripts/my_debug.pory"
+# 1400 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route6_1
 
 
 ContentSkipper_SkipContent_Route8::
-# 1404 "data/scripts/my_debug.pory"
+# 1409 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 4
-# 1405 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1406 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route8_2
 # 1410 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1411 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route8_2
+# 1415 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_8
 ContentSkipper_SkipContent_Route8_1:
 	return
 
 ContentSkipper_SkipContent_Route8_2:
-# 1407 "data/scripts/my_debug.pory"
+# 1412 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route8_1
 
 
 ContentSkipper_SkipContent_ShoreslateCity::
-# 1416 "data/scripts/my_debug.pory"
+# 1421 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 5
-# 1417 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1418 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_ShoreslateCity_2
 # 1422 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1423 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_ShoreslateCity_2
+# 1427 "data/scripts/my_debug.pory"
 	call CompleteArea_Shoreslate_City
 ContentSkipper_SkipContent_ShoreslateCity_1:
 	return
 
 ContentSkipper_SkipContent_ShoreslateCity_2:
-# 1419 "data/scripts/my_debug.pory"
+# 1424 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_ShoreslateCity_1
 
 
 ContentSkipper_SkipContent_ScorchedDesert::
-# 1428 "data/scripts/my_debug.pory"
+# 1433 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 5
-# 1429 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1430 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_ScorchedDesert_2
 # 1434 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1435 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_ScorchedDesert_2
+# 1439 "data/scripts/my_debug.pory"
 	call CompleteArea_Scorched_Desert
 ContentSkipper_SkipContent_ScorchedDesert_1:
 	return
 
 ContentSkipper_SkipContent_ScorchedDesert_2:
-# 1431 "data/scripts/my_debug.pory"
+# 1436 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_ScorchedDesert_1
 
 
 ContentSkipper_SkipContent_Route7::
-# 1440 "data/scripts/my_debug.pory"
+# 1445 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 5
-# 1441 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1442 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route7_2
 # 1446 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1447 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route7_2
+# 1451 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_7
 ContentSkipper_SkipContent_Route7_1:
 	return
 
 ContentSkipper_SkipContent_Route7_2:
-# 1443 "data/scripts/my_debug.pory"
+# 1448 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route7_1
 
 
 ContentSkipper_SkipContent_MarigorgeTown::
-# 1452 "data/scripts/my_debug.pory"
+# 1457 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 5
-# 1453 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1454 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_MarigorgeTown_2
 # 1458 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1459 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_MarigorgeTown_2
+# 1463 "data/scripts/my_debug.pory"
 	call CompleteArea_Marigorge_Town
 ContentSkipper_SkipContent_MarigorgeTown_1:
 	return
 
 ContentSkipper_SkipContent_MarigorgeTown_2:
-# 1455 "data/scripts/my_debug.pory"
+# 1460 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_MarigorgeTown_1
 
 
 ContentSkipper_SkipContent_KaolisleCity::
-# 1464 "data/scripts/my_debug.pory"
+# 1469 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 6
-# 1465 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1466 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_KaolisleCity_2
 # 1470 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1471 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_KaolisleCity_2
+# 1475 "data/scripts/my_debug.pory"
 	call CompleteArea_Kaolisle_City
 ContentSkipper_SkipContent_KaolisleCity_1:
 	return
 
 ContentSkipper_SkipContent_KaolisleCity_2:
-# 1467 "data/scripts/my_debug.pory"
+# 1472 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_KaolisleCity_1
 
 
 ContentSkipper_SkipContent_RockliffeTown::
-# 1476 "data/scripts/my_debug.pory"
+# 1481 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 6
-# 1477 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1478 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_RockliffeTown_2
 # 1482 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1483 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_RockliffeTown_2
+# 1487 "data/scripts/my_debug.pory"
 	call CompleteArea_Rockliffe_Town
 ContentSkipper_SkipContent_RockliffeTown_1:
 	return
 
 ContentSkipper_SkipContent_RockliffeTown_2:
-# 1479 "data/scripts/my_debug.pory"
+# 1484 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_RockliffeTown_1
 
 
 ContentSkipper_SkipContent_Route11::
-# 1488 "data/scripts/my_debug.pory"
+# 1493 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 7
-# 1489 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1490 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route11_2
 # 1494 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1495 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route11_2
+# 1499 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_11
 ContentSkipper_SkipContent_Route11_1:
 	return
 
 ContentSkipper_SkipContent_Route11_2:
-# 1491 "data/scripts/my_debug.pory"
+# 1496 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route11_1
 
 
 ContentSkipper_SkipContent_Route12::
-# 1500 "data/scripts/my_debug.pory"
+# 1505 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 7
-# 1501 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1502 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route12_2
 # 1506 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1507 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route12_2
+# 1511 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_12
 ContentSkipper_SkipContent_Route12_1:
 	return
 
 ContentSkipper_SkipContent_Route12_2:
-# 1503 "data/scripts/my_debug.pory"
+# 1508 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route12_1
 
 
 ContentSkipper_SkipContent_SandstoneCity::
-# 1512 "data/scripts/my_debug.pory"
+# 1517 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 8
-# 1513 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1514 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_SandstoneCity_2
 # 1518 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1519 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_SandstoneCity_2
+# 1523 "data/scripts/my_debug.pory"
 	call CompleteArea_Sandstone_City
 ContentSkipper_SkipContent_SandstoneCity_1:
 	return
 
 ContentSkipper_SkipContent_SandstoneCity_2:
-# 1515 "data/scripts/my_debug.pory"
+# 1520 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_SandstoneCity_1
 
 
 ContentSkipper_SkipContent_Route13::
-# 1524 "data/scripts/my_debug.pory"
+# 1529 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 8
-# 1525 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1526 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route13_2
 # 1530 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1531 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route13_2
+# 1535 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_13
 ContentSkipper_SkipContent_Route13_1:
 	return
 
 ContentSkipper_SkipContent_Route13_2:
-# 1527 "data/scripts/my_debug.pory"
+# 1532 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route13_1
 
 
 ContentSkipper_SkipContent_AdamantTower::
-# 1536 "data/scripts/my_debug.pory"
+# 1541 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 9
-# 1537 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1538 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AdamantTower_2
 # 1542 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1543 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AdamantTower_2
+# 1547 "data/scripts/my_debug.pory"
 	call CompleteArea_Adamant_Tower
 ContentSkipper_SkipContent_AdamantTower_1:
 	return
 
 ContentSkipper_SkipContent_AdamantTower_2:
-# 1539 "data/scripts/my_debug.pory"
+# 1544 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_AdamantTower_1
 
 
 ContentSkipper_SkipContent_Route14::
-# 1548 "data/scripts/my_debug.pory"
+# 1553 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 10
-# 1549 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1550 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route14_2
 # 1554 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1555 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route14_2
+# 1559 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_14
 ContentSkipper_SkipContent_Route14_1:
 	return
 
 ContentSkipper_SkipContent_Route14_2:
-# 1551 "data/scripts/my_debug.pory"
+# 1556 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route14_1
 
 
 ContentSkipper_SkipContent_Route15::
-# 1560 "data/scripts/my_debug.pory"
+# 1565 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 11
-# 1561 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1562 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route15_2
 # 1566 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1567 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route15_2
+# 1571 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_15
 ContentSkipper_SkipContent_Route15_1:
 	return
 
 ContentSkipper_SkipContent_Route15_2:
-# 1563 "data/scripts/my_debug.pory"
+# 1568 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route15_1
 
 
 ContentSkipper_SkipContent_FishingVillage::
-# 1572 "data/scripts/my_debug.pory"
+# 1577 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 11
-# 1573 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1574 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FishingVillage_2
 # 1578 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1579 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FishingVillage_2
+# 1583 "data/scripts/my_debug.pory"
 	call CompleteArea_Fishing_Village
 ContentSkipper_SkipContent_FishingVillage_1:
 	return
 
 ContentSkipper_SkipContent_FishingVillage_2:
-# 1575 "data/scripts/my_debug.pory"
+# 1580 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_FishingVillage_1
 
 
 ContentSkipper_SkipContent_Route23::
-# 1584 "data/scripts/my_debug.pory"
+# 1589 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 11
-# 1585 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1586 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route23_2
 # 1590 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1591 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route23_2
+# 1595 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_23
 ContentSkipper_SkipContent_Route23_1:
 	return
 
 ContentSkipper_SkipContent_Route23_2:
-# 1587 "data/scripts/my_debug.pory"
+# 1592 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route23_1
 
 
 ContentSkipper_SkipContent_DrisledgeTown::
-# 1596 "data/scripts/my_debug.pory"
+# 1601 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 12
-# 1597 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1598 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_DrisledgeTown_2
 # 1602 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1603 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_DrisledgeTown_2
+# 1607 "data/scripts/my_debug.pory"
 	call CompleteArea_Drisledge_Town
 ContentSkipper_SkipContent_DrisledgeTown_1:
 	return
 
 ContentSkipper_SkipContent_DrisledgeTown_2:
-# 1599 "data/scripts/my_debug.pory"
+# 1604 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_DrisledgeTown_1
 
 
 ContentSkipper_SkipContent_AmberockTown::
-# 1608 "data/scripts/my_debug.pory"
+# 1613 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1609 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1610 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AmberockTown_2
 # 1614 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1615 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_AmberockTown_2
+# 1619 "data/scripts/my_debug.pory"
 	call CompleteArea_Amberock_Town
 ContentSkipper_SkipContent_AmberockTown_1:
 	return
 
 ContentSkipper_SkipContent_AmberockTown_2:
-# 1611 "data/scripts/my_debug.pory"
+# 1616 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_AmberockTown_1
 
 
 ContentSkipper_SkipContent_Route3::
-# 1620 "data/scripts/my_debug.pory"
+# 1625 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1621 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1622 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route3_2
 # 1626 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1627 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route3_2
+# 1631 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_3
 ContentSkipper_SkipContent_Route3_1:
 	return
 
 ContentSkipper_SkipContent_Route3_2:
-# 1623 "data/scripts/my_debug.pory"
+# 1628 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route3_1
 
 
 ContentSkipper_SkipContent_Route9::
-# 1632 "data/scripts/my_debug.pory"
+# 1637 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1633 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1634 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route9_2
 # 1638 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1639 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route9_2
+# 1643 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_9
 ContentSkipper_SkipContent_Route9_1:
 	return
 
 ContentSkipper_SkipContent_Route9_2:
-# 1635 "data/scripts/my_debug.pory"
+# 1640 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route9_1
 
 
 ContentSkipper_SkipContent_Route10::
-# 1644 "data/scripts/my_debug.pory"
+# 1649 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1645 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1646 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route10_2
 # 1650 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1651 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route10_2
+# 1655 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_10
 ContentSkipper_SkipContent_Route10_1:
 	return
 
 ContentSkipper_SkipContent_Route10_2:
-# 1647 "data/scripts/my_debug.pory"
+# 1652 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route10_1
 
 
 ContentSkipper_SkipContent_WindplumeMountain::
-# 1656 "data/scripts/my_debug.pory"
+# 1661 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1657 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1658 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindplumeMountain_2
 # 1662 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1663 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_WindplumeMountain_2
+# 1667 "data/scripts/my_debug.pory"
 	call CompleteArea_Windplume_Mountain
 ContentSkipper_SkipContent_WindplumeMountain_1:
 	return
 
 ContentSkipper_SkipContent_WindplumeMountain_2:
-# 1659 "data/scripts/my_debug.pory"
+# 1664 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_WindplumeMountain_1
 
 
 ContentSkipper_SkipContent_Route16::
-# 1668 "data/scripts/my_debug.pory"
+# 1673 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 13
-# 1669 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1670 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route16_2
 # 1674 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1675 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route16_2
+# 1679 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_16
 ContentSkipper_SkipContent_Route16_1:
 	return
 
 ContentSkipper_SkipContent_Route16_2:
-# 1671 "data/scripts/my_debug.pory"
+# 1676 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route16_1
 
 
 ContentSkipper_SkipContent_BasalekTown::
-# 1680 "data/scripts/my_debug.pory"
+# 1685 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 14
-# 1681 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1682 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_BasalekTown_2
 # 1686 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1687 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_BasalekTown_2
+# 1691 "data/scripts/my_debug.pory"
 	call CompleteArea_Basalek_Town
 ContentSkipper_SkipContent_BasalekTown_1:
 	return
 
 ContentSkipper_SkipContent_BasalekTown_2:
-# 1683 "data/scripts/my_debug.pory"
+# 1688 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_BasalekTown_1
 
 
 ContentSkipper_SkipContent_Route17::
-# 1692 "data/scripts/my_debug.pory"
+# 1697 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 14
-# 1693 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1694 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route17_2
 # 1698 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1699 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route17_2
+# 1703 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_17
 ContentSkipper_SkipContent_Route17_1:
 	return
 
 ContentSkipper_SkipContent_Route17_2:
-# 1695 "data/scripts/my_debug.pory"
+# 1700 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route17_1
 
 
 ContentSkipper_SkipContent_Route18::
-# 1704 "data/scripts/my_debug.pory"
+# 1709 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 14
-# 1705 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1706 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route18_2
 # 1710 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1711 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_Route18_2
+# 1715 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_18
 ContentSkipper_SkipContent_Route18_1:
 	return
 
 ContentSkipper_SkipContent_Route18_2:
-# 1707 "data/scripts/my_debug.pory"
+# 1712 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_Route18_1
 
 
 ContentSkipper_SkipContent_FrosthearthCity::
-# 1716 "data/scripts/my_debug.pory"
+# 1721 "data/scripts/my_debug.pory"
 	setvar VAR_TEMP_B, 15
-# 1717 "data/scripts/my_debug.pory"
-	call SkipStory
-# 1718 "data/scripts/my_debug.pory"
-	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FrosthearthCity_2
 # 1722 "data/scripts/my_debug.pory"
+	call SkipStory
+# 1723 "data/scripts/my_debug.pory"
+	goto_if_set FLAG_TEMP_7, ContentSkipper_SkipContent_FrosthearthCity_2
+# 1727 "data/scripts/my_debug.pory"
 	call CompleteArea_Frosthearth_City
 ContentSkipper_SkipContent_FrosthearthCity_1:
 	return
 
 ContentSkipper_SkipContent_FrosthearthCity_2:
-# 1719 "data/scripts/my_debug.pory"
+# 1724 "data/scripts/my_debug.pory"
 	call CompleteAllAreas
 	goto ContentSkipper_SkipContent_FrosthearthCity_1
 
 
 ContentSkipper_SkipContent_RockClimb::
-# 1727 "data/scripts/my_debug.pory"
+# 1732 "data/scripts/my_debug.pory"
 	call CompleteArea_Rock_Climb
 	return
 
 
 ContentSkipper_SkipContent_DesertRuins::
-# 1731 "data/scripts/my_debug.pory"
+# 1736 "data/scripts/my_debug.pory"
 	call CompleteArea_Desert_Ruins
 	return
 
 
 ContentSkipper_SkipContent_SafariZone::
-# 1735 "data/scripts/my_debug.pory"
+# 1740 "data/scripts/my_debug.pory"
 	call CompleteArea_Safari_Zone
 	return
 
 
 ContentSkipper_SkipContent_MiscSurfing::
-# 1740 "data/scripts/my_debug.pory"
+# 1745 "data/scripts/my_debug.pory"
 	call CompleteArea_Misc_Surfing
 	return
 
 
 SkipStory::
-# 1745 "data/scripts/my_debug.pory"
+# 1750 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_8, SkipStory_2
-# 1748 "data/scripts/my_debug.pory"
+# 1753 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 1
 	goto_if_ge SkipStory_5
 SkipStory_4:
-# 1757 "data/scripts/my_debug.pory"
+# 1762 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 2
 	goto_if_ge SkipStory_8
 SkipStory_7:
-# 1792 "data/scripts/my_debug.pory"
+# 1797 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 3
 	goto_if_ge SkipStory_14
 SkipStory_13:
-# 1809 "data/scripts/my_debug.pory"
+# 1814 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 4
 	goto_if_ge SkipStory_20
 SkipStory_19:
-# 1839 "data/scripts/my_debug.pory"
+# 1844 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 5
 	goto_if_ge SkipStory_29
 SkipStory_28:
-# 1871 "data/scripts/my_debug.pory"
+# 1876 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 6
 	goto_if_ge SkipStory_39
 SkipStory_38:
-# 1894 "data/scripts/my_debug.pory"
+# 1899 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 7
 	goto_if_ge SkipStory_48
 SkipStory_47:
-# 1920 "data/scripts/my_debug.pory"
+# 1925 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 8
 	goto_if_ge SkipStory_58
 SkipStory_57:
-# 1938 "data/scripts/my_debug.pory"
+# 1943 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 9
 	goto_if_ge SkipStory_70
 SkipStory_69:
-# 1973 "data/scripts/my_debug.pory"
+# 1978 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 10
 	goto_if_ge SkipStory_85
 SkipStory_84:
-# 1978 "data/scripts/my_debug.pory"
+# 1983 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 11
 	goto_if_ge SkipStory_94
 SkipStory_93:
-# 1985 "data/scripts/my_debug.pory"
+# 1990 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 12
 	goto_if_ge SkipStory_101
 SkipStory_100:
-# 2005 "data/scripts/my_debug.pory"
+# 2010 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 13
 	goto_if_ge SkipStory_104
 SkipStory_103:
-# 2030 "data/scripts/my_debug.pory"
+# 2035 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 14
 	goto_if_ge SkipStory_110
 SkipStory_109:
-# 2039 "data/scripts/my_debug.pory"
+# 2044 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_B, 15
 	goto_if_ge SkipStory_119
 SkipStory_118:
-# 2059 "data/scripts/my_debug.pory"
+# 2064 "data/scripts/my_debug.pory"
 	setflag FLAG_TEMP_8
 	return
 
@@ -3605,206 +3618,206 @@ SkipStory_2:
 	return
 
 SkipStory_5:
-# 1749 "data/scripts/my_debug.pory"
+# 1754 "data/scripts/my_debug.pory"
 	compare VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
 	goto_if_lt SkipStory_11
 SkipStory_10:
-# 1753 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SHELLY_SEAFLOOR_CAVERN
-# 1754 "data/scripts/my_debug.pory"
+# 1758 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_ROCKET
+# 1759 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_WINDY_WOODS
-# 1755 "data/scripts/my_debug.pory"
+# 1760 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_LOST_GLADE
 	goto SkipStory_4
 
 SkipStory_8:
-# 1758 "data/scripts/my_debug.pory"
+# 1763 "data/scripts/my_debug.pory"
 	compare VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 	goto_if_lt SkipStory_17
 SkipStory_16:
-# 1761 "data/scripts/my_debug.pory"
-	setflag FLAG_VISITED_CORALGROVE_CITY
-# 1762 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_CHIP
-# 1763 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FOSTER
-# 1764 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DUSTY_2
-# 1765 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DUSTY_3
 # 1766 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DUSTY_4
+	setflag FLAG_VISITED_CORALGROVE_CITY
 # 1767 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DUSTY_5
+	defeattrainer TRAINER_CORALGYM_1
 # 1768 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_CORALGYM_2
+# 1769 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_CORALGYM_3
+# 1770 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_CORALGYM_4
+# 1771 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_CORALGYM_5
+# 1772 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_CORALGYM_6
+# 1773 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_LEADER_AARON
 	checkitem ITEM_TM_U_TURN
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_26
 SkipStory_25:
-# 1772 "data/scripts/my_debug.pory"
+# 1777 "data/scripts/my_debug.pory"
 	setflag FLAG_BADGE01_GET
-# 1773 "data/scripts/my_debug.pory"
+# 1778 "data/scripts/my_debug.pory"
 	setflag FLAG_DEFEATED_RIVAL_HARBOR
-# 1774 "data/scripts/my_debug.pory"
+# 1779 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto_if 1, SkipStory_34
-# 1774 "data/scripts/my_debug.pory"
+# 1779 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 	goto_if 1, SkipStory_34
 	goto SkipStory_7
 
 SkipStory_11:
-# 1750 "data/scripts/my_debug.pory"
+# 1755 "data/scripts/my_debug.pory"
 	setvar VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
-# 1751 "data/scripts/my_debug.pory"
+# 1756 "data/scripts/my_debug.pory"
 	additem ITEM_LETTER
 	goto SkipStory_10
 
 SkipStory_14:
-# 1793 "data/scripts/my_debug.pory"
+# 1798 "data/scripts/my_debug.pory"
 	setflag FLAG_RANCH_EVENT_NPC
-# 1794 "data/scripts/my_debug.pory"
+# 1799 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_POKE_RANCH
-# 1795 "data/scripts/my_debug.pory"
+# 1800 "data/scripts/my_debug.pory"
 	setflag FLAG_RANCH_HELPED
-# 1796 "data/scripts/my_debug.pory"
+# 1801 "data/scripts/my_debug.pory"
 	clearflag FLAG_HIDE_RANCH_OWNER
-# 1797 "data/scripts/my_debug.pory"
+# 1802 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_VOLKNER_2
 	checkitem ITEM_HM01
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_23
 SkipStory_22:
-# 1801 "data/scripts/my_debug.pory"
-	setflag FLAG_HIDE_VOLKNER_1
-# 1802 "data/scripts/my_debug.pory"
-	setflag FLAG_RECEIVED_HM_CUT
-# 1803 "data/scripts/my_debug.pory"
-	setflag FLAG_VOLKNER_HELPED
-# 1804 "data/scripts/my_debug.pory"
-	setflag FLAG_JASMINE_HELPED
-# 1805 "data/scripts/my_debug.pory"
-	setvar VAR_POKERANCH, 1
 # 1806 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_RICKY_4
+	setflag FLAG_HIDE_VOLKNER_1
 # 1807 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_RICKY_5
+	setflag FLAG_RECEIVED_HM_CUT
+# 1808 "data/scripts/my_debug.pory"
+	setflag FLAG_VOLKNER_HELPED
+# 1809 "data/scripts/my_debug.pory"
+	setflag FLAG_JASMINE_HELPED
+# 1810 "data/scripts/my_debug.pory"
+	setvar VAR_POKERANCH, 1
+# 1811 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_RANCH_ROCKET
+# 1812 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_RANCH_ROCKET2
 	goto SkipStory_13
 
 SkipStory_17:
-# 1759 "data/scripts/my_debug.pory"
+# 1764 "data/scripts/my_debug.pory"
 	setvar VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON
 	goto SkipStory_16
 
 SkipStory_20:
-# 1810 "data/scripts/my_debug.pory"
-	setflag FLAG_VISITED_WIP_CITY1
-# 1811 "data/scripts/my_debug.pory"
-	setflag FLAG_HIDE_AMPHAROS
-# 1812 "data/scripts/my_debug.pory"
-	setflag FLAG_ALDELEAF_SWITCH1
-# 1813 "data/scripts/my_debug.pory"
-	setflag FLAG_ALDELEAF_SWITCH2
-# 1814 "data/scripts/my_debug.pory"
-	setflag FLAG_ALDELEAF_SWITCH3
 # 1815 "data/scripts/my_debug.pory"
-	setflag FLAG_ALDELEAF_SWITCH_ALL
+	setflag FLAG_VISITED_WIP_CITY1
 # 1816 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_PARKER
+	setflag FLAG_HIDE_AMPHAROS
 # 1817 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_GEORGE
+	setflag FLAG_ALDELEAF_SWITCH1
 # 1818 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BERKE
+	setflag FLAG_ALDELEAF_SWITCH2
 # 1819 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BRAXTON
+	setflag FLAG_ALDELEAF_SWITCH3
 # 1820 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_VINCENT
+	setflag FLAG_ALDELEAF_SWITCH_ALL
 # 1821 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_LEROY
+	defeattrainer TRAINER_ALDEGYM_1
 # 1822 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WILTON_1
+	defeattrainer TRAINER_ALDEGYM_2
 # 1823 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_EDGAR
+	defeattrainer TRAINER_ALDEGYM_3
 # 1824 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_ALBERT
+	defeattrainer TRAINER_ALDEGYM_4
 # 1825 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SAMUEL
+	defeattrainer TRAINER_ALDEGYM_5
 # 1826 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_OWEN
+	defeattrainer TRAINER_ALDEGYM_6
 # 1827 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WILTON_2
+	defeattrainer TRAINER_ALDEGYM_7
 # 1828 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WILTON_3
+	defeattrainer TRAINER_ALDEGYM_8
 # 1829 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WILTON_4
+	defeattrainer TRAINER_ALDEGYM_9
 # 1830 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WILTON_5
+	defeattrainer TRAINER_ALDEGYM_10
 # 1831 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WARREN
+	defeattrainer TRAINER_ALDEGYM_11
 # 1832 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_LEADER_VOLKNER
+	defeattrainer TRAINER_ALDEGYM_12
 # 1833 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_ALDEGYM_13
+# 1834 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_ALDEGYM_14
+# 1835 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_ALDEGYM_15
+# 1836 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_ALDEGYM_16
+# 1837 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_LEADER_VOLKNER
+# 1838 "data/scripts/my_debug.pory"
 	setflag FLAG_DEFEATED_DEWFORD_GYM
 	checkitem ITEM_TM_CHARGE_BEAM
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_32
 SkipStory_31:
-# 1837 "data/scripts/my_debug.pory"
+# 1842 "data/scripts/my_debug.pory"
 	setflag FLAG_BADGE02_GET
 	goto SkipStory_19
 
 SkipStory_23:
-# 1799 "data/scripts/my_debug.pory"
+# 1804 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM01
 	goto SkipStory_22
 
 SkipStory_26:
-# 1770 "data/scripts/my_debug.pory"
+# 1775 "data/scripts/my_debug.pory"
 	additem ITEM_TM_U_TURN
 	goto SkipStory_25
 
 SkipStory_29:
-# 1840 "data/scripts/my_debug.pory"
-	setflag FLAG_VISITED_SHORESLATE
-# 1841 "data/scripts/my_debug.pory"
-	setflag FLAG_ROUTE28_DESPAWN_BROTHER
-# 1842 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SHORESLATE_ROCKET
-# 1843 "data/scripts/my_debug.pory"
-	setvar VAR_DESERT_BYPASS, 1
-# 1844 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC1F_ROCKET_1
 # 1845 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC1F_ROCKET_2
+	setflag FLAG_VISITED_SHORESLATE
 # 1846 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_1
+	setflag FLAG_ROUTE28_DESPAWN_BROTHER
 # 1847 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_2
+	defeattrainer TRAINER_SHORESLATE_ROCKET
 # 1848 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_3
+	setvar VAR_DESERT_BYPASS, 1
 # 1849 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC_BASEROCKET_4
+	defeattrainer TRAINER_DC1F_ROCKET_1
 # 1850 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_1
+	defeattrainer TRAINER_DC1F_ROCKET_2
 # 1851 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_2
+	defeattrainer TRAINER_DC_BASEROCKET_1
 # 1852 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_3
+	defeattrainer TRAINER_DC_BASEROCKET_2
 # 1853 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_4
+	defeattrainer TRAINER_DC_BASEROCKET_3
 # 1854 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC2F_ROCKET_5
+	defeattrainer TRAINER_DC_BASEROCKET_4
 # 1855 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DC3F_ROCKET_1
+	defeattrainer TRAINER_DC2F_ROCKET_1
 # 1856 "data/scripts/my_debug.pory"
-	setflag FLAG_DEVON_UNDER_ATTACK
+	defeattrainer TRAINER_DC2F_ROCKET_2
 # 1857 "data/scripts/my_debug.pory"
-	setflag FLAG_HELPED_DEVON_CORP
+	defeattrainer TRAINER_DC2F_ROCKET_3
 # 1858 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_4
+# 1859 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DC2F_ROCKET_5
+# 1860 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DC3F_ROCKET_1
+# 1861 "data/scripts/my_debug.pory"
+	setflag FLAG_DEVON_UNDER_ATTACK
+# 1862 "data/scripts/my_debug.pory"
+	setflag FLAG_HELPED_DEVON_CORP
+# 1863 "data/scripts/my_debug.pory"
 	clearflag FLAG_HIDE_SHORESLATE_BOAT
 	checkitem ITEM_GO_GOGGLES
 # 0 "data/scripts/my_debug.pory"
@@ -3816,77 +3829,77 @@ SkipStory_41:
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_51
 SkipStory_50:
-# 1866 "data/scripts/my_debug.pory"
+# 1871 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_BIKE, SkipStory_65
 SkipStory_64:
-# 1869 "data/scripts/my_debug.pory"
+# 1874 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_BIKE
 	goto SkipStory_28
 
 SkipStory_32:
-# 1835 "data/scripts/my_debug.pory"
+# 1840 "data/scripts/my_debug.pory"
 	additem ITEM_TM_CHARGE_BEAM
 	goto SkipStory_31
 
 SkipStory_34:
-# 1775 "data/scripts/my_debug.pory"
+# 1780 "data/scripts/my_debug.pory"
 	msgbox SkipStory_Text_0, MSGBOX_YESNO
-# 1776 "data/scripts/my_debug.pory"
+# 1781 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq SkipStory_44
-# 1788 "data/scripts/my_debug.pory"
+# 1793 "data/scripts/my_debug.pory"
 	setflag FLAG_RIVAL_HARBOR_ANGRY
 	goto SkipStory_7
 
 SkipStory_39:
-# 1872 "data/scripts/my_debug.pory"
-	setflag FLAG_KAOLISLE_GYM_SWITCH1
-# 1873 "data/scripts/my_debug.pory"
-	setflag FLAG_KAOLISLE_GYM_SWITCH2
-# 1874 "data/scripts/my_debug.pory"
-	setflag FLAG_KAOLISLE_GYM_SWITCH3
-# 1875 "data/scripts/my_debug.pory"
-	setflag FLAG_KAOLISLE_GYM_SWITCH4
-# 1876 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR1_CAMPER1
 # 1877 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR2_PICNICKER1
+	setflag FLAG_KAOLISLE_GYM_SWITCH1
 # 1878 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR3_HIKER1
+	setflag FLAG_KAOLISLE_GYM_SWITCH2
 # 1879 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR4_CAMPER2
+	setflag FLAG_KAOLISLE_GYM_SWITCH3
 # 1880 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR5_HIKER2
+	setflag FLAG_KAOLISLE_GYM_SWITCH4
 # 1881 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR6_HIKER3
+	defeattrainer TRAINER_KAOLGYM_CAMPER1
 # 1882 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR7_PICNICKER2
+	defeattrainer TRAINER_KAOLGYM_PICNICKER1
 # 1883 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR8_CAMPER3
+	defeattrainer TRAINER_KAOLGYM_HIKER1
 # 1884 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR9_PICNICKER3
+	defeattrainer TRAINER_KAOLGYM_CAMPER2
 # 1885 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_TR10_HIKER4
+	defeattrainer TRAINER_KAOLGYM_HIKER2
 # 1886 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KAOLGYM_CLAY
+	defeattrainer TRAINER_KAOLGYM_HIKER3
 # 1887 "data/scripts/my_debug.pory"
-	setflag FLAG_BADGE03_GET
+	defeattrainer TRAINER_KAOLGYM_PICNICKER2
 # 1888 "data/scripts/my_debug.pory"
-	setvar VAR_KAOLISLE_HOTEL_STATE, 1
+	defeattrainer TRAINER_KAOLGYM_CAMPER3
 # 1889 "data/scripts/my_debug.pory"
-	clearflag FLAG_HIDEJASMINE_HOTEL
+	defeattrainer TRAINER_KAOLGYM_PICNICKER3
 # 1890 "data/scripts/my_debug.pory"
-	additem ITEM_TM_STOMPING_TANTRUM
+	defeattrainer TRAINER_KAOLGYM_HIKER4
 # 1891 "data/scripts/my_debug.pory"
-	setflag FLAG_VISITED_KAOLISLE
+	defeattrainer TRAINER_KAOLGYM_CLAY
 # 1892 "data/scripts/my_debug.pory"
+	setflag FLAG_BADGE03_GET
+# 1893 "data/scripts/my_debug.pory"
+	setvar VAR_KAOLISLE_HOTEL_STATE, 1
+# 1894 "data/scripts/my_debug.pory"
+	clearflag FLAG_HIDEJASMINE_HOTEL
+# 1895 "data/scripts/my_debug.pory"
+	additem ITEM_TM_STOMPING_TANTRUM
+# 1896 "data/scripts/my_debug.pory"
+	setflag FLAG_VISITED_KAOLISLE
+# 1897 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_BROTHER_INTRO
 	goto SkipStory_38
 
 SkipStory_42:
-# 1860 "data/scripts/my_debug.pory"
+# 1865 "data/scripts/my_debug.pory"
 	giveitem ITEM_GO_GOGGLES
-# 1861 "data/scripts/my_debug.pory"
+# 1866 "data/scripts/my_debug.pory"
 	removeitem ITEM_LETTER
 	goto SkipStory_41
 
@@ -3895,7 +3908,7 @@ SkipStory_44:
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SkipStory_54
-# 1781 "data/scripts/my_debug.pory"
+# 1786 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BRENDAN_CORALGROVE_ELEVATOR
 SkipStory_53:
 	checkitem ITEM_ITEMFINDER
@@ -3905,15 +3918,15 @@ SkipStory_53:
 	goto SkipStory_7
 
 SkipStory_48:
-# 1895 "data/scripts/my_debug.pory"
+# 1900 "data/scripts/my_debug.pory"
 	setflag FLAG_VISITED_SANDSTONE_CITY
 	checkplayergender
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SkipStory_61
-# 1905 "data/scripts/my_debug.pory"
+# 1910 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_81
-# 1909 "data/scripts/my_debug.pory"
+# 1914 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BRENDAN_ROUTE_11_NORMAL
 SkipStory_60:
 	checkitem ITEM_ITEMFINDER
@@ -3921,256 +3934,256 @@ SkipStory_60:
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_76
 SkipStory_75:
-# 1915 "data/scripts/my_debug.pory"
+# 1920 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_ROUTE_110_RIVAL
-# 1916 "data/scripts/my_debug.pory"
+# 1921 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
-# 1917 "data/scripts/my_debug.pory"
+# 1922 "data/scripts/my_debug.pory"
 	setvar VAR_GYM_TELEPORT, 1
-# 1918 "data/scripts/my_debug.pory"
+# 1923 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_ROUTE_110_RIVAL_ON_BIKE
 	goto SkipStory_47
 
 SkipStory_51:
-# 1864 "data/scripts/my_debug.pory"
+# 1869 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM05
 	goto SkipStory_50
 
 SkipStory_54:
-# 1778 "data/scripts/my_debug.pory"
+# 1783 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_MAY_CORALGROVE_ELEVATOR
 	goto SkipStory_53
 
 SkipStory_58:
-# 1921 "data/scripts/my_debug.pory"
+# 1926 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_MEGA_RING, SkipStory_73
 SkipStory_72:
-# 1924 "data/scripts/my_debug.pory"
+# 1929 "data/scripts/my_debug.pory"
 	setvar VAR_SANDSTONE_GYM_CHECKPOINTS, 2
-# 1925 "data/scripts/my_debug.pory"
+# 1930 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BADGE04_GET, SkipStory_91
 SkipStory_90:
-# 1928 "data/scripts/my_debug.pory"
-	setflag FLAG_BADGE04_GET
-# 1929 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_LEADER_KORRINA
-# 1930 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR1_CYCLISTM1
-# 1931 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR2_CYCLISTF1
-# 1932 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR3_CYCLISTF2
 # 1933 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR4_CYCLISTM2
+	setflag FLAG_BADGE04_GET
 # 1934 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR5_CYCLISTF3
+	defeattrainer TRAINER_LEADER_KORRINA
 # 1935 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR6_CYCLISTM3
+	defeattrainer TRAINER_SANDGYM_CYCLISTM1
 # 1936 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_SANDGYM_TR7_CYCLISTM4
+	defeattrainer TRAINER_SANDGYM_CYCLISTF1
+# 1937 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_SANDGYM_CYCLISTF2
+# 1938 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_SANDGYM_CYCLISTM2
+# 1939 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_SANDGYM_CYCLISTF3
+# 1940 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_SANDGYM_CYCLISTM3
+# 1941 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_SANDGYM_CYCLISTM4
 	goto SkipStory_57
 
 SkipStory_61:
-# 1897 "data/scripts/my_debug.pory"
+# 1902 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_RIVAL_HARBOR_ANGRY, SkipStory_78
-# 1901 "data/scripts/my_debug.pory"
+# 1906 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_MAY_ROUTE_11_NORMAL
 	goto SkipStory_60
 
 SkipStory_65:
-# 1867 "data/scripts/my_debug.pory"
+# 1872 "data/scripts/my_debug.pory"
 	giveitem ITEM_ACRO_BIKE
 	goto SkipStory_64
 
 SkipStory_67:
-# 1784 "data/scripts/my_debug.pory"
+# 1789 "data/scripts/my_debug.pory"
 	additem ITEM_ITEMFINDER
 	goto SkipStory_7
 
 SkipStory_70:
-# 1939 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_2F_TR2_MAN3
-# 1940 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_2F_TR2_WOMAN5
-# 1941 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_2F_TR1_PSYCHIC
-# 1942 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_2F_TR1_MAN5
-# 1943 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_3F_TR1_EXPERT_M
 # 1944 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_3F_TR1_EXPERT_F
+	defeattrainer TRAINER_AT_2F_MAN3
 # 1945 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_3F_TR2_HEXMANIAC
+	defeattrainer TRAINER_AT_2F_WOMAN5
 # 1946 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_3F_TR2_PSYCHICF
+	defeattrainer TRAINER_AT_2F_PSYCHIC
 # 1947 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR1_BLACKBELT
+	defeattrainer TRAINER_AT_2F_MAN5
 # 1948 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR1_HEXMANIAC
+	defeattrainer TRAINER_AT_3F_EXPERT_M
 # 1949 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR2_LASS
+	defeattrainer TRAINER_AT_3F_EXPERT_F
 # 1950 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR2_YOUNGSTER
+	defeattrainer TRAINER_AT_3F_HEXMANIAC
 # 1951 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR3_BATTLEGIRL
+	defeattrainer TRAINER_AT_3F_PSYCHICF
 # 1952 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_4F_TR3_BLACKBELT
+	defeattrainer TRAINER_AT_4F_BLACKBELT
 # 1953 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_AT_5F_COOLTRAINER_M
+	defeattrainer TRAINER_AT_4F_HEXMANIAC
 # 1954 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_AT_4F_LASS
+# 1955 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_AT_4F_YOUNGSTER
+# 1956 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_AT_4F_BATTLEGIRL
+# 1957 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_AT_4F_BLACKBELT2
+# 1958 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_AT_5F_COOLTRAINER_M
+# 1959 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_AT_5F_COOLTRAINER_F
 	checkitem ITEM_MEGA_RING
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_88
 SkipStory_87:
-# 1958 "data/scripts/my_debug.pory"
-	setflag FLAG_OBTAINED_MEGA_RING
-# 1959 "data/scripts/my_debug.pory"
-	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
-# 1960 "data/scripts/my_debug.pory"
-	clearflag FLAG_KORRINA_LEAVESGYM
-# 1961 "data/scripts/my_debug.pory"
-	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-# 1962 "data/scripts/my_debug.pory"
-	clearflag FLAG_HIDE_LAB_RIVAL
 # 1963 "data/scripts/my_debug.pory"
-	setflag FLAG_HIDE_LIBRARY_BIRCH
+	setflag FLAG_OBTAINED_MEGA_RING
 # 1964 "data/scripts/my_debug.pory"
-	switch VAR_STARTER_MON
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
 # 1965 "data/scripts/my_debug.pory"
-	case SPECIES_ROWLET, SkipStory_97
+	clearflag FLAG_KORRINA_LEAVESGYM
+# 1966 "data/scripts/my_debug.pory"
+	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
 # 1967 "data/scripts/my_debug.pory"
-	case SPECIES_TORCHIC, SkipStory_98
+	clearflag FLAG_HIDE_LAB_RIVAL
+# 1968 "data/scripts/my_debug.pory"
+	setflag FLAG_HIDE_LIBRARY_BIRCH
 # 1969 "data/scripts/my_debug.pory"
+	switch VAR_STARTER_MON
+# 1970 "data/scripts/my_debug.pory"
+	case SPECIES_ROWLET, SkipStory_97
+# 1972 "data/scripts/my_debug.pory"
+	case SPECIES_TORCHIC, SkipStory_98
+# 1974 "data/scripts/my_debug.pory"
 	case SPECIES_PIPLUP, SkipStory_99
 	goto SkipStory_69
 
 SkipStory_73:
-# 1922 "data/scripts/my_debug.pory"
+# 1927 "data/scripts/my_debug.pory"
 	setflag FLAG_KORRINA_LEAVESGYM
 	goto SkipStory_72
 
 SkipStory_76:
-# 1913 "data/scripts/my_debug.pory"
+# 1918 "data/scripts/my_debug.pory"
 	giveitem ITEM_ITEMFINDER
 	goto SkipStory_75
 
 SkipStory_78:
-# 1898 "data/scripts/my_debug.pory"
+# 1903 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_MAY_ROUTE_11_ANGRY
 	goto SkipStory_60
 
 SkipStory_81:
-# 1906 "data/scripts/my_debug.pory"
+# 1911 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto SkipStory_60
 
 SkipStory_85:
-# 1974 "data/scripts/my_debug.pory"
+# 1979 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-# 1975 "data/scripts/my_debug.pory"
+# 1980 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_LAB_RIVAL
-# 1976 "data/scripts/my_debug.pory"
+# 1981 "data/scripts/my_debug.pory"
 	setvar VAR_ROUTE14_ROCKET_EVENT, 3
 	goto SkipStory_84
 
 SkipStory_88:
-# 1956 "data/scripts/my_debug.pory"
+# 1961 "data/scripts/my_debug.pory"
 	giveitem ITEM_MEGA_RING
 	goto SkipStory_87
 
 SkipStory_91:
-# 1926 "data/scripts/my_debug.pory"
+# 1931 "data/scripts/my_debug.pory"
 	additem ITEM_TM_POWER_UP_PUNCH
 	goto SkipStory_90
 
 SkipStory_94:
-# 1979 "data/scripts/my_debug.pory"
+# 1984 "data/scripts/my_debug.pory"
 	setflag FLAG_ACEROLA_TALKED_TO
-# 1980 "data/scripts/my_debug.pory"
+# 1985 "data/scripts/my_debug.pory"
 	setvar VAR_ROUTE14_ROCKET_EVENT, 6
-# 1981 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR18_BERRYROCKET
-# 1982 "data/scripts/my_debug.pory"
+# 1986 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_BERRYROCKET
+# 1987 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BROTHER_5_FISHINGVILLAGE
-# 1983 "data/scripts/my_debug.pory"
+# 1988 "data/scripts/my_debug.pory"
 	setflag FLAG_VISITED_FISHING_VILLAGE
 	goto SkipStory_93
 
 SkipStory_97:
-# 1966 "data/scripts/my_debug.pory"
+# 1971 "data/scripts/my_debug.pory"
 	additem ITEM_DECIDUEITE
 	goto SkipStory_69
 
 SkipStory_98:
-# 1968 "data/scripts/my_debug.pory"
+# 1973 "data/scripts/my_debug.pory"
 	additem ITEM_BLAZIKENITE
 	goto SkipStory_69
 
 SkipStory_99:
-# 1970 "data/scripts/my_debug.pory"
+# 1975 "data/scripts/my_debug.pory"
 	additem ITEM_EMPOLEONITE
 	goto SkipStory_69
 
 SkipStory_101:
-# 1986 "data/scripts/my_debug.pory"
+# 1991 "data/scripts/my_debug.pory"
 	setflag FLAG_BADGE05_GET
 	checkitem ITEM_TM_SHADOW_CLAW
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_107
 SkipStory_106:
-# 1990 "data/scripts/my_debug.pory"
+# 1995 "data/scripts/my_debug.pory"
 	compare VAR_DRISLEDGE_TOWN_STATE, 30
 	goto_if_lt SkipStory_116
 SkipStory_115:
-# 1993 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER1
-# 1994 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER2
-# 1995 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER3
-# 1996 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER4
-# 1997 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER5
 # 1998 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DRISLEDGEGYM_TRAINER6
+	defeattrainer TRAINER_DRISGYM_1
 # 1999 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DRISGYM_2
+# 2000 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DRISGYM_3
+# 2001 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DRISGYM_4
+# 2002 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DRISGYM_5
+# 2003 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DRISGYM_6
+# 2004 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_LEADER_ACEROLA
 	checkitem ITEM_HM03
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SkipStory_128
 SkipStory_127:
-# 2003 "data/scripts/my_debug.pory"
+# 2008 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_HM_SURF
 	goto SkipStory_100
 
 SkipStory_104:
-# 2006 "data/scripts/my_debug.pory"
-	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
-# 2007 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_1
-# 2008 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_2
-# 2009 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_3
-# 2010 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_4
 # 2011 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_5
+	setvar VAR_AMBEROCK_STORY, STORY_AMBEROCK_STORY_COMPLETE
 # 2012 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FACTORY_ROCKET_PETREL
+	defeattrainer TRAINER_FACTORY_ROCKET_1
 # 2013 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FACTORY_ROCKET_2
+# 2014 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FACTORY_ROCKET_3
+# 2015 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FACTORY_ROCKET_4
+# 2016 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FACTORY_ROCKET_5
+# 2017 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FACTORY_ROCKET_PETREL
+# 2018 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FACTORY_ITEM_1, SkipStory_113
 SkipStory_112:
-# 2017 "data/scripts/my_debug.pory"
+# 2022 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FACTORY_ITEM_2, SkipStory_125
 SkipStory_124:
-# 2021 "data/scripts/my_debug.pory"
+# 2026 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FACTORY_ITEM_3, SkipStory_133
 SkipStory_132:
 	checkitem ITEM_ZYGARDE_CUBE
@@ -4180,63 +4193,63 @@ SkipStory_132:
 	goto SkipStory_103
 
 SkipStory_107:
-# 1988 "data/scripts/my_debug.pory"
+# 1993 "data/scripts/my_debug.pory"
 	additem ITEM_TM_SHADOW_CLAW
 	goto SkipStory_106
 
 SkipStory_110:
-# 2031 "data/scripts/my_debug.pory"
+# 2036 "data/scripts/my_debug.pory"
 	setflag FLAG_RIVAL_MET_IN_BASALEK
 	checkplayergender
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SkipStory_121
-# 2036 "data/scripts/my_debug.pory"
+# 2041 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BRENDAN_BASALEK_TOWN
 	goto SkipStory_109
 
 SkipStory_113:
-# 2014 "data/scripts/my_debug.pory"
+# 2019 "data/scripts/my_debug.pory"
 	setflag FLAG_FACTORY_ITEM_1
-# 2015 "data/scripts/my_debug.pory"
+# 2020 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ELIXIR
 	goto SkipStory_112
 
 SkipStory_116:
-# 1991 "data/scripts/my_debug.pory"
+# 1996 "data/scripts/my_debug.pory"
 	setvar VAR_DRISLEDGE_TOWN_STATE, 30
 	goto SkipStory_115
 
 SkipStory_119:
-# 2040 "data/scripts/my_debug.pory"
-	setflag FLAG_PRYCE_ESCORTED
-# 2041 "data/scripts/my_debug.pory"
-	addbp 10
-# 2042 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_LEADER_PRYCE
-# 2043 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_LEADER_BLAINE
-# 2044 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR1_HIKER1
 # 2045 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR2_KINDLER1
+	setflag FLAG_PRYCE_ESCORTED
 # 2046 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR3_SENIOR
+	addbp 10
 # 2047 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR4_JUNIOR
+	defeattrainer TRAINER_LEADER_PRYCE
 # 2048 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR5_RANGER_M
+	defeattrainer TRAINER_LEADER_BLAINE
 # 2049 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR6_RANGER_F
+	defeattrainer TRAINER_FROSTGYM_HIKER1
 # 2050 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR7_MANIAC
+	defeattrainer TRAINER_FROSTGYM_KINDLER1
 # 2051 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR8_COLLECTOR
+	defeattrainer TRAINER_FROSTGYM_SENIOR
 # 2052 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR9_KINDLER2
+	defeattrainer TRAINER_FROSTGYM_JUNIOR
 # 2053 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FROSTGYM_TR10_RANGER_F2
+	defeattrainer TRAINER_FROSTGYM_RANGER_M
 # 2054 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FROSTGYM_RANGER_F
+# 2055 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FROSTGYM_MANIAC
+# 2056 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FROSTGYM_COLLECTOR
+# 2057 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FROSTGYM_KINDLER2
+# 2058 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FROSTGYM_RANGER_F2
+# 2059 "data/scripts/my_debug.pory"
 	setflag FLAG_BADGE06_GET
 	checkitem ITEM_TM_ICE_BURN
 # 0 "data/scripts/my_debug.pory"
@@ -4245,266 +4258,266 @@ SkipStory_119:
 	goto SkipStory_118
 
 SkipStory_121:
-# 2033 "data/scripts/my_debug.pory"
+# 2038 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_MAY_BASALEK_TOWN
 	goto SkipStory_109
 
 SkipStory_125:
-# 2018 "data/scripts/my_debug.pory"
+# 2023 "data/scripts/my_debug.pory"
 	setflag FLAG_FACTORY_ITEM_1
-# 2019 "data/scripts/my_debug.pory"
+# 2024 "data/scripts/my_debug.pory"
 	additem ITEM_X_ATTACK
 	goto SkipStory_124
 
 SkipStory_128:
-# 2001 "data/scripts/my_debug.pory"
+# 2006 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM03
 	goto SkipStory_127
 
 SkipStory_130:
-# 2056 "data/scripts/my_debug.pory"
+# 2061 "data/scripts/my_debug.pory"
 	additem ITEM_TM_ICE_BURN
 	goto SkipStory_118
 
 SkipStory_133:
-# 2022 "data/scripts/my_debug.pory"
+# 2027 "data/scripts/my_debug.pory"
 	setflag FLAG_FACTORY_ITEM_1
-# 2023 "data/scripts/my_debug.pory"
+# 2028 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto SkipStory_132
 
 SkipStory_135:
-# 2026 "data/scripts/my_debug.pory"
+# 2031 "data/scripts/my_debug.pory"
 	removeitem ITEM_RESEARCH_PAPERS
-# 2027 "data/scripts/my_debug.pory"
+# 2032 "data/scripts/my_debug.pory"
 	giveitem ITEM_ZYGARDE_CUBE
 	goto SkipStory_103
 
 
 CompleteAllAreas::
-# 2063 "data/scripts/my_debug.pory"
+# 2068 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_1
-# 2064 "data/scripts/my_debug.pory"
+# 2069 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 0
 	goto_if_eq CompleteAllAreas_2
-# 2065 "data/scripts/my_debug.pory"
+# 2070 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_2
-# 2066 "data/scripts/my_debug.pory"
+# 2071 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 1
 	goto_if_eq CompleteAllAreas_5
-# 2067 "data/scripts/my_debug.pory"
+# 2072 "data/scripts/my_debug.pory"
 	call CompleteArea_Windy_Woods
-# 2068 "data/scripts/my_debug.pory"
+# 2073 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 2
 	goto_if_eq CompleteAllAreas_8
-# 2069 "data/scripts/my_debug.pory"
+# 2074 "data/scripts/my_debug.pory"
 	call CompleteArea_Coralgrove_City
-# 2070 "data/scripts/my_debug.pory"
+# 2075 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 3
 	goto_if_eq CompleteAllAreas_11
-# 2071 "data/scripts/my_debug.pory"
+# 2076 "data/scripts/my_debug.pory"
 	call CompleteArea_Azuretide_Town
-# 2072 "data/scripts/my_debug.pory"
+# 2077 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 4
 	goto_if_eq CompleteAllAreas_14
-# 2073 "data/scripts/my_debug.pory"
+# 2078 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_4
-# 2074 "data/scripts/my_debug.pory"
+# 2079 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 5
 	goto_if_eq CompleteAllAreas_17
-# 2075 "data/scripts/my_debug.pory"
+# 2080 "data/scripts/my_debug.pory"
 	call CompleteArea_Pokemon_Ranch
-# 2076 "data/scripts/my_debug.pory"
+# 2081 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 6
 	goto_if_eq CompleteAllAreas_20
-# 2077 "data/scripts/my_debug.pory"
+# 2082 "data/scripts/my_debug.pory"
 	call CompleteArea_Aldeleaf_City
-# 2078 "data/scripts/my_debug.pory"
+# 2083 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 7
 	goto_if_eq CompleteAllAreas_23
-# 2079 "data/scripts/my_debug.pory"
+# 2084 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_30
-# 2080 "data/scripts/my_debug.pory"
+# 2085 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 8
 	goto_if_eq CompleteAllAreas_26
-# 2081 "data/scripts/my_debug.pory"
+# 2086 "data/scripts/my_debug.pory"
 	call CompleteArea_Windplume_Valley
-# 2082 "data/scripts/my_debug.pory"
+# 2087 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 9
 	goto_if_eq CompleteAllAreas_29
-# 2083 "data/scripts/my_debug.pory"
+# 2088 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_5
-# 2084 "data/scripts/my_debug.pory"
+# 2089 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 10
 	goto_if_eq CompleteAllAreas_32
-# 2085 "data/scripts/my_debug.pory"
+# 2090 "data/scripts/my_debug.pory"
 	call CompleteArea_Flower_Fields
-# 2086 "data/scripts/my_debug.pory"
+# 2091 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 11
 	goto_if_eq CompleteAllAreas_35
-# 2087 "data/scripts/my_debug.pory"
+# 2092 "data/scripts/my_debug.pory"
 	call CompleteArea_Skyloch_Village
-# 2088 "data/scripts/my_debug.pory"
+# 2093 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 12
 	goto_if_eq CompleteAllAreas_38
-# 2089 "data/scripts/my_debug.pory"
+# 2094 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_6
-# 2090 "data/scripts/my_debug.pory"
+# 2095 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 13
 	goto_if_eq CompleteAllAreas_41
-# 2091 "data/scripts/my_debug.pory"
+# 2096 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_8
-# 2092 "data/scripts/my_debug.pory"
+# 2097 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 14
 	goto_if_eq CompleteAllAreas_44
-# 2093 "data/scripts/my_debug.pory"
+# 2098 "data/scripts/my_debug.pory"
 	call CompleteArea_Shoreslate_City
-# 2094 "data/scripts/my_debug.pory"
+# 2099 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 15
 	goto_if_eq CompleteAllAreas_47
-# 2095 "data/scripts/my_debug.pory"
+# 2100 "data/scripts/my_debug.pory"
 	call CompleteArea_Scorched_Desert
-# 2096 "data/scripts/my_debug.pory"
+# 2101 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 16
 	goto_if_eq CompleteAllAreas_50
-# 2097 "data/scripts/my_debug.pory"
+# 2102 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_7
-# 2098 "data/scripts/my_debug.pory"
+# 2103 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 17
 	goto_if_eq CompleteAllAreas_53
-# 2099 "data/scripts/my_debug.pory"
+# 2104 "data/scripts/my_debug.pory"
 	call CompleteArea_Marigorge_Town
-# 2100 "data/scripts/my_debug.pory"
+# 2105 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 18
 	goto_if_eq CompleteAllAreas_56
-# 2101 "data/scripts/my_debug.pory"
+# 2106 "data/scripts/my_debug.pory"
 	call CompleteArea_Kaolisle_City
-# 2102 "data/scripts/my_debug.pory"
+# 2107 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 19
 	goto_if_eq CompleteAllAreas_59
-# 2103 "data/scripts/my_debug.pory"
+# 2108 "data/scripts/my_debug.pory"
 	call CompleteArea_Rockliffe_Town
-# 2104 "data/scripts/my_debug.pory"
+# 2109 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 20
 	goto_if_eq CompleteAllAreas_62
-# 2105 "data/scripts/my_debug.pory"
+# 2110 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_11
-# 2106 "data/scripts/my_debug.pory"
+# 2111 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 21
 	goto_if_eq CompleteAllAreas_65
-# 2107 "data/scripts/my_debug.pory"
+# 2112 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_12
-# 2108 "data/scripts/my_debug.pory"
+# 2113 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 22
 	goto_if_eq CompleteAllAreas_68
-# 2109 "data/scripts/my_debug.pory"
+# 2114 "data/scripts/my_debug.pory"
 	call CompleteArea_Sandstone_City
-# 2110 "data/scripts/my_debug.pory"
+# 2115 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 23
 	goto_if_eq CompleteAllAreas_71
-# 2111 "data/scripts/my_debug.pory"
+# 2116 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_13
-# 2112 "data/scripts/my_debug.pory"
+# 2117 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 24
 	goto_if_eq CompleteAllAreas_74
-# 2113 "data/scripts/my_debug.pory"
+# 2118 "data/scripts/my_debug.pory"
 	call CompleteArea_Adamant_Tower
-# 2114 "data/scripts/my_debug.pory"
+# 2119 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 25
 	goto_if_eq CompleteAllAreas_77
-# 2115 "data/scripts/my_debug.pory"
+# 2120 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_14
-# 2116 "data/scripts/my_debug.pory"
+# 2121 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 26
 	goto_if_eq CompleteAllAreas_80
-# 2117 "data/scripts/my_debug.pory"
+# 2122 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_15
-# 2118 "data/scripts/my_debug.pory"
+# 2123 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 27
 	goto_if_eq CompleteAllAreas_83
-# 2119 "data/scripts/my_debug.pory"
+# 2124 "data/scripts/my_debug.pory"
 	call CompleteArea_Fishing_Village
-# 2120 "data/scripts/my_debug.pory"
+# 2125 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 28
 	goto_if_eq CompleteAllAreas_86
-# 2121 "data/scripts/my_debug.pory"
+# 2126 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_23
-# 2122 "data/scripts/my_debug.pory"
+# 2127 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 29
 	goto_if_eq CompleteAllAreas_89
-# 2123 "data/scripts/my_debug.pory"
+# 2128 "data/scripts/my_debug.pory"
 	call CompleteArea_Drisledge_Town
-# 2124 "data/scripts/my_debug.pory"
+# 2129 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 30
 	goto_if_eq CompleteAllAreas_92
-# 2125 "data/scripts/my_debug.pory"
+# 2130 "data/scripts/my_debug.pory"
 	call CompleteArea_Amberock_Town
-# 2126 "data/scripts/my_debug.pory"
+# 2131 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 31
 	goto_if_eq CompleteAllAreas_95
-# 2127 "data/scripts/my_debug.pory"
+# 2132 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_3
-# 2128 "data/scripts/my_debug.pory"
+# 2133 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 32
 	goto_if_eq CompleteAllAreas_98
-# 2129 "data/scripts/my_debug.pory"
+# 2134 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_9
-# 2130 "data/scripts/my_debug.pory"
+# 2135 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 33
 	goto_if_eq CompleteAllAreas_101
-# 2131 "data/scripts/my_debug.pory"
+# 2136 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_10
-# 2132 "data/scripts/my_debug.pory"
+# 2137 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 34
 	goto_if_eq CompleteAllAreas_104
-# 2133 "data/scripts/my_debug.pory"
+# 2138 "data/scripts/my_debug.pory"
 	call CompleteArea_Windplume_Mountain
-# 2134 "data/scripts/my_debug.pory"
+# 2139 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 35
 	goto_if_eq CompleteAllAreas_107
-# 2135 "data/scripts/my_debug.pory"
+# 2140 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_16
-# 2136 "data/scripts/my_debug.pory"
+# 2141 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 36
 	goto_if_eq CompleteAllAreas_110
-# 2137 "data/scripts/my_debug.pory"
+# 2142 "data/scripts/my_debug.pory"
 	call CompleteArea_Basalek_Town
-# 2138 "data/scripts/my_debug.pory"
+# 2143 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 37
 	goto_if_eq CompleteAllAreas_113
-# 2139 "data/scripts/my_debug.pory"
+# 2144 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_17
-# 2140 "data/scripts/my_debug.pory"
+# 2145 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 38
 	goto_if_eq CompleteAllAreas_116
-# 2141 "data/scripts/my_debug.pory"
+# 2146 "data/scripts/my_debug.pory"
 	call CompleteArea_Route_18
-# 2142 "data/scripts/my_debug.pory"
+# 2147 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 39
 	goto_if_eq CompleteAllAreas_119
-# 2143 "data/scripts/my_debug.pory"
+# 2148 "data/scripts/my_debug.pory"
 	call CompleteArea_Frosthearth_City
-# 2144 "data/scripts/my_debug.pory"
+# 2149 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 40
 	goto_if_eq CompleteAllAreas_122
-# 2145 "data/scripts/my_debug.pory"
+# 2150 "data/scripts/my_debug.pory"
 	call CompleteArea_Rock_Climb
-# 2146 "data/scripts/my_debug.pory"
+# 2151 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 41
 	goto_if_eq CompleteAllAreas_125
-# 2147 "data/scripts/my_debug.pory"
+# 2152 "data/scripts/my_debug.pory"
 	call CompleteArea_Desert_Ruins
-# 2148 "data/scripts/my_debug.pory"
+# 2153 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 42
 	goto_if_eq CompleteAllAreas_128
-# 2149 "data/scripts/my_debug.pory"
+# 2154 "data/scripts/my_debug.pory"
 	call CompleteArea_Safari_Zone
-# 2150 "data/scripts/my_debug.pory"
+# 2155 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 43
 	goto_if_eq CompleteAllAreas_131
-# 2151 "data/scripts/my_debug.pory"
+# 2156 "data/scripts/my_debug.pory"
 	call CompleteArea_Misc_Surfing
-# 2152 "data/scripts/my_debug.pory"
+# 2157 "data/scripts/my_debug.pory"
 	compare VAR_TEMP_A, 44
 	goto_if_eq CompleteAllAreas_133
 	return
@@ -4646,334 +4659,334 @@ CompleteAllAreas_133:
 
 
 CompleteArea_Route_1::
-# 2156 "data/scripts/my_debug.pory"
+# 2161 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_1_2
 CompleteArea_Route_1_1:
-# 2162 "data/scripts/my_debug.pory"
+# 2167 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_1_5
 CompleteArea_Route_1_4:
-# 2173 "data/scripts/my_debug.pory"
+# 2178 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_1_10
 CompleteArea_Route_1_9:
 	return
 
 CompleteArea_Route_1_2:
-# 2157 "data/scripts/my_debug.pory"
+# 2162 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION, CompleteArea_Route_1_7
 	goto CompleteArea_Route_1_1
 
 CompleteArea_Route_1_5:
-# 2163 "data/scripts/my_debug.pory"
+# 2168 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R1_YOUNGSTER
-# 2164 "data/scripts/my_debug.pory"
+# 2169 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R1_FISHER
-# 2165 "data/scripts/my_debug.pory"
+# 2170 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R1_BUG_CATCHER
-# 2166 "data/scripts/my_debug.pory"
+# 2171 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R1_TUBER
-# 2167 "data/scripts/my_debug.pory"
+# 2172 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_R1_COOLTRAINER
 	goto_if 0, CompleteArea_Route_1_12
 	goto CompleteArea_Route_1_4
 
 CompleteArea_Route_1_7:
-# 2158 "data/scripts/my_debug.pory"
+# 2163 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION
-# 2159 "data/scripts/my_debug.pory"
+# 2164 "data/scripts/my_debug.pory"
 	additem ITEM_POTION
 	goto CompleteArea_Route_1_1
 
 CompleteArea_Route_1_10:
-# 2174 "data/scripts/my_debug.pory"
+# 2179 "data/scripts/my_debug.pory"
 	setflag FLAG_ORICORIO_SHOWN_TO_MANIAC
-# 2175 "data/scripts/my_debug.pory"
+# 2180 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q01_PRIMROSE_ORICORIO_START, CompleteArea_Route_1_14
 	goto CompleteArea_Route_1_9
 
 CompleteArea_Route_1_12:
-# 2168 "data/scripts/my_debug.pory"
+# 2173 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R1_COOLTRAINER
-# 2169 "data/scripts/my_debug.pory"
+# 2174 "data/scripts/my_debug.pory"
 	addbp 10
-# 2170 "data/scripts/my_debug.pory"
+# 2175 "data/scripts/my_debug.pory"
 	giveitem ITEM_EXP_SHARE
 	goto CompleteArea_Route_1_4
 
 CompleteArea_Route_1_14:
-# 2176 "data/scripts/my_debug.pory"
+# 2181 "data/scripts/my_debug.pory"
 	completequest FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE
 	goto CompleteArea_Route_1_9
 
 
 CompleteArea_Route_2::
-# 2182 "data/scripts/my_debug.pory"
+# 2187 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_2_2
 CompleteArea_Route_2_1:
-# 2214 "data/scripts/my_debug.pory"
+# 2219 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_2_5
 CompleteArea_Route_2_4:
-# 2221 "data/scripts/my_debug.pory"
+# 2226 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_2_11
 CompleteArea_Route_2_10:
 	return
 
 CompleteArea_Route_2_2:
-# 2183 "data/scripts/my_debug.pory"
+# 2188 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE2_PEARL1, CompleteArea_Route_2_8
 CompleteArea_Route_2_7:
-# 2187 "data/scripts/my_debug.pory"
+# 2192 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL, CompleteArea_Route_2_14
 CompleteArea_Route_2_13:
-# 2191 "data/scripts/my_debug.pory"
+# 2196 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE2_PEARL2, CompleteArea_Route_2_19
 CompleteArea_Route_2_18:
-# 2195 "data/scripts/my_debug.pory"
+# 2200 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE2_X_ATTACK, CompleteArea_Route_2_22
 CompleteArea_Route_2_21:
-# 2199 "data/scripts/my_debug.pory"
+# 2204 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL, CompleteArea_Route_2_25
 CompleteArea_Route_2_24:
-# 2203 "data/scripts/my_debug.pory"
+# 2208 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE2_REVIVE, CompleteArea_Route_2_28
 CompleteArea_Route_2_27:
-# 2207 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_2_PECHA
-# 2208 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2209 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_2_ORAN
-# 2210 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2211 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_2_CHERI
 # 2212 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_2_PECHA
+# 2213 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2214 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_2_ORAN
+# 2215 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2216 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_2_CHERI
+# 2217 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_2_1
 
 CompleteArea_Route_2_5:
-# 2215 "data/scripts/my_debug.pory"
+# 2220 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R2_FISHER
-# 2216 "data/scripts/my_debug.pory"
+# 2221 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R2_LASS
-# 2217 "data/scripts/my_debug.pory"
+# 2222 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R2_BLACKBELT
-# 2218 "data/scripts/my_debug.pory"
+# 2223 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R2_YOUNGSTER
-# 2219 "data/scripts/my_debug.pory"
+# 2224 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_R2_SCHOOL_KID_F
 	goto CompleteArea_Route_2_4
 
 CompleteArea_Route_2_8:
-# 2184 "data/scripts/my_debug.pory"
+# 2189 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_PEARL1
-# 2185 "data/scripts/my_debug.pory"
+# 2190 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_2_7
 
 CompleteArea_Route_2_11:
-# 2222 "data/scripts/my_debug.pory"
+# 2227 "data/scripts/my_debug.pory"
 	setflag FLAG_ORICORIO_SHOWN_TO_MANIAC
-# 2223 "data/scripts/my_debug.pory"
+# 2228 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q01_PRIMROSE_ORICORIO_START, CompleteArea_Route_2_16
 	goto CompleteArea_Route_2_10
 
 CompleteArea_Route_2_14:
-# 2188 "data/scripts/my_debug.pory"
+# 2193 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL
-# 2189 "data/scripts/my_debug.pory"
+# 2194 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_PEARL
 	goto CompleteArea_Route_2_13
 
 CompleteArea_Route_2_16:
-# 2224 "data/scripts/my_debug.pory"
+# 2229 "data/scripts/my_debug.pory"
 	completequest FLAG_Q01_PRIMROSE_ORICORIO_COMPLETE
 	goto CompleteArea_Route_2_10
 
 CompleteArea_Route_2_19:
-# 2192 "data/scripts/my_debug.pory"
+# 2197 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_PEARL2
-# 2193 "data/scripts/my_debug.pory"
+# 2198 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_2_18
 
 CompleteArea_Route_2_22:
-# 2196 "data/scripts/my_debug.pory"
+# 2201 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE2_X_ATTACK
-# 2197 "data/scripts/my_debug.pory"
+# 2202 "data/scripts/my_debug.pory"
 	additem ITEM_X_ATTACK
 	goto CompleteArea_Route_2_21
 
 CompleteArea_Route_2_25:
-# 2200 "data/scripts/my_debug.pory"
+# 2205 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL
-# 2201 "data/scripts/my_debug.pory"
+# 2206 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Route_2_24
 
 CompleteArea_Route_2_28:
-# 2204 "data/scripts/my_debug.pory"
+# 2209 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE2_REVIVE
-# 2205 "data/scripts/my_debug.pory"
+# 2210 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Route_2_27
 
 
 CompleteArea_Windy_Woods::
-# 2230 "data/scripts/my_debug.pory"
+# 2235 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Windy_Woods_2
 CompleteArea_Windy_Woods_1:
-# 2252 "data/scripts/my_debug.pory"
+# 2257 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Windy_Woods_5
 CompleteArea_Windy_Woods_4:
-# 2273 "data/scripts/my_debug.pory"
+# 2278 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Windy_Woods_11
 CompleteArea_Windy_Woods_10:
 	return
 
 CompleteArea_Windy_Woods_2:
-# 2231 "data/scripts/my_debug.pory"
+# 2236 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_WW_PARLYZ, CompleteArea_Windy_Woods_8
 CompleteArea_Windy_Woods_7:
-# 2235 "data/scripts/my_debug.pory"
+# 2240 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_WW_DAMP_ROCK, CompleteArea_Windy_Woods_16
 CompleteArea_Windy_Woods_15:
-# 2239 "data/scripts/my_debug.pory"
+# 2244 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_WW_CARBOS, CompleteArea_Windy_Woods_23
 CompleteArea_Windy_Woods_22:
-# 2243 "data/scripts/my_debug.pory"
+# 2248 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_WW_RARE_CANDY, CompleteArea_Windy_Woods_26
 CompleteArea_Windy_Woods_25:
-# 2247 "data/scripts/my_debug.pory"
+# 2252 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_WW_ETHER, CompleteArea_Windy_Woods_28
 	goto CompleteArea_Windy_Woods_1
 
 CompleteArea_Windy_Woods_5:
-# 2253 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_BUGCATCHER
-# 2254 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_LADY
-# 2255 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_BUGCATCHER_2
-# 2256 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_CAMPER
-# 2257 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_LASS
 # 2258 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WW_YOUNGSTER
+	defeattrainer TRAINER_WW_BUGCATCHER
 # 2259 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_LADY
+# 2260 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_BUGCATCHER_2
+# 2261 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_CAMPER
+# 2262 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_LASS
+# 2263 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WW_YOUNGSTER
+# 2264 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_WW_ACE_TRAINER
 	goto_if 0, CompleteArea_Windy_Woods_13
 	goto CompleteArea_Windy_Woods_4
 
 CompleteArea_Windy_Woods_8:
-# 2232 "data/scripts/my_debug.pory"
+# 2237 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_WW_PARLYZ
-# 2233 "data/scripts/my_debug.pory"
+# 2238 "data/scripts/my_debug.pory"
 	additem ITEM_PARALYZE_HEAL
 	goto CompleteArea_Windy_Woods_7
 
 CompleteArea_Windy_Woods_11:
-# 2274 "data/scripts/my_debug.pory"
+# 2279 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_LOST_GLADE
-# 2275 "data/scripts/my_debug.pory"
+# 2280 "data/scripts/my_debug.pory"
 	setflag FLAG_GLADE_PUZZLE
 	goto CompleteArea_Windy_Woods_10
 
 CompleteArea_Windy_Woods_13:
-# 2260 "data/scripts/my_debug.pory"
+# 2265 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_WW_ACE_TRAINER
-# 2261 "data/scripts/my_debug.pory"
-	setflag FLAG_WW_COOLTRAINERREWARD
-# 2262 "data/scripts/my_debug.pory"
-	addbp 10
-# 2263 "data/scripts/my_debug.pory"
-	switch VAR_STARTER_MON
-# 2264 "data/scripts/my_debug.pory"
-	case SPECIES_ROWLET, CompleteArea_Windy_Woods_19
 # 2266 "data/scripts/my_debug.pory"
-	case SPECIES_TORCHIC, CompleteArea_Windy_Woods_20
+	setflag FLAG_WW_COOLTRAINERREWARD
+# 2267 "data/scripts/my_debug.pory"
+	addbp 10
 # 2268 "data/scripts/my_debug.pory"
+	switch VAR_STARTER_MON
+# 2269 "data/scripts/my_debug.pory"
+	case SPECIES_ROWLET, CompleteArea_Windy_Woods_19
+# 2271 "data/scripts/my_debug.pory"
+	case SPECIES_TORCHIC, CompleteArea_Windy_Woods_20
+# 2273 "data/scripts/my_debug.pory"
 	case SPECIES_PIPLUP, CompleteArea_Windy_Woods_21
 	goto CompleteArea_Windy_Woods_4
 
 CompleteArea_Windy_Woods_16:
-# 2236 "data/scripts/my_debug.pory"
+# 2241 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_WW_DAMP_ROCK
-# 2237 "data/scripts/my_debug.pory"
+# 2242 "data/scripts/my_debug.pory"
 	additem ITEM_DAMP_ROCK
 	goto CompleteArea_Windy_Woods_15
 
 CompleteArea_Windy_Woods_19:
-# 2265 "data/scripts/my_debug.pory"
+# 2270 "data/scripts/my_debug.pory"
 	additem ITEM_MIRACLE_SEED
 	goto CompleteArea_Windy_Woods_4
 
 CompleteArea_Windy_Woods_20:
-# 2267 "data/scripts/my_debug.pory"
+# 2272 "data/scripts/my_debug.pory"
 	additem ITEM_CHARCOAL
 	goto CompleteArea_Windy_Woods_4
 
 CompleteArea_Windy_Woods_21:
-# 2269 "data/scripts/my_debug.pory"
+# 2274 "data/scripts/my_debug.pory"
 	additem ITEM_MYSTIC_WATER
 	goto CompleteArea_Windy_Woods_4
 
 CompleteArea_Windy_Woods_23:
-# 2240 "data/scripts/my_debug.pory"
+# 2245 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_WW_CARBOS
-# 2241 "data/scripts/my_debug.pory"
+# 2246 "data/scripts/my_debug.pory"
 	additem ITEM_CARBOS
 	goto CompleteArea_Windy_Woods_22
 
 CompleteArea_Windy_Woods_26:
-# 2244 "data/scripts/my_debug.pory"
+# 2249 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_WW_RARE_CANDY
-# 2245 "data/scripts/my_debug.pory"
+# 2250 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Windy_Woods_25
 
 CompleteArea_Windy_Woods_28:
-# 2248 "data/scripts/my_debug.pory"
+# 2253 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_WW_ETHER
-# 2249 "data/scripts/my_debug.pory"
+# 2254 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Windy_Woods_1
 
 
 CompleteArea_Coralgrove_City::
-# 2280 "data/scripts/my_debug.pory"
+# 2285 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Coralgrove_City_2
 CompleteArea_Coralgrove_City_1:
-# 2298 "data/scripts/my_debug.pory"
+# 2303 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Coralgrove_City_5
 CompleteArea_Coralgrove_City_4:
-# 2307 "data/scripts/my_debug.pory"
+# 2312 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Coralgrove_City_11
 CompleteArea_Coralgrove_City_10:
 	return
 
 CompleteArea_Coralgrove_City_2:
-# 2281 "data/scripts/my_debug.pory"
+# 2286 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_CORAL_GREATBALL, CompleteArea_Coralgrove_City_8
 CompleteArea_Coralgrove_City_7:
-# 2285 "data/scripts/my_debug.pory"
+# 2290 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY, CompleteArea_Coralgrove_City_16
 CompleteArea_Coralgrove_City_15:
-# 2289 "data/scripts/my_debug.pory"
+# 2294 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HARBOR_GREATBALL, CompleteArea_Coralgrove_City_22
 CompleteArea_Coralgrove_City_21:
-# 2293 "data/scripts/my_debug.pory"
+# 2298 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HARBOR_PEARL, CompleteArea_Coralgrove_City_27
 	goto CompleteArea_Coralgrove_City_1
 
 CompleteArea_Coralgrove_City_5:
-# 2299 "data/scripts/my_debug.pory"
+# 2304 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_SCHOOLHALL_1
-# 2300 "data/scripts/my_debug.pory"
+# 2305 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_SCHOOLHALL_2
-# 2301 "data/scripts/my_debug.pory"
+# 2306 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_SCHOOLHALL_3
-# 2302 "data/scripts/my_debug.pory"
+# 2307 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_SCHOOLHALL_4
 	checkitem ITEM_TM_FALSE_SWIPE
 # 0 "data/scripts/my_debug.pory"
@@ -4982,16 +4995,16 @@ CompleteArea_Coralgrove_City_5:
 	goto CompleteArea_Coralgrove_City_4
 
 CompleteArea_Coralgrove_City_8:
-# 2282 "data/scripts/my_debug.pory"
+# 2287 "data/scripts/my_debug.pory"
 	setflag FLAG_CORAL_GREATBALL
-# 2283 "data/scripts/my_debug.pory"
+# 2288 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Coralgrove_City_7
 
 CompleteArea_Coralgrove_City_11:
-# 2308 "data/scripts/my_debug.pory"
+# 2313 "data/scripts/my_debug.pory"
 	setflag FLAG_0x267_CG_HIDEGHOST
-# 2309 "data/scripts/my_debug.pory"
+# 2314 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_CORALGROVE_CUTSCENE, CompleteArea_Coralgrove_City_19
 CompleteArea_Coralgrove_City_18:
 	checkitem ITEM_TM_REST
@@ -5006,71 +5019,71 @@ CompleteArea_Coralgrove_City_24:
 	goto CompleteArea_Coralgrove_City_10
 
 CompleteArea_Coralgrove_City_13:
-# 2304 "data/scripts/my_debug.pory"
+# 2309 "data/scripts/my_debug.pory"
 	additem ITEM_TM_FALSE_SWIPE
 	goto CompleteArea_Coralgrove_City_4
 
 CompleteArea_Coralgrove_City_16:
-# 2286 "data/scripts/my_debug.pory"
+# 2291 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY
-# 2287 "data/scripts/my_debug.pory"
+# 2292 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Coralgrove_City_15
 
 CompleteArea_Coralgrove_City_19:
-# 2310 "data/scripts/my_debug.pory"
+# 2315 "data/scripts/my_debug.pory"
 	setflag FLAG_CORALGROVE_CUTSCENE
-# 2311 "data/scripts/my_debug.pory"
+# 2316 "data/scripts/my_debug.pory"
 	clearflag FLAG_OBTAINED_PIDGEOTITE
 	goto CompleteArea_Coralgrove_City_18
 
 CompleteArea_Coralgrove_City_22:
-# 2290 "data/scripts/my_debug.pory"
+# 2295 "data/scripts/my_debug.pory"
 	setflag FLAG_HARBOR_GREATBALL
-# 2291 "data/scripts/my_debug.pory"
+# 2296 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Coralgrove_City_21
 
 CompleteArea_Coralgrove_City_25:
-# 2314 "data/scripts/my_debug.pory"
+# 2319 "data/scripts/my_debug.pory"
 	additem ITEM_TM_REST
 	goto CompleteArea_Coralgrove_City_24
 
 CompleteArea_Coralgrove_City_27:
-# 2294 "data/scripts/my_debug.pory"
+# 2299 "data/scripts/my_debug.pory"
 	setflag FLAG_HARBOR_PEARL
-# 2295 "data/scripts/my_debug.pory"
+# 2300 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Coralgrove_City_1
 
 CompleteArea_Coralgrove_City_29:
-# 2317 "data/scripts/my_debug.pory"
+# 2322 "data/scripts/my_debug.pory"
 	additem ITEM_OLD_ROD
 	goto CompleteArea_Coralgrove_City_10
 
 
 CompleteArea_Azuretide_Town::
-# 2323 "data/scripts/my_debug.pory"
+# 2328 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Azuretide_Town_2
 CompleteArea_Azuretide_Town_1:
-# 2337 "data/scripts/my_debug.pory"
+# 2342 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Azuretide_Town_5
 CompleteArea_Azuretide_Town_4:
 	return
 
 CompleteArea_Azuretide_Town_2:
-# 2324 "data/scripts/my_debug.pory"
+# 2329 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COASTTOWN_PEARL, CompleteArea_Azuretide_Town_8
 CompleteArea_Azuretide_Town_7:
-# 2328 "data/scripts/my_debug.pory"
+# 2333 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COASTTOWN_REDSHARD, CompleteArea_Azuretide_Town_14
 CompleteArea_Azuretide_Town_13:
-# 2332 "data/scripts/my_debug.pory"
+# 2337 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COASTTOWN_HEATROCK, CompleteArea_Azuretide_Town_18
 	goto CompleteArea_Azuretide_Town_1
 
 CompleteArea_Azuretide_Town_5:
-# 2338 "data/scripts/my_debug.pory"
+# 2343 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_AZURETIDE_HONEY, CompleteArea_Azuretide_Town_11
 CompleteArea_Azuretide_Town_10:
 	checkitem ITEM_TOWN_MAP
@@ -5080,1112 +5093,1112 @@ CompleteArea_Azuretide_Town_10:
 	goto CompleteArea_Azuretide_Town_4
 
 CompleteArea_Azuretide_Town_8:
-# 2325 "data/scripts/my_debug.pory"
+# 2330 "data/scripts/my_debug.pory"
 	setflag FLAG_COASTTOWN_PEARL
-# 2326 "data/scripts/my_debug.pory"
+# 2331 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Azuretide_Town_7
 
 CompleteArea_Azuretide_Town_11:
-# 2339 "data/scripts/my_debug.pory"
+# 2344 "data/scripts/my_debug.pory"
 	additem ITEM_HONEY, 3
-# 2340 "data/scripts/my_debug.pory"
+# 2345 "data/scripts/my_debug.pory"
 	setflag FLAG_AZURETIDE_HONEY
 	goto CompleteArea_Azuretide_Town_10
 
 CompleteArea_Azuretide_Town_14:
-# 2329 "data/scripts/my_debug.pory"
+# 2334 "data/scripts/my_debug.pory"
 	setflag FLAG_COASTTOWN_REDSHARD
-# 2330 "data/scripts/my_debug.pory"
+# 2335 "data/scripts/my_debug.pory"
 	additem ITEM_RED_SHARD
 	goto CompleteArea_Azuretide_Town_13
 
 CompleteArea_Azuretide_Town_16:
-# 2343 "data/scripts/my_debug.pory"
+# 2348 "data/scripts/my_debug.pory"
 	additem ITEM_TOWN_MAP
-# 2344 "data/scripts/my_debug.pory"
+# 2349 "data/scripts/my_debug.pory"
 	removemoney 2000
 	goto CompleteArea_Azuretide_Town_4
 
 CompleteArea_Azuretide_Town_18:
-# 2333 "data/scripts/my_debug.pory"
+# 2338 "data/scripts/my_debug.pory"
 	setflag FLAG_COASTTOWN_HEATROCK
-# 2334 "data/scripts/my_debug.pory"
+# 2339 "data/scripts/my_debug.pory"
 	additem ITEM_HEAT_ROCK
 	goto CompleteArea_Azuretide_Town_1
 
 
 CompleteArea_Route_4::
-# 2350 "data/scripts/my_debug.pory"
+# 2355 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_4_2
 CompleteArea_Route_4_1:
-# 2382 "data/scripts/my_debug.pory"
+# 2387 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_4_5
 CompleteArea_Route_4_4:
 	return
 
 CompleteArea_Route_4_2:
-# 2351 "data/scripts/my_debug.pory"
+# 2356 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE3_ANTIDOTE, CompleteArea_Route_4_8
 CompleteArea_Route_4_7:
-# 2355 "data/scripts/my_debug.pory"
+# 2360 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL, CompleteArea_Route_4_11
 CompleteArea_Route_4_10:
-# 2359 "data/scripts/my_debug.pory"
+# 2364 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL, CompleteArea_Route_4_14
 CompleteArea_Route_4_13:
-# 2363 "data/scripts/my_debug.pory"
+# 2368 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE3_REVIVE, CompleteArea_Route_4_17
 CompleteArea_Route_4_16:
-# 2367 "data/scripts/my_debug.pory"
+# 2372 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE3_ETHER, CompleteArea_Route_4_20
 CompleteArea_Route_4_19:
-# 2371 "data/scripts/my_debug.pory"
+# 2376 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE3_GIGADRAIN, CompleteArea_Route_4_23
 CompleteArea_Route_4_22:
-# 2375 "data/scripts/my_debug.pory"
-	pickberrytree 4
-# 2376 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2377 "data/scripts/my_debug.pory"
-	pickberrytree 6
-# 2378 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2379 "data/scripts/my_debug.pory"
-	pickberrytree 7
 # 2380 "data/scripts/my_debug.pory"
+	pickberrytree 4
+# 2381 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2382 "data/scripts/my_debug.pory"
+	pickberrytree 6
+# 2383 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2384 "data/scripts/my_debug.pory"
+	pickberrytree 7
+# 2385 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_4_1
 
 CompleteArea_Route_4_5:
-# 2383 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_HIKER
-# 2384 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_POKEMANIAC
-# 2385 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_BUGCATCHER
-# 2386 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_TWINS
-# 2387 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_TRIATHLETE
 # 2388 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_CAMPER
+	defeattrainer TRAINER_R4_HIKER
 # 2389 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_COOL_F
+	defeattrainer TRAINER_R4_POKEMANIAC
 # 2390 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_COOL_M
+	defeattrainer TRAINER_R4_BUGCATCHER
 # 2391 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_BIRDKEEPER
+	defeattrainer TRAINER_R4_TWINS
 # 2392 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_YOUNGSTER
+	defeattrainer TRAINER_R4_TRIATHLETE
 # 2393 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_BIRDKEEPER_2
+	defeattrainer TRAINER_R4_CAMPER
 # 2394 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_DOUBLE_LASS
+	defeattrainer TRAINER_R4_COOL_F
 # 2395 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_DOUBLE_YOUNGSTER
+	defeattrainer TRAINER_R4_COOL_M
 # 2396 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R4_TRIATHLETE_2
+	defeattrainer TRAINER_R4_BIRDKEEPER
+# 2397 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R4_YOUNGSTER
+# 2398 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R4_BIRDKEEPER2
+# 2399 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R4_LASS
+# 2400 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R4_YOUNGSTER2
+# 2401 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R4_TRIATHLETE2
 	goto CompleteArea_Route_4_4
 
 CompleteArea_Route_4_8:
-# 2352 "data/scripts/my_debug.pory"
+# 2357 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE3_ANTIDOTE
-# 2353 "data/scripts/my_debug.pory"
+# 2358 "data/scripts/my_debug.pory"
 	additem ITEM_ANTIDOTE
 	goto CompleteArea_Route_4_7
 
 CompleteArea_Route_4_11:
-# 2356 "data/scripts/my_debug.pory"
+# 2361 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL
-# 2357 "data/scripts/my_debug.pory"
+# 2362 "data/scripts/my_debug.pory"
 	additem ITEM_POKE_BALL
 	goto CompleteArea_Route_4_10
 
 CompleteArea_Route_4_14:
-# 2360 "data/scripts/my_debug.pory"
+# 2365 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL
-# 2361 "data/scripts/my_debug.pory"
+# 2366 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_REPEL
 	goto CompleteArea_Route_4_13
 
 CompleteArea_Route_4_17:
-# 2364 "data/scripts/my_debug.pory"
+# 2369 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_REVIVE
-# 2365 "data/scripts/my_debug.pory"
+# 2370 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Route_4_16
 
 CompleteArea_Route_4_20:
-# 2368 "data/scripts/my_debug.pory"
+# 2373 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE3_ETHER
-# 2369 "data/scripts/my_debug.pory"
+# 2374 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Route_4_19
 
 CompleteArea_Route_4_23:
-# 2372 "data/scripts/my_debug.pory"
+# 2377 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE3_GIGADRAIN
-# 2373 "data/scripts/my_debug.pory"
+# 2378 "data/scripts/my_debug.pory"
 	additem ITEM_TM_GRASS_KNOT
 	goto CompleteArea_Route_4_22
 
 
 CompleteArea_Pokemon_Ranch::
-# 2401 "data/scripts/my_debug.pory"
+# 2406 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Pokemon_Ranch_2
 CompleteArea_Pokemon_Ranch_1:
-# 2407 "data/scripts/my_debug.pory"
+# 2412 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Pokemon_Ranch_5
 CompleteArea_Pokemon_Ranch_4:
 	return
 
 CompleteArea_Pokemon_Ranch_2:
-# 2402 "data/scripts/my_debug.pory"
+# 2407 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_RANCH, CompleteArea_Pokemon_Ranch_7
 	goto CompleteArea_Pokemon_Ranch_1
 
 CompleteArea_Pokemon_Ranch_5:
-# 2408 "data/scripts/my_debug.pory"
+# 2413 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, CompleteArea_Pokemon_Ranch_10
 	goto CompleteArea_Pokemon_Ranch_4
 
 CompleteArea_Pokemon_Ranch_7:
-# 2403 "data/scripts/my_debug.pory"
+# 2408 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_RANCH
-# 2404 "data/scripts/my_debug.pory"
+# 2409 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Pokemon_Ranch_1
 
 CompleteArea_Pokemon_Ranch_9:
-# 2409 "data/scripts/my_debug.pory"
+# 2414 "data/scripts/my_debug.pory"
 	additem ITEM_AMPHAROSITE
-# 2410 "data/scripts/my_debug.pory"
+# 2415 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_AMPHAROSITE
 	goto CompleteArea_Pokemon_Ranch_4
 
 CompleteArea_Pokemon_Ranch_10:
-# 2408 "data/scripts/my_debug.pory"
+# 2413 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_AMPHAROSITE, CompleteArea_Pokemon_Ranch_9
 	goto CompleteArea_Pokemon_Ranch_4
 
 
 CompleteArea_Aldeleaf_City::
-# 2416 "data/scripts/my_debug.pory"
+# 2421 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Aldeleaf_City_2
 CompleteArea_Aldeleaf_City_1:
-# 2430 "data/scripts/my_debug.pory"
+# 2435 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Aldeleaf_City_5
 CompleteArea_Aldeleaf_City_4:
-# 2437 "data/scripts/my_debug.pory"
+# 2442 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Aldeleaf_City_11
 CompleteArea_Aldeleaf_City_10:
 	return
 
 CompleteArea_Aldeleaf_City_2:
-# 2417 "data/scripts/my_debug.pory"
+# 2422 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ALDELEAF_LOST_KEY, CompleteArea_Aldeleaf_City_8
 CompleteArea_Aldeleaf_City_7:
-# 2421 "data/scripts/my_debug.pory"
+# 2426 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ALDELEAF_MUSHROOM2, CompleteArea_Aldeleaf_City_16
 CompleteArea_Aldeleaf_City_15:
-# 2425 "data/scripts/my_debug.pory"
+# 2430 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ALDELEAF_MUSHROOM, CompleteArea_Aldeleaf_City_21
 	goto CompleteArea_Aldeleaf_City_1
 
 CompleteArea_Aldeleaf_City_5:
-# 2431 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_VITO
+# 2436 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_ALDELEAF_MANIAC
 	goto_if 0, CompleteArea_Aldeleaf_City_13
 	goto CompleteArea_Aldeleaf_City_4
 
 CompleteArea_Aldeleaf_City_8:
-# 2418 "data/scripts/my_debug.pory"
+# 2423 "data/scripts/my_debug.pory"
 	setflag FLAG_ALDELEAF_LOST_KEY
-# 2419 "data/scripts/my_debug.pory"
+# 2424 "data/scripts/my_debug.pory"
 	additem ITEM_LOST_KEY
 	goto CompleteArea_Aldeleaf_City_7
 
 CompleteArea_Aldeleaf_City_11:
-# 2438 "data/scripts/my_debug.pory"
+# 2443 "data/scripts/my_debug.pory"
 	removeitem ITEM_LOST_KEY
-# 2439 "data/scripts/my_debug.pory"
+# 2444 "data/scripts/my_debug.pory"
 	setflag FLAG_ALDELEAF_LOST_KEY
-# 2440 "data/scripts/my_debug.pory"
+# 2445 "data/scripts/my_debug.pory"
 	setflag FLAG_KEY_RETURNED
-# 2441 "data/scripts/my_debug.pory"
+# 2446 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q04_ALDELEAF_LOST_KEYS_START, CompleteArea_Aldeleaf_City_19
 CompleteArea_Aldeleaf_City_18:
-# 2444 "data/scripts/my_debug.pory"
+# 2449 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WHITEFLUTE_RECEIVED, CompleteArea_Aldeleaf_City_24
 CompleteArea_Aldeleaf_City_23:
-# 2448 "data/scripts/my_debug.pory"
+# 2453 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, CompleteArea_Aldeleaf_City_27
 CompleteArea_Aldeleaf_City_26:
-# 2457 "data/scripts/my_debug.pory"
+# 2462 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ALDELEAF_QUICK_BALL, CompleteArea_Aldeleaf_City_30
 CompleteArea_Aldeleaf_City_29:
-# 2461 "data/scripts/my_debug.pory"
+# 2466 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_LAVA_COOKIE, CompleteArea_Aldeleaf_City_34
 	goto CompleteArea_Aldeleaf_City_10
 
 CompleteArea_Aldeleaf_City_13:
-# 2432 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_VITO
-# 2433 "data/scripts/my_debug.pory"
+# 2437 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_ALDELEAF_MANIAC
+# 2438 "data/scripts/my_debug.pory"
 	additem ITEM_SHELL_BELL
-# 2434 "data/scripts/my_debug.pory"
+# 2439 "data/scripts/my_debug.pory"
 	setflag FLAG_SHELL_BELL_RECEIVED
 	goto CompleteArea_Aldeleaf_City_4
 
 CompleteArea_Aldeleaf_City_16:
-# 2422 "data/scripts/my_debug.pory"
+# 2427 "data/scripts/my_debug.pory"
 	setflag FLAG_ALDELEAF_MUSHROOM2
-# 2423 "data/scripts/my_debug.pory"
+# 2428 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Aldeleaf_City_15
 
 CompleteArea_Aldeleaf_City_19:
-# 2442 "data/scripts/my_debug.pory"
+# 2447 "data/scripts/my_debug.pory"
 	completequest FLAG_Q04_ALDELEAF_LOST_KEYS_COMPLETE
 	goto CompleteArea_Aldeleaf_City_18
 
 CompleteArea_Aldeleaf_City_21:
-# 2426 "data/scripts/my_debug.pory"
+# 2431 "data/scripts/my_debug.pory"
 	setflag FLAG_ALDELEAF_MUSHROOM
-# 2427 "data/scripts/my_debug.pory"
+# 2432 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Aldeleaf_City_1
 
 CompleteArea_Aldeleaf_City_24:
-# 2445 "data/scripts/my_debug.pory"
+# 2450 "data/scripts/my_debug.pory"
 	additem ITEM_BLACK_FLUTE, 1
-# 2446 "data/scripts/my_debug.pory"
+# 2451 "data/scripts/my_debug.pory"
 	setflag FLAG_WHITEFLUTE_RECEIVED
 	goto CompleteArea_Aldeleaf_City_23
 
 CompleteArea_Aldeleaf_City_27:
-# 2449 "data/scripts/my_debug.pory"
+# 2454 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_PAINTBRUSH, CompleteArea_Aldeleaf_City_32
 	goto CompleteArea_Aldeleaf_City_26
 
 CompleteArea_Aldeleaf_City_30:
-# 2458 "data/scripts/my_debug.pory"
+# 2463 "data/scripts/my_debug.pory"
 	additem ITEM_QUICK_BALL, 1
-# 2459 "data/scripts/my_debug.pory"
+# 2464 "data/scripts/my_debug.pory"
 	setflag FLAG_ALDELEAF_QUICK_BALL
 	goto CompleteArea_Aldeleaf_City_29
 
 CompleteArea_Aldeleaf_City_32:
-# 2450 "data/scripts/my_debug.pory"
+# 2455 "data/scripts/my_debug.pory"
 	additem ITEM_PAINTBRUSH
-# 2451 "data/scripts/my_debug.pory"
+# 2456 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_PAINTBRUSH
-# 2452 "data/scripts/my_debug.pory"
+# 2457 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q06_MUSEUM_SMEARGLE_START, CompleteArea_Aldeleaf_City_36
 	goto CompleteArea_Aldeleaf_City_26
 
 CompleteArea_Aldeleaf_City_34:
-# 2462 "data/scripts/my_debug.pory"
+# 2467 "data/scripts/my_debug.pory"
 	additem ITEM_LAVA_COOKIE, 1
-# 2463 "data/scripts/my_debug.pory"
+# 2468 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_LAVA_COOKIE
 	goto CompleteArea_Aldeleaf_City_10
 
 CompleteArea_Aldeleaf_City_36:
-# 2453 "data/scripts/my_debug.pory"
+# 2458 "data/scripts/my_debug.pory"
 	completequest FLAG_Q06_MUSEUM_SMEARGLE_COMPLETE
 	goto CompleteArea_Aldeleaf_City_26
 
 
 CompleteArea_Route_30::
-# 2469 "data/scripts/my_debug.pory"
+# 2474 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_30_2
 CompleteArea_Route_30_1:
-# 2490 "data/scripts/my_debug.pory"
+# 2495 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_30_5
 CompleteArea_Route_30_4:
-# 2496 "data/scripts/my_debug.pory"
+# 2501 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_30_11
 CompleteArea_Route_30_10:
 	return
 
 CompleteArea_Route_30_2:
-# 2470 "data/scripts/my_debug.pory"
-	pickberrytree 8
-# 2471 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2472 "data/scripts/my_debug.pory"
-	pickberrytree 10
-# 2473 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2474 "data/scripts/my_debug.pory"
-	pickberrytree 11
 # 2475 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
+	pickberrytree 8
 # 2476 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
+	call TryLootingStrangeSeed
 # 2477 "data/scripts/my_debug.pory"
+	pickberrytree 10
+# 2478 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2479 "data/scripts/my_debug.pory"
+	pickberrytree 11
+# 2480 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2481 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 2482 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE28_TM, CompleteArea_Route_30_8
 CompleteArea_Route_30_7:
-# 2481 "data/scripts/my_debug.pory"
+# 2486 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE28_ITEMBALL, CompleteArea_Route_30_14
 CompleteArea_Route_30_13:
-# 2485 "data/scripts/my_debug.pory"
+# 2490 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE28_HIDDENBALL, CompleteArea_Route_30_16
 	goto CompleteArea_Route_30_1
 
 CompleteArea_Route_30_5:
-# 2491 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R28_TR1_BUGCATCHER
-# 2492 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R28_TR2_HIKER
-# 2493 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R28_TR3_NINJABOY
-# 2494 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R28_TR4_PSYCHIC
+# 2496 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R30_BUGCATCHER
+# 2497 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R30_HIKER
+# 2498 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R30_NINJABOY
+# 2499 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R30_PSYCHIC
 	goto CompleteArea_Route_30_4
 
 CompleteArea_Route_30_8:
-# 2478 "data/scripts/my_debug.pory"
+# 2483 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE28_TM
-# 2479 "data/scripts/my_debug.pory"
+# 2484 "data/scripts/my_debug.pory"
 	additem ITEM_TM_SECRET_POWER
 	goto CompleteArea_Route_30_7
 
 CompleteArea_Route_30_11:
-# 2497 "data/scripts/my_debug.pory"
+# 2502 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE28_DESPAWN_BROTHER
-# 2498 "data/scripts/my_debug.pory"
+# 2503 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_BROTHER_4_ROUTE28
 	goto CompleteArea_Route_30_10
 
 CompleteArea_Route_30_14:
-# 2482 "data/scripts/my_debug.pory"
+# 2487 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE28_ITEMBALL
-# 2483 "data/scripts/my_debug.pory"
+# 2488 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_30_13
 
 CompleteArea_Route_30_16:
-# 2486 "data/scripts/my_debug.pory"
+# 2491 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE28_HIDDENBALL
-# 2487 "data/scripts/my_debug.pory"
+# 2492 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Route_30_1
 
 
 CompleteArea_Windplume_Valley::
-# 2503 "data/scripts/my_debug.pory"
+# 2508 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Windplume_Valley_2
 CompleteArea_Windplume_Valley_1:
-# 2541 "data/scripts/my_debug.pory"
+# 2546 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Windplume_Valley_5
 CompleteArea_Windplume_Valley_4:
 	return
 
 CompleteArea_Windplume_Valley_2:
-# 2504 "data/scripts/my_debug.pory"
+# 2509 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER1, CompleteArea_Windplume_Valley_8
 CompleteArea_Windplume_Valley_7:
-# 2508 "data/scripts/my_debug.pory"
+# 2513 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_HYPER_POTION, CompleteArea_Windplume_Valley_13
 CompleteArea_Windplume_Valley_12:
-# 2512 "data/scripts/my_debug.pory"
+# 2517 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER2, CompleteArea_Windplume_Valley_16
 CompleteArea_Windplume_Valley_15:
-# 2516 "data/scripts/my_debug.pory"
+# 2521 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER3, CompleteArea_Windplume_Valley_19
 CompleteArea_Windplume_Valley_18:
-# 2520 "data/scripts/my_debug.pory"
+# 2525 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER4, CompleteArea_Windplume_Valley_22
 CompleteArea_Windplume_Valley_21:
-# 2524 "data/scripts/my_debug.pory"
+# 2529 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_ELIXIR, CompleteArea_Windplume_Valley_25
 CompleteArea_Windplume_Valley_24:
-# 2528 "data/scripts/my_debug.pory"
+# 2533 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_IRON_BALL, CompleteArea_Windplume_Valley_28
 CompleteArea_Windplume_Valley_27:
-# 2532 "data/scripts/my_debug.pory"
+# 2537 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER5, CompleteArea_Windplume_Valley_31
 CompleteArea_Windplume_Valley_30:
-# 2536 "data/scripts/my_debug.pory"
+# 2541 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WPV_FEATHER6, CompleteArea_Windplume_Valley_33
 	goto CompleteArea_Windplume_Valley_1
 
 CompleteArea_Windplume_Valley_5:
-# 2542 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR1_BIRDKEEPER
-# 2543 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR2_TRIATH
-# 2544 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR3_BATTLEGIRL
-# 2545 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR4_CAMPER
-# 2546 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR5_BIRDKEEPER
 # 2547 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR6_MANIAC
+	defeattrainer TRAINER_WPV_BIRDKEEPER
 # 2548 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR7_BIRDKEEPER
+	defeattrainer TRAINER_WPV_TRIATH
 # 2549 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR8_NINJABOY
+	defeattrainer TRAINER_WPV_BATTLEGIRL
 # 2550 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR9_LASS
+	defeattrainer TRAINER_WPV_CAMPER
 # 2551 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR10_TRIATH
+	defeattrainer TRAINER_WPV_BIRDKEEPER2
 # 2552 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR11_BIRDKEEPER
+	defeattrainer TRAINER_WPV_MANIAC
 # 2553 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR12_BATTLEGIRL
+	defeattrainer TRAINER_WPV_BIRDKEEPER3
 # 2554 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_WPV_TR13_BIRDKEEPER
+	defeattrainer TRAINER_WPV_NINJABOY
 # 2555 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WPV_LASS
+# 2556 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WPV_TRIATH2
+# 2557 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WPV_BIRDKEEPER4
+# 2558 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WPV_BATTLEGIRL2
+# 2559 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_WPV_BIRDKEEPER5
+# 2560 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_WPV_TR14_SKYLA
 	goto_if 0, CompleteArea_Windplume_Valley_10
 	goto CompleteArea_Windplume_Valley_4
 
 CompleteArea_Windplume_Valley_8:
-# 2505 "data/scripts/my_debug.pory"
+# 2510 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER1
-# 2506 "data/scripts/my_debug.pory"
+# 2511 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_7
 
 CompleteArea_Windplume_Valley_10:
-# 2556 "data/scripts/my_debug.pory"
+# 2561 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM02
-# 2557 "data/scripts/my_debug.pory"
+# 2562 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_WPV_TR14_SKYLA
-# 2558 "data/scripts/my_debug.pory"
+# 2563 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_HM_FLY
 	goto CompleteArea_Windplume_Valley_4
 
 CompleteArea_Windplume_Valley_13:
-# 2509 "data/scripts/my_debug.pory"
+# 2514 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_HYPER_POTION
-# 2510 "data/scripts/my_debug.pory"
+# 2515 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Windplume_Valley_12
 
 CompleteArea_Windplume_Valley_16:
-# 2513 "data/scripts/my_debug.pory"
+# 2518 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER2
-# 2514 "data/scripts/my_debug.pory"
+# 2519 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_15
 
 CompleteArea_Windplume_Valley_19:
-# 2517 "data/scripts/my_debug.pory"
+# 2522 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER3
-# 2518 "data/scripts/my_debug.pory"
+# 2523 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_18
 
 CompleteArea_Windplume_Valley_22:
-# 2521 "data/scripts/my_debug.pory"
+# 2526 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER4
-# 2522 "data/scripts/my_debug.pory"
+# 2527 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_21
 
 CompleteArea_Windplume_Valley_25:
-# 2525 "data/scripts/my_debug.pory"
+# 2530 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_ELIXIR
-# 2526 "data/scripts/my_debug.pory"
+# 2531 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Windplume_Valley_24
 
 CompleteArea_Windplume_Valley_28:
-# 2529 "data/scripts/my_debug.pory"
+# 2534 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_IRON_BALL
-# 2530 "data/scripts/my_debug.pory"
+# 2535 "data/scripts/my_debug.pory"
 	additem ITEM_IRON_BALL
 	goto CompleteArea_Windplume_Valley_27
 
 CompleteArea_Windplume_Valley_31:
-# 2533 "data/scripts/my_debug.pory"
+# 2538 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER5
-# 2534 "data/scripts/my_debug.pory"
+# 2539 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_30
 
 CompleteArea_Windplume_Valley_33:
-# 2537 "data/scripts/my_debug.pory"
+# 2542 "data/scripts/my_debug.pory"
 	setflag FLAG_WPV_FEATHER6
-# 2538 "data/scripts/my_debug.pory"
+# 2543 "data/scripts/my_debug.pory"
 	additem ITEM_PRETTY_FEATHER
 	goto CompleteArea_Windplume_Valley_1
 
 
 CompleteArea_Route_5::
-# 2564 "data/scripts/my_debug.pory"
+# 2569 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_5_2
 CompleteArea_Route_5_1:
-# 2606 "data/scripts/my_debug.pory"
+# 2611 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_5_5
 CompleteArea_Route_5_4:
 	return
 
 CompleteArea_Route_5_2:
-# 2565 "data/scripts/my_debug.pory"
+# 2570 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_ITEM1, CompleteArea_Route_5_8
 CompleteArea_Route_5_7:
-# 2569 "data/scripts/my_debug.pory"
+# 2574 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_ITEM2, CompleteArea_Route_5_13
 CompleteArea_Route_5_12:
-# 2573 "data/scripts/my_debug.pory"
+# 2578 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_ITEM3, CompleteArea_Route_5_16
 CompleteArea_Route_5_15:
-# 2577 "data/scripts/my_debug.pory"
+# 2582 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_HIDDENITEM1, CompleteArea_Route_5_19
 CompleteArea_Route_5_18:
-# 2581 "data/scripts/my_debug.pory"
+# 2586 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_HIDDENITEM2, CompleteArea_Route_5_22
 CompleteArea_Route_5_21:
-# 2585 "data/scripts/my_debug.pory"
+# 2590 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_HIDDENITEM3, CompleteArea_Route_5_25
 CompleteArea_Route_5_24:
-# 2589 "data/scripts/my_debug.pory"
+# 2594 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_HIDDENITEM4, CompleteArea_Route_5_28
 CompleteArea_Route_5_27:
-# 2593 "data/scripts/my_debug.pory"
+# 2598 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_HIDDENITEM5, CompleteArea_Route_5_31
 CompleteArea_Route_5_30:
-# 2597 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
-# 2598 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
-# 2599 "data/scripts/my_debug.pory"
-	pickberrytree 13
-# 2600 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2601 "data/scripts/my_debug.pory"
-	pickberrytree 21
 # 2602 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
+	call TryCuttingStrangeSeedTree
 # 2603 "data/scripts/my_debug.pory"
-	pickberrytree 31
+	call TryCuttingStrangeSeedTree
 # 2604 "data/scripts/my_debug.pory"
+	pickberrytree 13
+# 2605 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2606 "data/scripts/my_debug.pory"
+	pickberrytree 21
+# 2607 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2608 "data/scripts/my_debug.pory"
+	pickberrytree 31
+# 2609 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_5_1
 
 CompleteArea_Route_5_5:
-# 2607 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR1_FISHER
-# 2608 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR2_BEAUTY
-# 2609 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR3_YOUNGCOUPLE
-# 2610 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR4_LASS1
-# 2611 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR5_POKEFAN_F
 # 2612 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR6_LASS2
+	defeattrainer TRAINER_R5_FISHER
 # 2613 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR7_GENTLEMAN
+	defeattrainer TRAINER_R5_BEAUTY
 # 2614 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR8_YOUNGSTER
+	defeattrainer TRAINER_R5_YOUNGCOUPLE
 # 2615 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR9_TRIATHLETE
+	defeattrainer TRAINER_R5_LASS1
 # 2616 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR10_RICHBOY
+	defeattrainer TRAINER_R5_POKEFAN_F
 # 2617 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR11_MAN_5
+	defeattrainer TRAINER_R5_LASS2
 # 2618 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR12_BUGCATCHER
+	defeattrainer TRAINER_R5_GENTLEMAN
 # 2619 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR13_NINJABOY
+	defeattrainer TRAINER_R5_YOUNGSTER
 # 2620 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR14_HIKER
+	defeattrainer TRAINER_R5_TRIATHLETE
 # 2621 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_R5_TR15_COOLTRAINER
+	defeattrainer TRAINER_R5_RICHBOY
+# 2622 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R5_KINDLER
+# 2623 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R5_BUGCATCHER
+# 2624 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R5_NINJABOY
+# 2625 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R5_HIKER
+# 2626 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_R5_ACETRAINER
 	goto_if 0, CompleteArea_Route_5_10
 	goto CompleteArea_Route_5_4
 
 CompleteArea_Route_5_8:
-# 2566 "data/scripts/my_debug.pory"
+# 2571 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_ITEM1
-# 2567 "data/scripts/my_debug.pory"
+# 2572 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_REPEL
 	goto CompleteArea_Route_5_7
 
 CompleteArea_Route_5_10:
-# 2622 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R5_TR15_COOLTRAINER
-# 2623 "data/scripts/my_debug.pory"
+# 2627 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R5_ACETRAINER
+# 2628 "data/scripts/my_debug.pory"
 	additem ITEM_EVIOLITE
-# 2624 "data/scripts/my_debug.pory"
+# 2629 "data/scripts/my_debug.pory"
 	addbp 20
 	goto CompleteArea_Route_5_4
 
 CompleteArea_Route_5_13:
-# 2570 "data/scripts/my_debug.pory"
+# 2575 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_ITEM2
-# 2571 "data/scripts/my_debug.pory"
+# 2576 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Route_5_12
 
 CompleteArea_Route_5_16:
-# 2574 "data/scripts/my_debug.pory"
+# 2579 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_ITEM3
-# 2575 "data/scripts/my_debug.pory"
+# 2580 "data/scripts/my_debug.pory"
 	additem ITEM_TM_ROCK_TOMB
 	goto CompleteArea_Route_5_15
 
 CompleteArea_Route_5_19:
-# 2578 "data/scripts/my_debug.pory"
+# 2583 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_HIDDENITEM1
-# 2579 "data/scripts/my_debug.pory"
+# 2584 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Route_5_18
 
 CompleteArea_Route_5_22:
-# 2582 "data/scripts/my_debug.pory"
+# 2587 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_HIDDENITEM2
-# 2583 "data/scripts/my_debug.pory"
+# 2588 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Route_5_21
 
 CompleteArea_Route_5_25:
-# 2586 "data/scripts/my_debug.pory"
+# 2591 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_HIDDENITEM3
-# 2587 "data/scripts/my_debug.pory"
+# 2592 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ETHER
 	goto CompleteArea_Route_5_24
 
 CompleteArea_Route_5_28:
-# 2590 "data/scripts/my_debug.pory"
+# 2595 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_HIDDENITEM4
-# 2591 "data/scripts/my_debug.pory"
+# 2596 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Route_5_27
 
 CompleteArea_Route_5_31:
-# 2594 "data/scripts/my_debug.pory"
+# 2599 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_HIDDENITEM5
-# 2595 "data/scripts/my_debug.pory"
+# 2600 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Route_5_30
 
 
 CompleteArea_Flower_Fields::
-# 2630 "data/scripts/my_debug.pory"
+# 2635 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Flower_Fields_2
 CompleteArea_Flower_Fields_1:
-# 2648 "data/scripts/my_debug.pory"
+# 2653 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Flower_Fields_5
 CompleteArea_Flower_Fields_4:
 	return
 
 CompleteArea_Flower_Fields_2:
-# 2631 "data/scripts/my_debug.pory"
+# 2636 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HERACRONITE_OBTAINED, CompleteArea_Flower_Fields_9
 CompleteArea_Flower_Fields_7:
-# 2635 "data/scripts/my_debug.pory"
+# 2640 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FLOWERFIELDS_ITEM_1, CompleteArea_Flower_Fields_15
 CompleteArea_Flower_Fields_14:
-# 2639 "data/scripts/my_debug.pory"
+# 2644 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FLOWERFIELDS_ITEM_3, CompleteArea_Flower_Fields_20
 CompleteArea_Flower_Fields_19:
-# 2643 "data/scripts/my_debug.pory"
+# 2648 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FLOWERFIELDS_ITEM_2, CompleteArea_Flower_Fields_22
 	goto CompleteArea_Flower_Fields_1
 
 CompleteArea_Flower_Fields_5:
-# 2649 "data/scripts/my_debug.pory"
+# 2654 "data/scripts/my_debug.pory"
 	compare VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE
 	goto_if_lt CompleteArea_Flower_Fields_12
 	goto CompleteArea_Flower_Fields_4
 
 CompleteArea_Flower_Fields_8:
-# 2632 "data/scripts/my_debug.pory"
+# 2637 "data/scripts/my_debug.pory"
 	setflag FLAG_HERACRONITE_OBTAINED
-# 2633 "data/scripts/my_debug.pory"
+# 2638 "data/scripts/my_debug.pory"
 	additem ITEM_HERACRONITE
 	goto CompleteArea_Flower_Fields_7
 
 CompleteArea_Flower_Fields_9:
-# 2631 "data/scripts/my_debug.pory"
+# 2636 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, CompleteArea_Flower_Fields_8
 	goto CompleteArea_Flower_Fields_7
 
 CompleteArea_Flower_Fields_12:
-# 2650 "data/scripts/my_debug.pory"
+# 2655 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
-# 2651 "data/scripts/my_debug.pory"
+# 2656 "data/scripts/my_debug.pory"
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_QUEST_COMPLETE
-# 2652 "data/scripts/my_debug.pory"
+# 2657 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q08_FLOWER_FIELDS_GRANBULL_START, CompleteArea_Flower_Fields_17
 	goto CompleteArea_Flower_Fields_4
 
 CompleteArea_Flower_Fields_15:
-# 2636 "data/scripts/my_debug.pory"
+# 2641 "data/scripts/my_debug.pory"
 	setflag FLAG_FLOWERFIELDS_ITEM_1
-# 2637 "data/scripts/my_debug.pory"
+# 2642 "data/scripts/my_debug.pory"
 	additem ITEM_ORAN_BERRY
 	goto CompleteArea_Flower_Fields_14
 
 CompleteArea_Flower_Fields_17:
-# 2653 "data/scripts/my_debug.pory"
+# 2658 "data/scripts/my_debug.pory"
 	completequest FLAG_Q08_FLOWER_FIELDS_GRANBULL_COMPLETE
 	goto CompleteArea_Flower_Fields_4
 
 CompleteArea_Flower_Fields_20:
-# 2640 "data/scripts/my_debug.pory"
+# 2645 "data/scripts/my_debug.pory"
 	setflag FLAG_FLOWERFIELDS_ITEM_3
-# 2641 "data/scripts/my_debug.pory"
+# 2646 "data/scripts/my_debug.pory"
 	additem ITEM_HONEY
 	goto CompleteArea_Flower_Fields_19
 
 CompleteArea_Flower_Fields_22:
-# 2644 "data/scripts/my_debug.pory"
+# 2649 "data/scripts/my_debug.pory"
 	setflag FLAG_FLOWERFIELDS_ITEM_2
-# 2645 "data/scripts/my_debug.pory"
+# 2650 "data/scripts/my_debug.pory"
 	additem ITEM_HONEY
 	goto CompleteArea_Flower_Fields_1
 
 
 CompleteArea_Skyloch_Village::
-# 2660 "data/scripts/my_debug.pory"
+# 2665 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Skyloch_Village_2
 CompleteArea_Skyloch_Village_1:
-# 2666 "data/scripts/my_debug.pory"
+# 2671 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Skyloch_Village_5
 CompleteArea_Skyloch_Village_4:
 	return
 
 CompleteArea_Skyloch_Village_2:
-# 2661 "data/scripts/my_debug.pory"
+# 2666 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SKYLOCH_JUICE, CompleteArea_Skyloch_Village_7
 	goto CompleteArea_Skyloch_Village_1
 
 CompleteArea_Skyloch_Village_5:
-# 2667 "data/scripts/my_debug.pory"
+# 2672 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SKYLOCH_CASTELIACONE, CompleteArea_Skyloch_Village_10
 CompleteArea_Skyloch_Village_9:
-# 2674 "data/scripts/my_debug.pory"
+# 2679 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_LIGHTBALL, CompleteArea_Skyloch_Village_12
 	goto CompleteArea_Skyloch_Village_4
 
 CompleteArea_Skyloch_Village_7:
-# 2662 "data/scripts/my_debug.pory"
+# 2667 "data/scripts/my_debug.pory"
 	setflag FLAG_SKYLOCH_JUICE
-# 2663 "data/scripts/my_debug.pory"
+# 2668 "data/scripts/my_debug.pory"
 	additem ITEM_BERRY_JUICE
 	goto CompleteArea_Skyloch_Village_1
 
 CompleteArea_Skyloch_Village_10:
-# 2668 "data/scripts/my_debug.pory"
+# 2673 "data/scripts/my_debug.pory"
 	additem ITEM_OCCA_BERRY, 1
-# 2669 "data/scripts/my_debug.pory"
+# 2674 "data/scripts/my_debug.pory"
 	setflag FLAG_SKYLOCH_CASTELIACONE
-# 2670 "data/scripts/my_debug.pory"
+# 2675 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q10_SKYLOCH_ICECREAM_START, CompleteArea_Skyloch_Village_14
 	goto CompleteArea_Skyloch_Village_9
 
 CompleteArea_Skyloch_Village_12:
-# 2675 "data/scripts/my_debug.pory"
+# 2680 "data/scripts/my_debug.pory"
 	additem ITEM_LIGHT_BALL
-# 2676 "data/scripts/my_debug.pory"
+# 2681 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_LIGHTBALL
-# 2677 "data/scripts/my_debug.pory"
+# 2682 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q11_SKYLOCH_RAICHUS_START, CompleteArea_Skyloch_Village_16
 	goto CompleteArea_Skyloch_Village_4
 
 CompleteArea_Skyloch_Village_14:
-# 2671 "data/scripts/my_debug.pory"
+# 2676 "data/scripts/my_debug.pory"
 	completequest FLAG_Q10_SKYLOCH_ICECREAM_COMPLETE
 	goto CompleteArea_Skyloch_Village_9
 
 CompleteArea_Skyloch_Village_16:
-# 2678 "data/scripts/my_debug.pory"
+# 2683 "data/scripts/my_debug.pory"
 	completequest FLAG_Q11_SKYLOCH_RAICHUS_COMPLETE
 	goto CompleteArea_Skyloch_Village_4
 
 
 CompleteArea_Route_6::
-# 2685 "data/scripts/my_debug.pory"
+# 2690 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_6_2
 CompleteArea_Route_6_1:
 	return
 
 CompleteArea_Route_6_2:
-# 2686 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R6_TR1_RANGER_M
-# 2687 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R6_TR3_CAMPER_F
-# 2688 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R6_TR5_HIKER
-# 2689 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R6_TR6_CAMPER_M2
-# 2690 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R6_TR7_KINDLER
+# 2691 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R6_RANGER_M
+# 2692 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R6_CAMPER_F
+# 2693 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R6_HIKER
+# 2694 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R6_CAMPER_M2
+# 2695 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R6_KINDLER
 	goto CompleteArea_Route_6_1
 
 
 CompleteArea_Route_8::
-# 2695 "data/scripts/my_debug.pory"
+# 2700 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_8_2
 CompleteArea_Route_8_1:
-# 2728 "data/scripts/my_debug.pory"
+# 2733 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_8_5
 CompleteArea_Route_8_4:
-# 2741 "data/scripts/my_debug.pory"
+# 2746 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_8_11
 CompleteArea_Route_8_10:
 	return
 
 CompleteArea_Route_8_2:
-# 2696 "data/scripts/my_debug.pory"
+# 2701 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 2697 "data/scripts/my_debug.pory"
+# 2702 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 2698 "data/scripts/my_debug.pory"
+# 2703 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 2699 "data/scripts/my_debug.pory"
+# 2704 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM2, CompleteArea_Route_8_8
 CompleteArea_Route_8_7:
-# 2703 "data/scripts/my_debug.pory"
+# 2708 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM6, CompleteArea_Route_8_14
 CompleteArea_Route_8_13:
-# 2707 "data/scripts/my_debug.pory"
+# 2712 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM3, CompleteArea_Route_8_19
 CompleteArea_Route_8_18:
-# 2711 "data/scripts/my_debug.pory"
+# 2716 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM1, CompleteArea_Route_8_22
 CompleteArea_Route_8_21:
-# 2715 "data/scripts/my_debug.pory"
+# 2720 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM5, CompleteArea_Route_8_25
 CompleteArea_Route_8_24:
-# 2719 "data/scripts/my_debug.pory"
-	pickberrytree 15
-# 2720 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2721 "data/scripts/my_debug.pory"
-	pickberrytree 22
-# 2722 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 2723 "data/scripts/my_debug.pory"
-	pickberrytree 24
 # 2724 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
+	pickberrytree 15
 # 2725 "data/scripts/my_debug.pory"
-	pickberrytree 33
+	call TryLootingStrangeSeed
 # 2726 "data/scripts/my_debug.pory"
+	pickberrytree 22
+# 2727 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2728 "data/scripts/my_debug.pory"
+	pickberrytree 24
+# 2729 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 2730 "data/scripts/my_debug.pory"
+	pickberrytree 33
+# 2731 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_8_1
 
 CompleteArea_Route_8_5:
-# 2729 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR1_PARASOLLADY
-# 2730 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR2_SRJR
-# 2731 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR3_AROMALADY
-# 2732 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR4_YOUNGSTER
-# 2733 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR5_PSYCHIC_F
 # 2734 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR6_ENTHUSIAST
+	defeattrainer TRAINER_R8_PARASOLLADY
 # 2735 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR7_TRIATHLETE_M
+	defeattrainer TRAINER_R8_SRJR
 # 2736 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR8_GENTLEMAN
+	defeattrainer TRAINER_R8_AROMALADY
 # 2737 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR9_HIKER
+	defeattrainer TRAINER_R8_YOUNGSTER
 # 2738 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR10_OLDCOUPLE
+	defeattrainer TRAINER_R8_PSYCHIC_F
 # 2739 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R8_TR11_BIRDKEEPER
+	defeattrainer TRAINER_R8_ENTHUSIAST
+# 2740 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R8_TRIATHLETE_M
+# 2741 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R8_GENTLEMAN
+# 2742 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R8_HIKER
+# 2743 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R8_OLDCOUPLE
+# 2744 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R8_BIRDKEEPER
 	goto CompleteArea_Route_8_4
 
 CompleteArea_Route_8_8:
-# 2700 "data/scripts/my_debug.pory"
+# 2705 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM2
-# 2701 "data/scripts/my_debug.pory"
+# 2706 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Route_8_7
 
 CompleteArea_Route_8_11:
-# 2742 "data/scripts/my_debug.pory"
+# 2747 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_FLOWER_SHOP
-# 2743 "data/scripts/my_debug.pory"
+# 2748 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_WAILMER_PAIL, CompleteArea_Route_8_16
 	goto CompleteArea_Route_8_10
 
 CompleteArea_Route_8_14:
-# 2704 "data/scripts/my_debug.pory"
+# 2709 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM6
-# 2705 "data/scripts/my_debug.pory"
+# 2710 "data/scripts/my_debug.pory"
 	additem ITEM_TM_ROCK_POLISH
 	goto CompleteArea_Route_8_13
 
 CompleteArea_Route_8_16:
-# 2744 "data/scripts/my_debug.pory"
+# 2749 "data/scripts/my_debug.pory"
 	additem ITEM_WAILMER_PAIL
-# 2745 "data/scripts/my_debug.pory"
+# 2750 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_WAILMER_PAIL
 	goto CompleteArea_Route_8_10
 
 CompleteArea_Route_8_19:
-# 2708 "data/scripts/my_debug.pory"
+# 2713 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM3
-# 2709 "data/scripts/my_debug.pory"
+# 2714 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Route_8_18
 
 CompleteArea_Route_8_22:
-# 2712 "data/scripts/my_debug.pory"
+# 2717 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM1
-# 2713 "data/scripts/my_debug.pory"
+# 2718 "data/scripts/my_debug.pory"
 	additem ITEM_ORAN_BERRY
 	goto CompleteArea_Route_8_21
 
 CompleteArea_Route_8_25:
-# 2716 "data/scripts/my_debug.pory"
+# 2721 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM5
-# 2717 "data/scripts/my_debug.pory"
+# 2722 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_8_24
 
 
 CompleteArea_Shoreslate_City::
-# 2751 "data/scripts/my_debug.pory"
+# 2756 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Shoreslate_City_2
 CompleteArea_Shoreslate_City_1:
-# 2765 "data/scripts/my_debug.pory"
+# 2770 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Shoreslate_City_5
 CompleteArea_Shoreslate_City_4:
 	return
 
 CompleteArea_Shoreslate_City_2:
-# 2752 "data/scripts/my_debug.pory"
+# 2757 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SHORESLATE_ITEM1, CompleteArea_Shoreslate_City_8
 CompleteArea_Shoreslate_City_7:
-# 2756 "data/scripts/my_debug.pory"
+# 2761 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASEMENT_SUPERPOTION, CompleteArea_Shoreslate_City_16
 CompleteArea_Shoreslate_City_15:
-# 2760 "data/scripts/my_debug.pory"
+# 2765 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DEVONCORP_BASEMENT_BALL, CompleteArea_Shoreslate_City_23
 	goto CompleteArea_Shoreslate_City_1
 
 CompleteArea_Shoreslate_City_5:
-# 2766 "data/scripts/my_debug.pory"
+# 2771 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_LUCARIONITE, CompleteArea_Shoreslate_City_12
 CompleteArea_Shoreslate_City_10:
-# 2773 "data/scripts/my_debug.pory"
+# 2778 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_SHORESLATE_POTION, CompleteArea_Shoreslate_City_19
 CompleteArea_Shoreslate_City_18:
-# 2777 "data/scripts/my_debug.pory"
+# 2782 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_GIVEN_CASTELIATOGIRL, CompleteArea_Shoreslate_City_25
 	goto CompleteArea_Shoreslate_City_4
 
 CompleteArea_Shoreslate_City_8:
-# 2753 "data/scripts/my_debug.pory"
+# 2758 "data/scripts/my_debug.pory"
 	setflag FLAG_SHORESLATE_ITEM1
-# 2754 "data/scripts/my_debug.pory"
+# 2759 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Shoreslate_City_7
 
 CompleteArea_Shoreslate_City_11:
-# 2767 "data/scripts/my_debug.pory"
+# 2772 "data/scripts/my_debug.pory"
 	additem ITEM_LUCARIONITE
-# 2768 "data/scripts/my_debug.pory"
+# 2773 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_LUCARIONITE
-# 2769 "data/scripts/my_debug.pory"
+# 2774 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q15_SHORESLATE_TOUGHGUY_START, CompleteArea_Shoreslate_City_21
 	goto CompleteArea_Shoreslate_City_10
 
 CompleteArea_Shoreslate_City_12:
-# 2766 "data/scripts/my_debug.pory"
+# 2771 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, CompleteArea_Shoreslate_City_11
 	goto CompleteArea_Shoreslate_City_10
 
 CompleteArea_Shoreslate_City_16:
-# 2757 "data/scripts/my_debug.pory"
+# 2762 "data/scripts/my_debug.pory"
 	setflag FLAG_BASEMENT_SUPERPOTION
-# 2758 "data/scripts/my_debug.pory"
+# 2763 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_POTION
 	goto CompleteArea_Shoreslate_City_15
 
 CompleteArea_Shoreslate_City_19:
-# 2774 "data/scripts/my_debug.pory"
+# 2779 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_SHORESLATE_POTION
-# 2775 "data/scripts/my_debug.pory"
+# 2780 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_POTION
 	goto CompleteArea_Shoreslate_City_18
 
 CompleteArea_Shoreslate_City_21:
-# 2770 "data/scripts/my_debug.pory"
+# 2775 "data/scripts/my_debug.pory"
 	completequest FLAG_Q15_SHORESLATE_TOUGHGUY_COMPLETE
 	goto CompleteArea_Shoreslate_City_10
 
 CompleteArea_Shoreslate_City_23:
-# 2761 "data/scripts/my_debug.pory"
+# 2766 "data/scripts/my_debug.pory"
 	setflag FLAG_DEVONCORP_BASEMENT_BALL
-# 2762 "data/scripts/my_debug.pory"
+# 2767 "data/scripts/my_debug.pory"
 	additem ITEM_QUICK_BALL
 	goto CompleteArea_Shoreslate_City_1
 
 CompleteArea_Shoreslate_City_25:
-# 2778 "data/scripts/my_debug.pory"
+# 2783 "data/scripts/my_debug.pory"
 	setflag FLAG_GIVEN_CASTELIATOGIRL
-# 2779 "data/scripts/my_debug.pory"
+# 2784 "data/scripts/my_debug.pory"
 	additem ITEM_AIR_BALLOON
-# 2780 "data/scripts/my_debug.pory"
+# 2785 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q13_SHORESLATE_ICECREAM_START, CompleteArea_Shoreslate_City_27
 	goto CompleteArea_Shoreslate_City_4
 
 CompleteArea_Shoreslate_City_27:
-# 2781 "data/scripts/my_debug.pory"
+# 2786 "data/scripts/my_debug.pory"
 	completequest FLAG_Q13_SHORESLATE_ICECREAM_COMPLETE
 	goto CompleteArea_Shoreslate_City_4
 
 
 CompleteArea_Scorched_Desert::
-# 2788 "data/scripts/my_debug.pory"
+# 2793 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Scorched_Desert_2
 CompleteArea_Scorched_Desert_1:
-# 2833 "data/scripts/my_debug.pory"
+# 2838 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Scorched_Desert_5
 CompleteArea_Scorched_Desert_4:
-# 2854 "data/scripts/my_debug.pory"
+# 2859 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Scorched_Desert_11
 CompleteArea_Scorched_Desert_10:
 	return
 
 CompleteArea_Scorched_Desert_2:
-# 2789 "data/scripts/my_debug.pory"
+# 2794 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM1, CompleteArea_Scorched_Desert_8
 CompleteArea_Scorched_Desert_7:
-# 2793 "data/scripts/my_debug.pory"
+# 2798 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM4, CompleteArea_Scorched_Desert_16
 CompleteArea_Scorched_Desert_15:
-# 2797 "data/scripts/my_debug.pory"
+# 2802 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM2, CompleteArea_Scorched_Desert_22
 CompleteArea_Scorched_Desert_21:
-# 2801 "data/scripts/my_debug.pory"
+# 2806 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM3, CompleteArea_Scorched_Desert_32
 CompleteArea_Scorched_Desert_31:
-# 2805 "data/scripts/my_debug.pory"
+# 2810 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM5, CompleteArea_Scorched_Desert_38
 CompleteArea_Scorched_Desert_37:
-# 2809 "data/scripts/my_debug.pory"
+# 2814 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM6, CompleteArea_Scorched_Desert_44
 CompleteArea_Scorched_Desert_43:
-# 2813 "data/scripts/my_debug.pory"
+# 2818 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM7, CompleteArea_Scorched_Desert_47
 CompleteArea_Scorched_Desert_46:
-# 2817 "data/scripts/my_debug.pory"
+# 2822 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM8, CompleteArea_Scorched_Desert_50
 CompleteArea_Scorched_Desert_49:
-# 2821 "data/scripts/my_debug.pory"
+# 2826 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM9, CompleteArea_Scorched_Desert_53
 CompleteArea_Scorched_Desert_52:
-# 2825 "data/scripts/my_debug.pory"
+# 2830 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DESERT_ITEM10, CompleteArea_Scorched_Desert_56
 CompleteArea_Scorched_Desert_55:
 	checkitem ITEM_ESCAPE_ROPE
@@ -6195,53 +6208,53 @@ CompleteArea_Scorched_Desert_55:
 	goto CompleteArea_Scorched_Desert_1
 
 CompleteArea_Scorched_Desert_5:
-# 2834 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR1_CAMPER
-# 2835 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR2_CAMPER2
-# 2836 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR3_PICNICKER
-# 2837 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR4_PICNICKER2
-# 2838 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR5_HIKER
 # 2839 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR6_BLACKBELT
+	defeattrainer TRAINER_DESERT_CAMPER
 # 2840 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR7_PICNICKER3
+	defeattrainer TRAINER_DESERT_CAMPER2
 # 2841 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR8_HIKER2
+	defeattrainer TRAINER_DESERT_PICNICKER
 # 2842 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR9_HIKER3
+	defeattrainer TRAINER_DESERT_PICNICKER2
 # 2843 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR10_FIREBREATHER
+	defeattrainer TRAINER_DESERT_HIKER
 # 2844 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR11_BLACKBELT2
+	defeattrainer TRAINER_DESERT_BLACKBELT
 # 2845 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR12_HIKER4
+	defeattrainer TRAINER_DESERT_PICNICKER3
 # 2846 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR13_PSYCHIC_F
+	defeattrainer TRAINER_DESERT_HIKER2
 # 2847 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_DESERT_TR14_COOLTRAINER
+	defeattrainer TRAINER_DESERT_HIKER3
+# 2848 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DESERT_KINDLER
+# 2849 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DESERT_BLACKBELT2
+# 2850 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DESERT_HIKER4
+# 2851 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DESERT_PSYCHIC_F
+# 2852 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_DESERT_ACETRAINER
 	goto_if 0, CompleteArea_Scorched_Desert_13
 	goto CompleteArea_Scorched_Desert_4
 
 CompleteArea_Scorched_Desert_8:
-# 2790 "data/scripts/my_debug.pory"
+# 2795 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM1
-# 2791 "data/scripts/my_debug.pory"
+# 2796 "data/scripts/my_debug.pory"
 	additem ITEM_TM_SANDSTORM
 	goto CompleteArea_Scorched_Desert_7
 
 CompleteArea_Scorched_Desert_11:
-# 2855 "data/scripts/my_debug.pory"
+# 2860 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WEIRDCAVESOLVED, CompleteArea_Scorched_Desert_19
 CompleteArea_Scorched_Desert_18:
-# 2864 "data/scripts/my_debug.pory"
+# 2869 "data/scripts/my_debug.pory"
 	setflag FLAG_RECOMMEND_LIBRARY
-# 2865 "data/scripts/my_debug.pory"
+# 2870 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_RUINS_OPENED
-# 2866 "data/scripts/my_debug.pory"
+# 2871 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_Q18_DESERT_LIBRARYBOOK_START, CompleteArea_Scorched_Desert_26
 CompleteArea_Scorched_Desert_24:
 	checkitem ITEM_ESCAPE_ROPE
@@ -6249,81 +6262,81 @@ CompleteArea_Scorched_Desert_24:
 	compare VAR_RESULT, FALSE
 	goto_if_eq CompleteArea_Scorched_Desert_35
 CompleteArea_Scorched_Desert_34:
-# 2872 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM1
-# 2873 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM2
-# 2874 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM3
-# 2875 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM4
-# 2876 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM5
 # 2877 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM6
+	setflag FLAG_UNDERGROUNDRUINS_ITEM1
 # 2878 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM7
+	setflag FLAG_UNDERGROUNDRUINS_ITEM2
 # 2879 "data/scripts/my_debug.pory"
-	setflag FLAG_UNDERGROUNDRUINS_ITEM8
+	setflag FLAG_UNDERGROUNDRUINS_ITEM3
 # 2880 "data/scripts/my_debug.pory"
-	call GenerateRelic
+	setflag FLAG_UNDERGROUNDRUINS_ITEM4
 # 2881 "data/scripts/my_debug.pory"
-	call GenerateRelic
+	setflag FLAG_UNDERGROUNDRUINS_ITEM5
 # 2882 "data/scripts/my_debug.pory"
-	call GenerateRelic
+	setflag FLAG_UNDERGROUNDRUINS_ITEM6
 # 2883 "data/scripts/my_debug.pory"
-	call GenerateRelic
+	setflag FLAG_UNDERGROUNDRUINS_ITEM7
 # 2884 "data/scripts/my_debug.pory"
-	additem ITEM_RELIC_COPPER, 2
+	setflag FLAG_UNDERGROUNDRUINS_ITEM8
 # 2885 "data/scripts/my_debug.pory"
-	additem ITEM_RELIC_SILVER, 2
+	call GenerateRelic
 # 2886 "data/scripts/my_debug.pory"
+	call GenerateRelic
+# 2887 "data/scripts/my_debug.pory"
+	call GenerateRelic
+# 2888 "data/scripts/my_debug.pory"
+	call GenerateRelic
+# 2889 "data/scripts/my_debug.pory"
+	additem ITEM_RELIC_COPPER, 2
+# 2890 "data/scripts/my_debug.pory"
+	additem ITEM_RELIC_SILVER, 2
+# 2891 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_UNDERGROUNDRUINS_TM_SANDSTORM, CompleteArea_Scorched_Desert_41
 CompleteArea_Scorched_Desert_40:
-# 2890 "data/scripts/my_debug.pory"
+# 2895 "data/scripts/my_debug.pory"
 	call DebugFossil
 	goto CompleteArea_Scorched_Desert_10
 
 CompleteArea_Scorched_Desert_13:
-# 2848 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_DESERT_TR14_COOLTRAINER
-# 2849 "data/scripts/my_debug.pory"
+# 2853 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_DESERT_ACETRAINER
+# 2854 "data/scripts/my_debug.pory"
 	additem ITEM_SAFETY_GOGGLES
-# 2850 "data/scripts/my_debug.pory"
+# 2855 "data/scripts/my_debug.pory"
 	setvar VAR_DESERT_TRAINERS, 14
-# 2851 "data/scripts/my_debug.pory"
+# 2856 "data/scripts/my_debug.pory"
 	addbp 20
 	goto CompleteArea_Scorched_Desert_4
 
 CompleteArea_Scorched_Desert_16:
-# 2794 "data/scripts/my_debug.pory"
+# 2799 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM4
-# 2795 "data/scripts/my_debug.pory"
+# 2800 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Scorched_Desert_15
 
 CompleteArea_Scorched_Desert_19:
-# 2856 "data/scripts/my_debug.pory"
+# 2861 "data/scripts/my_debug.pory"
 	additem ITEM_STONE_SPHERE
-# 2857 "data/scripts/my_debug.pory"
+# 2862 "data/scripts/my_debug.pory"
 	setflag FLAG_WEIRDCAVE_STONE
-# 2858 "data/scripts/my_debug.pory"
+# 2863 "data/scripts/my_debug.pory"
 	setvar VAR_WEIRDCAVE_PART2, 3
-# 2859 "data/scripts/my_debug.pory"
+# 2864 "data/scripts/my_debug.pory"
 	setflag FLAG_WEIRDCAVESOLVED
-# 2860 "data/scripts/my_debug.pory"
+# 2865 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q17_DESERT_WEIRDCAVE_START, CompleteArea_Scorched_Desert_29
 	goto CompleteArea_Scorched_Desert_18
 
 CompleteArea_Scorched_Desert_22:
-# 2798 "data/scripts/my_debug.pory"
+# 2803 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM2
-# 2799 "data/scripts/my_debug.pory"
+# 2804 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Scorched_Desert_21
 
 CompleteArea_Scorched_Desert_25:
-# 2867 "data/scripts/my_debug.pory"
+# 2872 "data/scripts/my_debug.pory"
 	startquest FLAG_Q18_DESERT_LIBRARYBOOK_START
 	goto CompleteArea_Scorched_Desert_24
 
@@ -6335,130 +6348,128 @@ CompleteArea_Scorched_Desert_26:
 	goto CompleteArea_Scorched_Desert_24
 
 CompleteArea_Scorched_Desert_29:
-# 2861 "data/scripts/my_debug.pory"
+# 2866 "data/scripts/my_debug.pory"
 	completequest FLAG_Q17_DESERT_WEIRDCAVE_COMPLETE
 	goto CompleteArea_Scorched_Desert_18
 
 CompleteArea_Scorched_Desert_32:
-# 2802 "data/scripts/my_debug.pory"
+# 2807 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM3
-# 2803 "data/scripts/my_debug.pory"
+# 2808 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Scorched_Desert_31
 
 CompleteArea_Scorched_Desert_35:
-# 2870 "data/scripts/my_debug.pory"
+# 2875 "data/scripts/my_debug.pory"
 	additem ITEM_ESCAPE_ROPE
 	goto CompleteArea_Scorched_Desert_34
 
 CompleteArea_Scorched_Desert_38:
-# 2806 "data/scripts/my_debug.pory"
+# 2811 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM5
-# 2807 "data/scripts/my_debug.pory"
+# 2812 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Scorched_Desert_37
 
 CompleteArea_Scorched_Desert_41:
-# 2887 "data/scripts/my_debug.pory"
+# 2892 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_UNDERGROUNDRUINS_TM_SANDSTORM
-# 2888 "data/scripts/my_debug.pory"
+# 2893 "data/scripts/my_debug.pory"
 	additem ITEM_TM_ROCK_SLIDE
 	goto CompleteArea_Scorched_Desert_40
 
 CompleteArea_Scorched_Desert_44:
-# 2810 "data/scripts/my_debug.pory"
+# 2815 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM6
-# 2811 "data/scripts/my_debug.pory"
+# 2816 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Scorched_Desert_43
 
 CompleteArea_Scorched_Desert_47:
-# 2814 "data/scripts/my_debug.pory"
+# 2819 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM7
-# 2815 "data/scripts/my_debug.pory"
+# 2820 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Scorched_Desert_46
 
 CompleteArea_Scorched_Desert_50:
-# 2818 "data/scripts/my_debug.pory"
+# 2823 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM8
-# 2819 "data/scripts/my_debug.pory"
+# 2824 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Scorched_Desert_49
 
 CompleteArea_Scorched_Desert_53:
-# 2822 "data/scripts/my_debug.pory"
+# 2827 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM9
-# 2823 "data/scripts/my_debug.pory"
+# 2828 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Scorched_Desert_52
 
 CompleteArea_Scorched_Desert_56:
-# 2826 "data/scripts/my_debug.pory"
+# 2831 "data/scripts/my_debug.pory"
 	setflag FLAG_DESERT_ITEM10
-# 2827 "data/scripts/my_debug.pory"
+# 2832 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Scorched_Desert_55
 
 CompleteArea_Scorched_Desert_58:
-# 2830 "data/scripts/my_debug.pory"
+# 2835 "data/scripts/my_debug.pory"
 	additem ITEM_ESCAPE_ROPE
 	goto CompleteArea_Scorched_Desert_1
 
 
 CompleteArea_Route_7::
-# 2895 "data/scripts/my_debug.pory"
+# 2900 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_7_2
 CompleteArea_Route_7_1:
-# 2913 "data/scripts/my_debug.pory"
+# 2918 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_7_5
 CompleteArea_Route_7_4:
-# 2925 "data/scripts/my_debug.pory"
+# 2929 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_7_11
 CompleteArea_Route_7_10:
 	return
 
 CompleteArea_Route_7_2:
-# 2896 "data/scripts/my_debug.pory"
+# 2901 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_ITEM4, CompleteArea_Route_7_8
 CompleteArea_Route_7_7:
-# 2900 "data/scripts/my_debug.pory"
+# 2905 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_ITEM1, CompleteArea_Route_7_14
 CompleteArea_Route_7_13:
-# 2904 "data/scripts/my_debug.pory"
+# 2909 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_ITEM3, CompleteArea_Route_7_19
 CompleteArea_Route_7_18:
-# 2908 "data/scripts/my_debug.pory"
+# 2913 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_ITEM2, CompleteArea_Route_7_23
 	goto CompleteArea_Route_7_1
 
 CompleteArea_Route_7_5:
-# 2914 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR1_CAMPER
-# 2915 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR2_PICNICKER
-# 2916 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_UNUSED_172_
-# 2917 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR4_BIRDKEEPER
-# 2918 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR5_BLACKBELT
 # 2919 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR6_PICNICKER2
+	defeattrainer TRAINER_R7_CAMPER
 # 2920 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR7_FISHERMAN
+	defeattrainer TRAINER_R7_PICNICKER
 # 2921 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR8_HIKER
+	defeattrainer TRAINER_R7_BIRDKEEPER
 # 2922 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR9_PARASOLLADY
+	defeattrainer TRAINER_R7_BLACKBELT
 # 2923 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R7_TR10_NINJABOY
+	defeattrainer TRAINER_R7_PICNICKER2
+# 2924 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R7_FISHERMAN
+# 2925 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R7_HIKER
+# 2926 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R7_PARASOLLADY
+# 2927 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R7_NINJABOY
 	goto CompleteArea_Route_7_4
 
 CompleteArea_Route_7_8:
-# 2897 "data/scripts/my_debug.pory"
+# 2902 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_ITEM4
-# 2898 "data/scripts/my_debug.pory"
+# 2903 "data/scripts/my_debug.pory"
 	additem ITEM_NET_BALL
 	goto CompleteArea_Route_7_7
 
@@ -6470,54 +6481,54 @@ CompleteArea_Route_7_11:
 	goto CompleteArea_Route_7_10
 
 CompleteArea_Route_7_14:
-# 2901 "data/scripts/my_debug.pory"
+# 2906 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_ITEM1
-# 2902 "data/scripts/my_debug.pory"
+# 2907 "data/scripts/my_debug.pory"
 	additem ITEM_HP_UP
 	goto CompleteArea_Route_7_13
 
 CompleteArea_Route_7_16:
-# 2927 "data/scripts/my_debug.pory"
+# 2931 "data/scripts/my_debug.pory"
 	additem ITEM_SAMPLE_BOX
-# 2928 "data/scripts/my_debug.pory"
+# 2932 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_Q19_MUDSCIENTIST_START, CompleteArea_Route_7_21
 	goto CompleteArea_Route_7_10
 
 CompleteArea_Route_7_19:
-# 2905 "data/scripts/my_debug.pory"
+# 2910 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_ITEM3
-# 2906 "data/scripts/my_debug.pory"
+# 2911 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_BONE
 	goto CompleteArea_Route_7_18
 
 CompleteArea_Route_7_21:
-# 2929 "data/scripts/my_debug.pory"
+# 2933 "data/scripts/my_debug.pory"
 	startquest FLAG_Q19_MUDSCIENTIST_START
 	goto CompleteArea_Route_7_10
 
 CompleteArea_Route_7_23:
-# 2909 "data/scripts/my_debug.pory"
+# 2914 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_ITEM2
-# 2910 "data/scripts/my_debug.pory"
+# 2915 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_7_1
 
 
 CompleteArea_Marigorge_Town::
-# 2936 "data/scripts/my_debug.pory"
+# 2940 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Marigorge_Town_2
 CompleteArea_Marigorge_Town_1:
 	return
 
 CompleteArea_Marigorge_Town_2:
-# 2937 "data/scripts/my_debug.pory"
+# 2941 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_MARIGORGE_ITEM2, CompleteArea_Marigorge_Town_4
 	goto CompleteArea_Marigorge_Town_1
 
 CompleteArea_Marigorge_Town_4:
-# 2938 "data/scripts/my_debug.pory"
+# 2942 "data/scripts/my_debug.pory"
 	setflag FLAG_MARIGORGE_ITEM2
-# 2939 "data/scripts/my_debug.pory"
+# 2943 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Marigorge_Town_1
 
@@ -6528,1313 +6539,1313 @@ CompleteArea_Kaolisle_City::
 	compare VAR_RESULT, FALSE
 	goto_if_eq CompleteArea_Kaolisle_City_2
 CompleteArea_Kaolisle_City_1:
-# 2948 "data/scripts/my_debug.pory"
+# 2952 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Kaolisle_City_5
 CompleteArea_Kaolisle_City_4:
-# 3043 "data/scripts/my_debug.pory"
+# 3047 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Kaolisle_City_8
 CompleteArea_Kaolisle_City_7:
-# 3055 "data/scripts/my_debug.pory"
+# 3059 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Kaolisle_City_14
 CompleteArea_Kaolisle_City_13:
 	return
 
 CompleteArea_Kaolisle_City_2:
-# 2946 "data/scripts/my_debug.pory"
+# 2950 "data/scripts/my_debug.pory"
 	additem ITEM_ESCAPE_ROPE
 	goto CompleteArea_Kaolisle_City_1
 
 CompleteArea_Kaolisle_City_5:
-# 2949 "data/scripts/my_debug.pory"
+# 2953 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM7, CompleteArea_Kaolisle_City_11
 CompleteArea_Kaolisle_City_10:
-# 2953 "data/scripts/my_debug.pory"
+# 2957 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM9, CompleteArea_Kaolisle_City_17
 CompleteArea_Kaolisle_City_16:
-# 2957 "data/scripts/my_debug.pory"
+# 2961 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM8, CompleteArea_Kaolisle_City_23
 CompleteArea_Kaolisle_City_22:
-# 2961 "data/scripts/my_debug.pory"
+# 2965 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM1, CompleteArea_Kaolisle_City_31
 CompleteArea_Kaolisle_City_30:
-# 2965 "data/scripts/my_debug.pory"
+# 2969 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM4, CompleteArea_Kaolisle_City_37
 CompleteArea_Kaolisle_City_36:
-# 2969 "data/scripts/my_debug.pory"
+# 2973 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM5, CompleteArea_Kaolisle_City_45
 CompleteArea_Kaolisle_City_44:
-# 2973 "data/scripts/my_debug.pory"
+# 2977 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM6, CompleteArea_Kaolisle_City_51
 CompleteArea_Kaolisle_City_50:
-# 2977 "data/scripts/my_debug.pory"
+# 2981 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM3, CompleteArea_Kaolisle_City_57
 CompleteArea_Kaolisle_City_56:
-# 2981 "data/scripts/my_debug.pory"
+# 2985 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM2, CompleteArea_Kaolisle_City_63
 CompleteArea_Kaolisle_City_62:
-# 2986 "data/scripts/my_debug.pory"
+# 2990 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM3, CompleteArea_Kaolisle_City_71
 CompleteArea_Kaolisle_City_70:
-# 2990 "data/scripts/my_debug.pory"
+# 2994 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM4, CompleteArea_Kaolisle_City_79
 CompleteArea_Kaolisle_City_78:
-# 2994 "data/scripts/my_debug.pory"
+# 2998 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM1, CompleteArea_Kaolisle_City_84
 CompleteArea_Kaolisle_City_83:
-# 2998 "data/scripts/my_debug.pory"
+# 3002 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM6, CompleteArea_Kaolisle_City_89
 CompleteArea_Kaolisle_City_88:
-# 3002 "data/scripts/my_debug.pory"
+# 3006 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM8, CompleteArea_Kaolisle_City_92
 CompleteArea_Kaolisle_City_91:
-# 3006 "data/scripts/my_debug.pory"
+# 3010 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM10, CompleteArea_Kaolisle_City_95
 CompleteArea_Kaolisle_City_94:
-# 3010 "data/scripts/my_debug.pory"
+# 3014 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM9, CompleteArea_Kaolisle_City_98
 CompleteArea_Kaolisle_City_97:
-# 3014 "data/scripts/my_debug.pory"
+# 3018 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM11, CompleteArea_Kaolisle_City_101
 CompleteArea_Kaolisle_City_100:
-# 3018 "data/scripts/my_debug.pory"
+# 3022 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM12, CompleteArea_Kaolisle_City_104
 CompleteArea_Kaolisle_City_103:
-# 3022 "data/scripts/my_debug.pory"
+# 3026 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM13, CompleteArea_Kaolisle_City_107
 CompleteArea_Kaolisle_City_106:
-# 3026 "data/scripts/my_debug.pory"
+# 3030 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM14, CompleteArea_Kaolisle_City_110
 CompleteArea_Kaolisle_City_109:
-# 3030 "data/scripts/my_debug.pory"
+# 3034 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM2, CompleteArea_Kaolisle_City_113
 CompleteArea_Kaolisle_City_112:
-# 3034 "data/scripts/my_debug.pory"
+# 3038 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM5, CompleteArea_Kaolisle_City_116
 CompleteArea_Kaolisle_City_115:
-# 3038 "data/scripts/my_debug.pory"
+# 3042 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLMINES_ITEM7, CompleteArea_Kaolisle_City_118
 	goto CompleteArea_Kaolisle_City_4
 
 CompleteArea_Kaolisle_City_8:
-# 3044 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR1_PICNICKER
-# 3045 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR2_BLACKBELT
-# 3046 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR3_CAMPER
-# 3047 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR4_HIKER
 # 3048 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR5_HIKER
+	defeattrainer TRAINER_KM_PICNICKER
 # 3049 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR6_HIKER
+	defeattrainer TRAINER_KM_BLACKBELT
 # 3050 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR7_CAMPER
+	defeattrainer TRAINER_KM_CAMPER
 # 3051 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR8_PICNICKER
+	defeattrainer TRAINER_KM_HIKER
 # 3052 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR9_BLACKBELT
+	defeattrainer TRAINER_KM_HIKER2
 # 3053 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_KM_TR10_HIKER
+	defeattrainer TRAINER_KM_HIKER3
+# 3054 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_KM_CAMPER2
+# 3055 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_KM_PICNICKER2
+# 3056 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_KM_BLACKBELT2
+# 3057 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_KM_HIKER4
 	goto CompleteArea_Kaolisle_City_7
 
 CompleteArea_Kaolisle_City_11:
-# 2950 "data/scripts/my_debug.pory"
+# 2954 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM7
-# 2951 "data/scripts/my_debug.pory"
+# 2955 "data/scripts/my_debug.pory"
 	additem ITEM_QUICK_BALL
 	goto CompleteArea_Kaolisle_City_10
 
 CompleteArea_Kaolisle_City_14:
-# 3056 "data/scripts/my_debug.pory"
+# 3060 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_GOOD_ROD, CompleteArea_Kaolisle_City_20
 CompleteArea_Kaolisle_City_19:
-# 3065 "data/scripts/my_debug.pory"
+# 3069 "data/scripts/my_debug.pory"
 	setflag FLAG_REVEAL_PEARLSTRING
-# 3066 "data/scripts/my_debug.pory"
+# 3070 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OLDMAN_PEARLSTRING, CompleteArea_Kaolisle_City_26
 CompleteArea_Kaolisle_City_25:
-# 3070 "data/scripts/my_debug.pory"
+# 3074 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_HM_ROCK_SMASH, CompleteArea_Kaolisle_City_34
 CompleteArea_Kaolisle_City_33:
-# 3079 "data/scripts/my_debug.pory"
+# 3083 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_PIANOREWARD, CompleteArea_Kaolisle_City_40
 CompleteArea_Kaolisle_City_39:
-# 3083 "data/scripts/my_debug.pory"
+# 3087 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_BEACHBALL, CompleteArea_Kaolisle_City_48
 CompleteArea_Kaolisle_City_47:
-# 3087 "data/scripts/my_debug.pory"
+# 3091 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HOTEL_FLYINGGEM, CompleteArea_Kaolisle_City_54
 CompleteArea_Kaolisle_City_53:
-# 3092 "data/scripts/my_debug.pory"
+# 3096 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BUFFET_COMPLETE, CompleteArea_Kaolisle_City_60
 CompleteArea_Kaolisle_City_59:
-# 3100 "data/scripts/my_debug.pory"
+# 3104 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_TROPICALSTONE, CompleteArea_Kaolisle_City_66
 CompleteArea_Kaolisle_City_65:
-# 3107 "data/scripts/my_debug.pory"
+# 3111 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_ECHOEDVOICE, CompleteArea_Kaolisle_City_74
 CompleteArea_Kaolisle_City_73:
-# 3111 "data/scripts/my_debug.pory"
+# 3115 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_ROSTEBERRIES, CompleteArea_Kaolisle_City_81
 	goto CompleteArea_Kaolisle_City_13
 
 CompleteArea_Kaolisle_City_17:
-# 2954 "data/scripts/my_debug.pory"
+# 2958 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM9
-# 2955 "data/scripts/my_debug.pory"
+# 2959 "data/scripts/my_debug.pory"
 	additem ITEM_CALCIUM
 	goto CompleteArea_Kaolisle_City_16
 
 CompleteArea_Kaolisle_City_20:
-# 3057 "data/scripts/my_debug.pory"
-	setflag FLAG_QUEST_FOR_GOOD_ROD
-# 3058 "data/scripts/my_debug.pory"
-	removeitem ITEM_LURE
-# 3059 "data/scripts/my_debug.pory"
-	additem ITEM_GOOD_ROD
-# 3060 "data/scripts/my_debug.pory"
-	setflag FLAG_RECEIVED_GOOD_ROD
 # 3061 "data/scripts/my_debug.pory"
+	setflag FLAG_QUEST_FOR_GOOD_ROD
+# 3062 "data/scripts/my_debug.pory"
+	removeitem ITEM_LURE
+# 3063 "data/scripts/my_debug.pory"
+	additem ITEM_GOOD_ROD
+# 3064 "data/scripts/my_debug.pory"
+	setflag FLAG_RECEIVED_GOOD_ROD
+# 3065 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q22_KAOLISLE_FISHERMAN_START, CompleteArea_Kaolisle_City_28
 	goto CompleteArea_Kaolisle_City_19
 
 CompleteArea_Kaolisle_City_23:
-# 2958 "data/scripts/my_debug.pory"
+# 2962 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM8
-# 2959 "data/scripts/my_debug.pory"
+# 2963 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Kaolisle_City_22
 
 CompleteArea_Kaolisle_City_26:
-# 3067 "data/scripts/my_debug.pory"
+# 3071 "data/scripts/my_debug.pory"
 	setflag FLAG_OLDMAN_PEARLSTRING
-# 3068 "data/scripts/my_debug.pory"
+# 3072 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL_STRING
 	goto CompleteArea_Kaolisle_City_25
 
 CompleteArea_Kaolisle_City_28:
-# 3062 "data/scripts/my_debug.pory"
+# 3066 "data/scripts/my_debug.pory"
 	completequest FLAG_Q22_KAOLISLE_FISHERMAN_COMPLETE
 	goto CompleteArea_Kaolisle_City_19
 
 CompleteArea_Kaolisle_City_31:
-# 2962 "data/scripts/my_debug.pory"
+# 2966 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM1
-# 2963 "data/scripts/my_debug.pory"
+# 2967 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Kaolisle_City_30
 
 CompleteArea_Kaolisle_City_34:
-# 3071 "data/scripts/my_debug.pory"
-	setflag FLAG_KAOLMINES_ITEM2
-# 3072 "data/scripts/my_debug.pory"
-	giveitem ITEM_HM_ROCK_SMASH
-# 3073 "data/scripts/my_debug.pory"
-	setflag FLAG_RECEIVED_HM_ROCK_SMASH
-# 3074 "data/scripts/my_debug.pory"
-	removeitem ITEM_LOST_MEMENTO
 # 3075 "data/scripts/my_debug.pory"
+	setflag FLAG_KAOLMINES_ITEM2
+# 3076 "data/scripts/my_debug.pory"
+	giveitem ITEM_HM_ROCK_SMASH
+# 3077 "data/scripts/my_debug.pory"
+	setflag FLAG_RECEIVED_HM_ROCK_SMASH
+# 3078 "data/scripts/my_debug.pory"
+	removeitem ITEM_LOST_MEMENTO
+# 3079 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q23_KAOLISLE_OLDPENDANT_START, CompleteArea_Kaolisle_City_42
 	goto CompleteArea_Kaolisle_City_33
 
 CompleteArea_Kaolisle_City_37:
-# 2966 "data/scripts/my_debug.pory"
+# 2970 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM4
-# 2967 "data/scripts/my_debug.pory"
+# 2971 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Kaolisle_City_36
 
 CompleteArea_Kaolisle_City_40:
-# 3080 "data/scripts/my_debug.pory"
+# 3084 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE, 2
-# 3081 "data/scripts/my_debug.pory"
+# 3085 "data/scripts/my_debug.pory"
 	setflag FLAG_PIANOREWARD
 	goto CompleteArea_Kaolisle_City_39
 
 CompleteArea_Kaolisle_City_42:
-# 3076 "data/scripts/my_debug.pory"
+# 3080 "data/scripts/my_debug.pory"
 	special ShowJournalPopupRemove
 	goto CompleteArea_Kaolisle_City_33
 
 CompleteArea_Kaolisle_City_45:
-# 2970 "data/scripts/my_debug.pory"
+# 2974 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM5
-# 2971 "data/scripts/my_debug.pory"
+# 2975 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Kaolisle_City_44
 
 CompleteArea_Kaolisle_City_48:
-# 3084 "data/scripts/my_debug.pory"
+# 3088 "data/scripts/my_debug.pory"
 	additem ITEM_DIVE_BALL
-# 3085 "data/scripts/my_debug.pory"
+# 3089 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_BEACHBALL
 	goto CompleteArea_Kaolisle_City_47
 
 CompleteArea_Kaolisle_City_51:
-# 2974 "data/scripts/my_debug.pory"
+# 2978 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM6
-# 2975 "data/scripts/my_debug.pory"
+# 2979 "data/scripts/my_debug.pory"
 	additem ITEM_SUN_STONE
 	goto CompleteArea_Kaolisle_City_50
 
 CompleteArea_Kaolisle_City_54:
-# 3088 "data/scripts/my_debug.pory"
+# 3092 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_HOTEL_BIRDKEEPER
-# 3089 "data/scripts/my_debug.pory"
+# 3093 "data/scripts/my_debug.pory"
 	additem ITEM_FLYING_GEM, 1
-# 3090 "data/scripts/my_debug.pory"
+# 3094 "data/scripts/my_debug.pory"
 	setflag FLAG_HOTEL_FLYINGGEM
 	goto CompleteArea_Kaolisle_City_53
 
 CompleteArea_Kaolisle_City_57:
-# 2978 "data/scripts/my_debug.pory"
+# 2982 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM3
-# 2979 "data/scripts/my_debug.pory"
+# 2983 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Kaolisle_City_56
 
 CompleteArea_Kaolisle_City_60:
-# 3093 "data/scripts/my_debug.pory"
+# 3097 "data/scripts/my_debug.pory"
 	additem ITEM_LEFTOVERS
-# 3094 "data/scripts/my_debug.pory"
+# 3098 "data/scripts/my_debug.pory"
 	addbp 30
-# 3095 "data/scripts/my_debug.pory"
+# 3099 "data/scripts/my_debug.pory"
 	setflag FLAG_BUFFET_COMPLETE
-# 3096 "data/scripts/my_debug.pory"
+# 3100 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q24_BATTLE_BUFFET_START, CompleteArea_Kaolisle_City_68
 	goto CompleteArea_Kaolisle_City_59
 
 CompleteArea_Kaolisle_City_63:
-# 2982 "data/scripts/my_debug.pory"
+# 2986 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM2
-# 2983 "data/scripts/my_debug.pory"
+# 2987 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Kaolisle_City_62
 
 CompleteArea_Kaolisle_City_66:
-# 3101 "data/scripts/my_debug.pory"
+# 3105 "data/scripts/my_debug.pory"
 	additem ITEM_TROPICAL_STONE
-# 3102 "data/scripts/my_debug.pory"
+# 3106 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_TROPICALSTONE
-# 3103 "data/scripts/my_debug.pory"
+# 3107 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q25_HOTEL_TROPICALSTONE_START, CompleteArea_Kaolisle_City_76
 	goto CompleteArea_Kaolisle_City_65
 
 CompleteArea_Kaolisle_City_68:
-# 3097 "data/scripts/my_debug.pory"
+# 3101 "data/scripts/my_debug.pory"
 	completequest FLAG_Q24_BATTLE_BUFFET_COMPLETE
 	goto CompleteArea_Kaolisle_City_59
 
 CompleteArea_Kaolisle_City_71:
-# 2987 "data/scripts/my_debug.pory"
+# 2991 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM3
-# 2988 "data/scripts/my_debug.pory"
+# 2992 "data/scripts/my_debug.pory"
 	additem ITEM_DUSK_BALL
 	goto CompleteArea_Kaolisle_City_70
 
 CompleteArea_Kaolisle_City_74:
-# 3108 "data/scripts/my_debug.pory"
+# 3112 "data/scripts/my_debug.pory"
 	additem ITEM_TM_ECHOED_VOICE
-# 3109 "data/scripts/my_debug.pory"
+# 3113 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_ECHOEDVOICE
 	goto CompleteArea_Kaolisle_City_73
 
 CompleteArea_Kaolisle_City_76:
-# 3104 "data/scripts/my_debug.pory"
+# 3108 "data/scripts/my_debug.pory"
 	completequest FLAG_Q25_HOTEL_TROPICALSTONE_COMPLETE
 	goto CompleteArea_Kaolisle_City_65
 
 CompleteArea_Kaolisle_City_79:
-# 2991 "data/scripts/my_debug.pory"
+# 2995 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM4
-# 2992 "data/scripts/my_debug.pory"
+# 2996 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Kaolisle_City_78
 
 CompleteArea_Kaolisle_City_81:
-# 3112 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_HOTEL_KID1
-# 3113 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_HOTEL_KID2
-# 3114 "data/scripts/my_debug.pory"
-	additem ITEM_ROSTE_BERRY, 2
-# 3115 "data/scripts/my_debug.pory"
-	setflag FLAG_OBTAINED_ROSTEBERRIES
 # 3116 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_HOTEL_KID1
+# 3117 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_HOTEL_KID2
+# 3118 "data/scripts/my_debug.pory"
+	additem ITEM_ROSTE_BERRY, 2
+# 3119 "data/scripts/my_debug.pory"
+	setflag FLAG_OBTAINED_ROSTEBERRIES
+# 3120 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q27_HOTEL_WILDKIDS_START, CompleteArea_Kaolisle_City_86
 	goto CompleteArea_Kaolisle_City_13
 
 CompleteArea_Kaolisle_City_84:
-# 2995 "data/scripts/my_debug.pory"
+# 2999 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM1
-# 2996 "data/scripts/my_debug.pory"
+# 3000 "data/scripts/my_debug.pory"
 	additem ITEM_CALCIUM
 	goto CompleteArea_Kaolisle_City_83
 
 CompleteArea_Kaolisle_City_86:
-# 3117 "data/scripts/my_debug.pory"
+# 3121 "data/scripts/my_debug.pory"
 	completequest FLAG_Q27_HOTEL_WILDKIDS_COMPLETE
 	goto CompleteArea_Kaolisle_City_13
 
 CompleteArea_Kaolisle_City_89:
-# 2999 "data/scripts/my_debug.pory"
+# 3003 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM6
-# 3000 "data/scripts/my_debug.pory"
+# 3004 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Kaolisle_City_88
 
 CompleteArea_Kaolisle_City_92:
-# 3003 "data/scripts/my_debug.pory"
+# 3007 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM8
-# 3004 "data/scripts/my_debug.pory"
+# 3008 "data/scripts/my_debug.pory"
 	additem ITEM_PROTEIN
 	goto CompleteArea_Kaolisle_City_91
 
 CompleteArea_Kaolisle_City_95:
-# 3007 "data/scripts/my_debug.pory"
+# 3011 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM10
-# 3008 "data/scripts/my_debug.pory"
+# 3012 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Kaolisle_City_94
 
 CompleteArea_Kaolisle_City_98:
-# 3011 "data/scripts/my_debug.pory"
+# 3015 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM9
-# 3012 "data/scripts/my_debug.pory"
+# 3016 "data/scripts/my_debug.pory"
 	additem ITEM_ZINC
 	goto CompleteArea_Kaolisle_City_97
 
 CompleteArea_Kaolisle_City_101:
-# 3015 "data/scripts/my_debug.pory"
+# 3019 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM11
-# 3016 "data/scripts/my_debug.pory"
+# 3020 "data/scripts/my_debug.pory"
 	additem ITEM_HP_UP
 	goto CompleteArea_Kaolisle_City_100
 
 CompleteArea_Kaolisle_City_104:
-# 3019 "data/scripts/my_debug.pory"
+# 3023 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM12
-# 3020 "data/scripts/my_debug.pory"
+# 3024 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Kaolisle_City_103
 
 CompleteArea_Kaolisle_City_107:
-# 3023 "data/scripts/my_debug.pory"
+# 3027 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM13
-# 3024 "data/scripts/my_debug.pory"
+# 3028 "data/scripts/my_debug.pory"
 	additem ITEM_CARBOS
 	goto CompleteArea_Kaolisle_City_106
 
 CompleteArea_Kaolisle_City_110:
-# 3027 "data/scripts/my_debug.pory"
+# 3031 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM14
-# 3028 "data/scripts/my_debug.pory"
+# 3032 "data/scripts/my_debug.pory"
 	additem ITEM_TM_DIG
 	goto CompleteArea_Kaolisle_City_109
 
 CompleteArea_Kaolisle_City_113:
-# 3031 "data/scripts/my_debug.pory"
+# 3035 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM2
-# 3032 "data/scripts/my_debug.pory"
+# 3036 "data/scripts/my_debug.pory"
 	additem ITEM_LOST_MEMENTO
 	goto CompleteArea_Kaolisle_City_112
 
 CompleteArea_Kaolisle_City_116:
-# 3035 "data/scripts/my_debug.pory"
+# 3039 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM5
-# 3036 "data/scripts/my_debug.pory"
+# 3040 "data/scripts/my_debug.pory"
 	call DebugFossil
 	goto CompleteArea_Kaolisle_City_115
 
 CompleteArea_Kaolisle_City_118:
-# 3039 "data/scripts/my_debug.pory"
+# 3043 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLMINES_ITEM7
-# 3040 "data/scripts/my_debug.pory"
+# 3044 "data/scripts/my_debug.pory"
 	additem ITEM_IRON
 	goto CompleteArea_Kaolisle_City_4
 
 
 CompleteArea_Rockliffe_Town::
-# 3124 "data/scripts/my_debug.pory"
+# 3128 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Rockliffe_Town_2
 CompleteArea_Rockliffe_Town_1:
-# 3134 "data/scripts/my_debug.pory"
+# 3138 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Rockliffe_Town_5
 CompleteArea_Rockliffe_Town_4:
 	return
 
 CompleteArea_Rockliffe_Town_2:
-# 3125 "data/scripts/my_debug.pory"
+# 3129 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROCKLIFFE_ITEM2, CompleteArea_Rockliffe_Town_8
 CompleteArea_Rockliffe_Town_7:
-# 3129 "data/scripts/my_debug.pory"
+# 3133 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROCKLIFFE_ITEM1, CompleteArea_Rockliffe_Town_15
 	goto CompleteArea_Rockliffe_Town_1
 
 CompleteArea_Rockliffe_Town_5:
-# 3135 "data/scripts/my_debug.pory"
+# 3139 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_BEEDRILLITE, CompleteArea_Rockliffe_Town_12
 CompleteArea_Rockliffe_Town_10:
-# 3142 "data/scripts/my_debug.pory"
+# 3146 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_METAL_COAT, CompleteArea_Rockliffe_Town_18
 CompleteArea_Rockliffe_Town_17:
-# 3149 "data/scripts/my_debug.pory"
+# 3153 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_TM_FLING, CompleteArea_Rockliffe_Town_22
 	goto CompleteArea_Rockliffe_Town_4
 
 CompleteArea_Rockliffe_Town_8:
-# 3126 "data/scripts/my_debug.pory"
+# 3130 "data/scripts/my_debug.pory"
 	setflag FLAG_ROCKLIFFE_ITEM2
-# 3127 "data/scripts/my_debug.pory"
+# 3131 "data/scripts/my_debug.pory"
 	additem ITEM_CALCIUM
 	goto CompleteArea_Rockliffe_Town_7
 
 CompleteArea_Rockliffe_Town_11:
-# 3136 "data/scripts/my_debug.pory"
+# 3140 "data/scripts/my_debug.pory"
 	additem ITEM_BEEDRILLITE
-# 3137 "data/scripts/my_debug.pory"
+# 3141 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_BEEDRILLITE
-# 3138 "data/scripts/my_debug.pory"
+# 3142 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q30_ROCKLIFFE_BEEDRILLS_START, CompleteArea_Rockliffe_Town_20
 	goto CompleteArea_Rockliffe_Town_10
 
 CompleteArea_Rockliffe_Town_12:
-# 3135 "data/scripts/my_debug.pory"
+# 3139 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_MEGA_RING, CompleteArea_Rockliffe_Town_11
 	goto CompleteArea_Rockliffe_Town_10
 
 CompleteArea_Rockliffe_Town_15:
-# 3130 "data/scripts/my_debug.pory"
+# 3134 "data/scripts/my_debug.pory"
 	setflag FLAG_ROCKLIFFE_ITEM1
-# 3131 "data/scripts/my_debug.pory"
+# 3135 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_POTION
 	goto CompleteArea_Rockliffe_Town_1
 
 CompleteArea_Rockliffe_Town_18:
-# 3143 "data/scripts/my_debug.pory"
+# 3147 "data/scripts/my_debug.pory"
 	additem ITEM_METAL_COAT
-# 3144 "data/scripts/my_debug.pory"
+# 3148 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_METAL_COAT
-# 3145 "data/scripts/my_debug.pory"
+# 3149 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q29_ROCKLIFFE_HEAVYMON_START, CompleteArea_Rockliffe_Town_24
 	goto CompleteArea_Rockliffe_Town_17
 
 CompleteArea_Rockliffe_Town_20:
-# 3139 "data/scripts/my_debug.pory"
+# 3143 "data/scripts/my_debug.pory"
 	completequest FLAG_Q30_ROCKLIFFE_BEEDRILLS_COMPLETE
 	goto CompleteArea_Rockliffe_Town_10
 
 CompleteArea_Rockliffe_Town_22:
-# 3150 "data/scripts/my_debug.pory"
+# 3154 "data/scripts/my_debug.pory"
 	additem ITEM_TM_FLING
-# 3151 "data/scripts/my_debug.pory"
+# 3155 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_TM_FLING
 	goto CompleteArea_Rockliffe_Town_4
 
 CompleteArea_Rockliffe_Town_24:
-# 3146 "data/scripts/my_debug.pory"
+# 3150 "data/scripts/my_debug.pory"
 	completequest FLAG_Q29_ROCKLIFFE_HEAVYMON_COMPLETE
 	goto CompleteArea_Rockliffe_Town_17
 
 
 CompleteArea_Route_11::
-# 3157 "data/scripts/my_debug.pory"
+# 3161 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_11_2
 CompleteArea_Route_11_1:
-# 3191 "data/scripts/my_debug.pory"
+# 3195 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_11_5
 CompleteArea_Route_11_4:
-# 3212 "data/scripts/my_debug.pory"
+# 3216 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_11_11
 CompleteArea_Route_11_10:
 	return
 
 CompleteArea_Route_11_2:
-# 3158 "data/scripts/my_debug.pory"
+# 3162 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE_11_SUPER_REPEL, CompleteArea_Route_11_8
 CompleteArea_Route_11_7:
-# 3162 "data/scripts/my_debug.pory"
+# 3166 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE_11_ZINC, CompleteArea_Route_11_16
 CompleteArea_Route_11_15:
-# 3166 "data/scripts/my_debug.pory"
+# 3170 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE_11_HYPER_POTION, CompleteArea_Route_11_21
 CompleteArea_Route_11_20:
-# 3170 "data/scripts/my_debug.pory"
+# 3174 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE11_GREATBALL, CompleteArea_Route_11_24
 CompleteArea_Route_11_23:
-# 3174 "data/scripts/my_debug.pory"
+# 3178 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE11_HONEY, CompleteArea_Route_11_27
 CompleteArea_Route_11_26:
-# 3178 "data/scripts/my_debug.pory"
+# 3182 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE11_RARECANDY, CompleteArea_Route_11_30
 CompleteArea_Route_11_29:
-# 3182 "data/scripts/my_debug.pory"
+# 3186 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE_11_ELIXIR, CompleteArea_Route_11_33
 CompleteArea_Route_11_32:
-# 3186 "data/scripts/my_debug.pory"
+# 3190 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 3187 "data/scripts/my_debug.pory"
+# 3191 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 3188 "data/scripts/my_debug.pory"
+# 3192 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
-# 3189 "data/scripts/my_debug.pory"
+# 3193 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
 	goto CompleteArea_Route_11_1
 
 CompleteArea_Route_11_5:
-# 3192 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR1_LASS
-# 3193 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR2_BIRDKEEPER
-# 3194 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR3_BUGCATCHER
-# 3195 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR4_NINJABOY
 # 3196 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR5_POKEMANIAC
+	defeattrainer TRAINER_R11_LASS
 # 3197 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR6_TRIATHLETE_F
+	defeattrainer TRAINER_R11_BIRDKEEPER
 # 3198 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR7_HIKER
+	defeattrainer TRAINER_R11_BUGCATCHER
 # 3199 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR8_NINJABOY_2
+	defeattrainer TRAINER_R11_NINJABOY
 # 3200 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR9_NINJABOY_3
+	defeattrainer TRAINER_R11_POKEMANIAC
 # 3201 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR10_CYCLER_M
+	defeattrainer TRAINER_R11_TRIATHLETE_F
 # 3202 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR11_BLACKBELT
+	defeattrainer TRAINER_R11_HIKER
 # 3203 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR12_EXPERT
+	defeattrainer TRAINER_R11_NINJABOY_2
 # 3204 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR13_PSYCHIC_F
+	defeattrainer TRAINER_R11_NINJABOY_3
 # 3205 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_R11_TR14_ACETRAINER_F
+	defeattrainer TRAINER_R11_CYCLER_M
+# 3206 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R11_BLACKBELT
+# 3207 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R11_EXPERT
+# 3208 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R11_PSYCHIC_F
+# 3209 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_R11_ACETRAINER_F
 	goto_if 0, CompleteArea_Route_11_13
 	goto CompleteArea_Route_11_4
 
 CompleteArea_Route_11_8:
-# 3159 "data/scripts/my_debug.pory"
+# 3163 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE_11_SUPER_REPEL
-# 3160 "data/scripts/my_debug.pory"
+# 3164 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_REPEL
 	goto CompleteArea_Route_11_7
 
 CompleteArea_Route_11_11:
-# 3213 "data/scripts/my_debug.pory"
+# 3217 "data/scripts/my_debug.pory"
 	setflag FLAG_LANDMARK_POKEMON_DAYCARE
-# 3214 "data/scripts/my_debug.pory"
+# 3218 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE_11_TORMENT, CompleteArea_Route_11_18
 	goto CompleteArea_Route_11_10
 
 CompleteArea_Route_11_13:
-# 3206 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R11_TR14_ACETRAINER_F
-# 3207 "data/scripts/my_debug.pory"
+# 3210 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R11_ACETRAINER_F
+# 3211 "data/scripts/my_debug.pory"
 	additem ITEM_LUCKY_EGG
-# 3208 "data/scripts/my_debug.pory"
+# 3212 "data/scripts/my_debug.pory"
 	setvar VAR_R11_TRAINERS, 12
-# 3209 "data/scripts/my_debug.pory"
+# 3213 "data/scripts/my_debug.pory"
 	addbp 25
 	goto CompleteArea_Route_11_4
 
 CompleteArea_Route_11_16:
-# 3163 "data/scripts/my_debug.pory"
+# 3167 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE_11_ZINC
-# 3164 "data/scripts/my_debug.pory"
+# 3168 "data/scripts/my_debug.pory"
 	additem ITEM_ZINC
 	goto CompleteArea_Route_11_15
 
 CompleteArea_Route_11_18:
-# 3215 "data/scripts/my_debug.pory"
+# 3219 "data/scripts/my_debug.pory"
 	additem ITEM_TM_TORMENT
-# 3216 "data/scripts/my_debug.pory"
+# 3220 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE_11_TORMENT
 	goto CompleteArea_Route_11_10
 
 CompleteArea_Route_11_21:
-# 3167 "data/scripts/my_debug.pory"
+# 3171 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE_11_HYPER_POTION
-# 3168 "data/scripts/my_debug.pory"
+# 3172 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_11_20
 
 CompleteArea_Route_11_24:
-# 3171 "data/scripts/my_debug.pory"
+# 3175 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE11_GREATBALL
-# 3172 "data/scripts/my_debug.pory"
+# 3176 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Route_11_23
 
 CompleteArea_Route_11_27:
-# 3175 "data/scripts/my_debug.pory"
+# 3179 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE11_HONEY
-# 3176 "data/scripts/my_debug.pory"
+# 3180 "data/scripts/my_debug.pory"
 	additem ITEM_HONEY
 	goto CompleteArea_Route_11_26
 
 CompleteArea_Route_11_30:
-# 3179 "data/scripts/my_debug.pory"
+# 3183 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE11_RARECANDY
-# 3180 "data/scripts/my_debug.pory"
+# 3184 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Route_11_29
 
 CompleteArea_Route_11_33:
-# 3183 "data/scripts/my_debug.pory"
+# 3187 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE_11_ELIXIR
-# 3184 "data/scripts/my_debug.pory"
+# 3188 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Route_11_32
 
 
 CompleteArea_Route_12::
-# 3222 "data/scripts/my_debug.pory"
+# 3226 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_12_2
 CompleteArea_Route_12_1:
-# 3252 "data/scripts/my_debug.pory"
+# 3256 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_12_5
 CompleteArea_Route_12_4:
-# 3269 "data/scripts/my_debug.pory"
+# 3273 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_12_11
 CompleteArea_Route_12_10:
 	return
 
 CompleteArea_Route_12_2:
-# 3223 "data/scripts/my_debug.pory"
+# 3227 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R12_ITEM3, CompleteArea_Route_12_8
 CompleteArea_Route_12_7:
-# 3227 "data/scripts/my_debug.pory"
+# 3231 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R12_ITEM2, CompleteArea_Route_12_14
 CompleteArea_Route_12_13:
-# 3231 "data/scripts/my_debug.pory"
+# 3235 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R12_ITEM1, CompleteArea_Route_12_20
 CompleteArea_Route_12_19:
-# 3235 "data/scripts/my_debug.pory"
+# 3239 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FC_ITEM1, CompleteArea_Route_12_26
 CompleteArea_Route_12_25:
-# 3239 "data/scripts/my_debug.pory"
+# 3243 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FC_ITEM2, CompleteArea_Route_12_34
 CompleteArea_Route_12_33:
-# 3243 "data/scripts/my_debug.pory"
+# 3247 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FC_ITEM3, CompleteArea_Route_12_39
 CompleteArea_Route_12_38:
-# 3247 "data/scripts/my_debug.pory"
+# 3251 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FC_ITEM4, CompleteArea_Route_12_41
 	goto CompleteArea_Route_12_1
 
 CompleteArea_Route_12_5:
-# 3253 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR1_TRIATHLETE_F
-# 3254 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR2_TRIATHLETE_M
-# 3255 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR3_TRIATHLETE_F2
-# 3256 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR4_TRIATHLETE_M2
 # 3257 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR5_TRIATHLETE_M3
+	defeattrainer TRAINER_R12_TRIATHLETE_F
 # 3258 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR6_TRIATHLETE_F3
+	defeattrainer TRAINER_R12_TRIATHLETE_M
 # 3259 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR9_PSYCHIC_M
+	defeattrainer TRAINER_R12_TRIATHLETE_F2
 # 3260 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR10_HIKER
+	defeattrainer TRAINER_R12_TRIATHLETE_M2
 # 3261 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR11_LASS
+	defeattrainer TRAINER_R12_TRIATHLETE_M3
 # 3262 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR12_BUGMANIAC
+	defeattrainer TRAINER_R12_TRIATHLETE_F3
 # 3263 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R12_TR13_NINJABOY
+	defeattrainer TRAINER_R12_PSYCHIC_M
 # 3264 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FC_TR1_BLACKBELT
+	defeattrainer TRAINER_R12_HIKER
 # 3265 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FC_TR2_BATTLEGIRL
+	defeattrainer TRAINER_R12_LASS
 # 3266 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FC_TR3_CAMPER
+	defeattrainer TRAINER_R12_BUGMANIAC
 # 3267 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_FC_TR4_HIKER
+	defeattrainer TRAINER_R12_NINJABOY
+# 3268 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FC_BLACKBELT
+# 3269 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FC_BATTLEGIRL
+# 3270 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FC_CAMPER
+# 3271 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_FC_HIKER
 	goto CompleteArea_Route_12_4
 
 CompleteArea_Route_12_8:
-# 3224 "data/scripts/my_debug.pory"
+# 3228 "data/scripts/my_debug.pory"
 	setflag FLAG_R12_ITEM3
-# 3225 "data/scripts/my_debug.pory"
+# 3229 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Route_12_7
 
 CompleteArea_Route_12_11:
-# 3270 "data/scripts/my_debug.pory"
+# 3274 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_HM_STRENGTH, CompleteArea_Route_12_17
 CompleteArea_Route_12_16:
-# 3274 "data/scripts/my_debug.pory"
+# 3278 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FC_LOOTEDROCK, CompleteArea_Route_12_23
 CompleteArea_Route_12_22:
-# 3286 "data/scripts/my_debug.pory"
+# 3290 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R12_XSPEED, CompleteArea_Route_12_28
 	goto CompleteArea_Route_12_10
 
 CompleteArea_Route_12_14:
-# 3228 "data/scripts/my_debug.pory"
+# 3232 "data/scripts/my_debug.pory"
 	setflag FLAG_R12_ITEM2
-# 3229 "data/scripts/my_debug.pory"
+# 3233 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_12_13
 
 CompleteArea_Route_12_17:
-# 3271 "data/scripts/my_debug.pory"
+# 3275 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM_STRENGTH
-# 3272 "data/scripts/my_debug.pory"
+# 3276 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_HM_STRENGTH
 	goto CompleteArea_Route_12_16
 
 CompleteArea_Route_12_20:
-# 3232 "data/scripts/my_debug.pory"
+# 3236 "data/scripts/my_debug.pory"
 	setflag FLAG_R12_ITEM1
-# 3233 "data/scripts/my_debug.pory"
+# 3237 "data/scripts/my_debug.pory"
 	additem ITEM_TM42
 	goto CompleteArea_Route_12_19
 
 CompleteArea_Route_12_23:
-# 3275 "data/scripts/my_debug.pory"
+# 3279 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_STONE_SPHERE_FC
 	checkitem ITEM_STONE_SPHERE
 # 0 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq CompleteArea_Route_12_31
 CompleteArea_Route_12_30:
-# 3279 "data/scripts/my_debug.pory"
+# 3283 "data/scripts/my_debug.pory"
 	setflag FLAG_FC_LOOTEDROCK
-# 3280 "data/scripts/my_debug.pory"
+# 3284 "data/scripts/my_debug.pory"
 	additem ITEM_STEEL_SPHERE
-# 3281 "data/scripts/my_debug.pory"
+# 3285 "data/scripts/my_debug.pory"
 	setvar VAR_FCCAVE, 3
-# 3282 "data/scripts/my_debug.pory"
+# 3286 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q31_ROUTE12_WEIRDCAVE_START, CompleteArea_Route_12_36
 	goto CompleteArea_Route_12_22
 
 CompleteArea_Route_12_26:
-# 3236 "data/scripts/my_debug.pory"
+# 3240 "data/scripts/my_debug.pory"
 	setflag FLAG_FC_ITEM1
-# 3237 "data/scripts/my_debug.pory"
+# 3241 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_12_25
 
 CompleteArea_Route_12_28:
-# 3287 "data/scripts/my_debug.pory"
+# 3291 "data/scripts/my_debug.pory"
 	additem ITEM_X_SPEED
-# 3288 "data/scripts/my_debug.pory"
+# 3292 "data/scripts/my_debug.pory"
 	setflag FLAG_R12_XSPEED
 	goto CompleteArea_Route_12_10
 
 CompleteArea_Route_12_31:
-# 3277 "data/scripts/my_debug.pory"
+# 3281 "data/scripts/my_debug.pory"
 	additem ITEM_STONE_SPHERE
 	goto CompleteArea_Route_12_30
 
 CompleteArea_Route_12_34:
-# 3240 "data/scripts/my_debug.pory"
+# 3244 "data/scripts/my_debug.pory"
 	setflag FLAG_FC_ITEM2
-# 3241 "data/scripts/my_debug.pory"
+# 3245 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_12_33
 
 CompleteArea_Route_12_36:
-# 3283 "data/scripts/my_debug.pory"
+# 3287 "data/scripts/my_debug.pory"
 	completequest FLAG_Q31_ROUTE12_WEIRDCAVE_COMPLETE
 	goto CompleteArea_Route_12_22
 
 CompleteArea_Route_12_39:
-# 3244 "data/scripts/my_debug.pory"
+# 3248 "data/scripts/my_debug.pory"
 	setflag FLAG_FC_ITEM3
-# 3245 "data/scripts/my_debug.pory"
+# 3249 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_PEARL
 	goto CompleteArea_Route_12_38
 
 CompleteArea_Route_12_41:
-# 3248 "data/scripts/my_debug.pory"
+# 3252 "data/scripts/my_debug.pory"
 	setflag FLAG_FC_ITEM4
-# 3249 "data/scripts/my_debug.pory"
+# 3253 "data/scripts/my_debug.pory"
 	additem ITEM_CARBOS
 	goto CompleteArea_Route_12_1
 
 
 CompleteArea_Sandstone_City::
-# 3294 "data/scripts/my_debug.pory"
+# 3298 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Sandstone_City_2
 CompleteArea_Sandstone_City_1:
-# 3304 "data/scripts/my_debug.pory"
+# 3308 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Sandstone_City_5
 CompleteArea_Sandstone_City_4:
 	return
 
 CompleteArea_Sandstone_City_2:
-# 3295 "data/scripts/my_debug.pory"
+# 3299 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_HIDDENITEM_1, CompleteArea_Sandstone_City_8
 CompleteArea_Sandstone_City_7:
-# 3299 "data/scripts/my_debug.pory"
+# 3303 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_HIDDENITEM_2, CompleteArea_Sandstone_City_13
 	goto CompleteArea_Sandstone_City_1
 
 CompleteArea_Sandstone_City_5:
-# 3305 "data/scripts/my_debug.pory"
+# 3309 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_BALLOON, CompleteArea_Sandstone_City_11
 CompleteArea_Sandstone_City_10:
-# 3309 "data/scripts/my_debug.pory"
+# 3313 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_ULTRABALL, CompleteArea_Sandstone_City_16
 CompleteArea_Sandstone_City_15:
-# 3313 "data/scripts/my_debug.pory"
+# 3317 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_LAVACOOKIE, CompleteArea_Sandstone_City_19
 CompleteArea_Sandstone_City_18:
-# 3317 "data/scripts/my_debug.pory"
+# 3321 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SANDSTONE_DUSKBALLS, CompleteArea_Sandstone_City_22
 CompleteArea_Sandstone_City_21:
-# 3321 "data/scripts/my_debug.pory"
+# 3325 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_SANDSTONE_BERRY, CompleteArea_Sandstone_City_24
 	goto CompleteArea_Sandstone_City_4
 
 CompleteArea_Sandstone_City_8:
-# 3296 "data/scripts/my_debug.pory"
+# 3300 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_HIDDENITEM_1
-# 3297 "data/scripts/my_debug.pory"
+# 3301 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_REPEL
 	goto CompleteArea_Sandstone_City_7
 
 CompleteArea_Sandstone_City_11:
-# 3306 "data/scripts/my_debug.pory"
+# 3310 "data/scripts/my_debug.pory"
 	additem ITEM_AIR_BALLOON
-# 3307 "data/scripts/my_debug.pory"
+# 3311 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_BALLOON
 	goto CompleteArea_Sandstone_City_10
 
 CompleteArea_Sandstone_City_13:
-# 3300 "data/scripts/my_debug.pory"
+# 3304 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_HIDDENITEM_2
-# 3301 "data/scripts/my_debug.pory"
+# 3305 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_POTION
 	goto CompleteArea_Sandstone_City_1
 
 CompleteArea_Sandstone_City_16:
-# 3310 "data/scripts/my_debug.pory"
+# 3314 "data/scripts/my_debug.pory"
 	additem ITEM_ULTRA_BALL
-# 3311 "data/scripts/my_debug.pory"
+# 3315 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_ULTRABALL
 	goto CompleteArea_Sandstone_City_15
 
 CompleteArea_Sandstone_City_19:
-# 3314 "data/scripts/my_debug.pory"
+# 3318 "data/scripts/my_debug.pory"
 	additem ITEM_LAVA_COOKIE
-# 3315 "data/scripts/my_debug.pory"
+# 3319 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_LAVACOOKIE
 	goto CompleteArea_Sandstone_City_18
 
 CompleteArea_Sandstone_City_22:
-# 3318 "data/scripts/my_debug.pory"
+# 3322 "data/scripts/my_debug.pory"
 	additem ITEM_DUSK_BALL, 2
-# 3319 "data/scripts/my_debug.pory"
+# 3323 "data/scripts/my_debug.pory"
 	setflag FLAG_SANDSTONE_DUSKBALLS
 	goto CompleteArea_Sandstone_City_21
 
 CompleteArea_Sandstone_City_24:
-# 3322 "data/scripts/my_debug.pory"
+# 3326 "data/scripts/my_debug.pory"
 	additem ITEM_CHOPLE_BERRY
-# 3323 "data/scripts/my_debug.pory"
+# 3327 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_SANDSTONE_BERRY
 	goto CompleteArea_Sandstone_City_4
 
 
 CompleteArea_Route_13::
-# 3329 "data/scripts/my_debug.pory"
+# 3333 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_13_2
 CompleteArea_Route_13_1:
 	return
 
 CompleteArea_Route_13_2:
-# 3330 "data/scripts/my_debug.pory"
+# 3334 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R13_ITEM1, CompleteArea_Route_13_4
 	goto CompleteArea_Route_13_1
 
 CompleteArea_Route_13_4:
-# 3331 "data/scripts/my_debug.pory"
+# 3335 "data/scripts/my_debug.pory"
 	setflag FLAG_R13_ITEM1
-# 3332 "data/scripts/my_debug.pory"
+# 3336 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_13_1
 
 
 CompleteArea_Adamant_Tower::
-# 3338 "data/scripts/my_debug.pory"
+# 3342 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Adamant_Tower_2
 CompleteArea_Adamant_Tower_1:
-# 3352 "data/scripts/my_debug.pory"
+# 3356 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Adamant_Tower_5
 CompleteArea_Adamant_Tower_4:
 	return
 
 CompleteArea_Adamant_Tower_2:
-# 3339 "data/scripts/my_debug.pory"
+# 3343 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_AT_ITEM1, CompleteArea_Adamant_Tower_8
 CompleteArea_Adamant_Tower_7:
-# 3343 "data/scripts/my_debug.pory"
+# 3347 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_AT_ITEM2, CompleteArea_Adamant_Tower_13
 CompleteArea_Adamant_Tower_12:
-# 3347 "data/scripts/my_debug.pory"
+# 3351 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_AT_ITEM3, CompleteArea_Adamant_Tower_15
 	goto CompleteArea_Adamant_Tower_1
 
 CompleteArea_Adamant_Tower_5:
-# 3353 "data/scripts/my_debug.pory"
+# 3357 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-# 3354 "data/scripts/my_debug.pory"
+# 3358 "data/scripts/my_debug.pory"
 	additem ITEM_ABILITY_CAPSULE
-# 3355 "data/scripts/my_debug.pory"
+# 3359 "data/scripts/my_debug.pory"
 	compare VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	goto_if_ge CompleteArea_Adamant_Tower_10
 	goto CompleteArea_Adamant_Tower_4
 
 CompleteArea_Adamant_Tower_8:
-# 3340 "data/scripts/my_debug.pory"
+# 3344 "data/scripts/my_debug.pory"
 	setflag FLAG_AT_ITEM1
-# 3341 "data/scripts/my_debug.pory"
+# 3345 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Adamant_Tower_7
 
 CompleteArea_Adamant_Tower_10:
-# 3356 "data/scripts/my_debug.pory"
+# 3360 "data/scripts/my_debug.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto CompleteArea_Adamant_Tower_4
 
 CompleteArea_Adamant_Tower_13:
-# 3344 "data/scripts/my_debug.pory"
+# 3348 "data/scripts/my_debug.pory"
 	setflag FLAG_AT_ITEM2
-# 3345 "data/scripts/my_debug.pory"
+# 3349 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Adamant_Tower_12
 
 CompleteArea_Adamant_Tower_15:
-# 3348 "data/scripts/my_debug.pory"
+# 3352 "data/scripts/my_debug.pory"
 	setflag FLAG_AT_ITEM3
-# 3349 "data/scripts/my_debug.pory"
+# 3353 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Adamant_Tower_1
 
 
 CompleteArea_Route_14::
-# 3362 "data/scripts/my_debug.pory"
+# 3366 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_14_2
 CompleteArea_Route_14_1:
-# 3380 "data/scripts/my_debug.pory"
+# 3384 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_14_5
 CompleteArea_Route_14_4:
 	return
 
 CompleteArea_Route_14_2:
-# 3363 "data/scripts/my_debug.pory"
+# 3367 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM1, CompleteArea_Route_14_8
 CompleteArea_Route_14_7:
-# 3367 "data/scripts/my_debug.pory"
+# 3371 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM2, CompleteArea_Route_14_11
 CompleteArea_Route_14_10:
-# 3371 "data/scripts/my_debug.pory"
+# 3375 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM3, CompleteArea_Route_14_14
 CompleteArea_Route_14_13:
-# 3375 "data/scripts/my_debug.pory"
+# 3379 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM4, CompleteArea_Route_14_16
 	goto CompleteArea_Route_14_1
 
 CompleteArea_Route_14_5:
-# 3381 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR1_RUNNING_F
-# 3382 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR2_HIKER
-# 3383 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR3_PARASOLLADY
-# 3384 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR4_FISHER
 # 3385 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR5_PARASOLLADY2
+	defeattrainer TRAINER_R14_RUNNING_F
 # 3386 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR6_NINJABOY
+	defeattrainer TRAINER_R14_HIKER
 # 3387 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR7_ROCKER
+	defeattrainer TRAINER_R14_PARASOLLADY
 # 3388 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R14_TR8_MANIAC
+	defeattrainer TRAINER_R14_FISHER
+# 3389 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R14_PARASOLLADY2
+# 3390 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R14_NINJABOY
+# 3391 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R14_ROCKER
+# 3392 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R14_MANIAC
 	goto CompleteArea_Route_14_4
 
 CompleteArea_Route_14_8:
-# 3364 "data/scripts/my_debug.pory"
+# 3368 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM1
-# 3365 "data/scripts/my_debug.pory"
+# 3369 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Route_14_7
 
 CompleteArea_Route_14_11:
-# 3368 "data/scripts/my_debug.pory"
+# 3372 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM2
-# 3369 "data/scripts/my_debug.pory"
+# 3373 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_14_10
 
 CompleteArea_Route_14_14:
-# 3372 "data/scripts/my_debug.pory"
+# 3376 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM3
-# 3373 "data/scripts/my_debug.pory"
+# 3377 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Route_14_13
 
 CompleteArea_Route_14_16:
-# 3376 "data/scripts/my_debug.pory"
+# 3380 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM4
-# 3377 "data/scripts/my_debug.pory"
+# 3381 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_MUSHROOM
 	goto CompleteArea_Route_14_1
 
 
 CompleteArea_Route_15::
-# 3393 "data/scripts/my_debug.pory"
+# 3397 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_15_2
 CompleteArea_Route_15_1:
-# 3433 "data/scripts/my_debug.pory"
+# 3437 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_15_5
 CompleteArea_Route_15_4:
 	return
 
 CompleteArea_Route_15_2:
-# 3394 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
-# 3395 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
-# 3396 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
-# 3397 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
 # 3398 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
 # 3399 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3400 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3401 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3402 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3403 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM7, CompleteArea_Route_15_8
 CompleteArea_Route_15_7:
-# 3403 "data/scripts/my_debug.pory"
+# 3407 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM6, CompleteArea_Route_15_16
 CompleteArea_Route_15_15:
-# 3407 "data/scripts/my_debug.pory"
+# 3411 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BERRYFIELDS_ITEM, CompleteArea_Route_15_21
 CompleteArea_Route_15_20:
-# 3411 "data/scripts/my_debug.pory"
+# 3415 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM5, CompleteArea_Route_15_24
 CompleteArea_Route_15_23:
-# 3415 "data/scripts/my_debug.pory"
+# 3419 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM4, CompleteArea_Route_15_27
 CompleteArea_Route_15_26:
-# 3419 "data/scripts/my_debug.pory"
+# 3423 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM3, CompleteArea_Route_15_30
 CompleteArea_Route_15_29:
-# 3423 "data/scripts/my_debug.pory"
+# 3427 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM2, CompleteArea_Route_15_33
 CompleteArea_Route_15_32:
-# 3427 "data/scripts/my_debug.pory"
+# 3431 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE15_ITEM1, CompleteArea_Route_15_35
 	goto CompleteArea_Route_15_1
 
 CompleteArea_Route_15_5:
-# 3434 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR1_BIRDKEEPER
-# 3435 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR2_RANGERF
-# 3436 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR3_RANGERM
-# 3437 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR4_GENTLEMAN
 # 3438 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR5_NINJABOY1
+	defeattrainer TRAINER_R15_BIRDKEEPER
 # 3439 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR6_NINJABOY2
+	defeattrainer TRAINER_R15_RANGERF
 # 3440 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR7_BUGCATCHER
+	defeattrainer TRAINER_R15_RANGERM
 # 3441 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR8_BUGCATCHER2
+	defeattrainer TRAINER_R15_GENTLEMAN
 # 3442 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR9_BEAUTY
+	defeattrainer TRAINER_R15_NINJABOY1
 # 3443 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR10_FISHER
+	defeattrainer TRAINER_R15_NINJABOY2
 # 3444 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR13_COOLTRAINER
+	defeattrainer TRAINER_R15_BUGCATCHER
 # 3445 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR14_LASS
+	defeattrainer TRAINER_R15_BUGCATCHER2
 # 3446 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR15_SCIENTIST
+	defeattrainer TRAINER_R15_BEAUTY
 # 3447 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR16_AROMALADY
+	defeattrainer TRAINER_R15_FISHER
 # 3448 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_TR17_NINJABOY3
+	defeattrainer TRAINER_R15_COOLTRAINER
 # 3449 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_LASS
+# 3450 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_SCIENTIST
+# 3451 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_AROMALADY
+# 3452 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_NINJABOY3
+# 3453 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_R15_ACETRAINER_F
 	goto_if 0, CompleteArea_Route_15_12
 CompleteArea_Route_15_10:
-# 3458 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_7
-# 3459 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 3460 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_2
-# 3461 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
 # 3462 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_4
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_7
 # 3463 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3464 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_5
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_2
 # 3465 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3466 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_3
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_4
 # 3467 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3468 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_POMEG_6
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_5
 # 3469 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3470 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_7
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_3
 # 3471 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3472 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_2
+	pickberrytree BERRY_TREE_ROUTE_123_POMEG_6
 # 3473 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3474 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_4
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_7
 # 3475 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3476 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_5
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_2
 # 3477 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3478 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_3
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_4
 # 3479 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3480 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_GREPA_6
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_5
 # 3481 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3482 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_7
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_3
 # 3483 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3484 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_2
+	pickberrytree BERRY_TREE_ROUTE_123_GREPA_6
 # 3485 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3486 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_4
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_7
 # 3487 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3488 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_5
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_2
 # 3489 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3490 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_3
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_4
 # 3491 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3492 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_6
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_5
 # 3493 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 3494 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_3
+# 3495 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 3496 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_123_QUALOT_6
+# 3497 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_15_4
 
 CompleteArea_Route_15_8:
-# 3400 "data/scripts/my_debug.pory"
+# 3404 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM7
-# 3401 "data/scripts/my_debug.pory"
+# 3405 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_MUSHROOM
 	goto CompleteArea_Route_15_7
 
 CompleteArea_Route_15_11:
-# 3450 "data/scripts/my_debug.pory"
-	additem ITEM_ROCKY_HELMET
-# 3451 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_ACETRAINER_F
-# 3452 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R15_ACETRAINER_M
-# 3453 "data/scripts/my_debug.pory"
-	addbp 25
 # 3454 "data/scripts/my_debug.pory"
+	additem ITEM_ROCKY_HELMET
+# 3455 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_ACETRAINER_F
+# 3456 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R15_ACETRAINER_M
+# 3457 "data/scripts/my_debug.pory"
+	addbp 25
+# 3458 "data/scripts/my_debug.pory"
 	compare VAR_ROUTE14_ROCKET_EVENT, 7
 	goto_if_lt CompleteArea_Route_15_18
 	goto CompleteArea_Route_15_10
 
 CompleteArea_Route_15_12:
-# 3449 "data/scripts/my_debug.pory"
+# 3453 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_R15_ACETRAINER_M
 	goto_if 0, CompleteArea_Route_15_11
 	goto CompleteArea_Route_15_10
 
 CompleteArea_Route_15_16:
-# 3404 "data/scripts/my_debug.pory"
+# 3408 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM6
-# 3405 "data/scripts/my_debug.pory"
+# 3409 "data/scripts/my_debug.pory"
 	additem ITEM_TINY_MUSHROOM
 	goto CompleteArea_Route_15_15
 
 CompleteArea_Route_15_18:
-# 3455 "data/scripts/my_debug.pory"
+# 3459 "data/scripts/my_debug.pory"
 	setvar VAR_ROUTE14_ROCKET_EVENT, 7
 	goto CompleteArea_Route_15_10
 
 CompleteArea_Route_15_21:
-# 3408 "data/scripts/my_debug.pory"
+# 3412 "data/scripts/my_debug.pory"
 	setflag FLAG_BERRYFIELDS_ITEM
-# 3409 "data/scripts/my_debug.pory"
+# 3413 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Route_15_20
 
 CompleteArea_Route_15_24:
-# 3412 "data/scripts/my_debug.pory"
+# 3416 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM5
-# 3413 "data/scripts/my_debug.pory"
+# 3417 "data/scripts/my_debug.pory"
 	additem ITEM_SUN_STONE
 	goto CompleteArea_Route_15_23
 
 CompleteArea_Route_15_27:
-# 3416 "data/scripts/my_debug.pory"
+# 3420 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM4
-# 3417 "data/scripts/my_debug.pory"
+# 3421 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_15_26
 
 CompleteArea_Route_15_30:
-# 3420 "data/scripts/my_debug.pory"
+# 3424 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM3
-# 3421 "data/scripts/my_debug.pory"
+# 3425 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Route_15_29
 
 CompleteArea_Route_15_33:
-# 3424 "data/scripts/my_debug.pory"
+# 3428 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM2
-# 3425 "data/scripts/my_debug.pory"
+# 3429 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_15_32
 
 CompleteArea_Route_15_35:
-# 3428 "data/scripts/my_debug.pory"
+# 3432 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE15_ITEM1
-# 3429 "data/scripts/my_debug.pory"
+# 3433 "data/scripts/my_debug.pory"
 	additem ITEM_ZINC
 	goto CompleteArea_Route_15_1
 
 
 CompleteArea_Fishing_Village::
-# 3498 "data/scripts/my_debug.pory"
+# 3502 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Fishing_Village_2
 CompleteArea_Fishing_Village_1:
 	return
 
 CompleteArea_Fishing_Village_2:
-# 3499 "data/scripts/my_debug.pory"
+# 3503 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RECEIVED_GYARADOSITE, CompleteArea_Fishing_Village_5
 CompleteArea_Fishing_Village_4:
 	checkitem ITEM_SUPER_POTION
@@ -7844,18 +7855,18 @@ CompleteArea_Fishing_Village_4:
 	goto CompleteArea_Fishing_Village_1
 
 CompleteArea_Fishing_Village_5:
-# 3500 "data/scripts/my_debug.pory"
+# 3504 "data/scripts/my_debug.pory"
 	setflag FLAG_FISHINGVILLAGE_GYARADOS_REWARD
-# 3501 "data/scripts/my_debug.pory"
+# 3505 "data/scripts/my_debug.pory"
 	additem ITEM_GYARADOSITE
-# 3502 "data/scripts/my_debug.pory"
+# 3506 "data/scripts/my_debug.pory"
 	setflag FLAG_RECEIVED_GYARADOSITE
 	goto CompleteArea_Fishing_Village_4
 
 CompleteArea_Fishing_Village_7:
-# 3505 "data/scripts/my_debug.pory"
+# 3509 "data/scripts/my_debug.pory"
 	setflag FLAG_USED_TITANIUM_LINE
-# 3506 "data/scripts/my_debug.pory"
+# 3510 "data/scripts/my_debug.pory"
 	additem ITEM_SUPER_ROD
 	checkitem ITEM_TITANIUM_LINE
 # 0 "data/scripts/my_debug.pory"
@@ -7864,206 +7875,206 @@ CompleteArea_Fishing_Village_7:
 	goto CompleteArea_Fishing_Village_1
 
 CompleteArea_Fishing_Village_9:
-# 3508 "data/scripts/my_debug.pory"
+# 3512 "data/scripts/my_debug.pory"
 	additem ITEM_TITANIUM_LINE
 	goto CompleteArea_Fishing_Village_1
 
 
 CompleteArea_Route_23::
-# 3515 "data/scripts/my_debug.pory"
+# 3519 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_23_2
 CompleteArea_Route_23_1:
-# 3543 "data/scripts/my_debug.pory"
+# 3547 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_23_5
 CompleteArea_Route_23_4:
 	return
 
 CompleteArea_Route_23_2:
-# 3516 "data/scripts/my_debug.pory"
+# 3520 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE23_ITEM1, CompleteArea_Route_23_8
 CompleteArea_Route_23_7:
-# 3520 "data/scripts/my_debug.pory"
+# 3524 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE23_ITEM2, CompleteArea_Route_23_13
 CompleteArea_Route_23_12:
-# 3524 "data/scripts/my_debug.pory"
+# 3528 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE23_ITEM3, CompleteArea_Route_23_16
 CompleteArea_Route_23_15:
-# 3528 "data/scripts/my_debug.pory"
+# 3532 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE23_ITEM4, CompleteArea_Route_23_19
 CompleteArea_Route_23_18:
-# 3533 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_LEPPA_1
-# 3534 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
-# 3535 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_SOIL
-# 3536 "data/scripts/my_debug.pory"
-	call TryLootingStrangeSeed
 # 3537 "data/scripts/my_debug.pory"
-	pickberrytree BERRY_TREE_ROUTE_123_LEPPA_2
+	pickberrytree BERRY_TREE_ROUTE_123_LEPPA_1
 # 3538 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 # 3539 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
+	pickberrytree BERRY_TREE_ROUTE_123_SOIL
 # 3540 "data/scripts/my_debug.pory"
-	call TryCuttingStrangeSeedTree
+	call TryLootingStrangeSeed
 # 3541 "data/scripts/my_debug.pory"
+	pickberrytree BERRY_TREE_ROUTE_123_LEPPA_2
+# 3542 "data/scripts/my_debug.pory"
+	call TryLootingStrangeSeed
+# 3543 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3544 "data/scripts/my_debug.pory"
+	call TryCuttingStrangeSeedTree
+# 3545 "data/scripts/my_debug.pory"
 	call TryCuttingStrangeSeedTree
 	goto CompleteArea_Route_23_1
 
 CompleteArea_Route_23_5:
-# 3544 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR1_BREEDER_M
-# 3545 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR2_MANIAC
-# 3546 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR3_TWINS
-# 3547 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR4_BREEDER_F
 # 3548 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR5_HEXMANIAC_1
+	defeattrainer TRAINER_R23_BREEDER_M
 # 3549 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR6_PSYCHIC_M
+	defeattrainer TRAINER_R23_MANIAC
 # 3550 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR7_HEXMANIAC_2
+	defeattrainer TRAINER_R23_TWINS
 # 3551 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR8_TRIATHLETE_F
+	defeattrainer TRAINER_R23_BREEDER_F
 # 3552 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR9_FISHERMAN
+	defeattrainer TRAINER_R23_HEXMANIAC_1
 # 3553 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR10_BATTLEGIRL
+	defeattrainer TRAINER_R23_PSYCHIC_M
 # 3554 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR11_NINJABOY
+	defeattrainer TRAINER_R23_HEXMANIAC_2
 # 3555 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_R23_TR12_ACETRAINER
+	defeattrainer TRAINER_R23_TRIATHLETE_F
+# 3556 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R23_FISHERMAN
+# 3557 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R23_BATTLEGIRL
+# 3558 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R23_NINJABOY
+# 3559 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_R23_ACETRAINER
 	goto_if 0, CompleteArea_Route_23_10
 	goto CompleteArea_Route_23_4
 
 CompleteArea_Route_23_8:
-# 3517 "data/scripts/my_debug.pory"
+# 3521 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE23_ITEM1
-# 3518 "data/scripts/my_debug.pory"
+# 3522 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVAL_HERB
 	goto CompleteArea_Route_23_7
 
 CompleteArea_Route_23_10:
-# 3556 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R23_TR12_ACETRAINER
-# 3557 "data/scripts/my_debug.pory"
+# 3560 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R23_ACETRAINER
+# 3561 "data/scripts/my_debug.pory"
 	additem ITEM_CHOICE_SCARF
-# 3558 "data/scripts/my_debug.pory"
+# 3562 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_CHOICE_SCARF
-# 3559 "data/scripts/my_debug.pory"
+# 3563 "data/scripts/my_debug.pory"
 	addbp 30
 	goto CompleteArea_Route_23_4
 
 CompleteArea_Route_23_13:
-# 3521 "data/scripts/my_debug.pory"
+# 3525 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE23_ITEM2
-# 3522 "data/scripts/my_debug.pory"
+# 3526 "data/scripts/my_debug.pory"
 	additem ITEM_CALCIUM
 	goto CompleteArea_Route_23_12
 
 CompleteArea_Route_23_16:
-# 3525 "data/scripts/my_debug.pory"
+# 3529 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE23_ITEM3
-# 3526 "data/scripts/my_debug.pory"
+# 3530 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Route_23_15
 
 CompleteArea_Route_23_19:
-# 3529 "data/scripts/my_debug.pory"
+# 3533 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE23_ITEM4
-# 3530 "data/scripts/my_debug.pory"
+# 3534 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Route_23_18
 
 
 CompleteArea_Drisledge_Town::
-# 3565 "data/scripts/my_debug.pory"
+# 3569 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Drisledge_Town_2
 CompleteArea_Drisledge_Town_1:
-# 3571 "data/scripts/my_debug.pory"
+# 3575 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Drisledge_Town_5
 CompleteArea_Drisledge_Town_4:
 	return
 
 CompleteArea_Drisledge_Town_2:
-# 3566 "data/scripts/my_debug.pory"
+# 3570 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DRISLEDGE_ITEM1, CompleteArea_Drisledge_Town_7
 	goto CompleteArea_Drisledge_Town_1
 
 CompleteArea_Drisledge_Town_5:
-# 3572 "data/scripts/my_debug.pory"
+# 3576 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DRISLEDGE_ITEM2, CompleteArea_Drisledge_Town_10
 CompleteArea_Drisledge_Town_9:
-# 3576 "data/scripts/my_debug.pory"
+# 3580 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DRISLEDGE_ITEM3, CompleteArea_Drisledge_Town_13
 CompleteArea_Drisledge_Town_12:
-# 3580 "data/scripts/my_debug.pory"
+# 3584 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ACEROLA_ITEM, CompleteArea_Drisledge_Town_16
 CompleteArea_Drisledge_Town_15:
-# 3584 "data/scripts/my_debug.pory"
+# 3588 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_DRISLEDGE_ITEM4, CompleteArea_Drisledge_Town_19
 CompleteArea_Drisledge_Town_18:
-# 3588 "data/scripts/my_debug.pory"
+# 3592 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_GENGARITE, CompleteArea_Drisledge_Town_21
 	goto CompleteArea_Drisledge_Town_4
 
 CompleteArea_Drisledge_Town_7:
-# 3567 "data/scripts/my_debug.pory"
+# 3571 "data/scripts/my_debug.pory"
 	setflag FLAG_DRISLEDGE_ITEM1
-# 3568 "data/scripts/my_debug.pory"
+# 3572 "data/scripts/my_debug.pory"
 	additem ITEM_POKE_DOLL
 	goto CompleteArea_Drisledge_Town_1
 
 CompleteArea_Drisledge_Town_10:
-# 3573 "data/scripts/my_debug.pory"
+# 3577 "data/scripts/my_debug.pory"
 	additem ITEM_ORAN_BERRY
-# 3574 "data/scripts/my_debug.pory"
+# 3578 "data/scripts/my_debug.pory"
 	setflag FLAG_DRISLEDGE_ITEM2
 	goto CompleteArea_Drisledge_Town_9
 
 CompleteArea_Drisledge_Town_13:
-# 3577 "data/scripts/my_debug.pory"
+# 3581 "data/scripts/my_debug.pory"
 	additem ITEM_COLBUR_BERRY
-# 3578 "data/scripts/my_debug.pory"
+# 3582 "data/scripts/my_debug.pory"
 	setflag FLAG_DRISLEDGE_ITEM3
 	goto CompleteArea_Drisledge_Town_12
 
 CompleteArea_Drisledge_Town_16:
-# 3581 "data/scripts/my_debug.pory"
+# 3585 "data/scripts/my_debug.pory"
 	additem ITEM_TM_CAPTIVATE
-# 3582 "data/scripts/my_debug.pory"
+# 3586 "data/scripts/my_debug.pory"
 	setflag FLAG_ACEROLA_ITEM
 	goto CompleteArea_Drisledge_Town_15
 
 CompleteArea_Drisledge_Town_19:
-# 3585 "data/scripts/my_debug.pory"
+# 3589 "data/scripts/my_debug.pory"
 	additem ITEM_SPELL_TAG
-# 3586 "data/scripts/my_debug.pory"
+# 3590 "data/scripts/my_debug.pory"
 	setflag FLAG_DRISLEDGE_ITEM4
 	goto CompleteArea_Drisledge_Town_18
 
 CompleteArea_Drisledge_Town_21:
-# 3589 "data/scripts/my_debug.pory"
+# 3593 "data/scripts/my_debug.pory"
 	additem ITEM_GENGARITE
-# 3590 "data/scripts/my_debug.pory"
+# 3594 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_GENGARITE
 	goto CompleteArea_Drisledge_Town_4
 
 
 CompleteArea_Amberock_Town::
-# 3596 "data/scripts/my_debug.pory"
+# 3600 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Amberock_Town_2
 CompleteArea_Amberock_Town_1:
-# 3602 "data/scripts/my_debug.pory"
+# 3606 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Amberock_Town_5
 CompleteArea_Amberock_Town_4:
 	return
 
 CompleteArea_Amberock_Town_2:
-# 3597 "data/scripts/my_debug.pory"
+# 3601 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_GAME_CORNER_TRASHITEM, CompleteArea_Amberock_Town_7
 	goto CompleteArea_Amberock_Town_1
 
@@ -8075,1086 +8086,1086 @@ CompleteArea_Amberock_Town_5:
 	goto CompleteArea_Amberock_Town_4
 
 CompleteArea_Amberock_Town_7:
-# 3598 "data/scripts/my_debug.pory"
+# 3602 "data/scripts/my_debug.pory"
 	setflag FLAG_GAME_CORNER_TRASHITEM
-# 3599 "data/scripts/my_debug.pory"
+# 3603 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_RESTORE
 	goto CompleteArea_Amberock_Town_1
 
 CompleteArea_Amberock_Town_9:
-# 3604 "data/scripts/my_debug.pory"
+# 3608 "data/scripts/my_debug.pory"
 	additem ITEM_COIN_CASE
 	goto CompleteArea_Amberock_Town_4
 
 
 CompleteArea_Route_3::
-# 3610 "data/scripts/my_debug.pory"
+# 3614 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_3_2
 CompleteArea_Route_3_1:
-# 3636 "data/scripts/my_debug.pory"
+# 3640 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_3_5
 CompleteArea_Route_3_4:
 	return
 
 CompleteArea_Route_3_2:
-# 3611 "data/scripts/my_debug.pory"
+# 3615 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM1, CompleteArea_Route_3_8
 CompleteArea_Route_3_7:
-# 3615 "data/scripts/my_debug.pory"
+# 3619 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM2, CompleteArea_Route_3_11
 CompleteArea_Route_3_10:
-# 3619 "data/scripts/my_debug.pory"
+# 3623 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM3, CompleteArea_Route_3_14
 CompleteArea_Route_3_13:
-# 3623 "data/scripts/my_debug.pory"
+# 3627 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM4, CompleteArea_Route_3_17
 CompleteArea_Route_3_16:
-# 3627 "data/scripts/my_debug.pory"
+# 3631 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM5, CompleteArea_Route_3_20
 CompleteArea_Route_3_19:
-# 3631 "data/scripts/my_debug.pory"
+# 3635 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_COAST_ITEM6, CompleteArea_Route_3_22
 	goto CompleteArea_Route_3_1
 
 CompleteArea_Route_3_5:
-# 3637 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR1_SWIMMER_F
-# 3638 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR2_SWIMMER_M
-# 3639 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR3_SWIMMER_OLDSISTER
-# 3640 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR4_TUBER
 # 3641 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR5_FISHERMAN
+	defeattrainer TRAINER_R3_SWIMMER_F
 # 3642 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR6_LANDSWIMMER_1
+	defeattrainer TRAINER_R3_SWIMMER_M
 # 3643 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR7_LANDSWIMMER_2
+	defeattrainer TRAINER_R3_SWIMMER_OLDSIS
 # 3644 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR8_SAILOR
+	defeattrainer TRAINER_R3_TUBER
 # 3645 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR9_SWIMMER_M1
+	defeattrainer TRAINER_R3_FISHERMAN
 # 3646 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR10_SWIMMER_M2
+	defeattrainer TRAINER_R3_LANDSWIMMER_1
 # 3647 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R3_TR11_SWIMMER_F1
+	defeattrainer TRAINER_R3_LANDSWIMMER_2
+# 3648 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R3_SAILOR
+# 3649 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R3_SWIMMER_M1
+# 3650 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R3_SWIMMER_M2
+# 3651 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R3_SWIMMER_F1
 	goto CompleteArea_Route_3_4
 
 CompleteArea_Route_3_8:
-# 3612 "data/scripts/my_debug.pory"
+# 3616 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM1
-# 3613 "data/scripts/my_debug.pory"
+# 3617 "data/scripts/my_debug.pory"
 	additem ITEM_STAR_PIECE
 	goto CompleteArea_Route_3_7
 
 CompleteArea_Route_3_11:
-# 3616 "data/scripts/my_debug.pory"
+# 3620 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM2
-# 3617 "data/scripts/my_debug.pory"
+# 3621 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Route_3_10
 
 CompleteArea_Route_3_14:
-# 3620 "data/scripts/my_debug.pory"
+# 3624 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM3
-# 3621 "data/scripts/my_debug.pory"
+# 3625 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_3_13
 
 CompleteArea_Route_3_17:
-# 3624 "data/scripts/my_debug.pory"
+# 3628 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM4
-# 3625 "data/scripts/my_debug.pory"
+# 3629 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Route_3_16
 
 CompleteArea_Route_3_20:
-# 3628 "data/scripts/my_debug.pory"
+# 3632 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM5
-# 3629 "data/scripts/my_debug.pory"
+# 3633 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Route_3_19
 
 CompleteArea_Route_3_22:
-# 3632 "data/scripts/my_debug.pory"
+# 3636 "data/scripts/my_debug.pory"
 	setflag FLAG_COAST_ITEM6
-# 3633 "data/scripts/my_debug.pory"
+# 3637 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_3_1
 
 
 CompleteArea_Route_9::
-# 3652 "data/scripts/my_debug.pory"
+# 3656 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_9_2
 CompleteArea_Route_9_1:
-# 3686 "data/scripts/my_debug.pory"
+# 3690 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_9_5
 CompleteArea_Route_9_4:
 	return
 
 CompleteArea_Route_9_2:
-# 3653 "data/scripts/my_debug.pory"
+# 3657 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM1, CompleteArea_Route_9_8
 CompleteArea_Route_9_7:
-# 3657 "data/scripts/my_debug.pory"
+# 3661 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM2, CompleteArea_Route_9_11
 CompleteArea_Route_9_10:
-# 3661 "data/scripts/my_debug.pory"
+# 3665 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM3, CompleteArea_Route_9_14
 CompleteArea_Route_9_13:
-# 3665 "data/scripts/my_debug.pory"
+# 3669 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM4, CompleteArea_Route_9_17
 CompleteArea_Route_9_16:
-# 3669 "data/scripts/my_debug.pory"
+# 3673 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM5, CompleteArea_Route_9_20
 CompleteArea_Route_9_19:
-# 3673 "data/scripts/my_debug.pory"
+# 3677 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM6, CompleteArea_Route_9_23
 CompleteArea_Route_9_22:
-# 3677 "data/scripts/my_debug.pory"
+# 3681 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM7, CompleteArea_Route_9_26
 CompleteArea_Route_9_25:
-# 3681 "data/scripts/my_debug.pory"
+# 3685 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE9_ITEM8, CompleteArea_Route_9_28
 	goto CompleteArea_Route_9_1
 
 CompleteArea_Route_9_5:
-# 3687 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR1_SWIMMER_M
-# 3688 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR2_BLACKBELT
-# 3689 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR3_BIRDKEEPER
-# 3690 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR4_BATTLEGIRL
 # 3691 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR5_SWIMMER_F
+	defeattrainer TRAINER_R9_SWIMMER_M
 # 3692 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR6_FISHERMAN
+	defeattrainer TRAINER_R9_BLACKBELT
 # 3693 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR7_HIKER
+	defeattrainer TRAINER_R9_BIRDKEEPER
 # 3694 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR8_COLLECTOR
+	defeattrainer TRAINER_R9_BATTLEGIRL
 # 3695 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR9_SWIMMER_M2
+	defeattrainer TRAINER_R9_SWIMMER_F
 # 3696 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R9_TR10_LANDSWIMMER
+	defeattrainer TRAINER_R9_FISHERMAN
+# 3697 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R9_HIKER
+# 3698 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R9_COLLECTOR
+# 3699 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R9_SWIMMER_M2
+# 3700 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R9_LANDSWIMMER
 	goto CompleteArea_Route_9_4
 
 CompleteArea_Route_9_8:
-# 3654 "data/scripts/my_debug.pory"
+# 3658 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM1
-# 3655 "data/scripts/my_debug.pory"
+# 3659 "data/scripts/my_debug.pory"
 	additem ITEM_TM_FLIP_TURN
 	goto CompleteArea_Route_9_7
 
 CompleteArea_Route_9_11:
-# 3658 "data/scripts/my_debug.pory"
+# 3662 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM2
-# 3659 "data/scripts/my_debug.pory"
+# 3663 "data/scripts/my_debug.pory"
 	additem ITEM_CARBOS
 	goto CompleteArea_Route_9_10
 
 CompleteArea_Route_9_14:
-# 3662 "data/scripts/my_debug.pory"
+# 3666 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM3
-# 3663 "data/scripts/my_debug.pory"
+# 3667 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REVIVE
 	goto CompleteArea_Route_9_13
 
 CompleteArea_Route_9_17:
-# 3666 "data/scripts/my_debug.pory"
+# 3670 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM4
-# 3667 "data/scripts/my_debug.pory"
+# 3671 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_9_16
 
 CompleteArea_Route_9_20:
-# 3670 "data/scripts/my_debug.pory"
+# 3674 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM5
-# 3671 "data/scripts/my_debug.pory"
+# 3675 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Route_9_19
 
 CompleteArea_Route_9_23:
-# 3674 "data/scripts/my_debug.pory"
+# 3678 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM6
-# 3675 "data/scripts/my_debug.pory"
+# 3679 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Route_9_22
 
 CompleteArea_Route_9_26:
-# 3678 "data/scripts/my_debug.pory"
+# 3682 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM7
-# 3679 "data/scripts/my_debug.pory"
+# 3683 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Route_9_25
 
 CompleteArea_Route_9_28:
-# 3682 "data/scripts/my_debug.pory"
+# 3686 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE9_ITEM8
-# 3683 "data/scripts/my_debug.pory"
+# 3687 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_PEARL
 	goto CompleteArea_Route_9_1
 
 
 CompleteArea_Route_10::
-# 3701 "data/scripts/my_debug.pory"
+# 3705 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_10_2
 CompleteArea_Route_10_1:
-# 3735 "data/scripts/my_debug.pory"
+# 3739 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_10_5
 CompleteArea_Route_10_4:
-# 3752 "data/scripts/my_debug.pory"
+# 3756 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Route_10_11
 CompleteArea_Route_10_10:
 	return
 
 CompleteArea_Route_10_2:
-# 3702 "data/scripts/my_debug.pory"
+# 3706 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM8, CompleteArea_Route_10_8
 CompleteArea_Route_10_7:
-# 3706 "data/scripts/my_debug.pory"
+# 3710 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM6, CompleteArea_Route_10_16
 CompleteArea_Route_10_15:
-# 3710 "data/scripts/my_debug.pory"
+# 3714 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM7, CompleteArea_Route_10_22
 CompleteArea_Route_10_21:
-# 3714 "data/scripts/my_debug.pory"
+# 3718 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM5, CompleteArea_Route_10_28
 CompleteArea_Route_10_27:
-# 3718 "data/scripts/my_debug.pory"
+# 3722 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM4, CompleteArea_Route_10_34
 CompleteArea_Route_10_33:
-# 3722 "data/scripts/my_debug.pory"
+# 3726 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM3, CompleteArea_Route_10_40
 CompleteArea_Route_10_39:
-# 3726 "data/scripts/my_debug.pory"
+# 3730 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM2, CompleteArea_Route_10_46
 CompleteArea_Route_10_45:
-# 3730 "data/scripts/my_debug.pory"
+# 3734 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE10_ITEM1, CompleteArea_Route_10_51
 	goto CompleteArea_Route_10_1
 
 CompleteArea_Route_10_5:
-# 3736 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR2_SWIMMER_F1
-# 3737 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR3_FISHERMAN
-# 3738 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR4_SWIMMER_M1
-# 3739 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR5_BLACKBELT
 # 3740 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR6_HIKER
+	defeattrainer TRAINER_R10_SWIMMER_F1
 # 3741 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR7_SWIMMER_F2
+	defeattrainer TRAINER_R10_FISHERMAN
 # 3742 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR8_SWIMMER_M2
+	defeattrainer TRAINER_R10_SWIMMER_M1
 # 3743 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR9_BATTLEGIRL
+	defeattrainer TRAINER_R10_BLACKBELT
 # 3744 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR10_TUBER_M
+	defeattrainer TRAINER_R10_HIKER
 # 3745 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_R10_TR1_ACESWIMMER
+	defeattrainer TRAINER_R10_SWIMMER_F2
+# 3746 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R10_SWIMMER_M2
+# 3747 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R10_BATTLEGIRL
+# 3748 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R10_TUBER_M
+# 3749 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_R10_ACESWIMMER
 	goto_if 0, CompleteArea_Route_10_13
 	goto CompleteArea_Route_10_4
 
 CompleteArea_Route_10_8:
-# 3703 "data/scripts/my_debug.pory"
+# 3707 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM8
-# 3704 "data/scripts/my_debug.pory"
+# 3708 "data/scripts/my_debug.pory"
 	additem ITEM_DIVE_BALL
 	goto CompleteArea_Route_10_7
 
 CompleteArea_Route_10_11:
-# 3753 "data/scripts/my_debug.pory"
-	setflag FLAG_SERPENTCAVE_BOULDER_1
-# 3754 "data/scripts/my_debug.pory"
-	setflag FLAG_SERPENTCAVE_BOULDER_2
-# 3755 "data/scripts/my_debug.pory"
-	setflag FLAG_SERPENTCAVE_BOULDER_3
-# 3756 "data/scripts/my_debug.pory"
-	setflag FLAG_SERPENTCAVE_BOULDER_4
 # 3757 "data/scripts/my_debug.pory"
+	setflag FLAG_SERPENTCAVE_BOULDER_1
+# 3758 "data/scripts/my_debug.pory"
+	setflag FLAG_SERPENTCAVE_BOULDER_2
+# 3759 "data/scripts/my_debug.pory"
+	setflag FLAG_SERPENTCAVE_BOULDER_3
+# 3760 "data/scripts/my_debug.pory"
+	setflag FLAG_SERPENTCAVE_BOULDER_4
+# 3761 "data/scripts/my_debug.pory"
 	compare VAR_SERPENTCAVE_WATER_LEVEL, 4
 	goto_if_lt CompleteArea_Route_10_19
 CompleteArea_Route_10_18:
-# 3760 "data/scripts/my_debug.pory"
+# 3764 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SERPENTCAVE_ITEM1, CompleteArea_Route_10_25
 CompleteArea_Route_10_24:
-# 3764 "data/scripts/my_debug.pory"
+# 3768 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SERPENTCAVE_ITEM2, CompleteArea_Route_10_31
 CompleteArea_Route_10_30:
-# 3768 "data/scripts/my_debug.pory"
+# 3772 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SERPENTCAVE_ITEM4, CompleteArea_Route_10_37
 CompleteArea_Route_10_36:
-# 3772 "data/scripts/my_debug.pory"
+# 3776 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SERPENTCAVE_ITEM3, CompleteArea_Route_10_43
 CompleteArea_Route_10_42:
-# 3776 "data/scripts/my_debug.pory"
+# 3780 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SERPENTCAVE_DRAGONFANG, CompleteArea_Route_10_49
 CompleteArea_Route_10_48:
-# 3780 "data/scripts/my_debug.pory"
+# 3784 "data/scripts/my_debug.pory"
 	compare VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE
 	goto_if_lt CompleteArea_Route_10_54
 CompleteArea_Route_10_53:
-# 3783 "data/scripts/my_debug.pory"
+# 3787 "data/scripts/my_debug.pory"
 	checktrainerflag TRAINER_CASUAL_IRIS
 	goto_if 0, CompleteArea_Route_10_56
 	goto CompleteArea_Route_10_10
 
 CompleteArea_Route_10_13:
-# 3746 "data/scripts/my_debug.pory"
+# 3750 "data/scripts/my_debug.pory"
 	additem ITEM_BLUNDER_POLICY
-# 3747 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R10_TR1_ACESWIMMER
-# 3748 "data/scripts/my_debug.pory"
+# 3751 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R10_ACESWIMMER
+# 3752 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_BLUNDER_POLICY
-# 3749 "data/scripts/my_debug.pory"
+# 3753 "data/scripts/my_debug.pory"
 	addbp 30
 	goto CompleteArea_Route_10_4
 
 CompleteArea_Route_10_16:
-# 3707 "data/scripts/my_debug.pory"
+# 3711 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM6
-# 3708 "data/scripts/my_debug.pory"
+# 3712 "data/scripts/my_debug.pory"
 	additem ITEM_TM_SCALD
 	goto CompleteArea_Route_10_15
 
 CompleteArea_Route_10_19:
-# 3758 "data/scripts/my_debug.pory"
+# 3762 "data/scripts/my_debug.pory"
 	setvar VAR_SERPENTCAVE_WATER_LEVEL, 4
 	goto CompleteArea_Route_10_18
 
 CompleteArea_Route_10_22:
-# 3711 "data/scripts/my_debug.pory"
+# 3715 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM7
-# 3712 "data/scripts/my_debug.pory"
+# 3716 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Route_10_21
 
 CompleteArea_Route_10_25:
-# 3761 "data/scripts/my_debug.pory"
+# 3765 "data/scripts/my_debug.pory"
 	setflag FLAG_SERPENTCAVE_ITEM1
-# 3762 "data/scripts/my_debug.pory"
+# 3766 "data/scripts/my_debug.pory"
 	additem ITEM_MOON_STONE
 	goto CompleteArea_Route_10_24
 
 CompleteArea_Route_10_28:
-# 3715 "data/scripts/my_debug.pory"
+# 3719 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM5
-# 3716 "data/scripts/my_debug.pory"
+# 3720 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Route_10_27
 
 CompleteArea_Route_10_31:
-# 3765 "data/scripts/my_debug.pory"
+# 3769 "data/scripts/my_debug.pory"
 	setflag FLAG_SERPENTCAVE_ITEM2
-# 3766 "data/scripts/my_debug.pory"
+# 3770 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Route_10_30
 
 CompleteArea_Route_10_34:
-# 3719 "data/scripts/my_debug.pory"
+# 3723 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM4
-# 3720 "data/scripts/my_debug.pory"
+# 3724 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
 	goto CompleteArea_Route_10_33
 
 CompleteArea_Route_10_37:
-# 3769 "data/scripts/my_debug.pory"
+# 3773 "data/scripts/my_debug.pory"
 	setflag FLAG_SERPENTCAVE_ITEM4
-# 3770 "data/scripts/my_debug.pory"
+# 3774 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_10_36
 
 CompleteArea_Route_10_40:
-# 3723 "data/scripts/my_debug.pory"
+# 3727 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM3
-# 3724 "data/scripts/my_debug.pory"
+# 3728 "data/scripts/my_debug.pory"
 	additem ITEM_CALCIUM
 	goto CompleteArea_Route_10_39
 
 CompleteArea_Route_10_43:
-# 3773 "data/scripts/my_debug.pory"
+# 3777 "data/scripts/my_debug.pory"
 	setflag FLAG_SERPENTCAVE_ITEM3
-# 3774 "data/scripts/my_debug.pory"
+# 3778 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Route_10_42
 
 CompleteArea_Route_10_46:
-# 3727 "data/scripts/my_debug.pory"
+# 3731 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM2
-# 3728 "data/scripts/my_debug.pory"
+# 3732 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Route_10_45
 
 CompleteArea_Route_10_49:
-# 3777 "data/scripts/my_debug.pory"
+# 3781 "data/scripts/my_debug.pory"
 	setflag FLAG_SERPENTCAVE_DRAGONFANG
-# 3778 "data/scripts/my_debug.pory"
+# 3782 "data/scripts/my_debug.pory"
 	additem ITEM_DRAGON_FANG
 	goto CompleteArea_Route_10_48
 
 CompleteArea_Route_10_51:
-# 3731 "data/scripts/my_debug.pory"
+# 3735 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE10_ITEM1
-# 3732 "data/scripts/my_debug.pory"
+# 3736 "data/scripts/my_debug.pory"
 	additem ITEM_BERRY_JUICE
 	goto CompleteArea_Route_10_1
 
 CompleteArea_Route_10_54:
-# 3781 "data/scripts/my_debug.pory"
+# 3785 "data/scripts/my_debug.pory"
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_OBTAINED_MEGA_STONE
 	goto CompleteArea_Route_10_53
 
 CompleteArea_Route_10_56:
-# 3784 "data/scripts/my_debug.pory"
+# 3788 "data/scripts/my_debug.pory"
 	defeattrainer TRAINER_CASUAL_IRIS
-# 3785 "data/scripts/my_debug.pory"
+# 3789 "data/scripts/my_debug.pory"
 	additem ITEM_GARCHOMPITE
 	goto CompleteArea_Route_10_10
 
 
 CompleteArea_Windplume_Mountain::
-# 3791 "data/scripts/my_debug.pory"
+# 3795 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Windplume_Mountain_2
 CompleteArea_Windplume_Mountain_1:
 	return
 
 CompleteArea_Windplume_Mountain_2:
-# 3792 "data/scripts/my_debug.pory"
+# 3796 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_2, CompleteArea_Windplume_Mountain_5
 CompleteArea_Windplume_Mountain_4:
-# 3796 "data/scripts/my_debug.pory"
+# 3800 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_4, CompleteArea_Windplume_Mountain_8
 CompleteArea_Windplume_Mountain_7:
-# 3800 "data/scripts/my_debug.pory"
+# 3804 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_3, CompleteArea_Windplume_Mountain_11
 CompleteArea_Windplume_Mountain_10:
-# 3804 "data/scripts/my_debug.pory"
+# 3808 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_5, CompleteArea_Windplume_Mountain_14
 CompleteArea_Windplume_Mountain_13:
-# 3808 "data/scripts/my_debug.pory"
+# 3812 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_6, CompleteArea_Windplume_Mountain_17
 CompleteArea_Windplume_Mountain_16:
-# 3812 "data/scripts/my_debug.pory"
+# 3816 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_7, CompleteArea_Windplume_Mountain_20
 CompleteArea_Windplume_Mountain_19:
-# 3816 "data/scripts/my_debug.pory"
+# 3820 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_8, CompleteArea_Windplume_Mountain_23
 CompleteArea_Windplume_Mountain_22:
-# 3820 "data/scripts/my_debug.pory"
+# 3824 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_9, CompleteArea_Windplume_Mountain_26
 CompleteArea_Windplume_Mountain_25:
-# 3824 "data/scripts/my_debug.pory"
+# 3828 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_10, CompleteArea_Windplume_Mountain_29
 CompleteArea_Windplume_Mountain_28:
-# 3828 "data/scripts/my_debug.pory"
+# 3832 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_11, CompleteArea_Windplume_Mountain_32
 CompleteArea_Windplume_Mountain_31:
-# 3832 "data/scripts/my_debug.pory"
+# 3836 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_12, CompleteArea_Windplume_Mountain_35
 CompleteArea_Windplume_Mountain_34:
-# 3836 "data/scripts/my_debug.pory"
+# 3840 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_13, CompleteArea_Windplume_Mountain_38
 CompleteArea_Windplume_Mountain_37:
-# 3840 "data/scripts/my_debug.pory"
+# 3844 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_14, CompleteArea_Windplume_Mountain_41
 CompleteArea_Windplume_Mountain_40:
-# 3844 "data/scripts/my_debug.pory"
+# 3848 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_15, CompleteArea_Windplume_Mountain_44
 CompleteArea_Windplume_Mountain_43:
-# 3848 "data/scripts/my_debug.pory"
+# 3852 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_16, CompleteArea_Windplume_Mountain_47
 CompleteArea_Windplume_Mountain_46:
-# 3852 "data/scripts/my_debug.pory"
+# 3856 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WINDPLUME_MT_ITEM_17, CompleteArea_Windplume_Mountain_49
 	goto CompleteArea_Windplume_Mountain_1
 
 CompleteArea_Windplume_Mountain_5:
-# 3793 "data/scripts/my_debug.pory"
+# 3797 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_2
-# 3794 "data/scripts/my_debug.pory"
+# 3798 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Windplume_Mountain_4
 
 CompleteArea_Windplume_Mountain_8:
-# 3797 "data/scripts/my_debug.pory"
+# 3801 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_4
-# 3798 "data/scripts/my_debug.pory"
+# 3802 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Windplume_Mountain_7
 
 CompleteArea_Windplume_Mountain_11:
-# 3801 "data/scripts/my_debug.pory"
+# 3805 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_3
-# 3802 "data/scripts/my_debug.pory"
+# 3806 "data/scripts/my_debug.pory"
 	additem ITEM_MOON_STONE
 	goto CompleteArea_Windplume_Mountain_10
 
 CompleteArea_Windplume_Mountain_14:
-# 3805 "data/scripts/my_debug.pory"
+# 3809 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_5
-# 3806 "data/scripts/my_debug.pory"
+# 3810 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Windplume_Mountain_13
 
 CompleteArea_Windplume_Mountain_17:
-# 3809 "data/scripts/my_debug.pory"
+# 3813 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_6
-# 3810 "data/scripts/my_debug.pory"
+# 3814 "data/scripts/my_debug.pory"
 	additem ITEM_TM_FOCUS_BLAST
 	goto CompleteArea_Windplume_Mountain_16
 
 CompleteArea_Windplume_Mountain_20:
-# 3813 "data/scripts/my_debug.pory"
+# 3817 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_7
-# 3814 "data/scripts/my_debug.pory"
+# 3818 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Windplume_Mountain_19
 
 CompleteArea_Windplume_Mountain_23:
-# 3817 "data/scripts/my_debug.pory"
+# 3821 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_8
-# 3818 "data/scripts/my_debug.pory"
+# 3822 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Windplume_Mountain_22
 
 CompleteArea_Windplume_Mountain_26:
-# 3821 "data/scripts/my_debug.pory"
+# 3825 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_9
-# 3822 "data/scripts/my_debug.pory"
+# 3826 "data/scripts/my_debug.pory"
 	additem ITEM_REVIVE
 	goto CompleteArea_Windplume_Mountain_25
 
 CompleteArea_Windplume_Mountain_29:
-# 3825 "data/scripts/my_debug.pory"
+# 3829 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_10
-# 3826 "data/scripts/my_debug.pory"
+# 3830 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Windplume_Mountain_28
 
 CompleteArea_Windplume_Mountain_32:
-# 3829 "data/scripts/my_debug.pory"
+# 3833 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_11
-# 3830 "data/scripts/my_debug.pory"
+# 3834 "data/scripts/my_debug.pory"
 	additem ITEM_BLACK_GLASSES
 	goto CompleteArea_Windplume_Mountain_31
 
 CompleteArea_Windplume_Mountain_35:
-# 3833 "data/scripts/my_debug.pory"
+# 3837 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_12
-# 3834 "data/scripts/my_debug.pory"
+# 3838 "data/scripts/my_debug.pory"
 	additem ITEM_ULTRA_BALL
 	goto CompleteArea_Windplume_Mountain_34
 
 CompleteArea_Windplume_Mountain_38:
-# 3837 "data/scripts/my_debug.pory"
+# 3841 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_13
-# 3838 "data/scripts/my_debug.pory"
+# 3842 "data/scripts/my_debug.pory"
 	call DebugFossil
 	goto CompleteArea_Windplume_Mountain_37
 
 CompleteArea_Windplume_Mountain_41:
-# 3841 "data/scripts/my_debug.pory"
+# 3845 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_14
-# 3842 "data/scripts/my_debug.pory"
+# 3846 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_POTION
 	goto CompleteArea_Windplume_Mountain_40
 
 CompleteArea_Windplume_Mountain_44:
-# 3845 "data/scripts/my_debug.pory"
+# 3849 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_15
-# 3846 "data/scripts/my_debug.pory"
+# 3850 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Windplume_Mountain_43
 
 CompleteArea_Windplume_Mountain_47:
-# 3849 "data/scripts/my_debug.pory"
+# 3853 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_16
-# 3850 "data/scripts/my_debug.pory"
+# 3854 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Windplume_Mountain_46
 
 CompleteArea_Windplume_Mountain_49:
-# 3853 "data/scripts/my_debug.pory"
+# 3857 "data/scripts/my_debug.pory"
 	setflag FLAG_WINDPLUME_MT_ITEM_17
-# 3854 "data/scripts/my_debug.pory"
+# 3858 "data/scripts/my_debug.pory"
 	additem ITEM_FLOAT_STONE
 	goto CompleteArea_Windplume_Mountain_1
 
 
 CompleteArea_Route_16::
-# 3860 "data/scripts/my_debug.pory"
+# 3864 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_16_2
 CompleteArea_Route_16_1:
-# 3886 "data/scripts/my_debug.pory"
+# 3890 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_16_5
 CompleteArea_Route_16_4:
 	return
 
 CompleteArea_Route_16_2:
-# 3861 "data/scripts/my_debug.pory"
+# 3865 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM1, CompleteArea_Route_16_8
 CompleteArea_Route_16_7:
-# 3865 "data/scripts/my_debug.pory"
+# 3869 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM2, CompleteArea_Route_16_11
 CompleteArea_Route_16_10:
-# 3869 "data/scripts/my_debug.pory"
+# 3873 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM3, CompleteArea_Route_16_14
 CompleteArea_Route_16_13:
-# 3873 "data/scripts/my_debug.pory"
+# 3877 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM4, CompleteArea_Route_16_17
 CompleteArea_Route_16_16:
-# 3877 "data/scripts/my_debug.pory"
+# 3881 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM5, CompleteArea_Route_16_20
 CompleteArea_Route_16_19:
-# 3881 "data/scripts/my_debug.pory"
+# 3885 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE16_ITEM6, CompleteArea_Route_16_22
 	goto CompleteArea_Route_16_1
 
 CompleteArea_Route_16_5:
-# 3887 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR1_SWIMMER_M
-# 3888 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR2_SWIMMER_F
-# 3889 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR12_NINJABOY2
-# 3890 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR5_SWIMMER_F
 # 3891 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR6_SWIMMER_F
+	defeattrainer TRAINER_R16_SWIMMER_M
 # 3892 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR7_GUITARIST
+	defeattrainer TRAINER_R16_SWIMMER_F
 # 3893 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR8_HIKER
+	defeattrainer TRAINER_R16_NINJABOY2
 # 3894 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR9_BEAUTY
+	defeattrainer TRAINER_R16_SWIMMER_F2
 # 3895 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR10_NINJABOY
+	defeattrainer TRAINER_R16_SWIMMER_F3
 # 3896 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R16_TR11_EXPERT_F
+	defeattrainer TRAINER_R16_GUITARIST
+# 3897 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R16_HIKER
+# 3898 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R16_BEAUTY
+# 3899 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R16_NINJABOY
+# 3900 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R16_EXPERT_F
 	goto CompleteArea_Route_16_4
 
 CompleteArea_Route_16_8:
-# 3862 "data/scripts/my_debug.pory"
+# 3866 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM1
-# 3863 "data/scripts/my_debug.pory"
+# 3867 "data/scripts/my_debug.pory"
 	additem ITEM_STARDUST
 	goto CompleteArea_Route_16_7
 
 CompleteArea_Route_16_11:
-# 3866 "data/scripts/my_debug.pory"
+# 3870 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM2
-# 3867 "data/scripts/my_debug.pory"
+# 3871 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Route_16_10
 
 CompleteArea_Route_16_14:
-# 3870 "data/scripts/my_debug.pory"
+# 3874 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM3
-# 3871 "data/scripts/my_debug.pory"
+# 3875 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_HEAL
 	goto CompleteArea_Route_16_13
 
 CompleteArea_Route_16_17:
-# 3874 "data/scripts/my_debug.pory"
+# 3878 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM4
-# 3875 "data/scripts/my_debug.pory"
+# 3879 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Route_16_16
 
 CompleteArea_Route_16_20:
-# 3878 "data/scripts/my_debug.pory"
+# 3882 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM5
-# 3879 "data/scripts/my_debug.pory"
+# 3883 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Route_16_19
 
 CompleteArea_Route_16_22:
-# 3882 "data/scripts/my_debug.pory"
+# 3886 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE16_ITEM6
-# 3883 "data/scripts/my_debug.pory"
+# 3887 "data/scripts/my_debug.pory"
 	additem ITEM_HP_UP
 	goto CompleteArea_Route_16_1
 
 
 CompleteArea_Basalek_Town::
-# 3901 "data/scripts/my_debug.pory"
+# 3905 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Basalek_Town_2
 CompleteArea_Basalek_Town_1:
-# 3931 "data/scripts/my_debug.pory"
+# 3935 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Basalek_Town_5
 CompleteArea_Basalek_Town_4:
-# 3951 "data/scripts/my_debug.pory"
+# 3955 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Basalek_Town_11
 CompleteArea_Basalek_Town_10:
 	return
 
 CompleteArea_Basalek_Town_2:
-# 3902 "data/scripts/my_debug.pory"
+# 3906 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_ITEM2, CompleteArea_Basalek_Town_8
 CompleteArea_Basalek_Town_7:
-# 3906 "data/scripts/my_debug.pory"
+# 3910 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_ITEM1, CompleteArea_Basalek_Town_16
 CompleteArea_Basalek_Town_15:
-# 3910 "data/scripts/my_debug.pory"
+# 3914 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_TUNNEL_ITEM3, CompleteArea_Basalek_Town_23
 CompleteArea_Basalek_Town_22:
-# 3914 "data/scripts/my_debug.pory"
+# 3918 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_TUNNEL_ITEM2, CompleteArea_Basalek_Town_26
 CompleteArea_Basalek_Town_25:
-# 3918 "data/scripts/my_debug.pory"
+# 3922 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_TUNNEL_ITEM1, CompleteArea_Basalek_Town_29
 CompleteArea_Basalek_Town_28:
-# 3922 "data/scripts/my_debug.pory"
+# 3926 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_TUNNEL_ITEM4, CompleteArea_Basalek_Town_32
 CompleteArea_Basalek_Town_31:
-# 3926 "data/scripts/my_debug.pory"
+# 3930 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_TUNNEL_ITEM5, CompleteArea_Basalek_Town_34
 	goto CompleteArea_Basalek_Town_1
 
 CompleteArea_Basalek_Town_5:
-# 3932 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR1_HIKER1
-# 3933 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR2_BLACKBELT
-# 3934 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR3_PICNICKER
-# 3935 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR4_FIREBREATHER
 # 3936 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR5_BLACKBELT2
+	defeattrainer TRAINER_BTUN_HIKER1
 # 3937 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR6_CAMPERM
+	defeattrainer TRAINER_BTUN_BLACKBELT
 # 3938 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR7_PICNICKER2
+	defeattrainer TRAINER_BTUN_PICNICKER
 # 3939 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR8_HIKER2
+	defeattrainer TRAINER_BTUN_FIREBREATHER
 # 3940 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR9_BEAUTY
+	defeattrainer TRAINER_BTUN_BLACKBELT2
 # 3941 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR10_FIREBREATHER2
+	defeattrainer TRAINER_BTUN_CAMPERM
 # 3942 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR11_HIKER3
+	defeattrainer TRAINER_BTUN_PICNICKER2
 # 3943 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	defeattrainer TRAINER_BTUN_HIKER2
+# 3944 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_BTUN_BEAUTY
+# 3945 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_BTUN_FIREBREATHER2
+# 3946 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_BTUN_HIKER3
+# 3947 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_BTUN_BROCK
 	goto_if 0, CompleteArea_Basalek_Town_13
 	goto CompleteArea_Basalek_Town_4
 
 CompleteArea_Basalek_Town_8:
-# 3903 "data/scripts/my_debug.pory"
+# 3907 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_ITEM2
-# 3904 "data/scripts/my_debug.pory"
+# 3908 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Basalek_Town_7
 
 CompleteArea_Basalek_Town_11:
-# 3952 "data/scripts/my_debug.pory"
+# 3956 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_BASALEK_WOMAN_LEMONADE, CompleteArea_Basalek_Town_18
 	goto CompleteArea_Basalek_Town_10
 
 CompleteArea_Basalek_Town_13:
-# 3944 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_BASALTUNNEL_TR12_BROCK
-# 3945 "data/scripts/my_debug.pory"
+# 3948 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_BTUN_BROCK
+# 3949 "data/scripts/my_debug.pory"
 	giveitem ITEM_HM_ROCK_CLIMB
-# 3946 "data/scripts/my_debug.pory"
+# 3950 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q38_BASALEK_TUNNELS_START, CompleteArea_Basalek_Town_20
 	goto CompleteArea_Basalek_Town_4
 
 CompleteArea_Basalek_Town_16:
-# 3907 "data/scripts/my_debug.pory"
+# 3911 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_ITEM1
-# 3908 "data/scripts/my_debug.pory"
+# 3912 "data/scripts/my_debug.pory"
 	additem ITEM_BURN_HEAL
 	goto CompleteArea_Basalek_Town_15
 
 CompleteArea_Basalek_Town_18:
-# 3953 "data/scripts/my_debug.pory"
+# 3957 "data/scripts/my_debug.pory"
 	additem ITEM_FRESH_WATER
-# 3954 "data/scripts/my_debug.pory"
+# 3958 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_WOMAN_LEMONADE
 	goto CompleteArea_Basalek_Town_10
 
 CompleteArea_Basalek_Town_20:
-# 3947 "data/scripts/my_debug.pory"
+# 3951 "data/scripts/my_debug.pory"
 	completequest FLAG_Q38_BASALEK_TUNNELS_COMPLETE
 	goto CompleteArea_Basalek_Town_4
 
 CompleteArea_Basalek_Town_23:
-# 3911 "data/scripts/my_debug.pory"
+# 3915 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_TUNNEL_ITEM3
-# 3912 "data/scripts/my_debug.pory"
+# 3916 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Basalek_Town_22
 
 CompleteArea_Basalek_Town_26:
-# 3915 "data/scripts/my_debug.pory"
+# 3919 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_TUNNEL_ITEM2
-# 3916 "data/scripts/my_debug.pory"
+# 3920 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REVIVE
 	goto CompleteArea_Basalek_Town_25
 
 CompleteArea_Basalek_Town_29:
-# 3919 "data/scripts/my_debug.pory"
+# 3923 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_TUNNEL_ITEM1
-# 3920 "data/scripts/my_debug.pory"
+# 3924 "data/scripts/my_debug.pory"
 	additem ITEM_STEELIXITE
 	goto CompleteArea_Basalek_Town_28
 
 CompleteArea_Basalek_Town_32:
-# 3923 "data/scripts/my_debug.pory"
+# 3927 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_TUNNEL_ITEM4
-# 3924 "data/scripts/my_debug.pory"
+# 3928 "data/scripts/my_debug.pory"
 	additem ITEM_TM_INCINERATE
 	goto CompleteArea_Basalek_Town_31
 
 CompleteArea_Basalek_Town_34:
-# 3927 "data/scripts/my_debug.pory"
+# 3931 "data/scripts/my_debug.pory"
 	setflag FLAG_BASALEK_TUNNEL_ITEM5
-# 3928 "data/scripts/my_debug.pory"
+# 3932 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Basalek_Town_1
 
 
 CompleteArea_Route_17::
-# 3960 "data/scripts/my_debug.pory"
+# 3964 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_17_2
 CompleteArea_Route_17_1:
-# 3978 "data/scripts/my_debug.pory"
+# 3982 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_17_5
 CompleteArea_Route_17_4:
 	return
 
 CompleteArea_Route_17_2:
-# 3961 "data/scripts/my_debug.pory"
+# 3965 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE17_ITEM1, CompleteArea_Route_17_8
 CompleteArea_Route_17_7:
-# 3965 "data/scripts/my_debug.pory"
+# 3969 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE17_ITEM2, CompleteArea_Route_17_11
 CompleteArea_Route_17_10:
-# 3969 "data/scripts/my_debug.pory"
+# 3973 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE17_ITEM3, CompleteArea_Route_17_14
 CompleteArea_Route_17_13:
-# 3973 "data/scripts/my_debug.pory"
+# 3977 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE17_ITEM4, CompleteArea_Route_17_16
 	goto CompleteArea_Route_17_1
 
 CompleteArea_Route_17_5:
-# 3979 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR1_CAMPER_M
-# 3980 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR2_PICNICKER1
-# 3981 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR3_PICNICKER2
-# 3982 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR4_MANIAC
 # 3983 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR5_SCIENTIST
+	defeattrainer TRAINER_R17_CAMPER_M
 # 3984 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR6_HIKER1
+	defeattrainer TRAINER_R17_PICNICKER1
 # 3985 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR7_HIKER2
+	defeattrainer TRAINER_R17_PICNICKER2
 # 3986 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R17_TR8_COOLTRAINER
+	defeattrainer TRAINER_R17_MANIAC
+# 3987 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R17_SCIENTIST
+# 3988 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R17_HIKER1
+# 3989 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R17_HIKER2
+# 3990 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R17_COOLTRAINER
 	goto CompleteArea_Route_17_4
 
 CompleteArea_Route_17_8:
-# 3962 "data/scripts/my_debug.pory"
+# 3966 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE17_ITEM1
-# 3963 "data/scripts/my_debug.pory"
+# 3967 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Route_17_7
 
 CompleteArea_Route_17_11:
-# 3966 "data/scripts/my_debug.pory"
+# 3970 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE17_ITEM2
-# 3967 "data/scripts/my_debug.pory"
+# 3971 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Route_17_10
 
 CompleteArea_Route_17_14:
-# 3970 "data/scripts/my_debug.pory"
+# 3974 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE17_ITEM3
-# 3971 "data/scripts/my_debug.pory"
+# 3975 "data/scripts/my_debug.pory"
 	additem ITEM_TM_TOXIC
 	goto CompleteArea_Route_17_13
 
 CompleteArea_Route_17_16:
-# 3974 "data/scripts/my_debug.pory"
+# 3978 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE17_ITEM4
-# 3975 "data/scripts/my_debug.pory"
+# 3979 "data/scripts/my_debug.pory"
 	additem ITEM_HEAVY_BALL
 	goto CompleteArea_Route_17_1
 
 
 CompleteArea_Route_18::
-# 3991 "data/scripts/my_debug.pory"
+# 3995 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Route_18_2
 CompleteArea_Route_18_1:
-# 4013 "data/scripts/my_debug.pory"
+# 4017 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_4, CompleteArea_Route_18_5
 CompleteArea_Route_18_4:
 	return
 
 CompleteArea_Route_18_2:
-# 3992 "data/scripts/my_debug.pory"
+# 3996 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE18_ITEM1, CompleteArea_Route_18_8
 CompleteArea_Route_18_7:
-# 3996 "data/scripts/my_debug.pory"
+# 4000 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE18_ITEM3, CompleteArea_Route_18_13
 CompleteArea_Route_18_12:
-# 4000 "data/scripts/my_debug.pory"
+# 4004 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE18_ITEM2, CompleteArea_Route_18_16
 CompleteArea_Route_18_15:
-# 4004 "data/scripts/my_debug.pory"
+# 4008 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE18_ITEM4, CompleteArea_Route_18_19
 CompleteArea_Route_18_18:
-# 4008 "data/scripts/my_debug.pory"
+# 4012 "data/scripts/my_debug.pory"
 	pickberrytree BERRY_TREE_ROUTE_110_YACHE_1
-# 4009 "data/scripts/my_debug.pory"
+# 4013 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
-# 4010 "data/scripts/my_debug.pory"
+# 4014 "data/scripts/my_debug.pory"
 	pickberrytree BERRY_TREE_ROUTE_110_YACHE_2
-# 4011 "data/scripts/my_debug.pory"
+# 4015 "data/scripts/my_debug.pory"
 	call TryLootingStrangeSeed
 	goto CompleteArea_Route_18_1
 
 CompleteArea_Route_18_5:
-# 4014 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR1_HIKER1
-# 4015 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR2_RANGER_M
-# 4016 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR3_KINDLER
-# 4017 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR4_HIKER2
 # 4018 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR5_RANGER_F
+	defeattrainer TRAINER_R18_HIKER1
 # 4019 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR6_SCIENTIST
+	defeattrainer TRAINER_R18_RANGER_M
 # 4020 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR7_POKEMANIAC
+	defeattrainer TRAINER_R18_KINDLER
 # 4021 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR8_BREEDER_M
+	defeattrainer TRAINER_R18_HIKER2
 # 4022 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_R18_TR9_ACE_TRAINER_M
+	defeattrainer TRAINER_R18_RANGER_F
+# 4023 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R18_SCIENTIST
+# 4024 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R18_POKEMANIAC
+# 4025 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R18_BREEDER_M
+# 4026 "data/scripts/my_debug.pory"
+	checktrainerflag TRAINER_R18_ACE_TRAINER_M
 	goto_if 0, CompleteArea_Route_18_10
 	goto CompleteArea_Route_18_4
 
 CompleteArea_Route_18_8:
-# 3993 "data/scripts/my_debug.pory"
+# 3997 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE18_ITEM1
-# 3994 "data/scripts/my_debug.pory"
+# 3998 "data/scripts/my_debug.pory"
 	additem ITEM_ICY_ROCK
 	goto CompleteArea_Route_18_7
 
 CompleteArea_Route_18_10:
-# 4023 "data/scripts/my_debug.pory"
-	defeattrainer TRAINER_R18_TR9_ACE_TRAINER_M
-# 4024 "data/scripts/my_debug.pory"
+# 4027 "data/scripts/my_debug.pory"
+	defeattrainer TRAINER_R18_ACE_TRAINER_M
+# 4028 "data/scripts/my_debug.pory"
 	additem ITEM_LOADED_DICE
-# 4025 "data/scripts/my_debug.pory"
+# 4029 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_LOADED_DICE
 	goto CompleteArea_Route_18_4
 
 CompleteArea_Route_18_13:
-# 3997 "data/scripts/my_debug.pory"
+# 4001 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE18_ITEM3
-# 3998 "data/scripts/my_debug.pory"
+# 4002 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Route_18_12
 
 CompleteArea_Route_18_16:
-# 4001 "data/scripts/my_debug.pory"
+# 4005 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE18_ITEM2
-# 4002 "data/scripts/my_debug.pory"
+# 4006 "data/scripts/my_debug.pory"
 	additem ITEM_ICE_HEAL
 	goto CompleteArea_Route_18_15
 
 CompleteArea_Route_18_19:
-# 4005 "data/scripts/my_debug.pory"
+# 4009 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE18_ITEM4
-# 4006 "data/scripts/my_debug.pory"
+# 4010 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_MUSHROOM
 	goto CompleteArea_Route_18_18
 
 
 CompleteArea_Frosthearth_City::
-# 4031 "data/scripts/my_debug.pory"
+# 4035 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Frosthearth_City_2
 CompleteArea_Frosthearth_City_1:
-# 4069 "data/scripts/my_debug.pory"
+# 4073 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Frosthearth_City_5
 CompleteArea_Frosthearth_City_4:
 	return
 
 CompleteArea_Frosthearth_City_2:
-# 4032 "data/scripts/my_debug.pory"
+# 4036 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM1, CompleteArea_Frosthearth_City_8
 CompleteArea_Frosthearth_City_7:
-# 4036 "data/scripts/my_debug.pory"
+# 4040 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM2, CompleteArea_Frosthearth_City_14
 CompleteArea_Frosthearth_City_13:
-# 4040 "data/scripts/my_debug.pory"
+# 4044 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM3, CompleteArea_Frosthearth_City_23
 CompleteArea_Frosthearth_City_22:
-# 4044 "data/scripts/my_debug.pory"
+# 4048 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM4, CompleteArea_Frosthearth_City_31
 CompleteArea_Frosthearth_City_30:
-# 4048 "data/scripts/my_debug.pory"
+# 4052 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM5, CompleteArea_Frosthearth_City_38
 CompleteArea_Frosthearth_City_37:
-# 4052 "data/scripts/my_debug.pory"
+# 4056 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDFRONTIER_ITEM6, CompleteArea_Frosthearth_City_41
 CompleteArea_Frosthearth_City_40:
-# 4056 "data/scripts/my_debug.pory"
+# 4060 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FROSTFIRE_ITEM3, CompleteArea_Frosthearth_City_44
 CompleteArea_Frosthearth_City_43:
-# 4060 "data/scripts/my_debug.pory"
+# 4064 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FROSTFIRE_ITEM2, CompleteArea_Frosthearth_City_47
 CompleteArea_Frosthearth_City_46:
-# 4064 "data/scripts/my_debug.pory"
+# 4068 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FROSTFIRE_ITEM1, CompleteArea_Frosthearth_City_49
 	goto CompleteArea_Frosthearth_City_1
 
 CompleteArea_Frosthearth_City_5:
-# 4070 "data/scripts/my_debug.pory"
+# 4074 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FRIGIDCAVE_VERDANT_SPHERE, CompleteArea_Frosthearth_City_11
 CompleteArea_Frosthearth_City_10:
-# 4082 "data/scripts/my_debug.pory"
+# 4086 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_CHOCOLATE_FROM_OLD_MAN, CompleteArea_Frosthearth_City_17
 CompleteArea_Frosthearth_City_16:
-# 4086 "data/scripts/my_debug.pory"
+# 4090 "data/scripts/my_debug.pory"
 	compare VAR_FROSTHEARTH_RUFFLET, 10
 	goto_if_lt CompleteArea_Frosthearth_City_26
 CompleteArea_Frosthearth_City_25:
-# 4093 "data/scripts/my_debug.pory"
+# 4097 "data/scripts/my_debug.pory"
 	compare VAR_FROSTHEARTH_HARD_ROCK, 3
 	goto_if_lt CompleteArea_Frosthearth_City_33
 	goto CompleteArea_Frosthearth_City_4
 
 CompleteArea_Frosthearth_City_8:
-# 4033 "data/scripts/my_debug.pory"
+# 4037 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM1
-# 4034 "data/scripts/my_debug.pory"
+# 4038 "data/scripts/my_debug.pory"
 	additem ITEM_TM_HAIL
 	goto CompleteArea_Frosthearth_City_7
 
 CompleteArea_Frosthearth_City_11:
-# 4071 "data/scripts/my_debug.pory"
-	setflag FLAG_FRIGIDCAVE_VERDANT_SPHERE
-# 4072 "data/scripts/my_debug.pory"
-	additem ITEM_VERDANT_SPHERE
-# 4073 "data/scripts/my_debug.pory"
-	setflag FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE
-# 4074 "data/scripts/my_debug.pory"
-	clearflag FLAG_FRIGIDCAVE_DOOR_OPEN
 # 4075 "data/scripts/my_debug.pory"
+	setflag FLAG_FRIGIDCAVE_VERDANT_SPHERE
+# 4076 "data/scripts/my_debug.pory"
+	additem ITEM_VERDANT_SPHERE
+# 4077 "data/scripts/my_debug.pory"
+	setflag FLAG_FRIGIDCAVE_HIDE_STEEL_SPHERE
+# 4078 "data/scripts/my_debug.pory"
+	clearflag FLAG_FRIGIDCAVE_DOOR_OPEN
+# 4079 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_START, CompleteArea_Frosthearth_City_20
 CompleteArea_Frosthearth_City_19:
 	checkitem ITEM_STEEL_SPHERE
@@ -9164,239 +9175,239 @@ CompleteArea_Frosthearth_City_19:
 	goto CompleteArea_Frosthearth_City_10
 
 CompleteArea_Frosthearth_City_14:
-# 4037 "data/scripts/my_debug.pory"
+# 4041 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM2
-# 4038 "data/scripts/my_debug.pory"
+# 4042 "data/scripts/my_debug.pory"
 	additem ITEM_YACHE_BERRY
 	goto CompleteArea_Frosthearth_City_13
 
 CompleteArea_Frosthearth_City_17:
-# 4083 "data/scripts/my_debug.pory"
+# 4087 "data/scripts/my_debug.pory"
 	additem ITEM_RAGE_CANDY_BAR
-# 4084 "data/scripts/my_debug.pory"
+# 4088 "data/scripts/my_debug.pory"
 	setflag FLAG_CHOCOLATE_FROM_OLD_MAN
 	goto CompleteArea_Frosthearth_City_16
 
 CompleteArea_Frosthearth_City_20:
-# 4076 "data/scripts/my_debug.pory"
+# 4080 "data/scripts/my_debug.pory"
 	completequest FLAG_Q39_FRIGIDFRONTIER_WEIRDCAVE_COMPLETE
 	goto CompleteArea_Frosthearth_City_19
 
 CompleteArea_Frosthearth_City_23:
-# 4041 "data/scripts/my_debug.pory"
+# 4045 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM3
-# 4042 "data/scripts/my_debug.pory"
+# 4046 "data/scripts/my_debug.pory"
 	additem ITEM_COMET_SHARD
 	goto CompleteArea_Frosthearth_City_22
 
 CompleteArea_Frosthearth_City_26:
-# 4087 "data/scripts/my_debug.pory"
+# 4091 "data/scripts/my_debug.pory"
 	additem ITEM_HEART_SCALE
-# 4088 "data/scripts/my_debug.pory"
+# 4092 "data/scripts/my_debug.pory"
 	setvar VAR_FROSTHEARTH_RUFFLET, 10
-# 4089 "data/scripts/my_debug.pory"
+# 4093 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q40_FROSTHEARTH_RUFFLET_START, CompleteArea_Frosthearth_City_35
 	goto CompleteArea_Frosthearth_City_25
 
 CompleteArea_Frosthearth_City_28:
-# 4079 "data/scripts/my_debug.pory"
+# 4083 "data/scripts/my_debug.pory"
 	additem ITEM_STEEL_SPHERE
 	goto CompleteArea_Frosthearth_City_10
 
 CompleteArea_Frosthearth_City_31:
-# 4045 "data/scripts/my_debug.pory"
+# 4049 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM4
-# 4046 "data/scripts/my_debug.pory"
+# 4050 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ELIXIR
 	goto CompleteArea_Frosthearth_City_30
 
 CompleteArea_Frosthearth_City_33:
-# 4094 "data/scripts/my_debug.pory"
+# 4098 "data/scripts/my_debug.pory"
 	setvar VAR_FROSTHEARTH_HARD_ROCK, 3
-# 4095 "data/scripts/my_debug.pory"
+# 4099 "data/scripts/my_debug.pory"
 	additem ITEM_HARD_STONE
 	goto CompleteArea_Frosthearth_City_4
 
 CompleteArea_Frosthearth_City_35:
-# 4090 "data/scripts/my_debug.pory"
+# 4094 "data/scripts/my_debug.pory"
 	completequest FLAG_Q40_FROSTHEARTH_RUFFLET_COMPLETE
 	goto CompleteArea_Frosthearth_City_25
 
 CompleteArea_Frosthearth_City_38:
-# 4049 "data/scripts/my_debug.pory"
+# 4053 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM5
-# 4050 "data/scripts/my_debug.pory"
+# 4054 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Frosthearth_City_37
 
 CompleteArea_Frosthearth_City_41:
-# 4053 "data/scripts/my_debug.pory"
+# 4057 "data/scripts/my_debug.pory"
 	setflag FLAG_FRIGIDFRONTIER_ITEM6
-# 4054 "data/scripts/my_debug.pory"
+# 4058 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_POTION
 	goto CompleteArea_Frosthearth_City_40
 
 CompleteArea_Frosthearth_City_44:
-# 4057 "data/scripts/my_debug.pory"
+# 4061 "data/scripts/my_debug.pory"
 	setflag FLAG_FROSTFIRE_ITEM3
-# 4058 "data/scripts/my_debug.pory"
+# 4062 "data/scripts/my_debug.pory"
 	additem ITEM_X_SPEED
 	goto CompleteArea_Frosthearth_City_43
 
 CompleteArea_Frosthearth_City_47:
-# 4061 "data/scripts/my_debug.pory"
+# 4065 "data/scripts/my_debug.pory"
 	setflag FLAG_FROSTFIRE_ITEM2
-# 4062 "data/scripts/my_debug.pory"
+# 4066 "data/scripts/my_debug.pory"
 	additem ITEM_BURN_HEAL
 	goto CompleteArea_Frosthearth_City_46
 
 CompleteArea_Frosthearth_City_49:
-# 4065 "data/scripts/my_debug.pory"
+# 4069 "data/scripts/my_debug.pory"
 	setflag FLAG_FROSTFIRE_ITEM1
-# 4066 "data/scripts/my_debug.pory"
+# 4070 "data/scripts/my_debug.pory"
 	additem ITEM_SNOWBALL
 	goto CompleteArea_Frosthearth_City_1
 
 
 CompleteArea_Rock_Climb::
-# 4101 "data/scripts/my_debug.pory"
+# 4105 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Rock_Climb_2
 CompleteArea_Rock_Climb_1:
-# 4147 "data/scripts/my_debug.pory"
+# 4151 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Rock_Climb_5
 CompleteArea_Rock_Climb_4:
 	return
 
 CompleteArea_Rock_Climb_2:
-# 4102 "data/scripts/my_debug.pory"
+# 4106 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_KAOLISLE_ITEM10, CompleteArea_Rock_Climb_8
 CompleteArea_Rock_Climb_7:
-# 4106 "data/scripts/my_debug.pory"
+# 4110 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE12_SIDEITEM, CompleteArea_Rock_Climb_13
 CompleteArea_Rock_Climb_12:
-# 4110 "data/scripts/my_debug.pory"
+# 4114 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE23_ITEM5, CompleteArea_Rock_Climb_16
 CompleteArea_Rock_Climb_15:
-# 4114 "data/scripts/my_debug.pory"
+# 4118 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_AMBEROCK_ITEM2, CompleteArea_Rock_Climb_19
 CompleteArea_Rock_Climb_18:
-# 4118 "data/scripts/my_debug.pory"
+# 4122 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM1, CompleteArea_Rock_Climb_22
 CompleteArea_Rock_Climb_21:
-# 4122 "data/scripts/my_debug.pory"
+# 4126 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM2, CompleteArea_Rock_Climb_25
 CompleteArea_Rock_Climb_24:
-# 4126 "data/scripts/my_debug.pory"
+# 4130 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM3, CompleteArea_Rock_Climb_28
 CompleteArea_Rock_Climb_27:
-# 4130 "data/scripts/my_debug.pory"
+# 4134 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM4, CompleteArea_Rock_Climb_31
 CompleteArea_Rock_Climb_30:
-# 4134 "data/scripts/my_debug.pory"
+# 4138 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM5, CompleteArea_Rock_Climb_34
 CompleteArea_Rock_Climb_33:
-# 4138 "data/scripts/my_debug.pory"
+# 4142 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM6, CompleteArea_Rock_Climb_37
 CompleteArea_Rock_Climb_36:
-# 4142 "data/scripts/my_debug.pory"
+# 4146 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SUNKEN_CAVERN_ITEM7, CompleteArea_Rock_Climb_39
 	goto CompleteArea_Rock_Climb_1
 
 CompleteArea_Rock_Climb_5:
-# 4148 "data/scripts/my_debug.pory"
+# 4152 "data/scripts/my_debug.pory"
 	compare VAR_HOUNDOOMS_DEFEATED, 4
 	goto_if_lt CompleteArea_Rock_Climb_10
 	goto CompleteArea_Rock_Climb_4
 
 CompleteArea_Rock_Climb_8:
-# 4103 "data/scripts/my_debug.pory"
+# 4107 "data/scripts/my_debug.pory"
 	setflag FLAG_KAOLISLE_ITEM10
-# 4104 "data/scripts/my_debug.pory"
+# 4108 "data/scripts/my_debug.pory"
 	additem ITEM_SMOOTH_ROCK
 	goto CompleteArea_Rock_Climb_7
 
 CompleteArea_Rock_Climb_10:
-# 4149 "data/scripts/my_debug.pory"
+# 4153 "data/scripts/my_debug.pory"
 	setvar VAR_HOUNDOOMS_DEFEATED, 4
-# 4150 "data/scripts/my_debug.pory"
+# 4154 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_HOUNDOOMINITE
-# 4151 "data/scripts/my_debug.pory"
+# 4155 "data/scripts/my_debug.pory"
 	additem ITEM_HOUNDOOMINITE
 	goto CompleteArea_Rock_Climb_4
 
 CompleteArea_Rock_Climb_13:
-# 4107 "data/scripts/my_debug.pory"
+# 4111 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE12_SIDEITEM
-# 4108 "data/scripts/my_debug.pory"
+# 4112 "data/scripts/my_debug.pory"
 	additem ITEM_TM_IRON_TAIL
 	goto CompleteArea_Rock_Climb_12
 
 CompleteArea_Rock_Climb_16:
-# 4111 "data/scripts/my_debug.pory"
+# 4115 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE23_ITEM5
-# 4112 "data/scripts/my_debug.pory"
+# 4116 "data/scripts/my_debug.pory"
 	additem ITEM_PP_MAX
 	goto CompleteArea_Rock_Climb_15
 
 CompleteArea_Rock_Climb_19:
-# 4115 "data/scripts/my_debug.pory"
+# 4119 "data/scripts/my_debug.pory"
 	setflag FLAG_AMBEROCK_ITEM2
-# 4116 "data/scripts/my_debug.pory"
+# 4120 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ELIXIR
 	goto CompleteArea_Rock_Climb_18
 
 CompleteArea_Rock_Climb_22:
-# 4119 "data/scripts/my_debug.pory"
+# 4123 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM1
-# 4120 "data/scripts/my_debug.pory"
+# 4124 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REPEL
 	goto CompleteArea_Rock_Climb_21
 
 CompleteArea_Rock_Climb_25:
-# 4123 "data/scripts/my_debug.pory"
+# 4127 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM2
-# 4124 "data/scripts/my_debug.pory"
+# 4128 "data/scripts/my_debug.pory"
 	additem ITEM_CARBOS
 	goto CompleteArea_Rock_Climb_24
 
 CompleteArea_Rock_Climb_28:
-# 4127 "data/scripts/my_debug.pory"
+# 4131 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM3
-# 4128 "data/scripts/my_debug.pory"
+# 4132 "data/scripts/my_debug.pory"
 	additem ITEM_STAR_PIECE
 	goto CompleteArea_Rock_Climb_27
 
 CompleteArea_Rock_Climb_31:
-# 4131 "data/scripts/my_debug.pory"
+# 4135 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM4
-# 4132 "data/scripts/my_debug.pory"
+# 4136 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_POTION
 	goto CompleteArea_Rock_Climb_30
 
 CompleteArea_Rock_Climb_34:
-# 4135 "data/scripts/my_debug.pory"
+# 4139 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM5
-# 4136 "data/scripts/my_debug.pory"
+# 4140 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Rock_Climb_33
 
 CompleteArea_Rock_Climb_37:
-# 4139 "data/scripts/my_debug.pory"
+# 4143 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM6
-# 4140 "data/scripts/my_debug.pory"
+# 4144 "data/scripts/my_debug.pory"
 	additem ITEM_TM_DARK_PULSE
 	goto CompleteArea_Rock_Climb_36
 
 CompleteArea_Rock_Climb_39:
-# 4143 "data/scripts/my_debug.pory"
+# 4147 "data/scripts/my_debug.pory"
 	setflag FLAG_SUNKEN_CAVERN_ITEM7
-# 4144 "data/scripts/my_debug.pory"
+# 4148 "data/scripts/my_debug.pory"
 	additem ITEM_SOUL_DEW
 	goto CompleteArea_Rock_Climb_1
 
 
 CompleteArea_Desert_Ruins::
-# 4157 "data/scripts/my_debug.pory"
+# 4161 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Desert_Ruins_2
 CompleteArea_Desert_Ruins_1:
 	return
@@ -9409,22 +9420,22 @@ CompleteArea_Desert_Ruins_2:
 	goto CompleteArea_Desert_Ruins_1
 
 CompleteArea_Desert_Ruins_4:
-# 4159 "data/scripts/my_debug.pory"
+# 4163 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RUINS_4F_ITEM1, CompleteArea_Desert_Ruins_9
 CompleteArea_Desert_Ruins_8:
-# 4163 "data/scripts/my_debug.pory"
+# 4167 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RUINS_4F_ITEM2, CompleteArea_Desert_Ruins_12
 CompleteArea_Desert_Ruins_11:
-# 4167 "data/scripts/my_debug.pory"
+# 4171 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RUINS_4F_ITEM3, CompleteArea_Desert_Ruins_15
 CompleteArea_Desert_Ruins_14:
-# 4171 "data/scripts/my_debug.pory"
+# 4175 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RUINS_4F_ITEM4, CompleteArea_Desert_Ruins_18
 CompleteArea_Desert_Ruins_17:
-# 4175 "data/scripts/my_debug.pory"
+# 4179 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RUINS_4F_ITEM5, CompleteArea_Desert_Ruins_21
 CompleteArea_Desert_Ruins_20:
-# 4179 "data/scripts/my_debug.pory"
+# 4183 "data/scripts/my_debug.pory"
 	call DebugFossil
 	checkitem ITEM_HM_SURF
 # 0 "data/scripts/my_debug.pory"
@@ -9445,79 +9456,79 @@ CompleteArea_Desert_Ruins_5:
 	goto CompleteArea_Desert_Ruins_1
 
 CompleteArea_Desert_Ruins_9:
-# 4160 "data/scripts/my_debug.pory"
+# 4164 "data/scripts/my_debug.pory"
 	setflag FLAG_RUINS_4F_ITEM1
-# 4161 "data/scripts/my_debug.pory"
+# 4165 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_GOLD
 	goto CompleteArea_Desert_Ruins_8
 
 CompleteArea_Desert_Ruins_12:
-# 4164 "data/scripts/my_debug.pory"
+# 4168 "data/scripts/my_debug.pory"
 	setflag FLAG_RUINS_4F_ITEM2
-# 4165 "data/scripts/my_debug.pory"
+# 4169 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_VASE
 	goto CompleteArea_Desert_Ruins_11
 
 CompleteArea_Desert_Ruins_15:
-# 4168 "data/scripts/my_debug.pory"
+# 4172 "data/scripts/my_debug.pory"
 	setflag FLAG_RUINS_4F_ITEM3
-# 4169 "data/scripts/my_debug.pory"
+# 4173 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_VASE
 	goto CompleteArea_Desert_Ruins_14
 
 CompleteArea_Desert_Ruins_18:
-# 4172 "data/scripts/my_debug.pory"
+# 4176 "data/scripts/my_debug.pory"
 	setflag FLAG_RUINS_4F_ITEM4
-# 4173 "data/scripts/my_debug.pory"
+# 4177 "data/scripts/my_debug.pory"
 	additem ITEM_SUN_STONE
 	goto CompleteArea_Desert_Ruins_17
 
 CompleteArea_Desert_Ruins_21:
-# 4176 "data/scripts/my_debug.pory"
+# 4180 "data/scripts/my_debug.pory"
 	setflag FLAG_RUINS_4F_ITEM5
-# 4177 "data/scripts/my_debug.pory"
+# 4181 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_GOLD
 	goto CompleteArea_Desert_Ruins_20
 
 CompleteArea_Desert_Ruins_24:
-# 4181 "data/scripts/my_debug.pory"
+# 4185 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_UNDERGROUNDRUINS_FULLRESTORE, CompleteArea_Desert_Ruins_28
 	goto CompleteArea_Desert_Ruins_23
 
 CompleteArea_Desert_Ruins_26:
-# 4187 "data/scripts/my_debug.pory"
+# 4191 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_RELIC_CROWN, CompleteArea_Desert_Ruins_30
 	goto CompleteArea_Desert_Ruins_1
 
 CompleteArea_Desert_Ruins_28:
-# 4182 "data/scripts/my_debug.pory"
+# 4186 "data/scripts/my_debug.pory"
 	setflag FLAG_UNDERGROUNDRUINS_FULLRESTORE
-# 4183 "data/scripts/my_debug.pory"
+# 4187 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_RESTORE
 	goto CompleteArea_Desert_Ruins_23
 
 CompleteArea_Desert_Ruins_30:
-# 4188 "data/scripts/my_debug.pory"
+# 4192 "data/scripts/my_debug.pory"
 	setflag FLAG_RELIC_CROWN
-# 4189 "data/scripts/my_debug.pory"
+# 4193 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_CROWN
 	goto CompleteArea_Desert_Ruins_1
 
 
 CompleteArea_Safari_Zone::
-# 4197 "data/scripts/my_debug.pory"
+# 4201 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Safari_Zone_2
 CompleteArea_Safari_Zone_1:
 	return
 
 CompleteArea_Safari_Zone_2:
-# 4198 "data/scripts/my_debug.pory"
+# 4202 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY, CompleteArea_Safari_Zone_5
 CompleteArea_Safari_Zone_4:
-# 4202 "data/scripts/my_debug.pory"
+# 4206 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE, CompleteArea_Safari_Zone_8
 CompleteArea_Safari_Zone_7:
-# 4206 "data/scripts/my_debug.pory"
+# 4210 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP, CompleteArea_Safari_Zone_11
 CompleteArea_Safari_Zone_10:
 	checkitem ITEM_HM_STRENGTH
@@ -9542,404 +9553,404 @@ CompleteArea_Safari_Zone_22:
 	goto CompleteArea_Safari_Zone_1
 
 CompleteArea_Safari_Zone_5:
-# 4199 "data/scripts/my_debug.pory"
+# 4203 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_SAFARI_SOUTH_RARE_CANDY
-# 4200 "data/scripts/my_debug.pory"
+# 4204 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Safari_Zone_4
 
 CompleteArea_Safari_Zone_8:
-# 4203 "data/scripts/my_debug.pory"
+# 4207 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE
-# 4204 "data/scripts/my_debug.pory"
+# 4208 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_RESTORE
 	goto CompleteArea_Safari_Zone_7
 
 CompleteArea_Safari_Zone_11:
-# 4207 "data/scripts/my_debug.pory"
+# 4211 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP
-# 4208 "data/scripts/my_debug.pory"
+# 4212 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Safari_Zone_10
 
 CompleteArea_Safari_Zone_14:
-# 4211 "data/scripts/my_debug.pory"
+# 4215 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL, CompleteArea_Safari_Zone_20
 CompleteArea_Safari_Zone_19:
-# 4215 "data/scripts/my_debug.pory"
+# 4219 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE, CompleteArea_Safari_Zone_29
 CompleteArea_Safari_Zone_28:
-# 4219 "data/scripts/my_debug.pory"
+# 4223 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY, CompleteArea_Safari_Zone_40
 CompleteArea_Safari_Zone_39:
-# 4223 "data/scripts/my_debug.pory"
+# 4227 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC, CompleteArea_Safari_Zone_52
 CompleteArea_Safari_Zone_51:
-# 4227 "data/scripts/my_debug.pory"
+# 4231 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET, CompleteArea_Safari_Zone_61
 	goto CompleteArea_Safari_Zone_13
 
 CompleteArea_Safari_Zone_17:
-# 4233 "data/scripts/my_debug.pory"
+# 4237 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARI_NW_ITEM1, CompleteArea_Safari_Zone_26
 CompleteArea_Safari_Zone_25:
-# 4237 "data/scripts/my_debug.pory"
+# 4241 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARI_NW_ITEM2, CompleteArea_Safari_Zone_37
 CompleteArea_Safari_Zone_36:
-# 4241 "data/scripts/my_debug.pory"
+# 4245 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARI_NW_ITEM3, CompleteArea_Safari_Zone_49
 CompleteArea_Safari_Zone_48:
-# 4245 "data/scripts/my_debug.pory"
+# 4249 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARI_NW_ITEM4, CompleteArea_Safari_Zone_59
 	goto CompleteArea_Safari_Zone_16
 
 CompleteArea_Safari_Zone_20:
-# 4212 "data/scripts/my_debug.pory"
+# 4216 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_SAFARI_ZONE_SOUTH_EAST_BIG_PEARL
-# 4213 "data/scripts/my_debug.pory"
+# 4217 "data/scripts/my_debug.pory"
 	additem ITEM_BIG_PEARL
 	goto CompleteArea_Safari_Zone_19
 
 CompleteArea_Safari_Zone_23:
-# 4251 "data/scripts/my_debug.pory"
+# 4255 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM7, CompleteArea_Safari_Zone_34
 CompleteArea_Safari_Zone_33:
-# 4255 "data/scripts/my_debug.pory"
+# 4259 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM6, CompleteArea_Safari_Zone_46
 CompleteArea_Safari_Zone_45:
-# 4259 "data/scripts/my_debug.pory"
+# 4263 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM5, CompleteArea_Safari_Zone_57
 CompleteArea_Safari_Zone_56:
-# 4263 "data/scripts/my_debug.pory"
+# 4267 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM4, CompleteArea_Safari_Zone_64
 CompleteArea_Safari_Zone_63:
-# 4267 "data/scripts/my_debug.pory"
+# 4271 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM3, CompleteArea_Safari_Zone_66
 	goto CompleteArea_Safari_Zone_22
 
 CompleteArea_Safari_Zone_26:
-# 4234 "data/scripts/my_debug.pory"
+# 4238 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARI_NW_ITEM1
-# 4235 "data/scripts/my_debug.pory"
+# 4239 "data/scripts/my_debug.pory"
 	additem ITEM_HYPER_POTION
 	goto CompleteArea_Safari_Zone_25
 
 CompleteArea_Safari_Zone_29:
-# 4216 "data/scripts/my_debug.pory"
+# 4220 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_SAFARI_ZONE_SOUTH_WEST_MAX_REVIVE
-# 4217 "data/scripts/my_debug.pory"
+# 4221 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REVIVE
 	goto CompleteArea_Safari_Zone_28
 
 CompleteArea_Safari_Zone_31:
-# 4273 "data/scripts/my_debug.pory"
+# 4277 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM2, CompleteArea_Safari_Zone_43
 CompleteArea_Safari_Zone_42:
-# 4277 "data/scripts/my_debug.pory"
+# 4281 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SAFARIMOUNTAIN_ITEM1, CompleteArea_Safari_Zone_54
 	goto CompleteArea_Safari_Zone_1
 
 CompleteArea_Safari_Zone_34:
-# 4252 "data/scripts/my_debug.pory"
+# 4256 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM7
-# 4253 "data/scripts/my_debug.pory"
+# 4257 "data/scripts/my_debug.pory"
 	additem ITEM_PEARL
 	goto CompleteArea_Safari_Zone_33
 
 CompleteArea_Safari_Zone_37:
-# 4238 "data/scripts/my_debug.pory"
+# 4242 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARI_NW_ITEM2
-# 4239 "data/scripts/my_debug.pory"
+# 4243 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_REVIVE
 	goto CompleteArea_Safari_Zone_36
 
 CompleteArea_Safari_Zone_40:
-# 4220 "data/scripts/my_debug.pory"
+# 4224 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY
-# 4221 "data/scripts/my_debug.pory"
+# 4225 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Safari_Zone_39
 
 CompleteArea_Safari_Zone_43:
-# 4274 "data/scripts/my_debug.pory"
+# 4278 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM2
-# 4275 "data/scripts/my_debug.pory"
+# 4279 "data/scripts/my_debug.pory"
 	additem ITEM_KINGS_ROCK
 	goto CompleteArea_Safari_Zone_42
 
 CompleteArea_Safari_Zone_46:
-# 4256 "data/scripts/my_debug.pory"
+# 4260 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM6
-# 4257 "data/scripts/my_debug.pory"
+# 4261 "data/scripts/my_debug.pory"
 	additem ITEM_TROPICAL_STONE
 	goto CompleteArea_Safari_Zone_45
 
 CompleteArea_Safari_Zone_49:
-# 4242 "data/scripts/my_debug.pory"
+# 4246 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARI_NW_ITEM3
-# 4243 "data/scripts/my_debug.pory"
+# 4247 "data/scripts/my_debug.pory"
 	additem ITEM_GREAT_BALL
 	goto CompleteArea_Safari_Zone_48
 
 CompleteArea_Safari_Zone_52:
-# 4224 "data/scripts/my_debug.pory"
+# 4228 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC
-# 4225 "data/scripts/my_debug.pory"
+# 4229 "data/scripts/my_debug.pory"
 	additem ITEM_ZINC
 	goto CompleteArea_Safari_Zone_51
 
 CompleteArea_Safari_Zone_54:
-# 4278 "data/scripts/my_debug.pory"
+# 4282 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM1
-# 4279 "data/scripts/my_debug.pory"
+# 4283 "data/scripts/my_debug.pory"
 	additem ITEM_TM_GIGA_IMPACT
 	goto CompleteArea_Safari_Zone_1
 
 CompleteArea_Safari_Zone_57:
-# 4260 "data/scripts/my_debug.pory"
+# 4264 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM5
-# 4261 "data/scripts/my_debug.pory"
+# 4265 "data/scripts/my_debug.pory"
 	additem ITEM_FULL_RESTORE
 	goto CompleteArea_Safari_Zone_56
 
 CompleteArea_Safari_Zone_59:
-# 4246 "data/scripts/my_debug.pory"
+# 4250 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARI_NW_ITEM4
-# 4247 "data/scripts/my_debug.pory"
+# 4251 "data/scripts/my_debug.pory"
 	additem ITEM_ETHER
 	goto CompleteArea_Safari_Zone_16
 
 CompleteArea_Safari_Zone_61:
-# 4228 "data/scripts/my_debug.pory"
+# 4232 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_SAFARI_ZONE_NORTH_EAST_NUGGET
-# 4229 "data/scripts/my_debug.pory"
+# 4233 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Safari_Zone_13
 
 CompleteArea_Safari_Zone_64:
-# 4264 "data/scripts/my_debug.pory"
+# 4268 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM4
-# 4265 "data/scripts/my_debug.pory"
+# 4269 "data/scripts/my_debug.pory"
 	additem ITEM_SOFT_SAND
 	goto CompleteArea_Safari_Zone_63
 
 CompleteArea_Safari_Zone_66:
-# 4268 "data/scripts/my_debug.pory"
+# 4272 "data/scripts/my_debug.pory"
 	setflag FLAG_SAFARIMOUNTAIN_ITEM3
-# 4269 "data/scripts/my_debug.pory"
+# 4273 "data/scripts/my_debug.pory"
 	additem ITEM_IRON
 	goto CompleteArea_Safari_Zone_22
 
 
 CompleteArea_Misc_Surfing::
-# 4286 "data/scripts/my_debug.pory"
+# 4290 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_3, CompleteArea_Misc_Surfing_2
 CompleteArea_Misc_Surfing_1:
-# 4356 "data/scripts/my_debug.pory"
+# 4360 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_TEMP_5, CompleteArea_Misc_Surfing_5
 CompleteArea_Misc_Surfing_4:
 	return
 
 CompleteArea_Misc_Surfing_2:
-# 4287 "data/scripts/my_debug.pory"
+# 4291 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ITEM_ROUTE1_TM03, CompleteArea_Misc_Surfing_8
 CompleteArea_Misc_Surfing_7:
-# 4291 "data/scripts/my_debug.pory"
+# 4295 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE, CompleteArea_Misc_Surfing_13
 CompleteArea_Misc_Surfing_12:
-# 4295 "data/scripts/my_debug.pory"
+# 4299 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_WW_WATERSTONE, CompleteArea_Misc_Surfing_18
 CompleteArea_Misc_Surfing_17:
-# 4299 "data/scripts/my_debug.pory"
+# 4303 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_PIDGEOTITE, CompleteArea_Misc_Surfing_21
 CompleteArea_Misc_Surfing_20:
-# 4303 "data/scripts/my_debug.pory"
+# 4307 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE3_ITEM1, CompleteArea_Misc_Surfing_24
 CompleteArea_Misc_Surfing_23:
-# 4307 "data/scripts/my_debug.pory"
+# 4311 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE5_ITEM4, CompleteArea_Misc_Surfing_27
 CompleteArea_Misc_Surfing_26:
-# 4311 "data/scripts/my_debug.pory"
+# 4315 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_WHITE_HERB, CompleteArea_Misc_Surfing_30
 CompleteArea_Misc_Surfing_29:
-# 4315 "data/scripts/my_debug.pory"
+# 4319 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE8_ITEM4, CompleteArea_Misc_Surfing_33
 CompleteArea_Misc_Surfing_32:
-# 4319 "data/scripts/my_debug.pory"
+# 4323 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_SHORESLATE_ITEM2, CompleteArea_Misc_Surfing_36
 CompleteArea_Misc_Surfing_35:
-# 4323 "data/scripts/my_debug.pory"
+# 4327 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROUTE7_ITEM6, CompleteArea_Misc_Surfing_39
 CompleteArea_Misc_Surfing_38:
-# 4327 "data/scripts/my_debug.pory"
+# 4331 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_MARIGORGE_ITEM3, CompleteArea_Misc_Surfing_42
 CompleteArea_Misc_Surfing_41:
-# 4331 "data/scripts/my_debug.pory"
+# 4335 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_MARIGORGE_ITEM1, CompleteArea_Misc_Surfing_45
 CompleteArea_Misc_Surfing_44:
-# 4335 "data/scripts/my_debug.pory"
+# 4339 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_OBTAINED_AGGRONITE, CompleteArea_Misc_Surfing_48
 CompleteArea_Misc_Surfing_47:
-# 4339 "data/scripts/my_debug.pory"
+# 4343 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_ROCKLIFFE_ITEM3, CompleteArea_Misc_Surfing_51
 CompleteArea_Misc_Surfing_50:
-# 4343 "data/scripts/my_debug.pory"
+# 4347 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_FLOODEDCAVE_FOSSIL, CompleteArea_Misc_Surfing_54
 CompleteArea_Misc_Surfing_53:
-# 4347 "data/scripts/my_debug.pory"
+# 4351 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM5, CompleteArea_Misc_Surfing_57
 CompleteArea_Misc_Surfing_56:
-# 4351 "data/scripts/my_debug.pory"
+# 4355 "data/scripts/my_debug.pory"
 	goto_if_unset FLAG_R14_ITEM6, CompleteArea_Misc_Surfing_59
 	goto CompleteArea_Misc_Surfing_1
 
 CompleteArea_Misc_Surfing_5:
-# 4357 "data/scripts/my_debug.pory"
+# 4361 "data/scripts/my_debug.pory"
 	compare VAR_KAOLISLE_BIRDS, 131
 	goto_if_lt CompleteArea_Misc_Surfing_10
 	goto CompleteArea_Misc_Surfing_4
 
 CompleteArea_Misc_Surfing_8:
-# 4288 "data/scripts/my_debug.pory"
+# 4292 "data/scripts/my_debug.pory"
 	setflag FLAG_ITEM_ROUTE1_TM03
-# 4289 "data/scripts/my_debug.pory"
+# 4293 "data/scripts/my_debug.pory"
 	additem ITEM_TM_SMART_STRIKE
 	goto CompleteArea_Misc_Surfing_7
 
 CompleteArea_Misc_Surfing_10:
-# 4358 "data/scripts/my_debug.pory"
+# 4362 "data/scripts/my_debug.pory"
 	setvar VAR_KAOLISLE_BIRDS, 131
-# 4359 "data/scripts/my_debug.pory"
+# 4363 "data/scripts/my_debug.pory"
 	additem ITEM_TM_BULLET_SEED
-# 4360 "data/scripts/my_debug.pory"
+# 4364 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_Q28_KAOLISLE_LOSTBIRDS_START, CompleteArea_Misc_Surfing_15
 	goto CompleteArea_Misc_Surfing_4
 
 CompleteArea_Misc_Surfing_13:
-# 4292 "data/scripts/my_debug.pory"
+# 4296 "data/scripts/my_debug.pory"
 	setflag FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE
-# 4293 "data/scripts/my_debug.pory"
+# 4297 "data/scripts/my_debug.pory"
 	additem ITEM_HARD_STONE
 	goto CompleteArea_Misc_Surfing_12
 
 CompleteArea_Misc_Surfing_15:
-# 4361 "data/scripts/my_debug.pory"
+# 4365 "data/scripts/my_debug.pory"
 	completequest FLAG_Q28_KAOLISLE_LOSTBIRDS_COMPLETE
 	goto CompleteArea_Misc_Surfing_4
 
 CompleteArea_Misc_Surfing_18:
-# 4296 "data/scripts/my_debug.pory"
+# 4300 "data/scripts/my_debug.pory"
 	setflag FLAG_WW_WATERSTONE
-# 4297 "data/scripts/my_debug.pory"
+# 4301 "data/scripts/my_debug.pory"
 	additem ITEM_WATER_STONE
 	goto CompleteArea_Misc_Surfing_17
 
 CompleteArea_Misc_Surfing_21:
-# 4300 "data/scripts/my_debug.pory"
+# 4304 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_PIDGEOTITE
-# 4301 "data/scripts/my_debug.pory"
+# 4305 "data/scripts/my_debug.pory"
 	additem ITEM_PIDGEOTITE
 	goto CompleteArea_Misc_Surfing_20
 
 CompleteArea_Misc_Surfing_24:
-# 4304 "data/scripts/my_debug.pory"
+# 4308 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE3_ITEM1
-# 4305 "data/scripts/my_debug.pory"
+# 4309 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Misc_Surfing_23
 
 CompleteArea_Misc_Surfing_27:
-# 4308 "data/scripts/my_debug.pory"
+# 4312 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE5_ITEM4
-# 4309 "data/scripts/my_debug.pory"
+# 4313 "data/scripts/my_debug.pory"
 	additem ITEM_NUGGET
 	goto CompleteArea_Misc_Surfing_26
 
 CompleteArea_Misc_Surfing_30:
-# 4312 "data/scripts/my_debug.pory"
+# 4316 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_WHITE_HERB
-# 4313 "data/scripts/my_debug.pory"
+# 4317 "data/scripts/my_debug.pory"
 	additem ITEM_WHITE_HERB
 	goto CompleteArea_Misc_Surfing_29
 
 CompleteArea_Misc_Surfing_33:
-# 4316 "data/scripts/my_debug.pory"
+# 4320 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE8_ITEM4
-# 4317 "data/scripts/my_debug.pory"
+# 4321 "data/scripts/my_debug.pory"
 	additem ITEM_HP_UP
 	goto CompleteArea_Misc_Surfing_32
 
 CompleteArea_Misc_Surfing_36:
-# 4320 "data/scripts/my_debug.pory"
+# 4324 "data/scripts/my_debug.pory"
 	setflag FLAG_SHORESLATE_ITEM2
-# 4321 "data/scripts/my_debug.pory"
+# 4325 "data/scripts/my_debug.pory"
 	additem ITEM_ELIXIR
 	goto CompleteArea_Misc_Surfing_35
 
 CompleteArea_Misc_Surfing_39:
-# 4324 "data/scripts/my_debug.pory"
+# 4328 "data/scripts/my_debug.pory"
 	setflag FLAG_ROUTE7_ITEM6
-# 4325 "data/scripts/my_debug.pory"
+# 4329 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ETHER
 	goto CompleteArea_Misc_Surfing_38
 
 CompleteArea_Misc_Surfing_42:
-# 4328 "data/scripts/my_debug.pory"
+# 4332 "data/scripts/my_debug.pory"
 	setflag FLAG_MARIGORGE_ITEM3
-# 4329 "data/scripts/my_debug.pory"
+# 4333 "data/scripts/my_debug.pory"
 	additem ITEM_PP_UP
 	goto CompleteArea_Misc_Surfing_41
 
 CompleteArea_Misc_Surfing_45:
-# 4332 "data/scripts/my_debug.pory"
+# 4336 "data/scripts/my_debug.pory"
 	setflag FLAG_MARIGORGE_ITEM1
-# 4333 "data/scripts/my_debug.pory"
+# 4337 "data/scripts/my_debug.pory"
 	additem ITEM_SUN_STONE
 	goto CompleteArea_Misc_Surfing_44
 
 CompleteArea_Misc_Surfing_48:
-# 4336 "data/scripts/my_debug.pory"
+# 4340 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_AGGRONITE
-# 4337 "data/scripts/my_debug.pory"
+# 4341 "data/scripts/my_debug.pory"
 	additem ITEM_AGGRONITE
 	goto CompleteArea_Misc_Surfing_47
 
 CompleteArea_Misc_Surfing_51:
-# 4340 "data/scripts/my_debug.pory"
+# 4344 "data/scripts/my_debug.pory"
 	setflag FLAG_ROCKLIFFE_ITEM3
-# 4341 "data/scripts/my_debug.pory"
+# 4345 "data/scripts/my_debug.pory"
 	additem ITEM_RARE_CANDY
 	goto CompleteArea_Misc_Surfing_50
 
 CompleteArea_Misc_Surfing_54:
-# 4344 "data/scripts/my_debug.pory"
+# 4348 "data/scripts/my_debug.pory"
 	setflag FLAG_FLOODEDCAVE_FOSSIL
-# 4345 "data/scripts/my_debug.pory"
+# 4349 "data/scripts/my_debug.pory"
 	call DebugFossil
 	goto CompleteArea_Misc_Surfing_53
 
 CompleteArea_Misc_Surfing_57:
-# 4348 "data/scripts/my_debug.pory"
+# 4352 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM5
-# 4349 "data/scripts/my_debug.pory"
+# 4353 "data/scripts/my_debug.pory"
 	additem ITEM_TM_HIDDEN_POWER
 	goto CompleteArea_Misc_Surfing_56
 
 CompleteArea_Misc_Surfing_59:
-# 4352 "data/scripts/my_debug.pory"
+# 4356 "data/scripts/my_debug.pory"
 	setflag FLAG_R14_ITEM6
-# 4353 "data/scripts/my_debug.pory"
+# 4357 "data/scripts/my_debug.pory"
 	additem ITEM_MAX_ETHER
 	goto CompleteArea_Misc_Surfing_1
 
 
 TryLootingStrangeSeed::
-# 4369 "data/scripts/my_debug.pory"
+# 4373 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq TryLootingStrangeSeed_2
-# 4372 "data/scripts/my_debug.pory"
+# 4376 "data/scripts/my_debug.pory"
 	trystrangeseed
-# 4373 "data/scripts/my_debug.pory"
+# 4377 "data/scripts/my_debug.pory"
 	compare VAR_0x8004, 60
 	goto_if_ge TryLootingStrangeSeed_5
 TryLootingStrangeSeed_4:
@@ -9949,358 +9960,358 @@ TryLootingStrangeSeed_2:
 	return
 
 TryLootingStrangeSeed_5:
-# 4374 "data/scripts/my_debug.pory"
+# 4378 "data/scripts/my_debug.pory"
 	additem ITEM_STRANGE_SEED
 	goto TryLootingStrangeSeed_4
 
 
 TryCuttingStrangeSeedTree::
-# 4379 "data/scripts/my_debug.pory"
+# 4383 "data/scripts/my_debug.pory"
 	trystrangeseed
-# 4380 "data/scripts/my_debug.pory"
+# 4384 "data/scripts/my_debug.pory"
 	compare VAR_0x8004, 80
 	goto_if_ge TryCuttingStrangeSeedTree_1
 	return
 
 TryCuttingStrangeSeedTree_1:
-# 4381 "data/scripts/my_debug.pory"
+# 4385 "data/scripts/my_debug.pory"
 	additem ITEM_STRANGE_SEED
 	return
 
 
 GenerateRelic::
-# 4385 "data/scripts/my_debug.pory"
+# 4389 "data/scripts/my_debug.pory"
 	random 100
-# 4386 "data/scripts/my_debug.pory"
+# 4390 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 65
 	goto_if_le GenerateRelic_2
-# 4389 "data/scripts/my_debug.pory"
+# 4393 "data/scripts/my_debug.pory"
 	compare VAR_RESULT, 94
 	goto_if_ge GenerateRelic_3
-# 4393 "data/scripts/my_debug.pory"
+# 4397 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_SILVER
 GenerateRelic_1:
 	return
 
 GenerateRelic_2:
-# 4387 "data/scripts/my_debug.pory"
+# 4391 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_COPPER
 	goto GenerateRelic_1
 
 GenerateRelic_3:
-# 4390 "data/scripts/my_debug.pory"
+# 4394 "data/scripts/my_debug.pory"
 	additem ITEM_RELIC_GOLD
 	goto GenerateRelic_1
 
 
 DebugFossil::
-# 4399 "data/scripts/my_debug.pory"
-	random 11
-# 4400 "data/scripts/my_debug.pory"
-	switch VAR_RESULT
-# 4401 "data/scripts/my_debug.pory"
-	case 0, DebugFossil_3
 # 4403 "data/scripts/my_debug.pory"
-	case 1, DebugFossil_4
+	random 11
+# 4404 "data/scripts/my_debug.pory"
+	switch VAR_RESULT
 # 4405 "data/scripts/my_debug.pory"
-	case 2, DebugFossil_5
+	case 0, DebugFossil_3
 # 4407 "data/scripts/my_debug.pory"
-	case 3, DebugFossil_6
+	case 1, DebugFossil_4
 # 4409 "data/scripts/my_debug.pory"
-	case 4, DebugFossil_7
+	case 2, DebugFossil_5
 # 4411 "data/scripts/my_debug.pory"
-	case 5, DebugFossil_8
+	case 3, DebugFossil_6
 # 4413 "data/scripts/my_debug.pory"
-	case 6, DebugFossil_9
+	case 4, DebugFossil_7
 # 4415 "data/scripts/my_debug.pory"
-	case 7, DebugFossil_10
+	case 5, DebugFossil_8
 # 4417 "data/scripts/my_debug.pory"
-	case 8, DebugFossil_11
+	case 6, DebugFossil_9
 # 4419 "data/scripts/my_debug.pory"
-	case 9, DebugFossil_12
+	case 7, DebugFossil_10
 # 4421 "data/scripts/my_debug.pory"
+	case 8, DebugFossil_11
+# 4423 "data/scripts/my_debug.pory"
+	case 9, DebugFossil_12
+# 4425 "data/scripts/my_debug.pory"
 	case 10, DebugFossil_13
 DebugFossil_1:
 	return
 
 DebugFossil_3:
-# 4402 "data/scripts/my_debug.pory"
+# 4406 "data/scripts/my_debug.pory"
 	goto LootHelix2
 	goto DebugFossil_1
 
 DebugFossil_4:
-# 4404 "data/scripts/my_debug.pory"
+# 4408 "data/scripts/my_debug.pory"
 	goto LootDome2
 	goto DebugFossil_1
 
 DebugFossil_5:
-# 4406 "data/scripts/my_debug.pory"
+# 4410 "data/scripts/my_debug.pory"
 	goto LootOldAmber2
 	goto DebugFossil_1
 
 DebugFossil_6:
-# 4408 "data/scripts/my_debug.pory"
+# 4412 "data/scripts/my_debug.pory"
 	goto LootRoot2
 	goto DebugFossil_1
 
 DebugFossil_7:
-# 4410 "data/scripts/my_debug.pory"
+# 4414 "data/scripts/my_debug.pory"
 	goto LootClaw2
 	goto DebugFossil_1
 
 DebugFossil_8:
-# 4412 "data/scripts/my_debug.pory"
+# 4416 "data/scripts/my_debug.pory"
 	goto LootSkull2
 	goto DebugFossil_1
 
 DebugFossil_9:
-# 4414 "data/scripts/my_debug.pory"
+# 4418 "data/scripts/my_debug.pory"
 	goto LootArmor2
 	goto DebugFossil_1
 
 DebugFossil_10:
-# 4416 "data/scripts/my_debug.pory"
+# 4420 "data/scripts/my_debug.pory"
 	goto LootCover2
 	goto DebugFossil_1
 
 DebugFossil_11:
-# 4418 "data/scripts/my_debug.pory"
+# 4422 "data/scripts/my_debug.pory"
 	goto LootPlume2
 	goto DebugFossil_1
 
 DebugFossil_12:
-# 4420 "data/scripts/my_debug.pory"
+# 4424 "data/scripts/my_debug.pory"
 	goto LootJaw2
 	goto DebugFossil_1
 
 DebugFossil_13:
-# 4422 "data/scripts/my_debug.pory"
+# 4426 "data/scripts/my_debug.pory"
 	goto LootSail2
 	goto DebugFossil_1
 
 
 LootHelix2::
-# 4428 "data/scripts/my_debug.pory"
+# 4432 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_HELIX_FOSSIL, LootHelix2_2
 LootHelix2_1:
-# 4431 "data/scripts/my_debug.pory"
+# 4435 "data/scripts/my_debug.pory"
 	additem ITEM_HELIX_FOSSIL
-# 4432 "data/scripts/my_debug.pory"
+# 4436 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_HELIX_FOSSIL
 	return
 
 LootHelix2_2:
-# 4429 "data/scripts/my_debug.pory"
+# 4433 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootHelix2_1
 
 
 LootDome2::
-# 4436 "data/scripts/my_debug.pory"
+# 4440 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_DOME_FOSSIL, LootDome2_2
 LootDome2_1:
-# 4439 "data/scripts/my_debug.pory"
+# 4443 "data/scripts/my_debug.pory"
 	additem ITEM_DOME_FOSSIL
-# 4440 "data/scripts/my_debug.pory"
+# 4444 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_DOME_FOSSIL
 	return
 
 LootDome2_2:
-# 4437 "data/scripts/my_debug.pory"
+# 4441 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootDome2_1
 
 
 LootOldAmber2::
-# 4444 "data/scripts/my_debug.pory"
+# 4448 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_OLDAMBER_FOSSIL, LootOldAmber2_2
 LootOldAmber2_1:
-# 4447 "data/scripts/my_debug.pory"
+# 4451 "data/scripts/my_debug.pory"
 	additem ITEM_OLD_AMBER
-# 4448 "data/scripts/my_debug.pory"
+# 4452 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_OLDAMBER_FOSSIL
 	return
 
 LootOldAmber2_2:
-# 4445 "data/scripts/my_debug.pory"
+# 4449 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootOldAmber2_1
 
 
 LootRoot2::
-# 4452 "data/scripts/my_debug.pory"
+# 4456 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_ROOT_FOSSIL, LootRoot2_2
 LootRoot2_1:
-# 4455 "data/scripts/my_debug.pory"
+# 4459 "data/scripts/my_debug.pory"
 	additem ITEM_ROOT_FOSSIL
-# 4456 "data/scripts/my_debug.pory"
+# 4460 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_ROOT_FOSSIL
 	return
 
 LootRoot2_2:
-# 4453 "data/scripts/my_debug.pory"
+# 4457 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootRoot2_1
 
 
 LootClaw2::
-# 4460 "data/scripts/my_debug.pory"
+# 4464 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_CLAW_FOSSIL, LootClaw2_2
 LootClaw2_1:
-# 4463 "data/scripts/my_debug.pory"
+# 4467 "data/scripts/my_debug.pory"
 	additem ITEM_CLAW_FOSSIL
-# 4464 "data/scripts/my_debug.pory"
+# 4468 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_CLAW_FOSSIL
 	return
 
 LootClaw2_2:
-# 4461 "data/scripts/my_debug.pory"
+# 4465 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootClaw2_1
 
 
 LootSkull2::
-# 4468 "data/scripts/my_debug.pory"
+# 4472 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_SKULL_FOSSIL, LootSkull2_2
 LootSkull2_1:
-# 4471 "data/scripts/my_debug.pory"
+# 4475 "data/scripts/my_debug.pory"
 	additem ITEM_SKULL_FOSSIL
-# 4472 "data/scripts/my_debug.pory"
+# 4476 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_SKULL_FOSSIL
 	return
 
 LootSkull2_2:
-# 4469 "data/scripts/my_debug.pory"
+# 4473 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootSkull2_1
 
 
 LootArmor2::
-# 4476 "data/scripts/my_debug.pory"
+# 4480 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_ARMOR_FOSSIL, LootArmor2_2
 LootArmor2_1:
-# 4479 "data/scripts/my_debug.pory"
+# 4483 "data/scripts/my_debug.pory"
 	additem ITEM_ARMOR_FOSSIL
-# 4480 "data/scripts/my_debug.pory"
+# 4484 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_ARMOR_FOSSIL
 	return
 
 LootArmor2_2:
-# 4477 "data/scripts/my_debug.pory"
+# 4481 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootArmor2_1
 
 
 LootCover2::
-# 4484 "data/scripts/my_debug.pory"
+# 4488 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_COVER_FOSSIL, LootCover2_2
 LootCover2_1:
-# 4487 "data/scripts/my_debug.pory"
+# 4491 "data/scripts/my_debug.pory"
 	additem ITEM_COVER_FOSSIL
-# 4488 "data/scripts/my_debug.pory"
+# 4492 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_COVER_FOSSIL
 	return
 
 LootCover2_2:
-# 4485 "data/scripts/my_debug.pory"
+# 4489 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootCover2_1
 
 
 LootPlume2::
-# 4492 "data/scripts/my_debug.pory"
+# 4496 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_PLUME_FOSSIL, LootPlume2_2
 LootPlume2_1:
-# 4495 "data/scripts/my_debug.pory"
+# 4499 "data/scripts/my_debug.pory"
 	additem ITEM_PLUME_FOSSIL
-# 4496 "data/scripts/my_debug.pory"
+# 4500 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_PLUME_FOSSIL
 	return
 
 LootPlume2_2:
-# 4493 "data/scripts/my_debug.pory"
+# 4497 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootPlume2_1
 
 
 LootJaw2::
-# 4500 "data/scripts/my_debug.pory"
+# 4504 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_JAW_FOSSIL, LootJaw2_2
 LootJaw2_1:
-# 4503 "data/scripts/my_debug.pory"
+# 4507 "data/scripts/my_debug.pory"
 	additem ITEM_JAW_FOSSIL
-# 4504 "data/scripts/my_debug.pory"
+# 4508 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_JAW_FOSSIL
 	return
 
 LootJaw2_2:
-# 4501 "data/scripts/my_debug.pory"
+# 4505 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootJaw2_1
 
 
 LootSail2::
-# 4508 "data/scripts/my_debug.pory"
+# 4512 "data/scripts/my_debug.pory"
 	goto_if_set FLAG_OBTAINED_SAIL_FOSSIL, LootSail2_2
 LootSail2_1:
-# 4511 "data/scripts/my_debug.pory"
+# 4515 "data/scripts/my_debug.pory"
 	additem ITEM_SAIL_FOSSIL
-# 4512 "data/scripts/my_debug.pory"
+# 4516 "data/scripts/my_debug.pory"
 	setflag FLAG_OBTAINED_SAIL_FOSSIL
 	return
 
 LootSail2_2:
-# 4509 "data/scripts/my_debug.pory"
+# 4513 "data/scripts/my_debug.pory"
 	goto DebugFossil
 	goto LootSail2_1
 
 
 SecretShopScript::
-# 4517 "data/scripts/my_debug.pory"
-	message SecretShopScript_Text_0
-# 4518 "data/scripts/my_debug.pory"
-	waitmessage
-# 4519 "data/scripts/my_debug.pory"
-	setflag FLAG_FREE_MART
-# 4520 "data/scripts/my_debug.pory"
-	pokemart SecretShopScript_Mart
 # 4521 "data/scripts/my_debug.pory"
-	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+	message SecretShopScript_Text_0
 # 4522 "data/scripts/my_debug.pory"
-	clearflag FLAG_FREE_MART
+	waitmessage
 # 4523 "data/scripts/my_debug.pory"
+	setflag FLAG_FREE_MART
+# 4524 "data/scripts/my_debug.pory"
+	pokemart SecretShopScript_Mart
+# 4525 "data/scripts/my_debug.pory"
+	msgbox gText_PleaseComeAgain, MSGBOX_DEFAULT
+# 4526 "data/scripts/my_debug.pory"
+	clearflag FLAG_FREE_MART
+# 4527 "data/scripts/my_debug.pory"
 	release
 	end
 
 
 	.align 2
-# 4527 "data/scripts/my_debug.pory"
-SecretShopScript_Mart:
-# 4528 "data/scripts/my_debug.pory"
-	.2byte ITEM_RARE_CANDY
-# 4529 "data/scripts/my_debug.pory"
-	.2byte ITEM_EXP_CANDY_XL
-# 4530 "data/scripts/my_debug.pory"
-	.2byte ITEM_MASTER_BALL
 # 4531 "data/scripts/my_debug.pory"
-	.2byte ITEM_ABILITY_CAPSULE
+SecretShopScript_Mart:
 # 4532 "data/scripts/my_debug.pory"
-	.2byte ITEM_ABILITY_PATCH
+	.2byte ITEM_RARE_CANDY
 # 4533 "data/scripts/my_debug.pory"
-	.2byte ITEM_PP_MAX
+	.2byte ITEM_EXP_CANDY_XL
 # 4534 "data/scripts/my_debug.pory"
-	.2byte ITEM_FRESH_START_MOCHI
+	.2byte ITEM_MASTER_BALL
 # 4535 "data/scripts/my_debug.pory"
-	.2byte ITEM_HP_UP
+	.2byte ITEM_ABILITY_CAPSULE
 # 4536 "data/scripts/my_debug.pory"
-	.2byte ITEM_PROTEIN
+	.2byte ITEM_ABILITY_PATCH
 # 4537 "data/scripts/my_debug.pory"
-	.2byte ITEM_IRON
+	.2byte ITEM_PP_MAX
 # 4538 "data/scripts/my_debug.pory"
-	.2byte ITEM_CALCIUM
+	.2byte ITEM_FRESH_START_MOCHI
 # 4539 "data/scripts/my_debug.pory"
-	.2byte ITEM_ZINC
+	.2byte ITEM_HP_UP
 # 4540 "data/scripts/my_debug.pory"
+	.2byte ITEM_PROTEIN
+# 4541 "data/scripts/my_debug.pory"
+	.2byte ITEM_IRON
+# 4542 "data/scripts/my_debug.pory"
+	.2byte ITEM_CALCIUM
+# 4543 "data/scripts/my_debug.pory"
+	.2byte ITEM_ZINC
+# 4544 "data/scripts/my_debug.pory"
 	.2byte ITEM_CARBOS
 	.2byte ITEM_NONE
 
@@ -10337,307 +10348,307 @@ UpdateGuy_Text_7:
 	.string "Goodbye.$"
 
 TestMegaMon_Text_0:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Decidueye$"
 
 TestMegaMon_Text_1:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Empoleon$"
 
 TestMegaMon_Text_2:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Chesnaught$"
 
 TestMegaMon_Text_3:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Incineroar$"
 
 TestMegaMon_Text_4:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Porygon-Z$"
 
 TestMegaMon_Text_5:
-# 316 "data/scripts/my_debug.pory"
+# 321 "data/scripts/my_debug.pory"
 	.string "Ariados$"
 
 TestMegaMon_Text_6:
-# 350 "data/scripts/my_debug.pory"
+# 355 "data/scripts/my_debug.pory"
 	.string "Goodbye$"
 
 SkipContent_Text_0:
-# 421 "data/scripts/my_debug.pory"
+# 426 "data/scripts/my_debug.pory"
 	.string "Route 1$"
 
 SkipContent_Text_1:
-# 422 "data/scripts/my_debug.pory"
+# 427 "data/scripts/my_debug.pory"
 	.string "Route 2$"
 
 SkipContent_Text_2:
-# 423 "data/scripts/my_debug.pory"
+# 428 "data/scripts/my_debug.pory"
 	.string "Windy Woods$"
 
 SkipContent_Text_3:
-# 424 "data/scripts/my_debug.pory"
+# 429 "data/scripts/my_debug.pory"
 	.string "Coralgrove City$"
 
 SkipContent_Text_4:
-# 425 "data/scripts/my_debug.pory"
+# 430 "data/scripts/my_debug.pory"
 	.string "Azuretide Town$"
 
 SkipContent_Text_5:
-# 426 "data/scripts/my_debug.pory"
+# 431 "data/scripts/my_debug.pory"
 	.string "Route 4$"
 
 SkipContent_Text_6:
-# 427 "data/scripts/my_debug.pory"
+# 432 "data/scripts/my_debug.pory"
 	.string "Pokémon Ranch$"
 
 SkipContent_Text_7:
-# 428 "data/scripts/my_debug.pory"
+# 433 "data/scripts/my_debug.pory"
 	.string "Aldeleaf City$"
 
 SkipContent_Text_8:
-# 429 "data/scripts/my_debug.pory"
+# 434 "data/scripts/my_debug.pory"
 	.string "Route 30$"
 
 SkipContent_Text_9:
-# 430 "data/scripts/my_debug.pory"
+# 435 "data/scripts/my_debug.pory"
 	.string "Windplume Valley$"
 
 SkipContent_Text_10:
-# 431 "data/scripts/my_debug.pory"
+# 436 "data/scripts/my_debug.pory"
 	.string "Route 5$"
 
 SkipContent_Text_11:
-# 432 "data/scripts/my_debug.pory"
+# 437 "data/scripts/my_debug.pory"
 	.string "Flower Fields$"
 
 SkipContent_Text_12:
-# 433 "data/scripts/my_debug.pory"
+# 438 "data/scripts/my_debug.pory"
 	.string "Skyloch Village$"
 
 SkipContent_Text_13:
-# 434 "data/scripts/my_debug.pory"
+# 439 "data/scripts/my_debug.pory"
 	.string "Route 6$"
 
 SkipContent_Text_14:
-# 435 "data/scripts/my_debug.pory"
+# 440 "data/scripts/my_debug.pory"
 	.string "Route 8$"
 
 SkipContent_Text_15:
-# 436 "data/scripts/my_debug.pory"
+# 441 "data/scripts/my_debug.pory"
 	.string "Shoreslate City$"
 
 SkipContent_Text_16:
-# 437 "data/scripts/my_debug.pory"
+# 442 "data/scripts/my_debug.pory"
 	.string "Scorched Desert$"
 
 SkipContent_Text_17:
-# 438 "data/scripts/my_debug.pory"
+# 443 "data/scripts/my_debug.pory"
 	.string "Route 7$"
 
 SkipContent_Text_18:
-# 439 "data/scripts/my_debug.pory"
+# 444 "data/scripts/my_debug.pory"
 	.string "Marigorge Town$"
 
 SkipContent_Text_19:
-# 440 "data/scripts/my_debug.pory"
+# 445 "data/scripts/my_debug.pory"
 	.string "Kaolisle City$"
 
 SkipContent_Text_20:
-# 441 "data/scripts/my_debug.pory"
+# 446 "data/scripts/my_debug.pory"
 	.string "Rockliffe Town$"
 
 SkipContent_Text_21:
-# 442 "data/scripts/my_debug.pory"
+# 447 "data/scripts/my_debug.pory"
 	.string "Route 11$"
 
 SkipContent_Text_22:
-# 443 "data/scripts/my_debug.pory"
+# 448 "data/scripts/my_debug.pory"
 	.string "Route 12$"
 
 SkipContent_Text_23:
-# 444 "data/scripts/my_debug.pory"
+# 449 "data/scripts/my_debug.pory"
 	.string "Sandstone City$"
 
 SkipContent_Text_24:
-# 445 "data/scripts/my_debug.pory"
+# 450 "data/scripts/my_debug.pory"
 	.string "Route 13$"
 
 SkipContent_Text_25:
-# 446 "data/scripts/my_debug.pory"
+# 451 "data/scripts/my_debug.pory"
 	.string "Adamant Tower$"
 
 SkipContent_Text_26:
-# 447 "data/scripts/my_debug.pory"
+# 452 "data/scripts/my_debug.pory"
 	.string "Route 14$"
 
 SkipContent_Text_27:
-# 448 "data/scripts/my_debug.pory"
+# 453 "data/scripts/my_debug.pory"
 	.string "Route 15$"
 
 SkipContent_Text_28:
-# 449 "data/scripts/my_debug.pory"
+# 454 "data/scripts/my_debug.pory"
 	.string "Fishing Village$"
 
 SkipContent_Text_29:
-# 450 "data/scripts/my_debug.pory"
+# 455 "data/scripts/my_debug.pory"
 	.string "Route 23$"
 
 SkipContent_Text_30:
-# 451 "data/scripts/my_debug.pory"
+# 456 "data/scripts/my_debug.pory"
 	.string "Drisledge Town$"
 
 SkipContent_Text_31:
-# 452 "data/scripts/my_debug.pory"
+# 457 "data/scripts/my_debug.pory"
 	.string "Amberock Town$"
 
 SkipContent_Text_32:
-# 453 "data/scripts/my_debug.pory"
+# 458 "data/scripts/my_debug.pory"
 	.string "Route 3$"
 
 SkipContent_Text_33:
-# 454 "data/scripts/my_debug.pory"
+# 459 "data/scripts/my_debug.pory"
 	.string "Route 9$"
 
 SkipContent_Text_34:
-# 455 "data/scripts/my_debug.pory"
+# 460 "data/scripts/my_debug.pory"
 	.string "Route 10$"
 
 SkipContent_Text_35:
-# 456 "data/scripts/my_debug.pory"
+# 461 "data/scripts/my_debug.pory"
 	.string "Windplume Mountain$"
 
 SkipContent_Text_36:
-# 457 "data/scripts/my_debug.pory"
+# 462 "data/scripts/my_debug.pory"
 	.string "Route 16$"
 
 SkipContent_Text_37:
-# 458 "data/scripts/my_debug.pory"
+# 463 "data/scripts/my_debug.pory"
 	.string "Basalek Town$"
 
 SkipContent_Text_38:
-# 459 "data/scripts/my_debug.pory"
+# 464 "data/scripts/my_debug.pory"
 	.string "Route 17$"
 
 SkipContent_Text_39:
-# 460 "data/scripts/my_debug.pory"
+# 465 "data/scripts/my_debug.pory"
 	.string "Route 18$"
 
 SkipContent_Text_40:
-# 461 "data/scripts/my_debug.pory"
+# 466 "data/scripts/my_debug.pory"
 	.string "Frosthearth City$"
 
 SkipContent_Text_41:
-# 462 "data/scripts/my_debug.pory"
+# 467 "data/scripts/my_debug.pory"
 	.string "Rock Climb(!)$"
 
 SkipContent_Text_42:
-# 463 "data/scripts/my_debug.pory"
+# 468 "data/scripts/my_debug.pory"
 	.string "Desert Ruins(!)$"
 
 SkipContent_Text_43:
-# 464 "data/scripts/my_debug.pory"
+# 469 "data/scripts/my_debug.pory"
 	.string "Safari Zone(!)$"
 
 SkipContent_Text_44:
-# 465 "data/scripts/my_debug.pory"
+# 470 "data/scripts/my_debug.pory"
 	.string "Misc. Surfing(!)$"
 
 SkipContent_Text_45:
-# 466 "data/scripts/my_debug.pory"
+# 471 "data/scripts/my_debug.pory"
 	.string "Cancel$"
 
 SkipContent_BufferChoices_Text_0:
-# 634 "data/scripts/my_debug.pory"
+# 639 "data/scripts/my_debug.pory"
 	.string "{COLOR LIGHT_GRAY}{SHADOW LIGHT_GRAY}$"
 
 SkipContent_BufferChoices_Text_1:
-# 636 "data/scripts/my_debug.pory"
+# 641 "data/scripts/my_debug.pory"
 	.string "{STR_VAR_1}Items$"
 
 SkipContent_BufferChoices_Text_2:
-# 639 "data/scripts/my_debug.pory"
+# 644 "data/scripts/my_debug.pory"
 	.string "Items$"
 
 SkipContent_BufferChoices_Text_3:
-# 643 "data/scripts/my_debug.pory"
+# 648 "data/scripts/my_debug.pory"
 	.string "{STR_VAR_1}Trainers$"
 
 SkipContent_BufferChoices_Text_4:
-# 646 "data/scripts/my_debug.pory"
+# 651 "data/scripts/my_debug.pory"
 	.string "Trainers$"
 
 SkipContent_BufferChoices_Text_5:
-# 650 "data/scripts/my_debug.pory"
+# 655 "data/scripts/my_debug.pory"
 	.string "{STR_VAR_1}Events$"
 
 SkipContent_BufferChoices_Text_6:
-# 653 "data/scripts/my_debug.pory"
+# 658 "data/scripts/my_debug.pory"
 	.string "Events$"
 
 SkipContent_BufferChoices_Text_7:
-# 657 "data/scripts/my_debug.pory"
+# 662 "data/scripts/my_debug.pory"
 	.string "All$"
 
 SkipContent_BufferChoices_Text_8:
-# 658 "data/scripts/my_debug.pory"
+# 663 "data/scripts/my_debug.pory"
 	.string "Confirm$"
 
 SkipContent_BufferChoices_Text_9:
-# 659 "data/scripts/my_debug.pory"
+# 664 "data/scripts/my_debug.pory"
 	.string "Back$"
 
 SkipContent_BufferChoices_Text_10:
-# 661 "data/scripts/my_debug.pory"
+# 666 "data/scripts/my_debug.pory"
 	.string "Anything else?$"
 
 SkipContent_BufferChoices_Text_11:
-# 664 "data/scripts/my_debug.pory"
+# 669 "data/scripts/my_debug.pory"
 	.string "Please choose the content you\nwant to complete.$"
 
 SkipContent_PokemonRanch_Text_0:
-# 793 "data/scripts/my_debug.pory"
+# 798 "data/scripts/my_debug.pory"
 	.string "Pokemon Ranch$"
 
 SkipContent_RockClimb_Text_0:
-# 1178 "data/scripts/my_debug.pory"
+# 1183 "data/scripts/my_debug.pory"
 	.string "Rock Climb$"
 
 SkipContent_RockClimb_Text_1:
-# 1181 "data/scripts/my_debug.pory"
+# 1186 "data/scripts/my_debug.pory"
 	.string "Do note that this option only skips\nmiscellaneous Rock Climb related areas.$"
 
 SkipContent_DesertRuins_Text_0:
-# 1187 "data/scripts/my_debug.pory"
+# 1192 "data/scripts/my_debug.pory"
 	.string "Desert Ruins$"
 
 SkipContent_DesertRuins_Text_1:
-# 1190 "data/scripts/my_debug.pory"
+# 1195 "data/scripts/my_debug.pory"
 	.string "Do note that this option only skips\nDesert Ruins and only based on\lacquired HMs.$"
 
 SkipContent_SafariZone_Text_0:
-# 1196 "data/scripts/my_debug.pory"
+# 1201 "data/scripts/my_debug.pory"
 	.string "Safari Zone$"
 
 SkipContent_SafariZone_Text_1:
-# 1199 "data/scripts/my_debug.pory"
+# 1204 "data/scripts/my_debug.pory"
 	.string "Do note that this option only skips\nSafari Zone and only based on\lacquired HMs.$"
 
 SkipContent_MiscSurfing_Text_0:
-# 1206 "data/scripts/my_debug.pory"
+# 1211 "data/scripts/my_debug.pory"
 	.string "Misc. Surfing$"
 
 SkipContent_MiscSurfing_Text_1:
-# 1209 "data/scripts/my_debug.pory"
+# 1214 "data/scripts/my_debug.pory"
 	.string "Do note that this option only skips\nmiscellaneous Surf related areas.$"
 
 SkipStory_Text_0:
-# 1775 "data/scripts/my_debug.pory"
+# 1780 "data/scripts/my_debug.pory"
 	.string "Was {RIVAL} defeated in\nCoralgrove Harbor?$"
 
 SecretShopScript_Text_0:
-# 4517 "data/scripts/my_debug.pory"
+# 4521 "data/scripts/my_debug.pory"
 	.string "What're you buyin?$"
 
 MixupWithTMs::
@@ -10678,29 +10689,29 @@ GrottoUpdate::
 	.string "now have its hidden ability.$"
 
 UnstuckPlayer_Text::
-# 367 "data/scripts/my_debug.pory"
+# 372 "data/scripts/my_debug.pory"
 	.string "This unstuck feature is meant to\n"
 	.string "avoid softlocking in the overworld.\p"
 	.string "Would you like to warp home?$"
 
 Stor::
-# 373 "data/scripts/my_debug.pory"
+# 378 "data/scripts/my_debug.pory"
 	.string "Story$"
 
 Ite::
-# 374 "data/scripts/my_debug.pory"
+# 379 "data/scripts/my_debug.pory"
 	.string "Items$"
 
 Trai::
-# 375 "data/scripts/my_debug.pory"
+# 380 "data/scripts/my_debug.pory"
 	.string "Trainers$"
 
 Even::
-# 376 "data/scripts/my_debug.pory"
+# 381 "data/scripts/my_debug.pory"
 	.string "Events$"
 
 SkipContent_Text::
-# 612 "data/scripts/my_debug.pory"
+# 617 "data/scripts/my_debug.pory"
 	.string "This feature allows you to skip\n"
 	.string "certain content or mark certain\l"
 	.string "things as completed.\p"
@@ -10718,11 +10729,11 @@ SkipContent_Text::
 	.string "Sudowoodo, etc.) will not be completed.$"
 
 ChooseContentToSkip::
-# 629 "data/scripts/my_debug.pory"
+# 634 "data/scripts/my_debug.pory"
 	.string "Choose the area you'd like to skip.$"
 
 WantToSkipMultiple::
-# 1215 "data/scripts/my_debug.pory"
+# 1220 "data/scripts/my_debug.pory"
 	.string "You've chosen to skip {STR_VAR_2}.\p"
 	.string "All story content up to this area\n"
 	.string "will be completed, as well as any\l"
@@ -10732,7 +10743,7 @@ WantToSkipMultiple::
 	.string "areas as well?$"
 
 ContentHasBeenSkipped::
-# 1224 "data/scripts/my_debug.pory"
+# 1229 "data/scripts/my_debug.pory"
 	.string "Content has been skipped.\p"
 	.string "It is recommended to check your bag\n"
 	.string "for any new items.\p"

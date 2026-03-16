@@ -87,7 +87,7 @@ Route112_EventScript_RematchTrent::
 	end
 
 Route112_EventScript_Larry::
-	trainerbattle_single TRAINER_R11_TR3_BUGCATCHER, Route112_Text_LarryIntro, Route112_Text_LarryDefeat
+	trainerbattle_single TRAINER_R11_BUGCATCHER, Route112_Text_LarryIntro, Route112_Text_LarryDefeat
 	msgbox Route112_Text_LarryPostBattle, MSGBOX_AUTOCLOSE
 	end
 

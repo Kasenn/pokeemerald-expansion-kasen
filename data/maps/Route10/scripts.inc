@@ -4,7 +4,7 @@ Route10_MapScripts::
 
 Route10_Tr2_Swimmer_F1::
 # 4 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR2_SWIMMER_F1, R10Tr2_Intro, R10Tr2_Lose
+	trainerbattle_single TRAINER_R10_SWIMMER_F1, R10Tr2_Intro, R10Tr2_Lose
 # 5 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -12,7 +12,7 @@ Route10_Tr2_Swimmer_F1::
 
 Route10_Tr3_Fisherman::
 # 21 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR3_FISHERMAN, R10Tr3_Intro, R10Tr3_Lose
+	trainerbattle_single TRAINER_R10_FISHERMAN, R10Tr3_Intro, R10Tr3_Lose
 # 22 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -20,7 +20,7 @@ Route10_Tr3_Fisherman::
 
 Route10_Tr4_Swimmer_M1::
 # 40 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR4_SWIMMER_M1, R10Tr4_Intro, R10Tr4_Lose
+	trainerbattle_single TRAINER_R10_SWIMMER_M1, R10Tr4_Intro, R10Tr4_Lose
 # 41 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -28,7 +28,7 @@ Route10_Tr4_Swimmer_M1::
 
 Route10_Tr5_BlackBelt::
 # 58 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR5_BLACKBELT, R10Tr5_Intro, R10Tr5_Lose
+	trainerbattle_single TRAINER_R10_BLACKBELT, R10Tr5_Intro, R10Tr5_Lose
 # 59 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -36,7 +36,7 @@ Route10_Tr5_BlackBelt::
 
 Route10_Tr6_Hiker::
 # 76 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR6_HIKER, R10Tr6_Intro, R10Tr6_Lose
+	trainerbattle_single TRAINER_R10_HIKER, R10Tr6_Intro, R10Tr6_Lose
 # 77 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -44,7 +44,7 @@ Route10_Tr6_Hiker::
 
 Route10_Tr7_Swimmer_F2::
 # 93 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR7_SWIMMER_F2, R10Tr7_Intro, R10Tr7_Lose
+	trainerbattle_single TRAINER_R10_SWIMMER_F2, R10Tr7_Intro, R10Tr7_Lose
 # 94 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -52,7 +52,7 @@ Route10_Tr7_Swimmer_F2::
 
 Route10_Tr8_Swimmer_M2::
 # 110 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR8_SWIMMER_M2, R10Tr8_Intro, R10Tr8_Lose
+	trainerbattle_single TRAINER_R10_SWIMMER_M2, R10Tr8_Intro, R10Tr8_Lose
 # 111 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -60,7 +60,7 @@ Route10_Tr8_Swimmer_M2::
 
 Route10_Tr9_BattleGirl::
 # 128 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR9_BATTLEGIRL, R10Tr9_Intro, R10Tr9_Lose
+	trainerbattle_single TRAINER_R10_BATTLEGIRL, R10Tr9_Intro, R10Tr9_Lose
 # 129 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -68,7 +68,7 @@ Route10_Tr9_BattleGirl::
 
 Route10_Tr10_Tuber_M::
 # 148 "data/maps/Route10/scripts.pory"
-	trainerbattle_single TRAINER_R10_TR10_TUBER_M, R10Tr10_Intro, R10Tr10_Lose
+	trainerbattle_single TRAINER_R10_TUBER_M, R10Tr10_Intro, R10Tr10_Lose
 # 149 "data/maps/Route10/scripts.pory"
 	msgbox R10Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -92,10 +92,10 @@ Route10_Beachgoer_F::
 
 Route10_Tr1_AceSwimmer::
 # 185 "data/maps/Route10/scripts.pory"
-	checktrainerflag TRAINER_R10_TR1_ACESWIMMER
+	checktrainerflag TRAINER_R10_ACESWIMMER
 	goto_if 1, Route10_Tr1_AceSwimmer_1
 # 188 "data/maps/Route10/scripts.pory"
-	checktrainerflag TRAINER_R10_TR2_SWIMMER_F1
+	checktrainerflag TRAINER_R10_SWIMMER_F1
 	goto_if 1, Route10_Tr1_AceSwimmer_5
 Route10_Tr1_AceSwimmer_3:
 # 196 "data/maps/Route10/scripts.pory"
@@ -114,19 +114,19 @@ Route10_Tr1_AceSwimmer_2:
 
 Route10_Tr1_AceSwimmer_4:
 # 190 "data/maps/Route10/scripts.pory"
-	checktrainerflag TRAINER_R10_TR7_SWIMMER_F2
+	checktrainerflag TRAINER_R10_SWIMMER_F2
 	goto_if 1, Route10_Tr1_AceSwimmer_8
 	goto Route10_Tr1_AceSwimmer_3
 
 Route10_Tr1_AceSwimmer_5:
 # 189 "data/maps/Route10/scripts.pory"
-	checktrainerflag TRAINER_R10_TR4_SWIMMER_M1
+	checktrainerflag TRAINER_R10_SWIMMER_M1
 	goto_if 1, Route10_Tr1_AceSwimmer_4
 	goto Route10_Tr1_AceSwimmer_3
 
 Route10_Tr1_AceSwimmer_8:
 # 191 "data/maps/Route10/scripts.pory"
-	checktrainerflag TRAINER_R10_TR8_SWIMMER_M2
+	checktrainerflag TRAINER_R10_SWIMMER_M2
 	goto_if 1, Route10_Tr1_AceSwimmer_2
 	goto Route10_Tr1_AceSwimmer_3
 
@@ -160,7 +160,7 @@ R10_Ace_EligibleForBattle_6:
 # 211 "data/maps/Route10/scripts.pory"
 	msgbox R10_Ace_BeginBattle, MSGBOX_DEFAULT
 # 212 "data/maps/Route10/scripts.pory"
-	trainerbattle_no_intro TRAINER_R10_TR1_ACESWIMMER, R10_Ace_Lose
+	trainerbattle_no_intro TRAINER_R10_ACESWIMMER, R10_Ace_Lose
 # 213 "data/maps/Route10/scripts.pory"
 	goto R10_Ace_PostBattle
 	goto R10_Ace_EligibleForBattle_5

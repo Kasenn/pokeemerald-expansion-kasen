@@ -1104,17 +1104,17 @@ static const struct {
   u8 playerDir;
   const u8 *script;
 } sFrosthearthGymInfo[] = {
-    { 9, 40,  TRAINER_FROSTGYM_TR1_HIKER1,      DIR_WEST,   FrostGym_Tr1_Hiker1},
-    { 9, 39,  TRAINER_FROSTGYM_TR2_KINDLER1,    DIR_WEST,   FrostGym_Tr2_Kindler1},
-    {12, 23,  TRAINER_FROSTGYM_TR3_SENIOR,      DIR_EAST,   FrostGym_Tr3_Senior},
-    {12, 24,  TRAINER_FROSTGYM_TR4_JUNIOR,      DIR_EAST,   FrostGym_Tr4_Junior},
-    {17, 38,  TRAINER_FROSTGYM_TR5_RANGER_M,    DIR_EAST,   FrostGym_Tr5_RangerM},
-    {17, 37,  TRAINER_FROSTGYM_TR6_RANGER_F,    DIR_EAST,   FrostGym_Tr6_RangerF},
-    {28, 25,  TRAINER_FROSTGYM_TR7_MANIAC,      DIR_WEST,   FrostGym_Tr7_Maniac},
-    {28, 24,  TRAINER_FROSTGYM_TR8_COLLECTOR,   DIR_WEST,   FrostGym_Tr8_Collector},
-    {33, 29,  TRAINER_FROSTGYM_TR9_KINDLER2,    DIR_SOUTH,  FrostGym_Tr9_Kindler2},
-    {34, 29,  TRAINER_FROSTGYM_TR10_RANGER_F2,  DIR_EAST,   FrostGym_Tr10_RangerF2},
-    {34, 29,  TRAINER_FROSTGYM_TR10_RANGER_F2,  DIR_SOUTH,  FrostGym_Tr10_RangerF2}
+    { 9, 40,  TRAINER_FROSTGYM_HIKER1,      DIR_WEST,   FrostGym_Tr1_Hiker1},
+    { 9, 39,  TRAINER_FROSTGYM_KINDLER1,    DIR_WEST,   FrostGym_Tr2_Kindler1},
+    {12, 23,  TRAINER_FROSTGYM_SENIOR,      DIR_EAST,   FrostGym_Tr3_Senior},
+    {12, 24,  TRAINER_FROSTGYM_JUNIOR,      DIR_EAST,   FrostGym_Tr4_Junior},
+    {17, 38,  TRAINER_FROSTGYM_RANGER_M,    DIR_EAST,   FrostGym_Tr5_RangerM},
+    {17, 37,  TRAINER_FROSTGYM_RANGER_F,    DIR_EAST,   FrostGym_Tr6_RangerF},
+    {28, 25,  TRAINER_FROSTGYM_MANIAC,      DIR_WEST,   FrostGym_Tr7_Maniac},
+    {28, 24,  TRAINER_FROSTGYM_COLLECTOR,   DIR_WEST,   FrostGym_Tr8_Collector},
+    {33, 29,  TRAINER_FROSTGYM_KINDLER2,    DIR_SOUTH,  FrostGym_Tr9_Kindler2},
+    {34, 29,  TRAINER_FROSTGYM_RANGER_F2,  DIR_EAST,   FrostGym_Tr10_RangerF2},
+    {34, 29,  TRAINER_FROSTGYM_RANGER_F2,  DIR_SOUTH,  FrostGym_Tr10_RangerF2}
 };
 
 static void IcyGymFloorPerStepCallback(u8 taskId)

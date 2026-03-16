@@ -9,35 +9,35 @@ FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 # 14 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setflag FLAG_TEMP_HIDE_FOLLOWER
 # 15 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	checktrainerflag TRAINER_FROSTGYM_HIKER1
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 # 15 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	checktrainerflag TRAINER_FROSTGYM_KINDLER1
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 # 20 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	checktrainerflag TRAINER_FROSTGYM_SENIOR
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_7
 FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_6:
 # 25 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	checktrainerflag TRAINER_FROSTGYM_RANGER_M
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_10
 # 25 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_10
 FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_9:
 # 30 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	checktrainerflag TRAINER_FROSTGYM_MANIAC
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
 # 30 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	checktrainerflag TRAINER_FROSTGYM_COLLECTOR
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
 FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_14:
 # 35 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	checktrainerflag TRAINER_FROSTGYM_KINDLER2
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_19
 # 35 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F2
 	goto_if 1, FrosthearthCity_Gym_MapScripts_MAP_SCRIPT_ON_TRANSITION_19
 	return
 
@@ -98,7 +98,7 @@ CheckForLiveMons_1:
 
 FrostGym_Tr1_Hiker1::
 # 61 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	checktrainerflag TRAINER_FROSTGYM_HIKER1
 	goto_if 0, FrostGym_Tr1_Hiker1_2
 FrostGym_Tr1_Hiker1_1:
 # 64 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -119,7 +119,7 @@ FrostGym_Tr1_Hiker1_2:
 
 FrostGym_Tr1_Hiker1_Interact::
 # 70 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	checktrainerflag TRAINER_FROSTGYM_HIKER1
 	goto_if 1, FrostGym_Tr1_Hiker1_Interact_2
 # 74 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -151,7 +151,7 @@ FrostGym_Tr1_Hiker1_Main::
 # 85 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr1_Intro
 # 86 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose, TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_HIKER1, FrostGymTr1_Lose, TRAINER_FROSTGYM_KINDLER1, FrostGymTr2_Lose
 # 87 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 88 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -165,9 +165,9 @@ FrostGym_Tr1_Hiker1_Main::
 # 92 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 1, 7, 39
 # 93 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	settrainerflag TRAINER_FROSTGYM_HIKER1
 # 94 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	settrainerflag TRAINER_FROSTGYM_KINDLER1
 # 95 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -175,7 +175,7 @@ FrostGym_Tr1_Hiker1_Main::
 
 FrostGym_Tr2_Kindler1::
 # 119 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	checktrainerflag TRAINER_FROSTGYM_KINDLER1
 	goto_if 0, FrostGym_Tr2_Kindler1_2
 FrostGym_Tr2_Kindler1_1:
 # 122 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -196,7 +196,7 @@ FrostGym_Tr2_Kindler1_2:
 
 FrostGym_Tr2_Kindler1_Interact::
 # 128 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	checktrainerflag TRAINER_FROSTGYM_KINDLER1
 	goto_if 1, FrostGym_Tr2_Kindler1_Interact_2
 # 132 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -228,7 +228,7 @@ FrostGym_Tr2_Kindler1_Main::
 # 143 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr2_Intro
 # 144 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR2_KINDLER1, FrostGymTr2_Lose, TRAINER_FROSTGYM_TR1_HIKER1, FrostGymTr1_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_KINDLER1, FrostGymTr2_Lose, TRAINER_FROSTGYM_HIKER1, FrostGymTr1_Lose
 # 145 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 146 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -242,9 +242,9 @@ FrostGym_Tr2_Kindler1_Main::
 # 150 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 1, 7, 39
 # 151 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	settrainerflag TRAINER_FROSTGYM_HIKER1
 # 152 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	settrainerflag TRAINER_FROSTGYM_KINDLER1
 # 153 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -252,7 +252,7 @@ FrostGym_Tr2_Kindler1_Main::
 
 FrostGym_Tr3_Senior::
 # 179 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	checktrainerflag TRAINER_FROSTGYM_SENIOR
 	goto_if 0, FrostGym_Tr3_Senior_2
 FrostGym_Tr3_Senior_1:
 # 182 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -273,7 +273,7 @@ FrostGym_Tr3_Senior_2:
 
 FrostGym_Tr3_Senior_Interact::
 # 188 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	checktrainerflag TRAINER_FROSTGYM_SENIOR
 	goto_if 1, FrostGym_Tr3_Senior_Interact_2
 # 192 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -305,7 +305,7 @@ FrostGym_Tr3_Senior_Main::
 # 203 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr3_Intro
 # 204 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_SENIOR, FrostGymTr3_Lose
 # 205 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 206 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -319,9 +319,9 @@ FrostGym_Tr3_Senior_Main::
 # 210 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 4, 14, 24
 # 211 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	settrainerflag TRAINER_FROSTGYM_SENIOR
 # 212 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR4_JUNIOR
+	settrainerflag TRAINER_FROSTGYM_JUNIOR
 # 213 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -329,7 +329,7 @@ FrostGym_Tr3_Senior_Main::
 
 FrostGym_Tr4_Junior::
 # 236 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR4_JUNIOR
+	checktrainerflag TRAINER_FROSTGYM_JUNIOR
 	goto_if 0, FrostGym_Tr4_Junior_2
 FrostGym_Tr4_Junior_1:
 # 239 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -350,7 +350,7 @@ FrostGym_Tr4_Junior_2:
 
 FrostGym_Tr4_Junior_Interact::
 # 245 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR4_JUNIOR
+	checktrainerflag TRAINER_FROSTGYM_JUNIOR
 	goto_if 1, FrostGym_Tr4_Junior_Interact_2
 # 249 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -382,7 +382,7 @@ FrostGym_Tr4_Junior_Main::
 # 260 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr4_Intro
 # 261 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR4_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_TR3_SENIOR, FrostGymTr3_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_JUNIOR, FrostGymTr4_Lose, TRAINER_FROSTGYM_SENIOR, FrostGymTr3_Lose
 # 262 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 263 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -396,9 +396,9 @@ FrostGym_Tr4_Junior_Main::
 # 267 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 4, 14, 24
 # 268 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	settrainerflag TRAINER_FROSTGYM_SENIOR
 # 269 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR4_JUNIOR
+	settrainerflag TRAINER_FROSTGYM_JUNIOR
 # 270 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -406,7 +406,7 @@ FrostGym_Tr4_Junior_Main::
 
 FrostGym_Tr5_RangerM::
 # 291 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	checktrainerflag TRAINER_FROSTGYM_RANGER_M
 	goto_if 0, FrostGym_Tr5_RangerM_2
 FrostGym_Tr5_RangerM_1:
 # 294 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -427,7 +427,7 @@ FrostGym_Tr5_RangerM_2:
 
 FrostGym_Tr5_RangerM_Interact::
 # 300 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	checktrainerflag TRAINER_FROSTGYM_RANGER_M
 	goto_if 1, FrostGym_Tr5_RangerM_Interact_2
 # 304 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -459,7 +459,7 @@ FrostGym_Tr5_RangerM_Main::
 # 315 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr5_Intro
 # 316 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose, TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_RANGER_M, FrostGymTr5_Lose, TRAINER_FROSTGYM_RANGER_F, FrostGymTr6_Lose
 # 317 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 318 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -473,9 +473,9 @@ FrostGym_Tr5_RangerM_Main::
 # 322 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 6, 19, 38
 # 323 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	settrainerflag TRAINER_FROSTGYM_RANGER_M
 # 324 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	settrainerflag TRAINER_FROSTGYM_RANGER_F
 # 325 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -483,7 +483,7 @@ FrostGym_Tr5_RangerM_Main::
 
 FrostGym_Tr6_RangerF::
 # 348 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F
 	goto_if 0, FrostGym_Tr6_RangerF_2
 FrostGym_Tr6_RangerF_1:
 # 351 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -504,7 +504,7 @@ FrostGym_Tr6_RangerF_2:
 
 FrostGym_Tr6_RangerF_Interact::
 # 357 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F
 	goto_if 1, FrostGym_Tr6_RangerF_Interact_2
 # 361 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -536,7 +536,7 @@ FrostGym_Tr6_RangerF_Main::
 # 372 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr6_Intro
 # 373 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR6_RANGER_F, FrostGymTr6_Lose, TRAINER_FROSTGYM_TR5_RANGER_M, FrostGymTr5_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_RANGER_F, FrostGymTr6_Lose, TRAINER_FROSTGYM_RANGER_M, FrostGymTr5_Lose
 # 374 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 375 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -550,9 +550,9 @@ FrostGym_Tr6_RangerF_Main::
 # 379 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 6, 19, 38
 # 380 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	settrainerflag TRAINER_FROSTGYM_RANGER_M
 # 381 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	settrainerflag TRAINER_FROSTGYM_RANGER_F
 # 382 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -560,7 +560,7 @@ FrostGym_Tr6_RangerF_Main::
 
 FrostGym_Tr7_Maniac::
 # 406 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	checktrainerflag TRAINER_FROSTGYM_MANIAC
 	goto_if 0, FrostGym_Tr7_Maniac_2
 FrostGym_Tr7_Maniac_1:
 # 409 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -581,7 +581,7 @@ FrostGym_Tr7_Maniac_2:
 
 FrostGym_Tr7_Maniac_Interact::
 # 415 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	checktrainerflag TRAINER_FROSTGYM_MANIAC
 	goto_if 1, FrostGym_Tr7_Maniac_Interact_2
 # 419 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -613,7 +613,7 @@ FrostGym_Tr7_Maniac_Main::
 # 430 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr7_Intro
 # 431 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose, TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_MANIAC, FrostGymTr7_Lose, TRAINER_FROSTGYM_COLLECTOR, FrostGymTr8_Lose
 # 432 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 433 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -627,9 +627,9 @@ FrostGym_Tr7_Maniac_Main::
 # 437 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 8, 26, 24
 # 438 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	settrainerflag TRAINER_FROSTGYM_COLLECTOR
 # 439 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	settrainerflag TRAINER_FROSTGYM_MANIAC
 # 440 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -637,7 +637,7 @@ FrostGym_Tr7_Maniac_Main::
 
 FrostGym_Tr8_Collector::
 # 465 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	checktrainerflag TRAINER_FROSTGYM_COLLECTOR
 	goto_if 0, FrostGym_Tr8_Collector_2
 FrostGym_Tr8_Collector_1:
 # 468 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -658,7 +658,7 @@ FrostGym_Tr8_Collector_2:
 
 FrostGym_Tr8_Collector_Interact::
 # 474 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	checktrainerflag TRAINER_FROSTGYM_COLLECTOR
 	goto_if 1, FrostGym_Tr8_Collector_Interact_2
 # 478 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -690,7 +690,7 @@ FrostGym_Tr8_Collector_Main::
 # 489 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr8_Intro
 # 490 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR8_COLLECTOR, FrostGymTr8_Lose, TRAINER_FROSTGYM_TR7_MANIAC, FrostGymTr7_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_COLLECTOR, FrostGymTr8_Lose, TRAINER_FROSTGYM_MANIAC, FrostGymTr7_Lose
 # 491 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 492 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -704,9 +704,9 @@ FrostGym_Tr8_Collector_Main::
 # 496 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 8, 26, 24
 # 497 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	settrainerflag TRAINER_FROSTGYM_COLLECTOR
 # 498 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	settrainerflag TRAINER_FROSTGYM_MANIAC
 # 499 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -714,7 +714,7 @@ FrostGym_Tr8_Collector_Main::
 
 FrostGym_Tr9_Kindler2::
 # 526 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	checktrainerflag TRAINER_FROSTGYM_KINDLER2
 	goto_if 0, FrostGym_Tr9_Kindler2_2
 FrostGym_Tr9_Kindler2_1:
 # 529 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -735,7 +735,7 @@ FrostGym_Tr9_Kindler2_2:
 
 FrostGym_Tr9_Kindler2_Interact::
 # 535 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	checktrainerflag TRAINER_FROSTGYM_KINDLER2
 	goto_if 1, FrostGym_Tr9_Kindler2_Interact_2
 # 539 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -767,7 +767,7 @@ FrostGym_Tr9_Kindler2_Main::
 # 550 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr9_Intro
 # 551 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose, TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_KINDLER2, FrostGymTr9_Lose, TRAINER_FROSTGYM_RANGER_F2, FrostGymTr10_Lose
 # 552 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 553 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -781,9 +781,9 @@ FrostGym_Tr9_Kindler2_Main::
 # 557 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 10, 34, 31
 # 558 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	settrainerflag TRAINER_FROSTGYM_KINDLER2
 # 559 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	settrainerflag TRAINER_FROSTGYM_RANGER_F2
 # 560 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -791,7 +791,7 @@ FrostGym_Tr9_Kindler2_Main::
 
 FrostGym_Tr10_RangerF2::
 # 585 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F2
 	goto_if 0, FrostGym_Tr10_RangerF2_2
 FrostGym_Tr10_RangerF2_1:
 # 588 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -814,7 +814,7 @@ FrostGym_Tr10_RangerF2_2:
 
 FrostGym_Tr10_RangerF2_Interact::
 # 595 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	checktrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	checktrainerflag TRAINER_FROSTGYM_RANGER_F2
 	goto_if 1, FrostGym_Tr10_RangerF2_Interact_2
 # 599 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	special HasEnoughMonsForDoubleBattle
@@ -846,7 +846,7 @@ FrostGym_Tr10_RangerF2_Main::
 # 610 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	msgbox FrostGymTr10_Intro
 # 611 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	trainerbattle_two_trainers TRAINER_FROSTGYM_TR10_RANGER_F2, FrostGymTr10_Lose, TRAINER_FROSTGYM_TR9_KINDLER2, FrostGymTr9_Lose
+	trainerbattle_two_trainers TRAINER_FROSTGYM_RANGER_F2, FrostGymTr10_Lose, TRAINER_FROSTGYM_KINDLER2, FrostGymTr9_Lose
 # 612 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	delay 30
 # 613 "data/maps/FrosthearthCity_Gym/scripts.pory"
@@ -860,9 +860,9 @@ FrostGym_Tr10_RangerF2_Main::
 # 617 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	setobjectxyperm 10, 34, 31
 # 618 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	settrainerflag TRAINER_FROSTGYM_KINDLER2
 # 619 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	settrainerflag TRAINER_FROSTGYM_RANGER_F2
 # 620 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	release
 	return
@@ -968,25 +968,25 @@ SetFrosthearthGymTrainerFlags::
 # 746 "data/maps/FrosthearthCity_Gym/scripts.pory"
 	settrainerflag TRAINER_LEADER_BLAINE
 # 747 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR1_HIKER1
+	settrainerflag TRAINER_FROSTGYM_HIKER1
 # 748 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR2_KINDLER1
+	settrainerflag TRAINER_FROSTGYM_KINDLER1
 # 749 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR3_SENIOR
+	settrainerflag TRAINER_FROSTGYM_SENIOR
 # 750 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR4_JUNIOR
+	settrainerflag TRAINER_FROSTGYM_JUNIOR
 # 751 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR5_RANGER_M
+	settrainerflag TRAINER_FROSTGYM_RANGER_M
 # 752 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR6_RANGER_F
+	settrainerflag TRAINER_FROSTGYM_RANGER_F
 # 753 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR7_MANIAC
+	settrainerflag TRAINER_FROSTGYM_MANIAC
 # 754 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR8_COLLECTOR
+	settrainerflag TRAINER_FROSTGYM_COLLECTOR
 # 755 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR9_KINDLER2
+	settrainerflag TRAINER_FROSTGYM_KINDLER2
 # 756 "data/maps/FrosthearthCity_Gym/scripts.pory"
-	settrainerflag TRAINER_FROSTGYM_TR10_RANGER_F2
+	settrainerflag TRAINER_FROSTGYM_RANGER_F2
 	return
 
 

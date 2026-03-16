@@ -11,73 +11,73 @@ Common_EventScript_SetGymTrainers::
 	end
 
 RustboroCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_CHIP
-	settrainerflag TRAINER_FOSTER
-	settrainerflag TRAINER_DUSTY_2
-	settrainerflag TRAINER_DUSTY_3
-	settrainerflag TRAINER_DUSTY_4
-	settrainerflag TRAINER_DUSTY_5 
+	settrainerflag TRAINER_CORALGYM_1
+	settrainerflag TRAINER_CORALGYM_2
+	settrainerflag TRAINER_CORALGYM_3
+	settrainerflag TRAINER_CORALGYM_4
+	settrainerflag TRAINER_CORALGYM_5
+	settrainerflag TRAINER_CORALGYM_6 
 	return
 
 DewfordTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_PARKER
-	settrainerflag TRAINER_GEORGE
-	settrainerflag TRAINER_BERKE
-	settrainerflag TRAINER_BRAXTON
-	settrainerflag TRAINER_VINCENT
-	settrainerflag TRAINER_LEROY
-	settrainerflag TRAINER_WILTON_1
-	settrainerflag TRAINER_EDGAR
-	settrainerflag TRAINER_ALBERT
-	settrainerflag TRAINER_SAMUEL
-	settrainerflag TRAINER_OWEN
-	settrainerflag TRAINER_WILTON_2
-	settrainerflag TRAINER_WILTON_3
-	settrainerflag TRAINER_WILTON_4
-	settrainerflag TRAINER_WILTON_5
-	settrainerflag TRAINER_WARREN
+	settrainerflag TRAINER_ALDEGYM_1
+	settrainerflag TRAINER_ALDEGYM_2
+	settrainerflag TRAINER_ALDEGYM_3
+	settrainerflag TRAINER_ALDEGYM_4
+	settrainerflag TRAINER_ALDEGYM_5
+	settrainerflag TRAINER_ALDEGYM_6
+	settrainerflag TRAINER_ALDEGYM_7
+	settrainerflag TRAINER_ALDEGYM_8
+	settrainerflag TRAINER_ALDEGYM_9
+	settrainerflag TRAINER_ALDEGYM_10
+	settrainerflag TRAINER_ALDEGYM_11
+	settrainerflag TRAINER_ALDEGYM_12
+	settrainerflag TRAINER_ALDEGYM_13
+	settrainerflag TRAINER_ALDEGYM_14
+	settrainerflag TRAINER_ALDEGYM_15
+	settrainerflag TRAINER_ALDEGYM_16
 	return
 
 MauvilleCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_KAOLGYM_TR1_CAMPER1
-	settrainerflag TRAINER_KAOLGYM_TR2_PICNICKER1
-	settrainerflag TRAINER_KAOLGYM_TR3_HIKER1
-	settrainerflag TRAINER_KAOLGYM_TR4_CAMPER2
-	settrainerflag TRAINER_KAOLGYM_TR5_HIKER2
-	settrainerflag TRAINER_KAOLGYM_TR6_HIKER3
-	settrainerflag TRAINER_KAOLGYM_TR7_PICNICKER2
-	settrainerflag TRAINER_KAOLGYM_TR8_CAMPER3
-	settrainerflag TRAINER_KAOLGYM_TR9_PICNICKER3
-	settrainerflag TRAINER_KAOLGYM_TR10_HIKER4
+	settrainerflag TRAINER_KAOLGYM_CAMPER1
+	settrainerflag TRAINER_KAOLGYM_PICNICKER1
+	settrainerflag TRAINER_KAOLGYM_HIKER1
+	settrainerflag TRAINER_KAOLGYM_CAMPER2
+	settrainerflag TRAINER_KAOLGYM_HIKER2
+	settrainerflag TRAINER_KAOLGYM_HIKER3
+	settrainerflag TRAINER_KAOLGYM_PICNICKER2
+	settrainerflag TRAINER_KAOLGYM_CAMPER3
+	settrainerflag TRAINER_KAOLGYM_PICNICKER3
+	settrainerflag TRAINER_KAOLGYM_HIKER4
 	settrainerflag TRAINER_KAOLGYM_CLAY     
 	return
 
 LavaridgeTown_Gym_SetGymTrainers::
-	settrainerflag TRAINER_SANDGYM_TR1_CYCLISTM1
-	settrainerflag TRAINER_SANDGYM_TR2_CYCLISTF1
-	settrainerflag TRAINER_SANDGYM_TR3_CYCLISTF2
-	settrainerflag TRAINER_SANDGYM_TR4_CYCLISTM2
-	settrainerflag TRAINER_SANDGYM_TR5_CYCLISTF3
-	settrainerflag TRAINER_SANDGYM_TR6_CYCLISTM3
-	settrainerflag TRAINER_SANDGYM_TR7_CYCLISTM4
+	settrainerflag TRAINER_SANDGYM_CYCLISTM1
+	settrainerflag TRAINER_SANDGYM_CYCLISTF1
+	settrainerflag TRAINER_SANDGYM_CYCLISTF2
+	settrainerflag TRAINER_SANDGYM_CYCLISTM2
+	settrainerflag TRAINER_SANDGYM_CYCLISTF3
+	settrainerflag TRAINER_SANDGYM_CYCLISTM3
+	settrainerflag TRAINER_SANDGYM_CYCLISTM4
 	return
 
 PetalburgCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_RANDALL
-	settrainerflag TRAINER_PARKER
-	settrainerflag TRAINER_GEORGE
-	settrainerflag TRAINER_BERKE
+	settrainerflag TRAINER_ALDELEAF_NURSE
+	settrainerflag TRAINER_ALDEGYM_1
+	settrainerflag TRAINER_ALDEGYM_2
+	settrainerflag TRAINER_ALDEGYM_3
 	settrainerflag TRAINER_LEADER_VOLKNER
-	settrainerflag TRAINER_WPV_TR1_BIRDKEEPER
-	settrainerflag TRAINER_WPV_TR2_TRIATH
+	settrainerflag TRAINER_WPV_BIRDKEEPER
+	settrainerflag TRAINER_WPV_TRIATH
 	return
 
 FortreeCity_Gym_SetGymTrainers::
-	settrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	settrainerflag TRAINER_BTUN_BROCK
 	settrainerflag TRAINER_FLINT
 	settrainerflag TRAINER_ASHLEY
-	settrainerflag TRAINER_R18_TR3_KINDLER
-	settrainerflag TRAINER_R18_TR1_HIKER1
+	settrainerflag TRAINER_R18_KINDLER
+	settrainerflag TRAINER_R18_HIKER1
 	settrainerflag TRAINER_LEADER_DRAYDEN
 	return
 
@@ -85,9 +85,9 @@ MossdeepCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_UNUSED_233_
 	settrainerflag TRAINER_UNUSED_234_
 	settrainerflag TRAINER_UNUSED_235_
-	settrainerflag TRAINER_R16_TR5_SWIMMER_F
-	settrainerflag TRAINER_R12_TR9_PSYCHIC_M
-	settrainerflag TRAINER_R12_TR10_HIKER
+	settrainerflag TRAINER_R16_SWIMMER_F
+	settrainerflag TRAINER_R12_PSYCHIC_M
+	settrainerflag TRAINER_R12_HIKER
 	settrainerflag TRAINER_SYLVIA
 	settrainerflag TRAINER_NATE
 	settrainerflag TRAINER_KATHLEEN
@@ -99,12 +99,12 @@ MossdeepCity_Gym_SetGymTrainers::
 SootopolisCity_Gym_SetGymTrainers::
 	settrainerflag TRAINER_ANDREA
 	settrainerflag TRAINER_CRISSY
-	settrainerflag TRAINER_R5_TR11_MAN_5
-	settrainerflag TRAINER_R6_TR6_CAMPER_M2
-	settrainerflag TRAINER_R6_TR7_KINDLER
-	settrainerflag TRAINER_R8_TR1_PARASOLLADY
-	settrainerflag TRAINER_R8_TR2_SRJR
-	settrainerflag TRAINER_R15_TR8_BUGCATCHER2
+	settrainerflag TRAINER_R5_KINDLER
+	settrainerflag TRAINER_R6_CAMPER_M2
+	settrainerflag TRAINER_R6_KINDLER
+	settrainerflag TRAINER_R8_PARASOLLADY
+	settrainerflag TRAINER_R8_SRJR
+	settrainerflag TRAINER_R15_BUGCATCHER2
 	settrainerflag TRAINER_ANNIKA
-	settrainerflag TRAINER_R5_TR8_YOUNGSTER
+	settrainerflag TRAINER_R5_YOUNGSTER
 	return

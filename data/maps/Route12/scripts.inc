@@ -6,7 +6,7 @@ Route12_MapScripts::
 
 R12_ResetTrainer::
 # 5 "data/maps/Route12/scripts.pory"
-	cleartrainerflag TRAINER_R12_TR12_BUGMANIAC
+	cleartrainerflag TRAINER_R12_BUGMANIAC
 # 6 "data/maps/Route12/scripts.pory"
 	release
 	end
@@ -69,7 +69,7 @@ R12_Cyclist2_5:
 
 Route12_Tr1_Triathlete_F::
 # 72 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR1_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_F, R12Tr1_Intro, R12Tr1_Lose
 # 73 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -77,7 +77,7 @@ Route12_Tr1_Triathlete_F::
 
 Route12_Tr2_Triathlete_M::
 # 90 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR2_TRIATHLETE_M, R12Tr2_Intro, R12Tr2_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_M, R12Tr2_Intro, R12Tr2_Lose
 # 91 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -85,7 +85,7 @@ Route12_Tr2_Triathlete_M::
 
 Route12_Tr3_Triathlete_F2::
 # 109 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR3_TRIATHLETE_F2, R12Tr3_Intro, R12Tr3_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_F2, R12Tr3_Intro, R12Tr3_Lose
 # 110 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -93,7 +93,7 @@ Route12_Tr3_Triathlete_F2::
 
 Route12_Tr4_Triathlete_M2::
 # 126 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR4_TRIATHLETE_M2, R12Tr4_Intro, R12Tr4_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_M2, R12Tr4_Intro, R12Tr4_Lose
 # 127 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -101,7 +101,7 @@ Route12_Tr4_Triathlete_M2::
 
 Route12_Tr5_Triathlete_M3::
 # 143 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR5_TRIATHLETE_M3, R12Tr5_Intro, R12Tr5_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_M3, R12Tr5_Intro, R12Tr5_Lose
 # 144 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -109,7 +109,7 @@ Route12_Tr5_Triathlete_M3::
 
 Route12_Tr6_Triathlete_F3::
 # 160 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR6_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose
+	trainerbattle_single TRAINER_R12_TRIATHLETE_F3, R12Tr6_Intro, R12Tr6_Lose
 # 161 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -117,7 +117,7 @@ Route12_Tr6_Triathlete_F3::
 
 Route12_Tr9_Psychic_M::
 # 177 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR9_PSYCHIC_M, R12Tr9_Intro, R12Tr9_Lose
+	trainerbattle_single TRAINER_R12_PSYCHIC_M, R12Tr9_Intro, R12Tr9_Lose
 # 178 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -125,7 +125,7 @@ Route12_Tr9_Psychic_M::
 
 Route12_Tr10_Hiker::
 # 195 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR10_HIKER, R12Tr10_Intro, R12Tr10_Lose
+	trainerbattle_single TRAINER_R12_HIKER, R12Tr10_Intro, R12Tr10_Lose
 # 196 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -133,7 +133,7 @@ Route12_Tr10_Hiker::
 
 Route12_Tr11_Lass::
 # 212 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR11_LASS, R12Tr11_Intro, R12Tr11_Lose
+	trainerbattle_single TRAINER_R12_LASS, R12Tr11_Intro, R12Tr11_Lose
 # 213 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr11_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -141,7 +141,7 @@ Route12_Tr11_Lass::
 
 Route12_Tr12_Bugmaniac::
 # 230 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR12_BUGMANIAC, R12Tr12_Intro, R12Tr12_Lose
+	trainerbattle_single TRAINER_R12_BUGMANIAC, R12Tr12_Intro, R12Tr12_Lose
 # 231 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr12_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -149,7 +149,7 @@ Route12_Tr12_Bugmaniac::
 
 Route12_Tr13_Ninjaboy::
 # 249 "data/maps/Route12/scripts.pory"
-	trainerbattle_single TRAINER_R12_TR13_NINJABOY, R12Tr13_Intro, R12Tr13_Lose
+	trainerbattle_single TRAINER_R12_NINJABOY, R12Tr13_Intro, R12Tr13_Lose
 # 250 "data/maps/Route12/scripts.pory"
 	msgbox R12Tr13_PostBattle, MSGBOX_AUTOCLOSE
 	end

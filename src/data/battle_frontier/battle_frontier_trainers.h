@@ -1323,7 +1323,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .speechLose   = COMPOUND_STRING("I don't want to study more."),
         .monSet = (const u16[]){FRONTIER_MONS_SCHOOL_KID_2}
     },
-    [FRONTIER_TRAINER_R8_TR9_HIKERT] = {
+    [FRONTIER_TRAINER_R8_HIKERT] = {
         .facilityClass = FACILITY_CLASS_SCHOOL_KID_M,
         .trainerName = _("Garrett"),
         .speechBefore = COMPOUND_STRING("I enjoy comics and this game."),
@@ -1995,7 +1995,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .speechLose   = COMPOUND_STRING("What I've been hearing is right."),
         .monSet = (const u16[]){FRONTIER_MONS_EXPERT_2C(DRAGONITE)}
     },
-    [FRONTIER_TRAINER_DESERT_TR5_HIKERO] = {
+    [FRONTIER_TRAINER_DESERT_HIKERO] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("Rolando"),
         .speechBefore = COMPOUND_STRING("I am a super Pokémon hero!"),
@@ -2003,7 +2003,7 @@ const struct BattleFrontierTrainer gBattleFrontierTrainers[FRONTIER_TRAINERS_COU
         .speechLose   = COMPOUND_STRING("You should not beat a hero."),
         .monSet = (const u16[]){FRONTIER_MONS_PSYCHIC_2(LATIOS, ARTICUNO, ZAPDOS, MOLTRES)}
     },
-    [FRONTIER_TRAINER_DESERT_TR7_PICNICKER3LY] = {
+    [FRONTIER_TRAINER_DESERT_PICNICKER3LY] = {
         .facilityClass = FACILITY_CLASS_PSYCHIC_M,
         .trainerName = _("Stanly"),
         .speechBefore = COMPOUND_STRING("This should be an easy match."),

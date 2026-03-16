@@ -299,6 +299,11 @@ script UpdateGame{
         callnative(ResetFreeSpace)
         setvar(VAR_DEBUG, 6)
     }
+    if(var(VAR_DEBUG) == 6){
+        cleartrainerflag(TRAINER_UNUSED_54_)
+        cleartrainerflag(TRAINER_UNUSED_172_)
+        setvar(VAR_DEBUG, 7)
+    }
     msgbox(GameIsUpToDate)
     release
 }
@@ -1750,7 +1755,7 @@ script SkipStory{
             setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
             additem(ITEM_LETTER)
         }
-        defeattrainer(TRAINER_SHELLY_SEAFLOOR_CAVERN)
+        defeattrainer(TRAINER_WW_ROCKET)
         setflag(FLAG_LANDMARK_WINDY_WOODS)
         setflag(FLAG_LANDMARK_LOST_GLADE)
     }
@@ -1759,12 +1764,12 @@ script SkipStory{
             setvar(VAR_MAIN_STORY_BITS, STORY_RIVAL_DEFEATED_OR_BAILED_ON)
         }
         setflag(FLAG_VISITED_CORALGROVE_CITY)
-        defeattrainer(TRAINER_CHIP)
-        defeattrainer(TRAINER_FOSTER)
-        defeattrainer(TRAINER_DUSTY_2)
-        defeattrainer(TRAINER_DUSTY_3)
-        defeattrainer(TRAINER_DUSTY_4)
-        defeattrainer(TRAINER_DUSTY_5)
+        defeattrainer(TRAINER_CORALGYM_1)
+        defeattrainer(TRAINER_CORALGYM_2)
+        defeattrainer(TRAINER_CORALGYM_3)
+        defeattrainer(TRAINER_CORALGYM_4)
+        defeattrainer(TRAINER_CORALGYM_5)
+        defeattrainer(TRAINER_CORALGYM_6)
         defeattrainer(TRAINER_LEADER_AARON)
         if(checkitem(ITEM_TM_U_TURN) == FALSE){
             additem(ITEM_TM_U_TURN)
@@ -1803,8 +1808,8 @@ script SkipStory{
         setflag(FLAG_VOLKNER_HELPED)
         setflag(FLAG_JASMINE_HELPED)
         setvar(VAR_POKERANCH, 1)
-        defeattrainer(TRAINER_RICKY_4)
-        defeattrainer(TRAINER_RICKY_5)
+        defeattrainer(TRAINER_RANCH_ROCKET)
+        defeattrainer(TRAINER_RANCH_ROCKET2)
     }
     if(var(VAR_STORY_PART) >= ALDELEAF_CITY){
         setflag(FLAG_VISITED_WIP_CITY1)
@@ -1813,22 +1818,22 @@ script SkipStory{
         setflag(FLAG_ALDELEAF_SWITCH2)
         setflag(FLAG_ALDELEAF_SWITCH3)
         setflag(FLAG_ALDELEAF_SWITCH_ALL)
-        defeattrainer(TRAINER_PARKER)
-        defeattrainer(TRAINER_GEORGE)
-        defeattrainer(TRAINER_BERKE)
-        defeattrainer(TRAINER_BRAXTON)
-        defeattrainer(TRAINER_VINCENT)
-        defeattrainer(TRAINER_LEROY)
-        defeattrainer(TRAINER_WILTON_1)
-        defeattrainer(TRAINER_EDGAR)
-        defeattrainer(TRAINER_ALBERT)
-        defeattrainer(TRAINER_SAMUEL)
-        defeattrainer(TRAINER_OWEN)
-        defeattrainer(TRAINER_WILTON_2)
-        defeattrainer(TRAINER_WILTON_3)
-        defeattrainer(TRAINER_WILTON_4)
-        defeattrainer(TRAINER_WILTON_5)
-        defeattrainer(TRAINER_WARREN)
+        defeattrainer(TRAINER_ALDEGYM_1)
+        defeattrainer(TRAINER_ALDEGYM_2)
+        defeattrainer(TRAINER_ALDEGYM_3)
+        defeattrainer(TRAINER_ALDEGYM_4)
+        defeattrainer(TRAINER_ALDEGYM_5)
+        defeattrainer(TRAINER_ALDEGYM_6)
+        defeattrainer(TRAINER_ALDEGYM_7)
+        defeattrainer(TRAINER_ALDEGYM_8)
+        defeattrainer(TRAINER_ALDEGYM_9)
+        defeattrainer(TRAINER_ALDEGYM_10)
+        defeattrainer(TRAINER_ALDEGYM_11)
+        defeattrainer(TRAINER_ALDEGYM_12)
+        defeattrainer(TRAINER_ALDEGYM_13)
+        defeattrainer(TRAINER_ALDEGYM_14)
+        defeattrainer(TRAINER_ALDEGYM_15)
+        defeattrainer(TRAINER_ALDEGYM_16)
         defeattrainer(TRAINER_LEADER_VOLKNER)
         setflag(FLAG_DEFEATED_DEWFORD_GYM)
         if(checkitem(ITEM_TM_CHARGE_BEAM) == FALSE){
@@ -1873,16 +1878,16 @@ script SkipStory{
         setflag(FLAG_KAOLISLE_GYM_SWITCH2)
         setflag(FLAG_KAOLISLE_GYM_SWITCH3)
         setflag(FLAG_KAOLISLE_GYM_SWITCH4)
-        defeattrainer(TRAINER_KAOLGYM_TR1_CAMPER1)
-        defeattrainer(TRAINER_KAOLGYM_TR2_PICNICKER1)
-        defeattrainer(TRAINER_KAOLGYM_TR3_HIKER1)
-        defeattrainer(TRAINER_KAOLGYM_TR4_CAMPER2)
-        defeattrainer(TRAINER_KAOLGYM_TR5_HIKER2)
-        defeattrainer(TRAINER_KAOLGYM_TR6_HIKER3)
-        defeattrainer(TRAINER_KAOLGYM_TR7_PICNICKER2)
-        defeattrainer(TRAINER_KAOLGYM_TR8_CAMPER3)
-        defeattrainer(TRAINER_KAOLGYM_TR9_PICNICKER3)
-        defeattrainer(TRAINER_KAOLGYM_TR10_HIKER4)
+        defeattrainer(TRAINER_KAOLGYM_CAMPER1)
+        defeattrainer(TRAINER_KAOLGYM_PICNICKER1)
+        defeattrainer(TRAINER_KAOLGYM_HIKER1)
+        defeattrainer(TRAINER_KAOLGYM_CAMPER2)
+        defeattrainer(TRAINER_KAOLGYM_HIKER2)
+        defeattrainer(TRAINER_KAOLGYM_HIKER3)
+        defeattrainer(TRAINER_KAOLGYM_PICNICKER2)
+        defeattrainer(TRAINER_KAOLGYM_CAMPER3)
+        defeattrainer(TRAINER_KAOLGYM_PICNICKER3)
+        defeattrainer(TRAINER_KAOLGYM_HIKER4)
         defeattrainer(TRAINER_KAOLGYM_CLAY)
         setflag(FLAG_BADGE03_GET)
         setvar(VAR_KAOLISLE_HOTEL_STATE, 1)
@@ -1927,29 +1932,29 @@ script SkipStory{
         }
         setflag(FLAG_BADGE04_GET)
         defeattrainer(TRAINER_LEADER_KORRINA)
-        defeattrainer(TRAINER_SANDGYM_TR1_CYCLISTM1)
-        defeattrainer(TRAINER_SANDGYM_TR2_CYCLISTF1)
-        defeattrainer(TRAINER_SANDGYM_TR3_CYCLISTF2)
-        defeattrainer(TRAINER_SANDGYM_TR4_CYCLISTM2)
-        defeattrainer(TRAINER_SANDGYM_TR5_CYCLISTF3)
-        defeattrainer(TRAINER_SANDGYM_TR6_CYCLISTM3)
-        defeattrainer(TRAINER_SANDGYM_TR7_CYCLISTM4)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTM1)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTF1)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTF2)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTM2)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTF3)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTM3)
+        defeattrainer(TRAINER_SANDGYM_CYCLISTM4)
     }
     if(var(VAR_STORY_PART) >= ADAMANT_TOWER){
-        defeattrainer(TRAINER_AT_2F_TR2_MAN3)
-        defeattrainer(TRAINER_AT_2F_TR2_WOMAN5)
-        defeattrainer(TRAINER_AT_2F_TR1_PSYCHIC)
-        defeattrainer(TRAINER_AT_2F_TR1_MAN5)
-        defeattrainer(TRAINER_AT_3F_TR1_EXPERT_M)
-        defeattrainer(TRAINER_AT_3F_TR1_EXPERT_F)
-        defeattrainer(TRAINER_AT_3F_TR2_HEXMANIAC)
-        defeattrainer(TRAINER_AT_3F_TR2_PSYCHICF)
-        defeattrainer(TRAINER_AT_4F_TR1_BLACKBELT)
-        defeattrainer(TRAINER_AT_4F_TR1_HEXMANIAC)
-        defeattrainer(TRAINER_AT_4F_TR2_LASS)
-        defeattrainer(TRAINER_AT_4F_TR2_YOUNGSTER)
-        defeattrainer(TRAINER_AT_4F_TR3_BATTLEGIRL)
-        defeattrainer(TRAINER_AT_4F_TR3_BLACKBELT)
+        defeattrainer(TRAINER_AT_2F_MAN3)
+        defeattrainer(TRAINER_AT_2F_WOMAN5)
+        defeattrainer(TRAINER_AT_2F_PSYCHIC)
+        defeattrainer(TRAINER_AT_2F_MAN5)
+        defeattrainer(TRAINER_AT_3F_EXPERT_M)
+        defeattrainer(TRAINER_AT_3F_EXPERT_F)
+        defeattrainer(TRAINER_AT_3F_HEXMANIAC)
+        defeattrainer(TRAINER_AT_3F_PSYCHICF)
+        defeattrainer(TRAINER_AT_4F_BLACKBELT)
+        defeattrainer(TRAINER_AT_4F_HEXMANIAC)
+        defeattrainer(TRAINER_AT_4F_LASS)
+        defeattrainer(TRAINER_AT_4F_YOUNGSTER)
+        defeattrainer(TRAINER_AT_4F_BATTLEGIRL)
+        defeattrainer(TRAINER_AT_4F_BLACKBELT2)
         defeattrainer(TRAINER_AT_5F_COOLTRAINER_M)
         defeattrainer(TRAINER_AT_5F_COOLTRAINER_F)
         if(checkitem(ITEM_MEGA_RING) == FALSE){
@@ -1978,7 +1983,7 @@ script SkipStory{
     if(var(VAR_STORY_PART) >= ROUTE_15){
         setflag(FLAG_ACEROLA_TALKED_TO)
         setvar(VAR_ROUTE14_ROCKET_EVENT, 6)
-        defeattrainer(TRAINER_R15_TR18_BERRYROCKET)
+        defeattrainer(TRAINER_R15_BERRYROCKET)
         defeattrainer(TRAINER_BROTHER_5_FISHINGVILLAGE)
         setflag(FLAG_VISITED_FISHING_VILLAGE)
     }
@@ -1990,12 +1995,12 @@ script SkipStory{
         if(var(VAR_DRISLEDGE_TOWN_STATE) < 30){
             setvar(VAR_DRISLEDGE_TOWN_STATE, 30)
         }
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER1)
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER2)
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER3)
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER4)
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER5)
-        defeattrainer(TRAINER_DRISLEDGEGYM_TRAINER6)
+        defeattrainer(TRAINER_DRISGYM_1)
+        defeattrainer(TRAINER_DRISGYM_2)
+        defeattrainer(TRAINER_DRISGYM_3)
+        defeattrainer(TRAINER_DRISGYM_4)
+        defeattrainer(TRAINER_DRISGYM_5)
+        defeattrainer(TRAINER_DRISGYM_6)
         defeattrainer(TRAINER_LEADER_ACEROLA)
         if(checkitem(ITEM_HM03) == FALSE){
             giveitem(ITEM_HM03)
@@ -2041,16 +2046,16 @@ script SkipStory{
         addbp(10)
         defeattrainer(TRAINER_LEADER_PRYCE)
         defeattrainer(TRAINER_LEADER_BLAINE)
-        defeattrainer(TRAINER_FROSTGYM_TR1_HIKER1)
-        defeattrainer(TRAINER_FROSTGYM_TR2_KINDLER1)
-        defeattrainer(TRAINER_FROSTGYM_TR3_SENIOR)
-        defeattrainer(TRAINER_FROSTGYM_TR4_JUNIOR)
-        defeattrainer(TRAINER_FROSTGYM_TR5_RANGER_M)
-        defeattrainer(TRAINER_FROSTGYM_TR6_RANGER_F)
-        defeattrainer(TRAINER_FROSTGYM_TR7_MANIAC)
-        defeattrainer(TRAINER_FROSTGYM_TR8_COLLECTOR)
-        defeattrainer(TRAINER_FROSTGYM_TR9_KINDLER2)
-        defeattrainer(TRAINER_FROSTGYM_TR10_RANGER_F2)
+        defeattrainer(TRAINER_FROSTGYM_HIKER1)
+        defeattrainer(TRAINER_FROSTGYM_KINDLER1)
+        defeattrainer(TRAINER_FROSTGYM_SENIOR)
+        defeattrainer(TRAINER_FROSTGYM_JUNIOR)
+        defeattrainer(TRAINER_FROSTGYM_RANGER_M)
+        defeattrainer(TRAINER_FROSTGYM_RANGER_F)
+        defeattrainer(TRAINER_FROSTGYM_MANIAC)
+        defeattrainer(TRAINER_FROSTGYM_COLLECTOR)
+        defeattrainer(TRAINER_FROSTGYM_KINDLER2)
+        defeattrainer(TRAINER_FROSTGYM_RANGER_F2)
         setflag(FLAG_BADGE06_GET)
         if(checkitem(ITEM_TM_ICE_BURN) == FALSE){
             additem(ITEM_TM_ICE_BURN)
@@ -2390,10 +2395,10 @@ script CompleteArea_Route_4{
         defeattrainer(TRAINER_R4_COOL_M)
         defeattrainer(TRAINER_R4_BIRDKEEPER)
         defeattrainer(TRAINER_R4_YOUNGSTER)
-        defeattrainer(TRAINER_R4_BIRDKEEPER_2)
-        defeattrainer(TRAINER_R4_DOUBLE_LASS)
-        defeattrainer(TRAINER_R4_DOUBLE_YOUNGSTER)
-        defeattrainer(TRAINER_R4_TRIATHLETE_2)
+        defeattrainer(TRAINER_R4_BIRDKEEPER2)
+        defeattrainer(TRAINER_R4_LASS)
+        defeattrainer(TRAINER_R4_YOUNGSTER2)
+        defeattrainer(TRAINER_R4_TRIATHLETE2)
     }
     return
 }
@@ -2428,8 +2433,8 @@ script CompleteArea_Aldeleaf_City{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        if(!defeated(TRAINER_VITO)){
-            defeattrainer(TRAINER_VITO)
+        if(!defeated(TRAINER_ALDELEAF_MANIAC)){
+            defeattrainer(TRAINER_ALDELEAF_MANIAC)
             additem(ITEM_SHELL_BELL)
 		    setflag(FLAG_SHELL_BELL_RECEIVED)
         }
@@ -2488,10 +2493,10 @@ script CompleteArea_Route_30{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R28_TR1_BUGCATCHER)
-        defeattrainer(TRAINER_R28_TR2_HIKER)
-        defeattrainer(TRAINER_R28_TR3_NINJABOY)
-        defeattrainer(TRAINER_R28_TR4_PSYCHIC)
+        defeattrainer(TRAINER_R30_BUGCATCHER)
+        defeattrainer(TRAINER_R30_HIKER)
+        defeattrainer(TRAINER_R30_NINJABOY)
+        defeattrainer(TRAINER_R30_PSYCHIC)
     }
     if(flag(FLAG_EVENTS)){
         setflag(FLAG_ROUTE28_DESPAWN_BROTHER)
@@ -2539,19 +2544,19 @@ script CompleteArea_Windplume_Valley{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_WPV_TR1_BIRDKEEPER)
-        defeattrainer(TRAINER_WPV_TR2_TRIATH)
-        defeattrainer(TRAINER_WPV_TR3_BATTLEGIRL)
-        defeattrainer(TRAINER_WPV_TR4_CAMPER)
-        defeattrainer(TRAINER_WPV_TR5_BIRDKEEPER)
-        defeattrainer(TRAINER_WPV_TR6_MANIAC)
-        defeattrainer(TRAINER_WPV_TR7_BIRDKEEPER)
-        defeattrainer(TRAINER_WPV_TR8_NINJABOY)
-        defeattrainer(TRAINER_WPV_TR9_LASS)
-        defeattrainer(TRAINER_WPV_TR10_TRIATH)
-        defeattrainer(TRAINER_WPV_TR11_BIRDKEEPER)
-        defeattrainer(TRAINER_WPV_TR12_BATTLEGIRL)
-        defeattrainer(TRAINER_WPV_TR13_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_BIRDKEEPER)
+        defeattrainer(TRAINER_WPV_TRIATH)
+        defeattrainer(TRAINER_WPV_BATTLEGIRL)
+        defeattrainer(TRAINER_WPV_CAMPER)
+        defeattrainer(TRAINER_WPV_BIRDKEEPER2)
+        defeattrainer(TRAINER_WPV_MANIAC)
+        defeattrainer(TRAINER_WPV_BIRDKEEPER3)
+        defeattrainer(TRAINER_WPV_NINJABOY)
+        defeattrainer(TRAINER_WPV_LASS)
+        defeattrainer(TRAINER_WPV_TRIATH2)
+        defeattrainer(TRAINER_WPV_BIRDKEEPER4)
+        defeattrainer(TRAINER_WPV_BATTLEGIRL2)
+        defeattrainer(TRAINER_WPV_BIRDKEEPER5)
         if(!defeated(TRAINER_WPV_TR14_SKYLA)){
             giveitem(ITEM_HM02)
             defeattrainer(TRAINER_WPV_TR14_SKYLA)
@@ -2604,22 +2609,22 @@ script CompleteArea_Route_5{
         call(TryLootingStrangeSeed)
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R5_TR1_FISHER)
-        defeattrainer(TRAINER_R5_TR2_BEAUTY)
-        defeattrainer(TRAINER_R5_TR3_YOUNGCOUPLE)
-        defeattrainer(TRAINER_R5_TR4_LASS1)
-        defeattrainer(TRAINER_R5_TR5_POKEFAN_F)
-        defeattrainer(TRAINER_R5_TR6_LASS2)
-        defeattrainer(TRAINER_R5_TR7_GENTLEMAN)
-        defeattrainer(TRAINER_R5_TR8_YOUNGSTER)
-        defeattrainer(TRAINER_R5_TR9_TRIATHLETE)
-        defeattrainer(TRAINER_R5_TR10_RICHBOY)
-        defeattrainer(TRAINER_R5_TR11_MAN_5)
-        defeattrainer(TRAINER_R5_TR12_BUGCATCHER)
-        defeattrainer(TRAINER_R5_TR13_NINJABOY)
-        defeattrainer(TRAINER_R5_TR14_HIKER)
-        if(!defeated(TRAINER_R5_TR15_COOLTRAINER)){
-            defeattrainer(TRAINER_R5_TR15_COOLTRAINER)
+        defeattrainer(TRAINER_R5_FISHER)
+        defeattrainer(TRAINER_R5_BEAUTY)
+        defeattrainer(TRAINER_R5_YOUNGCOUPLE)
+        defeattrainer(TRAINER_R5_LASS1)
+        defeattrainer(TRAINER_R5_POKEFAN_F)
+        defeattrainer(TRAINER_R5_LASS2)
+        defeattrainer(TRAINER_R5_GENTLEMAN)
+        defeattrainer(TRAINER_R5_YOUNGSTER)
+        defeattrainer(TRAINER_R5_TRIATHLETE)
+        defeattrainer(TRAINER_R5_RICHBOY)
+        defeattrainer(TRAINER_R5_KINDLER)
+        defeattrainer(TRAINER_R5_BUGCATCHER)
+        defeattrainer(TRAINER_R5_NINJABOY)
+        defeattrainer(TRAINER_R5_HIKER)
+        if(!defeated(TRAINER_R5_ACETRAINER)){
+            defeattrainer(TRAINER_R5_ACETRAINER)
             additem(ITEM_EVIOLITE)
             addbp(20)
         }  
@@ -2683,11 +2688,11 @@ script CompleteArea_Skyloch_Village{
 }
 script CompleteArea_Route_6{
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R6_TR1_RANGER_M)
-        defeattrainer(TRAINER_R6_TR3_CAMPER_F)
-        defeattrainer(TRAINER_R6_TR5_HIKER)
-        defeattrainer(TRAINER_R6_TR6_CAMPER_M2)
-        defeattrainer(TRAINER_R6_TR7_KINDLER)
+        defeattrainer(TRAINER_R6_RANGER_M)
+        defeattrainer(TRAINER_R6_CAMPER_F)
+        defeattrainer(TRAINER_R6_HIKER)
+        defeattrainer(TRAINER_R6_CAMPER_M2)
+        defeattrainer(TRAINER_R6_KINDLER)
     }
     return
 }
@@ -2726,17 +2731,17 @@ script CompleteArea_Route_8{
         call(TryLootingStrangeSeed)
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R8_TR1_PARASOLLADY)
-        defeattrainer(TRAINER_R8_TR2_SRJR)
-        defeattrainer(TRAINER_R8_TR3_AROMALADY)
-        defeattrainer(TRAINER_R8_TR4_YOUNGSTER)
-        defeattrainer(TRAINER_R8_TR5_PSYCHIC_F)
-        defeattrainer(TRAINER_R8_TR6_ENTHUSIAST)
-        defeattrainer(TRAINER_R8_TR7_TRIATHLETE_M)
-        defeattrainer(TRAINER_R8_TR8_GENTLEMAN)
-        defeattrainer(TRAINER_R8_TR9_HIKER)
-        defeattrainer(TRAINER_R8_TR10_OLDCOUPLE)
-        defeattrainer(TRAINER_R8_TR11_BIRDKEEPER)
+        defeattrainer(TRAINER_R8_PARASOLLADY)
+        defeattrainer(TRAINER_R8_SRJR)
+        defeattrainer(TRAINER_R8_AROMALADY)
+        defeattrainer(TRAINER_R8_YOUNGSTER)
+        defeattrainer(TRAINER_R8_PSYCHIC_F)
+        defeattrainer(TRAINER_R8_ENTHUSIAST)
+        defeattrainer(TRAINER_R8_TRIATHLETE_M)
+        defeattrainer(TRAINER_R8_GENTLEMAN)
+        defeattrainer(TRAINER_R8_HIKER)
+        defeattrainer(TRAINER_R8_OLDCOUPLE)
+        defeattrainer(TRAINER_R8_BIRDKEEPER)
     }
     if(flag(FLAG_EVENTS)){
         setflag(FLAG_LANDMARK_FLOWER_SHOP)
@@ -2831,21 +2836,21 @@ script CompleteArea_Scorched_Desert{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_DESERT_TR1_CAMPER)
-        defeattrainer(TRAINER_DESERT_TR2_CAMPER2)
-        defeattrainer(TRAINER_DESERT_TR3_PICNICKER)
-        defeattrainer(TRAINER_DESERT_TR4_PICNICKER2)
-        defeattrainer(TRAINER_DESERT_TR5_HIKER)
-        defeattrainer(TRAINER_DESERT_TR6_BLACKBELT)
-        defeattrainer(TRAINER_DESERT_TR7_PICNICKER3)
-        defeattrainer(TRAINER_DESERT_TR8_HIKER2)
-        defeattrainer(TRAINER_DESERT_TR9_HIKER3)
-        defeattrainer(TRAINER_DESERT_TR10_FIREBREATHER)
-        defeattrainer(TRAINER_DESERT_TR11_BLACKBELT2)
-        defeattrainer(TRAINER_DESERT_TR12_HIKER4)
-        defeattrainer(TRAINER_DESERT_TR13_PSYCHIC_F)
-        if(!defeated(TRAINER_DESERT_TR14_COOLTRAINER)){
-            defeattrainer(TRAINER_DESERT_TR14_COOLTRAINER)
+        defeattrainer(TRAINER_DESERT_CAMPER)
+        defeattrainer(TRAINER_DESERT_CAMPER2)
+        defeattrainer(TRAINER_DESERT_PICNICKER)
+        defeattrainer(TRAINER_DESERT_PICNICKER2)
+        defeattrainer(TRAINER_DESERT_HIKER)
+        defeattrainer(TRAINER_DESERT_BLACKBELT)
+        defeattrainer(TRAINER_DESERT_PICNICKER3)
+        defeattrainer(TRAINER_DESERT_HIKER2)
+        defeattrainer(TRAINER_DESERT_HIKER3)
+        defeattrainer(TRAINER_DESERT_KINDLER)
+        defeattrainer(TRAINER_DESERT_BLACKBELT2)
+        defeattrainer(TRAINER_DESERT_HIKER4)
+        defeattrainer(TRAINER_DESERT_PSYCHIC_F)
+        if(!defeated(TRAINER_DESERT_ACETRAINER)){
+            defeattrainer(TRAINER_DESERT_ACETRAINER)
             additem(ITEM_SAFETY_GOGGLES)
             setvar(VAR_DESERT_TRAINERS, 14)
             addbp(20)
@@ -2911,16 +2916,15 @@ script CompleteArea_Route_7{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R7_TR1_CAMPER)
-        defeattrainer(TRAINER_R7_TR2_PICNICKER)
-        defeattrainer(TRAINER_UNUSED_172_)
-        defeattrainer(TRAINER_R7_TR4_BIRDKEEPER)
-        defeattrainer(TRAINER_R7_TR5_BLACKBELT)
-        defeattrainer(TRAINER_R7_TR6_PICNICKER2)
-        defeattrainer(TRAINER_R7_TR7_FISHERMAN)
-        defeattrainer(TRAINER_R7_TR8_HIKER)
-        defeattrainer(TRAINER_R7_TR9_PARASOLLADY)
-        defeattrainer(TRAINER_R7_TR10_NINJABOY)
+        defeattrainer(TRAINER_R7_CAMPER)
+        defeattrainer(TRAINER_R7_PICNICKER)
+        defeattrainer(TRAINER_R7_BIRDKEEPER)
+        defeattrainer(TRAINER_R7_BLACKBELT)
+        defeattrainer(TRAINER_R7_PICNICKER2)
+        defeattrainer(TRAINER_R7_FISHERMAN)
+        defeattrainer(TRAINER_R7_HIKER)
+        defeattrainer(TRAINER_R7_PARASOLLADY)
+        defeattrainer(TRAINER_R7_NINJABOY)
     }
     if(flag(FLAG_EVENTS)){
         if(checkitem(ITEM_SAMPLE_BOX) == FALSE){
@@ -3041,16 +3045,16 @@ script CompleteArea_Kaolisle_City{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_KM_TR1_PICNICKER)
-        defeattrainer(TRAINER_KM_TR2_BLACKBELT)
-        defeattrainer(TRAINER_KM_TR3_CAMPER)
-        defeattrainer(TRAINER_KM_TR4_HIKER)
-        defeattrainer(TRAINER_KM_TR5_HIKER)
-        defeattrainer(TRAINER_KM_TR6_HIKER)
-        defeattrainer(TRAINER_KM_TR7_CAMPER)
-        defeattrainer(TRAINER_KM_TR8_PICNICKER)
-        defeattrainer(TRAINER_KM_TR9_BLACKBELT)
-        defeattrainer(TRAINER_KM_TR10_HIKER)
+        defeattrainer(TRAINER_KM_PICNICKER)
+        defeattrainer(TRAINER_KM_BLACKBELT)
+        defeattrainer(TRAINER_KM_CAMPER)
+        defeattrainer(TRAINER_KM_HIKER)
+        defeattrainer(TRAINER_KM_HIKER2)
+        defeattrainer(TRAINER_KM_HIKER3)
+        defeattrainer(TRAINER_KM_CAMPER2)
+        defeattrainer(TRAINER_KM_PICNICKER2)
+        defeattrainer(TRAINER_KM_BLACKBELT2)
+        defeattrainer(TRAINER_KM_HIKER4)
     }
     if(flag(FLAG_EVENTS)){
         if(!flag(FLAG_RECEIVED_GOOD_ROD)){
@@ -3189,21 +3193,21 @@ script CompleteArea_Route_11{
         call(TryCuttingStrangeSeedTree)
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R11_TR1_LASS)
-        defeattrainer(TRAINER_R11_TR2_BIRDKEEPER)
-        defeattrainer(TRAINER_R11_TR3_BUGCATCHER)
-        defeattrainer(TRAINER_R11_TR4_NINJABOY)
-        defeattrainer(TRAINER_R11_TR5_POKEMANIAC)
-        defeattrainer(TRAINER_R11_TR6_TRIATHLETE_F)
-        defeattrainer(TRAINER_R11_TR7_HIKER)
-        defeattrainer(TRAINER_R11_TR8_NINJABOY_2)
-        defeattrainer(TRAINER_R11_TR9_NINJABOY_3)
-        defeattrainer(TRAINER_R11_TR10_CYCLER_M)
-        defeattrainer(TRAINER_R11_TR11_BLACKBELT)
-        defeattrainer(TRAINER_R11_TR12_EXPERT)
-        defeattrainer(TRAINER_R11_TR13_PSYCHIC_F)
-        if(!defeated(TRAINER_R11_TR14_ACETRAINER_F)){
-            defeattrainer(TRAINER_R11_TR14_ACETRAINER_F)
+        defeattrainer(TRAINER_R11_LASS)
+        defeattrainer(TRAINER_R11_BIRDKEEPER)
+        defeattrainer(TRAINER_R11_BUGCATCHER)
+        defeattrainer(TRAINER_R11_NINJABOY)
+        defeattrainer(TRAINER_R11_POKEMANIAC)
+        defeattrainer(TRAINER_R11_TRIATHLETE_F)
+        defeattrainer(TRAINER_R11_HIKER)
+        defeattrainer(TRAINER_R11_NINJABOY_2)
+        defeattrainer(TRAINER_R11_NINJABOY_3)
+        defeattrainer(TRAINER_R11_CYCLER_M)
+        defeattrainer(TRAINER_R11_BLACKBELT)
+        defeattrainer(TRAINER_R11_EXPERT)
+        defeattrainer(TRAINER_R11_PSYCHIC_F)
+        if(!defeated(TRAINER_R11_ACETRAINER_F)){
+            defeattrainer(TRAINER_R11_ACETRAINER_F)
             additem(ITEM_LUCKY_EGG)
             setvar(VAR_R11_TRAINERS, 12)
             addbp(25)
@@ -3250,21 +3254,21 @@ script CompleteArea_Route_12{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R12_TR1_TRIATHLETE_F)
-        defeattrainer(TRAINER_R12_TR2_TRIATHLETE_M)
-        defeattrainer(TRAINER_R12_TR3_TRIATHLETE_F2)
-        defeattrainer(TRAINER_R12_TR4_TRIATHLETE_M2)
-        defeattrainer(TRAINER_R12_TR5_TRIATHLETE_M3)
-        defeattrainer(TRAINER_R12_TR6_TRIATHLETE_F3)
-        defeattrainer(TRAINER_R12_TR9_PSYCHIC_M)
-        defeattrainer(TRAINER_R12_TR10_HIKER)
-        defeattrainer(TRAINER_R12_TR11_LASS)
-        defeattrainer(TRAINER_R12_TR12_BUGMANIAC)
-        defeattrainer(TRAINER_R12_TR13_NINJABOY)
-        defeattrainer(TRAINER_FC_TR1_BLACKBELT)
-        defeattrainer(TRAINER_FC_TR2_BATTLEGIRL)
-        defeattrainer(TRAINER_FC_TR3_CAMPER)
-        defeattrainer(TRAINER_FC_TR4_HIKER)
+        defeattrainer(TRAINER_R12_TRIATHLETE_F)
+        defeattrainer(TRAINER_R12_TRIATHLETE_M)
+        defeattrainer(TRAINER_R12_TRIATHLETE_F2)
+        defeattrainer(TRAINER_R12_TRIATHLETE_M2)
+        defeattrainer(TRAINER_R12_TRIATHLETE_M3)
+        defeattrainer(TRAINER_R12_TRIATHLETE_F3)
+        defeattrainer(TRAINER_R12_PSYCHIC_M)
+        defeattrainer(TRAINER_R12_HIKER)
+        defeattrainer(TRAINER_R12_LASS)
+        defeattrainer(TRAINER_R12_BUGMANIAC)
+        defeattrainer(TRAINER_R12_NINJABOY)
+        defeattrainer(TRAINER_FC_BLACKBELT)
+        defeattrainer(TRAINER_FC_BATTLEGIRL)
+        defeattrainer(TRAINER_FC_CAMPER)
+        defeattrainer(TRAINER_FC_HIKER)
     }
     if(flag(FLAG_EVENTS)){
         if(!flag(FLAG_RECEIVED_HM_STRENGTH)){
@@ -3378,14 +3382,14 @@ script CompleteArea_Route_14{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R14_TR1_RUNNING_F)
-        defeattrainer(TRAINER_R14_TR2_HIKER)
-        defeattrainer(TRAINER_R14_TR3_PARASOLLADY)
-        defeattrainer(TRAINER_R14_TR4_FISHER)
-        defeattrainer(TRAINER_R14_TR5_PARASOLLADY2)
-        defeattrainer(TRAINER_R14_TR6_NINJABOY)
-        defeattrainer(TRAINER_R14_TR7_ROCKER)
-        defeattrainer(TRAINER_R14_TR8_MANIAC)
+        defeattrainer(TRAINER_R14_RUNNING_F)
+        defeattrainer(TRAINER_R14_HIKER)
+        defeattrainer(TRAINER_R14_PARASOLLADY)
+        defeattrainer(TRAINER_R14_FISHER)
+        defeattrainer(TRAINER_R14_PARASOLLADY2)
+        defeattrainer(TRAINER_R14_NINJABOY)
+        defeattrainer(TRAINER_R14_ROCKER)
+        defeattrainer(TRAINER_R14_MANIAC)
     }
     return
 }
@@ -3431,21 +3435,21 @@ script CompleteArea_Route_15{
 
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R15_TR1_BIRDKEEPER)
-        defeattrainer(TRAINER_R15_TR2_RANGERF)
-        defeattrainer(TRAINER_R15_TR3_RANGERM)
-        defeattrainer(TRAINER_R15_TR4_GENTLEMAN)
-        defeattrainer(TRAINER_R15_TR5_NINJABOY1)
-        defeattrainer(TRAINER_R15_TR6_NINJABOY2)
-        defeattrainer(TRAINER_R15_TR7_BUGCATCHER)
-        defeattrainer(TRAINER_R15_TR8_BUGCATCHER2)
-        defeattrainer(TRAINER_R15_TR9_BEAUTY)
-        defeattrainer(TRAINER_R15_TR10_FISHER)
-        defeattrainer(TRAINER_R15_TR13_COOLTRAINER)
-        defeattrainer(TRAINER_R15_TR14_LASS)
-        defeattrainer(TRAINER_R15_TR15_SCIENTIST)
-        defeattrainer(TRAINER_R15_TR16_AROMALADY)
-        defeattrainer(TRAINER_R15_TR17_NINJABOY3)
+        defeattrainer(TRAINER_R15_BIRDKEEPER)
+        defeattrainer(TRAINER_R15_RANGERF)
+        defeattrainer(TRAINER_R15_RANGERM)
+        defeattrainer(TRAINER_R15_GENTLEMAN)
+        defeattrainer(TRAINER_R15_NINJABOY1)
+        defeattrainer(TRAINER_R15_NINJABOY2)
+        defeattrainer(TRAINER_R15_BUGCATCHER)
+        defeattrainer(TRAINER_R15_BUGCATCHER2)
+        defeattrainer(TRAINER_R15_BEAUTY)
+        defeattrainer(TRAINER_R15_FISHER)
+        defeattrainer(TRAINER_R15_COOLTRAINER)
+        defeattrainer(TRAINER_R15_LASS)
+        defeattrainer(TRAINER_R15_SCIENTIST)
+        defeattrainer(TRAINER_R15_AROMALADY)
+        defeattrainer(TRAINER_R15_NINJABOY3)
         if(!defeated(TRAINER_R15_ACETRAINER_F) && !defeated(TRAINER_R15_ACETRAINER_M)){
             additem(ITEM_ROCKY_HELMET)
             defeattrainer(TRAINER_R15_ACETRAINER_F)
@@ -3541,19 +3545,19 @@ script CompleteArea_Route_23{
         call(TryCuttingStrangeSeedTree)
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R23_TR1_BREEDER_M)
-        defeattrainer(TRAINER_R23_TR2_MANIAC)
-        defeattrainer(TRAINER_R23_TR3_TWINS)
-        defeattrainer(TRAINER_R23_TR4_BREEDER_F)
-        defeattrainer(TRAINER_R23_TR5_HEXMANIAC_1)
-        defeattrainer(TRAINER_R23_TR6_PSYCHIC_M)
-        defeattrainer(TRAINER_R23_TR7_HEXMANIAC_2)
-        defeattrainer(TRAINER_R23_TR8_TRIATHLETE_F)
-        defeattrainer(TRAINER_R23_TR9_FISHERMAN)
-        defeattrainer(TRAINER_R23_TR10_BATTLEGIRL)
-        defeattrainer(TRAINER_R23_TR11_NINJABOY)
-        if(!defeated(TRAINER_R23_TR12_ACETRAINER)){
-            defeattrainer(TRAINER_R23_TR12_ACETRAINER)
+        defeattrainer(TRAINER_R23_BREEDER_M)
+        defeattrainer(TRAINER_R23_MANIAC)
+        defeattrainer(TRAINER_R23_TWINS)
+        defeattrainer(TRAINER_R23_BREEDER_F)
+        defeattrainer(TRAINER_R23_HEXMANIAC_1)
+        defeattrainer(TRAINER_R23_PSYCHIC_M)
+        defeattrainer(TRAINER_R23_HEXMANIAC_2)
+        defeattrainer(TRAINER_R23_TRIATHLETE_F)
+        defeattrainer(TRAINER_R23_FISHERMAN)
+        defeattrainer(TRAINER_R23_BATTLEGIRL)
+        defeattrainer(TRAINER_R23_NINJABOY)
+        if(!defeated(TRAINER_R23_ACETRAINER)){
+            defeattrainer(TRAINER_R23_ACETRAINER)
             additem(ITEM_CHOICE_SCARF)
             setflag(FLAG_OBTAINED_CHOICE_SCARF)
             addbp(30)
@@ -3634,17 +3638,17 @@ script CompleteArea_Route_3{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R3_TR1_SWIMMER_F)
-        defeattrainer(TRAINER_R3_TR2_SWIMMER_M)
-        defeattrainer(TRAINER_R3_TR3_SWIMMER_OLDSISTER)
-        defeattrainer(TRAINER_R3_TR4_TUBER)
-        defeattrainer(TRAINER_R3_TR5_FISHERMAN)
-        defeattrainer(TRAINER_R3_TR6_LANDSWIMMER_1)
-        defeattrainer(TRAINER_R3_TR7_LANDSWIMMER_2)
-        defeattrainer(TRAINER_R3_TR8_SAILOR)
-        defeattrainer(TRAINER_R3_TR9_SWIMMER_M1)
-        defeattrainer(TRAINER_R3_TR10_SWIMMER_M2)
-        defeattrainer(TRAINER_R3_TR11_SWIMMER_F1)
+        defeattrainer(TRAINER_R3_SWIMMER_F)
+        defeattrainer(TRAINER_R3_SWIMMER_M)
+        defeattrainer(TRAINER_R3_SWIMMER_OLDSIS)
+        defeattrainer(TRAINER_R3_TUBER)
+        defeattrainer(TRAINER_R3_FISHERMAN)
+        defeattrainer(TRAINER_R3_LANDSWIMMER_1)
+        defeattrainer(TRAINER_R3_LANDSWIMMER_2)
+        defeattrainer(TRAINER_R3_SAILOR)
+        defeattrainer(TRAINER_R3_SWIMMER_M1)
+        defeattrainer(TRAINER_R3_SWIMMER_M2)
+        defeattrainer(TRAINER_R3_SWIMMER_F1)
     }
     return
 }
@@ -3684,16 +3688,16 @@ script CompleteArea_Route_9{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R9_TR1_SWIMMER_M)
-        defeattrainer(TRAINER_R9_TR2_BLACKBELT)
-        defeattrainer(TRAINER_R9_TR3_BIRDKEEPER)
-        defeattrainer(TRAINER_R9_TR4_BATTLEGIRL)
-        defeattrainer(TRAINER_R9_TR5_SWIMMER_F)
-        defeattrainer(TRAINER_R9_TR6_FISHERMAN)
-        defeattrainer(TRAINER_R9_TR7_HIKER)
-        defeattrainer(TRAINER_R9_TR8_COLLECTOR)
-        defeattrainer(TRAINER_R9_TR9_SWIMMER_M2)
-        defeattrainer(TRAINER_R9_TR10_LANDSWIMMER)
+        defeattrainer(TRAINER_R9_SWIMMER_M)
+        defeattrainer(TRAINER_R9_BLACKBELT)
+        defeattrainer(TRAINER_R9_BIRDKEEPER)
+        defeattrainer(TRAINER_R9_BATTLEGIRL)
+        defeattrainer(TRAINER_R9_SWIMMER_F)
+        defeattrainer(TRAINER_R9_FISHERMAN)
+        defeattrainer(TRAINER_R9_HIKER)
+        defeattrainer(TRAINER_R9_COLLECTOR)
+        defeattrainer(TRAINER_R9_SWIMMER_M2)
+        defeattrainer(TRAINER_R9_LANDSWIMMER)
     }
     return
 }
@@ -3733,18 +3737,18 @@ script CompleteArea_Route_10{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R10_TR2_SWIMMER_F1)
-        defeattrainer(TRAINER_R10_TR3_FISHERMAN)
-        defeattrainer(TRAINER_R10_TR4_SWIMMER_M1)
-        defeattrainer(TRAINER_R10_TR5_BLACKBELT)
-        defeattrainer(TRAINER_R10_TR6_HIKER)
-        defeattrainer(TRAINER_R10_TR7_SWIMMER_F2)
-        defeattrainer(TRAINER_R10_TR8_SWIMMER_M2)
-        defeattrainer(TRAINER_R10_TR9_BATTLEGIRL)
-        defeattrainer(TRAINER_R10_TR10_TUBER_M)
-        if(!defeated(TRAINER_R10_TR1_ACESWIMMER)){
+        defeattrainer(TRAINER_R10_SWIMMER_F1)
+        defeattrainer(TRAINER_R10_FISHERMAN)
+        defeattrainer(TRAINER_R10_SWIMMER_M1)
+        defeattrainer(TRAINER_R10_BLACKBELT)
+        defeattrainer(TRAINER_R10_HIKER)
+        defeattrainer(TRAINER_R10_SWIMMER_F2)
+        defeattrainer(TRAINER_R10_SWIMMER_M2)
+        defeattrainer(TRAINER_R10_BATTLEGIRL)
+        defeattrainer(TRAINER_R10_TUBER_M)
+        if(!defeated(TRAINER_R10_ACESWIMMER)){
             additem(ITEM_BLUNDER_POLICY)
-            defeattrainer(TRAINER_R10_TR1_ACESWIMMER)
+            defeattrainer(TRAINER_R10_ACESWIMMER)
             setflag(FLAG_OBTAINED_BLUNDER_POLICY)
             addbp(30)
         }
@@ -3884,16 +3888,16 @@ script CompleteArea_Route_16{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R16_TR1_SWIMMER_M)
-        defeattrainer(TRAINER_R16_TR2_SWIMMER_F)
-        defeattrainer(TRAINER_R16_TR12_NINJABOY2)
-        defeattrainer(TRAINER_R16_TR5_SWIMMER_F)
-        defeattrainer(TRAINER_R16_TR6_SWIMMER_F)
-        defeattrainer(TRAINER_R16_TR7_GUITARIST)
-        defeattrainer(TRAINER_R16_TR8_HIKER)
-        defeattrainer(TRAINER_R16_TR9_BEAUTY)
-        defeattrainer(TRAINER_R16_TR10_NINJABOY)
-        defeattrainer(TRAINER_R16_TR11_EXPERT_F)
+        defeattrainer(TRAINER_R16_SWIMMER_M)
+        defeattrainer(TRAINER_R16_SWIMMER_F)
+        defeattrainer(TRAINER_R16_NINJABOY2)
+        defeattrainer(TRAINER_R16_SWIMMER_F2)
+        defeattrainer(TRAINER_R16_SWIMMER_F3)
+        defeattrainer(TRAINER_R16_GUITARIST)
+        defeattrainer(TRAINER_R16_HIKER)
+        defeattrainer(TRAINER_R16_BEAUTY)
+        defeattrainer(TRAINER_R16_NINJABOY)
+        defeattrainer(TRAINER_R16_EXPERT_F)
     }
     return
 }
@@ -3929,19 +3933,19 @@ script CompleteArea_Basalek_Town{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_BASALTUNNEL_TR1_HIKER1)
-        defeattrainer(TRAINER_BASALTUNNEL_TR2_BLACKBELT)
-        defeattrainer(TRAINER_BASALTUNNEL_TR3_PICNICKER)
-        defeattrainer(TRAINER_BASALTUNNEL_TR4_FIREBREATHER)
-        defeattrainer(TRAINER_BASALTUNNEL_TR5_BLACKBELT2)
-        defeattrainer(TRAINER_BASALTUNNEL_TR6_CAMPERM)
-        defeattrainer(TRAINER_BASALTUNNEL_TR7_PICNICKER2)
-        defeattrainer(TRAINER_BASALTUNNEL_TR8_HIKER2)
-        defeattrainer(TRAINER_BASALTUNNEL_TR9_BEAUTY)
-        defeattrainer(TRAINER_BASALTUNNEL_TR10_FIREBREATHER2)
-        defeattrainer(TRAINER_BASALTUNNEL_TR11_HIKER3)
-        if(!defeated(TRAINER_BASALTUNNEL_TR12_BROCK)){
-            defeattrainer(TRAINER_BASALTUNNEL_TR12_BROCK)
+        defeattrainer(TRAINER_BTUN_HIKER1)
+        defeattrainer(TRAINER_BTUN_BLACKBELT)
+        defeattrainer(TRAINER_BTUN_PICNICKER)
+        defeattrainer(TRAINER_BTUN_FIREBREATHER)
+        defeattrainer(TRAINER_BTUN_BLACKBELT2)
+        defeattrainer(TRAINER_BTUN_CAMPERM)
+        defeattrainer(TRAINER_BTUN_PICNICKER2)
+        defeattrainer(TRAINER_BTUN_HIKER2)
+        defeattrainer(TRAINER_BTUN_BEAUTY)
+        defeattrainer(TRAINER_BTUN_FIREBREATHER2)
+        defeattrainer(TRAINER_BTUN_HIKER3)
+        if(!defeated(TRAINER_BTUN_BROCK)){
+            defeattrainer(TRAINER_BTUN_BROCK)
             giveitem(ITEM_HM_ROCK_CLIMB)
             if(flag(FLAG_Q38_BASALEK_TUNNELS_START)){
                 completequest(FLAG_Q38_BASALEK_TUNNELS_COMPLETE)
@@ -3976,14 +3980,14 @@ script CompleteArea_Route_17{
         }
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R17_TR1_CAMPER_M)
-        defeattrainer(TRAINER_R17_TR2_PICNICKER1)
-        defeattrainer(TRAINER_R17_TR3_PICNICKER2)
-        defeattrainer(TRAINER_R17_TR4_MANIAC)
-        defeattrainer(TRAINER_R17_TR5_SCIENTIST)
-        defeattrainer(TRAINER_R17_TR6_HIKER1)
-        defeattrainer(TRAINER_R17_TR7_HIKER2)
-        defeattrainer(TRAINER_R17_TR8_COOLTRAINER)
+        defeattrainer(TRAINER_R17_CAMPER_M)
+        defeattrainer(TRAINER_R17_PICNICKER1)
+        defeattrainer(TRAINER_R17_PICNICKER2)
+        defeattrainer(TRAINER_R17_MANIAC)
+        defeattrainer(TRAINER_R17_SCIENTIST)
+        defeattrainer(TRAINER_R17_HIKER1)
+        defeattrainer(TRAINER_R17_HIKER2)
+        defeattrainer(TRAINER_R17_COOLTRAINER)
     }
     return
 }
@@ -4011,16 +4015,16 @@ script CompleteArea_Route_18{
         call(TryLootingStrangeSeed)
     }
     if(flag(FLAG_TRAINERS)){
-        defeattrainer(TRAINER_R18_TR1_HIKER1)
-        defeattrainer(TRAINER_R18_TR2_RANGER_M)
-        defeattrainer(TRAINER_R18_TR3_KINDLER)
-        defeattrainer(TRAINER_R18_TR4_HIKER2)
-        defeattrainer(TRAINER_R18_TR5_RANGER_F)
-        defeattrainer(TRAINER_R18_TR6_SCIENTIST)
-        defeattrainer(TRAINER_R18_TR7_POKEMANIAC)
-        defeattrainer(TRAINER_R18_TR8_BREEDER_M)
-        if(!defeated(TRAINER_R18_TR9_ACE_TRAINER_M)){
-            defeattrainer(TRAINER_R18_TR9_ACE_TRAINER_M)
+        defeattrainer(TRAINER_R18_HIKER1)
+        defeattrainer(TRAINER_R18_RANGER_M)
+        defeattrainer(TRAINER_R18_KINDLER)
+        defeattrainer(TRAINER_R18_HIKER2)
+        defeattrainer(TRAINER_R18_RANGER_F)
+        defeattrainer(TRAINER_R18_SCIENTIST)
+        defeattrainer(TRAINER_R18_POKEMANIAC)
+        defeattrainer(TRAINER_R18_BREEDER_M)
+        if(!defeated(TRAINER_R18_ACE_TRAINER_M)){
+            defeattrainer(TRAINER_R18_ACE_TRAINER_M)
             additem(ITEM_LOADED_DICE)
             setflag(FLAG_OBTAINED_LOADED_DICE)
         }

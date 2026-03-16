@@ -2,22 +2,22 @@ VictoryRoad_B2F_MapScripts::
 	.byte 0
 
 VictoryRoad_B2F_EventScript_Vito::
-	trainerbattle_single TRAINER_VITO, VictoryRoad_B2F_Text_VitoIntro, VictoryRoad_B2F_Text_VitoDefeat
+	trainerbattle_single TRAINER_ALDELEAF_MANIAC, VictoryRoad_B2F_Text_VitoIntro, VictoryRoad_B2F_Text_VitoDefeat
 	msgbox VictoryRoad_B2F_Text_VitoPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 VictoryRoad_B2F_EventScript_Owen::
-	trainerbattle_single TRAINER_OWEN, VictoryRoad_B2F_Text_OwenIntro, VictoryRoad_B2F_Text_OwenDefeat
+	trainerbattle_single TRAINER_ALDEGYM_11, VictoryRoad_B2F_Text_OwenIntro, VictoryRoad_B2F_Text_OwenDefeat
 	msgbox VictoryRoad_B2F_Text_OwenPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 VictoryRoad_B2F_EventScript_Caroline::
-	trainerbattle_single TRAINER_WPV_TR10_TRIATH, VictoryRoad_B2F_Text_CarolineIntro, VictoryRoad_B2F_Text_CarolineDefeat
+	trainerbattle_single TRAINER_WPV_TRIATH2, VictoryRoad_B2F_Text_CarolineIntro, VictoryRoad_B2F_Text_CarolineDefeat
 	msgbox VictoryRoad_B2F_Text_CarolinePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 VictoryRoad_B2F_EventScript_Julie::
-	trainerbattle_single TRAINER_WPV_TR11_BIRDKEEPER, VictoryRoad_B2F_Text_JulieIntro, VictoryRoad_B2F_Text_JulieDefeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER4, VictoryRoad_B2F_Text_JulieIntro, VictoryRoad_B2F_Text_JulieDefeat
 	msgbox VictoryRoad_B2F_Text_JuliePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -27,7 +27,7 @@ VictoryRoad_B2F_EventScript_Felix::
 	end
 
 VictoryRoad_B2F_EventScript_Dianne::
-	trainerbattle_single TRAINER_FROSTGYM_TR5_RANGER_M, VictoryRoad_B2F_Text_DianneIntro, VictoryRoad_B2F_Text_DianneDefeat
+	trainerbattle_single TRAINER_FROSTGYM_RANGER_M, VictoryRoad_B2F_Text_DianneIntro, VictoryRoad_B2F_Text_DianneDefeat
 	msgbox VictoryRoad_B2F_Text_DiannePostBattle, MSGBOX_AUTOCLOSE
 	end
 

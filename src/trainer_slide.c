@@ -59,7 +59,7 @@ static const u8* const sTrainerSlides[TRAINERS_COUNT][TRAINER_SLIDE_COUNT] =
 {
     [TRAINER_LEADER_KORRINA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("I hesitated doing this, but you've\nreally driven me into a corner here!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
     [TRAINER_LEADER_ACEROLA] =          {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Let's have some real fun!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
-    [TRAINER_BASALTUNNEL_TR12_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
+    [TRAINER_BTUN_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
     [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
     [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
     [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("{PAUSE_MUSIC}Let's see how you deal with this!{PAUSE 90}")},

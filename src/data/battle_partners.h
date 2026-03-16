@@ -62,7 +62,7 @@
 
     [PARTNER_MAY_ROWLET] =
     {
-        TRAINER_PARTY(sParty_MayRowletPartner),
+        TPARTY(sP_MayRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
@@ -72,7 +72,7 @@
     },
     [PARTNER_MAY_TORCHIC] =
     {
-        TRAINER_PARTY(sParty_MayTorchicPartner),
+        TPARTY(sP_MayTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
@@ -82,7 +82,7 @@
     },
     [PARTNER_MAY_PIPLUP] =
     {
-        TRAINER_PARTY(sParty_MayPiplupPartner),
+        TPARTY(sP_MayPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY,
@@ -92,7 +92,7 @@
     },
     [PARTNER_MAY_ORAS_ROWLET] =
     {
-        TRAINER_PARTY(sParty_MayRowletPartner),
+        TPARTY(sP_MayRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
@@ -102,7 +102,7 @@
     },
     [PARTNER_MAY_ORAS_TORCHIC] =
     {
-        TRAINER_PARTY(sParty_MayTorchicPartner),
+        TPARTY(sP_MayTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
@@ -112,7 +112,7 @@
     },
     [PARTNER_MAY_ORAS_PIPLUP] =
     {
-        TRAINER_PARTY(sParty_MayPiplupPartner),
+        TPARTY(sP_MayPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = F_TRAINER_FEMALE | TRAINER_ENCOUNTER_MUSIC_FEMALE,
         .trainerPic = TRAINER_BACK_PIC_MAY_ORAS,
@@ -123,7 +123,7 @@
 
     [PARTNER_BRENDAN_ROWLET] =
     {
-        TRAINER_PARTY(sParty_BrendanRowletPartner),
+        TPARTY(sP_BrendanRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
@@ -133,7 +133,7 @@
     },
     [PARTNER_BRENDAN_TORCHIC] =
     {
-        TRAINER_PARTY(sParty_BrendanTorchicPartner),
+        TPARTY(sP_BrendanTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
@@ -143,7 +143,7 @@
     },
     [PARTNER_BRENDAN_PIPLUP] =
     {
-        TRAINER_PARTY(sParty_BrendanPiplupPartner),
+        TPARTY(sP_BrendanPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN,
@@ -153,7 +153,7 @@
     },
     [PARTNER_BRENDAN_ORAS_ROWLET] =
     {
-        TRAINER_PARTY(sParty_BrendanRowletPartner),
+        TPARTY(sP_BrendanRowletPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,
@@ -163,7 +163,7 @@
     },
     [PARTNER_BRENDAN_ORAS_TORCHIC] =
     {
-        TRAINER_PARTY(sParty_BrendanTorchicPartner),
+        TPARTY(sP_BrendanTorchicPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,
@@ -173,7 +173,7 @@
     },
     [PARTNER_BRENDAN_ORAS_PIPLUP] =
     {
-        TRAINER_PARTY(sParty_BrendanPiplupPartner),
+        TPARTY(sP_BrendanPiplupPartner),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
         .trainerPic = TRAINER_BACK_PIC_BRENDAN_ORAS,

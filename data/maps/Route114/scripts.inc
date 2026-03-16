@@ -90,7 +90,7 @@ Route114_EventScript_Lucas::
 	end
 
 Route114_EventScript_Shane::
-	trainerbattle_single TRAINER_R11_TR4_NINJABOY, Route114_Text_ShaneIntro, Route114_Text_ShaneDefeat
+	trainerbattle_single TRAINER_R11_NINJABOY, Route114_Text_ShaneIntro, Route114_Text_ShaneDefeat
 	msgbox Route114_Text_ShanePostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -142,12 +142,12 @@ Route114_EventScript_RematchBernie::
 	end
 
 Route114_EventScript_Claude::
-	trainerbattle_single TRAINER_R3_TR4_TUBER, Route114_Text_ClaudeIntro, Route114_Text_ClaudeDefeat
+	trainerbattle_single TRAINER_R3_TUBER, Route114_Text_ClaudeIntro, Route114_Text_ClaudeDefeat
 	msgbox Route114_Text_ClaudePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route114_EventScript_Nolan::
-	trainerbattle_single TRAINER_R3_TR8_SAILOR, Route114_Text_NolanIntro, Route114_Text_NolanDefeat
+	trainerbattle_single TRAINER_R3_SAILOR, Route114_Text_NolanIntro, Route114_Text_NolanDefeat
 	msgbox Route114_Text_NolanPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -114,25 +114,25 @@ script Route3_Youngster{
 	end
 }
 script Route3_Bird2{
-    trainerbattle_single(TRAINER_R4_BIRDKEEPER_2, Route3_Bird2Intro, Route3_Bird2Defeated)
+    trainerbattle_single(TRAINER_R4_BIRDKEEPER2, Route3_Bird2Intro, Route3_Bird2Defeated)
 	msgbox(Route3_Bird2PostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end
 }
 script Route3_DoubleLass{
-    trainerbattle_single(TRAINER_R4_DOUBLE_LASS, Route3_DoubleLassIntro, Route3_DoubleLassDefeated)
+    trainerbattle_single(TRAINER_R4_LASS, Route3_DoubleLassIntro, Route3_DoubleLassDefeated)
 	msgbox(Route3_DoubleLassPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end
 }
 script Route3_DoubleBoy{
-    trainerbattle_single(TRAINER_R4_DOUBLE_YOUNGSTER, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated)
+    trainerbattle_single(TRAINER_R4_YOUNGSTER2, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated)
 	msgbox(Route3_DoubleBoyPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end
 }
 script Route3_HedgeRunner{
-    trainerbattle_single(TRAINER_R4_TRIATHLETE_2, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated)
+    trainerbattle_single(TRAINER_R4_TRIATHLETE2, Route3_HedgeRunnerIntro, Route3_HedgeRunnerDefeated)
 	msgbox(Route3_HedgeRunnerPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end

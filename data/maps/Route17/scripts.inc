@@ -35,7 +35,7 @@ Route17_MapScripts_MAP_SCRIPT_ON_RESUME:
 
 Route17_Tr1_CamperM::
 # 17 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR1_CAMPER_M, R17Tr1_Intro, R17Tr1_Lose
+	trainerbattle_single TRAINER_R17_CAMPER_M, R17Tr1_Intro, R17Tr1_Lose
 # 18 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -43,7 +43,7 @@ Route17_Tr1_CamperM::
 
 Route17_Tr2_Picnicker1::
 # 36 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR2_PICNICKER1, R17Tr2_Intro, R17Tr2_Lose
+	trainerbattle_single TRAINER_R17_PICNICKER1, R17Tr2_Intro, R17Tr2_Lose
 # 37 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -51,7 +51,7 @@ Route17_Tr2_Picnicker1::
 
 Route17_Tr3_Picnicker2::
 # 53 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR3_PICNICKER2, R17Tr3_Intro, R17Tr3_Lose
+	trainerbattle_single TRAINER_R17_PICNICKER2, R17Tr3_Intro, R17Tr3_Lose
 # 54 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -59,7 +59,7 @@ Route17_Tr3_Picnicker2::
 
 Route17_Tr4_Maniac::
 # 72 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR4_MANIAC, R17Tr4_Intro, R17Tr4_Lose
+	trainerbattle_single TRAINER_R17_MANIAC, R17Tr4_Intro, R17Tr4_Lose
 # 73 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -67,7 +67,7 @@ Route17_Tr4_Maniac::
 
 Route17_Tr5_Scientist::
 # 89 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR5_SCIENTIST, R17Tr5_Intro, R17Tr5_Lose
+	trainerbattle_single TRAINER_R17_SCIENTIST, R17Tr5_Intro, R17Tr5_Lose
 # 90 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -75,7 +75,7 @@ Route17_Tr5_Scientist::
 
 Route17_Tr6_Hiker1::
 # 107 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR6_HIKER1, R17Tr6_Intro, R17Tr6_Lose
+	trainerbattle_single TRAINER_R17_HIKER1, R17Tr6_Intro, R17Tr6_Lose
 # 108 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -83,7 +83,7 @@ Route17_Tr6_Hiker1::
 
 Route17_Tr7_Hiker2::
 # 127 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR7_HIKER2, R17Tr7_Intro, R17Tr7_Lose
+	trainerbattle_single TRAINER_R17_HIKER2, R17Tr7_Intro, R17Tr7_Lose
 # 128 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -97,7 +97,7 @@ Route17_Sign::
 
 Route17_Tr8_Cooltrainer::
 # 158 "data/maps/Route17/scripts.pory"
-	trainerbattle_single TRAINER_R17_TR8_COOLTRAINER, R17Tr8_Intro, R17Tr8_Lose
+	trainerbattle_single TRAINER_R17_COOLTRAINER, R17Tr8_Intro, R17Tr8_Lose
 # 159 "data/maps/Route17/scripts.pory"
 	msgbox R17Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end

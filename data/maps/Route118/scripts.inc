@@ -198,17 +198,17 @@ Route118_EventScript_RematchRose::
 	end
 
 Route118_EventScript_Barny::
-	trainerbattle_single TRAINER_R3_TR9_SWIMMER_M1, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
+	trainerbattle_single TRAINER_R3_SWIMMER_M1, Route118_Text_BarnyIntro, Route118_Text_BarnyDefeat
 	msgbox Route118_Text_BarnyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Wade::
-	trainerbattle_single TRAINER_R3_TR10_SWIMMER_M2, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
+	trainerbattle_single TRAINER_R3_SWIMMER_M2, Route118_Text_WadeIntro, Route118_Text_WadeDefeat
 	msgbox Route118_Text_WadePostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Dalton::
-	trainerbattle_single TRAINER_KM_TR5_HIKER, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
+	trainerbattle_single TRAINER_KM_HIKER, Route118_Text_DaltonIntro, Route118_Text_DaltonDefeat, Route118_EventScript_RegisterDalton
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route118_EventScript_RematchDalton
 	msgbox Route118_Text_DaltonPostBattle, MSGBOX_DEFAULT
@@ -219,27 +219,27 @@ Route118_EventScript_RegisterDalton::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route118_Text_DaltonRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KM_TR5_HIKER
+	register_matchcall TRAINER_KM_HIKER
 	release
 	end
 
 Route118_EventScript_RematchDalton::
-	trainerbattle_rematch TRAINER_KM_TR5_HIKER, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
+	trainerbattle_rematch TRAINER_KM_HIKER, Route118_Text_DaltonRematchIntro, Route118_Text_DaltonRematchDefeat
 	msgbox Route118_Text_DaltonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Perry::
-	trainerbattle_single TRAINER_BASALTUNNEL_TR9_BEAUTY, Route118_Text_PerryIntro, Route118_Text_PerryDefeat
+	trainerbattle_single TRAINER_BTUN_BEAUTY, Route118_Text_PerryIntro, Route118_Text_PerryDefeat
 	msgbox Route118_Text_PerryPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Chester::
-	trainerbattle_single TRAINER_R18_TR7_POKEMANIAC, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
+	trainerbattle_single TRAINER_R18_POKEMANIAC, Route118_Text_ChesterIntro, Route118_Text_ChesterDefeat
 	msgbox Route118_Text_ChesterPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route118_EventScript_Deandre::
-	trainerbattle_single TRAINER_DESERT_TR9_HIKER3DRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
+	trainerbattle_single TRAINER_DESERT_HIKER3DRE, Route118_Text_DeandreIntro, Route118_Text_DeandreDefeat
 	msgbox Route118_Text_DeandrePostBattle, MSGBOX_AUTOCLOSE
 	end
 

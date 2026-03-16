@@ -263,12 +263,12 @@ Route120_EventScript_RouteSign121::
 	end
 
 Route120_EventScript_Colin::
-	trainerbattle_single TRAINER_R18_TR4_HIKER2, Route120_Text_ColinIntro, Route120_Text_ColinDefeat
+	trainerbattle_single TRAINER_R18_HIKER2, Route120_Text_ColinIntro, Route120_Text_ColinDefeat
 	msgbox Route120_Text_ColinPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Robert::
-	trainerbattle_single TRAINER_R18_TR5_RANGER_F, Route120_Text_RobertIntro, Route120_Text_RobertDefeat, Route120_EventScript_RegisterRobert
+	trainerbattle_single TRAINER_R18_RANGER_F, Route120_Text_RobertIntro, Route120_Text_RobertDefeat, Route120_EventScript_RegisterRobert
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route120_EventScript_RematchRobert
 	msgbox Route120_Text_RobertPostBattle, MSGBOX_DEFAULT
@@ -279,12 +279,12 @@ Route120_EventScript_RegisterRobert::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route120_Text_RobertRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R18_TR5_RANGER_F
+	register_matchcall TRAINER_R18_RANGER_F
 	release
 	end
 
 Route120_EventScript_RematchRobert::
-	trainerbattle_rematch TRAINER_R18_TR5_RANGER_F, Route120_Text_RobertRematchIntro, Route120_Text_RobertRematchDefeat
+	trainerbattle_rematch TRAINER_R18_RANGER_F, Route120_Text_RobertRematchIntro, Route120_Text_RobertRematchDefeat
 	msgbox Route120_Text_RobertPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -320,12 +320,12 @@ Route120_EventScript_RematchJeffrey::
 	end
 
 Route120_EventScript_Jennifer::
-	trainerbattle_single TRAINER_WPV_TR6_MANIAC, Route120_Text_JenniferIntro, Route120_Text_JenniferDefeat
+	trainerbattle_single TRAINER_WPV_MANIAC, Route120_Text_JenniferIntro, Route120_Text_JenniferDefeat
 	msgbox Route120_Text_JenniferPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route120_EventScript_Chip::
-	trainerbattle_single TRAINER_CHIP, Route120_Text_ChipIntro, Route120_Text_ChipDefeat
+	trainerbattle_single TRAINER_CORALGYM_1, Route120_Text_ChipIntro, Route120_Text_ChipDefeat
 	msgbox Route120_Text_ChipPostBattle, MSGBOX_AUTOCLOSE
 	end
 

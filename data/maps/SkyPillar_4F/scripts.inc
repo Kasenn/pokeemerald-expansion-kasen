@@ -16,7 +16,7 @@ SkyPillar_4F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 
 AT_4F_Tr1::
 # 10 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR1_BLACKBELT
+	checktrainerflag TRAINER_AT_4F_BLACKBELT
 	goto_if 1, AT_4F_Tr1_2
 # 14 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr1_Battle
@@ -108,69 +108,69 @@ Tower_4F_Tr1_Battle_1:
 
 Tower_4F_Tr1_Battle_3:
 # 42 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_4:
 # 44 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_5:
 # 46 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_6:
 # 48 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_7:
 # 50 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_8:
 # 52 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ROWLET
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_9:
 # 54 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_10:
 # 56 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_11:
 # 58 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_12:
 # 60 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_13:
 # 62 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_14:
 # 64 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR1_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_TR1_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_4F_Tr1_Battle_1
 
 Tower_4F_Tr1_Battle_17:
 # 68 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR1_BLACKBELT
+	settrainerflag TRAINER_AT_4F_BLACKBELT
 # 69 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR1_HEXMANIAC
+	settrainerflag TRAINER_AT_4F_HEXMANIAC
 # 70 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
@@ -178,7 +178,7 @@ Tower_4F_Tr1_Battle_17:
 
 AT_4F_Tr2_Right::
 # 107 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR2_LASS
+	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_Right_2
 # 111 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 1
@@ -200,7 +200,7 @@ AT_4F_Tr2_RightTalk::
 
 AT_4F_Tr2_Left::
 # 119 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR2_LASS
+	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_Left_2
 # 123 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 2
@@ -216,7 +216,7 @@ AT_4F_Tr2_Left_2:
 
 AT_4F_Tr2_LeftTalk::
 # 127 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR2_LASS
+	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_LeftTalk_2
 # 131 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 3
@@ -320,69 +320,69 @@ Tower_4F_Tr2_Battle_5:
 
 Tower_4F_Tr2_Battle_8:
 # 159 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_9:
 # 161 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_10:
 # 163 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_11:
 # 165 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_12:
 # 167 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_13:
 # 169 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_14:
 # 171 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_15:
 # 173 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_16:
 # 175 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_17:
 # 177 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_18:
 # 179 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_19:
 # 181 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR2_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_TR2_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_22:
 # 185 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR2_LASS
+	settrainerflag TRAINER_AT_4F_LASS
 # 186 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR2_YOUNGSTER
+	settrainerflag TRAINER_AT_4F_YOUNGSTER
 # 187 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
@@ -390,7 +390,7 @@ Tower_4F_Tr2_Battle_22:
 
 AT_4F_Tr3_Up::
 # 228 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_Up_2
 # 232 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 1
@@ -406,7 +406,7 @@ AT_4F_Tr3_Up_2:
 
 AT_4F_Tr3_UpTalk::
 # 236 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_UpTalk_2
 # 240 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 2
@@ -422,7 +422,7 @@ AT_4F_Tr3_UpTalk_2:
 
 AT_4F_Tr3_Down::
 # 244 "data/maps/SkyPillar_4F/scripts.pory"
-	checktrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_Down_2
 # 248 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 3
@@ -528,69 +528,69 @@ Tower_4F_Tr3_Battle_5:
 
 Tower_4F_Tr3_Battle_8:
 # 278 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_9:
 # 280 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_10:
 # 282 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_11:
 # 284 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_12:
 # 286 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_13:
 # 288 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_14:
 # 290 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_15:
 # 292 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_16:
 # 294 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_17:
 # 296 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_TORCHIC
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_18:
 # 298 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_PIPLUP
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_19:
 # 300 "data/maps/SkyPillar_4F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_4F_TR3_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_TR3_BLACKBELT, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ROWLET
+	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_22:
 # 304 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR3_BATTLEGIRL
+	settrainerflag TRAINER_AT_4F_BATTLEGIRL
 # 305 "data/maps/SkyPillar_4F/scripts.pory"
-	settrainerflag TRAINER_AT_4F_TR3_BLACKBELT
+	settrainerflag TRAINER_AT_4F_BLACKBELT2
 # 306 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end

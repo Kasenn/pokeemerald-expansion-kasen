@@ -4,7 +4,7 @@ BasalekTunnels_MapScripts::
 
 BasaltTunnel_Tr1_Hiker1::
 # 6 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR1_HIKER1, BasaltTr1_Intro, BasaltTr1_Lose
+	trainerbattle_single TRAINER_BTUN_HIKER1, BasaltTr1_Intro, BasaltTr1_Lose
 # 7 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -12,7 +12,7 @@ BasaltTunnel_Tr1_Hiker1::
 
 BasaltTunnel_Tr2_BlackBelt::
 # 25 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR2_BLACKBELT, BasaltTr2_Intro, BasaltTr2_Lose
+	trainerbattle_single TRAINER_BTUN_BLACKBELT, BasaltTr2_Intro, BasaltTr2_Lose
 # 26 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -20,7 +20,7 @@ BasaltTunnel_Tr2_BlackBelt::
 
 BasaltTunnel_Tr3_Picnicker::
 # 43 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR3_PICNICKER, BasaltTr3_Intro, BasaltTr3_Lose
+	trainerbattle_single TRAINER_BTUN_PICNICKER, BasaltTr3_Intro, BasaltTr3_Lose
 # 44 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -28,7 +28,7 @@ BasaltTunnel_Tr3_Picnicker::
 
 BasaltTunnel_Tr4_FireBreather::
 # 63 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR4_FIREBREATHER, BasaltTr4_Intro, BasaltTr4_Lose
+	trainerbattle_single TRAINER_BTUN_FIREBREATHER, BasaltTr4_Intro, BasaltTr4_Lose
 # 64 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -36,7 +36,7 @@ BasaltTunnel_Tr4_FireBreather::
 
 BasaltTunnel_Tr5_BlackBelt2::
 # 82 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR5_BLACKBELT2, BasaltTr5_Intro, BasaltTr5_Lose
+	trainerbattle_single TRAINER_BTUN_BLACKBELT2, BasaltTr5_Intro, BasaltTr5_Lose
 # 83 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -44,7 +44,7 @@ BasaltTunnel_Tr5_BlackBelt2::
 
 BasaltTunnel_Tr6_CamperM::
 # 104 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR6_CAMPERM, BasaltTr6_Intro, BasaltTr6_Lose
+	trainerbattle_single TRAINER_BTUN_CAMPERM, BasaltTr6_Intro, BasaltTr6_Lose
 # 105 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -52,7 +52,7 @@ BasaltTunnel_Tr6_CamperM::
 
 BasaltTunnel_Tr7_Picnicker2::
 # 123 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR7_PICNICKER2, BasaltTr7_Intro, BasaltTr7_Lose
+	trainerbattle_single TRAINER_BTUN_PICNICKER2, BasaltTr7_Intro, BasaltTr7_Lose
 # 124 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -60,7 +60,7 @@ BasaltTunnel_Tr7_Picnicker2::
 
 BasaltTunnel_Tr8_Hiker2::
 # 142 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR8_HIKER2, BasaltTr8_Intro, BasaltTr8_Lose
+	trainerbattle_single TRAINER_BTUN_HIKER2, BasaltTr8_Intro, BasaltTr8_Lose
 # 143 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -68,7 +68,7 @@ BasaltTunnel_Tr8_Hiker2::
 
 BasaltTunnel_Tr9_Beauty::
 # 160 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR9_BEAUTY, BasaltTr9_Intro, BasaltTr9_Lose
+	trainerbattle_single TRAINER_BTUN_BEAUTY, BasaltTr9_Intro, BasaltTr9_Lose
 # 161 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -76,7 +76,7 @@ BasaltTunnel_Tr9_Beauty::
 
 BasaltTunnel_Tr10_FireBreather2::
 # 179 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR10_FIREBREATHER2, BasaltTr10_Intro, BasaltTr10_Lose
+	trainerbattle_single TRAINER_BTUN_FIREBREATHER2, BasaltTr10_Intro, BasaltTr10_Lose
 # 180 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -84,7 +84,7 @@ BasaltTunnel_Tr10_FireBreather2::
 
 BasaltTunnel_Tr11_Hiker3::
 # 196 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_single TRAINER_BASALTUNNEL_TR11_HIKER3, BasaltTr11_Intro, BasaltTr11_Lose
+	trainerbattle_single TRAINER_BTUN_HIKER3, BasaltTr11_Intro, BasaltTr11_Lose
 # 197 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasaltTr11_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -108,7 +108,7 @@ BasaltTunnel_Tr12_Brock::
 	msgbox BasaltTr12_IntroYes
 BasaltTunnel_Tr12_Brock_4:
 # 225 "data/maps/BasalekTunnels/scripts.pory"
-	trainerbattle_no_intro TRAINER_BASALTUNNEL_TR12_BROCK, BasaltTr12_Lose
+	trainerbattle_no_intro TRAINER_BTUN_BROCK, BasaltTr12_Lose
 # 226 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BrockPostBat
 # 227 "data/maps/BasalekTunnels/scripts.pory"
@@ -148,7 +148,7 @@ BasaltTunnel_Tr12_Brock_9:
 
 BasalekTunnelGreeter::
 # 293 "data/maps/BasalekTunnels/scripts.pory"
-	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	checktrainerflag TRAINER_BTUN_BROCK
 	goto_if 1, BasalekTunnelGreeter_1
 # 297 "data/maps/BasalekTunnels/scripts.pory"
 	msgbox BasalekTunnelGreeter_Guide, MSGBOX_NPC
@@ -170,7 +170,7 @@ BasalekTunnelGreeter_4:
 
 BasalekTunnelGreeter_5:
 # 298 "data/maps/BasalekTunnels/scripts.pory"
-	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	checktrainerflag TRAINER_BTUN_BROCK
 	goto_if 0, BasalekTunnelGreeter_4
 	return
 

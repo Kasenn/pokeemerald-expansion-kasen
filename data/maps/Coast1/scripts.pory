@@ -1,7 +1,7 @@
 mapscripts Coast1_MapScripts{}
 
 script Route3_Tr1_Swimmer_F {
-    trainerbattle_single(TRAINER_R3_TR1_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose) 
+    trainerbattle_single(TRAINER_R3_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose) 
     msgbox(R3Tr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -23,7 +23,7 @@ text R3Tr1_PostBattle{
 }
 
 script Route3_Tr2_Swimmer_M {
-    trainerbattle_single(TRAINER_R3_TR2_SWIMMER_M, R3Tr2_Intro, R3Tr2_Lose)
+    trainerbattle_single(TRAINER_R3_SWIMMER_M, R3Tr2_Intro, R3Tr2_Lose)
     msgbox(R3Tr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -41,7 +41,7 @@ text R3Tr2_PostBattle{
 }
 
 script Route3_Tr3_Swimmer_OldSister {
-    trainerbattle_single(TRAINER_R3_TR3_SWIMMER_OLDSISTER, R3Tr3_Intro, R3Tr3_Lose)
+    trainerbattle_single(TRAINER_R3_SWIMMER_OLDSIS, R3Tr3_Intro, R3Tr3_Lose)
     msgbox(R3Tr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -63,7 +63,7 @@ text R3Tr3_PostBattle{
 }
 
 script Route3_Tr4_Tuber {
-    trainerbattle_single(TRAINER_R3_TR4_TUBER, R3Tr4_Intro, R3Tr4_Lose)
+    trainerbattle_single(TRAINER_R3_TUBER, R3Tr4_Intro, R3Tr4_Lose)
     msgbox(R3Tr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -82,7 +82,7 @@ text R3Tr4_PostBattle{
 }
 
 script Route3_Tr5_Fisherman {
-    trainerbattle_single(TRAINER_R3_TR5_FISHERMAN, R3Tr5_Intro, R3Tr5_Lose)
+    trainerbattle_single(TRAINER_R3_FISHERMAN, R3Tr5_Intro, R3Tr5_Lose)
     msgbox(R3Tr5_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -101,7 +101,7 @@ text R3Tr5_PostBattle{
 }
 
 script Route3_Tr6_LandSwimmer_1 {
-    trainerbattle_single(TRAINER_R3_TR6_LANDSWIMMER_1, R3Tr6_Intro, R3Tr6_Lose)
+    trainerbattle_single(TRAINER_R3_LANDSWIMMER_1, R3Tr6_Intro, R3Tr6_Lose)
     msgbox(R3Tr6_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -119,7 +119,7 @@ text R3Tr6_PostBattle{
 }
 
 script Route3_Tr7_LandSwimmer_2 {
-    trainerbattle_single(TRAINER_R3_TR7_LANDSWIMMER_2, R3Tr7_Intro, R3Tr7_Lose)
+    trainerbattle_single(TRAINER_R3_LANDSWIMMER_2, R3Tr7_Intro, R3Tr7_Lose)
     msgbox(R3Tr7_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -140,7 +140,7 @@ text R3Tr7_PostBattle{
 }
 
 script Route3_Tr8_Sailor {
-    trainerbattle_single(TRAINER_R3_TR8_SAILOR, R3Tr8_Intro, R3Tr8_Lose)
+    trainerbattle_single(TRAINER_R3_SAILOR, R3Tr8_Intro, R3Tr8_Lose)
     msgbox(R3Tr8_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -164,7 +164,7 @@ text R3Tr8_PostBattle{
 }
 
 script Route3_Tr9_Swimmer_M1 {
-    trainerbattle_single(TRAINER_R3_TR9_SWIMMER_M1, R3Tr9_Intro, R3Tr9_Lose)
+    trainerbattle_single(TRAINER_R3_SWIMMER_M1, R3Tr9_Intro, R3Tr9_Lose)
     msgbox(R3Tr9_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -185,7 +185,7 @@ text R3Tr9_PostBattle{
 }
 
 script Route3_Tr10_Swimmer_M2 {
-    trainerbattle_single(TRAINER_R3_TR10_SWIMMER_M2, R3Tr10_Intro, R3Tr10_Lose)
+    trainerbattle_single(TRAINER_R3_SWIMMER_M2, R3Tr10_Intro, R3Tr10_Lose)
     msgbox(R3Tr10_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -203,7 +203,7 @@ text R3Tr10_PostBattle{
 }	
 
 script Route3_Tr11_Swimmer_F1 {
-    trainerbattle_single(TRAINER_R3_TR11_SWIMMER_F1, R3Tr11_Intro, R3Tr11_Lose)
+    trainerbattle_single(TRAINER_R3_SWIMMER_F1, R3Tr11_Intro, R3Tr11_Lose)
     msgbox(R3Tr11_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

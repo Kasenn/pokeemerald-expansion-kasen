@@ -234,7 +234,7 @@ Route6_Movement_PlayerFall:
 
 Route6_Trainer1_Ranger_M::
 # 111 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R6_TR1_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat
+	trainerbattle_single TRAINER_R6_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat
 # 112 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer1_Ranger_M_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -242,7 +242,7 @@ Route6_Trainer1_Ranger_M::
 
 Route6_Trainer2_PokeFan_F::
 # 130 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR2_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat
+	trainerbattle_single TRAINER_R16_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat
 # 131 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer2_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -250,7 +250,7 @@ Route6_Trainer2_PokeFan_F::
 
 Route6_Trainer3_Camper_F::
 # 146 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R6_TR3_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat
+	trainerbattle_single TRAINER_R6_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat
 # 147 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer3_Camper_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -258,7 +258,7 @@ Route6_Trainer3_Camper_F::
 
 Route6_Trainer4_Camper_M1::
 # 162 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR12_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat
+	trainerbattle_single TRAINER_R16_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat
 # 163 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer4_Camper_M1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -266,7 +266,7 @@ Route6_Trainer4_Camper_M1::
 
 Route6_Trainer5_Hiker::
 # 179 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R6_TR5_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat
+	trainerbattle_single TRAINER_R6_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat
 # 180 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -274,7 +274,7 @@ Route6_Trainer5_Hiker::
 
 Route6_Trainer6_Camper_M2::
 # 199 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R6_TR6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat
+	trainerbattle_single TRAINER_R6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat
 # 200 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer6_Camper_M2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -282,7 +282,7 @@ Route6_Trainer6_Camper_M2::
 
 Route6_Trainer7_Kindler::
 # 218 "data/maps/Route6/scripts.pory"
-	trainerbattle_single TRAINER_R6_TR7_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat
+	trainerbattle_single TRAINER_R6_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat
 # 219 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer7_Kindler_PostBattle, MSGBOX_AUTOCLOSE
 	end

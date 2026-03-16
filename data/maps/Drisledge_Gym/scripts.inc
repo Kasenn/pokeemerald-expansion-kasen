@@ -604,7 +604,7 @@ DrisledgeGym_Mimikyu5::
 
 DrisledgeGym_Trainer1::
 # 292 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER1, DrisledgeGym_Trainer4_Intro, DrisledgeGym_Trainer4_Lose, DrisledgeGym_Trainer1_PostScript
+	trainerbattle_single TRAINER_DRISGYM_1, DrisledgeGym_Trainer4_Intro, DrisledgeGym_Trainer4_Lose, DrisledgeGym_Trainer1_PostScript
 	return
 
 
@@ -682,7 +682,7 @@ DrisledgeMetatiles1::
 
 DrisledgeGym_Trainer2::
 # 340 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER2, DrisledgeGym_Trainer1_Intro, DrisledgeGym_Trainer1_Lose, DrisledgeGym_Trainer2_PostScript
+	trainerbattle_single TRAINER_DRISGYM_2, DrisledgeGym_Trainer1_Intro, DrisledgeGym_Trainer1_Lose, DrisledgeGym_Trainer2_PostScript
 	return
 
 
@@ -776,7 +776,7 @@ DrisledgeMetatiles2::
 
 DrisledgeGym_Trainer3::
 # 396 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER3, DrisledgeGym_Trainer2_Intro, DrisledgeGym_Trainer2_Lose, DrisledgeGym_Trainer3_PostScript
+	trainerbattle_single TRAINER_DRISGYM_3, DrisledgeGym_Trainer2_Intro, DrisledgeGym_Trainer2_Lose, DrisledgeGym_Trainer3_PostScript
 	return
 
 
@@ -870,7 +870,7 @@ DrisledgeMetatiles3::
 
 DrisledgeGym_Trainer4::
 # 452 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER4, DrisledgeGym_Trainer3_Intro, DrisledgeGym_Trainer3_Lose, DrisledgeGym_Trainer4_PostScript
+	trainerbattle_single TRAINER_DRISGYM_4, DrisledgeGym_Trainer3_Intro, DrisledgeGym_Trainer3_Lose, DrisledgeGym_Trainer4_PostScript
 	return
 
 
@@ -964,7 +964,7 @@ DrisledgeMetatiles4::
 
 DrisledgeGym_Trainer5::
 # 508 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER5, DrisledgeGym_Trainer5_Intro, DrisledgeGym_Trainer5_Lose, DrisledgeGym_Trainer5_PostScript
+	trainerbattle_single TRAINER_DRISGYM_5, DrisledgeGym_Trainer5_Intro, DrisledgeGym_Trainer5_Lose, DrisledgeGym_Trainer5_PostScript
 	return
 
 
@@ -1058,7 +1058,7 @@ DrisledgeMetatiles5::
 
 DrisledgeGym_Trainer6::
 # 564 "data/maps/Drisledge_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DRISLEDGEGYM_TRAINER6, DrisledgeGym_Trainer6_Intro, DrisledgeGym_Trainer6_Lose, DrisledgeGym_Trainer6_PostScript
+	trainerbattle_single TRAINER_DRISGYM_6, DrisledgeGym_Trainer6_Intro, DrisledgeGym_Trainer6_Lose, DrisledgeGym_Trainer6_PostScript
 	return
 
 

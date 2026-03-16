@@ -62,7 +62,7 @@ AldeleafCity_Maniac::
 # 41 "data/maps/WipCity1/scripts.pory"
 	faceplayer
 # 42 "data/maps/WipCity1/scripts.pory"
-	checktrainerflag TRAINER_VITO
+	checktrainerflag TRAINER_ALDELEAF_MANIAC
 	goto_if 1, AldeleafCity_Maniac_1
 # 59 "data/maps/WipCity1/scripts.pory"
 	msgbox AldeleafCity_Maniac_Text, MSGBOX_YESNO
@@ -118,7 +118,7 @@ AldeleafCity_Maniac_14:
 
 AldeleafCity_Maniac_8:
 # 61 "data/maps/WipCity1/scripts.pory"
-	trainerbattle_no_intro TRAINER_VITO, AldeleafCity_Maniac_Defeated
+	trainerbattle_no_intro TRAINER_ALDELEAF_MANIAC, AldeleafCity_Maniac_Defeated
 	goto AldeleafCity_Maniac_7
 
 AldeleafCity_Maniac_12:

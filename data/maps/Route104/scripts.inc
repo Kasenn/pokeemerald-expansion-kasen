@@ -843,12 +843,12 @@ Route104_Movement_BrineyExitBoat:
 	step_end
 
 Route104_EventScript_Ivan::
-	trainerbattle_single TRAINER_R3_TR3_SWIMMER_OLDSISTER, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
+	trainerbattle_single TRAINER_R3_SWIMMER_OLDSIS, Route104_Text_IvanIntro, Route104_Text_IvanDefeat
 	msgbox Route104_Text_IvanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route104_EventScript_Billy::
-	trainerbattle_single TRAINER_R23_TR8_TRIATHLETE_F, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
+	trainerbattle_single TRAINER_R23_TRIATHLETE_F, Route104_Text_BillyIntro, Route104_Text_BillyDefeat
 	msgbox Route104_Text_BillyPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -894,10 +894,10 @@ Route104_EventScript_RematchHaley::
 	end
 
 Route104_EventScript_Winston::
-	trainerbattle_single TRAINER_R8_TR7_TRIATHLETE_M, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_EventScript_TryRegisterWinstonAfterBattle
+	trainerbattle_single TRAINER_R8_TRIATHLETE_M, Route104_Text_WinstonIntro, Route104_Text_WinstonDefeat, Route104_EventScript_TryRegisterWinstonAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchWinston
-	setvar VAR_0x8004, TRAINER_R8_TR7_TRIATHLETE_M
+	setvar VAR_0x8004, TRAINER_R8_TRIATHLETE_M
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterWinston
 	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
@@ -913,7 +913,7 @@ Route104_EventScript_TryRegisterWinstonAfterBattle::
 
 Route104_EventScript_RegisterWinstonAfterBattle::
 	msgbox Route104_Text_WinstonRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R8_TR7_TRIATHLETE_M
+	register_matchcall TRAINER_R8_TRIATHLETE_M
 	release
 	end
 
@@ -925,20 +925,20 @@ Route104_EventScript_TryRegisterWinston::
 
 Route104_EventScript_RegisterWinston::
 	msgbox Route104_Text_WinstonRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R8_TR7_TRIATHLETE_M
+	register_matchcall TRAINER_R8_TRIATHLETE_M
 	release
 	end
 
 Route104_EventScript_RematchWinston::
-	trainerbattle_rematch TRAINER_R8_TR7_TRIATHLETE_M, Route104_Text_WinstonRematchIntro, Route104_Text_WinstonRematchDefeat
+	trainerbattle_rematch TRAINER_R8_TRIATHLETE_M, Route104_Text_WinstonRematchIntro, Route104_Text_WinstonRematchDefeat
 	msgbox Route104_Text_WinstonPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route104_EventScript_Cindy::
-	trainerbattle_single TRAINER_R5_TR7_GENTLEMAN, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
+	trainerbattle_single TRAINER_R5_GENTLEMAN, Route104_Text_CindyIntro, Route104_Text_CindyDefeat, Route104_EventScript_TryRegisterCindyAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route104_EventScript_RematchCindy
-	setvar VAR_0x8004, TRAINER_R5_TR7_GENTLEMAN
+	setvar VAR_0x8004, TRAINER_R5_GENTLEMAN
 	specialvar VAR_RESULT, IsTrainerRegistered
 	goto_if_eq VAR_RESULT, FALSE, Route104_EventScript_TryRegisterCindy
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
@@ -954,7 +954,7 @@ Route104_EventScript_TryRegisterCindyAfterBattle::
 
 Route104_EventScript_RegisterCindyAfterBattle::
 	msgbox Route104_Text_CindyRegister2, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R5_TR7_GENTLEMAN
+	register_matchcall TRAINER_R5_GENTLEMAN
 	release
 	end
 
@@ -966,12 +966,12 @@ Route104_EventScript_TryRegisterCindy::
 
 Route104_EventScript_RegisterCindy::
 	msgbox Route104_Text_CindyRegister1, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R5_TR7_GENTLEMAN
+	register_matchcall TRAINER_R5_GENTLEMAN
 	release
 	end
 
 Route104_EventScript_RematchCindy::
-	trainerbattle_rematch TRAINER_R5_TR7_GENTLEMAN, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
+	trainerbattle_rematch TRAINER_R5_GENTLEMAN, Route104_Text_CindyRematchIntro, Route104_Text_CindyRematchDefeat
 	msgbox Route104_Text_CindyPostRematch, MSGBOX_AUTOCLOSE
 	end
 

@@ -132,7 +132,7 @@ script CoastTown_Swimmer{
 }
 
 script AzureTide_MysteryWoman{
-    if(defeated(TRAINER_AZURETIDE_CELEBI_TR1)){
+    if(defeated(TRAINER_AZURETIDE_CELEBI)){
         msgbox(AzureTide_MysteryWoman_AfterBattleGossip, MSGBOX_NPC)
         end
     }
@@ -394,7 +394,7 @@ script AzureTide_MysteryWoman_Battle{
         end
     }
     msgbox(AzureTide_MysteryWoman_Battle_Intro)
-    trainerbattle_no_intro(TRAINER_AZURETIDE_CELEBI_TR1, AzureTide_MysteryWoman_Battle_Lose)
+    trainerbattle_no_intro(TRAINER_AZURETIDE_CELEBI, AzureTide_MysteryWoman_Battle_Lose)
     msgbox(AzureTide_MysteryWoman_PostBattle)
     giveitem(ITEM_DISC_FRAGMENT)
     if(checkitem(ITEM_DISC_FRAGMENT, 2) == TRUE){

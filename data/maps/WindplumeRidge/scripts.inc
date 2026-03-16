@@ -115,7 +115,7 @@ Windplume_Guide_2:
 
 Windplume_Trainer1::
 # 94 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR1_BIRDKEEPER, Windplume_Text_Trainer1Intro, Windplume_Text_Trainer1Defeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER, Windplume_Text_Trainer1Intro, Windplume_Text_Trainer1Defeat
 # 95 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -123,7 +123,7 @@ Windplume_Trainer1::
 
 Windplume_Trainer2::
 # 113 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR2_TRIATH, Windplume_Text_Trainer2Intro, Windplume_Text_Trainer2Defeat
+	trainerbattle_single TRAINER_WPV_TRIATH, Windplume_Text_Trainer2Intro, Windplume_Text_Trainer2Defeat
 # 114 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -131,7 +131,7 @@ Windplume_Trainer2::
 
 Windplume_Trainer3::
 # 129 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR3_BATTLEGIRL, Windplume_Text_Trainer3Intro, Windplume_Text_Trainer3Defeat
+	trainerbattle_single TRAINER_WPV_BATTLEGIRL, Windplume_Text_Trainer3Intro, Windplume_Text_Trainer3Defeat
 # 130 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -139,7 +139,7 @@ Windplume_Trainer3::
 
 Windplume_Trainer4::
 # 150 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR4_CAMPER, Windplume_Text_Trainer4Intro, Windplume_Text_Trainer4Defeat
+	trainerbattle_single TRAINER_WPV_CAMPER, Windplume_Text_Trainer4Intro, Windplume_Text_Trainer4Defeat
 # 151 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -147,7 +147,7 @@ Windplume_Trainer4::
 
 Windplume_Trainer5::
 # 169 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR5_BIRDKEEPER, Windplume_Text_Trainer5Intro, Windplume_Text_Trainer5Defeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER2, Windplume_Text_Trainer5Intro, Windplume_Text_Trainer5Defeat
 # 170 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -155,7 +155,7 @@ Windplume_Trainer5::
 
 Windplume_Trainer6::
 # 191 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR6_MANIAC, Windplume_Text_Trainer6Intro, Windplume_Text_Trainer6Defeat
+	trainerbattle_single TRAINER_WPV_MANIAC, Windplume_Text_Trainer6Intro, Windplume_Text_Trainer6Defeat
 # 192 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -163,7 +163,7 @@ Windplume_Trainer6::
 
 Windplume_Trainer7::
 # 209 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR7_BIRDKEEPER, Windplume_Text_Trainer7Intro, Windplume_Text_Trainer7Defeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER3, Windplume_Text_Trainer7Intro, Windplume_Text_Trainer7Defeat
 # 210 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -171,7 +171,7 @@ Windplume_Trainer7::
 
 Windplume_Trainer8::
 # 229 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR8_NINJABOY, Windplume_Text_Trainer8Intro, Windplume_Text_Trainer8Defeat
+	trainerbattle_single TRAINER_WPV_NINJABOY, Windplume_Text_Trainer8Intro, Windplume_Text_Trainer8Defeat
 # 230 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -179,7 +179,7 @@ Windplume_Trainer8::
 
 Windplume_Trainer9::
 # 248 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR9_LASS, Windplume_Text_Trainer9Intro, Windplume_Text_Trainer9Defeat
+	trainerbattle_single TRAINER_WPV_LASS, Windplume_Text_Trainer9Intro, Windplume_Text_Trainer9Defeat
 # 249 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -187,7 +187,7 @@ Windplume_Trainer9::
 
 Windplume_Trainer10::
 # 269 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR10_TRIATH, Windplume_Text_Trainer10Intro, Windplume_Text_Trainer10Defeat
+	trainerbattle_single TRAINER_WPV_TRIATH2, Windplume_Text_Trainer10Intro, Windplume_Text_Trainer10Defeat
 # 270 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -195,7 +195,7 @@ Windplume_Trainer10::
 
 Windplume_Trainer11::
 # 285 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR11_BIRDKEEPER, Windplume_Text_Trainer11Intro, Windplume_Text_Trainer11Defeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER4, Windplume_Text_Trainer11Intro, Windplume_Text_Trainer11Defeat
 # 286 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -203,7 +203,7 @@ Windplume_Trainer11::
 
 Windplume_Trainer12::
 # 304 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR12_BATTLEGIRL, Windplume_Text_Trainer12Intro, Windplume_Text_Trainer12Defeat
+	trainerbattle_single TRAINER_WPV_BATTLEGIRL2, Windplume_Text_Trainer12Intro, Windplume_Text_Trainer12Defeat
 # 305 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -211,7 +211,7 @@ Windplume_Trainer12::
 
 Windplume_Trainer13::
 # 324 "data/maps/WindplumeRidge/scripts.pory"
-	trainerbattle_single TRAINER_WPV_TR13_BIRDKEEPER, Windplume_Text_Trainer13Intro, Windplume_Text_Trainer13Defeat
+	trainerbattle_single TRAINER_WPV_BIRDKEEPER5, Windplume_Text_Trainer13Intro, Windplume_Text_Trainer13Defeat
 # 325 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -257,31 +257,31 @@ Windplume_Event_SkylaDefeated::
 
 SetWindPlumeTrainersDefeated::
 # 405 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR1_BIRDKEEPER
+	settrainerflag TRAINER_WPV_BIRDKEEPER
 # 406 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR2_TRIATH
+	settrainerflag TRAINER_WPV_TRIATH
 # 407 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR3_BATTLEGIRL
+	settrainerflag TRAINER_WPV_BATTLEGIRL
 # 408 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR4_CAMPER
+	settrainerflag TRAINER_WPV_CAMPER
 # 409 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR5_BIRDKEEPER
+	settrainerflag TRAINER_WPV_BIRDKEEPER2
 # 410 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR6_MANIAC
+	settrainerflag TRAINER_WPV_MANIAC
 # 411 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR7_BIRDKEEPER
+	settrainerflag TRAINER_WPV_BIRDKEEPER3
 # 412 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR8_NINJABOY
+	settrainerflag TRAINER_WPV_NINJABOY
 # 413 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR9_LASS
+	settrainerflag TRAINER_WPV_LASS
 # 414 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR10_TRIATH
+	settrainerflag TRAINER_WPV_TRIATH2
 # 415 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR11_BIRDKEEPER
+	settrainerflag TRAINER_WPV_BIRDKEEPER4
 # 416 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR12_BATTLEGIRL
+	settrainerflag TRAINER_WPV_BATTLEGIRL2
 # 417 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TR13_BIRDKEEPER
+	settrainerflag TRAINER_WPV_BIRDKEEPER5
 	return
 
 

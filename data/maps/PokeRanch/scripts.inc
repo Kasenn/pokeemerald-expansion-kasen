@@ -479,7 +479,7 @@ PokeRanch_MareepTrigger::
 # 314 "data/maps/PokeRanch/scripts.pory"
 	delay 50
 # 315 "data/maps/PokeRanch/scripts.pory"
-	checktrainerflag TRAINER_SHELLY_SEAFLOOR_CAVERN
+	checktrainerflag TRAINER_WW_ROCKET
 	goto_if 1, PokeRanch_MareepTrigger_2
 # 321 "data/maps/PokeRanch/scripts.pory"
 	msgbox RanchGrunt2, MSGBOX_DEFAULT
@@ -588,7 +588,7 @@ PokeRanch_MareepTrigger_5:
 # 377 "data/maps/PokeRanch/scripts.pory"
 	delay 20
 # 378 "data/maps/PokeRanch/scripts.pory"
-	trainerbattle_no_intro TRAINER_RICKY_4, PokeRanchRocket1Defeat
+	trainerbattle_no_intro TRAINER_RANCH_ROCKET, PokeRanchRocket1Defeat
 # 379 "data/maps/PokeRanch/scripts.pory"
 	goto Ranch_FirstRocketWon
 	end
@@ -694,7 +694,7 @@ Ranch_FirstRocketWon::
 # 426 "data/maps/PokeRanch/scripts.pory"
 	closemessage
 # 427 "data/maps/PokeRanch/scripts.pory"
-	trainerbattle_no_intro TRAINER_RICKY_5, PokeRanchRocket2Defeat
+	trainerbattle_no_intro TRAINER_RANCH_ROCKET2, PokeRanchRocket2Defeat
 # 428 "data/maps/PokeRanch/scripts.pory"
 	goto PokeRanch_SpecialBattleWon
 	end

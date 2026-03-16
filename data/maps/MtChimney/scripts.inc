@@ -480,7 +480,7 @@ MtChimney_EventScript_RouteSign::
 	end
 
 MtChimney_EventScript_Shelby::
-	trainerbattle_single TRAINER_R23_TR2_MANIAC, MtChimney_Text_ShelbyIntro, MtChimney_Text_ShelbyDefeat, MtChimney_EventScript_DefeatedShelby
+	trainerbattle_single TRAINER_R23_MANIAC, MtChimney_Text_ShelbyIntro, MtChimney_Text_ShelbyDefeat, MtChimney_EventScript_DefeatedShelby
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MtChimney_EventScript_RematchShelby
 	msgbox MtChimney_Text_ShelbyPostBattle, MSGBOX_DEFAULT
@@ -491,27 +491,27 @@ MtChimney_EventScript_DefeatedShelby::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox MtChimney_Text_ShelbyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R23_TR2_MANIAC
+	register_matchcall TRAINER_R23_MANIAC
 	release
 	end
 
 MtChimney_EventScript_RematchShelby::
-	trainerbattle_rematch TRAINER_R23_TR2_MANIAC, MtChimney_Text_ShelbyRematchIntro, MtChimney_Text_ShelbyRematchDefeat
+	trainerbattle_rematch TRAINER_R23_MANIAC, MtChimney_Text_ShelbyRematchIntro, MtChimney_Text_ShelbyRematchDefeat
 	msgbox MtChimney_Text_ShelbyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 MtChimney_EventScript_Melissa::
-	trainerbattle_single TRAINER_R16_TR2_SWIMMER_F, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
+	trainerbattle_single TRAINER_R16_SWIMMER_F, MtChimney_Text_MelissaIntro, MtChimney_Text_MelissaDefeat
 	msgbox MtChimney_Text_MelissaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtChimney_EventScript_Sheila::
-	trainerbattle_single TRAINER_R6_TR3_CAMPER_F, MtChimney_Text_SheilaIntro, MtChimney_Text_SheilaDefeat
+	trainerbattle_single TRAINER_R6_CAMPER_F, MtChimney_Text_SheilaIntro, MtChimney_Text_SheilaDefeat
 	msgbox MtChimney_Text_SheilaPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 MtChimney_EventScript_Shirley::
-	trainerbattle_single TRAINER_R16_TR12_NINJABOY2, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
+	trainerbattle_single TRAINER_R16_NINJABOY2, MtChimney_Text_ShirleyIntro, MtChimney_Text_ShirleyDefeat
 	msgbox MtChimney_Text_ShirleyPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -7,12 +7,12 @@ Route126_OnTransition:
 	end
 
 Route126_EventScript_Barry::
-	trainerbattle_single TRAINER_DESERT_TR8_HIKER2, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
+	trainerbattle_single TRAINER_DESERT_HIKER2, Route126_Text_BarryIntro, Route126_Text_BarryDefeat
 	msgbox Route126_Text_BarryPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route126_EventScript_Dean::
-	trainerbattle_single TRAINER_DESERT_TR9_HIKER3, Route126_Text_DeanIntro, Route126_Text_DeanDefeat
+	trainerbattle_single TRAINER_DESERT_HIKER3, Route126_Text_DeanIntro, Route126_Text_DeanDefeat
 	msgbox Route126_Text_DeanPostBattle, MSGBOX_AUTOCLOSE
 	end
 
@@ -32,7 +32,7 @@ Route126_EventScript_Leonardo::
 	end
 
 Route126_EventScript_Isobel::
-	trainerbattle_single TRAINER_R17_TR2_PICNICKER1, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
+	trainerbattle_single TRAINER_R17_PICNICKER1, Route126_Text_IsobelIntro, Route126_Text_IsobelDefeat
 	msgbox Route126_Text_IsobelPostBattle, MSGBOX_AUTOCLOSE
 	end
 

@@ -142,7 +142,7 @@ script DesertItem3{
 }
 
 script Desert_Trainer1_Camper {
-    trainerbattle_single(TRAINER_DESERT_TR1_CAMPER, Desert_Trainer1_Camper_Intro, Desert_Trainer1_Camper_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_CAMPER, Desert_Trainer1_Camper_Intro, Desert_Trainer1_Camper_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -160,7 +160,7 @@ text Desert_Trainer1_Camper_PostBattle{
 }
 
 script Desert_Trainer2_Camper2 {
-    trainerbattle_single(TRAINER_DESERT_TR2_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_CAMPER2, Desert_Trainer2_Camper2_Intro, Desert_Trainer2_Camper2_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer2_Camper2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -181,7 +181,7 @@ text Desert_Trainer2_Camper2_PostBattle{
 }
 
 script Desert_Trainer3_Picnicker {
-    trainerbattle_single(TRAINER_DESERT_TR3_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_PICNICKER, Desert_Trainer3_Picnicker_Intro, Desert_Trainer3_Picnicker_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer3_Picnicker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -200,7 +200,7 @@ text Desert_Trainer3_Picnicker_PostBattle{
 }
 
 script Desert_Trainer4_Picnicker2 {
-    trainerbattle_single(TRAINER_DESERT_TR4_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_PICNICKER2, Desert_Trainer4_Picnicker2_Intro, Desert_Trainer4_Picnicker2_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer4_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -221,7 +221,7 @@ text Desert_Trainer4_Picnicker2_PostBattle{
 }
 
 script Desert_Trainer5_Hiker {
-    trainerbattle_single(TRAINER_DESERT_TR5_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_HIKER, Desert_Trainer5_Hiker_Intro, Desert_Trainer5_Hiker_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -242,7 +242,7 @@ text Desert_Trainer5_Hiker_PostBattle{
 }
 
 script Desert_Trainer6_Blackbelt {
-    trainerbattle_single(TRAINER_DESERT_TR6_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_BLACKBELT, Desert_Trainer6_Blackbelt_Intro, Desert_Trainer6_Blackbelt_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer6_Blackbelt_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -262,7 +262,7 @@ text Desert_Trainer6_Blackbelt_PostBattle{
 }
 
 script Desert_Trainer7_Picnicker3 {
-    trainerbattle_single(TRAINER_DESERT_TR7_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_PICNICKER3, Desert_Trainer7_Picnicker3_Intro, Desert_Trainer7_Picnicker3_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer7_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -282,7 +282,7 @@ text Desert_Trainer7_Picnicker3_PostBattle{
 }
 
 script Desert_Trainer8_Hiker2 {
-    trainerbattle_single(TRAINER_DESERT_TR8_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_HIKER2, Desert_Trainer8_Hiker2_Intro, Desert_Trainer8_Hiker2_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer8_Hiker2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -305,7 +305,7 @@ text Desert_Trainer8_Hiker2_PostBattle{
 }
 
 script Desert_Trainer9_Hiker3 {
-    trainerbattle_single(TRAINER_DESERT_TR9_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_HIKER3, Desert_Trainer9_Hiker3_Intro, Desert_Trainer9_Hiker3_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer9_Hiker3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -323,7 +323,7 @@ text Desert_Trainer9_Hiker3_PostBattle{
 }
 
 script Desert_Trainer10_Firebreather {
-    trainerbattle_single(TRAINER_DESERT_TR10_FIREBREATHER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_KINDLER, Desert_Trainer10_Firebreather_Intro, Desert_Trainer10_Firebreather_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer10_Firebreather_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -344,7 +344,7 @@ text Desert_Trainer10_Firebreather_PostBattle{
 }
 
 script Desert_Trainer11_Blackbelt2 {
-    trainerbattle_single(TRAINER_DESERT_TR11_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_BLACKBELT2, Desert_Trainer11_Blackbelt2_Intro, Desert_Trainer11_Blackbelt2_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer11_Blackbelt2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -364,7 +364,7 @@ text Desert_Trainer11_Blackbelt2_PostBattle{
 }
 
 script Desert_Trainer12_Hiker4 {
-    trainerbattle_single(TRAINER_DESERT_TR12_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_HIKER4, Desert_Trainer12_Hiker4_Intro, Desert_Trainer12_Hiker4_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer12_Hiker4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -388,7 +388,7 @@ text Desert_Trainer12_Hiker4_PostBattle{
 }
 
 script Desert_Trainer13_Psychic_F {
-    trainerbattle_single(TRAINER_DESERT_TR13_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar)
+    trainerbattle_single(TRAINER_DESERT_PSYCHIC_F, Desert_Trainer13_Psychic_F_Intro, Desert_Trainer13_Psychic_F_Defeat, DesertTrainer_IncreaseVar)
     msgbox(Desert_Trainer13_Psychic_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -466,7 +466,7 @@ script Desert_Trainer14_CooltrainerEligibleForBattle{
     }
     if(var(VAR_RESULT) == YES){
         msgbox("Yay! Let's go!", MSGBOX_DEFAULT)
-        trainerbattle_no_intro(TRAINER_DESERT_TR14_COOLTRAINER, Desert_Trainer14_CooltrainerDefeated)
+        trainerbattle_no_intro(TRAINER_DESERT_ACETRAINER, Desert_Trainer14_CooltrainerDefeated)
         goto(Desert_Trainer14_CooltrainerPostBattle)
 	    end
     }

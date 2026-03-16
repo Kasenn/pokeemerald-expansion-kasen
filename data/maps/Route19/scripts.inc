@@ -70,7 +70,7 @@ Route19_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 Route19_Tr1_SwimmerF::
 # 35 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR1_SWIMMER_F, R19Tr1_Intro, R19Tr1_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_F, R19Tr1_Intro, R19Tr1_Lose
 # 36 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -78,7 +78,7 @@ Route19_Tr1_SwimmerF::
 
 Route19_Tr2_SwimmerM::
 # 53 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR2_SWIMMER_M, R19Tr2_Intro, R19Tr2_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_M, R19Tr2_Intro, R19Tr2_Lose
 # 54 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -86,7 +86,7 @@ Route19_Tr2_SwimmerM::
 
 Route19_Tr3_SwimmerM::
 # 69 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR3_SWIMMER_M, R19Tr3_Intro, R19Tr3_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_M2, R19Tr3_Intro, R19Tr3_Lose
 # 70 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -94,7 +94,7 @@ Route19_Tr3_SwimmerM::
 
 Route19_Tr4_SwimmerCoupleM::
 # 89 "data/maps/Route19/scripts.pory"
-	trainerbattle_double TRAINER_R19_TR4_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleM_Intro, Route19_Tr4_SwimmerCoupleM_Defeat, Route19_Tr4_SwimmerCoupleM_NotEnoughMons
+	trainerbattle_double TRAINER_R19_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleM_Intro, Route19_Tr4_SwimmerCoupleM_Defeat, Route19_Tr4_SwimmerCoupleM_NotEnoughMons
 # 90 "data/maps/Route19/scripts.pory"
 	msgbox Route19_Tr4_SwimmerCoupleM_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -102,7 +102,7 @@ Route19_Tr4_SwimmerCoupleM::
 
 Route19_Tr4_SwimmerCoupleF::
 # 111 "data/maps/Route19/scripts.pory"
-	trainerbattle_double TRAINER_R19_TR4_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleF_Intro, Route19_Tr4_SwimmerCoupleF_Defeat, Route19_Tr4_SwimmerCoupleF_NotEnoughMons
+	trainerbattle_double TRAINER_R19_SWIMMER_COUPLE, Route19_Tr4_SwimmerCoupleF_Intro, Route19_Tr4_SwimmerCoupleF_Defeat, Route19_Tr4_SwimmerCoupleF_NotEnoughMons
 # 112 "data/maps/Route19/scripts.pory"
 	msgbox Route19_Tr4_SwimmerCoupleF_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -110,7 +110,7 @@ Route19_Tr4_SwimmerCoupleF::
 
 Route19_Tr5_SwimmerF::
 # 133 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR5_SWIMMER_F, R19Tr5_Intro, R19Tr5_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_F2, R19Tr5_Intro, R19Tr5_Lose
 # 134 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -118,7 +118,7 @@ Route19_Tr5_SwimmerF::
 
 Route19_Tr6_SwimmerM::
 # 151 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR6_SWIMMER_M, R19Tr6_Intro, R19Tr6_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_M3, R19Tr6_Intro, R19Tr6_Lose
 # 152 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -126,7 +126,7 @@ Route19_Tr6_SwimmerM::
 
 Route19_Tr7_BlackBelt::
 # 171 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR7_BLACKBELT, R19Tr7_Intro, R19Tr7_Lose
+	trainerbattle_single TRAINER_R19_BLACKBELT, R19Tr7_Intro, R19Tr7_Lose
 # 172 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -134,7 +134,7 @@ Route19_Tr7_BlackBelt::
 
 Route19_Tr8_Hiker::
 # 189 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR8_HIKER, R19Tr8_Intro, R19Tr8_Lose
+	trainerbattle_single TRAINER_R19_HIKER, R19Tr8_Intro, R19Tr8_Lose
 # 190 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -142,7 +142,7 @@ Route19_Tr8_Hiker::
 
 Route19_Tr9_Picnicker::
 # 208 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR9_PICNICKER, R19Tr9_Intro, R19Tr9_Lose
+	trainerbattle_single TRAINER_R19_PICNICKER, R19Tr9_Intro, R19Tr9_Lose
 # 209 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -150,7 +150,7 @@ Route19_Tr9_Picnicker::
 
 Route19_Tr10_SwimmerM::
 # 225 "data/maps/Route19/scripts.pory"
-	trainerbattle_single TRAINER_R19_TR10_SWIMMER_M, R19Tr10_Intro, R19Tr10_Lose
+	trainerbattle_single TRAINER_R19_SWIMMER_M4, R19Tr10_Intro, R19Tr10_Lose
 # 226 "data/maps/Route19/scripts.pory"
 	msgbox R19Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end

@@ -7,7 +7,7 @@ Route18_MapScripts::
 
 Route18_MapScripts_MAP_SCRIPT_ON_TRANSITION:
 # 3 "data/maps/Route18/scripts.pory"
-	cleartrainerflag TRAINER_R18_TR8_BREEDER_M
+	cleartrainerflag TRAINER_R18_BREEDER_M
 # 4 "data/maps/Route18/scripts.pory"
 	compare VAR_SPHERES_FOUND, 4
 	goto_if_ge Route18_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
@@ -39,7 +39,7 @@ Route18_MapScripts_MAP_SCRIPT_ON_RESUME:
 
 Route18_Tr1_Hiker1::
 # 19 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR1_HIKER1, R18Tr1_Intro, R18Tr1_Lose
+	trainerbattle_single TRAINER_R18_HIKER1, R18Tr1_Intro, R18Tr1_Lose
 # 20 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -47,7 +47,7 @@ Route18_Tr1_Hiker1::
 
 Route18_Tr2_RangerM::
 # 42 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR2_RANGER_M, R18Tr2_Intro, R18Tr2_Lose
+	trainerbattle_single TRAINER_R18_RANGER_M, R18Tr2_Intro, R18Tr2_Lose
 # 43 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -55,7 +55,7 @@ Route18_Tr2_RangerM::
 
 Route18_Tr3_Kindler::
 # 65 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR3_KINDLER, R18Tr3_Intro, R18Tr3_Lose
+	trainerbattle_single TRAINER_R18_KINDLER, R18Tr3_Intro, R18Tr3_Lose
 # 66 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -63,7 +63,7 @@ Route18_Tr3_Kindler::
 
 Route18_Tr4_Hiker2::
 # 86 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR4_HIKER2, R18Tr4_Intro, R18Tr4_Lose
+	trainerbattle_single TRAINER_R18_HIKER2, R18Tr4_Intro, R18Tr4_Lose
 # 87 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -71,7 +71,7 @@ Route18_Tr4_Hiker2::
 
 Route18_Tr5_RangerF::
 # 106 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR5_RANGER_F, R18Tr5_Intro, R18Tr5_Lose
+	trainerbattle_single TRAINER_R18_RANGER_F, R18Tr5_Intro, R18Tr5_Lose
 # 107 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -79,7 +79,7 @@ Route18_Tr5_RangerF::
 
 Route18_Tr6_Scientist::
 # 126 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR6_SCIENTIST, R18Tr6_Intro, R18Tr6_Lose
+	trainerbattle_single TRAINER_R18_SCIENTIST, R18Tr6_Intro, R18Tr6_Lose
 # 127 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -87,7 +87,7 @@ Route18_Tr6_Scientist::
 
 Route18_Tr7_Pokemaniac::
 # 146 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR7_POKEMANIAC, R18Tr7_Intro, R18Tr7_Lose
+	trainerbattle_single TRAINER_R18_POKEMANIAC, R18Tr7_Intro, R18Tr7_Lose
 # 147 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -95,7 +95,7 @@ Route18_Tr7_Pokemaniac::
 
 Route18_Tr8_BreederM::
 # 163 "data/maps/Route18/scripts.pory"
-	trainerbattle_single TRAINER_R18_TR8_BREEDER_M, R18Tr8_Intro, R18Tr8_Lose, SetR18BreederFlag
+	trainerbattle_single TRAINER_R18_BREEDER_M, R18Tr8_Intro, R18Tr8_Lose, SetR18BreederFlag
 # 164 "data/maps/Route18/scripts.pory"
 	msgbox R18Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -111,10 +111,10 @@ SetR18BreederFlag::
 
 Route18_Tr9_AceTrainerM::
 # 185 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR9_ACE_TRAINER_M
+	checktrainerflag TRAINER_R18_ACE_TRAINER_M
 	goto_if 1, Route18_Tr9_AceTrainerM_1
 # 188 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR1_HIKER1
+	checktrainerflag TRAINER_R18_HIKER1
 	goto_if 1, Route18_Tr9_AceTrainerM_5
 Route18_Tr9_AceTrainerM_3:
 # 200 "data/maps/Route18/scripts.pory"
@@ -133,37 +133,37 @@ Route18_Tr9_AceTrainerM_2:
 
 Route18_Tr9_AceTrainerM_4:
 # 190 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR3_KINDLER
+	checktrainerflag TRAINER_R18_KINDLER
 	goto_if 1, Route18_Tr9_AceTrainerM_9
 	goto Route18_Tr9_AceTrainerM_3
 
 Route18_Tr9_AceTrainerM_5:
 # 189 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR2_RANGER_M
+	checktrainerflag TRAINER_R18_RANGER_M
 	goto_if 1, Route18_Tr9_AceTrainerM_4
 	goto Route18_Tr9_AceTrainerM_3
 
 Route18_Tr9_AceTrainerM_8:
 # 192 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR5_RANGER_F
+	checktrainerflag TRAINER_R18_RANGER_F
 	goto_if 1, Route18_Tr9_AceTrainerM_13
 	goto Route18_Tr9_AceTrainerM_3
 
 Route18_Tr9_AceTrainerM_9:
 # 191 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR4_HIKER2
+	checktrainerflag TRAINER_R18_HIKER2
 	goto_if 1, Route18_Tr9_AceTrainerM_8
 	goto Route18_Tr9_AceTrainerM_3
 
 Route18_Tr9_AceTrainerM_12:
 # 194 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR7_POKEMANIAC
+	checktrainerflag TRAINER_R18_POKEMANIAC
 	goto_if 1, Route18_Tr9_AceTrainerM_16
 	goto Route18_Tr9_AceTrainerM_3
 
 Route18_Tr9_AceTrainerM_13:
 # 193 "data/maps/Route18/scripts.pory"
-	checktrainerflag TRAINER_R18_TR6_SCIENTIST
+	checktrainerflag TRAINER_R18_SCIENTIST
 	goto_if 1, Route18_Tr9_AceTrainerM_12
 	goto Route18_Tr9_AceTrainerM_3
 
@@ -202,7 +202,7 @@ R18_Ace_EligibleForBattle_6:
 # 215 "data/maps/Route18/scripts.pory"
 	msgbox R18_Ace_BeginBattle, MSGBOX_DEFAULT
 # 216 "data/maps/Route18/scripts.pory"
-	trainerbattle_no_intro TRAINER_R18_TR9_ACE_TRAINER_M, R18_Ace_Lose
+	trainerbattle_no_intro TRAINER_R18_ACE_TRAINER_M, R18_Ace_Lose
 # 217 "data/maps/Route18/scripts.pory"
 	goto R18_Ace_PostBattle
 	goto R18_Ace_EligibleForBattle_5

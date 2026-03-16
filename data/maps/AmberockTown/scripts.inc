@@ -1161,7 +1161,7 @@ Amberock_Papers::
 # 677 "data/maps/AmberockTown/scripts.pory"
 	getfollowerxy VAR_TEMP_1, VAR_TEMP_2
 # 678 "data/maps/AmberockTown/scripts.pory"
-	checktrainerflag TRAINER_R15_TR18_BERRYROCKET
+	checktrainerflag TRAINER_R15_BERRYROCKET
 	goto_if 0, Amberock_Papers_2
 Amberock_Papers_1:
 # 681 "data/maps/AmberockTown/scripts.pory"

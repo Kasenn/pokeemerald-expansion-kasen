@@ -60,7 +60,7 @@ Route16_SwimmerM::
 
 Route16_Tr1_SwimmerM::
 # 49 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR1_SWIMMER_M, R16Tr1_Intro, R16Tr1_Lose
+	trainerbattle_single TRAINER_R16_SWIMMER_M, R16Tr1_Intro, R16Tr1_Lose
 # 50 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -68,7 +68,7 @@ Route16_Tr1_SwimmerM::
 
 Route16_Tr2_SwimmerF::
 # 65 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR2_SWIMMER_F, R16Tr2_Intro, R16Tr2_Lose
+	trainerbattle_single TRAINER_R16_SWIMMER_F2, R16Tr2_Intro, R16Tr2_Lose
 # 66 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -76,7 +76,7 @@ Route16_Tr2_SwimmerF::
 
 Route16_Tr5_SwimmerF::
 # 83 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR5_SWIMMER_F, R16Tr5_Intro, R16Tr5_Lose
+	trainerbattle_single TRAINER_R16_SWIMMER_F, R16Tr5_Intro, R16Tr5_Lose
 # 84 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -84,7 +84,7 @@ Route16_Tr5_SwimmerF::
 
 Route16_Tr6_SwimmerF::
 # 103 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR6_SWIMMER_F, R16Tr6_Intro, R16Tr6_Lose
+	trainerbattle_single TRAINER_R16_SWIMMER_F3, R16Tr6_Intro, R16Tr6_Lose
 # 104 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -92,7 +92,7 @@ Route16_Tr6_SwimmerF::
 
 Route16_Tr7_Guitarist::
 # 121 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR7_GUITARIST, R16Tr7_Intro, R16Tr7_Lose
+	trainerbattle_single TRAINER_R16_GUITARIST, R16Tr7_Intro, R16Tr7_Lose
 # 122 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -100,7 +100,7 @@ Route16_Tr7_Guitarist::
 
 Route16_Tr8_Hiker::
 # 139 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR8_HIKER, R16Tr8_Intro, R16Tr8_Lose
+	trainerbattle_single TRAINER_R16_HIKER, R16Tr8_Intro, R16Tr8_Lose
 # 140 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -108,7 +108,7 @@ Route16_Tr8_Hiker::
 
 Route16_Tr9_Beauty::
 # 157 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR9_BEAUTY, R16Tr9_Intro, R16Tr9_Lose
+	trainerbattle_single TRAINER_R16_BEAUTY, R16Tr9_Intro, R16Tr9_Lose
 # 158 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -116,7 +116,7 @@ Route16_Tr9_Beauty::
 
 Route16_Tr10_NinjaBoy::
 # 174 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR10_NINJABOY, R16Tr10_Intro, R16Tr10_Lose
+	trainerbattle_single TRAINER_R16_NINJABOY, R16Tr10_Intro, R16Tr10_Lose
 # 175 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -124,7 +124,7 @@ Route16_Tr10_NinjaBoy::
 
 Route16_Tr11_ExpertF::
 # 191 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR11_EXPERT_F, R16Tr11_Intro, R16Tr11_Lose
+	trainerbattle_single TRAINER_R16_EXPERT_F, R16Tr11_Intro, R16Tr11_Lose
 # 192 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr11_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -132,7 +132,7 @@ Route16_Tr11_ExpertF::
 
 Route16_Tr12_NinjaBoy2::
 # 209 "data/maps/Route16/scripts.pory"
-	trainerbattle_single TRAINER_R16_TR12_NINJABOY2, R16Tr12_Intro, R16Tr12_Lose
+	trainerbattle_single TRAINER_R16_NINJABOY2, R16Tr12_Intro, R16Tr12_Lose
 # 210 "data/maps/Route16/scripts.pory"
 	msgbox R16Tr12_PostBattle, MSGBOX_AUTOCLOSE
 	end

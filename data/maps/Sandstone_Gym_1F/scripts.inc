@@ -379,7 +379,7 @@ SandGym_Statue_3:
 
 SandGym_Tr1_CyclistM1::
 # 369 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR1_CYCLISTM1, SandGym_Tr1_CyclistM1_Intro, SandGym_Tr1_CyclistM1_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTM1, SandGym_Tr1_CyclistM1_Intro, SandGym_Tr1_CyclistM1_Defeat
 # 370 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr1_CyclistM1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -387,7 +387,7 @@ SandGym_Tr1_CyclistM1::
 
 SandGym_Tr2_CyclistF1::
 # 388 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR2_CYCLISTF1, SandGym_Tr2_CyclistF1_Intro, SandGym_Tr2_CyclistF1_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTF1, SandGym_Tr2_CyclistF1_Intro, SandGym_Tr2_CyclistF1_Defeat
 # 389 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr2_CyclistF1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -395,7 +395,7 @@ SandGym_Tr2_CyclistF1::
 
 SandGym_Tr3_CyclistF2::
 # 408 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR3_CYCLISTF2, SandGym_Tr3_CyclistF2_Intro, SandGym_Tr3_CyclistF2_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTF2, SandGym_Tr3_CyclistF2_Intro, SandGym_Tr3_CyclistF2_Defeat
 # 409 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr3_CyclistF2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -403,7 +403,7 @@ SandGym_Tr3_CyclistF2::
 
 SandGym_Tr4_CyclistM2::
 # 427 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR4_CYCLISTM2, SandGym_Tr4_CyclistM2_Intro, SandGym_Tr4_CyclistM2_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTM2, SandGym_Tr4_CyclistM2_Intro, SandGym_Tr4_CyclistM2_Defeat
 # 428 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr4_CyclistM2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -411,7 +411,7 @@ SandGym_Tr4_CyclistM2::
 
 SandGym_Tr5_CyclistF3::
 # 445 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR5_CYCLISTF3, SandGym_Tr5_CyclistF3_Intro, SandGym_Tr5_CyclistF3_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTF3, SandGym_Tr5_CyclistF3_Intro, SandGym_Tr5_CyclistF3_Defeat
 # 446 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr5_CyclistF3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -419,7 +419,7 @@ SandGym_Tr5_CyclistF3::
 
 SandGym_Tr6_CyclistM3::
 # 467 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR6_CYCLISTM3, SandGym_Tr6_CyclistM3_Intro, SandGym_Tr6_CyclistM3_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTM3, SandGym_Tr6_CyclistM3_Intro, SandGym_Tr6_CyclistM3_Defeat
 # 468 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr6_CyclistM3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -427,7 +427,7 @@ SandGym_Tr6_CyclistM3::
 
 SandGym_Tr7_CyclistM4::
 # 485 "data/maps/Sandstone_Gym_1F/scripts.pory"
-	trainerbattle_single TRAINER_SANDGYM_TR7_CYCLISTM4, SandGym_Tr7_CyclistM4_Intro, SandGym_Tr7_CyclistM4_Defeat
+	trainerbattle_single TRAINER_SANDGYM_CYCLISTM4, SandGym_Tr7_CyclistM4_Intro, SandGym_Tr7_CyclistM4_Defeat
 # 486 "data/maps/Sandstone_Gym_1F/scripts.pory"
 	msgbox SandGym_Tr7_CyclistM4_PostBattle, MSGBOX_AUTOCLOSE
 	end

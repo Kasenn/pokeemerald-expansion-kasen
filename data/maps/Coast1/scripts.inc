@@ -4,7 +4,7 @@ Coast1_MapScripts::
 
 Route3_Tr1_Swimmer_F::
 # 4 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR1_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_F, R3Tr1_Intro, R3Tr1_Lose
 # 5 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -12,7 +12,7 @@ Route3_Tr1_Swimmer_F::
 
 Route3_Tr2_Swimmer_M::
 # 26 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR2_SWIMMER_M, R3Tr2_Intro, R3Tr2_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_M, R3Tr2_Intro, R3Tr2_Lose
 # 27 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -20,7 +20,7 @@ Route3_Tr2_Swimmer_M::
 
 Route3_Tr3_Swimmer_OldSister::
 # 44 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR3_SWIMMER_OLDSISTER, R3Tr3_Intro, R3Tr3_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_OLDSIS, R3Tr3_Intro, R3Tr3_Lose
 # 45 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -28,7 +28,7 @@ Route3_Tr3_Swimmer_OldSister::
 
 Route3_Tr4_Tuber::
 # 66 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR4_TUBER, R3Tr4_Intro, R3Tr4_Lose
+	trainerbattle_single TRAINER_R3_TUBER, R3Tr4_Intro, R3Tr4_Lose
 # 67 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -36,7 +36,7 @@ Route3_Tr4_Tuber::
 
 Route3_Tr5_Fisherman::
 # 85 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR5_FISHERMAN, R3Tr5_Intro, R3Tr5_Lose
+	trainerbattle_single TRAINER_R3_FISHERMAN, R3Tr5_Intro, R3Tr5_Lose
 # 86 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -44,7 +44,7 @@ Route3_Tr5_Fisherman::
 
 Route3_Tr6_LandSwimmer_1::
 # 104 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR6_LANDSWIMMER_1, R3Tr6_Intro, R3Tr6_Lose
+	trainerbattle_single TRAINER_R3_LANDSWIMMER_1, R3Tr6_Intro, R3Tr6_Lose
 # 105 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -52,7 +52,7 @@ Route3_Tr6_LandSwimmer_1::
 
 Route3_Tr7_LandSwimmer_2::
 # 122 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR7_LANDSWIMMER_2, R3Tr7_Intro, R3Tr7_Lose
+	trainerbattle_single TRAINER_R3_LANDSWIMMER_2, R3Tr7_Intro, R3Tr7_Lose
 # 123 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -60,7 +60,7 @@ Route3_Tr7_LandSwimmer_2::
 
 Route3_Tr8_Sailor::
 # 143 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR8_SAILOR, R3Tr8_Intro, R3Tr8_Lose
+	trainerbattle_single TRAINER_R3_SAILOR, R3Tr8_Intro, R3Tr8_Lose
 # 144 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -68,7 +68,7 @@ Route3_Tr8_Sailor::
 
 Route3_Tr9_Swimmer_M1::
 # 167 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR9_SWIMMER_M1, R3Tr9_Intro, R3Tr9_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_M1, R3Tr9_Intro, R3Tr9_Lose
 # 168 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -76,7 +76,7 @@ Route3_Tr9_Swimmer_M1::
 
 Route3_Tr10_Swimmer_M2::
 # 188 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR10_SWIMMER_M2, R3Tr10_Intro, R3Tr10_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_M2, R3Tr10_Intro, R3Tr10_Lose
 # 189 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -84,7 +84,7 @@ Route3_Tr10_Swimmer_M2::
 
 Route3_Tr11_Swimmer_F1::
 # 206 "data/maps/Coast1/scripts.pory"
-	trainerbattle_single TRAINER_R3_TR11_SWIMMER_F1, R3Tr11_Intro, R3Tr11_Lose
+	trainerbattle_single TRAINER_R3_SWIMMER_F1, R3Tr11_Intro, R3Tr11_Lose
 # 207 "data/maps/Coast1/scripts.pory"
 	msgbox R3Tr11_PostBattle, MSGBOX_AUTOCLOSE
 	end

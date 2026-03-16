@@ -10,7 +10,7 @@ R23_Girl1::
 
 Route23_Tr1_Breeder_M::
 # 16 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR1_BREEDER_M, R23Tr1_Intro, R23Tr1_Lose
+	trainerbattle_single TRAINER_R23_BREEDER_M, R23Tr1_Intro, R23Tr1_Lose
 # 17 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -18,7 +18,7 @@ Route23_Tr1_Breeder_M::
 
 Route23_Tr2_Maniac::
 # 37 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR2_MANIAC, R23Tr2_Intro, R23Tr2_Lose
+	trainerbattle_single TRAINER_R23_MANIAC, R23Tr2_Intro, R23Tr2_Lose
 # 38 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -26,7 +26,7 @@ Route23_Tr2_Maniac::
 
 Route23_Tr3_Twin1::
 # 56 "data/maps/Route23/scripts.pory"
-	trainerbattle_double TRAINER_R23_TR3_TWINS, R23Tr3_Intro, R23Tr3_Lose, R23Tr3_NotEnoughMons
+	trainerbattle_double TRAINER_R23_TWINS, R23Tr3_Intro, R23Tr3_Lose, R23Tr3_NotEnoughMons
 # 57 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -34,7 +34,7 @@ Route23_Tr3_Twin1::
 
 Route23_Tr3_Twin2::
 # 77 "data/maps/Route23/scripts.pory"
-	trainerbattle_double TRAINER_R23_TR3_TWINS, R23Tr3_Intro2, R23Tr3_Lose2, R23Tr3_NotEnoughMons2
+	trainerbattle_double TRAINER_R23_TWINS, R23Tr3_Intro2, R23Tr3_Lose2, R23Tr3_NotEnoughMons2
 # 78 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr3_PostBattle2, MSGBOX_AUTOCLOSE
 	end
@@ -42,7 +42,7 @@ Route23_Tr3_Twin2::
 
 Route23_Tr4_Breeder_F::
 # 98 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR4_BREEDER_F, R23Tr4_Intro, R23Tr4_Lose
+	trainerbattle_single TRAINER_R23_BREEDER_F, R23Tr4_Intro, R23Tr4_Lose
 # 99 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -50,7 +50,7 @@ Route23_Tr4_Breeder_F::
 
 Route23_Tr5_Hexmaniac_1::
 # 115 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR5_HEXMANIAC_1, R23Tr5_Intro, R23Tr5_Lose
+	trainerbattle_single TRAINER_R23_HEXMANIAC_1, R23Tr5_Intro, R23Tr5_Lose
 # 116 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -58,7 +58,7 @@ Route23_Tr5_Hexmaniac_1::
 
 Route23_Tr6_Psychic_M::
 # 130 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR6_PSYCHIC_M, R23Tr6_Intro, R23Tr6_Lose
+	trainerbattle_single TRAINER_R23_PSYCHIC_M, R23Tr6_Intro, R23Tr6_Lose
 # 131 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -66,7 +66,7 @@ Route23_Tr6_Psychic_M::
 
 Route23_Tr7_Hexmaniac_2::
 # 149 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR7_HEXMANIAC_2, R23Tr7_Intro, R23Tr7_Lose
+	trainerbattle_single TRAINER_R23_HEXMANIAC_2, R23Tr7_Intro, R23Tr7_Lose
 # 150 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -74,7 +74,7 @@ Route23_Tr7_Hexmaniac_2::
 
 Route23_Tr8_Triathlete_F::
 # 168 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR8_TRIATHLETE_F, R23Tr8_Intro, R23Tr8_Lose
+	trainerbattle_single TRAINER_R23_TRIATHLETE_F, R23Tr8_Intro, R23Tr8_Lose
 # 169 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -82,7 +82,7 @@ Route23_Tr8_Triathlete_F::
 
 Route23_Tr9_Fisherman::
 # 186 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR9_FISHERMAN, R23Tr9_Intro, R23Tr9_Lose
+	trainerbattle_single TRAINER_R23_FISHERMAN, R23Tr9_Intro, R23Tr9_Lose
 # 187 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr9_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -90,7 +90,7 @@ Route23_Tr9_Fisherman::
 
 Route23_Tr10_Battlegirl::
 # 205 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR10_BATTLEGIRL, R23Tr10_Intro, R23Tr10_Lose
+	trainerbattle_single TRAINER_R23_BATTLEGIRL, R23Tr10_Intro, R23Tr10_Lose
 # 206 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr10_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -98,7 +98,7 @@ Route23_Tr10_Battlegirl::
 
 Route23_Tr11_Ninjaboy::
 # 222 "data/maps/Route23/scripts.pory"
-	trainerbattle_single TRAINER_R23_TR11_NINJABOY, R23Tr11_Intro, R23Tr11_Lose
+	trainerbattle_single TRAINER_R23_NINJABOY, R23Tr11_Intro, R23Tr11_Lose
 # 223 "data/maps/Route23/scripts.pory"
 	msgbox R23Tr11_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -106,10 +106,10 @@ Route23_Tr11_Ninjaboy::
 
 Route23_Tr12_Acetrainer::
 # 240 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR12_ACETRAINER
+	checktrainerflag TRAINER_R23_ACETRAINER
 	goto_if 1, Route23_Tr12_Acetrainer_1
 # 243 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR1_BREEDER_M
+	checktrainerflag TRAINER_R23_BREEDER_M
 	goto_if 1, Route23_Tr12_Acetrainer_5
 Route23_Tr12_Acetrainer_3:
 # 257 "data/maps/Route23/scripts.pory"
@@ -128,55 +128,55 @@ Route23_Tr12_Acetrainer_2:
 
 Route23_Tr12_Acetrainer_4:
 # 245 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR3_TWINS
+	checktrainerflag TRAINER_R23_TWINS
 	goto_if 1, Route23_Tr12_Acetrainer_9
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_5:
 # 244 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR2_MANIAC
+	checktrainerflag TRAINER_R23_MANIAC
 	goto_if 1, Route23_Tr12_Acetrainer_4
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_8:
 # 247 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR5_HEXMANIAC_1
+	checktrainerflag TRAINER_R23_HEXMANIAC_1
 	goto_if 1, Route23_Tr12_Acetrainer_13
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_9:
 # 246 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR4_BREEDER_F
+	checktrainerflag TRAINER_R23_BREEDER_F
 	goto_if 1, Route23_Tr12_Acetrainer_8
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_12:
 # 249 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR7_HEXMANIAC_2
+	checktrainerflag TRAINER_R23_HEXMANIAC_2
 	goto_if 1, Route23_Tr12_Acetrainer_17
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_13:
 # 248 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR6_PSYCHIC_M
+	checktrainerflag TRAINER_R23_PSYCHIC_M
 	goto_if 1, Route23_Tr12_Acetrainer_12
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_16:
 # 251 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR9_FISHERMAN
+	checktrainerflag TRAINER_R23_FISHERMAN
 	goto_if 1, Route23_Tr12_Acetrainer_20
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_17:
 # 250 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR8_TRIATHLETE_F
+	checktrainerflag TRAINER_R23_TRIATHLETE_F
 	goto_if 1, Route23_Tr12_Acetrainer_16
 	goto Route23_Tr12_Acetrainer_3
 
 Route23_Tr12_Acetrainer_20:
 # 252 "data/maps/Route23/scripts.pory"
-	checktrainerflag TRAINER_R23_TR10_BATTLEGIRL
+	checktrainerflag TRAINER_R23_BATTLEGIRL
 	goto_if 1, Route23_Tr12_Acetrainer_2
 	goto Route23_Tr12_Acetrainer_3
 
@@ -210,7 +210,7 @@ R23_Ace_EligibleForBattle_6:
 # 273 "data/maps/Route23/scripts.pory"
 	msgbox R23_Ace_BeginBattle, MSGBOX_DEFAULT
 # 274 "data/maps/Route23/scripts.pory"
-	trainerbattle_no_intro TRAINER_R23_TR12_ACETRAINER, R23_Ace_Lose
+	trainerbattle_no_intro TRAINER_R23_ACETRAINER, R23_Ace_Lose
 # 275 "data/maps/Route23/scripts.pory"
 	goto R23_Ace_PostBattle
 	goto R23_Ace_EligibleForBattle_5

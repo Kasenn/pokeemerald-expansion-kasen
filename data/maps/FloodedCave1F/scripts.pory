@@ -18,7 +18,7 @@ text FC_Hiker_Text{
 }
 
 script FightingClub_Tr1_Blackbelt {
-    trainerbattle_single(TRAINER_FC_TR1_BLACKBELT, FCTr1_Intro, FCTr1_Lose)
+    trainerbattle_single(TRAINER_FC_BLACKBELT, FCTr1_Intro, FCTr1_Lose)
     msgbox(FCTr1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -38,7 +38,7 @@ text FCTr1_PostBattle{
 }
 
 script FightingClub_Tr2_Battlegirl {
-    trainerbattle_single(TRAINER_FC_TR2_BATTLEGIRL, FCTr2_Intro, FCTr2_Lose)
+    trainerbattle_single(TRAINER_FC_BATTLEGIRL, FCTr2_Intro, FCTr2_Lose)
     msgbox(FCTr2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -55,7 +55,7 @@ text FCTr2_PostBattle{
 }
 
 script FightingClub_Tr3_Camper {
-    trainerbattle_single(TRAINER_FC_TR3_CAMPER, FCTr3_Intro, FCTr3_Lose)
+    trainerbattle_single(TRAINER_FC_CAMPER, FCTr3_Intro, FCTr3_Lose)
     msgbox(FCTr3_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -73,7 +73,7 @@ text FCTr3_PostBattle{
 }
 
 script FightingClub_Tr4_Hiker {
-    trainerbattle_single(TRAINER_FC_TR4_HIKER, FCTr4_Intro, FCTr4_Lose)
+    trainerbattle_single(TRAINER_FC_HIKER, FCTr4_Intro, FCTr4_Lose)
     msgbox(FCTr4_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

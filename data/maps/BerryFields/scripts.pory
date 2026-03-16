@@ -13,7 +13,7 @@ script BerryFields_Rocket{
     faceplayer
     playbgm(MUS_ENCOUNTER_AQUA, FALSE)
 	msgbox(BerryFields_GruntIntro)
-	trainerbattle_no_intro(TRAINER_R15_TR18_BERRYROCKET, BerryFields_GruntDefeat)
+	trainerbattle_no_intro(TRAINER_R15_BERRYROCKET, BerryFields_GruntDefeat)
     msgbox(IWasDecoy)
     closemessage
     if(var(VAR_FACING) == DIR_SOUTH){

@@ -7,7 +7,7 @@ mapscripts SkyPillar_3F_MapScripts{
 }
 
 script AT_3F_Tr1_Up{
-    if(defeated(TRAINER_AT_3F_TR1_EXPERT_M)){
+    if(defeated(TRAINER_AT_3F_EXPERT_M)){
         release
         end
     }
@@ -15,7 +15,7 @@ script AT_3F_Tr1_Up{
     goto(Tower_3F_Tr1_Battle)
 }
 script AT_3F_Tr1_UpTalk{
-    if(defeated(TRAINER_AT_3F_TR1_EXPERT_M)){
+    if(defeated(TRAINER_AT_3F_EXPERT_M)){
         msgbox(AT_3F_Tr1_PostBatExpertM, MSGBOX_NPC)
         end
     }
@@ -23,7 +23,7 @@ script AT_3F_Tr1_UpTalk{
     goto(Tower_3F_Tr1_Battle)
 }
 script AT_3F_Tr1_Down{
-    if(defeated(TRAINER_AT_3F_TR1_EXPERT_M)){
+    if(defeated(TRAINER_AT_3F_EXPERT_M)){
         release
         end
     }
@@ -31,7 +31,7 @@ script AT_3F_Tr1_Down{
     goto(Tower_3F_Tr1_Battle)
 }
 script AT_3F_Tr1_DownTalk{
-    if(defeated(TRAINER_AT_3F_TR1_EXPERT_M)){
+    if(defeated(TRAINER_AT_3F_EXPERT_M)){
         msgbox(AT_3F_Tr1_PostBatExpertF, MSGBOX_NPC)
         end
     }
@@ -70,34 +70,34 @@ script Tower_3F_Tr1_Battle{
     closemessage
     switch(var(VAR_TOWER_PARTNER)){
         case 0:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_TORCHIC)
         case 1:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_PIPLUP)
         case 2:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_ROWLET)
         case 3:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_TORCHIC)
         case 4:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_PIPLUP)
         case 5:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ROWLET)
         case 6:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
         case 7:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
         case 8:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
         case 9:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_TORCHIC)
         case 10:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_PIPLUP)
         case 11:
-            multi_2_vs_2(TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ROWLET)
     }
     switch(var(VAR_RESULT)){
         case 1:
-            settrainerflag(TRAINER_AT_3F_TR1_EXPERT_M)
-            settrainerflag(TRAINER_AT_3F_TR1_EXPERT_F)
+            settrainerflag(TRAINER_AT_3F_EXPERT_M)
+            settrainerflag(TRAINER_AT_3F_EXPERT_F)
             release
             end
     }
@@ -137,7 +137,7 @@ text AT_3F_Tr1_PostBatExpertF{
 ////////////////////////////////////////////////////////////////////////////////////////
 
 script AT_3F_Tr2_Left{
-    if(defeated(TRAINER_AT_3F_TR2_HEXMANIAC)){
+    if(defeated(TRAINER_AT_3F_HEXMANIAC)){
         release
         end
     }
@@ -145,7 +145,7 @@ script AT_3F_Tr2_Left{
     goto(Tower_3F_Tr2_Battle)
 }
 script AT_3F_Tr2_LeftTalk{
-    if(defeated(TRAINER_AT_3F_TR2_HEXMANIAC)){
+    if(defeated(TRAINER_AT_3F_HEXMANIAC)){
         msgbox(AT_3F_Tr2_PostBatHexManiac, MSGBOX_NPC)
         end
     }
@@ -180,34 +180,34 @@ script Tower_3F_Tr2_Battle{
     closemessage
     switch(var(VAR_TOWER_PARTNER)){
         case 0:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_TORCHIC)
         case 1:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_PIPLUP)
         case 2:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_ROWLET)
         case 3:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_TORCHIC)
         case 4:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_PIPLUP)
         case 5:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ROWLET)
         case 6:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
         case 7:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
         case 8:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
         case 9:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_TORCHIC)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_TORCHIC)
         case 10:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_PIPLUP)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_PIPLUP)
         case 11:
-            multi_2_vs_2(TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ROWLET)
+            multi_2_vs_2(TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ROWLET)
     }
     switch(var(VAR_RESULT)){
         case 1:
-            settrainerflag(TRAINER_AT_3F_TR2_HEXMANIAC)
-            settrainerflag(TRAINER_AT_3F_TR2_PSYCHICF)
+            settrainerflag(TRAINER_AT_3F_HEXMANIAC)
+            settrainerflag(TRAINER_AT_3F_PSYCHICF)
             release
             end
     }

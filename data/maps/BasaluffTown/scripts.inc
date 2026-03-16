@@ -151,7 +151,7 @@ BasalekTown_Man5_1:
 
 BasalekTown_Man5_2:
 # 167 "data/maps/BasaluffTown/scripts.pory"
-	checktrainerflag TRAINER_BASALTUNNEL_TR12_BROCK
+	checktrainerflag TRAINER_BTUN_BROCK
 	goto_if 0, BasalekTown_Man5_1
 	return
 

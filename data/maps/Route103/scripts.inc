@@ -241,12 +241,12 @@ Route102_EventScript_LivRematch::
 	end
 
 Route103_EventScript_Andrew::
-	trainerbattle_single TRAINER_R3_TR2_SWIMMER_M, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
+	trainerbattle_single TRAINER_R3_SWIMMER_M, Route103_Text_AndrewIntro, Route103_Text_AndrewDefeated
 	msgbox Route103_Text_AndrewPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route103_EventScript_Miguel::
-	trainerbattle_single TRAINER_R14_TR8_MANIAC, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
+	trainerbattle_single TRAINER_R14_MANIAC, Route103_Text_MiguelIntro, Route103_Text_MiguelDefeated, Route102_EventScript_MiguelRegisterMatchCallAfterBattle
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route103_EventScript_MiguelRematch
 	msgbox Route103_Text_MiguelPostBattle, MSGBOX_DEFAULT
@@ -257,12 +257,12 @@ Route102_EventScript_MiguelRegisterMatchCallAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route103_Text_MiguelRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R14_TR8_MANIAC
+	register_matchcall TRAINER_R14_MANIAC
 	release
 	end
 
 Route103_EventScript_MiguelRematch::
-	trainerbattle_rematch TRAINER_R14_TR8_MANIAC, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
+	trainerbattle_rematch TRAINER_R14_MANIAC, Route103_Text_MiguelRematchIntro, Route103_Text_MiguelRematchDefeated
 	msgbox Route103_Text_MiguelRematchPostBattle, MSGBOX_AUTOCLOSE
 	end
 

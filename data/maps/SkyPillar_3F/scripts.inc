@@ -16,7 +16,7 @@ SkyPillar_3F_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
 
 AT_3F_Tr1_Up::
 # 10 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	checktrainerflag TRAINER_AT_3F_EXPERT_M
 	goto_if 1, AT_3F_Tr1_Up_2
 # 14 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 1
@@ -32,7 +32,7 @@ AT_3F_Tr1_Up_2:
 
 AT_3F_Tr1_UpTalk::
 # 18 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	checktrainerflag TRAINER_AT_3F_EXPERT_M
 	goto_if 1, AT_3F_Tr1_UpTalk_2
 # 22 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 2
@@ -48,7 +48,7 @@ AT_3F_Tr1_UpTalk_2:
 
 AT_3F_Tr1_Down::
 # 26 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	checktrainerflag TRAINER_AT_3F_EXPERT_M
 	goto_if 1, AT_3F_Tr1_Down_2
 # 30 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 3
@@ -64,7 +64,7 @@ AT_3F_Tr1_Down_2:
 
 AT_3F_Tr1_DownTalk::
 # 34 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	checktrainerflag TRAINER_AT_3F_EXPERT_M
 	goto_if 1, AT_3F_Tr1_DownTalk_2
 # 38 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 4
@@ -173,69 +173,69 @@ Tower_3F_Tr1_Battle_6:
 
 Tower_3F_Tr1_Battle_9:
 # 73 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_10:
 # 75 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_11:
 # 77 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_12:
 # 79 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_13:
 # 81 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_14:
 # 83 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_MAY_ROWLET
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_15:
 # 85 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_16:
 # 87 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_17:
 # 89 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_18:
 # 91 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_19:
 # 93 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_20:
 # 95 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR1_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_TR1_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_EXPERT_M, Tr1_3F_ExpertM_Lost, TRAINER_AT_3F_EXPERT_F, Tr1_3F_ExpertF_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_3F_Tr1_Battle_7
 
 Tower_3F_Tr1_Battle_23:
 # 99 "data/maps/SkyPillar_3F/scripts.pory"
-	settrainerflag TRAINER_AT_3F_TR1_EXPERT_M
+	settrainerflag TRAINER_AT_3F_EXPERT_M
 # 100 "data/maps/SkyPillar_3F/scripts.pory"
-	settrainerflag TRAINER_AT_3F_TR1_EXPERT_F
+	settrainerflag TRAINER_AT_3F_EXPERT_F
 # 101 "data/maps/SkyPillar_3F/scripts.pory"
 	release
 	end
@@ -243,7 +243,7 @@ Tower_3F_Tr1_Battle_23:
 
 AT_3F_Tr2_Left::
 # 140 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
+	checktrainerflag TRAINER_AT_3F_HEXMANIAC
 	goto_if 1, AT_3F_Tr2_Left_2
 # 144 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 1
@@ -259,7 +259,7 @@ AT_3F_Tr2_Left_2:
 
 AT_3F_Tr2_LeftTalk::
 # 148 "data/maps/SkyPillar_3F/scripts.pory"
-	checktrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
+	checktrainerflag TRAINER_AT_3F_HEXMANIAC
 	goto_if 1, AT_3F_Tr2_LeftTalk_2
 # 152 "data/maps/SkyPillar_3F/scripts.pory"
 	setvar VAR_TEMP_2, 2
@@ -354,69 +354,69 @@ Tower_3F_Tr2_Battle_4:
 
 Tower_3F_Tr2_Battle_7:
 # 183 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_8:
 # 185 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_9:
 # 187 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_10:
 # 189 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_11:
 # 191 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_12:
 # 193 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_MAY_ROWLET
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_13:
 # 195 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_14:
 # 197 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_15:
 # 199 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_16:
 # 201 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_TORCHIC
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_17:
 # 203 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_PIPLUP
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_18:
 # 205 "data/maps/SkyPillar_3F/scripts.pory"
-	multi_2_vs_2 TRAINER_AT_3F_TR2_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_TR2_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ROWLET
+	multi_2_vs_2 TRAINER_AT_3F_HEXMANIAC, Tr2_3F_HexManiac_Lost, TRAINER_AT_3F_PSYCHICF, Tr2_3F_PsychicF_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_3F_Tr2_Battle_5
 
 Tower_3F_Tr2_Battle_21:
 # 209 "data/maps/SkyPillar_3F/scripts.pory"
-	settrainerflag TRAINER_AT_3F_TR2_HEXMANIAC
+	settrainerflag TRAINER_AT_3F_HEXMANIAC
 # 210 "data/maps/SkyPillar_3F/scripts.pory"
-	settrainerflag TRAINER_AT_3F_TR2_PSYCHICF
+	settrainerflag TRAINER_AT_3F_PSYCHICF
 # 211 "data/maps/SkyPillar_3F/scripts.pory"
 	release
 	end

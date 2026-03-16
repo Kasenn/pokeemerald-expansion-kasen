@@ -546,7 +546,7 @@ AldeleafGym_Man::
 
 AldeleafGym_Trainer1::
 # 399 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_PARKER, AldeleafGym_Text_Trainer1Intro, AldeleafGym_Text_Trainer1Defeat
+	trainerbattle_single TRAINER_ALDEGYM_1, AldeleafGym_Text_Trainer1Intro, AldeleafGym_Text_Trainer1Defeat
 # 400 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -554,7 +554,7 @@ AldeleafGym_Trainer1::
 
 AldeleafGym_Trainer2::
 # 417 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_GEORGE, AldeleafGym_Text_Trainer2Intro, AldeleafGym_Text_Trainer2Defeat
+	trainerbattle_single TRAINER_ALDEGYM_2, AldeleafGym_Text_Trainer2Intro, AldeleafGym_Text_Trainer2Defeat
 # 418 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer2PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -562,7 +562,7 @@ AldeleafGym_Trainer2::
 
 AldeleafGym_Trainer3::
 # 434 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_BERKE, AldeleafGym_Text_Trainer3Intro, AldeleafGym_Text_Trainer3Defeat
+	trainerbattle_single TRAINER_ALDEGYM_3, AldeleafGym_Text_Trainer3Intro, AldeleafGym_Text_Trainer3Defeat
 # 435 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer3PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -570,7 +570,7 @@ AldeleafGym_Trainer3::
 
 AldeleafGym_Trainer4::
 # 452 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_BRAXTON, AldeleafGym_Text_Trainer4Intro, AldeleafGym_Text_Trainer4Defeat
+	trainerbattle_single TRAINER_ALDEGYM_4, AldeleafGym_Text_Trainer4Intro, AldeleafGym_Text_Trainer4Defeat
 # 453 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer4PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -578,7 +578,7 @@ AldeleafGym_Trainer4::
 
 AldeleafGym_Trainer5::
 # 468 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_VINCENT, AldeleafGym_Text_Trainer5Intro, AldeleafGym_Text_Trainer5Defeat
+	trainerbattle_single TRAINER_ALDEGYM_5, AldeleafGym_Text_Trainer5Intro, AldeleafGym_Text_Trainer5Defeat
 # 469 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer5PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -586,7 +586,7 @@ AldeleafGym_Trainer5::
 
 AldeleafGym_Trainer6::
 # 486 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_LEROY, AldeleafGym_Text_Trainer6Intro, AldeleafGym_Text_Trainer6Defeat
+	trainerbattle_single TRAINER_ALDEGYM_6, AldeleafGym_Text_Trainer6Intro, AldeleafGym_Text_Trainer6Defeat
 # 487 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer6PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -594,7 +594,7 @@ AldeleafGym_Trainer6::
 
 AldeleafGym_Trainer7::
 # 506 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WILTON_1, AldeleafGym_Text_Trainer7Intro, AldeleafGym_Text_Trainer7Defeat
+	trainerbattle_single TRAINER_ALDEGYM_7, AldeleafGym_Text_Trainer7Intro, AldeleafGym_Text_Trainer7Defeat
 # 507 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer7PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -602,7 +602,7 @@ AldeleafGym_Trainer7::
 
 AldeleafGym_Trainer8::
 # 526 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_EDGAR, AldeleafGym_Text_Trainer8Intro, AldeleafGym_Text_Trainer8Defeat
+	trainerbattle_single TRAINER_ALDEGYM_8, AldeleafGym_Text_Trainer8Intro, AldeleafGym_Text_Trainer8Defeat
 # 527 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer8PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -610,7 +610,7 @@ AldeleafGym_Trainer8::
 
 AldeleafGym_Trainer9::
 # 545 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_ALBERT, AldeleafGym_Text_Trainer9Intro, AldeleafGym_Text_Trainer9Defeat
+	trainerbattle_single TRAINER_ALDEGYM_9, AldeleafGym_Text_Trainer9Intro, AldeleafGym_Text_Trainer9Defeat
 # 546 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer9PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -618,7 +618,7 @@ AldeleafGym_Trainer9::
 
 AldeleafGym_Trainer10::
 # 559 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_double TRAINER_SAMUEL, AldeleafGym_Text_Trainer10Intro, AldeleafGym_Text_Trainer10Defeat, AldeleafGym_Text_10NotEnoughMons
+	trainerbattle_double TRAINER_ALDEGYM_10, AldeleafGym_Text_Trainer10Intro, AldeleafGym_Text_Trainer10Defeat, AldeleafGym_Text_10NotEnoughMons
 # 560 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer10PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -626,7 +626,7 @@ AldeleafGym_Trainer10::
 
 AldeleafGym_Trainer11::
 # 579 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_double TRAINER_SAMUEL, AldeleafGym_Text_Trainer11Intro, AldeleafGym_Text_Trainer11Defeat, AldeleafGym_Text_11NotEnoughMons
+	trainerbattle_double TRAINER_ALDEGYM_10, AldeleafGym_Text_Trainer11Intro, AldeleafGym_Text_Trainer11Defeat, AldeleafGym_Text_11NotEnoughMons
 # 580 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer11PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -634,7 +634,7 @@ AldeleafGym_Trainer11::
 
 AldeleafGym_Trainer12::
 # 599 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_OWEN, AldeleafGym_Text_Trainer12Intro, AldeleafGym_Text_Trainer12Defeat
+	trainerbattle_single TRAINER_ALDEGYM_11, AldeleafGym_Text_Trainer12Intro, AldeleafGym_Text_Trainer12Defeat
 # 600 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer12PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -642,7 +642,7 @@ AldeleafGym_Trainer12::
 
 AldeleafGym_Trainer13::
 # 619 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WILTON_2, AldeleafGym_Text_Trainer13Intro, AldeleafGym_Text_Trainer13Defeat
+	trainerbattle_single TRAINER_ALDEGYM_12, AldeleafGym_Text_Trainer13Intro, AldeleafGym_Text_Trainer13Defeat
 # 620 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer13PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -650,7 +650,7 @@ AldeleafGym_Trainer13::
 
 AldeleafGym_Trainer14::
 # 635 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WILTON_3, AldeleafGym_Text_Trainer14Intro, AldeleafGym_Text_Trainer14Defeat
+	trainerbattle_single TRAINER_ALDEGYM_13, AldeleafGym_Text_Trainer14Intro, AldeleafGym_Text_Trainer14Defeat
 # 636 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -658,7 +658,7 @@ AldeleafGym_Trainer14::
 
 AldeleafGym_Trainer15::
 # 654 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WILTON_4, AldeleafGym_Text_Trainer15Intro, AldeleafGym_Text_Trainer15Defeat
+	trainerbattle_single TRAINER_ALDEGYM_14, AldeleafGym_Text_Trainer15Intro, AldeleafGym_Text_Trainer15Defeat
 # 655 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -666,7 +666,7 @@ AldeleafGym_Trainer15::
 
 AldeleafGym_Trainer16::
 # 668 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WILTON_5, AldeleafGym_Text_Trainer16Intro, AldeleafGym_Text_Trainer16Defeat
+	trainerbattle_single TRAINER_ALDEGYM_15, AldeleafGym_Text_Trainer16Intro, AldeleafGym_Text_Trainer16Defeat
 # 669 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer16PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -674,7 +674,7 @@ AldeleafGym_Trainer16::
 
 AldeleafGym_Trainer17::
 # 688 "data/maps/AldeleafGym/scripts.pory"
-	trainerbattle_single TRAINER_WARREN, AldeleafGym_Text_Trainer17Intro, AldeleafGym_Text_Trainer17Defeat
+	trainerbattle_single TRAINER_ALDEGYM_16, AldeleafGym_Text_Trainer17Intro, AldeleafGym_Text_Trainer17Defeat
 # 689 "data/maps/AldeleafGym/scripts.pory"
 	msgbox AldeleafGym_Text_Trainer17PostBattle, MSGBOX_AUTOCLOSE
 	end

@@ -108,7 +108,7 @@ movement Route6_Movement_PlayerFall{
 }
 
 script Route6_Trainer1_Ranger_M {
-    trainerbattle_single(TRAINER_R6_TR1_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat)
+    trainerbattle_single(TRAINER_R6_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat)
     msgbox(Route6_Trainer1_Ranger_M_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -127,7 +127,7 @@ text Route6_Trainer1_Ranger_M_PostBattle{
     "marching ahead."
 }
 script Route6_Trainer2_PokeFan_F {
-    trainerbattle_single(TRAINER_R16_TR2_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat)
+    trainerbattle_single(TRAINER_R16_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat)
     msgbox(Route6_Trainer2_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -143,7 +143,7 @@ text Route6_Trainer2_PokeFan_F_PostBattle{
     "You must really love them."
 }
 script Route6_Trainer3_Camper_F {
-    trainerbattle_single(TRAINER_R6_TR3_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat)
+    trainerbattle_single(TRAINER_R6_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat)
     msgbox(Route6_Trainer3_Camper_F_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -159,7 +159,7 @@ text Route6_Trainer3_Camper_F_PostBattle{
     "I just can't help challenging them."
 }
 script Route6_Trainer4_Camper_M1 {
-    trainerbattle_single(TRAINER_R16_TR12_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat)
+    trainerbattle_single(TRAINER_R16_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat)
     msgbox(Route6_Trainer4_Camper_M1_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -176,7 +176,7 @@ text Route6_Trainer4_Camper_M1_PostBattle{
     "a long time ago."
 }
 script Route6_Trainer5_Hiker {
-    trainerbattle_single(TRAINER_R6_TR5_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat)
+    trainerbattle_single(TRAINER_R6_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat)
     msgbox(Route6_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -196,7 +196,7 @@ text Route6_Trainer5_Hiker_PostBattle{
 
 }
 script Route6_Trainer6_Camper_M2 {
-    trainerbattle_single(TRAINER_R6_TR6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat)
+    trainerbattle_single(TRAINER_R6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat)
     msgbox(Route6_Trainer6_Camper_M2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -215,7 +215,7 @@ text Route6_Trainer6_Camper_M2_PostBattle{
     "and it gets everywhere."
 }
 script Route6_Trainer7_Kindler {
-    trainerbattle_single(TRAINER_R6_TR7_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat)
+    trainerbattle_single(TRAINER_R6_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat)
     msgbox(Route6_Trainer7_Kindler_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

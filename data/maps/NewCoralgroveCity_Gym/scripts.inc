@@ -86,7 +86,7 @@ NewCoralgroveCity_Gym_EventScript_AaronDefeated::
 
 NewCoralgroveCity_Gym_EventScript_Maniac::
 # 50 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_CHIP, NewCoralgroveCity_Gym_Text_ManiacIntro, NewCoralgroveCity_Gym_Text_ManiacDefeat
+	trainerbattle_single TRAINER_CORALGYM_1, NewCoralgroveCity_Gym_Text_ManiacIntro, NewCoralgroveCity_Gym_Text_ManiacDefeat
 # 51 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_ManiacPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -94,7 +94,7 @@ NewCoralgroveCity_Gym_EventScript_Maniac::
 
 NewCoralgroveCity_Gym_EventScript_Lass::
 # 55 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DUSTY_2, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat
+	trainerbattle_single TRAINER_CORALGYM_3, NewCoralgroveCity_Gym_Text_LassIntro, NewCoralgroveCity_Gym_Text_LassDefeat
 # 56 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_LassPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -102,7 +102,7 @@ NewCoralgroveCity_Gym_EventScript_Lass::
 
 NewCoralgroveCity_Gym_EventScript_NinjaBoy::
 # 60 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_FOSTER, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat
+	trainerbattle_single TRAINER_CORALGYM_2, NewCoralgroveCity_Gym_Text_NinjaBoyIntro, NewCoralgroveCity_Gym_Text_NinjaBoyDefeat
 # 61 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_NinjaBoyPostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -110,7 +110,7 @@ NewCoralgroveCity_Gym_EventScript_NinjaBoy::
 
 NewCoralgroveCity_Gym_EventScript_BugCatcher1::
 # 65 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DUSTY_3, NewCoralgroveCity_Gym_Text_BugCatcher1Intro, NewCoralgroveCity_Gym_Text_BugCatcher1Defeat
+	trainerbattle_single TRAINER_CORALGYM_4, NewCoralgroveCity_Gym_Text_BugCatcher1Intro, NewCoralgroveCity_Gym_Text_BugCatcher1Defeat
 # 66 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_BugCatcher1PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -118,7 +118,7 @@ NewCoralgroveCity_Gym_EventScript_BugCatcher1::
 
 NewCoralgroveCity_Gym_EventScript_BugCatcher2::
 # 70 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DUSTY_4, NewCoralgroveCity_Gym_Text_BugCatcher2Intro, NewCoralgroveCity_Gym_Text_BugCatcher2Defeat
+	trainerbattle_single TRAINER_CORALGYM_5, NewCoralgroveCity_Gym_Text_BugCatcher2Intro, NewCoralgroveCity_Gym_Text_BugCatcher2Defeat
 # 71 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_BugCatcher2PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -126,7 +126,7 @@ NewCoralgroveCity_Gym_EventScript_BugCatcher2::
 
 NewCoralgroveCity_Gym_EventScript_BugCatcher3::
 # 75 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
-	trainerbattle_single TRAINER_DUSTY_5, NewCoralgroveCity_Gym_Text_BugCatcher3Intro, NewCoralgroveCity_Gym_Text_BugCatcher3Defeat
+	trainerbattle_single TRAINER_CORALGYM_6, NewCoralgroveCity_Gym_Text_BugCatcher3Intro, NewCoralgroveCity_Gym_Text_BugCatcher3Defeat
 # 76 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	msgbox NewCoralgroveCity_Gym_Text_BugCatcher3PostBattle, MSGBOX_AUTOCLOSE
 	end

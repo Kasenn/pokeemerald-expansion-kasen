@@ -22,7 +22,7 @@ Route5_Crustle::
 
 Route5_Trainer1_Fisher::
 # 26 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR1_FISHER, Route5_Trainer1_Fisher_Intro, Route5_Trainer1_Fisher_Defeat
+	trainerbattle_single TRAINER_R5_FISHER, Route5_Trainer1_Fisher_Intro, Route5_Trainer1_Fisher_Defeat
 # 27 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer1_Fisher_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -30,7 +30,7 @@ Route5_Trainer1_Fisher::
 
 Route5_Trainer2_Beauty::
 # 46 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR2_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat
+	trainerbattle_single TRAINER_R5_BEAUTY, Route5_Trainer2_Beauty_Intro, Route5_Trainer2_Beauty_Defeat
 # 47 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer2_Beauty_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -38,7 +38,7 @@ Route5_Trainer2_Beauty::
 
 Route5_Trainer3_YoungCouple::
 # 63 "data/maps/Route5/scripts.pory"
-	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough
+	trainerbattle_double TRAINER_R5_YOUNGCOUPLE, Route5_Trainer3_YoungCouple_Intro, Route5_Trainer3_YoungCouple_Defeat, Route5_Trainer3_YoungCouple_NotEnough
 # 64 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer3_YoungCouple_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -46,7 +46,7 @@ Route5_Trainer3_YoungCouple::
 
 Route5_Trainer3_YoungCouple2::
 # 87 "data/maps/Route5/scripts.pory"
-	trainerbattle_double TRAINER_R5_TR3_YOUNGCOUPLE, Route5_Trainer3_YoungCouple2_Intro, Route5_Trainer3_YoungCouple2_Defeat, Route5_Trainer3_YoungCouple2_NotEnough
+	trainerbattle_double TRAINER_R5_YOUNGCOUPLE, Route5_Trainer3_YoungCouple2_Intro, Route5_Trainer3_YoungCouple2_Defeat, Route5_Trainer3_YoungCouple2_NotEnough
 # 88 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer3_YoungCouple2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -54,7 +54,7 @@ Route5_Trainer3_YoungCouple2::
 
 Route5_Trainer4_Lass1::
 # 110 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR4_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat
+	trainerbattle_single TRAINER_R5_LASS1, Route5_Trainer4_Lass1_Intro, Route5_Trainer4_Lass1_Defeat
 # 111 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer4_Lass1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -62,7 +62,7 @@ Route5_Trainer4_Lass1::
 
 Route5_Trainer5_PokeFan_F::
 # 125 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat
+	trainerbattle_single TRAINER_R5_POKEFAN_F, Route5_Trainer5_PokeFan_F_Intro, Route5_Trainer5_PokeFan_F_Defeat
 # 126 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer5_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -70,7 +70,7 @@ Route5_Trainer5_PokeFan_F::
 
 Route5_Trainer6_Lass2::
 # 142 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR6_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat
+	trainerbattle_single TRAINER_R5_LASS2, Route5_Trainer6_Lass2_Intro, Route5_Trainer6_Lass2_Defeat
 # 143 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer6_Lass2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -78,7 +78,7 @@ Route5_Trainer6_Lass2::
 
 Route5_Trainer7_Gentleman::
 # 159 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR7_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat
+	trainerbattle_single TRAINER_R5_GENTLEMAN, Route5_Trainer7_Gentleman_Intro, Route5_Trainer7_Gentleman_Defeat
 # 160 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer7_Gentleman_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -86,7 +86,7 @@ Route5_Trainer7_Gentleman::
 
 Route5_Trainer8_Youngster::
 # 174 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR8_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat
+	trainerbattle_single TRAINER_R5_YOUNGSTER, Route5_Trainer8_Youngster_Intro, Route5_Trainer8_Youngster_Defeat
 # 175 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer8_Youngster_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -94,7 +94,7 @@ Route5_Trainer8_Youngster::
 
 Route5_Trainer9_Triathlete::
 # 190 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR9_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat
+	trainerbattle_single TRAINER_R5_TRIATHLETE, Route5_Trainer9_Triathlete_Intro, Route5_Trainer9_Triathlete_Defeat
 # 191 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer9_Triathlete_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -102,7 +102,7 @@ Route5_Trainer9_Triathlete::
 
 Route5_Trainer10_RichBoy::
 # 207 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR10_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat
+	trainerbattle_single TRAINER_R5_RICHBOY, Route5_Trainer10_RichBoy_Intro, Route5_Trainer10_RichBoy_Defeat
 # 208 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer10_RichBoy_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -110,7 +110,7 @@ Route5_Trainer10_RichBoy::
 
 Route5_Trainer11_Man_5::
 # 225 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR11_MAN_5, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat
+	trainerbattle_single TRAINER_R5_KINDLER, Route5_Trainer11_Man_5_Intro, Route5_Trainer11_Man_5_Defeat
 # 226 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer11_Man_5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -118,7 +118,7 @@ Route5_Trainer11_Man_5::
 
 Route5_Trainer12_BugCatcher::
 # 241 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR12_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat
+	trainerbattle_single TRAINER_R5_BUGCATCHER, Route5_Trainer12_BugCatcher_Intro, Route5_Trainer12_BugCatcher_Defeat
 # 242 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer12_BugCatcher_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -126,7 +126,7 @@ Route5_Trainer12_BugCatcher::
 
 Route5_Trainer13_NinjaBoy::
 # 258 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR13_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat
+	trainerbattle_single TRAINER_R5_NINJABOY, Route5_Trainer13_NinjaBoy_Intro, Route5_Trainer13_NinjaBoy_Defeat
 # 259 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer13_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -134,7 +134,7 @@ Route5_Trainer13_NinjaBoy::
 
 Route5_Trainer14_Hiker::
 # 275 "data/maps/Route5/scripts.pory"
-	trainerbattle_single TRAINER_R5_TR14_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat
+	trainerbattle_single TRAINER_R5_HIKER, Route5_Trainer14_Hiker_Intro, Route5_Trainer14_Hiker_Defeat
 # 276 "data/maps/Route5/scripts.pory"
 	msgbox Route5_Trainer14_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -160,10 +160,10 @@ Route5_ItemBall3::
 
 Route5_Trainer15_CoolTrainer::
 # 305 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR15_COOLTRAINER
+	checktrainerflag TRAINER_R5_ACETRAINER
 	goto_if 1, Route5_Trainer15_CoolTrainer_2
 # 309 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR1_FISHER
+	checktrainerflag TRAINER_R5_FISHER
 	goto_if 1, Route5_Trainer15_CoolTrainer_7
 Route5_Trainer15_CoolTrainer_4:
 # 325 "data/maps/Route5/scripts.pory"
@@ -182,79 +182,79 @@ Route5_Trainer15_CoolTrainer_5:
 
 Route5_Trainer15_CoolTrainer_6:
 # 311 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR3_YOUNGCOUPLE
+	checktrainerflag TRAINER_R5_YOUNGCOUPLE
 	goto_if 1, Route5_Trainer15_CoolTrainer_11
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_7:
 # 310 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR2_BEAUTY
+	checktrainerflag TRAINER_R5_BEAUTY
 	goto_if 1, Route5_Trainer15_CoolTrainer_6
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_10:
 # 313 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR5_POKEFAN_F
+	checktrainerflag TRAINER_R5_POKEFAN_F
 	goto_if 1, Route5_Trainer15_CoolTrainer_15
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_11:
 # 312 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR4_LASS1
+	checktrainerflag TRAINER_R5_LASS1
 	goto_if 1, Route5_Trainer15_CoolTrainer_10
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_14:
 # 315 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR7_GENTLEMAN
+	checktrainerflag TRAINER_R5_GENTLEMAN
 	goto_if 1, Route5_Trainer15_CoolTrainer_19
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_15:
 # 314 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR6_LASS2
+	checktrainerflag TRAINER_R5_LASS2
 	goto_if 1, Route5_Trainer15_CoolTrainer_14
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_18:
 # 317 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR9_TRIATHLETE
+	checktrainerflag TRAINER_R5_TRIATHLETE
 	goto_if 1, Route5_Trainer15_CoolTrainer_23
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_19:
 # 316 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR8_YOUNGSTER
+	checktrainerflag TRAINER_R5_YOUNGSTER
 	goto_if 1, Route5_Trainer15_CoolTrainer_18
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_22:
 # 319 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR11_MAN_5
+	checktrainerflag TRAINER_R5_KINDLER
 	goto_if 1, Route5_Trainer15_CoolTrainer_27
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_23:
 # 318 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR10_RICHBOY
+	checktrainerflag TRAINER_R5_RICHBOY
 	goto_if 1, Route5_Trainer15_CoolTrainer_22
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_26:
 # 321 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR13_NINJABOY
+	checktrainerflag TRAINER_R5_NINJABOY
 	goto_if 1, Route5_Trainer15_CoolTrainer_30
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_27:
 # 320 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR12_BUGCATCHER
+	checktrainerflag TRAINER_R5_BUGCATCHER
 	goto_if 1, Route5_Trainer15_CoolTrainer_26
 	goto Route5_Trainer15_CoolTrainer_4
 
 Route5_Trainer15_CoolTrainer_30:
 # 322 "data/maps/Route5/scripts.pory"
-	checktrainerflag TRAINER_R5_TR14_HIKER
+	checktrainerflag TRAINER_R5_HIKER
 	goto_if 1, Route5_Trainer15_CoolTrainer_5
 	goto Route5_Trainer15_CoolTrainer_4
 
@@ -288,7 +288,7 @@ Route5_CoolTrainerEligibleForBattle_6:
 # 339 "data/maps/Route5/scripts.pory"
 	msgbox Route5_CoolTrainerEligibleForBattle_Text_0, MSGBOX_DEFAULT
 # 340 "data/maps/Route5/scripts.pory"
-	trainerbattle_no_intro TRAINER_R5_TR15_COOLTRAINER, Route5_CoolTrainerDefeated
+	trainerbattle_no_intro TRAINER_R5_ACETRAINER, Route5_CoolTrainerDefeated
 # 341 "data/maps/Route5/scripts.pory"
 	goto Route5_CoolTrainerPostBattle
 	end

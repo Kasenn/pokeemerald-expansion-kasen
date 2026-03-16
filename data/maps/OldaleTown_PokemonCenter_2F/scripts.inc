@@ -441,17 +441,17 @@ LevelTrainingMain_27:
 
 LevelTrainingMain_31:
 # 219 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_EXPBOT_1, TrainingFinished
+	trainerbattle_no_intro TRAINER_PRIMROSE_NURSE, TrainingFinished
 	goto LevelTrainingMain_29
 
 LevelTrainingMain_32:
 # 221 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_EXPBOT_2, TrainingFinished
+	trainerbattle_no_intro TRAINER_CORALGROVE_NURSE, TrainingFinished
 	goto LevelTrainingMain_29
 
 LevelTrainingMain_33:
 # 223 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_RANDALL, TrainingFinished
+	trainerbattle_no_intro TRAINER_ALDELEAF_NURSE, TrainingFinished
 	goto LevelTrainingMain_29
 
 LevelTrainingMain_34:

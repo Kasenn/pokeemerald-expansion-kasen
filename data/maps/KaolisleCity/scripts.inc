@@ -555,7 +555,7 @@ KaolisleCity_Lass_Couple::
 
 KaolisleCity_MysteryMan::
 # 340 "data/maps/KaolisleCity/scripts.pory"
-	checktrainerflag TRAINER_KAOLISLE_CELEBI_TR2
+	checktrainerflag TRAINER_KAOLISLE_CELEBI
 	goto_if 1, KaolisleCity_MysteryMan_2
 # 344 "data/maps/KaolisleCity/scripts.pory"
 	lock
@@ -1075,7 +1075,7 @@ KaolisleCity_MysteryMan_Battle_1:
 # 890 "data/maps/KaolisleCity/scripts.pory"
 	msgbox KaolisleCity_MysteryMan_Battle_Intro
 # 891 "data/maps/KaolisleCity/scripts.pory"
-	trainerbattle_no_intro TRAINER_KAOLISLE_CELEBI_TR2, KaolisleCity_MysteryMan_Battle_Lose
+	trainerbattle_no_intro TRAINER_KAOLISLE_CELEBI, KaolisleCity_MysteryMan_Battle_Lose
 # 892 "data/maps/KaolisleCity/scripts.pory"
 	msgbox KaolisleCity_MysteryMan_PostBattle
 # 893 "data/maps/KaolisleCity/scripts.pory"

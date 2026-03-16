@@ -131,7 +131,7 @@ script Kaolisle_Gym_Switch4{
 }
 
 script KaolisleGym_Trainer1_Camper1{
-    trainerbattle_single(TRAINER_KAOLGYM_TR1_CAMPER1, KaolisleGym_Trainer1_Camper1_Intro, KaolisleGym_Trainer1_Camper1_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_CAMPER1, KaolisleGym_Trainer1_Camper1_Intro, KaolisleGym_Trainer1_Camper1_Defeat)
 	msgbox(KaolisleGym_Trainer1_Camper1_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -151,7 +151,7 @@ text KaolisleGym_Trainer1_Camper1_PostBattle{
 }
 
 script KaolisleGym_Trainer2_Picnicker1{
-    trainerbattle_single(TRAINER_KAOLGYM_TR2_PICNICKER1, KaolisleGym_Trainer2_Picnicker1_Intro, KaolisleGym_Trainer2_Picnicker1_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_PICNICKER1, KaolisleGym_Trainer2_Picnicker1_Intro, KaolisleGym_Trainer2_Picnicker1_Defeat)
 	msgbox(KaolisleGym_Trainer2_Picnicker1_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -171,7 +171,7 @@ text KaolisleGym_Trainer2_Picnicker1_PostBattle{
 }
 
 script KaolisleGym_Trainer3_Hiker1{
-    trainerbattle_single(TRAINER_KAOLGYM_TR3_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_HIKER1, KaolisleGym_Trainer3_Hiker1_Intro, KaolisleGym_Trainer3_Hiker1_Defeat)
     lock
     faceplayer
 	msgbox(KaolisleGym_Trainer3_Hiker1_PostBattle, MSGBOX_YESNO)
@@ -201,7 +201,7 @@ text KaolisleGym_Trainer3_Hiker1_Secret{
 }
 
 script KaolisleGym_Trainer4_Camper2{
-    trainerbattle_single(TRAINER_KAOLGYM_TR4_CAMPER2, KaolisleGym_Trainer4_Camper2_Intro, KaolisleGym_Trainer4_Camper2_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_CAMPER2, KaolisleGym_Trainer4_Camper2_Intro, KaolisleGym_Trainer4_Camper2_Defeat)
 	msgbox(KaolisleGym_Trainer4_Camper2_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -220,7 +220,7 @@ text KaolisleGym_Trainer4_Camper2_PostBattle{
 }
 
 script KaolisleGym_Trainer5_Hiker2{
-    trainerbattle_single(TRAINER_KAOLGYM_TR5_HIKER2, KaolisleGym_Trainer5_Hiker2_Intro, KaolisleGym_Trainer5_Hiker2_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_HIKER2, KaolisleGym_Trainer5_Hiker2_Intro, KaolisleGym_Trainer5_Hiker2_Defeat)
 	msgbox(KaolisleGym_Trainer5_Hiker2_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -240,7 +240,7 @@ text KaolisleGym_Trainer5_Hiker2_PostBattle{
 }
 
 script KaolisleGym_Trainer6_Hiker3{
-    trainerbattle_single(TRAINER_KAOLGYM_TR6_HIKER3, KaolisleGym_Trainer6_Hiker3_Intro, KaolisleGym_Trainer6_Hiker3_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_HIKER3, KaolisleGym_Trainer6_Hiker3_Intro, KaolisleGym_Trainer6_Hiker3_Defeat)
 	msgbox(KaolisleGym_Trainer6_Hiker3_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -260,7 +260,7 @@ text KaolisleGym_Trainer6_Hiker3_PostBattle{
 }
 
 script KaolisleGym_Trainer7_Picnicker2{
-    trainerbattle_single(TRAINER_KAOLGYM_TR7_PICNICKER2, KaolisleGym_Trainer7_Picnicker2_Intro, KaolisleGym_Trainer7_Picnicker2_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_PICNICKER2, KaolisleGym_Trainer7_Picnicker2_Intro, KaolisleGym_Trainer7_Picnicker2_Defeat)
 	msgbox(KaolisleGym_Trainer7_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -280,7 +280,7 @@ text KaolisleGym_Trainer7_Picnicker2_PostBattle{
 }
 
 script KaolisleGym_Trainer8_Camper3{
-    trainerbattle_single(TRAINER_KAOLGYM_TR8_CAMPER3, KaolisleGym_Trainer8_Camper3_Intro, KaolisleGym_Trainer8_Camper3_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_CAMPER3, KaolisleGym_Trainer8_Camper3_Intro, KaolisleGym_Trainer8_Camper3_Defeat)
 	msgbox(KaolisleGym_Trainer8_Camper3_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -296,7 +296,7 @@ text KaolisleGym_Trainer8_Camper3_PostBattle{
 }
 
 script KaolisleGym_Trainer9_Picnicker3{
-    trainerbattle_single(TRAINER_KAOLGYM_TR9_PICNICKER3, KaolisleGym_Trainer9_Picnicker3_Intro, KaolisleGym_Trainer9_Picnicker3_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_PICNICKER3, KaolisleGym_Trainer9_Picnicker3_Intro, KaolisleGym_Trainer9_Picnicker3_Defeat)
 	msgbox(KaolisleGym_Trainer9_Picnicker3_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }
@@ -316,7 +316,7 @@ text KaolisleGym_Trainer9_Picnicker3_PostBattle{
 }
 
 script KaolisleGym_Trainer10_Hiker4{
-    trainerbattle_single(TRAINER_KAOLGYM_TR10_HIKER4, KaolisleGym_Trainer10_Hiker4_Intro, KaolisleGym_Trainer10_Hiker4_Defeat)
+    trainerbattle_single(TRAINER_KAOLGYM_HIKER4, KaolisleGym_Trainer10_Hiker4_Intro, KaolisleGym_Trainer10_Hiker4_Defeat)
 	msgbox(KaolisleGym_Trainer10_Hiker4_PostBattle, MSGBOX_AUTOCLOSE)
 	end
 }

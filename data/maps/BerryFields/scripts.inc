@@ -26,7 +26,7 @@ BerryFields_Rocket::
 # 15 "data/maps/BerryFields/scripts.pory"
 	msgbox BerryFields_GruntIntro
 # 16 "data/maps/BerryFields/scripts.pory"
-	trainerbattle_no_intro TRAINER_R15_TR18_BERRYROCKET, BerryFields_GruntDefeat
+	trainerbattle_no_intro TRAINER_R15_BERRYROCKET, BerryFields_GruntDefeat
 # 17 "data/maps/BerryFields/scripts.pory"
 	msgbox IWasDecoy
 # 18 "data/maps/BerryFields/scripts.pory"

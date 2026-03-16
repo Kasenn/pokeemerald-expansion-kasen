@@ -57,7 +57,7 @@ R14_ControlFlags_6:
 
 Route14_Tr1_Running_F::
 # 30 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR1_RUNNING_F, R14Tr1_Intro, R14Tr1_Lose
+	trainerbattle_single TRAINER_R14_RUNNING_F, R14Tr1_Intro, R14Tr1_Lose
 # 31 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr1_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -65,7 +65,7 @@ Route14_Tr1_Running_F::
 
 Route14_Tr2_Hiker::
 # 51 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR2_HIKER, R14Tr2_Intro, R14Tr2_Lose
+	trainerbattle_single TRAINER_R14_HIKER, R14Tr2_Intro, R14Tr2_Lose
 # 52 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr2_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -418,7 +418,7 @@ R14_ChaseAfterRocket_2:
 
 Route14_Tr3_ParasolLady::
 # 254 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR3_PARASOLLADY, R14Tr3_Intro, R14Tr3_Lose
+	trainerbattle_single TRAINER_R14_PARASOLLADY, R14Tr3_Intro, R14Tr3_Lose
 # 255 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr3_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -426,7 +426,7 @@ Route14_Tr3_ParasolLady::
 
 Route14_Tr4_Fisher::
 # 272 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR4_FISHER, R14Tr4_Intro, R14Tr4_Lose
+	trainerbattle_single TRAINER_R14_FISHER, R14Tr4_Intro, R14Tr4_Lose
 # 273 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr4_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -434,7 +434,7 @@ Route14_Tr4_Fisher::
 
 Route14_Tr5_ParasolLady2::
 # 289 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR5_PARASOLLADY2, R14Tr5_Intro, R14Tr5_Lose
+	trainerbattle_single TRAINER_R14_PARASOLLADY2, R14Tr5_Intro, R14Tr5_Lose
 # 290 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr5_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -442,7 +442,7 @@ Route14_Tr5_ParasolLady2::
 
 Route14_Tr6_NinjaBoy::
 # 309 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR6_NINJABOY, R14Tr6_Intro, R14Tr6_Lose
+	trainerbattle_single TRAINER_R14_NINJABOY, R14Tr6_Intro, R14Tr6_Lose
 # 310 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr6_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -450,7 +450,7 @@ Route14_Tr6_NinjaBoy::
 
 Route14_Tr7_Rocker::
 # 328 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR7_ROCKER, R14Tr7_Intro, R14Tr7_Lose
+	trainerbattle_single TRAINER_R14_ROCKER, R14Tr7_Intro, R14Tr7_Lose
 # 329 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr7_PostBattle, MSGBOX_AUTOCLOSE
 	end
@@ -458,7 +458,7 @@ Route14_Tr7_Rocker::
 
 Route14_Tr8_Maniac::
 # 347 "data/maps/Route14/scripts.pory"
-	trainerbattle_single TRAINER_R14_TR8_MANIAC, R14Tr8_Intro, R14Tr8_Lose
+	trainerbattle_single TRAINER_R14_MANIAC, R14Tr8_Intro, R14Tr8_Lose
 # 348 "data/maps/Route14/scripts.pory"
 	msgbox R14Tr8_PostBattle, MSGBOX_AUTOCLOSE
 	end

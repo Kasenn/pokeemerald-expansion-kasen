@@ -635,7 +635,7 @@ text PutMudAway{
 }
 
 script Route7_Trainer1_Camper {
-    trainerbattle_single(TRAINER_R7_TR1_CAMPER, Route7_Trainer1_Camper_Intro, Route7_Trainer1_Camper_Defeat)
+    trainerbattle_single(TRAINER_R7_CAMPER, Route7_Trainer1_Camper_Intro, Route7_Trainer1_Camper_Defeat)
     msgbox(Route7_Trainer1_Camper_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -654,7 +654,7 @@ text Route7_Trainer1_Camper_PostBattle{
 }
 
 script Route7_Trainer2_Picnicker {
-    trainerbattle_single(TRAINER_R7_TR2_PICNICKER, Route7_Trainer2_Picnicker_Intro, Route7_Trainer2_Picnicker_Defeat)
+    trainerbattle_single(TRAINER_R7_PICNICKER, Route7_Trainer2_Picnicker_Intro, Route7_Trainer2_Picnicker_Defeat)
     msgbox(Route7_Trainer2_Picnicker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -695,7 +695,7 @@ text Route7_Trainer3_Ninjaboy_PostBattle{
 }
 
 script Route7_Trainer4_Birdkeeper {
-    trainerbattle_single(TRAINER_R7_TR4_BIRDKEEPER, Route7_Trainer4_Birdkeeper_Intro, Route7_Trainer4_Birdkeeper_Defeat)
+    trainerbattle_single(TRAINER_R7_BIRDKEEPER, Route7_Trainer4_Birdkeeper_Intro, Route7_Trainer4_Birdkeeper_Defeat)
     msgbox(Route7_Trainer4_Birdkeeper_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -716,7 +716,7 @@ text Route7_Trainer4_Birdkeeper_PostBattle{
 }
 
 script Route7_Trainer5_Blackbelt {
-    trainerbattle_single(TRAINER_R7_TR5_BLACKBELT, Route7_Trainer5_Blackbelt_Intro, Route7_Trainer5_Blackbelt_Defeat)
+    trainerbattle_single(TRAINER_R7_BLACKBELT, Route7_Trainer5_Blackbelt_Intro, Route7_Trainer5_Blackbelt_Defeat)
     msgbox(Route7_Trainer5_Blackbelt_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -736,7 +736,7 @@ text Route7_Trainer5_Blackbelt_PostBattle{
 }
 
 script Route7_Trainer6_Picnicker2 {
-    trainerbattle_single(TRAINER_R7_TR6_PICNICKER2, Route7_Trainer6_Picnicker2_Intro, Route7_Trainer6_Picnicker2_Defeat)
+    trainerbattle_single(TRAINER_R7_PICNICKER2, Route7_Trainer6_Picnicker2_Intro, Route7_Trainer6_Picnicker2_Defeat)
     msgbox(Route7_Trainer6_Picnicker2_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -757,7 +757,7 @@ text Route7_Trainer6_Picnicker2_PostBattle{
 }
 
 script Route7_Trainer7_Fisherman {
-    trainerbattle_single(TRAINER_R7_TR7_FISHERMAN, Route7_Trainer7_Fisherman_Intro, Route7_Trainer7_Fisherman_Defeat)
+    trainerbattle_single(TRAINER_R7_FISHERMAN, Route7_Trainer7_Fisherman_Intro, Route7_Trainer7_Fisherman_Defeat)
     msgbox(Route7_Trainer7_Fisherman_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -779,7 +779,7 @@ text Route7_Trainer7_Fisherman_PostBattle{
 }
 
 script Route7_Trainer8_Hiker {
-    trainerbattle_single(TRAINER_R7_TR8_HIKER, Route7_Trainer8_Hiker_Intro, Route7_Trainer8_Hiker_Defeat)
+    trainerbattle_single(TRAINER_R7_HIKER, Route7_Trainer8_Hiker_Intro, Route7_Trainer8_Hiker_Defeat)
     msgbox(Route7_Trainer8_Hiker_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -801,7 +801,7 @@ text Route7_Trainer8_Hiker_PostBattle{
 }
 
 script Route7_Trainer9_Parasollady {
-    trainerbattle_single(TRAINER_R7_TR9_PARASOLLADY, Route7_Trainer9_Parasollady_Intro, Route7_Trainer9_Parasollady_Defeat)
+    trainerbattle_single(TRAINER_R7_PARASOLLADY, Route7_Trainer9_Parasollady_Intro, Route7_Trainer9_Parasollady_Defeat)
     msgbox(Route7_Trainer9_Parasollady_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }
@@ -822,7 +822,7 @@ text Route7_Trainer9_Parasollady_PostBattle{
 }
 
 script Route7_Trainer10_NinjaBoy {
-    trainerbattle_single(TRAINER_R7_TR10_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat)
+    trainerbattle_single(TRAINER_R7_NINJABOY, Route7_Trainer10_NinjaBoy_Intro, Route7_Trainer10_NinjaBoy_Defeat)
     msgbox(Route7_Trainer10_NinjaBoy_PostBattle, MSGBOX_AUTOCLOSE)
     end
 }

@@ -675,7 +675,7 @@ script Amberock_Papers{
     addobject(1)
     addobject(2)
     getfollowerxy(X, Y)
-    if(!defeated(TRAINER_R15_TR18_BERRYROCKET)){
+    if(!defeated(TRAINER_R15_BERRYROCKET)){
         call(AmberockAlternativeCutscene)
     }
     delay(60)

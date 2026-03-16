@@ -571,7 +571,7 @@ Mightyena
 Level: 28
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_SHELLY_SEAFLOOR_CAVERN ===
+=== TRAINER_WW_ROCKET ===
 Name: SHELLY
 Class: Aqua Admin
 Pic: Aqua Admin F
@@ -779,7 +779,7 @@ Roselia
 Level: 34
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_EXPBOT_1 ===
+=== TRAINER_PRIMROSE_NURSE ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -796,7 +796,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_CHIP ===
+=== TRAINER_CORALGYM_1 ===
 Name: CHIP
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -829,7 +829,7 @@ IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_FOSTER ===
+=== TRAINER_CORALGYM_2 ===
 Name: FOSTER
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -854,7 +854,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_DUSTY_2 ===
+=== TRAINER_CORALGYM_3 ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -871,7 +871,7 @@ IVs: 7 HP / 7 Atk / 7 Def / 7 SpA / 7 SpD / 7 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_DUSTY_3 ===
+=== TRAINER_CORALGYM_4 ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -888,7 +888,7 @@ IVs: 8 HP / 8 Atk / 8 Def / 8 SpA / 8 SpD / 8 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_DUSTY_4 ===
+=== TRAINER_CORALGYM_5 ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -905,7 +905,7 @@ IVs: 9 HP / 9 Atk / 9 Def / 9 SpA / 9 SpD / 9 Spe
 - Sand Attack
 - Poison Sting
 
-=== TRAINER_DUSTY_5 ===
+=== TRAINER_CORALGYM_6 ===
 Name: DUSTY
 Class: Ruin Maniac
 Pic: Ruin Maniac
@@ -939,7 +939,7 @@ Whismur
 Level: 17
 IVs: 6 HP / 6 Atk / 6 Def / 6 SpA / 6 SpD / 6 Spe
 
-=== TRAINER_EXPBOT_2 ===
+=== TRAINER_CORALGROVE_NURSE ===
 Name: GABBY & TY
 Class: Interviewer
 Pic: Interviewer
@@ -1049,7 +1049,7 @@ Azurill
 Level: 12
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R16_TR1_SWIMMER_M ===
+=== TRAINER_R16_SWIMMER_M ===
 Name: AUSTINA
 Class: Tuber F
 Pic: Tuber F
@@ -1160,7 +1160,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_R4_BIRDKEEPER_2 ===
+=== TRAINER_R4_BIRDKEEPER2 ===
 Name: SIMON
 Class: Tuber M
 Pic: Tuber M
@@ -1177,7 +1177,7 @@ Marill
 Level: 12
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R4_DOUBLE_LASS ===
+=== TRAINER_R4_LASS ===
 Name: CHARLIE
 Class: Tuber M
 Pic: Tuber M
@@ -1190,7 +1190,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R4_DOUBLE_YOUNGSTER ===
+=== TRAINER_R4_YOUNGSTER ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1207,7 +1207,7 @@ IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_R4_TRIATHLETE_2 ===
+=== TRAINER_R4_TRIATHLETE2 ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1224,7 +1224,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_RICKY_4 ===
+=== TRAINER_RANCH_ROCKET ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1241,7 +1241,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_RICKY_5 ===
+=== TRAINER_RANCH_ROCKET2 ===
 Name: RICKY
 Class: Tuber M
 Pic: Tuber M
@@ -1258,7 +1258,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tail Whip
 - Surf
 
-=== TRAINER_RANDALL ===
+=== TRAINER_ALDELEAF_NURSE ===
 Name: RANDALL
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1275,7 +1275,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Agility
 - Wing Attack
 
-=== TRAINER_PARKER ===
+=== TRAINER_ALDEGYM_1 ===
 Name: PARKER
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1292,7 +1292,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Dizzy Punch
 - Focus Punch
 
-=== TRAINER_GEORGE ===
+=== TRAINER_ALDEGYM_2 ===
 Name: GEORGE
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1309,7 +1309,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Counter
 - Shadow Ball
 
-=== TRAINER_BERKE ===
+=== TRAINER_ALDEGYM_3 ===
 Name: BERKE
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1325,7 +1325,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Focus Energy
 - Slash
 
-=== TRAINER_BRAXTON ===
+=== TRAINER_ALDEGYM_4 ===
 Name: BRAXTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1375,7 +1375,7 @@ IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 - Double Team
 - Swagger
 
-=== TRAINER_VINCENT ===
+=== TRAINER_ALDEGYM_5 ===
 Name: VINCENT
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1397,7 +1397,7 @@ Sharpedo
 Level: 44
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_LEROY ===
+=== TRAINER_ALDEGYM_6 ===
 Name: LEROY
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1415,7 +1415,7 @@ Starmie
 Level: 46
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_WILTON_1 ===
+=== TRAINER_ALDEGYM_7 ===
 Name: WILTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1437,7 +1437,7 @@ Makuhita
 Level: 17
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_EDGAR ===
+=== TRAINER_ALDEGYM_8 ===
 Name: EDGAR
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1455,7 +1455,7 @@ Pelipper
 Level: 43
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_ALBERT ===
+=== TRAINER_ALDEGYM_9 ===
 Name: ALBERT
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1473,7 +1473,7 @@ Muk
 Level: 43
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_SAMUEL ===
+=== TRAINER_ALDEGYM_10 ===
 Name: SAMUEL
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1495,7 +1495,7 @@ Kadabra
 Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_VITO ===
+=== TRAINER_ALDELEAF_MANIAC ===
 Name: VITO
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1521,7 +1521,7 @@ Shiftry
 Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_OWEN ===
+=== TRAINER_ALDEGYM_11 ===
 Name: OWEN
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1543,7 +1543,7 @@ Wailord
 Level: 42
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_WILTON_2 ===
+=== TRAINER_ALDEGYM_12 ===
 Name: WILTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1565,7 +1565,7 @@ Makuhita
 Level: 26
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
-=== TRAINER_WILTON_3 ===
+=== TRAINER_ALDEGYM_13 ===
 Name: WILTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1587,7 +1587,7 @@ Makuhita
 Level: 29
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_WILTON_4 ===
+=== TRAINER_ALDEGYM_14 ===
 Name: WILTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1609,7 +1609,7 @@ Makuhita
 Level: 32
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_WILTON_5 ===
+=== TRAINER_ALDEGYM_15 ===
 Name: WILTON
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -1631,7 +1631,7 @@ Hariyama
 Level: 35
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 
-=== TRAINER_WARREN ===
+=== TRAINER_ALDEGYM_16 ===
 Name: WARREN
 Class: Cooltrainer
 Pic: Cooltrainer M
@@ -6240,7 +6240,7 @@ Electrike
 Level: 13
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR1_SWIMMER_F ===
+=== TRAINER_R3_SWIMMER_F ===
 Name: WALLACE
 Class: Champion
 Pic: Champion Wallace
@@ -6299,7 +6299,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Ice Beam
 - Toxic
 
-=== TRAINER_R3_TR2_SWIMMER_M ===
+=== TRAINER_R3_SWIMMER_M ===
 Name: ANDREW
 Class: Fisherman
 Pic: Fisherman
@@ -6320,7 +6320,7 @@ Magikarp
 Level: 15
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR3_SWIMMER_OLDSISTER ===
+=== TRAINER_R3_SWIMMER_OLDSIS ===
 Name: IVAN
 Class: Fisherman
 Pic: Fisherman
@@ -6341,7 +6341,7 @@ Magikarp
 Level: 7
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR4_TUBER ===
+=== TRAINER_R3_TUBER ===
 Name: CLAUDE
 Class: Fisherman
 Pic: Fisherman
@@ -6362,7 +6362,7 @@ Barboach
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR5_FISHERMAN ===
+=== TRAINER_R3_FISHERMAN ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6383,7 +6383,7 @@ Magikarp
 Level: 10
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR6_LANDSWIMMER_1 ===
+=== TRAINER_R3_LANDSWIMMER_1 ===
 Name: NED
 Class: Fisherman
 Pic: Fisherman
@@ -6396,7 +6396,7 @@ Tentacool
 Level: 11
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R3_TR7_LANDSWIMMER_2 ===
+=== TRAINER_R3_LANDSWIMMER_2 ===
 Name: DALE
 Class: Fisherman
 Pic: Fisherman
@@ -6421,7 +6421,7 @@ Wailmer
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR8_SAILOR ===
+=== TRAINER_R3_SAILOR ===
 Name: NOLAN
 Class: Fisherman
 Pic: Fisherman
@@ -6434,7 +6434,7 @@ Barboach
 Level: 19
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR9_SWIMMER_M1 ===
+=== TRAINER_R3_SWIMMER_M1 ===
 Name: BARNY
 Class: Fisherman
 Pic: Fisherman
@@ -6451,7 +6451,7 @@ Carvanha
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR10_SWIMMER_M2 ===
+=== TRAINER_R3_SWIMMER_M2 ===
 Name: WADE
 Class: Fisherman
 Pic: Fisherman
@@ -6464,7 +6464,7 @@ Tentacool
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R3_TR11_SWIMMER_F1 ===
+=== TRAINER_R3_SWIMMER_F1 ===
 Name: CARTER
 Class: Fisherman
 Pic: Fisherman
@@ -6481,7 +6481,7 @@ Tentacruel
 Level: 25
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R9_TR1_SWIMMER_M ===
+=== TRAINER_R9_SWIMMER_M ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6502,7 +6502,7 @@ Gyarados
 Level: 27
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R9_TR2_BLACKBELT ===
+=== TRAINER_R9_BLACKBELT ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6527,7 +6527,7 @@ Gyarados
 Level: 29
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_R9_TR3_BIRDKEEPER ===
+=== TRAINER_R9_BIRDKEEPER ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6552,7 +6552,7 @@ Gyarados
 Level: 31
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_R9_TR4_BATTLEGIRL ===
+=== TRAINER_R9_BATTLEGIRL ===
 Name: ELLIOT
 Class: Fisherman
 Pic: Fisherman
@@ -6577,7 +6577,7 @@ Tentacruel
 Level: 35
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_R9_TR5_SWIMMER_F ===
+=== TRAINER_R9_SWIMMER_F ===
 Name: RONALD
 Class: Fisherman
 Pic: Fisherman
@@ -6610,7 +6610,7 @@ Gyarados
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R9_TR6_FISHERMAN ===
+=== TRAINER_R9_FISHERMAN ===
 Name: JACOB
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6631,7 +6631,7 @@ Magnemite
 Level: 14
 IVs: 24 HP / 24 Atk / 24 Def / 24 SpA / 24 SpD / 24 Spe
 
-=== TRAINER_R9_TR7_HIKER ===
+=== TRAINER_R9_HIKER ===
 Name: ANTHONY
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6648,7 +6648,7 @@ Magnemite
 Level: 14
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R9_TR8_COLLECTOR ===
+=== TRAINER_R9_COLLECTOR ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6661,7 +6661,7 @@ Magnemite
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R9_TR9_SWIMMER_M2 ===
+=== TRAINER_R9_SWIMMER_M2 ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6674,7 +6674,7 @@ Magnemite
 Level: 30
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R9_TR10_LANDSWIMMER ===
+=== TRAINER_R9_LANDSWIMMER ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6687,7 +6687,7 @@ Magnemite
 Level: 33
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_R10_TR1_ACESWIMMER ===
+=== TRAINER_R10_ACESWIMMER ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6700,7 +6700,7 @@ Magneton
 Level: 36
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_R10_TR2_SWIMMER_F1 ===
+=== TRAINER_R10_SWIMMER_F1 ===
 Name: BENJAMIN
 Class: Triathlete
 Pic: Cycling Triathlete M
@@ -6713,7 +6713,7 @@ Magneton
 Level: 39
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_R10_TR3_FISHERMAN ===
+=== TRAINER_R10_FISHERMAN ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6726,7 +6726,7 @@ Magnemite
 Level: 16
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R10_TR4_SWIMMER_M1 ===
+=== TRAINER_R10_SWIMMER_M1 ===
 Name: JASMINE
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6747,7 +6747,7 @@ Voltorb
 Level: 6
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R10_TR5_BLACKBELT ===
+=== TRAINER_R10_BLACKBELT ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6760,7 +6760,7 @@ Magnemite
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R10_TR6_HIKER ===
+=== TRAINER_R10_HIKER ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6773,7 +6773,7 @@ Magnemite
 Level: 31
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_R10_TR7_SWIMMER_F2 ===
+=== TRAINER_R10_SWIMMER_F2 ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6786,7 +6786,7 @@ Magneton
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_R10_TR8_SWIMMER_M2 ===
+=== TRAINER_R10_SWIMMER_M2 ===
 Name: ABIGAIL
 Class: Triathlete
 Pic: Cycling Triathlete F
@@ -6799,7 +6799,7 @@ Magneton
 Level: 37
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_R10_TR9_BATTLEGIRL ===
+=== TRAINER_R10_BATTLEGIRL ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6812,7 +6812,7 @@ Doduo
 Level: 17
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R10_TR10_TUBER_M ===
+=== TRAINER_R10_TUBER_M ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6825,7 +6825,7 @@ Doduo
 Level: 28
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R16_TR10_NINJABOY ===
+=== TRAINER_R16_NINJABOY ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -6851,7 +6851,7 @@ Dodrio
 Level: 34
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_R16_TR11_EXPERT_F ===
+=== TRAINER_R16_EXPERT_F ===
 Name: DYLAN
 Class: Triathlete
 Pic: Running Triathlete M
@@ -7049,7 +7049,7 @@ Starmie
 Level: 45
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_R17_TR1_CAMPER_M ===
+=== TRAINER_R17_CAMPER_M ===
 Name: ISAIAH
 Class: Triathlete
 Pic: Swimming Triathlete M
@@ -7062,7 +7062,7 @@ Starmie
 Level: 48
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_R17_TR2_PICNICKER1 ===
+=== TRAINER_R17_PICNICKER1 ===
 Name: ISOBEL
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7075,7 +7075,7 @@ Staryu
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R17_TR3_PICNICKER2 ===
+=== TRAINER_R17_PICNICKER2 ===
 Name: DONNY
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7092,7 +7092,7 @@ Staryu
 Level: 34
 IVs: 19 HP / 19 Atk / 19 Def / 19 SpA / 19 SpD / 19 Spe
 
-=== TRAINER_R17_TR4_MANIAC ===
+=== TRAINER_R17_MANIAC ===
 Name: TALIA
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7105,7 +7105,7 @@ Staryu
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R17_TR5_SCIENTIST ===
+=== TRAINER_R17_SCIENTIST ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7118,7 +7118,7 @@ Staryu
 Level: 35
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R17_TR6_HIKER1 ===
+=== TRAINER_R17_HIKER1 ===
 Name: ALLISON
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7135,7 +7135,7 @@ Staryu
 Level: 33
 IVs: 29 HP / 29 Atk / 29 Def / 29 SpA / 29 SpD / 29 Spe
 
-=== TRAINER_R17_TR7_HIKER2 ===
+=== TRAINER_R17_HIKER2 ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7148,7 +7148,7 @@ Staryu
 Level: 39
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R17_TR8_COOLTRAINER ===
+=== TRAINER_R17_COOLTRAINER ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7161,7 +7161,7 @@ Staryu
 Level: 42
 IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 
-=== TRAINER_BASALTUNNEL_TR1_HIKER1 ===
+=== TRAINER_BTUN_HIKER1 ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7174,7 +7174,7 @@ Starmie
 Level: 45
 IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 
-=== TRAINER_BASALTUNNEL_TR2_BLACKBELT ===
+=== TRAINER_BTUN_BLACKBELT ===
 Name: KATELYN
 Class: Triathlete
 Pic: Swimming Triathlete F
@@ -7187,7 +7187,7 @@ Starmie
 Level: 48
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_BASALTUNNEL_TR3_PICNICKER ===
+=== TRAINER_BTUN_PICNICKER ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7204,7 +7204,7 @@ Altaria
 Level: 37
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_BASALTUNNEL_TR4_FIREBREATHER ===
+=== TRAINER_BTUN_FIREBREATHER ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7221,7 +7221,7 @@ Altaria
 Level: 41
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
-=== TRAINER_BASALTUNNEL_TR5_BLACKBELT2 ===
+=== TRAINER_BTUN_BLACKBELT2 ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7238,7 +7238,7 @@ Altaria
 Level: 44
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_BASALTUNNEL_TR6_CAMPERM ===
+=== TRAINER_BTUN_CAMPERM ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7259,7 +7259,7 @@ Altaria
 Level: 46
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_BASALTUNNEL_TR7_PICNICKER2 ===
+=== TRAINER_BTUN_PICNICKER2 ===
 Name: NICOLAS
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7280,7 +7280,7 @@ Shelgon @ Dragon Fang
 Level: 49
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 
-=== TRAINER_BASALTUNNEL_TR8_HIKER2 ===
+=== TRAINER_BTUN_HIKER2 ===
 Name: AARON
 Class: Dragon Tamer
 Pic: Dragon Tamer
@@ -7297,7 +7297,7 @@ IVs: 31 HP / 31 Atk / 31 Def / 31 SpA / 31 SpD / 31 Spe
 - Focus Energy
 - Ember
 
-=== TRAINER_BASALTUNNEL_TR9_BEAUTY ===
+=== TRAINER_BTUN_BEAUTY ===
 Name: PERRY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7310,7 +7310,7 @@ Wingull
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BASALTUNNEL_TR10_FIREBREATHER2 ===
+=== TRAINER_BTUN_FIREBREATHER2 ===
 Name: HUGH
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7327,7 +7327,7 @@ Tropius
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BASALTUNNEL_TR11_HIKER3 ===
+=== TRAINER_BTUN_HIKER3 ===
 Name: PHIL
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7340,7 +7340,7 @@ Swellow
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_BASALTUNNEL_TR12_BROCK ===
+=== TRAINER_BTUN_BROCK ===
 Name: JARED
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7361,7 +7361,7 @@ Tropius
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_R18_TR1_HIKER1 ===
+=== TRAINER_R18_HIKER1 ===
 Name: HUMBERTO
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7374,7 +7374,7 @@ Skarmory
 Level: 30
 IVs: 30 HP / 30 Atk / 30 Def / 30 SpA / 30 SpD / 30 Spe
 
-=== TRAINER_R18_TR2_RANGER_M ===
+=== TRAINER_R18_RANGER_M ===
 Name: PRESLEY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7391,7 +7391,7 @@ Xatu
 Level: 33
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R18_TR3_KINDLER ===
+=== TRAINER_R18_KINDLER ===
 Name: EDWARDO
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7408,7 +7408,7 @@ Pelipper
 Level: 29
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_R18_TR4_HIKER2 ===
+=== TRAINER_R18_HIKER2 ===
 Name: COLIN
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7425,7 +7425,7 @@ Natu
 Level: 28
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R18_TR5_RANGER_F ===
+=== TRAINER_R18_RANGER_F ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7438,7 +7438,7 @@ Swablu
 Level: 29
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R18_TR6_SCIENTIST ===
+=== TRAINER_R18_SCIENTIST ===
 Name: BENNY
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7459,7 +7459,7 @@ Xatu
 Level: 36
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R18_TR7_POKEMANIAC ===
+=== TRAINER_R18_POKEMANIAC ===
 Name: CHESTER
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7476,7 +7476,7 @@ Swellow
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_R18_TR8_BREEDER_M ===
+=== TRAINER_R18_BREEDER_M ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7493,7 +7493,7 @@ Swablu
 Level: 32
 IVs: 1 HP / 1 Atk / 1 Def / 1 SpA / 1 SpD / 1 Spe
 
-=== TRAINER_R18_TR9_ACE_TRAINER_M ===
+=== TRAINER_R18_ACE_TRAINER_M ===
 Name: ROBERT
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7544,7 +7544,7 @@ Xatu
 Level: 41
 IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 
-=== TRAINER_FROSTGYM_TR1_HIKER1 ===
+=== TRAINER_FROSTGYM_HIKER1 ===
 Name: ALEX
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7561,7 +7561,7 @@ Swellow
 Level: 33
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_FROSTGYM_TR2_KINDLER1 ===
+=== TRAINER_FROSTGYM_KINDLER1 ===
 Name: BECK
 Class: Bird Keeper
 Pic: Bird Keeper
@@ -7574,7 +7574,7 @@ Tropius
 Level: 34
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FROSTGYM_TR3_SENIOR ===
+=== TRAINER_FROSTGYM_SENIOR ===
 Name: YASU
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7587,7 +7587,7 @@ Ninjask
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FROSTGYM_TR4_JUNIOR ===
+=== TRAINER_FROSTGYM_JUNIOR ===
 Name: TAKASHI
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7604,7 +7604,7 @@ Koffing
 Level: 25
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FROSTGYM_TR5_RANGER_M ===
+=== TRAINER_FROSTGYM_RANGER_M ===
 Name: DIANNE
 Class: Cooltrainer
 Pic: Cooltrainer F
@@ -7625,7 +7625,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Thunderbolt
 - Earthquake
 
-=== TRAINER_FROSTGYM_TR6_RANGER_F ===
+=== TRAINER_FROSTGYM_RANGER_F ===
 Name: JANI
 Class: Tuber F
 Pic: Tuber F
@@ -7637,7 +7637,7 @@ Marill
 Level: 26
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FROSTGYM_TR7_MANIAC ===
+=== TRAINER_FROSTGYM_MANIAC ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7669,7 +7669,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Sludge
 - Self Destruct
 
-=== TRAINER_FROSTGYM_TR8_COLLECTOR ===
+=== TRAINER_FROSTGYM_COLLECTOR ===
 Name: LUNG
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7685,7 +7685,7 @@ Ninjask
 Level: 18
 IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 
-=== TRAINER_FROSTGYM_TR9_KINDLER2 ===
+=== TRAINER_FROSTGYM_KINDLER2 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7722,7 +7722,7 @@ IVs: 0 HP / 0 Atk / 0 Def / 0 SpA / 0 SpD / 0 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_FROSTGYM_TR10_RANGER_F2 ===
+=== TRAINER_FROSTGYM_RANGER_F2 ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7759,7 +7759,7 @@ IVs: 2 HP / 2 Atk / 2 Def / 2 SpA / 2 SpD / 2 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_AZURETIDE_CELEBI_TR1 ===
+=== TRAINER_AZURETIDE_CELEBI ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7794,7 +7794,7 @@ IVs: 3 HP / 3 Atk / 3 Def / 3 SpA / 3 SpD / 3 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_KAOLISLE_CELEBI_TR2 ===
+=== TRAINER_KAOLISLE_CELEBI ===
 Name: LAO
 Class: Ninja Boy
 Pic: Ninja Boy
@@ -7831,7 +7831,7 @@ IVs: 4 HP / 4 Atk / 4 Def / 4 SpA / 4 SpD / 4 Spe
 - Tackle
 - Sludge
 
-=== TRAINER_R19_TR1_SWIMMER_F ===
+=== TRAINER_R19_SWIMMER_F ===
 Name: JOCELYN
 Class: Battle Girl
 Pic: Battle Girl
@@ -7844,7 +7844,7 @@ Meditite
 Level: 13
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_R19_TR2_SWIMMER_M ===
+=== TRAINER_R19_SWIMMER_M ===
 Name: LAURA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7857,7 +7857,7 @@ Meditite
 Level: 13
 IVs: 18 HP / 18 Atk / 18 Def / 18 SpA / 18 SpD / 18 Spe
 
-=== TRAINER_R19_TR3_SWIMMER_M ===
+=== TRAINER_R19_SWIMMER_M2 ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7874,7 +7874,7 @@ Makuhita
 Level: 18
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_R19_TR4_SWIMMER_COUPLE ===
+=== TRAINER_R19_SWIMMER_COUPLE ===
 Name: CORA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7887,7 +7887,7 @@ Meditite
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_R19_TR5_SWIMMER_F ===
+=== TRAINER_R19_SWIMMER_F2 ===
 Name: PAULA
 Class: Battle Girl
 Pic: Battle Girl
@@ -7900,7 +7900,7 @@ Breloom
 Level: 27
 IVs: 12 HP / 12 Atk / 12 Def / 12 SpA / 12 SpD / 12 Spe
 
-=== TRAINER_R19_TR6_SWIMMER_M ===
+=== TRAINER_R19_SWIMMER_M3 ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7917,7 +7917,7 @@ Makuhita
 Level: 26
 IVs: 13 HP / 13 Atk / 13 Def / 13 SpA / 13 SpD / 13 Spe
 
-=== TRAINER_R19_TR7_BLACKBELT ===
+=== TRAINER_R19_BLACKBELT ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7934,7 +7934,7 @@ Makuhita
 Level: 29
 IVs: 14 HP / 14 Atk / 14 Def / 14 SpA / 14 SpD / 14 Spe
 
-=== TRAINER_R19_TR8_HIKER ===
+=== TRAINER_R19_HIKER ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7951,7 +7951,7 @@ Hariyama
 Level: 32
 IVs: 15 HP / 15 Atk / 15 Def / 15 SpA / 15 SpD / 15 Spe
 
-=== TRAINER_R19_TR9_PICNICKER ===
+=== TRAINER_R19_PICNICKER ===
 Name: CYNDY
 Class: Battle Girl
 Pic: Battle Girl
@@ -7968,7 +7968,7 @@ Hariyama
 Level: 35
 IVs: 17 HP / 17 Atk / 17 Def / 17 SpA / 17 SpD / 17 Spe
 
-=== TRAINER_R19_TR10_SWIMMER_M ===
+=== TRAINER_R19_SWIMMER_M4 ===
 Name: MADELINE
 Class: Parasol Lady
 Pic: Parasol Lady

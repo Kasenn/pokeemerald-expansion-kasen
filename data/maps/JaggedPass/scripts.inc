@@ -118,7 +118,7 @@ JaggedPass_EventScript_DianaRematch::
 	end
 
 JaggedPass_EventScript_Ethan::
-	trainerbattle_single TRAINER_R11_TR6_TRIATHLETE_F, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat, JaggedPass_EventScript_RegisterEthan
+	trainerbattle_single TRAINER_R11_TRIATHLETE_F, JaggedPass_Text_EthanIntro, JaggedPass_Text_EthanDefeat, JaggedPass_EventScript_RegisterEthan
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, JaggedPass_EventScript_EthanRematch
 	msgbox JaggedPass_Text_EthanPostBattle, MSGBOX_DEFAULT
@@ -128,12 +128,12 @@ JaggedPass_EventScript_Ethan::
 JaggedPass_EventScript_RegisterEthan::
 	special PlayerFaceTrainerAfterBattle
 	msgbox JaggedPass_Text_EthanRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R11_TR6_TRIATHLETE_F
+	register_matchcall TRAINER_R11_TRIATHLETE_F
 	release
 	end
 
 JaggedPass_EventScript_EthanRematch::
-	trainerbattle_rematch TRAINER_R11_TR6_TRIATHLETE_F, JaggedPass_Text_EthanRematchIntro, JaggedPass_Text_EthanRematchDefeat
+	trainerbattle_rematch TRAINER_R11_TRIATHLETE_F, JaggedPass_Text_EthanRematchIntro, JaggedPass_Text_EthanRematchDefeat
 	msgbox JaggedPass_Text_EthanPostRematch, MSGBOX_AUTOCLOSE
 	end
 
@@ -143,7 +143,7 @@ JaggedPass_EventScript_Julio::
 	end
 
 JaggedPass_EventScript_Autumn::
-	trainerbattle_single TRAINER_R11_TR7_HIKER, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat
+	trainerbattle_single TRAINER_R11_HIKER, JaggedPass_Text_AutumnIntro, JaggedPass_Text_AutumnDefeat
 	msgbox JaggedPass_Text_AutumnPostBattle, MSGBOX_AUTOCLOSE
 	end
 

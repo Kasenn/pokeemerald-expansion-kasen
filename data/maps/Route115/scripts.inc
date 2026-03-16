@@ -32,7 +32,7 @@ Route115_EventScript_MeteorFallsSign::
 	end
 
 Route115_EventScript_Timothy::
-	trainerbattle_single TRAINER_R15_TR14_LASS, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
+	trainerbattle_single TRAINER_R15_LASS, Route115_Text_TimothyIntro, Route115_Text_TimothyDefeat, Route115_EventScript_RegisterTimothy
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchTimothy
 	msgbox Route115_Text_TimothyPostBattle, MSGBOX_DEFAULT
@@ -43,22 +43,22 @@ Route115_EventScript_RegisterTimothy::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route115_Text_TimothyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R15_TR14_LASS
+	register_matchcall TRAINER_R15_LASS
 	release
 	end
 
 Route115_EventScript_RematchTimothy::
-	trainerbattle_rematch TRAINER_R15_TR14_LASS, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
+	trainerbattle_rematch TRAINER_R15_LASS, Route115_Text_TimothyRematchIntro, Route115_Text_TimothyRematchDefeat
 	msgbox Route115_Text_TimothyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Koichi::
-	trainerbattle_single TRAINER_KAOLGYM_TR2_PICNICKER1, Route115_Text_KoichiIntro, Route115_Text_KoichiDefeat
+	trainerbattle_single TRAINER_KAOLGYM_PICNICKER1, Route115_Text_KoichiIntro, Route115_Text_KoichiDefeat
 	msgbox Route115_Text_KoichiPostBattle, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Nob::
-	trainerbattle_single TRAINER_KAOLGYM_TR3_HIKER1, Route115_Text_NobIntro, Route115_Text_NobDefeat, Route115_EventScript_RegisterNob
+	trainerbattle_single TRAINER_KAOLGYM_HIKER1, Route115_Text_NobIntro, Route115_Text_NobDefeat, Route115_EventScript_RegisterNob
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchNob
 	msgbox Route115_Text_NobPostBattle, MSGBOX_DEFAULT
@@ -69,17 +69,17 @@ Route115_EventScript_RegisterNob::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route115_Text_NobRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_KAOLGYM_TR3_HIKER1
+	register_matchcall TRAINER_KAOLGYM_HIKER1
 	release
 	end
 
 Route115_EventScript_RematchNob::
-	trainerbattle_rematch TRAINER_KAOLGYM_TR3_HIKER1, Route115_Text_NobRematchIntro, Route115_Text_NobRematchDefeat
+	trainerbattle_rematch TRAINER_KAOLGYM_HIKER1, Route115_Text_NobRematchIntro, Route115_Text_NobRematchDefeat
 	msgbox Route115_Text_NobPostRematch, MSGBOX_AUTOCLOSE
 	end
 
 Route115_EventScript_Cyndy::
-	trainerbattle_single TRAINER_R19_TR3_SWIMMER_M, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat, Route115_EventScript_RegisterCyndy
+	trainerbattle_single TRAINER_R19_SWIMMER_M2, Route115_Text_CyndyIntro, Route115_Text_CyndyDefeat, Route115_EventScript_RegisterCyndy
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, Route115_EventScript_RematchCyndy
 	msgbox Route115_Text_CyndyPostBattle, MSGBOX_DEFAULT
@@ -90,12 +90,12 @@ Route115_EventScript_RegisterCyndy::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
 	msgbox Route115_Text_CyndyRegister, MSGBOX_DEFAULT
-	register_matchcall TRAINER_R19_TR3_SWIMMER_M
+	register_matchcall TRAINER_R19_SWIMMER_M2
 	release
 	end
 
 Route115_EventScript_RematchCyndy::
-	trainerbattle_rematch TRAINER_R19_TR3_SWIMMER_M, Route115_Text_CyndyRematchIntro, Route115_Text_CyndyRematchDefeat
+	trainerbattle_rematch TRAINER_R19_SWIMMER_M2, Route115_Text_CyndyRematchIntro, Route115_Text_CyndyRematchDefeat
 	msgbox Route115_Text_CyndyPostRematch, MSGBOX_AUTOCLOSE
 	end
 
