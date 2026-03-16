@@ -157,151 +157,151 @@ Route19_Tr10_SwimmerM::
 
 
 Route19_Bergmite::
-# 243 "data/maps/Route19/scripts.pory"
-	lock
-# 244 "data/maps/Route19/scripts.pory"
-	faceplayer
-# 245 "data/maps/Route19/scripts.pory"
-	waitse
-# 246 "data/maps/Route19/scripts.pory"
-	playmoncry SPECIES_BERGMITE, CRY_MODE_ENCOUNTER
 # 247 "data/maps/Route19/scripts.pory"
-	delay 40
+	lock
 # 248 "data/maps/Route19/scripts.pory"
-	waitmoncry
+	faceplayer
 # 249 "data/maps/Route19/scripts.pory"
-	setwildbattle SPECIES_BERGMITE, 35
+	waitse
 # 250 "data/maps/Route19/scripts.pory"
-	setflag FLAG_SYS_CTRL_OBJ_DELETE
+	playmoncry SPECIES_BERGMITE, CRY_MODE_ENCOUNTER
 # 251 "data/maps/Route19/scripts.pory"
-	dowildbattle
+	delay 40
 # 252 "data/maps/Route19/scripts.pory"
-	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+	waitmoncry
 # 253 "data/maps/Route19/scripts.pory"
-	specialvar VAR_RESULT, GetBattleOutcome
+	setwildbattle SPECIES_BERGMITE, 35
 # 254 "data/maps/Route19/scripts.pory"
+	setflag FLAG_SYS_CTRL_OBJ_DELETE
+# 255 "data/maps/Route19/scripts.pory"
+	dowildbattle
+# 256 "data/maps/Route19/scripts.pory"
+	clearflag FLAG_SYS_CTRL_OBJ_DELETE
+# 257 "data/maps/Route19/scripts.pory"
+	specialvar VAR_RESULT, GetBattleOutcome
+# 258 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Route19_Bergmite_2
-# 272 "data/maps/Route19/scripts.pory"
+# 276 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq Route19_Bergmite_5
 Route19_Bergmite_4:
-# 290 "data/maps/Route19/scripts.pory"
+# 294 "data/maps/Route19/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq Route19_Bergmite_8
 Route19_Bergmite_7:
-# 308 "data/maps/Route19/scripts.pory"
+# 312 "data/maps/Route19/scripts.pory"
 	setflag FLAG_ROUTE19_BERGMITE
-# 309 "data/maps/Route19/scripts.pory"
+# 313 "data/maps/Route19/scripts.pory"
 	release
 	end
 
 Route19_Bergmite_2:
-# 255 "data/maps/Route19/scripts.pory"
-	setflag FLAG_ROUTE19_BERGMITE
-# 256 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_TO_BLACK
-# 257 "data/maps/Route19/scripts.pory"
-	removeobject VAR_LAST_TALKED
-# 258 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 3, 0x170, FALSE
 # 259 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 3, 0x170, FALSE
+	setflag FLAG_ROUTE19_BERGMITE
 # 260 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 3, 0x170, FALSE
+	fadescreenswapbuffers FADE_TO_BLACK
 # 261 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 4, 0x170, FALSE
+	removeobject VAR_LAST_TALKED
 # 262 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 81, 3, 0x170, FALSE
 # 263 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
 # 264 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
 # 265 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
 # 266 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 5, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
 # 267 "data/maps/Route19/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 83, 4, 0x170, FALSE
 # 268 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_FROM_BLACK
+	setmetatile 81, 5, 0x170, FALSE
 # 269 "data/maps/Route19/scripts.pory"
+	setmetatile 82, 5, 0x170, FALSE
+# 270 "data/maps/Route19/scripts.pory"
+	setmetatile 83, 5, 0x170, FALSE
+# 271 "data/maps/Route19/scripts.pory"
+	special DrawWholeMapView
+# 272 "data/maps/Route19/scripts.pory"
+	fadescreenswapbuffers FADE_FROM_BLACK
+# 273 "data/maps/Route19/scripts.pory"
 	release
 	end
 
 Route19_Bergmite_5:
-# 273 "data/maps/Route19/scripts.pory"
-	setvar VAR_0x8004, SPECIES_BERGMITE
-# 274 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_TO_BLACK
-# 275 "data/maps/Route19/scripts.pory"
-	removeobject VAR_LAST_TALKED
-# 276 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 3, 0x170, FALSE
 # 277 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 3, 0x170, FALSE
+	setvar VAR_0x8004, SPECIES_BERGMITE
 # 278 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 3, 0x170, FALSE
+	fadescreenswapbuffers FADE_TO_BLACK
 # 279 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 4, 0x170, FALSE
+	removeobject VAR_LAST_TALKED
 # 280 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 81, 3, 0x170, FALSE
 # 281 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
 # 282 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
 # 283 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
 # 284 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 5, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
 # 285 "data/maps/Route19/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 83, 4, 0x170, FALSE
 # 286 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_FROM_BLACK
+	setmetatile 81, 5, 0x170, FALSE
 # 287 "data/maps/Route19/scripts.pory"
-	bufferspeciesname STR_VAR_1, VAR_0x8004
+	setmetatile 82, 5, 0x170, FALSE
 # 288 "data/maps/Route19/scripts.pory"
+	setmetatile 83, 5, 0x170, FALSE
+# 289 "data/maps/Route19/scripts.pory"
+	special DrawWholeMapView
+# 290 "data/maps/Route19/scripts.pory"
+	fadescreenswapbuffers FADE_FROM_BLACK
+# 291 "data/maps/Route19/scripts.pory"
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+# 292 "data/maps/Route19/scripts.pory"
 	msgbox gText_LegendaryRanAway
 	goto Route19_Bergmite_4
 
 Route19_Bergmite_8:
-# 291 "data/maps/Route19/scripts.pory"
-	setvar VAR_0x8004, SPECIES_BERGMITE
-# 292 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_TO_BLACK
-# 293 "data/maps/Route19/scripts.pory"
-	removeobject VAR_LAST_TALKED
-# 294 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 3, 0x170, FALSE
 # 295 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 3, 0x170, FALSE
+	setvar VAR_0x8004, SPECIES_BERGMITE
 # 296 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 3, 0x170, FALSE
+	fadescreenswapbuffers FADE_TO_BLACK
 # 297 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 4, 0x170, FALSE
+	removeobject VAR_LAST_TALKED
 # 298 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 4, 0x170, FALSE
+	setmetatile 81, 3, 0x170, FALSE
 # 299 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 4, 0x170, FALSE
+	setmetatile 82, 3, 0x170, FALSE
 # 300 "data/maps/Route19/scripts.pory"
-	setmetatile 81, 5, 0x170, FALSE
+	setmetatile 83, 3, 0x170, FALSE
 # 301 "data/maps/Route19/scripts.pory"
-	setmetatile 82, 5, 0x170, FALSE
+	setmetatile 81, 4, 0x170, FALSE
 # 302 "data/maps/Route19/scripts.pory"
-	setmetatile 83, 5, 0x170, FALSE
+	setmetatile 82, 4, 0x170, FALSE
 # 303 "data/maps/Route19/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 83, 4, 0x170, FALSE
 # 304 "data/maps/Route19/scripts.pory"
-	fadescreenswapbuffers FADE_FROM_BLACK
+	setmetatile 81, 5, 0x170, FALSE
 # 305 "data/maps/Route19/scripts.pory"
-	bufferspeciesname STR_VAR_1, VAR_0x8004
+	setmetatile 82, 5, 0x170, FALSE
 # 306 "data/maps/Route19/scripts.pory"
+	setmetatile 83, 5, 0x170, FALSE
+# 307 "data/maps/Route19/scripts.pory"
+	special DrawWholeMapView
+# 308 "data/maps/Route19/scripts.pory"
+	fadescreenswapbuffers FADE_FROM_BLACK
+# 309 "data/maps/Route19/scripts.pory"
+	bufferspeciesname STR_VAR_1, VAR_0x8004
+# 310 "data/maps/Route19/scripts.pory"
 	msgbox gText_LegendaryRanAway
 	goto Route19_Bergmite_7
 
 
 Route19_Camper::
-# 314 "data/maps/Route19/scripts.pory"
+# 318 "data/maps/Route19/scripts.pory"
 	msgbox Route19_Camper_Text, MSGBOX_NPC
 	return
 
@@ -472,18 +472,22 @@ R19Tr9_PostBattle::
 
 R19Tr10_Intro::
 # 232 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+	.string "You're going to get rolled over!$"
 
 R19Tr10_Lose::
 # 235 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+	.string "We really took a nosedive there…$"
 
 R19Tr10_PostBattle::
 # 238 "data/maps/Route19/scripts.pory"
-	.string "wip$"
+	.string "Have you ever noticed how almost every\n"
+	.string "Wailord seems to be of different size?\p"
+	.string "I don't think I've ever seen\n"
+	.string "a Wailord as big as the Pokédex claims\l"
+	.string "them to be.$"
 
 Route19_Camper_Text::
-# 316 "data/maps/Route19/scripts.pory"
+# 320 "data/maps/Route19/scripts.pory"
 	.string "Have you seen any interesting\n"
 	.string "Pokémon around lately?\p"
 	.string "I've heard talks of some Pokémon\n"

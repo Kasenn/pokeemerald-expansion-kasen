@@ -230,13 +230,17 @@ script Route19_Tr10_SwimmerM {
     end
 }
 text R19Tr10_Intro {
-    "wip"
+    "You're going to get rolled over!"
 }
 text R19Tr10_Lose {
-    "wip"
+    "We really took a nosedive there…"
 }
 text R19Tr10_PostBattle {
-    "wip"
+    "Have you ever noticed how almost every\n"
+    "Wailord seems to be of different size?\p"
+    "I don't think I've ever seen\n"
+    "a Wailord as big as the Pokédex claims\l"
+    "them to be."
 }
 
 script Route19_Bergmite{
