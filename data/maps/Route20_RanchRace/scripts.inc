@@ -315,8 +315,7 @@ Race1_FinishMain_7:
 # 157 "data/maps/Route20_RanchRace/scripts.pory"
 	msgbox FinishRace1_CalculateScore
 # 160 "data/maps/Route20_RanchRace/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED
-	goto_if_ge Race1_FinishMain_13
+	goto_if_set FLAG_GOGOAT_RACE_REWARD_1, Race1_FinishMain_13
 # 191 "data/maps/Route20_RanchRace/scripts.pory"
 	goto_if_set FLAG_TEMP_C, Race1_FinishMain_19
 # 200 "data/maps/Route20_RanchRace/scripts.pory"

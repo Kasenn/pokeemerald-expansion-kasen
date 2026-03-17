@@ -1,7 +1,5 @@
 const FLAG_BROTHER = FLAG_TEMP_1
 const FLAG_RACEBOY = FLAG_TEMP_2
-const FLAG_GOGOAT_INTRO1 = FLAG_TEMP_B
-const FLAG_GOGOAT_INTRO2 = FLAG_TEMP_C
 const VAR_BROTHER_STEPS = VAR_TEMP_0
 const VAR_X = VAR_TEMP_1
 const VAR_Y = VAR_TEMP_2
@@ -202,13 +200,37 @@ script Route20_BrotherTriggerMain{
 
 text Route20_BrotherIntro{
     "{BROTHER}: Yo, {PLAYER}!\n"
-    "wip"
+    "Long time no see!\p"
+    "I hope you've been seeing lots of\n"
+    "new Pokémon, because I certainly have.\p"
+    "How about we have a quick battle?\p"
+    "I've rearranged my team a bit and\n"
+    "I'd like to see how well these\l"
+    "new guys actually perform."
 }
 text Route20_BrotherLost{
-    "wip"
+    "I really thought I'd be able to\n"
+    "break through this time.\l"
+    "Where did I go wrong?"
 }
 text Route20_BrotherPostBat{
-    "wip"
+    "{BROTHER}: I don't know how you\n"
+    "do it, but your team is\l"
+    "just simply too much.\l"
+    "I may need to do some soul searching\l"
+    "to figure out what I'm doing wrong.\p"
+    "I assume you're heading east towards\n"
+    "Iceperch City and the Pokémon League?\p"
+    "Well, don't be in too much of a hurry.\n"
+    "These battles will be no fun if you\l"
+    "grow too powerful.\p"
+    "In fact, I think you should stop by\n"
+    "in the next town and take part in a\l"
+    "Pokémon Contest.\l"
+    "I think I saw {RIVAL} heading there\l"
+    "not too long ago.\p"
+    "Anyways, I'm going back to training.\n"
+    "See ya later!"
 }
 
 script Route20_Gogoat{
@@ -325,7 +347,6 @@ script WannaGogoatRace1{
             waitstate
         case 1:
             msgbox(GogoatRaceRulesText)
-            setflag(FLAG_GOGOAT_INTRO1)
             goto(WannaGogoatRace1)
         case 2:
         case MULTI_B_PRESSED:
@@ -338,6 +359,7 @@ script WannaGogoatRace1{
 script Route20_Race2_NPC{
     lock
     faceplayer
+    callnative(BufferGogoatRecordTime)
     switch(var(VAR_GOGOAT_RACE))
     {
         case STORY_RACE_1_FIRST_TALK:
@@ -380,13 +402,9 @@ script WannaGogoatRace2{
     {
         message(WannaGogoatRace2Again)
     }
-    elif(flag(FLAG_GOGOAT_INTRO2)){
-        message(WannaGogoatRace2Short)
-    }
     else{
         message(WannaGogoat2Race)
     }
-    setflag(FLAG_GOGOAT_INTRO2)
     waitmessage
     dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
     switch(var(VAR_RESULT)){
@@ -408,31 +426,46 @@ script WannaGogoatRace2{
 }
 
 text GogoatRace2RewardCeremony_Reward{
-    "wip"
+    "I really didn't expect anyone to\n"
+    "come around and beat the record.\p"
+    "For that feat, I want to reward\n"
+    "you with this."
 }
 text GogoatRace2RewardCeremony_WelcomeBackAnyTime{
-    "wip"
+    "I have no other rewards to give you,\n"
+    "but you're free to try and beat\l"
+    "your old record any time you want."
 }
 text GogoatRace2Intro{
-    "wip"
-}
-text WannaGogoatRace2Short{
-    "wip"
+    "I saw how you raced around the track.\n"
+    "Very impressive.\p"
+    "However, if you want a true challenge,\n"
+    "I have just what you need."
 }
 text WannaGogoatRace2Again{
-    "wip"
+    "Here to improve your old score?"
 }
 text GogoatRace2_NoRewardToGive{
-    "wip"
+    "You raced well, but unfortunately\n"
+    "I have no new reward to give you.\p"
+    "If you'd like to try and improve\n"
+    "your score, come talk to me."
 }
 text WannaGogoat2Race{
-    "wip"
+    "How about it,\n"
+    "want to have some real fun?"
 }
 text LetsGetGogoatRacing2{
-    "wip"
+    "Alright, let's head to the course!"
 }
 text GogoatRaceRulesText2{
-    "wip"
+    "The rules are simple: you'll do your\n"
+    "best to navigate through a forest\l"
+    "to a clearing with a flag.\p"
+    "Grab that flag, then bring it back\n"
+    "to the starting line. That's all.\p"
+    "The current fastest time is\n"
+    "{STR_VAR_2} seconds."
 }
 
 text GogoatRaceIntro{
@@ -473,4 +506,28 @@ text GogoatRaceRulesText{
     "If you can beat the current record\n"
     "holder, we'll even give you a prize!\l"
     "The current record is {STR_VAR_2} seconds."
+}
+
+script GogoatRanch_Boy{
+    msgbox(GogoatRanch_Boy_Text, MSGBOX_NPC)
+}
+text GogoatRanch_Boy_Text{
+    "I'm tired of having my life\n"
+    "revolving around these Gogoats.\p"
+    "When I'm older, I'm moving\n"
+    "somewhere with actual civilization."
+}
+script GogoatRanch_Girl{
+    msgbox(GogoatRanch_Girl_Text, MSGBOX_NPC)
+}
+text GogoatRanch_Girl_Text{
+    "I'm sorry, but I'm busy\n"
+    "tending to this Gogoat."
+}
+script GogoatRanch_Woman{
+    msgbox(GogoatRanch_Woman_Text, MSGBOX_NPC)
+}
+text GogoatRanch_Woman_Text{
+    "If you're interested in riding Gogoats,\n"
+    "you should talk to my husband."
 }

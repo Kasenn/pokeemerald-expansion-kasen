@@ -219,7 +219,7 @@ Route3_DoubleLass::
 
 Route3_DoubleBoy::
 # 129 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_R4_YOUNGSTER, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
+	trainerbattle_single TRAINER_R4_YOUNGSTER2, Route3_DoubleBoyIntro, Route3_DoubleBoyDefeated
 # 130 "data/maps/Route3/scripts.pory"
 	msgbox Route3_DoubleBoyPostBattle, MSGBOX_AUTOCLOSE
 # 131 "data/maps/Route3/scripts.pory"

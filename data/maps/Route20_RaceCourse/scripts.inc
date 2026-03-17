@@ -140,8 +140,7 @@ Route20_RaceCourse_Finish_1:
 # 90 "data/maps/Route20_RaceCourse/scripts.pory"
 	msgbox BackFromRace
 # 93 "data/maps/Route20_RaceCourse/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_2_REWARD_EARNED
-	goto_if_ge Route20_RaceCourse_Finish_7
+	goto_if_set FLAG_GOGOAT_RACE_REWARD_2, Route20_RaceCourse_Finish_7
 # 122 "data/maps/Route20_RaceCourse/scripts.pory"
 	goto_if_set FLAG_TEMP_C, Route20_RaceCourse_Finish_13
 # 131 "data/maps/Route20_RaceCourse/scripts.pory"

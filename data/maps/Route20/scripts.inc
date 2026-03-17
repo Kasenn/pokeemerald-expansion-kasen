@@ -1,809 +1,959 @@
 Route20_MapScripts::
-# 18 "data/maps/Route20/scripts.pory"
+# 16 "data/maps/Route20/scripts.pory"
 	map_script MAP_SCRIPT_ON_TRANSITION, Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION
-# 48 "data/maps/Route20/scripts.pory"
+# 42 "data/maps/Route20/scripts.pory"
 	map_script MAP_SCRIPT_ON_FRAME_TABLE, Route20_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE
 	.byte 0
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION:
-# 19 "data/maps/Route20/scripts.pory"
+# 17 "data/maps/Route20/scripts.pory"
 	checktrainerflag TRAINER_BROTHER_6_ROUTE20
 	goto_if 1, Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_2
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_1:
-# 22 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE
-	goto_if_lt Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_5
+# 20 "data/maps/Route20/scripts.pory"
+	goto_if_unset FLAG_GOGOAT_RACE_REWARD_1, Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_5
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_4:
-# 25 "data/maps/Route20/scripts.pory"
+# 23 "data/maps/Route20/scripts.pory"
 	getplayerxy VAR_TEMP_1, VAR_TEMP_2
-# 26 "data/maps/Route20/scripts.pory"
+# 24 "data/maps/Route20/scripts.pory"
 	compare VAR_TEMP_1, 41
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_12
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_10:
-# 39 "data/maps/Route20/scripts.pory"
+# 33 "data/maps/Route20/scripts.pory"
 	compare VAR_TEMP_1, 37
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_9
 	return
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_2:
-# 20 "data/maps/Route20/scripts.pory"
+# 18 "data/maps/Route20/scripts.pory"
 	setflag FLAG_TEMP_1
 	goto Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_1
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_5:
-# 23 "data/maps/Route20/scripts.pory"
+# 21 "data/maps/Route20/scripts.pory"
 	setflag FLAG_TEMP_2
 	goto Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_4
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_7:
-# 27 "data/maps/Route20/scripts.pory"
+# 25 "data/maps/Route20/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_16
-# 30 "data/maps/Route20/scripts.pory"
+# 25 "data/maps/Route20/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN
-	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_17
-# 35 "data/maps/Route20/scripts.pory"
+	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_16
+# 29 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 1
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_15:
-# 37 "data/maps/Route20/scripts.pory"
+# 31 "data/maps/Route20/scripts.pory"
 	setobjectmovementtype 5, MOVEMENT_TYPE_FACE_RIGHT
 	return
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_8:
-# 40 "data/maps/Route20/scripts.pory"
+# 34 "data/maps/Route20/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_21
-# 44 "data/maps/Route20/scripts.pory"
+# 34 "data/maps/Route20/scripts.pory"
+	compare VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE_AGAIN
+	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_21
+# 38 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 3
 	return
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_9:
-# 39 "data/maps/Route20/scripts.pory"
+# 33 "data/maps/Route20/scripts.pory"
 	compare VAR_TEMP_2, 27
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_8
 	return
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_12:
-# 26 "data/maps/Route20/scripts.pory"
+# 24 "data/maps/Route20/scripts.pory"
 	compare VAR_TEMP_2, 17
 	goto_if_eq Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_7
 	goto Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_10
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_16:
-# 28 "data/maps/Route20/scripts.pory"
-	setvar VAR_TEMP_3, 2
-	goto Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
-
-Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_17:
-# 32 "data/maps/Route20/scripts.pory"
+# 26 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 2
 	goto Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_15
 
 Route20_MapScripts_MAP_SCRIPT_ON_TRANSITION_21:
-# 41 "data/maps/Route20/scripts.pory"
+# 35 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 4
 	return
 
 Route20_MapScripts_MAP_SCRIPT_ON_FRAME_TABLE:
-# 49 "data/maps/Route20/scripts.pory"
+# 43 "data/maps/Route20/scripts.pory"
 	map_script_2 VAR_TEMP_3, 1, GogoatRace1Failed
-# 50 "data/maps/Route20/scripts.pory"
+# 44 "data/maps/Route20/scripts.pory"
 	map_script_2 VAR_TEMP_3, 2, GogoatRace1RewardCeremony
-# 51 "data/maps/Route20/scripts.pory"
+# 45 "data/maps/Route20/scripts.pory"
 	map_script_2 VAR_TEMP_3, 3, GogoatRace2Failed
-# 52 "data/maps/Route20/scripts.pory"
+# 46 "data/maps/Route20/scripts.pory"
 	map_script_2 VAR_TEMP_3, 4, GogoatRace2RewardCeremony
 	.2byte 0
 
 
 GogoatRace1Failed::
-# 57 "data/maps/Route20/scripts.pory"
+# 51 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 0
-# 58 "data/maps/Route20/scripts.pory"
+# 52 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace1Failed_Text, MSGBOX_AUTOCLOSE
 	return
 
 
 GogoatRace1RewardCeremony::
-# 67 "data/maps/Route20/scripts.pory"
+# 61 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 0
-# 68 "data/maps/Route20/scripts.pory"
+# 62 "data/maps/Route20/scripts.pory"
+	callnative BufferGogoatRecordTime
+# 63 "data/maps/Route20/scripts.pory"
 	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN
 	goto_if_eq GogoatRace1RewardCeremony_2
-# 79 "data/maps/Route20/scripts.pory"
-	callnative BufferGogoatRecordTime
-# 80 "data/maps/Route20/scripts.pory"
+# 73 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace1RewardCeremony_Reward
-# 81 "data/maps/Route20/scripts.pory"
+# 74 "data/maps/Route20/scripts.pory"
 	giveitem ITEM_PP_UP
-# 82 "data/maps/Route20/scripts.pory"
+# 75 "data/maps/Route20/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GogoatRace1RewardCeremony_9
 GogoatRace1RewardCeremony_8:
-# 85 "data/maps/Route20/scripts.pory"
+# 78 "data/maps/Route20/scripts.pory"
+	setflag FLAG_GOGOAT_RACE_REWARD_1
+# 79 "data/maps/Route20/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 86 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED
+# 80 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_FIRST_TALK
 GogoatRace1RewardCeremony_1:
-# 88 "data/maps/Route20/scripts.pory"
+# 82 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
 	return
 
 GogoatRace1RewardCeremony_2:
-# 69 "data/maps/Route20/scripts.pory"
-	callnative BufferGogoatRecordTime
-# 70 "data/maps/Route20/scripts.pory"
+# 64 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace1RewardCeremony_Reward_Again
-# 71 "data/maps/Route20/scripts.pory"
+# 65 "data/maps/Route20/scripts.pory"
 	giveitem ITEM_LEMONADE
-# 72 "data/maps/Route20/scripts.pory"
+# 66 "data/maps/Route20/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GogoatRace1RewardCeremony_6
 GogoatRace1RewardCeremony_5:
-# 75 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN
-# 76 "data/maps/Route20/scripts.pory"
+# 69 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE
+# 70 "data/maps/Route20/scripts.pory"
 	clearflag FLAG_TEMP_2
 	goto GogoatRace1RewardCeremony_1
 
 GogoatRace1RewardCeremony_6:
-# 73 "data/maps/Route20/scripts.pory"
+# 67 "data/maps/Route20/scripts.pory"
 	goto ZeBagIsFull
 	goto GogoatRace1RewardCeremony_5
 
 GogoatRace1RewardCeremony_9:
-# 83 "data/maps/Route20/scripts.pory"
+# 76 "data/maps/Route20/scripts.pory"
 	goto ZeBagIsFull
 	goto GogoatRace1RewardCeremony_8
 
 
 GogoatRace2Failed::
-# 109 "data/maps/Route20/scripts.pory"
+# 103 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 0
-# 110 "data/maps/Route20/scripts.pory"
+# 104 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace2Failed_Text, MSGBOX_AUTOCLOSE
 	return
 
 
 GogoatRace2RewardCeremony::
-# 113 "data/maps/Route20/scripts.pory"
+# 107 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_3, 0
-# 114 "data/maps/Route20/scripts.pory"
+# 108 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace2RewardCeremony_Reward
-# 115 "data/maps/Route20/scripts.pory"
+# 109 "data/maps/Route20/scripts.pory"
 	giveitem ITEM_BOND_ANKLET
-# 116 "data/maps/Route20/scripts.pory"
+# 110 "data/maps/Route20/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GogoatRace2RewardCeremony_2
 GogoatRace2RewardCeremony_1:
-# 119 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
-# 120 "data/maps/Route20/scripts.pory"
+# 113 "data/maps/Route20/scripts.pory"
+	setflag FLAG_GOGOAT_RACE_REWARD_2
+# 114 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_INTRO
+# 115 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
 	return
 
 GogoatRace2RewardCeremony_2:
-# 117 "data/maps/Route20/scripts.pory"
+# 111 "data/maps/Route20/scripts.pory"
 	goto ZeBagIsFull
 	goto GogoatRace2RewardCeremony_1
 
 
 Route20_BrotherTrigger1::
-# 129 "data/maps/Route20/scripts.pory"
+# 124 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 1
-# 130 "data/maps/Route20/scripts.pory"
+# 125 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTrigger2::
-# 133 "data/maps/Route20/scripts.pory"
+# 128 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 2
-# 134 "data/maps/Route20/scripts.pory"
+# 129 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTrigger3::
-# 137 "data/maps/Route20/scripts.pory"
+# 132 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 3
-# 138 "data/maps/Route20/scripts.pory"
+# 133 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTrigger4::
-# 141 "data/maps/Route20/scripts.pory"
+# 136 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 4
-# 142 "data/maps/Route20/scripts.pory"
+# 137 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTrigger5::
-# 145 "data/maps/Route20/scripts.pory"
+# 140 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 5
-# 146 "data/maps/Route20/scripts.pory"
+# 141 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTrigger6::
-# 149 "data/maps/Route20/scripts.pory"
+# 144 "data/maps/Route20/scripts.pory"
 	setvar VAR_TEMP_0, 6
-# 150 "data/maps/Route20/scripts.pory"
+# 145 "data/maps/Route20/scripts.pory"
 	goto Route20_BrotherTriggerMain
 	return
 
 
 Route20_BrotherTriggerMain::
-# 154 "data/maps/Route20/scripts.pory"
+# 149 "data/maps/Route20/scripts.pory"
 	lockall
-# 155 "data/maps/Route20/scripts.pory"
+# 150 "data/maps/Route20/scripts.pory"
 	safefollow
-# 156 "data/maps/Route20/scripts.pory"
+# 151 "data/maps/Route20/scripts.pory"
 	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
-# 157 "data/maps/Route20/scripts.pory"
+# 152 "data/maps/Route20/scripts.pory"
 	switch VAR_TEMP_0
-# 158 "data/maps/Route20/scripts.pory"
+# 153 "data/maps/Route20/scripts.pory"
 	case 1, Route20_BrotherTriggerMain_3
-# 159 "data/maps/Route20/scripts.pory"
+# 154 "data/maps/Route20/scripts.pory"
 	case 2, Route20_BrotherTriggerMain_3
-# 161 "data/maps/Route20/scripts.pory"
+# 156 "data/maps/Route20/scripts.pory"
 	case 3, Route20_BrotherTriggerMain_4
-# 162 "data/maps/Route20/scripts.pory"
+# 157 "data/maps/Route20/scripts.pory"
 	case 4, Route20_BrotherTriggerMain_4
-# 163 "data/maps/Route20/scripts.pory"
+# 158 "data/maps/Route20/scripts.pory"
 	case 5, Route20_BrotherTriggerMain_4
-# 165 "data/maps/Route20/scripts.pory"
+# 160 "data/maps/Route20/scripts.pory"
 	case 6, Route20_BrotherTriggerMain_5
 Route20_BrotherTriggerMain_1:
-# 168 "data/maps/Route20/scripts.pory"
+# 163 "data/maps/Route20/scripts.pory"
 	waitmovement 0
-# 169 "data/maps/Route20/scripts.pory"
+# 164 "data/maps/Route20/scripts.pory"
 	delay 30
-# 170 "data/maps/Route20/scripts.pory"
+# 165 "data/maps/Route20/scripts.pory"
 	switch VAR_TEMP_0
-# 171 "data/maps/Route20/scripts.pory"
+# 166 "data/maps/Route20/scripts.pory"
 	case 1, Route20_BrotherTriggerMain_8
-# 173 "data/maps/Route20/scripts.pory"
+# 168 "data/maps/Route20/scripts.pory"
 	case 2, Route20_BrotherTriggerMain_9
-# 175 "data/maps/Route20/scripts.pory"
+# 170 "data/maps/Route20/scripts.pory"
 	case 3, Route20_BrotherTriggerMain_10
-# 177 "data/maps/Route20/scripts.pory"
+# 172 "data/maps/Route20/scripts.pory"
 	case 4, Route20_BrotherTriggerMain_11
-# 179 "data/maps/Route20/scripts.pory"
+# 174 "data/maps/Route20/scripts.pory"
 	case 5, Route20_BrotherTriggerMain_12
-# 181 "data/maps/Route20/scripts.pory"
+# 176 "data/maps/Route20/scripts.pory"
 	case 6, Route20_BrotherTriggerMain_13
 Route20_BrotherTriggerMain_6:
-# 184 "data/maps/Route20/scripts.pory"
+# 179 "data/maps/Route20/scripts.pory"
 	waitmovement 0
-# 185 "data/maps/Route20/scripts.pory"
+# 180 "data/maps/Route20/scripts.pory"
 	msgbox Route20_BrotherIntro
-# 186 "data/maps/Route20/scripts.pory"
+# 181 "data/maps/Route20/scripts.pory"
 	trainerbattle_no_intro TRAINER_BROTHER_6_ROUTE20, Route20_BrotherLost
-# 187 "data/maps/Route20/scripts.pory"
+# 182 "data/maps/Route20/scripts.pory"
 	msgbox Route20_BrotherPostBat, MSGBOX_AUTOCLOSE
-# 188 "data/maps/Route20/scripts.pory"
+# 183 "data/maps/Route20/scripts.pory"
 	switch VAR_TEMP_0
-# 189 "data/maps/Route20/scripts.pory"
+# 184 "data/maps/Route20/scripts.pory"
 	case 1, Route20_BrotherTriggerMain_16
-# 190 "data/maps/Route20/scripts.pory"
+# 185 "data/maps/Route20/scripts.pory"
 	case 2, Route20_BrotherTriggerMain_16
-# 191 "data/maps/Route20/scripts.pory"
+# 186 "data/maps/Route20/scripts.pory"
 	case 3, Route20_BrotherTriggerMain_16
-# 193 "data/maps/Route20/scripts.pory"
+# 188 "data/maps/Route20/scripts.pory"
 	case 4, Route20_BrotherTriggerMain_17
-# 195 "data/maps/Route20/scripts.pory"
+# 190 "data/maps/Route20/scripts.pory"
 	case 5, Route20_BrotherTriggerMain_18
-# 196 "data/maps/Route20/scripts.pory"
+# 191 "data/maps/Route20/scripts.pory"
 	case 6, Route20_BrotherTriggerMain_18
 Route20_BrotherTriggerMain_14:
-# 199 "data/maps/Route20/scripts.pory"
+# 194 "data/maps/Route20/scripts.pory"
 	waitmovement 0
-# 200 "data/maps/Route20/scripts.pory"
+# 195 "data/maps/Route20/scripts.pory"
 	removeobject 2
-# 201 "data/maps/Route20/scripts.pory"
+# 196 "data/maps/Route20/scripts.pory"
 	savebgm MUS_DUMMY
-# 202 "data/maps/Route20/scripts.pory"
+# 197 "data/maps/Route20/scripts.pory"
 	fadedefaultbgm
-# 203 "data/maps/Route20/scripts.pory"
+# 198 "data/maps/Route20/scripts.pory"
 	release
 	return
 
 Route20_BrotherTriggerMain_3:
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_0
 	goto Route20_BrotherTriggerMain_1
 
 Route20_BrotherTriggerMain_4:
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_1
 	goto Route20_BrotherTriggerMain_1
 
 Route20_BrotherTriggerMain_5:
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_2
 	goto Route20_BrotherTriggerMain_1
 
 Route20_BrotherTriggerMain_8:
-# 172 "data/maps/Route20/scripts.pory"
+# 167 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_3
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_9:
-# 174 "data/maps/Route20/scripts.pory"
+# 169 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_4
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_10:
-# 176 "data/maps/Route20/scripts.pory"
+# 171 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_5
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_11:
-# 178 "data/maps/Route20/scripts.pory"
+# 173 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_6
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_12:
-# 180 "data/maps/Route20/scripts.pory"
+# 175 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_7
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_13:
-# 182 "data/maps/Route20/scripts.pory"
+# 177 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_8
 	goto Route20_BrotherTriggerMain_6
 
 Route20_BrotherTriggerMain_16:
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_9
 	goto Route20_BrotherTriggerMain_14
 
 Route20_BrotherTriggerMain_17:
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_10
 	goto Route20_BrotherTriggerMain_14
 
 Route20_BrotherTriggerMain_18:
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	applymovement 2, Route20_BrotherTriggerMain_Movement_11
 	goto Route20_BrotherTriggerMain_14
 
 
-Mirrortestnpc::
-# 218 "data/maps/Route20/scripts.pory"
-	trainerbattle_single TRAINER_CRISSY, Mirrortestnpc_Text_0, Mirrortestnpc_Text_1
-# 219 "data/maps/Route20/scripts.pory"
-	msgbox Mirrortestnpc_Text_1, MSGBOX_AUTOCLOSE
-	return
-
-
 Route20_Gogoat::
-# 223 "data/maps/Route20/scripts.pory"
+# 237 "data/maps/Route20/scripts.pory"
 	lock
-# 224 "data/maps/Route20/scripts.pory"
+# 238 "data/maps/Route20/scripts.pory"
 	waitse
-# 225 "data/maps/Route20/scripts.pory"
+# 239 "data/maps/Route20/scripts.pory"
 	playmoncry SPECIES_GOGOAT, CRY_MODE_NORMAL
-# 226 "data/maps/Route20/scripts.pory"
+# 240 "data/maps/Route20/scripts.pory"
 	waitmoncry
-# 227 "data/maps/Route20/scripts.pory"
+# 241 "data/maps/Route20/scripts.pory"
 	release
 	return
 
 
 Route20_Sign::
-# 231 "data/maps/Route20/scripts.pory"
+# 245 "data/maps/Route20/scripts.pory"
 	msgbox Route20_Sign_Text, MSGBOX_SIGN
 	return
 
 
-Route20_RanchRace::
-# 239 "data/maps/Route20/scripts.pory"
+Route20_Race1_NPC::
+# 253 "data/maps/Route20/scripts.pory"
 	faceplayer
-# 240 "data/maps/Route20/scripts.pory"
+# 254 "data/maps/Route20/scripts.pory"
 	release
-# 241 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN
-	goto_if_eq Route20_RanchRace_2
-# 252 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE
-	goto_if_eq Route20_RanchRace_3
-# 263 "data/maps/Route20/scripts.pory"
+# 255 "data/maps/Route20/scripts.pory"
 	callnative BufferGogoatRecordTime
+# 256 "data/maps/Route20/scripts.pory"
+	switch VAR_GOGOAT_RACE
+# 258 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_FIRST_TALK, Route20_Race1_NPC_2
+# 263 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_INTRO, Route20_Race1_NPC_3
 # 264 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, 0
-	goto_if_eq Route20_RanchRace_7
-Route20_RanchRace_6:
+	case STORY_RACE_2_FAILED, Route20_Race1_NPC_3
+# 265 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_FAILED, Route20_Race1_NPC_3
+# 266 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_INTRO_COMPLETE, Route20_Race1_NPC_3
+# 267 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_FIRST_TALK, Route20_Race1_NPC_3
 # 269 "data/maps/Route20/scripts.pory"
-	message WannaGogoatRace
-# 270 "data/maps/Route20/scripts.pory"
-	waitmessage
+	case STORY_RACE_1_COMPLETE, Route20_Race1_NPC_4
 # 271 "data/maps/Route20/scripts.pory"
-	dynmultichoice 23, 0, FALSE, 4, 0, 0, Route20_RanchRace_Text_0, Route20_RanchRace_Text_1, Route20_RanchRace_Text_2
-# 272 "data/maps/Route20/scripts.pory"
-	switch VAR_RESULT
+	case STORY_RACE_1_COMPLETE_AGAIN, Route20_Race1_NPC_5
 # 273 "data/maps/Route20/scripts.pory"
-	case 0, Route20_RanchRace_16
+	case STORY_RACE_1_REWARD_UNCLAIMED_AGAIN, Route20_Race1_NPC_6
+# 275 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_COMPLETE_AGAIN, Route20_Race1_NPC_7
+# 276 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_COMPLETE, Route20_Race1_NPC_7
+# 277 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_REWARD_UNCLAIMED_AGAIN, Route20_Race1_NPC_7
 # 279 "data/maps/Route20/scripts.pory"
-	case 1, Route20_RanchRace_17
+	case STORY_RACE_1_IN_PROGRESS, Route20_Race1_NPC_8
+# 280 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_IN_PROGRESS, Route20_Race1_NPC_8
+Route20_Race1_NPC_8:
+# 282 "data/maps/Route20/scripts.pory"
+	buffernumberstring STR_VAR_3, VAR_GOGOAT_RACE
 # 283 "data/maps/Route20/scripts.pory"
-	case 2, Route20_RanchRace_18
+	msgbox Route20_Race1_NPC_Text_0
 # 284 "data/maps/Route20/scripts.pory"
-	case MULTI_B_PRESSED, Route20_RanchRace_18
+	release
+	end
+
+Route20_Race1_NPC_2:
+# 259 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRaceIntro
+# 260 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE
+# 261 "data/maps/Route20/scripts.pory"
+	callnative ResetGogoatRaceRecords
+# 262 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace1
 	return
 
-Route20_RanchRace_2:
-# 242 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRace1RewardCeremony_Reward_Again
-# 243 "data/maps/Route20/scripts.pory"
-	giveitem ITEM_LEMONADE
-# 244 "data/maps/Route20/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route20_RanchRace_10
-Route20_RanchRace_9:
-# 247 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN
-# 248 "data/maps/Route20/scripts.pory"
-	clearflag FLAG_TEMP_2
-# 249 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
-	end
+Route20_Race1_NPC_3:
+# 268 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace1
+	return
 
-Route20_RanchRace_3:
-# 253 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRace1RewardCeremony_Reward
-# 254 "data/maps/Route20/scripts.pory"
-	giveitem ITEM_PP_UP
-# 255 "data/maps/Route20/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route20_RanchRace_13
-Route20_RanchRace_12:
-# 258 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED
-# 259 "data/maps/Route20/scripts.pory"
-	clearflag FLAG_TEMP_2
-# 260 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
-	end
+Route20_Race1_NPC_4:
+# 270 "data/maps/Route20/scripts.pory"
+	goto GogoatRace1_RewardCeremony
+	return
 
-Route20_RanchRace_7:
-# 265 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRaceIntro
-# 266 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_INTRO
-# 267 "data/maps/Route20/scripts.pory"
-	callnative ResetGogoatRaceRecords
-	goto Route20_RanchRace_6
+Route20_Race1_NPC_5:
+# 272 "data/maps/Route20/scripts.pory"
+	goto GogoatRace1_RewardCeremony2
+	return
 
-Route20_RanchRace_10:
-# 245 "data/maps/Route20/scripts.pory"
-	goto ZeBagIsFull
-	goto Route20_RanchRace_9
-
-Route20_RanchRace_13:
-# 256 "data/maps/Route20/scripts.pory"
-	goto ZeBagIsFull
-	goto Route20_RanchRace_12
-
-Route20_RanchRace_16:
+Route20_Race1_NPC_6:
 # 274 "data/maps/Route20/scripts.pory"
-	msgbox LetsGetGogoatRacing
-# 275 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
-# 276 "data/maps/Route20/scripts.pory"
-	warp MAP_ROUTE20_RANCH_RACE, 0
-# 277 "data/maps/Route20/scripts.pory"
-	callnative TurnBikeToGogoat
+	goto GogoatRace1_UnclaimedReward
+	return
+
+Route20_Race1_NPC_7:
 # 278 "data/maps/Route20/scripts.pory"
+	goto GogoatRace1_GoMeetSon
+	return
+
+
+GogoatRace1_GoMeetSon::
+# 290 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1_GoMeetSon_Text, MSGBOX_AUTOCLOSE
+	end
+
+
+GogoatRace1_UnclaimedReward::
+# 300 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1_UnclaimedReward_Text_0
+# 301 "data/maps/Route20/scripts.pory"
+	giveitem ITEM_LEMONADE
+# 302 "data/maps/Route20/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq GogoatRace1_UnclaimedReward_2
+GogoatRace1_UnclaimedReward_1:
+# 305 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE
+# 306 "data/maps/Route20/scripts.pory"
+	clearflag FLAG_TEMP_2
+# 307 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
+	end
+
+GogoatRace1_UnclaimedReward_2:
+# 303 "data/maps/Route20/scripts.pory"
+	goto ZeBagIsFull
+	goto GogoatRace1_UnclaimedReward_1
+
+
+GogoatRace1_RewardCeremony2::
+# 312 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1RewardCeremony_Reward_Again
+# 313 "data/maps/Route20/scripts.pory"
+	giveitem ITEM_LEMONADE
+# 314 "data/maps/Route20/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq GogoatRace1_RewardCeremony2_2
+GogoatRace1_RewardCeremony2_1:
+# 317 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE
+# 318 "data/maps/Route20/scripts.pory"
+	clearflag FLAG_TEMP_2
+# 319 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
+	end
+
+GogoatRace1_RewardCeremony2_2:
+# 315 "data/maps/Route20/scripts.pory"
+	goto ZeBagIsFull
+	goto GogoatRace1_RewardCeremony2_1
+
+
+GogoatRace1_RewardCeremony::
+# 324 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1RewardCeremony_Reward
+# 325 "data/maps/Route20/scripts.pory"
+	giveitem ITEM_PP_UP
+# 326 "data/maps/Route20/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq GogoatRace1_RewardCeremony_2
+GogoatRace1_RewardCeremony_1:
+# 329 "data/maps/Route20/scripts.pory"
+	setflag FLAG_GOGOAT_RACE_REWARD_1
+# 330 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_FIRST_TALK
+# 331 "data/maps/Route20/scripts.pory"
+	clearflag FLAG_TEMP_2
+# 332 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
+	end
+
+GogoatRace1_RewardCeremony_2:
+# 327 "data/maps/Route20/scripts.pory"
+	goto ZeBagIsFull
+	goto GogoatRace1_RewardCeremony_1
+
+
+WannaGogoatRace1::
+# 337 "data/maps/Route20/scripts.pory"
+	message WannaGogoatRace
+# 338 "data/maps/Route20/scripts.pory"
+	waitmessage
+# 339 "data/maps/Route20/scripts.pory"
+	dynmultichoice 23, 0, FALSE, 4, 0, 0, WannaGogoatRace1_Text_0, WannaGogoatRace1_Text_1, WannaGogoatRace1_Text_2
+# 340 "data/maps/Route20/scripts.pory"
+	switch VAR_RESULT
+# 342 "data/maps/Route20/scripts.pory"
+	case 0, WannaGogoatRace1_2
+# 348 "data/maps/Route20/scripts.pory"
+	case 1, WannaGogoatRace1_3
+# 351 "data/maps/Route20/scripts.pory"
+	case 2, WannaGogoatRace1_4
+# 352 "data/maps/Route20/scripts.pory"
+	case MULTI_B_PRESSED, WannaGogoatRace1_4
+	return
+
+WannaGogoatRace1_2:
+# 343 "data/maps/Route20/scripts.pory"
+	msgbox LetsGetGogoatRacing
+# 344 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS
+# 345 "data/maps/Route20/scripts.pory"
+	warp MAP_ROUTE20_RANCH_RACE, 0
+# 346 "data/maps/Route20/scripts.pory"
+	callnative TurnBikeToGogoat
+# 347 "data/maps/Route20/scripts.pory"
 	waitstate
 	return
 
-Route20_RanchRace_17:
-# 280 "data/maps/Route20/scripts.pory"
+WannaGogoatRace1_3:
+# 349 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRaceRulesText
-# 281 "data/maps/Route20/scripts.pory"
-	setflag FLAG_TEMP_B
-# 282 "data/maps/Route20/scripts.pory"
-	goto Route20_RanchRace
+# 350 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace1
 	return
 
-Route20_RanchRace_18:
-# 285 "data/maps/Route20/scripts.pory"
+WannaGogoatRace1_4:
+# 353 "data/maps/Route20/scripts.pory"
 	msgbox ThatsAShame
-# 286 "data/maps/Route20/scripts.pory"
+# 354 "data/maps/Route20/scripts.pory"
 	release
 	end
 
 
-Route20_Race2::
-# 292 "data/maps/Route20/scripts.pory"
+Route20_Race2_NPC::
+# 360 "data/maps/Route20/scripts.pory"
 	lock
-# 293 "data/maps/Route20/scripts.pory"
+# 361 "data/maps/Route20/scripts.pory"
 	faceplayer
-# 294 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
-	goto_if_eq Route20_Race2_2
-# 304 "data/maps/Route20/scripts.pory"
-	compare VAR_GOGOAT_RACE, STORY_RACE_2_INTRO
-	goto_if_lt Route20_Race2_5
-Route20_Race2_4:
-# 308 "data/maps/Route20/scripts.pory"
-	goto_if_set FLAG_TEMP_C, Route20_Race2_11
-# 312 "data/maps/Route20/scripts.pory"
-	message WannaGogoat2Race
-Route20_Race2_10:
-# 314 "data/maps/Route20/scripts.pory"
-	waitmessage
-# 315 "data/maps/Route20/scripts.pory"
-	dynmultichoice 23, 0, FALSE, 4, 0, 0, Route20_RanchRace_Text_0, Route20_RanchRace_Text_1, Route20_RanchRace_Text_2
-# 316 "data/maps/Route20/scripts.pory"
-	switch VAR_RESULT
-# 317 "data/maps/Route20/scripts.pory"
-	case 0, Route20_Race2_15
-# 323 "data/maps/Route20/scripts.pory"
-	case 1, Route20_Race2_16
-# 327 "data/maps/Route20/scripts.pory"
-	case 2, Route20_Race2_17
-# 328 "data/maps/Route20/scripts.pory"
-	case MULTI_B_PRESSED, Route20_Race2_17
+# 362 "data/maps/Route20/scripts.pory"
+	callnative BufferGogoatRecordTime
+# 363 "data/maps/Route20/scripts.pory"
+	switch VAR_GOGOAT_RACE
+# 365 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_FIRST_TALK, Route20_Race2_NPC_2
+# 366 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_INTRO_COMPLETE, Route20_Race2_NPC_2
+# 367 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_IN_PROGRESS, Route20_Race2_NPC_2
+# 368 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_FAILED, Route20_Race2_NPC_2
+# 369 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_IN_PROGRESS, Route20_Race2_NPC_2
+# 370 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_INTRO, Route20_Race2_NPC_2
+# 371 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_FAILED, Route20_Race2_NPC_2
+# 373 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_COMPLETE, Route20_Race2_NPC_3
+# 374 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_COMPLETE_AGAIN, Route20_Race2_NPC_3
+# 375 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_1_REWARD_UNCLAIMED_AGAIN, Route20_Race2_NPC_3
+# 378 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_FIRST_TALK, Route20_Race2_NPC_4
+# 382 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_COMPLETE, Route20_Race2_NPC_5
+# 392 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_COMPLETE_AGAIN, Route20_Race2_NPC_6
+# 393 "data/maps/Route20/scripts.pory"
+	case STORY_RACE_2_REWARD_UNCLAIMED_AGAIN, Route20_Race2_NPC_6
 	return
 
-Route20_Race2_2:
-# 295 "data/maps/Route20/scripts.pory"
+Route20_Race2_NPC_2:
+# 372 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace2
+	return
+
+Route20_Race2_NPC_3:
+# 376 "data/maps/Route20/scripts.pory"
+	msgbox Route20_Race2_NPC_Text_0, MSGBOX_AUTOCLOSE
+	end
+
+Route20_Race2_NPC_4:
+# 379 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace2Intro
+# 380 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_INTRO
+# 381 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace2
+	return
+
+Route20_Race2_NPC_5:
+# 383 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace2RewardCeremony_Reward
-# 296 "data/maps/Route20/scripts.pory"
+# 384 "data/maps/Route20/scripts.pory"
 	giveitem ITEM_BOND_ANKLET
-# 297 "data/maps/Route20/scripts.pory"
+# 385 "data/maps/Route20/scripts.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq Route20_Race2_8
-Route20_Race2_7:
-# 300 "data/maps/Route20/scripts.pory"
-	setvar VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE
-# 301 "data/maps/Route20/scripts.pory"
+	goto_if_eq Route20_Race2_NPC_8
+Route20_Race2_NPC_7:
+# 388 "data/maps/Route20/scripts.pory"
+	setflag FLAG_GOGOAT_RACE_REWARD_2
+# 389 "data/maps/Route20/scripts.pory"
+	setvar VAR_GOGOAT_RACE, STORY_RACE_2_INTRO
+# 390 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE
 	end
 
-Route20_Race2_5:
-# 305 "data/maps/Route20/scripts.pory"
-	msgbox GogoatRace2Intro
-# 306 "data/maps/Route20/scripts.pory"
+Route20_Race2_NPC_6:
+# 394 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRace2_NoRewardToGive, MSGBOX_AUTOCLOSE
+# 395 "data/maps/Route20/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_2_INTRO
-	goto Route20_Race2_4
+	end
 
-Route20_Race2_8:
-# 298 "data/maps/Route20/scripts.pory"
+Route20_Race2_NPC_8:
+# 386 "data/maps/Route20/scripts.pory"
 	goto ZeBagIsFull
-	goto Route20_Race2_7
+	goto Route20_Race2_NPC_7
 
-Route20_Race2_11:
-# 309 "data/maps/Route20/scripts.pory"
-	message WannaGogoatRace2Short
-	goto Route20_Race2_10
 
-Route20_Race2_15:
-# 318 "data/maps/Route20/scripts.pory"
+WannaGogoatRace2::
+# 401 "data/maps/Route20/scripts.pory"
+	goto_if_set FLAG_GOGOAT_RACE_REWARD_2, WannaGogoatRace2_2
+# 406 "data/maps/Route20/scripts.pory"
+	message WannaGogoat2Race
+WannaGogoatRace2_1:
+# 408 "data/maps/Route20/scripts.pory"
+	waitmessage
+# 409 "data/maps/Route20/scripts.pory"
+	dynmultichoice 23, 0, FALSE, 4, 0, 0, WannaGogoatRace1_Text_0, WannaGogoatRace1_Text_1, WannaGogoatRace1_Text_2
+# 410 "data/maps/Route20/scripts.pory"
+	switch VAR_RESULT
+# 411 "data/maps/Route20/scripts.pory"
+	case 0, WannaGogoatRace2_6
+# 417 "data/maps/Route20/scripts.pory"
+	case 1, WannaGogoatRace2_7
+# 420 "data/maps/Route20/scripts.pory"
+	case 2, WannaGogoatRace2_8
+# 421 "data/maps/Route20/scripts.pory"
+	case MULTI_B_PRESSED, WannaGogoatRace2_8
+	return
+
+WannaGogoatRace2_2:
+# 403 "data/maps/Route20/scripts.pory"
+	message WannaGogoatRace2Again
+	goto WannaGogoatRace2_1
+
+WannaGogoatRace2_6:
+# 412 "data/maps/Route20/scripts.pory"
 	msgbox LetsGetGogoatRacing2
-# 319 "data/maps/Route20/scripts.pory"
+# 413 "data/maps/Route20/scripts.pory"
 	setvar VAR_GOGOAT_RACE, STORY_RACE_2_IN_PROGRESS
-# 320 "data/maps/Route20/scripts.pory"
+# 414 "data/maps/Route20/scripts.pory"
 	warp MAP_ROUTE20_RACE_COURSE, 0
-# 321 "data/maps/Route20/scripts.pory"
+# 415 "data/maps/Route20/scripts.pory"
 	callnative TurnBikeToGogoat
-# 322 "data/maps/Route20/scripts.pory"
+# 416 "data/maps/Route20/scripts.pory"
 	waitstate
 	return
 
-Route20_Race2_16:
-# 324 "data/maps/Route20/scripts.pory"
+WannaGogoatRace2_7:
+# 418 "data/maps/Route20/scripts.pory"
 	msgbox GogoatRaceRulesText2
-# 325 "data/maps/Route20/scripts.pory"
-	setflag FLAG_TEMP_C
-# 326 "data/maps/Route20/scripts.pory"
-	goto Route20_Race2
+# 419 "data/maps/Route20/scripts.pory"
+	goto WannaGogoatRace2
 	return
 
-Route20_Race2_17:
-# 329 "data/maps/Route20/scripts.pory"
+WannaGogoatRace2_8:
+# 422 "data/maps/Route20/scripts.pory"
 	msgbox ThatsAShame
-# 330 "data/maps/Route20/scripts.pory"
+# 423 "data/maps/Route20/scripts.pory"
 	release
 	end
 
 
-# 160 "data/maps/Route20/scripts.pory"
+GogoatRanch_Boy::
+# 512 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRanch_Boy_Text, MSGBOX_NPC
+	return
+
+
+GogoatRanch_Girl::
+# 521 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRanch_Girl_Text, MSGBOX_NPC
+	return
+
+
+GogoatRanch_Woman::
+# 528 "data/maps/Route20/scripts.pory"
+	msgbox GogoatRanch_Woman_Text, MSGBOX_NPC
+	return
+
+
+# 155 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_0:
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_left
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	emote_exclamation_mark
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	delay_16
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	delay_16
-# 160 "data/maps/Route20/scripts.pory"
+# 155 "data/maps/Route20/scripts.pory"
 	delay_16
 	step_end
 
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_1:
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_up
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	emote_exclamation_mark
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	delay_16
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	delay_16
-# 164 "data/maps/Route20/scripts.pory"
+# 159 "data/maps/Route20/scripts.pory"
 	delay_16
 	step_end
 
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_2:
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_right
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	emote_exclamation_mark
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	delay_16
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	delay_16
-# 166 "data/maps/Route20/scripts.pory"
+# 161 "data/maps/Route20/scripts.pory"
 	delay_16
 	step_end
 
-# 172 "data/maps/Route20/scripts.pory"
+# 167 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_3:
-# 172 "data/maps/Route20/scripts.pory"
+# 167 "data/maps/Route20/scripts.pory"
 	walk_left
 	step_end
 
-# 174 "data/maps/Route20/scripts.pory"
+# 169 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_4:
-# 174 "data/maps/Route20/scripts.pory"
+# 169 "data/maps/Route20/scripts.pory"
 	walk_left
-# 174 "data/maps/Route20/scripts.pory"
+# 169 "data/maps/Route20/scripts.pory"
 	walk_up
-# 174 "data/maps/Route20/scripts.pory"
+# 169 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_left
 	step_end
 
-# 176 "data/maps/Route20/scripts.pory"
+# 171 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_5:
-# 176 "data/maps/Route20/scripts.pory"
+# 171 "data/maps/Route20/scripts.pory"
 	walk_up
-# 176 "data/maps/Route20/scripts.pory"
+# 171 "data/maps/Route20/scripts.pory"
 	walk_left
-# 176 "data/maps/Route20/scripts.pory"
+# 171 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_up
 	step_end
 
-# 178 "data/maps/Route20/scripts.pory"
+# 173 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_6:
-# 178 "data/maps/Route20/scripts.pory"
+# 173 "data/maps/Route20/scripts.pory"
 	walk_up
 	step_end
 
-# 180 "data/maps/Route20/scripts.pory"
+# 175 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_7:
-# 180 "data/maps/Route20/scripts.pory"
+# 175 "data/maps/Route20/scripts.pory"
 	walk_up
-# 180 "data/maps/Route20/scripts.pory"
+# 175 "data/maps/Route20/scripts.pory"
 	walk_right
-# 180 "data/maps/Route20/scripts.pory"
+# 175 "data/maps/Route20/scripts.pory"
 	walk_in_place_faster_up
 	step_end
 
-# 182 "data/maps/Route20/scripts.pory"
+# 177 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_8:
-# 182 "data/maps/Route20/scripts.pory"
+# 177 "data/maps/Route20/scripts.pory"
 	walk_right
-# 182 "data/maps/Route20/scripts.pory"
+# 177 "data/maps/Route20/scripts.pory"
 	walk_right
-# 182 "data/maps/Route20/scripts.pory"
+# 177 "data/maps/Route20/scripts.pory"
 	walk_up
 	step_end
 
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_9:
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_right
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_right
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
-# 192 "data/maps/Route20/scripts.pory"
+# 187 "data/maps/Route20/scripts.pory"
 	walk_down
 	step_end
 
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_10:
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_right
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
-# 194 "data/maps/Route20/scripts.pory"
+# 189 "data/maps/Route20/scripts.pory"
 	walk_down
 	step_end
 
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 Route20_BrotherTriggerMain_Movement_11:
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
-# 197 "data/maps/Route20/scripts.pory"
+# 192 "data/maps/Route20/scripts.pory"
 	walk_down
 	step_end
 
-Mirrortestnpc_Text_0:
-# 218 "data/maps/Route20/scripts.pory"
-	.string "Saw you through the mirror!$"
+Route20_Race1_NPC_Text_0:
+# 283 "data/maps/Route20/scripts.pory"
+	.string "Error {STR_VAR_3}:\nPlease inform the romhack creator.$"
 
-Mirrortestnpc_Text_1:
-# 218 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+GogoatRace1_UnclaimedReward_Text_0:
+# 300 "data/maps/Route20/scripts.pory"
+	.string "Unfortunately you already received\nthe grand prize, so all I've got to offer\lis this consolation prize.$"
 
-Route20_RanchRace_Text_0:
-# 271 "data/maps/Route20/scripts.pory"
+WannaGogoatRace1_Text_0:
+# 339 "data/maps/Route20/scripts.pory"
 	.string "Count me in!$"
 
-Route20_RanchRace_Text_1:
-# 271 "data/maps/Route20/scripts.pory"
+WannaGogoatRace1_Text_1:
+# 339 "data/maps/Route20/scripts.pory"
 	.string "Explain rules$"
 
-Route20_RanchRace_Text_2:
-# 271 "data/maps/Route20/scripts.pory"
+WannaGogoatRace1_Text_2:
+# 339 "data/maps/Route20/scripts.pory"
 	.string "No thanks$"
 
+Route20_Race2_NPC_Text_0:
+# 376 "data/maps/Route20/scripts.pory"
+	.string "I think my dad was looking for you.\pYou can find him near the middle of\nthe field just north of here.$"
+
 GogoatRace1Failed_Text::
-# 60 "data/maps/Route20/scripts.pory"
+# 54 "data/maps/Route20/scripts.pory"
 	.string "I hope you enjoyed your time\n"
 	.string "Gogoat racing.\p"
 	.string "Let me know if you'd like to\n"
 	.string "give it another go!$"
 
 GogoatRace1RewardCeremony_Reward::
-# 90 "data/maps/Route20/scripts.pory"
+# 84 "data/maps/Route20/scripts.pory"
 	.string "We have a new winner!\p"
 	.string "With a record time of {STR_VAR_2} seconds,\n"
 	.string "you are our new record holder!\p"
 	.string "As a reward, I want you to have this.$"
 
 GogoatRace1RewardCeremony_Reward_Again::
-# 96 "data/maps/Route20/scripts.pory"
+# 90 "data/maps/Route20/scripts.pory"
 	.string "We have a winner!\p"
 	.string "With a record time of {STR_VAR_2} seconds,\n"
 	.string "you are still our new record holder!\p"
@@ -812,63 +962,115 @@ GogoatRace1RewardCeremony_Reward_Again::
 	.string "is this consolation prize.$"
 
 GogoatRace1RewardCeremony_WelcomeBackAnyTime::
-# 104 "data/maps/Route20/scripts.pory"
+# 98 "data/maps/Route20/scripts.pory"
 	.string "If you'd like to try and improve\n"
 	.string "your record, come talk to me!$"
 
 GogoatRace2Failed_Text::
-# 123 "data/maps/Route20/scripts.pory"
+# 118 "data/maps/Route20/scripts.pory"
 	.string "Let me know if you'd like to\n"
 	.string "try the race again.$"
 
 Route20_BrotherIntro::
-# 206 "data/maps/Route20/scripts.pory"
+# 201 "data/maps/Route20/scripts.pory"
 	.string "{BROTHER}: Yo, {PLAYER}!\n"
-	.string "wip$"
+	.string "Long time no see!\p"
+	.string "I hope you've been seeing lots of\n"
+	.string "new Pokémon, because I certainly have.\p"
+	.string "How about we have a quick battle?\p"
+	.string "I've rearranged my team a bit and\n"
+	.string "I'd like to see how well these\l"
+	.string "new guys actually perform.$"
 
 Route20_BrotherLost::
-# 210 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 211 "data/maps/Route20/scripts.pory"
+	.string "I really thought I'd be able to\n"
+	.string "break through this time.\l"
+	.string "Where did I go wrong?$"
 
 Route20_BrotherPostBat::
-# 213 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 216 "data/maps/Route20/scripts.pory"
+	.string "{BROTHER}: I don't know how you\n"
+	.string "do it, but your team is\l"
+	.string "just simply too much.\l"
+	.string "I may need to do some soul searching\l"
+	.string "to figure out what I'm doing wrong.\p"
+	.string "I assume you're heading east towards\n"
+	.string "Iceperch City and the Pokémon League?\p"
+	.string "Well, don't be in too much of a hurry.\n"
+	.string "These battles will be no fun if you\l"
+	.string "grow too powerful.\p"
+	.string "In fact, I think you should stop by\n"
+	.string "in the next town and take part in a\l"
+	.string "Pokémon Contest.\l"
+	.string "I think I saw {RIVAL} heading there\l"
+	.string "not too long ago.\p"
+	.string "Anyways, I'm going back to training.\n"
+	.string "See ya later!$"
 
 Route20_Sign_Text::
-# 233 "data/maps/Route20/scripts.pory"
+# 247 "data/maps/Route20/scripts.pory"
 	.string "{LEFT_ARROW} Route 19\n"
 	.string "{DOWN_ARROW} Crystalpine Town$"
 
+GogoatRace1_GoMeetSon_Text::
+# 293 "data/maps/Route20/scripts.pory"
+	.string "I think my son is trying to get\n"
+	.string "your attention.\l"
+	.string "He's right there outside the gate.$"
+
 GogoatRace2RewardCeremony_Reward::
-# 335 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 428 "data/maps/Route20/scripts.pory"
+	.string "I really didn't expect anyone to\n"
+	.string "come around and beat the record.\p"
+	.string "For that feat, I want to reward\n"
+	.string "you with this.$"
 
 GogoatRace2RewardCeremony_WelcomeBackAnyTime::
-# 338 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 434 "data/maps/Route20/scripts.pory"
+	.string "I have no other rewards to give you,\n"
+	.string "but you're free to try and beat\l"
+	.string "your old record any time you want.$"
 
 GogoatRace2Intro::
-# 341 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 439 "data/maps/Route20/scripts.pory"
+	.string "I saw how you raced around the track.\n"
+	.string "Very impressive.\p"
+	.string "However, if you want a true challenge,\n"
+	.string "I have just what you need.$"
 
-WannaGogoatRace2Short::
-# 344 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+WannaGogoatRace2Again::
+# 445 "data/maps/Route20/scripts.pory"
+	.string "Here to improve your old score?$"
+
+GogoatRace2_NoRewardToGive::
+# 448 "data/maps/Route20/scripts.pory"
+	.string "You raced well, but unfortunately\n"
+	.string "I have no new reward to give you.\p"
+	.string "If you'd like to try and improve\n"
+	.string "your score, come talk to me.$"
 
 WannaGogoat2Race::
-# 347 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 454 "data/maps/Route20/scripts.pory"
+	.string "How about it,\n"
+	.string "want to have some real fun?$"
 
 LetsGetGogoatRacing2::
-# 350 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 458 "data/maps/Route20/scripts.pory"
+	.string "Alright, let's head to the course!$"
 
 GogoatRaceRulesText2::
-# 353 "data/maps/Route20/scripts.pory"
-	.string "wip$"
+# 461 "data/maps/Route20/scripts.pory"
+	.string "The rules are simple: you'll do your\n"
+	.string "best to navigate through a forest\l"
+	.string "to a clearing with a flag.\p"
+	.string "Grab that flag, then bring it back\n"
+	.string "to the starting line. That's all.\p"
+	.string "The current fastest time is\n"
+	.string "{STR_VAR_2} seconds.$"
 
 GogoatRaceIntro::
-# 357 "data/maps/Route20/scripts.pory"
+# 471 "data/maps/Route20/scripts.pory"
 	.string "Howdy partner!\p"
 	.string "Are you here to take part in our\n"
 	.string "world-famous Gogoat racing?\p"
@@ -886,16 +1088,16 @@ GogoatRaceIntro::
 	.string "The current record is {STR_VAR_2} seconds.$"
 
 WannaGogoatRace::
-# 374 "data/maps/Route20/scripts.pory"
+# 488 "data/maps/Route20/scripts.pory"
 	.string "Up for some Gogoat racing?$"
 
 LetsGetGogoatRacing::
-# 377 "data/maps/Route20/scripts.pory"
+# 491 "data/maps/Route20/scripts.pory"
 	.string "Alright!\n"
 	.string "Let's Gogoat!$"
 
 GogoatRaceRulesText::
-# 381 "data/maps/Route20/scripts.pory"
+# 495 "data/maps/Route20/scripts.pory"
 	.string "The rules are real simple:\p"
 	.string "We'll lend you one of our Gogoats\n"
 	.string "and set up a bunch of flags around\l"
@@ -909,3 +1111,20 @@ GogoatRaceRulesText::
 	.string "If you can beat the current record\n"
 	.string "holder, we'll even give you a prize!\l"
 	.string "The current record is {STR_VAR_2} seconds.$"
+
+GogoatRanch_Boy_Text::
+# 514 "data/maps/Route20/scripts.pory"
+	.string "I'm tired of having my life\n"
+	.string "revolving around these Gogoats.\p"
+	.string "When I'm older, I'm moving\n"
+	.string "somewhere with actual civilization.$"
+
+GogoatRanch_Girl_Text::
+# 523 "data/maps/Route20/scripts.pory"
+	.string "I'm sorry, but I'm busy\n"
+	.string "tending to this Gogoat.$"
+
+GogoatRanch_Woman_Text::
+# 530 "data/maps/Route20/scripts.pory"
+	.string "If you're interested in riding Gogoats,\n"
+	.string "you should talk to my husband.$"
