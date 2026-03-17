@@ -19,16 +19,12 @@ mapscripts Route20_MapScripts {
         if(defeated(TRAINER_BROTHER_6_ROUTE20)){
             setflag(FLAG_BROTHER)
         }
-        if(var(VAR_GOGOAT_RACE) < STORY_RACE_1_COMPLETE){
+        if(!flag(FLAG_GOGOAT_RACE_REWARD_1)){
             setflag(FLAG_RACEBOY)
         }
         getplayerxy(VAR_X, VAR_Y)
         if(var(VAR_X) == 41 && var(VAR_Y) == 17){
-            if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE){
-                setvar(VAR_AUTOPLAY, RACE_1_SUCCESS)
-            }
-            elif(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN)
-            {
+            if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE || var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN){
                 setvar(VAR_AUTOPLAY, RACE_1_SUCCESS)
             }
             else{
@@ -37,7 +33,7 @@ mapscripts Route20_MapScripts {
             setobjectmovementtype(5, MOVEMENT_TYPE_FACE_RIGHT)
         }
         elif(var(VAR_X) == 37 && var(VAR_Y) == 27){
-            if(var(VAR_GOGOAT_RACE) == STORY_RACE_2_COMPLETE){
+            if(var(VAR_GOGOAT_RACE) == STORY_RACE_2_COMPLETE || var(VAR_GOGOAT_RACE) == STORY_RACE_2_COMPLETE_AGAIN){
                 setvar(VAR_AUTOPLAY, RACE_2_SUCCESS)
             }
             else{
@@ -65,25 +61,25 @@ text GogoatRace1Failed_Text{
 }
 script GogoatRace1RewardCeremony{
     setvar(VAR_AUTOPLAY, 0)
+    callnative(BufferGogoatRecordTime)
     if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN){
-        callnative(BufferGogoatRecordTime)
         msgbox(GogoatRace1RewardCeremony_Reward_Again)
         giveitem(ITEM_LEMONADE)
         if(var(VAR_RESULT) == FALSE){
             goto(ZeBagIsFull)
         }
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN)
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE)
         clearflag(FLAG_RACEBOY)
     }
     else{
-        callnative(BufferGogoatRecordTime)
         msgbox(GogoatRace1RewardCeremony_Reward)
         giveitem(ITEM_PP_UP)
         if(var(VAR_RESULT) == FALSE){
             goto(ZeBagIsFull)
         }
+        setflag(FLAG_GOGOAT_RACE_REWARD_1)
         clearflag(FLAG_RACEBOY)
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED)
+        setvar(VAR_GOGOAT_RACE, STORY_RACE_2_FIRST_TALK)
     }
     msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
 }
@@ -116,7 +112,8 @@ script GogoatRace2RewardCeremony{
     if(var(VAR_RESULT) == FALSE){
         goto(ZeBagIsFull)
     }
-    setvar(VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE)
+    setflag(FLAG_GOGOAT_RACE_REWARD_2)
+    setvar(VAR_GOGOAT_RACE, STORY_RACE_2_INTRO)
     msgbox(GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
 
 }
@@ -214,11 +211,6 @@ text Route20_BrotherPostBat{
     "wip"
 }
 
-script Mirrortestnpc{
-    trainerbattle_single(TRAINER_CRISSY, "Saw you through the mirror!", "wip")
-    msgbox("wip", MSGBOX_AUTOCLOSE)
-}
-
 script Route20_Gogoat{
     lock
 	waitse
@@ -235,41 +227,96 @@ text Route20_Sign_Text{
     "{DOWN_ARROW} Crystalpine Town"
 }
 
-script Route20_RanchRace{
+script Route20_Race1_NPC{
     faceplayer
     release
-    if(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE_AGAIN){
-        msgbox(GogoatRace1RewardCeremony_Reward_Again)
-        giveitem(ITEM_LEMONADE)
-        if(var(VAR_RESULT) == FALSE){
-            goto(ZeBagIsFull)
-        }
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED_AGAIN)
-        clearflag(FLAG_RACEBOY)
-        msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
-        end
-    }
-    elif(var(VAR_GOGOAT_RACE) == STORY_RACE_1_COMPLETE){
-        msgbox(GogoatRace1RewardCeremony_Reward)
-        giveitem(ITEM_PP_UP)
-        if(var(VAR_RESULT) == FALSE){
-            goto(ZeBagIsFull)
-        }
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_REWARD_EARNED)
-        clearflag(FLAG_RACEBOY)
-        msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
-        end
-    }
     callnative(BufferGogoatRecordTime)
-    if(var(VAR_GOGOAT_RACE) == 0){
-        msgbox(GogoatRaceIntro)
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO)
-        callnative(ResetGogoatRaceRecords)
+    switch(var(VAR_GOGOAT_RACE))
+    {
+        case STORY_RACE_1_FIRST_TALK:
+            msgbox(GogoatRaceIntro)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE)
+            callnative(ResetGogoatRaceRecords)
+            goto(WannaGogoatRace1)
+        case STORY_RACE_2_INTRO:
+        case STORY_RACE_2_FAILED:
+        case STORY_RACE_1_FAILED:
+        case STORY_RACE_1_INTRO_COMPLETE:
+        case STORY_RACE_2_FIRST_TALK:
+            goto(WannaGogoatRace1)
+        case STORY_RACE_1_COMPLETE:
+            goto(GogoatRace1_RewardCeremony)
+        case STORY_RACE_1_COMPLETE_AGAIN:
+            goto(GogoatRace1_RewardCeremony2)
+        case STORY_RACE_1_REWARD_UNCLAIMED_AGAIN:
+            goto(GogoatRace1_UnclaimedReward)
+        case STORY_RACE_2_COMPLETE_AGAIN:
+        case STORY_RACE_2_COMPLETE:
+        case STORY_RACE_2_REWARD_UNCLAIMED_AGAIN:
+            goto(GogoatRace1_GoMeetSon)
+        case STORY_RACE_1_IN_PROGRESS:
+        case STORY_RACE_2_IN_PROGRESS:
+        default:
+            buffernumberstring(STR_VAR_3, VAR_GOGOAT_RACE)
+            msgbox("Error {STR_VAR_3}:\nPlease inform the romhack creator.")
+            release
+            end
     }
+}
+
+script GogoatRace1_GoMeetSon{
+    msgbox(GogoatRace1_GoMeetSon_Text, MSGBOX_AUTOCLOSE)
+    end
+}
+text GogoatRace1_GoMeetSon_Text{
+    "I think my son is trying to get\n"
+    "your attention.\l"
+    "He's right there outside the gate."
+}
+
+script GogoatRace1_UnclaimedReward{
+    msgbox("Unfortunately you already received\nthe grand prize, so all I've got to offer\lis this consolation prize.")
+    giveitem(ITEM_LEMONADE)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE)
+    clearflag(FLAG_RACEBOY)
+    msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+    end
+}
+
+script GogoatRace1_RewardCeremony2{
+    msgbox(GogoatRace1RewardCeremony_Reward_Again)
+    giveitem(ITEM_LEMONADE)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setvar(VAR_GOGOAT_RACE, STORY_RACE_1_INTRO_COMPLETE)
+    clearflag(FLAG_RACEBOY)
+    msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+    end
+}
+
+script GogoatRace1_RewardCeremony{
+    msgbox(GogoatRace1RewardCeremony_Reward)
+    giveitem(ITEM_PP_UP)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_GOGOAT_RACE_REWARD_1)
+    setvar(VAR_GOGOAT_RACE, STORY_RACE_2_FIRST_TALK)
+    clearflag(FLAG_RACEBOY)
+    msgbox(GogoatRace1RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+    end
+}
+
+script WannaGogoatRace1{
     message(WannaGogoatRace)
     waitmessage
     dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
-    switch(var(VAR_RESULT)){
+    switch(var(VAR_RESULT))
+    {
         case 0:
             msgbox(LetsGetGogoatRacing)
             setvar(VAR_GOGOAT_RACE, STORY_RACE_1_IN_PROGRESS)
@@ -279,7 +326,7 @@ script Route20_RanchRace{
         case 1:
             msgbox(GogoatRaceRulesText)
             setflag(FLAG_GOGOAT_INTRO1)
-            goto(Route20_RanchRace)
+            goto(WannaGogoatRace1)
         case 2:
         case MULTI_B_PRESSED:
             msgbox(ThatsAShame)
@@ -288,29 +335,58 @@ script Route20_RanchRace{
     }
 }
 
-script Route20_Race2{
+script Route20_Race2_NPC{
     lock
     faceplayer
-    if(var(VAR_GOGOAT_RACE) == STORY_RACE_2_COMPLETE){
-        msgbox(GogoatRace2RewardCeremony_Reward)
-        giveitem(ITEM_BOND_ANKLET)
-        if(var(VAR_RESULT) == FALSE){
-            goto(ZeBagIsFull)
-        }
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_2_COMPLETE)
-        msgbox(GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
-        end
+    switch(var(VAR_GOGOAT_RACE))
+    {
+        case STORY_RACE_1_FIRST_TALK:
+        case STORY_RACE_1_INTRO_COMPLETE:
+        case STORY_RACE_1_IN_PROGRESS:
+        case STORY_RACE_1_FAILED:
+        case STORY_RACE_2_IN_PROGRESS:
+        case STORY_RACE_2_INTRO:
+        case STORY_RACE_2_FAILED:
+            goto(WannaGogoatRace2)
+        case STORY_RACE_1_COMPLETE:
+        case STORY_RACE_1_COMPLETE_AGAIN:
+        case STORY_RACE_1_REWARD_UNCLAIMED_AGAIN:
+            msgbox("I think my dad was looking for you.\pYou can find him near the middle of\nthe field just north of here.", MSGBOX_AUTOCLOSE)
+            end
+        case STORY_RACE_2_FIRST_TALK:
+            msgbox(GogoatRace2Intro)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_2_INTRO)
+            goto(WannaGogoatRace2)
+        case STORY_RACE_2_COMPLETE:
+            msgbox(GogoatRace2RewardCeremony_Reward)
+            giveitem(ITEM_BOND_ANKLET)
+            if(var(VAR_RESULT) == FALSE){
+                goto(ZeBagIsFull)
+            }
+            setflag(FLAG_GOGOAT_RACE_REWARD_2)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_2_INTRO)
+            msgbox(GogoatRace2RewardCeremony_WelcomeBackAnyTime, MSGBOX_AUTOCLOSE)
+            end
+        case STORY_RACE_2_COMPLETE_AGAIN:
+        case STORY_RACE_2_REWARD_UNCLAIMED_AGAIN:
+            msgbox(GogoatRace2_NoRewardToGive, MSGBOX_AUTOCLOSE)
+            setvar(VAR_GOGOAT_RACE, STORY_RACE_2_INTRO)
+            end
     }
-    if(var(VAR_GOGOAT_RACE) < STORY_RACE_2_INTRO){
-        msgbox(GogoatRace2Intro)
-        setvar(VAR_GOGOAT_RACE, STORY_RACE_2_INTRO)
+}
+
+script WannaGogoatRace2{
+    if(flag(FLAG_GOGOAT_RACE_REWARD_2))
+    {
+        message(WannaGogoatRace2Again)
     }
-    if(flag(FLAG_GOGOAT_INTRO2)){
+    elif(flag(FLAG_GOGOAT_INTRO2)){
         message(WannaGogoatRace2Short)
     }
     else{
         message(WannaGogoat2Race)
     }
+    setflag(FLAG_GOGOAT_INTRO2)
     waitmessage
     dynmultichoice(23, 0, FALSE, 4, 0, 0, "Count me in!", "Explain rules", "No thanks")
     switch(var(VAR_RESULT)){
@@ -322,8 +398,7 @@ script Route20_Race2{
             waitstate
         case 1:
             msgbox(GogoatRaceRulesText2)
-            setflag(FLAG_GOGOAT_INTRO2)
-            goto(Route20_Race2)
+            goto(WannaGogoatRace2)
         case 2:
         case MULTI_B_PRESSED:
             msgbox(ThatsAShame)
@@ -342,6 +417,12 @@ text GogoatRace2Intro{
     "wip"
 }
 text WannaGogoatRace2Short{
+    "wip"
+}
+text WannaGogoatRace2Again{
+    "wip"
+}
+text GogoatRace2_NoRewardToGive{
     "wip"
 }
 text WannaGogoat2Race{

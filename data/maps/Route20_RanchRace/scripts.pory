@@ -157,7 +157,7 @@ script Race1_FinishMain{
     msgbox(FinishRace1_CalculateScore)
 
     // have finished the race before //
-    if(var(VAR_GOGOAT_RACE) >= STORY_RACE_1_REWARD_EARNED){ 
+    if(flag(FLAG_GOGOAT_RACE_REWARD_1)){ 
         if(flag(FLAG_TEMP_D)){ // broke personal record
             setvar(VAR_GOGOAT_RACE, STORY_RACE_1_COMPLETE_AGAIN)
             msgbox(Race1_YouWonAgain)

@@ -90,7 +90,7 @@ script Route20_RaceCourse_Finish{
     msgbox(BackFromRace)
 
     // have finished the race before //
-    if(var(VAR_GOGOAT_RACE) >= STORY_RACE_2_REWARD_EARNED){ 
+    if(flag(FLAG_GOGOAT_RACE_REWARD_2)){ 
         if(flag(FLAG_TEMP_D)){ // broke personal record
             msgbox(Race2_YouWonAgain)
             callnative(TurnGogoatToBike)

@@ -97,7 +97,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route20_RanchRace",
+      "script": "Route20_Race1_NPC",
       "flag": "0"
     },
     {
@@ -266,7 +266,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "Route20_Race2",
+      "script": "Route20_Race2_NPC",
       "flag": "FLAG_TEMP_2"
     },
     {
