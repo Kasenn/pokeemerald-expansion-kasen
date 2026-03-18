@@ -1007,7 +1007,7 @@
       "width": 8,
       "height": 6,
       "primary_tileset": "gTileset_Building",
-      "secondary_tileset": "gTileset_GenericBuilding",
+      "secondary_tileset": "gTileset_GenericBuildingNorth",
       "border_filepath": "data/layouts/FortreeCity_House2/border.bin",
       "blockdata_filepath": "data/layouts/FortreeCity_House2/map.bin"
     },
@@ -7730,6 +7730,56 @@
       "secondary_tileset": "gTileset_Crystalpine",
       "border_filepath": "data/layouts/Route20_RanchRace/border.bin",
       "blockdata_filepath": "data/layouts/Route20_RanchRace/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_POKE_CENTER",
+      "name": "Crystalpine_PokeCenter_Layout",
+      "width": 13,
+      "height": 16,
+      "primary_tileset": "gTileset_Building2",
+      "secondary_tileset": "gTileset_PokemonCenter",
+      "border_filepath": "data/layouts/Crystalpine_PokeCenter/border.bin",
+      "blockdata_filepath": "data/layouts/Crystalpine_PokeCenter/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_MART",
+      "name": "Crystalpine_Mart_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_Shop",
+      "border_filepath": "data/layouts/Crystalpine_Mart/border.bin",
+      "blockdata_filepath": "data/layouts/Crystalpine_Mart/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_SMALL_HOUSE_1",
+      "name": "Crystalpine_SmallHouse_1_Layout",
+      "width": 11,
+      "height": 8,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuildingNorth",
+      "border_filepath": "data/layouts/Crystalpine_SmallHouse_1/border.bin",
+      "blockdata_filepath": "data/layouts/Crystalpine_SmallHouse_1/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_SMALL_HOUSE_3",
+      "name": "Crystalpine_SmallHouse_3_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuilding",
+      "border_filepath": "data/layouts/Crystalpine_SmallHouse_3/border.bin",
+      "blockdata_filepath": "data/layouts/Crystalpine_SmallHouse_3/map.bin"
+    },
+    {
+      "id": "LAYOUT_CRYSTALPINE_SMALL_HOUSE_2",
+      "name": "Crystalpine_SmallHouse_2_Layout",
+      "width": 10,
+      "height": 9,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_GenericBuildingNorth",
+      "border_filepath": "data/layouts/Crystalpine_SmallHouse_2/border.bin",
+      "blockdata_filepath": "data/layouts/Crystalpine_SmallHouse_2/map.bin"
     }
   ]
 }

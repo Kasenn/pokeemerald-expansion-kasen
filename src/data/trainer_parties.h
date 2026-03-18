@@ -564,6 +564,15 @@ static const struct TrainerMon sParty_TRAINER_FROSTHEARTH_NURSE[] = {
     {POKEMON(SPECIES_EXPBOT, 45)}
 };
 
+static const struct TrainerMon sParty_TRAINER_CRYSTALPINE_NURSE[] = {
+    {POKEMON(SPECIES_EXPBOT, 48)},
+    {POKEMON(SPECIES_EXPBOT, 48)},
+    {POKEMON(SPECIES_EXPBOT, 48)},
+    {POKEMON(SPECIES_EXPBOT, 48)},
+    {POKEMON(SPECIES_EXPBOT, 48)},
+    {POKEMON(SPECIES_EXPBOT, 48)}
+};
+
 static const struct TrainerMon sParty_TRAINER_CORALGYM_1[] = {
     {POKEMON(SPECIES_SCATTERBUG, 8)},
     {

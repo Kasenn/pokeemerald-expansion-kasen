@@ -1,0 +1,20 @@
+{
+  "id": "MAP_CRYSTALPINE_SMALL_HOUSE_1",
+  "name": "Crystalpine_SmallHouse_1",
+  "layout": "LAYOUT_CRYSTALPINE_SMALL_HOUSE_1",
+  "music": "MUS_OLDALE",
+  "region_map_section": "MAPSEC_CRYSTALPINE_TOWN",
+  "requires_flash": false,
+  "weather": "WEATHER_NONE",
+  "map_type": "MAP_TYPE_INDOOR",
+  "allow_cycling": false,
+  "allow_escaping": false,
+  "allow_running": true,
+  "show_map_name": false,
+  "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
+  "connections": null,
+  "object_events": [],
+  "warp_events": [],
+  "coord_events": [],
+  "bg_events": []
+}

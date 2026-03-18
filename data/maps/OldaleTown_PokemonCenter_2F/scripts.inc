@@ -211,386 +211,419 @@ LevelTraining9::
 	return
 
 
-LevelTrainingCheck::
+LevelTraining10::
+# 142 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	setvar VAR_POKECENTER_TRAINING, 10
 # 143 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	lock
+	setvar VAR_0x8008, 10
 # 144 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	buffernumberstring STR_VAR_1, VAR_0x8008
-# 145 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	specialvar VAR_TEMP_1, GetFrontierBattlePoints
-# 146 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	goto_if_ge VAR_TEMP_1, VAR_0x8008, LevelTrainingMain
-# 147 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	msgbox Training_NotEnoughPoints, MSGBOX_DEFAULT
+	goto LevelTrainingCheck
+	return
+
+
+LevelTrainingCheck::
 # 148 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	setvar VAR_POKECENTER_TRAINING, 0
+	lock
 # 149 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	buffernumberstring STR_VAR_1, VAR_0x8008
+# 150 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	specialvar VAR_TEMP_1, GetFrontierBattlePoints
+# 151 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	goto_if_ge VAR_TEMP_1, VAR_0x8008, LevelTrainingMain
+# 152 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	msgbox Training_NotEnoughPoints, MSGBOX_DEFAULT
+# 153 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	setvar VAR_POKECENTER_TRAINING, 0
+# 154 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	release
 	end
 
 
 LevelTrainingMain::
-# 153 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	special ShowBattlePointsWindow
-# 154 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	switch VAR_POKECENTER_TRAINING
-# 155 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 1, LevelTrainingMain_3
 # 158 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	special ShowBattlePointsWindow
+# 159 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	switch VAR_POKECENTER_TRAINING
+# 160 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 1, LevelTrainingMain_3
+# 163 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 2, LevelTrainingMain_4
-# 161 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 166 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 3, LevelTrainingMain_5
-# 164 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 169 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 4, LevelTrainingMain_6
-# 167 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 172 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 5, LevelTrainingMain_7
-# 170 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 175 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 6, LevelTrainingMain_8
-# 173 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 178 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 7, LevelTrainingMain_9
-# 176 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 181 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case 8, LevelTrainingMain_10
-# 179 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 9, LevelTrainingMain_11
-LevelTrainingMain_1:
-# 183 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	msgbox RecommendedLevel, MSGBOX_YESNO
 # 184 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 9, LevelTrainingMain_11
+# 187 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 10, LevelTrainingMain_12
+LevelTrainingMain_1:
+# 191 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	msgbox RecommendedLevel, MSGBOX_YESNO
+# 192 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	compare VAR_RESULT, YES
-	goto_if_eq LevelTrainingMain_12
-# 241 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	goto_if_eq LevelTrainingMain_13
+# 253 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	setvar VAR_POKECENTER_TRAINING, 0
-# 242 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 254 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	special CloseBattlePointsWindow
-# 243 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 255 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	release
 	end
 
 LevelTrainingMain_3:
-# 156 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 161 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 6
-# 157 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 162 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 11
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_4:
-# 159 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 164 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 8
-# 160 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 165 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 13
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_5:
-# 162 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 167 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 16
-# 163 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 168 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 21
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_6:
-# 165 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 170 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 25
-# 166 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 171 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 28
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_7:
-# 168 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 173 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 30
-# 169 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 174 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 33
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_8:
-# 171 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 176 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 30
-# 172 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 177 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 33
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_9:
-# 174 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 179 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 33
-# 175 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 180 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 37
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_10:
-# 177 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 182 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 40
-# 178 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 183 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 44
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_11:
-# 180 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 185 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_3, 45
-# 181 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 186 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, 52
 	goto LevelTrainingMain_1
 
 LevelTrainingMain_12:
-# 185 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	switch VAR_POKECENTER_TRAINING
-# 186 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 1, LevelTrainingMain_17
 # 188 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 2, LevelTrainingMain_18
-# 190 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 3, LevelTrainingMain_19
-# 192 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 4, LevelTrainingMain_20
-# 194 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 5, LevelTrainingMain_21
-# 196 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 6, LevelTrainingMain_22
-# 198 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 7, LevelTrainingMain_23
-# 200 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 8, LevelTrainingMain_24
-# 202 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 9, LevelTrainingMain_25
-LevelTrainingMain_15:
-# 205 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	compare VAR_RESULT, PARTY_SIZE
-	goto_if_eq LevelTrainingMain_27
-LevelTrainingMain_26:
-# 214 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	special CloseBattlePointsWindow
-# 215 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	copyvar VAR_0x8004, VAR_0x8008
-# 216 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	special TakeFrontierBattlePoints
-# 217 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	buffernumberstring STR_VAR_3, 48
+# 189 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	buffernumberstring STR_VAR_2, 55
+	goto LevelTrainingMain_1
+
+LevelTrainingMain_13:
+# 193 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	switch VAR_POKECENTER_TRAINING
-# 218 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 1, LevelTrainingMain_31
-# 220 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 2, LevelTrainingMain_32
-# 222 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 3, LevelTrainingMain_33
+# 194 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 1, LevelTrainingMain_18
+# 196 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 2, LevelTrainingMain_19
+# 198 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 3, LevelTrainingMain_20
+# 200 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 4, LevelTrainingMain_21
+# 202 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 5, LevelTrainingMain_22
+# 204 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 6, LevelTrainingMain_23
+# 206 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 7, LevelTrainingMain_24
+# 208 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 8, LevelTrainingMain_25
+# 210 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 9, LevelTrainingMain_26
+# 212 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 10, LevelTrainingMain_27
+LevelTrainingMain_16:
+# 215 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	compare VAR_RESULT, PARTY_SIZE
+	goto_if_eq LevelTrainingMain_29
+LevelTrainingMain_28:
 # 224 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 4, LevelTrainingMain_34
+	special CloseBattlePointsWindow
+# 225 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	copyvar VAR_0x8004, VAR_0x8008
 # 226 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 5, LevelTrainingMain_35
+	special TakeFrontierBattlePoints
+# 227 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	switch VAR_POKECENTER_TRAINING
 # 228 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 6, LevelTrainingMain_36
+	case 1, LevelTrainingMain_33
 # 230 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 7, LevelTrainingMain_37
+	case 2, LevelTrainingMain_34
 # 232 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 8, LevelTrainingMain_38
+	case 3, LevelTrainingMain_35
 # 234 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 9, LevelTrainingMain_39
-LevelTrainingMain_29:
-# 237 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 4, LevelTrainingMain_36
+# 236 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 5, LevelTrainingMain_37
+# 238 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 6, LevelTrainingMain_38
+# 240 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 7, LevelTrainingMain_39
+# 242 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 8, LevelTrainingMain_40
+# 244 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 9, LevelTrainingMain_41
+# 246 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 10, LevelTrainingMain_42
+LevelTrainingMain_31:
+# 249 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	setvar VAR_POKECENTER_TRAINING, 0
 	end
 
-LevelTrainingMain_17:
-# 187 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 12
-	goto LevelTrainingMain_15
-
 LevelTrainingMain_18:
-# 189 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 14
-	goto LevelTrainingMain_15
+# 195 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 12
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_19:
-# 191 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 22
-	goto LevelTrainingMain_15
+# 197 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 14
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_20:
-# 193 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 29
-	goto LevelTrainingMain_15
+# 199 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 22
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_21:
-# 195 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 34
-	goto LevelTrainingMain_15
+# 201 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 29
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_22:
-# 197 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 203 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	checkpartylevel 34
-	goto LevelTrainingMain_15
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_23:
-# 199 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 38
-	goto LevelTrainingMain_15
+# 205 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 34
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_24:
-# 201 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	checkpartylevel 45
-	goto LevelTrainingMain_15
+# 207 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 38
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_25:
-# 203 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 209 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 45
+	goto LevelTrainingMain_16
+
+LevelTrainingMain_26:
+# 211 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	checkpartylevel 53
-	goto LevelTrainingMain_15
+	goto LevelTrainingMain_16
 
 LevelTrainingMain_27:
-# 206 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 213 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	checkpartylevel 56
+	goto LevelTrainingMain_16
+
+LevelTrainingMain_29:
+# 216 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox YourPokemonIsAboveLevel, MSGBOX_YESNO
-# 207 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 217 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	compare VAR_RESULT, FALSE
-	goto_if_eq LevelTrainingMain_40
-	goto LevelTrainingMain_26
-
-LevelTrainingMain_31:
-# 219 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_PRIMROSE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
-
-LevelTrainingMain_32:
-# 221 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_CORALGROVE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+	goto_if_eq LevelTrainingMain_43
+	goto LevelTrainingMain_28
 
 LevelTrainingMain_33:
-# 223 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_ALDELEAF_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 229 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_PRIMROSE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_34:
-# 225 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 231 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_CORALGROVE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_35:
-# 227 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 233 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_ALDELEAF_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_36:
-# 229 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 235 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_SHORESLATE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_37:
-# 231 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 237 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_MARIGORGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_38:
-# 233 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_DRISLEDGE_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 239 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_ROCKLIFFE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_39:
-# 235 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	trainerbattle_no_intro TRAINER_FROSTHEARTH_NURSE, TrainingFinished
-	goto LevelTrainingMain_29
+# 241 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_SANDSTONE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
 
 LevelTrainingMain_40:
-# 208 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 243 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_DRISLEDGE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
+
+LevelTrainingMain_41:
+# 245 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_FROSTHEARTH_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
+
+LevelTrainingMain_42:
+# 247 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	trainerbattle_no_intro TRAINER_CRYSTALPINE_NURSE, TrainingFinished
+	goto LevelTrainingMain_31
+
+LevelTrainingMain_43:
+# 218 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	setvar VAR_POKECENTER_TRAINING, 0
-# 209 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 219 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	release
-# 210 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 220 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	special CloseBattlePointsWindow
 	end
 
 
 IvTrainingIntro::
-# 249 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 261 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto_if_unset FLAG_VISITED_CORALGROVE_CITY, IvTrainingIntro_2
-# 253 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 265 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	lock
-# 254 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 266 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox WelcomeToTrainingClub
-# 255 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 267 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto TrainingClubNpc
 	return
 
 IvTrainingIntro_2:
-# 250 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 262 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox OldaleTown_PokemonCenter_1F_Text_Train, MSGBOX_NPC
 	end
 
 
 TrainingClubNpc::
-# 258 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 270 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	message TrainingClubMessage
-# 259 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	waitmessage
-# 260 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	dynmultipush TrainingClubNpc_Text_0, 0
-# 261 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	dynmultipush TrainingClubNpc_Text_1, 1
-# 262 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	dynmultipush TrainingClubNpc_Text_2, 2
-# 263 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	dynmultistack 23, 0, FALSE, 3, FALSE, 0, NULL
-# 264 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	switch VAR_RESULT
-# 265 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 0, TrainingClubNpc_2
-# 267 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 1, TrainingClubNpc_3
-# 269 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
-	case 2, TrainingClubNpc_4
 # 271 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	waitmessage
+# 272 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	dynmultipush TrainingClubNpc_Text_0, 0
+# 273 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	dynmultipush TrainingClubNpc_Text_1, 1
+# 274 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	dynmultipush TrainingClubNpc_Text_2, 2
+# 275 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	dynmultistack 23, 0, FALSE, 3, FALSE, 0, NULL
+# 276 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	switch VAR_RESULT
+# 277 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 0, TrainingClubNpc_2
+# 279 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 1, TrainingClubNpc_3
+# 281 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+	case 2, TrainingClubNpc_4
+# 283 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	case MULTI_B_PRESSED, TrainingClubNpc_5
 	return
 
 TrainingClubNpc_2:
-# 266 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 278 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto EVTrainingDescription
 	return
 
 TrainingClubNpc_3:
-# 268 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 280 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto LevelTrainingDescription
 	return
 
 TrainingClubNpc_4:
-# 270 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 282 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto TrainingClubGoodbye
 	return
 
 TrainingClubNpc_5:
-# 272 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 284 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto TrainingClubGoodbye
 	return
 
 
 EVTrainingDescription::
-# 289 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 301 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox EVTrainingDescription_Text
-# 290 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 302 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto TrainingClubNpc
 	return
 
 
 LevelTrainingDescription::
-# 293 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 305 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox LevelTrainingDescription_Text
-# 294 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 306 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	goto TrainingClubNpc
 	return
 
 
 TrainingClubGoodbye::
-# 297 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 309 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	msgbox TrainingClubGoodbye_Text
-# 298 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 310 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	release
 	return
 
 
 TrainingClubNpc_Text_0:
-# 260 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 272 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "EV Training$"
 
 TrainingClubNpc_Text_1:
-# 261 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 273 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "Level Training$"
 
 TrainingClubNpc_Text_2:
-# 262 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 274 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "Never mind$"
 
 EVTraining_Intro::
@@ -633,19 +666,19 @@ YourPokemonIsAboveLevel::
 	.string "Are you sure you want to continue?$"
 
 WelcomeToTrainingClub::
-# 276 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 288 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "Hello, and welcome to the\n"
 	.string "Pokémon Center PokéTraining Club.\p"
 	.string "Here trainers may train their Pokémon\n"
 	.string "by battling in a controlled environment.$"
 
 TrainingClubMessage::
-# 283 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 295 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "Would you like to know more about\n"
 	.string "our services?$"
 
 EVTrainingDescription_Text::
-# 300 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 312 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "The person to my left offers\n"
 	.string "EV training.\p"
 	.string "She has 5 training bots, with each\n"
@@ -656,7 +689,7 @@ EVTrainingDescription_Text::
 	.string "free to use the service as you see fit.$"
 
 LevelTrainingDescription_Text::
-# 310 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 322 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "The person to my right offers\n"
 	.string "level training, employing a team\l"
 	.string "of bots that are tuned for quickly\l"
@@ -671,5 +704,5 @@ LevelTrainingDescription_Text::
 	.string "another training club to progress.$"
 
 TrainingClubGoodbye_Text::
-# 324 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
+# 336 "data/maps/OldaleTown_PokemonCenter_2F/scripts.pory"
 	.string "I hope you find our services useful.$"

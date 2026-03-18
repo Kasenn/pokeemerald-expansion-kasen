@@ -655,6 +655,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_FROSTHEARTH_NURSE] =   {NURSE,                                                     TPARTY(sParty_TRAINER_FROSTHEARTH_NURSE)},
     [TRAINER_DRISLEDGE_NURSE] =     {NURSE,                                                     TPARTY(sParty_TRAINER_DRISLEDGE_NURSE)},
     [TRAINER_SANDSTONE_NURSE] =     {NURSE,                                                     TPARTY(sParty_TRAINER_SANDSTONE_NURSE)},
+    [TRAINER_CRYSTALPINE_NURSE] =   {NURSE,                                                     TPARTY(sParty_TRAINER_CRYSTALPINE_NURSE)},
     /////// Route 1 ///////
     [TRAINER_R1_YOUNGSTER] =        {YOUNGSTER,         DUMB_AI,        NAME("Calvin"),         TPARTY(sParty_TRAINER_R1_YOUNGSTER)},
     [TRAINER_R1_FISHER] =           {FISHERMAN,         DUMB_AI,        NAME("Phil"),           TPARTY(sParty_TRAINER_R1_FISHER)},
@@ -1053,7 +1054,6 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R19_PICNICKER] =       {EBP, PICNICKER,    BASIC_AI,       NAME("Cyndy"),          TPARTY(sParty_TRAINER_R19_PICNICKER)},
     [TRAINER_R19_SWIMMER_M4] =      {EBP, SWIMMER_M,    BASIC_AI,       NAME("Jared"),          TPARTY(sParty_TRAINER_R19_SWIMMER_M4)},
 
-    [TRAINER_UNUSED_15_] = {},
     [TRAINER_UNUSED_54_] = {},
     [TRAINER_UNUSED_225_] = {},
     [TRAINER_UNUSED_226_] = {},

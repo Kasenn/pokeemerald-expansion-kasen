@@ -2549,3 +2549,41 @@ const u16 gTilesetPalettes_Route19[][16] =
 };
 
 const u32 gTilesetTiles_Route19[] = INCBIN_U32("data/tilesets/secondary/route_19/tiles.4bpp.fastSmol");
+
+const u16 gTilesetPalettes_BuildingNorth[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/building_north/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_BuildingNorth[] = INCBIN_U32("data/tilesets/primary/building_north/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_GenericBuildingNorth[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/generic_building_north/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_GenericBuildingNorth[] = INCBIN_U32("data/tilesets/secondary/generic_building_north/tiles.4bpp.lz");

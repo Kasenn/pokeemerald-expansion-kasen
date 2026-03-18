@@ -1360,3 +1360,25 @@ const struct Tileset gTileset_Route19 =
     .metatileAttributes = gMetatileAttributes_Route19,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_BuildingNorth =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_BuildingNorth,
+    .palettes = gTilesetPalettes_BuildingNorth,
+    .metatiles = gMetatiles_BuildingNorth,
+    .metatileAttributes = gMetatileAttributes_BuildingNorth,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_GenericBuildingNorth =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_GenericBuildingNorth,
+    .palettes = gTilesetPalettes_GenericBuildingNorth,
+    .metatiles = gMetatiles_GenericBuildingNorth,
+    .metatileAttributes = gMetatileAttributes_GenericBuildingNorth,
+    .callback = NULL,
+};

@@ -121,6 +121,41 @@
       "elevation": 0,
       "dest_map": "MAP_LILYCOVE_CITY_CONTEST_LOBBY",
       "dest_warp_id": "0"
+    },
+    {
+      "x": 16,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_CRYSTALPINE_POKE_CENTER",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 27,
+      "y": 9,
+      "elevation": 0,
+      "dest_map": "MAP_CRYSTALPINE_SMALL_HOUSE_1",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 21,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_CRYSTALPINE_SMALL_HOUSE_2",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 13,
+      "y": 16,
+      "elevation": 0,
+      "dest_map": "MAP_CRYSTALPINE_SMALL_HOUSE_3",
+      "dest_warp_id": "0"
+    },
+    {
+      "x": 4,
+      "y": 13,
+      "elevation": 0,
+      "dest_map": "MAP_CRYSTALPINE_MART",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [],

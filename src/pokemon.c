@@ -6599,6 +6599,9 @@ bool8 IsLevelCapped(struct Pokemon *mon)
         case 9:
             maxLevel = 53;
             break;
+        case 10:
+            maxLevel = 56;
+            break;
     }
 
     if(monLevel >= maxLevel){

@@ -1173,6 +1173,12 @@
     },
     {
       "id": "MAPSEC_PACIFIDLOG_TOWN"
+    },
+    {
+      "id": "MAPSEC_LILYCOVE_CITY"
+    },
+    {
+      "id": "MAPSEC_FORTREE_CITY"
     }
   ]
 }

@@ -18,7 +18,7 @@
 #define TRAINER_UNUSED_12_              12
 #define TRAINER_UNUSED_13_              13
 #define TRAINER_UNUSED_14_             14
-#define TRAINER_UNUSED_15_              15
+#define TRAINER_CRYSTALPINE_NURSE              15
 #define TRAINER_R1_YOUNGSTER         16
 #define TRAINER_R1_FISHER         17
 #define TRAINER_R1_BUG_CATCHER         18

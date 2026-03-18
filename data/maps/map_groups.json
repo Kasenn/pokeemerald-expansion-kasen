@@ -19,6 +19,7 @@
     "gMapGroup_IndoorAmberockTown",
     "gMapGroup_IndoorBasalekTown",
     "gMapGroup_IndoorFrosthearth",
+    "gMapGroup_IndoorCrystalpine",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -52,7 +53,6 @@
     "gMapGroup_IndoorRoute123",
     "gMapGroup_IndoorRoute119",
     "gMapGroup_OldAreas",
-    "gMapGroup_IndoorCrystalpine",
     "gMapGroup_IndoorRoute124"
   ],
   "gMapGroup_RoutesAndTowns": [
@@ -426,6 +426,14 @@
     "FrosthearthCity_Motel_2F",
     "PokemonWorldTournament"
   ],
+  "gMapGroup_IndoorCrystalpine": [
+    "LilycoveCity_ContestLobby",
+    "Crystalpine_PokeCenter",
+    "Crystalpine_Mart",
+    "Crystalpine_SmallHouse_1",
+    "Crystalpine_SmallHouse_2",
+    "Crystalpine_SmallHouse_3"
+  ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
     "LittlerootTown_BrendansHouse_2F",
@@ -540,7 +548,6 @@
   "gMapGroup_IndoorLilycove": [
     "LilycoveCity_CoveLilyMotel_1F",
     "LilycoveCity_CoveLilyMotel_2F",
-    "LilycoveCity_ContestLobby",
     "LilycoveCity_ContestHall",
     "LilycoveCity_PokemonCenter_1F",
     "LilycoveCity_PokemonCenter_2F",
@@ -978,7 +985,6 @@
     "AmberockTest",
     "Route28_Filler"
   ],
-  "gMapGroup_IndoorCrystalpine": [],
   "gMapGroup_IndoorRoute124": [
     "TestRoom",
     "Maptest",

@@ -351,3 +351,9 @@ const u16 gMetatileAttributes_LatiIsles[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_Route19[] = INCBIN_U16("data/tilesets/secondary/route_19/metatiles.bin");
 const u16 gMetatileAttributes_Route19[] = INCBIN_U16("data/tilesets/secondary/route_19/metatile_attributes.bin");
+
+const u16 gMetatiles_BuildingNorth[] = INCBIN_U16("data/tilesets/primary/building_north/metatiles.bin");
+const u16 gMetatileAttributes_BuildingNorth[] = INCBIN_U16("data/tilesets/primary/building_north/metatile_attributes.bin");
+
+const u16 gMetatiles_GenericBuildingNorth[] = INCBIN_U16("data/tilesets/secondary/generic_building_north/metatiles.bin");
+const u16 gMetatileAttributes_GenericBuildingNorth[] = INCBIN_U16("data/tilesets/secondary/generic_building_north/metatile_attributes.bin");

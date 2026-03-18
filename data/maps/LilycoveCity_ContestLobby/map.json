@@ -12,7 +12,7 @@
   "allow_running": false,
   "show_map_name": false,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": 0,
+  "connections": null,
   "object_events": [
     {
       "local_id": "LOCALID_CONTEST_LOBBY_RECEPTIONIST",
@@ -355,15 +355,15 @@
       "x": 14,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_CRYSTALPINE_TWON",
+      "dest_warp_id": "0"
     },
     {
       "x": 15,
       "y": 11,
       "elevation": 0,
-      "dest_map": "MAP_LILYCOVE_CITY",
-      "dest_warp_id": "4"
+      "dest_map": "MAP_CRYSTALPINE_TWON",
+      "dest_warp_id": "0"
     },
     {
       "x": 9,
@@ -380,9 +380,7 @@
       "dest_warp_id": "1"
     }
   ],
-  "coord_events": [
-
-  ],
+  "coord_events": [],
   "bg_events": [
     {
       "type": "sign",

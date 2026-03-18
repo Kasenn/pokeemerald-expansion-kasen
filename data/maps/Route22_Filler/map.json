@@ -17,6 +17,11 @@
       "map": "MAP_ROUTE22",
       "offset": 0,
       "direction": "left"
+    },
+    {
+      "map": "MAP_ROUTE22_PART2_WEST",
+      "offset": 0,
+      "direction": "right"
     }
   ],
   "object_events": [],

@@ -1855,3 +1855,13 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Route20_RanchRace/scripts.inc"
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
+
+	.include "data/maps/Crystalpine_PokeCenter/scripts.inc"
+
+	.include "data/maps/Crystalpine_Mart/scripts.inc"
+
+	.include "data/maps/Crystalpine_SmallHouse_1/scripts.inc"
+
+	.include "data/maps/Crystalpine_SmallHouse_3/scripts.inc"
+
+	.include "data/maps/Crystalpine_SmallHouse_2/scripts.inc"
