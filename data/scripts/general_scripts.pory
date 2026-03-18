@@ -551,7 +551,9 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    call(FrostGym_Tr3_Senior_Main)
+    setwildbattle(SPECIES_DITTO, 40)
+    dowildbattle
+    // call(FrostGym_Tr3_Senior_Main)
     return
 }
 script Debug_Script_4{

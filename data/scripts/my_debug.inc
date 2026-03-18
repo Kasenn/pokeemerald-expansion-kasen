@@ -114,7 +114,7 @@ Update4_39:
 	goto_if 1, Update4_43
 Update4_42:
 # 90 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_UNUSED_15_
+	checktrainerflag TRAINER_CRYSTALPINE_NURSE
 	goto_if 1, Update4_46
 Update4_45:
 # 95 "data/scripts/my_debug.pory"
@@ -335,7 +335,7 @@ Update4_43:
 
 Update4_46:
 # 91 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_15_
+	cleartrainerflag TRAINER_CRYSTALPINE_NURSE
 # 92 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BROTHER_5_FISHINGVILLAGE
 	goto Update4_45

@@ -87,8 +87,8 @@ script Update4{
         cleartrainerflag(TRAINER_UNUSED_14_)
         settrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
     }
-    if (defeated(TRAINER_UNUSED_15_)){
-        cleartrainerflag(TRAINER_UNUSED_15_)
+    if (defeated(TRAINER_CRYSTALPINE_NURSE)){
+        cleartrainerflag(TRAINER_CRYSTALPINE_NURSE)
         settrainerflag(TRAINER_BROTHER_5_FISHINGVILLAGE)
     }
     ///
