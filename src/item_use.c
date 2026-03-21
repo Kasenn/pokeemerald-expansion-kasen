@@ -870,6 +870,32 @@ void ItemUseOutOfBattle_SampleBox(u8 taskId)
     }
 }
 
+const u8 gText_PutAwayPikaBait[] = _("{PLAYER} put away the Pikabait\nin its container.{PAUSE_UNTIL_PRESS}");
+const u8 gText_TookOutPikaBait[] = _("{PLAYER} took out the\nPikabait from its container.{PAUSE_UNTIL_PRESS}");
+
+void ItemUseOutOfBattle_PikachuBait(u8 taskId)
+{
+    if (FlagGet(FLAG_PIKACHU_BAIT_ACTIVE))
+    {
+        FlagClear(FLAG_PIKACHU_BAIT_ACTIVE);
+        StringExpandPlaceholders(gStringVar4, gText_PutAwayPikaBait);
+    }
+    else
+    {
+        FlagSet(FLAG_PIKACHU_BAIT_ACTIVE);
+        StringExpandPlaceholders(gStringVar4, gText_TookOutPikaBait);
+    }
+
+    if (!gTasks[taskId].tUsingRegisteredKeyItem)
+    {
+        DisplayItemMessage(taskId, FONT_NORMAL, gStringVar4, CloseItemMessage);
+    }
+    else
+    {
+        DisplayItemMessageOnField(taskId, gStringVar4, Task_CloseCantUseKeyItemMessage);
+    }
+}
+
 
 void ItemUseOutOfBattle_PowderJar(u8 taskId)
 {
@@ -1416,6 +1442,34 @@ static bool32 SelectedMonHasVolatile(u16 itemId)
     return FALSE;
 }
 
+static u16 IsMonCapPikachu(u16 species)
+{
+    switch (species)
+    {
+        case SPECIES_PIKACHU_ORIGINAL:
+            return FLAG_SEEN_PIKACHU_ORIGINAL;
+        case SPECIES_PIKACHU_HOENN:
+            return FLAG_SEEN_PIKACHU_HOENN;
+        case SPECIES_PIKACHU_SINNOH:
+            return FLAG_SEEN_PIKACHU_SINNOH;
+        case SPECIES_PIKACHU_UNOVA:
+            return FLAG_SEEN_PIKACHU_UNOVA;
+        case SPECIES_PIKACHU_KALOS:
+            return FLAG_SEEN_PIKACHU_KALOS;
+        case SPECIES_PIKACHU_ALOLA:
+            return FLAG_SEEN_PIKACHU_ALOLA;
+        case SPECIES_PIKACHU_PARTNER:
+            return FLAG_SEEN_PIKACHU_PARTNER;
+        case SPECIES_PIKACHU_WORLD:
+            return FLAG_SEEN_PIKACHU_WORLD;
+        default:
+            return 0;
+    }
+}
+
+const u8 sText_NotCapPikachu[] = _("The target Pokémon is not of\nrequired species!{PAUSE_UNTIL_PRESS}");
+const u8 sText_SeenCapPikachu[] = _("That Pikachu has already been\nphotographed!{PAUSE_UNTIL_PRESS}");
+
 // Returns whether an item can be used in battle and sets the fail text.
 bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
 {
@@ -1435,6 +1489,26 @@ bool32 CannotUseItemsInBattle(u16 itemId, struct Pokemon *mon)
     // battleUsage checks
     switch (battleUsage)
     {
+    case EFFECT_ITEM_CAMERA:
+        u16 species = gBattleMons[B_POSITION_OPPONENT_LEFT].species;
+        if (gBattleMons[B_POSITION_OPPONENT_LEFT].volatiles.transformed && gDisableStructs[B_POSITION_OPPONENT_LEFT].transformedMonSpecies != SPECIES_NONE)
+            species = gDisableStructs[B_POSITION_OPPONENT_LEFT].transformedMonSpecies;
+
+        u16 flag = IsMonCapPikachu(species);
+
+        if (flag == 0)
+        {
+            failStr = sText_NotCapPikachu;
+            cannotUse = TRUE;
+        }
+        else if (FlagGet(flag))
+        {
+            failStr = sText_SeenCapPikachu;
+            cannotUse = TRUE;
+        }
+        FlagSet(flag);
+
+        break;
     case EFFECT_ITEM_INCREASE_STAT:
         if (CompareStat(gBattlerInMenuId, GetItemEffect(itemId)[1], MAX_STAT_STAGE, CMP_EQUAL, GetBattlerAbility(gBattlerInMenuId)))
             cannotUse = TRUE;

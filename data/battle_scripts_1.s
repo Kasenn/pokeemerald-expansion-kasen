@@ -2702,6 +2702,26 @@ BattleScript_EffectAccuracyDown::
 	setstatchanger STAT_ACC, 1, TRUE
 	goto BattleScript_EffectStatDown
 
+BattleScript_EffectSpeedDownCamera::
+	setstatchanger STAT_SPEED, 1, TRUE
+	goto BattleScript_EffectStatDownFromStatBuffChangeCamera
+
+BattleScript_EffectAccuracyDownCamera::
+	setstatchanger STAT_ACC, 1, TRUE
+	goto BattleScript_EffectStatDownFromStatBuffChangeCamera
+
+BattleScript_EffectStatDownFromStatBuffChangeCamera:
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_ONLY_CHECKING, BattleScript_StatDownEnd
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_StatDownDoAnimCamera
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_CHANGE_EMPTY, BattleScript_StatDownEnd
+	pause B_WAIT_TIME_SHORT
+	setmoveresultflags MOVE_RESULT_MISSED @ TODO: Is this even necessary?
+	goto BattleScript_StatDownPrintString
+BattleScript_StatDownDoAnimCamera::
+	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_StatDownEnd
+	bicword gHitMarker, HITMARKER_DISABLE_ANIMATION
+	goto BattleScript_StatDownPrintString
+
 BattleScript_EffectSpecialAttackDown::
 	setstatchanger STAT_SPATK, 1, TRUE
 	goto BattleScript_EffectStatDown
@@ -2951,6 +2971,12 @@ BattleScript_EffectConfuse::
 BattleScript_EffectConfuse2::
 	attackanimation
 	waitanimation
+	seteffectprimary BS_ATTACKER, BS_TARGET, MOVE_EFFECT_CONFUSION
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectConfuseCamera::
 	seteffectprimary BS_ATTACKER, BS_TARGET, MOVE_EFFECT_CONFUSION
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
@@ -3268,6 +3294,13 @@ BattleScript_EffectDisable::
 	disablelastusedattack BattleScript_ButItFailed
 	attackanimation
 	waitanimation
+	printstring STRINGID_PKMNMOVEWASDISABLED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectDisableCamera::
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
+	disablelastusedattack BattleScript_ButItFailed
 	printstring STRINGID_PKMNMOVEWASDISABLED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
@@ -4162,6 +4195,13 @@ BattleScript_EffectTaunt::
 	attackanimation
 	waitanimation
 	printstring STRINGID_PKMNFELLFORTAUNT
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectTauntCamera::
+	jumpifability BS_TARGET_SIDE, ABILITY_AROMA_VEIL, BattleScript_AromaVeilProtects
+	settaunt BattleScript_ButItFailed
+	printstring STRINGID_PKMNFELLFORCAMERATAUNT
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 

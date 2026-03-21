@@ -1051,7 +1051,10 @@
 #define ITEM_DRAMPANITE 884
 #define ITEM_FALINKSITE 885
 
-#define ITEMS_COUNT ITEM_FALINKSITE + 1
+#define ITEM_PIKACHU_BAIT   886
+#define ITEM_PIKACHU_CAMERA 887
+
+#define ITEMS_COUNT ITEM_PIKACHU_CAMERA + 1
 #define ITEM_FIELD_ARROW ITEMS_COUNT
 
 // A special item id associated with "Cancel"/"Exit" etc. in a list of items or decorations
@@ -1126,6 +1129,7 @@
 #define EFFECT_ITEM_INCREASE_ALL_STATS      11
 #define EFFECT_ITEM_USE_POKE_FLUTE          12
 #define EFFECT_ITEM_HERBAL_MIX              13
+#define EFFECT_ITEM_CAMERA                  14
 
 // Enigma Berry dummy constant
 #define EFFECT_ITEM_ENIGMA_BERRY_EREADER    1

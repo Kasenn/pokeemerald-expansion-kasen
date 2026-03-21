@@ -11728,6 +11728,109 @@ static void Cmd_setcalledmove(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+enum {
+    CAMERA_CONFUSE,
+    CAMERA_FLINCH,
+    CAMERA_STAT_DOWN,
+    CAMERA_DISABLE,
+    CAMERA_TAUNT,
+};
+
+static const u16 sCameraChoices[] = 
+{
+    CAMERA_CONFUSE,
+    CAMERA_CONFUSE,
+    CAMERA_FLINCH,
+    CAMERA_FLINCH,
+    CAMERA_STAT_DOWN,
+    CAMERA_DISABLE,
+    CAMERA_TAUNT,
+};
+
+void BS_SetCameraEffect(void)
+{
+    CMD_ARGS();
+
+    u16 effect = sCameraChoices[Random() % ARRAY_COUNT(sCameraChoices)];
+    u16 ability = GetBattlerAbility(gBattlerTarget);
+    u16 holdEffect = GetBattlerHoldEffect(gBattlerTarget);
+
+    switch (effect)
+    {
+        case CAMERA_CONFUSE:
+            if (CanBeConfused(gBattlerTarget))
+            {
+                gBattlescriptCurrInstr = BattleScript_EffectConfuseCamera;
+                break;
+            }
+        case CAMERA_FLINCH:
+            if (ability != ABILITY_INNER_FOCUS)
+            {
+                gBattleMons[gBattlerTarget].volatiles.flinched = TRUE;
+                gBattlescriptCurrInstr = BattleScript_MoveEnd;
+                break;
+            }
+        case CAMERA_STAT_DOWN:
+            if (holdEffect != HOLD_EFFECT_CLEAR_AMULET
+             && !IsBattlerTerrainAffected(gBattlerTarget, ability, holdEffect, STATUS_FIELD_MISTY_TERRAIN)
+             && ability != ABILITY_FULL_METAL_BODY
+             && ability != ABILITY_CLEAR_BODY
+             && ability != ABILITY_ILLUMINATE
+             && ability != ABILITY_KEEN_EYE
+             && ability != ABILITY_MINDS_EYE
+             && ability != ABILITY_WHITE_SMOKE
+             && !IsFlowerVeilProtected(gBattlerTarget)
+             && gSideTimers[GetBattlerSide(gBattlerTarget)].mistTimer < 1)
+            {
+                if (CompareStat(gBattlerTarget, STAT_ACC, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
+                {
+                    gBattlescriptCurrInstr = BattleScript_EffectAccuracyDownCamera;
+                    break;
+                }
+                else if (CompareStat(gBattlerTarget, STAT_SPEED, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
+                {
+                    gBattlescriptCurrInstr = BattleScript_EffectSpeedDownCamera;
+                    break;
+                }
+            }
+        case CAMERA_DISABLE:
+        {
+            u8 moves[MAX_MON_MOVES];
+            u8 count = 0;
+
+            for (u32 i = 0; i < MAX_MON_MOVES; i++)
+            {
+                if (gBattleMons[gBattlerTarget].moves[i] != MOVE_NONE
+                    && gBattleMons[gBattlerTarget].pp[i] != 0)
+                {
+                    moves[count++] = i;
+                }
+            }
+
+            if (count > 0)
+            {
+                if (gLastMoves[gBattlerTarget] == MOVE_NONE)
+                {
+                    u8 chosenMove = moves[Random() % count];
+                    gLastMoves[gBattlerTarget] = gBattleMons[gBattlerTarget].moves[chosenMove];
+                }
+
+                gBattlescriptCurrInstr = BattleScript_EffectDisableCamera;
+                break;
+            }
+        }
+        case CAMERA_TAUNT:
+            if (ability != ABILITY_AROMA_VEIL && ability != ABILITY_OBLIVIOUS)
+            {
+                gBattlescriptCurrInstr = BattleScript_EffectTauntCamera;
+                break;
+            }
+        default:
+            gBattlescriptCurrInstr = cmd->nextInstr;
+            break;
+    }
+}
+
 static void Cmd_unused_0xA0(void)
 {
 }

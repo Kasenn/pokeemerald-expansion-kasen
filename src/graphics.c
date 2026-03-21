@@ -1021,6 +1021,9 @@ const u16 gUnusedPal_Shadow[] = INCBIN_U16("graphics/unused/shadow.gbapal");
 const u32 gBattleAnimSpriteGfx_LockOn[] = INCBIN_U32("graphics/battle_anims/sprites/lock_on.4bpp.smol");
 const u16 gBattleAnimSpritePal_LockOn[] = INCBIN_U16("graphics/battle_anims/sprites/lock_on.gbapal");
 
+const u32 gBattleAnimSpriteGfx_Camera[] = INCBIN_U32("graphics/battle_anims/sprites/camera.4bpp.smol");
+const u16 gBattleAnimSpritePal_Camera[] = INCBIN_U16("graphics/battle_anims/sprites/camera.gbapal");
+
 const u32 gBattleAnimSpriteGfx_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.4bpp.smol");
 const u16 gBattleAnimSpritePal_OpeningEye[] = INCBIN_U16("graphics/battle_anims/sprites/opening_eye.gbapal");
 

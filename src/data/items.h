@@ -16163,6 +16163,43 @@ const struct Item gItemsInfo[] =
         .iconPic = gItemIcon_BondAnklet,
         .iconPalette = gItemIconPalette_BondAnklet,
     },
+
+    [ITEM_PIKACHU_BAIT] =
+    {
+        .name = ITEM_NAME("Pikabait"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "A special treat\n"
+            "for attracting\n"
+            "special Pikachus."),
+        // .description = COMPOUND_STRING(
+        //     "“Specialest treat\n"
+        //     "for the specialest\n"
+        //     "Pikachu.”"),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_PikachuBait,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
+
+    [ITEM_PIKACHU_CAMERA] =
+    {
+        .name = ITEM_NAME("Camera"),
+        .price = 0,
+        .description = COMPOUND_STRING(
+            "Takes a photo of\n"
+            "a Pokémon and\n"
+            "disorients it."),
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_BAG_MENU,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .battleUsage = EFFECT_ITEM_CAMERA,
+        .iconPic = gItemIcon_QuestionMark,
+        .iconPalette = gItemIconPalette_QuestionMark,
+    },
 };
 
 #undef ITEM_NAME

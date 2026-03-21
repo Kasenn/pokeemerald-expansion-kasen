@@ -202,6 +202,7 @@ extern const u8 gBattleAnimMove_IcyWind[];
 extern const u8 gBattleAnimMove_Detect[];
 extern const u8 gBattleAnimMove_BoneRush[];
 extern const u8 gBattleAnimMove_LockOn[];
+extern const u8 gBattleAnimMove_Camera[];
 extern const u8 gBattleAnimMove_Outrage[];
 extern const u8 gBattleAnimMove_Sandstorm[];
 extern const u8 gBattleAnimMove_GigaDrain[];

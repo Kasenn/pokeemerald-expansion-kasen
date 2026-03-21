@@ -883,6 +883,10 @@
 	.byte 0x9e
 	.endm
 
+	.macro setcameraeffect
+	callnative BS_SetCameraEffect
+	.endm
+
 	.macro animatewildpokemonafterfailedpokeball battler:req
 	.byte B_SCR_OP_ANIMATEWILDPOKEMONAFTERFAILEDPOKEBALL
 	.byte \battler

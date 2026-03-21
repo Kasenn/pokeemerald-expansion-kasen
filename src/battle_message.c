@@ -470,6 +470,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_BADDREAMSDMG]                         = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is tormented!"),
     [STRINGID_PKMNTIGHTENINGFOCUS]                  = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is tightening\nits focus!"),
     [STRINGID_PKMNFELLFORTAUNT]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} fell for\nthe taunt!"),
+    [STRINGID_PKMNFELLFORCAMERATAUNT]               = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was provoked\nby the flash!"),
     [STRINGID_PKMNCANTUSEMOVETAUNT]                 = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can't use\n{B_CURRENT_MOVE} after the taunt!\p"),
     [STRINGID_PKMNREADYTOHELP]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is ready to\nhelp {B_DEF_NAME_PREFIX_LOWERCASE}!"),
     [STRINGID_PKMNSWITCHEDITEMS]                    = COMPOUND_STRING("{B_ATK_NAME_PREFIX} switched\nitems with its target!"),
@@ -861,6 +862,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNFROSTBITEHEALED2]                 = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s frostbite was cured!"),
     [STRINGID_PKMNFROSTBITEHEALEDBY]                = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s {B_CURRENT_MOVE} cured its frostbite!"),
     [STRINGID_PKMNATTACK]                           = COMPOUND_STRING("{B_BUFF1}'s attack!"),
+    [STRINGID_PKMNSURPRISEDBYCAMERAFLASH]           = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was surprised\nby the camera flash!"),
 
     // Mega Groudon/Kyogre weathers
     [STRINGID_EXTREMELYHARSHSUNLIGHT]               = COMPOUND_STRING("Error 01: something has gone awry.\nPlease inform the romhack creator!\p"),

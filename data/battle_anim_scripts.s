@@ -22775,6 +22775,18 @@ gBattleAnimMove_LockOn::
 	waitforvisualfinish
 	end
 
+gBattleAnimMove_Camera::
+	loadspritegfx ANIM_TAG_CAMERA
+	createsprite gCameraTargetSpriteTemplate, ANIM_ATTACKER, 40
+	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 1
+	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 2
+	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 3
+	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 4  @ Also transitions to red target
+	delay 120
+	setarg 7, 0xFFFF  @ Signal target to flash/disappear
+	waitforvisualfinish
+	end
+
 gBattleAnimMove_MeanLook::
 	loadspritegfx ANIM_TAG_EYE
 	monbg ANIM_DEF_PARTNER

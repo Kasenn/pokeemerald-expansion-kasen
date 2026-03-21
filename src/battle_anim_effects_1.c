@@ -1823,6 +1823,28 @@ const struct SpriteTemplate gLockOnMoveTargetSpriteTemplate =
     .callback = AnimLockOnMoveTarget,
 };
 
+const struct SpriteTemplate gCameraTargetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CAMERA,
+    .paletteTag = ANIM_TAG_CAMERA,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLockOnTarget,
+};
+
+const struct SpriteTemplate gCameraMoveTargetSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_CAMERA,
+    .paletteTag = ANIM_TAG_CAMERA,
+    .oam = &gOamData_AffineOff_ObjNormal_16x16,
+    .anims = gDummySpriteAnimTable,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = AnimLockOnMoveTarget,
+};
+
 const s8 gInclineMonCoordTable[][2] =
 {
     { 64,  64},

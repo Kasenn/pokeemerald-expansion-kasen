@@ -28,6 +28,7 @@
 #include "constants/layouts.h"
 #include "constants/weather.h"
 #include "event_object_movement.h"
+#include "field_control_avatar.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -531,6 +532,19 @@ void CreateWildMon(u16 species, u8 level)
 #define TRY_GET_ABILITY_INFLUENCED_WILD_MON_INDEX(wildPokemon, type, ability, ptr, count) TryGetAbilityInfluencedWildMonIndex(wildPokemon, type, ability, ptr)
 #endif
 
+
+static const u16 sPikachuVariants[] =
+{
+    SPECIES_PIKACHU_ORIGINAL,
+    SPECIES_PIKACHU_HOENN,
+    SPECIES_PIKACHU_SINNOH,
+    SPECIES_PIKACHU_UNOVA,
+    SPECIES_PIKACHU_KALOS,
+    SPECIES_PIKACHU_ALOLA,
+    SPECIES_PIKACHU_PARTNER,
+    SPECIES_PIKACHU_WORLD
+};
+
 static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum WildPokemonArea area, u8 flags)
 {
     u8 wildMonIndex = 0;
@@ -585,7 +599,26 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum 
     if (gMapHeader.mapLayoutId != LAYOUT_BATTLE_FRONTIER_BATTLE_PIKE_ROOM_WILD_MONS && flags & WILD_CHECK_KEEN_EYE && !IsAbilityAllowingEncounter(level))
         return FALSE;
 
-    CreateWildMon(wildMonInfo->wildPokemon[wildMonIndex].species, level);
+    u16 species = wildMonInfo->wildPokemon[wildMonIndex].species;
+
+    if (FlagGet(FLAG_PIKACHU_BAIT_ACTIVE))
+    {
+        // if (Random() % 3 == 0)
+        // {
+            struct MapPosition position;
+            u16 metatileBehavior;
+
+            GetPlayerPosition(&position);
+            metatileBehavior = MapGridGetMetatileBehaviorAt(position.x, position.y);
+
+            if (MetatileBehavior_IsPokeGrass(metatileBehavior))
+            {
+                species = sPikachuVariants[Random() % ARRAY_COUNT(sPikachuVariants)];
+            }
+        // }
+    }
+
+    CreateWildMon(species, level);
     return TRUE;
 }
 

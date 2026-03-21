@@ -27,6 +27,7 @@ gBattlescriptsForUsingItem::
 	.4byte BattleScript_ItemIncreaseAllStats         @ EFFECT_ITEM_INCREASE_ALL_STATS
 	.4byte BattleScript_UsePokeFlute                 @ EFFECT_ITEM_USE_POKE_FLUTE
 	.4byte BattleScript_ItemHealAndCureStatus        @ EFFECT_ITEM_HERBAL_MIX
+	.4byte BattleScript_CameraFlash					 @ EFFECT_ITEM_CAMERA
 
 	.align 2
 gBattlescriptsForSafariActions::
@@ -37,6 +38,16 @@ gBattlescriptsForSafariActions::
 	.4byte BattleScript_ActionLayLow
 
 BattleScript_ItemEnd:
+	end
+
+BattleScript_CameraFlash:
+	setbyte gBattlerTarget, 1
+	setbyte gEffectBattler, 1
+	playmoveanimation MOVE_WIND_STARTER
+	waitanimation
+	printstring STRINGID_PKMNSURPRISEDBYCAMERAFLASH
+	waitmessage B_WAIT_TIME_LONG
+	setcameraeffect
 	end
 
 BattleScript_UseItemMessage:

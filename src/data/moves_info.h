@@ -5598,7 +5598,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = COMBO_STARTER_SANDSTORM,
         .contestComboMoves = {0},
-        .battleAnimScript = gBattleAnimMove_Sandstorm,
+        .battleAnimScript = gBattleAnimMove_Camera,
         .validApprenticeMove = TRUE,
     },
 

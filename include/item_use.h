@@ -6,6 +6,7 @@ void ItemUseOutOfBattle_Fertilizer(u8 taskId);
 void ItemUseOutOfBattle_IncreaseFriendship(u8 taskId);
 void ItemUseOutOfBattle_TmCase(u8 taskId);
 void ItemUseOutOfBattle_TownMap(u8 taskId);
+void ItemUseOutOfBattle_PikachuBait(u8 taskId);
 
 void ItemUseOutOfBattle_Mail(u8 taskId);
 void ItemUseOutOfBattle_Bike(u8 taskId);

@@ -300,11 +300,13 @@ static const struct TrainerMon sParty_TRAINER_R1_YOUNGSTER[] = {
 };
 
 static const struct TrainerMon sParty_TRAINER_R1_FISHER[] = {
-    {POKEMON(SPECIES_GOLDEEN, 3)},
     {
-    POKEMON(SPECIES_QWILFISH, 4),
-    .ability = ABILITY_POISON_POINT,
-    .moves = {MOVE_TACKLE, MOVE_POISON_STING},
+        POKEMON(SPECIES_GOLDEEN, 3)
+    },
+    {
+        POKEMON(SPECIES_QWILFISH, 4),
+        .ability = ABILITY_POISON_POINT,
+        .moves = {MOVE_TACKLE, MOVE_POISON_STING},
     }
 };
 
@@ -4196,7 +4198,7 @@ static const struct TrainerMon sParty_TRAINER_R15_FISHER[] = {
     }
 };
 
-static const struct TrainerMon sParty_TRAINER_R15_ACEsParty_TRAINER_M[] = {
+static const struct TrainerMon sParty_TRAINER_R15_ACETRAINER_M[] = {
     {
     IVS_ALL(13),
     .lvl = 42,
@@ -4215,7 +4217,7 @@ static const struct TrainerMon sParty_TRAINER_R15_ACEsParty_TRAINER_M[] = {
     },
 };
 
-static const struct TrainerMon sParty_TRAINER_R15_ACEsParty_TRAINER_F[] = {
+static const struct TrainerMon sParty_TRAINER_R15_ACETRAINER_F[] = {
     {
     IVS_ALL(13),
     .lvl = 42,
