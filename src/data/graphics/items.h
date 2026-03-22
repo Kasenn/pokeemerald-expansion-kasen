@@ -178,6 +178,11 @@ const u16 gItemIconPalette_RageCandyBar[] = INCBIN_U16("graphics/items/icon_pale
 
 const u32 gItemIcon_LavaCookie[] = INCBIN_U32("graphics/items/icons/lava_cookie.4bpp.smol");
 const u16 gItemIconPalette_LavaCookieAndLetter[] = INCBIN_U16("graphics/items/icon_palettes/lava_cookie_and_letter.gbapal");
+const u32 gItemIcon_Pikabait[] = INCBIN_U32("graphics/items/icons/pikabait.4bpp.smol");
+
+const u32 gItemIcon_Camera[] = INCBIN_U32("graphics/items/icons/camera.4bpp.smol");
+const u16 gItemIconPalette_Camera[] = INCBIN_U16("graphics/items/icons/camera.gbapal");
+
 
 const u32 gItemIcon_OldGateau[] = INCBIN_U32("graphics/items/icons/old_gateau.4bpp.smol");
 const u16 gItemIconPalette_OldGateau[] = INCBIN_U16("graphics/items/icon_palettes/old_gateau.gbapal");
