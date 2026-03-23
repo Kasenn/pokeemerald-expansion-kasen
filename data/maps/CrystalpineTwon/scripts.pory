@@ -1,0 +1,45 @@
+mapscripts CrystalpineTwon_MapScripts{}
+
+script Crystalpine_Sign1{
+    msgbox(Crystalpine_Sign1_Text, MSGBOX_NPC)
+}
+script Crystalpine_Sign2{
+    msgbox(Crystalpine_Sign2_Text, MSGBOX_NPC)
+}
+script Crystalpine_Sign3{
+    msgbox(Crystalpine_Sign3_Text, MSGBOX_NPC)
+}
+script Crystalpine_OldMan{
+    msgbox(Crystalpine_OldMan_Text, MSGBOX_NPC)
+}
+script Crystalpine_Lady{
+    msgbox(Crystalpine_Lady_Text, MSGBOX_NPC)
+}
+script Crystalpine_Girl{
+    msgbox(Crystalpine_Girl_Text, MSGBOX_NPC)
+}
+script Crystalpine_Boy{
+    msgbox(Crystalpine_Boy_Text, MSGBOX_NPC)
+}
+
+text Crystalpine_Sign1_Text{
+    "wip"
+}
+text Crystalpine_Sign2_Text{
+    "wip"
+}
+text Crystalpine_Sign3_Text{
+    "wip"
+}
+text Crystalpine_OldMan_Text{
+    "wip"
+}
+text Crystalpine_Lady_Text{
+    "wip"
+}
+text Crystalpine_Girl_Text{
+    "wip"
+}
+text Crystalpine_Boy_Text{
+    "wip"
+}

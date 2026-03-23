@@ -428,6 +428,7 @@
   ],
   "gMapGroup_IndoorCrystalpine": [
     "LilycoveCity_ContestLobby",
+    "LilycoveCity_ContestHall",
     "Crystalpine_PokeCenter",
     "Crystalpine_Mart",
     "Crystalpine_SmallHouse_1",
@@ -548,7 +549,6 @@
   "gMapGroup_IndoorLilycove": [
     "LilycoveCity_CoveLilyMotel_1F",
     "LilycoveCity_CoveLilyMotel_2F",
-    "LilycoveCity_ContestHall",
     "LilycoveCity_PokemonCenter_1F",
     "LilycoveCity_PokemonCenter_2F",
     "LilycoveCity_UnusedMart",

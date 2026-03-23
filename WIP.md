@@ -2,6 +2,9 @@ ENSURE THAT ALL PLAYER SPRITES WORK!!!
 CONTEST SPRITES
 fix lighting left of frosthearth
 fix lighting in frigid frontier
+fix southern desert
+fix route 18 elevator
+fix slot machine rng + add quest to manip them
 
 eventual redesigns:
 move trainers out of route 1?

@@ -603,8 +603,8 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum 
 
     if (FlagGet(FLAG_PIKACHU_BAIT_ACTIVE))
     {
-        // if (Random() % 3 == 0)
-        // {
+        if (Random() % 3 == 0)
+        {
             struct MapPosition position;
             u16 metatileBehavior;
 
@@ -615,7 +615,7 @@ static bool8 TryGenerateWildMon(const struct WildPokemonInfo *wildMonInfo, enum 
             {
                 species = sPikachuVariants[Random() % ARRAY_COUNT(sPikachuVariants)];
             }
-        // }
+        }
     }
 
     CreateWildMon(species, level);

@@ -384,11 +384,12 @@ enum
 
     // gMapGroup_IndoorCrystalpine
     MAP_LILYCOVE_CITY_CONTEST_LOBBY = (0 | (19 << 8)),
-    MAP_CRYSTALPINE_POKE_CENTER     = (1 | (19 << 8)),
-    MAP_CRYSTALPINE_MART            = (2 | (19 << 8)),
-    MAP_CRYSTALPINE_SMALL_HOUSE_1   = (3 | (19 << 8)),
-    MAP_CRYSTALPINE_SMALL_HOUSE_2   = (4 | (19 << 8)),
-    MAP_CRYSTALPINE_SMALL_HOUSE_3   = (5 | (19 << 8)),
+    MAP_LILYCOVE_CITY_CONTEST_HALL  = (1 | (19 << 8)),
+    MAP_CRYSTALPINE_POKE_CENTER     = (2 | (19 << 8)),
+    MAP_CRYSTALPINE_MART            = (3 | (19 << 8)),
+    MAP_CRYSTALPINE_SMALL_HOUSE_1   = (4 | (19 << 8)),
+    MAP_CRYSTALPINE_SMALL_HOUSE_2   = (5 | (19 << 8)),
+    MAP_CRYSTALPINE_SMALL_HOUSE_3   = (6 | (19 << 8)),
 
     // gMapGroup_IndoorLittleroot
     MAP_LITTLEROOT_TOWN_BRENDANS_HOUSE_1F    = (0 | (20 << 8)),
@@ -505,17 +506,16 @@ enum
     // gMapGroup_IndoorLilycove
     MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_1F       = (0 | (32 << 8)),
     MAP_LILYCOVE_CITY_COVE_LILY_MOTEL_2F       = (1 | (32 << 8)),
-    MAP_LILYCOVE_CITY_CONTEST_HALL             = (2 | (32 << 8)),
-    MAP_LILYCOVE_CITY_POKEMON_CENTER_1F        = (3 | (32 << 8)),
-    MAP_LILYCOVE_CITY_POKEMON_CENTER_2F        = (4 | (32 << 8)),
-    MAP_LILYCOVE_CITY_UNUSED_MART              = (5 | (32 << 8)),
-    MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB = (6 | (32 << 8)),
-    MAP_LILYCOVE_CITY_HARBOR                   = (7 | (32 << 8)),
-    MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE      = (8 | (32 << 8)),
-    MAP_LILYCOVE_CITY_HOUSE1                   = (9 | (32 << 8)),
-    MAP_LILYCOVE_CITY_HOUSE2                   = (10 | (32 << 8)),
-    MAP_LILYCOVE_CITY_HOUSE3                   = (11 | (32 << 8)),
-    MAP_LILYCOVE_CITY_HOUSE4                   = (12 | (32 << 8)),
+    MAP_LILYCOVE_CITY_POKEMON_CENTER_1F        = (2 | (32 << 8)),
+    MAP_LILYCOVE_CITY_POKEMON_CENTER_2F        = (3 | (32 << 8)),
+    MAP_LILYCOVE_CITY_UNUSED_MART              = (4 | (32 << 8)),
+    MAP_LILYCOVE_CITY_POKEMON_TRAINER_FAN_CLUB = (5 | (32 << 8)),
+    MAP_LILYCOVE_CITY_HARBOR                   = (6 | (32 << 8)),
+    MAP_LILYCOVE_CITY_MOVE_DELETERS_HOUSE      = (7 | (32 << 8)),
+    MAP_LILYCOVE_CITY_HOUSE1                   = (8 | (32 << 8)),
+    MAP_LILYCOVE_CITY_HOUSE2                   = (9 | (32 << 8)),
+    MAP_LILYCOVE_CITY_HOUSE3                   = (10 | (32 << 8)),
+    MAP_LILYCOVE_CITY_HOUSE4                   = (11 | (32 << 8)),
 
     // gMapGroup_IndoorMossdeep
     MAP_MOSSDEEP_CITY_GYM               = (0 | (33 << 8)),

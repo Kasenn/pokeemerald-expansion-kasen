@@ -530,10 +530,10 @@ static const struct MenuAction MultichoiceList_LinkLeader[] =
 
 static const struct MenuAction MultichoiceList_ContestRank[] =
 {
-    {COMPOUND_STRING("NORMAL RANK")},
-    {COMPOUND_STRING("SUPER RANK")},
-    {COMPOUND_STRING("HYPER RANK")},
-    {COMPOUND_STRING("MASTER RANK")},
+    {COMPOUND_STRING("Normal Rank")},
+    {COMPOUND_STRING("Super Rank")},
+    {COMPOUND_STRING("Hyper Rank")},
+    {COMPOUND_STRING("Master Rank")},
     {gText_Exit},
 };
 
