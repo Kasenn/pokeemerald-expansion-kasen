@@ -723,7 +723,7 @@ static void MoveTutorLoadMonIcons(u32 item)
 {
     DestroyPartyMonIcons();
     FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
-    AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
+    // AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
     DrawPartyMonIcons();
     TintPartyMonIcons(item);
     CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
@@ -1371,7 +1371,7 @@ static void Task_BuyMenu(u8 taskId)
                 sShowMonIcons = TRUE;
                 PlaySE(SE_SELECT);
                 FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
-                AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
+                // AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
                 DrawPartyMonIcons();
                 TintPartyMonIcons(list->template.items[list->scrollOffset + list->selectedRow].id);
                 CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
