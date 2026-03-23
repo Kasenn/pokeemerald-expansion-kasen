@@ -2986,8 +2986,37 @@ void SetContestants(u8 contestType, u8 rank)
     }
     opponents[opponentsCount] = CONTESTANT_NONE;
 
+    u8 index = 0;
+
+    if (!FlagGet(FLAG_FIRST_CONTEST))
+    {
+        FlagSet(FLAG_FIRST_CONTEST);
+        index = 1;
+
+        u16 fixedOpponent = 0;
+        u8 gender = gSaveBlock2Ptr->playerGender;
+
+        switch (VarGet(VAR_STARTER_MON))
+        {
+            default:
+            case SPECIES_ROWLET:
+                if (gender == MALE)     fixedOpponent = FEMALE_RIVAL_FIRE;
+                else                    fixedOpponent = MALE_RIVAL_FIRE;
+                break;
+            case SPECIES_TORCHIC:
+                if (gender == MALE)     fixedOpponent = FEMALE_RIVAL_WATER;
+                else                    fixedOpponent = MALE_RIVAL_WATER;
+                break;
+            case SPECIES_PIPLUP:
+                if (gender == MALE)     fixedOpponent = FEMALE_RIVAL_GRASS;
+                else                    fixedOpponent = MALE_RIVAL_GRASS;
+                break;
+        }
+        gContestMons[0] = gFixedContestOpponents[fixedOpponent];
+    }
+
     // Choose three random opponents from the list
-    for (i = 0; i < CONTESTANT_COUNT - 1; i++)
+    for (i = index; i < CONTESTANT_COUNT - 1; i++)
     {
         u16 rnd = Random() % opponentsCount;
         s32 j;

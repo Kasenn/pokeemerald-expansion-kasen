@@ -1361,7 +1361,7 @@ LilycoveCity_ContestLobby_Text_ReceptionDontHavePokeblockCase:
 	.string "This is the reception counter for\n"
 	.string "Pokémon Contests.\p"
 	.string "Oh? It appears that you don't have\n"
-	.string "a {POKEBLOCK} CASE yet.\p"
+	.string "a {POKEBLOCK} Case yet.\p"
 	.string "In that case, we need to provide you\n"
 	.string "with this!$"
 
@@ -1421,7 +1421,7 @@ LilycoveCity_ContestLobby_Text_ExplainContestRanks:
 	.string "Contests.\p"
 	.string "Normal, Super, Hyper, and Master\n"
 	.string "are the four ranks.\p"
-	.string "In the NORMAL Rank, any Pokémon may\n"
+	.string "In the Normal Rank, any Pokémon may\n"
 	.string "enter.\p"
 	.string "Any Pokémon that won a Normal Rank\n"
 	.string "Contest may move up to the Super Rank\l"

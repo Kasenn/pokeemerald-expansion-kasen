@@ -217,6 +217,123 @@ const struct ContestWinner gDefaultContestWinners[] =
     }
 };
 
+enum {
+    FEMALE_RIVAL_FIRE,
+    MALE_RIVAL_FIRE,
+    FEMALE_RIVAL_WATER,
+    MALE_RIVAL_WATER,
+    FEMALE_RIVAL_GRASS,
+    MALE_RIVAL_GRASS,
+    FIXED_OPPONENT_COUNT,
+};
+
+#define FIXED_CONTESTANT_INFO           \
+    .filter = CONTEST_FILTER_NONE,      \
+    .aiFlags = CONTEST_AI_SET_1,        \
+    .whichRank = CONTEST_RANK_MASTER,   \
+    .aiPool_Cool = TRUE,                \
+    .aiPool_Beauty = TRUE,              \
+    .aiPool_Cute = TRUE,                \
+    .aiPool_Smart = TRUE,               \
+    .aiPool_Tough = TRUE,               \
+    .cool = 200,                        \
+    .beauty = 200,                      \
+    .cute = 200,                        \
+    .smart = 200,                       \
+    .tough = 200,                       \
+    .sheen = 255,                       \
+    .personality = 0,                   \
+    .otId = CONTEST_AI_TRAINER_ID
+
+
+const struct ContestPokemon gFixedContestOpponents[FIXED_OPPONENT_COUNT] =
+{
+    [FEMALE_RIVAL_FIRE] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_BLAZIKEN,
+        .nickname = _("Blaziken"),
+        .trainerName = _("May"),
+        .trainerGfxId = OBJ_EVENT_GFX_MAY_CONTEST_NORMAL,
+        .moves =
+        {//wip
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+    [MALE_RIVAL_FIRE] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_BLAZIKEN,
+        .nickname = _("Blaziken"),
+        .trainerName = _("Brendan"),
+        .trainerGfxId = OBJ_EVENT_GFX_BRENDAN_CONTEST_NORMAL,
+        .moves =
+        {
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+    [FEMALE_RIVAL_WATER] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_EMPOLEON,
+        .nickname = _("Empoleon"),
+        .trainerName = _("May"),
+        .trainerGfxId = OBJ_EVENT_GFX_MAY_CONTEST_NORMAL,
+        .moves =
+        {
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+    [MALE_RIVAL_WATER] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_EMPOLEON,
+        .nickname = _("Empoleon"),
+        .trainerName = _("Brendan"),
+        .trainerGfxId = OBJ_EVENT_GFX_BRENDAN_CONTEST_NORMAL,
+        .moves =
+        {
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+    [FEMALE_RIVAL_GRASS] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_DECIDUEYE,
+        .nickname = _("Decidueye"),
+        .trainerName = _("May"),
+        .trainerGfxId = OBJ_EVENT_GFX_MAY_CONTEST_NORMAL,
+        .moves =
+        {
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+    [MALE_RIVAL_GRASS] = {
+        FIXED_CONTESTANT_INFO,
+        .species = SPECIES_DECIDUEYE,
+        .nickname = _("Decidueye"),
+        .trainerName = _("Brendan"),
+        .trainerGfxId = OBJ_EVENT_GFX_BRENDAN_CONTEST_NORMAL,
+        .moves =
+        {
+            MOVE_HYPER_BEAM,
+            MOVE_HYDRO_PUMP,
+            MOVE_RAIN_DANCE,
+            MOVE_BITE
+        },
+    },
+};
+
 const struct ContestPokemon gContestOpponents[] =
 {
     [CONTEST_OPPONENT_JIMMY] = {

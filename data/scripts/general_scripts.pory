@@ -551,8 +551,10 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    setwildbattle(SPECIES_DITTO, 40)
-    dowildbattle
+    callnative(ZeroPlayerPartyMons)
+    givemon(SPECIES_DECIDUEYE, 100)
+    givemon(SPECIES_BLAZIKEN, 100)
+    givemon(SPECIES_EMPOLEON, 100)
     // call(FrostGym_Tr3_Senior_Main)
     return
 }
