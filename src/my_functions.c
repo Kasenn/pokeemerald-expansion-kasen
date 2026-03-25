@@ -71,6 +71,7 @@
 #include "field_camera.h"
 #include "start_menu.h"
 #include "constants/abilities.h"
+#include "tm_case.h"
 
 static bool8 sIsScriptedWildDouble;
 
@@ -272,7 +273,10 @@ bool8 ScrCmd_bpmart(struct ScriptContext *ctx)
     u8 isMoveTutor = VarGet(ScriptReadHalfword(ctx));
 
     if(isMoveTutor == TRUE)
+    {
+        gMoveDescription = MOVE_DESC_BATTLE;
         CreateBPmartMoveTutor(ptr);
+    }
     else
         CreateBPmartMenu(ptr);
     ScriptContext_Stop();

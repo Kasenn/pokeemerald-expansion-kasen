@@ -43,16 +43,19 @@
 #include "constants/party_menu.h"
 #include "event_data.h"
 #include "pokemon_icon.h"
+#include "tm_case.h"
+#include "line_break.h"
+#include "contest.h"
 
 #define TAG_SCROLL_ARROW   2100
 #define TAG_ITEM_ICON_BASE 9110 // immune to time blending
 #define MARTMOVE sMartInfo.martType == MART_TYPE_MOVE_TUTOR
 #define MARTBP sMartInfo.martType == MART_TYPE_BP
 
+static ALIGNED(4) const u16 sPal4Override[] = {RGB2GBA(0, 0, 0), RGB2GBA(198, 198, 198)};
+
 #define MAX_ITEMS_SHOWN 8
 #define SHOP_MENU_PALETTE_ID 12
-
-const u8 gTextSelect[] = _("{SELECT_BUTTON}");
 
 enum {
     WIN_BUY_SELL_QUIT,
@@ -128,7 +131,7 @@ EWRAM_DATA struct ItemSlot gMartPurchaseHistory[SMARTSHOPPER_NUM_ITEMS] = {0};
 static EWRAM_DATA u16 sScrollOffset = 0;
 static EWRAM_DATA u16 sSelectedRow = 0;
 static EWRAM_DATA u8 sNarrowerText = 0;
-static EWRAM_DATA u8 sShowMonIcons = 0;
+EWRAM_DATA u8 gShowMonIcons = 0;
 
 static void Task_ShopMenu(u8 taskId);
 static void Task_HandleShopMenuQuit(u8 taskId);
@@ -180,6 +183,15 @@ static void CB2_InitBuyMenuAfterTutor(void);
 static void DrawPartyMonIcons(void);
 static void TintPartyMonIcons(u16 tm);
 static void DestroyPartyMonIcons(void);
+static void ToggleMoveTutorDescription(void);
+static void PrintContestMoveStats(bool8 skipDescription);
+
+static const u8 sTextColors[][3] = {
+    [COLOR_LIGHT] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY},
+    [COLOR_DARK] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_LIGHT_GRAY},
+    [COLOR_CURSOR_SELECTED] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY, TEXT_COLOR_GREEN},
+    [COLOR_MOVE_INFO] = {0, 14, 10},
+};
 
 static const struct YesNoFuncTable sShopPurchaseYesNoFuncs =
 {
@@ -398,7 +410,7 @@ static u8 CreateShopMenu(u8 martType)
     int numMenuItems;
 
     LockPlayerFieldControls();
-    sShowMonIcons = 0;
+    gShowMonIcons = 0;
     sMartInfo.martType = martType;
     gSpecialVar_Result = FALSE;
 
@@ -606,6 +618,11 @@ static void CB2_InitBuyMenu(void)
         if (!FreeTempTileDataBuffersIfPossible())
             gMain.state++;
         break;
+    case 2:
+            if (MARTMOVE)
+                CreateTMCaseHearts(62, 44, TRUE);
+            gMain.state++;
+            break;
     default:
         BuyMenuDrawGraphics();
         BuyMenuAddScrollIndicatorArrows();
@@ -660,6 +677,11 @@ static void CB2_InitBuyMenuAfterTutor(void)
     case 1:
         if (!FreeTempTileDataBuffersIfPossible())
             gMain.state++;
+        break;
+    case 2:
+        if (MARTMOVE)
+            CreateTMCaseHearts(62, 44, TRUE);
+        gMain.state++;
         break;
     default:
         BuyMenuDrawGraphics();
@@ -723,7 +745,6 @@ static void MoveTutorLoadMonIcons(u32 item)
 {
     DestroyPartyMonIcons();
     FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
-    // AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
     DrawPartyMonIcons();
     TintPartyMonIcons(item);
     CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
@@ -738,8 +759,6 @@ static void MoveTutorLoadMoveInfo(u32 item)
     extern const struct TypeInfo gTypesInfo[NUMBER_OF_MON_TYPES];
 
     FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
-
-    AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
 
     str = gText_MoveRelearnerPower;
     AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, str, 0, 0, TEXT_SKIP_DRAW, NULL); // adds "Power" text
@@ -817,9 +836,18 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
 
     if (MARTMOVE && I_MOVE_TUTOR_INFO_BOX == TRUE)
     {
-        if(sShowMonIcons == FALSE)
+        gSpecialVar_ItemId = item;
+
+        if(gShowMonIcons == FALSE)
         {
-            MoveTutorLoadMoveInfo(item);
+            if (gMoveDescription == MOVE_DESC_CONTEST)
+            {
+                PrintContestMoveStats(FALSE);
+            }
+            else
+            {
+                MoveTutorLoadMoveInfo(item);
+            }
         }
         else
         {
@@ -842,10 +870,20 @@ static void BuyMenuPrintItemDescriptionAndShowItemIcon(s32 item, bool8 onInit, s
             description = GetItemDescription(item);
         else if (MARTMOVE)
         {
-            FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gMovesInfo[item].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
-            if (sNarrowerText)
-                FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[item].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
-            description = gStringVar3;
+            if (gMoveDescription == MOVE_DESC_BATTLE)
+            {
+                FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gMovesInfo[item].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
+                if (sNarrowerText)
+                    FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[item].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
+                description = gStringVar3;
+            }
+            else
+            {
+                FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gContestEffects[GetMoveContestEffect(item)].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
+                if (sNarrowerText)
+                    FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gContestEffects[GetMoveContestEffect(item)].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
+                description = gStringVar3;
+            }
         }
         else
             description = gDecorations[item].description;
@@ -1362,27 +1400,38 @@ static void Task_BuyMenu(u8 taskId)
         ListMenuGetScrollAndRow(tListTaskId, &sShopData->scrollOffset, &sShopData->selectedRow);
         gSpecialVar_Result = FALSE;
 
-        if((MARTMOVE) && (JOY_NEW(SELECT_BUTTON)))
+        if((MARTMOVE) && (JOY_NEW(START_BUTTON)))
         {
             struct ListMenu *list = (void *) gTasks[tListTaskId].data;
 
-            if(sShowMonIcons == FALSE)
+            if(gShowMonIcons == FALSE)
             {
-                sShowMonIcons = TRUE;
+                gShowMonIcons = TRUE;
                 PlaySE(SE_SELECT);
                 FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
-                // AddTextPrinterParameterized(WIN_BATTLE_MOVE_DESC, FONT_NARROW, gTextSelect, 64, 0, TEXT_SKIP_DRAW, NULL); // adds "PP" text
+                TMCase_ShowHideHearts(0);
                 DrawPartyMonIcons();
                 TintPartyMonIcons(list->template.items[list->scrollOffset + list->selectedRow].id);
                 CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
             }
             else
             {
-                sShowMonIcons = FALSE;
+                gShowMonIcons = FALSE;
                 PlaySE(SE_SELECT);
                 FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
                 DestroyPartyMonIcons();
-                MoveTutorLoadMoveInfo(list->template.items[list->scrollOffset + list->selectedRow].id);
+                if (gMoveDescription == MOVE_DESC_BATTLE)
+                    MoveTutorLoadMoveInfo(list->template.items[list->scrollOffset + list->selectedRow].id);
+                else
+                    PrintContestMoveStats(TRUE);
+            }
+        }
+        if ((MARTMOVE) && (JOY_NEW(SELECT_BUTTON) || JOY_NEW(DPAD_LEFT) || JOY_NEW(DPAD_RIGHT)))
+        {
+            if (gShowMonIcons == FALSE)
+            {
+                PlaySE(SE_SELECT);
+                ToggleMoveTutorDescription();
             }
         }
 
@@ -2037,4 +2086,73 @@ static void DestroyPartyMonIcons(void)
         FreeAndDestroyMonIconSprite(&gSprites[gMoveMenuSpriteIdData[i]]);
         FreeMonIconPalettes();
     }
+}
+
+static void PrintContestMoveStats(bool8 skipDescription)
+{
+    const u8 *str;
+    u16 chosenMove = gSpecialVar_ItemId;
+
+    TMCase_ShowHideHearts(chosenMove);
+    FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(1));
+
+    AddTextPrinterParameterized4(WIN_BATTLE_MOVE_DESC, FONT_NORMAL, 0, 0, 1, 0, sTextColors[COLOR_DARK], 0, gText_MoveRelearnerAppeal);
+    AddTextPrinterParameterized4(WIN_BATTLE_MOVE_DESC, FONT_NORMAL, 0, 16, 1, 0, sTextColors[COLOR_DARK], 0, gText_MoveRelearnerJam);
+    
+    if (chosenMove == 65534)
+        str = gText_ThreeDashes;
+    else
+        str = gContestCategoryInfo[GetMoveContestCategory(chosenMove)].name;
+    AddTextPrinterParameterized4(WIN_BATTLE_MOVE_DESC, FONT_NORMAL, 0, 32, 1, 0, sTextColors[COLOR_DARK], 0, str);
+
+    if (chosenMove == MENU_NOTHING_CHOSEN)
+    {
+        CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
+        return;
+    }
+
+    if (skipDescription)
+        return;
+
+    str = gContestEffects[GetMoveContestEffect(chosenMove)].description;
+
+    StringCopy(gStringVar1, str);
+    StripLineBreaks(gStringVar1);
+    BreakStringAutomatic(gStringVar1, 112, 3, FONT_NARROW, HIDE_SCROLL_PROMPT);
+    AddTextPrinterParameterized4(WIN_ITEM_DESCRIPTION, FONT_NARROW, 4, 4, 1, 0, sTextColors[COLOR_DARK], 0, gStringVar1);
+
+    CopyWindowToVram(WIN_ITEM_DESCRIPTION, COPYWIN_GFX);
+}
+
+static void ToggleMoveTutorDescription(void)
+{
+    FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_BATTLE_MOVE_DESC, PIXEL_FILL(0));
+
+    if (gMoveDescription == MOVE_DESC_BATTLE)
+    {
+        gMoveDescription = MOVE_DESC_CONTEST;
+        PrintContestMoveStats(FALSE);
+    }
+    else
+    {
+        const u8 *description;
+
+        gMoveDescription = MOVE_DESC_BATTLE;
+        FillWindowPixelRect(WIN_BATTLE_MOVE_DESC, 1, 0, 0, 88, 56);
+        CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
+        for (int i = 0; i < 16; i++)
+            gSprites[gHeartSpriteId[i]].invisible = TRUE;
+        FormatTextByWidth(gStringVar3, 101, FONT_NARROW, gMovesInfo[gSpecialVar_ItemId].description, GetFontAttribute(FONT_NARROW, FONTATTR_LETTER_SPACING));
+        if (sNarrowerText)
+            FormatTextByWidth(gStringVar3, 101, FONT_NARROWER, gMovesInfo[gSpecialVar_ItemId].description, GetFontAttribute(FONT_NARROWER, FONTATTR_LETTER_SPACING));
+        description = gStringVar3;
+
+        FillWindowPixelBuffer(WIN_ITEM_DESCRIPTION, PIXEL_FILL(0));
+        BuyMenuPrint(WIN_ITEM_DESCRIPTION, description, 4, 4, 0, COLORID_NORMAL);
+        MoveTutorLoadMoveInfo(gSpecialVar_ItemId);
+        
+    }
+
+    CopyWindowToVram(WIN_BATTLE_MOVE_DESC, COPYWIN_GFX);
 }

@@ -1307,8 +1307,8 @@ const u8 gText_MoveRelearnerPkmnForgotMoveAndLearnedNew[] = _("{STR_VAR_1} forgo
 const u8 gText_MoveRelearnedPkmnDidNotLearnMove[] = _("{STR_VAR_1} did not learn the\nmove {STR_VAR_2}."); // Unused
 const u8 gText_MoveRelearnerGiveUp[] = _("Give up trying to teach a new\nmove to {STR_VAR_1}?");
 const u8 gText_MoveRelearnerWhichMoveToForget[] = _("Which move should be\nforgotten?\p");
-const u8 gText_MoveRelearnerBattleMoves[] = _("BATTLE MOVES");
-const u8 gText_MoveRelearnerContestMovesTitle[] = _("CONTEST MOVES");
+const u8 gText_MoveRelearnerBattleMoves[] = _("Battle Moves");
+const u8 gText_MoveRelearnerContestMovesTitle[] = _("Contest Moves");
 const u8 gText_MoveRelearnerType[] = _("Type/"); // Unused
 const u8 gText_MoveRelearnerPP[] = _("PP/");
 const u8 gText_MoveRelearnerPower[] = _("Power/");
@@ -1316,8 +1316,8 @@ const u8 gText_MoveRelearnerAccuracy[] = _("Accuracy/");
 const u8 gText_TutorPhysical[] = _("/ Physical");
 const u8 gText_TutorSpecial[] = _("/ Special");
 const u8 gText_TutorStatus[] = _("/ Status");
-const u8 gText_MoveRelearnerAppeal[] = _("APPEAL");
-const u8 gText_MoveRelearnerJam[] = _("JAM");
+const u8 gText_MoveRelearnerAppeal[] = _("Appeal");
+const u8 gText_MoveRelearnerJam[] = _("Jam");
 const u8 gText_Kira[] = _("KIRA");
 const u8 gText_Amy[] = _("AMY");
 const u8 gText_John[] = _("JOHN");
@@ -1392,14 +1392,6 @@ const u8 gText_Swampert[] = _("Swampert");
 const u8 gText_BasePointsResetToZero[] = _("{STR_VAR_1}'s base points\nwere all reset to zero!{PAUSE_UNTIL_PRESS}");
 const u8 gText_Fertilize[] = _("FERTILIZE");
 const u8 gText_PlantBerry[] = _("PLANT BERRY");
-
-// frlg_tm_case_port
-const u8 gText_TMCase[] =               _("TM Case");
-const u8 gText_Close[] =                _("Close");
-const u8 gText_TMCaseWillBePutAway[] =  _("The TM Case will be\nput away.");
-const u8 gText_FontSmall[] =            _("{FONT_SMALL}");
-const u8 gText_FontShort[] =            _("{FONT_SHORT}");
-const u8 gText_TMCase_Blue[] =          _("{COLOR_HIGHLIGHT_SHADOW BLUE TRANSPARENT LIGHT_BLUE}{STR_VAR_2}");
 
 const u8 gText_AM[] = _("AM");
 const u8 gText_PM[] = _("PM");

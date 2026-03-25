@@ -12,5 +12,7 @@ void CreateBPmartMoveTutor(const u16 *);
 
 extern EWRAM_DATA u8    gMoveMenuSpriteIdData[PARTY_SIZE];
 extern EWRAM_DATA u16   gMoveMenuSpriteIdPalette[PARTY_SIZE];
+extern u8 gShowMonIcons;
+
 
 #endif // GUARD_SHOP_H

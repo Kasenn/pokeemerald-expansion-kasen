@@ -4930,64 +4930,14 @@ void CB2_ShowPartyMenuForItemUse(void)
     InitPartyMenu(menuType, partyLayout, PARTY_ACTION_USE_ITEM, TRUE, msgId, task, callback);
 }
 
-static void CB2_OpenTMCaseOnField(void)
+void CB2_ShowPartyMenuTMCaseBag(void)
 {
-    if (gOpenTMCaseFromBag)
-    {
-        gOpenTMCaseFromBag = FALSE;
-        InitTMCase(CB2_BagMenuFromStartMenu);
-    }
-    else
-    {
-        gOpenTMCaseFromBag = FALSE;
-        InitTMCase(CB2_ReturnToField);
-    }
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_OpenTMCaseFromBag);
 }
-void CB2_ShowPartyMenuForItemUseTMCase(void)
+
+void CB2_ShowPartyMenuTMCaseField(void)
 {
-    MainCallback callback = CB2_OpenTMCaseOnField;
-    u8 partyLayout;
-    u8 menuType;
-    u8 i;
-    u8 msgId;
-    TaskFunc task;
-
-    if (gMain.inBattle)
-    {
-        menuType = PARTY_MENU_TYPE_IN_BATTLE;
-        partyLayout = GetPartyLayoutFromBattleType();
-    }
-    else
-    {
-        menuType = PARTY_MENU_TYPE_FIELD;
-        partyLayout = PARTY_LAYOUT_SINGLE;
-    }
-
-    if (GetItemEffectType(gSpecialVar_ItemId) == ITEM_EFFECT_SACRED_ASH)
-    {
-        gPartyMenu.slotId = 0;
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
-            {
-                gPartyMenu.slotId = i;
-                break;
-            }
-        }
-        task = Task_SetSacredAshCB;
-        msgId = PARTY_MSG_NONE;
-    }
-    else
-    {
-        if (GetItemPocket(gSpecialVar_ItemId) == POCKET_TM_HM)
-            msgId = PARTY_MSG_TEACH_WHICH_MON;
-        else
-            msgId = PARTY_MSG_USE_ON_WHICH_MON;
-
-        task = Task_HandleChooseMonInput;
-    }
-
-    InitPartyMenu(menuType, partyLayout, PARTY_ACTION_USE_ITEM, TRUE, msgId, task, callback);
+    InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_USE_ITEM, TRUE, PARTY_MSG_TEACH_WHICH_MON, Task_HandleChooseMonInput, CB2_OpenTMCaseFromField);
 }
 
 static void CB2_ReturnToBagMenu(void)

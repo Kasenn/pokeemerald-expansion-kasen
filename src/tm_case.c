@@ -27,6 +27,26 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/rgb.h"
+#include "international_string_util.h"
+#include "contest.h"
+#include "move_relearner.h"
+#include "pokemon_summary_screen.h"
+#include "line_break.h"
+
+static const u32 gTMCase_Gfx[] = INCBIN_U32("graphics/tm_case/unk_8E845D8.4bpp.smol");
+static const u32 gTMCaseMenu_Tilemap[] = INCBIN_U32("graphics/tm_case/unk_8E84A24.bin.smolTM");
+static const u16 gTMCaseMenu_Male_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84CB0.gbapal");
+static const u16 gTMCaseMenu_Female_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84D20.gbapal");
+static const u8 gTMCaseHM_Gfx[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
+
+static const u8 sUI_Tiles[] = INCBIN_U8("graphics/interface/ui_learn_move.4bpp");
+static const u16 sUI_Pal[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
+
+const u8 gText_TMCase[] =                      _("TM Case");
+static const u8 sText_Close[] =                _("Close");
+static const u8 sText_TMCaseWillBePutAway[] =  _("The TM Case will be\nput away.");
+static const u8 sText_FontSmall[] =            _("{FONT_SMALL}");
+static const u8 sText_FontShort[] =            _("{FONT_SHORT}");
 
 // Any item in the TM Case with nonzero importance is considered an HM
 #define IS_HM(itemId) (itemId >= ITEM_HM01 && itemId <= ITEM_HM08)
@@ -46,13 +66,6 @@ enum {
 enum {
     ACTION_USE,
     ACTION_EXIT
-};
-
-enum {
-    COLOR_LIGHT,
-    COLOR_DARK,
-    COLOR_CURSOR_SELECTED,
-    COLOR_MOVE_INFO,
 };
 
 enum {
@@ -87,8 +100,10 @@ static EWRAM_DATA void *sTilemapBuffer = NULL;
 static EWRAM_DATA struct ListMenuItem * sListMenuItemsBuffer = NULL;
 static EWRAM_DATA u8 (* sListMenuStringsBuffer)[31] = NULL;
 static EWRAM_DATA u16 * sTMSpritePaletteBuffer = NULL;
-EWRAM_DATA u8    gMoveMenuSpriteIdData[PARTY_SIZE] = {};
-EWRAM_DATA u16   gMoveMenuSpriteIdPalette[PARTY_SIZE] = {};
+EWRAM_DATA u8 gMoveMenuSpriteIdData[PARTY_SIZE] = {};
+EWRAM_DATA u16 gMoveMenuSpriteIdPalette[PARTY_SIZE] = {};
+EWRAM_DATA u8 gMoveDescription;
+EWRAM_DATA u8 gHeartSpriteId[16];
 
 static void CB2_SetUpTMCaseUI_Blocking(void);
 static bool8 DoSetUpTMCaseUI(void);
@@ -100,8 +115,8 @@ static void InitTMCaseListMenuItems(void);
 static void GetTMNumberAndMoveString(u8 * dest, u16 itemId);
 static void List_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *list);
 static void List_ItemPrintFunc(u8 windowId, u32 itemId, u8 y);
-static void PrintDescription(s32 itemIndex);
-static void PrintMoveInfo(u16 itemId);
+static void PrintDescription(void);
+static void PrintMoveInfo(void);
 static void CreateListScrollArrows(void);
 static void TMCaseSetup_GetTMCount(void);
 static void TMCaseSetup_InitListMenuPositions(void);
@@ -122,7 +137,8 @@ static void PlaceHMTileInWindow(u8 windowId, u8 x, u8 y);
 static u8 AddContextMenu(u8 * windowId);
 static void RemoveContextMenu(u8 * windowId);
 static void DrawPartyMonIcons(void);
-static void TintPartyMonIcons(u16 tm);
+static void TintPartyMonIcons(u16 tm, bool8 isTM);
+static void PrintContestMoveStats();
 
 static const struct BgTemplate sBGTemplates[] = {
     [BGID_0] = {
@@ -165,6 +181,7 @@ static const u8 sText_ClearTo18[] = _("{CLEAR_TO 18}");
 static const u8 sText_SingleSpace[] = _(" ");
 
 static ALIGNED(4) const u16 sPal3Override[] = {RGB(8, 8, 8), RGB(30, 16, 6)};
+static ALIGNED(4) const u16 sPal4Override[] = {RGB2GBA(0, 0, 0), RGB2GBA(198, 198, 198)};
 
 static const u8 sTextColors[][3] = {
     [COLOR_LIGHT] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, TEXT_COLOR_DARK_GRAY},
@@ -172,6 +189,158 @@ static const u8 sTextColors[][3] = {
     [COLOR_CURSOR_SELECTED] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY, TEXT_COLOR_GREEN},
     [COLOR_MOVE_INFO] = {0, 14, 10},
 };
+
+enum {
+    APPEAL_HEART_EMPTY,
+    APPEAL_HEART_FULL,
+    JAM_HEART_EMPTY,
+    JAM_HEART_FULL,
+};
+
+#define GFXTAG_UI       5525
+#define PALTAG_UI       5526
+
+static const struct SpritePalette sMoveRelearnerPalette =
+{
+    .data = sUI_Pal,
+    .tag = PALTAG_UI
+};
+
+static const struct SpriteSheet sMoveRelearnerSpriteSheet =
+{
+    .data = sUI_Tiles,
+    .size = sizeof(sUI_Tiles),
+    .tag = GFXTAG_UI
+};
+
+static const union AnimCmd sHeartSprite_AppealEmptyFrame[] =
+{
+    ANIMCMD_FRAME(8, 5, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sHeartSprite_AppealFullFrame[] =
+{
+    ANIMCMD_FRAME(9, 5, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sHeartSprite_JamEmptyFrame[] =
+{
+    ANIMCMD_FRAME(10, 5, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+static const union AnimCmd sHeartSprite_JamFullFrame[] =
+{
+    ANIMCMD_FRAME(11, 5, FALSE, FALSE),
+    ANIMCMD_END
+};
+
+static const union AnimCmd *const sHeartSpriteAnimationCommands[] =
+{
+    [APPEAL_HEART_EMPTY] = sHeartSprite_AppealEmptyFrame,
+    [APPEAL_HEART_FULL] = sHeartSprite_AppealFullFrame,
+    [JAM_HEART_EMPTY] = sHeartSprite_JamEmptyFrame,
+    [JAM_HEART_FULL] = sHeartSprite_JamFullFrame,
+};
+
+static const struct OamData sHeartSpriteOamData =
+{
+    .y = 0,
+    .affineMode = ST_OAM_AFFINE_OFF,
+    .objMode = ST_OAM_OBJ_NORMAL,
+    .mosaic = FALSE,
+    .bpp = ST_OAM_4BPP,
+    .shape = SPRITE_SHAPE(8x8),
+    .x = 0,
+    .matrixNum = 0,
+    .size = SPRITE_SIZE(8x8),
+    .tileNum = 0,
+    .priority = 2,
+    .paletteNum = 0,
+    .affineParam = 0,
+};
+
+static const struct SpriteTemplate sConstestMoveHeartSprite =
+{
+    .tileTag = GFXTAG_UI,
+    .paletteTag = PALTAG_UI,
+    .oam = &sHeartSpriteOamData,
+    .anims = sHeartSpriteAnimationCommands,
+    .images = NULL,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = SpriteCallbackDummy
+};
+
+void CreateTMCaseHearts(u16 x, u16 y, bool8 isShop)
+{
+    int i;
+
+    LoadSpriteSheet(&sMoveRelearnerSpriteSheet);
+    LoadSpritePalette(&sMoveRelearnerPalette);
+
+    // These are the appeal hearts.
+    for (i = 0; i < 8; i++)
+        gHeartSpriteId[i] = CreateSprite(&sConstestMoveHeartSprite, (i - (i / 4) * 4) * 8 + x, (i / 4) * 8 + y, 0);
+
+    // These are the jam harts.
+    // The animation is used to toggle between full/empty heart sprites.
+    for (i = 0; i < 8; i++)
+    {
+        gHeartSpriteId[i + 8] = CreateSprite(&sConstestMoveHeartSprite, (i - (i / 4) * 4) * 8 + x, (i / 4) * 8 + (y + 16), 0);
+        StartSpriteAnim(&gSprites[gHeartSpriteId[i + 8]], 2);
+    }
+
+    for (i = 0; i < 16; i++)
+    {
+        gSprites[gHeartSpriteId[i]].invisible = TRUE;
+        if (isShop)
+            gSprites[gHeartSpriteId[i]].oam.priority = 0;
+    }
+}
+
+void TMCase_ShowHideHearts(s32 move)
+{
+    u16 numHearts;
+    u16 i;
+
+    if (gMoveDescription == MOVE_DESC_BATTLE || move == LIST_CANCEL || move == 65534 || move == 0 || gShowMonIcons == TRUE)
+    {
+        for (i = 0; i < 16; i++)
+            gSprites[gHeartSpriteId[i]].invisible = TRUE;
+    }
+    else
+    {
+        numHearts = (u8)(gContestEffects[GetMoveContestEffect(move)].appeal / 10);
+
+        if (numHearts == 0xFF)
+            numHearts = 0;
+
+        for (i = 0; i < 8; i++)
+        {
+            if (i < numHearts)
+                StartSpriteAnim(&gSprites[gHeartSpriteId[i]], 1);
+            else
+                StartSpriteAnim(&gSprites[gHeartSpriteId[i]], 0);
+            gSprites[gHeartSpriteId[i]].invisible = FALSE;
+        }
+
+        numHearts = (u8)(gContestEffects[GetMoveContestEffect(move)].jam / 10);
+
+        if (numHearts == 0xFF)
+            numHearts = 0;
+
+        for (i = 0; i < 8; i++)
+        {
+            if (i < numHearts)
+                StartSpriteAnim(&gSprites[gHeartSpriteId[i + 8]], 3);
+            else
+                StartSpriteAnim(&gSprites[gHeartSpriteId[i + 8]], 2);
+            gSprites[gHeartSpriteId[i + 8]].invisible = FALSE;
+        }
+    }
+}
 
 static const struct WindowTemplate sWindowTemplates[] = {
     [WIN_LIST] = {
@@ -202,7 +371,7 @@ static const struct WindowTemplate sWindowTemplates[] = {
         .baseBlock = 0x1f9
     },
     [WIN_TITLE] = {
-        .bg = BGID_1,
+        .bg = BGID_0,
         .tilemapLeft = 0,
         .tilemapTop = 1,
         .width = 10,
@@ -341,39 +510,43 @@ static bool8 DoSetUpTMCaseUI(void)
         gMain.state++;
         break;
     case 11:
+        CreateTMCaseHearts(62, 108, FALSE);
+        gMain.state++;
+        break;
+    case 12:
         DrawMoveInfoLabels();
         DrawPartyMonIcons();
         gMain.state++;
         break;
-    case 12:
+    case 13:
         CreateTMCaseListMenuBuffers();
         InitTMCaseListMenuItems();
         gMain.state++;
         break;
-    case 13:
+    case 14:
         PrintTitle();
         gMain.state++;
         break;
-    case 14:
+    case 15:
         taskId = CreateTask(Task_HandleListInput, 0);
         gTasks[taskId].tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, sTMCaseStaticResources.scrollOffset, sTMCaseStaticResources.selectedRow);
         gMain.state++;
         break;
-    case 15:
+    case 16:
         CreateListScrollArrows();
         gMain.state++;
         break;
-    case 16:
+    case 17:
         PutWindowTilemap(WIN_DESCRIPTION);
         PutWindowTilemap(WIN_MOVE_INFO_LABELS);
         PutWindowTilemap(WIN_MOVE_INFO);
         gMain.state++;
         break;
-    case 17:
+    case 18:
         BlendPalettes(PALETTES_ALL, 16, 0);
         gMain.state++;
         break;
-    case 18:
+    case 19:
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
         gMain.state++;
         break;
@@ -470,7 +643,7 @@ static void InitTMCaseListMenuItems(void)
         sListMenuItemsBuffer[i].name = sListMenuStringsBuffer[i];
         sListMenuItemsBuffer[i].id = i;
     }
-    sListMenuItemsBuffer[i].name = gText_Close;
+    sListMenuItemsBuffer[i].name = sText_Close;
     sListMenuItemsBuffer[i].id = LIST_CANCEL;
     gMultiuseListMenuTemplate.items = sListMenuItemsBuffer;
     gMultiuseListMenuTemplate.totalItems = sTMCaseDynamicResources->numTMs + 1;
@@ -494,7 +667,7 @@ static void InitTMCaseListMenuItems(void)
 
 static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
 {
-    StringCopy(gStringVar4, gText_FontSmall);
+    StringCopy(gStringVar4, sText_FontSmall);
     if (itemId >= ITEM_HM01)
     {
         StringAppend(gStringVar4, sText_ClearTo18);
@@ -509,7 +682,7 @@ static void GetTMNumberAndMoveString(u8 * dest, u16 itemId)
         StringAppend(gStringVar4, gStringVar1);
     }
     StringAppend(gStringVar4, sText_SingleSpace);
-    StringAppend(gStringVar4, gText_FontShort);
+    StringAppend(gStringVar4, sText_FontShort);
     StringAppend(gStringVar4, GetMoveName(ItemIdToBattleMoveId(itemId)));
     StringCopy(dest, gStringVar4);
 }
@@ -529,8 +702,17 @@ static void List_MoveCursorFunc(s32 itemIndex, bool8 onInit, struct ListMenu *li
     if (onInit != TRUE)
         PlaySE(SE_SELECT);
 
-    PrintDescription(itemIndex);
-    PrintMoveInfo(itemId);
+    gSpecialVar_ItemId = itemId;
+
+    if (gMoveDescription == MOVE_DESC_CONTEST)
+    {
+        PrintContestMoveStats();
+    }
+    else
+    {
+        PrintDescription();
+        PrintMoveInfo();
+    }
 }
 
 static void List_ItemPrintFunc(u8 windowId, u32 itemIndex, u8 y)
@@ -545,20 +727,19 @@ static void List_ItemPrintFunc(u8 windowId, u32 itemIndex, u8 y)
     }
 }
 
-static void PrintDescription(s32 itemIndex)
+static void PrintDescription(void)
 {
     const u8 * str;
-    struct ItemSlot itemSlot = GetBagItemIdAndQuantity(POCKET_TM_HM, itemIndex);
-    u16 itemId = itemSlot.itemId;
+    u16 itemId = gSpecialVar_ItemId;
 
-    if (itemIndex != LIST_CANCEL)
-        str = GetItemDescription(GetBagItemId(POCKET_TM_HM, itemIndex));
+    if (itemId != ITEM_NONE)
+        str = GetItemDescription(itemId);
     else
-        str = gText_TMCaseWillBePutAway;
+        str = sText_TMCaseWillBePutAway;
     FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
     TMCase_Print(WIN_DESCRIPTION, FONT_SHORT, str, 2, 3, 1, 0, 0, COLOR_LIGHT);
 
-    TintPartyMonIcons(itemId);
+    TintPartyMonIcons(itemId, TRUE);
 }
 
 // Darkens (or subsequently lightens) the blue bg tiles around the description window when a TM/HM is selected.
@@ -599,12 +780,6 @@ static void RemoveScrollArrows(void)
         RemoveScrollIndicatorArrowPair(sTMCaseDynamicResources->scrollArrowsTaskId);
         sTMCaseDynamicResources->scrollArrowsTaskId = TASK_NONE;
     }
-}
-
-void ResetTMCaseCursorPos(void)
-{
-    sTMCaseStaticResources.selectedRow = 0;
-    sTMCaseStaticResources.scrollOffset = 0;
 }
 
 static void TMCaseSetup_GetTMCount(void)
@@ -690,6 +865,72 @@ static void Task_FadeOutAndCloseTMCase(u8 taskId)
     }
 }
 
+static void PrintContestMoveStats()
+{
+    const u8 *str;
+    u16 chosenMove = ItemIdToBattleMoveId(gSpecialVar_ItemId);
+
+    TintPartyMonIcons(chosenMove, FALSE);
+
+    TMCase_ShowHideHearts(chosenMove);
+    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_MOVE_INFO_LABELS, PIXEL_FILL(0));
+
+    TMCase_Print(WIN_MOVE_INFO_LABELS, FONT_NORMAL, gText_MoveRelearnerAppeal, 0, 0, 1, 0, 0, COLOR_LIGHT);
+    TMCase_Print(WIN_MOVE_INFO_LABELS, FONT_NORMAL, gText_MoveRelearnerJam, 0, 16, 1, 0, 0, COLOR_LIGHT);
+    
+    if (chosenMove == 0)
+        str = gText_ThreeDashes;
+    else
+        str = gContestCategoryInfo[GetMoveContestCategory(chosenMove)].name;
+    TMCase_Print(WIN_MOVE_INFO_LABELS, FONT_NORMAL, str, 0, 32, 1, 0, 0, COLOR_LIGHT);
+
+    if (chosenMove == MENU_NOTHING_CHOSEN)
+    {
+        CopyWindowToVram(WIN_MOVE_INFO_LABELS, COPYWIN_GFX);
+        return;
+    }
+
+    str = gContestEffects[GetMoveContestEffect(chosenMove)].description;
+
+    StringCopy(gStringVar1, str);
+    StripLineBreaks(gStringVar1);
+    BreakStringAutomatic(gStringVar1, 140, 4, FONT_SHORT, HIDE_SCROLL_PROMPT);
+    TMCase_Print(WIN_DESCRIPTION, FONT_SHORT, gStringVar1, 2, 3, 1, 0, 0, COLOR_LIGHT);
+
+    CopyWindowToVram(WIN_DESCRIPTION, COPYWIN_GFX);
+}
+
+static void ToggleBetweenMoveDescriptions(void)
+{
+    FillWindowPixelBuffer(WIN_MOVE_INFO, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_DESCRIPTION, PIXEL_FILL(0));
+    FillWindowPixelBuffer(WIN_MOVE_INFO_LABELS, PIXEL_FILL(0));
+
+    if (gMoveDescription == MOVE_DESC_BATTLE)
+    {
+        gMoveDescription = MOVE_DESC_CONTEST;
+        LoadPalette(sPal4Override, BG_PLTT_ID(12) + 1, sizeof(sPal4Override));
+        PrintContestMoveStats();
+    }
+    else
+    {
+        gMoveDescription = MOVE_DESC_BATTLE;
+        FillWindowPixelRect(WIN_MOVE_INFO_LABELS, 0, 0, 0, 40, 48);
+        FillWindowPixelRect(WIN_MOVE_INFO, 0, 0, 0, 40, 48);
+        CopyWindowToVram(WIN_MOVE_INFO, COPYWIN_GFX);
+        for (int i = 0; i < 16; i++)
+            gSprites[gHeartSpriteId[i]].invisible = TRUE;
+        PrintDescription();
+        PrintMoveInfo();
+        DrawMoveInfoLabels();
+        ListMenuLoadStdPalAt(BG_PLTT_ID(12), 1);
+    }
+
+    CopyWindowToVram(WIN_MOVE_INFO_LABELS, COPYWIN_GFX);
+    CopyWindowToVram(WIN_MOVE_INFO, COPYWIN_GFX);
+}
+
 static void Task_HandleListInput(u8 taskId)
 {
     s16 * data = gTasks[taskId].data;
@@ -701,6 +942,13 @@ static void Task_HandleListInput(u8 taskId)
         {
             input = ListMenu_ProcessInput(tListTaskId);
             ListMenuGetScrollAndRow(tListTaskId, &sTMCaseStaticResources.scrollOffset, &sTMCaseStaticResources.selectedRow);
+
+            if (JOY_NEW(SELECT_BUTTON) || JOY_NEW(DPAD_RIGHT) || JOY_NEW(DPAD_LEFT))
+            {
+                PlaySE(SE_SELECT);
+                TintPartyMonIcons(gSpecialVar_ItemId, TRUE);
+                ToggleBetweenMoveDescriptions();
+            }
             switch (input)
             {
             case LIST_NOTHING_CHOSEN:
@@ -809,7 +1057,10 @@ static void Action_Use(u8 taskId)
     ScheduleBgCopyTilemapToVram(BGID_0);
     ScheduleBgCopyTilemapToVram(BGID_1);
     gItemUseCB = ItemUseCB_TMHM;
-    sTMCaseDynamicResources->nextScreenCallback = CB2_ShowPartyMenuForItemUseTMCase;
+    if (sTMCaseStaticResources.exitCallback == CB2_BagMenuFromStartMenu)
+        sTMCaseDynamicResources->nextScreenCallback = CB2_ShowPartyMenuTMCaseBag;
+    else
+        sTMCaseDynamicResources->nextScreenCallback = CB2_ShowPartyMenuTMCaseField;
     Task_BeginFadeOutFromTMCase(taskId);
 }
 
@@ -844,6 +1095,8 @@ static void InitWindowTemplatesAndPals(void)
     LoadPalette(sPal3Override, BG_PLTT_ID(15) + 6, sizeof(sPal3Override));
     LoadPalette(sPal3Override, BG_PLTT_ID(13) + 6, sizeof(sPal3Override));
     ListMenuLoadStdPalAt(BG_PLTT_ID(12), 1);
+    if (gMoveDescription == MOVE_DESC_CONTEST)
+        LoadPalette(sPal4Override, BG_PLTT_ID(12) + 1, sizeof(sPal4Override));
     for (i = 0; i < ARRAY_COUNT(sWindowTemplates) - 1; i++)
         FillWindowPixelBuffer(i, PIXEL_FILL(0));
     PutWindowTilemap(WIN_LIST);
@@ -884,14 +1137,14 @@ static void DrawMoveInfoLabels(void)
     CopyWindowToVram(WIN_MOVE_INFO_LABELS, COPYWIN_GFX);
 }
 
-static void PrintMoveInfo(u16 itemId)
+static void PrintMoveInfo(void)
 {
     u8 i;
     u16 move;
     const u8 * str;
 
     FillWindowPixelRect(WIN_MOVE_INFO, 0, 0, 0, 40, 48);
-    if (itemId == ITEM_NONE)
+    if (gSpecialVar_ItemId == ITEM_NONE)
     {
         for (i = 0; i < 4; i++)
             TMCase_Print(WIN_MOVE_INFO, FONT_SHORT_COPY_1, gText_ThreeDashes, 7, 12 * i, 0, 0, TEXT_SKIP_DRAW, COLOR_MOVE_INFO);
@@ -900,7 +1153,7 @@ static void PrintMoveInfo(u16 itemId)
     else
     {
         // Draw type icon
-        move = ItemIdToBattleMoveId(itemId);
+        move = ItemIdToBattleMoveId(gSpecialVar_ItemId);
         BlitMenuInfoIcon(WIN_MOVE_INFO, GetMoveType(move) + 1, 0, 0);
 
         // Print power
@@ -1019,17 +1272,20 @@ static void DrawPartyMonIcons(void)
     }
 }
 
-static void TintPartyMonIcons(u16 tm)
+static void TintPartyMonIcons(u16 tm, bool8 isTM)
 {
     u8 i;
     u16 species;
+
+    if (isTM)
+        tm = ItemIdToBattleMoveId(tm);
 
     for (i = 0; i < gPlayerPartyCount; i++)
     {
         species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES_OR_EGG);
         SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_ALL);
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(7, 11));
-        if (!CanLearnTeachableMove(species, ItemIdToBattleMoveId(tm))) 
+        if (!CanLearnTeachableMove(species, tm)) 
         {
             gSprites[gMoveMenuSpriteIdData[i]].oam.objMode = ST_OAM_OBJ_BLEND;
         }

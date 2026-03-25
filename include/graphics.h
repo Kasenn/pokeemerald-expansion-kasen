@@ -3478,18 +3478,6 @@ extern const u32 gMailTilemap_Retro[];
 extern const u8 gMonMarkingsMenu_Gfx[];
 extern const u16 gMonMarkingsMenu_Pal[];
 
-// frlg_tm_case_port
-extern const u32 gTMCase_Gfx[];
-extern const u32 gTMCaseMenu_Tilemap[];
-extern const u32 gUnknown_8E84B70[];
-extern const u16 gTMCaseMenu_Male_Pal[];
-extern const u16 gTMCaseMenu_Female_Pal[];
-extern const u32 gTMCase_TMSpriteGfx[];
-extern const u16 gUnknown_8E84F20[];
-extern const u16 gUnknown_8E85068[];
-extern const u8 gTMCaseHM_Gfx[];
-extern const u16 gTMCaseMainWindowPalette[];
-
 //battle icons
 extern const u32 gBattleIcons_Gfx1[];
 extern const u32 gBattleIcons_Gfx2[];

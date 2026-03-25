@@ -2169,19 +2169,7 @@ static const u8 sEmpty5[0x3242]  = {0};
 static const u8 sUnused3[]       = {0x40};
 static const u8 sEmpty6[0x13]    = {0};
 
-// frlg_tm_case_port
-const u32 gTMCase_Gfx[] = INCBIN_U32("graphics/tm_case/unk_8E845D8.4bpp.smol");
-const u32 gTMCaseMenu_Tilemap[] = INCBIN_U32("graphics/tm_case/unk_8E84A24.bin.smolTM");
-const u32 gUnknown_8E84B70[] = INCBIN_U32("graphics/tm_case/unk_8E84B70.bin.smolTM");
-const u16 gTMCaseMenu_Male_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84CB0.gbapal");
-const u16 gTMCaseMenu_Female_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84D20.gbapal");
-const u32 gTMCase_TMSpriteGfx[] = INCBIN_U32("graphics/tm_case/unk_8E84D90.4bpp.smol");
-const u16 gUnknown_8E84F20[] = INCBIN_U16("graphics/tm_case/unk_8E84F20.gbapal");
-const u16 gUnknown_8E85068[] = INCBIN_U16("graphics/tm_case/unk_8E85068.gbapal");
-const u8 gTMCaseHM_Gfx[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
-const u16 gTMCaseMainWindowPalette[] = INCBIN_U16("graphics/tm_case/unk_841F408.gbapal");
 const u32 gBattleIcons_Gfx1[] = INCBIN_U32("graphics/types/battle_icons1.4bpp.smol");
 const u32 gBattleIcons_Gfx2[] = INCBIN_U32("graphics/types/battle_icons2.4bpp.smol");
 const u16 gBattleIcons_Pal1[] = INCBIN_U16("graphics/types/battle_icons1.gbapal");
 const u16 gBattleIcons_Pal2[] = INCBIN_U16("graphics/types/battle_icons2.gbapal");
-

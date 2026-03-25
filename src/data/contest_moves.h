@@ -390,7 +390,7 @@ const struct ContestEffect gContestEffects[] =
     },
     [CONTEST_EFFECT_EXCITE_AUDIENCE_IN_ANY_CONTEST] =
     {
-        .description = COMPOUND_STRING("An appeal that excites the\naudience in any CONTEST."),
+        .description = COMPOUND_STRING("An appeal that excites the\naudience in any contest."),
         .effectType = CONTEST_EFFECT_TYPE_SPECIAL_APPEAL,
         .appeal = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? 20 : 10,
         .jam = 0,

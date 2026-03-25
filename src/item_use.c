@@ -1109,9 +1109,14 @@ static void UseTMHM(u8 taskId)
 }
 
 
-static void CB2_OpenTMCaseOnField(void)
+void CB2_OpenTMCaseFromBag(void)
 {
     InitTMCase(CB2_BagMenuFromStartMenu);
+}
+
+void CB2_OpenTMCaseFromField(void)
+{
+    InitTMCase(CB2_ReturnToField);
 }
 
 static void Task_InitTMCaseFromField(u8 taskId)
@@ -1119,7 +1124,6 @@ static void Task_InitTMCaseFromField(u8 taskId)
     if (!gPaletteFade.active)
     {
         CleanupOverworldWindowsAndTilemaps();
-        // sub_80A1184();
         InitTMCase(CB2_ReturnToField);
         DestroyTask(taskId);
     }
@@ -1133,13 +1137,13 @@ void ItemUseOutOfBattle_TmCase(u8 taskId)
     }
     else if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
-        gOpenTMCaseFromBag = TRUE;
-        gBagMenu->newScreenCallback = CB2_OpenTMCaseOnField;
+        gMoveDescription = MOVE_DESC_BATTLE;
+        gBagMenu->newScreenCallback = CB2_OpenTMCaseFromBag;
         Task_FadeAndCloseBagMenu(taskId);
     }
     else
     {
-        gOpenTMCaseFromBag = FALSE;
+        gMoveDescription = MOVE_DESC_BATTLE;
         gFieldCallback = FieldCB_ReturnToFieldNoScript; //FieldCB_ReturnToFieldNoScript
         FadeScreen(FADE_TO_BLACK, 0);
         gTasks[taskId].func = Task_InitTMCaseFromField;

@@ -54,6 +54,7 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "journal_popup.h"
+#include "tm_case.h"
 
 #define TAG_POCKET_SCROLL_ARROW 110
 #define TAG_BAG_SCROLL_ARROW    111
@@ -289,9 +290,6 @@ static const u8 sBagMenuSortFreeSpace[] =
     ACTION_BY_AMOUNT, ACTION_BY_POCKET,
     ACTION_CANCEL, ACTION_DUMMY,
 };
-
-// TM Case
-EWRAM_DATA bool8 gOpenTMCaseFromBag = FALSE;
 
 static const struct BgTemplate sBgTemplates_ItemMenu[] =
 {

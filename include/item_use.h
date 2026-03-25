@@ -1,13 +1,5 @@
 #ifndef GUARD_ITEM_USE_H
 #define GUARD_ITEM_USE_H
-void ItemUseOnFieldCB_Itemfinder(u8 taskId);
-void ItemUseOutOfBattle_SampleBox(u8 taskId);
-void ItemUseOutOfBattle_Fertilizer(u8 taskId);
-void ItemUseOutOfBattle_IncreaseFriendship(u8 taskId);
-void ItemUseOutOfBattle_TmCase(u8 taskId);
-void ItemUseOutOfBattle_TownMap(u8 taskId);
-void ItemUseOutOfBattle_PikachuBait(u8 taskId);
-
 void ItemUseOutOfBattle_Mail(u8 taskId);
 void ItemUseOutOfBattle_Bike(u8 taskId);
 void ItemUseOutOfBattle_Rod(u8 taskId);
@@ -54,10 +46,20 @@ u8 CheckIfItemIsTMHMOrEvolutionStone(u16 itemId);
 void FieldUseFunc_VsSeeker(u8 taskId);
 void Task_ItemUse_CloseMessageBoxAndReturnToField_VsSeeker(u8 taskId);
 void DisplayDadsAdviceCannotUseItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField);
-void DisplayZygardeCubeItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField);
 void ItemUseOutOfBattle_PokeFlute(u8 taskId);
 bool8 ItemfinderCheckForHiddenItems(const struct MapEvents *, u8);
 u8 GetDirectionToHiddenItem(s16, s16);
+
+void DisplayZygardeCubeItemMessage(u8 taskId, bool8 isUsingRegisteredKeyItemOnField);
+void ItemUseOnFieldCB_Itemfinder(u8 taskId);
+void ItemUseOutOfBattle_SampleBox(u8 taskId);
+void ItemUseOutOfBattle_Fertilizer(u8 taskId);
+void ItemUseOutOfBattle_IncreaseFriendship(u8 taskId);
+void ItemUseOutOfBattle_TownMap(u8 taskId);
+void ItemUseOutOfBattle_PikachuBait(u8 taskId);
+void ItemUseOutOfBattle_TmCase(u8 taskId);
+void CB2_OpenTMCaseFromBag(void);
+void CB2_OpenTMCaseFromField(void);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

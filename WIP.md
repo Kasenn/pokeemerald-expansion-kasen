@@ -5,8 +5,6 @@ fix lighting in frigid frontier
 fix southern desert
 fix route 18 elevator
 fix slot machine rng + add quest to manip them
-make contest moves visible on summary screen, tm case, and bp mart
-fix bp marts
 
 eventual redesigns:
 move trainers out of route 1?
