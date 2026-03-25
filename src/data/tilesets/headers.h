@@ -1382,3 +1382,14 @@ const struct Tileset gTileset_GenericBuildingNorth =
     .metatileAttributes = gMetatileAttributes_GenericBuildingNorth,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Mauville2 =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Mauville2,
+    .palettes = gTilesetPalettes_Mauville2,
+    .metatiles = gMetatiles_Mauville2,
+    .metatileAttributes = gMetatileAttributes_Mauville2,
+    .callback = InitTilesetAnim_Mauville,
+};
