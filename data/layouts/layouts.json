@@ -7780,6 +7780,16 @@
       "secondary_tileset": "gTileset_GenericBuildingNorth",
       "border_filepath": "data/layouts/Crystalpine_SmallHouse_2/border.bin",
       "blockdata_filepath": "data/layouts/Crystalpine_SmallHouse_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_NES",
+      "name": "Nes_Layout",
+      "width": 15,
+      "height": 304,
+      "primary_tileset": "gTileset_Nes",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/Nes/border.bin",
+      "blockdata_filepath": "data/layouts/Nes/map.bin"
     }
   ]
 }

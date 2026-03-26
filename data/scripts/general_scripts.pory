@@ -559,9 +559,13 @@ script Debug_Script_3{
     return
 }
 script Debug_Script_4{
+    special(SpawnCameraObject)
+    playbgm(MUS_AWAKEN_LEGEND, 0)
+    end
     return
 }
 script Debug_Script_5{
+    warp(MAP_NES, 0)
     return
 }
 script Debug_Script_6{

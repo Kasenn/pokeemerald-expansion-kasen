@@ -2606,3 +2606,22 @@ const u16 gTilesetPalettes_Mauville2[][16] =
 };
 
 const u32 gTilesetTiles_Mauville2[] = INCBIN_U32("data/tilesets/secondary/mauville_2/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_Nes[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/nes/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/nes/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_Nes[] = INCBIN_U32("data/tilesets/primary/nes/tiles.4bpp.lz");

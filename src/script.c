@@ -10,6 +10,7 @@
 #include "constants/map_scripts.h"
 #include "event_object_movement.h"
 #include "field_message_box.h"
+#include "event_scripts.h"
 
 #include "dexnav.h"
 
@@ -35,6 +36,7 @@ static struct ScriptContext sImmediateScriptContext;
 static bool8 sLockFieldControls;
 EWRAM_DATA u8 gMsgIsSignPost = FALSE;
 EWRAM_DATA u8 gMsgBoxIsCancelable = FALSE;
+static EWRAM_DATA u8 sSkipCutscene = FALSE;
 
 extern ScrCmdFunc gScriptCmdTable[];
 extern ScrCmdFunc gScriptCmdTableEnd[];
@@ -243,6 +245,16 @@ void ScriptContext_Init(void)
     sGlobalScriptContextStatus = CONTEXT_SHUTDOWN;
 }
 
+void ResetSkipCutscene(void)
+{
+    sSkipCutscene = FALSE;
+}
+
+void SkipCutscene(void)
+{
+    sSkipCutscene = TRUE;
+}
+
 // Runs the script until the script makes a wait* call, then returns true if
 // there's more script to run, or false if the script has hit the end.
 // This function also returns false if the context is finished
@@ -256,6 +268,12 @@ bool8 ScriptContext_RunScript(void)
         return FALSE;
 
     LockPlayerFieldControls();
+
+    if (JOY_NEW(START_BUTTON) && (MAP(MAP_NES)) && !sSkipCutscene)
+    {
+        sSkipCutscene = TRUE;
+        ScriptContext_SetupScript(Debug_Script_4);
+    }
 
     if (!RunScriptCommand(&sGlobalScriptContext))
     {

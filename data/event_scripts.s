@@ -1865,3 +1865,5 @@ EventScript_VsSeekerChargingDone::
 	.include "data/maps/Crystalpine_SmallHouse_3/scripts.inc"
 
 	.include "data/maps/Crystalpine_SmallHouse_2/scripts.inc"
+
+	.include "data/maps/Nes/scripts.inc"

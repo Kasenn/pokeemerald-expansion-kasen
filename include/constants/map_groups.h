@@ -175,6 +175,7 @@ enum
     MAP_PLAYER_HOUSE1F_MAY     = (10 | (3 << 8)),
     MAP_RIVAL_HOUSE1F_BRENDAN  = (11 | (3 << 8)),
     MAP_RIVAL_HOUSE2F_BRENDAN  = (12 | (3 << 8)),
+    MAP_NES                    = (13 | (3 << 8)),
 
     // gMapGroup_IndoorPrimroseTown
     MAP_OLDALE_TOWN_POKEMON_CENTER_1F = (0 | (4 << 8)),

@@ -2919,15 +2919,15 @@
 	.2byte \y
 	.endm
 
-	.macro drawtiles map:req, startingX:req, startingY:req, x1:req, x2:req, y1:req, y2:req
-	callnative ScrCmd_DrawTiles
-	.2byte \map
-	.2byte \startingX
-	.2byte \startingY
-	.2byte \x1
-	.2byte \x2
-	.2byte \y1
-	.2byte \y2
+	.macro drawtiles map:req, srcX1:req, srcY1:req, srcX2:req, srcY2:req, destX:req, destY:req
+    callnative ScrCmd_DrawTiles
+    .2byte \map
+    .2byte \srcX1
+    .2byte \srcY1
+    .2byte \srcX2
+    .2byte \srcY2
+    .2byte \destX
+    .2byte \destY
 	.endm
 
 	.macro iscurrentmap map:req

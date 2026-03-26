@@ -360,3 +360,6 @@ const u16 gMetatileAttributes_GenericBuildingNorth[] = INCBIN_U16("data/tilesets
 
 const u16 gMetatiles_Mauville2[] = INCBIN_U16("data/tilesets/secondary/mauville_2/metatiles.bin");
 const u16 gMetatileAttributes_Mauville2[] = INCBIN_U16("data/tilesets/secondary/mauville_2/metatile_attributes.bin");
+
+const u16 gMetatiles_Nes[] = INCBIN_U16("data/tilesets/primary/nes/metatiles.bin");
+const u16 gMetatileAttributes_Nes[] = INCBIN_U16("data/tilesets/primary/nes/metatile_attributes.bin");

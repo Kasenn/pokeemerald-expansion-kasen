@@ -4,7 +4,7 @@
 #include "constants/global.h"
 #include "constants/map_event_ids.h"
 
-enum
+enum ObjectId
 {
     OBJ_EVENT_GFX_BRENDAN_NORMAL,
     OBJ_EVENT_GFX_UNUSED_1,
@@ -404,11 +404,10 @@ enum
     OBJ_EVENT_GFX_MAY_CONTEST_10PX_SNOW,
     OBJ_EVENT_GFX_SPOTLIGHT,
     OBJ_EVENT_GFX_APRICORN_TREE,
-    NUM_OBJ_EVENT_GFX
+    OBJ_EVENT_GFX_WINDOW,
+    OBJ_EVENT_GFX_RAILING,
+    NUM_OBJ_EVENT_GFX,
 };
-
-//ZOBJ
-
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
@@ -651,6 +650,8 @@ enum{
     OBJ_EVENT_PAL_TAG_FLAG,
     OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST,
     OBJ_EVENT_PAL_TAG_CONTEST_MAY,
+    OBJ_EVENT_PAL_TAG_WINDOW,
+    OBJ_EVENT_PAL_TAG_RAILING,
 };
 //ZOBJ
 
