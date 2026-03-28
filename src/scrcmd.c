@@ -1773,6 +1773,21 @@ bool8 ScrCmd_waitbuttonpress(struct ScriptContext *ctx)
     return TRUE;
 }
 
+static bool8 WaitForStartPress(void)
+{
+    if (JOY_NEW(START_BUTTON))
+        return TRUE;
+    return FALSE;
+}
+
+bool8 ScrCmd_waitstartpress(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    SetupNativeScript(ctx, WaitForStartPress);
+    return TRUE;
+}
+
 bool8 ScrCmd_yesnobox(struct ScriptContext *ctx)
 {
     u8 left = ScriptReadByte(ctx);

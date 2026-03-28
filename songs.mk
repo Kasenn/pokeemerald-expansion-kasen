@@ -649,6 +649,12 @@ $(MID_SUBDIR)/mus_mistral.s: %.s: %.mid
 $(MID_SUBDIR)/mus_pwtlobby.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V104
 
+$(MID_SUBDIR)/mus_mmtitle1.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
+
+$(MID_SUBDIR)/mus_mmtitle2.s: %.s: %.mid
+	$(MID) $< $@ -E -R$(MAX_REVERB) -G194 -V120
+
 $(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
 

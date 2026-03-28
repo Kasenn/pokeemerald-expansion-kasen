@@ -406,13 +406,16 @@ enum ObjectId
     OBJ_EVENT_GFX_APRICORN_TREE,
     OBJ_EVENT_GFX_WINDOW,
     OBJ_EVENT_GFX_RAILING,
-    NUM_OBJ_EVENT_GFX,
+    OBJ_EVENT_GFX_MEGAMAN,
+    OBJ_EVENT_GFX_ROOFTOP,
+    OBJ_EVENT_GFX_ROOFTOP2,
+    OBJ_EVENT_GFX_COUNT2,
 };
 
 // These are dynamic object gfx ids.
 // They correspond with the values of the VAR_OBJ_GFX_ID_X vars.
 // More info about them in include/constants/vars.h
-#define OBJ_EVENT_GFX_VARS   (NUM_OBJ_EVENT_GFX + 1)
+#define OBJ_EVENT_GFX_VARS   (OBJ_EVENT_GFX_COUNT2 + 1)
 #define OBJ_EVENT_GFX_VAR_0  (OBJ_EVENT_GFX_VARS + 0x0)
 #define OBJ_EVENT_GFX_VAR_1  (OBJ_EVENT_GFX_VARS + 0x1)
 #define OBJ_EVENT_GFX_VAR_2  (OBJ_EVENT_GFX_VARS + 0x2)
@@ -652,6 +655,8 @@ enum{
     OBJ_EVENT_PAL_TAG_CONTEST_MAY,
     OBJ_EVENT_PAL_TAG_WINDOW,
     OBJ_EVENT_PAL_TAG_RAILING,
+    OBJ_EVENT_PAL_TAG_MEGAMAN,
+    OBJ_EVENT_PAL_TAG_ROOFTOP,
 };
 //ZOBJ
 

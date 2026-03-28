@@ -551,11 +551,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    callnative(ZeroPlayerPartyMons)
-    givemon(SPECIES_DECIDUEYE, 100)
-    givemon(SPECIES_BLAZIKEN, 100)
-    givemon(SPECIES_EMPOLEON, 100)
-    // call(FrostGym_Tr3_Senior_Main)
+    addobject(4)
+    waitmove(4, moves(walk_right * 20))
     return
 }
 script Debug_Script_4{
@@ -568,7 +565,27 @@ script Debug_Script_5{
     warp(MAP_NES, 0)
     return
 }
+
+const VAR_X = VAR_0x8001
+const VAR_Y = VAR_0x8002
+
 script Debug_Script_6{
+    applymovement(LOCALID_PLAYER, moves(walk_down * 30))
+    delay(200)
+    callnative(StopMovementScript)
+    // applymovement(LOCALID_PLAYER, moves(face_down, step_end))
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    buffernumberstring(STR_VAR_1, VAR_X)
+    buffernumberstring(STR_VAR_2, VAR_Y)
+    msgbox("{STR_VAR_1}, {STR_VAR_2}", MSGBOX_AUTOCLOSE)
+    special(SpawnCameraObject)
+    getobjectxy(LOCALID_CAMERA)
+    buffernumberstring(STR_VAR_1, VAR_X)
+    buffernumberstring(STR_VAR_2, VAR_Y)
+    msgbox("{STR_VAR_1}, {STR_VAR_2}", MSGBOX_AUTOCLOSE)
+    addvar(VAR_X, 2)
+    teleportcamera(VAR_X, VAR_Y)
     return
 }
 script Debug_Script_7{

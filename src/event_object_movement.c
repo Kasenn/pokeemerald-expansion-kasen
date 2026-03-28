@@ -613,6 +613,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Drayden,           OBJ_EVENT_PAL_DRAYDEN},
     {gObjectEventPalette_Window,           OBJ_EVENT_PAL_TAG_WINDOW},
     {gObjectEventPalette_Railing,           OBJ_EVENT_PAL_TAG_RAILING},
+    {gObjectEventPalette_Megaman,           OBJ_EVENT_PAL_TAG_MEGAMAN},
+    {gObjectEventPalette_Rooftop,           OBJ_EVENT_PAL_TAG_ROOFTOP},
     {gObjectEventPalette_SPIRIT_BLUE,      OBJ_EVENT_PAL_SPIRIT_BLUE},
     {gObjectEventPalette_SPIRIT_RED,       OBJ_EVENT_PAL_SPIRIT_RED},
     {gObjectEventPalette_SPIRIT_YELLOW,        OBJ_EVENT_PAL_SPIRIT_YELLOW},
@@ -1921,6 +1923,13 @@ static void ApplySpecialObjectEventSettings(struct Sprite *sprite, struct Object
             sprite->coordOffsetEnabled = FALSE;
         }
         sprite->callback = AnimSpotlight;
+        break;
+    case OBJ_EVENT_GFX_ROOFTOP:
+        sprite->y += 16;
+        sprite->x -= 8;
+        break;
+    case OBJ_EVENT_GFX_ROOFTOP2:
+        sprite->y += 16;
         break;
     case OBJ_EVENT_GFX_LIGHT_SPRITE:
         objectEvent->fixedPriority = TRUE;
@@ -3456,7 +3465,7 @@ const struct ObjectEventGraphicsInfo *GetObjectEventGraphicsInfo(u16 graphicsId)
     if (graphicsId & OBJ_EVENT_MON)
         return SpeciesToGraphicsInfo(graphicsId & OBJ_EVENT_MON_SPECIES_MASK, graphicsId & OBJ_EVENT_MON_SHINY, graphicsId & OBJ_EVENT_MON_FEMALE);
 
-    if (graphicsId >= NUM_OBJ_EVENT_GFX)
+    if (graphicsId >= OBJ_EVENT_GFX_COUNT2)
         graphicsId = OBJ_EVENT_GFX_NINJA_BOY;
 
     return gObjectEventGraphicsInfoPointers[graphicsId];

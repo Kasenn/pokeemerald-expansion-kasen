@@ -36,7 +36,7 @@ static struct ScriptContext sImmediateScriptContext;
 static bool8 sLockFieldControls;
 EWRAM_DATA u8 gMsgIsSignPost = FALSE;
 EWRAM_DATA u8 gMsgBoxIsCancelable = FALSE;
-static EWRAM_DATA u8 sSkipCutscene = FALSE;
+EWRAM_DATA u8 sSkipCutscene = FALSE;
 
 extern ScrCmdFunc gScriptCmdTable[];
 extern ScrCmdFunc gScriptCmdTableEnd[];
@@ -271,8 +271,13 @@ bool8 ScriptContext_RunScript(void)
 
     if (JOY_NEW(START_BUTTON) && (MAP(MAP_NES)) && !sSkipCutscene)
     {
+        VarSet(VAR_TEMP_0, 1);
         sSkipCutscene = TRUE;
-        ScriptContext_SetupScript(Debug_Script_4);
+
+        UnlockPlayerFieldControls();
+        ScriptContext_SetupScript(Nes_InterruptCutscene);
+
+        return TRUE;
     }
 
     if (!RunScriptCommand(&sGlobalScriptContext))

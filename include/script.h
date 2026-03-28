@@ -68,6 +68,7 @@ void SetMovingNpcId(u16 npcId);
 u8* ReadWord(u8 index);
 extern u8 gMsgIsSignPost;
 extern u8 gMsgBoxIsCancelable;
+extern u8 sSkipCutscene;
 
 /* Script effects analysis.
  *

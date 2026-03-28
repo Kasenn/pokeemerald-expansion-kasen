@@ -19,6 +19,14 @@ static void ScriptMovement_TakeStep(u8 taskId, u8 moveScrId, u8 objEventId, cons
 
 static EWRAM_DATA const u8 *sMovementScripts[OBJECT_EVENTS_COUNT] = {0};
 
+void ResetMovementScripts(void)
+{
+    for (int i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        sMovementScripts[i] = NULL;
+    }
+}
+
 bool8 ScriptMovement_StartObjectMovementScript(u8 localId, u8 mapNum, u8 mapGroup, const u8 *movementScript)
 {
     u8 objEventId;
@@ -171,6 +179,16 @@ static void SetMovementScript(u8 moveScrId, const u8 *movementScript)
 static const u8 *GetMovementScript(u8 moveScrId)
 {
     return sMovementScripts[moveScrId];
+}
+
+static const u8 sMovement_Stop[] =
+{
+    MOVEMENT_ACTION_STEP_END
+};
+
+void StopMovementScript(void)
+{
+    sMovementScripts[0] = sMovement_Stop;
 }
 
 static void ScriptMovement_AddNewMovement(u8 taskId, u8 moveScrId, u8 objEventId, const u8 *movementScript)

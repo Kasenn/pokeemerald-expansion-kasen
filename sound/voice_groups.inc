@@ -141,6 +141,7 @@
 .include "sound/voicegroups/voicegroup191.inc"
 .include "sound/voicegroups/voicegroup192.inc"
 .include "sound/voicegroups/voicegroup193.inc"
+.include "sound/voicegroups/voicegroup194.inc"
 
 @ FRLG
 .include "sound/voicegroups/rg_follow_me.inc"

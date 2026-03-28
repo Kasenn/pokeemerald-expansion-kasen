@@ -224,6 +224,9 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breeder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drayden;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Window;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Railing;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Megaman;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rooftop;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Rooftop2;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Flag;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_BLUE;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SPIRIT_RED;
@@ -425,7 +428,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_10PX_SNOW;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ApricornTree;
 
-const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM_OBJ_EVENT_GFX] = {
+const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[OBJ_EVENT_GFX_COUNT2] = {
     // [OBJ_EVENT_GFX_TUCKER] =                     &gObjectEventGraphicsInfo_Tucker,
     // [OBJ_EVENT_GFX_GRETA] =                      &gObjectEventGraphicsInfo_Greta,
     // [OBJ_EVENT_GFX_SPENSER] =                    &gObjectEventGraphicsInfo_Spenser,
@@ -730,6 +733,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_WINDOW] =                       &gObjectEventGraphicsInfo_Window,
     [OBJ_EVENT_GFX_RAILING] =                       &gObjectEventGraphicsInfo_Railing,
     [OBJ_EVENT_GFX_FLAG] =                          &gObjectEventGraphicsInfo_Flag,
+    [OBJ_EVENT_GFX_MEGAMAN] =                       &gObjectEventGraphicsInfo_Megaman,
+    [OBJ_EVENT_GFX_ROOFTOP] =                       &gObjectEventGraphicsInfo_Rooftop,
+    [OBJ_EVENT_GFX_ROOFTOP2] =                       &gObjectEventGraphicsInfo_Rooftop2,
     [OBJ_EVENT_GFX_SPIRIT_BLUE] =                   &gObjectEventGraphicsInfo_SPIRIT_BLUE,
     [OBJ_EVENT_GFX_MART_DOOR] =                     &gObjectEventGraphicsInfo_Mart_Door,
     [OBJ_EVENT_GFX_SPIRIT_YELLOW] =                 &gObjectEventGraphicsInfo_SPIRIT_YELLOW,

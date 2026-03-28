@@ -612,7 +612,7 @@ extern const u8 Update3[];
 extern const u8 EventScript_CutGrassSeedDrop[];
 extern const u8 UnstuckPlayer[];
 extern const u8 Debug_Script_8[];
-extern const u8 Debug_Script_4[];
+extern const u8 Nes_InterruptCutscene[];
 
 // Secret Base
 extern const u8 SecretBase_EventScript_PC[];

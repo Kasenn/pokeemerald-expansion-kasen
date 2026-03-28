@@ -632,6 +632,8 @@ gSongTable::
 	song mus_ginga, 0, 0
 	song mus_driftveil, 0, 0
 	song mus_roamer, 0, 0
+	song mus_mmtitle1, 0, 0
+	song mus_mmtitle2, 0, 0
 
 	.align 2
 dummy_song_header:

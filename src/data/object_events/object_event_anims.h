@@ -226,6 +226,12 @@ static const union AnimCmd sAnim_FaceWest2F[] =
     ANIMCMD_JUMP(0),
 };
 
+static const union AnimCmd sAnim_FaceEastNes[] =
+{
+    ANIMCMD_FRAME(3, 16),
+    ANIMCMD_JUMP(0),
+};
+
 static const union AnimCmd sAnim_FaceEast[] =
 {
     ANIMCMD_FRAME(2, 16, .hFlip = TRUE),
@@ -1531,11 +1537,11 @@ static const union AnimCmd *const sAnimTable_StandardAsymmetrical2[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
     [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
-    [ANIM_STD_FACE_EAST] = sAnim_FaceWest2F,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEastNes,
     [ANIM_STD_GO_SOUTH] = sAnim_GoSouth,
     [ANIM_STD_GO_NORTH] = sAnim_GoNorth,
     [ANIM_STD_GO_WEST] = sAnim_GoWest,
-    [ANIM_STD_GO_EAST] = sAnim_GoEastAsymmetrical2,
+    [ANIM_STD_GO_EAST] = sAnim_FaceEastNes,
     [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
     [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth,
     [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
@@ -1548,6 +1554,62 @@ static const union AnimCmd *const sAnimTable_StandardAsymmetrical2[] = {
     [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEastAsymmetrical2,
+};
+
+static const union AnimCmd sAnim_MegamanStandStill[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_MegamanLiftOff[] =
+{
+    ANIMCMD_FRAME(2, 4),
+    ANIMCMD_FRAME(3, 4),
+    ANIMCMD_FRAME(4, 4),
+    ANIMCMD_FRAME(5, 4),
+    ANIMCMD_FRAME(6, 12), // Helm on
+    ANIMCMD_FRAME(7, 4),
+    ANIMCMD_FRAME(8, 5),
+    ANIMCMD_FRAME(9, 3),
+    ANIMCMD_FRAME(6, 4),
+    ANIMCMD_FRAME(10, 2),
+    ANIMCMD_FRAME(11, 2),
+    ANIMCMD_FRAME(12, 2),
+    ANIMCMD_END,
+};
+
+static const union AnimCmd sAnim_MegamanLeaves[] =
+{
+    ANIMCMD_FRAME(10, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_Megaman[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_MegamanLeaves,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEastNes,
+    [ANIM_STD_GO_SOUTH] = sAnim_MegamanStandStill,
+    [ANIM_STD_GO_NORTH] = sAnim_MegamanLeaves,
+    [ANIM_STD_GO_WEST] = sAnim_GoWest,
+    [ANIM_STD_GO_EAST] = sAnim_GoEastAsymmetrical2,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_MegamanStandStill,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_MegamanLeaves,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEastAsymmetrical2,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_MegamanStandStill,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_MegamanLeaves,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEastAsymmetrical2,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_MegamanStandStill,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_MegamanLeaves,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEastAsymmetrical2,
+    [ANIM_NURSE_BOW] = sAnim_MegamanLiftOff,
 };
 
 static const union AnimCmd *const sAnimTable_RollingStone[] = {
@@ -2294,6 +2356,10 @@ static const struct StepAnimTable sStepAnimTables[] = {
     },
     {
         .anims = sAnimTable_Following,
+        .animPos = {1, 3, 0, 2},
+    },
+    {
+        .anims = sAnimTable_Megaman,
         .animPos = {1, 3, 0, 2},
     },
     {

@@ -12,15 +12,47 @@ mapscripts PlayerHouse2F_MapScripts {
             setflag(FLAG_RECEIVED_CAPSULE)
             clearflag(FLAG_DAD_GIFT)
         }
+        getplayerxy(VAR_TEMP_1, VAR_TEMP_2)
+        if (var(VAR_TEMP_1) == 3 && var(VAR_TEMP_2) == 2)
+        {
+            setvar(VAR_TEMP_3, 1)
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_INTRO: PlayerHouse2F_Intro
+        VAR_TEMP_3, 1: NES_Crashed
     ]
     MAP_SCRIPT_ON_LOAD{
         if(flag(FLAG_SYS_B_DASH)){
             setmetatile(5, 7, 0x295, FALSE)
         }
     }
+}
+
+script NES_Crashed{
+    msgbox(NES_Crashed_Text, MSGBOX_SIGN)
+    setvar(VAR_TEMP_3, 0)
+}
+
+text NES_Crashed_Text{
+    "It looks like the game crashed…\p"
+    "…Okay!\n"
+    "It's time to go!"
+}
+
+script PlayerHouse2F_NES{
+    if(msgbox(PlayerHouse2F_NES_Text, MSGBOX_YESNO) == FALSE)
+    {
+        release
+        end
+    }
+    callnative(ResetSkipCutscene)
+    warpsilent(MAP_NES, 0)
+}
+text PlayerHouse2F_NES_Text{
+    "It's a Nintendo Entertainment\n"
+    "System.\p"
+    "Boot up a game?"
 }
 
 script PlayerHouse2F_Intro{

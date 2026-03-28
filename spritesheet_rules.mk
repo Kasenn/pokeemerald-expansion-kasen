@@ -158,6 +158,9 @@ $(OBJEVENTGFXDIR)/people/railing.4bpp: %.4bpp: %.png
 $(OBJEVENTGFXDIR)/people/flag.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
 
+$(OBJEVENTGFXDIR)/people/megaman.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 4 -mheight 4
+
 $(OBJEVENTGFXDIR)/lights/SHORESLATE_WINDOW1.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 2 -mheight 4
 
@@ -187,6 +190,12 @@ $(OBJEVENTGFXDIR)/pokemon/pidgeotto.4bpp: %.4bpp: %.png
 
 $(OBJEVENTGFXDIR)/pokemon/flock.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 8 -mheight 8
+
+$(OBJEVENTGFXDIR)/people/rooftop.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 8 -mheight 8
+
+$(OBJEVENTGFXDIR)/people/rooftop2.4bpp: %.4bpp: %.png
+	$(GFX) $< $@ -mwidth 2 -mheight 4
 
 $(OBJEVENTGFXDIR)/people/krokorok.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
