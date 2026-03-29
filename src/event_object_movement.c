@@ -12691,3 +12691,8 @@ u16 GetChestType(u16 chestType)
     default:                        return 0;
     }
 }
+
+void ClearAnims(void)
+{
+    FREE_AND_SET_NULL(sLockedAnimObjectEvents);
+}

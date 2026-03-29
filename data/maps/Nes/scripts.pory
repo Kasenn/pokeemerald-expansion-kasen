@@ -7,9 +7,6 @@ mapscripts Nes_MapScripts {
             hideplayer
         }
     ]
-    MAP_SCRIPT_ON_TRANSITION{
-        clearflag(FLAG_TEMP_1)
-    }
 }
 
 const VAR_X = VAR_0x8001
@@ -23,19 +20,20 @@ const DEFAULT_DELAY = 8
 const EMPTY_SPACE_Y = 235
 
 script Nes_InterruptCutscene{
-    callnative(DisableCutsceneSkip)
-    delay(1)
-    callnative(StopMovementScript)
-    delay(1)
+    special(DisableCutsceneSkip)
+    getplayerxy(VAR_X, VAR_Y)
+    subvar(VAR_X, 7)
+    subvar(VAR_Y, 5)
+    drawtiles(MAP_NES, 0, 12, 14, 23, VAR_X, VAR_Y)
+    removeobjectbyflag(FLAG_TEMP_1)
+    special(StopMovementScript)
     applymovement(LOCALID_PLAYER, moves(face_down))
     waitmovement(LOCALID_PLAYER)
     getplayerxy(VAR_X, VAR_Y)
-    delay(1)
     playbgm(MUS_MMTITLE2, TRUE)
-    teleportcamera(VAR_X, VAR_Y)
     subvar(VAR_X, 7)
-    callnative(SetScenePal3)
     subvar(VAR_Y, 5)
+    special(SetScenePal3)
     drawtiles(MAP_NES, 0, 169, 14, 180, VAR_X, VAR_Y)
     special(DrawWholeMapView)
     removeobjectbyflag(FLAG_TEMP_1)
@@ -43,12 +41,11 @@ script Nes_InterruptCutscene{
     addvar(VAR_Y, 7)
     addobject(LOCALID_MEGAMAN)
     setobjectxy(LOCALID_MEGAMAN, VAR_X, VAR_Y)
-    callnative(CreateRooftopSprites)
     releaseall
+    special(CreateRooftopSprites) // Necessary so the later removal doesn't remove player
 Nes_Intermission:
-    releaseall
     delay(10)
-    callnative(ClearRooftopSprites)
+    special(ClearRooftopSprites)
     waitstartpress
     playbgm(MUS_DUMMY, TRUE)
     applymovement(LOCALID_MEGAMAN, moves(nurse_joy_bow, slide_up * 5 delay_16 * 12))
@@ -61,6 +58,7 @@ Nes_Intermission:
     drawtiles(MAP_NES, 0, 0, 14, 11, VAR_X, VAR_Y)
     removeobjectbyflag(FLAG_TEMP_1)
     delay(60)
+    special(ClearAnims)
     warpsilent(MAP_PLAYER_HOUSE2F, 1)
     waitstate
 }
@@ -68,7 +66,6 @@ Nes_Intermission:
 script Nes_InterruptCutscene2{
     releaseall
     getplayerxy(VAR_X, VAR_Y)
-    playbgm(MUS_MMTITLE2, TRUE)
     subvar(VAR_X, 7)
     subvar(VAR_Y, 5)
     drawtiles(MAP_NES, 0, 169, 14, 180, VAR_X, VAR_Y)
@@ -79,40 +76,40 @@ script Nes_InterruptCutscene2{
 
 script ActivateNesCutscene{
     // Copyright screen
-    callnative(SetSceneDark)
-    callnative(LoadTextColor0)
+    special(SetSceneDark)
+    special(LoadTextColor0)
     drawtiles (MAP_NES, 1, 211, 14, 217, 0, 258)
     delay(20)
-    callnative(LoadTextColor1)
+    special(LoadTextColor1)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor2)
+    special(LoadTextColor2)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor3)
+    special(LoadTextColor3)
     delay(320)
-    callnative(LoadTextColor2)
+    special(LoadTextColor2)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor1)
+    special(LoadTextColor1)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor0)
+    special(LoadTextColor0)
     // Load in the city scenery
     delay(DEFAULT_DELAY)
     drawtiles (MAP_NES, 0, 267, 14, 303, 0, 231)
     delay(DEFAULT_DELAY)
-    callnative(SetScenePal1)
+    special(SetScenePal1)
     turnobject(LOCALID_WINDOW1, DIR_NORTH)
     turnobject(LOCALID_WINDOW2, DIR_NORTH)
     turnobject(LOCALID_WINDOW3, DIR_NORTH)
     turnobject(LOCALID_WINDOW4, DIR_NORTH)
     turnobject(LOCALID_RAILING1, DIR_NORTH)
     delay(DEFAULT_DELAY)
-    callnative(SetScenePal2)
+    special(SetScenePal2)
     turnobject(LOCALID_WINDOW1, DIR_WEST)
     turnobject(LOCALID_WINDOW2, DIR_WEST)
     turnobject(LOCALID_WINDOW3, DIR_WEST)
     turnobject(LOCALID_WINDOW4, DIR_WEST)
     turnobject(LOCALID_RAILING1, DIR_WEST)
     delay(DEFAULT_DELAY)
-    callnative(SetScenePal3)
+    special(SetScenePal3)
     turnobject(LOCALID_WINDOW1, DIR_EAST)
     turnobject(LOCALID_WINDOW2, DIR_EAST)
     turnobject(LOCALID_WINDOW3, DIR_EAST)
@@ -120,7 +117,7 @@ script ActivateNesCutscene{
     turnobject(LOCALID_RAILING1, DIR_EAST)
     playbgm(MUS_MMTITLE1, TRUE)
     // Text 1
-    callnative(LoadTextColor0)
+    special(LoadTextColor0)
     delay(DEFAULT_DELAY)
     drawtiles(MAP_NES, 0, TEXT_START_Y, 14, TEXT_END_Y, 0, TEXT_DEST_Y)
     call(BaseTextDelay)
@@ -142,14 +139,12 @@ script ActivateNesCutscene{
     call(BaseTextDelay)
     delay(DEFAULT_DELAY)
     // Start panning up
-    // applymovement(LOCALID_PLAYER, moves(walk_slow_up * 18, walk_fast_up * 13))
     applymovement(LOCALID_PLAYER, moves(walk_slow_up * 23, delay_16 * 6))
     applymovement(LOCALID_WINDOW1, MoveNesObjects)
     applymovement(LOCALID_WINDOW2, MoveNesObjects)
     applymovement(LOCALID_WINDOW3, MoveNesObjects)
     applymovement(LOCALID_WINDOW4, MoveNesObjects)
     applymovement(LOCALID_RAILING1, MoveNesObjects)
-
     applymovement(LOCALID_RAILING2, MoveNesObjects)
     delay(16)
     applymovement(LOCALID_WINDOW5, MoveNesObjects)
@@ -211,23 +206,10 @@ script ActivateNesCutscene{
     setobjectxy(LOCALID_WINDOW8, 14, WINDOW_START_Y - 17)
     delay(32)
     setobjectxy(LOCALID_RAILING1, 8, RAILING_START_Y - 19)
-    // setobjectxy(LOCALID_WINDOW1, 11, WINDOW_START_Y - 17)
-    // setobjectxy(LOCALID_WINDOW2, 14, WINDOW_START_Y - 17)
-    // delay(32)
-    // setobjectxy(LOCALID_RAILING2, 8, RAILING_START_Y - 19)
-    // setobjectxy(LOCALID_WINDOW3, 11, WINDOW_START_Y - 19)
-    // setobjectxy(LOCALID_WINDOW4, 14, WINDOW_START_Y - 19)
-    // delay(48)
-    // setobjectxy(LOCALID_RAILING3, 8, RAILING_START_Y - 20)
-    callnative(DisableCutsceneSkip)
-    setflag(FLAG_TEMP_2)
+    special(DisableCutsceneSkip)
     delay(32)
-    // addobject(LOCALID_MEGAMAN)
-    callnative(CreateRooftopSprites)
+    special(CreateRooftopSprites)
     applymovement(LOCALID_MEGAMAN, moves(lock_facing_direction, delay_16, walk_down * 6, walk_in_place_down * 5, walk_in_place_faster_down, unlock_facing_direction))
-    // applymovement(LOCALID_ROOFTOP1, moves(lock_anim, delay_16, walk_down * 6, unlock_anim))
-    // applymovement(LOCALID_ROOFTOP2, moves(lock_anim, delay_16, walk_down * 6, unlock_anim))
-    // applymovement(LOCALID_ROOFTOP3, moves(lock_anim, delay_16, walk_down * 6, unlock_anim))
     removeobject(LOCALID_WINDOW1)
     removeobject(LOCALID_WINDOW2)
     delay(16)
@@ -246,57 +228,33 @@ script ActivateNesCutscene{
     drawtiles(MAP_NES, 9, 0, 14, 0, 9, EMPTY_SPACE_Y + 3)
     delay(16)
     drawtiles(MAP_NES, 9, 0, 14, 0, 9, EMPTY_SPACE_Y + 4)
-
-    // setmetatile(8, 238, 0x076, TRUE)
-    // setmetatile(8, 239, 0x07E, TRUE)
-
-    // setmetatile(11, 240, 0x075, TRUE)
-    // setmetatile(11, 241, 0x07D, TRUE)
-
-    // setmetatile(14, 240, 0x075, TRUE)
-    // setmetatile(14, 241, 0x07D, TRUE)
-
-    // special(DrawWholeMapView)
-
-    // callnative(SetScenePal3)
     waitmovement(LOCALID_PLAYER)
-    if(flag(FLAG_TEMP_2)){
-        call(Nes_InterruptCutscene2)
-    }
-    else{
-        call(Nes_InterruptCutscene)
-    }
-    setvar(VAR_TEMP_0, 1)
-    end
+    goto(Nes_InterruptCutscene2)
 }
 
 movement MoveNesObjects{
-    unlock_anim
     lock_anim
-    // walk_down * 36
     walk_down * 48
 }
 
 movement MoveNesObjects2{
-    unlock_anim
     lock_anim
     walk_fast_down * 2
-    // walk_down * 35
     walk_down * 46
 }
 
 script BaseTextDelay{
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor1)
+    special(LoadTextColor1)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor2)
+    special(LoadTextColor2)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor3)
+    special(LoadTextColor3)
     delay(235)
-    callnative(LoadTextColor2)
+    special(LoadTextColor2)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor1)
+    special(LoadTextColor1)
     delay(DEFAULT_DELAY)
-    callnative(LoadTextColor0)
+    special(LoadTextColor0)
     return
 }

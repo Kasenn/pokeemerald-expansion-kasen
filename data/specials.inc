@@ -491,3 +491,16 @@ gSpecials::
 	def_special SetAbility
 	def_special ObjectEventInteractionGetApricornTreeData
 	def_special ObjectEventInteractionPickApricornTree
+	def_special DisableCutsceneSkip
+	def_special StopMovementScript
+	def_special ClearAnims
+	def_special SetSceneDark
+	def_special LoadTextColor0
+	def_special LoadTextColor1
+	def_special LoadTextColor2
+	def_special LoadTextColor3
+	def_special SetScenePal1
+	def_special SetScenePal2
+	def_special SetScenePal3
+	def_special CreateRooftopSprites
+	def_special ClearRooftopSprites
