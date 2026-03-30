@@ -252,3 +252,32 @@ azuretide town
 			route 28 upper half
 				unknown zygarde core
 				gives zygarde some gen 9 move
+
+Credits:
+Huge shoutout to folks at Team Aqua Hideout Discord server. This project would have never even gotten off the ground without them.
+RHH's pokeemerald-expansion
+
+Code/Feature branches:
+TheXaman's TM case
+TheXaman's Registered items menu
+ipatix's High Quality Audio Mixer
+RavePossum's flying rework
+ShinyDragonHunter's bike rework
+Ghoulslash's Stair warp
+Ghoulslash's Bag Sort
+Blurose's DPPt Bike
+Ghoulslash follow me, edited by Bivurnum
+
+Graphics:
+hyo-oppa's ORAS Brendan & May trainer front & trainer back pics, Emerald Brendan & May front pic
+Kyledove's RS Brendan & May front pics
+
+Music MIDIs:
+Nintendo MIDI Music - Pokemon B&W Trainer Battle theme
+Wobuffet3 - Battle! Champion Iris
+LyricWulf - An Unwavering Heart
+Thomas Mogensen - Happy H. Christmas
+LukeeGD - PWT Lobby
+LukeeGD - Pokemon B&W VS Rival
+MezmerKaiser - Mistralton & Driftveil Gym
+UnluckyDoor - Mega Man 2 Title theme
