@@ -637,9 +637,6 @@ $(MID_SUBDIR)/mus_encounter_hiker.s: %.s: %.mid
 $(MID_SUBDIR)/mus_bwtrainerbattle.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G191 -V089
 
-$(MID_SUBDIR)/mus_trainer_battle_bw.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
-
 $(MID_SUBDIR)/mus_vs_iris.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
 
@@ -655,9 +652,6 @@ $(MID_SUBDIR)/mus_mmtitle1.s: %.s: %.mid
 $(MID_SUBDIR)/mus_mmtitle2.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(MAX_REVERB) -G194 -V120
 
-$(MID_SUBDIR)/mus_alola_e4.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
-
 $(MID_SUBDIR)/mus_ginga.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V098
 
@@ -667,20 +661,11 @@ $(MID_SUBDIR)/mus_abw_rival.s: %.s: %.mid
 $(MID_SUBDIR)/mus_muted.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V000
 
-$(MID_SUBDIR)/mus_hg_azalea.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V080
-
 $(MID_SUBDIR)/mus_unwavering.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V080
 
 $(MID_SUBDIR)/mus_happy.s: %.s: %.mid
 	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V080
-
-$(MID_SUBDIR)/mus_dp_vs_legend.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(STD_REVERB) -G193 -V089
-
-$(MID_SUBDIR)/mus_alola_e42.s: %.s: %.mid
-	$(MID) $< $@ -E -R$(MAX_REVERB) -G193 -V089
 
 $(MID_SUBDIR)/ph_choice_blend.s: %.s: %.mid
 	$(MID) $< $@ -E -G130 -P4
