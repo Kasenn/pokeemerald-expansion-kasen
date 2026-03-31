@@ -277,7 +277,7 @@ BattleScript_MoveSwitchPursuitRet:
 	jumpifcantswitch SWITCH_IGNORE_ESCAPE_PREVENTION | BS_ATTACKER, BattleScript_MoveSwitchEnd
 	printstring STRINGID_PKMNWENTBACK
 	waitmessage B_WAIT_TIME_SHORT
-	jumpifnopursuitswitchdmg BattleScript_MoveSwitchOpenPartyScreen
+	jumpifnopursuitswitchdmg BattleScript_MoveSwitchOpenPartyScreenRet
 	return
 
 BattleScript_MoveSwitch:
@@ -286,12 +286,16 @@ BattleScript_MoveSwitch:
 	printstring STRINGID_PKMNWENTBACK
 	waitmessage B_WAIT_TIME_SHORT
 BattleScript_MoveSwitchOpenPartyScreen::
+	call BattleScript_MoveSwitchOpenPartyScreenRet
+BattleScript_MoveSwitchEnd:
+		end
+
+BattleScript_MoveSwitchOpenPartyScreenRet:
 	call BattleScript_MoveSwitchOpenPartyScreenReturnWithNoAnim
 	switchinanim BS_ATTACKER, FALSE, FALSE
 	waitstate
 	switchineffects BS_ATTACKER
-BattleScript_MoveSwitchEnd:
-	end
+	return
 
 BattleScript_MoveSwitchOpenPartyScreenReturnWithNoAnim:
 	openpartyscreen BS_ATTACKER, BattleScript_MoveSwitchEnd
@@ -5145,7 +5149,7 @@ BattleScript_SafeguardProtected::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNUSEDSAFEGUARD
 	waitmessage B_WAIT_TIME_LONG
-	end2
+	goto BattleScript_MoveEnd
 
 BattleScript_SafeguardEnds::
 	pause B_WAIT_TIME_SHORT

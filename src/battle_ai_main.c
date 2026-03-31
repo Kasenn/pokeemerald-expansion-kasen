@@ -2504,6 +2504,9 @@ static s32 AI_CheckBadMove(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         case EFFECT_YAWN:
             if (gBattleMons[battlerDef].volatiles.yawn)
                 ADJUST_SCORE(-10);
+            else if ((aiData->holdEffects[battlerDef] == HOLD_EFFECT_FLAME_ORB && CanBeBurned(battlerDef, battlerDef, abilityDef))
+              || (aiData->holdEffects[battlerDef] == HOLD_EFFECT_TOXIC_ORB && CanBePoisoned(battlerDef, battlerDef, abilityDef, abilityDef)))
+                ADJUST_SCORE(-10);
             else if (!AI_CanPutToSleep(battlerAtk, battlerDef, aiData->abilities[battlerDef], move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             if (PartnerMoveActivatesSleepClause(aiData->partnerMove))
@@ -3242,12 +3245,17 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
         if (gBattleMons[battlerAtkPartner].volatiles.dragonCheer
          || gBattleMons[battlerAtkPartner].volatiles.focusEnergy
          || !HasDamagingMove(battlerAtkPartner))
+         {
             ADJUST_SCORE(-5);
-        else if (atkPartnerHoldEffect == HOLD_EFFECT_SCOPE_LENS
-              || IS_BATTLER_OF_TYPE(battlerAtkPartner, TYPE_DRAGON)
-              || GetMoveCriticalHitStage(aiData->partnerMove) > 0
-              || HasMoveWithCriticalHitChance(battlerAtkPartner))
+         }
+        else if (!partnerProtecting
+         && (atkPartnerHoldEffect == HOLD_EFFECT_SCOPE_LENS
+          || IS_BATTLER_OF_TYPE(battlerAtkPartner, TYPE_DRAGON)
+          || GetMoveCriticalHitStage(aiData->partnerMove) > 0
+          || HasMoveWithCriticalHitChance(battlerAtkPartner)))
+          {
             ADJUST_SCORE(GOOD_EFFECT);
+          }
         break;
     case EFFECT_COACHING:
         if (!hasPartner
@@ -3366,7 +3374,9 @@ static s32 AI_DoubleBattle(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
             switch (atkPartnerHoldEffect)
             {
             case HOLD_EFFECT_WEAKNESS_POLICY:
-                if (aiData->effectiveness[battlerAtk][battlerAtkPartner][gAiThinkingStruct->movesetIndex] >= UQ_4_12(2.0) && isFriendlyFireOK)
+                if (!partnerProtecting
+                 && aiData->effectiveness[battlerAtk][battlerAtkPartner][gAiThinkingStruct->movesetIndex] >= UQ_4_12(2.0)
+                 && isFriendlyFireOK)
                 {
                     ADJUST_SCORE(GOOD_EFFECT);
                 }
@@ -4311,6 +4321,7 @@ static s32 AI_CalcMoveEffectScore(u32 battlerAtk, u32 battlerDef, u32 move, stru
     case EFFECT_BIDE:
         if (aiData->hpPercents[battlerAtk] < 90)
             ADJUST_SCORE(-2); // Should be either removed or turned into increasing score
+        break;
     // treat as offense booster
     case EFFECT_ACUPRESSURE:
         ADJUST_SCORE(IncreaseStatUpScore(battlerAtk, battlerDef, STAT_CHANGE_ATK_2));

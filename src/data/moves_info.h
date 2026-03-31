@@ -18892,6 +18892,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .instructBanned = TRUE,
+        .sleepTalkBanned = TRUE,
         .argument.twoTurnAttack = { .stringId = STRINGID_METEORBEAMCHARGING },
         .additionalEffects = ADDITIONAL_EFFECTS({
             .moveEffect = MOVE_EFFECT_SP_ATK_PLUS_1,
@@ -21278,6 +21279,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .pp = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
         .category = DAMAGE_CATEGORY_SPECIAL,
         .argument.twoTurnAttack = { .stringId = STRINGID_ELECTROSHOTCHARGING, .status = B_WEATHER_RAIN },
         .additionalEffects = ADDITIONAL_EFFECTS({

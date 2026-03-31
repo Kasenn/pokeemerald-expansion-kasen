@@ -1102,6 +1102,11 @@ u32 NumFaintedBattlersByAttacker(u32 battlerAtk)
     return numMonsFainted;
 }
 
+static u16 GetOriginallyUsedMove(u16 chosenMove)
+{
+    return (gChosenMove == MOVE_UNAVAILABLE) ? MOVE_NONE : gChosenMove;
+}
+
 bool32 IsPowderMoveBlocked(struct BattleContext *ctx)
 {
     if (!IsPowderMove(ctx->currentMove)
@@ -1300,7 +1305,8 @@ static void Cmd_attackcanceler(void)
     {
         u32 battler = gBattlerTarget;
 
-        if (ctx.abilities[ctx.battlerDef] == ABILITY_MAGIC_BOUNCE)
+        if (ctx.abilities[ctx.battlerDef] == ABILITY_MAGIC_BOUNCE
+        && !IsSemiInvulnerable(ctx.battlerDef, CHECK_ALL))
         {
             battler = gBattlerTarget;
             gBattleStruct->bouncedMoveIsUsed = TRUE;
@@ -3541,8 +3547,6 @@ void SetMoveEffect(u32 battler, u32 effectBattler, enum MoveEffect moveEffect, c
         s32 recoil = (gBattleMons[gEffectBattler].maxHP) / 4;
         if (recoil == 0)
             recoil = 1;
-        if (GetBattlerAbility(gEffectBattler) == ABILITY_PARENTAL_BOND)
-            recoil *= 2;
         SetPassiveDamageAmount(gEffectBattler, recoil);
         TryUpdateEvolutionTracker(IF_RECOIL_DAMAGE_GE, gBattleStruct->passiveHpUpdate[gBattlerAttacker], MOVE_NONE);
         BattleScriptPush(battleScript);
@@ -3735,29 +3739,32 @@ void SetMoveEffect(u32 battler, u32 effectBattler, enum MoveEffect moveEffect, c
         }
         break;
     case MOVE_EFFECT_SECRET_POWER:
-        if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+        if (IsBattlerAlive(battler))
         {
-            switch (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+            moveEffect = gBattleEnvironmentInfo[gBattleEnvironment].secretPowerEffect;
+            if (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
             {
-            case STATUS_FIELD_MISTY_TERRAIN:
-                moveEffect = MOVE_EFFECT_SP_ATK_MINUS_1;
-                break;
-            case STATUS_FIELD_GRASSY_TERRAIN:
-                moveEffect = MOVE_EFFECT_SLEEP;
-                break;
-            case STATUS_FIELD_ELECTRIC_TERRAIN:
-                moveEffect = MOVE_EFFECT_PARALYSIS;
-                break;
-            case STATUS_FIELD_PSYCHIC_TERRAIN:
-                moveEffect = MOVE_EFFECT_SPD_MINUS_1;
-                break;
-            default:
-                moveEffect = MOVE_EFFECT_PARALYSIS;
-                break;
+                switch (gFieldStatuses & STATUS_FIELD_TERRAIN_ANY)
+                {
+                case STATUS_FIELD_MISTY_TERRAIN:
+                    moveEffect = MOVE_EFFECT_SP_ATK_MINUS_1;
+                    break;
+                case STATUS_FIELD_GRASSY_TERRAIN:
+                    moveEffect = MOVE_EFFECT_SLEEP;
+                    break;
+                case STATUS_FIELD_ELECTRIC_TERRAIN:
+                    moveEffect = MOVE_EFFECT_PARALYSIS;
+                    break;
+                case STATUS_FIELD_PSYCHIC_TERRAIN:
+                    moveEffect = MOVE_EFFECT_SPD_MINUS_1;
+                    break;
+                default:
+                    moveEffect = MOVE_EFFECT_PARALYSIS;
+                    break;
+                }
             }
+            SetMoveEffect(battler, effectBattler, moveEffect, battleScript, effectFlags);
         }
-        else
-        SetMoveEffect(battler, effectBattler, gBattleEnvironmentInfo[gBattleEnvironment].secretPowerEffect, battleScript, effectFlags);
         break;
     case MOVE_EFFECT_PSYCHIC_NOISE:
         battlerAbility = IsAbilityOnSide(gEffectBattler, ABILITY_AROMA_VEIL);
@@ -6746,11 +6753,10 @@ static void Cmd_moveend(void)
             break;
         case MOVEEND_MIRROR_MOVE: // mirror move
             if (!(gAbsentBattlerFlags & (1u << gBattlerAttacker))
-                && !IsMoveMirrorMoveBanned(originallyUsedMove)
+                && !IsMoveMirrorMoveBanned(GetOriginallyUsedMove(gChosenMove))
                 && gHitMarker & HITMARKER_OBEYS
                 && gBattlerAttacker != gBattlerTarget
-                && !(gHitMarker & HITMARKER_FAINTED(gBattlerTarget))
-                && !(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT))
+                && !(gHitMarker & HITMARKER_FAINTED(gBattlerTarget)))
             {
                 gBattleStruct->lastTakenMove[gBattlerTarget] = gChosenMove;
                 gBattleStruct->lastTakenMoveFrom[gBattlerTarget][gBattlerAttacker] = gChosenMove;
@@ -7445,8 +7451,8 @@ static void Cmd_moveend(void)
                     // Set target for other Dancer mons; set bit so that mon cannot activate Dancer off of its own move
                     if (!gSpecialStatuses[gBattlerAttacker].dancerUsedMove)
                     {
-                        gBattleScripting.savedBattler = gBattlerTarget | 0x4;
-                        gBattleScripting.savedBattler |= (gBattlerAttacker << 4);
+                        gBattleStruct->dancerSavedTarget = gBattlerTarget;
+                        gBattleStruct->dancerSavedAttacker = gBattlerAttacker;
                         gSpecialStatuses[gBattlerAttacker].dancerUsedMove = TRUE;
                     }
                     for (battler = 0; battler < gBattlersCount; battler++)
@@ -8898,6 +8904,8 @@ static void Cmd_getmoneyreward(void)
             money = 0;
         }
 
+        if (!IsEnoughMoney(&gSaveBlock1Ptr->money, money))
+            money = GetMoney(&gSaveBlock1Ptr->money);
         RemoveMoney(&gSaveBlock1Ptr->money, money);
     }
     
@@ -13445,6 +13453,7 @@ static void HandleRoomMove(u32 statusFlag, u16 *timer, u8 stringId)
     if (gFieldStatuses & statusFlag)
     {
         gFieldStatuses &= ~statusFlag;
+        *timer = 0;
         gBattleCommunication[MULTISTRING_CHOOSER] = stringId + 1;
     }
     else
@@ -17766,16 +17775,18 @@ void BS_RestoreMovePp(void)
 void BS_TryActivateReceiver(void)
 {
     NATIVE_ARGS(u8 battler);
-    u32 battler = GetBattlerForBattleScript(cmd->battler);
-    gBattlerAbility = BATTLE_PARTNER(battler);
-    u32 partnerAbility = GetBattlerAbility(gBattlerAbility);
-    if (IsBattlerAlive(gBattlerAbility)
-        && (partnerAbility == ABILITY_RECEIVER || partnerAbility == ABILITY_POWER_OF_ALCHEMY)
-        && GetBattlerHoldEffectIgnoreAbility(battler) != HOLD_EFFECT_ABILITY_SHIELD
-        && !gAbilitiesInfo[gBattleMons[battler].ability].cantBeCopied)
+    u8 faintedBattler = GetBattlerForBattleScript(cmd->battler);
+    u8 receiverBattler = BATTLE_PARTNER(faintedBattler);
+    enum Ability receiverAbility = GetBattlerAbility(receiverBattler);
+
+    if (IsBattlerAlive(receiverBattler)
+     && (receiverAbility == ABILITY_RECEIVER || receiverAbility == ABILITY_POWER_OF_ALCHEMY)
+     && GetBattlerHoldEffectIgnoreAbility(receiverBattler) != HOLD_EFFECT_ABILITY_SHIELD
+     && !gAbilitiesInfo[gBattleMons[faintedBattler].ability].cantBeCopied)
     {
-        gBattleStruct->tracedAbility[gBattlerAbility] = gBattleMons[battler].ability; // re-using the variable for trace
-        gBattleScripting.battler = battler;
+        gBattlerAbility = receiverBattler;
+        gBattleStruct->tracedAbility[receiverBattler] = gBattleMons[faintedBattler].ability; // re-using the variable for trace
+        gBattleScripting.battler = faintedBattler;
         BattleScriptPush(cmd->nextInstr);
         gBattlescriptCurrInstr = BattleScript_ReceiverActivates;
     }

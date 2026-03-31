@@ -5186,12 +5186,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
              && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
-                gBattleStruct->moveDamage[battler] = GetNonDynamaxMaxHP(gBattlerAttacker) / 6;
-                if (gBattleStruct->moveDamage[battler] == 0)
-                    gBattleStruct->moveDamage[battler] = 1;
-                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
-                BattleScriptPushCursor();
-                gBattlescriptCurrInstr = BattleScript_RoughSkinActivates;
+                if (!IsAbilityAndRecord(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker), ABILITY_MAGIC_GUARD))
+                {
+                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                    SetPassiveDamageAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 8 : 16));
+                    BattleScriptCall(BattleScript_RoughSkinActivates);
+                }
+                else
+                {
+                    BattleScriptCall(BattleScript_AbilityPopUp);
+                }
                 effect++;
             }
             break;
@@ -5202,9 +5206,16 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
              && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
-                SetPassiveDamageAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 8 : 16));
-                PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
-                BattleScriptCall(BattleScript_RoughSkinActivates);
+                if (!IsAbilityAndRecord(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker), ABILITY_MAGIC_GUARD))
+                {
+                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
+                    SetPassiveDamageAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 8 : 16));
+                    BattleScriptCall(BattleScript_RoughSkinActivates);
+                }
+                else
+                {
+                    BattleScriptCall(BattleScript_AbilityPopUp);
+                }
                 effect++;
             }
             break;
@@ -5632,11 +5643,11 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, u32 battler, enum Ability ab
                 gCalledMove = move;
 
                 // Set the target to the original target of the mon that first used a Dance move
-                gBattlerTarget = gBattleScripting.savedBattler & 0x3;
+                gBattlerTarget = gBattleStruct->dancerSavedTarget;
 
                 // Make sure that the target isn't an ally - if it is, target the original user
                 if (IsBattlerAlly(gBattlerTarget, gBattlerAttacker))
-                    gBattlerTarget = (gBattleScripting.savedBattler & 0xF0) >> 4;
+                    gBattlerTarget = gBattleStruct->dancerSavedAttacker;
                 BattleScriptExecute(BattleScript_DancerActivates);
                 effect++;
             }
@@ -7340,7 +7351,7 @@ static inline u32 CalcMoveBasePower(struct DamageContext *ctx)
             basePower *= 2;
         break;
     case EFFECT_TRUMP_CARD:
-        i = GetMoveSlot(gBattleMons[battlerAtk].moves, move);
+        i = GetMoveSlot(gBattleMons[battlerAtk].moves, ctx->chosenMove);
         if (i != MAX_MON_MOVES)
         {
             if (gBattleMons[battlerAtk].pp[i] >= ARRAY_COUNT(sTrumpCardPowerTable))
@@ -8535,7 +8546,7 @@ static inline uq4_12_t GetScreensModifier(struct DamageContext *ctx)
     if (ctx->abilityAtk == ABILITY_INFILTRATOR && !IsBattlerAlly(ctx->battlerAtk, ctx->battlerDef))
     {
         if (ctx->updateFlags)
-            RecordAbilityBattle(ctx->battlerAtk, ctx->abilityDef);
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilityAtk);
         return UQ_4_12(1.0);
     }
     if (reflect || lightScreen || auroraVeil)
@@ -8629,7 +8640,7 @@ static inline uq4_12_t GetDefenderAbilitiesModifier(struct DamageContext *ctx)
     }
 
     if (recordAbility && ctx->updateFlags)
-        RecordAbilityBattle(ctx->battlerAtk, ctx->abilityDef);
+        RecordAbilityBattle(ctx->battlerDef, ctx->abilityDef);
 
     return modifier;
 }
@@ -8846,6 +8857,7 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
     }
 
     gBattleStruct->moveResultFlags[ctx->battlerDef] &= ~(MOVE_RESULT_NOT_VERY_EFFECTIVE | MOVE_RESULT_SUPER_EFFECTIVE);
+    gSpecialStatuses[ctx->battlerDef].criticalHit = FALSE;
 
     if (dmg == 0)
         dmg = 1;

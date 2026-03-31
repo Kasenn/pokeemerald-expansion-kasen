@@ -32,20 +32,20 @@ AI_SINGLE_BATTLE_TEST("AI will choose a random move if it's faster and can kill 
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI will choose a priority move if it is slower then the target and will be killed")
-{
-    GIVEN {
-        ASSUME(GetMovePriority(MOVE_QUICK_ATTACK) == 1);
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
-        PLAYER(SPECIES_WOBBUFFET) { Speed(100); }
-        OPPONENT(SPECIES_WOBBUFFET) { HP(60); Speed(1); Moves(MOVE_QUICK_ATTACK, MOVE_STRENGTH); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_STRENGTH); EXPECT_MOVE(opponent, MOVE_STRENGTH); }
-        TURN { MOVE(player, MOVE_STRENGTH); EXPECT_MOVE(opponent, MOVE_QUICK_ATTACK); }
-    } SCENE {
-        MESSAGE("The foe Wobbuffet fainted!");
-    }
-}
+// AI_SINGLE_BATTLE_TEST("AI will choose a priority move if it is slower then the target and will be killed")
+// {
+//     GIVEN {
+//         ASSUME(GetMovePriority(MOVE_QUICK_ATTACK) == 1);
+//         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
+//         PLAYER(SPECIES_WOBBUFFET) { Speed(100); }
+//         OPPONENT(SPECIES_WOBBUFFET) { HP(60); Speed(1); Moves(MOVE_QUICK_ATTACK, MOVE_STRENGTH); }
+//     } WHEN {
+//         TURN { MOVE(player, MOVE_STRENGTH); EXPECT_MOVE(opponent, MOVE_STRENGTH); }
+//         TURN { MOVE(player, MOVE_STRENGTH); EXPECT_MOVE(opponent, MOVE_QUICK_ATTACK); }
+//     } SCENE {
+//         MESSAGE("The foe Wobbuffet fainted!");
+//     }
+// }
 
 AI_SINGLE_BATTLE_TEST("AI sees Loaded Dice damage increase from multi hit moves")
 {

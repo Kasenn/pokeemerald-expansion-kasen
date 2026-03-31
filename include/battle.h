@@ -772,6 +772,9 @@ struct BattleStruct
     u8 echoedVoiceCounter:3;
     u8 padding3:4;
     u8 setToFaint[MAX_BATTLERS_COUNT];
+    u8 dancerSavedAttacker:3;
+    u8 dancerSavedTarget:3;
+    u8 padding:2;
 };
 
 struct AiBattleData

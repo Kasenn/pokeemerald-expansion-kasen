@@ -496,6 +496,33 @@ static enum ItemEffect TryMentalHerb(u32 battler)
     return effect;
 }
 
+bool32 IsBattlerUnaffectedByMove(u32 battler)
+{
+    return gBattleStruct->moveResultFlags[battler] & MOVE_RESULT_NO_EFFECT;
+}
+
+static bool32 IsAnyTargetAffected(void)
+{
+    bool32 isSpreadMove = IsSpreadMove(GetBattlerMoveTargetType(gBattlerAttacker, gCurrentMove));
+    for (u32 battler = 0; battler < gBattlersCount; battler++)
+    {
+        if (isSpreadMove)
+        {
+            if (battler == gBattlerAttacker)
+                continue;
+        }
+        else
+        {
+            if (battler != gBattlerTarget)
+                continue;
+        }
+
+        if (!IsBattlerUnaffectedByMove(battler))
+            return TRUE;
+    }
+    return FALSE;
+}
+
 static enum ItemEffect TryThroatSpray(u32 battlerAtk)
 {
     enum ItemEffect effect = ITEM_NO_EFFECT;
@@ -503,7 +530,8 @@ static enum ItemEffect TryThroatSpray(u32 battlerAtk)
     if (IsSoundMove(gCurrentMove)
      && gMultiHitCounter == 0
      && IsBattlerAlive(battlerAtk)
-     && IsAnyTargetTurnDamaged(battlerAtk)
+     && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
+     && (IsAnyTargetTurnDamaged(battlerAtk) || (GetBattleMoveCategory(gCurrentMove) == DAMAGE_CATEGORY_STATUS && IsAnyTargetAffected()))
      && CompareStat(battlerAtk, STAT_SPATK, MAX_STAT_STAGE, CMP_LESS_THAN, GetBattlerAbility(battlerAtk))
      && !NoAliveMonsForEitherParty())   // Don't activate if battle will end
     {

@@ -501,10 +501,10 @@ bool32 IsBattlerTrapped(u32 battlerAtk, u32 battlerDef)
         && (B_SHADOW_TAG_ESCAPE >= GEN_4 && gAiLogicData->abilities[battlerDef] != ABILITY_SHADOW_TAG))
         return TRUE;
     if (AI_IsAbilityOnSide(battlerAtk, ABILITY_ARENA_TRAP)
-        && AI_IsBattlerGrounded(battlerAtk))
+        && AI_IsBattlerGrounded(battlerDef))
         return TRUE;
     if (AI_IsAbilityOnSide(battlerAtk, ABILITY_MAGNET_PULL)
-        && IS_BATTLER_OF_TYPE(battlerAtk, TYPE_STEEL))
+        && IS_BATTLER_OF_TYPE(battlerDef, TYPE_STEEL))
         return TRUE;
 
     if (gBattleTypeFlags & BATTLE_TYPE_TRAINER && CountUsablePartyMons(battlerDef) == 0)
@@ -1292,10 +1292,23 @@ static bool32 AI_IsMoveEffectInMinus(u32 battlerAtk, u32 battlerDef, u32 move, s
     return FALSE;
 }
 
+static u32 GetMoveIndex(u8 battler, u32 move)
+{
+    u16 *moves = GetMovesArray(battler);
+
+    for (u32 moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
+    {
+        if (moves[moveIndex] == move)
+            return moveIndex;
+    }
+
+    return MAX_MON_MOVES;
+}
+
 // Checks if one of the moves has side effects or perks, assuming equal dmg or equal no of hits to KO
 enum MoveComparisonResult AI_WhichMoveBetter(u32 move1, u32 move2, u32 battlerAtk, u32 battlerDef, s32 noOfHitsToKo)
 {
-    bool32 effect1, effect2;
+    bool32 effect1minus, effect1plus, effect2minus, effect2plus;
     enum Ability defAbility = gAiLogicData->abilities[battlerDef];
     enum Ability atkAbility = gAiLogicData->abilities[battlerAtk];
 
@@ -1313,18 +1326,23 @@ enum MoveComparisonResult AI_WhichMoveBetter(u32 move1, u32 move2, u32 battlerAt
     }
 
     // Check additional effects.
-    effect1 = AI_IsMoveEffectInMinus(battlerAtk, battlerDef, move1, noOfHitsToKo);
-    effect2 = AI_IsMoveEffectInMinus(battlerAtk, battlerDef, move2, noOfHitsToKo);
-    if (effect2 && !effect1)
-        return MOVE_WON_COMPARISON;
-    if (effect1 && !effect2)
-        return MOVE_LOST_COMPARISON;
+    gAiThinkingStruct->movesetIndex = GetMoveIndex(battlerAtk, move1);
+    effect1minus = AI_IsMoveEffectInMinus(battlerAtk, battlerDef, move1, noOfHitsToKo);
+    effect1plus = AI_IsMoveEffectInPlus(battlerAtk, battlerDef, move1, noOfHitsToKo);
 
-    effect1 = AI_IsMoveEffectInPlus(battlerAtk, battlerDef, move1, noOfHitsToKo);
-    effect2 = AI_IsMoveEffectInPlus(battlerAtk, battlerDef, move2, noOfHitsToKo);
-    if (effect2 && !effect1)
+    gAiThinkingStruct->movesetIndex = GetMoveIndex(battlerAtk, move2);
+    effect2plus = AI_IsMoveEffectInPlus(battlerAtk, battlerDef, move2, noOfHitsToKo);
+    effect2minus = AI_IsMoveEffectInMinus(battlerAtk, battlerDef, move2, noOfHitsToKo);
+
+    gAiThinkingStruct->movesetIndex = 0;
+
+    if (effect2minus && !effect1minus)
+        return MOVE_WON_COMPARISON;
+    if (effect1minus && !effect2minus)
         return MOVE_LOST_COMPARISON;
-    if (effect1 && !effect2)
+    if (effect2plus && !effect1plus)
+        return MOVE_LOST_COMPARISON;
+    if (effect1plus && !effect2plus)
         return MOVE_WON_COMPARISON;
 
     return MOVE_NEUTRAL_COMPARISON;

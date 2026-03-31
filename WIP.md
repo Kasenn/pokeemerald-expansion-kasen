@@ -1,6 +1,7 @@
 ENSURE THAT ALL PLAYER SPRITES WORK!!!
 CONTEST SPRITES
 fix slot machine rng + add quest to manip them
+fix upwards stairs slowing
 
 eventual redesigns:
 move trainers out of route 1?

@@ -850,3 +850,265 @@ SINGLE_BATTLE_TEST("Custom - Recoil: Hitting substitutes inflicts recoil")
         EXPECT_MUL_EQ(damage, Q_4_12(0.25), recoil);
     }
 }
+
+DOUBLE_BATTLE_TEST("Expansion Protect is not ignored after a new mon switched in because of U-Turn")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN {
+            MOVE(playerRight, MOVE_PROTECT);
+            MOVE(opponentLeft, MOVE_POUND, target: playerRight);
+            MOVE(opponentRight, MOVE_U_TURN, target: playerLeft);
+            SEND_OUT(opponentRight, 2);
+        }
+        TURN {
+            MOVE(playerLeft, MOVE_DETECT);
+            MOVE(opponentLeft, MOVE_POUND, target: playerRight);
+            MOVE(opponentRight, MOVE_POUND, target: playerLeft);
+        }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, playerRight);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponentRight);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DETECT, playerLeft);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponentLeft);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponentRight);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Secret Power inflicts paralysis in Electric Terrain")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_ELECTRIC_TERRAIN) == EFFECT_ELECTRIC_TERRAIN);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_ELECTRIC_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
+        STATUS_ICON(opponent, paralysis: TRUE);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Secret Power inflicts sleep in Grassy Terrain")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_GRASSY_TERRAIN) == EFFECT_GRASSY_TERRAIN);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_GRASSY_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
+        STATUS_ICON(opponent, sleep: TRUE);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Secret Power lowers Speed in Psychic Terrain")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_PSYCHIC_TERRAIN) == EFFECT_PSYCHIC_TERRAIN);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_PSYCHIC_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCHIC_TERRAIN, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
+    } THEN {
+        EXPECT_EQ(opponent->statStages[STAT_SPEED], DEFAULT_STAT_STAGE - 1);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Secret Power lowers Sp. Atk in Misty Terrain")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_MISTY_TERRAIN) == EFFECT_MISTY_TERRAIN);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_MISTY_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MISTY_TERRAIN, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
+    } THEN {
+        EXPECT_EQ(opponent->statStages[STAT_SPATK], DEFAULT_STAT_STAGE - 1);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Magic Bounce can't reflect back Stealth Rock from a semi-invulnerable posistion even with No Guard")
+{
+    GIVEN {
+        ASSUME(GetMoveTarget(MOVE_STEALTH_ROCK) == MOVE_TARGET_OPPONENTS_FIELD);
+        ASSUME(GetMoveEffect(MOVE_DIG) == EFFECT_SEMI_INVULNERABLE);
+        PLAYER(SPECIES_MACHAMP) { Ability(ABILITY_NO_GUARD); }
+        OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_DIG); MOVE(player, MOVE_STEALTH_ROCK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
+        NOT ABILITY_POPUP(opponent, ABILITY_MAGIC_BOUNCE);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
+        MESSAGE("Pointed stones float in the air around your foe's team!");
+    }
+}
+
+TO_DO_BATTLE_TEST("Expansion Secret Power doesn't inflict secondary effects when user fainted");
+
+SINGLE_BATTLE_TEST("Expansion Magic Guard prevents Rough Skin damage")
+{
+    GIVEN {
+        ASSUME(MoveMakesContact(MOVE_POUND));
+        PLAYER(SPECIES_CLEFABLE) { Ability(ABILITY_MAGIC_GUARD); }
+        OPPONENT(SPECIES_CARVANHA) { Ability(ABILITY_ROUGH_SKIN); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_POUND); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
+        HP_BAR(opponent);
+        ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
+        NOT HP_BAR(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Trick Room doesn't print its ending message twice when used again")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Speed(10);  }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_TRICK_ROOM); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_TRICK_ROOM); }
+        TURN { MOVE(player, MOVE_CELEBRATE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
+        MESSAGE("Wobbuffet twisted the dimensions!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
+        MESSAGE("The twisted dimensions returned to normal!");
+        NOT MESSAGE("The twisted dimensions returned to normal!");
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Trick Room reverses move order for 5 turns including the turn it is used")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Speed(1); }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(10); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_TRICK_ROOM); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Trick Room does not affect move priority")
+{
+    GIVEN {
+        ASSUME(GetMovePriority(MOVE_CELEBRATE) == 0);
+        ASSUME(GetMovePriority(MOVE_QUICK_ATTACK) == 1);
+        PLAYER(SPECIES_WOBBUFFET) { Speed(1); }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(10); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_TRICK_ROOM); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_QUICK_ATTACK); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Expansion Mirror Move works even if the target was immune to it")
+{
+    GIVEN {
+        ASSUME(GetSpeciesType(SPECIES_ROOKIDEE, 0) == TYPE_FLYING || GetSpeciesType(SPECIES_ROOKIDEE, 1) == TYPE_FLYING);
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_ROOKIDEE);
+    } WHEN {
+        TURN { MOVE(player, MOVE_EARTHQUAKE); MOVE(opponent, MOVE_MIRROR_MOVE); }
+    } SCENE {
+        NONE_OF {
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
+            HP_BAR(opponent);
+        }
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_MIRROR_MOVE, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponent);
+        HP_BAR(player);
+    }
+}
+
+AI_SINGLE_BATTLE_TEST("Expansion AI's comparison of damaging moves correctly reads moveset indexes for effects")
+{
+    u32 move = MOVE_NONE;
+    PARAMETRIZE { move = MOVE_TACKLE; }
+    PARAMETRIZE { move = MOVE_DUAL_CHOP; }
+    GIVEN {
+        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_OMNISCIENT);
+        PLAYER(SPECIES_RAPIDASH_GALAR){ Level(64); HP(1); Nature(NATURE_TIMID); Moves(MOVE_TACKLE);}
+        OPPONENT(SPECIES_HAXORUS){ Level(64); Nature(NATURE_JOLLY); Ability(ABILITY_MOLD_BREAKER); Moves(move, MOVE_EARTHQUAKE, MOVE_POISON_JAB); }
+    } WHEN {
+        TURN { 
+            MOVE(player, MOVE_TACKLE);
+            if (move == MOVE_TACKLE)
+                SCORE_EQ_VAL(opponent, MOVE_TACKLE, 104);
+            else if (move == MOVE_DUAL_CHOP)
+                SCORE_EQ_VAL(opponent, MOVE_DUAL_CHOP, 60);
+            SCORE_EQ_VAL(opponent, MOVE_EARTHQUAKE, 104);
+            SCORE_EQ_VAL(opponent, MOVE_POISON_JAB, 105);
+        }
+    }
+}
+
+AI_SINGLE_BATTLE_TEST("Expansion AI penalizes Yawn when target can self-status with Flame/Toxic Orb")
+{
+    u32 heldItem = ITEM_NONE;
+    bool32 shouldYawn = FALSE;
+
+    PARAMETRIZE { heldItem = ITEM_NONE;      shouldYawn = TRUE; }
+    PARAMETRIZE { heldItem = ITEM_FLAME_ORB; shouldYawn = FALSE; }
+    PARAMETRIZE { heldItem = ITEM_TOXIC_ORB; shouldYawn = FALSE; }
+
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_YAWN) == EFFECT_YAWN);
+        ASSUME(gItemsInfo[ITEM_FLAME_ORB].holdEffect == HOLD_EFFECT_FLAME_ORB);
+        ASSUME(gItemsInfo[ITEM_TOXIC_ORB].holdEffect == HOLD_EFFECT_TOXIC_ORB);
+        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT);
+        PLAYER(SPECIES_WOBBUFFET) { Item(heldItem); }
+        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_YAWN, MOVE_SCRATCH); }
+    } WHEN {
+        TURN {
+            if (shouldYawn)
+                SCORE_GT(opponent, MOVE_YAWN, MOVE_SCRATCH);
+            else
+                SCORE_LT(opponent, MOVE_YAWN, MOVE_SCRATCH);
+        }
+    }
+}
