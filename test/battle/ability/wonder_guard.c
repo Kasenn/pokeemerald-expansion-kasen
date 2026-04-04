@@ -1,9 +1,9 @@
 #include "global.h"
 #include "test/battle.h"
 
-SINGLE_BATTLE_TEST("Expansion Wonder Guard activates when targeted by moves not super effective against it")
+SINGLE_BATTLE_TEST("Wonder Guard activates when targeted by moves not super effective against it")
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_POUND; }
     PARAMETRIZE { move = MOVE_WATER_GUN; }
     PARAMETRIZE { move = MOVE_THUNDERSHOCK; }
@@ -28,9 +28,9 @@ SINGLE_BATTLE_TEST("Expansion Wonder Guard activates when targeted by moves not 
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Wonder Guard does not activate when targeted by moves super effective against it")
+SINGLE_BATTLE_TEST("Wonder Guard does not activate when targeted by moves super effective against it")
 {
-    u16 move;
+    enum Move move;
     PARAMETRIZE { move = MOVE_EMBER; }
     PARAMETRIZE { move = MOVE_PECK; }
     PARAMETRIZE { move = MOVE_ROCK_THROW; }

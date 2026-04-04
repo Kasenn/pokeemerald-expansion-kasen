@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveEffect(MOVE_LOCK_ON) == EFFECT_LOCK_ON);
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On volatile allows to hit through semi-invulnerability")
+SINGLE_BATTLE_TEST("Lock-On volatile allows to hit through semi-invulnerability")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -22,7 +22,7 @@ SINGLE_BATTLE_TEST("Expansion Lock-On volatile allows to hit through semi-invuln
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On skips the accuracy check for 2 turns (Player uses Lock-On)")
+SINGLE_BATTLE_TEST("Lock-On skips the accuracy check for 2 turns (Player uses Lock-On)")
 {
     PASSES_RANDOMLY(10, 10, RNG_ACCURACY);
     GIVEN {
@@ -37,13 +37,13 @@ SINGLE_BATTLE_TEST("Expansion Lock-On skips the accuracy check for 2 turns (Play
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_UPPERCUT, player);
     } THEN {
         u32 lockOn = gBattleMons[B_BATTLER_0].volatiles.lockOn;
-        u32 battlerWithSureHit = gDisableStructs[B_BATTLER_0].battlerWithSureHit;
+        u32 battlerWithSureHit = gBattleMons[B_BATTLER_0].volatiles.battlerWithSureHit;
         EXPECT_EQ(lockOn, 0);
         EXPECT_EQ(battlerWithSureHit, 0);
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On skips the accuracy check for 2 turns (Opponent uses Lock-On)")
+SINGLE_BATTLE_TEST("Lock-On skips the accuracy check for 2 turns (Opponent uses Lock-On)")
 {
     PASSES_RANDOMLY(10, 10, RNG_ACCURACY);
     GIVEN {
@@ -58,13 +58,13 @@ SINGLE_BATTLE_TEST("Expansion Lock-On skips the accuracy check for 2 turns (Oppo
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_UPPERCUT, opponent);
     } THEN {
         u32 lockOn = gBattleMons[B_BATTLER_1].volatiles.lockOn;
-        u32 battlerWithSureHit = gDisableStructs[B_BATTLER_1].battlerWithSureHit;
+        u32 battlerWithSureHit = gBattleMons[B_BATTLER_1].volatiles.battlerWithSureHit;
         EXPECT_EQ(lockOn, 0);
         EXPECT_EQ(battlerWithSureHit, 0);
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On: Baton Pass does not transfer Lock-On volatile")
+SINGLE_BATTLE_TEST("Lock-On: Baton Pass does not transfer Lock-On volatile")
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_BATON_PASS) == EFFECT_BATON_PASS);
@@ -78,12 +78,12 @@ SINGLE_BATTLE_TEST("Expansion Lock-On: Baton Pass does not transfer Lock-On vola
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LOCK_ON, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
     } THEN {
-        u32 battlerWithSureHit = gDisableStructs[B_BATTLER_0].battlerWithSureHit;
+        u32 battlerWithSureHit = gBattleMons[B_BATTLER_0].volatiles.battlerWithSureHit;
         EXPECT_EQ(battlerWithSureHit, 0);
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On: When locked on attacker faints, the volatile will be removed")
+SINGLE_BATTLE_TEST("Lock-On: When locked on attacker faints, the volatile will be removed")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { HP(1); }
@@ -95,12 +95,12 @@ SINGLE_BATTLE_TEST("Expansion Lock-On: When locked on attacker faints, the volat
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LOCK_ON, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponent);
     } THEN {
-        u32 battlerWithSureHit = gDisableStructs[B_BATTLER_0].battlerWithSureHit;
+        u32 battlerWithSureHit = gBattleMons[B_BATTLER_0].volatiles.battlerWithSureHit;
         EXPECT_EQ(battlerWithSureHit, 0);
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Lock-On: When locked on target faints, the volatile will be removed")
+SINGLE_BATTLE_TEST("Lock-On: When locked on target faints, the volatile will be removed")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -113,12 +113,12 @@ SINGLE_BATTLE_TEST("Expansion Lock-On: When locked on target faints, the volatil
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LOCK_ON, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
     } THEN {
-        u32 battlerWithSureHit = gDisableStructs[B_BATTLER_0].battlerWithSureHit;
+        u32 battlerWithSureHit = gBattleMons[B_BATTLER_0].volatiles.battlerWithSureHit;
         EXPECT_EQ(battlerWithSureHit, 0);
     }
 }
 
-DOUBLE_BATTLE_TEST("Expansion Lock-On fails if a target has been locked on")
+DOUBLE_BATTLE_TEST("Lock-On fails if a target has been locked on")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -134,4 +134,4 @@ DOUBLE_BATTLE_TEST("Expansion Lock-On fails if a target has been locked on")
     }
 }
 
-TO_DO_BATTLE_TEST("Expansion TODO: Write Lock-On/Mind Reader (Move Effect) test titles")
+TO_DO_BATTLE_TEST("TODO: Write Lock-On/Mind Reader (Move Effect) test titles")

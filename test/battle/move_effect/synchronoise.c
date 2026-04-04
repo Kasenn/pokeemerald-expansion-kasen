@@ -41,8 +41,8 @@ DOUBLE_BATTLE_TEST("Synchronoise will fail if there is no corresponding typing o
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SYNCHRONOISE, playerLeft);
         MESSAGE("Wobbuffet used Synchronoise!");
-        MESSAGE("It doesn't affect the foe Bulbasaur…");
         MESSAGE("It doesn't affect Bulbasaur…");
+        MESSAGE("It doesn't affect the foe Bulbasaur…");
         MESSAGE("It doesn't affect the foe Bulbasaur…");
         NOT MESSAGE("But it failed!");
     }
@@ -78,6 +78,8 @@ DOUBLE_BATTLE_TEST("Synchronoise will fail if the corresponding typing mon prote
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_PROTECT); MOVE(playerLeft, MOVE_SYNCHRONOISE); }
     } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponentLeft);
+        MESSAGE("The opposing Wobbuffet protected itself!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SYNCHRONOISE, playerLeft);
     }
 }
@@ -106,8 +108,8 @@ DOUBLE_BATTLE_TEST("Synchronoise will fail for a typeless user even if a target 
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SYNCHRONOISE, playerLeft);
         MESSAGE("Arcanine used Synchronoise!");
-        MESSAGE("It doesn't affect the foe Arcanine…");
         MESSAGE("It doesn't affect Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Arcanine…");
         MESSAGE("It doesn't affect the foe Wobbuffet…");
         NOT MESSAGE("But it failed!");
     }

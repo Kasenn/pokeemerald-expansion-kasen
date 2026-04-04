@@ -26,7 +26,6 @@ SINGLE_BATTLE_TEST("Levitate does not activate if protected")
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }
@@ -43,7 +42,6 @@ SINGLE_BATTLE_TEST("Levitate does not activate on status moves")
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }
@@ -59,7 +57,6 @@ SINGLE_BATTLE_TEST("Levitate does not activate if attacked by an opponent with M
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_LEVITATE);
-            MESSAGE("It doesn't affect Lunatone…");
         }
     }
 }
@@ -92,7 +89,8 @@ DOUBLE_BATTLE_TEST("Levitate does not cause single remaining target to take high
 
 AI_SINGLE_BATTLE_TEST("Levitate is seen correctly by switch AI")
 {
-    enum Ability ability = ABILITY_NONE, item = ITEM_NONE;
+    enum Ability ability = ABILITY_NONE;
+    enum Item item = ITEM_NONE;
 
     PARAMETRIZE { ability = ABILITY_OWN_TEMPO, item = ITEM_NONE ; }
     PARAMETRIZE { ability = ABILITY_MOLD_BREAKER, item = ITEM_NONE ; }

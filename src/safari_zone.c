@@ -30,7 +30,7 @@ extern const u8 SafariZone_EventScript_OutOfBallsMidBattle[];
 extern const u8 SafariZone_EventScript_OutOfBalls[];
 
 EWRAM_DATA u8 gNumSafariBalls = 0;
-EWRAM_DATA u16 sSafariZoneStepCounter = 0;
+EWRAM_DATA u16 gSafariZoneStepCounter = 0;
 EWRAM_DATA static u8 sSafariZoneCaughtMons = 0;
 EWRAM_DATA static u8 sSafariZonePkblkUses = 0;
 EWRAM_DATA static struct PokeblockFeeder sPokeblockFeeders[NUM_POKEBLOCK_FEEDERS] = {0};
@@ -61,17 +61,20 @@ void EnterSafariMode(void)
     FlagClear(FLAG_RESTED_AT_SAFARI);
     ClearAllPokeblockFeeders();
     gNumSafariBalls = 30;
-    sSafariZoneStepCounter = 500;
+    if (IS_FRLG)
+        gSafariZoneStepCounter = 600;
+    else
+        gSafariZoneStepCounter = 500;
     sSafariZoneCaughtMons = 0;
     sSafariZonePkblkUses = 0;
 }
 
 void RestAtSafari(void)
 {
-    sSafariZoneStepCounter = sSafariZoneStepCounter + 100;
-    if(sSafariZoneStepCounter >= 500)
+    gSafariZoneStepCounter = gSafariZoneStepCounter + 100;
+    if(gSafariZoneStepCounter >= 500)
     {
-        sSafariZoneStepCounter = 500;
+        gSafariZoneStepCounter = 500;
     }
 }
 
@@ -82,22 +85,22 @@ void ExitSafariMode(void)
     FlagClear(FLAG_INCREASED_SHINY_ODDS);
     ClearAllPokeblockFeeders();
     gNumSafariBalls = 0;
-    sSafariZoneStepCounter = 0;
+    gSafariZoneStepCounter = 0;
 }
 
 bool8 SafariZoneTakeStep(void)
 {
     if(FlagGet(FLAG_DESERT_STEPS))
     {
-        if(sSafariZoneStepCounter == 0)
+        if(gSafariZoneStepCounter == 0)
         {
-            sSafariZoneStepCounter = 500;
+            gSafariZoneStepCounter = 500;
         }
 
-        sSafariZoneStepCounter--;
-        if (sSafariZoneStepCounter == 425)
+        gSafariZoneStepCounter--;
+        if (gSafariZoneStepCounter == 425)
         {
-            sSafariZoneStepCounter = 500;
+            gSafariZoneStepCounter = 500;
             ScriptContext_SetupScript(ScorchedDesert_TriggerQuakes);
             return TRUE;
         }
@@ -110,10 +113,10 @@ bool8 SafariZoneTakeStep(void)
 
     if(gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_SAFARI_ZONE_REST_HOUSE)){
         DecrementFeederStepCounters();
-        sSafariZoneStepCounter--;
+        gSafariZoneStepCounter--;
     }
     
-    if (sSafariZoneStepCounter == 0)
+    if (gSafariZoneStepCounter == 0)
     {
         ScriptContext_SetupScript(SafariZone_EventScript_TimesUp);
         return TRUE;

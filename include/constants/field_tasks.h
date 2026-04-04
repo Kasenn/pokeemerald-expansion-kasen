@@ -18,5 +18,6 @@
 #define STEP_CB_LATIASISLAND        14
 #define STEP_CB_LATIOSISLAND        15
 #define STEP_CB_WAILORD             16
+#define STEP_CB_ICEFALL_CAVE        17
 
 #endif // GUARD_CONSTANTS_FIELD_TASKS_H

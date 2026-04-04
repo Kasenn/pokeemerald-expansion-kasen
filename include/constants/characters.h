@@ -236,6 +236,9 @@
 #define EXT_CTRL_CODE_PAUSE_MUSIC            0x17
 #define EXT_CTRL_CODE_RESUME_MUSIC           0x18
 #define EXT_CTRL_CODE_SPEAKER                0x19
+#define EXT_CTRL_CODE_ACCENT                 0x1A
+#define EXT_CTRL_CODE_BACKGROUND             0x1B
+#define EXT_CTRL_CODE_TEXT_COLORS            0x1C
 #define EXT_CTRL_CODE_PAL_CHANGE             0x20
 #define EXT_CTRL_CODE_CUSTOM                 0x21
 
@@ -271,10 +274,7 @@
 #define PLACEHOLDER_ID_KYOGRE        0xC
 #define PLACEHOLDER_ID_GROUDON       0xD
 #define PLACEHOLDER_ID_BROTHER       0xE
-// Fixed-case placeholders
-// These behave the same as their (id & 0x7F),
-// but prepend CHAR_FIXED_CASE
-#define PLACEHOLDER_FIXED_MASK       0x80
+#define PLACEHOLDER_ID_REGION        0xF
 
 // battle placeholders are located in battle_message.h
 

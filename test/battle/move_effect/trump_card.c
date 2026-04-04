@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(GetMoveEffect(MOVE_TRUMP_CARD) == EFFECT_TRUMP_CARD);
 }
 
-SINGLE_BATTLE_TEST("Expansion Trump Card increases in power if its PP is low", s16 damage)
+SINGLE_BATTLE_TEST("Trump Card increases in power if its PP is low", s16 damage)
 {
     // pp + 1 is assigned as the move's PP as it will be reduced before its base power is determined
     u32 pp;
@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("Expansion Trump Card increases in power if its PP is low", s
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Trump Card doesn't increase in power if its PP is low when called by a different move", s16 damage)
+SINGLE_BATTLE_TEST("Trump Card doesn't increase in power if its PP is low when called by a different move", s16 damage)
 {
     u32 pp;
 
@@ -55,7 +55,7 @@ SINGLE_BATTLE_TEST("Expansion Trump Card doesn't increase in power if its PP is 
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Trump Card increases in power if the move that called it has low PP", s16 damage)
+SINGLE_BATTLE_TEST("Trump Card increases in power if the move that called it has low PP", s16 damage)
 {
     // pp + 1 is assigned as the move's PP as it will be reduced before its base power is determined
     u32 pp;
@@ -75,23 +75,5 @@ SINGLE_BATTLE_TEST("Expansion Trump Card increases in power if the move that cal
         HP_BAR(opponent, captureDamage: &results[i].damage);
     } FINALLY {
         EXPECT_MUL_EQ(results[0].damage, UQ_4_12(5.0), results[1].damage);
-    }
-}
-
-DOUBLE_BATTLE_TEST("Expansion Lightning Rod doesn't activate if user has fainted")
-{
-    GIVEN {
-        ASSUME(GetMoveType(MOVE_SPARK) == TYPE_ELECTRIC);
-        PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_RAICHU) { HP(1); Ability(ABILITY_LIGHTNING_ROD); }
-    } WHEN {
-        TURN { MOVE(playerLeft, MOVE_POUND, target: opponentRight); MOVE(playerRight, MOVE_SPARK, target: opponentLeft); }
-    } SCENE {
-        NONE_OF {
-            MESSAGE("The opposing Raichu's Lightning Rod took the attack");
-            ABILITY_POPUP(opponentRight, ABILITY_LIGHTNING_ROD);
-        }
     }
 }

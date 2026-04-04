@@ -12,7 +12,7 @@ DOUBLE_BATTLE_TEST("Expansion Throat Spray activates after both hits of a spread
 
     GIVEN {
         ASSUME(IsSoundMove(MOVE_HYPER_VOICE) == TRUE);
-        ASSUME(GetMoveTarget(MOVE_HYPER_VOICE) == MOVE_TARGET_BOTH);
+        ASSUME(GetMoveTarget(MOVE_HYPER_VOICE) == TARGET_BOTH);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_THROAT_SPRAY); }
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -29,11 +29,11 @@ DOUBLE_BATTLE_TEST("Expansion Throat Spray activates after both hits of a spread
     }
 }
 
-DOUBLE_BATTLE_TEST("Expansion Throat Spray activates after both hits of a spread move, even if one foe protects")
+DOUBLE_BATTLE_TEST("Throat Spray activates after both hits of a spread move, even if one foe protects")
 {
     GIVEN {
         ASSUME(IsSoundMove(MOVE_BOOMBURST) == TRUE);
-        ASSUME(GetMoveTarget(MOVE_BOOMBURST) == MOVE_TARGET_FOES_AND_ALLY);
+        ASSUME(GetMoveTarget(MOVE_BOOMBURST) == TARGET_FOES_AND_ALLY);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_THROAT_SPRAY); }
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_WOBBUFFET);
@@ -48,11 +48,11 @@ DOUBLE_BATTLE_TEST("Expansion Throat Spray activates after both hits of a spread
     }
 }
 
-DOUBLE_BATTLE_TEST("Expansion Throat Spray does not activate if both foes take no damage from a move that targets both")
+DOUBLE_BATTLE_TEST("Throat Spray does not activate if both foes take no damage from a move that targets both")
 {
     GIVEN {
         ASSUME(IsSoundMove(MOVE_HYPER_VOICE) == TRUE);
-        ASSUME(GetMoveTarget(MOVE_HYPER_VOICE) == MOVE_TARGET_BOTH);
+        ASSUME(GetMoveTarget(MOVE_HYPER_VOICE) == TARGET_BOTH);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_THROAT_SPRAY); }
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_WOBBUFFET) { Ability(ABILITY_SOUNDPROOF); }
@@ -67,7 +67,7 @@ DOUBLE_BATTLE_TEST("Expansion Throat Spray does not activate if both foes take n
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Throat Spray increases Sp. Atk by one stage")
+SINGLE_BATTLE_TEST("Throat Spray increases Sp. Atk by one stage")
 {
     s16 normalHit;
     s16 boostedHit;
@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("Expansion Throat Spray increases Sp. Atk by one stage")
 
 SINGLE_BATTLE_TEST("Expansion Throat Spray activates when a sound move is used")
 {
-    u16 move;
+    enum Move move;
 
     PARAMETRIZE { move = MOVE_SWIFT; }
     PARAMETRIZE { move = MOVE_HOWL; }
@@ -119,7 +119,7 @@ SINGLE_BATTLE_TEST("Expansion Throat Spray activates when a sound move is used")
 
 
 
-SINGLE_BATTLE_TEST("Expansion Throat Spray does not activate if move fails")
+SINGLE_BATTLE_TEST("Throat Spray does not activate if move fails")
 {
     GIVEN {
         ASSUME(IsSoundMove(MOVE_PARTING_SHOT) == TRUE);
@@ -163,7 +163,7 @@ SINGLE_BATTLE_TEST("Expansion Throat Spray does not activate if user flinches")
     }
 }
 
-SINGLE_BATTLE_TEST("Expansion Throat Spray does not activate if user flinches with status move")
+SINGLE_BATTLE_TEST("Throat Spray does not activate if user flinches with status move")
 {
     GIVEN {
         ASSUME(IsSoundMove(MOVE_HYPER_VOICE) == TRUE);
@@ -181,7 +181,7 @@ SINGLE_BATTLE_TEST("Expansion Throat Spray does not activate if user flinches wi
 }
 
 
-SINGLE_BATTLE_TEST("Expansion Throat Spray is not blocked by Sheer Force")
+SINGLE_BATTLE_TEST("Throat Spray is not blocked by Sheer Force")
 {
     GIVEN {
         ASSUME(IsSoundMove(MOVE_BUG_BUZZ) == TRUE);

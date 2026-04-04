@@ -49,6 +49,19 @@ struct LinkPlayerObjectEvent
     u8 movementMode;
 };
 
+struct CreditsOverworldCmd
+{
+    s16 unk_0;
+    s16 unk_2;
+    s16 unk_4;
+};
+
+enum {
+    MUSIC_DISABLE_OFF,
+    MUSIC_DISABLE_STOP,
+    MUSIC_DISABLE_KEEP,
+};
+
 // Exported RAM declarations
 extern struct WarpData gLastUsedWarp;
 extern struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4];
@@ -69,6 +82,7 @@ extern bool8 gWarpInProgress;
 extern bool8 gEnchantedForestNight;
 extern bool8 gOpenedMapFromItem;
 extern bool8 gOnLatiIslands;
+extern u8 gDisableMapMusicChangeOnMapLoad;
 
 extern struct TimeBlendSettings gTimeBlend;
 
@@ -182,6 +196,7 @@ bool32 Overworld_SendKeysToLinkIsRunning(void);
 bool32 IsSendingKeysOverCable(void);
 void ClearLinkPlayerObjectEvents(void);
 bool16 SetTimeOfDay(u16 hours);
+bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior);
 
 // Item Description Headers
 enum ItemObtainFlags
@@ -189,6 +204,9 @@ enum ItemObtainFlags
     FLAG_GET_ITEM_OBTAINED,
     FLAG_SET_ITEM_OBTAINED,
 };
-bool8 GetSetItemObtained(u16 item, enum ItemObtainFlags caseId);
+bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId);
+
+void Overworld_CreditsMainCB(void);
+bool32 Overworld_DoScrollSceneForCredits(u8 *, const struct CreditsOverworldCmd *);
 
 #endif // GUARD_OVERWORLD_H

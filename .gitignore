@@ -46,6 +46,8 @@ Stitch_From_KaolisleCity.png
 Stitch_From_KaolisleCity2.png
 Stitch_From_Route109.png
 /pokeemerald-*.png
+/pokefirered-*.png
+/pokeleafgreen-*.png
 src/data/map_group_count.h
 team_magma2.png
 team_magma2.bin
@@ -76,3 +78,4 @@ Stitch_From_BasaluffTown.png
 *.fastSmol
 *.smolTM
 __pycache__
+.map_version

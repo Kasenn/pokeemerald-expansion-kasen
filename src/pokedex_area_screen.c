@@ -12,6 +12,7 @@
 #include "palette.h"
 #include "pokedex.h"
 #include "pokedex_area_screen.h"
+#include "regions.h"
 #include "region_map.h"
 #include "roamer.h"
 #include "rtc.h"
@@ -39,7 +40,10 @@
 // Only maps in the following map groups have their encounters considered for the area screen
 #define MAP_GROUP_TOWNS_AND_ROUTES MAP_GROUP(MAP_SHORESLATE_CITY)
 #define MAP_GROUP_DUNGEONS MAP_GROUP(MAP_WINDY_WOODS)
+#define MAP_GROUP_TOWNS_AND_ROUTES_FRLG MAP_GROUP(MAP_SHORESLATE_CITY)
+#define MAP_GROUP_DUNGEONS_FRLG MAP_GROUP(MAP_WINDY_WOODS)
 #define MAP_GROUP_SPECIAL_AREA MAP_GROUP(MAP_SAFARI_ZONE_NORTHWEST)
+#define MAP_GROUP_SPECIAL_AREA_FRLG MAP_GROUP(MAP_NAVEL_ROCK_EXTERIOR_FRLG)
 
 #define AREA_SCREEN_WIDTH 32
 #define AREA_SCREEN_HEIGHT 20
@@ -207,10 +211,6 @@ static const struct SpriteTemplate sAreaMarkerSpriteTemplate =
     .tileTag = TAG_AREA_MARKER,
     .paletteTag = TAG_AREA_MARKER,
     .oam = &sAreaMarkerOamData,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
 };
 
 static const u16 sAreaMarkerPalette[] = INCBIN_U16("graphics/pokedex/area_marker.gbapal");
@@ -233,10 +233,6 @@ static const struct SpriteTemplate sAreaUnknownSpriteTemplate =
     .tileTag = TAG_AREA_UNKNOWN,
     .paletteTag = TAG_AREA_UNKNOWN,
     .oam = &sAreaUnknownOamData,
-    .anims = gDummySpriteAnimTable,
-    .images = NULL,
-    .affineAnims = gDummySpriteAffineAnimTable,
-    .callback = SpriteCallbackDummy
 };
 
 static const u8 sFontColor_AreaInfo[3] = {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE, 5};
@@ -304,6 +300,7 @@ static bool8 DrawAreaGlow(void)
 
 static void FindMapsWithMon(u16 species)
 {
+    enum RegionMapType currentRegionMapType;
     u16 i;
     struct Roamer *roamer;
 
@@ -334,28 +331,40 @@ static void FindMapsWithMon(u16 species)
             switch (sFeebasData[i][1])
             {
             case MAP_GROUP_TOWNS_AND_ROUTES:
+            case MAP_GROUP_TOWNS_AND_ROUTES_FRLG:
                 SetAreaHasMon(sFeebasData[i][1], sFeebasData[i][2]);
                 break;
             case MAP_GROUP_DUNGEONS:
+            case MAP_GROUP_DUNGEONS_FRLG:
             case MAP_GROUP_SPECIAL_AREA:
+            case MAP_GROUP_SPECIAL_AREA_FRLG:
                 SetSpecialMapHasMon(sFeebasData[i][1], sFeebasData[i][2]);
                 break;
             }
         }
     }
 
+    currentRegionMapType = GetRegionMapType(gMapHeader.regionMapSectionId);
     // Add regular species to the area map
     for (i = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(MAP_UNDEFINED); i++)
     {
+        u32 headerSectionId = Overworld_GetMapHeaderByGroupAndId(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum)->regionMapSectionId;
+
+        if (GetRegionMapType(headerSectionId) != currentRegionMapType)
+            continue;
+
         if (MapHasSpecies(&gWildMonHeaders[i].encounterTypes[gAreaTimeOfDay], species))
         {
             switch (gWildMonHeaders[i].mapGroup)
             {
             case MAP_GROUP_TOWNS_AND_ROUTES:
+            case MAP_GROUP_TOWNS_AND_ROUTES_FRLG:
                 SetAreaHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;
             case MAP_GROUP_DUNGEONS:
+            case MAP_GROUP_DUNGEONS_FRLG:
             case MAP_GROUP_SPECIAL_AREA:
+            case MAP_GROUP_SPECIAL_AREA_FRLG:
                 SetSpecialMapHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;
             }
@@ -771,11 +780,11 @@ static void Task_ShowPokedexAreaScreen(u8 taskId)
         CreateAreaMarkerSprites();
         break;
     case 7:
-        if(!OW_TIME_OF_DAY_ENCOUNTERS)
+        if (!OW_TIME_OF_DAY_ENCOUNTERS)
             LoadAreaUnknownGraphics();
         break;
     case 8:
-        if(!OW_TIME_OF_DAY_ENCOUNTERS)
+        if (!OW_TIME_OF_DAY_ENCOUNTERS)
             CreateAreaUnknownSprites();
         break;
     case 9:
