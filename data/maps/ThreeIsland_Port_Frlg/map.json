@@ -1,7 +1,7 @@
 {
   "id": "MAP_THREE_ISLAND_PORT",
   "name": "ThreeIsland_Port_Frlg",
-  "layout": "LAYOUT_THREE_ISLAND_PORT",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_ROUTE3",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_THREE_ISLE_PORT",

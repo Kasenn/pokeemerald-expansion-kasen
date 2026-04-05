@@ -89,7 +89,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilHelix::
 	waitmessage
 	call CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckAddOldAmberToList
 	goto_if_eq VAR_RESULT, TRUE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilHelixAmber
-	multichoice 0, 0, MULTI_HELIX, FALSE
+	multichoice 0, 0, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowHelixFossil
 	case 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DontShowFossil
@@ -101,7 +101,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilDome::
 	waitmessage
 	call CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_CheckAddOldAmberToList
 	goto_if_eq VAR_RESULT, TRUE, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilDomeAmber
-	multichoice 0, 0, MULTI_DOME, FALSE
+	multichoice 0, 0, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowDomeFossil
 	case 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DontShowFossil
@@ -111,7 +111,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilDome::
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilAmber::
 	message CinnabarIsland_PokemonLab_ExperimentRoom_Text_HaveYouAFossilForMe
 	waitmessage
-	multichoice 0, 0, MULTI_AMBER, FALSE
+	multichoice 0, 0, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowOldAmber
 	case 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_DontShowFossil
@@ -119,7 +119,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilAmber::
 	end
 
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilHelixAmber::
-	multichoice 0, 0, MULTI_HELIX_AMBER, FALSE
+	multichoice 0, 0, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowHelixFossil
 	case 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowOldAmber
@@ -128,7 +128,7 @@ CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilHelixAmber::
 	end
 
 CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ChooseFossilDomeAmber::
-	multichoice 0, 0, MULTI_DOME_AMBER, FALSE
+	multichoice 0, 0, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowDomeFossil
 	case 1, CinnabarIsland_PokemonLab_ExperimentRoom_EventScript_ShowOldAmber

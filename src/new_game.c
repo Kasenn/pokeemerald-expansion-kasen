@@ -28,7 +28,6 @@
 #include "battle_records.h"
 #include "item.h"
 #include "pokedex.h"
-#include "apprentice.h"
 #include "frontier_util.h"
 #include "pokedex.h"
 #include "save.h"

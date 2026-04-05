@@ -11,7 +11,7 @@ CeladonCity_GameCorner_EventScript_PhotoPrinter::
 	waitse
 	message CeladonCity_GameCorner_Text_ChoosePrintType
 	waitmessage
-	multichoice 21, 0, MULTI_TRAINER_CARD_ICON_TINT, TRUE
+	multichoice 21, 0, MULTI_UNUSED, TRUE
 	switch VAR_RESULT
 	case 0, CeladonCity_GameCorner_EventScript_PrintTypeNormal
 	case 1, CeladonCity_GameCorner_EventScript_PrintTypeBlack
@@ -111,7 +111,7 @@ FourIsland_House2_EventScript_ChooseBrag::
 	end
 
 FourIsland_House2_EventScript_ChooseBragHoF::
-	multichoice 15, 8, MULTI_HOF_QUIT, FALSE
+	multichoice 15, 8, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragHoF
 	case 1, FourIsland_House2_EventScript_QuitBrag
@@ -119,7 +119,7 @@ FourIsland_House2_EventScript_ChooseBragHoF::
 	end
 
 FourIsland_House2_EventScript_ChooseBragEggs::
-	multichoice 16, 8, MULTI_EGGS_QUIT, FALSE
+	multichoice 16, 8, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragEggs
 	case 1, FourIsland_House2_EventScript_QuitBrag
@@ -127,7 +127,7 @@ FourIsland_House2_EventScript_ChooseBragEggs::
 	end
 
 FourIsland_House2_EventScript_ChooseBragLinkWins::
-	multichoice 15, 8, MULTI_VICTORIES_QUIT, FALSE
+	multichoice 15, 8, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragLinkWins
 	case 1, FourIsland_House2_EventScript_QuitBrag
@@ -135,7 +135,7 @@ FourIsland_House2_EventScript_ChooseBragLinkWins::
 	end
 
 FourIsland_House2_EventScript_ChooseBragHoFEggs::
-	multichoice 15, 6, MULTI_HOF_EGGS_QUIT, FALSE
+	multichoice 15, 6, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragHoF
 	case 1, FourIsland_House2_EventScript_BragEggs
@@ -144,7 +144,7 @@ FourIsland_House2_EventScript_ChooseBragHoFEggs::
 	end
 
 FourIsland_House2_EventScript_ChooseBragHoFLinkWins::
-	multichoice 15, 6, MULTI_HOF_VICTORIES_QUIT, FALSE
+	multichoice 15, 6, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragHoF
 	case 1, FourIsland_House2_EventScript_BragLinkWins
@@ -153,7 +153,7 @@ FourIsland_House2_EventScript_ChooseBragHoFLinkWins::
 	end
 
 FourIsland_House2_EventScript_ChooseBragEggsLinkWins::
-	multichoice 15, 6, MULTI_EGGS_VICTORIES_QUIT, FALSE
+	multichoice 15, 6, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragEggs
 	case 1, FourIsland_House2_EventScript_BragLinkWins
@@ -162,7 +162,7 @@ FourIsland_House2_EventScript_ChooseBragEggsLinkWins::
 	end
 
 FourIsland_House2_EventScript_ChooseBragHofEggsLinkWins::
-	multichoice 15, 5, MULTI_HOF_EGGS_VICTORIES_QUIT, FALSE
+	multichoice 15, 5, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, FourIsland_House2_EventScript_BragHoF
 	case 1, FourIsland_House2_EventScript_BragEggs

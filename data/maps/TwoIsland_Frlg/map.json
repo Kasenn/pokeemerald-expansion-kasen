@@ -1,7 +1,7 @@
 {
   "id": "MAP_TWO_ISLAND",
   "name": "TwoIsland_Frlg",
-  "layout": "LAYOUT_TWO_ISLAND",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_123",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_TWO_ISLAND",

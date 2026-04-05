@@ -2179,8 +2179,8 @@ static const u8 sFillValuesQwerty[KBPAGE_COUNT_QWERTY] =
 
 static const u8 *const sKeyboardTextColorsQwerty[KBPAGE_COUNT_QWERTY] =
 {
-    [KEYBOARD_LETTERS_LOWER] = sTextColorStruct.colors[1],
-    [KEYBOARD_LETTERS_UPPER] = sTextColorStruct.colors[0],
+    [KEYBOARD_LETTERS_LOWER] = sTextColorStruct[1],
+    [KEYBOARD_LETTERS_UPPER] = sTextColorStruct[0],
 };
 
 static void PrintKeyboardKeys(u8 window, u8 page)

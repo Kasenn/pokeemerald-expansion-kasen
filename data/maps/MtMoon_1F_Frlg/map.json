@@ -1,7 +1,7 @@
 {
   "id": "MAP_MT_MOON_1F",
   "name": "MtMoon_1F_Frlg",
-  "layout": "LAYOUT_MT_MOON_1F",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_MT_MOON",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_MT_MOON",

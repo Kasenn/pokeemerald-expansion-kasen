@@ -1471,22 +1471,3 @@ void HandleBoulderFallThroughHole(struct ObjectEvent * object)
         FlagClear(GetBoulderRevealFlagByLocalIdAndMap(object->localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup));
     }
 }
-
-void HandleBoulderActivateVictoryRoadSwitch(u16 x, u16 y)
-{
-    int i;
-    const struct CoordEvent * events = gMapHeader.events->coordEvents;
-    int n = gMapHeader.events->coordEventCount;
-
-    if (MapGridGetMetatileBehaviorAt(x, y) == MB_STRENGTH_BUTTON)
-    {
-        for (i = 0; i < n; i++)
-        {
-            if (events[i].x + MAP_OFFSET == x && events[i].y + MAP_OFFSET == y)
-            {
-                ScriptContext_SetupScript(events[i].script);
-                LockPlayerFieldControls();
-            }
-        }
-    }
-}

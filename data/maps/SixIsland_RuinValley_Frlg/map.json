@@ -1,7 +1,7 @@
 {
   "id": "MAP_SIX_ISLAND_RUIN_VALLEY",
   "name": "SixIsland_RuinValley_Frlg",
-  "layout": "LAYOUT_SIX_ISLAND_RUIN_VALLEY",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_ROUTE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_RUIN_VALLEY",

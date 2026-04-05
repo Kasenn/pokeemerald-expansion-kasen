@@ -1,7 +1,7 @@
 {
   "id": "MAP_NAVEL_ROCK_HARBOR_FRLG",
   "name": "NavelRock_Harbor_Frlg",
-  "layout": "LAYOUT_ISLAND_HARBOR_FRLG",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_ROUTE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_NAVEL_ROCK_FRLG",

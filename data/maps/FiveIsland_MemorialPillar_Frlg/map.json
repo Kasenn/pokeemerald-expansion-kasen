@@ -1,7 +1,7 @@
 {
   "id": "MAP_FIVE_ISLAND_MEMORIAL_PILLAR",
   "name": "FiveIsland_MemorialPillar_Frlg",
-  "layout": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_ROUTE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_MEMORIAL_PILLAR",

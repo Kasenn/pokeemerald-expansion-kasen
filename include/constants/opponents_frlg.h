@@ -322,7 +322,6 @@
 #define TRAINER_LEADER_LT_SURGE                    316
 #define TRAINER_LEADER_ERIKA                       317
 #define TRAINER_LEADER_KOGA                        318
-#define TRAINER_LEADER_BLAINE                      319
 #define TRAINER_LEADER_SABRINA                     320
 #define TRAINER_GENTLEMAN_THOMAS                   321
 #define TRAINER_GENTLEMAN_ARTHUR                   322

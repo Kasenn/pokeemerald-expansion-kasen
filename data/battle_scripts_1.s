@@ -2830,34 +2830,34 @@ BattleScript_AlreadyParalyzed::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-BattleScript_EffectTwoTurnsAttack::@//wip
-	jumpifvolatile BS_ATTACKER, VOLATILE_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn@//wip
-	tryfiretwoturnmovewithoutcharging BS_ATTACKER, BattleScript_EffectHit @ e.g. Solar Beam@//wip
-	call BattleScript_FirstChargingTurn@//wip
-	tryfiretwoturnmoveaftercharging BS_ATTACKER, BattleScript_TwoTurnMovesSecondTurn @ e.g. Electro Shot@//wip
-	jumpifmove MOVE_SKY_ATTACK, BattleScript_CheckWindEffect@//wip
-	jumpifmove MOVE_RAZOR_WIND, BattleScript_CheckWindEffect@//wip
-	jumpifmove MOVE_BOUNCE, BattleScript_CheckWindEffect@//wip
-	jumpifmove MOVE_FLY, BattleScript_CheckWindEffect@//wip
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
-	goto BattleScript_MoveEnd@//wip
-@//wip
-BattleScript_CheckWindEffect:@//wip
-	jumpifweatheraffected B_WEATHER_STRONG_WINDS, BattleScript_WindActivates@//wip
-	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
-	goto BattleScript_MoveEnd@//wip
-@//wip
-BattleScript_WindActivates:@//wip
-	call BattleScript_WeatherWindActivation@//wip
-	goto BattleScript_FromTwoTurnMovesSecondTurnRet@//wip
-@//wip
-BattleScript_WeatherWindActivation::@//wip
-	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT@//wip
-	printstring STRINGID_WEATHERWIND@//wip
-	waitmessage B_WAIT_TIME_MED@//wip
-	printstring STRINGID_USEDMOVE@//wip
-	waitmessage B_WAIT_TIME_LONG@//wip
-	return@//wip
+@ BattleScript_EffectTwoTurnsAttack::@//wip
+@ 	jumpifvolatile BS_ATTACKER, VOLATILE_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn@//wip
+@ 	tryfiretwoturnmovewithoutcharging BS_ATTACKER, BattleScript_EffectHit @ e.g. Solar Beam@//wip
+@ 	call BattleScript_FirstChargingTurn@//wip
+@ 	tryfiretwoturnmoveaftercharging BS_ATTACKER, BattleScript_TwoTurnMovesSecondTurn @ e.g. Electro Shot@//wip
+@ 	jumpifmove MOVE_SKY_ATTACK, BattleScript_CheckWindEffect@//wip
+@ 	jumpifmove MOVE_RAZOR_WIND, BattleScript_CheckWindEffect@//wip
+@ 	jumpifmove MOVE_BOUNCE, BattleScript_CheckWindEffect@//wip
+@ 	jumpifmove MOVE_FLY, BattleScript_CheckWindEffect@//wip
+@ 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
+@ 	goto BattleScript_MoveEnd@//wip
+@ @//wip
+@ BattleScript_CheckWindEffect:@//wip
+@ 	jumpifweatheraffected B_WEATHER_STRONG_WINDS, BattleScript_WindActivates@//wip
+@ 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
+@ 	goto BattleScript_MoveEnd@//wip
+@ @//wip
+@ BattleScript_WindActivates:@//wip
+@ 	call BattleScript_WeatherWindActivation@//wip
+@ 	goto BattleScript_FromTwoTurnMovesSecondTurnRet@//wip
+@ @//wip
+@ BattleScript_WeatherWindActivation::@//wip
+@ 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT@//wip
+@ 	printstring STRINGID_WEATHERWIND@//wip
+@ 	waitmessage B_WAIT_TIME_MED@//wip
+@ 	printstring STRINGID_USEDMOVE@//wip
+@ 	waitmessage B_WAIT_TIME_LONG@//wip
+@ 	return@//wip
 
 BattleScript_EffectGeomancy::
 	attackcanceler
@@ -3248,7 +3248,7 @@ BattleScript_ForestsCurseEqualByte::
 	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
-	accuracycheck BattleScript_MoveMissedPause, ACC_CURR_MOVE
+	accuracycheck BattleScript_MoveMissedPause
 	forestscursetarget BattleScript_ButItFailed
 	setbyte sB_ANIM_TURN, 0
 	attackanimation
@@ -4581,7 +4581,7 @@ BattleScript_WeatherAbilityActivatesContinue:
 	return
 
 BattleScript_SandSpitActivates::
-	printstring STRINGID_ASANDSTORMKICKEDUP
+	printstring STRINGID_SANDSTORMBREWED
 	goto BattleScript_WeatherAbilityActivatesContinue
 
 BattleScript_WeatherContinues::
@@ -8390,8 +8390,9 @@ BattleScript_BerserkGeneRet::
 	call BattleScript_StatUp
 BattleScript_BerserkGeneRet_TryConfuse:
 	jumpifability BS_SCRIPTING, ABILITY_OWN_TEMPO, BattleScript_BerserkGeneRet_OwnTempoPrevents
-	jumpifbreachpierces BattleScript_SkipSafeguardCheck_BerserkGeneRet
+	jumpifbreachpierces BattleScript_BerserkGeneRet_TryConfuse2
 	jumpifsafeguard BattleScript_BerserkGeneRet_SafeguardProtected
+BattleScript_BerserkGeneRet_TryConfuse2:
 	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_CONFUSION
 	goto BattleScript_BerserkGeneRet_End
 BattleScript_BerserkGeneRet_SafeguardProtected::
@@ -8450,7 +8451,7 @@ BattleScript_EffectFlash::
 	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ACC, MIN_STAT_STAGE, BattleScript_FlashDoMoveAnim
 	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
 BattleScript_FlashDoMoveAnim::
-	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	accuracycheck BattleScript_ButItFailed
 	attackanimation
 	waitanimation
 	setbyte sSTAT_ANIM_PLAYED, FALSE

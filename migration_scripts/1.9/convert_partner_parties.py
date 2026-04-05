@@ -182,7 +182,7 @@ is_trainer_skip = re.compile(r'(const struct Trainer gBattlePartners\[\] = \{)|(
 begin_trainer_definition           = re.compile(r'    \[(PARTNER_\w+)\] =')
 end_trainer_definition             = re.compile(r'    }')
 trainer_class_definition           = re.compile(r'\.trainerClass = TRAINER_CLASS_(\w+)')
-encounter_music_gender_definition  = re.compile(r'\.encounterMusic_gender = (F_TRAINER_FEMALE \| )?TRAINER_ENCOUNTER_MUSIC_(\w+)')
+encounter_music_gender_definition  = re.compile(r'\.encounterMusic = (F_TRAINER_FEMALE \| )?TRAINER_ENCOUNTER_MUSIC_(\w+)')
 trainer_pic_definition             = re.compile(r'\.trainerPic = TRAINER_BACK_PIC_(\w+)')
 trainer_name_definition            = re.compile(r'\.trainerName = _\("([^"]*)"\)')
 trainer_items_definition           = re.compile(r'\.items = \{([^}]*)\}')

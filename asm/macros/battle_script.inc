@@ -821,8 +821,12 @@
 	.endm
 
 	.macro forestscursetarget failInstr:req
-	.byte B_SCR_OP_FORESTCURSE
+	callnative Cmd_forestscurse
 	.4byte \failInstr
+	.endm
+
+	.macro setcameraeffect
+	callnative BS_SetCameraEffect
 	.endm
 
 	.macro tryinfatuating failInstr:req
@@ -1114,7 +1118,7 @@
 	.endm
 
 	.macro jumpifbreachpierces jumpInstr:req
-	.byte B_SCR_OP_JUMPIFBREACHPIERCE
+	callnative Cmd_jumpifbreachpierces
 	.4byte \jumpInstr
 	.endm
 

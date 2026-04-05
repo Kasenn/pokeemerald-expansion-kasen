@@ -1,7 +1,7 @@
 {
   "id": "MAP_SILPH_CO_10F",
   "name": "SilphCo_10F_Frlg",
-  "layout": "LAYOUT_SILPH_CO_10F",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SILPH",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_SILPH_CO",

@@ -235,7 +235,6 @@ BattleScript_WallyBallThrow::
 	finishturn
 
 BattleScript_ShakeBallThrow::
-	animatewildpokemonafterfailedpokeball BS_TARGET
 	waitmessage B_WAIT_TIME_LONG
 	printfromtable gBallEscapeStringIds
 	waitanimation

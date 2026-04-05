@@ -431,6 +431,9 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
                 case STATUS_FIELD_PSYCHIC_TERRAIN:
                     sBattleAnimScriptPtr = gBattleAnimMove_Confusion;
                     break;
+                case STATUS_FIELD_ROCKY_TERRAIN:
+                    sBattleAnimScriptPtr = gBattleAnimMove_RockSlide;
+                    break;
                 }
             }
             else

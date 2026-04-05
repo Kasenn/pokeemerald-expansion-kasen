@@ -1,6 +1,5 @@
 #include "global.h"
 #include "battle_tower.h"
-#include "apprentice.h"
 #include "event_data.h"
 #include "battle_setup.h"
 #include "battle_special.h"
@@ -687,10 +686,6 @@ static const u8 *const *const sPartnerApprenticeTextTables[NUM_APPRENTICES] =
 #include "data/battle_frontier/battle_tent.h"
 
 #include "data/partner_parties.h"
-const struct Trainer gBattlePartners[PARTNER_COUNT] =
-{
-#include "data/battle_partners.h"
-};
 
 static void (* const sBattleTowerFuncs[])(void) =
 {
@@ -1901,38 +1896,38 @@ bool32 EmeraldBattleTowerRecordToRuby(struct EmeraldBattleTowerRecord *src, stru
     }
 }
 
-void CalcApprenticeChecksum(struct Apprentice *apprentice)
-{
-    s32 i;
+// void CalcApprenticeChecksum(struct Apprentice *apprentice)
+// {
+//     s32 i;
 
-    apprentice->checksum = 0;
-    for (i = 0; i < offsetof(struct Apprentice, checksum) / sizeof(u32); i++)
-        apprentice->checksum += ((u32 *)apprentice)[i];
-}
+//     apprentice->checksum = 0;
+//     for (i = 0; i < offsetof(struct Apprentice, checksum) / sizeof(u32); i++)
+//         apprentice->checksum += ((u32 *)apprentice)[i];
+// }
 
-static void ClearApprentice(struct Apprentice *apprentice)
-{
-    s32 i;
+// static void ClearApprentice(struct Apprentice *apprentice)
+// {
+//     s32 i;
 
-    for (i = 0; i < sizeof(struct Apprentice) / sizeof(u32); i++)
-        ((u32 *)apprentice)[i] = 0;
-    ResetApprenticeStruct(apprentice);
-}
+//     for (i = 0; i < sizeof(struct Apprentice) / sizeof(u32); i++)
+//         ((u32 *)apprentice)[i] = 0;
+//     ResetApprenticeStruct(apprentice);
+// }
 
-static void ValidateApprenticesChecksums(void)
-{
-    s32 i, j;
+// static void ValidateApprenticesChecksums(void)
+// {
+//     s32 i, j;
 
-    for (i = 0; i < APPRENTICE_COUNT; i++)
-    {
-        u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
-        u32 checksum = 0;
-        for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
-            checksum += data[j];
-        if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
-            ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
-    }
-}
+//     for (i = 0; i < APPRENTICE_COUNT; i++)
+//     {
+//         u32 *data = (u32 *) &gSaveBlock2Ptr->apprentices[i];
+//         u32 checksum = 0;
+//         for (j = 0; j < offsetof(struct Apprentice, checksum) / sizeof(u32); j++)
+//             checksum += data[j];
+//         if (gSaveBlock2Ptr->apprentices[i].checksum != checksum)
+//             ClearApprentice(&gSaveBlock2Ptr->apprentices[i]);
+//     }
+// }
 
 void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId)
 {

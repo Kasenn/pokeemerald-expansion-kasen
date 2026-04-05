@@ -186,7 +186,7 @@ static void SetKeyInterceptCallback(u16 (*func)(u32));
 static void SetFieldVBlankCallback(void);
 static void FieldClearVBlankHBlankCallbacks(void);
 static void TransitionMapMusic(void);
-static u8 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, enum MapType mapType);
+static u32 GetAdjustedInitialTransitionFlags(struct InitialPlayerAvatarState *playerStruct, u16 metatileBehavior, enum MapType mapType);
 static enum Direction GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u32 transitionFlags, u16 metatileBehavior, enum MapType mapType);
 static u16 GetCenterScreenMetatileBehavior(void);
 static bool32 SetUpScrollSceneForCredits(u8 *state, u8 unused);
@@ -1138,7 +1138,7 @@ bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior)
     return FALSE;
 }
 
-static enum Direction GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, 328 transitionFlags, u16 metatileBehavior, enum MapType mapType)
+static enum Direction GetAdjustedInitialDirection(struct InitialPlayerAvatarState *playerStruct, u32 transitionFlags, u16 metatileBehavior, enum MapType mapType)
 {
     u8 dirOverride = VarGet(VAR_DIRECTION_OVERRIDE);
     if (dirOverride != 0)

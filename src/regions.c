@@ -9,7 +9,7 @@ static const u16 sKantoSubregionMapsecs[KANTO_SUBREGION_COUNT][30] = {
     },
     [KANTO_SUBREGION_SEVII123] =
     {
-        MAPSEC_ONE_ISLAND,
+        MAPSEC_TWO_ISLAND,
         MAPSEC_TWO_ISLAND,
         MAPSEC_THREE_ISLAND,
         MAPSEC_KINDLE_ROAD,

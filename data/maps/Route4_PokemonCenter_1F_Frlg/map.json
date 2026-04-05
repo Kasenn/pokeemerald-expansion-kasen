@@ -1,10 +1,10 @@
 {
   "id": "MAP_ROUTE4_POKEMON_CENTER_1F",
   "name": "Route4_PokemonCenter_1F_Frlg",
-  "layout": "LAYOUT_POKEMON_CENTER_1F_FRLG",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_POKE_CENTER",
   "region": "REGION_KANTO",
-  "region_map_section": "MAPSEC_ROUTE_4",
+  "region_map_section": "MAPSEC_SEVII_ISLE_9",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

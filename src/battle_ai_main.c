@@ -7148,7 +7148,7 @@ static s32 AI_FirstBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef, 
     return score;
 }
 
-static s32 AI_WildCanFlee(u32 battlerAtk, u32 battlerDef, u32 move, s32 score)
+static s32 AI_WildCanFlee(enum BattlerId battlerAtk, enum BattlerId battlerDef,  enum Move move, s32 score)
 {
     bool8 wildCanFlee = FALSE;
     u32 species = GetMonData(&gEnemyParty[0], MON_DATA_SPECIES);

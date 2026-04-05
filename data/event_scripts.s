@@ -1073,7 +1073,7 @@ EventScript_AfterWhiteOutHeal::
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
-	call_if_unset FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsgPreRoxanne
+	call_if_unset FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsg
 	call_if_set FLAG_BADGE01_GET, EventScript_AfterWhiteOutHealMsg
 	applymovement VAR_LAST_TALKED, Movement_PkmnCenterNurse_Bow
 	waitmovement 0

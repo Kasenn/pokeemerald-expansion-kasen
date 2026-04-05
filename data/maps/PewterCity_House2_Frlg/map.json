@@ -1,7 +1,7 @@
 {
   "id": "MAP_PEWTER_CITY_HOUSE2",
   "name": "PewterCity_House2_Frlg",
-  "layout": "LAYOUT_HOUSE2_FRLG",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_PEWTER",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_PEWTER_CITY",

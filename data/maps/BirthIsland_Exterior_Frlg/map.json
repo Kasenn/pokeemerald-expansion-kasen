@@ -1,7 +1,7 @@
 {
   "id": "MAP_BIRTH_ISLAND_EXTERIOR_FRLG",
   "name": "BirthIsland_Exterior_Frlg",
-  "layout": "LAYOUT_BIRTH_ISLAND_EXTERIOR_FRLG",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_NONE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_BIRTH_ISLAND_FRLG",

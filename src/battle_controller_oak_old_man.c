@@ -677,13 +677,13 @@ void OakOldManBufferExecCompleted(enum BattlerId battler)
 
 static void OakOldManHandleDrawTrainerPic(enum BattlerId battler)
 {
-    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_RED : TRAINER_PIC_BACK_OLD_MAN;
+    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RED : TRAINER_BACK_PIC_OLD_MAN;
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE, 80, (8 - gTrainerBacksprites[trainerPicId].coordinates.size) * 4 + 80, 30);
 }
 
 static void OakOldManHandleTrainerSlide(enum BattlerId battler)
 {
-    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_RED : TRAINER_PIC_BACK_OLD_MAN;
+    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RED : TRAINER_BACK_PIC_OLD_MAN;
     BtlController_HandleTrainerSlide(battler, trainerPicId);
 }
 
@@ -694,7 +694,7 @@ static void OakOldManHandlePrintString(enum BattlerId battler)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     stringId = (u16 *)(&gBattleResources->bufferA[battler][2]);
-    if (gBattleTypeFlags & BATTLE_TYPE_CATCH_TUTORIAL && *stringId == 1)
+    if (gBattleTypeFlags & BATTLE_TYPE_BROTHER_BATTLE && *stringId == 1)
     {
         OakOldManBufferExecCompleted(battler);
     }
@@ -722,9 +722,6 @@ static void OakOldManHandlePrintString(enum BattlerId battler)
                 return;
             case STRINGID_TRAINER1WINTEXT:
                 gBattlerControllerFuncs[battler] = PrintOakText_HowDisappointing;
-                return;
-            case STRINGID_DONTLEAVEBIRCH:
-                gBattlerControllerFuncs[battler] = PrintOakText_OakNoRunningFromATrainer;
                 return;
             }
         }
@@ -758,7 +755,7 @@ static void OakOldManHandleChooseAction(enum BattlerId battler)
     s32 i;
 
     gBattlerControllerFuncs[battler] = HandleChooseActionAfterDma3;
-    BattlePutTextOnWindow(gText_EmptyString3, B_WIN_MSG);
+    BattlePutTextOnWindow(gText_EmptyString2, B_WIN_MSG);
     BattlePutTextOnWindow(gText_BattleMenu, B_WIN_ACTION_MENU);
     for (i = 0; i < MAX_MON_MOVES; ++i)
         ActionSelectionDestroyCursorAt((u8)i);

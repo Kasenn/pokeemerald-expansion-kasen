@@ -12,7 +12,7 @@
         .trainerName = _("Test1"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 3,
@@ -64,7 +64,7 @@
         .trainerName = _("Test2"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 1,
@@ -85,7 +85,7 @@
         .trainerName = _("Test2"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 1,
@@ -106,7 +106,7 @@
         .trainerName = _("Test3"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 1,
@@ -152,7 +152,7 @@
         .trainerName = _("Test4"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .partySize = 3,
@@ -218,7 +218,7 @@
         .trainerName = _("Test5"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
         .poolRuleIndex = POOL_RULESET_WEATHER_DOUBLES,
@@ -321,7 +321,7 @@
         .trainerName = _("Test6"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
@@ -363,7 +363,7 @@
         .trainerName = _("Test1"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
@@ -404,7 +404,7 @@
         .trainerName = _("Test1"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
@@ -446,7 +446,7 @@
         .trainerName = _("Test9"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
         .partySize = 2,
@@ -476,7 +476,7 @@
         .trainerName = _("Test10"),
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_RED,
-        .encounterMusic_gender =
+        .encounterMusic =
             TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
         .partySize = 2,

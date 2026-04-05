@@ -105,8 +105,6 @@ static void TimerBallOpenParticleAnimation(u8);
 static void PremierBallOpenParticleAnimation(u8);
 static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite);
 static void SpriteCB_PokeBlock_Throw(struct Sprite *);
-static void GhostBallDodge(struct Sprite *sprite);
-static void GhostBallDodge2(struct Sprite *sprite);
 
 struct CaptureStar
 {
@@ -2651,37 +2649,6 @@ static void CB_CriticalCaptureThrownBallMovement(struct Sprite *sprite)
         sprite->data[5] = 0;
         sprite->callback = SpriteCB_Ball_Bounce_Step;
     }
-}
-
-// FRLG
-static void GhostBallDodge(struct Sprite *sprite)
-{
-    sprite->x += sprite->x2;
-    sprite->y += sprite->y2;
-    sprite->x2 = sprite->y2 = 0;
-    sprite->data[0] = 0x22;
-    sprite->data[1] = sprite->x;
-    sprite->data[2] = sprite->x - 8;
-    sprite->data[3] = sprite->y;
-    sprite->data[4] = 0x90;
-    sprite->data[5] = 0x20;
-    InitAnimArcTranslation(sprite);
-    TranslateAnimVerticalArc(sprite);
-    sprite->callback = GhostBallDodge2;
-}
-
-static void GhostBallDodge2(struct Sprite *sprite)
-{
-    if (!TranslateAnimVerticalArc(sprite))
-    {
-        if ((sprite->y + sprite->y2) < 65)
-            return;
-    }
-
-    sprite->data[0] = 0;
-    sprite->callback = DestroySpriteAfterOneFrame;
-    gDoingBattleAnim = FALSE;
-    UpdateOamPriorityInAllHealthboxes(1, FALSE);
 }
 
 void AnimTask_SafariGetReaction(u8 taskId)

@@ -2662,9 +2662,6 @@ void BtlController_HandlePrintString(enum BattlerId battler)
         case STRINGID_TRAINER1WINTEXT:
             gBattlerControllerFuncs[battler] = PrintOakText_HowDisappointing;
             return;
-        case STRINGID_DONTLEAVEBIRCH:
-            gBattlerControllerFuncs[battler] = PrintOakText_OakNoRunningFromATrainer;
-            return;
         }
     }
 

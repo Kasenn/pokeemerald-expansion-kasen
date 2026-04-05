@@ -1207,7 +1207,7 @@ enum ItemEffect ItemBattleEffects(enum BattlerId itemBattler, enum BattlerId bat
         effect = HealConfuseBerry(itemBattler, item, FLAVOR_SOUR);
         break;
     case HOLD_EFFECT_SLEEP_BERRY:
-        effect = HealSleepBerry(itemBattler, item, timing);
+        effect = HealSleepBerry(itemBattler, item);
         break;
     case HOLD_EFFECT_ATTACK_UP: // Liechi Berry
         effect = StatRaiseBerry(itemBattler, item, STAT_ATK);

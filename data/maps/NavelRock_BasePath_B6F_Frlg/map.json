@@ -1,7 +1,7 @@
 {
   "id": "MAP_NAVEL_ROCK_BASE_PATH_B6F",
   "name": "NavelRock_BasePath_B6F_Frlg",
-  "layout": "LAYOUT_NAVEL_ROCK_BASE_PATH_B6F",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_CAVE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_NAVEL_ROCK_FRLG",

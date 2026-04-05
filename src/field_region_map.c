@@ -149,13 +149,34 @@ static void FieldUpdateRegionMap(void)
 {
     switch (sFieldRegionMapHandler->state)
     {
-        case 0:
-            InitRegionMap(&sFieldRegionMapHandler->regionMap, FALSE);
-            CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
-            CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
-            #if ROAMERS_ON_TOWN_MAP
-                CreateRegionMapRoamerIcon(TAG_ROAMER, TAG_ROAMER);
-            #endif
+    case 0:
+        InitRegionMap(&sFieldRegionMapHandler->regionMap, FALSE);
+        CreateRegionMapPlayerIcon(TAG_PLAYER_ICON, TAG_PLAYER_ICON);
+        CreateRegionMapCursor(TAG_CURSOR, TAG_CURSOR);
+        #if ROAMERS_ON_TOWN_MAP
+            CreateRegionMapRoamerIcon(TAG_ROAMER, TAG_ROAMER);
+        #endif
+        sFieldRegionMapHandler->state++;
+        break;
+    case 1:
+        DrawStdFrameWithCustomTileAndPalette(WIN_TITLE, FALSE, 0x27, 0xd);
+        FillWindowPixelBuffer(WIN_TITLE, PIXEL_FILL(1));
+        PrintTitleWindowText();
+        ScheduleBgCopyTilemapToVram(0);
+        DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 0x27, 0xd);
+        PrintRegionMapSecName();
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
+        sFieldRegionMapHandler->state++;
+        break;
+    case 2:
+        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJ_1D_MAP | DISPCNT_OBJ_ON);
+        ShowBg(0);
+        ShowBg(2);
+        sFieldRegionMapHandler->state++;
+        break;
+    case 3:
+        if (!gPaletteFade.active)
+        {
             sFieldRegionMapHandler->state++;
         }
         break;

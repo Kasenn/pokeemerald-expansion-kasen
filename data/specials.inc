@@ -347,7 +347,6 @@ gSpecials::
 	def_special IncrementDailyPickedBerries
 	def_special PutLilycoveContestLadyShowOnTheAir
 	def_special CloseBattlePikeCurtain
-	def_special CallApprenticeFunction
 	def_special ShouldTryGetTrainerScript
 	def_special ShowMapNamePopup
 	def_special ShowMapNamePopup
@@ -557,7 +556,6 @@ gSpecials::
 	def_special Script_UpdateTrainerFanClubGameClear
 	def_special Script_TryGainNewFanFromCounterFrlg
 	def_special IsNationalPokedexEnabled
-	def_special SetPostgameFlags
 	def_special IsPlayerNotInTrainerTowerLobby
 	def_special BrailleCursorToggle
 	def_special EnterHallOfFame

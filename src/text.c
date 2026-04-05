@@ -1389,11 +1389,6 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 FillPalette(fgColor, BG_PLTT_ID(15) + index, PLTT_SIZEOF(1));
                 FillPalette(shadowColor, BG_PLTT_ID(15) + index + 1, PLTT_SIZEOF(1));
                 return RENDER_REPEAT;
-            case EXT_CTRL_CODE_COLOR:
-                textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar;
-                textPrinter->printerTemplate.currentChar++;
-                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.color);
-                return RENDER_REPEAT;
             case EXT_CTRL_CODE_BACKGROUND:
                 textPrinter->printerTemplate.color.background = *textPrinter->printerTemplate.currentChar;
                 textPrinter->printerTemplate.currentChar++;
@@ -1405,10 +1400,10 @@ static u16 RenderText(struct TextPrinter *textPrinter)
                 GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.color);
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_CUSTOM:
-                textPrinter->printerTemplate.fgColor = *textPrinter->printerTemplate.currentChar;
-                textPrinter->printerTemplate.shadowColor = textPrinter->printerTemplate.fgColor + 1;
+                textPrinter->printerTemplate.color.foreground = *textPrinter->printerTemplate.currentChar;
+                textPrinter->printerTemplate.color.shadow = textPrinter->printerTemplate.color.foreground + 1;
                 textPrinter->printerTemplate.currentChar++;
-                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.fgColor, textPrinter->printerTemplate.bgColor, textPrinter->printerTemplate.shadowColor);
+                GenerateFontHalfRowLookupTable(textPrinter->printerTemplate.color);
                 return RENDER_REPEAT;
             case EXT_CTRL_CODE_SHADOW:
                 textPrinter->printerTemplate.color.shadow = *textPrinter->printerTemplate.currentChar;
@@ -2084,12 +2079,12 @@ u8 RenderTextHandleBold(u8 *pixels, u8 fontId, u8 *str)
 
                 FillPalette(color1, BG_PLTT_ID(15) + index, PLTT_SIZEOF(1));
                 FillPalette(color2, BG_PLTT_ID(15) + index + 1, PLTT_SIZEOF(1));
-                GenerateFontHalfRowLookupTable(fgColor, bgColor, shadowColor);
+                GenerateFontHalfRowLookupTable(textColor);//wip
                 continue;
-            case EXT_CTRL_CODE_CUSTOM:
-                fgColor = strLocal[strPos++];
-                shadowColor = fgColor + 1;
-                GenerateFontHalfRowLookupTable(fgColor, bgColor, shadowColor);
+            case EXT_CTRL_CODE_CUSTOM://wip
+                textColor.foreground = strLocal[strPos++];
+                textColor.shadow = textColor.foreground + 1;
+                GenerateFontHalfRowLookupTable(textColor);
                 continue;
             case EXT_CTRL_CODE_COLOR:
                 textColor.foreground = strLocal[strPos++];

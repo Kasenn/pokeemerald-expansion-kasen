@@ -500,7 +500,6 @@ static void Cmd_setlightscreen(void);
 static void Cmd_tryKO(void);
 static void Cmd_checknonvolatiletrigger(void);
 static void Cmd_copybidedmg(void);
-static void Cmd_animatewildpokemonafterfailedpokeball(void);
 static void Cmd_tryinfatuating(void);
 static void Cmd_updatestatusicon(void);
 static void Cmd_setmist(void);
@@ -519,7 +518,6 @@ static void Cmd_settailwind(void);
 static void Cmd_tryspiteppreduce(void);
 static void Cmd_healpartystatus(void);
 static void Cmd_cursetarget(void);
-static void Cmd_forestscurse(void);
 static void Cmd_trysetspikes(void);
 static void Cmd_setvolatile(void);
 static void Cmd_trysetperishsong(void);
@@ -562,7 +560,6 @@ static void Cmd_jumpifhasnohp(void);
 static void Cmd_pickup(void);
 static void Cmd_settypebasedhalvers(void);
 static void Cmd_jumpifsubstituteblocks(void);
-static void Cmd_jumpifbreachpierces(void);
 static void Cmd_tryrecycleitem(void);
 static void Cmd_settypetoenvironment(void);
 static void Cmd_pursuitdoubles(void);
@@ -732,7 +729,6 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_TRYKO]                                 = Cmd_tryKO,
     [B_SCR_OP_CHECKNONVOLATILETRIGGER]               = Cmd_checknonvolatiletrigger,
     [B_SCR_OP_COPYBIDEDMG]                           = Cmd_copybidedmg,
-    [B_SCR_OP_ANIMATEWILDPOKEMONAFTERFAILEDPOKEBALL] = Cmd_animatewildpokemonafterfailedpokeball,
     [B_SCR_OP_TRYINFATUATING]                        = Cmd_tryinfatuating,
     [B_SCR_OP_UPDATESTATUSICON]                      = Cmd_updatestatusicon,
     [B_SCR_OP_SETMIST]                               = Cmd_setmist,
@@ -813,8 +809,6 @@ void (*const gBattleScriptingCommandsTable[])(void) =
     [B_SCR_OP_JUMPIFCAPTIVATEAFFECTED]               = Cmd_jumpifcaptivateaffected,
     [B_SCR_OP_SETNONVOLATILESTATUS]                  = Cmd_setnonvolatilestatus,
     [B_SCR_OP_TRYOVERWRITEABILITY]                   = Cmd_tryoverwriteability,
-    [B_SCR_OP_JUMPIFBREACHPIERCE]                    = Cmd_jumpifbreachpierces,
-    [B_SCR_OP_FORESTCURSE]                           = Cmd_forestscurse,
     [B_SCR_OP_UNUSED_1]                              = Cmd_dummy,
     [B_SCR_OP_UNUSED_2]                              = Cmd_dummy,
     [B_SCR_OP_UNUSED_3]                              = Cmd_dummy,
@@ -1200,7 +1194,7 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
         }
     }
 
-    if (numTargets != 0 && numTargets == numMisses)
+     if (numTargets != 0 && numTargets == numMisses)
     {
         SetOrClearRageVolatile();
         gBattleStruct->battlerState[gBattlerAttacker].stompingTantrumTimer = 2;
@@ -1229,15 +1223,6 @@ static void AccuracyCheck(bool32 recalcDragonDarts, const u8 *nextInstr, const u
             gBattleStruct->moveResultFlags[gBattlerTarget] = MOVE_RESULT_DOESNT_AFFECT_FOE;
         else
             gBattleStruct->moveResultFlags[gBattlerTarget] = MOVE_RESULT_MISSED;
-    }
-    else if ((gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_2ND_HIT
-        || gSpecialStatuses[gBattlerAttacker].rapidFistsState == RAPID_FISTS_3RD_HIT)
-        || (gSpecialStatuses[gBattlerAttacker].multiHitOn
-        && (abilityAtk == ABILITY_SKILL_LINK || holdEffectAtk == HOLD_EFFECT_LOADED_DICE
-        || !(effect == EFFECT_TRIPLE_KICK || effect == EFFECT_POPULATION_BOMB))))
-    {
-        // No acc checks for second hit of Parental Bond or multi hit moves, except Triple Kick/Triple Axel/Population Bomb
-        gBattlescriptCurrInstr = nextInstr;
     }
     else
     {
@@ -8635,14 +8620,6 @@ static void Cmd_copybidedmg(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static void Cmd_animatewildpokemonafterfailedpokeball(void)
-{
-    CMD_ARGS(u8 battler);
-    enum BattlerId battler = GetBattlerForBattleScript(cmd->battler);
-    AnimateMonAfterPokeBallFail(battler);
-    gBattlescriptCurrInstr = cmd->nextInstr;
-}
-
 static void Cmd_tryinfatuating(void)
 {
     CMD_ARGS(const u8 *failInstr);
@@ -8957,7 +8934,7 @@ void BS_SetCameraEffect(void)
             }
         case CAMERA_STAT_DOWN:
             if (holdEffect != HOLD_EFFECT_CLEAR_AMULET
-             && !IsBattlerTerrainAffected(gBattlerTarget, ability, holdEffect, STATUS_FIELD_MISTY_TERRAIN)
+             && !IsMistyTerrainAffected(gBattlerTarget, ability, holdEffect, STATUS_FIELD_MISTY_TERRAIN)
              && ability != ABILITY_FULL_METAL_BODY
              && ability != ABILITY_CLEAR_BODY
              && ability != ABILITY_ILLUMINATE
@@ -13772,7 +13749,7 @@ void BS_TryActivateAbilityShield(void)
     }
 }
 
-static void Cmd_forestscurse(void)
+void Cmd_forestscurse(void)
 {
     CMD_ARGS(const u8 *failInstr);
     u32 type = TYPE_GRASS;
@@ -13880,7 +13857,7 @@ void BS_TrySetFairyLock(void)
     }
 }
 
-static void Cmd_jumpifbreachpierces(void)
+void Cmd_jumpifbreachpierces(void)
 {
     CMD_ARGS(const u8 *jumpInstr);
 

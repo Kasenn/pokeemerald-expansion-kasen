@@ -1,7 +1,7 @@
 {
   "id": "MAP_SSANNE_B1F_ROOM4",
   "name": "SSAnne_B1F_Room4_Frlg",
-  "layout": "LAYOUT_SSANNE_ROOM2",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SS_ANNE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_S_S_ANNE",

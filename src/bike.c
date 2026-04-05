@@ -56,7 +56,6 @@ static void Bike_TryAdvanceCyclingRoadCollisions();
 static u8 CanBikeFaceDirOnMetatile(enum Direction, u8);
 static bool8 WillPlayerCollideWithCollision(enum Collision, enum Direction);
 static void Bike_SetBikeStill(void);
-static void MovePlayerOnStandardBike(u8 direction, u16 newKeys, u16 heldKeys);
 static void StandardBikeTransition_FaceDirection(u8);
 static void StandardBikeTransition_TurnDirection(u8);
 static void StandardBikeTransition_MoveDirection(u8);
@@ -179,11 +178,6 @@ void MovePlayerOnBike(enum Direction direction, u16 newKeys, u16 heldKeys)
         }
         PlaySE(SE_BIKE_HOP);
     }
-}
-
-static void MovePlayerOnStandardBike(u8 direction, u16 newKeys, u16 heldKeys)
-{
-    sStandardBikeTransitions[GetStandardBikeTransitionId(&direction, newKeys, heldKeys)](direction);
 }
 
 static u8 GetStandardBikeTransitionId(u8 *direction, u16 newKeys, u16 heldKeys)

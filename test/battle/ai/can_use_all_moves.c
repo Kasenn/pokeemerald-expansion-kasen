@@ -682,7 +682,6 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         case EFFECT_HOLD_HANDS:
         case EFFECT_CELEBRATE:
         case EFFECT_HAPPY_HOUR:
-        case EFFECT_WIND_STARTER:
             break;
         default:
             PARAMETRIZE { move = j; }

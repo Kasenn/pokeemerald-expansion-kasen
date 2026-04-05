@@ -10,7 +10,7 @@ struct MessageStatus
     u8 messagePlayed[MAX_BATTLERS_COUNT][TRAINER_SLIDE_ARRAY_SIZE];
 };
 
-void SetTrainerSlideMessage(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId);
+void SetTrainerSlideMessage(u32 trainerId, u32 slideId);
 enum TrainerSlideTargets ShouldDoTrainerSlide(enum BattlerId battler, enum TrainerSlideType slideId);
 void TryInitializeFirstSTABMoveTrainerSlide(enum BattlerId battlerDef, enum BattlerId battlerAtk, enum Type moveType);
 void TryInitializeTrainerSlidePlayerLandsFirstCriticalHit(u32 target);

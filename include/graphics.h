@@ -320,11 +320,11 @@ extern const u16 gBattleEnvironmentPalette_StadiumDrake[];
 extern const u16 gBattleEnvironmentPalette_StadiumWallace[];
 
 extern const u16 gBattlePalette_LongGrassAutumn[];
-extern const u32 gBattleTerrainTiles_LongGrassAutumn[];
-extern const u16 gBattleTerrainPalette_Mud[];
-extern const u32 gBattleTerrainTiles_Mud[];
-extern const u32 gBattleTerrainTilemap_Mud[];
-extern const u16 gBattleTerrainPalette_Snow[];
+extern const u32 gBattleEnvironmentTiles_LongGrassAutumn[];
+extern const u16 gBattleEnvironmentPalette_Mud[];
+extern const u32 gBattleEnvironmentTiles_Mud[];
+extern const u32 gBattleEnvironmentTilemap_Mud[];
+extern const u16 gBattleEnvironmentPalette_Snow[];
 
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];
@@ -1028,8 +1028,6 @@ extern const u32 gItemIcon_Eelektrossite[];
 extern const u16 gItemIconPalette_Eelektrossite[];
 extern const u32 gItemIcon_Chandelurite[];
 extern const u16 gItemIconPalette_Chandelurite[];
-extern const u32 gItemIcon_Chesnaughtite[];
-extern const u16 gItemIconPalette_Chesnaughtite[];
 extern const u32 gItemIcon_Delphoxite[];
 extern const u16 gItemIconPalette_Delphoxite[];
 extern const u32 gItemIcon_Greninjite[];

@@ -198,14 +198,14 @@ void PlayerPartnerBufferExecCompleted(enum BattlerId battler)
     }
 }
 
-static enum TrainerPicID PlayerPartnerGetTrainerBackPicId(enum DifficultyLevel difficulty)//wip
+static enum TrainerPicID PlayerPartnerGetTrainerBackPicId(void)//wip
 {
     enum TrainerPicID trainerPicId;
 
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
-        trainerPicId = gBattlePartners[difficulty][gPartnerTrainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerBackPic;
+        trainerPicId = gBattlePartners[gPartnerTrainerId - TRAINER_PARTNER(PARTNER_NONE)].trainerBackPic;
     else
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_PIC_BACK_BRENDAN;
+        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
 
     return trainerPicId;
 }
@@ -221,13 +221,13 @@ static void PlayerPartnerHandleDrawTrainerPic(enum BattlerId battler)
 
     if (IsMultibattleTest())
     {
-        trainerPicId = TRAINER_PIC_BACK_STEVEN;
+        trainerPicId = TRAINER_BACK_PIC_STEVEN;
         xPos = 90;
         yPos = (8 - gTrainerBacksprites[trainerPicId].coordinates.size) * 4 + 80;
     }
     else if (gPartnerTrainerId > TRAINER_PARTNER(PARTNER_NONE))
     {
-        trainerPicId = PlayerPartnerGetTrainerBackPicId(difficulty);
+        trainerPicId = PlayerPartnerGetTrainerBackPicId();
         xPos = 90;
         yPos = (8 - gTrainerBacksprites[trainerPicId].coordinates.size) * 4 + 80;
     }
@@ -255,8 +255,7 @@ static void PlayerPartnerHandleDrawTrainerPic(enum BattlerId battler)
 
 static void PlayerPartnerHandleTrainerSlide(enum BattlerId battler)
 {
-    enum DifficultyLevel difficulty = GetBattlePartnerDifficultyLevel(gPartnerTrainerId);
-    enum TrainerPicID trainerPicId = PlayerPartnerGetTrainerBackPicId(difficulty);
+    enum TrainerPicID trainerPicId = PlayerPartnerGetTrainerBackPicId();
     BtlController_HandleTrainerSlide(battler, trainerPicId);
 }
 

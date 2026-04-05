@@ -935,9 +935,6 @@ const u16 gItemIconPalette_Eelektrossite[] = INCBIN_U16("graphics/items/icon_pal
 const u32 gItemIcon_Chandelurite[] = INCBIN_U32("graphics/items/icons/chandelurite.4bpp.smol");
 const u16 gItemIconPalette_Chandelurite[] = INCBIN_U16("graphics/items/icon_palettes/chandelurite.gbapal");
 
-const u32 gItemIcon_Chesnaughtite[] = INCBIN_U32("graphics/items/icons/chesnaughtite.4bpp.smol");
-const u16 gItemIconPalette_Chesnaughtite[] = INCBIN_U16("graphics/items/icon_palettes/chesnaughtite.gbapal");
-
 const u32 gItemIcon_Delphoxite[] = INCBIN_U32("graphics/items/icons/delphoxite.4bpp.smol");
 const u16 gItemIconPalette_Delphoxite[] = INCBIN_U16("graphics/items/icon_palettes/delphoxite.gbapal");
 

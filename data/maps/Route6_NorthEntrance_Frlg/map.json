@@ -1,10 +1,10 @@
 {
   "id": "MAP_ROUTE6_NORTH_ENTRANCE",
   "name": "Route6_NorthEntrance_Frlg",
-  "layout": "LAYOUT_SAFFRON_CITY_NORTH_SOUTH_ENTRANCE",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_PEWTER",
   "region": "REGION_KANTO",
-  "region_map_section": "MAPSEC_ROUTE_6",
+  "region_map_section": "MAPSEC_SEVII_ISLE_9",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_INDOOR",

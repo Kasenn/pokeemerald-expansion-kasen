@@ -168,7 +168,7 @@ TrainerTower_Lobby_EventScript_ChallengeInfo::
 	end
 
 TrainerTower_Lobby_EventScript_ChooseChallenge::
-	multichoice 13, 3, MULTI_TRAINER_TOWER_MODE, FALSE
+	multichoice 13, 3, MULTI_UNUSED, FALSE
 	switch VAR_RESULT
 	case 0, TrainerTower_Lobby_EventScript_BeginChallenge
 	case 1, TrainerTower_Lobby_EventScript_BeginChallenge

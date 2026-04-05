@@ -1321,19 +1321,6 @@ static bool32 AI_IsMoveEffectInMinus(enum BattlerId battlerAtk, enum BattlerId b
     return FALSE;
 }
 
-static u32 GetMoveIndex(u8 battler, u32 move)
-{
-    u16 *moves = GetMovesArray(battler);
-
-    for (u32 moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
-    {
-        if (moves[moveIndex] == move)
-            return moveIndex;
-    }
-
-    return MAX_MON_MOVES;
-}
-
 // Checks if one of the moves has side effects or perks, assuming equal dmg or equal no of hits to KO
 enum MoveComparisonResult CompareMoveEffects(enum Move move1, enum Move move2, enum BattlerId battlerAtk, enum BattlerId battlerDef, s32 noOfHitsToKo)
 {

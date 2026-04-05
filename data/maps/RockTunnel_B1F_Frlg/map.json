@@ -1,7 +1,7 @@
 {
   "id": "MAP_ROCK_TUNNEL_B1F",
   "name": "RockTunnel_B1F_Frlg",
-  "layout": "LAYOUT_ROCK_TUNNEL_B1F",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_MT_MOON",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_ROCK_TUNNEL",

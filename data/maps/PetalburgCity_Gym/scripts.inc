@@ -100,7 +100,6 @@ PetalburgCity_Gym_Movement_WallyExitGym:
 	step_end
 
 PetalburgCity_Gym_EventScript_Norman::
-	vsseeker_rematchid TRAINER_NORMAN_1
 	lock
 	faceplayer
 	switch VAR_UNUSED_VAR

@@ -31,7 +31,7 @@ u16 GetCurrentBattleTowerWinStreak(enum FrontierLevelMode lvlMode, u8 battleMode
 void TryHideBattleTowerReporter(void);
 // bool32 RubyBattleTowerRecordToEmerald(struct RSBattleTowerRecord *src, struct EmeraldBattleTowerRecord *dst);
 // bool32 EmeraldBattleTowerRecordToRuby(struct EmeraldBattleTowerRecord *src, struct RSBattleTowerRecord *dst);
-void CalcApprenticeChecksum(void);
+// void CalcApprenticeChecksum(void);
 void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId);
 u8 SetTentPtrsGetLevel(void);
 bool32 ValidateBattleTowerRecord(u8 recordId); // unused

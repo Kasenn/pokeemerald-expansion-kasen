@@ -1,7 +1,7 @@
 {
   "id": "MAP_FIVE_ISLAND_LOST_CAVE_ROOM3",
   "name": "FiveIsland_LostCave_Room3_Frlg",
-  "layout": "LAYOUT_FIVE_ISLAND_LOST_CAVE_ROOM3",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_CAVE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_LOST_CAVE",

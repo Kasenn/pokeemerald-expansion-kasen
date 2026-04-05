@@ -66,8 +66,8 @@ Finally, let's bring it all together by defining our new trainer pic in [`includ
     TRAINER_PIC_FRONT_RS_MAY,
 +   TRAINER_PIC_FRONT_NEW_ONE,
     TRAINER_PIC_FRONT_COUNT,
-    TRAINER_PIC_BACK_BRENDAN = TRAINER_PIC_FRONT_COUNT, // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
-    TRAINER_PIC_BACK_MAY,
+    TRAINER_BACK_PIC_BRENDAN = TRAINER_PIC_FRONT_COUNT, // The player back pics are assumed to alternate according to the gender values (MALE/FEMALE)
+    TRAINER_BACK_PIC_MAY,
 ```
 Remember to add new front pics before `TRAINER_PIC_FRONT_COUNT`!
 
@@ -92,6 +92,6 @@ Otherwise if you use [`src/data/trainers.h`](./src/data/trainers.h), change the 
          .trainerClass = TRAINER_CLASS_RS_PROTAG,
 -        .trainerPic = TRAINER_PIC_FRONT_RS_BRENDAN,
 +        .trainerPic = TRAINER_PIC_FRONT_NEW_ONE,
-         .encounterMusic_gender = TRAINER_ENCOUNTER_MUSIC_MALE,
+         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
          .doubleBattle = FALSE,
 ```

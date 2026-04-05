@@ -1,7 +1,7 @@
 {
   "id": "MAP_ROUTE2_VIRIDIAN_FOREST_NORTH_ENTRANCE",
   "name": "Route2_ViridianForest_NorthEntrance_Frlg",
-  "layout": "LAYOUT_ROUTE2_ENTRANCE",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_PEWTER",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_ROUTE_2",

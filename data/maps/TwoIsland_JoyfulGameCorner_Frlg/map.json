@@ -1,7 +1,7 @@
 {
   "id": "MAP_TWO_ISLAND_JOYFUL_GAME_CORNER",
   "name": "TwoIsland_JoyfulGameCorner_Frlg",
-  "layout": "LAYOUT_TWO_ISLAND_JOYFUL_GAME_CORNER",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_GAME_CORNER",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_TWO_ISLAND",

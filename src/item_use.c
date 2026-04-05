@@ -1502,8 +1502,8 @@ bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
     {
     case EFFECT_ITEM_CAMERA:
         u16 species = gBattleMons[B_POSITION_OPPONENT_LEFT].species;
-        if (gBattleMons[B_POSITION_OPPONENT_LEFT].volatiles.transformed && gDisableStructs[B_POSITION_OPPONENT_LEFT].transformedMonSpecies != SPECIES_NONE)
-            species = gDisableStructs[B_POSITION_OPPONENT_LEFT].transformedMonSpecies;
+        if (gBattleMons[B_POSITION_OPPONENT_LEFT].volatiles.transformed && gBattleMons[B_POSITION_OPPONENT_LEFT].volatiles.transformedMonSpecies != SPECIES_NONE)
+            species = gBattleMons[B_POSITION_OPPONENT_LEFT].volatiles.transformedMonSpecies;
 
         u16 flag = IsMonCapPikachu(species);
 

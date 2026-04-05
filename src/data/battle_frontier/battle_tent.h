@@ -1183,7 +1183,7 @@ const struct TrainerMon gSlateportBattleTentMons[NUM_SLATEPORT_TENT_MONS] =
         .moves = {MOVE_COVET, MOVE_CONFUSION, MOVE_TRICK, MOVE_FAKE_OUT},
         .heldItem = ITEM_NONE,
         EVS(0, 170, 170, 0, 0, 170),
-        .nature = NATURE_ADAMANT
+        .nature = NATURE_ADAMANT,
         .ball = BALL_POKE
     },
     [SLATEPORT_TENT_MON_KECLEON_1] = {

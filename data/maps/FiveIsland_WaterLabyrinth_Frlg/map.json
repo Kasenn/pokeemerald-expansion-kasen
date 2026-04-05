@@ -1,7 +1,7 @@
 {
   "id": "MAP_FIVE_ISLAND_WATER_LABYRINTH",
   "name": "FiveIsland_WaterLabyrinth_Frlg",
-  "layout": "LAYOUT_FIVE_ISLAND_WATER_LABYRINTH",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_SEVII_ROUTE",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_WATER_LABYRINTH",

@@ -1,7 +1,7 @@
 {
   "id": "MAP_CELADON_CITY_HOUSE1",
   "name": "CeladonCity_House1_Frlg",
-  "layout": "LAYOUT_HOUSE5_FRLG",
+  "layout": "LAYOUT_TEST_WALL",
   "music": "MUS_RG_CELADON",
   "region": "REGION_KANTO",
   "region_map_section": "MAPSEC_CELADON_CITY",

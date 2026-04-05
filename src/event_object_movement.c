@@ -6200,7 +6200,7 @@ bool8 MovementType_FollowPlayer_Active(struct ObjectEvent *objectEvent, struct S
         return TRUE;
     }
     if (FlagGet(FLAG_FOLLOWER_STAYS_PUT))
-        return gFollowPlayerMovementFuncs[COPY_MOVE_EMPTY_1](objectEvent, sprite, GetPlayerMovementDirection(), NULL);
+        return gFollowPlayerMovementFuncs[COPY_MOVE_WALK_COLLIDE](objectEvent, sprite, GetPlayerMovementDirection(), NULL);//wip
     return gFollowPlayerMovementFuncs[PlayerGetCopyableMovement()](objectEvent, sprite, GetPlayerMovementDirection(), NULL);
 }
 
@@ -12342,7 +12342,7 @@ static void StartSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite 
     InitNpcForWalkSlow(objectEvent, sprite, direction);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
 }
-static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, u8 direction)
+static void StartSuperSlowRunningAnim(struct ObjectEvent *objectEvent, struct Sprite *sprite, enum Direction direction)
 {
     InitNpcForWalkSuperSlow(objectEvent, sprite, direction);
     SetStepAnimHandleAlternation(objectEvent, sprite, GetRunningDirectionAnimNum(objectEvent->facingDirection));
