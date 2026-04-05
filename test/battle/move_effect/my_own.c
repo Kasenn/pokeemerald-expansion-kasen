@@ -947,7 +947,7 @@ SINGLE_BATTLE_TEST("Expansion Secret Power lowers Sp. Atk in Misty Terrain")
 SINGLE_BATTLE_TEST("Expansion Magic Bounce can't reflect back Stealth Rock from a semi-invulnerable posistion even with No Guard")
 {
     GIVEN {
-        ASSUME(GetMoveTarget(MOVE_STEALTH_ROCK) == MOVE_TARGET_OPPONENTS_FIELD);
+        ASSUME(GetMoveTarget(MOVE_STEALTH_ROCK) == TARGET_OPPONENTS_FIELD);
         ASSUME(GetMoveEffect(MOVE_DIG) == EFFECT_SEMI_INVULNERABLE);
         PLAYER(SPECIES_MACHAMP) { Ability(ABILITY_NO_GUARD); }
         OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }

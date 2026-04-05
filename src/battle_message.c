@@ -2662,17 +2662,17 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && (BattlerIsPartner(gBattleScripting.battler)))//wip
                 stringPtr = sSwitchInPartnerMon;//wip
-        //     if (BattlerIsPlayer(gBattleScripting.battler)) // Player
-        //     {
-        //         if (*(&gBattleStruct->hpScale) == 0)
-        //             stringPtr = sText_GoPkmn2;
-        //         else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
-        //             stringPtr = sText_DoItPkmn;
-        //         else if (*(&gBattleStruct->hpScale) == 2)
-        //             stringPtr = sText_GoForItPkmn;
-        //         else
-        //             stringPtr = sText_YourFoesWeakGetEmPkmn;
-        //     }
+            if (BattlerIsPlayer(gBattleScripting.battler)) // Player
+            {
+                if (*(&gBattleStruct->hpScale) == 0 || IsDoubleBattle())
+                    stringPtr = sSwitchInPlayerMon1;
+                else if (*(&gBattleStruct->hpScale) == 1)
+                    stringPtr = sSwitchInPlayerMon2;
+                else if (*(&gBattleStruct->hpScale) == 2)
+                    stringPtr = sSwitchInPlayerMon3;
+                else
+                    stringPtr = sSwitchInPlayerMon4;
+            }
         //     else if (BattlerIsPartner(gBattleScripting.battler))
         //     {
         //         if (BattlerIsLink(gBattleScripting.battler)) // Link Partner
@@ -2735,67 +2735,67 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         //         stringPtr = sText_Trainer1SentOutPkmn2;
         //     }
         // }
-        /*if (IsOnPlayerSide(gBattleScripting.battler))
-        {
-            if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && (BattlerIsPartner(gBattleScripting.battler)))
-                stringPtr = sText_InGamePartnerSentOutPkmn2;
-            else if (*(&gBattleStruct->hpScale) == 0 || IsDoubleBattle())
-                stringPtr = sSwitchInPlayerMon1;
-            else if (*(&gBattleStruct->hpScale) == 1)
-                stringPtr = sSwitchInPlayerMon2;
-            else if (*(&gBattleStruct->hpScale) == 2)
-                stringPtr = sSwitchInPlayerMon3;
-            else
-                stringPtr = sSwitchInPlayerMon4;
-        }
-        else
-        {
-            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+            if (IsOnPlayerSide(gBattleScripting.battler))
             {
-                if (gBattleScripting.battler == B_POSITION_OPPONENT_LEFT)
-                    stringPtr = sSwitchInTrainer1Mon;
+                if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER) && (BattlerIsPartner(gBattleScripting.battler)))
+                    stringPtr = sSwitchInPartnerMon;
+                else if (*(&gBattleStruct->hpScale) == 0 || IsDoubleBattle())
+                    stringPtr = sSwitchInPlayerMon1;
+                else if (*(&gBattleStruct->hpScale) == 1)
+                    stringPtr = sSwitchInPlayerMon2;
+                else if (*(&gBattleStruct->hpScale) == 2)
+                    stringPtr = sSwitchInPlayerMon3;
                 else
+                    stringPtr = sSwitchInPlayerMon4;
+            }
+            else
+            {
+                if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
                 {
-                    if (TESTING && gBattleTypeFlags & BATTLE_TYPE_MULTI)
-                    {
-                        if (gBattleScripting.battler == B_POSITION_OPPONENT_LEFT)
-                        {
-                            stringPtr = sTrainerSentOut;
-                        }
-                        else
-                        {
-                            if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                                stringPtr = sSwitchInTrainer2Mon;
-                            else
-                                stringPtr = sSwitchInTrainer1Mon;
-                        }
-                    }
-                    else if (TESTING && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                    {
-                        if (gBattleScripting.battler == B_POSITION_OPPONENT_LEFT)
-                            stringPtr = sTrainerSentOut;
-                        else
-                            stringPtr = sSwitchInTrainer2Mon;
-                    }
-                    else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-                    {
-                        stringPtr = sText_LinkTrainerMultiSentOutPkmn;
-                    }
-                    else if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_UNION_ROOM)
-                    {
+                    if (GetBattlerPosition(gBattleScripting.battler) == B_POSITION_OPPONENT_LEFT)
                         stringPtr = sSwitchInTrainer1Mon;
-                    }
                     else
                     {
-                        stringPtr = sTrainerSentOut;
+                        if (TESTING && gBattleTypeFlags & BATTLE_TYPE_MULTI)
+                        {
+                            if (GetBattlerPosition(gBattleScripting.battler) == B_POSITION_OPPONENT_LEFT)
+                            {
+                                stringPtr = sTrainerSentOut;
+                            }
+                            else
+                            {
+                                if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                                    stringPtr = sSwitchInTrainer2Mon;
+                                else
+                                    stringPtr = sSwitchInTrainer1Mon;
+                            }
+                        }
+                        else if (TESTING && gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
+                        {
+                            if (GetBattlerPosition(gBattleScripting.battler) == B_POSITION_OPPONENT_LEFT)
+                                stringPtr = sTrainerSentOut;
+                            else
+                                stringPtr = sSwitchInTrainer2Mon;
+                        }
+                        else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+                        {
+                            stringPtr = sText_LinkTrainerMultiSentOutPkmn;
+                        }
+                        else if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_UNION_ROOM)
+                        {
+                            stringPtr = sSwitchInTrainer1Mon;
+                        }
+                        else
+                        {
+                            stringPtr = sTrainerSentOut;
+                        }
                     }
                 }
+                else
+                {
+                    stringPtr = sSwitchInTrainer1Mon;
+                }
             }
-            else
-            {
-                stringPtr = sSwitchInTrainer1Mon;
-            }
-        }*/
         }
         break;
     case STRINGID_USEDMOVE: // Pokémon used a move msg

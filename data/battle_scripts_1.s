@@ -8390,9 +8390,7 @@ BattleScript_BerserkGeneRet::
 	call BattleScript_StatUp
 BattleScript_BerserkGeneRet_TryConfuse:
 	jumpifability BS_SCRIPTING, ABILITY_OWN_TEMPO, BattleScript_BerserkGeneRet_OwnTempoPrevents
-	jumpifbreachpierces BattleScript_BerserkGeneRet_TryConfuse2
 	jumpifsafeguard BattleScript_BerserkGeneRet_SafeguardProtected
-BattleScript_BerserkGeneRet_TryConfuse2:
 	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_CONFUSION
 	goto BattleScript_BerserkGeneRet_End
 BattleScript_BerserkGeneRet_SafeguardProtected::
