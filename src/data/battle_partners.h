@@ -15,7 +15,8 @@
         .trainerName = _("STEVEN"),
         .trainerClass = TRAINER_CLASS_RIVAL,
         .trainerPic = TRAINER_BACK_PIC_STEVEN,
-               .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .trainerBackPic = TRAINER_BACK_PIC_STEVEN,
+        .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {

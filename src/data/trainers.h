@@ -494,6 +494,7 @@
     .trainerPic = TRAINER_PIC_SWIMMERS,                         \
     .battleType = TRAINER_BATTLE_TYPE_DOUBLES
 
+#if !TESTING
 const struct Trainer gTrainers[TRAINERS_COUNT] =
 {
     [TRAINER_NONE] =
@@ -509,22 +510,6 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .party = NULL,
     },
 
-#if TESTING
-    [TRAINER_BROTHER_1_PEARLWOOD] = { LEAF },
-    [TRAINER_BROTHER_2_ROUTE28] = { LEAF },
-    [TRAINER_BROTHER_3_ROUTE28] = { LEAF },
-    [TRAINER_BROTHER_4_ROUTE28] = { LEAF },
-    [TRAINER_BROTHER_5_FISHINGVILLAGE] = { LEAF },
-    [TRAINER_BROTHER_6_ROUTE20] = { LEAF },
-    [TRAINER_UNUSED_7_] = { LEAF },
-    [TRAINER_UNUSED_8_] = { LEAF },
-    [TRAINER_UNUSED_9_] = { LEAF },
-    [TRAINER_UNUSED_10_] = { LEAF },
-    [TRAINER_UNUSED_11_] = { LEAF },
-    [TRAINER_UNUSED_12_] = { LEAF },
-    [TRAINER_UNUSED_13_] = { LEAF },
-    [TRAINER_UNUSED_14_] = { LEAF },
-#else
     [TRAINER_BROTHER_1_PEARLWOOD] =
     {
         BROTHER, BASIC_AI,
@@ -589,7 +574,6 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_UNUSED_12_] = {},
     [TRAINER_UNUSED_13_] = {},
     [TRAINER_UNUSED_14_] = {},
-#endif
 
     // Leaders & Elites
     [TRAINER_LEADER_AARON] =
@@ -5828,6 +5812,8 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     TPARTY(sParty_MayLinkPlaceholder),
     },
 };
+
+#endif
 
 #undef NAME
 #undef DUMB_AI
