@@ -114,7 +114,15 @@ void FillPartnerParty(u16 trainerId)
             SetMonData(&gPlayerParty[i + 3], MON_DATA_FRIENDSHIP, &(partyData[l].friendship));
             if (partyData[l].ball < POKEBALL_COUNT)
             {
-                SetMonData(&gPlayerParty[i + 3], MON_DATA_POKEBALL, &partyData[l].ball);
+                if (partyData[l].ball == BALL_STRANGE && !TESTING)
+                {
+                    enum PokeBall customBall = BALL_POKE;
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_POKEBALL, &customBall);
+                }
+                else
+                {
+                    SetMonData(&gPlayerParty[i + 3], MON_DATA_POKEBALL, &partyData[l].ball);
+                }
             }
             if (partyData[l].nickname != NULL)
             {

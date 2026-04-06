@@ -2096,6 +2096,8 @@ u8 CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer 
             if (partyData[monIndex].ball < POKEBALL_COUNT)
             {
                 ball = partyData[monIndex].ball;
+                if (ball == BALL_STRANGE && !TESTING)
+                    ball = BALL_POKE;
                 SetMonData(&party[i], MON_DATA_POKEBALL, &ball);
             }
             if (partyData[monIndex].nickname != NULL)

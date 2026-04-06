@@ -75,7 +75,7 @@ static const u8 sText_GhostAppearedCantId[] = _("The GHOST appeared!\pDarn!\nThe
 static const u8 sText_TheGhostAppeared[] = _("The GHOST appeared!\p");
 
 static const u8 sTrainerIntro[] =                   _("You are challenged by\n{B_TRAINER1_NAME_WITH_CLASS}!\p");
-static const u8 sTrainerIntroDouble[] =             _("You are challenged by\n{B_TRAINER1_NAME_WITH_CLASS} and\l{B_TRAINER2_NAME_WITH_CLASS}\p");
+static const u8 sTrainerIntroDouble[] =             _("You are challenged by\n{B_TRAINER1_NAME_WITH_CLASS} and\l{B_TRAINER2_NAME_WITH_CLASS}!\p");
 static const u8 sWildMonAppeared[] =                _("A wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Double[] =         _("Oh! A wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Trainer[] =        _("{B_OPPONENT_MON1_NAME} wants to battle!\p");

@@ -13751,7 +13751,7 @@ void BS_TryActivateAbilityShield(void)
 
 void Cmd_forestscurse(void)
 {
-    CMD_ARGS(const u8 *failInstr);
+    NATIVE_ARGS(const u8 *failInstr);
     u32 type = TYPE_GRASS;
 
     if (IS_BATTLER_OF_TYPE(gBattlerTarget, type) && (gBattleMons[gBattlerTarget].volatiles.cursed))
@@ -13859,7 +13859,7 @@ void BS_TrySetFairyLock(void)
 
 void Cmd_jumpifbreachpierces(void)
 {
-    CMD_ARGS(const u8 *jumpInstr);
+    NATIVE_ARGS(const u8 *jumpInstr);
 
     if ((GetBattlerAbility(gBattlerAttacker) == ABILITY_DATA_BREACH) && (GetMoveType(gCurrentMove) == TYPE_NORMAL))
         gBattlescriptCurrInstr = cmd->jumpInstr;
