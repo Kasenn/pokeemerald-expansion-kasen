@@ -3565,14 +3565,12 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
             if (!failed)
             {
                 if (gSideStatuses[i] & SIDE_STATUS_REFLECT)
-                    gBattleCustomString |= SIDE_STATUS_REFLECT;//wip
+                    gBattleCustomString |= SIDE_STATUS_REFLECT;
                 if (gSideStatuses[i] & SIDE_STATUS_LIGHTSCREEN)
                     gBattleCustomString |= SIDE_STATUS_LIGHTSCREEN;
                 if (gSideStatuses[i] & SIDE_STATUS_AURORA_VEIL)
                     gBattleCustomString |= SIDE_STATUS_AURORA_VEIL;
-            }
-            if (!failed)
-            {
+
                 gSideStatuses[i] &= ~SIDE_STATUS_SCREEN_ANY;
                 gBattleScripting.animTurn = 1;
                 gBattleScripting.animTargetsHit = 1;
@@ -12692,6 +12690,15 @@ void BS_trybufferscreen(void)
     {
         gBattlescriptCurrInstr = cmd->jumpInstr;
     }
+}
+
+void BS_ClearCustomBattleString(void)
+{
+    NATIVE_ARGS();
+
+    gBattleCustomString = 0;
+
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 void BS_TryTrainerSlideZMoveMsg(void)

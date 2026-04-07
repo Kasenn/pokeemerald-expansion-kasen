@@ -1601,6 +1601,18 @@ static enum CancelerResult CancelerCharging(struct BattleContext *ctx)
             gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
             result = CANCELER_RESULT_SUCCESS;
         }
+        else if (gBattleWeather & B_WEATHER_STRONG_WINDS
+             && (ctx->move == MOVE_SKY_ATTACK
+              || ctx->move == MOVE_RAZOR_WIND
+              || ctx->move == MOVE_BOUNCE
+              || ctx->move == MOVE_FLY))//wip, ensure it works
+        {
+            gBattleScripting.animTurn = 1;
+            gBattleScripting.animTargetsHit = 0;
+            gProtectStructs[ctx->battlerAtk].chargingTurn = FALSE;
+            BattleScriptCall(BattleScript_StrongWindsActivation);
+            result = CANCELER_RESULT_BREAK;
+        }
         else if (ctx->holdEffectAtk == HOLD_EFFECT_POWER_HERB)
         {
             gBattleScripting.animTurn = 1;

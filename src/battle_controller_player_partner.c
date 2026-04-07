@@ -198,7 +198,7 @@ void PlayerPartnerBufferExecCompleted(enum BattlerId battler)
     }
 }
 
-static enum TrainerPicID PlayerPartnerGetTrainerBackPicId(void)//wip
+static enum TrainerPicID PlayerPartnerGetTrainerBackPicId(void)
 {
     enum TrainerPicID trainerPicId;
 

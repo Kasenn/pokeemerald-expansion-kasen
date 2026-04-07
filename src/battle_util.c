@@ -8255,8 +8255,7 @@ s32 CalcCritChanceStageGen1(struct BattleContext *ctx)
 static bool32 IsCriticalHit(struct BattleContext *ctx)
 {
 
-    if ((gBattleTypeFlags & (BATTLE_TYPE_BROTHER_BATTLE | BATTLE_TYPE_POKEDUDE))
-    || ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) && (!IS_FRLG || !BtlCtrl_OakOldMan_TestState2Flag(1))))
+    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
         return FALSE;
     if (ctx->isSelfInflicted)
         return FALSE;
@@ -8335,7 +8334,7 @@ s32 GetAdjustedDamage(struct BattleContext *ctx, s32 damage)
         gLastUsedItem = gBattleMons[ctx->battlerDef].item;
         gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_HUNG_ON;
     }
-    else if ((gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE || gBattleTypeFlags & BATTLE_TYPE_BROTHER_BATTLE) && IsOnPlayerSide(ctx->battlerDef))
+    else if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE && IsOnPlayerSide(ctx->battlerDef))
     {
         enduredHit = TRUE;
         gBattleStruct->moveResultFlags[ctx->battlerDef] |= MOVE_RESULT_FOE_ENDURED_AFFECTION;

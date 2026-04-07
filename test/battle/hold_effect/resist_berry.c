@@ -120,7 +120,7 @@ SINGLE_BATTLE_TEST("Weakness berries do not decrease the power of Struggle", s16
     } SCENE {
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("The Chilan Berry weakened the damage to the opposing Wobbuffet!");
+            MESSAGE("The Chilan Berry weakened the damage to the foe Wobbuffet!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);
@@ -142,7 +142,7 @@ SINGLE_BATTLE_TEST("Weakness berries do not activate if Disguise blocks the dama
     } SCENE {
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("The Babiri Berry weakened the damage to the opposing Mimikyu!");
+            MESSAGE("The Babiri Berry weakened the damage to the foe Mimikyu!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_METAL_CLAW, player);
     }

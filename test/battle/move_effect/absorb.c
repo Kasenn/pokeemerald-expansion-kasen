@@ -198,8 +198,8 @@ SINGLE_BATTLE_TEST("Absorb does not play the draining message at full HP in Gen5
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, player);
         if (genConfig < GEN_5)
-            MESSAGE("The opposing Wobbuffet had its energy drained!");
+            MESSAGE("The foe Wobbuffet had its energy drained!");
         else
-            NOT MESSAGE("The opposing Wobbuffet had its energy drained!");
+            NOT MESSAGE("The foe Wobbuffet had its energy drained!");
     }
 }

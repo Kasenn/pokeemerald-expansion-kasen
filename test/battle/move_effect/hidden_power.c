@@ -172,7 +172,7 @@ SINGLE_BATTLE_TEST("Hidden Power always triggers Counter instead of Mirror Coat 
     }
     SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player);
-        MESSAGE("The opposing Wobbuffet used Mirror Coat!");
+        MESSAGE("The foe Wobbuffet used Mirror Coat!");
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COUNTER, opponent);

@@ -80,12 +80,12 @@ enum BattleSide
 #define BATTLE_TYPE_LINK               (1 << 1)
 #define BATTLE_TYPE_IS_MASTER          (1 << 2) // In not-link battles, it's always set.
 #define BATTLE_TYPE_TRAINER            (1 << 3)
-#define BATTLE_TYPE_FIRST_BATTLE       (1 << 4)//wip
+#define BATTLE_TYPE_FIRST_BATTLE       (1 << 4)
 #define BATTLE_TYPE_LINK_IN_BATTLE     (1 << 5) // Set on battle entry, cleared on exit. Checked rarely
 #define BATTLE_TYPE_MULTI              (1 << 6)
 #define BATTLE_TYPE_SAFARI             (1 << 7)
 #define BATTLE_TYPE_BATTLE_TOWER       (1 << 8)
-#define BATTLE_TYPE_BROTHER_BATTLE     (1 << 9) // Unused for now //wip
+#define BATTLE_TYPE_UNUSED             (1 << 9) // Unused for now
 #define BATTLE_TYPE_ROAMER             (1 << 10)
 #define BATTLE_TYPE_EREADER_TRAINER    (1 << 11)
 #define BATTLE_TYPE_NO_RUNNING               (1 << 12)

@@ -556,12 +556,12 @@ DOUBLE_BATTLE_TEST("Commander still blocks forced switch after swallowed Tatsugi
         TURN { MOVE(playerLeft, move, target: opponentLeft); }
     } SCENE {
         ABILITY_POPUP(opponentRight, ABILITY_COMMANDER);
-        MESSAGE("The opposing Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
-        MESSAGE("The opposing Tatsugiri fainted!");
+        MESSAGE("The foe Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
+        MESSAGE("The foe Tatsugiri fainted!");
         if (move == MOVE_DRAGON_TAIL)
         {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, playerLeft);
-            NOT MESSAGE("The opposing Dondozo was dragged out!");
+            NOT MESSAGE("The foe Dondozo was dragged out!");
         }
         else
         {
@@ -587,8 +587,8 @@ DOUBLE_BATTLE_TEST("Red Card is still consumed but cannot force out Dondozo afte
         TURN { MOVE(opponentLeft, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
         ABILITY_POPUP(opponentRight, ABILITY_COMMANDER);
-        MESSAGE("The opposing Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
-        MESSAGE("The opposing Tatsugiri fainted!");
+        MESSAGE("The foe Tatsugiri was swallowed by Dondozo and became Dondozo's commander!");
+        MESSAGE("The foe Tatsugiri fainted!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
     } THEN {

@@ -19,7 +19,7 @@ SINGLE_BATTLE_TEST("Snatch steals stat-boosting moves from the opponent")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNATCH, player);
         MESSAGE("Wobbuffet waits for a target to make a move!");
-        MESSAGE("Wobbuffet snatched the opposing Wynaut's move!");
+        MESSAGE("Wobbuffet snatched the foe Wynaut's move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, player);
         MESSAGE("Wobbuffet's Attack sharply rose!");
     } THEN {
@@ -68,11 +68,11 @@ DOUBLE_BATTLE_TEST("Snatch does not steal a move that was already snatched this 
         // Opponent uses Celebrate (not snatchable)
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentLeft);
         // Slowest opponent uses Swords Dance - only the first Snatch user should steal it
-        MESSAGE("Wobbuffet snatched the opposing Kadabra's move!");
+        MESSAGE("Wobbuffet snatched the foe Kadabra's move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, playerLeft);
         MESSAGE("Wobbuffet's Attack sharply rose!");
         // The second Snatch user should NOT steal the already-snatched move
-        NOT MESSAGE("Wynaut snatched the opposing Kadabra's move!");
+        NOT MESSAGE("Wynaut snatched the foe Kadabra's move!");
     } THEN {
         // Only playerLeft got the Attack boost
         EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
@@ -99,12 +99,12 @@ DOUBLE_BATTLE_TEST("Snatch steals from the correct target when multiple snatchab
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SNATCH, playerLeft);
         MESSAGE("Wobbuffet waits for a target to make a move!");
         // First snatchable move is Swords Dance from opponentLeft
-        MESSAGE("Wobbuffet snatched the opposing Abra's move!");
+        MESSAGE("Wobbuffet snatched the foe Abra's move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, playerLeft);
         MESSAGE("Wobbuffet's Attack sharply rose!");
         // Agility should NOT be snatched (Snatch was already used)
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AGILITY, opponentRight);
-        MESSAGE("The opposing Kadabra's Speed sharply rose!");
+        MESSAGE("The foe Kadabra's Speed sharply rose!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, playerRight);
     } THEN {
         EXPECT_EQ(playerLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);

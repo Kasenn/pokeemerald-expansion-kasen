@@ -2830,35 +2830,6 @@ BattleScript_AlreadyParalyzed::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
-@ BattleScript_EffectTwoTurnsAttack::@//wip
-@ 	jumpifvolatile BS_ATTACKER, VOLATILE_MULTIPLETURNS, BattleScript_TwoTurnMovesSecondTurn@//wip
-@ 	tryfiretwoturnmovewithoutcharging BS_ATTACKER, BattleScript_EffectHit @ e.g. Solar Beam@//wip
-@ 	call BattleScript_FirstChargingTurn@//wip
-@ 	tryfiretwoturnmoveaftercharging BS_ATTACKER, BattleScript_TwoTurnMovesSecondTurn @ e.g. Electro Shot@//wip
-@ 	jumpifmove MOVE_SKY_ATTACK, BattleScript_CheckWindEffect@//wip
-@ 	jumpifmove MOVE_RAZOR_WIND, BattleScript_CheckWindEffect@//wip
-@ 	jumpifmove MOVE_BOUNCE, BattleScript_CheckWindEffect@//wip
-@ 	jumpifmove MOVE_FLY, BattleScript_CheckWindEffect@//wip
-@ 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
-@ 	goto BattleScript_MoveEnd@//wip
-@ @//wip
-@ BattleScript_CheckWindEffect:@//wip
-@ 	jumpifweatheraffected B_WEATHER_STRONG_WINDS, BattleScript_WindActivates@//wip
-@ 	jumpifholdeffect BS_ATTACKER, HOLD_EFFECT_POWER_HERB, BattleScript_TwoTurnMovesSecondPowerHerbActivates, TRUE@//wip
-@ 	goto BattleScript_MoveEnd@//wip
-@ @//wip
-@ BattleScript_WindActivates:@//wip
-@ 	call BattleScript_WeatherWindActivation@//wip
-@ 	goto BattleScript_FromTwoTurnMovesSecondTurnRet@//wip
-@ @//wip
-@ BattleScript_WeatherWindActivation::@//wip
-@ 	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT@//wip
-@ 	printstring STRINGID_WEATHERWIND@//wip
-@ 	waitmessage B_WAIT_TIME_MED@//wip
-@ 	printstring STRINGID_USEDMOVE@//wip
-@ 	waitmessage B_WAIT_TIME_LONG@//wip
-@ 	return@//wip
-
 BattleScript_EffectGeomancy::
 	attackcanceler
 	jumpifstat BS_ATTACKER, CMP_LESS_THAN, STAT_SPATK, MAX_STAT_STAGE, BattleScript_GeomancyDoMoveAnim
@@ -2892,6 +2863,14 @@ BattleScript_PowerHerbActivation::
 	printstring STRINGID_POWERHERB
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
+	return
+
+BattleScript_StrongWindsActivation::
+	playanimation BS_ATTACKER, B_ANIM_HELD_ITEM_EFFECT
+	printstring STRINGID_WEATHERWIND
+	waitmessage B_WAIT_TIME_MED
+	printstring STRINGID_USEDMOVE
+	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_TwoTurnMoveCharging::
@@ -3871,6 +3850,7 @@ BattleScript_BrickBreak_AuroraVeil::
 	printstring STRINGID_PKMNSSCREENWOREOFF2
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreakHitEnd::
+	clearcustombattlestrings
 	return
 
 BattleScript_StealStats::
@@ -6806,11 +6786,7 @@ BattleScript_GrassyTerrainHeals::
 BattleScript_RockyTerrainDamages::
 	printstring STRINGID_ROCKYTERRAINDAMAGES
 	waitmessage B_WAIT_TIME_LONG
-	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	tryfaintmon BS_ATTACKER
-	checkteamslost BattleScript_DoTurnDmgEnd
-	end2
+	goto BattleScript_DoTurnDmg
 
 BattleScript_AbilityNoSpecificStatLoss::
 	pause B_WAIT_TIME_SHORT
@@ -7413,23 +7389,6 @@ BattleScript_HangedOnMsg::
 BattleScript_HangedOnMsgRet:
 	return
 
-BattleScript_BerrySleepHealEnd2::@//wip
-	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerrySleepHealEnd2_AbilityPopup
-	goto BattleScript_BerrySleepHealEnd2_Anim
-BattleScript_BerrySleepHealEnd2_AbilityPopup:
-	call BattleScript_AbilityPopUp
-BattleScript_BerrySleepHealEnd2_Anim:
-	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_EFFECT
-	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
-	waitmessage B_WAIT_TIME_LONG
-	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	printstring STRINGID_SLEEPBERRY
-	waitmessage B_WAIT_TIME_LONG
-	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
-	removeitem BS_SCRIPTING
-	end2
-
 BattleScript_BerryConfuseHeal::
 	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerryConfuseHealRet_AbilityPopup
 	goto BattleScript_BerryConfuseHealRet_Anim
@@ -7445,7 +7404,7 @@ BattleScript_BerryConfuseHealRet_Anim:
 	removeitem BS_SCRIPTING
 	return
 
-BattleScript_BerrySleepHealRet:: @//wip
+BattleScript_BerrySleepHeal::
 	jumpifability BS_SCRIPTING, ABILITY_RIPEN, BattleScript_BerrySleepHealRet_AbilityPopup
 	goto BattleScript_BerrySleepHealRet_Anim
 BattleScript_BerrySleepHealRet_AbilityPopup:
@@ -7456,10 +7415,8 @@ BattleScript_BerrySleepHealRet_Anim:
 	waitmessage B_WAIT_TIME_LONG
 	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
 	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	printstring STRINGID_SLEEPBERRY
-	waitmessage B_WAIT_TIME_LONG
-	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
-	removeitem BS_TARGET
+	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_CONFUSION
+	removeitem BS_SCRIPTING
 	return
 
 BattleScript_ConsumableStatRaiseEnd2::

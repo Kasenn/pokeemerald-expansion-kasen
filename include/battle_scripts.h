@@ -217,7 +217,7 @@ extern const u8 BattleScript_ItemHealHP_Ret[];
 extern const u8 BattleScript_SelectingNotAllowedMoveChoiceItem[];
 extern const u8 BattleScript_SelectingNotAllowedMoveChoiceItemInPalace[];
 extern const u8 BattleScript_HangedOnMsg[];
-extern const u8 BattleScript_BerrySleepHeal[];//wip
+extern const u8 BattleScript_BerrySleepHeal[];
 extern const u8 BattleScript_BerryConfuseHeal[];
 extern const u8 BattleScript_ConsumableStatRaiseRet[];
 extern const u8 BattleScript_BerryFocusEnergy[];
@@ -518,6 +518,7 @@ extern const u8 BattleScript_PokemonCantUseTheMove[];
 extern const u8 BattleScript_TwoTurnMoveCharging[];
 extern const u8 BattleScript_SkyDropCharging[];
 extern const u8 BattleScript_PowerHerbActivation[];
+extern const u8 BattleScript_StrongWindsActivation[];
 extern const u8 BattleScript_Explosion[];
 extern const u8 BattleScript_ActivateSwitchInAbility[];
 extern const u8 BattleScript_BreakScreens[];

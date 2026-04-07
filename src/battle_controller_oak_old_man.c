@@ -325,10 +325,7 @@ static void OpenBagAndChooseItem(enum BattlerId battler)
         gBattlerControllerFuncs[battler] = CompleteWhenChoseItem;
         ReshowBattleScreenDummy();
         FreeAllWindowBuffers();
-        if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-            CB2_BagMenuFromBattle();
-        else
-            InitOldManBag();
+        InitOldManBag();
     }
 }
 
@@ -336,18 +333,8 @@ static void CompleteWhenChoseItem(enum BattlerId battler)
 {
     if (gMain.callback2 == BattleMainCB2 && !gPaletteFade.active)
     {
-        if (IS_FRLG && !BtlCtrl_OakOldMan_TestState2Flag(FIRST_BATTLE_MSG_FLAG_HP_RESTORE)
-         && gSpecialVar_ItemId == ITEM_POTION
-         && gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-        {
-            BtlCtrl_OakOldMan_SetState2Flag(FIRST_BATTLE_MSG_FLAG_HP_RESTORE);
-            gBattlerControllerFuncs[battler] = PrintOakText_KeepAnEyeOnHP;
-        }
-        else
-        {
-            BtlController_EmitOneReturnValue(battler, 1, gSpecialVar_ItemId);
-            OakOldManBufferExecCompleted(battler);
-        }
+        BtlController_EmitOneReturnValue(battler, 1, gSpecialVar_ItemId);
+        OakOldManBufferExecCompleted(battler);
     }
 }
 
@@ -677,14 +664,12 @@ void OakOldManBufferExecCompleted(enum BattlerId battler)
 
 static void OakOldManHandleDrawTrainerPic(enum BattlerId battler)
 {
-    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RED : TRAINER_BACK_PIC_OLD_MAN;
-    BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE, 80, (8 - gTrainerBacksprites[trainerPicId].coordinates.size) * 4 + 80, 30);
+    BtlController_HandleDrawTrainerPic(battler, TRAINER_BACK_PIC_RED, FALSE, 80, (8 - gTrainerBacksprites[TRAINER_BACK_PIC_RED].coordinates.size) * 4 + 80, 30);
 }
 
 static void OakOldManHandleTrainerSlide(enum BattlerId battler)
 {
-    u32 trainerPicId = (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) ? gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RED : TRAINER_BACK_PIC_OLD_MAN;
-    BtlController_HandleTrainerSlide(battler, trainerPicId);
+    BtlController_HandleTrainerSlide(battler, TRAINER_BACK_PIC_RED);
 }
 
 static void OakOldManHandlePrintString(enum BattlerId battler)
@@ -694,7 +679,7 @@ static void OakOldManHandlePrintString(enum BattlerId battler)
     gBattle_BG0_X = 0;
     gBattle_BG0_Y = 0;
     stringId = (u16 *)(&gBattleResources->bufferA[battler][2]);
-    if (gBattleTypeFlags & BATTLE_TYPE_BROTHER_BATTLE && *stringId == 1)
+    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE && *stringId == 1)
     {
         OakOldManBufferExecCompleted(battler);
     }

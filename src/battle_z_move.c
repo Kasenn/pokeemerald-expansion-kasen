@@ -122,7 +122,7 @@ bool32 CanUseZMove(enum BattlerId battler)
         return FALSE;
 
     // Add '| BATTLE_TYPE_FRONTIER' to below if issues occur
-    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_BROTHER_BATTLE))
+    if (gBattleTypeFlags & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_FIRST_BATTLE | BATTLE_TYPE_FRONTIER))
         return FALSE;
 
     // Check if Trainer has already used a Z-Move.

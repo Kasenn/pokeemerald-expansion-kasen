@@ -115,7 +115,7 @@ SINGLE_BATTLE_TEST("Rapid Spin doesn't blow away Wrap, hazards or raise Speed wh
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
             MESSAGE("Tauros's Speed rose!");
         #endif
-            MESSAGE("Tauros got free of the opposing Wobbuffet's Wrap!");
+            MESSAGE("Tauros got free of the foe Wobbuffet's Wrap!");
             MESSAGE("Tauros blew away Stealth Rock!");
         }
     }

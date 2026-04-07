@@ -612,7 +612,7 @@ SINGLE_BATTLE_TEST("(Z-MOVE) Genesis Supernova sets up psychic terrain when the 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GENESIS_SUPERNOVA, player);
         SUB_HIT(opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player); }
-        MESSAGE("The opposing Wobbuffet is protected by the Psychic Terrain!");
+        MESSAGE("The foe Wobbuffet is protected by the Psychic Terrain!");
     }
 }
 

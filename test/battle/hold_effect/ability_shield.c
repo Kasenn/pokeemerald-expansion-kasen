@@ -319,7 +319,7 @@ DOUBLE_BATTLE_TEST("Ability Shield prevents Receiver/Power of Alchemy holder fro
     } SCENE {
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
-        MESSAGE("The opposing Gyarados fainted!");
+        MESSAGE("The foe Gyarados fainted!");
         NONE_OF {
             ABILITY_POPUP(opponentLeft, ability);
             ABILITY_POPUP(opponentLeft, ABILITY_INTIMIDATE);
@@ -349,7 +349,7 @@ DOUBLE_BATTLE_TEST("Ability Shield on fainted ally does not block Receiver/Power
     } SCENE {
         ABILITY_POPUP(opponentRight, ABILITY_INTIMIDATE);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
-        MESSAGE("The opposing Gyarados fainted!");
+        MESSAGE("The foe Gyarados fainted!");
         ABILITY_POPUP(opponentLeft, ability);
         ABILITY_POPUP(opponentLeft, ABILITY_INTIMIDATE);
     } THEN {

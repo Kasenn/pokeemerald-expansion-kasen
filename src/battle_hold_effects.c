@@ -941,15 +941,8 @@ static enum ItemEffect HealSleepBerry(enum BattlerId battler, enum Item itemId)
      && !(B_HEAL_BLOCKING >= GEN_5 && gBattleMons[battler].volatiles.healBlock))
     {
         s32 healAmount = GetNonDynamaxMaxHP(battler);
-        SetHealAmount(battler, healAmount);//wip
-        // if (timing == IsOnSwitchInFirstTurnActivation)
-        // {
-        //     BattleScriptExecute(BattleScript_BerrySleepHealEnd2);
-        // }
-        // else
-        // {
-        //     BattleScriptCall(BattleScript_BerrySleepHealRet);
-        // }
+        SetHealAmount(battler, healAmount);//wip, ensure it works
+        BattleScriptCall(BattleScript_BerrySleepHeal);
         effect = ITEM_HP_CHANGE;
     }
 

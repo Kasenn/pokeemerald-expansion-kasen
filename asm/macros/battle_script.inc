@@ -1235,6 +1235,10 @@
 	.4byte \jumpInstr
 	.endm
 
+	.macro clearcustombattlestrings
+	callnative BS_ClearCustomBattleString
+	.endm
+
 	.macro savetarget
 	callnative BS_SaveTarget
 	.endm

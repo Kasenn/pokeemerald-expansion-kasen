@@ -372,14 +372,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
           || IS_BATTLER_OF_TYPE(battler, TYPE_STEEL)))
         {
             gBattlerAttacker = battler;
-            gBattleStruct->moveDamage[battler] = GetStealthHazardDamage(TYPE_SIDE_HAZARD_POINTED_STONES, battler);
-            if (gBattleStruct->moveDamage[battler] > (GetNonDynamaxMaxHP(battler) / 6))
-            {
-                gBattleStruct->moveDamage[battler] = (GetNonDynamaxMaxHP(battler) / 6);
-            }
-            if (gBattleStruct->moveDamage[battler] == 0)
-            gBattleStruct->moveDamage[battler] = 1;
-
+            SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 6);
             BattleScriptExecute(BattleScript_RockyTerrainDamages);
             effect = TRUE;
         }
@@ -393,30 +386,25 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         }
         if (IsBattlerMegaEvolved(battler) && IsBattlerAlive(battler))
         {
-            gBattlerTarget = battler;
+            struct BattleContext dmgCtx = {0};
+            dmgCtx.battlerAtk = gBattlerAttacker = battler;
+            dmgCtx.moveType = TYPE_MYSTERY;
+            dmgCtx.isCrit = FALSE;
+            dmgCtx.randomFactor = FALSE;
+            dmgCtx.updateFlags = TRUE;
+            dmgCtx.fixedBasePower = 40;
+            u16 dmgCap = GetNonDynamaxMaxHP(battler) / 6;
 
-            struct BattleContext ctx = {0};
-            ctx.battlerAtk = ctx.battlerDef = gBattlerAttacker;
-            ctx.move = MOVE_NONE;
-            ctx.moveType = TYPE_MYSTERY;
-            ctx.isCrit = FALSE;
-            ctx.randomFactor = FALSE;
-            ctx.updateFlags = TRUE;
-            ctx.fixedBasePower = 40;
-            u16 physAttack = CalculateMoveDamage(&ctx);
-            ctx.move = MOVE_NONE_SPECIAL;
-            u16 speAttack = CalculateMoveDamage(&ctx);
+            dmgCtx.move = MOVE_NONE;
+            u16 physAttack = CalculateMoveDamage(&dmgCtx);
+            dmgCtx.move = MOVE_NONE_SPECIAL;
+            u16 speAttack = CalculateMoveDamage(&dmgCtx);
 
             if (speAttack > physAttack)
-                gBattleStruct->moveDamage[battler] = speAttack;
+                SetPassiveDamageAmount(battler, min(speAttack, dmgCap));
             else
-                gBattleStruct->moveDamage[battler] = physAttack;
+                SetPassiveDamageAmount(battler, min(physAttack, dmgCap));
 
-            if (gBattleStruct->moveDamage[battler] > gBattleMons[gBattlerTarget].maxHP / 5)
-                gBattleStruct->moveDamage[battler] = gBattleMons[gBattlerTarget].maxHP / 5;
-
-            if (gBattleStruct->moveDamage[battler] == 0)
-                gBattleStruct->moveDamage[battler] = 1;
             BattleScriptExecute(BattleScript_MegaExhaustion);
             effect = TRUE;
         }

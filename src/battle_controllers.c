@@ -153,7 +153,6 @@ void SetUpBattleVarsAndBirchZigzagoon(void)
     BattleAI_SetupItems();
     BattleAI_SetupFlags();
 
-    // if (!IS_FRLG && gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
     //     CreateWildMon(SPECIES_ZIGZAGOON, 2);
 }
 
@@ -1981,8 +1980,8 @@ static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
         return FALSE;
 
     if (gBattleTypeFlags & (
-        BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_FIRST_BATTLE |
-        BATTLE_TYPE_SAFARI | BATTLE_TYPE_BROTHER_BATTLE | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
+        BATTLE_TYPE_LINK | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_FRONTIER |
+        BATTLE_TYPE_SAFARI | BATTLE_TYPE_EREADER_TRAINER | BATTLE_TYPE_TWO_OPPONENTS |
         BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_RECORDED | BATTLE_TYPE_TRAINER_HILL)
     )
         return FALSE;
@@ -2174,15 +2173,7 @@ void Controller_WaitForHealthBar(enum BattlerId battler)
         if (IsOnPlayerSide(battler))
             HandleLowHpMusicChange(GetBattlerMon(battler), battler);
 
-        if (IS_FRLG && GetBattlerSide(battler) == B_SIDE_OPPONENT && !BtlCtrl_OakOldMan_TestState2Flag(1) && (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE))
-        {
-            BtlCtrl_OakOldMan_SetState2Flag(1);
-            gBattlerControllerFuncs[battler] = PrintOakText_InflictingDamageIsKey;
-        }
-        else
-        {
-            BtlController_Complete(battler);
-        }
+        BtlController_Complete(battler);
     }
 }
 
@@ -2654,16 +2645,6 @@ void BtlController_HandlePrintString(enum BattlerId battler)
     //     BattlePutTextOnWindow(gDisplayedStringBattle, (B_WIN_MSG | B_TEXT_FLAG_NPC_CONTEXT_FONT));
     // else
         BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_MSG);
-
-    if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE && GetBattlerSide(battler) == B_SIDE_OPPONENT)
-    {
-        switch (*stringId)
-        {
-        case STRINGID_TRAINER1WINTEXT:
-            gBattlerControllerFuncs[battler] = PrintOakText_HowDisappointing;
-            return;
-        }
-    }
 
     gBattlerControllerFuncs[battler] = Controller_WaitForString;
     if (ShouldUpdateTvData(battler))

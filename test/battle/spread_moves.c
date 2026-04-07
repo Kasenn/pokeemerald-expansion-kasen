@@ -413,7 +413,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: AOE ground type move vs Levitate and Air Ballo
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); }
     } SCENE {
         ABILITY_POPUP(opponentLeft, ABILITY_LEVITATE);
-        MESSAGE("It doesn't affect the opposing Wynaut…");
+        MESSAGE("It doesn't affect the foe Wynaut…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         HP_BAR(playerRight);
     }

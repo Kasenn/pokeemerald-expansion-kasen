@@ -37,7 +37,7 @@ gText_Birch_BoyOrGirl::
 
 gText_Birch_Brother::
 	.string "And I believe you also have\n"
-	.string "an older brother?\l"
+	.string "an older brother?\p"
 	.string "What was his name again?$"
 
 gText_Birch_WhatsYourName::
