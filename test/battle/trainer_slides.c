@@ -668,8 +668,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Enemy Mon Unaffected")
         TURN { MOVE(playerLeft, MOVE_BOOMBURST); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, playerLeft);
-        MESSAGE("It doesn't affect the foe Gengar…");
-        MESSAGE("It doesn't affect the foe Haunter…");
+        MESSAGE("It doesn't affect the foe Gengar…\pIt doesn't affect the foe Haunter…");
         MESSAGE("It doesn't affect Gastly…");
         MESSAGE("Trainer A: Player attacked enemy with ineffective move.{PAUSE_UNTIL_PRESS}");
         MESSAGE("Trainer B: Player attacked enemy with ineffective move.{PAUSE_UNTIL_PRESS}");
