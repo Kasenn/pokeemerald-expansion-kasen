@@ -734,7 +734,7 @@ enum MoveTarget
 };
 
 // Constants for Parental Bond
-#define PARENTAL_BOND_1ST_HIT 2//wip
+#define PARENTAL_BOND_1ST_HIT 2// wip
 #define PARENTAL_BOND_2ND_HIT 1
 #define PARENTAL_BOND_OFF     0
 

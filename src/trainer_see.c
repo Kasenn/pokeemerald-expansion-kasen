@@ -509,7 +509,7 @@ bool8 CheckForTrainersWantingBattle(void)
         ScriptContext_SetupScript(trainerScript);
         LockPlayerFieldControls();
         return TRUE;
-    }//wip
+    }// wip
 
     // if (InBattlePyramid_() || InTrainerHillChallenge())
     // {

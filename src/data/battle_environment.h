@@ -504,7 +504,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     },
     //////////////////////////////
     //////////////////////////////
-//wip
+// wip
     [BATTLE_ENVIRONMENT_SOARING] =
     {
         .name = _("Soaring"),

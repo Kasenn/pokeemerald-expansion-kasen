@@ -1450,7 +1450,7 @@ enum PokeBall ItemIdToBallId(u32 ballItem)
     enum PokeBall secondaryId = GetItemSecondaryId(ballItem);
 
     if (secondaryId <= BALL_STRANGE || secondaryId >= POKEBALL_COUNT)
-        return BALL_STRANGE;//wip
+        return BALL_STRANGE;// wip
 
     return secondaryId;
 }

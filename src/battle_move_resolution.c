@@ -440,7 +440,7 @@ static enum CancelerResult CancelerParalyzed(struct BattleContext *ctx)
     return CANCELER_RESULT_SUCCESS;
 }
 
-static enum CancelerResult CancelerTrainingBot(struct BattleContext *ctx)//wip
+static enum CancelerResult CancelerTrainingBot(struct BattleContext *ctx)// wip
 {
     if (ctx->move == MOVE_UNUSABLE)
     {
@@ -1605,7 +1605,7 @@ static enum CancelerResult CancelerCharging(struct BattleContext *ctx)
              && (ctx->move == MOVE_SKY_ATTACK
               || ctx->move == MOVE_RAZOR_WIND
               || ctx->move == MOVE_BOUNCE
-              || ctx->move == MOVE_FLY))//wip, ensure it works
+              || ctx->move == MOVE_FLY))// wip, ensure it works
         {
             gBattleScripting.animTurn = 1;
             gBattleScripting.animTargetsHit = 0;

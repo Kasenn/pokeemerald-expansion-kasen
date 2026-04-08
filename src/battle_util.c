@@ -3320,7 +3320,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_FICKLE:
-            if (!gBattleStruct->unableToUseMove//wip
+            if (!gBattleStruct->unableToUseMove// wip
              && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
              && IsBattlerAlive(gBattlerTarget))
             {
@@ -4104,7 +4104,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
         case ABILITY_SPIKE_BODY:
             if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
              && IsBattlerAlive(gBattlerAttacker)
-             && !gBattleStruct->unableToUseMove //wip
+             && !gBattleStruct->unableToUseMove // wip
              && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
              && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
             {
@@ -9248,7 +9248,7 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     }
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
     {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;//wip
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;// wip
     }
     if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
     {

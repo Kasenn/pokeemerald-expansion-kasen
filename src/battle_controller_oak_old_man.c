@@ -42,7 +42,6 @@ static void OakOldManHandleEndLinkBattle(enum BattlerId battler);
 static void OakOldManBufferRunCommand(enum BattlerId battler);
 static void WaitForMonSelection(enum BattlerId battler);
 static void CompleteWhenChoseItem(enum BattlerId battler);
-static void PrintOakText_KeepAnEyeOnHP(enum BattlerId battler);
 static void Intro_WaitForShinyAnimAndHealthbox(enum BattlerId battler);
 static void PrintOakText_ForPetesSake(enum BattlerId battler);
 static void PrintOakTextWithMainBgDarkened(enum BattlerId battler, const u8 *text, u8 delay);
@@ -563,83 +562,6 @@ static void PrintOakTextWithMainBgDarkened(enum BattlerId battler, const u8 *tex
             else
                 OpponentBufferExecCompleted(battler);
             gBattleCommunication[MSG_DISPLAY] = 0;
-            gBattleStruct->simulatedInputState0 = 0;
-        }
-        break;
-    }
-}
-
-static void PrintOakText_KeepAnEyeOnHP(enum BattlerId battler)
-{
-    u32 mask;
-
-    switch (gBattleStruct->simulatedInputState0)
-    {
-    case 0:
-        if (!gPaletteFade.active)
-        {
-            LoadHealthboxPalsForLevelUp(&gBattleStruct->simulatedInputState1, &gBattleStruct->simulatedInputState3, battler);
-            BeginNormalPaletteFade(0xFFFFFF7E,
-                                   4,
-                                   0,
-                                   8,
-                                   RGB_BLACK);
-            ++gBattleStruct->simulatedInputState0;
-        }
-        break;
-    case 1:
-        if (!gPaletteFade.active)
-        {
-            mask = ((1 << gBattleStruct->simulatedInputState1) | (1 << gBattleStruct->simulatedInputState3)) << 16;
-            BeginNormalPaletteFade(mask,
-                                   4,
-                                   8,
-                                   0,
-                                   RGB_BLACK);
-            ++gBattleStruct->simulatedInputState0;
-        }
-        break;
-    case 2:
-        if (!gPaletteFade.active)
-        {
-            BtlCtrl_DrawVoiceoverMessageFrame();
-            ++gBattleStruct->simulatedInputState0;
-        }
-        break;
-    case 3:
-        BattleStringExpandPlaceholdersToDisplayedString(sText_KeepAnEyeOnHP);
-        BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_OAK_OLD_MAN);
-        ++gBattleStruct->simulatedInputState0;
-        break;
-    case 4:
-        if (!IsTextPrinterActiveOnWindow(B_WIN_OAK_OLD_MAN))
-        {
-            mask = ((1 << gBattleStruct->simulatedInputState1) | (1 << gBattleStruct->simulatedInputState3)) << 16;
-            BeginNormalPaletteFade(mask,
-                                   4,
-                                   0,
-                                   8,
-                                   RGB_BLACK);
-            ++gBattleStruct->simulatedInputState0;
-        }
-        break;
-    case 5:
-        if (!gPaletteFade.active)
-        {
-            BeginNormalPaletteFade(0xFFFFFF7E,
-                                   4,
-                                   8,
-                                   0,
-                                   RGB_BLACK);
-            ++gBattleStruct->simulatedInputState0;
-        }
-        break;
-    case 6:
-        if (!gPaletteFade.active)
-        {
-            BtlCtrl_RemoveVoiceoverMessageFrame();
-            BtlController_EmitOneReturnValue(battler, 1, gSpecialVar_ItemId);
-            OakOldManBufferExecCompleted(battler);
             gBattleStruct->simulatedInputState0 = 0;
         }
         break;

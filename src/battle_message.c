@@ -126,10 +126,9 @@ const u8 *const gPokeblockWasTooXStringTable[FLAVOR_COUNT] =
 
 const u8 *const gBattleStringsTable[STRINGID_COUNT] =
 {
-    // New //wip
     [STRINGID_SCR_ITDOESNTAFFECT]                   = COMPOUND_STRING("It doesn't affect {B_SCR_NAME_PREFIX_LOWERCASE}…"),
     [STRINGID_PKMNWASDEFROSTED]                     = COMPOUND_STRING("{B_SCR_NAME_PREFIX} thawed out!"),
-    [STRINGID_SCRIPTINGSTATROSE]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_BUFF1}\n{B_BUFF2}"),//wip
+    [STRINGID_SCRIPTINGSTATROSE]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s {B_BUFF1}\n{B_BUFF2}"),
     [STRINGID_MONTOOSCAREDTOMOVE]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} is too scared to move!"),
     [STRINGID_GHOSTGETOUTGETOUT]                    = COMPOUND_STRING("GHOST: Get out…… Get out……"),
     [STRINGID_SILPHSCOPEUNVEILED]                   = COMPOUND_STRING("SILPH SCOPE unveiled the GHOST's\nidentity!"),
@@ -809,7 +808,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_FLOWERVEILPROTECTED]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX} surrounded itself\nwith a veil of petals!"),
     [STRINGID_AROMAVEILPROTECTED]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} is protected\nby an aromatic veil!"),
     // [STRINGID_USEDINSTRUCTEDMOVE]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} used the move\ninstructed by {B_BUFF1}!"),
-    [STRINGID_USEDINSTRUCTEDMOVE]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} followed {B_ATK_NAME_PREFIX_LOWERCASE}'s instructions!"),//wip
+    [STRINGID_USEDINSTRUCTEDMOVE]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} followed {B_ATK_NAME_PREFIX_LOWERCASE}'s instructions!"),
     [STRINGID_THROATCHOPENDS]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can\nuse sound-based moves again!"),
     [STRINGID_PKMNCANTUSEMOVETHROATCHOP]            = COMPOUND_STRING("{B_ATK_NAME_PREFIX} can't use\n{B_CURRENT_MOVE} due to Throat Chop!\p"),
     [STRINGID_LASERFOCUS]                           = COMPOUND_STRING("{B_ATK_NAME_PREFIX}\nconcentrated intensely!"),
@@ -2234,7 +2233,7 @@ static const struct BattleWindowText sTextOnWindowsInfo_Arena[] =
         .speed = 0,
         .color.foreground = 12,
         .color.background = 14,
-        .color.accent = 14,//wip
+        .color.accent = 14,
         .color.shadow = 11,
     },
     [B_WIN_DUMMY] = {
@@ -2519,10 +2518,6 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(BATTLE_PARTNER(battler))))
             {
-                // if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
-                //     stringPtr = sPartnerSentOut;
-                // else//wip
-                //     stringPtr = sPlayerSentOutDouble;
                 if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
                 {
                     if (BattlerIsPlayer(battler)) // Player is battler 0
@@ -2743,14 +2738,9 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         stringPtr = sMonUsedMove;
         break;
     case STRINGID_BATTLEEND: // battle end
-        gAutoScrollMessage = TRUE;//wip
-        if (!IsOnPlayerSide(battler) && gBattleTextBuff1[0] != B_OUTCOME_DREW)//wip
-            gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);//wip
-        // if (gBattleTextBuff1[0] & B_OUTCOME_LINK_BATTLE_RAN)
-        // {
-        //     gBattleTextBuff1[0] &= ~(B_OUTCOME_LINK_BATTLE_RAN);
-        //     if (!(BattlerIsPlayer(battler) || BattlerIsPlayer(BATTLE_PARTNER(battler))) && gBattleTextBuff1[0] != B_OUTCOME_DREW)
-        //         gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
+        gAutoScrollMessage = TRUE;
+        if (!IsOnPlayerSide(battler) && gBattleTextBuff1[0] != B_OUTCOME_DREW)
+            gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
         {
@@ -2769,11 +2759,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         }
         else
         {
-            switch (gBattleTextBuff1[0])//wip
-            // if (!(BattlerIsPlayer(battler) || BattlerIsPlayer(BATTLE_PARTNER(battler))) && gBattleTextBuff1[0] != B_OUTCOME_DREW)
-            //     gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
-
-            // if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
+            switch (gBattleTextBuff1[0])
             {
             case B_OUTCOME_WON:
                 stringPtr = sPlayerDefeatedTrainer;

@@ -2469,7 +2469,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         && IsBattlerAlive(gBattlerTarget)
         && IsFinalStrikeEffect(moveEffect))
     {
-        gBattlescriptCurrInstr = battleScript; //wip
+        gBattlescriptCurrInstr = battleScript; // wip
         return;
     }
     
@@ -10911,7 +10911,7 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
         ball->multiplier = 200;
         break;
     case BALL_DIRE:
-        if (GetHPBarLevel(gBattleMons[gBattlerTarget].hp, gBattleMons[gBattlerTarget].maxHP) == HP_BAR_RED)//wip
+        if (GetHPBarLevel(gBattleMons[gBattlerTarget].hp, gBattleMons[gBattlerTarget].maxHP) == HP_BAR_RED)// wip
             ball->guaranteedCapture = TRUE;
         else
             ball->multiplier = 200;

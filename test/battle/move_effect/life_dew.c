@@ -85,7 +85,7 @@ DOUBLE_BATTLE_TEST("Life Dew only works on partner if user is at full hp")
     }
 }
 
-AI_SINGLE_BATTLE_TEST("AI uses Life Dew if it outheals your damage and outspeeds (singles)")//broken //wip
+AI_SINGLE_BATTLE_TEST("AI uses Life Dew if it outheals your damage and outspeeds (singles)")
 {
     PASSES_RANDOMLY(100, 100, RNG_AI_SHOULD_RECOVER);
     GIVEN {

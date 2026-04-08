@@ -6200,7 +6200,7 @@ bool8 MovementType_FollowPlayer_Active(struct ObjectEvent *objectEvent, struct S
         return TRUE;
     }
     if (FlagGet(FLAG_FOLLOWER_STAYS_PUT))
-        return gFollowPlayerMovementFuncs[COPY_MOVE_WALK_COLLIDE](objectEvent, sprite, GetPlayerMovementDirection(), NULL);//wip
+        return gFollowPlayerMovementFuncs[COPY_MOVE_WALK_COLLIDE](objectEvent, sprite, GetPlayerMovementDirection(), NULL);// wip
     return gFollowPlayerMovementFuncs[PlayerGetCopyableMovement()](objectEvent, sprite, GetPlayerMovementDirection(), NULL);
 }
 
