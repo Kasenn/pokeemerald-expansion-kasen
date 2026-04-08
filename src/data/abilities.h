@@ -881,6 +881,17 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .aiRating = 8,
     },
 
+    [ABILITY_SNOW_WARNING_TEST] =
+    {
+        .name = _("Snow Warning"),
+    #if B_SNOW_WARNING >= GEN_9
+        .description = COMPOUND_STRING("Summons snow in battle."),
+    #else
+        .description = COMPOUND_STRING("Summons hail in battle."),
+    #endif
+        .aiRating = 8,
+    },
+
     [ABILITY_HONEY_GATHER] =
     {
         .name = _("Honey Gather"),

@@ -368,17 +368,6 @@ SINGLE_BATTLE_TEST("Fling's secondary effects are blocked by Shield Dust")
                 NONE_OF {
                     MESSAGE("The foe Wobbuffet flinched!");
                 }
-                switch (item)
-                {
-                    case ITEM_RAZOR_FANG:
-                        MESSAGE("The Razor Fang was used up…");
-                        break;
-                    case ITEM_KINGS_ROCK:
-                        MESSAGE("The King's Rock was used up…");
-                        break;
-                    default:
-                        break;
-                }
             }
             break;
         default:

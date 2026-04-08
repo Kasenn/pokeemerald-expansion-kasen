@@ -250,7 +250,7 @@ SINGLE_BATTLE_TEST("Focus Punch failing occurs after flinching (Gen 3-4)")
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FOCUS_PUNCH_SETUP, player);
         MESSAGE("Wobbuffet is tightening its focus!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
-        MESSAGE("Wobbuffet flinched and couldn't move!");
+        MESSAGE("Wobbuffet flinched!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_FOCUS_PUNCH, player);
     }
 }

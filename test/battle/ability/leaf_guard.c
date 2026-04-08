@@ -87,8 +87,8 @@ SINGLE_BATTLE_TEST("Leaf Guard prevents status conditions from Flame Orb and Tox
         }
         else {
             NONE_OF {
-                MESSAGE("Leafeon was badly poisoned by the Toxic Orb!"); STATUS_ICON(player, poison: TRUE);
-                MESSAGE("Leafeon was badly poisoned!"); STATUS_ICON(player, badPoison: TRUE);
+                MESSAGE("Leafeon is badly poisoned by the Toxic Orb!"); STATUS_ICON(player, poison: TRUE);
+                MESSAGE("Leafeon is badly poisoned!"); STATUS_ICON(player, badPoison: TRUE);
             }
         }
     }

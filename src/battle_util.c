@@ -3429,11 +3429,14 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 effect++;
             }
             break;
+        case ABILITY_SNOW_WARNING_TEST:
         case ABILITY_SNOW_WARNING:
             if (!shouldAbilityTrigger)
                 break;
             {
                 u32 weather = (GetConfig(B_SNOW_WARNING) >= GEN_9 ? BATTLE_WEATHER_SNOW : BATTLE_WEATHER_HAIL);
+                if (gLastUsedAbility == ABILITY_SNOW_WARNING_TEST)
+                    weather = BATTLE_WEATHER_SNOW;
                 if (TryChangeBattleWeather(battler, weather, gLastUsedAbility))
                 {
                     BattleScriptCall(BattleScript_WeatherAbilityActivates);

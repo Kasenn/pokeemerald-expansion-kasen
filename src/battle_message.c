@@ -436,7 +436,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_TARGETTOUGHEDITOUT]                   = COMPOUND_STRING("{B_TRAINER1_NAME}: I think I've seen enough.\pLet's stop here before anyone\ngets too seriously hurt.{PAUSE_UNTIL_PRESS}"),
 
     // Misc.
-    [STRINGID_PKMNPROTECTEDITSELF]                  = COMPOUND_STRING("{B_DEF_NAME_PREFIX}\nprotected itself!"),
+    [STRINGID_PKMNPROTECTEDITSELF]                  = COMPOUND_STRING("{B_SCR_NAME_PREFIX}\nprotected itself!"),
     [STRINGID_ITDOESNTAFFECT]                       = COMPOUND_STRING("It doesn't affect\n{B_DEF_NAME_PREFIX_LOWERCASE}…"),
     [STRINGID_PREVENTSESCAPE]                       = COMPOUND_STRING("{B_SCR_NAME_PREFIX} prevents\nescape with {B_SCR_ABILITY}!\p"),
     [STRINGID_PKMNENERGYDRAINED]                    = COMPOUND_STRING("{B_DEF_NAME_PREFIX} had its\nenergy drained!"),
@@ -497,7 +497,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNLOSTPPGRUDGE]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s {B_BUFF1} lost all its PP due to the grudge!"),
     [STRINGID_PKMNSEALEDOPPONENTMOVE]               = COMPOUND_STRING("{B_ATK_NAME_PREFIX} sealed the\nopponent's move(s)!"),
     [STRINGID_PKMNWAITSFORTARGET]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} waits for a target\nto make a move!"),
-    [STRINGID_PKMNSNATCHEDMOVE]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} snatched\n{B_SCR_NAME_PREFIX}'s move!"),
+    [STRINGID_PKMNSNATCHEDMOVE]                     = COMPOUND_STRING("{B_DEF_NAME_PREFIX} snatched\n{B_SCR_NAME_PREFIX_LOWERCASE}'s move!"),
     [STRINGID_COINSSCATTERED]                       = COMPOUND_STRING("Coins were scattered everywhere!"),
     [STRINGID_BELLCHIMED]                           = COMPOUND_STRING("A bell chimed!"),
     [STRINGID_BUTNOPPLEFT]                          = COMPOUND_STRING("But there was no PP left\nfor the move!"),
@@ -1494,8 +1494,8 @@ static const u8 sText_InGamePartnerWithdrewPkmn1[] = _("{B_PARTNER_NAME_WITH_CLA
 static const u8 sText_InGamePartnerWithdrewPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON2_NAME}!");
 static const u8 sText_LinkPartnerWithdrewPkmn1[] = _("{B_LINK_PARTNER_NAME}\nwithdrew {B_LINK_PLAYER_MON1_NAME}!");
 static const u8 sText_LinkPartnerWithdrewPkmn2[] = _("{B_LINK_PARTNER_NAME}\nwithdrew {B_LINK_PLAYER_MON2_NAME}!");
-static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_LINK_OPPONENT1_NAME}\nwithdrew {B_BUFF1}!");
-static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_OPPONENT2_NAME}\nwithdrew {B_BUFF1}!");
+static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME}\nwithdrew {B_BUFF1}!");
+static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME}\nwithdrew {B_BUFF1}!");
 static const u8 sText_Trainer2WithdrewPkmn[] = _("{B_TRAINER2_NAME_WITH_CLASS}\nwithdrew {B_BUFF1}!");
 static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS}\nwithdrew {B_BUFF1}!");
 

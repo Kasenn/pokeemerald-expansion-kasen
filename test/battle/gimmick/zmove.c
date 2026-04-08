@@ -648,7 +648,7 @@ SINGLE_BATTLE_TEST("(Z-MOVE) Splintered Stormshards removes terrain when the tar
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPLINTERED_STORMSHARDS, player);
         SUB_HIT(opponent);
-        MESSAGE("The weirdness disappeared from the battlefield!");
+        MESSAGE("The weirdness disappeared from the battlefield.");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player);
     }
 }

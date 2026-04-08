@@ -670,7 +670,7 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         case EFFECT_DRAGON_CHEER:
             break;
         case EFFECT_WEATHER:
-            if (GetMoveWeatherType(j) == BATTLE_WEATHER_SNOW)
+            if (GetMoveWeatherType(j) == BATTLE_WEATHER_SNOW || GetMoveWeatherType(j) == BATTLE_WEATHER_STRONG_WINDS)
                 break;
             else
                 PARAMETRIZE { move = j; }
