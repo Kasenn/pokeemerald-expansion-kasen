@@ -1439,6 +1439,8 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     {
         .name = _("Rapid Fists"),
         .description = COMPOUND_STRING("Punching moves hit thrice."),
+        .cantBeCopied = TRUE,
+        .cantBeSwapped = TRUE,
         .aiRating = 10,
     },
 

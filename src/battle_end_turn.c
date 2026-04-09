@@ -379,7 +379,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         gBattleStruct->eventState.endTurnBlock++;
         break;
     case FIRST_EVENT_BLOCK_MEGA_EXHAUSTION:
-        if (TESTING)
+        if (TESTING && !FlagGet(FLAG_OBTAINED_MEGA_RING))
         {
             gBattleStruct->eventState.endTurnBlock++;
             break;

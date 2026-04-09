@@ -504,8 +504,8 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     },
     //////////////////////////////
     //////////////////////////////
-// wip
-    [BATTLE_ENVIRONMENT_SOARING] =
+
+    [BATTLE_ENVIRONMENT_SOARING] = // wip
     {
         .name = _("Soaring"),
         .naturePower = MOVE_AIR_SLASH,
@@ -543,7 +543,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .battleIntroSlide = BattleIntroSlide3,
     },
 
-    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
+    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] = // wip
     {
         .naturePower = MOVE_ENERGY_BALL,
         .secretPowerEffect = MOVE_EFFECT_SLEEP,

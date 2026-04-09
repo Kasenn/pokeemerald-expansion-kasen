@@ -1094,6 +1094,10 @@ static bool32 ShouldSkipAccuracyCalcPastFirstHit(enum BattlerId battlerAtk, enum
     if (gSpecialStatuses[battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
         return TRUE;
 
+    if (gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_2ND_HIT
+     || gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_3RD_HIT)
+        return TRUE;
+
     if (!gSpecialStatuses[battlerAtk].multiHitOn)
         return FALSE;
 
@@ -2469,7 +2473,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         && IsBattlerAlive(gBattlerTarget)
         && IsFinalStrikeEffect(moveEffect))
     {
-        gBattlescriptCurrInstr = battleScript; // wip
+        gBattlescriptCurrInstr = battleScript;
         return;
     }
     
@@ -10911,7 +10915,7 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
         ball->multiplier = 200;
         break;
     case BALL_DIRE:
-        if (GetHPBarLevel(gBattleMons[gBattlerTarget].hp, gBattleMons[gBattlerTarget].maxHP) == HP_BAR_RED)// wip
+        if (GetHPBarLevel(gBattleMons[gBattlerTarget].hp, gBattleMons[gBattlerTarget].maxHP) == HP_BAR_RED)
             ball->guaranteedCapture = TRUE;
         else
             ball->multiplier = 200;

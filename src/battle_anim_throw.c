@@ -962,7 +962,7 @@ static void SpriteCB_Ball_Arc(struct Sprite *sprite)
         }
         else if (gBattleSpritesDataPtr->animationData->ballThrowCaseId == BALL_GHOST_DODGE)
         {
-            sprite->callback = SpriteCB_Ball_Block;// wip
+            sprite->callback = SpriteCB_Ball_Block;
         }
         else
         {

@@ -2079,9 +2079,9 @@ u8 RenderTextHandleBold(u8 *pixels, u8 fontId, u8 *str)
 
                 FillPalette(color1, BG_PLTT_ID(15) + index, PLTT_SIZEOF(1));
                 FillPalette(color2, BG_PLTT_ID(15) + index + 1, PLTT_SIZEOF(1));
-                GenerateFontHalfRowLookupTable(textColor);// wip
+                GenerateFontHalfRowLookupTable(textColor);
                 continue;
-            case EXT_CTRL_CODE_CUSTOM:// wip
+            case EXT_CTRL_CODE_CUSTOM:
                 textColor.foreground = strLocal[strPos++];
                 textColor.shadow = textColor.foreground + 1;
                 GenerateFontHalfRowLookupTable(textColor);

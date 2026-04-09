@@ -198,7 +198,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_CANTESCAPE]                           = COMPOUND_STRING("Can't escape!\p"),
     [STRINGID_CANTESCAPE2]                          = COMPOUND_STRING("Couldn't get away!\p"),
     [STRINGID_PKMNFLEDUSINGSMOKEBALL]               = COMPOUND_STRING("{PLAY_SE SE_FLEE}{B_ATK_NAME_PREFIX} fled\nusing its Smoke Ball!\p"),
-    [STRINGID_NORUNNINGFROMGHOST]                   = COMPOUND_STRING("A strange force beckons you to stay.\nThere's no running from this battle!"),
+    [STRINGID_NORUNNINGFROMGHOST]                   = COMPOUND_STRING("A strange force beckons you to stay.\nThere's no running from this battle!\p"),
 
     // Sleep
     [STRINGID_PKMNFELLASLEEP]                       = COMPOUND_STRING("{B_EFF_NAME_PREFIX}\nfell asleep!"),

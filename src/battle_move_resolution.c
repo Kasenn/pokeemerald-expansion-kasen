@@ -440,9 +440,9 @@ static enum CancelerResult CancelerParalyzed(struct BattleContext *ctx)
     return CANCELER_RESULT_SUCCESS;
 }
 
-static enum CancelerResult CancelerTrainingBot(struct BattleContext *ctx)// wip
+static enum CancelerResult CancelerTrainingBot(struct BattleContext *ctx)
 {
-    if (ctx->move == MOVE_UNUSABLE)
+    if (ctx->move == MOVE_IDLE_AROUND)
     {
         CancelMultiTurnMoves(gBattlerAttacker, SKY_DROP_ATTACKCANCELER_CHECK);
         gBattlescriptCurrInstr = BattleScript_DoNothing;
@@ -1605,7 +1605,7 @@ static enum CancelerResult CancelerCharging(struct BattleContext *ctx)
              && (ctx->move == MOVE_SKY_ATTACK
               || ctx->move == MOVE_RAZOR_WIND
               || ctx->move == MOVE_BOUNCE
-              || ctx->move == MOVE_FLY))// wip, ensure it works
+              || ctx->move == MOVE_FLY))
         {
             gBattleScripting.animTurn = 1;
             gBattleScripting.animTargetsHit = 0;
@@ -1895,6 +1895,15 @@ static bool32 IsMoveParentalBondAffected(struct BattleContext *ctx)
     return TRUE;
 }
 
+static bool32 IsMoveRapidFistsAffected(struct BattleContext *ctx)
+{
+    if (ctx->abilityAtk != ABILITY_RAPID_FISTS
+     || IsMoveRapidFistsBanned(ctx->move)
+     || !IsPunchingMove(ctx->move))
+        return FALSE;
+    return TRUE;
+}
+
 static void SetPossibleNewSmartTarget(u32 move)
 {
     if (!IsBattlerUnaffectedByMove(gBattlerTarget)
@@ -1990,6 +1999,12 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleContext *ctx)
         gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_1ST_HIT;
         gMultiHitCounter = 2;
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
+    }
+    else if (IsMoveRapidFistsAffected(ctx))
+    {
+        gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_1ST_HIT;
+        gMultiHitCounter = 3;
+        PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0) 
     }
     else
     {
@@ -2867,6 +2882,9 @@ static enum MoveEndResult MoveEndMultihitMove(void)
                 if (gSpecialStatuses[gBattlerAttacker].parentalBondState)
                     gSpecialStatuses[gBattlerAttacker].parentalBondState--;
 
+                if (gSpecialStatuses[gBattlerAttacker].rapidFistsState)
+                    gSpecialStatuses[gBattlerAttacker].rapidFistsState--;
+
                 gBattleScripting.animTargetsHit = 0;
                 gBattleScripting.moveendState = 0;
                 gSpecialStatuses[gBattlerAttacker].multiHitOn = TRUE;
@@ -2885,6 +2903,7 @@ static enum MoveEndResult MoveEndMultihitMove(void)
 
     gMultiHitCounter = 0;
     gSpecialStatuses[gBattlerAttacker].parentalBondState = PARENTAL_BOND_OFF;
+    gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_OFF;
     gSpecialStatuses[gBattlerAttacker].multiHitOn = 0;
     gBattleScripting.moveendState++;
     return result;

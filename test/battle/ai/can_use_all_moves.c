@@ -688,7 +688,7 @@ AI_DOUBLE_BATTLE_TEST("AI can use all moves, 801-900")
         }
     }
 
-    if (move == MOVE_UNUSABLE || move == MOVE_NONE_SPECIAL)
+    if (move == MOVE_IDLE_AROUND || move == MOVE_NONE_SPECIAL)
         move = MOVE_FLAMETHROWER;
 
     GIVEN {

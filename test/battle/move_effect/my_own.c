@@ -1,7 +1,7 @@
 #include "global.h"
 #include "test/battle.h"
 
-SINGLE_BATTLE_TEST("My own Flying-type gets speed boost during strong winds and hastens certain 2-turn moves")
+SINGLE_BATTLE_TEST("My own: Flying-type gets speed boost during strong winds and hastens certain 2-turn moves")
 {
     u32 species = 0;
     u32 move = 0;
@@ -60,7 +60,7 @@ SINGLE_BATTLE_TEST("My own Flying-type gets speed boost during strong winds and 
     }
 }
 
-SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 1")
+SINGLE_BATTLE_TEST("My own: Data Breach ignores target's defense and damage reductions when using normal-type moves 1")
 {
     s16 damage1;
     s16 damage2;
@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reduc
         EXPECT_EQ(damage3, damage5);    
     }
 }
-SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 2")
+SINGLE_BATTLE_TEST("My own: Data Breach ignores target's defense and damage reductions when using normal-type moves 2")
 {
     s16 damage1;
     s16 damage2;
@@ -124,7 +124,7 @@ SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reduc
         EXPECT_EQ(damage3, damage5);    
     }
 }
-SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 3")
+SINGLE_BATTLE_TEST("My own: Data Breach ignores target's defense and damage reductions when using normal-type moves 3")
 {
     s16 damage1;
     s16 damage2;
@@ -149,7 +149,7 @@ SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reduc
         EXPECT_GT(damage2, damage3);
     }
 }
-SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reductions when using normal-type moves 4")
+SINGLE_BATTLE_TEST("My own: Data Breach ignores target's defense and damage reductions when using normal-type moves 4")
 {
     s16 damage1;
     s16 damage2;
@@ -175,7 +175,7 @@ SINGLE_BATTLE_TEST("My own Data Breach ignores target's defense and damage reduc
     }
 }
 
-SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 1")
+SINGLE_BATTLE_TEST("My own: Hive Leader activates properly on contact 1")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
@@ -186,7 +186,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 1")
         ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 2")
+SINGLE_BATTLE_TEST("My own: Hive Leader activates properly on contact 2")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
@@ -197,7 +197,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 2")
         ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 3")
+SINGLE_BATTLE_TEST("My own: Hive Leader activates properly on contact 3")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
@@ -208,7 +208,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 3")
         NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 4")
+SINGLE_BATTLE_TEST("My own: Hive Leader activates properly on contact 4")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER); }
@@ -219,7 +219,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader activates properly on contact 4")
         NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearing Protective Pads 1")
+SINGLE_BATTLE_TEST("My own: Hive Leader does not activate if the target is wearing Protective Pads 1")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER);}
@@ -230,7 +230,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearin
         NONE_OF{ ABILITY_POPUP(player, ABILITY_HIVE_LEADER); }
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearing Protective Pads 2")
+SINGLE_BATTLE_TEST("My own: Hive Leader does not activate if the target is wearing Protective Pads 2")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_HIVE_LEADER);}
@@ -241,7 +241,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader does not activate if the target is wearin
         ABILITY_POPUP(player, ABILITY_HIVE_LEADER);
     }
 }
-SINGLE_BATTLE_TEST("My own Hive Leader reduces damage taken from Fire-type moves")
+SINGLE_BATTLE_TEST("My own: Hive Leader reduces damage taken from Fire-type moves")
 {
     s16 damage1;
     s16 damage2;
@@ -262,7 +262,7 @@ SINGLE_BATTLE_TEST("My own Hive Leader reduces damage taken from Fire-type moves
     }
 }
 
-SINGLE_BATTLE_TEST("My own Screens print the correct text")
+SINGLE_BATTLE_TEST("My own: Screens print the correct text")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) {Ability(ABILITY_SNOW_WARNING); Speed(2); }
@@ -304,7 +304,7 @@ SINGLE_BATTLE_TEST("My own Screens print the correct text")
     }
 }
 
-SINGLE_BATTLE_TEST("My own screen breakers print the correct text 1")
+SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 1")
 {
     u32 move;
     u32 breakingMove;
@@ -352,7 +352,7 @@ SINGLE_BATTLE_TEST("My own screen breakers print the correct text 1")
     }
 }
 
-SINGLE_BATTLE_TEST("My own screen breakers print the correct text 2")
+SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 2")
 {
     u32 move1;
     u32 move2;
@@ -406,7 +406,7 @@ SINGLE_BATTLE_TEST("My own screen breakers print the correct text 2")
     }
 }
 
-SINGLE_BATTLE_TEST("My own screen breakers print the correct text 3")
+SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 3")
 {
     u32 move1;
     u32 move2;
@@ -438,7 +438,7 @@ SINGLE_BATTLE_TEST("My own screen breakers print the correct text 3")
     }
 }
 
-SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 1")
+SINGLE_BATTLE_TEST("My own: Lum Berry prints the correct text 1")
 {
     u32 j = 0;
     u32 move = 0;
@@ -495,7 +495,7 @@ SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 1")
     }
 }
 
-SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 2")
+SINGLE_BATTLE_TEST("My own: Lum Berry prints the correct text 2")
 {
     u32 j = 0;
     u32 move = 0;
@@ -545,570 +545,349 @@ SINGLE_BATTLE_TEST("My own Lum Berry prints the correct text 2")
     }
 }
 
-SINGLE_BATTLE_TEST("Custom - (Z-MOVE) Genesis Supernova sets up psychic terrain when the target is behind a Substitute")
-{
-    GIVEN {
-        ASSUME(MoveHasAdditionalEffect(MOVE_GENESIS_SUPERNOVA, MOVE_EFFECT_PSYCHIC_TERRAIN));
-        PLAYER(SPECIES_MEW) { Item(ITEM_MEWNIUM_Z); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_PSYCHIC, gimmick: GIMMICK_Z_MOVE); }
-        TURN { MOVE(player, MOVE_QUICK_ATTACK); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GENESIS_SUPERNOVA, player);
-        SUB_HIT(opponent);
-        NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player); }
-        MESSAGE("The foe Wobbuffet is protected by the Psychic Terrain!");
-    }
-}
+#define TEST_HP 1000
 
-SINGLE_BATTLE_TEST("Custom - (Z-MOVE) Splintered Stormshards removes terrain when the target is behind a Substitute")
+SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 1")
 {
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_SPLINTERED_STORMSHARDS) == EFFECT_ICE_SPINNER);
-        PLAYER(SPECIES_LYCANROC_DUSK) { Item(ITEM_LYCANIUM_Z); }
-        OPPONENT(SPECIES_TAPU_LELE) { Ability(ABILITY_PSYCHIC_SURGE); HP(1000); MaxHP(1000); }
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_STONE_EDGE, gimmick: GIMMICK_Z_MOVE); }
-        TURN { MOVE(player, MOVE_QUICK_ATTACK); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SPLINTERED_STORMSHARDS, player);
-        SUB_HIT(opponent);
-        MESSAGE("The weirdness disappeared from the battlefield.");
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, player);
-    }
-}
+    s16 damage[2];
+    
+    ASSUME(gSpeciesInfo[SPECIES_GENGAR_MEGA].baseSpAttack == 170);
+    ASSUME(gSpeciesInfo[SPECIES_GENGAR_MEGA].baseSpDefense == 95);
+    ASSUME(GetMovePower(MOVE_WATER_GUN) == 40);
+    
+    FlagSet(FLAG_OBTAINED_MEGA_RING);
 
-SINGLE_BATTLE_TEST("Custom - Absorb recovers 50% of the damage dealt to a Substitute")
-{
-    u16 damage;
-    s16 healing;
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { HP(1); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_ABSORB); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ABSORB, opponent);
-        SUB_HIT(player, captureDamage: &damage);
-        HP_BAR(opponent, captureDamage: &healing);
-    } THEN {
-        EXPECT_MUL_EQ(damage, Q_4_12(-0.5), healing);
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Ceaseless Edge will set up rocks if the target is behind a Substitute")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WYNAUT);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_CEASELESS_EDGE); }
-        TURN { SWITCH(player, 1); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CEASELESS_EDGE, opponent);
-        SUB_HIT(player);
-        HP_BAR(player);
-    }
-}
-
-
-SINGLE_BATTLE_TEST("Custom - Chloroblast has recoil if the target is behind a Substitute")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET) { HP(400); MaxHP(400); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_CHLOROBLAST); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHLOROBLAST, opponent);
-        SUB_HIT(player);
-        HP_BAR(opponent, damage: 200);
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Core Enforcer suppresses the ability of targets that have already acted")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_CORE_ENFORCER); }
-        TURN { MOVE(player, MOVE_EARTHQUAKE); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
-        HP_BAR(opponent);
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Core Enforcer doesn't suppresses the ability of targets that haven't acted")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_CORE_ENFORCER); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_EARTHQUAKE); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
-        HP_BAR(opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
-            HP_BAR(opponent);
+        PLAYER(SPECIES_GENGAR)
+        {
+            MaxHP(TEST_HP);
+            HP(TEST_HP);
+            Item(ITEM_GENGARITE);
         }
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Core Enforcer suppresses the ability of targets that have already acted that are behind Substitutes")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WEEZING) { Ability(ABILITY_LEVITATE); }
+        OPPONENT(SPECIES_LICKILICKY)
+        {
+            MaxHP(TEST_HP);
+            HP(TEST_HP);
+        }
     } WHEN {
-        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_CORE_ENFORCER); }
-        TURN { MOVE(player, MOVE_EARTHQUAKE); }
+        TURN { MOVE(player, MOVE_WATER_GUN, gimmick: GIMMICK_MEGA, WITH_RNG(RNG_DAMAGE_MODIFIER, 0)); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
-        SUB_HIT(opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
-        SUB_HIT(opponent);
+        MESSAGE("Gengar's Gengarite is reacting to 1's Mega Ring!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, player);
+        MESSAGE("Gengar has Mega Evolved into Mega Gengar!");
+        HP_BAR(opponent, captureDamage: &damage[1]);
+        MESSAGE("The strain caused by Mega Evolution is draining Gengar's stamina!");
+        HP_BAR(player, captureDamage: &damage[0]);
+    } THEN {
+        EXPECT_EQ(damage[0], damage[1]);
     }
 }
 
-SINGLE_BATTLE_TEST("Custom - Hit Escape: U-turn will switch if the target is behind a Substitute")
+SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 2")
 {
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WYNAUT);
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_U_TURN); SEND_OUT(opponent, 1); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponent);
-    }
-}
+    s16 damage[1];
+    
+    ASSUME(gSpeciesInfo[SPECIES_BEEDRILL_MEGA].baseAttack == 150);
+    ASSUME(gSpeciesInfo[SPECIES_BEEDRILL_MEGA].baseDefense == 40);
+    
+    FlagSet(FLAG_OBTAINED_MEGA_RING);
 
-SINGLE_BATTLE_TEST("Custom - Ice Spinner will remove terrain if target is behind a Substitute")
-{
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_BEEDRILL)
+        {
+            MaxHP(120);
+            HP(120);
+            Item(ITEM_BEEDRILLITE);
+        }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
-        TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_ICE_SPINNER); }
+        TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ICE_SPINNER, opponent);
-        SUB_HIT(player);
-        NOT HP_BAR(player);
+        MESSAGE("Beedrill's Beedrillite is reacting to 1's Mega Ring!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, player);
+        MESSAGE("Beedrill has Mega Evolved into Mega Beedrill!");
+        MESSAGE("The strain caused by Mega Evolution is draining Beedrill's stamina!");
+        HP_BAR(player, captureDamage: &damage[0]);
+    } THEN {
+        EXPECT_EQ(damage[0], player->maxHP / 6);
     }
 }
 
-SINGLE_BATTLE_TEST("Custom - Steel Beam inflicts recoil if it hits a Substitute")
+SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 3")
 {
+    s16 damage[3];
+    
+    ASSUME(gSpeciesInfo[SPECIES_HERACROSS_MEGA].baseAttack == 185);
+    ASSUME(gSpeciesInfo[SPECIES_HERACROSS_MEGA].baseDefense == 115);
+    ASSUME(GetMovePower(MOVE_SCRATCH) == 40);
+    
+    FlagSet(FLAG_OBTAINED_MEGA_RING);
+
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { HP(400); MaxHP(400); }
-        OPPONENT(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_HERACROSS)
+        {
+            MaxHP(500);
+            HP(500);
+            Item(ITEM_HERACRONITE);
+        }
+        OPPONENT(SPECIES_SUICUNE);
     } WHEN {
-        TURN { MOVE(opponent, MOVE_SUBSTITUTE); MOVE(player, MOVE_STEEL_BEAM); }
+        TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_MEGA, WITH_RNG(RNG_DAMAGE_MODIFIER, 0)); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(player, MOVE_SWORDS_DANCE); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEEL_BEAM, player);
-        SUB_HIT(opponent);
-        HP_BAR(player, damage: 200);
+        MESSAGE("Heracross's Heracronite is reacting to 1's Mega Ring!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, player);
+        MESSAGE("Heracross has Mega Evolved into Mega Heracross!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
+        HP_BAR(opponent, captureDamage: &damage[0]);
+        MESSAGE("The strain caused by Mega Evolution is draining Heracross's stamina!");
+        HP_BAR(player, captureDamage: &damage[1]);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, player);
+        MESSAGE("The strain caused by Mega Evolution is draining Heracross's stamina!");
+        HP_BAR(player, captureDamage: &damage[2]);
+    } THEN {
+        EXPECT_EQ(damage[0], damage[1]);
+        EXPECT_EQ(damage[2], player->maxHP / 6);
+        EXPECT_GT(damage[2], damage[1]);
     }
 }
 
-SINGLE_BATTLE_TEST("Custom - Rapid Spin and Mortal Spin will remove hazards if the target is behind a Substitute")
+SINGLE_BATTLE_TEST("My own: Forest's Curse only works for ghosts")
 {
-    u32 move;
+    ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
 
-    PARAMETRIZE { move = MOVE_RAPID_SPIN; }
-    PARAMETRIZE { move = MOVE_MORTAL_SPIN; }
+    u16 species;
+    PARAMETRIZE {species = SPECIES_TREVENANT;}
+    PARAMETRIZE {species = SPECIES_WOBBUFFET;}
 
     GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(species);
         OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WYNAUT);
-    } WHEN {
-        TURN { MOVE(player, MOVE_STEALTH_ROCK); }
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, move); }
-        TURN { SWITCH(opponent, 1); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, move, opponent);
-        SUB_HIT(player);
-        NOT HP_BAR(opponent);
     }
-}
-
-SINGLE_BATTLE_TEST("Custom - Steel Roller will remove terrain if target is behind a Substitute")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_GRASSY_TERRAIN); }
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_STEEL_ROLLER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEEL_ROLLER, opponent);
-        NOT HP_BAR(player);
+    WHEN {
+        TURN { MOVE(player, MOVE_FORESTS_CURSE); }
     }
-}
-
-SINGLE_BATTLE_TEST("Custom - Stone Axe will set up rocks if the target is behind a Substitute")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WYNAUT);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_STONE_AXE); }
-        TURN { SWITCH(player, 1); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STONE_AXE, opponent);
-        SUB_HIT(player);
-        HP_BAR(player);
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Brick Break and Psychic Fangs can remove screens when the target is behind a Substitute")
-{
-    u32 move;
-
-    PARAMETRIZE { move = MOVE_BRICK_BREAK; }
-    PARAMETRIZE { move = MOVE_PSYCHIC_FANGS; }
-
-    GIVEN {
-
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_REFLECT); }
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, move); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, move, opponent);
-        MESSAGE("Your team's Reflect wore off!");
-        SUB_HIT(player);
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Plasma Fists turns normal moves into electric moves even if it hits a substitute")
-{
-    GIVEN {
-        PLAYER(SPECIES_JOLTEON) { Ability(ABILITY_VOLT_ABSORB); }
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_SUBSTITUTE); }
-        TURN { MOVE(player, MOVE_PLASMA_FISTS); MOVE(opponent, MOVE_SCRATCH); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PLASMA_FISTS, player);
-        SUB_HIT(opponent);
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
+    SCENE {
+        if (species == SPECIES_TREVENANT)
+        {
+            MESSAGE("Trevenant used Forest's Curse!");
             HP_BAR(player);
-        }
-    }
-}
-
-SINGLE_BATTLE_TEST("Custom - Recoil: Hitting substitutes inflicts recoil")
-{
-    u16 damage;
-    s16 recoil;
-    GIVEN {
-        ASSUME(GetMoveRecoil(MOVE_TAKE_DOWN) == 25);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(player, MOVE_SUBSTITUTE); MOVE(opponent, MOVE_TAKE_DOWN); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TAKE_DOWN, opponent);
-        SUB_HIT(player, captureDamage: &damage);
-        HP_BAR(opponent, captureDamage: &recoil);
-    } THEN {
-        EXPECT_MUL_EQ(damage, Q_4_12(0.25), recoil);
-    }
-}
-
-DOUBLE_BATTLE_TEST("Expansion Protect is not ignored after a new mon switched in because of U-Turn")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET);
-        PLAYER(SPECIES_WYNAUT);
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WYNAUT);
-    } WHEN {
-        TURN {
-            MOVE(playerRight, MOVE_PROTECT);
-            MOVE(opponentLeft, MOVE_POUND, target: playerRight);
-            MOVE(opponentRight, MOVE_U_TURN, target: playerLeft);
-            SEND_OUT(opponentRight, 2);
-        }
-        TURN {
-            MOVE(playerLeft, MOVE_DETECT);
-            MOVE(opponentLeft, MOVE_POUND, target: playerRight);
-            MOVE(opponentRight, MOVE_POUND, target: playerLeft);
-        }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, playerRight);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, opponentRight);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_DETECT, playerLeft);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponentLeft);
-        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, opponentRight);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Secret Power inflicts paralysis in Electric Terrain")
-{
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_ELECTRIC_TERRAIN) == EFFECT_ELECTRIC_TERRAIN);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_ELECTRIC_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
-        STATUS_ICON(opponent, paralysis: TRUE);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Secret Power inflicts sleep in Grassy Terrain")
-{
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_GRASSY_TERRAIN) == EFFECT_GRASSY_TERRAIN);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_GRASSY_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASSY_TERRAIN, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
-        STATUS_ICON(opponent, sleep: TRUE);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Secret Power lowers Speed in Psychic Terrain")
-{
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_PSYCHIC_TERRAIN) == EFFECT_PSYCHIC_TERRAIN);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_PSYCHIC_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PSYCHIC_TERRAIN, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-    } THEN {
-        EXPECT_EQ(opponent->statStages[STAT_SPEED], DEFAULT_STAT_STAGE - 1);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Secret Power lowers Sp. Atk in Misty Terrain")
-{
-    GIVEN {
-        ASSUME(GetMoveEffect(MOVE_MISTY_TERRAIN) == EFFECT_MISTY_TERRAIN);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_MISTY_TERRAIN); MOVE(player, MOVE_SECRET_POWER); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_MISTY_TERRAIN, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SECRET_POWER, player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-    } THEN {
-        EXPECT_EQ(opponent->statStages[STAT_SPATK], DEFAULT_STAT_STAGE - 1);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Magic Bounce can't reflect back Stealth Rock from a semi-invulnerable posistion even with No Guard")
-{
-    GIVEN {
-        ASSUME(GetMoveTarget(MOVE_STEALTH_ROCK) == TARGET_OPPONENTS_FIELD);
-        ASSUME(GetMoveEffect(MOVE_DIG) == EFFECT_SEMI_INVULNERABLE);
-        PLAYER(SPECIES_MACHAMP) { Ability(ABILITY_NO_GUARD); }
-        OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
-    } WHEN {
-        TURN { MOVE(opponent, MOVE_DIG); MOVE(player, MOVE_STEALTH_ROCK); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
-        NOT ABILITY_POPUP(opponent, ABILITY_MAGIC_BOUNCE);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, player);
-        MESSAGE("Pointed stones float in the air around your foe's team!");
-    }
-}
-
-TO_DO_BATTLE_TEST("Expansion Secret Power doesn't inflict secondary effects when user fainted");
-
-SINGLE_BATTLE_TEST("Expansion Magic Guard prevents Rough Skin damage")
-{
-    GIVEN {
-        ASSUME(MoveMakesContact(MOVE_POUND));
-        PLAYER(SPECIES_CLEFABLE) { Ability(ABILITY_MAGIC_GUARD); }
-        OPPONENT(SPECIES_CARVANHA) { Ability(ABILITY_ROUGH_SKIN); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_POUND); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
-        HP_BAR(opponent);
-        ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
-        NOT HP_BAR(player);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Trick Room doesn't print its ending message twice when used again")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Speed(10);  }
-        OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_TRICK_ROOM); }
-        TURN { MOVE(player, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_TRICK_ROOM); }
-        TURN { MOVE(player, MOVE_CELEBRATE); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
-        MESSAGE("Wobbuffet twisted the dimensions!");
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
-        MESSAGE("The twisted dimensions returned to normal!");
-        NOT MESSAGE("The twisted dimensions returned to normal!");
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Trick Room reverses move order for 5 turns including the turn it is used")
-{
-    GIVEN {
-        PLAYER(SPECIES_WOBBUFFET) { Speed(1); }
-        OPPONENT(SPECIES_WOBBUFFET) { Speed(10); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_TRICK_ROOM); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Trick Room does not affect move priority")
-{
-    GIVEN {
-        ASSUME(GetMovePriority(MOVE_CELEBRATE) == 0);
-        ASSUME(GetMovePriority(MOVE_QUICK_ATTACK) == 1);
-        PLAYER(SPECIES_WOBBUFFET) { Speed(1); }
-        OPPONENT(SPECIES_WOBBUFFET) { Speed(10); }
-    } WHEN {
-        TURN { MOVE(player, MOVE_TRICK_ROOM); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_QUICK_ATTACK); }
-    } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_TRICK_ROOM, player);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_QUICK_ATTACK, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
-    }
-}
-
-SINGLE_BATTLE_TEST("Expansion Mirror Move works even if the target was immune to it")
-{
-    GIVEN {
-        ASSUME(GetSpeciesType(SPECIES_ROOKIDEE, 0) == TYPE_FLYING || GetSpeciesType(SPECIES_ROOKIDEE, 1) == TYPE_FLYING);
-        PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_ROOKIDEE);
-    } WHEN {
-        TURN { MOVE(player, MOVE_EARTHQUAKE); MOVE(opponent, MOVE_MIRROR_MOVE); }
-    } SCENE {
-        NONE_OF {
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
+            MESSAGE("Trevenant laid the forest's curse on the foe Wobbuffet!");
             HP_BAR(opponent);
         }
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_MIRROR_MOVE, opponent);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponent);
+        else
+        {
+            MESSAGE("Wobbuffet used Forest's Curse!");
+            NONE_OF {
+                HP_BAR(player);
+                MESSAGE("Wobbuffet laid the forest's curse on the foe Wobbuffet!");
+                HP_BAR(opponent);    
+            }
+        }
+    }
+    THEN {
+        EXPECT_EQ(opponent->types[2], TYPE_GRASS);
+    }
+}
+
+SINGLE_BATTLE_TEST("My own: Forest's Curse will curse even if target is grass-type")
+{
+    ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
+
+    GIVEN {
+        PLAYER(SPECIES_TREVENANT);
+        OPPONENT(SPECIES_ODDISH);
+    }
+    WHEN {
+        TURN { MOVE(player, MOVE_FORESTS_CURSE); }
+    }
+    SCENE {
+        MESSAGE("Trevenant used Forest's Curse!");
         HP_BAR(player);
+        MESSAGE("Trevenant laid the forest's curse on the foe Oddish!");
+        HP_BAR(opponent);
+    }
+    THEN {
+        EXPECT_EQ(opponent->types[2], TYPE_MYSTERY);
     }
 }
 
-AI_SINGLE_BATTLE_TEST("Expansion AI's comparison of damaging moves correctly reads moveset indexes for effects")
+SINGLE_BATTLE_TEST("My own: Forest's Curse will set third type even if target is cursed")
 {
-    u32 move = MOVE_NONE;
-    PARAMETRIZE { move = MOVE_TACKLE; }
-    PARAMETRIZE { move = MOVE_DUAL_CHOP; }
+    ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
+
     GIVEN {
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY | AI_FLAG_SMART_SWITCHING | AI_FLAG_SMART_MON_CHOICES | AI_FLAG_OMNISCIENT);
-        PLAYER(SPECIES_RAPIDASH_GALAR){ Level(64); HP(1); Nature(NATURE_TIMID); Moves(MOVE_TACKLE);}
-        OPPONENT(SPECIES_HAXORUS){ Level(64); Nature(NATURE_JOLLY); Ability(ABILITY_MOLD_BREAKER); Moves(move, MOVE_EARTHQUAKE, MOVE_POISON_JAB); }
-    } WHEN {
-        TURN { 
-            MOVE(player, MOVE_TACKLE);
-            if (move == MOVE_TACKLE)
-                SCORE_EQ_VAL(opponent, MOVE_TACKLE, 104);
-            else if (move == MOVE_DUAL_CHOP)
-                SCORE_EQ_VAL(opponent, MOVE_DUAL_CHOP, 60);
-            SCORE_EQ_VAL(opponent, MOVE_EARTHQUAKE, 104);
-            SCORE_EQ_VAL(opponent, MOVE_POISON_JAB, 105);
+        PLAYER(SPECIES_TREVENANT);
+        OPPONENT(SPECIES_WOBBUFFET);
+    }
+    WHEN {
+        TURN { MOVE(player, MOVE_CURSE); }
+        TURN { MOVE(player, MOVE_FORESTS_CURSE); }
+    }
+    SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CURSE, player);
+        HP_BAR(player);
+        MESSAGE("Trevenant cut its own HP and laid a curse on the foe Wobbuffet!");
+
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FORESTS_CURSE, player);
+        NONE_OF {
+            s32 maxHP = GetMonData(&PLAYER_PARTY[0], MON_DATA_MAX_HP);
+            HP_BAR(player, hp: maxHP / 3);
+            MESSAGE("But it failed!");
         }
+        MESSAGE("Trevenant laid the forest's curse on the foe Wobbuffet!");
+    }
+    THEN {
+        EXPECT_EQ(opponent->types[2], TYPE_GRASS);
     }
 }
 
-AI_SINGLE_BATTLE_TEST("Expansion AI penalizes Yawn when target can self-status with Flame/Toxic Orb")
-{
-    u32 heldItem = ITEM_NONE;
-    bool32 shouldYawn = FALSE;
+SINGLE_BATTLE_TEST("My own: Training Bots do nothing but explode")
+{    
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Speed(20); Attack(300); Ability(ABILITY_SPEED_BOOST); }
+        OPPONENT(SPECIES_EXPBOT) { Speed(25); }
+        OPPONENT(SPECIES_EXPBOT) { Speed(25); }
+        OPPONENT(SPECIES_EXPBOT) { Speed(25); }
+        OPPONENT(SPECIES_EXPBOT) { Speed(25); }
+    }
+    WHEN {
+        TURN { MOVE(player, MOVE_SCRATCH); MOVE(opponent, MOVE_IDLE_AROUND); SEND_OUT(opponent, 1); }
+        TURN { MOVE(player, MOVE_SPIKES); MOVE(opponent, MOVE_IDLE_AROUND); }
+        TURN { MOVE(player, MOVE_FALSE_SWIPE); MOVE(opponent, MOVE_IDLE_AROUND); SEND_OUT(opponent, 2); SEND_OUT(opponent, 3);} // 2 mons down here
+    }
+    SCENE {
+        // Turn 1
+        MESSAGE("The foe F-00 is struggling to keep itself together!");
+        MESSAGE("Wobbuffet used Scratch!");
+        NONE_OF {
+            ABILITY_POPUP(opponent, ABILITY_FICKLE);
+            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
+            ABILITY_POPUP(opponent, ABILITY_FICKLE);
+        }
+        HP_BAR(opponent);
+        // Turn 2
+        MESSAGE("{PKMN} Trainer 2 sent out F-00!");
+        MESSAGE("Wobbuffet used Spikes!");
+        NONE_OF { ABILITY_POPUP(opponent, ABILITY_FICKLE); }
+        MESSAGE("The foe F-00 is struggling to keep itself together!");
+        // Turn 3
+        MESSAGE("Wobbuffet used False Swipe!");
+        NOT MESSAGE("The foe F-00 is struggling to keep itself together!");
+        ABILITY_POPUP(opponent, ABILITY_FICKLE);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
+        // Turn 4
+        MESSAGE("{PKMN} Trainer 2 sent out F-00!"); // 3rd Exp Bot
+        NONE_OF {
+            MESSAGE("Wobbuffet used Scratch!");
+            MESSAGE("The foe F-00 is struggling to keep itself together!");
+        }
+        ABILITY_POPUP(opponent, ABILITY_FICKLE);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
+        // Turn 5
+        MESSAGE("{PKMN} Trainer 2 sent out F-00!"); // 4th Exp Bot
+        NONE_OF {
+            MESSAGE("Wobbuffet used Scratch!");
+            MESSAGE("The foe F-00 is struggling to keep itself together!");
+        }
+        ABILITY_POPUP(opponent, ABILITY_FICKLE);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
 
-    PARAMETRIZE { heldItem = ITEM_NONE;      shouldYawn = TRUE; }
-    PARAMETRIZE { heldItem = ITEM_FLAME_ORB; shouldYawn = FALSE; }
-    PARAMETRIZE { heldItem = ITEM_TOXIC_ORB; shouldYawn = FALSE; }
+        MESSAGE("Player defeated {PKMN} Trainer 2!");
+    }
+}
+
+SINGLE_BATTLE_TEST("My own: Roste Berry heals and induces sleep")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Ability(ABILITY_STURDY); Item(ITEM_ROSTE_BERRY); Defense(1); }
+        OPPONENT(SPECIES_WOBBUFFET) { Attack(300); }
+    }
+    WHEN {
+        TURN { MOVE(opponent, MOVE_FALSE_SWIPE); MOVE(player, MOVE_CELEBRATE); }
+    }
+    SCENE {
+        HP_BAR(player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        MESSAGE("Wobbuffet restored its health using its Roste Berry!");
+        MESSAGE("Wobbuffet fell asleep!");
+    }
+    THEN {
+        EXPECT_EQ(player->hp, player->maxHP);
+        EXPECT_EQ(player->item, ITEM_NONE);
+        EXPECT(player->status1 & STATUS1_SLEEP);
+    }
+}
+
+SINGLE_BATTLE_TEST("My own: Roste Berry heals, doesn't sleep 1")
+{
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET) { Ability(ABILITY_STURDY); Item(ITEM_ROSTE_BERRY); SpDefense(1); }
+        OPPONENT(SPECIES_WOBBUFFET) { SpAttack(300); }
+    }
+    WHEN {
+        TURN { MOVE(opponent, MOVE_UPROAR); MOVE(player, MOVE_CELEBRATE); }
+    }
+    SCENE {
+        HP_BAR(player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        MESSAGE("Wobbuffet restored its health using its Roste Berry!");
+        NOT MESSAGE("Wobbuffet fell asleep!");
+    }
+    THEN {
+        EXPECT_EQ(player->hp, player->maxHP);
+        EXPECT_EQ(player->item, ITEM_NONE);
+        EXPECT(!(player->status1 & STATUS1_SLEEP));
+    }
+}
+
+SINGLE_BATTLE_TEST("My own: Roste Berry heals, doesn't sleep 2")
+{
+    enum Ability ability;
+    PARAMETRIZE(ability = ABILITY_COMATOSE);
+    PARAMETRIZE(ability = ABILITY_INSOMNIA);
 
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_YAWN) == EFFECT_YAWN);
-        ASSUME(gItemsInfo[ITEM_FLAME_ORB].holdEffect == HOLD_EFFECT_FLAME_ORB);
-        ASSUME(gItemsInfo[ITEM_TOXIC_ORB].holdEffect == HOLD_EFFECT_TOXIC_ORB);
-        AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT | AI_FLAG_OMNISCIENT);
-        PLAYER(SPECIES_WOBBUFFET) { Item(heldItem); }
-        OPPONENT(SPECIES_WOBBUFFET) { Moves(MOVE_YAWN, MOVE_SCRATCH); }
-    } WHEN {
-        TURN {
-            if (shouldYawn)
-                SCORE_GT(opponent, MOVE_YAWN, MOVE_SCRATCH);
-            else
-                SCORE_LT(opponent, MOVE_YAWN, MOVE_SCRATCH);
+        PLAYER(SPECIES_KOMALA) { Ability(ability); Item(ITEM_ROSTE_BERRY); Defense(1); }
+        OPPONENT(SPECIES_WOBBUFFET) { Attack(300); }
+    }
+    WHEN {
+        TURN { MOVE(opponent, MOVE_FALSE_SWIPE); MOVE(player, MOVE_CELEBRATE); }
+    }
+    SCENE {
+        HP_BAR(player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        MESSAGE("Komala restored its health using its Roste Berry!");
+        NOT MESSAGE("Komala fell asleep!");
+    }
+    THEN {
+        EXPECT_EQ(player->hp, player->maxHP);
+        EXPECT_EQ(player->item, ITEM_NONE);
+        EXPECT(!(player->status1 & STATUS1_SLEEP));
+    }
+}
+
+WILD_BATTLE_TEST("My own: Dire Ball guaranteed chance to capture on low health")
+{
+    u16 health;
+
+    PARAMETRIZE(health = 41);
+    PARAMETRIZE(health = 40);
+    PARAMETRIZE(health = 39);
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET)
+        {
+            MaxHP(200);
+            HP(health);
         }
+    } WHEN {
+        TURN { USE_ITEM(player, ITEM_DIRE_BALL, WITH_RNG(RNG_BALLTHROW_SHAKE, MAX_u16)); }
+    } SCENE {
+        if (health <= 40)
+            MESSAGE("Gotcha! Wobbuffet was caught!{WAIT_SE}{PLAY_BGM MUS_CAUGHT}");
+        else
+            MESSAGE("Oh, no! The Pokémon broke free!");
     }
 }

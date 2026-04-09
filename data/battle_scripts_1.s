@@ -7415,8 +7415,8 @@ BattleScript_BerrySleepHealRet_Anim:
 	waitmessage B_WAIT_TIME_LONG
 	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
 	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_CONFUSION
 	removeitem BS_SCRIPTING
+	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
 	return
 
 BattleScript_ConsumableStatRaiseEnd2::

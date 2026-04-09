@@ -3320,16 +3320,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_FICKLE:
-            if (!gBattleStruct->unableToUseMove// wip
-             && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
-             && IsBattlerAlive(gBattlerTarget))
-            {
-                gBattlerAttacker = gBattlerTarget;
-                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
-                BattleScriptCall(BattleScript_FickleActivates);
-                effect++;
-            }
-            else if (gBattleStruct->setToFaint[battler] == TRUE)
+            if (gBattleStruct->setToFaint[battler] == TRUE)
             {
                 gBattleStruct->setToFaint[battler] = FALSE;
                 gBattlerAttacker = gBattlerTarget;
@@ -4102,25 +4093,6 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             }
             break;
         case ABILITY_SPIKE_BODY:
-            if (!(gBattleStruct->moveResultFlags[gBattlerTarget] & MOVE_RESULT_NO_EFFECT)
-             && IsBattlerAlive(gBattlerAttacker)
-             && !gBattleStruct->unableToUseMove // wip
-             && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
-             && !CanBattlerAvoidContactEffects(gBattlerAttacker, gBattlerTarget, GetBattlerAbility(gBattlerAttacker), GetBattlerHoldEffect(gBattlerAttacker), move))
-            {
-                if (!IsAbilityAndRecord(gBattlerAttacker, GetBattlerAbility(gBattlerAttacker), ABILITY_MAGIC_GUARD))
-                {
-                    PREPARE_ABILITY_BUFFER(gBattleTextBuff1, gLastUsedAbility);
-                    SetPassiveDamageAmount(gBattlerAttacker, GetNonDynamaxMaxHP(gBattlerAttacker) / (B_ROUGH_SKIN_DMG >= GEN_4 ? 8 : 16));
-                    BattleScriptCall(BattleScript_RoughSkinActivates);
-                }
-                else
-                {
-                    BattleScriptCall(BattleScript_AbilityPopUp);
-                }
-                effect++;
-            }
-            break;
         case ABILITY_ROUGH_SKIN:
         case ABILITY_IRON_BARBS:
             if (IsBattlerAlive(gBattlerAttacker)
@@ -4380,6 +4352,17 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 gBattleMons[gBattlerAttacker].volatiles.perishSong = TRUE;
                 gBattleMons[gBattlerAttacker].volatiles.perishSongTimer = 3;
                 BattleScriptCall(BattleScript_PerishBodyActivates);
+                effect++;
+            }
+            break;
+        case ABILITY_FICKLE:
+            if (!gBattleStruct->unableToUseMove
+             && IsBattlerTurnDamaged(gBattlerTarget, EXCLUDING_SUBSTITUTES)
+             && IsBattlerAlive(gBattlerTarget))
+            {
+                gBattlerAttacker = gBattlerTarget;
+                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
+                BattleScriptCall(BattleScript_FickleActivates);
                 effect++;
             }
             break;
@@ -6785,11 +6768,8 @@ static inline u32 CalcMoveBasePowerAfterModifiers(struct BattleContext *ctx)
         if (IsLastMonToMove(battlerAtk) && moveEffect != EFFECT_FUTURE_SIGHT)
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
-    case ABILITY_TOUGH_CLAWS:
-        if (IsMoveMakingContact(battlerAtk, battlerDef, ctx->abilityAtk, ctx->holdEffectAtk, ctx->move))
-           modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
-        break;
     case ABILITY_SPIKE_BODY:
+    case ABILITY_TOUGH_CLAWS:
         if (IsMoveMakingContact(battlerAtk, battlerDef, ctx->abilityAtk, ctx->holdEffectAtk, ctx->move))
            modifier = uq4_12_multiply(modifier, UQ_4_12(1.3));
         break;
@@ -9248,7 +9228,7 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     }
     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
     {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;// wip
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
     }
     if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
     {

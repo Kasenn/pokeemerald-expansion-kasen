@@ -72,7 +72,6 @@ bool32 CanBurnHitThaw(enum Move move);
 bool32 CanMoveThawTarget(enum Ability abilityAtk, enum Move move);
 bool32 CanFireMoveThawTarget(enum Move move);
 
-bool32 IsMoveAffectedByRapidFists(enum Move move, u32 battler);// wip
 u32 GetTrainerMoneyToGive(u16 trainerId);
 
 
