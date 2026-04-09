@@ -57,13 +57,10 @@ const u32 gBattleEnvironmentTiles_Rayquaza[] = INCBIN_U32("graphics/battle_envir
 const u16 gBattleEnvironmentPalette_Rayquaza[] = INCBIN_U16("graphics/battle_environment/sky/palette.gbapal");
 const u32 gBattleEnvironmentTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/map.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_terrain/long_grass/tiles_autumn.4bpp.smol");
 const u16 gBattleEnvironmentPalette_Snow[] = INCBIN_U16("graphics/battle_terrain/sand/palette_snow.gbapal");
 const u16 gBattleEnvironmentPalette_Mud[] = INCBIN_U16("graphics/battle_terrain/rock/palette2.gbapal");
 const u32 gBattleEnvironmentTiles_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/tiles.4bpp.smol");
 const u32 gBattleEnvironmentTilemap_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/map.bin.smolTM");
-const u16 gBattlePalette_LongGrassAutumn[] = INCBIN_U16("graphics/battle_terrain/long_grass/palette_autumn.gbapal");
-
 
 const u32 gBattleEnvironmentAnimTiles_TallGrass[] = INCBIN_U32("graphics/battle_environment/tall_grass/anim_tiles.4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_TallGrass[] = INCBIN_U32("graphics/battle_environment/tall_grass/anim_map.bin.smolTM");
@@ -94,3 +91,9 @@ const u32 gBattleEnvironmentAnimTilemap_Building[] = INCBIN_U32("graphics/battle
 
 const u32 gBattleEnvironmentAnimTiles_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/anim_tiles.4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/anim_map.bin.smolTM");
+
+const u32 gBattleEnvironmentTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/tiles.4bpp.smol");
+const u16 gBattleEnvironmentPalette_LongGrassAutumn[] = INCBIN_U16("graphics/battle_environment/long_grass_autumn/palette.gbapal");
+const u32 gBattleEnvironmentTilemap_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/map.bin.smolTM");
+const u32 gBattleEnvironmentAnimTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/anim_tiles.4bpp.smol");
+const u32 gBattleEnvironmentAnimTilemap_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/anim_map.bin.smolTM");

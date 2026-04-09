@@ -107,7 +107,7 @@ LilycoveCity_DepartmentStoreRooftop_EventScript_SubstituteTutor::
 	setvar VAR_0x8005, MOVE_SUBSTITUTE
 	call MoveTutor_EventScript_OpenPartyMenu
 	goto_if_eq VAR_RESULT, 0, MoveTutor_EventScript_SubstituteDeclined
-	goto MoveTutor_EventScript_SubstituteTaught @//wip
+	goto MoveTutor_EventScript_SubstituteTaught
 	end
 
 MoveTutor_EventScript_SubstituteDeclined::

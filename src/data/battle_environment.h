@@ -505,7 +505,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     //////////////////////////////
     //////////////////////////////
 
-    [BATTLE_ENVIRONMENT_SOARING] = // wip
+    [BATTLE_ENVIRONMENT_SOARING] =
     {
         .name = _("Soaring"),
         .naturePower = MOVE_AIR_SLASH,
@@ -514,6 +514,9 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .camouflageType = TYPE_FLYING,
         .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
         .battleIntroSlide = BattleIntroSlide3,
+        .entry = ENVIRONMENT_ENTRY(Rayquaza),
+        .background = ENVIRONMENT_BACKGROUND(Rayquaza),
+        .palette = gBattleEnvironmentPalette_Rayquaza,
     },
 
     [BATTLE_ENVIRONMENT_SNOW] =
@@ -532,6 +535,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_MUD] =
     {
+        .name = _("Mud"),
         .secretPowerEffect = MOVE_EFFECT_ACC_MINUS_1,
         .secretPowerAnimation = gBattleAnimMove_MudBomb,
         .camouflageType = TYPE_GROUND,
@@ -543,19 +547,17 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .battleIntroSlide = BattleIntroSlide3,
     },
 
-    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] = // wip
+    [BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN] =
     {
+        .name = _("Autumn Grass"),
         .naturePower = MOVE_ENERGY_BALL,
         .secretPowerEffect = MOVE_EFFECT_SLEEP,
         .secretPowerAnimation = gBattleAnimMove_MagicalLeaf,
         .camouflageType = TYPE_GRASS,
         .camouflageBlend = RGB(0, 15, 2),
-        .entry = {
-            .tileset = gBattleEnvironmentAnimTiles_LongGrass,
-            .tilemap = gBattleEnvironmentAnimTilemap_LongGrass,
-        },
-        .background = ENVIRONMENT_BACKGROUND(LongGrass),
-        .palette = gBattlePalette_LongGrassAutumn,
+        .entry = ENVIRONMENT_ENTRY(LongGrassAutumn),
+        .background = ENVIRONMENT_BACKGROUND(LongGrassAutumn),
+        .palette = gBattleEnvironmentPalette_LongGrassAutumn,
         .battleIntroSlide = BattleIntroSlide1,
     },
 };
