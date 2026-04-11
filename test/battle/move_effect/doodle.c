@@ -37,8 +37,8 @@ DOUBLE_BATTLE_TEST("Doodle can't copy a banned ability")
     } SCENE {
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_DOODLE, playerLeft);
-            MESSAGE("Wynaut copied the foe Great Tusk's Ability!");
-            MESSAGE("Wynaut copied the foe Great Tusk's Ability!");
+            MESSAGE("Wynaut copied the foe Great Tusk's Protosynthesis!");
+            MESSAGE("Wynaut copied the foe Great Tusk's Protosynthesis!");
         }
     } THEN {
         EXPECT(playerLeft->ability != ABILITY_PROTOSYNTHESIS);

@@ -188,8 +188,8 @@ DOUBLE_BATTLE_TEST("Aromatherapy cure Soundproof battlers regardless of config")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AROMATHERAPY, playerLeft);
         NONE_OF {
-            MESSAGE("Exploud was hurt by its poisoning!");
-            MESSAGE("Wobbuffet was hurt by its poisoning!");
+            MESSAGE("Exploud was hurt by its poison!");
+            MESSAGE("Wobbuffet was hurt by its poison!");
         }
     }
 }
@@ -213,6 +213,6 @@ SINGLE_BATTLE_TEST("Aromatherapy cures inactive Soundproof Pokemon regardless of
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_AROMATHERAPY, player);
         SEND_IN_MESSAGE("Exploud");
-        NOT MESSAGE("Exploud was hurt by its poisoning!");
+        NOT MESSAGE("Exploud was hurt by its poison!");
     }
 }

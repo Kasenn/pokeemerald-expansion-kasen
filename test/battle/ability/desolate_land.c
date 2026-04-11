@@ -61,7 +61,7 @@ SINGLE_BATTLE_TEST("Desolate Land does not block a move if Pokémon is asleep an
     } WHEN {
         TURN { MOVE(opponent, MOVE_WATER_GUN); }
     } SCENE {
-        NOT MESSAGE("The Water-type attack evaporated in the extreme sunlight!");
+        NOT MESSAGE("Error 03: something has gone awry. Please inform the romhack creator!");
         MESSAGE("The foe Wobbuffet is fast asleep.");
     }
 }

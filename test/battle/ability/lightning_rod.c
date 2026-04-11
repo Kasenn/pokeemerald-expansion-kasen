@@ -143,7 +143,7 @@ DOUBLE_BATTLE_TEST("Lightning Rod doesn't activate if user has fainted")
         TURN { MOVE(playerLeft, MOVE_POUND, target: opponentRight); MOVE(playerRight, MOVE_SPARK, target: opponentLeft); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The foe Raichu's Lightning Rod took the attack");
+            MESSAGE("The foe Raichu took the attack");
             ABILITY_POPUP(opponentRight, ABILITY_LIGHTNING_ROD);
         }
     }

@@ -45,7 +45,7 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves make the user semi-invulnerable turn
                     MESSAGE("Wobbuffet used Fly!");
                     break;
                 case MOVE_DIG:
-                    NOT MESSAGE("Wobbuffet dug a hole!");
+                    NOT MESSAGE("Wobbuffet burrowed its way under the ground!");
                     MESSAGE("Wobbuffet used Dig!");
                     break;
                 case MOVE_BOUNCE:
@@ -156,7 +156,7 @@ SINGLE_BATTLE_TEST("Semi-invulnerable moves don't need to charge with Power Herb
                     MESSAGE("Wobbuffet used Fly!");
                     break;
                 case MOVE_DIG:
-                    NOT MESSAGE("Wobbuffet dug a hole!");
+                    NOT MESSAGE("Wobbuffet burrowed its way under the ground!");
                     MESSAGE("Wobbuffet used Dig!");
                     break;
                 case MOVE_BOUNCE:

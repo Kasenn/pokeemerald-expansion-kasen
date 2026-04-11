@@ -199,7 +199,7 @@ SINGLE_BATTLE_TEST("Toxic Spikes are not removed by Poison-type Pokémon affecte
         TURN { MOVE(player, MOVE_TOXIC_SPIKES); MOVE(opponent, MOVE_BATON_PASS); SEND_OUT(opponent, 1); }
         TURN { SWITCH(opponent, 0); }
     } SCENE {
-        NOT MESSAGE("The poison spikes disappeared from the ground around the foe team!");
+        NOT MESSAGE("The poison spikes disappeared from around the foe's team's feet!");
         STATUS_ICON(opponent, poison: TRUE);
     }
 }

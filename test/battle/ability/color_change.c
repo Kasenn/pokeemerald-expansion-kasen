@@ -169,7 +169,7 @@ SINGLE_BATTLE_TEST("Color Change does not change the type to Normal when a Pokem
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, player);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_COLOR_CHANGE);
-            MESSAGE("The foe Kecleon's Color Change made it the Normal type!");
+            MESSAGE("The foe Kecleon transformed into the Normal type!");
         }
     }
 }

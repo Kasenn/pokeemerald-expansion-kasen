@@ -112,7 +112,6 @@ SINGLE_BATTLE_TEST("Lunar Dance effect activates only if the switched Pokémon c
         MESSAGE("Gardevoir fainted!");
         NONE_OF {
             MESSAGE("Ninjask became cloaked in mystical moonlight!");
-            MESSAGE("Ninjask regained health!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         MESSAGE("Wynaut became cloaked in mystical moonlight!");

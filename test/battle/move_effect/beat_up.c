@@ -238,8 +238,64 @@ SINGLE_BATTLE_TEST("Beat Up's damage is typeless", s16 damage)
         HP_BAR(opponent, captureDamage: &results[i].damage);
         NONE_OF {
             MESSAGE("It's super effective!");
-            MESSAGE("It's not very effective...");
-            MESSAGE("It doesn't affect");
+            MESSAGE("It's not very effective…");
+            switch (defender)
+            {
+            case SPECIES_BLISSEY:
+                MESSAGE("It doesn't affect the foe Blissey…");
+                break;
+            case SPECIES_MACHAMP:
+                MESSAGE("It doesn't affect the foe Machamp…");
+                break;
+            case SPECIES_TORNADUS:
+                MESSAGE("It doesn't affect the foe Tornadus…");
+                break;
+            case SPECIES_GRIMER:
+                MESSAGE("It doesn't affect the foe Grimer…");
+                break;
+            case SPECIES_SANDSHREW:
+                MESSAGE("It doesn't affect the foe Sandshrew…");
+                break;
+            case SPECIES_NOSEPASS:
+                MESSAGE("It doesn't affect the foe Nosepass…");
+                break;
+            case SPECIES_CATERPIE:
+                MESSAGE("It doesn't affect the foe Caterpie…");
+                break;
+            case SPECIES_DUSKULL:
+                MESSAGE("It doesn't affect the foe Duskull…");
+                break;
+            case SPECIES_REGISTEEL:
+                MESSAGE("It doesn't affect the foe Registeel…");
+                break;
+            case SPECIES_CHIMCHAR:
+                MESSAGE("It doesn't affect the foe Chimchar…");
+                break;
+            case SPECIES_WARTORTLE:
+                MESSAGE("It doesn't affect the foe Wartortle…");
+                break;
+            case SPECIES_TANGELA:
+                MESSAGE("It doesn't affect the foe Tangela…");
+                break;
+            case SPECIES_PIKACHU:
+                MESSAGE("It doesn't affect the foe Pikachu…");
+                break;
+            case SPECIES_ABRA:
+                MESSAGE("It doesn't affect the foe Abra…");
+                break;
+            case SPECIES_SNORUNT:
+                MESSAGE("It doesn't affect the foe Snorunt…");
+                break;
+            case SPECIES_BAGON:
+                MESSAGE("It doesn't affect the foe Bagon…");
+                break;
+            case SPECIES_UMBREON:
+                MESSAGE("It doesn't affect the foe Umbreon…");
+                break;
+            case SPECIES_SYLVEON:
+                MESSAGE("It doesn't affect the foe Sylveon…");
+                break;
+            }
         }
     } THEN {
         EXPECT_GT(results[i].damage, 0);

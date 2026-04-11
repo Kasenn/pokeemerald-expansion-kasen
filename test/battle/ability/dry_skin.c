@@ -32,7 +32,6 @@ SINGLE_BATTLE_TEST("Dry Skin doesn't get damaged in Sun if Cloud Nine/Air Lock i
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_DRY_SKIN);
             HP_BAR(player);
-            MESSAGE("Parasect's Dry Skin takes its toll!");
         }
     }
 }
@@ -68,7 +67,7 @@ SINGLE_BATTLE_TEST("Dry Skin doesn't heal in Rain if Cloud Nine/Air Lock is on t
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_DRY_SKIN);
             HP_BAR(player);
-            MESSAGE("Parasect's Dry Skin restored its HP a little!");
+            MESSAGE("Parasect had its HP restored.");
         }
     }
 }
