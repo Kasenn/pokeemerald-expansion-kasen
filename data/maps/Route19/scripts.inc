@@ -174,7 +174,7 @@ Route19_Bergmite::
 # 254 "data/maps/Route19/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 255 "data/maps/Route19/scripts.pory"
-	dowildbattle
+	doscriptedbattle
 # 256 "data/maps/Route19/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 # 257 "data/maps/Route19/scripts.pory"

@@ -129,7 +129,7 @@ BattleFrontier_OutsideEast_EventScript_WaterSudowoodo::
 	setvar VAR_LAST_TALKED, LOCALID_FRONTIER_SUDOWOODO
 	setwildbattle SPECIES_SUDOWOODO, 40
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
+	doscriptedbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, BattleFrontier_OutsideEast_EventScript_DefeatedSudowoodo

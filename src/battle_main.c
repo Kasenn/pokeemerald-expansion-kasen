@@ -4156,7 +4156,7 @@ u8 IsRunningFromBattleImpossible(enum BattlerId battler)
 
     gPotentialItemEffectBattler = battler;
 
-    if (FlagGet(FLAG_SYSTEM_NO_WILD_RUNNING))
+    if (gBattleTypeFlags & BATTLE_TYPE_NO_RUNNING)
         return BATTLE_RUN_FORBIDDEN;
 
     if (GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT && WILD_DOUBLE_BATTLE

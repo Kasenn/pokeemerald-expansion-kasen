@@ -73,7 +73,7 @@ script Sandstone_BigHouse2_3F_PC{
     removeitem(ITEM_ANTIVIRUS)
     setvar(VAR_SANDSTONEPORYGON_STATE, 3)
     setwildbattle(SPECIES_PORYGON, 30)
-    dowildbattle
+    doscriptedbattle
     goto(PCAftermath)
 }
 

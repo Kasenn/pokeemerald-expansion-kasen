@@ -66,7 +66,6 @@ script HoundoomTrigger{
     applymovement(4, Common_Movement_ExclamationMark)
     waitmovement(0)
     delay(48)
-    setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
     switch(var(VAR_HOUNDOOMS_DEFEATED)){
         case 0:
@@ -83,7 +82,7 @@ script HoundoomTrigger{
 script HoundoomBattleFirst{
     call(HoundoomCry)
     createmon(1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT)
-    dowildbattle
+    doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
         setvar(VAR_HOUNDOOMS_DEFEATED, 1)
@@ -101,7 +100,7 @@ script HoundoomBattleSecond{
     waitmovement(0)
     call(HoundoomCry)
     createmon(1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
-    dowildbattle
+    doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
         setvar(VAR_HOUNDOOMS_DEFEATED, 2)
@@ -119,7 +118,7 @@ script HoundoomBattleThird{
     waitmovement(0)
     call(HoundoomCry)
     createmon(1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
-    dowildbattle
+    doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
         setvar(VAR_HOUNDOOMS_DEFEATED, 3)
@@ -137,7 +136,7 @@ script HoundoomBattleFourth{
     waitmovement(0)
     call(HoundoomCry)
     createmon(1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
-    dowildbattle
+    doscriptedbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
         setvar(VAR_HOUNDOOMS_DEFEATED, 4)

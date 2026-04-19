@@ -171,7 +171,7 @@ WW_GrottoPokemon_1:
 # 92 "data/maps/WW_Grotto/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 93 "data/maps/WW_Grotto/scripts.pory"
-	dowildbattle
+	doscriptedgrottobattle
 # 94 "data/maps/WW_Grotto/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 # 95 "data/maps/WW_Grotto/scripts.pory"

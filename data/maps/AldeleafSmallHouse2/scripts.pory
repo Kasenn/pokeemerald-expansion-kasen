@@ -192,7 +192,7 @@ script AldeleafSmallHouse2_Doll{
         waitmessage
         closemessage
         setwildbattle(SPECIES_MIMIKYU, 15)
-        dowildbattle
+        doscriptedbattle
         delay(20)
         msgbox(AldeleafSmallHouse2_TalismanBreaks, MSGBOX_NPC)
         removeitem(ITEM_TALISMAN)

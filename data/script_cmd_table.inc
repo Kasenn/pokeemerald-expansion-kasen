@@ -205,7 +205,7 @@ gScriptCmdTable::
 	script_cmd_table_entry SCR_OP_ADDCOINS                      ScrCmd_addcoins,                    requests_effects=1  @ 0xb4
 	script_cmd_table_entry SCR_OP_REMOVECOINS                   ScrCmd_removecoins,                 requests_effects=1  @ 0xb5
 	script_cmd_table_entry SCR_OP_SETWILDBATTLE                 ScrCmd_setwildbattle,               requests_effects=1  @ 0xb6
-	script_cmd_table_entry SCR_OP_DOWILDBATTLE                  ScrCmd_dowildbattle,                requests_effects=1  @ 0xb7
+	script_cmd_table_entry SCR_OP_DOWILDBATTLE              	ScrCmd_dowildbattle,            	requests_effects=1  @ 0xb7
 	script_cmd_table_entry SCR_OP_SETVADDRESS                   ScrCmd_setvaddress,                 requests_effects=1  @ 0xb8
 	script_cmd_table_entry SCR_OP_VGOTO                         ScrCmd_vgoto,                       requests_effects=1  @ 0xb9
 	script_cmd_table_entry SCR_OP_VCALL                         ScrCmd_vcall,                       requests_effects=1  @ 0xba

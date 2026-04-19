@@ -37,15 +37,11 @@ script AldeleafGymSetUpFromLoad{
 }
 script AldeleafGymTriggerFlagSet{
     setflag(FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS)
-    setflag(FLAG_SYSTEM_NO_CATCHING)
-    setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
     release
     end
 }
 script AldeleafGymTriggerFlagClear{
     clearflag(FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS)
-    clearflag(FLAG_SYSTEM_NO_CATCHING)
-    clearflag(FLAG_SYSTEM_NO_WILD_RUNNING)
     release
     end
 }
@@ -196,7 +192,7 @@ script AldeleafGymFloorTriggered{
                 if(var(VAR_RESULT) == 9){
                     setwildbattlelevelrange(SPECIES_CHARJABUG, 11, ITEM_NONE, SPECIES_CHARJABUG, 14, ITEM_NONE)
                 }
-                dowildbattle
+                doscriptedmonwithouttrainerbattle
             }
     }
 }

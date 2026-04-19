@@ -3,7 +3,7 @@
   "name": "Route101",
   "layout": "LAYOUT_ROUTE101",
   "music": "MUS_ROUTE101",
-  "region_map_section": "MAPSEC_SINKO_ROUTE_1",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_3",
   "requires_flash": false,
   "weather": "WEATHER_DOWNPOUR",
   "map_type": "MAP_TYPE_ROUTE",
@@ -19,8 +19,18 @@
       "direction": "up"
     },
     {
-      "map": "MAP_LITTLEROOT_TOWN",
-      "offset": 0,
+      "map": "MAP_ROUTE104",
+      "offset": -60,
+      "direction": "left"
+    },
+    {
+      "map": "MAP_PETALBURG_CITY",
+      "offset": -4,
+      "direction": "down"
+    },
+    {
+      "map": "MAP_ROUTE102",
+      "offset": -54,
       "direction": "down"
     }
   ],
@@ -66,9 +76,7 @@
       "flag": "FLAG_HIDE_ROUTE_101_BOY"
     }
   ],
-  "warp_events": [
-
-  ],
+  "warp_events": [],
   "coord_events": [
     {
       "type": "trigger",

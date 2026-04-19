@@ -1345,7 +1345,7 @@ static u32 GetBallThrowableState(void)
         return BALL_THROW_UNABLE_NO_ROOM;
     else if (GetConfig(B_SEMI_INVULNERABLE_CATCH) >= GEN_4 &&  IsSemiInvulnerable(GetCatchingBattler(), CHECK_ALL))
         return BALL_THROW_UNABLE_SEMI_INVULNERABLE;
-    else if (FlagGet(B_FLAG_NO_CATCHING) || !IsAllowedToUseBag())
+    else if (FlagGet(B_FLAG_NO_CATCHING) || !IsAllowedToUseBag() || gBattleTypeFlags & BATTLE_TYPE_MON_WITHOUT_TRAINER)
         return BALL_THROW_UNABLE_DISABLED_FLAG;
 
     return BALL_THROW_ABLE;

@@ -42,7 +42,7 @@ Route16_EventScript_Snorlax::
 	waitmoncry
 	setflag FLAG_HIDE_ROUTE_16_SNORLAX
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
+	doscriptedbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route16_EventScript_FoughtSnorlax

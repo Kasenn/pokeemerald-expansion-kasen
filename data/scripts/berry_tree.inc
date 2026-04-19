@@ -471,7 +471,7 @@ BerryTree_EventScript_EncounterPests::
 	message BerryTree_Text_APokemonAppeared
 	waitmessage
 	waitbuttonpress
-	dowildbattle
+	doscriptedbattle
 	return
 
 BerryTree_Text_APokemonAppeared:

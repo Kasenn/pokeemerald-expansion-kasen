@@ -83,29 +83,25 @@ Ttar_MainEvent_1:
 # 51 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setwildbattle SPECIES_TYRANITAR, 55
 # 52 "data/maps/UndergroundRuins_5F/scripts.pory"
-	setflag FLAG_SYSTEM_NO_WILD_RUNNING
+	doscriptednorunningbattle
 # 53 "data/maps/UndergroundRuins_5F/scripts.pory"
-	dowildbattlenorunning
-# 54 "data/maps/UndergroundRuins_5F/scripts.pory"
 	waitstate
-# 55 "data/maps/UndergroundRuins_5F/scripts.pory"
-	clearflag FLAG_SYSTEM_NO_WILD_RUNNING
-# 56 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 54 "data/maps/UndergroundRuins_5F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 57 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 55 "data/maps/UndergroundRuins_5F/scripts.pory"
 	removeobject 1
-# 58 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 56 "data/maps/UndergroundRuins_5F/scripts.pory"
 	switch VAR_TEMP_1
-# 59 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 57 "data/maps/UndergroundRuins_5F/scripts.pory"
 	case 1, Ttar_MainEvent_7
-# 62 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 60 "data/maps/UndergroundRuins_5F/scripts.pory"
 	case 2, Ttar_MainEvent_8
-# 65 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 63 "data/maps/UndergroundRuins_5F/scripts.pory"
 	case 3, Ttar_MainEvent_9
 Ttar_MainEvent_5:
-# 69 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 67 "data/maps/UndergroundRuins_5F/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 70 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 68 "data/maps/UndergroundRuins_5F/scripts.pory"
 	release
 	end
 
@@ -120,37 +116,37 @@ Ttar_MainEvent_4:
 	goto Ttar_MainEvent_1
 
 Ttar_MainEvent_7:
-# 60 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 58 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxy 3, 37, 18
-# 61 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 59 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxyperm 3, 37, 18
 	goto Ttar_MainEvent_5
 
 Ttar_MainEvent_8:
-# 63 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 61 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxy 3, 38, 18
-# 64 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 62 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxyperm 3, 38, 18
 	goto Ttar_MainEvent_5
 
 Ttar_MainEvent_9:
-# 66 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 64 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxy 3, 39, 18
-# 67 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 65 "data/maps/UndergroundRuins_5F/scripts.pory"
 	setobjectxyperm 3, 39, 18
 	goto Ttar_MainEvent_5
 
 
 Ruins_OminousPresence::
-# 75 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 73 "data/maps/UndergroundRuins_5F/scripts.pory"
 	msgbox OverwhelmingAura
-# 76 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 74 "data/maps/UndergroundRuins_5F/scripts.pory"
 	closemessage
-# 77 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 75 "data/maps/UndergroundRuins_5F/scripts.pory"
 	applymovement LOCALID_PLAYER, Walk1Down
-# 78 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 76 "data/maps/UndergroundRuins_5F/scripts.pory"
 	waitmovement 0
-# 79 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 77 "data/maps/UndergroundRuins_5F/scripts.pory"
 	release
 	return
 
@@ -180,6 +176,6 @@ Ttar_MainEvent_Movement_0:
 	step_end
 
 OverwhelmingAura::
-# 82 "data/maps/UndergroundRuins_5F/scripts.pory"
+# 80 "data/maps/UndergroundRuins_5F/scripts.pory"
 	.string "An overwhelming aura compels you\n"
 	.string "to turn back…$"

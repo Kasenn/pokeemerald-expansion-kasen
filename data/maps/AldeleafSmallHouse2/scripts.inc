@@ -424,7 +424,7 @@ AldeleafSmallHouse2_Doll_30:
 # 194 "data/maps/AldeleafSmallHouse2/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 15
 # 195 "data/maps/AldeleafSmallHouse2/scripts.pory"
-	dowildbattle
+	doscriptedbattle
 # 196 "data/maps/AldeleafSmallHouse2/scripts.pory"
 	delay 20
 # 197 "data/maps/AldeleafSmallHouse2/scripts.pory"

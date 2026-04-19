@@ -434,7 +434,7 @@ DrisledgeGym_Mimikyu1::
 # 201 "data/maps/Drisledge_Gym/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 37
 # 202 "data/maps/Drisledge_Gym/scripts.pory"
-	dowildbattle
+	doscriptedghostbattle
 # 203 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 204 "data/maps/Drisledge_Gym/scripts.pory"
@@ -470,7 +470,7 @@ DrisledgeGym_Mimikyu2::
 # 219 "data/maps/Drisledge_Gym/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 37
 # 220 "data/maps/Drisledge_Gym/scripts.pory"
-	dowildbattle
+	doscriptedghostbattle
 # 221 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 222 "data/maps/Drisledge_Gym/scripts.pory"
@@ -506,7 +506,7 @@ DrisledgeGym_Mimikyu3::
 # 237 "data/maps/Drisledge_Gym/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 37
 # 238 "data/maps/Drisledge_Gym/scripts.pory"
-	dowildbattle
+	doscriptedghostbattle
 # 239 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 240 "data/maps/Drisledge_Gym/scripts.pory"
@@ -542,7 +542,7 @@ DrisledgeGym_Mimikyu4::
 # 255 "data/maps/Drisledge_Gym/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 37
 # 256 "data/maps/Drisledge_Gym/scripts.pory"
-	dowildbattle
+	doscriptedghostbattle
 # 257 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 258 "data/maps/Drisledge_Gym/scripts.pory"
@@ -578,7 +578,7 @@ DrisledgeGym_Mimikyu5::
 # 273 "data/maps/Drisledge_Gym/scripts.pory"
 	setwildbattle SPECIES_MIMIKYU, 37
 # 274 "data/maps/Drisledge_Gym/scripts.pory"
-	dowildbattle
+	doscriptedghostbattle
 # 275 "data/maps/Drisledge_Gym/scripts.pory"
 	delay 20
 # 276 "data/maps/Drisledge_Gym/scripts.pory"

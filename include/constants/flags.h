@@ -50,8 +50,8 @@
 #define FLAG_GLADE_PUZZLE                       0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR              0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
 #define FLAG_AZURETIDE_HONEY                    0x24 // Flag for getting honey in azuretide town
-#define FLAG_SYSTEM_NO_CATCHING                 0x25 // STOPS CATCHING WILD POKEMON
-#define FLAG_SYSTEM_NO_WILD_RUNNING             0x26 // Stops running from wild pokemon
+#define FLAG_UNUSED_0x25                 0x25 // STOPS CATCHING WILD POKEMON
+#define FLAG_UNUSED_0x26             0x26 // Stops running from wild pokemon
 #define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS         0x27 // Forces double wild battles
 #define FLAG_OBTAINED_PAINTBRUSH                0x28 // 
 #define FLAG_MET_MOVE_TUTOR                     0x29 // Introduction to BP Shop Move Tutor
@@ -1714,7 +1714,7 @@
 #define FLAG_BASALEK_TUNNEL_ITEM3			    (EXTENDED_FLAG_START + 55)
 #define FLAG_BASALEK_TUNNEL_ITEM4			    (EXTENDED_FLAG_START + 56)
 #define FLAG_BASALEK_TUNNEL_ITEM5			    (EXTENDED_FLAG_START + 57)
-#define FLAG_WILD_TRAINER_MON			        (EXTENDED_FLAG_START + 58)
+#define FLAG_UNUSED_EXTENDED_58			        (EXTENDED_FLAG_START + 58)
 #define FLAG_LATIAS_ROAMING			            (EXTENDED_FLAG_START + 59)
 #define FLAG_LATIOS_ROAMING			            (EXTENDED_FLAG_START + 60)
 #define FLAG_LANDMARK_BELLOWING_CAVE	        (EXTENDED_FLAG_START + 61)
@@ -1946,7 +1946,7 @@
 #define FLAG_ENABLE_SECRET_SHOP			    (EXTENDED_FLAG_START + 287)
 #define FLAG_TIME_STOP			    (EXTENDED_FLAG_START + 288)
 #define FLAG_ENCHANTED_FOREST_NIGHT			    (EXTENDED_FLAG_START + 289)
-#define FLAG_CHANCE_TO_HIDDEN_ABILITY			    (EXTENDED_FLAG_START + 290)
+#define FLAG_UNUSED_EXTENDED_290			    (EXTENDED_FLAG_START + 290)
 #define FLAG_NO_WILD_ENCOUNTERS			    (EXTENDED_FLAG_START + 291)
 #define FLAG_PERMA_NIGHT			    (EXTENDED_FLAG_START + 292)
 #define FLAG_FOLLOWER_STAYS_PUT			    (EXTENDED_FLAG_START + 293)

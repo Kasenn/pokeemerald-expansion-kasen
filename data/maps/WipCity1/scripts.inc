@@ -644,7 +644,7 @@ Aldeleaf_Sudowoodo_CutDown_1:
 # 403 "data/maps/WipCity1/scripts.pory"
 	setwildbattle SPECIES_SUDOWOODO, 18
 # 404 "data/maps/WipCity1/scripts.pory"
-	dowildbattle
+	doscriptedbattle
 # 405 "data/maps/WipCity1/scripts.pory"
 	delay 20
 # 406 "data/maps/WipCity1/scripts.pory"

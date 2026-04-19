@@ -176,7 +176,7 @@ Azuretide_GrottoPokemon_1:
 # 98 "data/maps/Azuretide_Grotto/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 99 "data/maps/Azuretide_Grotto/scripts.pory"
-	dowildbattle
+	doscriptedgrottobattle
 # 100 "data/maps/Azuretide_Grotto/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 # 101 "data/maps/Azuretide_Grotto/scripts.pory"

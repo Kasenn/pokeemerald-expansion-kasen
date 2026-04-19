@@ -304,6 +304,13 @@ script UpdateGame{
         cleartrainerflag(TRAINER_UNUSED_172_)
         setvar(VAR_DEBUG, 7)
     }
+    if(var(VAR_DEBUG) == 7)
+    {
+        clearflag(FLAG_UNUSED_EXTENDED_58)
+        clearflag(FLAG_UNUSED_0x26)
+        clearflag(FLAG_UNUSED_0x25)
+        setvar(VAR_DEBUG, 8)
+    }
     msgbox(GameIsUpToDate)
     release
 }

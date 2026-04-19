@@ -96,7 +96,7 @@ script Azuretide_GrottoPokemon{
         setwildbattlelevelrange(SPECIES_SNEASEL, 33, ITEM_NONE, SPECIES_NONE, 36)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    dowildbattle
+    doscriptedgrottobattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
     setflag(FLAG_DAILY_GROTTO_5)
     setvar(VAR_GROTTO_5, 0)

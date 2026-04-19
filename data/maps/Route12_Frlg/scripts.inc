@@ -25,7 +25,7 @@ Route12_EventScript_Snorlax::
 	setflag FLAG_HIDE_ROUTE_12_SNORLAX
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 	setflag FLAG_WOKE_UP_ROUTE_12_SNORLAX
-	dowildbattle
+	doscriptedbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, Route12_EventScript_FoughtSnorlax

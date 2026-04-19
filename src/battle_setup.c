@@ -410,28 +410,47 @@ void StartOldManTutorialBattle(void)
     CreateBattleStartTask(B_TRANSITION_SLICE, 0);
 }
 
-void BattleSetup_StartScriptedWildBattle(void)
+static void TrySetHoneyTreeHiddenAbility(void)
+{
+    u8 value;
+    u8 random = Random() % 10;
+        
+    if (random <= 3)
+        value = 0;
+    else if (random <= 7)
+        value = 1;
+    else
+        value = 2;
+
+    SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
+}
+
+void BattleSetup_StartScriptedWildBattle(enum ScriptedBattleType battleType)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = 0;
-    if (MAP(MAP_DRISLEDGE_GYM)){
-        gBattleTypeFlags = BATTLE_TYPE_GHOST;
-    }
-    if (FlagGet(FLAG_CHANCE_TO_HIDDEN_ABILITY))
+    switch (battleType)
     {
-        u8 value;
-        u8 random = Random() % 10;
-        
-        if (random <= 3)
-            value = 0;
-        else if (random <= 7)
-            value = 1;
-        else
-            value = 2;
-
+    case SCRIPTED_BATTLE_TYPE_NORMAL:
+        break;
+    case SCRIPTED_BATTLE_TYPE_GHOST:
+        gBattleTypeFlags = BATTLE_TYPE_GHOST;
+        break;
+    case SCRIPTED_BATTLE_TYPE_GROTTO:
+        u8 value = 2;
         SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
-        FlagClear(FLAG_CHANCE_TO_HIDDEN_ABILITY);
+        gBattleTypeFlags = BATTLE_TYPE_GROTTO;
+        break;
+    case SCRIPTED_BATTLE_TYPE_NO_RUNNING:
+        gBattleTypeFlags = BATTLE_TYPE_NO_RUNNING;
+        break;
+    case SCRIPTED_BATTLE_TYPE_MON_WITHOUT_TRAINER:
+        gBattleTypeFlags = BATTLE_TYPE_MON_WITHOUT_TRAINER;
+        break;
+    case SCRIPTED_BATTLE_TYPE_HONEY_TREE:
+        TrySetHoneyTreeHiddenAbility();
+        break;
     }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
@@ -440,23 +459,34 @@ void BattleSetup_StartScriptedWildBattle(void)
     TryUpdateGymLeaderRematchFromWild();
 }
 
-void BattleSetup_StartScriptedWildBattleNoRunning(void)
-{
-    LockPlayerFieldControls();
-    gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_NO_RUNNING;
-    CreateBattleStartTask(GetWildBattleTransition(), 0);
-    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
-    IncrementGameStat(GAME_STAT_WILD_BATTLES);
-    IncrementDailyWildBattles();
-    TryUpdateGymLeaderRematchFromWild();
-}
-
-void BattleSetup_StartScriptedDoubleWildBattle(void)
+void BattleSetup_StartScriptedDoubleWildBattle(enum ScriptedBattleType battleType)
 {
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
     gBattleTypeFlags = BATTLE_TYPE_DOUBLE;
+    switch (battleType)
+    {
+    case SCRIPTED_BATTLE_TYPE_NORMAL:
+        break;
+    case SCRIPTED_BATTLE_TYPE_GHOST:
+        gBattleTypeFlags |= BATTLE_TYPE_GHOST;
+        break;
+    case SCRIPTED_BATTLE_TYPE_GROTTO:
+        u8 value = 2;
+        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
+        SetMonData(&gEnemyParty[1], MON_DATA_ABILITY_NUM, &value);
+        gBattleTypeFlags |= BATTLE_TYPE_GROTTO;
+        break;
+    case SCRIPTED_BATTLE_TYPE_NO_RUNNING:
+        gBattleTypeFlags |= BATTLE_TYPE_NO_RUNNING;
+        break;
+    case SCRIPTED_BATTLE_TYPE_MON_WITHOUT_TRAINER:
+        gBattleTypeFlags |= BATTLE_TYPE_MON_WITHOUT_TRAINER;
+        break;
+    case SCRIPTED_BATTLE_TYPE_HONEY_TREE:
+        TrySetHoneyTreeHiddenAbility();
+        break;
+    }
     CreateBattleStartTask(GetWildBattleTransition(), 0);
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
@@ -686,6 +716,16 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
         PlayerGetDestCoords(&x, &y);
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
+
+    if(MAP(MAP_NEW_CORALGROVE_CITY_GYM))
+        return BATTLE_ENVIRONMENT_GYM_1;
+    else if(MAP(MAP_KAOLISLE_GYM))
+        return BATTLE_ENVIRONMENT_GYM_3;
+    else if(MAP(MAP_SANDSTONE_GYM_1F))
+        return BATTLE_ENVIRONMENT_GYM_4;
+    
+    if (gBattleTypeFlags & BATTLE_TYPE_GROTTO)
+        return BATTLE_ENVIRONMENT_GROTTO;
     
     if (gOnLatiIslands)
         return BATTLE_ENVIRONMENT_SOARING;
@@ -700,11 +740,27 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
         return BATTLE_ENVIRONMENT_MOUNTAIN;
 
     if (MetatileBehavior_IsTallGrass(tileBehavior))
-        return BATTLE_ENVIRONMENT_GRASS;
+    {
+        u8 battleScene = GetCurrentMapBattleScene();
+
+        switch (battleScene)
+        {
+        case MAP_BATTLE_SCENE_AUTUMN_GRASS:
+            return BATTLE_ENVIRONMENT_AUTUMN_GRASS;
+        case MAP_BATTLE_SCENE_DARK_GRASS:
+            return BATTLE_ENVIRONMENT_DARK_GRASS;
+        case MAP_BATTLE_SCENE_ASH_GRASS:
+            return BATTLE_ENVIRONMENT_ASH_GRASS;
+        case MAP_BATTLE_SCENE_CRYSTAL_GRASS:
+            return BATTLE_ENVIRONMENT_CRYSTAL_GRASS;
+        default:
+            return BATTLE_ENVIRONMENT_GRASS;
+        }
+    }
     if (MetatileBehavior_IsLongGrass(tileBehavior))
     {
         if(MAP(MAP_ROUTE3))
-            return BATTLE_ENVIRONMENT_LONG_GRASS_AUTUMN;
+            return BATTLE_ENVIRONMENT_WHEAT_FIELD;
         else
             return BATTLE_ENVIRONMENT_LONG_GRASS;
     }

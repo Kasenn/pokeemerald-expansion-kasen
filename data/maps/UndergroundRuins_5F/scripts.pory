@@ -49,10 +49,8 @@ script Ttar_MainEvent{
     playmoncry(SPECIES_TYRANITAR, CRY_MODE_ENCOUNTER)
     waitmoncry
     setwildbattle(SPECIES_TYRANITAR, 55)
-    setflag(FLAG_SYSTEM_NO_WILD_RUNNING)
-    dowildbattlenorunning
+    doscriptednorunningbattle
     waitstate
-    clearflag(FLAG_SYSTEM_NO_WILD_RUNNING)
 	fadescreen (FADE_TO_BLACK)
 	removeobject (1)
     switch(var(VAR_TEMP_1)){

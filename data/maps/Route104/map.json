@@ -3,7 +3,7 @@
   "name": "Route104",
   "layout": "LAYOUT_ROUTE104",
   "music": "MUS_ROUTE104",
-  "region_map_section": "MAPSEC_ROUTE_104",
+  "region_map_section": "MAPSEC_SINKO_ROUTE_2",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -19,14 +19,19 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE105",
-      "offset": 0,
+      "map": "MAP_PETALBURG_CITY",
+      "offset": 36,
       "direction": "down"
     },
     {
-      "map": "MAP_PETALBURG_CITY",
-      "offset": 50,
+      "map": "MAP_ROUTE101",
+      "offset": 60,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE102",
+      "offset": -14,
+      "direction": "down"
     }
   ],
   "object_events": [

@@ -2583,11 +2583,13 @@ bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 bool8 ScrCmd_dowildbattle(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+    
+    enum ScriptedBattleType battleType = ScriptReadHalfword(ctx);
 
     if (sIsScriptedWildDouble == FALSE)
-        BattleSetup_StartScriptedWildBattle();
+        BattleSetup_StartScriptedWildBattle(battleType);
     else
-        BattleSetup_StartScriptedDoubleWildBattle();
+        BattleSetup_StartScriptedDoubleWildBattle(battleType);
 
     ScriptContext_Stop();
 

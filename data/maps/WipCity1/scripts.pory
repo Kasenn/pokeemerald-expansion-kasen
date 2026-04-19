@@ -401,7 +401,7 @@ script Aldeleaf_Sudowoodo_CutDown{
 	delay(40)
 	waitmoncry
 	setwildbattle(SPECIES_SUDOWOODO, 18)
-	dowildbattle
+	doscriptedbattle
 	delay(20)
 	fadescreenswapbuffers(FADE_TO_BLACK)
 	delay(20)

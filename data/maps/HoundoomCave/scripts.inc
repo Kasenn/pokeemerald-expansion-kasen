@@ -145,294 +145,292 @@ HoundoomTrigger::
 # 68 "data/maps/HoundoomCave/scripts.pory"
 	delay 48
 # 69 "data/maps/HoundoomCave/scripts.pory"
-	setflag FLAG_SYSTEM_NO_WILD_RUNNING
-# 70 "data/maps/HoundoomCave/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-# 71 "data/maps/HoundoomCave/scripts.pory"
+# 70 "data/maps/HoundoomCave/scripts.pory"
 	switch VAR_HOUNDOOMS_DEFEATED
-# 72 "data/maps/HoundoomCave/scripts.pory"
+# 71 "data/maps/HoundoomCave/scripts.pory"
 	case 0, HoundoomTrigger_2
-# 74 "data/maps/HoundoomCave/scripts.pory"
+# 73 "data/maps/HoundoomCave/scripts.pory"
 	case 1, HoundoomTrigger_3
-# 76 "data/maps/HoundoomCave/scripts.pory"
+# 75 "data/maps/HoundoomCave/scripts.pory"
 	case 2, HoundoomTrigger_4
-# 78 "data/maps/HoundoomCave/scripts.pory"
+# 77 "data/maps/HoundoomCave/scripts.pory"
 	case 3, HoundoomTrigger_5
 	return
 
 HoundoomTrigger_2:
-# 73 "data/maps/HoundoomCave/scripts.pory"
+# 72 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleFirst
 	return
 
 HoundoomTrigger_3:
-# 75 "data/maps/HoundoomCave/scripts.pory"
+# 74 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleSecond
 	return
 
 HoundoomTrigger_4:
-# 77 "data/maps/HoundoomCave/scripts.pory"
+# 76 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleThird
 	return
 
 HoundoomTrigger_5:
-# 79 "data/maps/HoundoomCave/scripts.pory"
+# 78 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleFourth
 	return
 
 
 HoundoomBattleFirst::
-# 84 "data/maps/HoundoomCave/scripts.pory"
+# 83 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
-# 85 "data/maps/HoundoomCave/scripts.pory"
+# 84 "data/maps/HoundoomCave/scripts.pory"
 	createmon 1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT
+# 85 "data/maps/HoundoomCave/scripts.pory"
+	doscriptednorunningbattle
 # 86 "data/maps/HoundoomCave/scripts.pory"
-	dowildbattle
-# 87 "data/maps/HoundoomCave/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 88 "data/maps/HoundoomCave/scripts.pory"
+# 87 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq HoundoomBattleFirst_2
 HoundoomBattleFirst_1:
-# 94 "data/maps/HoundoomCave/scripts.pory"
+# 93 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq HoundoomBattleFirst_4
 	return
 
 HoundoomBattleFirst_2:
-# 89 "data/maps/HoundoomCave/scripts.pory"
+# 88 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_HOUNDOOMS_DEFEATED, 1
-# 90 "data/maps/HoundoomCave/scripts.pory"
+# 89 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_LAST_TALKED, 1
-# 91 "data/maps/HoundoomCave/scripts.pory"
+# 90 "data/maps/HoundoomCave/scripts.pory"
 	call RemoveHoundoom
-# 92 "data/maps/HoundoomCave/scripts.pory"
+# 91 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleSecond
 	goto HoundoomBattleFirst_1
 
 HoundoomBattleFirst_4:
-# 95 "data/maps/HoundoomCave/scripts.pory"
+# 94 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomLoop
 	return
 
 
 HoundoomBattleSecond::
-# 99 "data/maps/HoundoomCave/scripts.pory"
+# 98 "data/maps/HoundoomCave/scripts.pory"
 	safefollow
-# 100 "data/maps/HoundoomCave/scripts.pory"
+# 99 "data/maps/HoundoomCave/scripts.pory"
 	applymovement 2, MoveHoundoom2
-# 101 "data/maps/HoundoomCave/scripts.pory"
+# 100 "data/maps/HoundoomCave/scripts.pory"
 	waitmovement 0
-# 102 "data/maps/HoundoomCave/scripts.pory"
+# 101 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
-# 103 "data/maps/HoundoomCave/scripts.pory"
+# 102 "data/maps/HoundoomCave/scripts.pory"
 	createmon 1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+# 103 "data/maps/HoundoomCave/scripts.pory"
+	doscriptednorunningbattle
 # 104 "data/maps/HoundoomCave/scripts.pory"
-	dowildbattle
-# 105 "data/maps/HoundoomCave/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 106 "data/maps/HoundoomCave/scripts.pory"
+# 105 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq HoundoomBattleSecond_2
 HoundoomBattleSecond_1:
-# 112 "data/maps/HoundoomCave/scripts.pory"
+# 111 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq HoundoomBattleSecond_4
 	return
 
 HoundoomBattleSecond_2:
-# 107 "data/maps/HoundoomCave/scripts.pory"
+# 106 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_HOUNDOOMS_DEFEATED, 2
-# 108 "data/maps/HoundoomCave/scripts.pory"
+# 107 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_LAST_TALKED, 2
-# 109 "data/maps/HoundoomCave/scripts.pory"
+# 108 "data/maps/HoundoomCave/scripts.pory"
 	call RemoveHoundoom
-# 110 "data/maps/HoundoomCave/scripts.pory"
+# 109 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleThird
 	goto HoundoomBattleSecond_1
 
 HoundoomBattleSecond_4:
-# 113 "data/maps/HoundoomCave/scripts.pory"
+# 112 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomLoop
 	return
 
 
 HoundoomBattleThird::
-# 117 "data/maps/HoundoomCave/scripts.pory"
+# 116 "data/maps/HoundoomCave/scripts.pory"
 	safefollow
-# 118 "data/maps/HoundoomCave/scripts.pory"
+# 117 "data/maps/HoundoomCave/scripts.pory"
 	applymovement 3, MoveHoundoom3
-# 119 "data/maps/HoundoomCave/scripts.pory"
+# 118 "data/maps/HoundoomCave/scripts.pory"
 	waitmovement 0
-# 120 "data/maps/HoundoomCave/scripts.pory"
+# 119 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
-# 121 "data/maps/HoundoomCave/scripts.pory"
+# 120 "data/maps/HoundoomCave/scripts.pory"
 	createmon 1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+# 121 "data/maps/HoundoomCave/scripts.pory"
+	doscriptednorunningbattle
 # 122 "data/maps/HoundoomCave/scripts.pory"
-	dowildbattle
-# 123 "data/maps/HoundoomCave/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 124 "data/maps/HoundoomCave/scripts.pory"
+# 123 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq HoundoomBattleThird_2
 HoundoomBattleThird_1:
-# 130 "data/maps/HoundoomCave/scripts.pory"
+# 129 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq HoundoomBattleThird_4
 	return
 
 HoundoomBattleThird_2:
-# 125 "data/maps/HoundoomCave/scripts.pory"
+# 124 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_HOUNDOOMS_DEFEATED, 3
-# 126 "data/maps/HoundoomCave/scripts.pory"
+# 125 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_LAST_TALKED, 3
-# 127 "data/maps/HoundoomCave/scripts.pory"
+# 126 "data/maps/HoundoomCave/scripts.pory"
 	call RemoveHoundoom
-# 128 "data/maps/HoundoomCave/scripts.pory"
+# 127 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleFourth
 	goto HoundoomBattleThird_1
 
 HoundoomBattleThird_4:
-# 131 "data/maps/HoundoomCave/scripts.pory"
+# 130 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomLoop
 	return
 
 
 HoundoomBattleFourth::
-# 135 "data/maps/HoundoomCave/scripts.pory"
+# 134 "data/maps/HoundoomCave/scripts.pory"
 	safefollow
-# 136 "data/maps/HoundoomCave/scripts.pory"
+# 135 "data/maps/HoundoomCave/scripts.pory"
 	applymovement 4, MoveHoundoom4
-# 137 "data/maps/HoundoomCave/scripts.pory"
+# 136 "data/maps/HoundoomCave/scripts.pory"
 	waitmovement 0
-# 138 "data/maps/HoundoomCave/scripts.pory"
+# 137 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
-# 139 "data/maps/HoundoomCave/scripts.pory"
+# 138 "data/maps/HoundoomCave/scripts.pory"
 	createmon 1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+# 139 "data/maps/HoundoomCave/scripts.pory"
+	doscriptedbattle
 # 140 "data/maps/HoundoomCave/scripts.pory"
-	dowildbattle
-# 141 "data/maps/HoundoomCave/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 142 "data/maps/HoundoomCave/scripts.pory"
+# 141 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq HoundoomBattleFourth_2
-# 151 "data/maps/HoundoomCave/scripts.pory"
+# 150 "data/maps/HoundoomCave/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq HoundoomBattleFourth_4
 	return
 
 HoundoomBattleFourth_2:
-# 143 "data/maps/HoundoomCave/scripts.pory"
+# 142 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_HOUNDOOMS_DEFEATED, 4
-# 144 "data/maps/HoundoomCave/scripts.pory"
+# 143 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_LAST_TALKED, 4
-# 145 "data/maps/HoundoomCave/scripts.pory"
+# 144 "data/maps/HoundoomCave/scripts.pory"
 	setvar VAR_TEMP_1, 1
-# 146 "data/maps/HoundoomCave/scripts.pory"
+# 145 "data/maps/HoundoomCave/scripts.pory"
 	call RemoveHoundoom
-# 147 "data/maps/HoundoomCave/scripts.pory"
+# 146 "data/maps/HoundoomCave/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 148 "data/maps/HoundoomCave/scripts.pory"
+# 147 "data/maps/HoundoomCave/scripts.pory"
 	release
 	end
 
 HoundoomBattleFourth_4:
-# 152 "data/maps/HoundoomCave/scripts.pory"
+# 151 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomLoop
 	return
 
 
 HoundoomCry::
-# 157 "data/maps/HoundoomCave/scripts.pory"
+# 156 "data/maps/HoundoomCave/scripts.pory"
 	playmoncry SPECIES_HOUNDOOM, CRY_MODE_ENCOUNTER
-# 158 "data/maps/HoundoomCave/scripts.pory"
+# 157 "data/maps/HoundoomCave/scripts.pory"
 	waitmoncry
-# 159 "data/maps/HoundoomCave/scripts.pory"
+# 158 "data/maps/HoundoomCave/scripts.pory"
 	delay 40
 	return
 
 
 HoundoomLoop::
-# 163 "data/maps/HoundoomCave/scripts.pory"
+# 162 "data/maps/HoundoomCave/scripts.pory"
 	switch VAR_HOUNDOOMS_DEFEATED
-# 164 "data/maps/HoundoomCave/scripts.pory"
+# 163 "data/maps/HoundoomCave/scripts.pory"
 	case 0, HoundoomLoop_2
-# 166 "data/maps/HoundoomCave/scripts.pory"
+# 165 "data/maps/HoundoomCave/scripts.pory"
 	case 1, HoundoomLoop_3
-# 168 "data/maps/HoundoomCave/scripts.pory"
+# 167 "data/maps/HoundoomCave/scripts.pory"
 	case 2, HoundoomLoop_4
-# 170 "data/maps/HoundoomCave/scripts.pory"
+# 169 "data/maps/HoundoomCave/scripts.pory"
 	case 3, HoundoomLoop_5
 	return
 
 HoundoomLoop_2:
-# 165 "data/maps/HoundoomCave/scripts.pory"
+# 164 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleFirst
 	return
 
 HoundoomLoop_3:
-# 167 "data/maps/HoundoomCave/scripts.pory"
+# 166 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleSecond
 	return
 
 HoundoomLoop_4:
-# 169 "data/maps/HoundoomCave/scripts.pory"
+# 168 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleThird
 	return
 
 HoundoomLoop_5:
-# 171 "data/maps/HoundoomCave/scripts.pory"
+# 170 "data/maps/HoundoomCave/scripts.pory"
 	goto HoundoomBattleFourth
 	return
 
 
 RemoveHoundoom::
-# 176 "data/maps/HoundoomCave/scripts.pory"
+# 175 "data/maps/HoundoomCave/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 177 "data/maps/HoundoomCave/scripts.pory"
+# 176 "data/maps/HoundoomCave/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 178 "data/maps/HoundoomCave/scripts.pory"
+# 177 "data/maps/HoundoomCave/scripts.pory"
 	fadescreen FADE_FROM_BLACK
 	return
 
 
-# 182 "data/maps/HoundoomCave/scripts.pory"
+# 181 "data/maps/HoundoomCave/scripts.pory"
 MoveHoundoom2:
+# 182 "data/maps/HoundoomCave/scripts.pory"
+	walk_down
 # 183 "data/maps/HoundoomCave/scripts.pory"
-	walk_down
+	walk_right
 # 184 "data/maps/HoundoomCave/scripts.pory"
-	walk_right
+	walk_in_place_down
 # 185 "data/maps/HoundoomCave/scripts.pory"
-	walk_in_place_down
-# 186 "data/maps/HoundoomCave/scripts.pory"
 	delay_16
 	step_end
 
-# 188 "data/maps/HoundoomCave/scripts.pory"
+# 187 "data/maps/HoundoomCave/scripts.pory"
 MoveHoundoom3:
-# 189 "data/maps/HoundoomCave/scripts.pory"
+# 188 "data/maps/HoundoomCave/scripts.pory"
 	walk_down
-# 190 "data/maps/HoundoomCave/scripts.pory"
+# 189 "data/maps/HoundoomCave/scripts.pory"
 	walk_left
-# 191 "data/maps/HoundoomCave/scripts.pory"
+# 190 "data/maps/HoundoomCave/scripts.pory"
 	walk_in_place_down
-# 192 "data/maps/HoundoomCave/scripts.pory"
+# 191 "data/maps/HoundoomCave/scripts.pory"
 	delay_16
 	step_end
 
-# 194 "data/maps/HoundoomCave/scripts.pory"
+# 193 "data/maps/HoundoomCave/scripts.pory"
 MoveHoundoom4:
-# 195 "data/maps/HoundoomCave/scripts.pory"
+# 194 "data/maps/HoundoomCave/scripts.pory"
 	walk_right
-# 196 "data/maps/HoundoomCave/scripts.pory"
+# 195 "data/maps/HoundoomCave/scripts.pory"
+	walk_down
+# 195 "data/maps/HoundoomCave/scripts.pory"
 	walk_down
 # 196 "data/maps/HoundoomCave/scripts.pory"
-	walk_down
-# 197 "data/maps/HoundoomCave/scripts.pory"
 	walk_left
-# 198 "data/maps/HoundoomCave/scripts.pory"
+# 197 "data/maps/HoundoomCave/scripts.pory"
 	walk_in_place_down
-# 199 "data/maps/HoundoomCave/scripts.pory"
+# 198 "data/maps/HoundoomCave/scripts.pory"
 	delay_16
 	step_end
 

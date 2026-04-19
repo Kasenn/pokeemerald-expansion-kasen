@@ -329,6 +329,38 @@ extern const u32 gBattleEnvironmentTiles_Mud[];
 extern const u32 gBattleEnvironmentTilemap_Mud[];
 extern const u16 gBattleEnvironmentPalette_Snow[];
 
+extern const u16 gBattleEnvironmentPalette_TallGrassAutumn[];
+extern const u16 gBattleEnvironmentPalette_TallGrassDark[];
+extern const u16 gBattleEnvironmentPalette_TallGrassAsh[];
+extern const u16 gBattleEnvironmentPalette_TallGrassCrystal[];
+
+extern const u32 gBattleEnvironmentTiles_BugGym[];
+extern const u16 gBattleEnvironmentPalette_BugGym[];
+extern const u32 gBattleEnvironmentTilemap_BugGym[];
+extern const u32 gBattleEnvironmentAnimTiles_BugGym[];
+extern const u32 gBattleEnvironmentAnimTilemap_BugGym[];
+
+extern const u16 gBattleEnvironmentPalette_ElectricGym[];
+extern const u16 gBattleEnvironmentPalette_FightingGym[];
+
+extern const u32 gBattleEnvironmentTiles_GroundGym[];
+extern const u16 gBattleEnvironmentPalette_GroundGym[];
+extern const u32 gBattleEnvironmentTilemap_GroundGym[];
+extern const u32 gBattleEnvironmentAnimTiles_GroundGym[];
+extern const u32 gBattleEnvironmentAnimTilemap_GroundGym[];
+
+extern const u32 gBattleEnvironmentTiles_GhostGym[];
+extern const u16 gBattleEnvironmentPalette_GhostGym[];
+extern const u32 gBattleEnvironmentTilemap_GhostGym[];
+
+extern const u32 gBattleEnvironmentTiles_FrostfireGym[];
+extern const u16 gBattleEnvironmentPalette_FrostfireGym[];
+extern const u32 gBattleEnvironmentTilemap_FrostfireGym[];
+
+extern const u32 gBattleEnvironmentTiles_Grotto[];
+extern const u16 gBattleEnvironmentPalette_Grotto[];
+extern const u32 gBattleEnvironmentTilemap_Grotto[];
+
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];
 extern const u16 gPokedexBgHoenn_Pal[];

@@ -919,7 +919,11 @@ static u8 GetBattleEnvironmentOverride(void)
             return BATTLE_ENVIRONMENT_CHAMPION;
     }
 
-    if (battleScene == MAP_BATTLE_SCENE_NORMAL)
+    if (battleScene == MAP_BATTLE_SCENE_NORMAL
+     || battleScene == MAP_BATTLE_SCENE_AUTUMN_GRASS
+     || battleScene == MAP_BATTLE_SCENE_DARK_GRASS
+     || battleScene == MAP_BATTLE_SCENE_ASH_GRASS
+     || battleScene == MAP_BATTLE_SCENE_CRYSTAL_GRASS)
         return gBattleEnvironment;
 
     return GetBattleEnvironmentByMapScene(battleScene);
@@ -1310,7 +1314,7 @@ void DrawBattleEntryBackground(void)
         if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
         {
             enum TrainerClassID trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
-            if (trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_CHAMPION)
+            if (trainerClass == TRAINER_CLASS_LEADER || trainerClass == TRAINER_CLASS_CHAMPION || trainerClass == TRAINER_CLASS_GYMMEMBER || trainerClass == TRAINER_CLASS_GYMMEMBER_DOUBLE)
             {
                 LoadBattleEnvironmentEntryGfx(GetBattleEnvironmentOverride());
                 return;

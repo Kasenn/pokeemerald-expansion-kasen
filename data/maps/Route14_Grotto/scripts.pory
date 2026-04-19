@@ -93,7 +93,7 @@ script ROUTE14_GrottoPokemon{
         setwildbattlelevelrange(SPECIES_LEDIAN, 30, ITEM_NONE, SPECIES_NONE, 33)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    dowildbattle
+    doscriptedgrottobattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
     setflag(FLAG_DAILY_GROTTO_3)
     setvar(VAR_GROTTO_3, 0)

@@ -172,7 +172,7 @@ ROUTE7_GrottoPokemon_1:
 # 94 "data/maps/Route7_Grotto/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 95 "data/maps/Route7_Grotto/scripts.pory"
-	dowildbattle
+	doscriptedgrottobattle
 # 96 "data/maps/Route7_Grotto/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 # 97 "data/maps/Route7_Grotto/scripts.pory"

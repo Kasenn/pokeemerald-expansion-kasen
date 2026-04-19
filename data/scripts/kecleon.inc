@@ -73,7 +73,7 @@ EventScript_BattleKecleon::
 	waitmoncry
 	setwildbattle SPECIES_KECLEON, 30
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
-	dowildbattle
+	doscriptedbattle
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 	specialvar VAR_RESULT, GetBattleOutcome
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, EventScript_RemoveKecleon

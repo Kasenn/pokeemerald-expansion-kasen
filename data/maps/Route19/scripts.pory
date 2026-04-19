@@ -252,7 +252,7 @@ script Route19_Bergmite{
 	waitmoncry
 	setwildbattle(SPECIES_BERGMITE, 35)
 	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
-	dowildbattle
+	doscriptedbattle
 	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){

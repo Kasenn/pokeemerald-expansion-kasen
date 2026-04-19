@@ -77,13 +77,13 @@ Route6_HoneyTree::
 # 38 "data/maps/Route6/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route6_HoneyTree_1
-# 90 "data/maps/Route6/scripts.pory"
+# 89 "data/maps/Route6/scripts.pory"
 	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
-# 91 "data/maps/Route6/scripts.pory"
+# 90 "data/maps/Route6/scripts.pory"
 	waitmessage
-# 92 "data/maps/Route6/scripts.pory"
+# 91 "data/maps/Route6/scripts.pory"
 	closemessage
-# 93 "data/maps/Route6/scripts.pory"
+# 92 "data/maps/Route6/scripts.pory"
 	release
 	end
 
@@ -93,11 +93,11 @@ Route6_HoneyTree_1:
 # 41 "data/maps/Route6/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route6_HoneyTree_4
-# 83 "data/maps/Route6/scripts.pory"
+# 82 "data/maps/Route6/scripts.pory"
 	waitmessage
-# 84 "data/maps/Route6/scripts.pory"
+# 83 "data/maps/Route6/scripts.pory"
 	closemessage
-# 85 "data/maps/Route6/scripts.pory"
+# 84 "data/maps/Route6/scripts.pory"
 	release
 	end
 
@@ -153,10 +153,8 @@ Route6_HoneyTree_31:
 	goto_if_eq Route6_HoneyTree_35
 Route6_HoneyTree_34:
 # 77 "data/maps/Route6/scripts.pory"
-	setflag FLAG_CHANCE_TO_HIDDEN_ABILITY
+	doscriptedhoneytreebattle
 # 78 "data/maps/Route6/scripts.pory"
-	dowildbattle
-# 79 "data/maps/Route6/scripts.pory"
 	release
 	end
 
@@ -211,10 +209,12 @@ Route6_HoneyTree_35:
 	goto Route6_HoneyTree_34
 
 
-# 98 "data/maps/Route6/scripts.pory"
+# 97 "data/maps/Route6/scripts.pory"
 Route6_Movement_PlayerFall:
-# 99 "data/maps/Route6/scripts.pory"
+# 98 "data/maps/Route6/scripts.pory"
 	lock_anim
+# 99 "data/maps/Route6/scripts.pory"
+	walk_fast_down
 # 100 "data/maps/Route6/scripts.pory"
 	walk_fast_down
 # 101 "data/maps/Route6/scripts.pory"
@@ -226,173 +226,171 @@ Route6_Movement_PlayerFall:
 # 104 "data/maps/Route6/scripts.pory"
 	walk_fast_down
 # 105 "data/maps/Route6/scripts.pory"
-	walk_fast_down
-# 106 "data/maps/Route6/scripts.pory"
 	unlock_anim
-# 107 "data/maps/Route6/scripts.pory"
+# 106 "data/maps/Route6/scripts.pory"
 	step_end
 
 Route6_Trainer1_Ranger_M::
-# 111 "data/maps/Route6/scripts.pory"
+# 110 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R6_RANGER_M, Route6_Trainer1_Ranger_M_Intro, Route6_Trainer1_Ranger_M_Defeat
-# 112 "data/maps/Route6/scripts.pory"
+# 111 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer1_Ranger_M_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer2_PokeFan_F::
-# 130 "data/maps/Route6/scripts.pory"
+# 129 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R16_SWIMMER_F, Route6_Trainer2_PokeFan_F_Intro, Route6_Trainer2_PokeFan_F_Defeat
-# 131 "data/maps/Route6/scripts.pory"
+# 130 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer2_PokeFan_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer3_Camper_F::
-# 146 "data/maps/Route6/scripts.pory"
+# 145 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R6_CAMPER_F, Route6_Trainer3_Camper_F_Intro, Route6_Trainer3_Camper_F_Defeat
-# 147 "data/maps/Route6/scripts.pory"
+# 146 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer3_Camper_F_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer4_Camper_M1::
-# 162 "data/maps/Route6/scripts.pory"
+# 161 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R16_NINJABOY2, Route6_Trainer4_Camper_M1_Intro, Route6_Trainer4_Camper_M1_Defeat
-# 163 "data/maps/Route6/scripts.pory"
+# 162 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer4_Camper_M1_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer5_Hiker::
-# 179 "data/maps/Route6/scripts.pory"
+# 178 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R6_HIKER, Route6_Trainer5_Hiker_Intro, Route6_Trainer5_Hiker_Defeat
-# 180 "data/maps/Route6/scripts.pory"
+# 179 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer5_Hiker_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer6_Camper_M2::
-# 199 "data/maps/Route6/scripts.pory"
+# 198 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R6_CAMPER_M2, Route6_Trainer6_Camper_M2_Intro, Route6_Trainer6_Camper_M2_Defeat
-# 200 "data/maps/Route6/scripts.pory"
+# 199 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer6_Camper_M2_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer7_Kindler::
-# 218 "data/maps/Route6/scripts.pory"
+# 217 "data/maps/Route6/scripts.pory"
 	trainerbattle_single TRAINER_R6_KINDLER, Route6_Trainer7_Kindler_Intro, Route6_Trainer7_Kindler_Defeat
-# 219 "data/maps/Route6/scripts.pory"
+# 218 "data/maps/Route6/scripts.pory"
 	msgbox Route6_Trainer7_Kindler_PostBattle, MSGBOX_AUTOCLOSE
 	end
 
 
 Route6_Trainer1_Ranger_M_Intro::
-# 115 "data/maps/Route6/scripts.pory"
+# 114 "data/maps/Route6/scripts.pory"
 	.string "Are you planning to explore the desert?\n"
 	.string "Let me see if your Pokémon are ready!$"
 
 Route6_Trainer1_Ranger_M_Defeat::
-# 119 "data/maps/Route6/scripts.pory"
+# 118 "data/maps/Route6/scripts.pory"
 	.string "Your Pokémon are strong.\n"
 	.string "You must be a great trainer.$"
 
 Route6_Trainer1_Ranger_M_PostBattle::
-# 123 "data/maps/Route6/scripts.pory"
+# 122 "data/maps/Route6/scripts.pory"
 	.string "There's a constant sandstorm raging\n"
 	.string "at the desert. You're going to need\l"
 	.string "proper equipment if you plan on\l"
 	.string "marching ahead.$"
 
 Route6_Trainer2_PokeFan_F_Intro::
-# 134 "data/maps/Route6/scripts.pory"
+# 133 "data/maps/Route6/scripts.pory"
 	.string "Do you love Pokémon?\n"
 	.string "What about Pokémon battles?$"
 
 Route6_Trainer2_PokeFan_F_Defeat::
-# 138 "data/maps/Route6/scripts.pory"
+# 137 "data/maps/Route6/scripts.pory"
 	.string "Oh my…$"
 
 Route6_Trainer2_PokeFan_F_PostBattle::
-# 141 "data/maps/Route6/scripts.pory"
+# 140 "data/maps/Route6/scripts.pory"
 	.string "Your Pokémon are strong and healthy.\n"
 	.string "You must really love them.$"
 
 Route6_Trainer3_Camper_F_Intro::
-# 150 "data/maps/Route6/scripts.pory"
+# 149 "data/maps/Route6/scripts.pory"
 	.string "I'm full of pep!\n"
 	.string "And my Pokémon are peppy, too!$"
 
 Route6_Trainer3_Camper_F_Defeat::
-# 154 "data/maps/Route6/scripts.pory"
+# 153 "data/maps/Route6/scripts.pory"
 	.string "My Pokémon lost their pep…$"
 
 Route6_Trainer3_Camper_F_PostBattle::
-# 157 "data/maps/Route6/scripts.pory"
+# 156 "data/maps/Route6/scripts.pory"
 	.string "When I see a trainer with a lot of pep,\n"
 	.string "I just can't help challenging them.$"
 
 Route6_Trainer4_Camper_M1_Intro::
-# 166 "data/maps/Route6/scripts.pory"
+# 165 "data/maps/Route6/scripts.pory"
 	.string "I heard there are fossils to be found\n"
 	.string "in the desert. Where could they be?$"
 
 Route6_Trainer4_Camper_M1_Defeat::
-# 170 "data/maps/Route6/scripts.pory"
+# 169 "data/maps/Route6/scripts.pory"
 	.string "I came up short…$"
 
 Route6_Trainer4_Camper_M1_PostBattle::
-# 173 "data/maps/Route6/scripts.pory"
+# 172 "data/maps/Route6/scripts.pory"
 	.string "If they can find fossils in the desert,\n"
 	.string "it must have been able to support life\l"
 	.string "a long time ago.$"
 
 Route6_Trainer5_Hiker_Intro::
-# 183 "data/maps/Route6/scripts.pory"
+# 182 "data/maps/Route6/scripts.pory"
 	.string "Show me how much you've toughened\n"
 	.string "your Pokémon.$"
 
 Route6_Trainer5_Hiker_Defeat::
-# 187 "data/maps/Route6/scripts.pory"
+# 186 "data/maps/Route6/scripts.pory"
 	.string "I see you've toughened them\n"
 	.string "considerably.$"
 
 Route6_Trainer5_Hiker_PostBattle::
-# 191 "data/maps/Route6/scripts.pory"
+# 190 "data/maps/Route6/scripts.pory"
 	.string "Pokémon and trainers learn much\n"
 	.string "through battling.\p"
 	.string "What's important is to never give up,\n"
 	.string "even if you lose.$"
 
 Route6_Trainer6_Camper_M2_Intro::
-# 203 "data/maps/Route6/scripts.pory"
+# 202 "data/maps/Route6/scripts.pory"
 	.string "I'm waiting for a friend.\n"
 	.string "Let's have a Pokémon battle\l"
 	.string "to pass the time!$"
 
 Route6_Trainer6_Camper_M2_Defeat::
-# 208 "data/maps/Route6/scripts.pory"
+# 207 "data/maps/Route6/scripts.pory"
 	.string "Not fair! I was distracted by\n"
 	.string "some sand in my shoe!$"
 
 Route6_Trainer6_Camper_M2_PostBattle::
-# 212 "data/maps/Route6/scripts.pory"
+# 211 "data/maps/Route6/scripts.pory"
 	.string "I don't like sand.\n"
 	.string "It's coarse, rough, irritating,\l"
 	.string "and it gets everywhere.$"
 
 Route6_Trainer7_Kindler_Intro::
-# 222 "data/maps/Route6/scripts.pory"
+# 221 "data/maps/Route6/scripts.pory"
 	.string "The desert sand is hot,\n"
 	.string "but not as hot as my Pokémon!$"
 
 Route6_Trainer7_Kindler_Defeat::
-# 226 "data/maps/Route6/scripts.pory"
+# 225 "data/maps/Route6/scripts.pory"
 	.string "Guess I couldn't handle the heat…$"
 
 Route6_Trainer7_Kindler_PostBattle::
-# 229 "data/maps/Route6/scripts.pory"
+# 228 "data/maps/Route6/scripts.pory"
 	.string "The desert is not great for my\n"
 	.string "Fire-type Pokémon.\p"
 	.string "There are a lot of Ground-types out\n"

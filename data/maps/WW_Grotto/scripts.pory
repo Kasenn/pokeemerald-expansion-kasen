@@ -90,7 +90,7 @@ script WW_GrottoPokemon{
         setwildbattlelevelrange(SPECIES_GLIGAR, 6, ITEM_NONE, SPECIES_NONE, 7)
     }
     setflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    dowildbattle
+    doscriptedgrottobattle
     clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
     setflag(FLAG_DAILY_GROTTO_1)
     setvar(VAR_GROTTO_1, 0)

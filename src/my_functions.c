@@ -237,36 +237,6 @@ bool8 ScrCmd_setwildbattlelevelrange(struct ScriptContext *ctx)
     return FALSE;
 }
 
-bool8 ScrCmd_dowildbattlenorunning(struct ScriptContext *ctx)
-{
-    BattleSetup_StartScriptedWildBattleNoRunning();
-
-    ScriptContext_Stop();
-
-    return TRUE;
-}
-
-bool8 ScrCmd_dowildgrottobattle(struct ScriptContext *ctx)
-{
-    u8 value = 2;
-
-    if (sIsScriptedWildDouble == FALSE)
-    {
-        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
-        BattleSetup_StartScriptedWildBattle();
-    }
-    else
-    {
-        SetMonData(&gEnemyParty[0], MON_DATA_ABILITY_NUM, &value);
-        SetMonData(&gEnemyParty[1], MON_DATA_ABILITY_NUM, &value);
-        BattleSetup_StartScriptedDoubleWildBattle();
-    }
-
-    ScriptContext_Stop();
-
-    return TRUE;
-}
-
 bool8 ScrCmd_bpmart(struct ScriptContext *ctx)
 {
     const void *ptr = (void *)ScriptReadWord(ctx);

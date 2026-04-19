@@ -199,7 +199,7 @@ script DrisledgeGym_Mimikyu1{
     delay(40)
     waitmoncry
     setwildbattle(SPECIES_MIMIKYU, 37)
-    dowildbattle
+    doscriptedghostbattle
     delay(20)
     playmoncry(SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER)
     delay(40)
@@ -217,7 +217,7 @@ script DrisledgeGym_Mimikyu2{
     delay(40)
     waitmoncry
     setwildbattle(SPECIES_MIMIKYU, 37)
-    dowildbattle
+    doscriptedghostbattle
     delay(20)
     playmoncry(SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER)
     delay(40)
@@ -235,7 +235,7 @@ script DrisledgeGym_Mimikyu3{
     delay(40)
     waitmoncry
     setwildbattle(SPECIES_MIMIKYU, 37)
-    dowildbattle
+    doscriptedghostbattle
     delay(20)
     playmoncry(SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER)
     delay(40)
@@ -253,7 +253,7 @@ script DrisledgeGym_Mimikyu4{
     delay(40)
     waitmoncry
     setwildbattle(SPECIES_MIMIKYU, 37)
-    dowildbattle
+    doscriptedghostbattle
     delay(20)
     playmoncry(SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER)
     delay(40)
@@ -271,7 +271,7 @@ script DrisledgeGym_Mimikyu5{
     delay(40)
     waitmoncry
     setwildbattle(SPECIES_MIMIKYU, 37)
-    dowildbattle
+    doscriptedghostbattle
     delay(20)
     playmoncry(SPECIES_MIMIKYU, CRY_MODE_ENCOUNTER)
     delay(40)

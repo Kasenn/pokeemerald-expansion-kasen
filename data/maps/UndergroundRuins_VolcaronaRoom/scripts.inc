@@ -14,7 +14,7 @@ VolcaronaBattle::
 # 8 "data/maps/UndergroundRuins_VolcaronaRoom/scripts.pory"
 	setflag FLAG_SYS_CTRL_OBJ_DELETE
 # 9 "data/maps/UndergroundRuins_VolcaronaRoom/scripts.pory"
-	dowildbattle
+	doscriptedbattle
 # 10 "data/maps/UndergroundRuins_VolcaronaRoom/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
 # 11 "data/maps/UndergroundRuins_VolcaronaRoom/scripts.pory"

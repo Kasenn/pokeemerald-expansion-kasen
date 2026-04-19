@@ -144,7 +144,7 @@ Sandstone_BigHouse2_3F_PC::
 # 75 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	setwildbattle SPECIES_PORYGON, 30
 # 76 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
-	dowildbattle
+	doscriptedbattle
 # 77 "data/maps/Sandstone_LargeHouse2_3F/scripts.pory"
 	goto PCAftermath
 	return

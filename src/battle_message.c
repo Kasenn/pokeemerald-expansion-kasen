@@ -79,6 +79,7 @@ static const u8 sTrainerIntroDouble[] =             _("You are challenged by\n{B
 static const u8 sWildMonAppeared[] =                _("A wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Double[] =         _("Oh! A wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Trainer[] =        _("{B_OPPONENT_MON1_NAME} wants to battle!\p");
+static const u8 sWildMonAppeared_TrainerDouble[] =  _("{B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} want to battle!\p");
 static const u8 sReturnPlayerMon1[] =               _("{B_BUFF1}, switch out!\nCome back!");
 static const u8 sReturnPlayerMon2[] =               _("{B_BUFF1}, come back!");
 static const u8 sReturnPlayerMon3[] =               _("{B_BUFF1}, enough!\nGet back!");
@@ -2504,9 +2505,11 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         }
         else
         {
-            if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))))
+            if ((gBattleTypeFlags & BATTLE_TYPE_MON_WITHOUT_TRAINER) && IsDoubleBattle() && IsValidForBattle(GetBattlerMon(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))))
+                stringPtr = sWildMonAppeared_TrainerDouble;
+            else if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))))
                 stringPtr = sWildMonAppeared_Double;
-            else if (FlagGet(FLAG_WILD_TRAINER_MON))
+            else if (gBattleTypeFlags & BATTLE_TYPE_MON_WITHOUT_TRAINER)
                 stringPtr = sWildMonAppeared_Trainer;
             else
                 stringPtr = sWildMonAppeared;
@@ -2853,8 +2856,7 @@ static void GetBattlerNick(enum BattlerId battler, u8 *dst)
 #define HANDLE_NICKNAME_STRING_CASE(battler)                            \
     if (!IsOnPlayerSide(battler))                                       \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER                      \
-         || FlagGet(FLAG_WILD_TRAINER_MON))                             \
+        if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_MON_WITHOUT_TRAINER)) \
             toCpy = sFoePrefix;                                         \
         else                                                            \
             toCpy = sWildPrefix;                                        \
@@ -2871,8 +2873,7 @@ static void GetBattlerNick(enum BattlerId battler, u8 *dst)
 #define HANDLE_NICKNAME_STRING_LOWERCASE(battler)                       \
     if (!IsOnPlayerSide(battler))                                       \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER                      \
-         || FlagGet(FLAG_WILD_TRAINER_MON))                             \
+        if (gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_MON_WITHOUT_TRAINER)) \
             toCpy = sFoePrefixLowerCase;                                \
         else                                                            \
             toCpy = sWildPrefixLowerCase;                               \
@@ -3895,7 +3896,7 @@ void BattlePutTextOnWindow(const u8 *text, u8 windowId)
     else
         gTextFlags.useAlternateDownArrow = TRUE;
 
-    if ((gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED)) || gTestRunnerEnabled || ((gBattleTypeFlags & BATTLE_TYPE_POKEDUDE) && windowId != B_WIN_OAK_OLD_MAN))
+    if ((gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED)) || gTestRunnerEnabled)
         gTextFlags.autoScroll = TRUE;
     else
         gTextFlags.autoScroll = FALSE;

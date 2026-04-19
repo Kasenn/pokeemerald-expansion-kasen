@@ -3,6 +3,7 @@
 
 #include "battle_transition.h"
 #include "gym_leader_rematch.h"
+#include "constants/battle_setup.h"
 
 #define REMATCHES_COUNT 5
 
@@ -55,9 +56,8 @@ void BattleSetup_StartDoubleWildBattle(void);
 void BattleSetup_StartBattlePikeWildBattle(void);
 void BattleSetup_StartRoamerBattle(void);
 void StartWallyTutorialBattle(void);
-void BattleSetup_StartScriptedWildBattle(void);
-void BattleSetup_StartScriptedWildBattleNoRunning(void);
-void BattleSetup_StartScriptedDoubleWildBattle(void);
+void BattleSetup_StartScriptedWildBattle(enum ScriptedBattleType battleType);
+void BattleSetup_StartScriptedDoubleWildBattle(enum ScriptedBattleType battleType);
 void BattleSetup_StartLatiBattle(void);
 void BattleSetup_StartLegendaryBattle(void);
 void StartGroudonKyogreBattle(void);
