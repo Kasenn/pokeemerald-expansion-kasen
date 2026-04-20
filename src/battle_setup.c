@@ -717,12 +717,15 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
 
     tileBehavior = MapGridGetMetatileBehaviorAt(x, y);
 
-    if(MAP(MAP_NEW_CORALGROVE_CITY_GYM))
+    if (MAP(MAP_NEW_CORALGROVE_CITY_GYM))
         return BATTLE_ENVIRONMENT_GYM_1;
-    else if(MAP(MAP_KAOLISLE_GYM))
+    else if (MAP(MAP_KAOLISLE_GYM))
         return BATTLE_ENVIRONMENT_GYM_3;
-    else if(MAP(MAP_SANDSTONE_GYM_1F))
+    else if (MAP(MAP_SANDSTONE_GYM_1F))
         return BATTLE_ENVIRONMENT_GYM_4;
+
+    if (gMapHeader.regionMapSectionId == MAPSEC_ADAMANT_TOWER)
+        return BATTLE_ENVIRONMENT_ADAMANTTOWER;
     
     if (gBattleTypeFlags & BATTLE_TYPE_GROTTO)
         return BATTLE_ENVIRONMENT_GROTTO;
@@ -789,7 +792,13 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
             return BATTLE_ENVIRONMENT_BUILDING;
         if (MetatileBehavior_IsSurfableWaterOrUnderwater(tileBehavior))
             return BATTLE_ENVIRONMENT_POND;
-        return BATTLE_ENVIRONMENT_CAVE;
+        switch (gMapHeader.regionMapSectionId)
+        {
+        case MAPSEC_DESERT_RUINS:       return BATTLE_ENVIRONMENT_UNDERGROUNDRUINS;
+        case MAPSEC_SERPENT_CAVE:       return BATTLE_ENVIRONMENT_SERPENTCAVE;
+        case MAPSEC_WINDPLUME_MOUNTAIN: return BATTLE_ENVIRONMENT_WINDPLUME_CAVE;
+        default:                        return BATTLE_ENVIRONMENT_CAVE;
+        }
     case MAP_TYPE_INDOOR:
     case MAP_TYPE_SECRET_BASE:
         return BATTLE_ENVIRONMENT_BUILDING;

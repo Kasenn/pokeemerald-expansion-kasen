@@ -497,41 +497,40 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
         .camouflageType = TYPE_GRASS, .camouflageBlend = RGB(0, 15, 2),
     },
 
-    // [BATTLE_ENVIRONMENT_ADAMANTTOWER] =
-    // {
-    //     ENVIRONMENT_GRAPHICS(AdamantTower, AdamantTower, AdamantTower, BattleIntroSlide1),
-    //     SECRET_POWER_ENVIRONMENT(gBattleAnimMove_BrickBreak, MOVE_EFFECT_BREAK_SCREEN),
-    //     .name = _("Adamant Tower"),
-    //     .naturePower = MOVE_POWER_UP_PUNCH,
-    //     .camouflageType = TYPE_FIGHTING, .camouflageBlend = RGB(26, 8, 14),
-    // },
+    [BATTLE_ENVIRONMENT_ADAMANTTOWER] =
+    {
+        ENVIRONMENT_GRAPHICS(Building, AdamantTower, AdamantTower, BattleIntroSlide3),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_BrickBreak, MOVE_EFFECT_BREAK_SCREEN),
+        .name = _("Adamant Tower"),
+        .naturePower = MOVE_POWER_UP_PUNCH,
+        .camouflageType = TYPE_FIGHTING, .camouflageBlend = RGB(26, 8, 14),
+    },
 
-    // [BATTLE_ENVIRONMENT_UNDERGROUNDRUINS] =
-    // {
-    //     ENVIRONMENT_GRAPHICS(Ruins, Ruins, Ruins, CAVE_BATTLE_INTRO_SLIDE),
-    //     SECRET_POWER_ENVIRONMENT(gBattleAnimMove_RockTomb, MOVE_EFFECT_LOWER_SPEED_SIDE),
-    //     .name = _("Ruins"),
-    //     .naturePower = MOVE_SAND_TOMB,
-    //     .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
-    // },
+    [BATTLE_ENVIRONMENT_UNDERGROUNDRUINS] =
+    {
+        ENVIRONMENT_GRAPHICS(Sand, Cave, Ruins, CAVE_BATTLE_INTRO_SLIDE),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_RockTomb, MOVE_EFFECT_LOWER_SPEED_SIDE),
+        .name = _("Ruins"),
+        .naturePower = MOVE_SAND_TOMB,
+        .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
+    },
+    [BATTLE_ENVIRONMENT_SERPENTCAVE] =
+    {
+        ENVIRONMENT_GRAPHICS(Cave, Cave, SerpentCave, CAVE_BATTLE_INTRO_SLIDE),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_DragonBreath, MOVE_EFFECT_PARALYSIS),
+        .name = _("Serpent Cave"),
+        .naturePower = MOVE_DRAGON_PULSE,
+        .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
+    },
 
-    // [BATTLE_ENVIRONMENT_SERPENTCAVE] =
-    // {
-    //     ENVIRONMENT_GRAPHICS(SerpentCave, SerpentCave, SerpentCave, CAVE_BATTLE_INTRO_SLIDE),
-    //     SECRET_POWER_ENVIRONMENT(gBattleAnimMove_DragonBreath, MOVE_EFFECT_PARALYSIS),
-    //     .name = _("Serpent Cave"),
-    //     .naturePower = MOVE_DRAGON_PULSE,
-    //     .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
-    // },
-
-    // [BATTLE_ENVIRONMENT_WINDPLUME_CAVE] =
-    // {
-    //     ENVIRONMENT_GRAPHICS(Cave, Cave, Cave, CAVE_BATTLE_INTRO_SLIDE),
-    //     SECRET_POWER_ENVIRONMENT(gBattleAnimMove_ThunderWave, MOVE_EFFECT_PARALYSIS),
-    //     .name = _("Windplume Peak"),
-    //     .naturePower = MOVE_THUNDER,
-    //     .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
-    // },
+    [BATTLE_ENVIRONMENT_WINDPLUME_CAVE] =
+    {
+        ENVIRONMENT_GRAPHICS(Cave, Cave, WindplumeCave, CAVE_BATTLE_INTRO_SLIDE),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_ThunderWave, MOVE_EFFECT_PARALYSIS),
+        .name = _("Windplume Peak"),
+        .naturePower = MOVE_THUNDER,
+        .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,
+    },
 };
 
 static const struct {

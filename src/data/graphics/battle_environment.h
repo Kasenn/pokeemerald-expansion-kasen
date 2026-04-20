@@ -129,3 +129,11 @@ const u32 gBattleEnvironmentTilemap_FrostfireGym[] = INCBIN_U32("graphics/battle
 const u32 gBattleEnvironmentTiles_Grotto[] = INCBIN_U32("graphics/battle_environment/grotto/grotto.4bpp.smol");
 const u16 gBattleEnvironmentPalette_Grotto[] = INCBIN_U16("graphics/battle_environment/grotto/grotto.gbapal");
 const u32 gBattleEnvironmentTilemap_Grotto[] = INCBIN_U32("graphics/battle_environment/grotto/grotto.bin.smolTM");
+
+const u32 gBattleEnvironmentTiles_AdamantTower[] = INCBIN_U32("graphics/battle_environment/adamanttower/adamanttower.4bpp.smol");
+const u16 gBattleEnvironmentPalette_AdamantTower[] = INCBIN_U16("graphics/battle_environment/adamanttower/adamanttower.gbapal");
+const u32 gBattleEnvironmentTilemap_AdamantTower[] = INCBIN_U32("graphics/battle_environment/adamanttower/adamanttower.bin.smolTM");
+
+const u16 gBattleEnvironmentPalette_SerpentCave[] = INCBIN_U16("graphics/battle_environment/serpentcave.gbapal");
+const u16 gBattleEnvironmentPalette_WindplumeCave[] = INCBIN_U16("graphics/battle_environment/windplumecave.gbapal");
+const u16 gBattleEnvironmentPalette_Ruins[] = INCBIN_U16("graphics/battle_environment/ruins.gbapal");

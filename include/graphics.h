@@ -361,6 +361,14 @@ extern const u32 gBattleEnvironmentTiles_Grotto[];
 extern const u16 gBattleEnvironmentPalette_Grotto[];
 extern const u32 gBattleEnvironmentTilemap_Grotto[];
 
+extern const u32 gBattleEnvironmentTiles_AdamantTower[];
+extern const u16 gBattleEnvironmentPalette_AdamantTower[];
+extern const u32 gBattleEnvironmentTilemap_AdamantTower[];
+
+extern const u16 gBattleEnvironmentPalette_SerpentCave[];
+extern const u16 gBattleEnvironmentPalette_WindplumeCave[];
+extern const u16 gBattleEnvironmentPalette_Ruins[];
+
 // Pokédex
 extern const u32 gPokedexInterface_Gfx[];
 extern const u16 gPokedexBgHoenn_Pal[];

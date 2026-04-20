@@ -876,9 +876,9 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	addobject 4
+	applymovement 1, Debug_Script_3_Movement_0
 # 555 "data/scripts/general_scripts.pory"
-	waitmove 4, Debug_Script_3_Movement_0
+	waitmovement 0
 	return
 
 
@@ -2242,48 +2242,16 @@ RopeBridgeScript_Movement_0:
 	unlock_facing_direction
 	step_end
 
-# 555 "data/scripts/general_scripts.pory"
+# 554 "data/scripts/general_scripts.pory"
 Debug_Script_3_Movement_0:
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
-# 555 "data/scripts/general_scripts.pory"
-	walk_right
+# 554 "data/scripts/general_scripts.pory"
+	jump_special_down
+# 554 "data/scripts/general_scripts.pory"
+	jump_special_up
+# 554 "data/scripts/general_scripts.pory"
+	jump_special_left
+# 554 "data/scripts/general_scripts.pory"
+	jump_special_right
 	step_end
 
 # 573 "data/scripts/general_scripts.pory"

@@ -551,8 +551,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    addobject(4)
-    waitmove(4, moves(walk_right * 20))
+    applymovement(1, moves(jump_special_down, jump_special_up, jump_special_left, jump_special_right))
+    waitmovement(0)
     return
 }
 script Debug_Script_4{
