@@ -211,14 +211,32 @@ text SerpentCave_RapidTooFast_Text{
 
 movement BoulderGoingUp1{
     walk_up * 5
-    jump_special_up
+    disable_jump_landing_ground_effect
+    lock_anim
+    jump_up
+    delay_16
+    unlock_anim
     walk_up
-    jump_special_up}
+    lock_anim
+    jump_up
+    delay_16
+    unlock_anim
+    enable_jump_landing_ground_effect
+}
 movement BoulderGoingUp2{
     walk_up * 4
-    jump_special_up
+    disable_jump_landing_ground_effect
+    lock_anim
+    jump_up
+    delay_16
+    unlock_anim
     walk_up
-    jump_special_up}
+    lock_anim
+    jump_up
+    delay_16
+    unlock_anim
+    enable_jump_landing_ground_effect
+}
 script PushABoulder{
     if(checkpartymove(MOVE_STRENGTH) == PARTY_SIZE){
         msgbox(PushBoulderAsideCant)
@@ -695,15 +713,20 @@ movement IrisLeavesOnAggron1{
     walk_down
     walk_right * 2
     walk_down
-    jump_special_down
+    lock_anim
+    disable_jump_landing_ground_effect
     delay_16
-    jump_special_down
-    delay_16
-    jump_special_down
-    delay_16
-    jump_special_down
-    delay_16
-    jump_special_down
+    jump_down
+    delay_16 * 2
+    jump_down
+    delay_16 * 2
+    jump_down
+    delay_16 * 2
+    jump_down
+    delay_16 * 2
+    jump_down
+    unlock_anim
+    enable_jump_landing_ground_effect
     delay_16
 }
 movement IrisLeavesOnAggron2{
@@ -725,11 +748,16 @@ movement IrisLeavesOnAggron2{
 movement IrisLeavesOnAggron3{
     walk_in_place_fast_right * 6
     walk_down * 1
-    jump_special_down
+    lock_anim
+    disable_jump_landing_ground_effect
     delay_16
-    jump_special_down
-    delay_16
-    jump_special_down
+    jump_down
+    delay_16 * 2
+    jump_down
+    delay_16 * 2
+    jump_down
+    unlock_anim
+    enable_jump_landing_ground_effect
     delay_16
     walk_down * 3
 }

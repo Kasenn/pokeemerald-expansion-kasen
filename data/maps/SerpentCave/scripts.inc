@@ -421,29 +421,61 @@ BoulderGoingUp1:
 # 213 "data/maps/SerpentCave/scripts.pory"
 	walk_up
 # 214 "data/maps/SerpentCave/scripts.pory"
-	jump_special_up
+	disable_jump_landing_ground_effect
 # 215 "data/maps/SerpentCave/scripts.pory"
-	walk_up
+	lock_anim
 # 216 "data/maps/SerpentCave/scripts.pory"
-	jump_special_up
+	jump_up
+# 217 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 218 "data/maps/SerpentCave/scripts.pory"
+	unlock_anim
+# 219 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 220 "data/maps/SerpentCave/scripts.pory"
+	lock_anim
+# 221 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 222 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 223 "data/maps/SerpentCave/scripts.pory"
+	unlock_anim
+# 224 "data/maps/SerpentCave/scripts.pory"
+	enable_jump_landing_ground_effect
 	step_end
 
-# 217 "data/maps/SerpentCave/scripts.pory"
+# 226 "data/maps/SerpentCave/scripts.pory"
 BoulderGoingUp2:
-# 218 "data/maps/SerpentCave/scripts.pory"
+# 227 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 218 "data/maps/SerpentCave/scripts.pory"
+# 227 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 218 "data/maps/SerpentCave/scripts.pory"
+# 227 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 218 "data/maps/SerpentCave/scripts.pory"
+# 227 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 219 "data/maps/SerpentCave/scripts.pory"
-	jump_special_up
-# 220 "data/maps/SerpentCave/scripts.pory"
+# 228 "data/maps/SerpentCave/scripts.pory"
+	disable_jump_landing_ground_effect
+# 229 "data/maps/SerpentCave/scripts.pory"
+	lock_anim
+# 230 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 231 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 232 "data/maps/SerpentCave/scripts.pory"
+	unlock_anim
+# 233 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 221 "data/maps/SerpentCave/scripts.pory"
-	jump_special_up
+# 234 "data/maps/SerpentCave/scripts.pory"
+	lock_anim
+# 235 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 236 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 237 "data/maps/SerpentCave/scripts.pory"
+	unlock_anim
+# 238 "data/maps/SerpentCave/scripts.pory"
+	enable_jump_landing_ground_effect
 	step_end
 
 PushABoulder::
@@ -451,1023 +483,961 @@ PushABoulder::
 # 0 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_RESULT, PARTY_SIZE
 	goto_if_eq PushABoulder_2
-# 228 "data/maps/SerpentCave/scripts.pory"
+# 246 "data/maps/SerpentCave/scripts.pory"
 	bufferpartymonnick STR_VAR_1, VAR_RESULT
 	msgbox PushBoulderAside, MSGBOX_YESNO
 # 0 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq PushABoulder_5
-# 233 "data/maps/SerpentCave/scripts.pory"
+# 251 "data/maps/SerpentCave/scripts.pory"
 	safefollow
-# 234 "data/maps/SerpentCave/scripts.pory"
+# 252 "data/maps/SerpentCave/scripts.pory"
 	msgbox PushWithStrength
-# 235 "data/maps/SerpentCave/scripts.pory"
+# 253 "data/maps/SerpentCave/scripts.pory"
 	closemessage
-# 236 "data/maps/SerpentCave/scripts.pory"
+# 254 "data/maps/SerpentCave/scripts.pory"
 	call CameraShake
-# 237 "data/maps/SerpentCave/scripts.pory"
+# 255 "data/maps/SerpentCave/scripts.pory"
 	waitse
-# 238 "data/maps/SerpentCave/scripts.pory"
+# 256 "data/maps/SerpentCave/scripts.pory"
 	waitstate
-# 239 "data/maps/SerpentCave/scripts.pory"
+# 257 "data/maps/SerpentCave/scripts.pory"
 	delay 20
 	return
 
 PushABoulder_2:
-# 224 "data/maps/SerpentCave/scripts.pory"
+# 242 "data/maps/SerpentCave/scripts.pory"
 	msgbox PushBoulderAsideCant
-# 225 "data/maps/SerpentCave/scripts.pory"
+# 243 "data/maps/SerpentCave/scripts.pory"
 	release
 	end
 
 PushABoulder_5:
-# 230 "data/maps/SerpentCave/scripts.pory"
+# 248 "data/maps/SerpentCave/scripts.pory"
 	release
 	end
 
 
 DoBoulderOneRoll::
-# 242 "data/maps/SerpentCave/scripts.pory"
-	applymovement 6, Walk4DownFast
-# 243 "data/maps/SerpentCave/scripts.pory"
-	applymovement 7, Walk4DownFast
-# 245 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 4, 0x326, TRUE
-# 246 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 4, 0x327, TRUE
-# 247 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 248 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 249 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 4, 0x2C8, TRUE
-# 250 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 4, 0x2C9, TRUE
-# 251 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 252 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 254 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 5, 0x32E, TRUE
-# 255 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 5, 0x32F, TRUE
-# 256 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 257 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 258 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 5, 0x2C8, TRUE
-# 259 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 5, 0x2C9, TRUE
 # 260 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	applymovement 6, Walk4DownFast
 # 261 "data/maps/SerpentCave/scripts.pory"
-	delay 8
+	applymovement 7, Walk4DownFast
 # 263 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 6, 0x32E, TRUE
+	setmetatile 30, 4, 0x326, TRUE
 # 264 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 6, 0x32F, TRUE
+	setmetatile 31, 4, 0x327, TRUE
 # 265 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 266 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 267 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 6, 0x2C8, TRUE
+	setmetatile 30, 4, 0x2C8, TRUE
 # 268 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 6, 0x2C9, TRUE
+	setmetatile 31, 4, 0x2C9, TRUE
 # 269 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 270 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 272 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 7, 0x32E, TRUE
+	setmetatile 30, 5, 0x32E, TRUE
 # 273 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 7, 0x32F, TRUE
+	setmetatile 31, 5, 0x32F, TRUE
 # 274 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 275 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 276 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 7, 0x2C8, TRUE
+	setmetatile 30, 5, 0x2C8, TRUE
 # 277 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 7, 0x2C9, TRUE
+	setmetatile 31, 5, 0x2C9, TRUE
 # 278 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 279 "data/maps/SerpentCave/scripts.pory"
-	delay 2
+	delay 8
 # 281 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 8, 0x33E, TRUE
+	setmetatile 30, 6, 0x32E, TRUE
 # 282 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 8, 0x33F, TRUE
+	setmetatile 31, 6, 0x32F, TRUE
 # 283 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 284 "data/maps/SerpentCave/scripts.pory"
-	delay 4
+	delay 8
 # 285 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 8, 0x2D0, TRUE
+	setmetatile 30, 6, 0x2C8, TRUE
 # 286 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 8, 0x2D1, TRUE
+	setmetatile 31, 6, 0x2C9, TRUE
 # 287 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 288 "data/maps/SerpentCave/scripts.pory"
-	delay 4
+	delay 8
 # 290 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 9, 0x346, TRUE
+	setmetatile 30, 7, 0x32E, TRUE
 # 291 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 9, 0x347, TRUE
+	setmetatile 31, 7, 0x32F, TRUE
 # 292 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 293 "data/maps/SerpentCave/scripts.pory"
-	delay 4
+	delay 8
 # 294 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 9, 0x0B9, TRUE
+	setmetatile 30, 7, 0x2C8, TRUE
 # 295 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 9, 0x0B9, TRUE
+	setmetatile 31, 7, 0x2C9, TRUE
 # 296 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 297 "data/maps/SerpentCave/scripts.pory"
-	delay 4
+	delay 2
 # 299 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 10, 0x346, TRUE
+	setmetatile 30, 8, 0x33E, TRUE
 # 300 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 10, 0x347, TRUE
+	setmetatile 31, 8, 0x33F, TRUE
 # 301 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 302 "data/maps/SerpentCave/scripts.pory"
 	delay 4
 # 303 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 10, 0x0B9, TRUE
+	setmetatile 30, 8, 0x2D0, TRUE
 # 304 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 10, 0x0B9, TRUE
+	setmetatile 31, 8, 0x2D1, TRUE
 # 305 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 306 "data/maps/SerpentCave/scripts.pory"
 	delay 4
 # 308 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 11, 0x346, TRUE
+	setmetatile 30, 9, 0x346, TRUE
 # 309 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 11, 0x347, TRUE
+	setmetatile 31, 9, 0x347, TRUE
 # 310 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 311 "data/maps/SerpentCave/scripts.pory"
 	delay 4
 # 312 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 11, 0x0B9, TRUE
+	setmetatile 30, 9, 0x0B9, TRUE
 # 313 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 11, 0x0B9, TRUE
+	setmetatile 31, 9, 0x0B9, TRUE
 # 314 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 315 "data/maps/SerpentCave/scripts.pory"
-	delay 8
+	delay 4
 # 317 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 30, 12, 0x0B9, TRUE
+	setmetatile 30, 10, 0x346, TRUE
 # 318 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 31, 12, 0x0B9, TRUE
+	setmetatile 31, 10, 0x347, TRUE
 # 319 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 320 "data/maps/SerpentCave/scripts.pory"
+	delay 4
+# 321 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 30, 10, 0x0B9, TRUE
+# 322 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 31, 10, 0x0B9, TRUE
+# 323 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 324 "data/maps/SerpentCave/scripts.pory"
+	delay 4
+# 326 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 30, 11, 0x346, TRUE
+# 327 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 31, 11, 0x347, TRUE
+# 328 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 329 "data/maps/SerpentCave/scripts.pory"
+	delay 4
+# 330 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 30, 11, 0x0B9, TRUE
+# 331 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 31, 11, 0x0B9, TRUE
+# 332 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 333 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 335 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 30, 12, 0x0B9, TRUE
+# 336 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 31, 12, 0x0B9, TRUE
+# 337 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 	return
 
 
 DoBoulderTwoRoll::
-# 321 "data/maps/SerpentCave/scripts.pory"
-	applymovement 8, BoulderGoingUp1
-# 322 "data/maps/SerpentCave/scripts.pory"
-	applymovement 9, BoulderGoingUp1
-# 324 "data/maps/SerpentCave/scripts.pory"
-	delay 4
-# 325 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 36, 0x340, TRUE
-# 326 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 36, 0x341, TRUE
-# 327 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 328 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 329 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 36, 0x2CC, TRUE
-# 330 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 36, 0x2CD, TRUE
-# 331 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 333 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 334 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 35, 0x338, TRUE
-# 335 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 35, 0x339, TRUE
-# 336 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 337 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 338 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 35, 0x2C4, TRUE
 # 339 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 35, 0x2C5, TRUE
+	applymovement 8, BoulderGoingUp1
 # 340 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	applymovement 9, BoulderGoingUp1
 # 342 "data/maps/SerpentCave/scripts.pory"
-	delay 8
+	delay 4
 # 343 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 34, 0x338, TRUE
+	setmetatile 54, 36, 0x340, TRUE
 # 344 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 34, 0x339, TRUE
+	setmetatile 55, 36, 0x341, TRUE
 # 345 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 346 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 347 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 34, 0x2C4, TRUE
+	setmetatile 54, 36, 0x2CC, TRUE
 # 348 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 34, 0x2C5, TRUE
+	setmetatile 55, 36, 0x2CD, TRUE
 # 349 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 351 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 352 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 33, 0x338, TRUE
+	setmetatile 54, 35, 0x338, TRUE
 # 353 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 33, 0x339, TRUE
+	setmetatile 55, 35, 0x339, TRUE
 # 354 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 355 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 356 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 33, 0x2C4, TRUE
+	setmetatile 54, 35, 0x2C4, TRUE
 # 357 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 33, 0x2C5, TRUE
+	setmetatile 55, 35, 0x2C5, TRUE
 # 358 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 360 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 361 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 32, 0x330, TRUE
+	setmetatile 54, 34, 0x338, TRUE
 # 362 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 32, 0x331, TRUE
+	setmetatile 55, 34, 0x339, TRUE
 # 363 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 364 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 365 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 32, 0x2BC, TRUE
+	setmetatile 54, 34, 0x2C4, TRUE
 # 366 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 32, 0x2BD, TRUE
+	setmetatile 55, 34, 0x2C5, TRUE
 # 367 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 369 "data/maps/SerpentCave/scripts.pory"
-	delay 16
+	delay 8
 # 370 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 31, 0x338, TRUE
+	setmetatile 54, 33, 0x338, TRUE
 # 371 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 31, 0x339, TRUE
+	setmetatile 55, 33, 0x339, TRUE
 # 372 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
+# 373 "data/maps/SerpentCave/scripts.pory"
+	delay 8
 # 374 "data/maps/SerpentCave/scripts.pory"
-	call CameraShake
+	setmetatile 54, 33, 0x2C4, TRUE
+# 375 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 33, 0x2C5, TRUE
 # 376 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 377 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 31, 0x2C4, TRUE
+	special DrawWholeMapView
 # 378 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 31, 0x2C5, TRUE
+	delay 8
 # 379 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 54, 32, 0x330, TRUE
+# 380 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 32, 0x331, TRUE
 # 381 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 382 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 30, 0x330, TRUE
-# 383 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 30, 0x331, TRUE
-# 384 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
-# 385 "data/maps/SerpentCave/scripts.pory"
+# 382 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 386 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 54, 30, 0x2BC, TRUE
+# 383 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 54, 32, 0x2BC, TRUE
+# 384 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 32, 0x2BD, TRUE
+# 385 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
 # 387 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 55, 30, 0x2BD, TRUE
+	delay 16
 # 388 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 54, 31, 0x338, TRUE
+# 389 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 31, 0x339, TRUE
+# 390 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 392 "data/maps/SerpentCave/scripts.pory"
+	call CameraShake
+# 394 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 395 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 54, 31, 0x2C4, TRUE
+# 396 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 31, 0x2C5, TRUE
+# 397 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 399 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 400 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 54, 30, 0x330, TRUE
+# 401 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 30, 0x331, TRUE
+# 402 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 403 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 404 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 54, 30, 0x2BC, TRUE
+# 405 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 55, 30, 0x2BD, TRUE
+# 406 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 	return
 
 
 DoBoulderThreeRoll::
-# 390 "data/maps/SerpentCave/scripts.pory"
-	applymovement 17, BoulderGoingUp2
-# 391 "data/maps/SerpentCave/scripts.pory"
-	applymovement 18, BoulderGoingUp2
-# 393 "data/maps/SerpentCave/scripts.pory"
-	delay 4
-# 394 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 33, 0x340, TRUE
-# 395 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 33, 0x341, TRUE
-# 396 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 397 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 398 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 33, 0x2CC, TRUE
-# 399 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 33, 0x2CD, TRUE
-# 400 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 402 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 403 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 32, 0x338, TRUE
-# 404 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 32, 0x339, TRUE
-# 405 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 406 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 407 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 32, 0x2C4, TRUE
 # 408 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 32, 0x2C5, TRUE
+	applymovement 17, BoulderGoingUp2
 # 409 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	applymovement 18, BoulderGoingUp2
 # 411 "data/maps/SerpentCave/scripts.pory"
-	delay 8
+	delay 4
 # 412 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 31, 0x338, TRUE
+	setmetatile 108, 33, 0x340, TRUE
 # 413 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 31, 0x339, TRUE
+	setmetatile 109, 33, 0x341, TRUE
 # 414 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 415 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 416 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 31, 0x2C4, TRUE
+	setmetatile 108, 33, 0x2CC, TRUE
 # 417 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 31, 0x2C5, TRUE
+	setmetatile 109, 33, 0x2CD, TRUE
 # 418 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 420 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 421 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 30, 0x330, TRUE
+	setmetatile 108, 32, 0x338, TRUE
 # 422 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 30, 0x331, TRUE
+	setmetatile 109, 32, 0x339, TRUE
 # 423 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 424 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 425 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 30, 0x2BC, TRUE
+	setmetatile 108, 32, 0x2C4, TRUE
 # 426 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 30, 0x2BD, TRUE
+	setmetatile 109, 32, 0x2C5, TRUE
 # 427 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 429 "data/maps/SerpentCave/scripts.pory"
-	delay 16
+	delay 8
 # 430 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 29, 0x338, TRUE
+	setmetatile 108, 31, 0x338, TRUE
 # 431 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 29, 0x339, TRUE
+	setmetatile 109, 31, 0x339, TRUE
 # 432 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
+# 433 "data/maps/SerpentCave/scripts.pory"
+	delay 8
 # 434 "data/maps/SerpentCave/scripts.pory"
-	call CameraShake
+	setmetatile 108, 31, 0x2C4, TRUE
+# 435 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 31, 0x2C5, TRUE
 # 436 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 437 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 29, 0x2C4, TRUE
+	special DrawWholeMapView
 # 438 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 29, 0x2C5, TRUE
+	delay 8
 # 439 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 108, 30, 0x330, TRUE
+# 440 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 30, 0x331, TRUE
 # 441 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 442 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 28, 0x330, TRUE
-# 443 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 28, 0x331, TRUE
-# 444 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
-# 445 "data/maps/SerpentCave/scripts.pory"
+# 442 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 446 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 108, 28, 0x2BC, TRUE
+# 443 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 108, 30, 0x2BC, TRUE
+# 444 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 30, 0x2BD, TRUE
+# 445 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
 # 447 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 109, 28, 0x2BD, TRUE
+	delay 16
 # 448 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 108, 29, 0x338, TRUE
+# 449 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 29, 0x339, TRUE
+# 450 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 452 "data/maps/SerpentCave/scripts.pory"
+	call CameraShake
+# 454 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 455 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 108, 29, 0x2C4, TRUE
+# 456 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 29, 0x2C5, TRUE
+# 457 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 459 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 460 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 108, 28, 0x330, TRUE
+# 461 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 28, 0x331, TRUE
+# 462 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 463 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 464 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 108, 28, 0x2BC, TRUE
+# 465 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 109, 28, 0x2BD, TRUE
+# 466 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 	return
 
 
 DoBoulderFourRoll::
-# 450 "data/maps/SerpentCave/scripts.pory"
-	applymovement 24, BoulderGoingUp2
-# 451 "data/maps/SerpentCave/scripts.pory"
-	applymovement 25, BoulderGoingUp2
-# 453 "data/maps/SerpentCave/scripts.pory"
-	delay 4
-# 454 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 32, 0x340, TRUE
-# 455 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 32, 0x341, TRUE
-# 456 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 457 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 458 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 32, 0x2CC, TRUE
-# 459 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 32, 0x2CD, TRUE
-# 460 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 462 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 463 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 31, 0x338, TRUE
-# 464 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 31, 0x339, TRUE
-# 465 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
-# 466 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 467 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 31, 0x2C4, TRUE
 # 468 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 31, 0x2C5, TRUE
+	applymovement 24, BoulderGoingUp2
 # 469 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	applymovement 25, BoulderGoingUp2
 # 471 "data/maps/SerpentCave/scripts.pory"
-	delay 8
+	delay 4
 # 472 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 30, 0x338, TRUE
+	setmetatile 134, 32, 0x340, TRUE
 # 473 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 30, 0x339, TRUE
+	setmetatile 135, 32, 0x341, TRUE
 # 474 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 475 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 476 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 30, 0x2C4, TRUE
+	setmetatile 134, 32, 0x2CC, TRUE
 # 477 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 30, 0x2C5, TRUE
+	setmetatile 135, 32, 0x2CD, TRUE
 # 478 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 480 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 481 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 29, 0x330, TRUE
+	setmetatile 134, 31, 0x338, TRUE
 # 482 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 29, 0x331, TRUE
+	setmetatile 135, 31, 0x339, TRUE
 # 483 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 484 "data/maps/SerpentCave/scripts.pory"
 	delay 8
 # 485 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 29, 0x2BC, TRUE
+	setmetatile 134, 31, 0x2C4, TRUE
 # 486 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 29, 0x2BD, TRUE
+	setmetatile 135, 31, 0x2C5, TRUE
 # 487 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 # 489 "data/maps/SerpentCave/scripts.pory"
-	delay 16
+	delay 8
 # 490 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 28, 0x338, TRUE
+	setmetatile 134, 30, 0x338, TRUE
 # 491 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 28, 0x339, TRUE
+	setmetatile 135, 30, 0x339, TRUE
 # 492 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
+# 493 "data/maps/SerpentCave/scripts.pory"
+	delay 8
 # 494 "data/maps/SerpentCave/scripts.pory"
-	call CameraShake
+	setmetatile 134, 30, 0x2C4, TRUE
+# 495 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 30, 0x2C5, TRUE
 # 496 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 497 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 28, 0x2C4, TRUE
+	special DrawWholeMapView
 # 498 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 28, 0x2C5, TRUE
+	delay 8
 # 499 "data/maps/SerpentCave/scripts.pory"
-	special DrawWholeMapView
+	setmetatile 134, 29, 0x330, TRUE
+# 500 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 29, 0x331, TRUE
 # 501 "data/maps/SerpentCave/scripts.pory"
-	delay 8
-# 502 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 27, 0x330, TRUE
-# 503 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 27, 0x331, TRUE
-# 504 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
-# 505 "data/maps/SerpentCave/scripts.pory"
+# 502 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 506 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 134, 27, 0x2BC, TRUE
+# 503 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 134, 29, 0x2BC, TRUE
+# 504 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 29, 0x2BD, TRUE
+# 505 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
 # 507 "data/maps/SerpentCave/scripts.pory"
-	setmetatile 135, 27, 0x2BD, TRUE
+	delay 16
 # 508 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 134, 28, 0x338, TRUE
+# 509 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 28, 0x339, TRUE
+# 510 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 512 "data/maps/SerpentCave/scripts.pory"
+	call CameraShake
+# 514 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 515 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 134, 28, 0x2C4, TRUE
+# 516 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 28, 0x2C5, TRUE
+# 517 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 519 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 520 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 134, 27, 0x330, TRUE
+# 521 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 27, 0x331, TRUE
+# 522 "data/maps/SerpentCave/scripts.pory"
+	special DrawWholeMapView
+# 523 "data/maps/SerpentCave/scripts.pory"
+	delay 8
+# 524 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 134, 27, 0x2BC, TRUE
+# 525 "data/maps/SerpentCave/scripts.pory"
+	setmetatile 135, 27, 0x2BD, TRUE
+# 526 "data/maps/SerpentCave/scripts.pory"
 	special DrawWholeMapView
 	return
 
 
 SerpentCave_MoveFirstBoulder::
-# 512 "data/maps/SerpentCave/scripts.pory"
+# 530 "data/maps/SerpentCave/scripts.pory"
 	lock
-# 513 "data/maps/SerpentCave/scripts.pory"
+# 531 "data/maps/SerpentCave/scripts.pory"
 	call PushABoulder
-# 514 "data/maps/SerpentCave/scripts.pory"
+# 532 "data/maps/SerpentCave/scripts.pory"
 	call DoBoulderOneRoll
-# 515 "data/maps/SerpentCave/scripts.pory"
+# 533 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 516 "data/maps/SerpentCave/scripts.pory"
+# 534 "data/maps/SerpentCave/scripts.pory"
 	removeobject 1
-# 517 "data/maps/SerpentCave/scripts.pory"
+# 535 "data/maps/SerpentCave/scripts.pory"
 	removeobject 6
-# 518 "data/maps/SerpentCave/scripts.pory"
+# 536 "data/maps/SerpentCave/scripts.pory"
 	removeobject 7
-# 519 "data/maps/SerpentCave/scripts.pory"
+# 537 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_TEMP_2
-# 520 "data/maps/SerpentCave/scripts.pory"
+# 538 "data/maps/SerpentCave/scripts.pory"
 	addobject 2
-# 521 "data/maps/SerpentCave/scripts.pory"
+# 539 "data/maps/SerpentCave/scripts.pory"
 	addobject 3
-# 522 "data/maps/SerpentCave/scripts.pory"
+# 540 "data/maps/SerpentCave/scripts.pory"
 	addobject 4
-# 523 "data/maps/SerpentCave/scripts.pory"
+# 541 "data/maps/SerpentCave/scripts.pory"
 	addobject 5
-# 524 "data/maps/SerpentCave/scripts.pory"
+# 542 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_SERPENTCAVE_WATER_LEVEL, 3
 	goto_if_eq SerpentCave_MoveFirstBoulder_2
-# 529 "data/maps/SerpentCave/scripts.pory"
+# 547 "data/maps/SerpentCave/scripts.pory"
 	call CameraShake
-# 530 "data/maps/SerpentCave/scripts.pory"
+# 548 "data/maps/SerpentCave/scripts.pory"
 	waitstate
 SerpentCave_MoveFirstBoulder_1:
-# 532 "data/maps/SerpentCave/scripts.pory"
+# 550 "data/maps/SerpentCave/scripts.pory"
 	setflag FLAG_SERPENTCAVE_BOULDER_1
-# 533 "data/maps/SerpentCave/scripts.pory"
+# 551 "data/maps/SerpentCave/scripts.pory"
 	addvar VAR_SERPENTCAVE_WATER_LEVEL, 1
-# 534 "data/maps/SerpentCave/scripts.pory"
+# 552 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 SerpentCave_MoveFirstBoulder_2:
-# 525 "data/maps/SerpentCave/scripts.pory"
+# 543 "data/maps/SerpentCave/scripts.pory"
 	playse SE_M_DIVE
-# 526 "data/maps/SerpentCave/scripts.pory"
+# 544 "data/maps/SerpentCave/scripts.pory"
 	waitse
 	goto SerpentCave_MoveFirstBoulder_1
 
 
 SerpentCave_MoveSecondBoulder::
-# 536 "data/maps/SerpentCave/scripts.pory"
+# 554 "data/maps/SerpentCave/scripts.pory"
 	call PushABoulder
-# 537 "data/maps/SerpentCave/scripts.pory"
+# 555 "data/maps/SerpentCave/scripts.pory"
 	call DoBoulderTwoRoll
-# 539 "data/maps/SerpentCave/scripts.pory"
+# 557 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 540 "data/maps/SerpentCave/scripts.pory"
+# 558 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 541 "data/maps/SerpentCave/scripts.pory"
+# 559 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_SERPENTCAVE_WATER_LEVEL, 3
 	goto_if_eq SerpentCave_MoveSecondBoulder_2
-# 546 "data/maps/SerpentCave/scripts.pory"
+# 564 "data/maps/SerpentCave/scripts.pory"
 	call CameraShake
-# 547 "data/maps/SerpentCave/scripts.pory"
+# 565 "data/maps/SerpentCave/scripts.pory"
 	waitstate
 SerpentCave_MoveSecondBoulder_1:
-# 549 "data/maps/SerpentCave/scripts.pory"
+# 567 "data/maps/SerpentCave/scripts.pory"
 	removeobject 8
-# 550 "data/maps/SerpentCave/scripts.pory"
+# 568 "data/maps/SerpentCave/scripts.pory"
 	removeobject 9
-# 551 "data/maps/SerpentCave/scripts.pory"
+# 569 "data/maps/SerpentCave/scripts.pory"
 	removeobject 10
-# 552 "data/maps/SerpentCave/scripts.pory"
+# 570 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_TEMP_4
-# 553 "data/maps/SerpentCave/scripts.pory"
+# 571 "data/maps/SerpentCave/scripts.pory"
 	addobject 12
-# 554 "data/maps/SerpentCave/scripts.pory"
+# 572 "data/maps/SerpentCave/scripts.pory"
 	addobject 13
-# 555 "data/maps/SerpentCave/scripts.pory"
+# 573 "data/maps/SerpentCave/scripts.pory"
 	addobject 14
-# 556 "data/maps/SerpentCave/scripts.pory"
+# 574 "data/maps/SerpentCave/scripts.pory"
 	addobject 15
-# 557 "data/maps/SerpentCave/scripts.pory"
+# 575 "data/maps/SerpentCave/scripts.pory"
 	addobject 16
-# 558 "data/maps/SerpentCave/scripts.pory"
+# 576 "data/maps/SerpentCave/scripts.pory"
 	setflag FLAG_SERPENTCAVE_BOULDER_2
-# 559 "data/maps/SerpentCave/scripts.pory"
+# 577 "data/maps/SerpentCave/scripts.pory"
 	addvar VAR_SERPENTCAVE_WATER_LEVEL, 1
-# 560 "data/maps/SerpentCave/scripts.pory"
+# 578 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 SerpentCave_MoveSecondBoulder_2:
-# 542 "data/maps/SerpentCave/scripts.pory"
+# 560 "data/maps/SerpentCave/scripts.pory"
 	playse SE_M_DIVE
-# 543 "data/maps/SerpentCave/scripts.pory"
+# 561 "data/maps/SerpentCave/scripts.pory"
 	waitse
 	goto SerpentCave_MoveSecondBoulder_1
 
 
 SerpentCave_MoveThirdBoulder::
-# 562 "data/maps/SerpentCave/scripts.pory"
+# 580 "data/maps/SerpentCave/scripts.pory"
 	call PushABoulder
-# 563 "data/maps/SerpentCave/scripts.pory"
+# 581 "data/maps/SerpentCave/scripts.pory"
 	call DoBoulderThreeRoll
-# 565 "data/maps/SerpentCave/scripts.pory"
+# 583 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 566 "data/maps/SerpentCave/scripts.pory"
+# 584 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 567 "data/maps/SerpentCave/scripts.pory"
+# 585 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_SERPENTCAVE_WATER_LEVEL, 3
 	goto_if_eq SerpentCave_MoveThirdBoulder_2
-# 572 "data/maps/SerpentCave/scripts.pory"
+# 590 "data/maps/SerpentCave/scripts.pory"
 	call CameraShake
-# 573 "data/maps/SerpentCave/scripts.pory"
+# 591 "data/maps/SerpentCave/scripts.pory"
 	waitstate
 SerpentCave_MoveThirdBoulder_1:
-# 575 "data/maps/SerpentCave/scripts.pory"
+# 593 "data/maps/SerpentCave/scripts.pory"
 	removeobject 17
-# 576 "data/maps/SerpentCave/scripts.pory"
+# 594 "data/maps/SerpentCave/scripts.pory"
 	removeobject 18
-# 577 "data/maps/SerpentCave/scripts.pory"
+# 595 "data/maps/SerpentCave/scripts.pory"
 	removeobject 19
-# 578 "data/maps/SerpentCave/scripts.pory"
+# 596 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_TEMP_6
-# 579 "data/maps/SerpentCave/scripts.pory"
+# 597 "data/maps/SerpentCave/scripts.pory"
 	addobject 20
-# 580 "data/maps/SerpentCave/scripts.pory"
+# 598 "data/maps/SerpentCave/scripts.pory"
 	addobject 21
-# 581 "data/maps/SerpentCave/scripts.pory"
+# 599 "data/maps/SerpentCave/scripts.pory"
 	addobject 22
-# 582 "data/maps/SerpentCave/scripts.pory"
+# 600 "data/maps/SerpentCave/scripts.pory"
 	addobject 23
-# 583 "data/maps/SerpentCave/scripts.pory"
+# 601 "data/maps/SerpentCave/scripts.pory"
 	setflag FLAG_SERPENTCAVE_BOULDER_3
-# 584 "data/maps/SerpentCave/scripts.pory"
+# 602 "data/maps/SerpentCave/scripts.pory"
 	addvar VAR_SERPENTCAVE_WATER_LEVEL, 1
-# 585 "data/maps/SerpentCave/scripts.pory"
+# 603 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 SerpentCave_MoveThirdBoulder_2:
-# 568 "data/maps/SerpentCave/scripts.pory"
+# 586 "data/maps/SerpentCave/scripts.pory"
 	playse SE_M_DIVE
-# 569 "data/maps/SerpentCave/scripts.pory"
+# 587 "data/maps/SerpentCave/scripts.pory"
 	waitse
 	goto SerpentCave_MoveThirdBoulder_1
 
 
 SerpentCave_MoveFourthBoulder::
-# 588 "data/maps/SerpentCave/scripts.pory"
+# 606 "data/maps/SerpentCave/scripts.pory"
 	call PushABoulder
-# 589 "data/maps/SerpentCave/scripts.pory"
+# 607 "data/maps/SerpentCave/scripts.pory"
 	call DoBoulderFourRoll
-# 591 "data/maps/SerpentCave/scripts.pory"
+# 609 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 592 "data/maps/SerpentCave/scripts.pory"
+# 610 "data/maps/SerpentCave/scripts.pory"
 	delay 8
-# 593 "data/maps/SerpentCave/scripts.pory"
+# 611 "data/maps/SerpentCave/scripts.pory"
 	compare VAR_SERPENTCAVE_WATER_LEVEL, 3
 	goto_if_eq SerpentCave_MoveFourthBoulder_2
-# 598 "data/maps/SerpentCave/scripts.pory"
+# 616 "data/maps/SerpentCave/scripts.pory"
 	call CameraShake
-# 599 "data/maps/SerpentCave/scripts.pory"
+# 617 "data/maps/SerpentCave/scripts.pory"
 	waitstate
 SerpentCave_MoveFourthBoulder_1:
-# 601 "data/maps/SerpentCave/scripts.pory"
+# 619 "data/maps/SerpentCave/scripts.pory"
 	removeobject 24
-# 602 "data/maps/SerpentCave/scripts.pory"
+# 620 "data/maps/SerpentCave/scripts.pory"
 	removeobject 25
-# 603 "data/maps/SerpentCave/scripts.pory"
+# 621 "data/maps/SerpentCave/scripts.pory"
 	removeobject 26
-# 604 "data/maps/SerpentCave/scripts.pory"
+# 622 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_TEMP_8
-# 605 "data/maps/SerpentCave/scripts.pory"
+# 623 "data/maps/SerpentCave/scripts.pory"
 	addobject 27
-# 606 "data/maps/SerpentCave/scripts.pory"
+# 624 "data/maps/SerpentCave/scripts.pory"
 	addobject 28
-# 607 "data/maps/SerpentCave/scripts.pory"
+# 625 "data/maps/SerpentCave/scripts.pory"
 	addobject 29
-# 608 "data/maps/SerpentCave/scripts.pory"
+# 626 "data/maps/SerpentCave/scripts.pory"
 	addobject 30
-# 609 "data/maps/SerpentCave/scripts.pory"
+# 627 "data/maps/SerpentCave/scripts.pory"
 	setflag FLAG_SERPENTCAVE_BOULDER_4
-# 610 "data/maps/SerpentCave/scripts.pory"
+# 628 "data/maps/SerpentCave/scripts.pory"
 	addvar VAR_SERPENTCAVE_WATER_LEVEL, 1
-# 611 "data/maps/SerpentCave/scripts.pory"
+# 629 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 SerpentCave_MoveFourthBoulder_2:
-# 594 "data/maps/SerpentCave/scripts.pory"
+# 612 "data/maps/SerpentCave/scripts.pory"
 	playse SE_M_DIVE
-# 595 "data/maps/SerpentCave/scripts.pory"
+# 613 "data/maps/SerpentCave/scripts.pory"
 	waitse
 	goto SerpentCave_MoveFourthBoulder_1
 
 
 CameraShake::
-# 613 "data/maps/SerpentCave/scripts.pory"
+# 631 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8004, 1
-# 614 "data/maps/SerpentCave/scripts.pory"
+# 632 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8005, 1
-# 615 "data/maps/SerpentCave/scripts.pory"
+# 633 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8006, 14
-# 616 "data/maps/SerpentCave/scripts.pory"
+# 634 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8007, 6
-# 617 "data/maps/SerpentCave/scripts.pory"
+# 635 "data/maps/SerpentCave/scripts.pory"
 	special ShakeCamera
 	return
 
 
 CameraShakeFaster::
-# 621 "data/maps/SerpentCave/scripts.pory"
+# 639 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8004, 1
-# 622 "data/maps/SerpentCave/scripts.pory"
+# 640 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8005, 1
-# 623 "data/maps/SerpentCave/scripts.pory"
+# 641 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8006, 8
-# 624 "data/maps/SerpentCave/scripts.pory"
+# 642 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_0x8007, 5
-# 625 "data/maps/SerpentCave/scripts.pory"
+# 643 "data/maps/SerpentCave/scripts.pory"
 	special ShakeCamera
 	return
 
 
 IrisGoodbye::
-# 643 "data/maps/SerpentCave/scripts.pory"
+# 661 "data/maps/SerpentCave/scripts.pory"
 	delay 24
-# 644 "data/maps/SerpentCave/scripts.pory"
+# 662 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 645 "data/maps/SerpentCave/scripts.pory"
+# 663 "data/maps/SerpentCave/scripts.pory"
 	case 0, IrisGoodbye_3
-# 646 "data/maps/SerpentCave/scripts.pory"
+# 664 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_3
-# 649 "data/maps/SerpentCave/scripts.pory"
+# 667 "data/maps/SerpentCave/scripts.pory"
 	turnobject 31, DIR_SOUTH
 IrisGoodbye_1:
-# 651 "data/maps/SerpentCave/scripts.pory"
+# 669 "data/maps/SerpentCave/scripts.pory"
 	playse SE_PIN
-# 652 "data/maps/SerpentCave/scripts.pory"
+# 670 "data/maps/SerpentCave/scripts.pory"
 	exclamationmark 31
-# 653 "data/maps/SerpentCave/scripts.pory"
+# 671 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 654 "data/maps/SerpentCave/scripts.pory"
+# 672 "data/maps/SerpentCave/scripts.pory"
 	case 0, IrisGoodbye_7
-# 655 "data/maps/SerpentCave/scripts.pory"
+# 673 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_7
-# 657 "data/maps/SerpentCave/scripts.pory"
+# 675 "data/maps/SerpentCave/scripts.pory"
 	case 1, IrisGoodbye_8
-# 659 "data/maps/SerpentCave/scripts.pory"
+# 677 "data/maps/SerpentCave/scripts.pory"
 	case 3, IrisGoodbye_9
-# 661 "data/maps/SerpentCave/scripts.pory"
+# 679 "data/maps/SerpentCave/scripts.pory"
 	case 4, IrisGoodbye_10
 IrisGoodbye_5:
-# 664 "data/maps/SerpentCave/scripts.pory"
+# 682 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 665 "data/maps/SerpentCave/scripts.pory"
+# 683 "data/maps/SerpentCave/scripts.pory"
 	delay 10
-# 666 "data/maps/SerpentCave/scripts.pory"
+# 684 "data/maps/SerpentCave/scripts.pory"
 	msgbox IrisIntroText
-# 667 "data/maps/SerpentCave/scripts.pory"
+# 685 "data/maps/SerpentCave/scripts.pory"
 	closemessage
-# 668 "data/maps/SerpentCave/scripts.pory"
+# 686 "data/maps/SerpentCave/scripts.pory"
 	delay 5
-# 669 "data/maps/SerpentCave/scripts.pory"
+# 687 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 670 "data/maps/SerpentCave/scripts.pory"
+# 688 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_13
 IrisGoodbye_11:
-# 673 "data/maps/SerpentCave/scripts.pory"
+# 691 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 674 "data/maps/SerpentCave/scripts.pory"
+# 692 "data/maps/SerpentCave/scripts.pory"
 	addobject 32
-# 675 "data/maps/SerpentCave/scripts.pory"
+# 693 "data/maps/SerpentCave/scripts.pory"
 	addobject 33
-# 676 "data/maps/SerpentCave/scripts.pory"
+# 694 "data/maps/SerpentCave/scripts.pory"
 	removeobject 31
-# 677 "data/maps/SerpentCave/scripts.pory"
+# 695 "data/maps/SerpentCave/scripts.pory"
 	delay 60
-# 678 "data/maps/SerpentCave/scripts.pory"
+# 696 "data/maps/SerpentCave/scripts.pory"
 	clearflag FLAG_HIDE_MAP_NAME_POPUP
-# 679 "data/maps/SerpentCave/scripts.pory"
+# 697 "data/maps/SerpentCave/scripts.pory"
 	switch VAR_TEMP_1
-# 680 "data/maps/SerpentCave/scripts.pory"
+# 698 "data/maps/SerpentCave/scripts.pory"
 	case 0, IrisGoodbye_15
-# 682 "data/maps/SerpentCave/scripts.pory"
+# 700 "data/maps/SerpentCave/scripts.pory"
 	case 1, IrisGoodbye_16
-# 684 "data/maps/SerpentCave/scripts.pory"
+# 702 "data/maps/SerpentCave/scripts.pory"
 	case 2, IrisGoodbye_17
-# 686 "data/maps/SerpentCave/scripts.pory"
+# 704 "data/maps/SerpentCave/scripts.pory"
 	case 3, IrisGoodbye_18
-# 688 "data/maps/SerpentCave/scripts.pory"
+# 706 "data/maps/SerpentCave/scripts.pory"
 	case 4, IrisGoodbye_19
 	return
 
 IrisGoodbye_3:
-# 647 "data/maps/SerpentCave/scripts.pory"
+# 665 "data/maps/SerpentCave/scripts.pory"
 	turnobject 31, DIR_NORTH
 	goto IrisGoodbye_1
 
 IrisGoodbye_7:
-# 656 "data/maps/SerpentCave/scripts.pory"
+# 674 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk1Up
 	goto IrisGoodbye_5
 
 IrisGoodbye_8:
-# 658 "data/maps/SerpentCave/scripts.pory"
+# 676 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk3Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_9:
-# 660 "data/maps/SerpentCave/scripts.pory"
+# 678 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk2Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_10:
-# 662 "data/maps/SerpentCave/scripts.pory"
+# 680 "data/maps/SerpentCave/scripts.pory"
 	applymovement 31, Walk2Down
 	goto IrisGoodbye_5
 
 IrisGoodbye_13:
-# 671 "data/maps/SerpentCave/scripts.pory"
+# 689 "data/maps/SerpentCave/scripts.pory"
 	turnobject 31, DIR_EAST
 	goto IrisGoodbye_11
 
 IrisGoodbye_15:
-# 681 "data/maps/SerpentCave/scripts.pory"
+# 699 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance1
 	return
 
 IrisGoodbye_16:
-# 683 "data/maps/SerpentCave/scripts.pory"
+# 701 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance2
 	return
 
 IrisGoodbye_17:
-# 685 "data/maps/SerpentCave/scripts.pory"
+# 703 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance3
 	return
 
 IrisGoodbye_18:
-# 687 "data/maps/SerpentCave/scripts.pory"
+# 705 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance4
 	return
 
 IrisGoodbye_19:
-# 689 "data/maps/SerpentCave/scripts.pory"
+# 707 "data/maps/SerpentCave/scripts.pory"
 	goto IrisLeavesEntrance5
 	return
 
 
-# 693 "data/maps/SerpentCave/scripts.pory"
+# 711 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron1:
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 694 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_up
-# 695 "data/maps/SerpentCave/scripts.pory"
-	walk_down
-# 696 "data/maps/SerpentCave/scripts.pory"
-	walk_right
-# 696 "data/maps/SerpentCave/scripts.pory"
-	walk_right
-# 697 "data/maps/SerpentCave/scripts.pory"
-	walk_down
-# 698 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 699 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 700 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 701 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 702 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 703 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 704 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 705 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 706 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 707 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-	step_end
-
-# 709 "data/maps/SerpentCave/scripts.pory"
-IrisLeavesOnAggron2:
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 710 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 711 "data/maps/SerpentCave/scripts.pory"
-	walk_up
-# 711 "data/maps/SerpentCave/scripts.pory"
-	walk_up
 # 712 "data/maps/SerpentCave/scripts.pory"
-	walk_right
+	walk_in_place_fast_up
 # 712 "data/maps/SerpentCave/scripts.pory"
-	walk_right
+	walk_in_place_fast_up
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_up
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_up
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_up
+# 712 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_up
 # 713 "data/maps/SerpentCave/scripts.pory"
-	walk_up
+	walk_down
 # 714 "data/maps/SerpentCave/scripts.pory"
-	jump_up
+	walk_right
+# 714 "data/maps/SerpentCave/scripts.pory"
+	walk_right
 # 715 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 715 "data/maps/SerpentCave/scripts.pory"
-	delay_16
+	walk_down
 # 716 "data/maps/SerpentCave/scripts.pory"
-	jump_up
+	lock_anim
 # 717 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 717 "data/maps/SerpentCave/scripts.pory"
-	delay_16
+	disable_jump_landing_ground_effect
 # 718 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 719 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 719 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 720 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 720 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 721 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 721 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 722 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 722 "data/maps/SerpentCave/scripts.pory"
-	jump_up
-# 723 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 # 723 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 724 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-	step_end
-
+# 724 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 725 "data/maps/SerpentCave/scripts.pory"
-IrisLeavesOnAggron3:
+	jump_down
 # 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
+	delay_16
 # 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
-# 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
-# 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
-# 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
-# 726 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_right
+	delay_16
 # 727 "data/maps/SerpentCave/scripts.pory"
-	walk_down
+	jump_down
 # 728 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
+	unlock_anim
 # 729 "data/maps/SerpentCave/scripts.pory"
-	delay_16
+	enable_jump_landing_ground_effect
 # 730 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 731 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 732 "data/maps/SerpentCave/scripts.pory"
-	jump_special_down
-# 733 "data/maps/SerpentCave/scripts.pory"
-	delay_16
-# 734 "data/maps/SerpentCave/scripts.pory"
-	walk_down
-# 734 "data/maps/SerpentCave/scripts.pory"
-	walk_down
-# 734 "data/maps/SerpentCave/scripts.pory"
-	walk_down
 	step_end
 
+# 732 "data/maps/SerpentCave/scripts.pory"
+IrisLeavesOnAggron2:
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 733 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 734 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 734 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 735 "data/maps/SerpentCave/scripts.pory"
+	walk_right
+# 735 "data/maps/SerpentCave/scripts.pory"
+	walk_right
 # 736 "data/maps/SerpentCave/scripts.pory"
-IrisLeavesOnAggron4:
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 737 "data/maps/SerpentCave/scripts.pory"
-	walk_in_place_fast_down
-# 738 "data/maps/SerpentCave/scripts.pory"
 	walk_up
+# 737 "data/maps/SerpentCave/scripts.pory"
+	jump_up
 # 738 "data/maps/SerpentCave/scripts.pory"
-	walk_up
+	delay_16
+# 738 "data/maps/SerpentCave/scripts.pory"
+	delay_16
 # 739 "data/maps/SerpentCave/scripts.pory"
 	jump_up
 # 740 "data/maps/SerpentCave/scripts.pory"
@@ -1492,209 +1462,247 @@ IrisLeavesOnAggron4:
 	delay_16
 # 746 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 747 "data/maps/SerpentCave/scripts.pory"
-	jump_up
+	step_end
+
 # 748 "data/maps/SerpentCave/scripts.pory"
+IrisLeavesOnAggron3:
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 749 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_right
+# 750 "data/maps/SerpentCave/scripts.pory"
+	walk_down
+# 751 "data/maps/SerpentCave/scripts.pory"
+	lock_anim
+# 752 "data/maps/SerpentCave/scripts.pory"
+	disable_jump_landing_ground_effect
+# 753 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 748 "data/maps/SerpentCave/scripts.pory"
+# 754 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 755 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 755 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 756 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 757 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 757 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 758 "data/maps/SerpentCave/scripts.pory"
+	jump_down
+# 759 "data/maps/SerpentCave/scripts.pory"
+	unlock_anim
+# 760 "data/maps/SerpentCave/scripts.pory"
+	enable_jump_landing_ground_effect
+# 761 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 762 "data/maps/SerpentCave/scripts.pory"
+	walk_down
+# 762 "data/maps/SerpentCave/scripts.pory"
+	walk_down
+# 762 "data/maps/SerpentCave/scripts.pory"
+	walk_down
+	step_end
+
+# 764 "data/maps/SerpentCave/scripts.pory"
+IrisLeavesOnAggron4:
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 765 "data/maps/SerpentCave/scripts.pory"
+	walk_in_place_fast_down
+# 766 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 766 "data/maps/SerpentCave/scripts.pory"
+	walk_up
+# 767 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 768 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 768 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 769 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 770 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 770 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 771 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 772 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 772 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 773 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 774 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 774 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 775 "data/maps/SerpentCave/scripts.pory"
+	jump_up
+# 776 "data/maps/SerpentCave/scripts.pory"
+	delay_16
+# 776 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 	step_end
 
-# 750 "data/maps/SerpentCave/scripts.pory"
+# 778 "data/maps/SerpentCave/scripts.pory"
 IrisLeavesOnAggron5:
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 751 "data/maps/SerpentCave/scripts.pory"
+# 779 "data/maps/SerpentCave/scripts.pory"
 	walk_in_place_fast_down
-# 752 "data/maps/SerpentCave/scripts.pory"
+# 780 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 781 "data/maps/SerpentCave/scripts.pory"
 	walk_right
-# 753 "data/maps/SerpentCave/scripts.pory"
+# 781 "data/maps/SerpentCave/scripts.pory"
 	walk_right
-# 754 "data/maps/SerpentCave/scripts.pory"
+# 782 "data/maps/SerpentCave/scripts.pory"
 	walk_up
-# 755 "data/maps/SerpentCave/scripts.pory"
+# 783 "data/maps/SerpentCave/scripts.pory"
 	jump_up
-# 756 "data/maps/SerpentCave/scripts.pory"
+# 784 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 756 "data/maps/SerpentCave/scripts.pory"
+# 784 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 757 "data/maps/SerpentCave/scripts.pory"
+# 785 "data/maps/SerpentCave/scripts.pory"
 	jump_up
-# 758 "data/maps/SerpentCave/scripts.pory"
+# 786 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 758 "data/maps/SerpentCave/scripts.pory"
+# 786 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 759 "data/maps/SerpentCave/scripts.pory"
+# 787 "data/maps/SerpentCave/scripts.pory"
 	jump_up
-# 760 "data/maps/SerpentCave/scripts.pory"
+# 788 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 760 "data/maps/SerpentCave/scripts.pory"
+# 788 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 761 "data/maps/SerpentCave/scripts.pory"
+# 789 "data/maps/SerpentCave/scripts.pory"
 	jump_up
-# 762 "data/maps/SerpentCave/scripts.pory"
+# 790 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 762 "data/maps/SerpentCave/scripts.pory"
+# 790 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 763 "data/maps/SerpentCave/scripts.pory"
+# 791 "data/maps/SerpentCave/scripts.pory"
 	jump_up
-# 764 "data/maps/SerpentCave/scripts.pory"
+# 792 "data/maps/SerpentCave/scripts.pory"
 	delay_16
-# 764 "data/maps/SerpentCave/scripts.pory"
+# 792 "data/maps/SerpentCave/scripts.pory"
 	delay_16
 	step_end
 
 IrisLeavesEntrance1::
-# 768 "data/maps/SerpentCave/scripts.pory"
+# 796 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron1
-# 769 "data/maps/SerpentCave/scripts.pory"
+# 797 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron1
-# 770 "data/maps/SerpentCave/scripts.pory"
+# 798 "data/maps/SerpentCave/scripts.pory"
 	delay 72
-# 771 "data/maps/SerpentCave/scripts.pory"
+# 799 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
-# 772 "data/maps/SerpentCave/scripts.pory"
+# 800 "data/maps/SerpentCave/scripts.pory"
 	delay 72
-# 773 "data/maps/SerpentCave/scripts.pory"
+# 801 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 774 "data/maps/SerpentCave/scripts.pory"
+# 802 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 775 "data/maps/SerpentCave/scripts.pory"
+# 803 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 776 "data/maps/SerpentCave/scripts.pory"
+# 804 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 777 "data/maps/SerpentCave/scripts.pory"
+# 805 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 778 "data/maps/SerpentCave/scripts.pory"
+# 806 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 779 "data/maps/SerpentCave/scripts.pory"
+# 807 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 780 "data/maps/SerpentCave/scripts.pory"
+# 808 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 781 "data/maps/SerpentCave/scripts.pory"
+# 809 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 782 "data/maps/SerpentCave/scripts.pory"
+# 810 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance2::
-# 785 "data/maps/SerpentCave/scripts.pory"
+# 813 "data/maps/SerpentCave/scripts.pory"
 	applymovement 32, IrisLeavesOnAggron2
-# 786 "data/maps/SerpentCave/scripts.pory"
+# 814 "data/maps/SerpentCave/scripts.pory"
 	applymovement 33, IrisLeavesOnAggron2
-# 787 "data/maps/SerpentCave/scripts.pory"
+# 815 "data/maps/SerpentCave/scripts.pory"
 	delay 56
-# 788 "data/maps/SerpentCave/scripts.pory"
+# 816 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
-# 789 "data/maps/SerpentCave/scripts.pory"
+# 817 "data/maps/SerpentCave/scripts.pory"
 	delay 88
-# 790 "data/maps/SerpentCave/scripts.pory"
+# 818 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 791 "data/maps/SerpentCave/scripts.pory"
+# 819 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 792 "data/maps/SerpentCave/scripts.pory"
+# 820 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 793 "data/maps/SerpentCave/scripts.pory"
+# 821 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 794 "data/maps/SerpentCave/scripts.pory"
+# 822 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 795 "data/maps/SerpentCave/scripts.pory"
+# 823 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 796 "data/maps/SerpentCave/scripts.pory"
+# 824 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 797 "data/maps/SerpentCave/scripts.pory"
+# 825 "data/maps/SerpentCave/scripts.pory"
 	delay 48
-# 798 "data/maps/SerpentCave/scripts.pory"
+# 826 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
-# 799 "data/maps/SerpentCave/scripts.pory"
+# 827 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisLeavesEntrance3::
-# 802 "data/maps/SerpentCave/scripts.pory"
-	applymovement 32, IrisLeavesOnAggron3
-# 803 "data/maps/SerpentCave/scripts.pory"
-	applymovement 33, IrisLeavesOnAggron3
-# 804 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 805 "data/maps/SerpentCave/scripts.pory"
-	delay 12
-# 806 "data/maps/SerpentCave/scripts.pory"
-	message IrisLeavesEntrance1_Text_0
-# 807 "data/maps/SerpentCave/scripts.pory"
-	delay 36
-# 808 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 809 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 810 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 811 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 812 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 813 "data/maps/SerpentCave/scripts.pory"
-	goto IrisIntroEnd
-	return
-
-
-IrisLeavesEntrance4::
-# 816 "data/maps/SerpentCave/scripts.pory"
-	applymovement 32, IrisLeavesOnAggron4
-# 817 "data/maps/SerpentCave/scripts.pory"
-	applymovement 33, IrisLeavesOnAggron4
-# 818 "data/maps/SerpentCave/scripts.pory"
-	delay 56
-# 819 "data/maps/SerpentCave/scripts.pory"
-	message IrisLeavesEntrance1_Text_0
-# 820 "data/maps/SerpentCave/scripts.pory"
-	delay 40
-# 821 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 822 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 823 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 824 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 825 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 826 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 827 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 828 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 829 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
 # 830 "data/maps/SerpentCave/scripts.pory"
-	goto IrisIntroEnd
-	return
-
-
-IrisLeavesEntrance5::
+	applymovement 32, IrisLeavesOnAggron3
+# 831 "data/maps/SerpentCave/scripts.pory"
+	applymovement 33, IrisLeavesOnAggron3
+# 832 "data/maps/SerpentCave/scripts.pory"
+	delay 48
 # 833 "data/maps/SerpentCave/scripts.pory"
-	applymovement 32, IrisLeavesOnAggron5
+	delay 12
 # 834 "data/maps/SerpentCave/scripts.pory"
-	applymovement 33, IrisLeavesOnAggron5
-# 835 "data/maps/SerpentCave/scripts.pory"
-	delay 56
-# 836 "data/maps/SerpentCave/scripts.pory"
 	message IrisLeavesEntrance1_Text_0
+# 835 "data/maps/SerpentCave/scripts.pory"
+	delay 36
+# 836 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
 # 837 "data/maps/SerpentCave/scripts.pory"
-	delay 56
+	delay 48
 # 838 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 839 "data/maps/SerpentCave/scripts.pory"
@@ -1702,40 +1710,96 @@ IrisLeavesEntrance5::
 # 840 "data/maps/SerpentCave/scripts.pory"
 	call CameraShakeFaster
 # 841 "data/maps/SerpentCave/scripts.pory"
-	delay 48
-# 842 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
-# 843 "data/maps/SerpentCave/scripts.pory"
-	delay 48
+	goto IrisIntroEnd
+	return
+
+
+IrisLeavesEntrance4::
 # 844 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
+	applymovement 32, IrisLeavesOnAggron4
 # 845 "data/maps/SerpentCave/scripts.pory"
-	delay 48
+	applymovement 33, IrisLeavesOnAggron4
 # 846 "data/maps/SerpentCave/scripts.pory"
-	call CameraShakeFaster
+	delay 56
 # 847 "data/maps/SerpentCave/scripts.pory"
+	message IrisLeavesEntrance1_Text_0
+# 848 "data/maps/SerpentCave/scripts.pory"
+	delay 40
+# 849 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 850 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 851 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 852 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 853 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 854 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 855 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 856 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 857 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 858 "data/maps/SerpentCave/scripts.pory"
+	goto IrisIntroEnd
+	return
+
+
+IrisLeavesEntrance5::
+# 861 "data/maps/SerpentCave/scripts.pory"
+	applymovement 32, IrisLeavesOnAggron5
+# 862 "data/maps/SerpentCave/scripts.pory"
+	applymovement 33, IrisLeavesOnAggron5
+# 863 "data/maps/SerpentCave/scripts.pory"
+	delay 56
+# 864 "data/maps/SerpentCave/scripts.pory"
+	message IrisLeavesEntrance1_Text_0
+# 865 "data/maps/SerpentCave/scripts.pory"
+	delay 56
+# 866 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 867 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 868 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 869 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 870 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 871 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 872 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 873 "data/maps/SerpentCave/scripts.pory"
+	delay 48
+# 874 "data/maps/SerpentCave/scripts.pory"
+	call CameraShakeFaster
+# 875 "data/maps/SerpentCave/scripts.pory"
 	goto IrisIntroEnd
 	return
 
 
 IrisIntroEnd::
-# 850 "data/maps/SerpentCave/scripts.pory"
+# 878 "data/maps/SerpentCave/scripts.pory"
 	waitmovement 0
-# 851 "data/maps/SerpentCave/scripts.pory"
+# 879 "data/maps/SerpentCave/scripts.pory"
 	delay 30
-# 852 "data/maps/SerpentCave/scripts.pory"
+# 880 "data/maps/SerpentCave/scripts.pory"
 	removeobject 32
-# 853 "data/maps/SerpentCave/scripts.pory"
+# 881 "data/maps/SerpentCave/scripts.pory"
 	removeobject 33
-# 854 "data/maps/SerpentCave/scripts.pory"
+# 882 "data/maps/SerpentCave/scripts.pory"
 	setvar VAR_SERPENTCAVE_STORY, STORY_SERPENTCAVE_IRIS_INTRO
-# 855 "data/maps/SerpentCave/scripts.pory"
+# 883 "data/maps/SerpentCave/scripts.pory"
 	release
 	return
 
 
 IrisLeavesEntrance1_Text_0:
-# 771 "data/maps/SerpentCave/scripts.pory"
+# 799 "data/maps/SerpentCave/scripts.pory"
 	.string "NOT THAT WAYYY!$"
 
 PushBoulderAsideCant::
@@ -1765,7 +1829,7 @@ SerpentCave_RapidTooFast_Text::
 	.string "to fish or surf here.$"
 
 IrisIntroText::
-# 628 "data/maps/SerpentCave/scripts.pory"
+# 646 "data/maps/SerpentCave/scripts.pory"
 	.string "Oh, hi there!\p"
 	.string "Are you here looking for treasure?\p"
 	.string "My name's Iris, and you are…?\p"

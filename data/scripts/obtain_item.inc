@@ -235,9 +235,8 @@ Text_PickedItemAlready::
 EventScript_HiddenItemScript::
 	lockall
 	waitse
-	goto_if_eq VAR_0x8005, 0, EventScript_TryPickUpHiddenCoins
 	copyvar VAR_0x8006, VAR_0x8005
-	additem VAR_0x8005, VAR_0x8009
+	additem VAR_0x8005
 	copyvar VAR_0x8007, VAR_RESULT
 	bufferitemnameplural STR_VAR_2, VAR_0x8005, 1
 	checkitemtype VAR_0x8005
@@ -261,19 +260,9 @@ EventScript_FoundHiddenTMHM::
 	end
 
 EventScript_FoundHiddenItem::
-	call_if_eq VAR_0x8009, 1, EventScript_FoundSingleItem
-	call_if_ne VAR_0x8009, 1, EventScript_FoundMultipleItems
+	message gText_PlayerFoundOneItem
 	goto EventScript_PutHiddenItemInPocket
 	end
-
-EventScript_FoundSingleItem::
-	message gText_PlayerFoundOneItem
-	return
-
-EventScript_FoundMultipleItems::
-	buffernumberstring STR_VAR_1, VAR_0x8009
-	message gText_FoundXItems
-	return
 
 EventScript_PutHiddenItemInPocket::
 	callnative Script_ClearDowsingColor
