@@ -11,6 +11,8 @@
 #include "constants/abilities.h"
 #include "constants/battle_ai.h"
 
+#include "data/partner_parties.h"
+
 #if !TESTING
 const struct Trainer gBattlePartners[PARTNER_COUNT] =
 {
@@ -183,7 +185,7 @@ void FillPartnerParty(u16 trainerId)
         trainerId -= TRAINER_RECORD_MIXING_APPRENTICE;
         for (baseMonIndex = 0; baseMonIndex < FRONTIER_MULTI_PARTY_SIZE; baseMonIndex++)
         {
-            CreateApprenticeMon(&gPartnerParty[baseMonIndex], &gSaveBlock2Ptr->apprentices[trainerId], gSaveBlock2Ptr->frontier.trainerIds[18 + baseMonIndex]);
+            // CreateApprenticeMon(&gPartnerParty[baseMonIndex], &gSaveBlock2Ptr->apprentices[trainerId], gSaveBlock2Ptr->frontier.trainerIds[18 + baseMonIndex]);
             j = IsFrontierTrainerFemale(trainerId + TRAINER_RECORD_MIXING_APPRENTICE);
             SetMonData(&gPartnerParty[baseMonIndex], MON_DATA_OT_GENDER, &j);
         }

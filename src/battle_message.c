@@ -105,11 +105,7 @@ static const u8 sFoePrefixLowerCase[] =             _("the foe ");
 static const u8 sFoePrefixNoSpace[] =               _("The foe");
 static const u8 sAllyPrefix[] =                     _("The ally");
 const u8 gText_StatSharply[] = _(" sharply");
-const u8 gText_DefendersStatRose[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} rose{B_BUFF2}!");
-static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_LINK_OPPONENT1_NAME} sent out {B_BUFF1}!");
-static const u8 sText_LinkTrainer2SentOutPkmn2[] = _("{B_LINK_OPPONENT2_NAME} sent out {B_BUFF1}!");
-static const u8 sText_LinkPartnerSentOutPkmn1[] = _("{B_LINK_PARTNER_NAME} sent out {B_BUFF1}!");
-static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_LINK_PARTNER_NAME} sent out {B_BUFF1}!");
+const u8 gText_DefendersStatRose[] = _("{B_DEF_NAME_PREFIX}'s {B_BUFF1} rose{B_BUFF2}!");
 
 const u8 *const gStatNamesTable[NUM_BATTLE_STATS] =
 {
@@ -895,18 +891,18 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ATTACKERHEALEDITSBURN]                = COMPOUND_STRING("Error 12: something has gone awry.\nPlease inform the romhack creator!\p"),
     [STRINGID_ATTACKERBROKETHROUGHPARALYSIS]        = COMPOUND_STRING("Error 13: something has gone awry.\nPlease inform the romhack creator!\p"),
     // 1.15.2
-    [STRINGID_SCRCUREDPARALYSIS]                    = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} was cured of paralysis!"),
-    [STRINGID_SCRCUREDPOISON]                       = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} was cured of its poisoning!"),
-    [STRINGID_SCRCUREDBURN]                         = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s burn was cured!"),
-    [STRINGID_SCRCUREDSLEEP]                        = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} woke up!"),
-    [STRINGID_SCRCUREDCONFUSION]                    = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} snapped out of its confusion!"),
+    [STRINGID_SCRCUREDPARALYSIS]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured of paralysis!"),
+    [STRINGID_SCRCUREDPOISON]                       = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured of its poisoning!"),
+    [STRINGID_SCRCUREDBURN]                         = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s burn was cured!"),
+    [STRINGID_SCRCUREDSLEEP]                        = COMPOUND_STRING("{B_SCR_NAME_PREFIX} woke up!"),
+    [STRINGID_SCRCUREDCONFUSION]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX} snapped out of its confusion!"),
     [STRINGID_PARTYCUREDPARALYSIS]                  = COMPOUND_STRING("{B_BUFF1} was cured of paralysis!"),
     [STRINGID_PARTYCUREDPOISON]                     = COMPOUND_STRING("{B_BUFF1} was cured of its poisoning!"),
     [STRINGID_PARTYCUREDBURN]                       = COMPOUND_STRING("{B_BUFF1}'s burn was cured!"),
     [STRINGID_PARTYCUREDSLEEP]                      = COMPOUND_STRING("{B_BUFF1} woke up!"),
     [STRINGID_PARTYCUREDFREEZE]                     = COMPOUND_STRING("{B_BUFF1} thawed out!"),
     [STRINGID_PARTYCUREDFROSTBITE]                  = COMPOUND_STRING("{B_BUFF1}'s frostbite was cured!"),
-    [STRINGID_PKMNATKNOTLOWERED]                    = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX}'s Attack was not lowered!"),
+    [STRINGID_PKMNATKNOTLOWERED]                    = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s Attack was not lowered!"),
     [STRINGID_REFLECTWOREOFF]                       = COMPOUND_STRING("{B_DEF_TEAM1} team's Reflect wore off!"),
     [STRINGID_LIGHTSCREENWOREOFF]                   = COMPOUND_STRING("{B_DEF_TEAM1} team's Light Screen wore off!"),
     [STRINGID_AURORAVEILWOREOFF]                    = COMPOUND_STRING("{B_DEF_TEAM1} team's Aurora Veil wore off!"),
@@ -1020,7 +1016,7 @@ const u16 gSwitchInAbilityStringIds[] =
 
 const u16 gMissStringIds[] =
 {
-    [B_MSG_MISSED]      = STRINGID_PKMNAVOIDEDATTACK,
+    [B_MSG_MISSED]      = STRINGID_ATTACKMISSED,
     [B_MSG_PROTECTED]   = STRINGID_PKMNPROTECTEDITSELF,
     [B_MSG_AVOIDED_ATK] = STRINGID_PKMNAVOIDEDATTACK,
 };
@@ -1494,7 +1490,6 @@ const u16 gZenModeStringIds[] =
 static const u8 sPlayerSentOut[] =                  _("Go! {B_PLAYER_MON1_NAME}!");
 static const u8 sPlayerSentOutDouble[] =            _("Go! {B_PLAYER_MON1_NAME} and\n{B_PLAYER_MON2_NAME}!");
 
-static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_BUFF1}!");
 static const u8 sText_TwoLinkTrainersSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_LINK_OPPONENT_MON1_NAME}!\p{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_LINK_OPPONENT_MON2_NAME}!");
 static const u8 sText_TwoTrainersSentPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!\p{B_TRAINER2_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON2_NAME}!");
@@ -1503,15 +1498,16 @@ static const u8 sText_InGamePartnerSentOutZGoN[] = _("{B_PARTNER_NAME_WITH_CLASS
 static const u8 sText_InGamePartnerSentOutNGoZ[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON1_NAME}!\lGo, {B_PLAYER_MON2_NAME}!");
 static const u8 sText_InGamePartnerSentOutPkmn1[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON1_NAME}!");
 static const u8 sText_InGamePartnerSentOutPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON2_NAME}!");
+static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
+static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!");
+static const u8 sText_LinkTrainerSentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
+static const u8 sText_LinkTrainerSentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkTrainer2SentOutPkmn2[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}!");
+static const u8 sText_LinkPartnerSentOutPkmn1[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_BUFF1}!");
 static const u8 sText_LinkPartnerSentOutPkmn1GoPkmn[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON1_NAME}! Go! {B_LINK_PLAYER_MON2_NAME}!");
 static const u8 sText_LinkPartnerSentOutPkmn2GoPkmn[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}! Go! {B_LINK_PLAYER_MON1_NAME}!");
-static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
-static const u8 sText_LinkTrainerSentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
-static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!");
-static const u8 sText_LinkTrainerSentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
-static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}!");
-static const u8 sText_LinkPartnerSentOutPkmn1[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON1_NAME}!");
-static const u8 sText_LinkTrainer2SentOutPkmn2[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_BUFF1}!");
 
 static const u8 sText_InGamePartnerWithdrewPkmn1[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON1_NAME}!");
 static const u8 sText_InGamePartnerWithdrewPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON2_NAME}!");
@@ -1524,28 +1520,26 @@ static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS}\n
 
 const u16 gCureStatusStringIds[] =
 {
-    [B_MSG_CURED_PARALYSIS] = STRINGID_SCRCUREDPARALYSIS,
-    [B_MSG_CURED_POISON] = STRINGID_SCRCUREDPOISON,
-    [B_MSG_CURED_BURN] = STRINGID_SCRCUREDBURN,
-    [B_MSG_CURED_SLEEP] = STRINGID_SCRCUREDSLEEP,
-    [B_MSG_CURED_FREEZE] = STRINGID_PKMNWASDEFROSTED,
-    [B_MSG_CURED_FROSTBITE] = STRINGID_PKMNFROSTBITEHEALED,
-    [B_MSG_CURED_CONFUSION] = STRINGID_SCRCUREDCONFUSION,
-    [B_MSG_CURED_INFATUATION] = STRINGID_PKMNGOTOVERITSINFATUATION,
-    [B_MSG_CURED_TAUNT] = STRINGID_PKMNSHOOKOFFTHETAUNT,
+    [B_MSG_PARALYSIS] = STRINGID_SCRCUREDPARALYSIS,
+    [B_MSG_POISON] = STRINGID_SCRCUREDPOISON,
+    [B_MSG_BURN] = STRINGID_SCRCUREDBURN,
+    [B_MSG_SLEEP] = STRINGID_SCRCUREDSLEEP,
+    [B_MSG_FREEZE] = STRINGID_PKMNWASDEFROSTED,
+    [B_MSG_CONFUSION] = STRINGID_SCRCUREDCONFUSION,
+    [B_MSG_INFATUATION] = STRINGID_SCR_CURE_INFATUATION,
+    [B_MSG_TAUNT] = STRINGID_PKMNSHOOKOFFTHETAUNT,
 };
 
 const u16 gPartyCureStatusStringIds[] =
 {
-    [B_MSG_CURED_PARALYSIS] = STRINGID_PARTYCUREDPARALYSIS,
-    [B_MSG_CURED_POISON] = STRINGID_PARTYCUREDPOISON,
-    [B_MSG_CURED_BURN] = STRINGID_PARTYCUREDBURN,
-    [B_MSG_CURED_SLEEP] = STRINGID_PARTYCUREDSLEEP,
-    [B_MSG_CURED_FREEZE] = STRINGID_PARTYCUREDFREEZE,
-    [B_MSG_CURED_FROSTBITE] = STRINGID_PARTYCUREDFROSTBITE,
-    [B_MSG_CURED_CONFUSION] = STRINGID_SCRCUREDCONFUSION,
-    [B_MSG_CURED_INFATUATION] = STRINGID_PKMNGOTOVERITSINFATUATION,
-    [B_MSG_CURED_TAUNT] = STRINGID_PKMNSHOOKOFFTHETAUNT,
+    [B_MSG_PARALYSIS] = STRINGID_PARTYCUREDPARALYSIS,
+    [B_MSG_POISON] = STRINGID_PARTYCUREDPOISON,
+    [B_MSG_BURN] = STRINGID_PARTYCUREDBURN,
+    [B_MSG_SLEEP] = STRINGID_PARTYCUREDSLEEP,
+    [B_MSG_FREEZE] = STRINGID_PARTYCUREDFREEZE,
+    [B_MSG_CONFUSION] = STRINGID_SCRCUREDCONFUSION,
+    [B_MSG_INFATUATION] = STRINGID_SCR_CURE_INFATUATION,
+    [B_MSG_TAUNT] = STRINGID_PKMNSHOOKOFFTHETAUNT,
 };
 
 const u16 gHurtByStringIds[] =
@@ -3005,7 +2999,7 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
 
     assertf(DoesStringProperlyTerminate(toCpy, TRAINER_NAME_LENGTH + 1),"Opponent needs a valid name")
     {
-        return sText_EmptyString4;
+        return gText_EmptyString2;
     }
 
     return toCpy;

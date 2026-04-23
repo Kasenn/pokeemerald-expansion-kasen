@@ -6,7 +6,7 @@ static const struct MenuAction MultichoiceList_BrineyOnDewford[] =
     {gText_Exit},
 };
 
-const u8 gText_Info2[] = _("INFO");
+const u8 gText_Info2[] = _("Info");
 
 static const struct MenuAction MultichoiceList_EnterInfo[] =
 {
@@ -33,9 +33,9 @@ static const struct MenuAction MultichoiceList_ContestType[] =
     {gText_Exit},
 };
 
-const u8 gText_Decoration2[] = _("DECORATION");
-const u8 gText_PackUp[] = _("PACK UP");
-const u8 gText_Registry[] = _("REGISTRY");
+const u8 gText_Decoration2[] = _("Decoration");
+const u8 gText_PackUp[] = _("Pack up");
+const u8 gText_Registry[] = _("Registry");
 
 static const struct MenuAction MultichoiceList_BasePCWithRegistry[] =
 {
@@ -342,10 +342,10 @@ static const struct MenuAction MultichoiceList_Floors[] =
     {gText_Exit},
 };
 
-const u8 gText_RedShard[] = _("RED SHARD");
-const u8 gText_YellowShard[] = _("YELLOW SHARD");
-const u8 gText_BlueShard[] = _("BLUE SHARD");
-const u8 gText_GreenShard[] = _("GREEN SHARD");
+const u8 gText_RedShard[] = _("Red Shard");
+const u8 gText_YellowShard[] = _("Yellow Shard");
+const u8 gText_BlueShard[] = _("Blue Shard");
+const u8 gText_GreenShard[] = _("Green Shard");
 
 static const struct MenuAction MultichoiceList_ShardsR[] =
 {
@@ -457,9 +457,9 @@ static const struct MenuAction MultichoiceList_ShardsRYBG[] =
 const u8 gText_Opponent[] = _("OPPONENT");
 const u8 gText_Tourney_Tree[] = _("TOURNEY TREE");
 const u8 gText_ReadyToStart[] = _("READY TO START");
-const u8 gText_Record2[] = _("RECORD");
-const u8 gText_Rest[] = _("REST");
-const u8 gText_Retire[] = _("RETIRE");
+const u8 gText_Record2[] = _("Record");
+const u8 gText_Rest[] = _("Rest");
+const u8 gText_Retire[] = _("Retire");
 
 static const struct MenuAction MultichoiceList_TourneyWithRecord[] =
 {
@@ -696,10 +696,10 @@ static const struct MenuAction MultichoiceList_BattleDomeRules[] =
     {gText_Exit},
 };
 
-const u8 gText_BasicRules[] = _("BASIC RULES");
-const u8 gText_SwapPartners[] = _("SWAP: PARTNER");
-const u8 gText_SwapNumber[] = _("SWAP: NUMBER");
-const u8 gText_SwapNotes[] = _("SWAP: NOTES");
+const u8 gText_BasicRules[] = _("Basic rules");
+const u8 gText_SwapPartners[] = _("Swap: Partner");
+const u8 gText_SwapNumber[] = _("Swap: Number");
+const u8 gText_SwapNotes[] = _("Swap: Notes");
 
 static const struct MenuAction MultichoiceList_BattleFactoryRules[] =
 {
@@ -738,7 +738,7 @@ static const struct MenuAction MultichoiceList_BattlePikeRules[] =
     {gText_Exit},
 };
 
-const u8 gText_GoOn[] = _("GO ON");
+const u8 gText_GoOn[] = _("Go On");
 
 static const struct MenuAction MultichoiceList_GoOnRecordRestRetire[] =
 {

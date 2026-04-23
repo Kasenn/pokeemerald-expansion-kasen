@@ -725,8 +725,9 @@ void DecompressTrainerFrontPic(enum TrainerPicID trainerPicId, enum BattlerId ba
 {
     enum BattlerPosition position = GetBattlerPosition(battler);
     DecompressDataWithHeaderWram(GetTrainerFrontPicData(trainerPicId), gMonSpritesGfxPtr->spritesGfx[position]);
-    LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, TRUE));
-    TimeMixBattleSpritePalette(OBJ_PLTT_ID(LoadSpritePalette(&gTrainerSprites[frontPicId].palette)));//wip
+    u32 index = LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, TRUE));
+    if (index != 0xFF)
+        TimeMixBattleSpritePalette(OBJ_PLTT_ID(index));
 }
 
 void FreeTrainerFrontPicPalette(enum TrainerPicID trainerPicId)

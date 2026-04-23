@@ -8768,11 +8768,6 @@ static void RestoreMultiPartyFromSummaryScreen(void)
     }
 }
 
-static void PartyMenu_Oak_PrintText(u8 windowId, const u8 *str)
-{
-
-}
-
 static void DisplayGiveHowManyMessage(void)
 {
     struct Pokemon *mon = &gPlayerParty[gPartyMenu.slotId];

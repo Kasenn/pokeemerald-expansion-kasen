@@ -542,8 +542,8 @@ BattleScript_TargetAvoidsAttackConsumeFlingItem::
 	return
 
 BattleScript_FlingBlockedByShieldDust::
-	printstring STRINGID_ITEMWASUSEDUP
-	waitmessage B_WAIT_TIME_LONG
+	@printstring STRINGID_ITEMWASUSEDUP //wip
+	@waitmessage B_WAIT_TIME_LONG
 	removeitem BS_ATTACKER
 	return
 
@@ -3795,13 +3795,13 @@ BattleScript_BrickBreak_AuroraVeil::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreakHitEnd::
 	clearcustombattlestrings
-@ BattleScript_BreakScreensRetReflect:
-@ 	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_REFLECT, BattleScript_BreakReflect @//wip
-@ BattleScript_BreakScreensRetLightScreen:
-@ 	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_LIGHT_SCREEN, BattleScript_BreakLightScreen
-@ BattleScript_BreakScreensRetAuroraVeil:
-@ 	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_AURORA_VEIL, BattleScript_BreakAuroraVeil
-@ BattleScript_BreakScreensRetFinish:
+BattleScript_BreakScreensRetReflect:
+	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_REFLECT, BattleScript_BreakReflect @//wip
+BattleScript_BreakScreensRetLightScreen:
+	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_LIGHT_SCREEN, BattleScript_BreakLightScreen
+BattleScript_BreakScreensRetAuroraVeil:
+	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_AURORA_VEIL, BattleScript_BreakAuroraVeil
+BattleScript_BreakScreensRetFinish:
 	return
 
 BattleScript_BreakReflect:
@@ -6020,7 +6020,7 @@ BattleScript_TelekinesisEndTurn::
 	return
 
 BattleScript_HealBlockEndTurn::
-	printstring STRINGID_HEALBLOCKEDNOMORE
+	printstring STRINGID_BUFFERENDS @//wip
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -7178,10 +7178,11 @@ BattleScript_BerryCureStatusRet::
 
 BattleScript_BerryCureStatusAndConfusionRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
-	printfromtable CureStatusBerryEffectStringID
-	waitmessage B_WAIT_TIME_LONG
-	updatestatusicon BS_SCRIPTING
-	printstring STRINGID_PKMNSITEMSNAPPEDOUT
+	@printfromtable CureStatusBerryEffectStringID
+	@waitmessage B_WAIT_TIME_LONG
+	@updatestatusicon BS_SCRIPTING
+	@printstring STRINGID_PKMNSITEMSNAPPEDOUT
+	printfromtable CureStatusBerryEffectStringID@//wip
 	waitmessage B_WAIT_TIME_LONG
 	removeitem BS_SCRIPTING
 	return
@@ -7242,7 +7243,7 @@ BattleScript_MentalHerbCuresDisable:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MentalHerbCureRetHealBlock
 BattleScript_MentalHerbCuresHealBlock:
-	printstring STRINGID_HEALBLOCKEDNOMORE
+	printstring STRINGID_BUFFERENDS @//wip
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MentalHerbCureRetEncore
 BattleScript_MentalHerbCuresEncore:

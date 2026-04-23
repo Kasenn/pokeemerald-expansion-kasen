@@ -3093,10 +3093,10 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
     if (partyIndex < PARTY_SIZE)
-    [
+    {
         metLocation = GetCurrentRegionMapSectionId();
         SetMonData(&gPlayerParty[partyIndex], MON_DATA_MET_LOCATION, &metLocation);
-    ]
+    }
     return FALSE;
 }
 

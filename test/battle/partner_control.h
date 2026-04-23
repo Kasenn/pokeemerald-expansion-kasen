@@ -10,7 +10,6 @@
         .trainerPic = TRAINER_PIC_BRENDAN,
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerBackPic = TRAINER_BACK_PIC_BRENDAN,
         .partySize = 0,
         .party = (const struct TrainerMon[])
         {
@@ -24,7 +23,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .aiFlags = AI_FLAG_BASIC_TRAINER | AI_FLAG_CHECK_VIABILITY,
-        .trainerBackPic = TRAINER_BACK_PIC_STEVEN,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -85,7 +83,6 @@
         .trainerPic = TRAINER_PIC_STEVEN,
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .trainerBackPic = TRAINER_BACK_PIC_STEVEN,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {

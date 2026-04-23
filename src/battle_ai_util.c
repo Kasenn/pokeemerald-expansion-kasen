@@ -812,7 +812,7 @@ static inline void CalcDynamicMoveDamage(struct DamageContext *ctx, u16 *medianD
         random  += random  / (B_PARENTAL_BOND_DMG >= GEN_7 ? 4 : 2);
     }
 
-    else if (ctx->abilityAtk == ABILITY_RAPID_FISTS
+    else if (ctx->abilities[ctx->battlerAtk] == ABILITY_RAPID_FISTS
       && strikeCount == 0
       && !AI_IsDoubleSpreadMove(ctx->battlerAtk, ctx->move))
     {

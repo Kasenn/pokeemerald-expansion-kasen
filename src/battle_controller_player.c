@@ -2041,8 +2041,8 @@ static void PlayerHandleLoadMonSprite(enum BattlerId battler)
 
 enum TrainerPicID LinkPlayerGetTrainerPicId(u32 multiplayerId)
 {
-    u8 gender = gLinkPlayers[multiplayerId].gender;
-    enum GameVersion version = gLinkPlayers[multiplayerId].version & 0xFF;
+    // u8 gender = gLinkPlayers[multiplayerId].gender;
+    // enum GameVersion version = gLinkPlayers[multiplayerId].version & 0xFF;
 
     return GetPlayerTrainerPic();
 }

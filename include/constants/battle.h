@@ -83,6 +83,10 @@ enum __attribute__((packed)) BattleTrainer
     B_TRAINER_2,
     B_TRAINER_3,
     MAX_BATTLE_TRAINERS,
+    B_TRAINER_PLAYER = B_TRAINER_0,
+    B_TRAINER_OPPONENT_1 = B_TRAINER_1,
+    B_TRAINER_PARTNER = B_TRAINER_2,
+    B_TRAINER_OPPONENT_2 = B_TRAINER_3,
 };
 
 // These macros can be used with either battler ID or positions to get the partner or the opposite mon

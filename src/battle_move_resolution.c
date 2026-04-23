@@ -446,7 +446,7 @@ static enum CancelerResult CancelerTrainingBot(struct BattleCalcValues *cv)
 {
     if (cv->move == MOVE_IDLE_AROUND)
     {
-        CancelMultiTurnMoves(gBattlerAttacker, SKY_DROP_ATTACKCANCELER_CHECK);
+        CancelMultiTurnMoves(gBattlerAttacker);
         gBattlescriptCurrInstr = BattleScript_DoNothing;
         return CANCELER_RESULT_FAILURE;
     }
@@ -1633,8 +1633,10 @@ static enum CancelerResult CancelerCharging(struct BattleCalcValues *cv)
             gBattleScripting.animTurn = 1;
             gBattleScripting.animTargetsHit = 0;
             gProtectStructs[cv->battlerAtk].chargingTurn = FALSE;
+            if (gBattleMoveEffects[GetMoveEffect(cv->move)].semiInvulnerableEffect)
+                gBattleMons[cv->battlerAtk].volatiles.semiInvulnerable = STATE_NONE;
             BattleScriptCall(BattleScript_StrongWindsActivation);
-            result = CANCELER_RESULT_BREAK;
+            result = CANCELER_RESULT_RUN_SCRIPT_AND_INCREMENT;
         }
         else if (cv->holdEffects[cv->battlerAtk] == HOLD_EFFECT_POWER_HERB)
         {
@@ -2012,11 +2014,11 @@ static bool32 IsMoveParentalBondAffected(struct BattleCalcValues *cv)
     return TRUE;
 }
 
-static bool32 IsMoveRapidFistsAffected(struct BattleContext *ctx)
+static bool32 IsMoveRapidFistsAffected(struct BattleCalcValues *cv)
 {
-    if (ctx->abilityAtk != ABILITY_RAPID_FISTS
-     || IsMoveRapidFistsBanned(ctx->move)
-     || !IsPunchingMove(ctx->move))
+    if (cv->abilities[cv->battlerAtk] != ABILITY_RAPID_FISTS
+     || IsMoveRapidFistsBanned(cv->move)
+     || !IsPunchingMove(cv->move))
         return FALSE;
     return TRUE;
 }
@@ -2117,7 +2119,7 @@ static enum CancelerResult CancelerMultihitMoves(struct BattleCalcValues *cv)
         gMultiHitCounter = 2;
         PREPARE_BYTE_NUMBER_BUFFER(gBattleScripting.multihitString, 1, 0)
     }
-    else if (IsMoveRapidFistsAffected(ctx))
+    else if (IsMoveRapidFistsAffected(cv))
     {
         gSpecialStatuses[gBattlerAttacker].rapidFistsState = RAPID_FISTS_1ST_HIT;
         gMultiHitCounter = 3;

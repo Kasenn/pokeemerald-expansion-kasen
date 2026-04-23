@@ -1178,11 +1178,11 @@ ClearRoute2::
 # 778 "data/scripts/general_scripts.pory"
 	additem ITEM_X_ATTACK
 # 779 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_ORAN, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_ORAN, BERRY_ID_ORAN, BERRY_STAGE_NO_BERRY
 # 780 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_PECHA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_PECHA, BERRY_ID_PECHA, BERRY_STAGE_NO_BERRY
 # 781 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_2_CHERI, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_2_CHERI, BERRY_ID_CHERI, BERRY_STAGE_NO_BERRY
 # 782 "data/scripts/general_scripts.pory"
 	additem ITEM_ORAN_BERRY, 2
 # 783 "data/scripts/general_scripts.pory"
@@ -1408,11 +1408,11 @@ ClearAzuretide::
 
 ClearRoute4::
 # 890 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_104_ORAN_1, BERRY_ID_ORAN, BERRY_STAGE_NO_BERRY
 # 891 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_103_LEPPA, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_103_LEPPA, BERRY_ID_PECHA, BERRY_STAGE_NO_BERRY
 # 892 "data/scripts/general_scripts.pory"
-	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree BERRY_TREE_ROUTE_103_CHERI_2, BERRY_ID_CHERI, BERRY_STAGE_NO_BERRY
 # 893 "data/scripts/general_scripts.pory"
 	additem ITEM_ORAN_BERRY, 2
 # 894 "data/scripts/general_scripts.pory"
@@ -1728,11 +1728,11 @@ ClearWindplume::
 
 ClearRoute5::
 # 1041 "data/scripts/general_scripts.pory"
-	setberrytree 31, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 31, BERRY_ID_ORAN, BERRY_STAGE_NO_BERRY
 # 1042 "data/scripts/general_scripts.pory"
-	setberrytree 21, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 21, BERRY_ID_PECHA, BERRY_STAGE_NO_BERRY
 # 1043 "data/scripts/general_scripts.pory"
-	setberrytree 13, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 13, BERRY_ID_CHERI, BERRY_STAGE_NO_BERRY
 # 1044 "data/scripts/general_scripts.pory"
 	additem ITEM_PECHA_BERRY, 2
 # 1045 "data/scripts/general_scripts.pory"
@@ -1983,13 +1983,13 @@ ClearRoute8::
 # 1153 "data/scripts/general_scripts.pory"
 	setflag FLAG_RECEIVED_WAILMER_PAIL
 # 1154 "data/scripts/general_scripts.pory"
-	setberrytree 15, ITEM_TO_BERRY ( ITEM_ORAN_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 15, BERRY_ID_ORAN, BERRY_STAGE_NO_BERRY
 # 1155 "data/scripts/general_scripts.pory"
-	setberrytree 22, ITEM_TO_BERRY ( ITEM_PECHA_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 22, BERRY_ID_PECHA, BERRY_STAGE_NO_BERRY
 # 1156 "data/scripts/general_scripts.pory"
-	setberrytree 24, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 24, BERRY_ID_CHERI, BERRY_STAGE_NO_BERRY
 # 1157 "data/scripts/general_scripts.pory"
-	setberrytree 33, ITEM_TO_BERRY ( ITEM_CHERI_BERRY ), BERRY_STAGE_NO_BERRY
+	setberrytree 33, BERRY_ID_CHERI, BERRY_STAGE_NO_BERRY
 # 1158 "data/scripts/general_scripts.pory"
 	additem ITEM_POMEG_BERRY, 2
 # 1159 "data/scripts/general_scripts.pory"

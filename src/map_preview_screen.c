@@ -96,7 +96,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sViridianForestMapPreviewPalette
     },
     [MPS_MT_MOON] = {
-        .mapsec = MAPSEC_MT_MOON,
+        // .mapsec = MAPSEC_MT_MOON,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_MT_MOON_1F,
         .tilesptr = sMtMoonMapPreviewTiles,
@@ -104,7 +104,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sMtMoonMapPreviewPalette
     },
     [MPS_DIGLETTS_CAVE] = {
-        .mapsec = MAPSEC_DIGLETTS_CAVE,
+        // .mapsec = MAPSEC_DIGLETTS_CAVE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_DIGLETTS_CAVE_B1F,
         .tilesptr = sDiglettsCaveMapPreviewTiles,
@@ -112,7 +112,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sDiglettsCaveMapPreviewPalette
     },
     [MPS_ROCK_TUNNEL] = {
-        .mapsec = MAPSEC_ROCK_TUNNEL,
+        // .mapsec = MAPSEC_ROCK_TUNNEL,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_ROCK_TUNNEL_1F,
         .tilesptr = sRockTunnelMapPreviewTiles,
@@ -120,7 +120,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sRockTunnelMapPreviewPalette
     },
     [MPS_POKEMON_TOWER] = {
-        .mapsec = MAPSEC_POKEMON_TOWER,
+        // .mapsec = MAPSEC_POKEMON_TOWER,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_POKEMON_TOWER_1F,
         .tilesptr = sPokemonTowerMapPreviewTiles,
@@ -128,7 +128,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sPokemonTowerMapPreviewPalette
     },
     [MPS_SAFARI_ZONE] = {
-        .mapsec = MAPSEC_KANTO_SAFARI_ZONE,
+        // .mapsec = MAPSEC_KANTO_SAFARI_ZONE,
         .type = MPS_TYPE_FADE_IN,
         .flagId = FLAG_WORLD_MAP_SAFARI_ZONE_CENTER,
         .tilesptr = sSafariZoneMapPreviewTiles,
@@ -136,7 +136,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sSafariZoneMapPreviewPalette
     },
     [MPS_SEAFOAM_ISLANDS] = {
-        .mapsec = MAPSEC_SEAFOAM_ISLANDS,
+        // .mapsec = MAPSEC_SEAFOAM_ISLANDS,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SEAFOAM_ISLANDS_1F,
         .tilesptr = sSeafoamIslandsMapPreviewTiles,
@@ -144,7 +144,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sSeafoamIslandsMapPreviewPalette
     },
     [MPS_POKEMON_MANSION] = {
-        .mapsec = MAPSEC_POKEMON_MANSION,
+        // .mapsec = MAPSEC_POKEMON_MANSION,
         .type = MPS_TYPE_FADE_IN,
         .flagId = FLAG_WORLD_MAP_POKEMON_MANSION_1F,
         .tilesptr = sPokemonMansionMapPreviewTiles,
@@ -152,7 +152,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sPokemonMansionMapPreviewPalette
     },
     [MPS_ROCKET_HIDEOUT] = {
-        .mapsec = MAPSEC_ROCKET_HIDEOUT,
+        // .mapsec = MAPSEC_ROCKET_HIDEOUT,
         .type = MPS_TYPE_FADE_IN,
         .flagId = FLAG_WORLD_MAP_ROCKET_HIDEOUT_B1F,
         .tilesptr = sRocketHideoutMapPreviewTiles,
@@ -160,7 +160,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sRocketHideoutMapPreviewPalette
     },
     [MPS_SILPH_CO] = {
-        .mapsec = MAPSEC_SILPH_CO,
+        // .mapsec = MAPSEC_SILPH_CO,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_SILPH_CO_1F,
         .tilesptr = sSilphCoMapPreviewTiles,
@@ -168,7 +168,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sSilphCoMapPreviewPalette
     },
     [MPS_VICTORY_ROAD] = {
-        .mapsec = MAPSEC_KANTO_VICTORY_ROAD,
+        // .mapsec = MAPSEC_KANTO_VICTORY_ROAD,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_VICTORY_ROAD_1F,
         .tilesptr = sVictoryRoadMapPreviewTiles,
@@ -176,7 +176,7 @@ static const struct MapPreviewScreen sMapPreviewScreenData[MPS_COUNT] = {
         .palptr = sVictoryRoadMapPreviewPalette
     },
     [MPS_CERULEAN_CAVE] = {
-        .mapsec = MAPSEC_CERULEAN_CAVE,
+        // .mapsec = MAPSEC_CERULEAN_CAVE,
         .type = MPS_TYPE_CAVE,
         .flagId = FLAG_WORLD_MAP_CERULEAN_CAVE_1F,
         .tilesptr = sCeruleanCaveMapPreviewTiles,

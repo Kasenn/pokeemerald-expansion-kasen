@@ -3590,11 +3590,11 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
 
             if (!failed)
             {
-                if (gSideStatuses[i].reflectTimer)
+                if (gSideTimers[i].reflectTimer)
                     gBattleCustomString |= SIDE_STATUS_REFLECT;
-                if (gSideStatuses[i].lightscreenTimer)
+                if (gSideTimers[i].lightscreenTimer)
                     gBattleCustomString |= SIDE_STATUS_LIGHTSCREEN;
-                if (gSideStatuses[i].auroraVeilTimer)
+                if (gSideTimers[i].auroraVeilTimer)
                     gBattleCustomString |= SIDE_STATUS_AURORA_VEIL;
 
                 gSideStatuses[i] &= ~SIDE_STATUS_SCREEN_ANY;
@@ -5404,7 +5404,7 @@ static void Cmd_getswitchedmondata(void)
     if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && CountUsablePartyMons(battler) == 0)
     {
         FlagSet(FLAG_TEMP_1);
-        CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA, TRUE);
+        CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA);
     }
     else
         gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];
@@ -8843,7 +8843,7 @@ void BS_SetCameraEffect(void)
     switch (effect)
     {
         case CAMERA_CONFUSE:
-            if (CanBeConfused(gBattlerTarget))
+            if (CanBeConfused(gBattlerTarget, gBattlerTarget))
             {
                 gBattlescriptCurrInstr = BattleScript_EffectConfuseCamera;
                 break;
@@ -9870,17 +9870,17 @@ static void Cmd_curestatuswithmove(void)
             TryDeactivateSleepClause(GetBattlerSide(gBattlerAttacker), gBattlerPartyIndexes[gBattlerAttacker]);
 
         if (status & STATUS1_PARALYSIS)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
         else if (status & STATUS1_POISON || status & STATUS1_TOXIC_POISON)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
         else if (status & STATUS1_BURN)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
         else if (status & STATUS1_SLEEP)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
         else if (status & STATUS1_FREEZE)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
         else if (status & STATUS1_FROSTBITE)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
 
         gBattleScripting.battler = gBattlerAttacker;
 

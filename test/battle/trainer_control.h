@@ -13,7 +13,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_HIKER,
         .partySize = 0,
         .party = (const struct TrainerMon[])
         {
@@ -27,7 +26,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -50,7 +48,6 @@
         .gender = TRAINER_GENDER_FEMALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_LEAF,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -73,7 +70,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -128,7 +124,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -151,7 +146,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -174,7 +168,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 1,
         .poolSize = 4,
         .party = (const struct TrainerMon[])
@@ -225,7 +218,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 3,
         .poolSize = 6,
         .party = (const struct TrainerMon[])
@@ -299,7 +291,6 @@
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
         .poolRuleIndex = POOL_RULESET_WEATHER_DOUBLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 3,
         .poolSize = 10,
         .party = (const struct TrainerMon[])
@@ -413,7 +404,6 @@
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 2,
         .poolSize = 3,
         .party = (const struct TrainerMon[])
@@ -460,7 +450,6 @@
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
         .poolPruneIndex = POOL_PRUNE_TEST,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 2,
         .poolSize = 3,
         .party = (const struct TrainerMon[])
@@ -505,7 +494,6 @@
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
         .poolRuleIndex = POOL_RULESET_BASIC,
         .poolPickIndex = POOL_PICK_LOWEST,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 2,
         .poolSize = 3,
         .party = (const struct TrainerMon[])
@@ -549,7 +537,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 2,
         .poolSize = 2,
         .party = (const struct TrainerMon[])
@@ -582,7 +569,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_DOUBLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 2,
         .poolSize = 2,
         .party = (const struct TrainerMon[])
@@ -615,7 +601,6 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
-        .trainerBackPic = TRAINER_PIC_RED,
         .partySize = 6,
         .poolSize = 6,
         .party = (const struct TrainerMon[])

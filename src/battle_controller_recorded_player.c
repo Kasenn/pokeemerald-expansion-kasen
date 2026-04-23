@@ -285,17 +285,6 @@ static void RecordedPlayerHandleDrawTrainerPic(enum BattlerId battler)
     }
     else
     {
-        enum Gender gender;
-        if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
-        {
-            if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
-                gender = GetBattlerLinkPlayerGender(battler);
-            else
-                gender = gLinkPlayers[gRecordedBattleMultiplayerId].gender;
-        }
-        else
-            gender = gLinkPlayers[0].gender;
-
         trainerPicId = GetPlayerTrainerPic();
         if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
         {
@@ -401,12 +390,6 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(enum BattlerId battler)
 {
     enum TrainerPicID trainerPicId = PlayerGetTrainerBackPicId();
     const u16 *trainerPal;
-    enum Gender gender;
-
-    if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
-        gender = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender;
-    else
-        gender = gSaveBlock2Ptr->playerGender;
 
     trainerPicId = GetPlayerTrainerPic();
     trainerPal = GetTrainerBackPicPalette(trainerPicId);

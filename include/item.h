@@ -199,7 +199,7 @@ static inline enum BerryId ItemIdToBerryType(enum Item itemId)
     }
 };
 
-static inline enum Item BerryTypeToItemId(enum BerryId berryId)
+inline enum Item BerryTypeToItemId(enum BerryId berryId)
 {
     switch (berryId)
     {

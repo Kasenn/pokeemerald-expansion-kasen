@@ -593,7 +593,7 @@ static void OakOldManHandleDrawTrainerPic(enum BattlerId battler)
     enum TrainerPicID trainerPicId;
 
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-        trainerPicId = GetPlayerTrainerPic(gSaveBlock2Ptr->playerGender, GAME_VERSION);
+        trainerPicId = GetPlayerTrainerPic();
     else
         trainerPicId = 0;
 
@@ -605,7 +605,7 @@ static void OakOldManHandleTrainerSlide(enum BattlerId battler)
     enum TrainerPicID trainerPicId;
 
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
-        trainerPicId = GetPlayerTrainerPic(gSaveBlock2Ptr->playerGender, GAME_VERSION);
+        trainerPicId = GetPlayerTrainerPic();
     else
         trainerPicId = 0;
 
@@ -779,7 +779,7 @@ static void OakOldManHandleIntroTrainerBallThrow(enum BattlerId battler)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE)
     {
-        enum TrainerPicID trainerPicID = GetPlayerTrainerPic(gSaveBlock2Ptr->playerGender, GAME_VERSION);
+        enum TrainerPicID trainerPicID = GetPlayerTrainerPic();
         const u16 *trainerPal = GetTrainerBackPicPalette(trainerPicID);
         BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
     }

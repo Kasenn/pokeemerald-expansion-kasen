@@ -677,16 +677,6 @@ void FixGrottoHiddenAbility(void)
     }
 }
 
-static u16 BerryTypeToItemId(u16 berry)
-{
-    u16 item = berry - 1;
-
-    if (item > LAST_BERRY_INDEX - FIRST_BERRY_INDEX)
-        return FIRST_BERRY_INDEX;
-    else
-        return berry + FIRST_BERRY_INDEX - 1;
-}
-
 void ScrCmd_checkberrytree(struct ScriptContext *ctx)
 {
     u8 id = ScriptReadByte(ctx);

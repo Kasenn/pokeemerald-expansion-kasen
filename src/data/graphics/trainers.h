@@ -894,10 +894,6 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderBrawly, gTrainerPalette_LeaderBrawly),
     },
-    [TRAINER_PIC_LEADER_WATTSON] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderWattson, gTrainerPalette_LeaderWattson),
-    },
     [TRAINER_PIC_LEADER_FLANNERY] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderFlannery, gTrainerPalette_LeaderFlannery),
@@ -905,10 +901,6 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_LEADER_NORMAN] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderNorman, gTrainerPalette_LeaderNorman),
-    },
-    [TRAINER_PIC_LEADER_WINONA] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_LeaderWinona, gTrainerPalette_LeaderWinona),
     },
     [TRAINER_PIC_LEADER_TATE_AND_LIZA] =
     {
@@ -1038,17 +1030,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_SisAndBro, gTrainerPalette_SisAndBro),
     },
-    [TRAINER_PIC_SALON_MAIDEN_ANABEL] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_SalonMaidenAnabel, gTrainerPalette_SalonMaidenAnabel),
-    },
     [TRAINER_PIC_DOME_ACE_TUCKER] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_DomeAceTucker, gTrainerPalette_DomeAceTucker),
-    },
-    [TRAINER_PIC_PALACE_MAVEN_SPENSER] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_PalaceMavenSpenser, gTrainerPalette_PalaceMavenSpenser),
     },
     [TRAINER_PIC_ARENA_TYCOON_GRETA] =
     {
@@ -1334,14 +1318,6 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Swimmers, gTrainerPalette_Swimmers),
     },
-    [TRAINER_PIC_BRENDAN] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Brendan, gTrainerFrontPicPalette_Brendan),
-    },
-    [TRAINER_PIC_MAY] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_May, gTrainerFrontPicPalette_May),
-    },
     [TRAINER_PIC_BROTHER] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_SalonMaidenAnabel, gTrainerPalette_SalonMaidenAnabel),
@@ -1385,14 +1361,6 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_MINA] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Mina, gTrainerPalette_Mina),
-    },
-    [TRAINER_PIC_RS_BRENDAN] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_RubySapphireBrendan, gTrainerFrontPicPalette_RubySapphireBrendan),
-    },
-    [TRAINER_PIC_RS_MAY] =
-    {
-        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_RubySapphireMay, gTrainerFrontPicPalette_RubySapphireMay),
     },
     [TRAINER_PIC_AFICIONADO_M] =
     {

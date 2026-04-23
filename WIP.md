@@ -5,6 +5,11 @@ fix upwards stairs slowing
 fix southern desert (transition tiles + dns)
 more battle BGs
 
+blaine + pryce intro
+roste berry graphics etc
+correct back pics for player + partner
+camera confuse effect
+
 eventual redesigns:
 move trainers out of route 1?
 move primrose meadow to route 1 or give a surf access point

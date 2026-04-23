@@ -7,14 +7,14 @@
 #line 1 "src/data/trainers_frlg.party"
 
 #line 1
-    [DIFFICULTY_NORMAL][TRAINER_NONE] =
+    [TRAINER_NONE] =
     {
 #line 2
         .trainerName = _("PH"),
 #line 3
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
 #line 4
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 5
         .gender = TRAINER_GENDER_MALE,
 #line 6
@@ -22,21 +22,21 @@
 #line 7
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 0,
         .party = (const struct TrainerMon[])
         {
         },
     },
 #line 9
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_BEN] =
+    [TRAINER_YOUNGSTER_BEN] =
     {
 #line 10
         .trainerName = _("BEN"),
 #line 11
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 12
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 13
         .gender = TRAINER_GENDER_MALE,
 #line 14
@@ -46,7 +46,7 @@
 #line 16
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -77,14 +77,14 @@
         },
     },
 #line 26
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CALVIN] =
+    [TRAINER_YOUNGSTER_CALVIN] =
     {
 #line 27
         .trainerName = _("CALVIN"),
 #line 28
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 29
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 30
         .gender = TRAINER_GENDER_MALE,
 #line 31
@@ -94,7 +94,7 @@
 #line 33
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -113,14 +113,14 @@
         },
     },
 #line 39
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_JOSH] =
+    [TRAINER_YOUNGSTER_JOSH] =
     {
 #line 40
         .trainerName = _("JOSH"),
 #line 41
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 42
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 43
         .gender = TRAINER_GENDER_MALE,
 #line 44
@@ -130,7 +130,7 @@
 #line 46
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -173,14 +173,14 @@
         },
     },
 #line 60
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_TIMMY] =
+    [TRAINER_YOUNGSTER_TIMMY] =
     {
 #line 61
         .trainerName = _("TIMMY"),
 #line 62
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 63
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 64
         .gender = TRAINER_GENDER_MALE,
 #line 65
@@ -190,7 +190,7 @@
 #line 67
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -221,14 +221,14 @@
         },
     },
 #line 77
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_JOEY] =
+    [TRAINER_YOUNGSTER_JOEY] =
     {
 #line 78
         .trainerName = _("JOEY"),
 #line 79
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 80
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 81
         .gender = TRAINER_GENDER_MALE,
 #line 82
@@ -238,7 +238,7 @@
 #line 84
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -269,14 +269,14 @@
         },
     },
 #line 94
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_DAN] =
+    [TRAINER_YOUNGSTER_DAN] =
     {
 #line 95
         .trainerName = _("DAN"),
 #line 96
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 97
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 98
         .gender = TRAINER_GENDER_MALE,
 #line 99
@@ -286,7 +286,7 @@
 #line 101
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -305,14 +305,14 @@
         },
     },
 #line 107
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CHAD] =
+    [TRAINER_YOUNGSTER_CHAD] =
     {
 #line 108
         .trainerName = _("CHAD"),
 #line 109
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 110
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 111
         .gender = TRAINER_GENDER_MALE,
 #line 112
@@ -322,7 +322,7 @@
 #line 114
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -353,14 +353,14 @@
         },
     },
 #line 124
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_TYLER] =
+    [TRAINER_YOUNGSTER_TYLER] =
     {
 #line 125
         .trainerName = _("TYLER"),
 #line 126
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 127
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 128
         .gender = TRAINER_GENDER_MALE,
 #line 129
@@ -370,7 +370,7 @@
 #line 131
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -389,14 +389,14 @@
         },
     },
 #line 137
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_EDDIE] =
+    [TRAINER_YOUNGSTER_EDDIE] =
     {
 #line 138
         .trainerName = _("EDDIE"),
 #line 139
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 140
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 141
         .gender = TRAINER_GENDER_MALE,
 #line 142
@@ -406,7 +406,7 @@
 #line 144
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -425,14 +425,14 @@
         },
     },
 #line 150
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_DILLON] =
+    [TRAINER_YOUNGSTER_DILLON] =
     {
 #line 151
         .trainerName = _("DILLON"),
 #line 152
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 153
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 154
         .gender = TRAINER_GENDER_MALE,
 #line 155
@@ -442,7 +442,7 @@
 #line 157
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -473,14 +473,14 @@
         },
     },
 #line 167
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_YASU] =
+    [TRAINER_YOUNGSTER_YASU] =
     {
 #line 168
         .trainerName = _("YASU"),
 #line 169
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 170
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 171
         .gender = TRAINER_GENDER_MALE,
 #line 172
@@ -490,7 +490,7 @@
 #line 174
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -533,14 +533,14 @@
         },
     },
 #line 188
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_DAVE] =
+    [TRAINER_YOUNGSTER_DAVE] =
     {
 #line 189
         .trainerName = _("DAVE"),
 #line 190
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 191
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 192
         .gender = TRAINER_GENDER_MALE,
 #line 193
@@ -550,7 +550,7 @@
 #line 195
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -581,14 +581,14 @@
         },
     },
 #line 205
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_BEN_2] =
+    [TRAINER_YOUNGSTER_BEN_2] =
     {
 #line 206
         .trainerName = _("BEN"),
 #line 207
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 208
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 209
         .gender = TRAINER_GENDER_MALE,
 #line 210
@@ -598,7 +598,7 @@
 #line 212
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -629,14 +629,14 @@
         },
     },
 #line 222
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_RICK] =
+    [TRAINER_BUG_CATCHER_RICK] =
     {
 #line 223
         .trainerName = _("RICK"),
 #line 224
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 225
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 226
         .gender = TRAINER_GENDER_MALE,
 #line 227
@@ -646,7 +646,7 @@
 #line 229
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -677,14 +677,14 @@
         },
     },
 #line 239
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_DOUG] =
+    [TRAINER_BUG_CATCHER_DOUG] =
     {
 #line 240
         .trainerName = _("DOUG"),
 #line 241
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 242
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 243
         .gender = TRAINER_GENDER_MALE,
 #line 244
@@ -694,7 +694,7 @@
 #line 246
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -737,14 +737,14 @@
         },
     },
 #line 260
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_SAMMY] =
+    [TRAINER_BUG_CATCHER_SAMMY] =
     {
 #line 261
         .trainerName = _("SAMMY"),
 #line 262
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 263
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 264
         .gender = TRAINER_GENDER_MALE,
 #line 265
@@ -754,7 +754,7 @@
 #line 267
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -773,14 +773,14 @@
         },
     },
 #line 273
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_COLTON] =
+    [TRAINER_BUG_CATCHER_COLTON] =
     {
 #line 274
         .trainerName = _("COLTON"),
 #line 275
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 276
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 277
         .gender = TRAINER_GENDER_MALE,
 #line 278
@@ -790,7 +790,7 @@
 #line 280
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -833,14 +833,14 @@
         },
     },
 #line 294
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_GREG] =
+    [TRAINER_BUG_CATCHER_GREG] =
     {
 #line 295
         .trainerName = _("GREG"),
 #line 296
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 297
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 298
         .gender = TRAINER_GENDER_MALE,
 #line 299
@@ -850,7 +850,7 @@
 #line 301
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -905,14 +905,14 @@
         },
     },
 #line 319
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_JAMES] =
+    [TRAINER_BUG_CATCHER_JAMES] =
     {
 #line 320
         .trainerName = _("JAMES"),
 #line 321
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 322
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 323
         .gender = TRAINER_GENDER_MALE,
 #line 324
@@ -922,7 +922,7 @@
 #line 326
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -953,14 +953,14 @@
         },
     },
 #line 336
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_KENT] =
+    [TRAINER_BUG_CATCHER_KENT] =
     {
 #line 337
         .trainerName = _("KENT"),
 #line 338
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 339
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 340
         .gender = TRAINER_GENDER_MALE,
 #line 341
@@ -970,7 +970,7 @@
 #line 343
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1001,14 +1001,14 @@
         },
     },
 #line 353
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_ROBBY] =
+    [TRAINER_BUG_CATCHER_ROBBY] =
     {
 #line 354
         .trainerName = _("ROBBY"),
 #line 355
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 356
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 357
         .gender = TRAINER_GENDER_MALE,
 #line 358
@@ -1018,7 +1018,7 @@
 #line 360
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1061,14 +1061,14 @@
         },
     },
 #line 374
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_CALE] =
+    [TRAINER_BUG_CATCHER_CALE] =
     {
 #line 375
         .trainerName = _("CALE"),
 #line 376
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 377
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 378
         .gender = TRAINER_GENDER_MALE,
 #line 379
@@ -1078,7 +1078,7 @@
 #line 381
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -1133,14 +1133,14 @@
         },
     },
 #line 399
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_KEIGO] =
+    [TRAINER_BUG_CATCHER_KEIGO] =
     {
 #line 400
         .trainerName = _("KEIGO"),
 #line 401
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 402
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 403
         .gender = TRAINER_GENDER_MALE,
 #line 404
@@ -1150,7 +1150,7 @@
 #line 406
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1193,14 +1193,14 @@
         },
     },
 #line 420
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_ELIJAH] =
+    [TRAINER_BUG_CATCHER_ELIJAH] =
     {
 #line 421
         .trainerName = _("ELIJAH"),
 #line 422
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 423
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 424
         .gender = TRAINER_GENDER_MALE,
 #line 425
@@ -1210,7 +1210,7 @@
 #line 427
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1229,14 +1229,14 @@
         },
     },
 #line 433
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_BRENT] =
+    [TRAINER_BUG_CATCHER_BRENT] =
     {
 #line 434
         .trainerName = _("BRENT"),
 #line 435
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 436
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 437
         .gender = TRAINER_GENDER_MALE,
 #line 438
@@ -1246,7 +1246,7 @@
 #line 440
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1277,14 +1277,14 @@
         },
     },
 #line 450
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_CONNER] =
+    [TRAINER_BUG_CATCHER_CONNER] =
     {
 #line 451
         .trainerName = _("CONNER"),
 #line 452
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 453
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 454
         .gender = TRAINER_GENDER_MALE,
 #line 455
@@ -1294,7 +1294,7 @@
 #line 457
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1337,14 +1337,14 @@
         },
     },
 #line 471
-    [DIFFICULTY_NORMAL][TRAINER_LASS_JANICE] =
+    [TRAINER_LASS_JANICE] =
     {
 #line 472
         .trainerName = _("JANICE"),
 #line 473
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 474
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 475
         .gender = TRAINER_GENDER_MALE,
 #line 476
@@ -1354,7 +1354,7 @@
 #line 478
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1385,14 +1385,14 @@
         },
     },
 #line 488
-    [DIFFICULTY_NORMAL][TRAINER_LASS_SALLY] =
+    [TRAINER_LASS_SALLY] =
     {
 #line 489
         .trainerName = _("SALLY"),
 #line 490
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 491
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 492
         .gender = TRAINER_GENDER_MALE,
 #line 493
@@ -1402,7 +1402,7 @@
 #line 495
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1433,14 +1433,14 @@
         },
     },
 #line 505
-    [DIFFICULTY_NORMAL][TRAINER_LASS_ROBIN] =
+    [TRAINER_LASS_ROBIN] =
     {
 #line 506
         .trainerName = _("ROBIN"),
 #line 507
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 508
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 509
         .gender = TRAINER_GENDER_MALE,
 #line 510
@@ -1450,7 +1450,7 @@
 #line 512
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1469,14 +1469,14 @@
         },
     },
 #line 518
-    [DIFFICULTY_NORMAL][TRAINER_LASS_CRISSY] =
+    [TRAINER_LASS_CRISSY] =
     {
 #line 519
         .trainerName = _("CRISSY"),
 #line 520
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 521
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 522
         .gender = TRAINER_GENDER_MALE,
 #line 523
@@ -1486,7 +1486,7 @@
 #line 525
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1529,14 +1529,14 @@
         },
     },
 #line 539
-    [DIFFICULTY_NORMAL][TRAINER_LASS_MIRIAM] =
+    [TRAINER_LASS_MIRIAM] =
     {
 #line 540
         .trainerName = _("MIRIAM"),
 #line 541
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 542
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 543
         .gender = TRAINER_GENDER_MALE,
 #line 544
@@ -1546,7 +1546,7 @@
 #line 546
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1577,14 +1577,14 @@
         },
     },
 #line 556
-    [DIFFICULTY_NORMAL][TRAINER_LASS_IRIS] =
+    [TRAINER_LASS_IRIS] =
     {
 #line 557
         .trainerName = _("IRIS"),
 #line 558
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 559
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 560
         .gender = TRAINER_GENDER_MALE,
 #line 561
@@ -1594,7 +1594,7 @@
 #line 563
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -1613,14 +1613,14 @@
         },
     },
 #line 569
-    [DIFFICULTY_NORMAL][TRAINER_LASS_RELI] =
+    [TRAINER_LASS_RELI] =
     {
 #line 570
         .trainerName = _("RELI"),
 #line 571
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 572
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 573
         .gender = TRAINER_GENDER_MALE,
 #line 574
@@ -1630,7 +1630,7 @@
 #line 576
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1661,14 +1661,14 @@
         },
     },
 #line 586
-    [DIFFICULTY_NORMAL][TRAINER_LASS_ALI] =
+    [TRAINER_LASS_ALI] =
     {
 #line 587
         .trainerName = _("ALI"),
 #line 588
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 589
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 590
         .gender = TRAINER_GENDER_MALE,
 #line 591
@@ -1678,7 +1678,7 @@
 #line 593
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1721,14 +1721,14 @@
         },
     },
 #line 607
-    [DIFFICULTY_NORMAL][TRAINER_LASS_HALEY] =
+    [TRAINER_LASS_HALEY] =
     {
 #line 608
         .trainerName = _("HALEY"),
 #line 609
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 610
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 611
         .gender = TRAINER_GENDER_MALE,
 #line 612
@@ -1738,7 +1738,7 @@
 #line 614
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1781,14 +1781,14 @@
         },
     },
 #line 628
-    [DIFFICULTY_NORMAL][TRAINER_LASS_ANN] =
+    [TRAINER_LASS_ANN] =
     {
 #line 629
         .trainerName = _("ANN"),
 #line 630
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 631
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 632
         .gender = TRAINER_GENDER_MALE,
 #line 633
@@ -1798,7 +1798,7 @@
 #line 635
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1829,14 +1829,14 @@
         },
     },
 #line 645
-    [DIFFICULTY_NORMAL][TRAINER_LASS_DAWN] =
+    [TRAINER_LASS_DAWN] =
     {
 #line 646
         .trainerName = _("DAWN"),
 #line 647
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 648
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 649
         .gender = TRAINER_GENDER_MALE,
 #line 650
@@ -1846,7 +1846,7 @@
 #line 652
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1877,14 +1877,14 @@
         },
     },
 #line 662
-    [DIFFICULTY_NORMAL][TRAINER_LASS_PAIGE] =
+    [TRAINER_LASS_PAIGE] =
     {
 #line 663
         .trainerName = _("PAIGE"),
 #line 664
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 665
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 666
         .gender = TRAINER_GENDER_MALE,
 #line 667
@@ -1894,7 +1894,7 @@
 #line 669
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -1925,14 +1925,14 @@
         },
     },
 #line 679
-    [DIFFICULTY_NORMAL][TRAINER_LASS_ANDREA] =
+    [TRAINER_LASS_ANDREA] =
     {
 #line 680
         .trainerName = _("ANDREA"),
 #line 681
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 682
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 683
         .gender = TRAINER_GENDER_MALE,
 #line 684
@@ -1942,7 +1942,7 @@
 #line 686
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -1985,14 +1985,14 @@
         },
     },
 #line 700
-    [DIFFICULTY_NORMAL][TRAINER_LASS_MEGAN] =
+    [TRAINER_LASS_MEGAN] =
     {
 #line 701
         .trainerName = _("MEGAN"),
 #line 702
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 703
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 704
         .gender = TRAINER_GENDER_MALE,
 #line 705
@@ -2002,7 +2002,7 @@
 #line 707
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -2069,14 +2069,14 @@
         },
     },
 #line 729
-    [DIFFICULTY_NORMAL][TRAINER_LASS_JULIA] =
+    [TRAINER_LASS_JULIA] =
     {
 #line 730
         .trainerName = _("JULIA"),
 #line 731
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 732
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 733
         .gender = TRAINER_GENDER_MALE,
 #line 734
@@ -2086,7 +2086,7 @@
 #line 736
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2117,14 +2117,14 @@
         },
     },
 #line 746
-    [DIFFICULTY_NORMAL][TRAINER_LASS_KAY] =
+    [TRAINER_LASS_KAY] =
     {
 #line 747
         .trainerName = _("KAY"),
 #line 748
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 749
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 750
         .gender = TRAINER_GENDER_MALE,
 #line 751
@@ -2134,7 +2134,7 @@
 #line 753
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2165,14 +2165,14 @@
         },
     },
 #line 763
-    [DIFFICULTY_NORMAL][TRAINER_LASS_LISA] =
+    [TRAINER_LASS_LISA] =
     {
 #line 764
         .trainerName = _("LISA"),
 #line 765
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 766
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 767
         .gender = TRAINER_GENDER_MALE,
 #line 768
@@ -2182,7 +2182,7 @@
 #line 770
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2213,14 +2213,14 @@
         },
     },
 #line 780
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_EDMOND] =
+    [TRAINER_SAILOR_EDMOND] =
     {
 #line 781
         .trainerName = _("EDMOND"),
 #line 782
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 783
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 784
         .gender = TRAINER_GENDER_MALE,
 #line 785
@@ -2230,7 +2230,7 @@
 #line 787
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2261,14 +2261,14 @@
         },
     },
 #line 797
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_TREVOR] =
+    [TRAINER_SAILOR_TREVOR] =
     {
 #line 798
         .trainerName = _("TREVOR"),
 #line 799
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 800
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 801
         .gender = TRAINER_GENDER_MALE,
 #line 802
@@ -2278,7 +2278,7 @@
 #line 804
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2309,14 +2309,14 @@
         },
     },
 #line 814
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_LEONARD] =
+    [TRAINER_SAILOR_LEONARD] =
     {
 #line 815
         .trainerName = _("LEONARD"),
 #line 816
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 817
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 818
         .gender = TRAINER_GENDER_MALE,
 #line 819
@@ -2326,7 +2326,7 @@
 #line 821
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2345,14 +2345,14 @@
         },
     },
 #line 827
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_DUNCAN] =
+    [TRAINER_SAILOR_DUNCAN] =
     {
 #line 828
         .trainerName = _("DUNCAN"),
 #line 829
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 830
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 831
         .gender = TRAINER_GENDER_MALE,
 #line 832
@@ -2362,7 +2362,7 @@
 #line 834
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -2405,14 +2405,14 @@
         },
     },
 #line 848
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_HUEY] =
+    [TRAINER_SAILOR_HUEY] =
     {
 #line 849
         .trainerName = _("HUEY"),
 #line 850
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 851
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 852
         .gender = TRAINER_GENDER_MALE,
 #line 853
@@ -2422,7 +2422,7 @@
 #line 855
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2453,14 +2453,14 @@
         },
     },
 #line 865
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_DYLAN] =
+    [TRAINER_SAILOR_DYLAN] =
     {
 #line 866
         .trainerName = _("DYLAN"),
 #line 867
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 868
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 869
         .gender = TRAINER_GENDER_MALE,
 #line 870
@@ -2470,7 +2470,7 @@
 #line 872
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -2513,14 +2513,14 @@
         },
     },
 #line 886
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_PHILLIP] =
+    [TRAINER_SAILOR_PHILLIP] =
     {
 #line 887
         .trainerName = _("PHILLIP"),
 #line 888
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 889
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 890
         .gender = TRAINER_GENDER_MALE,
 #line 891
@@ -2530,7 +2530,7 @@
 #line 893
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2549,14 +2549,14 @@
         },
     },
 #line 899
-    [DIFFICULTY_NORMAL][TRAINER_SAILOR_DWAYNE] =
+    [TRAINER_SAILOR_DWAYNE] =
     {
 #line 900
         .trainerName = _("DWAYNE"),
 #line 901
         .trainerClass = TRAINER_CLASS_SAILOR_FRLG,
 #line 902
-        .trainerPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        .trainerPic = TRAINER_PIC_SAILOR_FRLG,
 #line 903
         .gender = TRAINER_GENDER_MALE,
 #line 904
@@ -2566,7 +2566,7 @@
 #line 906
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SAILOR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SAILOR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2597,14 +2597,14 @@
         },
     },
 #line 916
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_LIAM] =
+    [TRAINER_CAMPER_LIAM] =
     {
 #line 917
         .trainerName = _("LIAM"),
 #line 918
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 919
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 920
         .gender = TRAINER_GENDER_MALE,
 #line 921
@@ -2614,7 +2614,7 @@
 #line 923
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2656,14 +2656,14 @@
         },
     },
 #line 938
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_SHANE] =
+    [TRAINER_CAMPER_SHANE] =
     {
 #line 939
         .trainerName = _("SHANE"),
 #line 940
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 941
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 942
         .gender = TRAINER_GENDER_MALE,
 #line 943
@@ -2673,7 +2673,7 @@
 #line 945
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2704,14 +2704,14 @@
         },
     },
 #line 955
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_ETHAN] =
+    [TRAINER_CAMPER_ETHAN] =
     {
 #line 956
         .trainerName = _("ETHAN"),
 #line 957
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 958
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 959
         .gender = TRAINER_GENDER_MALE,
 #line 960
@@ -2721,7 +2721,7 @@
 #line 962
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2740,14 +2740,14 @@
         },
     },
 #line 968
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_RICKY] =
+    [TRAINER_CAMPER_RICKY] =
     {
 #line 969
         .trainerName = _("RICKY"),
 #line 970
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 971
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 972
         .gender = TRAINER_GENDER_MALE,
 #line 973
@@ -2757,7 +2757,7 @@
 #line 975
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2776,14 +2776,14 @@
         },
     },
 #line 981
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_JEFF] =
+    [TRAINER_CAMPER_JEFF] =
     {
 #line 982
         .trainerName = _("JEFF"),
 #line 983
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 984
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 985
         .gender = TRAINER_GENDER_MALE,
 #line 986
@@ -2793,7 +2793,7 @@
 #line 988
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2824,14 +2824,14 @@
         },
     },
 #line 998
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_CHRIS] =
+    [TRAINER_CAMPER_CHRIS] =
     {
 #line 999
         .trainerName = _("CHRIS"),
 #line 1000
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 1001
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 1002
         .gender = TRAINER_GENDER_MALE,
 #line 1003
@@ -2841,7 +2841,7 @@
 #line 1005
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -2872,14 +2872,14 @@
         },
     },
 #line 1015
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_DREW] =
+    [TRAINER_CAMPER_DREW] =
     {
 #line 1016
         .trainerName = _("DREW"),
 #line 1017
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 1018
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 1019
         .gender = TRAINER_GENDER_MALE,
 #line 1020
@@ -2889,7 +2889,7 @@
 #line 1022
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -2944,14 +2944,14 @@
         },
     },
 #line 1040
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_DIANA] =
+    [TRAINER_PICNICKER_DIANA] =
     {
 #line 1041
         .trainerName = _("DIANA"),
 #line 1042
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1043
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1044
         .gender = TRAINER_GENDER_MALE,
 #line 1045
@@ -2961,7 +2961,7 @@
 #line 1047
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -2980,14 +2980,14 @@
         },
     },
 #line 1053
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_NANCY] =
+    [TRAINER_PICNICKER_NANCY] =
     {
 #line 1054
         .trainerName = _("NANCY"),
 #line 1055
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1056
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1057
         .gender = TRAINER_GENDER_MALE,
 #line 1058
@@ -2997,7 +2997,7 @@
 #line 1060
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3028,14 +3028,14 @@
         },
     },
 #line 1070
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ISABELLE] =
+    [TRAINER_PICNICKER_ISABELLE] =
     {
 #line 1071
         .trainerName = _("ISABELLE"),
 #line 1072
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1073
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1074
         .gender = TRAINER_GENDER_MALE,
 #line 1075
@@ -3045,7 +3045,7 @@
 #line 1077
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3088,14 +3088,14 @@
         },
     },
 #line 1091
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_KELSEY] =
+    [TRAINER_PICNICKER_KELSEY] =
     {
 #line 1092
         .trainerName = _("KELSEY"),
 #line 1093
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1094
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1095
         .gender = TRAINER_GENDER_MALE,
 #line 1096
@@ -3105,7 +3105,7 @@
 #line 1098
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3136,14 +3136,14 @@
         },
     },
 #line 1108
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ALICIA] =
+    [TRAINER_PICNICKER_ALICIA] =
     {
 #line 1109
         .trainerName = _("ALICIA"),
 #line 1110
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1111
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1112
         .gender = TRAINER_GENDER_MALE,
 #line 1113
@@ -3153,7 +3153,7 @@
 #line 1115
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -3208,14 +3208,14 @@
         },
     },
 #line 1133
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_CAITLIN] =
+    [TRAINER_PICNICKER_CAITLIN] =
     {
 #line 1134
         .trainerName = _("CAITLIN"),
 #line 1135
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1136
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1137
         .gender = TRAINER_GENDER_MALE,
 #line 1138
@@ -3225,7 +3225,7 @@
 #line 1140
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3244,14 +3244,14 @@
         },
     },
 #line 1146
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_HEIDI] =
+    [TRAINER_PICNICKER_HEIDI] =
     {
 #line 1147
         .trainerName = _("HEIDI"),
 #line 1148
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1149
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1150
         .gender = TRAINER_GENDER_MALE,
 #line 1151
@@ -3261,7 +3261,7 @@
 #line 1153
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3292,14 +3292,14 @@
         },
     },
 #line 1163
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_CAROL] =
+    [TRAINER_PICNICKER_CAROL] =
     {
 #line 1164
         .trainerName = _("CAROL"),
 #line 1165
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1166
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1167
         .gender = TRAINER_GENDER_MALE,
 #line 1168
@@ -3309,7 +3309,7 @@
 #line 1170
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3340,14 +3340,14 @@
         },
     },
 #line 1180
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_SOFIA] =
+    [TRAINER_PICNICKER_SOFIA] =
     {
 #line 1181
         .trainerName = _("SOFIA"),
 #line 1182
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1183
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1184
         .gender = TRAINER_GENDER_MALE,
 #line 1185
@@ -3357,7 +3357,7 @@
 #line 1187
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3400,14 +3400,14 @@
         },
     },
 #line 1201
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_MARTHA] =
+    [TRAINER_PICNICKER_MARTHA] =
     {
 #line 1202
         .trainerName = _("MARTHA"),
 #line 1203
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1204
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1205
         .gender = TRAINER_GENDER_MALE,
 #line 1206
@@ -3417,7 +3417,7 @@
 #line 1208
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3448,14 +3448,14 @@
         },
     },
 #line 1218
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_TINA] =
+    [TRAINER_PICNICKER_TINA] =
     {
 #line 1219
         .trainerName = _("TINA"),
 #line 1220
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1221
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1222
         .gender = TRAINER_GENDER_MALE,
 #line 1223
@@ -3465,7 +3465,7 @@
 #line 1225
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3496,14 +3496,14 @@
         },
     },
 #line 1235
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_HANNAH] =
+    [TRAINER_PICNICKER_HANNAH] =
     {
 #line 1236
         .trainerName = _("HANNAH"),
 #line 1237
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 1238
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 1239
         .gender = TRAINER_GENDER_MALE,
 #line 1240
@@ -3513,7 +3513,7 @@
 #line 1242
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -3580,14 +3580,14 @@
         },
     },
 #line 1264
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_MARK] =
+    [TRAINER_POKEMANIAC_MARK] =
     {
 #line 1265
         .trainerName = _("MARK"),
 #line 1266
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1267
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1268
         .gender = TRAINER_GENDER_MALE,
 #line 1269
@@ -3597,7 +3597,7 @@
 #line 1271
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3628,14 +3628,14 @@
         },
     },
 #line 1281
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_HERMAN] =
+    [TRAINER_POKEMANIAC_HERMAN] =
     {
 #line 1282
         .trainerName = _("HERMAN"),
 #line 1283
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1284
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1285
         .gender = TRAINER_GENDER_MALE,
 #line 1286
@@ -3645,7 +3645,7 @@
 #line 1288
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3676,14 +3676,14 @@
         },
     },
 #line 1298
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_COOPER] =
+    [TRAINER_POKEMANIAC_COOPER] =
     {
 #line 1299
         .trainerName = _("COOPER"),
 #line 1300
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1301
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1302
         .gender = TRAINER_GENDER_MALE,
 #line 1303
@@ -3693,7 +3693,7 @@
 #line 1305
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3736,14 +3736,14 @@
         },
     },
 #line 1319
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_STEVE] =
+    [TRAINER_POKEMANIAC_STEVE] =
     {
 #line 1320
         .trainerName = _("STEVE"),
 #line 1321
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1322
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1323
         .gender = TRAINER_GENDER_MALE,
 #line 1324
@@ -3753,7 +3753,7 @@
 #line 1326
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3784,14 +3784,14 @@
         },
     },
 #line 1336
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_WINSTON] =
+    [TRAINER_POKEMANIAC_WINSTON] =
     {
 #line 1337
         .trainerName = _("WINSTON"),
 #line 1338
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1339
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1340
         .gender = TRAINER_GENDER_MALE,
 #line 1341
@@ -3801,7 +3801,7 @@
 #line 1343
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -3820,14 +3820,14 @@
         },
     },
 #line 1349
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_DAWSON] =
+    [TRAINER_POKEMANIAC_DAWSON] =
     {
 #line 1350
         .trainerName = _("DAWSON"),
 #line 1351
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1352
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1353
         .gender = TRAINER_GENDER_MALE,
 #line 1354
@@ -3837,7 +3837,7 @@
 #line 1356
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -3880,14 +3880,14 @@
         },
     },
 #line 1370
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_ASHTON] =
+    [TRAINER_POKEMANIAC_ASHTON] =
     {
 #line 1371
         .trainerName = _("ASHTON"),
 #line 1372
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 1373
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 1374
         .gender = TRAINER_GENDER_MALE,
 #line 1375
@@ -3897,7 +3897,7 @@
 #line 1377
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3928,14 +3928,14 @@
         },
     },
 #line 1387
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_JOVAN] =
+    [TRAINER_SUPER_NERD_JOVAN] =
     {
 #line 1388
         .trainerName = _("JOVAN"),
 #line 1389
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1390
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1391
         .gender = TRAINER_GENDER_MALE,
 #line 1392
@@ -3945,7 +3945,7 @@
 #line 1394
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -3976,14 +3976,14 @@
         },
     },
 #line 1404
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_MIGUEL] =
+    [TRAINER_SUPER_NERD_MIGUEL] =
     {
 #line 1405
         .trainerName = _("MIGUEL"),
 #line 1406
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1407
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1408
         .gender = TRAINER_GENDER_MALE,
 #line 1409
@@ -3993,7 +3993,7 @@
 #line 1411
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4036,14 +4036,14 @@
         },
     },
 #line 1425
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_AIDAN] =
+    [TRAINER_SUPER_NERD_AIDAN] =
     {
 #line 1426
         .trainerName = _("AIDAN"),
 #line 1427
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1428
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1429
         .gender = TRAINER_GENDER_MALE,
 #line 1430
@@ -4053,7 +4053,7 @@
 #line 1432
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -4136,14 +4136,14 @@
         },
     },
 #line 1466
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_GLENN] =
+    [TRAINER_SUPER_NERD_GLENN] =
     {
 #line 1467
         .trainerName = _("GLENN"),
 #line 1468
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1469
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1470
         .gender = TRAINER_GENDER_MALE,
 #line 1471
@@ -4153,7 +4153,7 @@
 #line 1473
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4196,14 +4196,14 @@
         },
     },
 #line 1487
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_LESLIE] =
+    [TRAINER_SUPER_NERD_LESLIE] =
     {
 #line 1488
         .trainerName = _("LESLIE"),
 #line 1489
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1490
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1491
         .gender = TRAINER_GENDER_MALE,
 #line 1492
@@ -4213,7 +4213,7 @@
 #line 1494
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4239,14 +4239,14 @@
         },
     },
 #line 1504
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_ERIK] =
+    [TRAINER_SUPER_NERD_ERIK] =
     {
 #line 1505
         .trainerName = _("ERIK"),
 #line 1506
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1507
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1508
         .gender = TRAINER_GENDER_MALE,
 #line 1509
@@ -4256,7 +4256,7 @@
 #line 1511
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4299,14 +4299,14 @@
         },
     },
 #line 1525
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_AVERY] =
+    [TRAINER_SUPER_NERD_AVERY] =
     {
 #line 1526
         .trainerName = _("AVERY"),
 #line 1527
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1528
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1529
         .gender = TRAINER_GENDER_MALE,
 #line 1530
@@ -4316,7 +4316,7 @@
 #line 1532
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -4371,14 +4371,14 @@
         },
     },
 #line 1550
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_DEREK] =
+    [TRAINER_SUPER_NERD_DEREK] =
     {
 #line 1551
         .trainerName = _("DEREK"),
 #line 1552
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1553
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1554
         .gender = TRAINER_GENDER_MALE,
 #line 1555
@@ -4388,7 +4388,7 @@
 #line 1557
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4407,14 +4407,14 @@
         },
     },
 #line 1563
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_ZAC] =
+    [TRAINER_SUPER_NERD_ZAC] =
     {
 #line 1564
         .trainerName = _("ZAC"),
 #line 1565
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 1566
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 1567
         .gender = TRAINER_GENDER_MALE,
 #line 1568
@@ -4424,7 +4424,7 @@
 #line 1570
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4455,14 +4455,14 @@
         },
     },
 #line 1580
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_MARCOS] =
+    [TRAINER_HIKER_MARCOS] =
     {
 #line 1581
         .trainerName = _("MARCOS"),
 #line 1582
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1583
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1584
         .gender = TRAINER_GENDER_MALE,
 #line 1585
@@ -4472,7 +4472,7 @@
 #line 1587
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4515,14 +4515,14 @@
         },
     },
 #line 1601
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_FRANKLIN] =
+    [TRAINER_HIKER_FRANKLIN] =
     {
 #line 1602
         .trainerName = _("FRANKLIN"),
 #line 1603
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1604
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1605
         .gender = TRAINER_GENDER_MALE,
 #line 1606
@@ -4532,7 +4532,7 @@
 #line 1608
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4563,14 +4563,14 @@
         },
     },
 #line 1618
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_NOB] =
+    [TRAINER_HIKER_NOB] =
     {
 #line 1619
         .trainerName = _("NOB"),
 #line 1620
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1621
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1622
         .gender = TRAINER_GENDER_MALE,
 #line 1623
@@ -4580,7 +4580,7 @@
 #line 1625
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -4635,14 +4635,14 @@
         },
     },
 #line 1643
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_WAYNE] =
+    [TRAINER_HIKER_WAYNE] =
     {
 #line 1644
         .trainerName = _("WAYNE"),
 #line 1645
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1646
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1647
         .gender = TRAINER_GENDER_MALE,
 #line 1648
@@ -4652,7 +4652,7 @@
 #line 1650
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -4671,14 +4671,14 @@
         },
     },
 #line 1656
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_ALAN] =
+    [TRAINER_HIKER_ALAN] =
     {
 #line 1657
         .trainerName = _("ALAN"),
 #line 1658
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1659
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1660
         .gender = TRAINER_GENDER_MALE,
 #line 1661
@@ -4688,7 +4688,7 @@
 #line 1663
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4733,14 +4733,14 @@
         },
     },
 #line 1681
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_BRICE] =
+    [TRAINER_HIKER_BRICE] =
     {
 #line 1682
         .trainerName = _("BRICE"),
 #line 1683
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1684
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1685
         .gender = TRAINER_GENDER_MALE,
 #line 1686
@@ -4750,7 +4750,7 @@
 #line 1688
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4793,14 +4793,14 @@
         },
     },
 #line 1702
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_CLARK] =
+    [TRAINER_HIKER_CLARK] =
     {
 #line 1703
         .trainerName = _("CLARK"),
 #line 1704
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1705
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1706
         .gender = TRAINER_GENDER_MALE,
 #line 1707
@@ -4810,7 +4810,7 @@
 #line 1709
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4855,14 +4855,14 @@
         },
     },
 #line 1727
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_TRENT] =
+    [TRAINER_HIKER_TRENT] =
     {
 #line 1728
         .trainerName = _("TRENT"),
 #line 1729
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1730
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1731
         .gender = TRAINER_GENDER_MALE,
 #line 1732
@@ -4872,7 +4872,7 @@
 #line 1734
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -4903,14 +4903,14 @@
         },
     },
 #line 1744
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_DUDLEY] =
+    [TRAINER_HIKER_DUDLEY] =
     {
 #line 1745
         .trainerName = _("DUDLEY"),
 #line 1746
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1747
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1748
         .gender = TRAINER_GENDER_MALE,
 #line 1749
@@ -4920,7 +4920,7 @@
 #line 1751
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -4984,14 +4984,14 @@
         },
     },
 #line 1777
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_ALLEN] =
+    [TRAINER_HIKER_ALLEN] =
     {
 #line 1778
         .trainerName = _("ALLEN"),
 #line 1779
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1780
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1781
         .gender = TRAINER_GENDER_MALE,
 #line 1782
@@ -5001,7 +5001,7 @@
 #line 1784
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5027,14 +5027,14 @@
         },
     },
 #line 1794
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_ERIC] =
+    [TRAINER_HIKER_ERIC] =
     {
 #line 1795
         .trainerName = _("ERIC"),
 #line 1796
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1797
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1798
         .gender = TRAINER_GENDER_MALE,
 #line 1799
@@ -5044,7 +5044,7 @@
 #line 1801
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5075,14 +5075,14 @@
         },
     },
 #line 1811
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_LENNY] =
+    [TRAINER_HIKER_LENNY] =
     {
 #line 1812
         .trainerName = _("LENNY"),
 #line 1813
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1814
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1815
         .gender = TRAINER_GENDER_MALE,
 #line 1816
@@ -5092,7 +5092,7 @@
 #line 1818
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -5147,14 +5147,14 @@
         },
     },
 #line 1836
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_OLIVER] =
+    [TRAINER_HIKER_OLIVER] =
     {
 #line 1837
         .trainerName = _("OLIVER"),
 #line 1838
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1839
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1840
         .gender = TRAINER_GENDER_MALE,
 #line 1841
@@ -5164,7 +5164,7 @@
 #line 1843
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5207,14 +5207,14 @@
         },
     },
 #line 1857
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_LUCAS] =
+    [TRAINER_HIKER_LUCAS] =
     {
 #line 1858
         .trainerName = _("LUCAS"),
 #line 1859
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 1860
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 1861
         .gender = TRAINER_GENDER_MALE,
 #line 1862
@@ -5224,7 +5224,7 @@
 #line 1864
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5269,14 +5269,14 @@
         },
     },
 #line 1882
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_JARED] =
+    [TRAINER_BIKER_JARED] =
     {
 #line 1883
         .trainerName = _("JARED"),
 #line 1884
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 1885
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 1886
         .gender = TRAINER_GENDER_MALE,
 #line 1887
@@ -5286,7 +5286,7 @@
 #line 1889
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5350,14 +5350,14 @@
         },
     },
 #line 1915
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_MALIK] =
+    [TRAINER_BIKER_MALIK] =
     {
 #line 1916
         .trainerName = _("MALIK"),
 #line 1917
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 1918
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 1919
         .gender = TRAINER_GENDER_MALE,
 #line 1920
@@ -5367,7 +5367,7 @@
 #line 1922
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5412,14 +5412,14 @@
         },
     },
 #line 1940
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_ERNEST] =
+    [TRAINER_BIKER_ERNEST] =
     {
 #line 1941
         .trainerName = _("ERNEST"),
 #line 1942
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 1943
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 1944
         .gender = TRAINER_GENDER_MALE,
 #line 1945
@@ -5429,7 +5429,7 @@
 #line 1947
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -5531,14 +5531,14 @@
         },
     },
 #line 1989
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_ALEX] =
+    [TRAINER_BIKER_ALEX] =
     {
 #line 1990
         .trainerName = _("ALEX"),
 #line 1991
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 1992
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 1993
         .gender = TRAINER_GENDER_MALE,
 #line 1994
@@ -5548,7 +5548,7 @@
 #line 1996
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5612,14 +5612,14 @@
         },
     },
 #line 2022
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_LAO] =
+    [TRAINER_BIKER_LAO] =
     {
 #line 2023
         .trainerName = _("LAO"),
 #line 2024
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2025
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2026
         .gender = TRAINER_GENDER_MALE,
 #line 2027
@@ -5629,7 +5629,7 @@
 #line 2029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5674,14 +5674,14 @@
         },
     },
 #line 2047
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_HIDEO] =
+    [TRAINER_BIKER_HIDEO] =
     {
 #line 2048
         .trainerName = _("HIDEO"),
 #line 2049
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2050
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2051
         .gender = TRAINER_GENDER_MALE,
 #line 2052
@@ -5691,7 +5691,7 @@
 #line 2054
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5710,14 +5710,14 @@
         },
     },
 #line 2060
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_RUBEN] =
+    [TRAINER_BIKER_RUBEN] =
     {
 #line 2061
         .trainerName = _("RUBEN"),
 #line 2062
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2063
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2064
         .gender = TRAINER_GENDER_MALE,
 #line 2065
@@ -5727,7 +5727,7 @@
 #line 2067
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -5791,14 +5791,14 @@
         },
     },
 #line 2093
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_BILLY] =
+    [TRAINER_BIKER_BILLY] =
     {
 #line 2094
         .trainerName = _("BILLY"),
 #line 2095
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2096
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2097
         .gender = TRAINER_GENDER_MALE,
 #line 2098
@@ -5808,7 +5808,7 @@
 #line 2100
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -5827,14 +5827,14 @@
         },
     },
 #line 2106
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_NIKOLAS] =
+    [TRAINER_BIKER_NIKOLAS] =
     {
 #line 2107
         .trainerName = _("NIKOLAS"),
 #line 2108
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2109
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2110
         .gender = TRAINER_GENDER_MALE,
 #line 2111
@@ -5844,7 +5844,7 @@
 #line 2113
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5889,14 +5889,14 @@
         },
     },
 #line 2131
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_JAXON] =
+    [TRAINER_BIKER_JAXON] =
     {
 #line 2132
         .trainerName = _("JAXON"),
 #line 2133
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2134
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2135
         .gender = TRAINER_GENDER_MALE,
 #line 2136
@@ -5906,7 +5906,7 @@
 #line 2138
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -5951,14 +5951,14 @@
         },
     },
 #line 2156
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_WILLIAM] =
+    [TRAINER_BIKER_WILLIAM] =
     {
 #line 2157
         .trainerName = _("WILLIAM"),
 #line 2158
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2159
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2160
         .gender = TRAINER_GENDER_MALE,
 #line 2161
@@ -5968,7 +5968,7 @@
 #line 2163
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -6070,14 +6070,14 @@
         },
     },
 #line 2205
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_LUKAS] =
+    [TRAINER_BIKER_LUKAS] =
     {
 #line 2206
         .trainerName = _("LUKAS"),
 #line 2207
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2208
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2209
         .gender = TRAINER_GENDER_MALE,
 #line 2210
@@ -6087,7 +6087,7 @@
 #line 2212
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -6170,14 +6170,14 @@
         },
     },
 #line 2246
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_ISAAC] =
+    [TRAINER_BIKER_ISAAC] =
     {
 #line 2247
         .trainerName = _("ISAAC"),
 #line 2248
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2249
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2250
         .gender = TRAINER_GENDER_MALE,
 #line 2251
@@ -6187,7 +6187,7 @@
 #line 2253
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6251,14 +6251,14 @@
         },
     },
 #line 2279
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_GERALD] =
+    [TRAINER_BIKER_GERALD] =
     {
 #line 2280
         .trainerName = _("GERALD"),
 #line 2281
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 2282
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 2283
         .gender = TRAINER_GENDER_MALE,
 #line 2284
@@ -6268,7 +6268,7 @@
 #line 2286
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6313,14 +6313,14 @@
         },
     },
 #line 2304
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_QUINN] =
+    [TRAINER_BURGLAR_QUINN] =
     {
 #line 2305
         .trainerName = _("QUINN"),
 #line 2306
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2307
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2308
         .gender = TRAINER_GENDER_MALE,
 #line 2309
@@ -6330,7 +6330,7 @@
 #line 2311
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6373,14 +6373,14 @@
         },
     },
 #line 2325
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_RAMON] =
+    [TRAINER_BURGLAR_RAMON] =
     {
 #line 2326
         .trainerName = _("RAMON"),
 #line 2327
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2328
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2329
         .gender = TRAINER_GENDER_MALE,
 #line 2330
@@ -6390,7 +6390,7 @@
 #line 2332
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6409,14 +6409,14 @@
         },
     },
 #line 2338
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_DUSTY] =
+    [TRAINER_BURGLAR_DUSTY] =
     {
 #line 2339
         .trainerName = _("DUSTY"),
 #line 2340
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2341
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2342
         .gender = TRAINER_GENDER_MALE,
 #line 2343
@@ -6426,7 +6426,7 @@
 #line 2345
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6457,14 +6457,14 @@
         },
     },
 #line 2355
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_ARNIE] =
+    [TRAINER_BURGLAR_ARNIE] =
     {
 #line 2356
         .trainerName = _("ARNIE"),
 #line 2357
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2358
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2359
         .gender = TRAINER_GENDER_MALE,
 #line 2360
@@ -6474,7 +6474,7 @@
 #line 2362
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6505,14 +6505,14 @@
         },
     },
 #line 2372
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_SIMON] =
+    [TRAINER_BURGLAR_SIMON] =
     {
 #line 2373
         .trainerName = _("SIMON"),
 #line 2374
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2375
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2376
         .gender = TRAINER_GENDER_MALE,
 #line 2377
@@ -6522,7 +6522,7 @@
 #line 2379
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6541,14 +6541,14 @@
         },
     },
 #line 2385
-    [DIFFICULTY_NORMAL][TRAINER_BURGLAR_LEWIS] =
+    [TRAINER_BURGLAR_LEWIS] =
     {
 #line 2386
         .trainerName = _("LEWIS"),
 #line 2387
         .trainerClass = TRAINER_CLASS_BURGLAR_FRLG,
 #line 2388
-        .trainerPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        .trainerPic = TRAINER_PIC_BURGLAR_FRLG,
 #line 2389
         .gender = TRAINER_GENDER_MALE,
 #line 2390
@@ -6558,7 +6558,7 @@
 #line 2392
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BURGLAR_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BURGLAR_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6589,14 +6589,14 @@
         },
     },
 #line 2402
-    [DIFFICULTY_NORMAL][TRAINER_ENGINEER_BAILY] =
+    [TRAINER_ENGINEER_BAILY] =
     {
 #line 2403
         .trainerName = _("BAILY"),
 #line 2404
         .trainerClass = TRAINER_CLASS_ENGINEER_FRLG,
 #line 2405
-        .trainerPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        .trainerPic = TRAINER_PIC_ENGINEER_FRLG,
 #line 2406
         .gender = TRAINER_GENDER_MALE,
 #line 2407
@@ -6606,7 +6606,7 @@
 #line 2409
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ENGINEER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6637,14 +6637,14 @@
         },
     },
 #line 2419
-    [DIFFICULTY_NORMAL][TRAINER_ENGINEER_BRAXTON] =
+    [TRAINER_ENGINEER_BRAXTON] =
     {
 #line 2420
         .trainerName = _("BRAXTON"),
 #line 2421
         .trainerClass = TRAINER_CLASS_ENGINEER_FRLG,
 #line 2422
-        .trainerPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        .trainerPic = TRAINER_PIC_ENGINEER_FRLG,
 #line 2423
         .gender = TRAINER_GENDER_MALE,
 #line 2424
@@ -6654,7 +6654,7 @@
 #line 2426
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ENGINEER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6673,14 +6673,14 @@
         },
     },
 #line 2432
-    [DIFFICULTY_NORMAL][TRAINER_ENGINEER_BERNIE] =
+    [TRAINER_ENGINEER_BERNIE] =
     {
 #line 2433
         .trainerName = _("BERNIE"),
 #line 2434
         .trainerClass = TRAINER_CLASS_ENGINEER_FRLG,
 #line 2435
-        .trainerPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        .trainerPic = TRAINER_PIC_ENGINEER_FRLG,
 #line 2436
         .gender = TRAINER_GENDER_MALE,
 #line 2437
@@ -6690,7 +6690,7 @@
 #line 2439
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ENGINEER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6733,14 +6733,14 @@
         },
     },
 #line 2453
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_DALE] =
+    [TRAINER_FISHERMAN_DALE] =
     {
 #line 2454
         .trainerName = _("DALE"),
 #line 2455
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2456
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2457
         .gender = TRAINER_GENDER_MALE,
 #line 2458
@@ -6750,7 +6750,7 @@
 #line 2460
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6793,14 +6793,14 @@
         },
     },
 #line 2474
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_BARNY] =
+    [TRAINER_FISHERMAN_BARNY] =
     {
 #line 2475
         .trainerName = _("BARNY"),
 #line 2476
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2477
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2478
         .gender = TRAINER_GENDER_MALE,
 #line 2479
@@ -6810,7 +6810,7 @@
 #line 2481
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6853,14 +6853,14 @@
         },
     },
 #line 2495
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_NED] =
+    [TRAINER_FISHERMAN_NED] =
     {
 #line 2496
         .trainerName = _("NED"),
 #line 2497
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2498
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2499
         .gender = TRAINER_GENDER_MALE,
 #line 2500
@@ -6870,7 +6870,7 @@
 #line 2502
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -6913,14 +6913,14 @@
         },
     },
 #line 2516
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_CHIP] =
+    [TRAINER_FISHERMAN_CHIP] =
     {
 #line 2517
         .trainerName = _("CHIP"),
 #line 2518
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2519
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2520
         .gender = TRAINER_GENDER_MALE,
 #line 2521
@@ -6930,7 +6930,7 @@
 #line 2523
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -6961,14 +6961,14 @@
         },
     },
 #line 2533
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_HANK] =
+    [TRAINER_FISHERMAN_HANK] =
     {
 #line 2534
         .trainerName = _("HANK"),
 #line 2535
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2536
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2537
         .gender = TRAINER_GENDER_MALE,
 #line 2538
@@ -6978,7 +6978,7 @@
 #line 2540
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -6997,14 +6997,14 @@
         },
     },
 #line 2546
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_ELLIOT] =
+    [TRAINER_FISHERMAN_ELLIOT] =
     {
 #line 2547
         .trainerName = _("ELLIOT"),
 #line 2548
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2549
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2550
         .gender = TRAINER_GENDER_MALE,
 #line 2551
@@ -7014,7 +7014,7 @@
 #line 2553
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -7069,14 +7069,14 @@
         },
     },
 #line 2571
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_RONALD] =
+    [TRAINER_FISHERMAN_RONALD] =
     {
 #line 2572
         .trainerName = _("RONALD"),
 #line 2573
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2574
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2575
         .gender = TRAINER_GENDER_MALE,
 #line 2576
@@ -7086,7 +7086,7 @@
 #line 2578
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -7141,14 +7141,14 @@
         },
     },
 #line 2596
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_CLAUDE] =
+    [TRAINER_FISHERMAN_CLAUDE] =
     {
 #line 2597
         .trainerName = _("CLAUDE"),
 #line 2598
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2599
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2600
         .gender = TRAINER_GENDER_MALE,
 #line 2601
@@ -7158,7 +7158,7 @@
 #line 2603
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7189,14 +7189,14 @@
         },
     },
 #line 2613
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_WADE] =
+    [TRAINER_FISHERMAN_WADE] =
     {
 #line 2614
         .trainerName = _("WADE"),
 #line 2615
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2616
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2617
         .gender = TRAINER_GENDER_MALE,
 #line 2618
@@ -7206,7 +7206,7 @@
 #line 2620
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -7285,14 +7285,14 @@
         },
     },
 #line 2646
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_NOLAN] =
+    [TRAINER_FISHERMAN_NOLAN] =
     {
 #line 2647
         .trainerName = _("NOLAN"),
 #line 2648
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2649
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2650
         .gender = TRAINER_GENDER_MALE,
 #line 2651
@@ -7302,7 +7302,7 @@
 #line 2653
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7333,14 +7333,14 @@
         },
     },
 #line 2663
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_ANDREW] =
+    [TRAINER_FISHERMAN_ANDREW] =
     {
 #line 2664
         .trainerName = _("ANDREW"),
 #line 2665
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 2666
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 2667
         .gender = TRAINER_GENDER_MALE,
 #line 2668
@@ -7350,7 +7350,7 @@
 #line 2670
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7381,14 +7381,14 @@
         },
     },
 #line 2680
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_LUIS] =
+    [TRAINER_SWIMMER_MALE_LUIS] =
     {
 #line 2681
         .trainerName = _("LUIS"),
 #line 2682
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2683
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2684
         .gender = TRAINER_GENDER_MALE,
 #line 2685
@@ -7398,7 +7398,7 @@
 #line 2687
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7429,14 +7429,14 @@
         },
     },
 #line 2697
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_RICHARD] =
+    [TRAINER_SWIMMER_MALE_RICHARD] =
     {
 #line 2698
         .trainerName = _("RICHARD"),
 #line 2699
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2700
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2701
         .gender = TRAINER_GENDER_MALE,
 #line 2702
@@ -7446,7 +7446,7 @@
 #line 2704
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7477,14 +7477,14 @@
         },
     },
 #line 2714
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_REECE] =
+    [TRAINER_SWIMMER_MALE_REECE] =
     {
 #line 2715
         .trainerName = _("REECE"),
 #line 2716
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2717
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2718
         .gender = TRAINER_GENDER_MALE,
 #line 2719
@@ -7494,7 +7494,7 @@
 #line 2721
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -7537,14 +7537,14 @@
         },
     },
 #line 2735
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_MATTHEW] =
+    [TRAINER_SWIMMER_MALE_MATTHEW] =
     {
 #line 2736
         .trainerName = _("MATTHEW"),
 #line 2737
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2738
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2739
         .gender = TRAINER_GENDER_MALE,
 #line 2740
@@ -7554,7 +7554,7 @@
 #line 2742
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7585,14 +7585,14 @@
         },
     },
 #line 2752
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_DOUGLAS] =
+    [TRAINER_SWIMMER_MALE_DOUGLAS] =
     {
 #line 2753
         .trainerName = _("DOUGLAS"),
 #line 2754
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2755
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2756
         .gender = TRAINER_GENDER_MALE,
 #line 2757
@@ -7602,7 +7602,7 @@
 #line 2759
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -7657,14 +7657,14 @@
         },
     },
 #line 2777
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_DAVID] =
+    [TRAINER_SWIMMER_MALE_DAVID] =
     {
 #line 2778
         .trainerName = _("DAVID"),
 #line 2779
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2780
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2781
         .gender = TRAINER_GENDER_MALE,
 #line 2782
@@ -7674,7 +7674,7 @@
 #line 2784
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -7717,14 +7717,14 @@
         },
     },
 #line 2798
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_TONY] =
+    [TRAINER_SWIMMER_MALE_TONY] =
     {
 #line 2799
         .trainerName = _("TONY"),
 #line 2800
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2801
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2802
         .gender = TRAINER_GENDER_MALE,
 #line 2803
@@ -7734,7 +7734,7 @@
 #line 2805
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7765,14 +7765,14 @@
         },
     },
 #line 2815
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_AXLE] =
+    [TRAINER_SWIMMER_MALE_AXLE] =
     {
 #line 2816
         .trainerName = _("AXLE"),
 #line 2817
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2818
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2819
         .gender = TRAINER_GENDER_MALE,
 #line 2820
@@ -7782,7 +7782,7 @@
 #line 2822
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -7849,14 +7849,14 @@
         },
     },
 #line 2844
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_BARRY] =
+    [TRAINER_SWIMMER_MALE_BARRY] =
     {
 #line 2845
         .trainerName = _("BARRY"),
 #line 2846
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2847
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2848
         .gender = TRAINER_GENDER_MALE,
 #line 2849
@@ -7866,7 +7866,7 @@
 #line 2851
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -7897,14 +7897,14 @@
         },
     },
 #line 2861
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_DEAN] =
+    [TRAINER_SWIMMER_MALE_DEAN] =
     {
 #line 2862
         .trainerName = _("DEAN"),
 #line 2863
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2864
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2865
         .gender = TRAINER_GENDER_MALE,
 #line 2866
@@ -7914,7 +7914,7 @@
 #line 2868
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -7933,14 +7933,14 @@
         },
     },
 #line 2874
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_DARRIN] =
+    [TRAINER_SWIMMER_MALE_DARRIN] =
     {
 #line 2875
         .trainerName = _("DARRIN"),
 #line 2876
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2877
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2878
         .gender = TRAINER_GENDER_MALE,
 #line 2879
@@ -7950,7 +7950,7 @@
 #line 2881
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -8005,14 +8005,14 @@
         },
     },
 #line 2899
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_SPENCER] =
+    [TRAINER_SWIMMER_MALE_SPENCER] =
     {
 #line 2900
         .trainerName = _("SPENCER"),
 #line 2901
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2902
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2903
         .gender = TRAINER_GENDER_MALE,
 #line 2904
@@ -8022,7 +8022,7 @@
 #line 2906
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8053,14 +8053,14 @@
         },
     },
 #line 2916
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_JACK] =
+    [TRAINER_SWIMMER_MALE_JACK] =
     {
 #line 2917
         .trainerName = _("JACK"),
 #line 2918
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2919
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2920
         .gender = TRAINER_GENDER_MALE,
 #line 2921
@@ -8070,7 +8070,7 @@
 #line 2923
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8089,14 +8089,14 @@
         },
     },
 #line 2929
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_JEROME] =
+    [TRAINER_SWIMMER_MALE_JEROME] =
     {
 #line 2930
         .trainerName = _("JEROME"),
 #line 2931
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2932
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2933
         .gender = TRAINER_GENDER_MALE,
 #line 2934
@@ -8106,7 +8106,7 @@
 #line 2936
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8137,14 +8137,14 @@
         },
     },
 #line 2946
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_ROLAND] =
+    [TRAINER_SWIMMER_MALE_ROLAND] =
     {
 #line 2947
         .trainerName = _("ROLAND"),
 #line 2948
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 2949
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 2950
         .gender = TRAINER_GENDER_MALE,
 #line 2951
@@ -8154,7 +8154,7 @@
 #line 2953
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8197,14 +8197,14 @@
         },
     },
 #line 2967
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_KOJI] =
+    [TRAINER_CUE_BALL_KOJI] =
     {
 #line 2968
         .trainerName = _("KOJI"),
 #line 2969
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 2970
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 2971
         .gender = TRAINER_GENDER_MALE,
 #line 2972
@@ -8214,7 +8214,7 @@
 #line 2974
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8257,14 +8257,14 @@
         },
     },
 #line 2988
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_LUKE] =
+    [TRAINER_CUE_BALL_LUKE] =
     {
 #line 2989
         .trainerName = _("LUKE"),
 #line 2990
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 2991
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 2992
         .gender = TRAINER_GENDER_MALE,
 #line 2993
@@ -8274,7 +8274,7 @@
 #line 2995
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8305,14 +8305,14 @@
         },
     },
 #line 3005
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_CAMRON] =
+    [TRAINER_CUE_BALL_CAMRON] =
     {
 #line 3006
         .trainerName = _("CAMRON"),
 #line 3007
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3008
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3009
         .gender = TRAINER_GENDER_MALE,
 #line 3010
@@ -8322,7 +8322,7 @@
 #line 3012
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8353,14 +8353,14 @@
         },
     },
 #line 3022
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_RAUL] =
+    [TRAINER_CUE_BALL_RAUL] =
     {
 #line 3023
         .trainerName = _("RAUL"),
 #line 3024
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3025
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3026
         .gender = TRAINER_GENDER_MALE,
 #line 3027
@@ -8370,7 +8370,7 @@
 #line 3029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8401,14 +8401,14 @@
         },
     },
 #line 3039
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_ISAIAH] =
+    [TRAINER_CUE_BALL_ISAIAH] =
     {
 #line 3040
         .trainerName = _("ISAIAH"),
 #line 3041
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3042
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3043
         .gender = TRAINER_GENDER_MALE,
 #line 3044
@@ -8418,7 +8418,7 @@
 #line 3046
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8449,14 +8449,14 @@
         },
     },
 #line 3056
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_ZEEK] =
+    [TRAINER_CUE_BALL_ZEEK] =
     {
 #line 3057
         .trainerName = _("ZEEK"),
 #line 3058
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3059
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3060
         .gender = TRAINER_GENDER_MALE,
 #line 3061
@@ -8466,7 +8466,7 @@
 #line 3063
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -8485,14 +8485,14 @@
         },
     },
 #line 3069
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_JAMAL] =
+    [TRAINER_CUE_BALL_JAMAL] =
     {
 #line 3070
         .trainerName = _("JAMAL"),
 #line 3071
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3072
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3073
         .gender = TRAINER_GENDER_MALE,
 #line 3074
@@ -8502,7 +8502,7 @@
 #line 3076
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -8557,14 +8557,14 @@
         },
     },
 #line 3094
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_COREY] =
+    [TRAINER_CUE_BALL_COREY] =
     {
 #line 3095
         .trainerName = _("COREY"),
 #line 3096
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3097
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3098
         .gender = TRAINER_GENDER_MALE,
 #line 3099
@@ -8574,7 +8574,7 @@
 #line 3101
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8605,14 +8605,14 @@
         },
     },
 #line 3111
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_CHASE] =
+    [TRAINER_CUE_BALL_CHASE] =
     {
 #line 3112
         .trainerName = _("CHASE"),
 #line 3113
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 3114
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 3115
         .gender = TRAINER_GENDER_MALE,
 #line 3116
@@ -8622,7 +8622,7 @@
 #line 3118
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8665,14 +8665,14 @@
         },
     },
 #line 3132
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_HUGO] =
+    [TRAINER_GAMER_HUGO] =
     {
 #line 3133
         .trainerName = _("HUGO"),
 #line 3134
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3135
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3136
         .gender = TRAINER_GENDER_MALE,
 #line 3137
@@ -8682,7 +8682,7 @@
 #line 3139
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8713,14 +8713,14 @@
         },
     },
 #line 3149
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_JASPER] =
+    [TRAINER_GAMER_JASPER] =
     {
 #line 3150
         .trainerName = _("JASPER"),
 #line 3151
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3152
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3153
         .gender = TRAINER_GENDER_MALE,
 #line 3154
@@ -8730,7 +8730,7 @@
 #line 3156
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8761,14 +8761,14 @@
         },
     },
 #line 3166
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_DIRK] =
+    [TRAINER_GAMER_DIRK] =
     {
 #line 3167
         .trainerName = _("DIRK"),
 #line 3168
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3169
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3170
         .gender = TRAINER_GENDER_MALE,
 #line 3171
@@ -8778,7 +8778,7 @@
 #line 3173
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8809,14 +8809,14 @@
         },
     },
 #line 3183
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_DARIAN] =
+    [TRAINER_GAMER_DARIAN] =
     {
 #line 3184
         .trainerName = _("DARIAN"),
 #line 3185
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3186
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3187
         .gender = TRAINER_GENDER_MALE,
 #line 3188
@@ -8826,7 +8826,7 @@
 #line 3190
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8857,14 +8857,14 @@
         },
     },
 #line 3200
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_STAN] =
+    [TRAINER_GAMER_STAN] =
     {
 #line 3201
         .trainerName = _("STAN"),
 #line 3202
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3203
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3204
         .gender = TRAINER_GENDER_MALE,
 #line 3205
@@ -8874,7 +8874,7 @@
 #line 3207
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -8917,14 +8917,14 @@
         },
     },
 #line 3221
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_RICH] =
+    [TRAINER_GAMER_RICH] =
     {
 #line 3222
         .trainerName = _("RICH"),
 #line 3223
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 3224
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 3225
         .gender = TRAINER_GENDER_MALE,
 #line 3226
@@ -8934,7 +8934,7 @@
 #line 3228
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -8965,14 +8965,14 @@
         },
     },
 #line 3238
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_BRIDGET] =
+    [TRAINER_BEAUTY_BRIDGET] =
     {
 #line 3239
         .trainerName = _("BRIDGET"),
 #line 3240
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3241
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3242
         .gender = TRAINER_GENDER_MALE,
 #line 3243
@@ -8982,7 +8982,7 @@
 #line 3245
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -9037,14 +9037,14 @@
         },
     },
 #line 3263
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_TAMIA] =
+    [TRAINER_BEAUTY_TAMIA] =
     {
 #line 3264
         .trainerName = _("TAMIA"),
 #line 3265
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3266
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3267
         .gender = TRAINER_GENDER_MALE,
 #line 3268
@@ -9054,7 +9054,7 @@
 #line 3270
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9085,14 +9085,14 @@
         },
     },
 #line 3280
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_LORI] =
+    [TRAINER_BEAUTY_LORI] =
     {
 #line 3281
         .trainerName = _("LORI"),
 #line 3282
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3283
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3284
         .gender = TRAINER_GENDER_MALE,
 #line 3285
@@ -9102,7 +9102,7 @@
 #line 3287
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9121,14 +9121,14 @@
         },
     },
 #line 3293
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_LOLA] =
+    [TRAINER_BEAUTY_LOLA] =
     {
 #line 3294
         .trainerName = _("LOLA"),
 #line 3295
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3296
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3297
         .gender = TRAINER_GENDER_MALE,
 #line 3298
@@ -9138,7 +9138,7 @@
 #line 3300
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9181,14 +9181,14 @@
         },
     },
 #line 3314
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_SHEILA] =
+    [TRAINER_BEAUTY_SHEILA] =
     {
 #line 3315
         .trainerName = _("SHEILA"),
 #line 3316
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3317
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3318
         .gender = TRAINER_GENDER_MALE,
 #line 3319
@@ -9198,7 +9198,7 @@
 #line 3321
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9229,14 +9229,14 @@
         },
     },
 #line 3331
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_TIFFANY] =
+    [TRAINER_SWIMMER_FEMALE_TIFFANY] =
     {
 #line 3332
         .trainerName = _("TIFFANY"),
 #line 3333
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3334
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3335
         .gender = TRAINER_GENDER_MALE,
 #line 3336
@@ -9246,7 +9246,7 @@
 #line 3338
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9265,14 +9265,14 @@
         },
     },
 #line 3344
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_NORA] =
+    [TRAINER_SWIMMER_FEMALE_NORA] =
     {
 #line 3345
         .trainerName = _("NORA"),
 #line 3346
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3347
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3348
         .gender = TRAINER_GENDER_MALE,
 #line 3349
@@ -9282,7 +9282,7 @@
 #line 3351
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9325,14 +9325,14 @@
         },
     },
 #line 3365
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_MELISSA] =
+    [TRAINER_SWIMMER_FEMALE_MELISSA] =
     {
 #line 3366
         .trainerName = _("MELISSA"),
 #line 3367
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3368
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3369
         .gender = TRAINER_GENDER_MALE,
 #line 3370
@@ -9342,7 +9342,7 @@
 #line 3372
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9373,14 +9373,14 @@
         },
     },
 #line 3382
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_GRACE] =
+    [TRAINER_BEAUTY_GRACE] =
     {
 #line 3383
         .trainerName = _("GRACE"),
 #line 3384
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3385
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3386
         .gender = TRAINER_GENDER_MALE,
 #line 3387
@@ -9390,7 +9390,7 @@
 #line 3389
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9421,14 +9421,14 @@
         },
     },
 #line 3399
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_OLIVIA] =
+    [TRAINER_BEAUTY_OLIVIA] =
     {
 #line 3400
         .trainerName = _("OLIVIA"),
 #line 3401
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3402
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 3403
         .gender = TRAINER_GENDER_MALE,
 #line 3404
@@ -9438,7 +9438,7 @@
 #line 3406
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9469,14 +9469,14 @@
         },
     },
 #line 3416
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_LAUREN] =
+    [TRAINER_BEAUTY_LAUREN] =
     {
 #line 3417
         .trainerName = _("LAUREN"),
 #line 3418
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 3419
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3420
         .gender = TRAINER_GENDER_MALE,
 #line 3421
@@ -9486,7 +9486,7 @@
 #line 3423
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9529,14 +9529,14 @@
         },
     },
 #line 3437
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_ANYA] =
+    [TRAINER_SWIMMER_FEMALE_ANYA] =
     {
 #line 3438
         .trainerName = _("ANYA"),
 #line 3439
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3440
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3441
         .gender = TRAINER_GENDER_MALE,
 #line 3442
@@ -9546,7 +9546,7 @@
 #line 3444
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -9613,14 +9613,14 @@
         },
     },
 #line 3466
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_ALICE] =
+    [TRAINER_SWIMMER_FEMALE_ALICE] =
     {
 #line 3467
         .trainerName = _("ALICE"),
 #line 3468
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3469
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3470
         .gender = TRAINER_GENDER_MALE,
 #line 3471
@@ -9630,7 +9630,7 @@
 #line 3473
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9661,14 +9661,14 @@
         },
     },
 #line 3483
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_CONNIE] =
+    [TRAINER_SWIMMER_FEMALE_CONNIE] =
     {
 #line 3484
         .trainerName = _("CONNIE"),
 #line 3485
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3486
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3487
         .gender = TRAINER_GENDER_MALE,
 #line 3488
@@ -9678,7 +9678,7 @@
 #line 3490
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9721,14 +9721,14 @@
         },
     },
 #line 3504
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_SHIRLEY] =
+    [TRAINER_SWIMMER_FEMALE_SHIRLEY] =
     {
 #line 3505
         .trainerName = _("SHIRLEY"),
 #line 3506
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 3507
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 3508
         .gender = TRAINER_GENDER_MALE,
 #line 3509
@@ -9738,7 +9738,7 @@
 #line 3511
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9781,14 +9781,14 @@
         },
     },
 #line 3525
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_JOHAN] =
+    [TRAINER_PSYCHIC_JOHAN] =
     {
 #line 3526
         .trainerName = _("JOHAN"),
 #line 3527
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 3528
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 3529
         .gender = TRAINER_GENDER_MALE,
 #line 3530
@@ -9798,7 +9798,7 @@
 #line 3532
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -9853,14 +9853,14 @@
         },
     },
 #line 3550
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_TYRON] =
+    [TRAINER_PSYCHIC_TYRON] =
     {
 #line 3551
         .trainerName = _("TYRON"),
 #line 3552
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 3553
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 3554
         .gender = TRAINER_GENDER_MALE,
 #line 3555
@@ -9870,7 +9870,7 @@
 #line 3557
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -9901,14 +9901,14 @@
         },
     },
 #line 3567
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_CAMERON] =
+    [TRAINER_PSYCHIC_CAMERON] =
     {
 #line 3568
         .trainerName = _("CAMERON"),
 #line 3569
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 3570
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 3571
         .gender = TRAINER_GENDER_MALE,
 #line 3572
@@ -9918,7 +9918,7 @@
 #line 3574
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -9961,14 +9961,14 @@
         },
     },
 #line 3588
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_PRESTON] =
+    [TRAINER_PSYCHIC_PRESTON] =
     {
 #line 3589
         .trainerName = _("PRESTON"),
 #line 3590
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 3591
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 3592
         .gender = TRAINER_GENDER_MALE,
 #line 3593
@@ -9978,7 +9978,7 @@
 #line 3595
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -9997,14 +9997,14 @@
         },
     },
 #line 3601
-    [DIFFICULTY_NORMAL][TRAINER_ROCKER_RANDALL] =
+    [TRAINER_ROCKER_RANDALL] =
     {
 #line 3602
         .trainerName = _("RANDALL"),
 #line 3603
         .trainerClass = TRAINER_CLASS_ROCKER_FRLG,
 #line 3604
-        .trainerPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKER_FRLG,
 #line 3605
         .gender = TRAINER_GENDER_MALE,
 #line 3606
@@ -10014,7 +10014,7 @@
 #line 3608
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10057,14 +10057,14 @@
         },
     },
 #line 3622
-    [DIFFICULTY_NORMAL][TRAINER_ROCKER_LUCA] =
+    [TRAINER_ROCKER_LUCA] =
     {
 #line 3623
         .trainerName = _("LUCA"),
 #line 3624
         .trainerClass = TRAINER_CLASS_ROCKER_FRLG,
 #line 3625
-        .trainerPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKER_FRLG,
 #line 3626
         .gender = TRAINER_GENDER_MALE,
 #line 3627
@@ -10074,7 +10074,7 @@
 #line 3629
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10105,14 +10105,14 @@
         },
     },
 #line 3639
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_DALTON] =
+    [TRAINER_JUGGLER_DALTON] =
     {
 #line 3640
         .trainerName = _("DALTON"),
 #line 3641
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3642
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3643
         .gender = TRAINER_GENDER_MALE,
 #line 3644
@@ -10122,7 +10122,7 @@
 #line 3646
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10153,14 +10153,14 @@
         },
     },
 #line 3656
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_NELSON] =
+    [TRAINER_JUGGLER_NELSON] =
     {
 #line 3657
         .trainerName = _("NELSON"),
 #line 3658
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3659
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3660
         .gender = TRAINER_GENDER_MALE,
 #line 3661
@@ -10170,7 +10170,7 @@
 #line 3663
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -10225,14 +10225,14 @@
         },
     },
 #line 3681
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_KIRK] =
+    [TRAINER_JUGGLER_KIRK] =
     {
 #line 3682
         .trainerName = _("KIRK"),
 #line 3683
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3684
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3685
         .gender = TRAINER_GENDER_MALE,
 #line 3686
@@ -10242,7 +10242,7 @@
 #line 3688
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -10297,14 +10297,14 @@
         },
     },
 #line 3706
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_SHAWN] =
+    [TRAINER_JUGGLER_SHAWN] =
     {
 #line 3707
         .trainerName = _("SHAWN"),
 #line 3708
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3709
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3710
         .gender = TRAINER_GENDER_MALE,
 #line 3711
@@ -10314,7 +10314,7 @@
 #line 3713
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10345,14 +10345,14 @@
         },
     },
 #line 3723
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_GREGORY] =
+    [TRAINER_JUGGLER_GREGORY] =
     {
 #line 3724
         .trainerName = _("GREGORY"),
 #line 3725
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3726
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3727
         .gender = TRAINER_GENDER_MALE,
 #line 3728
@@ -10362,7 +10362,7 @@
 #line 3730
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10388,14 +10388,14 @@
         },
     },
 #line 3740
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_EDWARD] =
+    [TRAINER_JUGGLER_EDWARD] =
     {
 #line 3741
         .trainerName = _("EDWARD"),
 #line 3742
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3743
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3744
         .gender = TRAINER_GENDER_MALE,
 #line 3745
@@ -10405,7 +10405,7 @@
 #line 3747
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -10488,14 +10488,14 @@
         },
     },
 #line 3781
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_KAYDEN] =
+    [TRAINER_JUGGLER_KAYDEN] =
     {
 #line 3782
         .trainerName = _("KAYDEN"),
 #line 3783
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3784
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3785
         .gender = TRAINER_GENDER_MALE,
 #line 3786
@@ -10505,7 +10505,7 @@
 #line 3788
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10524,14 +10524,14 @@
         },
     },
 #line 3794
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_NATE] =
+    [TRAINER_JUGGLER_NATE] =
     {
 #line 3795
         .trainerName = _("NATE"),
 #line 3796
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 3797
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 3798
         .gender = TRAINER_GENDER_MALE,
 #line 3799
@@ -10541,7 +10541,7 @@
 #line 3801
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10572,14 +10572,14 @@
         },
     },
 #line 3811
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_PHIL] =
+    [TRAINER_TAMER_PHIL] =
     {
 #line 3812
         .trainerName = _("PHIL"),
 #line 3813
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3814
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3815
         .gender = TRAINER_GENDER_MALE,
 #line 3816
@@ -10589,7 +10589,7 @@
 #line 3818
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10620,14 +10620,14 @@
         },
     },
 #line 3828
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_EDGAR] =
+    [TRAINER_TAMER_EDGAR] =
     {
 #line 3829
         .trainerName = _("EDGAR"),
 #line 3830
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3831
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3832
         .gender = TRAINER_GENDER_MALE,
 #line 3833
@@ -10637,7 +10637,7 @@
 #line 3835
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -10680,14 +10680,14 @@
         },
     },
 #line 3849
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_JASON] =
+    [TRAINER_TAMER_JASON] =
     {
 #line 3850
         .trainerName = _("JASON"),
 #line 3851
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3852
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3853
         .gender = TRAINER_GENDER_MALE,
 #line 3854
@@ -10697,7 +10697,7 @@
 #line 3856
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -10716,14 +10716,14 @@
         },
     },
 #line 3862
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_COLE] =
+    [TRAINER_TAMER_COLE] =
     {
 #line 3863
         .trainerName = _("COLE"),
 #line 3864
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3865
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3866
         .gender = TRAINER_GENDER_MALE,
 #line 3867
@@ -10733,7 +10733,7 @@
 #line 3869
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10764,14 +10764,14 @@
         },
     },
 #line 3879
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_VINCENT] =
+    [TRAINER_TAMER_VINCENT] =
     {
 #line 3880
         .trainerName = _("VINCENT"),
 #line 3881
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3882
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3883
         .gender = TRAINER_GENDER_MALE,
 #line 3884
@@ -10781,7 +10781,7 @@
 #line 3886
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10812,14 +10812,14 @@
         },
     },
 #line 3896
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_JOHN] =
+    [TRAINER_TAMER_JOHN] =
     {
 #line 3897
         .trainerName = _("JOHN"),
 #line 3898
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 3899
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 3900
         .gender = TRAINER_GENDER_MALE,
 #line 3901
@@ -10829,7 +10829,7 @@
 #line 3903
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -10884,14 +10884,14 @@
         },
     },
 #line 3921
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_SEBASTIAN] =
+    [TRAINER_BIRD_KEEPER_SEBASTIAN] =
     {
 #line 3922
         .trainerName = _("SEBASTIAN"),
 #line 3923
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 3924
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 3925
         .gender = TRAINER_GENDER_MALE,
 #line 3926
@@ -10901,7 +10901,7 @@
 #line 3928
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -10932,14 +10932,14 @@
         },
     },
 #line 3938
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_PERRY] =
+    [TRAINER_BIRD_KEEPER_PERRY] =
     {
 #line 3939
         .trainerName = _("PERRY"),
 #line 3940
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 3941
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 3942
         .gender = TRAINER_GENDER_MALE,
 #line 3943
@@ -10949,7 +10949,7 @@
 #line 3945
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -11016,14 +11016,14 @@
         },
     },
 #line 3967
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_ROBERT] =
+    [TRAINER_BIRD_KEEPER_ROBERT] =
     {
 #line 3968
         .trainerName = _("ROBERT"),
 #line 3969
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 3970
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 3971
         .gender = TRAINER_GENDER_MALE,
 #line 3972
@@ -11033,7 +11033,7 @@
 #line 3974
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -11088,14 +11088,14 @@
         },
     },
 #line 3992
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_DONALD] =
+    [TRAINER_BIRD_KEEPER_DONALD] =
     {
 #line 3993
         .trainerName = _("DONALD"),
 #line 3994
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 3995
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 3996
         .gender = TRAINER_GENDER_MALE,
 #line 3997
@@ -11105,7 +11105,7 @@
 #line 3999
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11124,14 +11124,14 @@
         },
     },
 #line 4005
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_BENNY] =
+    [TRAINER_BIRD_KEEPER_BENNY] =
     {
 #line 4006
         .trainerName = _("BENNY"),
 #line 4007
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4008
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4009
         .gender = TRAINER_GENDER_MALE,
 #line 4010
@@ -11141,7 +11141,7 @@
 #line 4012
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11172,14 +11172,14 @@
         },
     },
 #line 4022
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_EDWIN] =
+    [TRAINER_BIRD_KEEPER_EDWIN] =
     {
 #line 4023
         .trainerName = _("EDWIN"),
 #line 4024
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4025
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4026
         .gender = TRAINER_GENDER_MALE,
 #line 4027
@@ -11189,7 +11189,7 @@
 #line 4029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -11244,14 +11244,14 @@
         },
     },
 #line 4047
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CHESTER] =
+    [TRAINER_BIRD_KEEPER_CHESTER] =
     {
 #line 4048
         .trainerName = _("CHESTER"),
 #line 4049
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4050
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4051
         .gender = TRAINER_GENDER_MALE,
 #line 4052
@@ -11261,7 +11261,7 @@
 #line 4054
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11304,14 +11304,14 @@
         },
     },
 #line 4068
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_WILTON] =
+    [TRAINER_BIRD_KEEPER_WILTON] =
     {
 #line 4069
         .trainerName = _("WILTON"),
 #line 4070
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4071
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4072
         .gender = TRAINER_GENDER_MALE,
 #line 4073
@@ -11321,7 +11321,7 @@
 #line 4075
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11352,14 +11352,14 @@
         },
     },
 #line 4085
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_RAMIRO] =
+    [TRAINER_BIRD_KEEPER_RAMIRO] =
     {
 #line 4086
         .trainerName = _("RAMIRO"),
 #line 4087
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4088
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4089
         .gender = TRAINER_GENDER_MALE,
 #line 4090
@@ -11369,7 +11369,7 @@
 #line 4092
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -11388,14 +11388,14 @@
         },
     },
 #line 4098
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_JACOB] =
+    [TRAINER_BIRD_KEEPER_JACOB] =
     {
 #line 4099
         .trainerName = _("JACOB"),
 #line 4100
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4101
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4102
         .gender = TRAINER_GENDER_MALE,
 #line 4103
@@ -11405,7 +11405,7 @@
 #line 4105
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -11460,14 +11460,14 @@
         },
     },
 #line 4123
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_ROGER] =
+    [TRAINER_BIRD_KEEPER_ROGER] =
     {
 #line 4124
         .trainerName = _("ROGER"),
 #line 4125
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4126
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4127
         .gender = TRAINER_GENDER_MALE,
 #line 4128
@@ -11477,7 +11477,7 @@
 #line 4130
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11520,14 +11520,14 @@
         },
     },
 #line 4144
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_REED] =
+    [TRAINER_BIRD_KEEPER_REED] =
     {
 #line 4145
         .trainerName = _("REED"),
 #line 4146
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4147
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4148
         .gender = TRAINER_GENDER_MALE,
 #line 4149
@@ -11537,7 +11537,7 @@
 #line 4151
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -11592,14 +11592,14 @@
         },
     },
 #line 4169
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_KEITH] =
+    [TRAINER_BIRD_KEEPER_KEITH] =
     {
 #line 4170
         .trainerName = _("KEITH"),
 #line 4171
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4172
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4173
         .gender = TRAINER_GENDER_MALE,
 #line 4174
@@ -11609,7 +11609,7 @@
 #line 4176
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11640,14 +11640,14 @@
         },
     },
 #line 4186
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CARTER] =
+    [TRAINER_BIRD_KEEPER_CARTER] =
     {
 #line 4187
         .trainerName = _("CARTER"),
 #line 4188
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4189
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4190
         .gender = TRAINER_GENDER_MALE,
 #line 4191
@@ -11657,7 +11657,7 @@
 #line 4193
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11700,14 +11700,14 @@
         },
     },
 #line 4207
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MITCH] =
+    [TRAINER_BIRD_KEEPER_MITCH] =
     {
 #line 4208
         .trainerName = _("MITCH"),
 #line 4209
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4210
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4211
         .gender = TRAINER_GENDER_MALE,
 #line 4212
@@ -11717,7 +11717,7 @@
 #line 4214
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -11772,14 +11772,14 @@
         },
     },
 #line 4232
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_BECK] =
+    [TRAINER_BIRD_KEEPER_BECK] =
     {
 #line 4233
         .trainerName = _("BECK"),
 #line 4234
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4235
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4236
         .gender = TRAINER_GENDER_MALE,
 #line 4237
@@ -11789,7 +11789,7 @@
 #line 4239
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11820,14 +11820,14 @@
         },
     },
 #line 4249
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MARLON] =
+    [TRAINER_BIRD_KEEPER_MARLON] =
     {
 #line 4250
         .trainerName = _("MARLON"),
 #line 4251
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 4252
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 4253
         .gender = TRAINER_GENDER_MALE,
 #line 4254
@@ -11837,7 +11837,7 @@
 #line 4256
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11880,14 +11880,14 @@
         },
     },
 #line 4270
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_KOICHI] =
+    [TRAINER_BLACK_BELT_KOICHI] =
     {
 #line 4271
         .trainerName = _("KOICHI"),
 #line 4272
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4273
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4274
         .gender = TRAINER_GENDER_MALE,
 #line 4275
@@ -11897,7 +11897,7 @@
 #line 4277
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -11932,14 +11932,14 @@
         },
     },
 #line 4287
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_MIKE] =
+    [TRAINER_BLACK_BELT_MIKE] =
     {
 #line 4288
         .trainerName = _("MIKE"),
 #line 4289
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4290
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4291
         .gender = TRAINER_GENDER_MALE,
 #line 4292
@@ -11949,7 +11949,7 @@
 #line 4294
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -11998,14 +11998,14 @@
         },
     },
 #line 4308
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_HIDEKI] =
+    [TRAINER_BLACK_BELT_HIDEKI] =
     {
 #line 4309
         .trainerName = _("HIDEKI"),
 #line 4310
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4311
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4312
         .gender = TRAINER_GENDER_MALE,
 #line 4313
@@ -12015,7 +12015,7 @@
 #line 4315
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12050,14 +12050,14 @@
         },
     },
 #line 4325
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_AARON] =
+    [TRAINER_BLACK_BELT_AARON] =
     {
 #line 4326
         .trainerName = _("AARON"),
 #line 4327
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4328
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4329
         .gender = TRAINER_GENDER_MALE,
 #line 4330
@@ -12067,7 +12067,7 @@
 #line 4332
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12088,14 +12088,14 @@
         },
     },
 #line 4338
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_HITOSHI] =
+    [TRAINER_BLACK_BELT_HITOSHI] =
     {
 #line 4339
         .trainerName = _("HITOSHI"),
 #line 4340
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4341
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4342
         .gender = TRAINER_GENDER_MALE,
 #line 4343
@@ -12105,7 +12105,7 @@
 #line 4345
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -12154,14 +12154,14 @@
         },
     },
 #line 4359
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_ATSUSHI] =
+    [TRAINER_BLACK_BELT_ATSUSHI] =
     {
 #line 4360
         .trainerName = _("ATSUSHI"),
 #line 4361
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4362
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4363
         .gender = TRAINER_GENDER_MALE,
 #line 4364
@@ -12171,7 +12171,7 @@
 #line 4366
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12206,14 +12206,14 @@
         },
     },
 #line 4376
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_KIYO] =
+    [TRAINER_BLACK_BELT_KIYO] =
     {
 #line 4377
         .trainerName = _("KIYO"),
 #line 4378
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4379
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4380
         .gender = TRAINER_GENDER_MALE,
 #line 4381
@@ -12223,7 +12223,7 @@
 #line 4383
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12244,14 +12244,14 @@
         },
     },
 #line 4389
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_TAKASHI] =
+    [TRAINER_BLACK_BELT_TAKASHI] =
     {
 #line 4390
         .trainerName = _("TAKASHI"),
 #line 4391
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4392
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4393
         .gender = TRAINER_GENDER_MALE,
 #line 4394
@@ -12261,7 +12261,7 @@
 #line 4396
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -12310,14 +12310,14 @@
         },
     },
 #line 4410
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_DAISUKE] =
+    [TRAINER_BLACK_BELT_DAISUKE] =
     {
 #line 4411
         .trainerName = _("DAISUKE"),
 #line 4412
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 4413
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 4414
         .gender = TRAINER_GENDER_MALE,
 #line 4415
@@ -12327,7 +12327,7 @@
 #line 4417
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -12376,14 +12376,14 @@
         },
     },
 #line 4431
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_OAKS_LAB_SQUIRTLE] =
+    [TRAINER_RIVAL_OAKS_LAB_SQUIRTLE] =
     {
 #line 4432
         .trainerName = _("TERRY"),
 #line 4433
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4434
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4435
         .gender = TRAINER_GENDER_MALE,
 #line 4436
@@ -12393,7 +12393,7 @@
 #line 4438
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12417,14 +12417,14 @@
         },
     },
 #line 4446
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_OAKS_LAB_BULBASAUR] =
+    [TRAINER_RIVAL_OAKS_LAB_BULBASAUR] =
     {
 #line 4447
         .trainerName = _("TERRY"),
 #line 4448
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4449
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4450
         .gender = TRAINER_GENDER_MALE,
 #line 4451
@@ -12434,7 +12434,7 @@
 #line 4453
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12458,14 +12458,14 @@
         },
     },
 #line 4461
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_OAKS_LAB_CHARMANDER] =
+    [TRAINER_RIVAL_OAKS_LAB_CHARMANDER] =
     {
 #line 4462
         .trainerName = _("TERRY"),
 #line 4463
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4464
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4465
         .gender = TRAINER_GENDER_MALE,
 #line 4466
@@ -12475,7 +12475,7 @@
 #line 4468
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -12499,14 +12499,14 @@
         },
     },
 #line 4476
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE] =
+    [TRAINER_RIVAL_ROUTE22_EARLY_SQUIRTLE] =
     {
 #line 4477
         .trainerName = _("TERRY"),
 #line 4478
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4479
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4480
         .gender = TRAINER_GENDER_MALE,
 #line 4481
@@ -12516,7 +12516,7 @@
 #line 4483
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12557,14 +12557,14 @@
         },
     },
 #line 4497
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR] =
+    [TRAINER_RIVAL_ROUTE22_EARLY_BULBASAUR] =
     {
 #line 4498
         .trainerName = _("TERRY"),
 #line 4499
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4500
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4501
         .gender = TRAINER_GENDER_MALE,
 #line 4502
@@ -12574,7 +12574,7 @@
 #line 4504
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12615,14 +12615,14 @@
         },
     },
 #line 4518
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER] =
+    [TRAINER_RIVAL_ROUTE22_EARLY_CHARMANDER] =
     {
 #line 4519
         .trainerName = _("TERRY"),
 #line 4520
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4521
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4522
         .gender = TRAINER_GENDER_MALE,
 #line 4523
@@ -12632,7 +12632,7 @@
 #line 4525
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -12673,14 +12673,14 @@
         },
     },
 #line 4539
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_CERULEAN_SQUIRTLE] =
+    [TRAINER_RIVAL_CERULEAN_SQUIRTLE] =
     {
 #line 4540
         .trainerName = _("TERRY"),
 #line 4541
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4542
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4543
         .gender = TRAINER_GENDER_MALE,
 #line 4544
@@ -12690,7 +12690,7 @@
 #line 4546
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -12769,14 +12769,14 @@
         },
     },
 #line 4576
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_CERULEAN_BULBASAUR] =
+    [TRAINER_RIVAL_CERULEAN_BULBASAUR] =
     {
 #line 4577
         .trainerName = _("TERRY"),
 #line 4578
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4579
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4580
         .gender = TRAINER_GENDER_MALE,
 #line 4581
@@ -12786,7 +12786,7 @@
 #line 4583
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -12865,14 +12865,14 @@
         },
     },
 #line 4613
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_CERULEAN_CHARMANDER] =
+    [TRAINER_RIVAL_CERULEAN_CHARMANDER] =
     {
 #line 4614
         .trainerName = _("TERRY"),
 #line 4615
         .trainerClass = TRAINER_CLASS_RIVAL_EARLY_FRLG,
 #line 4616
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
 #line 4617
         .gender = TRAINER_GENDER_MALE,
 #line 4618
@@ -12882,7 +12882,7 @@
 #line 4620
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_EARLY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_EARLY_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -12961,14 +12961,14 @@
         },
     },
 #line 4650
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_TED] =
+    [TRAINER_SCIENTIST_TED] =
     {
 #line 4651
         .trainerName = _("TED"),
 #line 4652
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4653
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4654
         .gender = TRAINER_GENDER_MALE,
 #line 4655
@@ -12978,7 +12978,7 @@
 #line 4657
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13009,14 +13009,14 @@
         },
     },
 #line 4667
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_CONNOR] =
+    [TRAINER_SCIENTIST_CONNOR] =
     {
 #line 4668
         .trainerName = _("CONNOR"),
 #line 4669
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4670
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4671
         .gender = TRAINER_GENDER_MALE,
 #line 4672
@@ -13026,7 +13026,7 @@
 #line 4674
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13109,14 +13109,14 @@
         },
     },
 #line 4708
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_JERRY] =
+    [TRAINER_SCIENTIST_JERRY] =
     {
 #line 4709
         .trainerName = _("JERRY"),
 #line 4710
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4711
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4712
         .gender = TRAINER_GENDER_MALE,
 #line 4713
@@ -13126,7 +13126,7 @@
 #line 4715
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13169,14 +13169,14 @@
         },
     },
 #line 4729
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_JOSE] =
+    [TRAINER_SCIENTIST_JOSE] =
     {
 #line 4730
         .trainerName = _("JOSE"),
 #line 4731
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4732
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4733
         .gender = TRAINER_GENDER_MALE,
 #line 4734
@@ -13186,7 +13186,7 @@
 #line 4736
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13231,14 +13231,14 @@
         },
     },
 #line 4754
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_RODNEY] =
+    [TRAINER_SCIENTIST_RODNEY] =
     {
 #line 4755
         .trainerName = _("RODNEY"),
 #line 4756
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4757
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4758
         .gender = TRAINER_GENDER_MALE,
 #line 4759
@@ -13248,7 +13248,7 @@
 #line 4761
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -13267,14 +13267,14 @@
         },
     },
 #line 4767
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_BEAU] =
+    [TRAINER_SCIENTIST_BEAU] =
     {
 #line 4768
         .trainerName = _("BEAU"),
 #line 4769
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4770
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4771
         .gender = TRAINER_GENDER_MALE,
 #line 4772
@@ -13284,7 +13284,7 @@
 #line 4774
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13367,14 +13367,14 @@
         },
     },
 #line 4808
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_TAYLOR] =
+    [TRAINER_SCIENTIST_TAYLOR] =
     {
 #line 4809
         .trainerName = _("TAYLOR"),
 #line 4810
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4811
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4812
         .gender = TRAINER_GENDER_MALE,
 #line 4813
@@ -13384,7 +13384,7 @@
 #line 4815
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -13486,14 +13486,14 @@
         },
     },
 #line 4857
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_JOSHUA] =
+    [TRAINER_SCIENTIST_JOSHUA] =
     {
 #line 4858
         .trainerName = _("JOSHUA"),
 #line 4859
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4860
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4861
         .gender = TRAINER_GENDER_MALE,
 #line 4862
@@ -13503,7 +13503,7 @@
 #line 4864
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13534,14 +13534,14 @@
         },
     },
 #line 4874
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_PARKER] =
+    [TRAINER_SCIENTIST_PARKER] =
     {
 #line 4875
         .trainerName = _("PARKER"),
 #line 4876
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4877
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4878
         .gender = TRAINER_GENDER_MALE,
 #line 4879
@@ -13551,7 +13551,7 @@
 #line 4881
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13582,14 +13582,14 @@
         },
     },
 #line 4891
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_ED] =
+    [TRAINER_SCIENTIST_ED] =
     {
 #line 4892
         .trainerName = _("ED"),
 #line 4893
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4894
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4895
         .gender = TRAINER_GENDER_MALE,
 #line 4896
@@ -13599,7 +13599,7 @@
 #line 4898
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13663,14 +13663,14 @@
         },
     },
 #line 4924
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_TRAVIS] =
+    [TRAINER_SCIENTIST_TRAVIS] =
     {
 #line 4925
         .trainerName = _("TRAVIS"),
 #line 4926
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4927
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4928
         .gender = TRAINER_GENDER_MALE,
 #line 4929
@@ -13680,7 +13680,7 @@
 #line 4931
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13711,14 +13711,14 @@
         },
     },
 #line 4941
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_BRAYDON] =
+    [TRAINER_SCIENTIST_BRAYDON] =
     {
 #line 4942
         .trainerName = _("BRAYDON"),
 #line 4943
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4944
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4945
         .gender = TRAINER_GENDER_MALE,
 #line 4946
@@ -13728,7 +13728,7 @@
 #line 4948
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13771,14 +13771,14 @@
         },
     },
 #line 4962
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_IVAN] =
+    [TRAINER_SCIENTIST_IVAN] =
     {
 #line 4963
         .trainerName = _("IVAN"),
 #line 4964
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 4965
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 4966
         .gender = TRAINER_GENDER_MALE,
 #line 4967
@@ -13788,7 +13788,7 @@
 #line 4969
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -13819,14 +13819,14 @@
         },
     },
 #line 4979
-    [DIFFICULTY_NORMAL][TRAINER_BOSS_GIOVANNI] =
+    [TRAINER_BOSS_GIOVANNI] =
     {
 #line 4980
         .trainerName = _("GIOVANNI"),
 #line 4981
         .trainerClass = TRAINER_CLASS_BOSS_FRLG,
 #line 4982
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
 #line 4983
         .gender = TRAINER_GENDER_MALE,
 #line 4984
@@ -13836,7 +13836,7 @@
 #line 4986
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -13879,14 +13879,14 @@
         },
     },
 #line 5000
-    [DIFFICULTY_NORMAL][TRAINER_BOSS_GIOVANNI_2] =
+    [TRAINER_BOSS_GIOVANNI_2] =
     {
 #line 5001
         .trainerName = _("GIOVANNI"),
 #line 5002
         .trainerClass = TRAINER_CLASS_BOSS_FRLG,
 #line 5003
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
 #line 5004
         .gender = TRAINER_GENDER_MALE,
 #line 5005
@@ -13896,7 +13896,7 @@
 #line 5007
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -13951,14 +13951,14 @@
         },
     },
 #line 5025
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_GIOVANNI] =
+    [TRAINER_LEADER_GIOVANNI] =
     {
 #line 5026
         .trainerName = _("GIOVANNI"),
 #line 5027
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 5028
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
 #line 5029
         .gender = TRAINER_GENDER_MALE,
 #line 5030
@@ -13970,7 +13970,7 @@
 #line 5033
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_GIOVANNI_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_GIOVANNI_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -14072,14 +14072,14 @@
         },
     },
 #line 5075
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT] =
+    [TRAINER_TEAM_ROCKET_GRUNT] =
     {
 #line 5076
         .trainerName = _("GRUNT"),
 #line 5077
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5078
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5079
         .gender = TRAINER_GENDER_MALE,
 #line 5080
@@ -14089,7 +14089,7 @@
 #line 5082
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14120,14 +14120,14 @@
         },
     },
 #line 5092
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_2] =
+    [TRAINER_TEAM_ROCKET_GRUNT_2] =
     {
 #line 5093
         .trainerName = _("GRUNT"),
 #line 5094
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5095
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5096
         .gender = TRAINER_GENDER_MALE,
 #line 5097
@@ -14137,7 +14137,7 @@
 #line 5099
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -14180,14 +14180,14 @@
         },
     },
 #line 5113
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_3] =
+    [TRAINER_TEAM_ROCKET_GRUNT_3] =
     {
 #line 5114
         .trainerName = _("GRUNT"),
 #line 5115
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5116
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5117
         .gender = TRAINER_GENDER_MALE,
 #line 5118
@@ -14197,7 +14197,7 @@
 #line 5120
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14228,14 +14228,14 @@
         },
     },
 #line 5130
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_4] =
+    [TRAINER_TEAM_ROCKET_GRUNT_4] =
     {
 #line 5131
         .trainerName = _("GRUNT"),
 #line 5132
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5133
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5134
         .gender = TRAINER_GENDER_MALE,
 #line 5135
@@ -14245,7 +14245,7 @@
 #line 5137
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14276,14 +14276,14 @@
         },
     },
 #line 5147
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_5] =
+    [TRAINER_TEAM_ROCKET_GRUNT_5] =
     {
 #line 5148
         .trainerName = _("GRUNT"),
 #line 5149
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5150
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5151
         .gender = TRAINER_GENDER_MALE,
 #line 5152
@@ -14293,7 +14293,7 @@
 #line 5154
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14324,14 +14324,14 @@
         },
     },
 #line 5164
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_6] =
+    [TRAINER_TEAM_ROCKET_GRUNT_6] =
     {
 #line 5165
         .trainerName = _("GRUNT"),
 #line 5166
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5167
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5168
         .gender = TRAINER_GENDER_MALE,
 #line 5169
@@ -14341,7 +14341,7 @@
 #line 5171
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14372,14 +14372,14 @@
         },
     },
 #line 5181
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_7] =
+    [TRAINER_TEAM_ROCKET_GRUNT_7] =
     {
 #line 5182
         .trainerName = _("GRUNT"),
 #line 5183
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5184
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5185
         .gender = TRAINER_GENDER_MALE,
 #line 5186
@@ -14389,7 +14389,7 @@
 #line 5188
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14420,14 +14420,14 @@
         },
     },
 #line 5198
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_8] =
+    [TRAINER_TEAM_ROCKET_GRUNT_8] =
     {
 #line 5199
         .trainerName = _("GRUNT"),
 #line 5200
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5201
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5202
         .gender = TRAINER_GENDER_MALE,
 #line 5203
@@ -14437,7 +14437,7 @@
 #line 5205
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14468,14 +14468,14 @@
         },
     },
 #line 5215
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_9] =
+    [TRAINER_TEAM_ROCKET_GRUNT_9] =
     {
 #line 5216
         .trainerName = _("GRUNT"),
 #line 5217
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5218
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5219
         .gender = TRAINER_GENDER_MALE,
 #line 5220
@@ -14485,7 +14485,7 @@
 #line 5222
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14516,14 +14516,14 @@
         },
     },
 #line 5232
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_10] =
+    [TRAINER_TEAM_ROCKET_GRUNT_10] =
     {
 #line 5233
         .trainerName = _("GRUNT"),
 #line 5234
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5235
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5236
         .gender = TRAINER_GENDER_MALE,
 #line 5237
@@ -14533,7 +14533,7 @@
 #line 5239
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -14595,14 +14595,14 @@
         },
     },
 #line 5263
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_11] =
+    [TRAINER_TEAM_ROCKET_GRUNT_11] =
     {
 #line 5264
         .trainerName = _("GRUNT"),
 #line 5265
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5266
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5267
         .gender = TRAINER_GENDER_MALE,
 #line 5268
@@ -14612,7 +14612,7 @@
 #line 5270
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -14667,14 +14667,14 @@
         },
     },
 #line 5288
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_12] =
+    [TRAINER_TEAM_ROCKET_GRUNT_12] =
     {
 #line 5289
         .trainerName = _("GRUNT"),
 #line 5290
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5291
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5292
         .gender = TRAINER_GENDER_MALE,
 #line 5293
@@ -14684,7 +14684,7 @@
 #line 5295
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14729,14 +14729,14 @@
         },
     },
 #line 5313
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_13] =
+    [TRAINER_TEAM_ROCKET_GRUNT_13] =
     {
 #line 5314
         .trainerName = _("GRUNT"),
 #line 5315
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5316
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5317
         .gender = TRAINER_GENDER_MALE,
 #line 5318
@@ -14746,7 +14746,7 @@
 #line 5320
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -14847,14 +14847,14 @@
         },
     },
 #line 5361
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_14] =
+    [TRAINER_TEAM_ROCKET_GRUNT_14] =
     {
 #line 5362
         .trainerName = _("GRUNT"),
 #line 5363
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5364
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5365
         .gender = TRAINER_GENDER_MALE,
 #line 5366
@@ -14864,7 +14864,7 @@
 #line 5368
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -14907,14 +14907,14 @@
         },
     },
 #line 5382
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_15] =
+    [TRAINER_TEAM_ROCKET_GRUNT_15] =
     {
 #line 5383
         .trainerName = _("GRUNT"),
 #line 5384
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5385
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5386
         .gender = TRAINER_GENDER_MALE,
 #line 5387
@@ -14924,7 +14924,7 @@
 #line 5389
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -14955,14 +14955,14 @@
         },
     },
 #line 5399
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_16] =
+    [TRAINER_TEAM_ROCKET_GRUNT_16] =
     {
 #line 5400
         .trainerName = _("GRUNT"),
 #line 5401
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5402
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5403
         .gender = TRAINER_GENDER_MALE,
 #line 5404
@@ -14972,7 +14972,7 @@
 #line 5406
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15015,14 +15015,14 @@
         },
     },
 #line 5420
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_17] =
+    [TRAINER_TEAM_ROCKET_GRUNT_17] =
     {
 #line 5421
         .trainerName = _("GRUNT"),
 #line 5422
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5423
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5424
         .gender = TRAINER_GENDER_MALE,
 #line 5425
@@ -15032,7 +15032,7 @@
 #line 5427
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15075,14 +15075,14 @@
         },
     },
 #line 5441
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_18] =
+    [TRAINER_TEAM_ROCKET_GRUNT_18] =
     {
 #line 5442
         .trainerName = _("GRUNT"),
 #line 5443
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5444
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5445
         .gender = TRAINER_GENDER_MALE,
 #line 5446
@@ -15092,7 +15092,7 @@
 #line 5448
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15123,14 +15123,14 @@
         },
     },
 #line 5458
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_19] =
+    [TRAINER_TEAM_ROCKET_GRUNT_19] =
     {
 #line 5459
         .trainerName = _("GRUNT"),
 #line 5460
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5461
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5462
         .gender = TRAINER_GENDER_MALE,
 #line 5463
@@ -15140,7 +15140,7 @@
 #line 5465
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15183,14 +15183,14 @@
         },
     },
 #line 5479
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_20] =
+    [TRAINER_TEAM_ROCKET_GRUNT_20] =
     {
 #line 5480
         .trainerName = _("GRUNT"),
 #line 5481
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5482
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5483
         .gender = TRAINER_GENDER_MALE,
 #line 5484
@@ -15200,7 +15200,7 @@
 #line 5486
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15231,14 +15231,14 @@
         },
     },
 #line 5496
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_21] =
+    [TRAINER_TEAM_ROCKET_GRUNT_21] =
     {
 #line 5497
         .trainerName = _("GRUNT"),
 #line 5498
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5499
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5500
         .gender = TRAINER_GENDER_MALE,
 #line 5501
@@ -15248,7 +15248,7 @@
 #line 5503
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -15303,14 +15303,14 @@
         },
     },
 #line 5521
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_22] =
+    [TRAINER_TEAM_ROCKET_GRUNT_22] =
     {
 #line 5522
         .trainerName = _("GRUNT"),
 #line 5523
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5524
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5525
         .gender = TRAINER_GENDER_MALE,
 #line 5526
@@ -15320,7 +15320,7 @@
 #line 5528
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15351,14 +15351,14 @@
         },
     },
 #line 5538
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_23] =
+    [TRAINER_TEAM_ROCKET_GRUNT_23] =
     {
 #line 5539
         .trainerName = _("GRUNT"),
 #line 5540
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5541
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5542
         .gender = TRAINER_GENDER_MALE,
 #line 5543
@@ -15368,7 +15368,7 @@
 #line 5545
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15399,14 +15399,14 @@
         },
     },
 #line 5555
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_24] =
+    [TRAINER_TEAM_ROCKET_GRUNT_24] =
     {
 #line 5556
         .trainerName = _("GRUNT"),
 #line 5557
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5558
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5559
         .gender = TRAINER_GENDER_MALE,
 #line 5560
@@ -15416,7 +15416,7 @@
 #line 5562
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -15483,14 +15483,14 @@
         },
     },
 #line 5584
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_25] =
+    [TRAINER_TEAM_ROCKET_GRUNT_25] =
     {
 #line 5585
         .trainerName = _("GRUNT"),
 #line 5586
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5587
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5588
         .gender = TRAINER_GENDER_MALE,
 #line 5589
@@ -15500,7 +15500,7 @@
 #line 5591
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15543,14 +15543,14 @@
         },
     },
 #line 5605
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_26] =
+    [TRAINER_TEAM_ROCKET_GRUNT_26] =
     {
 #line 5606
         .trainerName = _("GRUNT"),
 #line 5607
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5608
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5609
         .gender = TRAINER_GENDER_MALE,
 #line 5610
@@ -15560,7 +15560,7 @@
 #line 5612
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15591,14 +15591,14 @@
         },
     },
 #line 5622
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_27] =
+    [TRAINER_TEAM_ROCKET_GRUNT_27] =
     {
 #line 5623
         .trainerName = _("GRUNT"),
 #line 5624
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5625
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5626
         .gender = TRAINER_GENDER_MALE,
 #line 5627
@@ -15608,7 +15608,7 @@
 #line 5629
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15651,14 +15651,14 @@
         },
     },
 #line 5643
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_28] =
+    [TRAINER_TEAM_ROCKET_GRUNT_28] =
     {
 #line 5644
         .trainerName = _("GRUNT"),
 #line 5645
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5646
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5647
         .gender = TRAINER_GENDER_MALE,
 #line 5648
@@ -15668,7 +15668,7 @@
 #line 5650
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15687,14 +15687,14 @@
         },
     },
 #line 5656
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_29] =
+    [TRAINER_TEAM_ROCKET_GRUNT_29] =
     {
 #line 5657
         .trainerName = _("GRUNT"),
 #line 5658
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5659
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5660
         .gender = TRAINER_GENDER_MALE,
 #line 5661
@@ -15704,7 +15704,7 @@
 #line 5663
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -15723,14 +15723,14 @@
         },
     },
 #line 5669
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_30] =
+    [TRAINER_TEAM_ROCKET_GRUNT_30] =
     {
 #line 5670
         .trainerName = _("GRUNT"),
 #line 5671
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5672
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5673
         .gender = TRAINER_GENDER_MALE,
 #line 5674
@@ -15740,7 +15740,7 @@
 #line 5676
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15771,14 +15771,14 @@
         },
     },
 #line 5686
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_31] =
+    [TRAINER_TEAM_ROCKET_GRUNT_31] =
     {
 #line 5687
         .trainerName = _("GRUNT"),
 #line 5688
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5689
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5690
         .gender = TRAINER_GENDER_MALE,
 #line 5691
@@ -15788,7 +15788,7 @@
 #line 5693
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -15831,14 +15831,14 @@
         },
     },
 #line 5707
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_32] =
+    [TRAINER_TEAM_ROCKET_GRUNT_32] =
     {
 #line 5708
         .trainerName = _("GRUNT"),
 #line 5709
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5710
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5711
         .gender = TRAINER_GENDER_MALE,
 #line 5712
@@ -15848,7 +15848,7 @@
 #line 5714
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -15931,14 +15931,14 @@
         },
     },
 #line 5748
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_33] =
+    [TRAINER_TEAM_ROCKET_GRUNT_33] =
     {
 #line 5749
         .trainerName = _("GRUNT"),
 #line 5750
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5751
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5752
         .gender = TRAINER_GENDER_MALE,
 #line 5753
@@ -15948,7 +15948,7 @@
 #line 5755
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -15979,14 +15979,14 @@
         },
     },
 #line 5765
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_34] =
+    [TRAINER_TEAM_ROCKET_GRUNT_34] =
     {
 #line 5766
         .trainerName = _("GRUNT"),
 #line 5767
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5768
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5769
         .gender = TRAINER_GENDER_MALE,
 #line 5770
@@ -15996,7 +15996,7 @@
 #line 5772
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -16027,14 +16027,14 @@
         },
     },
 #line 5782
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_35] =
+    [TRAINER_TEAM_ROCKET_GRUNT_35] =
     {
 #line 5783
         .trainerName = _("GRUNT"),
 #line 5784
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5785
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5786
         .gender = TRAINER_GENDER_MALE,
 #line 5787
@@ -16044,7 +16044,7 @@
 #line 5789
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -16099,14 +16099,14 @@
         },
     },
 #line 5807
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_36] =
+    [TRAINER_TEAM_ROCKET_GRUNT_36] =
     {
 #line 5808
         .trainerName = _("GRUNT"),
 #line 5809
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5810
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5811
         .gender = TRAINER_GENDER_MALE,
 #line 5812
@@ -16116,7 +16116,7 @@
 #line 5814
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16159,14 +16159,14 @@
         },
     },
 #line 5828
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_37] =
+    [TRAINER_TEAM_ROCKET_GRUNT_37] =
     {
 #line 5829
         .trainerName = _("GRUNT"),
 #line 5830
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5831
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5832
         .gender = TRAINER_GENDER_MALE,
 #line 5833
@@ -16176,7 +16176,7 @@
 #line 5835
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16219,14 +16219,14 @@
         },
     },
 #line 5849
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_38] =
+    [TRAINER_TEAM_ROCKET_GRUNT_38] =
     {
 #line 5850
         .trainerName = _("GRUNT"),
 #line 5851
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5852
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5853
         .gender = TRAINER_GENDER_MALE,
 #line 5854
@@ -16236,7 +16236,7 @@
 #line 5856
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16279,14 +16279,14 @@
         },
     },
 #line 5870
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_39] =
+    [TRAINER_TEAM_ROCKET_GRUNT_39] =
     {
 #line 5871
         .trainerName = _("GRUNT"),
 #line 5872
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5873
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5874
         .gender = TRAINER_GENDER_MALE,
 #line 5875
@@ -16296,7 +16296,7 @@
 #line 5877
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -16315,14 +16315,14 @@
         },
     },
 #line 5883
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_40] =
+    [TRAINER_TEAM_ROCKET_GRUNT_40] =
     {
 #line 5884
         .trainerName = _("GRUNT"),
 #line 5885
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5886
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5887
         .gender = TRAINER_GENDER_MALE,
 #line 5888
@@ -16332,7 +16332,7 @@
 #line 5890
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16399,14 +16399,14 @@
         },
     },
 #line 5912
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_41] =
+    [TRAINER_TEAM_ROCKET_GRUNT_41] =
     {
 #line 5913
         .trainerName = _("GRUNT"),
 #line 5914
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 5915
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 5916
         .gender = TRAINER_GENDER_MALE,
 #line 5917
@@ -16416,7 +16416,7 @@
 #line 5919
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -16459,14 +16459,14 @@
         },
     },
 #line 5933
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_SAMUEL] =
+    [TRAINER_COOLTRAINER_SAMUEL] =
     {
 #line 5934
         .trainerName = _("SAMUEL"),
 #line 5935
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 5936
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 5937
         .gender = TRAINER_GENDER_MALE,
 #line 5938
@@ -16478,7 +16478,7 @@
 #line 5941
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16580,14 +16580,14 @@
         },
     },
 #line 5983
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_GEORGE] =
+    [TRAINER_COOLTRAINER_GEORGE] =
     {
 #line 5984
         .trainerName = _("GEORGE"),
 #line 5985
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 5986
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 5987
         .gender = TRAINER_GENDER_MALE,
 #line 5988
@@ -16599,7 +16599,7 @@
 #line 5991
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16701,14 +16701,14 @@
         },
     },
 #line 6033
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_COLBY] =
+    [TRAINER_COOLTRAINER_COLBY] =
     {
 #line 6034
         .trainerName = _("COLBY"),
 #line 6035
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6036
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6037
         .gender = TRAINER_GENDER_MALE,
 #line 6038
@@ -16720,7 +16720,7 @@
 #line 6041
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16822,14 +16822,14 @@
         },
     },
 #line 6083
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_PAUL] =
+    [TRAINER_COOLTRAINER_PAUL] =
     {
 #line 6084
         .trainerName = _("PAUL"),
 #line 6085
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6086
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6087
         .gender = TRAINER_GENDER_MALE,
 #line 6088
@@ -16841,7 +16841,7 @@
 #line 6091
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -16943,14 +16943,14 @@
         },
     },
 #line 6133
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_ROLANDO] =
+    [TRAINER_COOLTRAINER_ROLANDO] =
     {
 #line 6134
         .trainerName = _("ROLANDO"),
 #line 6135
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6136
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6137
         .gender = TRAINER_GENDER_MALE,
 #line 6138
@@ -16962,7 +16962,7 @@
 #line 6141
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17064,14 +17064,14 @@
         },
     },
 #line 6183
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_GILBERT] =
+    [TRAINER_COOLTRAINER_GILBERT] =
     {
 #line 6184
         .trainerName = _("GILBERT"),
 #line 6185
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6186
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6187
         .gender = TRAINER_GENDER_MALE,
 #line 6188
@@ -17083,7 +17083,7 @@
 #line 6191
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17185,14 +17185,14 @@
         },
     },
 #line 6233
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_OWEN] =
+    [TRAINER_COOLTRAINER_OWEN] =
     {
 #line 6234
         .trainerName = _("OWEN"),
 #line 6235
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6236
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6237
         .gender = TRAINER_GENDER_MALE,
 #line 6238
@@ -17204,7 +17204,7 @@
 #line 6241
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17306,14 +17306,14 @@
         },
     },
 #line 6283
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_BERKE] =
+    [TRAINER_COOLTRAINER_BERKE] =
     {
 #line 6284
         .trainerName = _("BERKE"),
 #line 6285
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6286
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6287
         .gender = TRAINER_GENDER_MALE,
 #line 6288
@@ -17325,7 +17325,7 @@
 #line 6291
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17427,14 +17427,14 @@
         },
     },
 #line 6333
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_YUJI] =
+    [TRAINER_COOLTRAINER_YUJI] =
     {
 #line 6334
         .trainerName = _("YUJI"),
 #line 6335
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6336
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6337
         .gender = TRAINER_GENDER_MALE,
 #line 6338
@@ -17446,7 +17446,7 @@
 #line 6341
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17548,14 +17548,14 @@
         },
     },
 #line 6383
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_WARREN] =
+    [TRAINER_COOLTRAINER_WARREN] =
     {
 #line 6384
         .trainerName = _("WARREN"),
 #line 6385
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6386
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 6387
         .gender = TRAINER_GENDER_MALE,
 #line 6388
@@ -17567,7 +17567,7 @@
 #line 6391
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17669,14 +17669,14 @@
         },
     },
 #line 6433
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_MARY] =
+    [TRAINER_COOLTRAINER_MARY] =
     {
 #line 6434
         .trainerName = _("MARY"),
 #line 6435
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6436
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6437
         .gender = TRAINER_GENDER_MALE,
 #line 6438
@@ -17688,7 +17688,7 @@
 #line 6441
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17790,14 +17790,14 @@
         },
     },
 #line 6483
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_CAROLINE] =
+    [TRAINER_COOLTRAINER_CAROLINE] =
     {
 #line 6484
         .trainerName = _("CAROLINE"),
 #line 6485
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6486
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6487
         .gender = TRAINER_GENDER_MALE,
 #line 6488
@@ -17809,7 +17809,7 @@
 #line 6491
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -17911,14 +17911,14 @@
         },
     },
 #line 6533
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_ALEXA] =
+    [TRAINER_COOLTRAINER_ALEXA] =
     {
 #line 6534
         .trainerName = _("ALEXA"),
 #line 6535
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6536
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6537
         .gender = TRAINER_GENDER_MALE,
 #line 6538
@@ -17930,7 +17930,7 @@
 #line 6541
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18032,14 +18032,14 @@
         },
     },
 #line 6583
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_SHANNON] =
+    [TRAINER_COOLTRAINER_SHANNON] =
     {
 #line 6584
         .trainerName = _("SHANNON"),
 #line 6585
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6586
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6587
         .gender = TRAINER_GENDER_MALE,
 #line 6588
@@ -18051,7 +18051,7 @@
 #line 6591
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18153,14 +18153,14 @@
         },
     },
 #line 6633
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_NAOMI] =
+    [TRAINER_COOLTRAINER_NAOMI] =
     {
 #line 6634
         .trainerName = _("NAOMI"),
 #line 6635
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6636
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6637
         .gender = TRAINER_GENDER_MALE,
 #line 6638
@@ -18172,7 +18172,7 @@
 #line 6641
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18274,14 +18274,14 @@
         },
     },
 #line 6683
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_BROOKE] =
+    [TRAINER_COOLTRAINER_BROOKE] =
     {
 #line 6684
         .trainerName = _("BROOKE"),
 #line 6685
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6686
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6687
         .gender = TRAINER_GENDER_MALE,
 #line 6688
@@ -18293,7 +18293,7 @@
 #line 6691
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18395,14 +18395,14 @@
         },
     },
 #line 6733
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_AUSTINA] =
+    [TRAINER_COOLTRAINER_AUSTINA] =
     {
 #line 6734
         .trainerName = _("AUSTINA"),
 #line 6735
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6736
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6737
         .gender = TRAINER_GENDER_MALE,
 #line 6738
@@ -18414,7 +18414,7 @@
 #line 6741
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18516,14 +18516,14 @@
         },
     },
 #line 6783
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_JULIE] =
+    [TRAINER_COOLTRAINER_JULIE] =
     {
 #line 6784
         .trainerName = _("JULIE"),
 #line 6785
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 6786
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 6787
         .gender = TRAINER_GENDER_MALE,
 #line 6788
@@ -18535,7 +18535,7 @@
 #line 6791
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18637,14 +18637,14 @@
         },
     },
 #line 6833
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_LORELEI] =
+    [TRAINER_ELITE_FOUR_LORELEI] =
     {
 #line 6834
         .trainerName = _("LORELEI"),
 #line 6835
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 6836
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_LORELEI_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_LORELEI_FRLG,
 #line 6837
         .gender = TRAINER_GENDER_MALE,
 #line 6838
@@ -18658,7 +18658,7 @@
 #line 6842
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_LORELEI_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_LORELEI_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18762,14 +18762,14 @@
         },
     },
 #line 6884
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_BRUNO] =
+    [TRAINER_ELITE_FOUR_BRUNO] =
     {
 #line 6885
         .trainerName = _("BRUNO"),
 #line 6886
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 6887
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_BRUNO_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_BRUNO_FRLG,
 #line 6888
         .gender = TRAINER_GENDER_MALE,
 #line 6889
@@ -18783,7 +18783,7 @@
 #line 6893
         .mugshotColor = MUGSHOT_COLOR_GREEN,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_BRUNO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_BRUNO_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -18887,14 +18887,14 @@
         },
     },
 #line 6935
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_AGATHA] =
+    [TRAINER_ELITE_FOUR_AGATHA] =
     {
 #line 6936
         .trainerName = _("AGATHA"),
 #line 6937
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 6938
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_AGATHA_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_AGATHA_FRLG,
 #line 6939
         .gender = TRAINER_GENDER_MALE,
 #line 6940
@@ -18908,7 +18908,7 @@
 #line 6944
         .mugshotColor = MUGSHOT_COLOR_PINK,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_AGATHA_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_AGATHA_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -19012,14 +19012,14 @@
         },
     },
 #line 6986
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_LANCE] =
+    [TRAINER_ELITE_FOUR_LANCE] =
     {
 #line 6987
         .trainerName = _("LANCE"),
 #line 6988
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 6989
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_LANCE_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_LANCE_FRLG,
 #line 6990
         .gender = TRAINER_GENDER_MALE,
 #line 6991
@@ -19033,7 +19033,7 @@
 #line 6995
         .mugshotColor = MUGSHOT_COLOR_BLUE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_LANCE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_LANCE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -19137,14 +19137,14 @@
         },
     },
 #line 7037
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_BROCK] =
+    [TRAINER_LEADER_BROCK] =
     {
 #line 7038
         .trainerName = _("BROCK"),
 #line 7039
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7040
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_BROCK_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_BROCK_FRLG,
 #line 7041
         .gender = TRAINER_GENDER_MALE,
 #line 7042
@@ -19154,7 +19154,7 @@
 #line 7044
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_BROCK_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_BROCK_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19196,14 +19196,14 @@
         },
     },
 #line 7059
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_MISTY] =
+    [TRAINER_LEADER_MISTY] =
     {
 #line 7060
         .trainerName = _("MISTY"),
 #line 7061
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7062
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_MISTY_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_MISTY_FRLG,
 #line 7063
         .gender = TRAINER_GENDER_MALE,
 #line 7064
@@ -19215,7 +19215,7 @@
 #line 7067
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_MISTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_MISTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19260,14 +19260,14 @@
         },
     },
 #line 7085
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_LT_SURGE] =
+    [TRAINER_LEADER_LT_SURGE] =
     {
 #line 7086
         .trainerName = _("LT. SURGE"),
 #line 7087
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7088
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_LT_SURGE_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_LT_SURGE_FRLG,
 #line 7089
         .gender = TRAINER_GENDER_MALE,
 #line 7090
@@ -19279,7 +19279,7 @@
 #line 7093
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_LT_SURGE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_LT_SURGE_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -19343,14 +19343,14 @@
         },
     },
 #line 7119
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_ERIKA] =
+    [TRAINER_LEADER_ERIKA] =
     {
 #line 7120
         .trainerName = _("ERIKA"),
 #line 7121
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7122
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_ERIKA_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_ERIKA_FRLG,
 #line 7123
         .gender = TRAINER_GENDER_MALE,
 #line 7124
@@ -19362,7 +19362,7 @@
 #line 7127
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_ERIKA_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_ERIKA_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -19426,14 +19426,14 @@
         },
     },
 #line 7153
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_KOGA] =
+    [TRAINER_LEADER_KOGA] =
     {
 #line 7154
         .trainerName = _("KOGA"),
 #line 7155
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7156
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_KOGA_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_KOGA_FRLG,
 #line 7157
         .gender = TRAINER_GENDER_MALE,
 #line 7158
@@ -19445,7 +19445,7 @@
 #line 7161
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_KOGA_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_KOGA_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -19528,14 +19528,14 @@
         },
     },
 #line 7195
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_BLAINE] =
+    [TRAINER_LEADER_BLAINE] =
     {
 #line 7196
         .trainerName = _("BLAINE"),
 #line 7197
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7198
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_BLAINE_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_BLAINE_FRLG,
 #line 7199
         .gender = TRAINER_GENDER_MALE,
 #line 7200
@@ -19547,7 +19547,7 @@
 #line 7203
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_BLAINE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_BLAINE_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -19630,14 +19630,14 @@
         },
     },
 #line 7237
-    [DIFFICULTY_NORMAL][TRAINER_LEADER_SABRINA] =
+    [TRAINER_LEADER_SABRINA] =
     {
 #line 7238
         .trainerName = _("SABRINA"),
 #line 7239
         .trainerClass = TRAINER_CLASS_LEADER_FRLG,
 #line 7240
-        .trainerPic = TRAINER_PIC_FRONT_LEADER_SABRINA_FRLG,
+        .trainerPic = TRAINER_PIC_LEADER_SABRINA_FRLG,
 #line 7241
         .gender = TRAINER_GENDER_MALE,
 #line 7242
@@ -19649,7 +19649,7 @@
 #line 7245
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LEADER_SABRINA_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LEADER_SABRINA_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -19732,14 +19732,14 @@
         },
     },
 #line 7279
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_THOMAS] =
+    [TRAINER_GENTLEMAN_THOMAS] =
     {
 #line 7280
         .trainerName = _("THOMAS"),
 #line 7281
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 7282
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 7283
         .gender = TRAINER_GENDER_MALE,
 #line 7284
@@ -19749,7 +19749,7 @@
 #line 7286
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19780,14 +19780,14 @@
         },
     },
 #line 7296
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_ARTHUR] =
+    [TRAINER_GENTLEMAN_ARTHUR] =
     {
 #line 7297
         .trainerName = _("ARTHUR"),
 #line 7298
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 7299
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 7300
         .gender = TRAINER_GENDER_MALE,
 #line 7301
@@ -19797,7 +19797,7 @@
 #line 7303
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19828,14 +19828,14 @@
         },
     },
 #line 7313
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_TUCKER] =
+    [TRAINER_GENTLEMAN_TUCKER] =
     {
 #line 7314
         .trainerName = _("TUCKER"),
 #line 7315
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 7316
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 7317
         .gender = TRAINER_GENDER_MALE,
 #line 7318
@@ -19845,7 +19845,7 @@
 #line 7320
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19864,14 +19864,14 @@
         },
     },
 #line 7326
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_NORTON] =
+    [TRAINER_GENTLEMAN_NORTON] =
     {
 #line 7327
         .trainerName = _("NORTON"),
 #line 7328
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 7329
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 7330
         .gender = TRAINER_GENDER_MALE,
 #line 7331
@@ -19881,7 +19881,7 @@
 #line 7333
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -19900,14 +19900,14 @@
         },
     },
 #line 7339
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_WALTER] =
+    [TRAINER_GENTLEMAN_WALTER] =
     {
 #line 7340
         .trainerName = _("WALTER"),
 #line 7341
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 7342
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 7343
         .gender = TRAINER_GENDER_MALE,
 #line 7344
@@ -19917,7 +19917,7 @@
 #line 7346
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -19948,14 +19948,14 @@
         },
     },
 #line 7356
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SS_ANNE_SQUIRTLE] =
+    [TRAINER_RIVAL_SS_ANNE_SQUIRTLE] =
     {
 #line 7357
         .trainerName = _("TERRY"),
 #line 7358
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7359
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7360
         .gender = TRAINER_GENDER_MALE,
 #line 7361
@@ -19965,7 +19965,7 @@
 #line 7363
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -20020,14 +20020,14 @@
         },
     },
 #line 7381
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SS_ANNE_BULBASAUR] =
+    [TRAINER_RIVAL_SS_ANNE_BULBASAUR] =
     {
 #line 7382
         .trainerName = _("TERRY"),
 #line 7383
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7384
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7385
         .gender = TRAINER_GENDER_MALE,
 #line 7386
@@ -20037,7 +20037,7 @@
 #line 7388
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -20092,14 +20092,14 @@
         },
     },
 #line 7406
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SS_ANNE_CHARMANDER] =
+    [TRAINER_RIVAL_SS_ANNE_CHARMANDER] =
     {
 #line 7407
         .trainerName = _("TERRY"),
 #line 7408
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7409
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7410
         .gender = TRAINER_GENDER_MALE,
 #line 7411
@@ -20109,7 +20109,7 @@
 #line 7413
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -20164,14 +20164,14 @@
         },
     },
 #line 7431
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE] =
+    [TRAINER_RIVAL_POKEMON_TOWER_SQUIRTLE] =
     {
 #line 7432
         .trainerName = _("TERRY"),
 #line 7433
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7434
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7435
         .gender = TRAINER_GENDER_MALE,
 #line 7436
@@ -20181,7 +20181,7 @@
 #line 7438
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20248,14 +20248,14 @@
         },
     },
 #line 7460
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR] =
+    [TRAINER_RIVAL_POKEMON_TOWER_BULBASAUR] =
     {
 #line 7461
         .trainerName = _("TERRY"),
 #line 7462
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7463
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7464
         .gender = TRAINER_GENDER_MALE,
 #line 7465
@@ -20265,7 +20265,7 @@
 #line 7467
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20332,14 +20332,14 @@
         },
     },
 #line 7489
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER] =
+    [TRAINER_RIVAL_POKEMON_TOWER_CHARMANDER] =
     {
 #line 7490
         .trainerName = _("TERRY"),
 #line 7491
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7492
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7493
         .gender = TRAINER_GENDER_MALE,
 #line 7494
@@ -20349,7 +20349,7 @@
 #line 7496
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20416,14 +20416,14 @@
         },
     },
 #line 7518
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SILPH_SQUIRTLE] =
+    [TRAINER_RIVAL_SILPH_SQUIRTLE] =
     {
 #line 7519
         .trainerName = _("TERRY"),
 #line 7520
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7521
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7522
         .gender = TRAINER_GENDER_MALE,
 #line 7523
@@ -20433,7 +20433,7 @@
 #line 7525
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20500,14 +20500,14 @@
         },
     },
 #line 7547
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SILPH_BULBASAUR] =
+    [TRAINER_RIVAL_SILPH_BULBASAUR] =
     {
 #line 7548
         .trainerName = _("TERRY"),
 #line 7549
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7550
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7551
         .gender = TRAINER_GENDER_MALE,
 #line 7552
@@ -20517,7 +20517,7 @@
 #line 7554
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20584,14 +20584,14 @@
         },
     },
 #line 7576
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_SILPH_CHARMANDER] =
+    [TRAINER_RIVAL_SILPH_CHARMANDER] =
     {
 #line 7577
         .trainerName = _("TERRY"),
 #line 7578
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7579
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7580
         .gender = TRAINER_GENDER_MALE,
 #line 7581
@@ -20601,7 +20601,7 @@
 #line 7583
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -20668,14 +20668,14 @@
         },
     },
 #line 7605
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE] =
+    [TRAINER_RIVAL_ROUTE22_LATE_SQUIRTLE] =
     {
 #line 7606
         .trainerName = _("TERRY"),
 #line 7607
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7608
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7609
         .gender = TRAINER_GENDER_MALE,
 #line 7610
@@ -20685,7 +20685,7 @@
 #line 7612
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -20806,14 +20806,14 @@
         },
     },
 #line 7662
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR] =
+    [TRAINER_RIVAL_ROUTE22_LATE_BULBASAUR] =
     {
 #line 7663
         .trainerName = _("TERRY"),
 #line 7664
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7665
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7666
         .gender = TRAINER_GENDER_MALE,
 #line 7667
@@ -20823,7 +20823,7 @@
 #line 7669
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -20944,14 +20944,14 @@
         },
     },
 #line 7719
-    [DIFFICULTY_NORMAL][TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER] =
+    [TRAINER_RIVAL_ROUTE22_LATE_CHARMANDER] =
     {
 #line 7720
         .trainerName = _("TERRY"),
 #line 7721
         .trainerClass = TRAINER_CLASS_RIVAL_LATE_FRLG,
 #line 7722
-        .trainerPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        .trainerPic = TRAINER_PIC_RIVAL_LATE_FRLG,
 #line 7723
         .gender = TRAINER_GENDER_MALE,
 #line 7724
@@ -20961,7 +20961,7 @@
 #line 7726
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RIVAL_LATE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RIVAL_LATE_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -21082,14 +21082,14 @@
         },
     },
 #line 7776
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_FIRST_SQUIRTLE] =
+    [TRAINER_CHAMPION_FIRST_SQUIRTLE] =
     {
 #line 7777
         .trainerName = _("TERRY"),
 #line 7778
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 7779
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 7780
         .gender = TRAINER_GENDER_MALE,
 #line 7781
@@ -21103,7 +21103,7 @@
 #line 7785
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -21226,14 +21226,14 @@
         },
     },
 #line 7835
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_FIRST_BULBASAUR] =
+    [TRAINER_CHAMPION_FIRST_BULBASAUR] =
     {
 #line 7836
         .trainerName = _("TERRY"),
 #line 7837
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 7838
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 7839
         .gender = TRAINER_GENDER_MALE,
 #line 7840
@@ -21247,7 +21247,7 @@
 #line 7844
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -21370,14 +21370,14 @@
         },
     },
 #line 7894
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_FIRST_CHARMANDER] =
+    [TRAINER_CHAMPION_FIRST_CHARMANDER] =
     {
 #line 7895
         .trainerName = _("TERRY"),
 #line 7896
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 7897
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 7898
         .gender = TRAINER_GENDER_MALE,
 #line 7899
@@ -21391,7 +21391,7 @@
 #line 7903
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -21514,14 +21514,14 @@
         },
     },
 #line 7953
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_PATRICIA] =
+    [TRAINER_CHANNELER_PATRICIA] =
     {
 #line 7954
         .trainerName = _("PATRICIA"),
 #line 7955
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 7956
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 7957
         .gender = TRAINER_GENDER_MALE,
 #line 7958
@@ -21531,7 +21531,7 @@
 #line 7960
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21550,14 +21550,14 @@
         },
     },
 #line 7966
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_CARLY] =
+    [TRAINER_CHANNELER_CARLY] =
     {
 #line 7967
         .trainerName = _("CARLY"),
 #line 7968
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 7969
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 7970
         .gender = TRAINER_GENDER_MALE,
 #line 7971
@@ -21567,7 +21567,7 @@
 #line 7973
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21586,14 +21586,14 @@
         },
     },
 #line 7979
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_HOPE] =
+    [TRAINER_CHANNELER_HOPE] =
     {
 #line 7980
         .trainerName = _("HOPE"),
 #line 7981
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 7982
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 7983
         .gender = TRAINER_GENDER_MALE,
 #line 7984
@@ -21603,7 +21603,7 @@
 #line 7986
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21622,14 +21622,14 @@
         },
     },
 #line 7992
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_PAULA] =
+    [TRAINER_CHANNELER_PAULA] =
     {
 #line 7993
         .trainerName = _("PAULA"),
 #line 7994
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 7995
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 7996
         .gender = TRAINER_GENDER_MALE,
 #line 7997
@@ -21639,7 +21639,7 @@
 #line 7999
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21658,14 +21658,14 @@
         },
     },
 #line 8005
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_LAUREL] =
+    [TRAINER_CHANNELER_LAUREL] =
     {
 #line 8006
         .trainerName = _("LAUREL"),
 #line 8007
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8008
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8009
         .gender = TRAINER_GENDER_MALE,
 #line 8010
@@ -21675,7 +21675,7 @@
 #line 8012
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -21706,14 +21706,14 @@
         },
     },
 #line 8022
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_JODY] =
+    [TRAINER_CHANNELER_JODY] =
     {
 #line 8023
         .trainerName = _("JODY"),
 #line 8024
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8025
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8026
         .gender = TRAINER_GENDER_MALE,
 #line 8027
@@ -21723,7 +21723,7 @@
 #line 8029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21742,14 +21742,14 @@
         },
     },
 #line 8035
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_TAMMY] =
+    [TRAINER_CHANNELER_TAMMY] =
     {
 #line 8036
         .trainerName = _("TAMMY"),
 #line 8037
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8038
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8039
         .gender = TRAINER_GENDER_MALE,
 #line 8040
@@ -21759,7 +21759,7 @@
 #line 8042
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21778,14 +21778,14 @@
         },
     },
 #line 8048
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_RUTH] =
+    [TRAINER_CHANNELER_RUTH] =
     {
 #line 8049
         .trainerName = _("RUTH"),
 #line 8050
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8051
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8052
         .gender = TRAINER_GENDER_MALE,
 #line 8053
@@ -21795,7 +21795,7 @@
 #line 8055
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21814,14 +21814,14 @@
         },
     },
 #line 8061
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_KARINA] =
+    [TRAINER_CHANNELER_KARINA] =
     {
 #line 8062
         .trainerName = _("KARINA"),
 #line 8063
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8064
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8065
         .gender = TRAINER_GENDER_MALE,
 #line 8066
@@ -21831,7 +21831,7 @@
 #line 8068
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21850,14 +21850,14 @@
         },
     },
 #line 8074
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_JANAE] =
+    [TRAINER_CHANNELER_JANAE] =
     {
 #line 8075
         .trainerName = _("JANAE"),
 #line 8076
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8077
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8078
         .gender = TRAINER_GENDER_MALE,
 #line 8079
@@ -21867,7 +21867,7 @@
 #line 8081
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21886,14 +21886,14 @@
         },
     },
 #line 8087
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_ANGELICA] =
+    [TRAINER_CHANNELER_ANGELICA] =
     {
 #line 8088
         .trainerName = _("ANGELICA"),
 #line 8089
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8090
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8091
         .gender = TRAINER_GENDER_MALE,
 #line 8092
@@ -21903,7 +21903,7 @@
 #line 8094
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -21946,14 +21946,14 @@
         },
     },
 #line 8108
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_EMILIA] =
+    [TRAINER_CHANNELER_EMILIA] =
     {
 #line 8109
         .trainerName = _("EMILIA"),
 #line 8110
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8111
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8112
         .gender = TRAINER_GENDER_MALE,
 #line 8113
@@ -21963,7 +21963,7 @@
 #line 8115
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -21982,14 +21982,14 @@
         },
     },
 #line 8121
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_JENNIFER] =
+    [TRAINER_CHANNELER_JENNIFER] =
     {
 #line 8122
         .trainerName = _("JENNIFER"),
 #line 8123
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8124
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8125
         .gender = TRAINER_GENDER_MALE,
 #line 8126
@@ -21999,7 +21999,7 @@
 #line 8128
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22018,14 +22018,14 @@
         },
     },
 #line 8134
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_AMANDA] =
+    [TRAINER_CHANNELER_AMANDA] =
     {
 #line 8135
         .trainerName = _("AMANDA"),
 #line 8136
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8137
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8138
         .gender = TRAINER_GENDER_MALE,
 #line 8139
@@ -22035,7 +22035,7 @@
 #line 8141
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22066,14 +22066,14 @@
         },
     },
 #line 8151
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_STACY] =
+    [TRAINER_CHANNELER_STACY] =
     {
 #line 8152
         .trainerName = _("STACY"),
 #line 8153
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8154
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8155
         .gender = TRAINER_GENDER_MALE,
 #line 8156
@@ -22083,7 +22083,7 @@
 #line 8158
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -22102,14 +22102,14 @@
         },
     },
 #line 8164
-    [DIFFICULTY_NORMAL][TRAINER_CHANNELER_TASHA] =
+    [TRAINER_CHANNELER_TASHA] =
     {
 #line 8165
         .trainerName = _("TASHA"),
 #line 8166
         .trainerClass = TRAINER_CLASS_CHANNELER_FRLG,
 #line 8167
-        .trainerPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        .trainerPic = TRAINER_PIC_CHANNELER_FRLG,
 #line 8168
         .gender = TRAINER_GENDER_MALE,
 #line 8169
@@ -22119,7 +22119,7 @@
 #line 8171
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHANNELER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHANNELER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22162,14 +22162,14 @@
         },
     },
 #line 8185
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_JEREMY] =
+    [TRAINER_HIKER_JEREMY] =
     {
 #line 8186
         .trainerName = _("JEREMY"),
 #line 8187
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 8188
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 8189
         .gender = TRAINER_GENDER_MALE,
 #line 8190
@@ -22179,7 +22179,7 @@
 #line 8192
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22210,14 +22210,14 @@
         },
     },
 #line 8202
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ALMA] =
+    [TRAINER_PICNICKER_ALMA] =
     {
 #line 8203
         .trainerName = _("ALMA"),
 #line 8204
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8205
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8206
         .gender = TRAINER_GENDER_MALE,
 #line 8207
@@ -22227,7 +22227,7 @@
 #line 8209
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22270,14 +22270,14 @@
         },
     },
 #line 8223
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_SUSIE] =
+    [TRAINER_PICNICKER_SUSIE] =
     {
 #line 8224
         .trainerName = _("SUSIE"),
 #line 8225
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8226
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8227
         .gender = TRAINER_GENDER_MALE,
 #line 8228
@@ -22287,7 +22287,7 @@
 #line 8230
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -22354,14 +22354,14 @@
         },
     },
 #line 8252
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_VALERIE] =
+    [TRAINER_PICNICKER_VALERIE] =
     {
 #line 8253
         .trainerName = _("VALERIE"),
 #line 8254
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8255
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8256
         .gender = TRAINER_GENDER_MALE,
 #line 8257
@@ -22371,7 +22371,7 @@
 #line 8259
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22402,14 +22402,14 @@
         },
     },
 #line 8269
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_GWEN] =
+    [TRAINER_PICNICKER_GWEN] =
     {
 #line 8270
         .trainerName = _("GWEN"),
 #line 8271
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8272
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8273
         .gender = TRAINER_GENDER_MALE,
 #line 8274
@@ -22419,7 +22419,7 @@
 #line 8276
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -22474,14 +22474,14 @@
         },
     },
 #line 8294
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_VIRGIL] =
+    [TRAINER_BIKER_VIRGIL] =
     {
 #line 8295
         .trainerName = _("VIRGIL"),
 #line 8296
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 8297
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 8298
         .gender = TRAINER_GENDER_MALE,
 #line 8299
@@ -22491,7 +22491,7 @@
 #line 8301
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22555,14 +22555,14 @@
         },
     },
 #line 8327
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_FLINT] =
+    [TRAINER_CAMPER_FLINT] =
     {
 #line 8328
         .trainerName = _("FLINT"),
 #line 8329
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 8330
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 8331
         .gender = TRAINER_GENDER_MALE,
 #line 8332
@@ -22572,7 +22572,7 @@
 #line 8334
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22603,14 +22603,14 @@
         },
     },
 #line 8344
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_MISSY] =
+    [TRAINER_PICNICKER_MISSY] =
     {
 #line 8345
         .trainerName = _("MISSY"),
 #line 8346
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8347
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8348
         .gender = TRAINER_GENDER_MALE,
 #line 8349
@@ -22620,7 +22620,7 @@
 #line 8351
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22651,14 +22651,14 @@
         },
     },
 #line 8361
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_IRENE] =
+    [TRAINER_PICNICKER_IRENE] =
     {
 #line 8362
         .trainerName = _("IRENE"),
 #line 8363
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8364
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8365
         .gender = TRAINER_GENDER_MALE,
 #line 8366
@@ -22668,7 +22668,7 @@
 #line 8368
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22711,14 +22711,14 @@
         },
     },
 #line 8382
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_DANA] =
+    [TRAINER_PICNICKER_DANA] =
     {
 #line 8383
         .trainerName = _("DANA"),
 #line 8384
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8385
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8386
         .gender = TRAINER_GENDER_MALE,
 #line 8387
@@ -22728,7 +22728,7 @@
 #line 8389
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22771,14 +22771,14 @@
         },
     },
 #line 8403
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ARIANA] =
+    [TRAINER_PICNICKER_ARIANA] =
     {
 #line 8404
         .trainerName = _("ARIANA"),
 #line 8405
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8406
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8407
         .gender = TRAINER_GENDER_MALE,
 #line 8408
@@ -22788,7 +22788,7 @@
 #line 8410
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -22843,14 +22843,14 @@
         },
     },
 #line 8428
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_LEAH] =
+    [TRAINER_PICNICKER_LEAH] =
     {
 #line 8429
         .trainerName = _("LEAH"),
 #line 8430
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8431
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8432
         .gender = TRAINER_GENDER_MALE,
 #line 8433
@@ -22860,7 +22860,7 @@
 #line 8435
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22891,14 +22891,14 @@
         },
     },
 #line 8445
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_JUSTIN] =
+    [TRAINER_CAMPER_JUSTIN] =
     {
 #line 8446
         .trainerName = _("JUSTIN"),
 #line 8447
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 8448
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 8449
         .gender = TRAINER_GENDER_MALE,
 #line 8450
@@ -22908,7 +22908,7 @@
 #line 8452
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -22939,14 +22939,14 @@
         },
     },
 #line 8462
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_YAZMIN] =
+    [TRAINER_PICNICKER_YAZMIN] =
     {
 #line 8463
         .trainerName = _("YAZMIN"),
 #line 8464
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8465
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8466
         .gender = TRAINER_GENDER_MALE,
 #line 8467
@@ -22956,7 +22956,7 @@
 #line 8469
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -22999,14 +22999,14 @@
         },
     },
 #line 8483
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_KINDRA] =
+    [TRAINER_PICNICKER_KINDRA] =
     {
 #line 8484
         .trainerName = _("KINDRA"),
 #line 8485
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8486
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8487
         .gender = TRAINER_GENDER_MALE,
 #line 8488
@@ -23016,7 +23016,7 @@
 #line 8490
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23059,14 +23059,14 @@
         },
     },
 #line 8504
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_BECKY] =
+    [TRAINER_PICNICKER_BECKY] =
     {
 #line 8505
         .trainerName = _("BECKY"),
 #line 8506
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8507
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8508
         .gender = TRAINER_GENDER_MALE,
 #line 8509
@@ -23076,7 +23076,7 @@
 #line 8511
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23107,14 +23107,14 @@
         },
     },
 #line 8521
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_CELIA] =
+    [TRAINER_PICNICKER_CELIA] =
     {
 #line 8522
         .trainerName = _("CELIA"),
 #line 8523
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 8524
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 8525
         .gender = TRAINER_GENDER_MALE,
 #line 8526
@@ -23124,7 +23124,7 @@
 #line 8528
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23143,14 +23143,14 @@
         },
     },
 #line 8534
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_BROOKS] =
+    [TRAINER_GENTLEMAN_BROOKS] =
     {
 #line 8535
         .trainerName = _("BROOKS"),
 #line 8536
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 8537
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 8538
         .gender = TRAINER_GENDER_MALE,
 #line 8539
@@ -23160,7 +23160,7 @@
 #line 8541
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -23179,14 +23179,14 @@
         },
     },
 #line 8547
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_LAMAR] =
+    [TRAINER_GENTLEMAN_LAMAR] =
     {
 #line 8548
         .trainerName = _("LAMAR"),
 #line 8549
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 8550
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 8551
         .gender = TRAINER_GENDER_MALE,
 #line 8552
@@ -23196,7 +23196,7 @@
 #line 8554
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23227,14 +23227,14 @@
         },
     },
 #line 8564
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_ELI_ANNE] =
+    [TRAINER_TWINS_ELI_ANNE] =
     {
 #line 8565
         .trainerName = _("ELI & ANNE"),
 #line 8566
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 8567
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 8568
         .gender = TRAINER_GENDER_MALE,
 #line 8569
@@ -23244,7 +23244,7 @@
 #line 8571
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23275,14 +23275,14 @@
         },
     },
 #line 8581
-    [DIFFICULTY_NORMAL][TRAINER_COOL_COUPLE_RAY_TYRA] =
+    [TRAINER_COOL_COUPLE_RAY_TYRA] =
     {
 #line 8582
         .trainerName = _("RAY & TYRA"),
 #line 8583
         .trainerClass = TRAINER_CLASS_COOL_COUPLE_FRLG,
 #line 8584
-        .trainerPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_COOL_COUPLE_FRLG,
 #line 8585
         .gender = TRAINER_GENDER_MALE,
 #line 8586
@@ -23292,7 +23292,7 @@
 #line 8588
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOL_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23337,14 +23337,14 @@
         },
     },
 #line 8606
-    [DIFFICULTY_NORMAL][TRAINER_YOUNG_COUPLE_GIA_JES] =
+    [TRAINER_YOUNG_COUPLE_GIA_JES] =
     {
 #line 8607
         .trainerName = _("GIA & JES"),
 #line 8608
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE_FRLG,
 #line 8609
-        .trainerPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
 #line 8610
         .gender = TRAINER_GENDER_MALE,
 #line 8611
@@ -23354,7 +23354,7 @@
 #line 8613
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23385,14 +23385,14 @@
         },
     },
 #line 8623
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_KIRI_JAN] =
+    [TRAINER_TWINS_KIRI_JAN] =
     {
 #line 8624
         .trainerName = _("KIRI & JAN"),
 #line 8625
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 8626
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 8627
         .gender = TRAINER_GENDER_MALE,
 #line 8628
@@ -23402,7 +23402,7 @@
 #line 8630
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23433,14 +23433,14 @@
         },
     },
 #line 8640
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_RON_MYA] =
+    [TRAINER_CRUSH_KIN_RON_MYA] =
     {
 #line 8641
         .trainerName = _("RON & MYA"),
 #line 8642
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 8643
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 8644
         .gender = TRAINER_GENDER_MALE,
 #line 8645
@@ -23450,7 +23450,7 @@
 #line 8647
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23485,14 +23485,14 @@
         },
     },
 #line 8657
-    [DIFFICULTY_NORMAL][TRAINER_YOUNG_COUPLE_LEA_JED] =
+    [TRAINER_YOUNG_COUPLE_LEA_JED] =
     {
 #line 8658
         .trainerName = _("LEA & JED"),
 #line 8659
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE_FRLG,
 #line 8660
-        .trainerPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
 #line 8661
         .gender = TRAINER_GENDER_MALE,
 #line 8662
@@ -23502,7 +23502,7 @@
 #line 8664
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23533,14 +23533,14 @@
         },
     },
 #line 8674
-    [DIFFICULTY_NORMAL][TRAINER_SIS_AND_BRO_LIA_LUC] =
+    [TRAINER_SIS_AND_BRO_LIA_LUC] =
     {
 #line 8675
         .trainerName = _("LIA & LUC"),
 #line 8676
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO_FRLG,
 #line 8677
-        .trainerPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        .trainerPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
 #line 8678
         .gender = TRAINER_GENDER_MALE,
 #line 8679
@@ -23550,7 +23550,7 @@
 #line 8681
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23581,14 +23581,14 @@
         },
     },
 #line 8691
-    [DIFFICULTY_NORMAL][TRAINER_SIS_AND_BRO_LIL_IAN] =
+    [TRAINER_SIS_AND_BRO_LIL_IAN] =
     {
 #line 8692
         .trainerName = _("LIL & IAN"),
 #line 8693
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO_FRLG,
 #line 8694
-        .trainerPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        .trainerPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
 #line 8695
         .gender = TRAINER_GENDER_MALE,
 #line 8696
@@ -23598,7 +23598,7 @@
 #line 8698
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23629,14 +23629,14 @@
         },
     },
 #line 8708
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_BEN_3] =
+    [TRAINER_YOUNGSTER_BEN_3] =
     {
 #line 8709
         .trainerName = _("BEN"),
 #line 8710
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8711
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8712
         .gender = TRAINER_GENDER_MALE,
 #line 8713
@@ -23646,7 +23646,7 @@
 #line 8715
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23677,14 +23677,14 @@
         },
     },
 #line 8725
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_BEN_4] =
+    [TRAINER_YOUNGSTER_BEN_4] =
     {
 #line 8726
         .trainerName = _("BEN"),
 #line 8727
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8728
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8729
         .gender = TRAINER_GENDER_MALE,
 #line 8730
@@ -23694,7 +23694,7 @@
 #line 8732
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23725,14 +23725,14 @@
         },
     },
 #line 8742
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CHAD_2] =
+    [TRAINER_YOUNGSTER_CHAD_2] =
     {
 #line 8743
         .trainerName = _("CHAD"),
 #line 8744
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8745
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8746
         .gender = TRAINER_GENDER_MALE,
 #line 8747
@@ -23742,7 +23742,7 @@
 #line 8749
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23773,14 +23773,14 @@
         },
     },
 #line 8759
-    [DIFFICULTY_NORMAL][TRAINER_LASS_RELI_2] =
+    [TRAINER_LASS_RELI_2] =
     {
 #line 8760
         .trainerName = _("RELI"),
 #line 8761
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 8762
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 8763
         .gender = TRAINER_GENDER_MALE,
 #line 8764
@@ -23790,7 +23790,7 @@
 #line 8766
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23821,14 +23821,14 @@
         },
     },
 #line 8776
-    [DIFFICULTY_NORMAL][TRAINER_LASS_RELI_3] =
+    [TRAINER_LASS_RELI_3] =
     {
 #line 8777
         .trainerName = _("RELI"),
 #line 8778
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 8779
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 8780
         .gender = TRAINER_GENDER_MALE,
 #line 8781
@@ -23838,7 +23838,7 @@
 #line 8783
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -23869,14 +23869,14 @@
         },
     },
 #line 8793
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_TIMMY_2] =
+    [TRAINER_YOUNGSTER_TIMMY_2] =
     {
 #line 8794
         .trainerName = _("TIMMY"),
 #line 8795
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8796
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8797
         .gender = TRAINER_GENDER_MALE,
 #line 8798
@@ -23886,7 +23886,7 @@
 #line 8800
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23929,14 +23929,14 @@
         },
     },
 #line 8814
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_TIMMY_3] =
+    [TRAINER_YOUNGSTER_TIMMY_3] =
     {
 #line 8815
         .trainerName = _("TIMMY"),
 #line 8816
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8817
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8818
         .gender = TRAINER_GENDER_MALE,
 #line 8819
@@ -23946,7 +23946,7 @@
 #line 8821
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -23989,14 +23989,14 @@
         },
     },
 #line 8835
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_TIMMY_4] =
+    [TRAINER_YOUNGSTER_TIMMY_4] =
     {
 #line 8836
         .trainerName = _("TIMMY"),
 #line 8837
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8838
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8839
         .gender = TRAINER_GENDER_MALE,
 #line 8840
@@ -24006,7 +24006,7 @@
 #line 8842
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24049,14 +24049,14 @@
         },
     },
 #line 8856
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CHAD_3] =
+    [TRAINER_YOUNGSTER_CHAD_3] =
     {
 #line 8857
         .trainerName = _("CHAD"),
 #line 8858
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8859
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8860
         .gender = TRAINER_GENDER_MALE,
 #line 8861
@@ -24066,7 +24066,7 @@
 #line 8863
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24097,14 +24097,14 @@
         },
     },
 #line 8873
-    [DIFFICULTY_NORMAL][TRAINER_LASS_JANICE_2] =
+    [TRAINER_LASS_JANICE_2] =
     {
 #line 8874
         .trainerName = _("JANICE"),
 #line 8875
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 8876
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 8877
         .gender = TRAINER_GENDER_MALE,
 #line 8878
@@ -24114,7 +24114,7 @@
 #line 8880
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24145,14 +24145,14 @@
         },
     },
 #line 8890
-    [DIFFICULTY_NORMAL][TRAINER_LASS_JANICE_3] =
+    [TRAINER_LASS_JANICE_3] =
     {
 #line 8891
         .trainerName = _("JANICE"),
 #line 8892
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 8893
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 8894
         .gender = TRAINER_GENDER_MALE,
 #line 8895
@@ -24162,7 +24162,7 @@
 #line 8897
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24193,14 +24193,14 @@
         },
     },
 #line 8907
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CHAD_4] =
+    [TRAINER_YOUNGSTER_CHAD_4] =
     {
 #line 8908
         .trainerName = _("CHAD"),
 #line 8909
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 8910
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 8911
         .gender = TRAINER_GENDER_MALE,
 #line 8912
@@ -24210,7 +24210,7 @@
 #line 8914
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24241,14 +24241,14 @@
         },
     },
 #line 8924
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_FRANKLIN_2] =
+    [TRAINER_HIKER_FRANKLIN_2] =
     {
 #line 8925
         .trainerName = _("FRANKLIN"),
 #line 8926
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 8927
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 8928
         .gender = TRAINER_GENDER_MALE,
 #line 8929
@@ -24258,7 +24258,7 @@
 #line 8931
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24289,14 +24289,14 @@
         },
     },
 #line 8941
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_PROF_PROF_OAK] =
+    [TRAINER_PKMN_PROF_PROF_OAK] =
     {
 #line 8942
         .trainerName = _("PROF. OAK"),
 #line 8943
         .trainerClass = TRAINER_CLASS_PKMN_PROF_FRLG,
 #line 8944
-        .trainerPic = TRAINER_PIC_FRONT_PROFESSOR_OAK_FRLG,
+        .trainerPic = TRAINER_PIC_PROFESSOR_OAK_FRLG,
 #line 8945
         .gender = TRAINER_GENDER_MALE,
 #line 8946
@@ -24306,7 +24306,7 @@
 #line 8948
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PROFESSOR_OAK_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PROFESSOR_OAK_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -24325,14 +24325,14 @@
         },
     },
 #line 8954
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_42] =
+    [TRAINER_TEAM_ROCKET_GRUNT_42] =
     {
 #line 8955
         .trainerName = _("GRUNT"),
 #line 8956
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 8957
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
 #line 8958
         .gender = TRAINER_GENDER_MALE,
 #line 8959
@@ -24342,7 +24342,7 @@
 #line 8961
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24373,14 +24373,14 @@
         },
     },
 #line 8971
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_JACLYN] =
+    [TRAINER_PSYCHIC_JACLYN] =
     {
 #line 8972
         .trainerName = _("JACLYN"),
 #line 8973
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 8974
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F_FRLG,
 #line 8975
         .gender = TRAINER_GENDER_MALE,
 #line 8976
@@ -24390,7 +24390,7 @@
 #line 8978
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24454,14 +24454,14 @@
         },
     },
 #line 9004
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_SHARON] =
+    [TRAINER_CRUSH_GIRL_SHARON] =
     {
 #line 9005
         .trainerName = _("SHARON"),
 #line 9006
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 9007
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 9008
         .gender = TRAINER_GENDER_MALE,
 #line 9009
@@ -24471,7 +24471,7 @@
 #line 9011
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24506,14 +24506,14 @@
         },
     },
 #line 9021
-    [DIFFICULTY_NORMAL][TRAINER_TUBER_AMIRA] =
+    [TRAINER_TUBER_AMIRA] =
     {
 #line 9022
         .trainerName = _("AMIRA"),
 #line 9023
         .trainerClass = TRAINER_CLASS_TUBER_FRLG,
 #line 9024
-        .trainerPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        .trainerPic = TRAINER_PIC_TUBER_F_FRLG,
 #line 9025
         .gender = TRAINER_GENDER_MALE,
 #line 9026
@@ -24523,7 +24523,7 @@
 #line 9028
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TUBER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24566,14 +24566,14 @@
         },
     },
 #line 9042
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_BREEDER_ALIZE] =
+    [TRAINER_PKMN_BREEDER_ALIZE] =
     {
 #line 9043
         .trainerName = _("ALIZE"),
 #line 9044
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER_FRLG,
 #line 9045
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
 #line 9046
         .gender = TRAINER_GENDER_MALE,
 #line 9047
@@ -24583,7 +24583,7 @@
 #line 9049
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24626,14 +24626,14 @@
         },
     },
 #line 9063
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_NICOLAS] =
+    [TRAINER_PKMN_RANGER_NICOLAS] =
     {
 #line 9064
         .trainerName = _("NICOLAS"),
 #line 9065
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 9066
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
 #line 9067
         .gender = TRAINER_GENDER_MALE,
 #line 9068
@@ -24645,7 +24645,7 @@
 #line 9071
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24690,14 +24690,14 @@
         },
     },
 #line 9089
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_MADELINE] =
+    [TRAINER_PKMN_RANGER_MADELINE] =
     {
 #line 9090
         .trainerName = _("MADELINE"),
 #line 9091
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 9092
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
 #line 9093
         .gender = TRAINER_GENDER_MALE,
 #line 9094
@@ -24709,7 +24709,7 @@
 #line 9097
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24754,14 +24754,14 @@
         },
     },
 #line 9115
-    [DIFFICULTY_NORMAL][TRAINER_AROMA_LADY_NIKKI] =
+    [TRAINER_AROMA_LADY_NIKKI] =
     {
 #line 9116
         .trainerName = _("NIKKI"),
 #line 9117
         .trainerClass = TRAINER_CLASS_AROMA_LADY_FRLG,
 #line 9118
-        .trainerPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_AROMA_LADY_FRLG,
 #line 9119
         .gender = TRAINER_GENDER_MALE,
 #line 9120
@@ -24771,7 +24771,7 @@
 #line 9122
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_AROMA_LADY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24802,14 +24802,14 @@
         },
     },
 #line 9132
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_STANLY] =
+    [TRAINER_RUIN_MANIAC_STANLY] =
     {
 #line 9133
         .trainerName = _("STANLY"),
 #line 9134
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 9135
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 9136
         .gender = TRAINER_GENDER_MALE,
 #line 9137
@@ -24819,7 +24819,7 @@
 #line 9139
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -24862,14 +24862,14 @@
         },
     },
 #line 9153
-    [DIFFICULTY_NORMAL][TRAINER_LADY_JACKI] =
+    [TRAINER_LADY_JACKI] =
     {
 #line 9154
         .trainerName = _("JACKI"),
 #line 9155
         .trainerClass = TRAINER_CLASS_LADY_FRLG,
 #line 9156
-        .trainerPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_LADY_FRLG,
 #line 9157
         .gender = TRAINER_GENDER_MALE,
 #line 9158
@@ -24881,7 +24881,7 @@
 #line 9161
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LADY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -24916,14 +24916,14 @@
         },
     },
 #line 9171
-    [DIFFICULTY_NORMAL][TRAINER_PAINTER_DAISY] =
+    [TRAINER_PAINTER_DAISY] =
     {
 #line 9172
         .trainerName = _("DAISY"),
 #line 9173
         .trainerClass = TRAINER_CLASS_PAINTER_FRLG,
 #line 9174
-        .trainerPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        .trainerPic = TRAINER_PIC_PAINTER_FRLG,
 #line 9175
         .gender = TRAINER_GENDER_MALE,
 #line 9176
@@ -24933,7 +24933,7 @@
 #line 9178
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PAINTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -24959,14 +24959,14 @@
         },
     },
 #line 9188
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_GOON] =
+    [TRAINER_BIKER_GOON] =
     {
 #line 9189
         .trainerName = _("GOON"),
 #line 9190
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 9191
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 9192
         .gender = TRAINER_GENDER_MALE,
 #line 9193
@@ -24976,7 +24976,7 @@
 #line 9195
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25021,14 +25021,14 @@
         },
     },
 #line 9213
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_GOON_2] =
+    [TRAINER_BIKER_GOON_2] =
     {
 #line 9214
         .trainerName = _("GOON"),
 #line 9215
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 9216
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 9217
         .gender = TRAINER_GENDER_MALE,
 #line 9218
@@ -25038,7 +25038,7 @@
 #line 9220
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25064,14 +25064,14 @@
         },
     },
 #line 9230
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_GOON_3] =
+    [TRAINER_BIKER_GOON_3] =
     {
 #line 9231
         .trainerName = _("GOON"),
 #line 9232
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 9233
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 9234
         .gender = TRAINER_GENDER_MALE,
 #line 9235
@@ -25081,7 +25081,7 @@
 #line 9237
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -25100,14 +25100,14 @@
         },
     },
 #line 9243
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_ANTHONY] =
+    [TRAINER_BUG_CATCHER_ANTHONY] =
     {
 #line 9244
         .trainerName = _("ANTHONY"),
 #line 9245
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 9246
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 9247
         .gender = TRAINER_GENDER_MALE,
 #line 9248
@@ -25117,7 +25117,7 @@
 #line 9250
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25148,14 +25148,14 @@
         },
     },
 #line 9260
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_CHARLIE] =
+    [TRAINER_BUG_CATCHER_CHARLIE] =
     {
 #line 9261
         .trainerName = _("CHARLIE"),
 #line 9262
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 9263
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 9264
         .gender = TRAINER_GENDER_MALE,
 #line 9265
@@ -25165,7 +25165,7 @@
 #line 9267
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25208,14 +25208,14 @@
         },
     },
 #line 9281
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_ELI_ANNE_2] =
+    [TRAINER_TWINS_ELI_ANNE_2] =
     {
 #line 9282
         .trainerName = _("ELI & ANNE"),
 #line 9283
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 9284
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 9285
         .gender = TRAINER_GENDER_MALE,
 #line 9286
@@ -25225,7 +25225,7 @@
 #line 9288
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25256,14 +25256,14 @@
         },
     },
 #line 9298
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_JOHNSON] =
+    [TRAINER_YOUNGSTER_JOHNSON] =
     {
 #line 9299
         .trainerName = _("JOHNSON"),
 #line 9300
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 9301
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 9302
         .gender = TRAINER_GENDER_MALE,
 #line 9303
@@ -25273,7 +25273,7 @@
 #line 9305
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25316,14 +25316,14 @@
         },
     },
 #line 9319
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_RICARDO] =
+    [TRAINER_BIKER_RICARDO] =
     {
 #line 9320
         .trainerName = _("RICARDO"),
 #line 9321
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 9322
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 9323
         .gender = TRAINER_GENDER_MALE,
 #line 9324
@@ -25333,7 +25333,7 @@
 #line 9326
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25397,14 +25397,14 @@
         },
     },
 #line 9352
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_JAREN] =
+    [TRAINER_BIKER_JAREN] =
     {
 #line 9353
         .trainerName = _("JAREN"),
 #line 9354
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 9355
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 9356
         .gender = TRAINER_GENDER_MALE,
 #line 9357
@@ -25414,7 +25414,7 @@
 #line 9359
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25445,14 +25445,14 @@
         },
     },
 #line 9369
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_43] =
+    [TRAINER_TEAM_ROCKET_GRUNT_43] =
     {
 #line 9370
         .trainerName = _("GRUNT"),
 #line 9371
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9372
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9373
         .gender = TRAINER_GENDER_MALE,
 #line 9374
@@ -25462,7 +25462,7 @@
 #line 9376
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25493,14 +25493,14 @@
         },
     },
 #line 9386
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_44] =
+    [TRAINER_TEAM_ROCKET_GRUNT_44] =
     {
 #line 9387
         .trainerName = _("GRUNT"),
 #line 9388
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9389
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9390
         .gender = TRAINER_GENDER_MALE,
 #line 9391
@@ -25510,7 +25510,7 @@
 #line 9393
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -25565,14 +25565,14 @@
         },
     },
 #line 9411
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_45] =
+    [TRAINER_TEAM_ROCKET_GRUNT_45] =
     {
 #line 9412
         .trainerName = _("GRUNT"),
 #line 9413
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9414
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9415
         .gender = TRAINER_GENDER_MALE,
 #line 9416
@@ -25582,7 +25582,7 @@
 #line 9418
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25625,14 +25625,14 @@
         },
     },
 #line 9432
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_46] =
+    [TRAINER_TEAM_ROCKET_GRUNT_46] =
     {
 #line 9433
         .trainerName = _("GRUNT"),
 #line 9434
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9435
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9436
         .gender = TRAINER_GENDER_MALE,
 #line 9437
@@ -25642,7 +25642,7 @@
 #line 9439
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25685,14 +25685,14 @@
         },
     },
 #line 9453
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_47] =
+    [TRAINER_TEAM_ROCKET_GRUNT_47] =
     {
 #line 9454
         .trainerName = _("GRUNT"),
 #line 9455
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9456
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9457
         .gender = TRAINER_GENDER_MALE,
 #line 9458
@@ -25702,7 +25702,7 @@
 #line 9460
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25745,14 +25745,14 @@
         },
     },
 #line 9474
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_48] =
+    [TRAINER_TEAM_ROCKET_GRUNT_48] =
     {
 #line 9475
         .trainerName = _("GRUNT"),
 #line 9476
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9477
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9478
         .gender = TRAINER_GENDER_MALE,
 #line 9479
@@ -25762,7 +25762,7 @@
 #line 9481
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -25793,14 +25793,14 @@
         },
     },
 #line 9491
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_ADMIN] =
+    [TRAINER_TEAM_ROCKET_ADMIN] =
     {
 #line 9492
         .trainerName = _("ADMIN"),
 #line 9493
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9494
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
 #line 9495
         .gender = TRAINER_GENDER_MALE,
 #line 9496
@@ -25812,7 +25812,7 @@
 #line 9499
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25876,14 +25876,14 @@
         },
     },
 #line 9525
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_ADMIN_2] =
+    [TRAINER_TEAM_ROCKET_ADMIN_2] =
     {
 #line 9526
         .trainerName = _("ADMIN"),
 #line 9527
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 9528
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 9529
         .gender = TRAINER_GENDER_MALE,
 #line 9530
@@ -25895,7 +25895,7 @@
 #line 9533
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -25959,14 +25959,14 @@
         },
     },
 #line 9559
-    [DIFFICULTY_NORMAL][TRAINER_SCIENTIST_GIDEON] =
+    [TRAINER_SCIENTIST_GIDEON] =
     {
 #line 9560
         .trainerName = _("GIDEON"),
 #line 9561
         .trainerClass = TRAINER_CLASS_SCIENTIST_FRLG,
 #line 9562
-        .trainerPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        .trainerPic = TRAINER_PIC_SCIENTIST_FRLG,
 #line 9563
         .gender = TRAINER_GENDER_MALE,
 #line 9564
@@ -25976,7 +25976,7 @@
 #line 9566
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SCIENTIST_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SCIENTIST_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -26078,14 +26078,14 @@
         },
     },
 #line 9608
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_AMARA] =
+    [TRAINER_SWIMMER_FEMALE_AMARA] =
     {
 #line 9609
         .trainerName = _("AMARA"),
 #line 9610
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 9611
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 9612
         .gender = TRAINER_GENDER_MALE,
 #line 9613
@@ -26095,7 +26095,7 @@
 #line 9615
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26138,14 +26138,14 @@
         },
     },
 #line 9629
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_MARIA] =
+    [TRAINER_SWIMMER_FEMALE_MARIA] =
     {
 #line 9630
         .trainerName = _("MARIA"),
 #line 9631
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 9632
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 9633
         .gender = TRAINER_GENDER_MALE,
 #line 9634
@@ -26155,7 +26155,7 @@
 #line 9636
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26186,14 +26186,14 @@
         },
     },
 #line 9646
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_ABIGAIL] =
+    [TRAINER_SWIMMER_FEMALE_ABIGAIL] =
     {
 #line 9647
         .trainerName = _("ABIGAIL"),
 #line 9648
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 9649
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 9650
         .gender = TRAINER_GENDER_MALE,
 #line 9651
@@ -26203,7 +26203,7 @@
 #line 9653
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26246,14 +26246,14 @@
         },
     },
 #line 9667
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_FINN] =
+    [TRAINER_SWIMMER_MALE_FINN] =
     {
 #line 9668
         .trainerName = _("FINN"),
 #line 9669
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 9670
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 9671
         .gender = TRAINER_GENDER_MALE,
 #line 9672
@@ -26263,7 +26263,7 @@
 #line 9674
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26282,14 +26282,14 @@
         },
     },
 #line 9680
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_GARRETT] =
+    [TRAINER_SWIMMER_MALE_GARRETT] =
     {
 #line 9681
         .trainerName = _("GARRETT"),
 #line 9682
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 9683
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 9684
         .gender = TRAINER_GENDER_MALE,
 #line 9685
@@ -26299,7 +26299,7 @@
 #line 9687
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26342,14 +26342,14 @@
         },
     },
 #line 9701
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_TOMMY] =
+    [TRAINER_FISHERMAN_TOMMY] =
     {
 #line 9702
         .trainerName = _("TOMMY"),
 #line 9703
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 9704
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 9705
         .gender = TRAINER_GENDER_MALE,
 #line 9706
@@ -26359,7 +26359,7 @@
 #line 9708
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -26426,14 +26426,14 @@
         },
     },
 #line 9730
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_TANYA] =
+    [TRAINER_CRUSH_GIRL_TANYA] =
     {
 #line 9731
         .trainerName = _("TANYA"),
 #line 9732
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 9733
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 9734
         .gender = TRAINER_GENDER_MALE,
 #line 9735
@@ -26443,7 +26443,7 @@
 #line 9737
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26478,14 +26478,14 @@
         },
     },
 #line 9747
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_SHEA] =
+    [TRAINER_BLACK_BELT_SHEA] =
     {
 #line 9748
         .trainerName = _("SHEA"),
 #line 9749
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 9750
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 9751
         .gender = TRAINER_GENDER_MALE,
 #line 9752
@@ -26495,7 +26495,7 @@
 #line 9754
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26530,14 +26530,14 @@
         },
     },
 #line 9764
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_HUGH] =
+    [TRAINER_BLACK_BELT_HUGH] =
     {
 #line 9765
         .trainerName = _("HUGH"),
 #line 9766
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 9767
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 9768
         .gender = TRAINER_GENDER_MALE,
 #line 9769
@@ -26547,7 +26547,7 @@
 #line 9771
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26582,14 +26582,14 @@
         },
     },
 #line 9781
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_BRYCE] =
+    [TRAINER_CAMPER_BRYCE] =
     {
 #line 9782
         .trainerName = _("BRYCE"),
 #line 9783
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 9784
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 9785
         .gender = TRAINER_GENDER_MALE,
 #line 9786
@@ -26599,7 +26599,7 @@
 #line 9788
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26642,14 +26642,14 @@
         },
     },
 #line 9802
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_CLAIRE] =
+    [TRAINER_PICNICKER_CLAIRE] =
     {
 #line 9803
         .trainerName = _("CLAIRE"),
 #line 9804
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 9805
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 9806
         .gender = TRAINER_GENDER_MALE,
 #line 9807
@@ -26659,7 +26659,7 @@
 #line 9809
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -26714,14 +26714,14 @@
         },
     },
 #line 9827
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_MIK_KIA] =
+    [TRAINER_CRUSH_KIN_MIK_KIA] =
     {
 #line 9828
         .trainerName = _("MIK & KIA"),
 #line 9829
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 9830
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 9831
         .gender = TRAINER_GENDER_MALE,
 #line 9832
@@ -26731,7 +26731,7 @@
 #line 9834
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26766,14 +26766,14 @@
         },
     },
 #line 9844
-    [DIFFICULTY_NORMAL][TRAINER_AROMA_LADY_VIOLET] =
+    [TRAINER_AROMA_LADY_VIOLET] =
     {
 #line 9845
         .trainerName = _("VIOLET"),
 #line 9846
         .trainerClass = TRAINER_CLASS_AROMA_LADY_FRLG,
 #line 9847
-        .trainerPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_AROMA_LADY_FRLG,
 #line 9848
         .gender = TRAINER_GENDER_MALE,
 #line 9849
@@ -26783,7 +26783,7 @@
 #line 9851
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_AROMA_LADY_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -26826,14 +26826,14 @@
         },
     },
 #line 9865
-    [DIFFICULTY_NORMAL][TRAINER_TUBER_ALEXIS] =
+    [TRAINER_TUBER_ALEXIS] =
     {
 #line 9866
         .trainerName = _("ALEXIS"),
 #line 9867
         .trainerClass = TRAINER_CLASS_TUBER_FRLG,
 #line 9868
-        .trainerPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        .trainerPic = TRAINER_PIC_TUBER_F_FRLG,
 #line 9869
         .gender = TRAINER_GENDER_MALE,
 #line 9870
@@ -26843,7 +26843,7 @@
 #line 9872
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TUBER_F_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -26898,14 +26898,14 @@
         },
     },
 #line 9890
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_JOY_MEG] =
+    [TRAINER_TWINS_JOY_MEG] =
     {
 #line 9891
         .trainerName = _("JOY & MEG"),
 #line 9892
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 9893
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 9894
         .gender = TRAINER_GENDER_MALE,
 #line 9895
@@ -26915,7 +26915,7 @@
 #line 9897
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -26946,14 +26946,14 @@
         },
     },
 #line 9907
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_TISHA] =
+    [TRAINER_SWIMMER_FEMALE_TISHA] =
     {
 #line 9908
         .trainerName = _("TISHA"),
 #line 9909
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 9910
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 9911
         .gender = TRAINER_GENDER_MALE,
 #line 9912
@@ -26963,7 +26963,7 @@
 #line 9914
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -26982,14 +26982,14 @@
         },
     },
 #line 9920
-    [DIFFICULTY_NORMAL][TRAINER_PAINTER_CELINA] =
+    [TRAINER_PAINTER_CELINA] =
     {
 #line 9921
         .trainerName = _("CELINA"),
 #line 9922
         .trainerClass = TRAINER_CLASS_PAINTER_FRLG,
 #line 9923
-        .trainerPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        .trainerPic = TRAINER_PIC_PAINTER_FRLG,
 #line 9924
         .gender = TRAINER_GENDER_MALE,
 #line 9925
@@ -26999,7 +26999,7 @@
 #line 9927
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PAINTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27025,14 +27025,14 @@
         },
     },
 #line 9937
-    [DIFFICULTY_NORMAL][TRAINER_PAINTER_RAYNA] =
+    [TRAINER_PAINTER_RAYNA] =
     {
 #line 9938
         .trainerName = _("RAYNA"),
 #line 9939
         .trainerClass = TRAINER_CLASS_PAINTER_FRLG,
 #line 9940
-        .trainerPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        .trainerPic = TRAINER_PIC_PAINTER_FRLG,
 #line 9941
         .gender = TRAINER_GENDER_MALE,
 #line 9942
@@ -27042,7 +27042,7 @@
 #line 9944
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PAINTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27068,14 +27068,14 @@
         },
     },
 #line 9954
-    [DIFFICULTY_NORMAL][TRAINER_LADY_GILLIAN] =
+    [TRAINER_LADY_GILLIAN] =
     {
 #line 9955
         .trainerName = _("GILLIAN"),
 #line 9956
         .trainerClass = TRAINER_CLASS_LADY_FRLG,
 #line 9957
-        .trainerPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_LADY_FRLG,
 #line 9958
         .gender = TRAINER_GENDER_MALE,
 #line 9959
@@ -27087,7 +27087,7 @@
 #line 9962
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LADY_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -27136,14 +27136,14 @@
         },
     },
 #line 9976
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_DESTIN] =
+    [TRAINER_YOUNGSTER_DESTIN] =
     {
 #line 9977
         .trainerName = _("DESTIN"),
 #line 9978
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 9979
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 9980
         .gender = TRAINER_GENDER_MALE,
 #line 9981
@@ -27153,7 +27153,7 @@
 #line 9983
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27184,14 +27184,14 @@
         },
     },
 #line 9993
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_TOBY] =
+    [TRAINER_SWIMMER_MALE_TOBY] =
     {
 #line 9994
         .trainerName = _("TOBY"),
 #line 9995
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 9996
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 9997
         .gender = TRAINER_GENDER_MALE,
 #line 9998
@@ -27201,7 +27201,7 @@
 #line 10000
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -27244,14 +27244,14 @@
         },
     },
 #line 10014
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_49] =
+    [TRAINER_TEAM_ROCKET_GRUNT_49] =
     {
 #line 10015
         .trainerName = _("GRUNT"),
 #line 10016
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 10017
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 10018
         .gender = TRAINER_GENDER_MALE,
 #line 10019
@@ -27261,7 +27261,7 @@
 #line 10021
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -27304,14 +27304,14 @@
         },
     },
 #line 10035
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_50] =
+    [TRAINER_TEAM_ROCKET_GRUNT_50] =
     {
 #line 10036
         .trainerName = _("GRUNT"),
 #line 10037
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 10038
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
 #line 10039
         .gender = TRAINER_GENDER_MALE,
 #line 10040
@@ -27321,7 +27321,7 @@
 #line 10042
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27366,14 +27366,14 @@
         },
     },
 #line 10060
-    [DIFFICULTY_NORMAL][TRAINER_TEAM_ROCKET_GRUNT_51] =
+    [TRAINER_TEAM_ROCKET_GRUNT_51] =
     {
 #line 10061
         .trainerName = _("GRUNT"),
 #line 10062
         .trainerClass = TRAINER_CLASS_TEAM_ROCKET_FRLG,
 #line 10063
-        .trainerPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
 #line 10064
         .gender = TRAINER_GENDER_MALE,
 #line 10065
@@ -27383,7 +27383,7 @@
 #line 10067
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKET_GRUNT_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKET_GRUNT_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -27426,14 +27426,14 @@
         },
     },
 #line 10081
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MILO] =
+    [TRAINER_BIRD_KEEPER_MILO] =
     {
 #line 10082
         .trainerName = _("MILO"),
 #line 10083
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 10084
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 10085
         .gender = TRAINER_GENDER_MALE,
 #line 10086
@@ -27443,7 +27443,7 @@
 #line 10088
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27474,14 +27474,14 @@
         },
     },
 #line 10098
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CHAZ] =
+    [TRAINER_BIRD_KEEPER_CHAZ] =
     {
 #line 10099
         .trainerName = _("CHAZ"),
 #line 10100
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 10101
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 10102
         .gender = TRAINER_GENDER_MALE,
 #line 10103
@@ -27491,7 +27491,7 @@
 #line 10105
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27522,14 +27522,14 @@
         },
     },
 #line 10115
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_HAROLD] =
+    [TRAINER_BIRD_KEEPER_HAROLD] =
     {
 #line 10116
         .trainerName = _("HAROLD"),
 #line 10117
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 10118
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 10119
         .gender = TRAINER_GENDER_MALE,
 #line 10120
@@ -27539,7 +27539,7 @@
 #line 10122
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27570,14 +27570,14 @@
         },
     },
 #line 10132
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_TYLOR] =
+    [TRAINER_FISHERMAN_TYLOR] =
     {
 #line 10133
         .trainerName = _("TYLOR"),
 #line 10134
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 10135
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 10136
         .gender = TRAINER_GENDER_MALE,
 #line 10137
@@ -27587,7 +27587,7 @@
 #line 10139
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27618,14 +27618,14 @@
         },
     },
 #line 10149
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_MYMO] =
+    [TRAINER_SWIMMER_MALE_MYMO] =
     {
 #line 10150
         .trainerName = _("MYMO"),
 #line 10151
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 10152
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 10153
         .gender = TRAINER_GENDER_MALE,
 #line 10154
@@ -27635,7 +27635,7 @@
 #line 10156
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27666,14 +27666,14 @@
         },
     },
 #line 10166
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_NICOLE] =
+    [TRAINER_SWIMMER_FEMALE_NICOLE] =
     {
 #line 10167
         .trainerName = _("NICOLE"),
 #line 10168
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 10169
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 10170
         .gender = TRAINER_GENDER_MALE,
 #line 10171
@@ -27683,7 +27683,7 @@
 #line 10173
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27702,14 +27702,14 @@
         },
     },
 #line 10179
-    [DIFFICULTY_NORMAL][TRAINER_SIS_AND_BRO_AVA_GEB] =
+    [TRAINER_SIS_AND_BRO_AVA_GEB] =
     {
 #line 10180
         .trainerName = _("AVA & GEB"),
 #line 10181
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO_FRLG,
 #line 10182
-        .trainerPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        .trainerPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
 #line 10183
         .gender = TRAINER_GENDER_MALE,
 #line 10184
@@ -27719,7 +27719,7 @@
 #line 10186
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27750,14 +27750,14 @@
         },
     },
 #line 10196
-    [DIFFICULTY_NORMAL][TRAINER_AROMA_LADY_ROSE] =
+    [TRAINER_AROMA_LADY_ROSE] =
     {
 #line 10197
         .trainerName = _("ROSE"),
 #line 10198
         .trainerClass = TRAINER_CLASS_AROMA_LADY_FRLG,
 #line 10199
-        .trainerPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_AROMA_LADY_FRLG,
 #line 10200
         .gender = TRAINER_GENDER_MALE,
 #line 10201
@@ -27767,7 +27767,7 @@
 #line 10203
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_AROMA_LADY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27798,14 +27798,14 @@
         },
     },
 #line 10213
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_SAMIR] =
+    [TRAINER_SWIMMER_MALE_SAMIR] =
     {
 #line 10214
         .trainerName = _("SAMIR"),
 #line 10215
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 10216
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 10217
         .gender = TRAINER_GENDER_MALE,
 #line 10218
@@ -27815,7 +27815,7 @@
 #line 10220
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -27834,14 +27834,14 @@
         },
     },
 #line 10226
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_DENISE] =
+    [TRAINER_SWIMMER_FEMALE_DENISE] =
     {
 #line 10227
         .trainerName = _("DENISE"),
 #line 10228
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 10229
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 10230
         .gender = TRAINER_GENDER_MALE,
 #line 10231
@@ -27851,7 +27851,7 @@
 #line 10233
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27882,14 +27882,14 @@
         },
     },
 #line 10243
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_MIU_MIA] =
+    [TRAINER_TWINS_MIU_MIA] =
     {
 #line 10244
         .trainerName = _("MIU & MIA"),
 #line 10245
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 10246
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 10247
         .gender = TRAINER_GENDER_MALE,
 #line 10248
@@ -27899,7 +27899,7 @@
 #line 10250
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27930,14 +27930,14 @@
         },
     },
 #line 10260
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_EARL] =
+    [TRAINER_HIKER_EARL] =
     {
 #line 10261
         .trainerName = _("EARL"),
 #line 10262
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 10263
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 10264
         .gender = TRAINER_GENDER_MALE,
 #line 10265
@@ -27947,7 +27947,7 @@
 #line 10267
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -27978,14 +27978,14 @@
         },
     },
 #line 10277
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_FOSTER] =
+    [TRAINER_RUIN_MANIAC_FOSTER] =
     {
 #line 10278
         .trainerName = _("FOSTER"),
 #line 10279
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 10280
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 10281
         .gender = TRAINER_GENDER_MALE,
 #line 10282
@@ -27995,7 +27995,7 @@
 #line 10284
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28014,14 +28014,14 @@
         },
     },
 #line 10290
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_LARRY] =
+    [TRAINER_RUIN_MANIAC_LARRY] =
     {
 #line 10291
         .trainerName = _("LARRY"),
 #line 10292
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 10293
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 10294
         .gender = TRAINER_GENDER_MALE,
 #line 10295
@@ -28031,7 +28031,7 @@
 #line 10297
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28062,14 +28062,14 @@
         },
     },
 #line 10307
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_DARYL] =
+    [TRAINER_HIKER_DARYL] =
     {
 #line 10308
         .trainerName = _("DARYL"),
 #line 10309
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 10310
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 10311
         .gender = TRAINER_GENDER_MALE,
 #line 10312
@@ -28079,7 +28079,7 @@
 #line 10314
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28098,14 +28098,14 @@
         },
     },
 #line 10320
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_HECTOR] =
+    [TRAINER_POKEMANIAC_HECTOR] =
     {
 #line 10321
         .trainerName = _("HECTOR"),
 #line 10322
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 10323
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 10324
         .gender = TRAINER_GENDER_MALE,
 #line 10325
@@ -28115,7 +28115,7 @@
 #line 10327
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28146,14 +28146,14 @@
         },
     },
 #line 10337
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_DARIO] =
+    [TRAINER_PSYCHIC_DARIO] =
     {
 #line 10338
         .trainerName = _("DARIO"),
 #line 10339
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 10340
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 10341
         .gender = TRAINER_GENDER_MALE,
 #line 10342
@@ -28163,7 +28163,7 @@
 #line 10344
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28189,14 +28189,14 @@
         },
     },
 #line 10354
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_RODETTE] =
+    [TRAINER_PSYCHIC_RODETTE] =
     {
 #line 10355
         .trainerName = _("RODETTE"),
 #line 10356
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 10357
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F_FRLG,
 #line 10358
         .gender = TRAINER_GENDER_MALE,
 #line 10359
@@ -28206,7 +28206,7 @@
 #line 10361
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28270,14 +28270,14 @@
         },
     },
 #line 10387
-    [DIFFICULTY_NORMAL][TRAINER_AROMA_LADY_MIAH] =
+    [TRAINER_AROMA_LADY_MIAH] =
     {
 #line 10388
         .trainerName = _("MIAH"),
 #line 10389
         .trainerClass = TRAINER_CLASS_AROMA_LADY_FRLG,
 #line 10390
-        .trainerPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_AROMA_LADY_FRLG,
 #line 10391
         .gender = TRAINER_GENDER_MALE,
 #line 10392
@@ -28287,7 +28287,7 @@
 #line 10394
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_AROMA_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_AROMA_LADY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28318,14 +28318,14 @@
         },
     },
 #line 10404
-    [DIFFICULTY_NORMAL][TRAINER_YOUNG_COUPLE_EVE_JON] =
+    [TRAINER_YOUNG_COUPLE_EVE_JON] =
     {
 #line 10405
         .trainerName = _("EVE & JON"),
 #line 10406
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE_FRLG,
 #line 10407
-        .trainerPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
 #line 10408
         .gender = TRAINER_GENDER_MALE,
 #line 10409
@@ -28335,7 +28335,7 @@
 #line 10411
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28366,14 +28366,14 @@
         },
     },
 #line 10421
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_MASON] =
+    [TRAINER_JUGGLER_MASON] =
     {
 #line 10422
         .trainerName = _("MASON"),
 #line 10423
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 10424
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 10425
         .gender = TRAINER_GENDER_MALE,
 #line 10426
@@ -28383,7 +28383,7 @@
 #line 10428
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -28466,14 +28466,14 @@
         },
     },
 #line 10462
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_CYNDY] =
+    [TRAINER_CRUSH_GIRL_CYNDY] =
     {
 #line 10463
         .trainerName = _("CYNDY"),
 #line 10464
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 10465
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 10466
         .gender = TRAINER_GENDER_MALE,
 #line 10467
@@ -28483,7 +28483,7 @@
 #line 10469
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28532,14 +28532,14 @@
         },
     },
 #line 10483
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_JOCELYN] =
+    [TRAINER_CRUSH_GIRL_JOCELYN] =
     {
 #line 10484
         .trainerName = _("JOCELYN"),
 #line 10485
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 10486
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 10487
         .gender = TRAINER_GENDER_MALE,
 #line 10488
@@ -28549,7 +28549,7 @@
 #line 10490
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28584,14 +28584,14 @@
         },
     },
 #line 10500
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_EVAN] =
+    [TRAINER_TAMER_EVAN] =
     {
 #line 10501
         .trainerName = _("EVAN"),
 #line 10502
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 10503
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 10504
         .gender = TRAINER_GENDER_MALE,
 #line 10505
@@ -28601,7 +28601,7 @@
 #line 10507
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28644,14 +28644,14 @@
         },
     },
 #line 10521
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_MARK_2] =
+    [TRAINER_POKEMANIAC_MARK_2] =
     {
 #line 10522
         .trainerName = _("MARK"),
 #line 10523
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 10524
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 10525
         .gender = TRAINER_GENDER_MALE,
 #line 10526
@@ -28661,7 +28661,7 @@
 #line 10528
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28692,14 +28692,14 @@
         },
     },
 #line 10538
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_LOGAN] =
+    [TRAINER_PKMN_RANGER_LOGAN] =
     {
 #line 10539
         .trainerName = _("LOGAN"),
 #line 10540
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 10541
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
 #line 10542
         .gender = TRAINER_GENDER_MALE,
 #line 10543
@@ -28711,7 +28711,7 @@
 #line 10546
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -28756,14 +28756,14 @@
         },
     },
 #line 10564
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_JACKSON] =
+    [TRAINER_PKMN_RANGER_JACKSON] =
     {
 #line 10565
         .trainerName = _("JACKSON"),
 #line 10566
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 10567
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
 #line 10568
         .gender = TRAINER_GENDER_MALE,
 #line 10569
@@ -28775,7 +28775,7 @@
 #line 10572
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28839,14 +28839,14 @@
         },
     },
 #line 10598
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_BETH] =
+    [TRAINER_PKMN_RANGER_BETH] =
     {
 #line 10599
         .trainerName = _("BETH"),
 #line 10600
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 10601
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
 #line 10602
         .gender = TRAINER_GENDER_MALE,
 #line 10603
@@ -28858,7 +28858,7 @@
 #line 10606
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -28901,14 +28901,14 @@
         },
     },
 #line 10620
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_KATELYN] =
+    [TRAINER_PKMN_RANGER_KATELYN] =
     {
 #line 10621
         .trainerName = _("KATELYN"),
 #line 10622
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 10623
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
 #line 10624
         .gender = TRAINER_GENDER_MALE,
 #line 10625
@@ -28920,7 +28920,7 @@
 #line 10628
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -28946,14 +28946,14 @@
         },
     },
 #line 10638
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_LEROY] =
+    [TRAINER_COOLTRAINER_LEROY] =
     {
 #line 10639
         .trainerName = _("LEROY"),
 #line 10640
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 10641
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 10642
         .gender = TRAINER_GENDER_MALE,
 #line 10643
@@ -28965,7 +28965,7 @@
 #line 10646
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -29067,14 +29067,14 @@
         },
     },
 #line 10688
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_MICHELLE] =
+    [TRAINER_COOLTRAINER_MICHELLE] =
     {
 #line 10689
         .trainerName = _("MICHELLE"),
 #line 10690
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 10691
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 10692
         .gender = TRAINER_GENDER_MALE,
 #line 10693
@@ -29086,7 +29086,7 @@
 #line 10696
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -29188,14 +29188,14 @@
         },
     },
 #line 10738
-    [DIFFICULTY_NORMAL][TRAINER_COOL_COUPLE_LEX_NYA] =
+    [TRAINER_COOL_COUPLE_LEX_NYA] =
     {
 #line 10739
         .trainerName = _("LEX & NYA"),
 #line 10740
         .trainerClass = TRAINER_CLASS_COOL_COUPLE_FRLG,
 #line 10741
-        .trainerPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_COOL_COUPLE_FRLG,
 #line 10742
         .gender = TRAINER_GENDER_MALE,
 #line 10743
@@ -29207,7 +29207,7 @@
 #line 10746
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOL_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29252,14 +29252,14 @@
         },
     },
 #line 10764
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_BRANDON] =
+    [TRAINER_RUIN_MANIAC_BRANDON] =
     {
 #line 10765
         .trainerName = _("BRANDON"),
 #line 10766
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 10767
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 10768
         .gender = TRAINER_GENDER_MALE,
 #line 10769
@@ -29269,7 +29269,7 @@
 #line 10771
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29288,14 +29288,14 @@
         },
     },
 #line 10777
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_BENJAMIN] =
+    [TRAINER_RUIN_MANIAC_BENJAMIN] =
     {
 #line 10778
         .trainerName = _("BENJAMIN"),
 #line 10779
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 10780
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 10781
         .gender = TRAINER_GENDER_MALE,
 #line 10782
@@ -29305,7 +29305,7 @@
 #line 10784
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -29369,14 +29369,14 @@
         },
     },
 #line 10810
-    [DIFFICULTY_NORMAL][TRAINER_PAINTER_EDNA] =
+    [TRAINER_PAINTER_EDNA] =
     {
 #line 10811
         .trainerName = _("EDNA"),
 #line 10812
         .trainerClass = TRAINER_CLASS_PAINTER_FRLG,
 #line 10813
-        .trainerPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        .trainerPic = TRAINER_PIC_PAINTER_FRLG,
 #line 10814
         .gender = TRAINER_GENDER_MALE,
 #line 10815
@@ -29386,7 +29386,7 @@
 #line 10817
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PAINTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29412,14 +29412,14 @@
         },
     },
 #line 10827
-    [DIFFICULTY_NORMAL][TRAINER_GENTLEMAN_CLIFFORD] =
+    [TRAINER_GENTLEMAN_CLIFFORD] =
     {
 #line 10828
         .trainerName = _("CLIFFORD"),
 #line 10829
         .trainerClass = TRAINER_CLASS_GENTLEMAN_FRLG,
 #line 10830
-        .trainerPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        .trainerPic = TRAINER_PIC_GENTLEMAN_FRLG,
 #line 10831
         .gender = TRAINER_GENDER_MALE,
 #line 10832
@@ -29429,7 +29429,7 @@
 #line 10834
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GENTLEMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GENTLEMAN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29460,14 +29460,14 @@
         },
     },
 #line 10844
-    [DIFFICULTY_NORMAL][TRAINER_LADY_SELPHY] =
+    [TRAINER_LADY_SELPHY] =
     {
 #line 10845
         .trainerName = _("SELPHY"),
 #line 10846
         .trainerClass = TRAINER_CLASS_LADY_FRLG,
 #line 10847
-        .trainerPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        .trainerPic = TRAINER_PIC_LADY_FRLG,
 #line 10848
         .gender = TRAINER_GENDER_MALE,
 #line 10849
@@ -29479,7 +29479,7 @@
 #line 10852
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LADY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LADY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29528,14 +29528,14 @@
         },
     },
 #line 10870
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_LAWSON] =
+    [TRAINER_RUIN_MANIAC_LAWSON] =
     {
 #line 10871
         .trainerName = _("LAWSON"),
 #line 10872
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 10873
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 10874
         .gender = TRAINER_GENDER_MALE,
 #line 10875
@@ -29545,7 +29545,7 @@
 #line 10877
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -29588,14 +29588,14 @@
         },
     },
 #line 10891
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_LAURA] =
+    [TRAINER_PSYCHIC_LAURA] =
     {
 #line 10892
         .trainerName = _("LAURA"),
 #line 10893
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 10894
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F_FRLG,
 #line 10895
         .gender = TRAINER_GENDER_MALE,
 #line 10896
@@ -29605,7 +29605,7 @@
 #line 10898
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -29648,14 +29648,14 @@
         },
     },
 #line 10912
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_BREEDER_BETHANY] =
+    [TRAINER_PKMN_BREEDER_BETHANY] =
     {
 #line 10913
         .trainerName = _("BETHANY"),
 #line 10914
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER_FRLG,
 #line 10915
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
 #line 10916
         .gender = TRAINER_GENDER_MALE,
 #line 10917
@@ -29665,7 +29665,7 @@
 #line 10919
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29684,14 +29684,14 @@
         },
     },
 #line 10925
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_BREEDER_ALLISON] =
+    [TRAINER_PKMN_BREEDER_ALLISON] =
     {
 #line 10926
         .trainerName = _("ALLISON"),
 #line 10927
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER_FRLG,
 #line 10928
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
 #line 10929
         .gender = TRAINER_GENDER_MALE,
 #line 10930
@@ -29701,7 +29701,7 @@
 #line 10932
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -29744,14 +29744,14 @@
         },
     },
 #line 10946
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_GARRET] =
+    [TRAINER_BUG_CATCHER_GARRET] =
     {
 #line 10947
         .trainerName = _("GARRET"),
 #line 10948
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 10949
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 10950
         .gender = TRAINER_GENDER_MALE,
 #line 10951
@@ -29761,7 +29761,7 @@
 #line 10953
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -29780,14 +29780,14 @@
         },
     },
 #line 10959
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_JONAH] =
+    [TRAINER_BUG_CATCHER_JONAH] =
     {
 #line 10960
         .trainerName = _("JONAH"),
 #line 10961
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 10962
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 10963
         .gender = TRAINER_GENDER_MALE,
 #line 10964
@@ -29797,7 +29797,7 @@
 #line 10966
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -29852,14 +29852,14 @@
         },
     },
 #line 10984
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_VANCE] =
+    [TRAINER_BUG_CATCHER_VANCE] =
     {
 #line 10985
         .trainerName = _("VANCE"),
 #line 10986
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 10987
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 10988
         .gender = TRAINER_GENDER_MALE,
 #line 10989
@@ -29869,7 +29869,7 @@
 #line 10991
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -29900,14 +29900,14 @@
         },
     },
 #line 11001
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_NASH] =
+    [TRAINER_YOUNGSTER_NASH] =
     {
 #line 11002
         .trainerName = _("NASH"),
 #line 11003
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 11004
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 11005
         .gender = TRAINER_GENDER_MALE,
 #line 11006
@@ -29917,7 +29917,7 @@
 #line 11008
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -29960,14 +29960,14 @@
         },
     },
 #line 11022
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_CORDELL] =
+    [TRAINER_YOUNGSTER_CORDELL] =
     {
 #line 11023
         .trainerName = _("CORDELL"),
 #line 11024
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 11025
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 11026
         .gender = TRAINER_GENDER_MALE,
 #line 11027
@@ -29977,7 +29977,7 @@
 #line 11029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30008,14 +30008,14 @@
         },
     },
 #line 11039
-    [DIFFICULTY_NORMAL][TRAINER_LASS_DALIA] =
+    [TRAINER_LASS_DALIA] =
     {
 #line 11040
         .trainerName = _("DALIA"),
 #line 11041
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 11042
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 11043
         .gender = TRAINER_GENDER_MALE,
 #line 11044
@@ -30025,7 +30025,7 @@
 #line 11046
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -30080,14 +30080,14 @@
         },
     },
 #line 11064
-    [DIFFICULTY_NORMAL][TRAINER_LASS_JOANA] =
+    [TRAINER_LASS_JOANA] =
     {
 #line 11065
         .trainerName = _("JOANA"),
 #line 11066
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 11067
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 11068
         .gender = TRAINER_GENDER_MALE,
 #line 11069
@@ -30097,7 +30097,7 @@
 #line 11071
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30116,14 +30116,14 @@
         },
     },
 #line 11077
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_RILEY] =
+    [TRAINER_CAMPER_RILEY] =
     {
 #line 11078
         .trainerName = _("RILEY"),
 #line 11079
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11080
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11081
         .gender = TRAINER_GENDER_MALE,
 #line 11082
@@ -30133,7 +30133,7 @@
 #line 11084
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30164,14 +30164,14 @@
         },
     },
 #line 11094
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_MARCY] =
+    [TRAINER_PICNICKER_MARCY] =
     {
 #line 11095
         .trainerName = _("MARCY"),
 #line 11096
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11097
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11098
         .gender = TRAINER_GENDER_MALE,
 #line 11099
@@ -30181,7 +30181,7 @@
 #line 11101
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30224,14 +30224,14 @@
         },
     },
 #line 11115
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_LAYTON] =
+    [TRAINER_RUIN_MANIAC_LAYTON] =
     {
 #line 11116
         .trainerName = _("LAYTON"),
 #line 11117
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 11118
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 11119
         .gender = TRAINER_GENDER_MALE,
 #line 11120
@@ -30241,7 +30241,7 @@
 #line 11122
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30284,14 +30284,14 @@
         },
     },
 #line 11136
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_KELSEY_2] =
+    [TRAINER_PICNICKER_KELSEY_2] =
     {
 #line 11137
         .trainerName = _("KELSEY"),
 #line 11138
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11139
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11140
         .gender = TRAINER_GENDER_MALE,
 #line 11141
@@ -30301,7 +30301,7 @@
 #line 11143
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30332,14 +30332,14 @@
         },
     },
 #line 11153
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_KELSEY_3] =
+    [TRAINER_PICNICKER_KELSEY_3] =
     {
 #line 11154
         .trainerName = _("KELSEY"),
 #line 11155
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11156
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11157
         .gender = TRAINER_GENDER_MALE,
 #line 11158
@@ -30349,7 +30349,7 @@
 #line 11160
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30380,14 +30380,14 @@
         },
     },
 #line 11170
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_KELSEY_4] =
+    [TRAINER_PICNICKER_KELSEY_4] =
     {
 #line 11171
         .trainerName = _("KELSEY"),
 #line 11172
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11173
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11174
         .gender = TRAINER_GENDER_MALE,
 #line 11175
@@ -30397,7 +30397,7 @@
 #line 11177
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30428,14 +30428,14 @@
         },
     },
 #line 11187
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_RICKY_2] =
+    [TRAINER_CAMPER_RICKY_2] =
     {
 #line 11188
         .trainerName = _("RICKY"),
 #line 11189
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11190
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11191
         .gender = TRAINER_GENDER_MALE,
 #line 11192
@@ -30445,7 +30445,7 @@
 #line 11194
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30464,14 +30464,14 @@
         },
     },
 #line 11200
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_RICKY_3] =
+    [TRAINER_CAMPER_RICKY_3] =
     {
 #line 11201
         .trainerName = _("RICKY"),
 #line 11202
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11203
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11204
         .gender = TRAINER_GENDER_MALE,
 #line 11205
@@ -30481,7 +30481,7 @@
 #line 11207
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30500,14 +30500,14 @@
         },
     },
 #line 11213
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_RICKY_4] =
+    [TRAINER_CAMPER_RICKY_4] =
     {
 #line 11214
         .trainerName = _("RICKY"),
 #line 11215
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11216
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11217
         .gender = TRAINER_GENDER_MALE,
 #line 11218
@@ -30517,7 +30517,7 @@
 #line 11220
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -30536,14 +30536,14 @@
         },
     },
 #line 11226
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_JEFF_2] =
+    [TRAINER_CAMPER_JEFF_2] =
     {
 #line 11227
         .trainerName = _("JEFF"),
 #line 11228
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11229
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11230
         .gender = TRAINER_GENDER_MALE,
 #line 11231
@@ -30553,7 +30553,7 @@
 #line 11233
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30584,14 +30584,14 @@
         },
     },
 #line 11243
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_JEFF_3] =
+    [TRAINER_CAMPER_JEFF_3] =
     {
 #line 11244
         .trainerName = _("JEFF"),
 #line 11245
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11246
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11247
         .gender = TRAINER_GENDER_MALE,
 #line 11248
@@ -30601,7 +30601,7 @@
 #line 11250
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30632,14 +30632,14 @@
         },
     },
 #line 11260
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_JEFF_4] =
+    [TRAINER_CAMPER_JEFF_4] =
     {
 #line 11261
         .trainerName = _("JEFF"),
 #line 11262
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11263
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11264
         .gender = TRAINER_GENDER_MALE,
 #line 11265
@@ -30649,7 +30649,7 @@
 #line 11267
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -30680,14 +30680,14 @@
         },
     },
 #line 11277
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ISABELLE_2] =
+    [TRAINER_PICNICKER_ISABELLE_2] =
     {
 #line 11278
         .trainerName = _("ISABELLE"),
 #line 11279
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11280
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11281
         .gender = TRAINER_GENDER_MALE,
 #line 11282
@@ -30697,7 +30697,7 @@
 #line 11284
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30740,14 +30740,14 @@
         },
     },
 #line 11298
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ISABELLE_3] =
+    [TRAINER_PICNICKER_ISABELLE_3] =
     {
 #line 11299
         .trainerName = _("ISABELLE"),
 #line 11300
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11301
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11302
         .gender = TRAINER_GENDER_MALE,
 #line 11303
@@ -30757,7 +30757,7 @@
 #line 11305
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30800,14 +30800,14 @@
         },
     },
 #line 11319
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ISABELLE_4] =
+    [TRAINER_PICNICKER_ISABELLE_4] =
     {
 #line 11320
         .trainerName = _("ISABELLE"),
 #line 11321
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11322
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11323
         .gender = TRAINER_GENDER_MALE,
 #line 11324
@@ -30817,7 +30817,7 @@
 #line 11326
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30860,14 +30860,14 @@
         },
     },
 #line 11340
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_YASU_2] =
+    [TRAINER_YOUNGSTER_YASU_2] =
     {
 #line 11341
         .trainerName = _("YASU"),
 #line 11342
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 11343
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 11344
         .gender = TRAINER_GENDER_MALE,
 #line 11345
@@ -30877,7 +30877,7 @@
 #line 11347
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30920,14 +30920,14 @@
         },
     },
 #line 11361
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_YASU_3] =
+    [TRAINER_YOUNGSTER_YASU_3] =
     {
 #line 11362
         .trainerName = _("YASU"),
 #line 11363
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 11364
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 11365
         .gender = TRAINER_GENDER_MALE,
 #line 11366
@@ -30937,7 +30937,7 @@
 #line 11368
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -30980,14 +30980,14 @@
         },
     },
 #line 11382
-    [DIFFICULTY_NORMAL][TRAINER_ENGINEER_BERNIE_2] =
+    [TRAINER_ENGINEER_BERNIE_2] =
     {
 #line 11383
         .trainerName = _("BERNIE"),
 #line 11384
         .trainerClass = TRAINER_CLASS_ENGINEER_FRLG,
 #line 11385
-        .trainerPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        .trainerPic = TRAINER_PIC_ENGINEER_FRLG,
 #line 11386
         .gender = TRAINER_GENDER_MALE,
 #line 11387
@@ -30997,7 +30997,7 @@
 #line 11389
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ENGINEER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ENGINEER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31040,14 +31040,14 @@
         },
     },
 #line 11403
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_DARIAN_2] =
+    [TRAINER_GAMER_DARIAN_2] =
     {
 #line 11404
         .trainerName = _("DARIAN"),
 #line 11405
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 11406
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 11407
         .gender = TRAINER_GENDER_MALE,
 #line 11408
@@ -31057,7 +31057,7 @@
 #line 11410
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31088,14 +31088,14 @@
         },
     },
 #line 11420
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_CHRIS_2] =
+    [TRAINER_CAMPER_CHRIS_2] =
     {
 #line 11421
         .trainerName = _("CHRIS"),
 #line 11422
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11423
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11424
         .gender = TRAINER_GENDER_MALE,
 #line 11425
@@ -31105,7 +31105,7 @@
 #line 11427
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31136,14 +31136,14 @@
         },
     },
 #line 11437
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_CHRIS_3] =
+    [TRAINER_CAMPER_CHRIS_3] =
     {
 #line 11438
         .trainerName = _("CHRIS"),
 #line 11439
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11440
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11441
         .gender = TRAINER_GENDER_MALE,
 #line 11442
@@ -31153,7 +31153,7 @@
 #line 11444
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31184,14 +31184,14 @@
         },
     },
 #line 11454
-    [DIFFICULTY_NORMAL][TRAINER_CAMPER_CHRIS_4] =
+    [TRAINER_CAMPER_CHRIS_4] =
     {
 #line 11455
         .trainerName = _("CHRIS"),
 #line 11456
         .trainerClass = TRAINER_CLASS_CAMPER_FRLG,
 #line 11457
-        .trainerPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        .trainerPic = TRAINER_PIC_CAMPER_FRLG,
 #line 11458
         .gender = TRAINER_GENDER_MALE,
 #line 11459
@@ -31201,7 +31201,7 @@
 #line 11461
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CAMPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CAMPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31232,14 +31232,14 @@
         },
     },
 #line 11471
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ALICIA_2] =
+    [TRAINER_PICNICKER_ALICIA_2] =
     {
 #line 11472
         .trainerName = _("ALICIA"),
 #line 11473
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11474
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11475
         .gender = TRAINER_GENDER_MALE,
 #line 11476
@@ -31249,7 +31249,7 @@
 #line 11478
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -31268,14 +31268,14 @@
         },
     },
 #line 11484
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ALICIA_3] =
+    [TRAINER_PICNICKER_ALICIA_3] =
     {
 #line 11485
         .trainerName = _("ALICIA"),
 #line 11486
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11487
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11488
         .gender = TRAINER_GENDER_MALE,
 #line 11489
@@ -31285,7 +31285,7 @@
 #line 11491
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -31304,14 +31304,14 @@
         },
     },
 #line 11497
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_ALICIA_4] =
+    [TRAINER_PICNICKER_ALICIA_4] =
     {
 #line 11498
         .trainerName = _("ALICIA"),
 #line 11499
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11500
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11501
         .gender = TRAINER_GENDER_MALE,
 #line 11502
@@ -31321,7 +31321,7 @@
 #line 11504
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -31340,14 +31340,14 @@
         },
     },
 #line 11510
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_JEREMY_2] =
+    [TRAINER_HIKER_JEREMY_2] =
     {
 #line 11511
         .trainerName = _("JEREMY"),
 #line 11512
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 11513
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 11514
         .gender = TRAINER_GENDER_MALE,
 #line 11515
@@ -31357,7 +31357,7 @@
 #line 11517
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31388,14 +31388,14 @@
         },
     },
 #line 11527
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_MARK_3] =
+    [TRAINER_POKEMANIAC_MARK_3] =
     {
 #line 11528
         .trainerName = _("MARK"),
 #line 11529
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 11530
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 11531
         .gender = TRAINER_GENDER_MALE,
 #line 11532
@@ -31405,7 +31405,7 @@
 #line 11534
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31436,14 +31436,14 @@
         },
     },
 #line 11544
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_HERMAN_2] =
+    [TRAINER_POKEMANIAC_HERMAN_2] =
     {
 #line 11545
         .trainerName = _("HERMAN"),
 #line 11546
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 11547
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 11548
         .gender = TRAINER_GENDER_MALE,
 #line 11549
@@ -31453,7 +31453,7 @@
 #line 11551
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31484,14 +31484,14 @@
         },
     },
 #line 11561
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_HERMAN_3] =
+    [TRAINER_POKEMANIAC_HERMAN_3] =
     {
 #line 11562
         .trainerName = _("HERMAN"),
 #line 11563
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 11564
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 11565
         .gender = TRAINER_GENDER_MALE,
 #line 11566
@@ -31501,7 +31501,7 @@
 #line 11568
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31532,14 +31532,14 @@
         },
     },
 #line 11578
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_TRENT_2] =
+    [TRAINER_HIKER_TRENT_2] =
     {
 #line 11579
         .trainerName = _("TRENT"),
 #line 11580
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 11581
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 11582
         .gender = TRAINER_GENDER_MALE,
 #line 11583
@@ -31549,7 +31549,7 @@
 #line 11585
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31580,14 +31580,14 @@
         },
     },
 #line 11595
-    [DIFFICULTY_NORMAL][TRAINER_LASS_MEGAN_2] =
+    [TRAINER_LASS_MEGAN_2] =
     {
 #line 11596
         .trainerName = _("MEGAN"),
 #line 11597
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 11598
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 11599
         .gender = TRAINER_GENDER_MALE,
 #line 11600
@@ -31597,7 +31597,7 @@
 #line 11602
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -31664,14 +31664,14 @@
         },
     },
 #line 11624
-    [DIFFICULTY_NORMAL][TRAINER_LASS_MEGAN_3] =
+    [TRAINER_LASS_MEGAN_3] =
     {
 #line 11625
         .trainerName = _("MEGAN"),
 #line 11626
         .trainerClass = TRAINER_CLASS_LASS_FRLG,
 #line 11627
-        .trainerPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        .trainerPic = TRAINER_PIC_LASS_FRLG,
 #line 11628
         .gender = TRAINER_GENDER_MALE,
 #line 11629
@@ -31681,7 +31681,7 @@
 #line 11631
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_LASS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_LASS_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -31748,14 +31748,14 @@
         },
     },
 #line 11653
-    [DIFFICULTY_NORMAL][TRAINER_SUPER_NERD_GLENN_2] =
+    [TRAINER_SUPER_NERD_GLENN_2] =
     {
 #line 11654
         .trainerName = _("GLENN"),
 #line 11655
         .trainerClass = TRAINER_CLASS_SUPER_NERD_FRLG,
 #line 11656
-        .trainerPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        .trainerPic = TRAINER_PIC_SUPER_NERD_FRLG,
 #line 11657
         .gender = TRAINER_GENDER_MALE,
 #line 11658
@@ -31765,7 +31765,7 @@
 #line 11660
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SUPER_NERD_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SUPER_NERD_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -31808,14 +31808,14 @@
         },
     },
 #line 11674
-    [DIFFICULTY_NORMAL][TRAINER_GAMER_RICH_2] =
+    [TRAINER_GAMER_RICH_2] =
     {
 #line 11675
         .trainerName = _("RICH"),
 #line 11676
         .trainerClass = TRAINER_CLASS_GAMER_FRLG,
 #line 11677
-        .trainerPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        .trainerPic = TRAINER_PIC_GAMER_FRLG,
 #line 11678
         .gender = TRAINER_GENDER_MALE,
 #line 11679
@@ -31825,7 +31825,7 @@
 #line 11681
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_GAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_GAMER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31856,14 +31856,14 @@
         },
     },
 #line 11691
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_JAREN_2] =
+    [TRAINER_BIKER_JAREN_2] =
     {
 #line 11692
         .trainerName = _("JAREN"),
 #line 11693
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 11694
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 11695
         .gender = TRAINER_GENDER_MALE,
 #line 11696
@@ -31873,7 +31873,7 @@
 #line 11698
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -31904,14 +31904,14 @@
         },
     },
 #line 11708
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_ELLIOT_2] =
+    [TRAINER_FISHERMAN_ELLIOT_2] =
     {
 #line 11709
         .trainerName = _("ELLIOT"),
 #line 11710
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 11711
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 11712
         .gender = TRAINER_GENDER_MALE,
 #line 11713
@@ -31921,7 +31921,7 @@
 #line 11715
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -31976,14 +31976,14 @@
         },
     },
 #line 11733
-    [DIFFICULTY_NORMAL][TRAINER_ROCKER_LUCA_2] =
+    [TRAINER_ROCKER_LUCA_2] =
     {
 #line 11734
         .trainerName = _("LUCA"),
 #line 11735
         .trainerClass = TRAINER_CLASS_ROCKER_FRLG,
 #line 11736
-        .trainerPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        .trainerPic = TRAINER_PIC_ROCKER_FRLG,
 #line 11737
         .gender = TRAINER_GENDER_MALE,
 #line 11738
@@ -31993,7 +31993,7 @@
 #line 11740
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ROCKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ROCKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32024,14 +32024,14 @@
         },
     },
 #line 11750
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_SHEILA_2] =
+    [TRAINER_BEAUTY_SHEILA_2] =
     {
 #line 11751
         .trainerName = _("SHEILA"),
 #line 11752
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 11753
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 11754
         .gender = TRAINER_GENDER_MALE,
 #line 11755
@@ -32041,7 +32041,7 @@
 #line 11757
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32072,14 +32072,14 @@
         },
     },
 #line 11767
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_ROBERT_2] =
+    [TRAINER_BIRD_KEEPER_ROBERT_2] =
     {
 #line 11768
         .trainerName = _("ROBERT"),
 #line 11769
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11770
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11771
         .gender = TRAINER_GENDER_MALE,
 #line 11772
@@ -32089,7 +32089,7 @@
 #line 11774
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32144,14 +32144,14 @@
         },
     },
 #line 11792
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_ROBERT_3] =
+    [TRAINER_BIRD_KEEPER_ROBERT_3] =
     {
 #line 11793
         .trainerName = _("ROBERT"),
 #line 11794
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11795
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11796
         .gender = TRAINER_GENDER_MALE,
 #line 11797
@@ -32161,7 +32161,7 @@
 #line 11799
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32216,14 +32216,14 @@
         },
     },
 #line 11817
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_SUSIE_2] =
+    [TRAINER_PICNICKER_SUSIE_2] =
     {
 #line 11818
         .trainerName = _("SUSIE"),
 #line 11819
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11820
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11821
         .gender = TRAINER_GENDER_MALE,
 #line 11822
@@ -32233,7 +32233,7 @@
 #line 11824
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -32300,14 +32300,14 @@
         },
     },
 #line 11846
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_SUSIE_3] =
+    [TRAINER_PICNICKER_SUSIE_3] =
     {
 #line 11847
         .trainerName = _("SUSIE"),
 #line 11848
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11849
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11850
         .gender = TRAINER_GENDER_MALE,
 #line 11851
@@ -32317,7 +32317,7 @@
 #line 11853
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -32384,14 +32384,14 @@
         },
     },
 #line 11875
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_SUSIE_4] =
+    [TRAINER_PICNICKER_SUSIE_4] =
     {
 #line 11876
         .trainerName = _("SUSIE"),
 #line 11877
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 11878
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 11879
         .gender = TRAINER_GENDER_MALE,
 #line 11880
@@ -32401,7 +32401,7 @@
 #line 11882
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -32468,14 +32468,14 @@
         },
     },
 #line 11904
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_LUKAS_2] =
+    [TRAINER_BIKER_LUKAS_2] =
     {
 #line 11905
         .trainerName = _("LUKAS"),
 #line 11906
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 11907
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 11908
         .gender = TRAINER_GENDER_MALE,
 #line 11909
@@ -32485,7 +32485,7 @@
 #line 11911
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -32540,14 +32540,14 @@
         },
     },
 #line 11929
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_BENNY_2] =
+    [TRAINER_BIRD_KEEPER_BENNY_2] =
     {
 #line 11930
         .trainerName = _("BENNY"),
 #line 11931
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11932
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11933
         .gender = TRAINER_GENDER_MALE,
 #line 11934
@@ -32557,7 +32557,7 @@
 #line 11936
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32588,14 +32588,14 @@
         },
     },
 #line 11946
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_BENNY_3] =
+    [TRAINER_BIRD_KEEPER_BENNY_3] =
     {
 #line 11947
         .trainerName = _("BENNY"),
 #line 11948
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11949
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11950
         .gender = TRAINER_GENDER_MALE,
 #line 11951
@@ -32605,7 +32605,7 @@
 #line 11953
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32636,14 +32636,14 @@
         },
     },
 #line 11963
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MARLON_2] =
+    [TRAINER_BIRD_KEEPER_MARLON_2] =
     {
 #line 11964
         .trainerName = _("MARLON"),
 #line 11965
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11966
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11967
         .gender = TRAINER_GENDER_MALE,
 #line 11968
@@ -32653,7 +32653,7 @@
 #line 11970
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -32696,14 +32696,14 @@
         },
     },
 #line 11984
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MARLON_3] =
+    [TRAINER_BIRD_KEEPER_MARLON_3] =
     {
 #line 11985
         .trainerName = _("MARLON"),
 #line 11986
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 11987
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 11988
         .gender = TRAINER_GENDER_MALE,
 #line 11989
@@ -32713,7 +32713,7 @@
 #line 11991
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -32756,14 +32756,14 @@
         },
     },
 #line 12005
-    [DIFFICULTY_NORMAL][TRAINER_BEAUTY_GRACE_2] =
+    [TRAINER_BEAUTY_GRACE_2] =
     {
 #line 12006
         .trainerName = _("GRACE"),
 #line 12007
         .trainerClass = TRAINER_CLASS_BEAUTY_FRLG,
 #line 12008
-        .trainerPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        .trainerPic = TRAINER_PIC_BEAUTY_FRLG,
 #line 12009
         .gender = TRAINER_GENDER_MALE,
 #line 12010
@@ -32773,7 +32773,7 @@
 #line 12012
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BEAUTY_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BEAUTY_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32804,14 +32804,14 @@
         },
     },
 #line 12022
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CHESTER_2] =
+    [TRAINER_BIRD_KEEPER_CHESTER_2] =
     {
 #line 12023
         .trainerName = _("CHESTER"),
 #line 12024
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12025
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12026
         .gender = TRAINER_GENDER_MALE,
 #line 12027
@@ -32821,7 +32821,7 @@
 #line 12029
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -32864,14 +32864,14 @@
         },
     },
 #line 12043
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CHESTER_3] =
+    [TRAINER_BIRD_KEEPER_CHESTER_3] =
     {
 #line 12044
         .trainerName = _("CHESTER"),
 #line 12045
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12046
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12047
         .gender = TRAINER_GENDER_MALE,
 #line 12048
@@ -32881,7 +32881,7 @@
 #line 12050
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -32924,14 +32924,14 @@
         },
     },
 #line 12064
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_BECKY_2] =
+    [TRAINER_PICNICKER_BECKY_2] =
     {
 #line 12065
         .trainerName = _("BECKY"),
 #line 12066
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 12067
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 12068
         .gender = TRAINER_GENDER_MALE,
 #line 12069
@@ -32941,7 +32941,7 @@
 #line 12071
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -32972,14 +32972,14 @@
         },
     },
 #line 12081
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_BECKY_3] =
+    [TRAINER_PICNICKER_BECKY_3] =
     {
 #line 12082
         .trainerName = _("BECKY"),
 #line 12083
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 12084
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 12085
         .gender = TRAINER_GENDER_MALE,
 #line 12086
@@ -32989,7 +32989,7 @@
 #line 12088
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33020,14 +33020,14 @@
         },
     },
 #line 12098
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_BECKY_4] =
+    [TRAINER_PICNICKER_BECKY_4] =
     {
 #line 12099
         .trainerName = _("BECKY"),
 #line 12100
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 12101
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 12102
         .gender = TRAINER_GENDER_MALE,
 #line 12103
@@ -33037,7 +33037,7 @@
 #line 12105
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33068,14 +33068,14 @@
         },
     },
 #line 12115
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_RON_MYA_2] =
+    [TRAINER_CRUSH_KIN_RON_MYA_2] =
     {
 #line 12116
         .trainerName = _("RON & MYA"),
 #line 12117
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 12118
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 12119
         .gender = TRAINER_GENDER_MALE,
 #line 12120
@@ -33085,7 +33085,7 @@
 #line 12122
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33120,14 +33120,14 @@
         },
     },
 #line 12132
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_RON_MYA_3] =
+    [TRAINER_CRUSH_KIN_RON_MYA_3] =
     {
 #line 12133
         .trainerName = _("RON & MYA"),
 #line 12134
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 12135
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 12136
         .gender = TRAINER_GENDER_MALE,
 #line 12137
@@ -33137,7 +33137,7 @@
 #line 12139
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33172,14 +33172,14 @@
         },
     },
 #line 12149
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_RON_MYA_4] =
+    [TRAINER_CRUSH_KIN_RON_MYA_4] =
     {
 #line 12150
         .trainerName = _("RON & MYA"),
 #line 12151
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 12152
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 12153
         .gender = TRAINER_GENDER_MALE,
 #line 12154
@@ -33189,7 +33189,7 @@
 #line 12156
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33224,14 +33224,14 @@
         },
     },
 #line 12166
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_RUBEN_2] =
+    [TRAINER_BIKER_RUBEN_2] =
     {
 #line 12167
         .trainerName = _("RUBEN"),
 #line 12168
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 12169
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 12170
         .gender = TRAINER_GENDER_MALE,
 #line 12171
@@ -33241,7 +33241,7 @@
 #line 12173
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -33284,14 +33284,14 @@
         },
     },
 #line 12187
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_CAMRON_2] =
+    [TRAINER_CUE_BALL_CAMRON_2] =
     {
 #line 12188
         .trainerName = _("CAMRON"),
 #line 12189
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 12190
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 12191
         .gender = TRAINER_GENDER_MALE,
 #line 12192
@@ -33301,7 +33301,7 @@
 #line 12194
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33332,14 +33332,14 @@
         },
     },
 #line 12204
-    [DIFFICULTY_NORMAL][TRAINER_BIKER_JAXON_2] =
+    [TRAINER_BIKER_JAXON_2] =
     {
 #line 12205
         .trainerName = _("JAXON"),
 #line 12206
         .trainerClass = TRAINER_CLASS_BIKER_FRLG,
 #line 12207
-        .trainerPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        .trainerPic = TRAINER_PIC_BIKER_FRLG,
 #line 12208
         .gender = TRAINER_GENDER_MALE,
 #line 12209
@@ -33349,7 +33349,7 @@
 #line 12211
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33380,14 +33380,14 @@
         },
     },
 #line 12221
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_ISAIAH_2] =
+    [TRAINER_CUE_BALL_ISAIAH_2] =
     {
 #line 12222
         .trainerName = _("ISAIAH"),
 #line 12223
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 12224
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 12225
         .gender = TRAINER_GENDER_MALE,
 #line 12226
@@ -33397,7 +33397,7 @@
 #line 12228
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33428,14 +33428,14 @@
         },
     },
 #line 12238
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_COREY_2] =
+    [TRAINER_CUE_BALL_COREY_2] =
     {
 #line 12239
         .trainerName = _("COREY"),
 #line 12240
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 12241
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 12242
         .gender = TRAINER_GENDER_MALE,
 #line 12243
@@ -33445,7 +33445,7 @@
 #line 12245
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33476,14 +33476,14 @@
         },
     },
 #line 12255
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_JACOB_2] =
+    [TRAINER_BIRD_KEEPER_JACOB_2] =
     {
 #line 12256
         .trainerName = _("JACOB"),
 #line 12257
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12258
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12259
         .gender = TRAINER_GENDER_MALE,
 #line 12260
@@ -33493,7 +33493,7 @@
 #line 12262
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33548,14 +33548,14 @@
         },
     },
 #line 12280
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_JACOB_3] =
+    [TRAINER_BIRD_KEEPER_JACOB_3] =
     {
 #line 12281
         .trainerName = _("JACOB"),
 #line 12282
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12283
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12284
         .gender = TRAINER_GENDER_MALE,
 #line 12285
@@ -33565,7 +33565,7 @@
 #line 12287
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33620,14 +33620,14 @@
         },
     },
 #line 12305
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_ALICE_2] =
+    [TRAINER_SWIMMER_FEMALE_ALICE_2] =
     {
 #line 12306
         .trainerName = _("ALICE"),
 #line 12307
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 12308
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 12309
         .gender = TRAINER_GENDER_MALE,
 #line 12310
@@ -33637,7 +33637,7 @@
 #line 12312
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33668,14 +33668,14 @@
         },
     },
 #line 12322
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_DARRIN_2] =
+    [TRAINER_SWIMMER_MALE_DARRIN_2] =
     {
 #line 12323
         .trainerName = _("DARRIN"),
 #line 12324
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 12325
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 12326
         .gender = TRAINER_GENDER_MALE,
 #line 12327
@@ -33685,7 +33685,7 @@
 #line 12329
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -33740,14 +33740,14 @@
         },
     },
 #line 12347
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_MISSY_2] =
+    [TRAINER_PICNICKER_MISSY_2] =
     {
 #line 12348
         .trainerName = _("MISSY"),
 #line 12349
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 12350
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 12351
         .gender = TRAINER_GENDER_MALE,
 #line 12352
@@ -33757,7 +33757,7 @@
 #line 12354
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33788,14 +33788,14 @@
         },
     },
 #line 12364
-    [DIFFICULTY_NORMAL][TRAINER_PICNICKER_MISSY_3] =
+    [TRAINER_PICNICKER_MISSY_3] =
     {
 #line 12365
         .trainerName = _("MISSY"),
 #line 12366
         .trainerClass = TRAINER_CLASS_PICNICKER_FRLG,
 #line 12367
-        .trainerPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        .trainerPic = TRAINER_PIC_PICNICKER_FRLG,
 #line 12368
         .gender = TRAINER_GENDER_MALE,
 #line 12369
@@ -33805,7 +33805,7 @@
 #line 12371
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PICNICKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PICNICKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -33836,14 +33836,14 @@
         },
     },
 #line 12381
-    [DIFFICULTY_NORMAL][TRAINER_FISHERMAN_WADE_2] =
+    [TRAINER_FISHERMAN_WADE_2] =
     {
 #line 12382
         .trainerName = _("WADE"),
 #line 12383
         .trainerClass = TRAINER_CLASS_FISHERMAN_FRLG,
 #line 12384
-        .trainerPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        .trainerPic = TRAINER_PIC_FISHERMAN_FRLG,
 #line 12385
         .gender = TRAINER_GENDER_MALE,
 #line 12386
@@ -33853,7 +33853,7 @@
 #line 12388
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_FISHERMAN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_FISHERMAN_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -33932,14 +33932,14 @@
         },
     },
 #line 12414
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_JACK_2] =
+    [TRAINER_SWIMMER_MALE_JACK_2] =
     {
 #line 12415
         .trainerName = _("JACK"),
 #line 12416
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 12417
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 12418
         .gender = TRAINER_GENDER_MALE,
 #line 12419
@@ -33949,7 +33949,7 @@
 #line 12421
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -33968,14 +33968,14 @@
         },
     },
 #line 12427
-    [DIFFICULTY_NORMAL][TRAINER_SIS_AND_BRO_LIL_IAN_2] =
+    [TRAINER_SIS_AND_BRO_LIL_IAN_2] =
     {
 #line 12428
         .trainerName = _("LIL & IAN"),
 #line 12429
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO_FRLG,
 #line 12430
-        .trainerPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        .trainerPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
 #line 12431
         .gender = TRAINER_GENDER_MALE,
 #line 12432
@@ -33985,7 +33985,7 @@
 #line 12434
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34016,14 +34016,14 @@
         },
     },
 #line 12444
-    [DIFFICULTY_NORMAL][TRAINER_SIS_AND_BRO_LIL_IAN_3] =
+    [TRAINER_SIS_AND_BRO_LIL_IAN_3] =
     {
 #line 12445
         .trainerName = _("LIL & IAN"),
 #line 12446
         .trainerClass = TRAINER_CLASS_SIS_AND_BRO_FRLG,
 #line 12447
-        .trainerPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        .trainerPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
 #line 12448
         .gender = TRAINER_GENDER_MALE,
 #line 12449
@@ -34033,7 +34033,7 @@
 #line 12451
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SIS_AND_BRO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SIS_AND_BRO_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34064,14 +34064,14 @@
         },
     },
 #line 12461
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_FINN_2] =
+    [TRAINER_SWIMMER_MALE_FINN_2] =
     {
 #line 12462
         .trainerName = _("FINN"),
 #line 12463
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 12464
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 12465
         .gender = TRAINER_GENDER_MALE,
 #line 12466
@@ -34081,7 +34081,7 @@
 #line 12468
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -34100,14 +34100,14 @@
         },
     },
 #line 12474
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_SHARON_2] =
+    [TRAINER_CRUSH_GIRL_SHARON_2] =
     {
 #line 12475
         .trainerName = _("SHARON"),
 #line 12476
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 12477
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 12478
         .gender = TRAINER_GENDER_MALE,
 #line 12479
@@ -34117,7 +34117,7 @@
 #line 12481
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34152,14 +34152,14 @@
         },
     },
 #line 12491
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_SHARON_3] =
+    [TRAINER_CRUSH_GIRL_SHARON_3] =
     {
 #line 12492
         .trainerName = _("SHARON"),
 #line 12493
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 12494
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 12495
         .gender = TRAINER_GENDER_MALE,
 #line 12496
@@ -34169,7 +34169,7 @@
 #line 12498
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34204,14 +34204,14 @@
         },
     },
 #line 12508
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_TANYA_2] =
+    [TRAINER_CRUSH_GIRL_TANYA_2] =
     {
 #line 12509
         .trainerName = _("TANYA"),
 #line 12510
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 12511
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 12512
         .gender = TRAINER_GENDER_MALE,
 #line 12513
@@ -34221,7 +34221,7 @@
 #line 12515
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34256,14 +34256,14 @@
         },
     },
 #line 12525
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_TANYA_3] =
+    [TRAINER_CRUSH_GIRL_TANYA_3] =
     {
 #line 12526
         .trainerName = _("TANYA"),
 #line 12527
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 12528
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 12529
         .gender = TRAINER_GENDER_MALE,
 #line 12530
@@ -34273,7 +34273,7 @@
 #line 12532
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34308,14 +34308,14 @@
         },
     },
 #line 12542
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_SHEA_2] =
+    [TRAINER_BLACK_BELT_SHEA_2] =
     {
 #line 12543
         .trainerName = _("SHEA"),
 #line 12544
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 12545
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 12546
         .gender = TRAINER_GENDER_MALE,
 #line 12547
@@ -34325,7 +34325,7 @@
 #line 12549
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34360,14 +34360,14 @@
         },
     },
 #line 12559
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_SHEA_3] =
+    [TRAINER_BLACK_BELT_SHEA_3] =
     {
 #line 12560
         .trainerName = _("SHEA"),
 #line 12561
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 12562
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 12563
         .gender = TRAINER_GENDER_MALE,
 #line 12564
@@ -34377,7 +34377,7 @@
 #line 12566
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34412,14 +34412,14 @@
         },
     },
 #line 12576
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_HUGH_2] =
+    [TRAINER_BLACK_BELT_HUGH_2] =
     {
 #line 12577
         .trainerName = _("HUGH"),
 #line 12578
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 12579
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 12580
         .gender = TRAINER_GENDER_MALE,
 #line 12581
@@ -34429,7 +34429,7 @@
 #line 12583
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34464,14 +34464,14 @@
         },
     },
 #line 12593
-    [DIFFICULTY_NORMAL][TRAINER_BLACK_BELT_HUGH_3] =
+    [TRAINER_BLACK_BELT_HUGH_3] =
     {
 #line 12594
         .trainerName = _("HUGH"),
 #line 12595
         .trainerClass = TRAINER_CLASS_BLACK_BELT_FRLG,
 #line 12596
-        .trainerPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        .trainerPic = TRAINER_PIC_BLACK_BELT_FRLG,
 #line 12597
         .gender = TRAINER_GENDER_MALE,
 #line 12598
@@ -34481,7 +34481,7 @@
 #line 12600
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BLACK_BELT_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BLACK_BELT_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34516,14 +34516,14 @@
         },
     },
 #line 12610
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_MIK_KIA_2] =
+    [TRAINER_CRUSH_KIN_MIK_KIA_2] =
     {
 #line 12611
         .trainerName = _("MIK & KIA"),
 #line 12612
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 12613
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 12614
         .gender = TRAINER_GENDER_MALE,
 #line 12615
@@ -34533,7 +34533,7 @@
 #line 12617
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34568,14 +34568,14 @@
         },
     },
 #line 12627
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_KIN_MIK_KIA_3] =
+    [TRAINER_CRUSH_KIN_MIK_KIA_3] =
     {
 #line 12628
         .trainerName = _("MIK & KIA"),
 #line 12629
         .trainerClass = TRAINER_CLASS_CRUSH_KIN_FRLG,
 #line 12630
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_KIN_FRLG,
 #line 12631
         .gender = TRAINER_GENDER_MALE,
 #line 12632
@@ -34585,7 +34585,7 @@
 #line 12634
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_KIN_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_KIN_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34620,14 +34620,14 @@
         },
     },
 #line 12644
-    [DIFFICULTY_NORMAL][TRAINER_TUBER_AMIRA_2] =
+    [TRAINER_TUBER_AMIRA_2] =
     {
 #line 12645
         .trainerName = _("AMIRA"),
 #line 12646
         .trainerClass = TRAINER_CLASS_TUBER_FRLG,
 #line 12647
-        .trainerPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        .trainerPic = TRAINER_PIC_TUBER_F_FRLG,
 #line 12648
         .gender = TRAINER_GENDER_MALE,
 #line 12649
@@ -34637,7 +34637,7 @@
 #line 12651
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TUBER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TUBER_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -34680,14 +34680,14 @@
         },
     },
 #line 12665
-    [DIFFICULTY_NORMAL][TRAINER_TWINS_JOY_MEG_2] =
+    [TRAINER_TWINS_JOY_MEG_2] =
     {
 #line 12666
         .trainerName = _("JOY & MEG"),
 #line 12667
         .trainerClass = TRAINER_CLASS_TWINS_FRLG,
 #line 12668
-        .trainerPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        .trainerPic = TRAINER_PIC_TWINS_FRLG,
 #line 12669
         .gender = TRAINER_GENDER_MALE,
 #line 12670
@@ -34697,7 +34697,7 @@
 #line 12672
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TWINS_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TWINS_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34728,14 +34728,14 @@
         },
     },
 #line 12682
-    [DIFFICULTY_NORMAL][TRAINER_PAINTER_RAYNA_2] =
+    [TRAINER_PAINTER_RAYNA_2] =
     {
 #line 12683
         .trainerName = _("RAYNA"),
 #line 12684
         .trainerClass = TRAINER_CLASS_PAINTER_FRLG,
 #line 12685
-        .trainerPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        .trainerPic = TRAINER_PIC_PAINTER_FRLG,
 #line 12686
         .gender = TRAINER_GENDER_MALE,
 #line 12687
@@ -34745,7 +34745,7 @@
 #line 12689
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PAINTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PAINTER_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -34771,14 +34771,14 @@
         },
     },
 #line 12699
-    [DIFFICULTY_NORMAL][TRAINER_YOUNGSTER_DESTIN_2] =
+    [TRAINER_YOUNGSTER_DESTIN_2] =
     {
 #line 12700
         .trainerName = _("DESTIN"),
 #line 12701
         .trainerClass = TRAINER_CLASS_YOUNGSTER_FRLG,
 #line 12702
-        .trainerPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNGSTER_FRLG,
 #line 12703
         .gender = TRAINER_GENDER_MALE,
 #line 12704
@@ -34788,7 +34788,7 @@
 #line 12706
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNGSTER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNGSTER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34819,14 +34819,14 @@
         },
     },
 #line 12716
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_BREEDER_ALIZE_2] =
+    [TRAINER_PKMN_BREEDER_ALIZE_2] =
     {
 #line 12717
         .trainerName = _("ALIZE"),
 #line 12718
         .trainerClass = TRAINER_CLASS_PKMN_BREEDER_FRLG,
 #line 12719
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
 #line 12720
         .gender = TRAINER_GENDER_MALE,
 #line 12721
@@ -34836,7 +34836,7 @@
 #line 12723
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_BREEDER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_BREEDER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -34879,14 +34879,14 @@
         },
     },
 #line 12737
-    [DIFFICULTY_NORMAL][TRAINER_YOUNG_COUPLE_GIA_JES_2] =
+    [TRAINER_YOUNG_COUPLE_GIA_JES_2] =
     {
 #line 12738
         .trainerName = _("GIA & JES"),
 #line 12739
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE_FRLG,
 #line 12740
-        .trainerPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
 #line 12741
         .gender = TRAINER_GENDER_MALE,
 #line 12742
@@ -34896,7 +34896,7 @@
 #line 12744
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34927,14 +34927,14 @@
         },
     },
 #line 12754
-    [DIFFICULTY_NORMAL][TRAINER_YOUNG_COUPLE_GIA_JES_3] =
+    [TRAINER_YOUNG_COUPLE_GIA_JES_3] =
     {
 #line 12755
         .trainerName = _("GIA & JES"),
 #line 12756
         .trainerClass = TRAINER_CLASS_YOUNG_COUPLE_FRLG,
 #line 12757
-        .trainerPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
 #line 12758
         .gender = TRAINER_GENDER_MALE,
 #line 12759
@@ -34944,7 +34944,7 @@
 #line 12761
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_YOUNG_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_YOUNG_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -34975,14 +34975,14 @@
         },
     },
 #line 12771
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_MILO_2] =
+    [TRAINER_BIRD_KEEPER_MILO_2] =
     {
 #line 12772
         .trainerName = _("MILO"),
 #line 12773
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12774
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12775
         .gender = TRAINER_GENDER_MALE,
 #line 12776
@@ -34992,7 +34992,7 @@
 #line 12778
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35023,14 +35023,14 @@
         },
     },
 #line 12788
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_CHAZ_2] =
+    [TRAINER_BIRD_KEEPER_CHAZ_2] =
     {
 #line 12789
         .trainerName = _("CHAZ"),
 #line 12790
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12791
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12792
         .gender = TRAINER_GENDER_MALE,
 #line 12793
@@ -35040,7 +35040,7 @@
 #line 12795
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35071,14 +35071,14 @@
         },
     },
 #line 12805
-    [DIFFICULTY_NORMAL][TRAINER_BIRD_KEEPER_HAROLD_2] =
+    [TRAINER_BIRD_KEEPER_HAROLD_2] =
     {
 #line 12806
         .trainerName = _("HAROLD"),
 #line 12807
         .trainerClass = TRAINER_CLASS_BIRD_KEEPER_FRLG,
 #line 12808
-        .trainerPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        .trainerPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
 #line 12809
         .gender = TRAINER_GENDER_MALE,
 #line 12810
@@ -35088,7 +35088,7 @@
 #line 12812
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BIRD_KEEPER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BIRD_KEEPER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35119,14 +35119,14 @@
         },
     },
 #line 12822
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_NICOLE_2] =
+    [TRAINER_SWIMMER_FEMALE_NICOLE_2] =
     {
 #line 12823
         .trainerName = _("NICOLE"),
 #line 12824
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 12825
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 12826
         .gender = TRAINER_GENDER_MALE,
 #line 12827
@@ -35136,7 +35136,7 @@
 #line 12829
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35155,14 +35155,14 @@
         },
     },
 #line 12835
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_JACLYN_2] =
+    [TRAINER_PSYCHIC_JACLYN_2] =
     {
 #line 12836
         .trainerName = _("JACLYN"),
 #line 12837
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 12838
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F_FRLG,
 #line 12839
         .gender = TRAINER_GENDER_MALE,
 #line 12840
@@ -35172,7 +35172,7 @@
 #line 12842
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -35236,14 +35236,14 @@
         },
     },
 #line 12868
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_SAMIR_2] =
+    [TRAINER_SWIMMER_MALE_SAMIR_2] =
     {
 #line 12869
         .trainerName = _("SAMIR"),
 #line 12870
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 12871
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 12872
         .gender = TRAINER_GENDER_MALE,
 #line 12873
@@ -35253,7 +35253,7 @@
 #line 12875
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35272,14 +35272,14 @@
         },
     },
 #line 12881
-    [DIFFICULTY_NORMAL][TRAINER_HIKER_EARL_2] =
+    [TRAINER_HIKER_EARL_2] =
     {
 #line 12882
         .trainerName = _("EARL"),
 #line 12883
         .trainerClass = TRAINER_CLASS_HIKER_FRLG,
 #line 12884
-        .trainerPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        .trainerPic = TRAINER_PIC_HIKER_FRLG,
 #line 12885
         .gender = TRAINER_GENDER_MALE,
 #line 12886
@@ -35289,7 +35289,7 @@
 #line 12888
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_HIKER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_HIKER_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35320,14 +35320,14 @@
         },
     },
 #line 12898
-    [DIFFICULTY_NORMAL][TRAINER_RUIN_MANIAC_LARRY_2] =
+    [TRAINER_RUIN_MANIAC_LARRY_2] =
     {
 #line 12899
         .trainerName = _("LARRY"),
 #line 12900
         .trainerClass = TRAINER_CLASS_RUIN_MANIAC_FRLG,
 #line 12901
-        .trainerPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
 #line 12902
         .gender = TRAINER_GENDER_MALE,
 #line 12903
@@ -35337,7 +35337,7 @@
 #line 12905
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_RUIN_MANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_RUIN_MANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35368,14 +35368,14 @@
         },
     },
 #line 12915
-    [DIFFICULTY_NORMAL][TRAINER_POKEMANIAC_HECTOR_2] =
+    [TRAINER_POKEMANIAC_HECTOR_2] =
     {
 #line 12916
         .trainerName = _("HECTOR"),
 #line 12917
         .trainerClass = TRAINER_CLASS_POKEMANIAC_FRLG,
 #line 12918
-        .trainerPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMANIAC_FRLG,
 #line 12919
         .gender = TRAINER_GENDER_MALE,
 #line 12920
@@ -35385,7 +35385,7 @@
 #line 12922
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMANIAC_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMANIAC_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35416,14 +35416,14 @@
         },
     },
 #line 12932
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_DARIO_2] =
+    [TRAINER_PSYCHIC_DARIO_2] =
     {
 #line 12933
         .trainerName = _("DARIO"),
 #line 12934
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 12935
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_M_FRLG,
 #line 12936
         .gender = TRAINER_GENDER_MALE,
 #line 12937
@@ -35433,7 +35433,7 @@
 #line 12939
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_M_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35459,14 +35459,14 @@
         },
     },
 #line 12949
-    [DIFFICULTY_NORMAL][TRAINER_PSYCHIC_RODETTE_2] =
+    [TRAINER_PSYCHIC_RODETTE_2] =
     {
 #line 12950
         .trainerName = _("RODETTE"),
 #line 12951
         .trainerClass = TRAINER_CLASS_PSYCHIC_FRLG,
 #line 12952
-        .trainerPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        .trainerPic = TRAINER_PIC_PSYCHIC_F_FRLG,
 #line 12953
         .gender = TRAINER_GENDER_MALE,
 #line 12954
@@ -35476,7 +35476,7 @@
 #line 12956
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_PSYCHIC_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_PSYCHIC_F_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -35540,14 +35540,14 @@
         },
     },
 #line 12982
-    [DIFFICULTY_NORMAL][TRAINER_JUGGLER_MASON_2] =
+    [TRAINER_JUGGLER_MASON_2] =
     {
 #line 12983
         .trainerName = _("MASON"),
 #line 12984
         .trainerClass = TRAINER_CLASS_JUGGLER_FRLG,
 #line 12985
-        .trainerPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        .trainerPic = TRAINER_PIC_JUGGLER_FRLG,
 #line 12986
         .gender = TRAINER_GENDER_MALE,
 #line 12987
@@ -35557,7 +35557,7 @@
 #line 12989
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_JUGGLER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_JUGGLER_FRLG,
         .partySize = 4,
         .party = (const struct TrainerMon[])
         {
@@ -35612,14 +35612,14 @@
         },
     },
 #line 13007
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_NICOLAS_2] =
+    [TRAINER_PKMN_RANGER_NICOLAS_2] =
     {
 #line 13008
         .trainerName = _("NICOLAS"),
 #line 13009
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 13010
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
 #line 13011
         .gender = TRAINER_GENDER_MALE,
 #line 13012
@@ -35631,7 +35631,7 @@
 #line 13015
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35676,14 +35676,14 @@
         },
     },
 #line 13033
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_MADELINE_2] =
+    [TRAINER_PKMN_RANGER_MADELINE_2] =
     {
 #line 13034
         .trainerName = _("MADELINE"),
 #line 13035
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 13036
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
 #line 13037
         .gender = TRAINER_GENDER_MALE,
 #line 13038
@@ -35695,7 +35695,7 @@
 #line 13041
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -35740,14 +35740,14 @@
         },
     },
 #line 13059
-    [DIFFICULTY_NORMAL][TRAINER_CRUSH_GIRL_CYNDY_2] =
+    [TRAINER_CRUSH_GIRL_CYNDY_2] =
     {
 #line 13060
         .trainerName = _("CYNDY"),
 #line 13061
         .trainerClass = TRAINER_CLASS_CRUSH_GIRL_FRLG,
 #line 13062
-        .trainerPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        .trainerPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
 #line 13063
         .gender = TRAINER_GENDER_MALE,
 #line 13064
@@ -35757,7 +35757,7 @@
 #line 13066
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CRUSH_GIRL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CRUSH_GIRL_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -35806,14 +35806,14 @@
         },
     },
 #line 13080
-    [DIFFICULTY_NORMAL][TRAINER_TAMER_EVAN_2] =
+    [TRAINER_TAMER_EVAN_2] =
     {
 #line 13081
         .trainerName = _("EVAN"),
 #line 13082
         .trainerClass = TRAINER_CLASS_TAMER_FRLG,
 #line 13083
-        .trainerPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        .trainerPic = TRAINER_PIC_TAMER_FRLG,
 #line 13084
         .gender = TRAINER_GENDER_MALE,
 #line 13085
@@ -35823,7 +35823,7 @@
 #line 13087
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_TAMER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_TAMER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -35866,14 +35866,14 @@
         },
     },
 #line 13101
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_JACKSON_2] =
+    [TRAINER_PKMN_RANGER_JACKSON_2] =
     {
 #line 13102
         .trainerName = _("JACKSON"),
 #line 13103
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 13104
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
 #line 13105
         .gender = TRAINER_GENDER_MALE,
 #line 13106
@@ -35885,7 +35885,7 @@
 #line 13109
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_M_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -35949,14 +35949,14 @@
         },
     },
 #line 13135
-    [DIFFICULTY_NORMAL][TRAINER_PKMN_RANGER_KATELYN_2] =
+    [TRAINER_PKMN_RANGER_KATELYN_2] =
     {
 #line 13136
         .trainerName = _("KATELYN"),
 #line 13137
         .trainerClass = TRAINER_CLASS_PKMN_RANGER_FRLG,
 #line 13138
-        .trainerPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        .trainerPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
 #line 13139
         .gender = TRAINER_GENDER_MALE,
 #line 13140
@@ -35968,7 +35968,7 @@
 #line 13143
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_POKEMON_RANGER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_POKEMON_RANGER_F_FRLG,
         .partySize = 1,
         .party = (const struct TrainerMon[])
         {
@@ -35994,14 +35994,14 @@
         },
     },
 #line 13153
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_LEROY_2] =
+    [TRAINER_COOLTRAINER_LEROY_2] =
     {
 #line 13154
         .trainerName = _("LEROY"),
 #line 13155
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 13156
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
 #line 13157
         .gender = TRAINER_GENDER_MALE,
 #line 13158
@@ -36013,7 +36013,7 @@
 #line 13161
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_M_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -36115,14 +36115,14 @@
         },
     },
 #line 13203
-    [DIFFICULTY_NORMAL][TRAINER_COOLTRAINER_MICHELLE_2] =
+    [TRAINER_COOLTRAINER_MICHELLE_2] =
     {
 #line 13204
         .trainerName = _("MICHELLE"),
 #line 13205
         .trainerClass = TRAINER_CLASS_COOLTRAINER_FRLG,
 #line 13206
-        .trainerPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        .trainerPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
 #line 13207
         .gender = TRAINER_GENDER_MALE,
 #line 13208
@@ -36134,7 +36134,7 @@
 #line 13211
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOLTRAINER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOLTRAINER_F_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -36236,14 +36236,14 @@
         },
     },
 #line 13253
-    [DIFFICULTY_NORMAL][TRAINER_COOL_COUPLE_LEX_NYA_2] =
+    [TRAINER_COOL_COUPLE_LEX_NYA_2] =
     {
 #line 13254
         .trainerName = _("LEX & NYA"),
 #line 13255
         .trainerClass = TRAINER_CLASS_COOL_COUPLE_FRLG,
 #line 13256
-        .trainerPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        .trainerPic = TRAINER_PIC_COOL_COUPLE_FRLG,
 #line 13257
         .gender = TRAINER_GENDER_MALE,
 #line 13258
@@ -36255,7 +36255,7 @@
 #line 13261
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_TRY_TO_FAINT | AI_FLAG_CHECK_VIABILITY,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_COOL_COUPLE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_COOL_COUPLE_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36300,14 +36300,14 @@
         },
     },
 #line 13279
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_COLTON_2] =
+    [TRAINER_BUG_CATCHER_COLTON_2] =
     {
 #line 13280
         .trainerName = _("COLTON"),
 #line 13281
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 13282
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 13283
         .gender = TRAINER_GENDER_MALE,
 #line 13284
@@ -36317,7 +36317,7 @@
 #line 13286
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -36360,14 +36360,14 @@
         },
     },
 #line 13300
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_COLTON_3] =
+    [TRAINER_BUG_CATCHER_COLTON_3] =
     {
 #line 13301
         .trainerName = _("COLTON"),
 #line 13302
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 13303
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 13304
         .gender = TRAINER_GENDER_MALE,
 #line 13305
@@ -36377,7 +36377,7 @@
 #line 13307
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -36420,14 +36420,14 @@
         },
     },
 #line 13321
-    [DIFFICULTY_NORMAL][TRAINER_BUG_CATCHER_COLTON_4] =
+    [TRAINER_BUG_CATCHER_COLTON_4] =
     {
 #line 13322
         .trainerName = _("COLTON"),
 #line 13323
         .trainerClass = TRAINER_CLASS_BUG_CATCHER_FRLG,
 #line 13324
-        .trainerPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        .trainerPic = TRAINER_PIC_BUG_CATCHER_FRLG,
 #line 13325
         .gender = TRAINER_GENDER_MALE,
 #line 13326
@@ -36437,7 +36437,7 @@
 #line 13328
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_BUG_CATCHER_FRLG,
+        //.trainerBackPic = TRAINER_PIC_BUG_CATCHER_FRLG,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -36480,14 +36480,14 @@
         },
     },
 #line 13342
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_MATTHEW_2] =
+    [TRAINER_SWIMMER_MALE_MATTHEW_2] =
     {
 #line 13343
         .trainerName = _("MATTHEW"),
 #line 13344
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 13345
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 13346
         .gender = TRAINER_GENDER_MALE,
 #line 13347
@@ -36497,7 +36497,7 @@
 #line 13349
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36528,14 +36528,14 @@
         },
     },
 #line 13359
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_MALE_TONY_2] =
+    [TRAINER_SWIMMER_MALE_TONY_2] =
     {
 #line 13360
         .trainerName = _("TONY"),
 #line 13361
         .trainerClass = TRAINER_CLASS_SWIMMER_M_FRLG,
 #line 13362
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_M_FRLG,
 #line 13363
         .gender = TRAINER_GENDER_MALE,
 #line 13364
@@ -36545,7 +36545,7 @@
 #line 13366
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_M_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_M_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36576,14 +36576,14 @@
         },
     },
 #line 13376
-    [DIFFICULTY_NORMAL][TRAINER_SWIMMER_FEMALE_MELISSA_2] =
+    [TRAINER_SWIMMER_FEMALE_MELISSA_2] =
     {
 #line 13377
         .trainerName = _("MELISSA"),
 #line 13378
         .trainerClass = TRAINER_CLASS_SWIMMER_F_FRLG,
 #line 13379
-        .trainerPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        .trainerPic = TRAINER_PIC_SWIMMER_F_FRLG,
 #line 13380
         .gender = TRAINER_GENDER_MALE,
 #line 13381
@@ -36593,7 +36593,7 @@
 #line 13383
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_SWIMMER_F_FRLG,
+        //.trainerBackPic = TRAINER_PIC_SWIMMER_F_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {
@@ -36624,14 +36624,14 @@
         },
     },
 #line 13393
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_LORELEI_2] =
+    [TRAINER_ELITE_FOUR_LORELEI_2] =
     {
 #line 13394
         .trainerName = _("LORELEI"),
 #line 13395
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 13396
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_LORELEI_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_LORELEI_FRLG,
 #line 13397
         .gender = TRAINER_GENDER_MALE,
 #line 13398
@@ -36645,7 +36645,7 @@
 #line 13402
         .mugshotColor = MUGSHOT_COLOR_PURPLE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_LORELEI_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_LORELEI_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -36749,14 +36749,14 @@
         },
     },
 #line 13444
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_BRUNO_2] =
+    [TRAINER_ELITE_FOUR_BRUNO_2] =
     {
 #line 13445
         .trainerName = _("BRUNO"),
 #line 13446
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 13447
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_BRUNO_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_BRUNO_FRLG,
 #line 13448
         .gender = TRAINER_GENDER_MALE,
 #line 13449
@@ -36770,7 +36770,7 @@
 #line 13453
         .mugshotColor = MUGSHOT_COLOR_GREEN,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_BRUNO_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_BRUNO_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -36874,14 +36874,14 @@
         },
     },
 #line 13495
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_AGATHA_2] =
+    [TRAINER_ELITE_FOUR_AGATHA_2] =
     {
 #line 13496
         .trainerName = _("AGATHA"),
 #line 13497
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 13498
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_AGATHA_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_AGATHA_FRLG,
 #line 13499
         .gender = TRAINER_GENDER_MALE,
 #line 13500
@@ -36895,7 +36895,7 @@
 #line 13504
         .mugshotColor = MUGSHOT_COLOR_PINK,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_AGATHA_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_AGATHA_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -36999,14 +36999,14 @@
         },
     },
 #line 13546
-    [DIFFICULTY_NORMAL][TRAINER_ELITE_FOUR_LANCE_2] =
+    [TRAINER_ELITE_FOUR_LANCE_2] =
     {
 #line 13547
         .trainerName = _("LANCE"),
 #line 13548
         .trainerClass = TRAINER_CLASS_ELITE_FOUR_FRLG,
 #line 13549
-        .trainerPic = TRAINER_PIC_FRONT_ELITE_FOUR_LANCE_FRLG,
+        .trainerPic = TRAINER_PIC_ELITE_FOUR_LANCE_FRLG,
 #line 13550
         .gender = TRAINER_GENDER_MALE,
 #line 13551
@@ -37020,7 +37020,7 @@
 #line 13555
         .mugshotColor = MUGSHOT_COLOR_BLUE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_ELITE_FOUR_LANCE_FRLG,
+        //.trainerBackPic = TRAINER_PIC_ELITE_FOUR_LANCE_FRLG,
         .partySize = 5,
         .party = (const struct TrainerMon[])
         {
@@ -37124,14 +37124,14 @@
         },
     },
 #line 13597
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_REMATCH_SQUIRTLE] =
+    [TRAINER_CHAMPION_REMATCH_SQUIRTLE] =
     {
 #line 13598
         .trainerName = _("TERRY"),
 #line 13599
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 13600
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 13601
         .gender = TRAINER_GENDER_MALE,
 #line 13602
@@ -37145,7 +37145,7 @@
 #line 13606
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -37268,14 +37268,14 @@
         },
     },
 #line 13656
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_REMATCH_BULBASAUR] =
+    [TRAINER_CHAMPION_REMATCH_BULBASAUR] =
     {
 #line 13657
         .trainerName = _("TERRY"),
 #line 13658
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 13659
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 13660
         .gender = TRAINER_GENDER_MALE,
 #line 13661
@@ -37289,7 +37289,7 @@
 #line 13665
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -37412,14 +37412,14 @@
         },
     },
 #line 13715
-    [DIFFICULTY_NORMAL][TRAINER_CHAMPION_REMATCH_CHARMANDER] =
+    [TRAINER_CHAMPION_REMATCH_CHARMANDER] =
     {
 #line 13716
         .trainerName = _("TERRY"),
 #line 13717
         .trainerClass = TRAINER_CLASS_CHAMPION_FRLG,
 #line 13718
-        .trainerPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        .trainerPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
 #line 13719
         .gender = TRAINER_GENDER_MALE,
 #line 13720
@@ -37433,7 +37433,7 @@
 #line 13724
         .mugshotColor = MUGSHOT_COLOR_YELLOW,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CHAMPION_RIVAL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CHAMPION_RIVAL_FRLG,
         .partySize = 6,
         .party = (const struct TrainerMon[])
         {
@@ -37556,14 +37556,14 @@
         },
     },
 #line 13774
-    [DIFFICULTY_NORMAL][TRAINER_CUE_BALL_PAXTON] =
+    [TRAINER_CUE_BALL_PAXTON] =
     {
 #line 13775
         .trainerName = _("PAXTON"),
 #line 13776
         .trainerClass = TRAINER_CLASS_CUE_BALL_FRLG,
 #line 13777
-        .trainerPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        .trainerPic = TRAINER_PIC_CUE_BALL_FRLG,
 #line 13778
         .gender = TRAINER_GENDER_MALE,
 #line 13779
@@ -37573,7 +37573,7 @@
 #line 13781
         .aiFlags = AI_FLAG_CHECK_BAD_MOVE,
 #line 0
-        .trainerBackPic = TRAINER_PIC_FRONT_CUE_BALL_FRLG,
+        //.trainerBackPic = TRAINER_PIC_CUE_BALL_FRLG,
         .partySize = 2,
         .party = (const struct TrainerMon[])
         {

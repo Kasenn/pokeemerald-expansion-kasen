@@ -71,6 +71,7 @@ extern const struct SpriteFrameImage gPicTable_MicleBerryTree[];
 extern const struct SpriteFrameImage gPicTable_CustapBerryTree[];
 extern const struct SpriteFrameImage gPicTable_JabocaBerryTree[];
 extern const struct SpriteFrameImage gPicTable_RowapBerryTree[];
+extern const struct SpriteFrameImage gPicTable_RosteBerryTree[];
 
 extern const u8 gBerryTreePaletteSlotTable_Cheri[];
 extern const u8 gBerryTreePaletteSlotTable_Chesto[];
@@ -117,6 +118,7 @@ extern const u8 gBerryTreePaletteSlotTable_Micle[];
 extern const u8 gBerryTreePaletteSlotTable_Custap[];
 extern const u8 gBerryTreePaletteSlotTable_Jaboca[];
 extern const u8 gBerryTreePaletteSlotTable_Rowap[];
+extern const u8 gBerryTreePaletteSlotTable_Roste[];
 
 extern const u32 gBerryPic_Cheri[];
 extern const u32 gBerryPic_Chesto[];
@@ -185,6 +187,7 @@ extern const u32 gBerryPic_Jaboca[];
 extern const u32 gBerryPic_Rowap[];
 extern const u32 gBerryPic_Kee[];
 extern const u32 gBerryPic_Maranga[];
+extern const u32 gBerryPic_Roste[];
 
 extern const u16 gBerryPalette_Cheri[];
 extern const u16 gBerryPalette_Chesto[];
@@ -253,6 +256,7 @@ extern const u16 gBerryPalette_Jaboca[];
 extern const u16 gBerryPalette_Rowap[];
 extern const u16 gBerryPalette_Kee[];
 extern const u16 gBerryPalette_Maranga[];
+extern const u16 gBerryPalette_Roste[];
 
 extern const struct Berry gBerries[];
 

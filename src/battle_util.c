@@ -3677,20 +3677,20 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                 {
                 ABILITY_HEAL_MON_STATUS:
                     if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
                     if (gBattleMons[battler].status1 & STATUS1_SLEEP)
                     {
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
                         TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
                     }
                     if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
                     if (gBattleMons[battler].status1 & STATUS1_BURN)
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
                     if (gBattleMons[battler].status1 & STATUS1_FREEZE)
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
                     if (gBattleMons[battler].status1 & STATUS1_FROSTBITE)
-                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE;
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
 
                     if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
                     {
@@ -7179,7 +7179,7 @@ static inline u32 CalcDefenseStat(struct DamageContext *ctx)
     // Pokémon with unaware ignore defense stat changes while dealing damage
     if (ctx->abilities[ctx->battlerAtk] == ABILITY_UNAWARE)
         defStage = DEFAULT_STAT_STAGE;
-    if (ctx->abilityAtk == ABILITY_DATA_BREACH && ctx->moveType == TYPE_NORMAL)
+    if (ctx->abilities[ctx->battlerAtk] == ABILITY_DATA_BREACH && ctx->moveType == TYPE_NORMAL)
         defStage = DEFAULT_STAT_STAGE;
     // certain moves also ignore stat changes
     if (MoveIgnoresDefenseEvasionStages(move))
@@ -7473,7 +7473,7 @@ static inline uq4_12_t GetScreensModifier(struct DamageContext *ctx)
     bool32 reflect = (sideStatus & SIDE_STATUS_REFLECT) && IsBattleMovePhysical(ctx->move);
     bool32 auroraVeil = sideStatus & SIDE_STATUS_AURORA_VEIL;
 
-    if (ctx->abilityAtk == ABILITY_DATA_BREACH && GetMoveType(ctx->move) == TYPE_NORMAL)
+    if (ctx->abilities[ctx->battlerAtk] == ABILITY_DATA_BREACH && GetMoveType(ctx->move) == TYPE_NORMAL)
     {
         return UQ_4_12(1.0);
     }
@@ -8223,11 +8223,11 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
             RecordAbilityBattle(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk]);
     }
     else if (ctx->moveType == TYPE_NORMAL && defType == TYPE_GHOST
-        && ctx->abilityAtk == ABILITY_DATA_BREACH && mod == UQ_4_12(0.0))
+        && ctx->abilities[ctx->battlerAtk] == ABILITY_DATA_BREACH && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);
         if (ctx->updateFlags)
-            RecordAbilityBattle(ctx->battlerAtk, ctx->abilityAtk);
+            RecordAbilityBattle(ctx->battlerAtk, ctx->abilities[ctx->battlerAtk]);
     }
 
     if (ctx->moveType == TYPE_PSYCHIC && defType == TYPE_DARK && gBattleMons[ctx->battlerDef].volatiles.miracleEye && mod == UQ_4_12(0.0))
@@ -9003,21 +9003,21 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     case ABILITY_PASTEL_VEIL:
         if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON | STATUS1_TOXIC_COUNTER))
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
             outcome = IMMUNITY_STATUS_CLEARED;
         }
         break;
     case ABILITY_OWN_TEMPO:
         if (gBattleMons[battler].volatiles.confusionTurns > 0)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_CONFUSION;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
             outcome = IMMUNITY_CONFUSION_CLEARED;
         }
         break;
     case ABILITY_LIMBER:
         if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
             outcome = IMMUNITY_STATUS_CLEARED;
         }
         break;
@@ -9025,7 +9025,7 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     case ABILITY_VITAL_SPIRIT:
         if (gBattleMons[battler].status1 & STATUS1_SLEEP)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
             TryDeactivateSleepClause(GetBattlerSide(battler), gBattlerPartyIndexes[battler]);
             gBattleMons[battler].volatiles.nightmare = FALSE;
             outcome = IMMUNITY_STATUS_CLEARED;
@@ -9036,31 +9036,31 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
     case ABILITY_THERMAL_EXCHANGE:
         if (gBattleMons[battler].status1 & STATUS1_BURN)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
             outcome = IMMUNITY_STATUS_CLEARED;
         }
         break;
     case ABILITY_MAGMA_ARMOR:
         if (gBattleMons[battler].status1 & STATUS1_FREEZE)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
             outcome = IMMUNITY_STATUS_CLEARED;
         }
         else if (gBattleMons[battler].status1 & STATUS1_FROSTBITE)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
             outcome = IMMUNITY_STATUS_CLEARED;
         }
         break;
     case ABILITY_OBLIVIOUS:
         if (gBattleMons[battler].volatiles.infatuation)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_INFATUATION;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_INFATUATION;
             outcome = IMMUNITY_INFATUATION_CLEARED;
         }
         else if (GetConfig(B_OBLIVIOUS_TAUNT) >= GEN_6 && gBattleMons[battler].volatiles.tauntTimer != 0)
         {
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_TAUNT;
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TAUNT;
             outcome = IMMUNITY_TAUNT_CLEARED;
         }
         break;
@@ -9979,13 +9979,11 @@ bool32 IsSleepClauseEnabled(void)
 
 bool32 AreMultiPartiesFullTeams(void)
 {
-    enum DifficultyLevel difficulty = GetCurrentDifficultyLevel();
-
     if (B_MULTI_HALF_TEAMS
      || TRAINER_BATTLE_PARAM.opponentA == TRAINER_LINK_OPPONENT
      || gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI
-     || (gTrainers[difficulty][TRAINER_BATTLE_PARAM.opponentA].multiTeamSize == MULTI_TEAM_SIZE_HALF)
-     || (gTrainers[difficulty][TRAINER_BATTLE_PARAM.opponentB].multiTeamSize == MULTI_TEAM_SIZE_HALF))
+     || (gTrainers[TRAINER_BATTLE_PARAM.opponentA].multiTeamSize == MULTI_TEAM_SIZE_HALF)
+     || (gTrainers[TRAINER_BATTLE_PARAM.opponentB].multiTeamSize == MULTI_TEAM_SIZE_HALF))
     {
         gSpecialVar_Result = FALSE;
         return FALSE;
@@ -10276,20 +10274,20 @@ bool32 ItemHealMonVolatile(enum BattlerId battler, enum Item itemId)
         gBattleMons[battler].volatiles.infatuation = 0;
         gBattleMons[battler].volatiles.confusionTurns = 0;
         gBattleMons[battler].volatiles.infiniteConfusion = FALSE;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_CONFUSION;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
     }
     else if (effect[0] & ITEM0_INFATUATION)
     {
         statusChanged = !!gBattleMons[battler].volatiles.infatuation;
         gBattleMons[battler].volatiles.infatuation = 0;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_INFATUATION;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_INFATUATION;
     }
     else if (effect[3] & ITEM3_CONFUSION)
     {
         statusChanged = (gBattleMons[battler].volatiles.confusionTurns > 0 || gBattleMons[battler].volatiles.infiniteConfusion);
         gBattleMons[battler].volatiles.confusionTurns = 0;
         gBattleMons[battler].volatiles.infiniteConfusion = FALSE;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_CONFUSION;
+        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
     }
 
     return statusChanged;

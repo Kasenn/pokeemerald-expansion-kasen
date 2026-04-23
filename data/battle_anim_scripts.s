@@ -19519,8 +19519,6 @@ MatchaGotchaDoubleProjectile:
 	return
 
 gBattleAnimMove_RazorGale::
-	loadspritegfx ANIM_TAG_AIR_WAVE_2
-	loadspritegfx ANIM_TAG_IMPACT
 	call SetHighSpeedBg
 	monbg ANIM_DEF_PARTNER
 	splitbgprio ANIM_TARGET
@@ -20508,7 +20506,6 @@ FuryCutterStrongest:
 	goto FuryCutterContinue2
 
 gBattleAnimMove_Fickle::
-	loadspritegfx ANIM_TAG_EXPLOSION
 	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_ATTACKER, 1, 0, 9, RGB_RED
 	createvisualtask AnimTask_ShakeMon2, 5, ANIM_ATTACKER, 6, 0, 38, 1
 	call SelfDestructExplode
@@ -21116,7 +21113,6 @@ gBattleAnimMove_LockOn::
 	end
 
 gBattleAnimMove_Camera::
-	loadspritegfx ANIM_TAG_CAMERA
 	createsprite gCameraTargetSpriteTemplate, ANIM_ATTACKER, 40
 	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 1
 	createsprite gCameraMoveTargetSpriteTemplate, ANIM_ATTACKER, 40, 2

@@ -68,9 +68,9 @@ Finally, let's bring it all together by defining our new trainer pic in [`includ
     TRAINER_BACK_PIC_STEVEN,
 +   TRAINER_BACK_PIC_NEW_ONE,
     TRAINER_PIC_COUNT,
-    TRAINER_BACK_PIC_COUNT = (TRAINER_PIC_COUNT - TRAINER_PIC_FRONT_COUNT),
+    TRAINER_BACK_PIC_COUNT = (TRAINER_PIC_COUNT - TRAINER_PIC_COUNT),
 ```
-Remember to add new back pics after `TRAINER_PIC_FRONT_COUNT` but before `TRAINER_PIC_COUNT`!
+Remember to add new back pics after `TRAINER_PIC_COUNT` but before `TRAINER_PIC_COUNT`!
 
 ## Usage
 You can test your new trainer back pic by going to [`src/data/battle_partners.party`](./src/data/battle_partners.party) and change the `Pic` field. The syntax should match the constant (`TRAINER_BACK_PIC_NEW_ONE`) with the underscore replaced by spaces. For example:

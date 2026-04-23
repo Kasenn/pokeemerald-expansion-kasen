@@ -412,7 +412,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         }
         if (IsBattlerMegaEvolved(battler) && IsBattlerAlive(battler))
         {
-            struct BattleContext dmgCtx = {0};
+            struct DamageContext dmgCtx = {0};
             dmgCtx.battlerAtk = gBattlerAttacker = battler;
             dmgCtx.moveType = TYPE_MYSTERY;
             dmgCtx.isCrit = FALSE;

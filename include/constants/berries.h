@@ -18,7 +18,7 @@
     F(AGUAV) \
     F(IAPAPA) \
     F(RAZZ) \
-    F(BLUK) \
+    F(ROSTE) \
     F(NANAB) \
     F(WEPEAR) \
     F(PINAP) \
@@ -68,6 +68,6 @@
     F(ROWAP) \
     F(ROSELI) \
     F(KEE) \
-    F(MARANGA)
-
+    F(MARANGA) \
+    F(BLUK)
 #endif
