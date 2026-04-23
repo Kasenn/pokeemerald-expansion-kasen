@@ -218,20 +218,6 @@
 	.4byte \jumpInstr
 	.endm
 
-	.macro movevaluescleanup
-	.byte B_SCR_OP_MOVEVALUESCLEANUP
-	.endm
-
-	.macro setmultihit value:req
-	.byte B_SCR_OP_SETMULTIHIT
-	.byte \value
-	.endm
-
-	.macro decrementmultihit loopInstr:req
-	.byte B_SCR_OP_DECREMENTMULTIHIT
-	.4byte \loopInstr
-	.endm
-
 	.macro goto instr:req
 	.byte B_SCR_OP_GOTO
 	.4byte \instr
@@ -758,10 +744,6 @@
 	.byte B_SCR_OP_NORMALISEBUFFS
 	.endm
 
-	.macro setbide
-	.byte B_SCR_OP_SETBIDE
-	.endm
-
 	.macro twoturnmoveschargestringandanimation
 	.byte B_SCR_OP_TWOTURNMOVESCHARGESTRINGANDANIMATION
 	.4byte 1f @animation then attack string
@@ -816,10 +798,6 @@
 	.4byte \failInstr
 	.endm
 
-	.macro copybidedmg
-	.byte B_SCR_OP_COPYBIDEDMG
-	.endm
-
 	.macro forestscursetarget failInstr:req
 	callnative Cmd_forestscurse
 	.4byte \failInstr
@@ -827,6 +805,11 @@
 
 	.macro setcameraeffect
 	callnative BS_SetCameraEffect
+	.endm
+	
+	.macro animatewildpokemonafterfailedpokeball battler:req
+	.byte B_SCR_OP_ANIMATEWILDPOKEMONAFTERFAILEDPOKEBALL
+	.byte \battler
 	.endm
 
 	.macro tryinfatuating failInstr:req
@@ -1224,6 +1207,15 @@
 	.4byte \failInstr
 	.endm
 
+	.macro trysynchronize
+	.byte B_SCR_OP_TRY_SYNCHRONIZE
+	.endm
+
+	.macro tryconfusionafterskydrop battler:req
+	.byte B_SCR_OP_TRY_CONFUSION_AFTER_SKY_DROP
+    .byte \battler
+	.endm
+
 	.macro callnative func:req
 	.byte B_SCR_OP_CALLNATIVE
 	.4byte \func
@@ -1559,10 +1551,6 @@
 	.4byte \failInstr
 	.endm
 
-	.macro setmagiccoattarget
-	callnative BS_SetMagicCoatTarget
-	.endm
-
 	.macro jumpifcommanderactive jumpInstr:req
 	callnative BS_JumpIfCommanderActive
 	.4byte \jumpInstr
@@ -1618,10 +1606,6 @@
 	callnative BS_JumpIfCanGigantamax
 	.byte \battler
 	.4byte \jumpInstr
-	.endm
-
-	.macro tryflingholdeffect
-	callnative BS_TryFlingHoldEffect
 	.endm
 
 	.macro swapsidestatuses
@@ -1800,12 +1784,6 @@
 
 	.macro updatenick
 	callnative BS_UpdateNick
-	.endm
-
-	.macro jumpifnotberry battler:req, jumpInstr:req
-	callnative BS_JumpIfNotBerry
-	.byte \battler
-	.4byte \jumpInstr
 	.endm
 
 	.macro gravityonairbornemons
@@ -2116,10 +2094,6 @@
 	.4byte \failInstr
 	.endm
 
-	.macro skydropyawn
-	callnative BS_SkyDropYawn
-	.endm
-
 	.macro jumpifpranksterblocked jumpInstr:req
 	callnative BS_JumpIfPranksterBlocked
 	.4byte \jumpInstr
@@ -2179,10 +2153,6 @@
 	.macro cutonethirdhpandraisestats failInstr:req
 	callnative BS_CutOneThirdHpAndRaiseStats
 	.4byte \failInstr
-	.endm
-
-	.macro setpoltergeistmessage
-	callnative BS_SetPoltergeistMessage
 	.endm
 
 	.macro tryresetnegativestatstages
@@ -2281,4 +2251,12 @@
 	callnative BS_TryActivateAbilityWithAbilityShield
 	.byte \battler
 	.byte \switchedItems
+	.endm
+
+	.macro endturnevents
+	callnative BS_EndTurnEvents
+	.endm
+
+	.macro trywakebattlersuproar
+	callnative BS_TryWakeBattlersUproar
 	.endm

@@ -5248,7 +5248,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = 140,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
-        .abilities = { ABILITY_CUTE_CHARM, ABILITY_MAGIC_GUARD, ABILITY_UNAWARE },
+        .abilities = { ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE, ABILITY_MAGIC_BOUNCE },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Clefable"),
     #if P_MODIFIED_MEGA_CRIES
@@ -6861,6 +6861,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_Diglett,
             gShinyOverworldPalette_Diglett
         )
+        .isTelekinesisBanned = TRUE,
         .levelUpLearnset = sDiglettLevelUpLearnset,
         .teachableLearnset = sDiglettTeachableLearnset,
         .eggMoveLearnset = sDiglettEggMoveLearnset,
@@ -6946,6 +6947,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gOverworldPalette_Dugtrio,
             gShinyOverworldPalette_Dugtrio
         )
+        .isTelekinesisBanned = TRUE,
         .levelUpLearnset = sDugtrioLevelUpLearnset,
         .teachableLearnset = sDugtrioTeachableLearnset,
         .formSpeciesIdTable = sDugtrioFormSpeciesIdTable,
@@ -7013,6 +7015,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_DiglettAlola
         )
         .isAlolanForm = TRUE,
+        .isTelekinesisBanned = TRUE,
         .levelUpLearnset = sDiglettAlolaLevelUpLearnset,
         .teachableLearnset = sDiglettAlolaTeachableLearnset,
         .eggMoveLearnset = sDiglettAlolaEggMoveLearnset,
@@ -7082,6 +7085,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
             gShinyOverworldPalette_DugtrioAlola
         )
         .isAlolanForm = TRUE,
+        .isTelekinesisBanned = TRUE,
         .levelUpLearnset = sDugtrioAlolaLevelUpLearnset,
         .teachableLearnset = sDugtrioAlolaTeachableLearnset,
         .formSpeciesIdTable = sDugtrioFormSpeciesIdTable,
@@ -9438,7 +9442,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_MEDIUM_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_GRASS),
-        .abilities = { ABILITY_CHLOROPHYLL, ABILITY_NONE, ABILITY_GLUTTONY },
+        .abilities = { ABILITY_INNARDS_OUT, ABILITY_INNARDS_OUT, ABILITY_INNARDS_OUT },
         .bodyColor = BODY_COLOR_GREEN,
         .noFlip = TRUE,
         .speciesName = _("Victreebel"),
@@ -10575,7 +10579,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .abilities = { ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR, ABILITY_SHELL_ARMOR },
         .bodyColor = BODY_COLOR_PINK,
         .speciesName = _("Slowbro"),
-        .cryId = CRY_SLOWBRO,
+        .cryId = CRY_SLOWBRO_MEGA,
         .natDexNum = NATIONAL_DEX_SLOWBRO,
         .categoryName = _("Hermit Crab"),
         .height = 20,
@@ -12357,6 +12361,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         )
     #endif //OW_BATTLE_ONLY_FORMS
         .isMegaEvolution = TRUE,
+        .isTelekinesisBanned = TRUE,
         .levelUpLearnset = sGengarLevelUpLearnset,
         .teachableLearnset = sGengarTeachableLearnset,
         .formSpeciesIdTable = sGengarFormSpeciesIdTable,
@@ -15867,7 +15872,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_STARMIE_MEGA] =
     {
         .baseHP        = 60,
-        .baseAttack    = 140,
+        .baseAttack    = 100,
         .baseDefense   = 105,
         .baseSpeed     = 120,
         .baseSpAttack  = 130,
@@ -15883,7 +15888,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = STANDARD_FRIENDSHIP,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_3),
-        .abilities = { ABILITY_ILLUMINATE, ABILITY_NATURAL_CURE, ABILITY_ANALYTIC },
+        .abilities = { ABILITY_HUGE_POWER, ABILITY_HUGE_POWER, ABILITY_HUGE_POWER },
         .bodyColor = BODY_COLOR_PURPLE,
         .speciesName = _("Starmie"),
     #if P_MODIFIED_MEGA_CRIES
@@ -20491,7 +20496,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .friendship = 35,
         .growthRate = GROWTH_SLOW,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_WATER_1, EGG_GROUP_DRAGON),
-        .abilities = { ABILITY_INNER_FOCUS, ABILITY_NONE, ABILITY_MULTISCALE },
+        .abilities = { ABILITY_MULTISCALE, ABILITY_MULTISCALE, ABILITY_MULTISCALE },
         .bodyColor = BODY_COLOR_BROWN,
         .speciesName = _("Dragonite"),
     #if P_MODIFIED_MEGA_CRIES

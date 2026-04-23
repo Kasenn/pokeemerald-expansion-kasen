@@ -242,6 +242,7 @@ static void CB2_CheckMail(void)
 {
     struct Mail mail;
     mail.itemId = gSpecialVar_ItemId;
+    mail.species = SPECIES_NONE;
     ReadMail(&mail, CB2_ReturnToBagMenuPocket, FALSE);
 }
 
@@ -1568,7 +1569,7 @@ bool32 CannotUseItemsInBattle(enum Item itemId, struct Pokemon *mon)
             cannotUse = TRUE;
             break;
         }
-        u32 ability = GetBattlerAbility(battlerTarget);
+        enum Ability ability = GetBattlerAbility(battlerTarget);
         for (i = STAT_ATK; i < NUM_STATS; i++)
         {
             if (CompareStat(battlerTarget, i, MAX_STAT_STAGE, CMP_EQUAL, ability))

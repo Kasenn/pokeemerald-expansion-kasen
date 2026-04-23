@@ -110,17 +110,48 @@ DOUBLE_BATTLE_TEST("Magic Bounce bounces back moves hitting both foes at two foe
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_LEER); }
     } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, playerLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
+        MESSAGE("The opposing Wynaut's Defense fell!");
+
         ABILITY_POPUP(opponentLeft, ABILITY_MAGIC_BOUNCE);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, playerLeft);
         MESSAGE("The foe Espeon bounced the Leer back!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, opponentLeft);
+
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         MESSAGE("Abra's Defense fell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
         MESSAGE("Kadabra's Defense fell!");
-        // Also check if second original target gets hit by Leer as this was once bugged
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
-        MESSAGE("The foe Wynaut's Defense fell!");
+    }
+}
+
+DOUBLE_BATTLE_TEST("Magic Bounce activates on all opposing mons")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME(GetMoveTarget(MOVE_LEER) == TARGET_BOTH);
+        PLAYER(SPECIES_ABRA);
+        PLAYER(SPECIES_KADABRA);
+        OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
+        OPPONENT(SPECIES_NATU) { Ability(ABILITY_MAGIC_BOUNCE); }
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_LEER); }
+    } SCENE {
+        ABILITY_POPUP(opponentLeft, ABILITY_MAGIC_BOUNCE);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, playerLeft);
+        MESSAGE("Abra's Leer was bounced back!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, opponentLeft);
+        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
+        MESSAGE("Abra's Defense fell!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
+        MESSAGE("Kadabra's Defense fell!");
+        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
+        MESSAGE("Abra's Defense fell!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
+        MESSAGE("Kadabra's Defense fell!");
     }
 }
 
@@ -148,7 +179,7 @@ DOUBLE_BATTLE_TEST("Magic Bounce bounces back moves hitting foes field")
             ABILITY_POPUP(opponentRight, ABILITY_MAGIC_BOUNCE);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, playerLeft);
         if (abilityBattlerOne == ABILITY_MAGIC_BOUNCE) {
-            MESSAGE("The foe Natu bounced the Stealth Rock back!");
+            MESSAGE("The foe Natu bounced the Stealth Rock back!"); //wip, check gen 5
             ANIMATION(ANIM_TYPE_MOVE, MOVE_STEALTH_ROCK, opponentLeft);
         } else {
             MESSAGE("The foe Espeon bounced the Stealth Rock back!");
@@ -193,3 +224,46 @@ SINGLE_BATTLE_TEST("Magic Bounce can't reflect back Stealth Rock from a semi-inv
     }
 }
 
+SINGLE_BATTLE_TEST("Magic Bounce bounces back status moves before Magic Coat")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_MAGIC_COAT); MOVE(player, MOVE_LEER); }
+    } SCENE {
+        ABILITY_POPUP(opponent, ABILITY_MAGIC_BOUNCE);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, opponent);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, opponent);
+    }
+}
+
+DOUBLE_BATTLE_TEST("Magic Bounce will trigger after all valid targets have been targetted")
+{
+    GIVEN {
+        ASSUME(gItemsInfo[ITEM_EJECT_PACK].holdEffect == HOLD_EFFECT_EJECT_PACK);
+        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME(GetMoveTarget(MOVE_LEER) == TARGET_BOTH);
+        PLAYER(SPECIES_ABRA);
+        PLAYER(SPECIES_KADABRA) { Item(ITEM_EJECT_PACK); }
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_LEER); SEND_OUT(playerRight, 2); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, playerLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentRight);
+
+        ABILITY_POPUP(opponentLeft, ABILITY_MAGIC_BOUNCE);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEER, opponentLeft);
+        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
+
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerRight);
+
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerRight);
+        MESSAGE("Kadabra is switched out with the Eject Pack!");
+    }
+}

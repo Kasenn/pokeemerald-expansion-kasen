@@ -124,6 +124,7 @@ DOUBLE_BATTLE_TEST("Sleep Talk calls move and that move may be redirected by Lig
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SLEEP_TALK, playerLeft);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SPARK, playerLeft);
+        ABILITY_POPUP(opponentRight, ABILITY_LIGHTNING_ROD);
         MESSAGE("The foe Raichu took the attack!");
         ABILITY_POPUP(opponentRight, ABILITY_LIGHTNING_ROD);
     }

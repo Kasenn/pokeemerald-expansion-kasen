@@ -170,7 +170,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_BIDE] =
     {
-        .battleScript = BattleScript_EffectBide,
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 5,
         .battleFactoryStyle = FACTORY_STYLE_HIGH_RISK,
     },
@@ -868,12 +868,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .encourageEncore = TRUE,
     },
 
-    [EFFECT_UPROAR] =
-    {
-        .battleScript = BattleScript_EffectHit,
-        .battleTvScore = 4,
-    },
-
     [EFFECT_STOCKPILE] =
     {
         .battleScript = BattleScript_EffectStockpile,
@@ -1204,7 +1198,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_FLING] =
     {
-        .battleScript = BattleScript_EffectFling,
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points
         .encourageEncore = TRUE,
     },
@@ -1976,7 +1970,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_POLTERGEIST] =
     {
-        .battleScript = BattleScript_EffectPoltergeist,
+        .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points
     },
 
@@ -2038,7 +2032,7 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
 
     [EFFECT_DARK_VOID] =
     {
-        .battleScript = BattleScript_EffectDarkVoid,
+        .battleScript = BattleScript_EffectNonVolatileStatus,
         .battleTvScore = 0, // TODO: Assign points
     },
 
@@ -2257,6 +2251,12 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
     },
 
     [EFFECT_SPECIES_POWER_OVERRIDE] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 0, // TODO: Assign points
+    },
+
+    [EFFECT_SCALE_SHOT] =
     {
         .battleScript = BattleScript_EffectHit,
         .battleTvScore = 0, // TODO: Assign points

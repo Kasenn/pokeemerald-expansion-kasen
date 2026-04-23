@@ -321,7 +321,7 @@ DOUBLE_BATTLE_TEST("Ally Switch swaps Illusion data")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_ALLY_SWITCH); }
     } THEN {
-        EXPECT(&gPlayerParty[2] == gBattleStruct->illusion[0].mon);
+        EXPECT(&gParties[B_TRAINER_0][2] == gBattleStruct->illusion[0].mon);
     }
 }
 
@@ -447,7 +447,7 @@ DOUBLE_BATTLE_TEST("Ally Switch does not update Wish recovery position")
 
 DOUBLE_BATTLE_TEST("Ally Switch does not update Healing Wish/Lunar Dance recovery position")
 {
-    u16 move = MOVE_NONE;
+    enum Move move = MOVE_NONE;
     struct BattlePokemon *switchTarget = NULL;
 
     PARAMETRIZE { move = MOVE_HEALING_WISH; switchTarget = playerLeft; }

@@ -24,11 +24,11 @@ SINGLE_BATTLE_TEST("Liechi Berry raises the holder's Attack by one stage when HP
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         if (move == MOVE_SCRATCH) {
             NONE_OF {
-                ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+                ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
                 MESSAGE("The Liechi Berry raised Wobbuffet's Attack!");
             }
         } else {
-            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+            ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
             MESSAGE("The Liechi Berry raised Wobbuffet's Attack!");
         }
     } THEN {
@@ -62,8 +62,8 @@ SINGLE_BATTLE_TEST("Liechi Berry raises Attack by one stage when HP drops to 1/4
         TURN { MOVE(opponent, MOVE_DRAGON_RAGE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_RAGE, opponent);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("The Liechi Berry raised Applin's Attack!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
+        MESSAGE("The Liechi Berry sharply raised Applin's Attack!");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
     }

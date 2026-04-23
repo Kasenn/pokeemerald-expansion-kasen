@@ -24,7 +24,7 @@
 
 static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 {
-    u16 species = GetMonData(pokemon, MON_DATA_SPECIES_OR_EGG);
+    enum Species species = GetMonData(pokemon, MON_DATA_SPECIES_OR_EGG);
     if (species == SPECIES_NONE || species == SPECIES_EGG)
         return FALSE;
 
@@ -34,7 +34,7 @@ static bool32 IsMonValidSpecies(struct Pokemon *pokemon)
 static bool32 AllMonsFainted(void)
 {
     int i;
-    struct Pokemon *pokemon = gPlayerParty;
+    struct Pokemon *pokemon = gParties[B_TRAINER_0];
 
     for (i = 0; i < PARTY_SIZE; i++, pokemon++)
     {
@@ -46,7 +46,7 @@ static bool32 AllMonsFainted(void)
 
 static void FaintFromFieldPoison(u8 partyIdx)
 {
-    struct Pokemon *pokemon = &gPlayerParty[partyIdx];
+    struct Pokemon *pokemon = &gParties[B_TRAINER_0][partyIdx];
     u32 status = STATUS1_NONE;
 
     if (OW_POISON_DAMAGE < GEN_4)
@@ -59,7 +59,7 @@ static void FaintFromFieldPoison(u8 partyIdx)
 
 static bool32 MonFaintedFromPoison(u8 partyIdx)
 {
-    struct Pokemon *pokemon = &gPlayerParty[partyIdx];
+    struct Pokemon *pokemon = &gParties[B_TRAINER_0][partyIdx];
     if (IsMonValidSpecies(pokemon) && GetMonData(pokemon, MON_DATA_HP) == ((OW_POISON_DAMAGE < GEN_4) ? 0 : 1) && GetAilmentFromStatus(GetMonData(pokemon, MON_DATA_STATUS)) == AILMENT_PSN)
         return TRUE;
 

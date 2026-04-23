@@ -45,6 +45,7 @@ SINGLE_BATTLE_TEST("Dry Skin heals 1/8th Max HP in Rain")
         TURN { MOVE(player, MOVE_RAIN_DANCE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DRY_SKIN);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SIMPLE_HEAL, player);
         HP_BAR(player, damage: -(200 / 8));
     }
 }

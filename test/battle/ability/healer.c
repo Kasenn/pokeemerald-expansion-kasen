@@ -38,7 +38,7 @@ DOUBLE_BATTLE_TEST("Healer cures adjacent ally's status condition 30% of the tim
             MESSAGE("The foe Wobbuffet woke up!");
             break;
         case STATUS1_PARALYSIS:
-            MESSAGE("The foe Wobbuffet was cured of paralysis.");
+            MESSAGE("The foe Wobbuffet was cured of paralysis!");
             break;
         }
     }

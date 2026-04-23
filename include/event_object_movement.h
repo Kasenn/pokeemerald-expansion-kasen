@@ -126,9 +126,7 @@ extern const union AnimCmd *const sAnimTable_Following_Spheal[];
 extern const union AnimCmd *const sAnimTable_Following_Asym[];
 extern const struct SpriteTemplate *const gFieldEffectObjectTemplatePointers[];
 
-extern const u16 *const gBerryTreeObjectEventGraphicsIdTablePointers[];
-extern const struct SpriteFrameImage *const gBerryTreePicTablePointers[];
-extern const u8 *const gBerryTreePaletteSlotTablePointers[];
+extern const struct SpriteFrameImage gPicTable_PechaBerryTree[];
 
 extern const union AnimCmd *const sAnimTable_RidingGogoat[];
 
@@ -155,7 +153,7 @@ void ClearObjectEventMovement(struct ObjectEvent *objectEvent, struct Sprite *sp
 void ObjectEventClearHeldMovement(struct ObjectEvent *objectEvent);
 void ObjectEventClearHeldMovementIfActive(struct ObjectEvent *objectEvent);
 struct Pokemon *GetFirstLiveMon(void);
-u16 GetOverworldWeatherSpecies(u16 species);
+enum Species GetOverworldWeatherSpecies(enum Species species);
 void UpdateFollowingPokemon(void);
 void RemoveFollowingPokemon(void);
 struct ObjectEvent *GetFollowerObject(void);
@@ -275,7 +273,7 @@ bool8 IsBerryTreeSparkling(u8 localId, u8 mapNum, u8 mapGroup);
 const struct ObjectEventTemplate *GetObjectEventTemplateByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
 u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY);
 bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female);
-const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(u32 species, bool32 shiny, bool32 female);
+const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species, bool32 shiny, bool32 female);
 u16 GetObjectEventFlagIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroup);
 void FollowerSetGraphics(struct ObjectEvent *objEvent, u32 species, bool32 shiny, bool32 female);
 void RefreshFollowerGraphics(struct ObjectEvent *objEvent);

@@ -69,6 +69,7 @@ SINGLE_BATTLE_TEST("Weak Armor does not trigger when brought in by Dragon Tail a
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
             MESSAGE("Slugma's Defense fell!");
             MESSAGE("Slugma's Speed rose!");
+            MESSAGE("Slugma's Speed rose sharply!");
         }
     } THEN {
         EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE);
@@ -102,13 +103,10 @@ SINGLE_BATTLE_TEST("Weak Armor still boosts Speed if Defense can't go any lower"
         MESSAGE("Slugma's Defense won't go any lower!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         if (gen == GEN_6)
-        {
             MESSAGE("Slugma's Speed rose!");
-        }
         else
-        {
             MESSAGE("Slugma's Speed rose sharply!");
-        }
+
     } THEN {
         EXPECT_EQ(player->statStages[STAT_DEF], MIN_STAT_STAGE);
         EXPECT_EQ(player->statStages[STAT_SPEED], DEFAULT_STAT_STAGE + (gen == GEN_7 ? 2 : 1));
@@ -134,6 +132,7 @@ SINGLE_BATTLE_TEST("Weak Armor still lowers Defense if Speed can't go any higher
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
             MESSAGE("Slugma's Speed rose!");
+            MESSAGE("Slugma's Speed rose sharply!");
         }
         MESSAGE("Slugma's Speed won't go any higher!");
     } THEN {

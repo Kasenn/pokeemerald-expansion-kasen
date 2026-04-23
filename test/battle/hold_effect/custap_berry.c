@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Custap Berry allows the holder to move first in its priority
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Wobbuffet's Custap Berry let it move first!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
@@ -29,7 +29,7 @@ SINGLE_BATTLE_TEST("Custap Berry allows the holder to move first in its priority
     } WHEN {
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Bellsprout's Custap Berry let it move first!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
@@ -45,7 +45,7 @@ SINGLE_BATTLE_TEST("Custap Berry activates even if the foe mon switches out")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Regirock's Custap Berry let it move first!");
     }
 }

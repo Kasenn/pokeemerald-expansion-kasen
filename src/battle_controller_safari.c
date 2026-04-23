@@ -22,6 +22,7 @@
 #include "task.h"
 #include "text.h"
 #include "text_window.h"
+#include "trainer.h"
 #include "util.h"
 #include "window.h"
 #include "line_break.h"
@@ -414,26 +415,10 @@ void SafariBufferExecCompleted(enum BattlerId battler)
 
 static void SafariHandleDrawTrainerPic(enum BattlerId battler)
 {
-    enum TrainerPicID trainerPicId;
-
-    switch (VarGet(VAR_CHOSEN_OUTFIT)){
-    case OUTFIT_RUBYSAPPHIRE:
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_RUBY_SAPPHIRE_BRENDAN;
-        break;
-    default:
-    case OUTFIT_EMERALD:
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN;
-        break;
-    case OUTFIT_ORAS:
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_ORAS;
-        break;
-    case OUTFIT_CONTEST:
-        trainerPicId = gSaveBlock2Ptr->playerGender + TRAINER_BACK_PIC_BRENDAN_CONTEST;
-        break;
-    }    
+    enum TrainerPicID trainerPicId = GetPlayerTrainerPic();
 
     BtlController_HandleDrawTrainerPic(battler, trainerPicId, FALSE,
-                                       80, 80 + 4 * (8 - gTrainerBacksprites[trainerPicId].coordinates.size),
+                                       80, 80 + 4 * (8 - GetTrainerBackPicCoords(trainerPicId)->size),
                                        30);
 }
 
@@ -496,10 +481,10 @@ static void SafariHandleChoosePokemon(enum BattlerId battler)
 }
 
 // All of the other controllers(except Wally's) use CRY_MODE_FAINT.
-// Player is not a pokemon, so it can't really faint in the Safari anyway.
+// Player is not a Pokémon, so it can't really faint in the Safari anyway.
 static void SafariHandleFaintingCry(enum BattlerId battler)
 {
-    u16 species = GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES);
+    enum Species species = GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES);
 
     PlayCry_Normal(species, 25);
     BtlController_Complete(battler);

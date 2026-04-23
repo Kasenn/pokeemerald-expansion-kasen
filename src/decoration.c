@@ -205,7 +205,6 @@ EWRAM_DATA u8 gCurDecorationIndex = 0;
 // static void TossDecoration(u8 taskId);
 
 #include "data/decoration/tiles.h"
-#include "data/decoration/description.h"
 #include "data/decoration/header.h"
 
 // static const u8 *const sDecorationCategoryNames[] =
@@ -319,7 +318,6 @@ EWRAM_DATA u8 gCurDecorationIndex = 0;
 //     .cursorKind = CURSOR_BLACK_ARROW,
 // };
 
-#include "data/decoration/icon.h"
 #include "data/decoration/tilemaps.h"
 
 // static const struct {

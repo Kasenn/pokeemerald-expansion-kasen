@@ -144,3 +144,22 @@ SINGLE_BATTLE_TEST("Rapid Spin and Mortal Spin will remove hazards if the target
         NOT HP_BAR(opponent);
     }
 }
+
+SINGLE_BATTLE_TEST("Rapid Spin and Mortal Spin remove Leech Seed")
+{
+    enum Move move;
+
+    PARAMETRIZE { move = MOVE_RAPID_SPIN; }
+    PARAMETRIZE { move = MOVE_MORTAL_SPIN; }
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_LEECH_SEED); MOVE(player, move); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEECH_SEED, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, move, player);
+        MESSAGE("Wobbuffet was freed from Leech Seed!");
+    }
+}

@@ -551,11 +551,8 @@ enum ObjectId
 };
 
 // FRLG equivalents
-
 // #define OBJ_EVENT_GFX_MEW OBJ_EVENT_GFX_NINJA_BOY
 // #define OBJ_EVENT_GFX_LUGIA OBJ_EVENT_GFX_NINJA_BOY
-
-
 
 // NOTE: The maximum amount of object events has been expanded from 255 to 65535.
 // Since dynamic graphics ids still require at least 16 free values, the actual limit
@@ -599,7 +596,7 @@ enum ObjectId
 #define OW_SHINY(x) ((x)->graphicsId & OBJ_EVENT_MON_SHINY)
 #define OW_FEMALE(x) ((x)->graphicsId & OBJ_EVENT_MON_FEMALE)
 
-// Whether Object Event is an OW pokemon
+// Whether Object Event is an OW Pokémon
 #define IS_OW_MON_OBJ(obj) ((obj)->graphicsId & OBJ_EVENT_MON)
 
 #define SHADOW_SIZE_S       0

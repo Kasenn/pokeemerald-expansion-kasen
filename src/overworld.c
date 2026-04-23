@@ -39,6 +39,7 @@
 #include "malloc.h"
 #include "m4a.h"
 #include "map_name_popup.h"
+#include "map_preview_screen.h"
 #include "match_call.h"
 #include "menu.h"
 #include "metatile_behavior.h"
@@ -225,7 +226,7 @@ EWRAM_DATA static struct WarpData sFixedDiveWarp = {0};
 EWRAM_DATA static struct WarpData sFixedHoleWarp = {0};
 EWRAM_DATA static mapsec_u16_t sLastMapSectionId = 0;
 EWRAM_DATA static struct InitialPlayerAvatarState sInitialPlayerAvatarState = {0};
-EWRAM_DATA static u16 sAmbientCrySpecies = 0;
+EWRAM_DATA static enum Species sAmbientCrySpecies = SPECIES_NONE;
 EWRAM_DATA static bool8 sIsAmbientCryWaterMon = FALSE;
 EWRAM_DATA static u8 sHoursOverride = 0; // used to override apparent time of day hours
 EWRAM_DATA struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4] = {0};
@@ -1575,8 +1576,8 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
         monsCount = CalculatePlayerPartyCount();
         for (i = 0; i < monsCount; i++)
         {
-            if (!GetMonData(&gPlayerParty[i], MON_DATA_SANITY_IS_EGG)
-                && GetMonAbility(&gPlayerParty[0]) == ABILITY_SWARM)
+            if (!GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SANITY_IS_EGG)
+                && GetMonAbility(&gParties[B_TRAINER_0][0]) == ABILITY_SWARM)
             {
                 divBy = 2;
                 break;
@@ -1666,6 +1667,11 @@ void DoIdleAnimation(s16 *state, u16 *delayCounter)
         }
         break;
     }
+}
+
+mapsec_u8_t GetLastUsedWarpMapSectionId(void)
+{
+    return Overworld_GetMapHeaderByGroupAndId(gLastUsedWarp.mapGroup, gLastUsedWarp.mapNum)->regionMapSectionId;
 }
 
 bool8 IsMapTypeOutdoors(enum MapType mapType)

@@ -83,7 +83,7 @@ SINGLE_BATTLE_TEST("Dragon Tail switches the target after Rocky Helmet and Iron 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet was hurt by the Iron Barbs!");
+        MESSAGE("Wobbuffet was hurt!");
         HP_BAR(player);
         MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
         MESSAGE("The foe Charmander was dragged out!");

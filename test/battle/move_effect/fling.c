@@ -474,6 +474,7 @@ SINGLE_BATTLE_TEST("Fling - thrown berry's effect activates for the target even 
         else if (statId != 0) {
             EXPECT_EQ(opponent->statStages[statId], DEFAULT_STAT_STAGE + 1);
         }
+        EXPECT(player->item == ITEM_NONE);
     }
 }
 
@@ -556,5 +557,94 @@ SINGLE_BATTLE_TEST("Fling doesn't fail when holding a Booster Energy and the tar
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
     } THEN {
         EXPECT(player->item == ITEM_NONE);
+    }
+}
+
+SINGLE_BATTLE_TEST("Fling reveals the user's item before dealing damage")
+{
+    GIVEN {
+        ASSUME(MoveHasAdditionalEffectSelf(MOVE_FLING, MOVE_EFFECT_ITEM_MESSAGE));
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_POTION); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_FLING); }
+    } SCENE {
+        MESSAGE("The foe Wobbuffet flung its Potion!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, opponent);
+        HP_BAR(player);
+    }
+}
+
+SINGLE_BATTLE_TEST("Fling doesn't reveal the user's item if it failed to use the move")
+{
+    GIVEN {
+        ASSUME(MoveHasAdditionalEffectSelf(MOVE_FLING, MOVE_EFFECT_ITEM_MESSAGE));
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_POTION); Status1(STATUS1_SLEEP); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_FLING); }
+    } SCENE {
+        NONE_OF {
+            MESSAGE("The foe Wobbuffet flung its Potion!");
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, opponent);
+            HP_BAR(player);
+        };
+    }
+}
+
+SINGLE_BATTLE_TEST("Fling doesn't reveal the user's item if it missed")
+{
+    GIVEN {
+        ASSUME(MoveHasAdditionalEffectSelf(MOVE_FLING, MOVE_EFFECT_ITEM_MESSAGE));
+        ASSUME(GetItemHoldEffect(ITEM_BRIGHT_POWDER) == HOLD_EFFECT_EVASION_UP);
+        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_BRIGHT_POWDER); }
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_POTION); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_FLING, hit: FALSE); }
+    } SCENE {
+        NONE_OF {
+            MESSAGE("The foe Wobbuffet flung its Potion!");
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, opponent);
+            HP_BAR(player);
+        };
+    }
+}
+
+SINGLE_BATTLE_TEST("Fling - Mental Herb effect should not remove the target's held item")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_TAUNT) == EFFECT_TAUNT);
+        ASSUME(GetItemHoldEffect(ITEM_MENTAL_HERB) == HOLD_EFFECT_MENTAL_HERB);
+        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_MENTAL_HERB); }
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_RAZOR_CLAW); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_TAUNT); MOVE(opponent, MOVE_SCRATCH); }
+        TURN { MOVE(player, MOVE_FLING); MOVE(opponent, MOVE_SCRATCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TAUNT, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
+        HP_BAR(opponent);
+    } THEN {
+        EXPECT_EQ(opponent->item, ITEM_RAZOR_CLAW);
+    }
+}
+
+SINGLE_BATTLE_TEST("Fling - White Herb effect should not remove the target's held item")
+{
+    GIVEN {
+        ASSUME(GetMoveEffect(MOVE_GROWL) == EFFECT_ATTACK_DOWN);
+        ASSUME(GetItemHoldEffect(ITEM_WHITE_HERB) == HOLD_EFFECT_WHITE_HERB);
+        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_WHITE_HERB); }
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_RAZOR_CLAW); }
+    } WHEN {
+        TURN { MOVE(player, MOVE_GROWL); }
+        TURN { MOVE(player, MOVE_FLING); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_GROWL, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_FLING, player);
+        HP_BAR(opponent);
+    } THEN {
+        EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
+        EXPECT_EQ(opponent->item, ITEM_RAZOR_CLAW);
     }
 }
