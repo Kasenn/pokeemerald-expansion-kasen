@@ -195,29 +195,18 @@ SINGLE_BATTLE_TEST("Throat Spray is not blocked by Sheer Force")
     }
 }
 
-#define CRIT_MESSAGE "A critical hit!"
-SINGLE_BATTLE_TEST("Expansion Crit Change: Fixed damage moves don't print a crit message")
+SINGLE_BATTLE_TEST("Throat Spray will not activate if the mon just switched in")
 {
-    u16 move;
-    PARAMETRIZE { move = MOVE_SCRATCH; }
-    PARAMETRIZE { move = MOVE_DRAGON_RAGE; }
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_LASER_FOCUS) == EFFECT_LASER_FOCUS);
-        ASSUME(GetMoveEffect(MOVE_DRAGON_RAGE) == EFFECT_FIXED_HP_DAMAGE);
+        ASSUME(IsSoundMove(MOVE_HYPER_VOICE) == TRUE);
         PLAYER(SPECIES_WOBBUFFET);
-        OPPONENT(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_THROAT_SPRAY); }
+        OPPONENT(SPECIES_WOBBUFFET) { Item(ITEM_RED_CARD); }
     } WHEN {
-        TURN { MOVE(player, MOVE_LASER_FOCUS); }
-        TURN { MOVE(player, move); }
+        TURN { MOVE(player, MOVE_HYPER_VOICE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_LASER_FOCUS, player);
-        ANIMATION(ANIM_TYPE_MOVE, move, player);
-        if (move == MOVE_SCRATCH) {
-            MESSAGE(CRIT_MESSAGE);
-        }
-        else {
-            NOT MESSAGE(CRIT_MESSAGE);
-        }
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent); // red card
+        NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player); // throat spray
     }
 }
-#undef CRIT_MESSAGE
