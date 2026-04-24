@@ -10949,6 +10949,20 @@ bool32 ChangeOrderTargetAfterAttacker(void)
     return TRUE;
 }
 
+static bool8 IsSimilarMove(enum Move moveArg, enum Move usedMove)
+{
+    switch (moveArg)
+    {
+    case MOVE_EXPLOSION:
+    case MOVE_SELF_DESTRUCT:
+    case MOVE_MISTY_EXPLOSION:
+    case MOVE_MIND_BLOWN:
+        return usedMove == MOVE_MIND_BLOWN || IsExplosionMove(usedMove);
+    default:
+        return moveArg == usedMove;
+    }
+}
+
 void TryUpdateEvolutionTracker(enum EvolutionConditions evolutionCondition, u32 upAmount, enum Move usedMove)
 {
     u32 i, j;
@@ -10985,7 +10999,7 @@ void TryUpdateEvolutionTracker(enum EvolutionConditions evolutionCondition, u32 
                 switch (evolutionCondition)
                 {
                 case IF_USED_MOVE_X_TIMES:
-                    if (evolutions[i].params[j].arg1 == usedMove)
+                    if (IsSimilarMove(evolutions[i].params[j].arg1, usedMove))
                         SetMonData(monAtk, MON_DATA_EVOLUTION_TRACKER, &val);
                     break;
                 case IF_RECOIL_DAMAGE_GE:

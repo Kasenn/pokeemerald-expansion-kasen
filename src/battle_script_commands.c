@@ -4198,8 +4198,11 @@ static void Cmd_getexp(void)
     u32 currLvl;
     u32 newLeadMonEvTeam = 0;
     u32 oldEvTeam = 0;
-    u8 trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
+    u32 trainerClass = 0;
     u32 statEv = GetSpeciesEvYield(gBattleMons[gBattlerFainted].species);
+
+    if (!TESTING)
+        trainerClass = GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA);
 
     gBattlerFainted = GetBattlerForBattleScript(cmd->battler);
 
@@ -7982,19 +7985,17 @@ static u32 ChangeStatBuffs(enum BattlerId battler, s8 statValue, enum Stat statI
             else if (gBattleMons[battler].statStages[statId] == 2 && statValue < -2)
                 statValue = -2;
 
-            StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATFELL]);
-
             if (statValue == -2)
             {
-                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATHARSHLY]);
+                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATHARSHLY);
             }
             else if (statValue <= -3)
             {
-                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_SEVERELY]);
+                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_SEVERELY);
             }
             else
             {
-                StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_EXCLAMATION]);
+                PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
             }
 
             gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_CHANGED or B_MSG_DEFENDER_STAT_CHANGED
@@ -8020,19 +8021,17 @@ static u32 ChangeStatBuffs(enum BattlerId battler, s8 statValue, enum Stat statI
         else if (gBattleMons[battler].statStages[statId] == MAX_STAT_STAGE - 2  && statValue > 2)
             statValue = 2;
 
-        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
-
         if (statValue == 2)
         {
-            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATSHARPLY]);
+            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_STATSHARPLY);
         }
         else if (statValue >= 3)
         {
-            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_DRASTICALLY]);
+            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_DRASTICALLY);
         }
         else
         {
-            StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_EXCLAMATION]);
+            PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
         }
 
         gBattleCommunication[MULTISTRING_CHOOSER] = (gBattlerTarget == battler); // B_MSG_ATTACKER_STAT_CHANGED or B_MSG_DEFENDER_STAT_CHANGED

@@ -368,7 +368,7 @@ SINGLE_BATTLE_TEST("Parental Bond does not trigger on OHKO moves")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FISSURE, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("The opposing Machamp hung on using its Focus Sash!");
+        MESSAGE("The foe Machamp hung on using its Focus Sash!");
         NOT HP_BAR(opponent);
     } THEN {
         EXPECT_EQ(opponent->hp, 1);

@@ -89,7 +89,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't affect Natural Gift's type")
         TURN { MOVE(player, MOVE_NATURAL_GIFT); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_NATURAL_GIFT, player); }
-        MESSAGE("It doesn't affect the opposing Beldum…");
+        MESSAGE("It doesn't affect the foe Beldum…");
     }
 }
 
@@ -117,7 +117,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't affect Judgment / Techno Blast / Multi-Att
         TURN { MOVE(player, move); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, move, player); }
-        MESSAGE("It doesn't affect the opposing Diglett…");
+        MESSAGE("It doesn't affect the foe Diglett…");
     }
 }
 
@@ -133,7 +133,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't affect Hidden Power's type")
         TURN { MOVE(player, MOVE_HIDDEN_POWER); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_HIDDEN_POWER, player); }
-        MESSAGE("It doesn't affect the opposing Diglett…");
+        MESSAGE("It doesn't affect the foe Diglett…");
     }
 }
 
@@ -149,7 +149,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't override Electrify")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIFY, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player); }
-        MESSAGE("It doesn't affect the opposing Sandshrew…");
+        MESSAGE("It doesn't affect the foe Sandshrew…");
     }
 }
 
@@ -197,7 +197,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't change Tera Blast's type when Terastallize
         TURN { MOVE(player, MOVE_TERA_BLAST, gimmick: GIMMICK_TERA); }
     } SCENE {
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_TERA_BLAST, player); }
-        MESSAGE("It doesn't affect the opposing Misdreavus…");
+        MESSAGE("It doesn't affect the foe Misdreavus…");
     }
 }
 
@@ -215,7 +215,7 @@ SINGLE_BATTLE_TEST("Dragonize doesn't affect Terrain Pulse's type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ELECTRIC_TERRAIN, opponent);
         NOT { ANIMATION(ANIM_TYPE_MOVE, MOVE_TERRAIN_PULSE, player); }
-        MESSAGE("It doesn't affect the opposing Sandshrew…");
+        MESSAGE("It doesn't affect the foe Sandshrew…");
     }
 }
 

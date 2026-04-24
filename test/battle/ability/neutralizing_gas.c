@@ -411,14 +411,14 @@ DOUBLE_BATTLE_TEST("Neutralizing Gas doesn't reactivate Beads of Ruin after Chi-
         MESSAGE("Neutralizing gas filled the area!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(opponentRight);
-        MESSAGE("The opposing Chi-Yu fainted!");
+        MESSAGE("The foe Chi-Yu fainted!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
         HP_BAR(opponentLeft);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         NONE_OF {
             ABILITY_POPUP(opponentRight, ABILITY_BEADS_OF_RUIN);
-            MESSAGE("The opposing Chi-Yu's Beads of Ruin weakened the Sp. Def of all surrounding Pokémon!");
+            MESSAGE("The foe Chi-Yu's Beads of Ruin weakened the Sp. Def of all surrounding Pokémon!");
         }
-        MESSAGE("The opposing Weezing fainted!");
+        MESSAGE("The foe Weezing fainted!");
     }
 }

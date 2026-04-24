@@ -143,7 +143,7 @@ SINGLE_BATTLE_TEST("Galvanize doesn't affect Judgment / Techno Blast / Multi-Att
         if (move == MOVE_JUDGMENT)
             MESSAGE("It doesn't affect the foe Vaporeon…");
         else if (move == MOVE_TECHNO_BLAST)
-            MESSAGE("It doesn't affect the opposing Vaporeon…");
+            MESSAGE("It doesn't affect the foe Vaporeon…");
         else if (move == MOVE_MULTI_ATTACK)
             MESSAGE("It doesn't affect the foe Vaporeon…");
     }

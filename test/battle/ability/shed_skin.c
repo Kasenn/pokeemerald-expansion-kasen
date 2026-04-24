@@ -71,13 +71,13 @@ SINGLE_BATTLE_TEST("Shed Skin triggers 30% of the time (Gen 4)")
         switch (status)
         {
             case STATUS1_BURN:
-                MESSAGE("The foe Arbok's burn was cured!");
+                MESSAGE("The foe Arbok's burn was healed!");
                 break;
             case STATUS1_PARALYSIS:
                 MESSAGE("The foe Arbok was cured of paralysis!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("The foe Arbok's frostbite was cured!");
+                MESSAGE("The foe Arbok's thawed out!");
                 break;
             case STATUS1_POISON:
                 MESSAGE("The foe Arbok was cured of its poisoning!");
@@ -117,13 +117,13 @@ SINGLE_BATTLE_TEST("Shed Skin triggers 33% of the time (Gen 5)")
         switch (status)
         {
             case STATUS1_BURN:
-                MESSAGE("The foe Arbok's burn was cured!");
+                MESSAGE("The foe Arbok's burn was healed!");
                 break;
             case STATUS1_PARALYSIS:
                 MESSAGE("The foe Arbok was cured of paralysis!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("The foe Arbok's frostbite was cured!");
+                MESSAGE("The foe Arbok's thawed out!");
                 break;
             case STATUS1_POISON:
                 MESSAGE("The foe Arbok was cured of its poisoning!");

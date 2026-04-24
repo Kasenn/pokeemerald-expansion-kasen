@@ -125,7 +125,7 @@ SINGLE_BATTLE_TEST("Mega Sol doesn't trigger the foe's Leaf Guard", s16 damage)
         else {
 	    NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_WILL_O_WISP, player);
             ABILITY_POPUP(opponent, ABILITY_LEAF_GUARD);
-            MESSAGE("It doesn't affect the opposing Leafeon…");
+            MESSAGE("It doesn't affect the foe Leafeon…");
             NOT STATUS_ICON(opponent, STATUS1_BURN);
         }
     }

@@ -23,11 +23,11 @@
             .gender = TRAINER_MON_RANDOM_GENDER,
             EVS(0, 252, 252, 0, 6, 0),
             IVS(31, 31, 31, 31, 31, 31),
-            .lvl = 100,
+            .lvl = 99,
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {
-                MOVE_EARTHQUAKE,
+                MOVE_EXPLOSION,
                 MOVE_FLAMETHROWER,
                 MOVE_CELEBRATE,
                 MOVE_CELEBRATE,

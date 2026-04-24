@@ -13,13 +13,13 @@ SINGLE_BATTLE_TEST("Fake Out can only be used on the user's first turn")
         TURN { MOVE(player, MOVE_FAKE_OUT); MOVE(opponent, MOVE_FAKE_OUT); }
         TURN { MOVE(player, MOVE_FAKE_OUT); MOVE(opponent, MOVE_FAKE_OUT); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Fake Out!");
+        MESSAGE("The foe Wobbuffet used Fake Out!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent);
-        MESSAGE("The opposing Wobbuffet used Fake Out!");
+        MESSAGE("The foe Wobbuffet used Fake Out!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent); }
         MESSAGE("Wobbuffet used Fake Out!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player);
-        MESSAGE("The opposing Wobbuffet used Fake Out!");
+        MESSAGE("The foe Wobbuffet used Fake Out!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, opponent); }
         MESSAGE("Wobbuffet used Fake Out!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player); }
@@ -199,13 +199,13 @@ SINGLE_BATTLE_TEST("First Impression can only be used on the user's first turn")
         TURN { MOVE(player, MOVE_FIRST_IMPRESSION); MOVE(opponent, MOVE_FIRST_IMPRESSION); }
         TURN { MOVE(player, MOVE_FIRST_IMPRESSION); MOVE(opponent, MOVE_FIRST_IMPRESSION); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used First Impression!");
+        MESSAGE("The foe Wobbuffet used First Impression!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRST_IMPRESSION, opponent);
-        MESSAGE("The opposing Wobbuffet used First Impression!");
+        MESSAGE("The foe Wobbuffet used First Impression!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRST_IMPRESSION, opponent); }
         MESSAGE("Wobbuffet used First Impression!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRST_IMPRESSION, player);
-        MESSAGE("The opposing Wobbuffet used First Impression!");
+        MESSAGE("The foe Wobbuffet used First Impression!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRST_IMPRESSION, opponent); }
         MESSAGE("Wobbuffet used First Impression!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRST_IMPRESSION, player); }

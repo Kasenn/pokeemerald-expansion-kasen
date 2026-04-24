@@ -66,7 +66,7 @@ SINGLE_BATTLE_TEST("Magician allows activation of stolen Throat Spray")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HYPER_VOICE, player);
         ABILITY_POPUP(player, ABILITY_MAGICIAN);
-        MESSAGE("Delphox stole the opposing Wobbuffet's Throat Spray!");
+        MESSAGE("Delphox stole the foe Wobbuffet's Throat Spray!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);

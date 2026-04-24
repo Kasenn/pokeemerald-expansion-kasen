@@ -465,7 +465,7 @@ SINGLE_BATTLE_TEST("My own: Lum Berry prints the correct text 1")
         TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
         switch (move)
         {
         case MOVE_POISON_GAS:
@@ -522,7 +522,7 @@ SINGLE_BATTLE_TEST("My own: Lum Berry prints the correct text 2")
         TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
         switch (move)
         {
         case MOVE_POISON_GAS:
@@ -808,7 +808,7 @@ SINGLE_BATTLE_TEST("My own: Roste Berry heals and induces sleep")
     }
     SCENE {
         HP_BAR(player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Wobbuffet restored its health using its Roste Berry!");
         MESSAGE("Wobbuffet fell asleep!");
     }
@@ -830,7 +830,7 @@ SINGLE_BATTLE_TEST("My own: Roste Berry heals, doesn't sleep 1")
     }
     SCENE {
         HP_BAR(player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Wobbuffet restored its health using its Roste Berry!");
         NOT MESSAGE("Wobbuffet fell asleep!");
     }
@@ -856,7 +856,7 @@ SINGLE_BATTLE_TEST("My own: Roste Berry heals, doesn't sleep 2")
     }
     SCENE {
         HP_BAR(player);
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
         MESSAGE("Komala restored its health using its Roste Berry!");
         NOT MESSAGE("Komala fell asleep!");
     }

@@ -19,9 +19,9 @@ DOUBLE_BATTLE_TEST("Restore HP Item effects do not miss timing (Berries)")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FIRE_PLEDGE, playerRight);
         MESSAGE("A sea of fire enveloped the opposing team!");
-        MESSAGE("The opposing Wynaut was hurt by the sea of fire!");
+        MESSAGE("The foe Wynaut was hurt by the sea of fire!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponentLeft);
-        MESSAGE("The opposing Wobbuffet was hurt by the sea of fire!");
+        MESSAGE("The foe Wobbuffet was hurt by the sea of fire!");
     }
 }
 

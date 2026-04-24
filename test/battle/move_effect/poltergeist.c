@@ -38,7 +38,7 @@ SINGLE_BATTLE_TEST("Poltergeist reveals the target's item before dealing damage"
     } WHEN {
         TURN { MOVE(player, MOVE_POLTERGEIST); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet is about to be attacked by its Potion!");
+        MESSAGE("The foe Wobbuffet is about to be attacked by its Potion!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POLTERGEIST, player);
         HP_BAR(opponent);
     }
@@ -53,7 +53,7 @@ SINGLE_BATTLE_TEST("Poltergeist doesn't reveal the target's item if user fails t
         TURN { MOVE(player, MOVE_POLTERGEIST); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The opposing Wobbuffet is about to be attacked by its Potion!");
+            MESSAGE("The foe Wobbuffet is about to be attacked by its Potion!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_POLTERGEIST, player);
             HP_BAR(opponent);
         };
@@ -71,7 +71,7 @@ SINGLE_BATTLE_TEST("Poltergeist doesn't reveal the target's item if target is im
         TURN { MOVE(player, MOVE_POLTERGEIST); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The opposing Pidgey is about to be attacked by its Potion!");
+            MESSAGE("The foe Pidgey is about to be attacked by its Potion!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_POLTERGEIST, player);
             HP_BAR(opponent);
         };
@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Poltergeist doesn't reveal the target's item if it missed")
         TURN { MOVE(player, MOVE_POLTERGEIST, hit: FALSE); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The opposing Wobbuffet is about to be attacked by its Potion!");
+            MESSAGE("The foe Wobbuffet is about to be attacked by its Potion!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_POLTERGEIST, player);
             HP_BAR(opponent);
         };

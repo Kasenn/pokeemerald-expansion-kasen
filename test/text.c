@@ -885,8 +885,8 @@ TEST("Battle strings fit on the battle message window")
         StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATFELL]);
         break;
     // Buffer Status name to B_BUFF2
-    case STRINGID_PKMNSITEMCUREDPROBLEM:
-    case STRINGID_PKMNSXCUREDITSYPROBLEM:
+    // case STRINGID_PKMNSITEMCUREDPROBLEM:
+    // case STRINGID_PKMNSXCUREDITSYPROBLEM://wip
         StringCopy(gBattleTextBuff1, gText_Confusion);
         break;
     // Buffer Box name to STR_VAR_1 and STR_VAR_3, Nickname to STR_VAR_2

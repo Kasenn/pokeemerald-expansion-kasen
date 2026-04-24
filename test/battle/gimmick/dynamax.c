@@ -240,7 +240,7 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are affected by Grudge")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Grudge!");
         MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Wobbuffet's Scratch lost all its PP due to the grudge!");
     }
 }

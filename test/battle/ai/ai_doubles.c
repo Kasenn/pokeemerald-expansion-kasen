@@ -502,14 +502,14 @@ AI_DOUBLE_BATTLE_TEST("AI will only Beat Up for Rage Fist if it can hit at least
     u32 species;
     bool32 shouldBeatUp;
 
-    PARAMETRIZE { species = SPECIES_MEOWTH;    shouldBeatUp = FALSE; }
+    PARAMETRIZE { species = SPECIES_MEOWTH_OUTSIDER;    shouldBeatUp = FALSE; }
     PARAMETRIZE { species = SPECIES_WOBBUFFET; shouldBeatUp = TRUE; }
 
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_BEAT_UP) == EFFECT_BEAT_UP);
         ASSUME(GetMoveEffect(MOVE_RAGE_FIST) == EFFECT_RAGE_FIST);
         AI_FLAGS(AI_FLAG_CHECK_BAD_MOVE | AI_FLAG_CHECK_VIABILITY | AI_FLAG_TRY_TO_FAINT);
-        PLAYER(SPECIES_MEOWTH);
+        PLAYER(SPECIES_MEOWTH_OUTSIDER);
         PLAYER(species);
         OPPONENT(SPECIES_WHIMSICOTT) { Moves(MOVE_BEAT_UP); }
         OPPONENT(SPECIES_ANNIHILAPE) { MovesWithPP({MOVE_RAGE_FIST, 10}, {MOVE_CELEBRATE, 10}); HP(400); }

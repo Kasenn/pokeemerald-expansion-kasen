@@ -263,7 +263,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_DEF_CURE_SLEEP]                       = COMPOUND_STRING("{B_DEF_NAME_PREFIX} woke up!"),
     [STRINGID_DEF_CURE_FREEZE]                      = COMPOUND_STRING("{B_DEF_NAME_PREFIX} thawed out!"),
     [STRINGID_DEF_CURE_BURN]                        = COMPOUND_STRING("{B_DEF_NAME_PREFIX}'s burn was healed!"),
-    [STRINGID_DEF_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured of\nparalysis."),
+    [STRINGID_DEF_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_DEF_NAME_PREFIX} was cured of\nparalysis!"),
 
     [STRINGID_ATK_CURE_CONFUSION]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} snapped\nout of confusion!"),
     [STRINGID_ATK_CURE_TORMENT]                     = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s\ntorment wore off!"),
@@ -272,7 +272,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ATK_CURE_SLEEP]                       = COMPOUND_STRING("{B_ATK_NAME_PREFIX} woke up!"),
     [STRINGID_ATK_CURE_FREEZE]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} thawed out!"),
     [STRINGID_ATK_CURE_BURN]                        = COMPOUND_STRING("{B_ATK_NAME_PREFIX}'s burn was healed!"),
-    [STRINGID_ATK_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was cured of\nparalysis."),
+    [STRINGID_ATK_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was cured of\nparalysis!"),
 
     [STRINGID_SCR_CURE_CONFUSION]                   = COMPOUND_STRING("{B_SCR_NAME_PREFIX} snapped\nout of confusion!"),
     [STRINGID_SCR_CURE_TORMENT]                     = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s\ntorment wore off!"),
@@ -281,7 +281,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_SCR_CURE_SLEEP]                       = COMPOUND_STRING("{B_SCR_NAME_PREFIX} woke up!"),
     [STRINGID_SCR_CURE_FREEZE]                      = COMPOUND_STRING("{B_SCR_NAME_PREFIX} thawed out!"),
     [STRINGID_SCR_CURE_BURN]                        = COMPOUND_STRING("{B_SCR_NAME_PREFIX}'s burn was healed!"),
-    [STRINGID_SCR_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured of\nparalysis."),
+    [STRINGID_SCR_CURE_PARALYSIS]                   = COMPOUND_STRING("{B_SCR_NAME_PREFIX} was cured of\nparalysis!"),
 
     // Weather
     [STRINGID_ITISRAINING]                          = COMPOUND_STRING("It is raining."),
@@ -349,7 +349,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     // Common Strings
     [STRINGID_STATROSE]                             = COMPOUND_STRING("rose"),
     [STRINGID_EXCLAMATION]                          = COMPOUND_STRING("!"),
-    [STRINGID_STATSHARPLY]                          = COMPOUND_STRING(" sharply!"),
+    [STRINGID_STATSHARPLY]                          = COMPOUND_STRING(" sharply"),
     [STRINGID_DRASTICALLY]                          = COMPOUND_STRING(" drastically!"),
     [STRINGID_STATFELL]                             = COMPOUND_STRING("fell"),
     [STRINGID_STATHARSHLY]                          = COMPOUND_STRING(" harshly!"),
@@ -658,7 +658,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNCHARGINGPOWER]                    = COMPOUND_STRING("{B_ATK_NAME_PREFIX} began\ncharging power!"),
     [STRINGID_PKMNWISHCAMETRUE]                     = COMPOUND_STRING("{B_BUFF1}'s wish\ncame true!"),
     [STRINGID_PKMNSHROUDEDITSELF]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} shrouded\nitself with {B_CURRENT_MOVE}!"),
-    [STRINGID_PKMNMOVEBOUNCED]                      = COMPOUND_STRING("{B_ATK_NAME_PREFIX} bounced\nthe {B_CURRENT_MOVE} back!"),
+    [STRINGID_PKMNMOVEBOUNCED]                      = COMPOUND_STRING("{B_EFF_NAME_PREFIX} bounced\nthe {B_CURRENT_MOVE} back!"),
     [STRINGID_PKMNHURTSWITH]                        = COMPOUND_STRING("{B_ATK_NAME_PREFIX} was hurt\nby the {B_BUFF1}!"),
     [STRINGID_PKMNTRACED]                           = COMPOUND_STRING("It traced {B_BUFF1}'s {B_BUFF2}!"),
     [STRINGID_TERRAINBECOMESMISTY]                  = COMPOUND_STRING("Mist swirled about\nthe battlefield!"),
@@ -1490,24 +1490,26 @@ const u16 gZenModeStringIds[] =
 static const u8 sPlayerSentOut[] =                  _("Go! {B_PLAYER_MON1_NAME}!");
 static const u8 sPlayerSentOutDouble[] =            _("Go! {B_PLAYER_MON1_NAME} and\n{B_PLAYER_MON2_NAME}!");
 
+static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!");
+static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
 static const u8 sText_Trainer1SentOutPkmn2[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_BUFF1}!");
-static const u8 sText_TwoLinkTrainersSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_LINK_OPPONENT_MON1_NAME}!\p{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_LINK_OPPONENT_MON2_NAME}!");
+static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkTrainer2SentOutPkmn2[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkTrainerSentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
+static const u8 sText_TwoLinkTrainersSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_LINK_OPPONENT_MON1_NAME}! {B_LINK_OPPONENT2_NAME} sent out\n{B_LINK_OPPONENT_MON2_NAME}!");
+static const u8 sText_LinkTrainerSentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkTrainerMultiSentOutPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkPartnerSentOutPkmn1GoPkmn[] = _("{B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON1_NAME}!\lGo! {B_LINK_PLAYER_MON2_NAME}!");
+static const u8 sText_LinkPartnerSentOutPkmn2GoPkmn[] = _("{B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}!\lGo! {B_LINK_PLAYER_MON1_NAME}!");
+static const u8 sText_LinkPartnerSentOutPkmn1[] = _("{B_LINK_PARTNER_NAME} sent out\n{B_BUFF1}!");
+static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_LINK_PARTNER_NAME} sent out\n{B_BUFF1}!");
 static const u8 sText_TwoTrainersSentPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!\p{B_TRAINER2_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON2_NAME}!");
 static const u8 sText_Trainer2SentOutPkmn[] = _("{B_TRAINER2_NAME_WITH_CLASS} sent out\n{B_BUFF1}!");
 static const u8 sText_InGamePartnerSentOutZGoN[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON2_NAME}!\lGo, {B_PLAYER_MON1_NAME}!");
 static const u8 sText_InGamePartnerSentOutNGoZ[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON1_NAME}!\lGo, {B_PLAYER_MON2_NAME}!");
 static const u8 sText_InGamePartnerSentOutPkmn1[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON1_NAME}!");
 static const u8 sText_InGamePartnerSentOutPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS} sent out\n{B_PLAYER_MON2_NAME}!");
-static const u8 sText_Trainer1SentOutTwoPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
-static const u8 sText_Trainer1SentOutPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS} sent out\n{B_OPPONENT_MON1_NAME}!");
-static const u8 sText_LinkTrainerSentOutTwoPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME}!");
-static const u8 sText_LinkTrainerSentOutPkmn2[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
-static const u8 sText_LinkTrainer2SentOutPkmn2[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME} sent out\n{B_BUFF1}!");
-static const u8 sText_LinkTrainerSentOutPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME} sent out\n{B_BUFF1}!");
-static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}!");
-static const u8 sText_LinkPartnerSentOutPkmn1[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_BUFF1}!");
-static const u8 sText_LinkPartnerSentOutPkmn1GoPkmn[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON1_NAME}! Go! {B_LINK_PLAYER_MON2_NAME}!");
-static const u8 sText_LinkPartnerSentOutPkmn2GoPkmn[] = _("{B_PARTNER_CLASS} {B_LINK_PARTNER_NAME} sent out\n{B_LINK_PLAYER_MON2_NAME}! Go! {B_LINK_PLAYER_MON1_NAME}!");
+
 
 static const u8 sText_InGamePartnerWithdrewPkmn1[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON1_NAME}!");
 static const u8 sText_InGamePartnerWithdrewPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON2_NAME}!");

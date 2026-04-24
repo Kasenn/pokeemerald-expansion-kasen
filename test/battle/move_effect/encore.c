@@ -168,7 +168,7 @@ AI_SINGLE_BATTLE_TEST("Encore lasts for 2-6 turns (Gen 2-3)")
         for (count = 0; count < turns - 1; ++count)
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        MESSAGE("The opposing Wobbuffet ended its encore!");
+        MESSAGE("The foe Wobbuffet ended its encore!");
     }
 }
 
@@ -197,7 +197,7 @@ AI_SINGLE_BATTLE_TEST("Encore lasts for 3-7 turns (Gen 4)")
         for (count = 0; count < turns - 1; ++count)
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        MESSAGE("The opposing Wobbuffet ended its encore!");
+        MESSAGE("The foe Wobbuffet ended its encore!");
     }
 }
 
