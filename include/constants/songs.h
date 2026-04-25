@@ -544,23 +544,17 @@
 #define PH_NURSE_SOLO               609
 
 #define MUS_BWTRAINERBATTLE         610
-#define MUS_TRAINER_BATTLE_BW       611
-#define MUS_VS_IRIS                 612
-#define MUS_ALOLA_E4                613
-#define MUS_MISTRAL                 614
-#define MUS_MUTED                   615
-#define MUS_HG_AZALEA               616
-#define MUS_UNWAVERING              617
-#define MUS_HAPPY                   618
-#define MUS_DP_VS_LEGEND            619
-#define MUS_PWTLOBBY                620
-#define MUS_ALOLA_E42               621
-#define MUS_ABW_RIVAL               622
-#define MUS_GINGA                   623
-#define MUS_DRIFTVEIL               624
-#define MUS_ROAMER                  625
-#define MUS_MMTITLE1                626
-#define MUS_MMTITLE2                627
+#define MUS_VS_IRIS                 611
+#define MUS_MISTRAL                 612
+#define MUS_MUTED                   613
+#define MUS_UNWAVERING              614
+#define MUS_HAPPY                   615
+#define MUS_PWTLOBBY                616
+#define MUS_ABW_RIVAL               617
+#define MUS_GINGA                   618
+#define MUS_DRIFTVEIL               619
+#define MUS_MMTITLE1                620
+#define MUS_MMTITLE2                621
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
