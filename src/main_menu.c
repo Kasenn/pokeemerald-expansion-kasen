@@ -786,8 +786,8 @@ static void SpawnCuccoAvenger(bool8 playSound)
     if (shouldFlip)
         sprite->hFlip = TRUE;
 
-    sprite->tSpriteVelocityX = ((destX - startX) << 8) / 160;
-    sprite->tSpriteVelocityY = ((destY - startY) << 8) / 160;
+    sprite->tSpriteVelocityX = ((destX - startX) << 8) / 80;
+    sprite->tSpriteVelocityY = ((destY - startY) << 8) / 80;
     sprite->tSpriteEndEdge = endEdge;
 
     if (playSound)
