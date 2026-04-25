@@ -13,7 +13,7 @@ SINGLE_BATTLE_TEST("Mental Herb cures infatuation")
         MESSAGE("The foe Wobbuffet used Attract!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ATTRACT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet got over its infatuation!");
+        MESSAGE("Wobbuffet cured its infatuation status using its Mental Herb!");
     } THEN {
         EXPECT(player->volatiles.infatuation == 0);
     }
@@ -32,7 +32,7 @@ SINGLE_BATTLE_TEST("Mental Herb cures Torment volatile status (Gen 5+)")
         MESSAGE("The foe Wobbuffet used Torment!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TORMENT, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is no longer tormented!");
+        MESSAGE("Wobbuffet torment wore off!");
     } THEN {
         EXPECT(player->volatiles.tormentTimer == 0);
     }
@@ -51,7 +51,7 @@ SINGLE_BATTLE_TEST("Mental Herb cures Disable volatile status (Gen 5+)")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Disable!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DISABLE, opponent);
-        MESSAGE("Wobbuffet's move is no longer disabled!");
+        MESSAGE("Wobbuffet is no longer disabled!");
     } THEN {
         EXPECT(player->volatiles.disableTimer == 0);
     }
@@ -79,7 +79,7 @@ SINGLE_BATTLE_TEST("Mental Herb cures Heal Block volatile status (Gen 5+)")
         ANIMATION(ANIM_TYPE_MOVE, move, opponent);
         MESSAGE("Wobbuffet was prevented from healing!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet is no longer prevented from healing!");
+        MESSAGE("Wobbuffet's Heal Block wore off!");
     } THEN {
         EXPECT(player->volatiles.healBlock == FALSE);
     }
@@ -97,9 +97,9 @@ SINGLE_BATTLE_TEST("Mental Herb cures Encore volatile status (Gen 5+)")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Encore!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENCORE, opponent);
-        MESSAGE("Wobbuffet must do an encore!");
+        MESSAGE("Wobbuffet received an encore!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet ended its encore!");
+        MESSAGE("Wobbuffet's encore ended!");
     } THEN {
         EXPECT(player->volatiles.encoreTimer == 0);
     }
@@ -149,11 +149,11 @@ DOUBLE_BATTLE_TEST("Mental Herb cures volatile statuses in the following order -
                MOVE(opponentRight, MOVE_TRICK, target: playerLeft); }
     } SCENE {
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, playerLeft);
-        MESSAGE("Wobbuffet got over its infatuation!");
-        MESSAGE("Wobbuffet is no longer tormented!");
-        MESSAGE("Wobbuffet's move is no longer disabled!");
-        MESSAGE("Wobbuffet is no longer prevented from healing!");
-        MESSAGE("Wobbuffet ended its encore!");
+        MESSAGE("Wobbuffet cured its infatuation status using its Mental Herb!");//wip
+        MESSAGE("Wobbuffet torment wore off!");
+        MESSAGE("Wobbuffet is no longer disabled!");
+        MESSAGE("Wobbuffet's Heal Block wore off!");
+        MESSAGE("Wobbuffet's encore ended!");
         MESSAGE("Wobbuffet shook off the taunt!");
     }
 }

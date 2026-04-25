@@ -112,7 +112,7 @@ SINGLE_BATTLE_TEST("Leaf Guard doesn't prevent status conditions from Flame Orb 
         TURN { MOVE(player, MOVE_SUNNY_DAY); }
     } SCENE {
         if (item == ITEM_FLAME_ORB) {
-            MESSAGE("Leafeon was burned by the Flame Orb!");
+            MESSAGE("Leafeon was burned by Flame Orb!");
             STATUS_ICON(player, burn: TRUE);
         }
         else {

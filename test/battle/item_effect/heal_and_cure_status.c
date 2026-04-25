@@ -28,7 +28,7 @@ SINGLE_BATTLE_TEST("Full Restore restores a battler's HP and cures any primary s
             switch (status)
             {
                 case STATUS1_BURN:
-                    MESSAGE("Wobbuffet's burn was cured!");
+                    MESSAGE("Wobbuffet's burn was healed!");
                     break;
                 case STATUS1_FREEZE:
                     MESSAGE("Wobbuffet thawed out!");
@@ -44,7 +44,7 @@ SINGLE_BATTLE_TEST("Full Restore restores a battler's HP and cures any primary s
                     MESSAGE("Wobbuffet woke up!");
                     break;
                 case STATUS1_FROSTBITE:
-                    MESSAGE("Wobbuffet's frostbite was cured!");
+                    MESSAGE("Wobbuffet thawed out!");
                     break;
             } // The message is not printed if status wasn't healed.
         }
@@ -78,7 +78,7 @@ SINGLE_BATTLE_TEST("Full Restore restores a party members HP and cures any prima
             switch (status)
             {
                 case STATUS1_BURN:
-                    MESSAGE("Wynaut's burn was cured!");
+                    MESSAGE("Wynaut's burn was healed!");
                     break;
                 case STATUS1_FREEZE:
                     MESSAGE("Wynaut thawed out!");
@@ -94,7 +94,7 @@ SINGLE_BATTLE_TEST("Full Restore restores a party members HP and cures any prima
                     MESSAGE("Wynaut woke up!");
                     break;
                 case STATUS1_FROSTBITE:
-                    MESSAGE("Wynaut's frostbite was cured!");
+                    MESSAGE("Wynaut thawed out!");
                     break;
             } // The message is not printed if status wasn't healed.
         }
@@ -124,7 +124,7 @@ SINGLE_BATTLE_TEST("Full Restore heals a battler from any primary status")
         switch (status)
         {
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -140,7 +140,7 @@ SINGLE_BATTLE_TEST("Full Restore heals a battler from any primary status")
                 MESSAGE("Wobbuffet woke up!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
         NOT MESSAGE("Wobbuffet had its HP restored."); //wip, ensure this is correct behavior
@@ -169,7 +169,7 @@ SINGLE_BATTLE_TEST("Full Restore heals a party member from any primary status")
         switch (status)
         {
             case STATUS1_BURN:
-                MESSAGE("Wynaut's burn was cured!");
+                MESSAGE("Wynaut's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wynaut thawed out!");

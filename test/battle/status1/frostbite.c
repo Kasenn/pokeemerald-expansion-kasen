@@ -63,10 +63,10 @@ SINGLE_BATTLE_TEST("Frostbite is healed if hit with a thawing move")
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         if (move == MOVE_EMBER) {
             NONE_OF {
-                MESSAGE("The foe Wobbuffet's frostbite was cured!");
+                MESSAGE("The foe Wobbuffet thawed out!");
             }
         } else {
-            MESSAGE("The foe Wobbuffet's frostbite was cured!");
+            MESSAGE("The foe Wobbuffet thawed out!");
         }
    }
 }

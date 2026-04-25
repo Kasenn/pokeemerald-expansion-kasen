@@ -137,7 +137,7 @@ SINGLE_BATTLE_TEST("Encore's effect ends if the encored move runs out of PP")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENCORE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
-        MESSAGE("Wobbuffet ended its encore!");
+        MESSAGE("Wobbuffet's encore ended!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
     }
 }
@@ -168,7 +168,7 @@ AI_SINGLE_BATTLE_TEST("Encore lasts for 2-6 turns (Gen 2-3)")
         for (count = 0; count < turns - 1; ++count)
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        MESSAGE("The foe Wobbuffet ended its encore!");
+        MESSAGE("The foe Wobbuffet's encore ended!");
     }
 }
 
@@ -197,7 +197,7 @@ AI_SINGLE_BATTLE_TEST("Encore lasts for 3-7 turns (Gen 4)")
         for (count = 0; count < turns - 1; ++count)
             ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
-        MESSAGE("The foe Wobbuffet ended its encore!");
+        MESSAGE("The foe Wobbuffet's encore ended!");
     }
 }
 

@@ -32,7 +32,7 @@ SINGLE_BATTLE_TEST("Hydration cures non-volatile Status conditions if it is rain
         switch (status)
         {
             case STATUS1_BURN:
-                MESSAGE("Vaporeon's burn was cured!");
+                MESSAGE("Vaporeon's burn was healed!");
                 break;
             case STATUS1_PARALYSIS:
                 MESSAGE("Vaporeon was cured of paralysis!");
@@ -42,7 +42,7 @@ SINGLE_BATTLE_TEST("Hydration cures non-volatile Status conditions if it is rain
                 MESSAGE("Vaporeon was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Vaporeon's frostbite was cured!");
+                MESSAGE("Vaporeon thawed out!");
                 break;
         }
         STATUS_ICON(player, none: TRUE);

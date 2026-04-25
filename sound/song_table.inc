@@ -617,15 +617,21 @@ gSongTable::
 	song ph_nurse_held, 2, 2
 	song ph_nurse_solo, 2, 2
 	song mus_bwtrainerbattle, 0, 0
+	song mus_trainer_battle_bw, 0, 0
 	song mus_vs_iris, 0, 0
+	song mus_alola_e4, 0, 0
 	song mus_mistral, 0, 0
 	song mus_muted, 0 ,0
+	song mus_hg_azalea, 0, 0
 	song mus_unwavering, 0, 0
 	song mus_happy, 0, 0
+	song mus_dp_vs_legend, 0, 0
 	song mus_pwtlobby, 0, 0
+	song mus_alola_e42, 0, 0
 	song mus_abw_rival, 0, 0
 	song mus_ginga, 0, 0
 	song mus_driftveil, 0, 0
+	song mus_roamer, 0, 0
 	song mus_mmtitle1, 0, 0
 	song mus_mmtitle2, 0, 0
 

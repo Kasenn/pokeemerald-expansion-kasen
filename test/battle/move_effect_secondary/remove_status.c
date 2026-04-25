@@ -21,13 +21,13 @@ SINGLE_BATTLE_TEST("Smelling Salts does not cure paralyzed pokemons behind subst
             MESSAGE("The substitute took damage for the foe Seismitoad!");
             NONE_OF {
                 MESSAGE("The foe Seismitoad's substitute faded!"); // Smelling Salts does 86 damage, the sub has 122 HP, if hitting a sub it shouldn't get boosted damage.
-                MESSAGE("The foe Seismitoad was cured of paralysis.");
+                MESSAGE("The foe Seismitoad was cured of paralysis!");
                 STATUS_ICON(opponent, none: TRUE);
             }
         }
         else
         {
-            MESSAGE("The foe Seismitoad was cured of paralysis.");
+            MESSAGE("The foe Seismitoad was cured of paralysis!");
             STATUS_ICON(opponent, none: TRUE);
         }
     }

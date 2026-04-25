@@ -48,7 +48,7 @@ SINGLE_BATTLE_TEST("Take Heart cures the user of all status conditions")
                     MESSAGE("Wobbuffet was cured of its poisoning!");
                     break;
                 case STATUS1_BURN:
-                    MESSAGE("Wobbuffet's burn was cured!");
+                    MESSAGE("Wobbuffet's burn was healed!");
                     break;
                 case STATUS1_PARALYSIS:
                     MESSAGE("Wobbuffet was cured of paralysis!");
@@ -57,7 +57,7 @@ SINGLE_BATTLE_TEST("Take Heart cures the user of all status conditions")
                     MESSAGE("Wobbuffet was cured of its poisoning!");
                     break;
                 case STATUS1_FROSTBITE:
-                    MESSAGE("Wobbuffet's frostbite was cured!");
+                    MESSAGE("Wobbuffet thawed out!");
                     break;
             }
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);

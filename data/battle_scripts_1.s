@@ -5154,7 +5154,7 @@ BattleScript_LeechSeedFree::
 BattleScript_RemoveHazards::
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, HAZARDS_STICKY_WEB, BattleScript_RemoveHazardsCont
 	jumpifside BS_SCRIPTING, B_SIDE_OPPONENT, BattleScript_RemoveHazardsCont
-	printstring STRINGID_STICKYWEBDISAPPEAREDFROMYOU
+	printstring STRINGID_BLEWAWAYSTICKYWEB
 	goto BattleScript_RemoveHazardsRet
 BattleScript_RemoveHazardsCont:
     saveattacker
@@ -6974,7 +6974,6 @@ BattleScript_HurtAttacker:
 	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
 	printfromtable gHurtByStringIds
-	printstring STRINGID_AFTERMATHDMG
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	return

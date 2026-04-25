@@ -47,7 +47,7 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partners berry eaten from bug bite"
         MESSAGE("The Liechi Berry raised the foe Staravia's Attack!");
         // symbiosis triggers
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
-        MESSAGE("Oranguru shared its Toxic Orb with Wobbuffet!");
+        MESSAGE("Wobbuffet received Toxic Orb from Oranguru!");
         // end of turn, wobb gets poisoned
         MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
@@ -72,7 +72,7 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partner bestows its item")
         MESSAGE("The foe Staravia received Flame Orb from Wobbuffet!");
         // symbiosis triggers
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
-        MESSAGE("Oranguru shared its Toxic Orb with Wobbuffet!");
+        MESSAGE("Wobbuffet received Toxic Orb from Oranguru!");
         // end of turn, wobb gets poisoned
         MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
@@ -102,7 +102,7 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partner flings its item")
         STATUS_ICON(opponentLeft, STATUS1_BURN);
         // symbiosis triggers
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
-        MESSAGE("Oranguru shared its Toxic Orb with Wobbuffet!");
+        MESSAGE("Wobbuffet received Toxic Orb from Oranguru!");
         // end of turn, wobb gets poisoned
         MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);

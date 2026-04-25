@@ -903,6 +903,7 @@ static bool32 HandleEndTurnHealBlock(enum BattlerId battler)
 
     if (gBattleMons[battler].volatiles.healBlockTimer > 0 && --gBattleMons[battler].volatiles.healBlockTimer == 0)
     {
+        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_HEAL_BLOCK);
         gBattleMons[battler].volatiles.healBlock = FALSE;
         gBattleScripting.battler = battler;
         BattleScriptCall(BattleScript_HealBlockEndTurn);

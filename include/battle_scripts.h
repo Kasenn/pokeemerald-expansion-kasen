@@ -163,6 +163,7 @@ extern const u8 BattleScript_MoveEffectFreeze[];
 extern const u8 BattleScript_MoveEffectParalysis[];
 extern const u8 BattleScript_MoveEffectUproar[];
 extern const u8 BattleScript_MoveEffectToxic[];
+extern const u8 BattleScript_EffectToxicOrb[];
 extern const u8 BattleScript_MoveEffectPayDay[];
 extern const u8 BattleScript_MoveEffectWrap[];
 extern const u8 BattleScript_MoveEffectConfusion[];

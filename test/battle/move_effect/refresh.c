@@ -29,7 +29,7 @@ SINGLE_BATTLE_TEST("Refresh cures the user of burn, frostbite, poison, and paral
             MESSAGE("Wobbuffet's burn was healed!");
             break;
         case STATUS1_PARALYSIS:
-            MESSAGE("Wobbuffet was cured of paralysis.");
+            MESSAGE("Wobbuffet was cured of paralysis!");
             break;
         case STATUS1_TOXIC_POISON:
             MESSAGE("Wobbuffet was cured of its poisoning!");

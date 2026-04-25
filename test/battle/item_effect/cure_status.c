@@ -111,7 +111,7 @@ SINGLE_BATTLE_TEST("Burn Heal heals a battler from being burned")
     } WHEN {
         TURN { USE_ITEM(player, ITEM_BURN_HEAL, partyIndex: 0); }
     } SCENE {
-        MESSAGE("Wobbuffet's burn was cured!");
+        MESSAGE("Wobbuffet's burn was healed!");
     } THEN {
         EXPECT_EQ(player->status1, STATUS1_NONE);
     }
@@ -141,7 +141,7 @@ SINGLE_BATTLE_TEST("Ice Heal heals a battler from frostbite")
     } WHEN {
         TURN { USE_ITEM(player, ITEM_ICE_HEAL, partyIndex: 0); }
     } SCENE {
-        MESSAGE("Wobbuffet's frostbite was cured!");
+        MESSAGE("Wobbuffet thawed out!");
     } THEN {
         EXPECT_EQ(player->status1, STATUS1_NONE);
     }
@@ -173,7 +173,7 @@ SINGLE_BATTLE_TEST("Full Heal heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -185,7 +185,7 @@ SINGLE_BATTLE_TEST("Full Heal heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -256,7 +256,7 @@ SINGLE_BATTLE_TEST("Heal Powder heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -268,7 +268,7 @@ SINGLE_BATTLE_TEST("Heal Powder heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -339,7 +339,7 @@ SINGLE_BATTLE_TEST("Pewter Crunchies heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -351,7 +351,7 @@ SINGLE_BATTLE_TEST("Pewter Crunchies heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -385,7 +385,7 @@ SINGLE_BATTLE_TEST("Lava Cookies heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -397,7 +397,7 @@ SINGLE_BATTLE_TEST("Lava Cookies heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -431,7 +431,7 @@ SINGLE_BATTLE_TEST("Rage Candy Bar heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -443,7 +443,7 @@ SINGLE_BATTLE_TEST("Rage Candy Bar heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -477,7 +477,7 @@ SINGLE_BATTLE_TEST("Old Gateau heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -489,7 +489,7 @@ SINGLE_BATTLE_TEST("Old Gateau heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -523,7 +523,7 @@ SINGLE_BATTLE_TEST("Casteliacone heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -535,7 +535,7 @@ SINGLE_BATTLE_TEST("Casteliacone heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -569,7 +569,7 @@ SINGLE_BATTLE_TEST("Lumiose Galette heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -581,7 +581,7 @@ SINGLE_BATTLE_TEST("Lumiose Galette heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -615,7 +615,7 @@ SINGLE_BATTLE_TEST("Shalour Sable heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -627,7 +627,7 @@ SINGLE_BATTLE_TEST("Shalour Sable heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -661,7 +661,7 @@ SINGLE_BATTLE_TEST("Big Malasada heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -673,7 +673,7 @@ SINGLE_BATTLE_TEST("Big Malasada heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {
@@ -707,7 +707,7 @@ SINGLE_BATTLE_TEST("Jubilife Muffin heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_BURN:
-                MESSAGE("Wobbuffet's burn was cured!");
+                MESSAGE("Wobbuffet's burn was healed!");
                 break;
             case STATUS1_FREEZE:
                 MESSAGE("Wobbuffet thawed out!");
@@ -719,7 +719,7 @@ SINGLE_BATTLE_TEST("Jubilife Muffin heals a battler from any primary status")
                 MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_FROSTBITE:
-                MESSAGE("Wobbuffet's frostbite was cured!");
+                MESSAGE("Wobbuffet thawed out!");
                 break;
         }
     } THEN {

@@ -36,7 +36,7 @@ SINGLE_BATTLE_TEST("Fake Out fails if it's called via Instruct")
     } SCENE {
         MESSAGE("Wobbuffet used Fake Out!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player);
-        NONE_OF { MESSAGE("The opposing Oranguru flinched and couldn't move!"); }
+        NONE_OF { MESSAGE("The foe Oranguru flinched!"); }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_INSTRUCT, opponent);
         MESSAGE("Wobbuffet used Fake Out!");
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_FAKE_OUT, player); }
