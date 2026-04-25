@@ -103,7 +103,7 @@ EWRAM_DATA static u8 (*sSaveDialogCallback)(void) = NULL;
 EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
-EWRAM_DATA static u8 sTimeLabelSpriteId = 0;
+EWRAM_DATA static u8 sTimeLabelSpriteId[2] = {0};
 EWRAM_DATA static u8 sIsClockOnScreen = 0;
 
 // Menu action callbacks
@@ -579,7 +579,14 @@ static void AddTimeLabelObject(u16 x, u16 y)
         LoadSpritePalette(&sSpritePalette_TimeLabel[0]);
     else
         LoadSpritePalette(&sSpritePalette_TimeLabel[1]);
-    sTimeLabelSpriteId = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
+    sTimeLabelSpriteId[0] = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
+    if (GetFlashLevel() > 0)
+    {
+        SetGpuRegBits(REG_OFFSET_DISPCNT, DISPCNT_OBJWIN_ON);
+        SetGpuRegBits(REG_OFFSET_WINOUT, WINOUT_WINOBJ_OBJ);
+        sTimeLabelSpriteId[1] = CreateSprite(&sSpriteTemplate_TimeLabel, x + xToAdd, y, 0);
+        gSprites[sTimeLabelSpriteId[1]].oam.objMode = ST_OAM_OBJ_WINDOW;
+    }
     sIsClockOnScreen = TRUE;
 }
 
@@ -665,7 +672,9 @@ static void RemoveExtraStartMenuWindows(void)
     else if (sIsClockOnScreen)
     {
         sIsClockOnScreen = FALSE;
-        DestroySpriteAndFreeResources(&gSprites[sTimeLabelSpriteId]);
+        DestroySpriteAndFreeResources(&gSprites[sTimeLabelSpriteId[0]]);
+        if (GetFlashLevel() > 0)
+            DestroySpriteAndFreeResources(&gSprites[sTimeLabelSpriteId[1]]);
         ClearStdWindowAndFrameToTransparent(sClockWindowId, FALSE);
         CopyWindowToVram(sClockWindowId, COPYWIN_GFX);
         RemoveWindow(sClockWindowId);

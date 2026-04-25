@@ -44,6 +44,7 @@
 #include "shop.h"
 #include "region_map.h"
 #include "union_room_chat.h"
+#include "intro.h"
 
 /*
  * Main menu state machine
@@ -649,12 +650,179 @@ enum
 #define MAIN_MENU_BORDER_TILE   0x1D5
 #define BIRCH_DLG_BASE_TILE_NUM 0xFC
 
+enum
+{
+    EDGE_LEFT,
+    EDGE_RIGHT,
+    EDGE_TOP,
+    EDGE_BOTTOM
+};
+
+#define tEventDuration data[0]
+#define tSpriteVelocityX data[1]
+#define tSpriteVelocityY data[2]
+#define tSpriteEndEdge data[3]
+
+static void SpriteCB_CuccoAvenger(struct Sprite *sprite)
+{
+    UpdateMonIconFrame(sprite);
+
+    if (sprite->tSpriteEndEdge == EDGE_LEFT)
+    {
+        sprite->x -= 3;
+        sprite->y += sprite->tSpriteVelocityY >> 8;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_RIGHT)
+    {
+        sprite->x += 3;
+        sprite->y += sprite->tSpriteVelocityY >> 8;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_TOP)
+    {
+        sprite->y -= 2;
+        sprite->x += sprite->tSpriteVelocityX >> 8;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_BOTTOM)
+    {
+        sprite->y += 2;
+        sprite->x += sprite->tSpriteVelocityX >> 8;
+    }
+
+    if (sprite->tSpriteEndEdge == EDGE_LEFT && sprite->x <= -32)
+    {
+        DestroySprite(sprite);
+        return;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_RIGHT && sprite->x >= (DISPLAY_WIDTH + 32))
+    {
+        DestroySprite(sprite);
+        return;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_TOP && sprite->y <= -32)
+    {
+        DestroySprite(sprite);
+        return;
+    }
+    if (sprite->tSpriteEndEdge == EDGE_BOTTOM && sprite->y >= (DISPLAY_HEIGHT + 32))
+    {
+        DestroySprite(sprite);
+        return;
+    }
+}
+
+static void SpawnCuccoAvenger(bool8 playSound)
+{
+    s16 startX, startY, destX, destY;
+    u8 edge = Random() % 4;
+    bool8 shouldFlip = FALSE;
+    u8 endEdge;
+
+    s16 leftEdge   = -32;
+    s16 rightEdge  = DISPLAY_WIDTH + 32;
+    s16 topEdge    = -32;
+    s16 bottomEdge = DISPLAY_HEIGHT + 32;
+
+    switch (edge)
+    {
+    case EDGE_LEFT:
+        endEdge = EDGE_RIGHT;
+        startX = leftEdge;
+        startY = Random() % DISPLAY_HEIGHT;
+        if (startY < 32)
+            startY += 32;
+        else if (startY > DISPLAY_HEIGHT - 32)
+            startY -= 32;
+        destX = rightEdge;
+        destY = Random() % DISPLAY_HEIGHT;
+        shouldFlip = TRUE;
+        break;
+    case EDGE_RIGHT:
+        endEdge = EDGE_LEFT;
+        startX = rightEdge;
+        startY = Random() % DISPLAY_HEIGHT;
+        if (startY < 32)
+            startY += 32;
+        else if (startY > DISPLAY_HEIGHT - 32)
+            startY -= 32;
+        destX = leftEdge;
+        destY = Random() % DISPLAY_HEIGHT;
+        break;
+    case EDGE_TOP:
+        endEdge = EDGE_BOTTOM;
+        startX = Random() % DISPLAY_WIDTH;
+        if (startX < 32)
+            startX += 32;
+        else if (startX > DISPLAY_WIDTH - 32)
+            startX -= 32;
+        startY = topEdge;
+        destX = Random() % DISPLAY_WIDTH;
+        destY = bottomEdge;
+        if (startX < destX)
+            shouldFlip = TRUE;
+        break;
+    case EDGE_BOTTOM:
+        endEdge = EDGE_TOP;
+        startX = Random() % DISPLAY_WIDTH;
+        if (startX < 32)
+            startX += 32;
+        else if (startX > DISPLAY_WIDTH - 32)
+            startX -= 32;
+        startY = bottomEdge;
+        destX = Random() % DISPLAY_WIDTH;
+        destY = topEdge;
+        if (startX < destX)
+            shouldFlip = TRUE;
+        break;
+    }
+
+    u8 spriteId = CreateMonIcon(SPECIES_TORCHIC, SpriteCB_CuccoAvenger,startX, startY, 0, FALSE);
+    if (spriteId == MAX_SPRITES)
+        return;
+
+    gSprites[spriteId].oam.priority = 0;
+
+    struct Sprite *sprite = &gSprites[spriteId];
+
+    if (shouldFlip)
+        sprite->hFlip = TRUE;
+
+    sprite->tSpriteVelocityX = ((destX - startX) << 8) / 160;
+    sprite->tSpriteVelocityY = ((destY - startY) << 8) / 160;
+    sprite->tSpriteEndEdge = endEdge;
+
+    if (playSound)
+        PlayCryInternal(SPECIES_TORCHIC, 0, 80, CRY_PRIORITY_NORMAL, CRY_MODE_DOUBLES);
+}
+
+static void Task_CuccoSwarm(u8 taskId)
+{
+    s16 *data = gTasks[taskId].data;
+
+    if (++tEventDuration > 320)
+    {
+        DestroyTask(taskId);
+        return;
+    }
+
+    if ((tEventDuration % 8) != 0)
+        return;
+
+    if ((tEventDuration % 16) == 8)
+        SpawnCuccoAvenger(FALSE);
+    else
+        SpawnCuccoAvenger(TRUE);
+}
+
 static void CB2_MainMenu(void)
 {
     RunTasks();
     AnimateSprites();
     BuildOamBuffer();
     UpdatePaletteFade();
+    if (gMain.vblankCounter1 == (gIntroFrameCounter + 1200))
+    {
+        CreateTask(Task_CuccoSwarm, 0);
+    }
 }
 
 static void VBlankCB_MainMenu(void)
@@ -724,6 +892,7 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
 
     EnableInterrupts(1);
     SetVBlankCallback(VBlankCB_MainMenu);
+    gIntroFrameCounter = gMain.vblankCounter1;
     SetMainCallback2(CB2_MainMenu);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     ShowBg(0);
