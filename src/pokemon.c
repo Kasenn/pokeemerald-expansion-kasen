@@ -4075,14 +4075,14 @@ static void BufferStatRoseMessage(enum Stat statIdx)
     StringCopy(gBattleTextBuff1, gStatNamesTable[sStatsToRaise[statIdx]]);
     if (B_X_ITEMS_BUFF >= GEN_7)
     {
-        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
-        StringAppend(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATSHARPLY]);
+        StringCopy(gBattleTextBuff2, gText_StatSharply);
+        StringAppend(gBattleTextBuff2, gText_StatRose);
     }
     else
     {
-        StringCopy(gBattleTextBuff2, gBattleStringsTable[STRINGID_STATROSE]);
+        StringCopy(gBattleTextBuff2, gText_StatRose);
     }
-    BattleStringExpandPlaceholdersToDisplayedString(gBattleStringsTable[STRINGID_DEFENDERSSTATROSE]);
+    BattleStringExpandPlaceholdersToDisplayedString(gText_DefendersStatRose);
 }
 
 u8 *UseStatIncreaseItem(enum Item itemId)

@@ -331,6 +331,10 @@ extern const u8 gText_Judgment[];
 extern const u8 gText_RecordBattleToPass[];
 extern const u8 gText_BattleRecordedOnPass[];
 extern const u8 gText_BattleTourney[];
+extern const u8 gText_StatSharply[];
+extern const u8 gText_DefendersStatRose[];
+extern const u8 gText_StatRose[];
+extern const u8 gText_StatFell[];
 
 extern const u16 gMissStringIds[];
 extern const u16 gStatUpStringIds[];
