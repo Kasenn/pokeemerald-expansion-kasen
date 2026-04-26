@@ -235,7 +235,7 @@ SINGLE_BATTLE_TEST("Sticky Web raises Speed by 1 for Contrary mon on switch-in")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STICKY_WEB, player);
         MESSAGE("A sticky web spreads out all around the feet of the foe's team!");
-        MESSAGE("{PKMN} Trainer 2 sent out Snivy!");
+        MESSAGE("2 sent out Snivy!");
         MESSAGE("The foe Snivy was caught in a Sticky Web!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
         MESSAGE("The foe Snivy's Speed rose!");
@@ -283,7 +283,7 @@ SINGLE_BATTLE_TEST("Contrary does not invert stat changes that have been Baton-p
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SWORDS_DANCE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, opponent);
-        MESSAGE("{PKMN} Trainer 2 sent out Snivy!");
+        MESSAGE("2 sent out Snivy!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 2);
     }

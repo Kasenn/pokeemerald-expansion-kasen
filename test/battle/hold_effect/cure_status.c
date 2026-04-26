@@ -248,7 +248,7 @@ SINGLE_BATTLE_TEST("Opponent Pokemon can be further poisoned with Toxic spikes a
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, player);
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
         // 1st switch-in
-        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
@@ -259,7 +259,7 @@ SINGLE_BATTLE_TEST("Opponent Pokemon can be further poisoned with Toxic spikes a
         }
         STATUS_ICON(opponent, poison: FALSE);
         // 2nd switch-in
-        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
+        MESSAGE("2 sent out Wobbuffet!");
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
         STATUS_ICON(opponent, poison: TRUE);
     }

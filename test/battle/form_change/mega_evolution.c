@@ -135,7 +135,7 @@ DOUBLE_BATTLE_TEST("Mega Evolution happens after switching, but before Focus Pun
         TURN {}
     } SCENE {
         MESSAGE("{PKMN} Trainer 2 withdrew Wobbuffet!");
-        MESSAGE("{PKMN} Trainer 2 sent out Wobbuffet!");
+        MESSAGE("2 sent out Wobbuffet!");
 
         MESSAGE("Venusaur's Venusaurite is reacting to 1's Mega Ring!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, playerRight);

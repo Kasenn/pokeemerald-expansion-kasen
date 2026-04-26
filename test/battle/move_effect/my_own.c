@@ -767,7 +767,7 @@ SINGLE_BATTLE_TEST("My own: Training Bots do nothing but explode")
         }
         HP_BAR(opponent);
         // Turn 2
-        MESSAGE("{PKMN} Trainer 2 sent out F-00!");
+        MESSAGE("2 sent out F-00!");
         MESSAGE("Wobbuffet used Spikes!");
         NONE_OF { ABILITY_POPUP(opponent, ABILITY_FICKLE); }
         MESSAGE("The foe F-00 is struggling to keep itself together!");
@@ -777,7 +777,7 @@ SINGLE_BATTLE_TEST("My own: Training Bots do nothing but explode")
         ABILITY_POPUP(opponent, ABILITY_FICKLE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
         // Turn 4
-        MESSAGE("{PKMN} Trainer 2 sent out F-00!"); // 3rd Exp Bot
+        MESSAGE("2 sent out F-00!"); // 3rd Exp Bot
         NONE_OF {
             MESSAGE("Wobbuffet used Scratch!");
             MESSAGE("The foe F-00 is struggling to keep itself together!");
@@ -785,7 +785,7 @@ SINGLE_BATTLE_TEST("My own: Training Bots do nothing but explode")
         ABILITY_POPUP(opponent, ABILITY_FICKLE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_EXPLODE, opponent);
         // Turn 5
-        MESSAGE("{PKMN} Trainer 2 sent out F-00!"); // 4th Exp Bot
+        MESSAGE("2 sent out F-00!"); // 4th Exp Bot
         NONE_OF {
             MESSAGE("Wobbuffet used Scratch!");
             MESSAGE("The foe F-00 is struggling to keep itself together!");

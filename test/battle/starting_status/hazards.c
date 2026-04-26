@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("SetStartingStatus can start Spikes on the opposing side", s1
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut!");
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         HP_BAR(opponent, damage: maxHP / divisor);
         MESSAGE("The foe Wynaut is hurt by spikes!");
@@ -40,7 +40,7 @@ SINGLE_BATTLE_TEST("Starting Toxic Spikes poison the opposing switch-in")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut!");
         MESSAGE("The foe Wynaut was poisoned!");
         STATUS_ICON(opponent, poison: TRUE);
         NOT STATUS_ICON(opponent, badPoison: TRUE);
@@ -60,7 +60,7 @@ SINGLE_BATTLE_TEST("Starting Toxic Spikes badly poison the opposing switch-in")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut!");
         MESSAGE("The foe Wynaut is badly poisoned!");
         STATUS_ICON(opponent, badPoison: TRUE);
     } THEN {
@@ -79,7 +79,7 @@ SINGLE_BATTLE_TEST("Starting Sticky Web lowers Speed on entry")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Wynaut!");
+        MESSAGE("2 sent out Wynaut!");
         MESSAGE("The foe Wynaut was caught in a Sticky Web!");
         MESSAGE("The foe Wynaut's Speed fell!");
     } THEN {
@@ -100,7 +100,7 @@ SINGLE_BATTLE_TEST("Starting Stealth Rock damages the opposing switch-in")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Charizard!");
+        MESSAGE("2 sent out Charizard!");
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         HP_BAR(opponent, damage: maxHP / 2);
         MESSAGE("Pointed stones dug into the foe Charizard!");
@@ -121,7 +121,7 @@ SINGLE_BATTLE_TEST("Starting sharp steel damages the opposing switch-in")
     } WHEN {
         TURN { SWITCH(opponent, 1); }
     } SCENE {
-        MESSAGE("{PKMN} Trainer 2 sent out Sylveon!");
+        MESSAGE("2 sent out Sylveon!");
         s32 maxHP = GetMonData(&OPPONENT_PARTY[1], MON_DATA_MAX_HP);
         HP_BAR(opponent, damage: maxHP / 4);
         MESSAGE("Sharp steel bit into the foe Sylveon!");
