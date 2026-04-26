@@ -22,7 +22,7 @@
         .trainerPic = TRAINER_PIC_STEVEN,
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .aiFlags = AI_FLAG_BASIC_TRAINER | AI_FLAG_CHECK_VIABILITY,
+        .aiFlags = AI_FLAG_BASIC_TRAINER,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {

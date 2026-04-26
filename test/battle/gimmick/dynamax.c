@@ -231,7 +231,6 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon cannot be hit by OHKO moves")
 
 SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are affected by Grudge")
 {
-    KNOWN_FAILING; // grudge battle message ordering is wrong
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET) { Speed(50); }
         OPPONENT(SPECIES_WOBBUFFET) { HP(1); Speed(100); }
@@ -240,8 +239,8 @@ SINGLE_BATTLE_TEST("Dynamax: Dynamaxed Pokemon are affected by Grudge")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Grudge!");
         MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("The foe Wobbuffet fainted!");
     }
 }
 

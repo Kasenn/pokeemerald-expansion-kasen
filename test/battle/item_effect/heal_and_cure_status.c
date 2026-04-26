@@ -23,7 +23,6 @@ SINGLE_BATTLE_TEST("Full Restore restores a battler's HP and cures any primary s
     } WHEN {
         TURN { USE_ITEM(player, ITEM_FULL_RESTORE, partyIndex: 0); }
     } SCENE {
-        MESSAGE("Wobbuffet had its HP restored!");
         if (status != STATUS1_NONE) {
             switch (status)
             {
@@ -48,6 +47,7 @@ SINGLE_BATTLE_TEST("Full Restore restores a battler's HP and cures any primary s
                     break;
             } // The message is not printed if status wasn't healed.
         }
+        MESSAGE("Wobbuffet had its HP restored!");
     } THEN {
         EXPECT_EQ(player->hp, player->maxHP);
         EXPECT_EQ(player->status1, STATUS1_NONE);
@@ -179,7 +179,7 @@ SINGLE_BATTLE_TEST("Full Restore heals a party member from any primary status")
                 break;
             case STATUS1_POISON:
             case STATUS1_TOXIC_POISON:
-                MESSAGE("Wynaut was cured of its poisoning");
+                MESSAGE("Wynaut was cured of its poisoning!");
                 break;
             case STATUS1_SLEEP:
                 MESSAGE("Wynaut woke up!");
@@ -221,7 +221,7 @@ SINGLE_BATTLE_TEST("Full Restore resets Toxic Counter")
     } SCENE {
         MESSAGE("The foe Wobbuffet used Toxic!");
         MESSAGE("Wobbuffet was cured of its poisoning!");
-        MESSAGE("Wobbuffet had its HP restored.");//wip, this is correct order
+        MESSAGE("Wobbuffet had its HP restored!");
     } THEN {
         EXPECT_EQ(player->status1, STATUS1_NONE);
     }

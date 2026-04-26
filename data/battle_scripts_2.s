@@ -120,7 +120,28 @@ BattleScript_ItemHealAndCureStatus::
 	goto BattleScript_ItemHealAndCureStatusEnd
 
 BattleScript_ItemHealAndCureStatus_Battler::
-	call BattleScript_ItemRestoreHPRet
+	itemcurestatus BattleScript_ItemHealAndCureStatus_NoStatus, BattleScript_ItemHealAndCureStatus_HasStatus
+	printfromtable gPartyCureStatusStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_ItemHealAndCureStatus_HasStatus::
+	updatestatusicon BS_SCRIPTING
+	printfromtable gCureStatusStringIds
+	waitmessage B_WAIT_TIME_LONG
+	clearmoveresultflags MOVE_RESULT_NO_EFFECT
+	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	end
+
+BattleScript_ItemHealAndCureStatus_NoStatus::
+	clearmoveresultflags MOVE_RESULT_NO_EFFECT
+	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
+	waitmessage B_WAIT_TIME_LONG
+	end
+
 BattleScript_ItemHealAndCureStatusEnd::
 	goto BattleScript_ItemCureStatusAfterItemMsg
 
