@@ -4615,10 +4615,21 @@ BattleScript_SideStatusWoreOff::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_MistWoreOff::
-	printstring STRINGID_PKMNSMISTWOREOFF
+BattleScript_SideStatusWoreOff2::
+    saveattacker
+    copybyte gBattlerAttacker, sBATTLER
+	printstring STRINGID_PKMNSSCREENWOREOFF
+    restoreattacker
 	waitmessage B_WAIT_TIME_LONG
-	end2
+	return
+
+BattleScript_MistWoreOff::
+    saveattacker
+    copybyte gBattlerAttacker, sBATTLER
+	printstring STRINGID_PKMNSMISTWOREOFF
+    restoreattacker
+	waitmessage B_WAIT_TIME_LONG
+	return
 
 BattleScript_MistWoreOffReturn::
 	printstring STRINGID_PKMNSMISTWOREOFF
@@ -6020,7 +6031,12 @@ BattleScript_TelekinesisEndTurn::
 	return
 
 BattleScript_HealBlockEndTurn::
-	printstring STRINGID_BUFFERENDS @//wip
+	printstring STRINGID_HEALBLOCKWOREOFF
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_TauntEndTurn::
+	printstring STRINGID_PKMNSHOOKOFFTHETAUNT
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -6966,6 +6982,8 @@ BattleScript_ImposterActivates::
 	transformdataexecution
 	playmoveanimation MOVE_TRANSFORM
 	waitanimation
+	printstring STRINGID_IMPOSTERTRANSFORM
+	waitmessage B_WAIT_TIME_LONG
 	restoreattacker
 	restoretarget
 	return
@@ -7177,12 +7195,9 @@ BattleScript_BerryCureStatusRet::
 
 BattleScript_BerryCureStatusAndConfusionRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
-	@printfromtable CureStatusBerryEffectStringID
-	@waitmessage B_WAIT_TIME_LONG
-	@updatestatusicon BS_SCRIPTING
-	@printstring STRINGID_PKMNSITEMSNAPPEDOUT
-	printfromtable CureStatusBerryEffectStringID@//wip
+	printfromtable CureStatusBerryEffectStringIDLum
 	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_SCRIPTING
 	removeitem BS_SCRIPTING
 	return
 
@@ -7242,7 +7257,7 @@ BattleScript_MentalHerbCuresDisable:
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MentalHerbCureRetHealBlock
 BattleScript_MentalHerbCuresHealBlock:
-	printstring STRINGID_BUFFERENDS @//wip
+	printstring STRINGID_HEALBLOCKWOREOFF
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MentalHerbCureRetEncore
 BattleScript_MentalHerbCuresEncore:

@@ -2920,12 +2920,13 @@ static enum MoveEndResult MoveEndBouncedMove(void)
 
             if (gBattleStruct->magicBouncePending & 1u << bounceBattler)
             {
-                gBattlerAbility = bounceBattler;
+                gBattlerAbility = gEffectBattler = bounceBattler;
                 gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
                 BattleScriptCall(BattleScript_MagicBounce);
             }
             else if (gBattleStruct->magicCoatPending & 1u << bounceBattler)
             {
+                gBattlerAbility = gEffectBattler = bounceBattler;
                 gBattlescriptCurrInstr = GetMoveBattleScript(gCurrentMove);
                 BattleScriptCall(BattleScript_MagicCoat);
             }

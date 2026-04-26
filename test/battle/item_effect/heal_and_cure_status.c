@@ -134,7 +134,7 @@ SINGLE_BATTLE_TEST("Full Restore heals a battler from any primary status")
                 break;
             case STATUS1_POISON:
             case STATUS1_TOXIC_POISON:
-                MESSAGE("Wobbuffet was cured of its poisoning.");
+                MESSAGE("Wobbuffet was cured of its poisoning!");
                 break;
             case STATUS1_SLEEP:
                 MESSAGE("Wobbuffet woke up!");
@@ -220,7 +220,7 @@ SINGLE_BATTLE_TEST("Full Restore resets Toxic Counter")
         TURN { USE_ITEM(player, ITEM_FULL_RESTORE, partyIndex: 0); }
     } SCENE {
         MESSAGE("The foe Wobbuffet used Toxic!");
-        MESSAGE("Wobbuffet was cured of its poisoning.");
+        MESSAGE("Wobbuffet was cured of its poisoning!");
         MESSAGE("Wobbuffet had its HP restored.");//wip, this is correct order
     } THEN {
         EXPECT_EQ(player->status1, STATUS1_NONE);

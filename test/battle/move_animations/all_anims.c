@@ -2363,6 +2363,8 @@ SINGLE_BATTLE_TEST("Move Animations work 3")
         for (k = 0; k < variationsNumber; k++) {
             ParametrizeMovesAndSpecies(j, &tempMove, &tempSpecies, k);
             tempFriendship = ParametrizeFriendship(j, k);
+            if (tempMove == MOVE_NONE_SPECIAL)
+                tempMove = MOVE_FLAMETHROWER;
             PARAMETRIZE { move = tempMove; species = tempSpecies; variation = k; friendship = tempFriendship;}
         }
     }

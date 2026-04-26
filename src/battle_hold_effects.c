@@ -438,7 +438,6 @@ static enum ItemEffect TryMentalHerb(enum BattlerId battler, ActivationTiming ti
         // Check heal block
         if (gBattleMons[battler].volatiles.healBlock)
         {
-            PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_HEAL_BLOCK);
             gBattleMons[battler].volatiles.healBlock = FALSE;
             gBattleCommunication[MULTISTRING_CHOOSER] |= 1 << B_MSG_MENTALHERBCURE_HEALBLOCK;
             effect = ITEM_EFFECT_OTHER;

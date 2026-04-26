@@ -63,7 +63,7 @@ SINGLE_BATTLE_TEST("Ganlon Berry raises Defense by one stage when HP drops to 1/
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_RAGE, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
-        MESSAGE("The Ganlon Berry raised Applin's Defense!");
+        MESSAGE("The Ganlon Berry sharply raised Applin's Defense!");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE + 2);
     }

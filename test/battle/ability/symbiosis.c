@@ -77,7 +77,7 @@ DOUBLE_BATTLE_TEST("Symbiosis triggers after partner bestows its item")
         MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
         // staravia gets burned
-        MESSAGE("The foe Staravia was burned by the Flame Orb!");
+        MESSAGE("The foe Staravia was burned by Flame Orb!");
         STATUS_ICON(opponentLeft, STATUS1_BURN);
     } THEN {
         EXPECT_EQ(playerLeft->item, ITEM_TOXIC_ORB);

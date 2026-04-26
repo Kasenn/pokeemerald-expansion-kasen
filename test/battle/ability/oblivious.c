@@ -143,6 +143,6 @@ DOUBLE_BATTLE_TEST("Oblivious cures infatuation and Taunt")
         ABILITY_POPUP(playerLeft, ABILITY_OBLIVIOUS);
         MESSAGE("Wobbuffet got over its infatuation!");
         ABILITY_POPUP(playerLeft, ABILITY_OBLIVIOUS);
-        MESSAGE("Wobbuffet shook off the taunt!");
+        MESSAGE("Wobbuffet's taunt wore off!");
     }
 }

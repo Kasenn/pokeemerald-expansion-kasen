@@ -779,7 +779,7 @@ static bool32 HandleEndTurnTaunt(enum BattlerId battler)
     if (gBattleMons[battler].volatiles.tauntTimer && --gBattleMons[battler].volatiles.tauntTimer == 0)
     {
         gBattleScripting.battler = battler;
-        BattleScriptCall(BattleScript_BufferEndTurn);
+        BattleScriptCall(BattleScript_TauntEndTurn);
         PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
         effect = TRUE;
     }
@@ -1045,7 +1045,7 @@ static bool32 HandleEndTurnSecondEventBlock(enum BattlerId battler)
         {
             gBattleScripting.battler = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_REFLECT;
-            BattleScriptCall(BattleScript_SideStatusWoreOff);
+            BattleScriptCall(BattleScript_SideStatusWoreOff2);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_REFLECT);
             effect = TRUE;
@@ -1057,7 +1057,7 @@ static bool32 HandleEndTurnSecondEventBlock(enum BattlerId battler)
         {
             gBattleScripting.battler = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_LIGHTSCREEN;
-            BattleScriptCall(BattleScript_SideStatusWoreOff);
+            BattleScriptCall(BattleScript_SideStatusWoreOff2);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LIGHT_SCREEN);
             effect = TRUE;
@@ -1079,7 +1079,7 @@ static bool32 HandleEndTurnSecondEventBlock(enum BattlerId battler)
         {
             gBattleScripting.battler = GetBattlerSideForMessage(side);
             gSideStatuses[side] &= ~SIDE_STATUS_MIST;
-            BattleScriptCall(BattleScript_SideStatusWoreOff);
+            BattleScriptCall(BattleScript_MistWoreOff);
             gBattleCommunication[MULTISTRING_CHOOSER] = side;
             PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_MIST);
             effect = TRUE;

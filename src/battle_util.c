@@ -9065,40 +9065,6 @@ enum ImmunityHealStatusOutcome TryImmunityAbilityHealStatus(enum BattlerId battl
         break;
     }
 
-    if (gBattleMons[battler].status1 & STATUS1_PSN_ANY)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
-    }
-    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
-    }
-    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
-    }
-    if (gBattleMons[battler].status1 & STATUS1_BURN)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
-    }
-    if (gBattleMons[battler].status1 & STATUS1_FREEZE || gBattleMons[battler].status1 & STATUS1_FROSTBITE)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
-    }
-    if (gBattleMons[battler].volatiles.infatuation)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_INFATUATION;
-    }
-    if (gBattleMons[battler].volatiles.confusionTurns > 0)
-    {
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CONFUSION;
-    }
-    if (gBattleMons[battler].volatiles.tauntTimer != 0)
-    {
-        PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_TAUNT);
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TAUNT;
-    }
-
     switch (outcome)
     {
     case IMMUNITY_STATUS_CLEARED:

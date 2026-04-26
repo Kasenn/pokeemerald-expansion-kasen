@@ -287,8 +287,8 @@ SINGLE_BATTLE_TEST("My own: Screens print the correct text")
         MESSAGE("Your team became shrouded in mist!");
         MESSAGE("The foe's team became shrouded in mist!");
         // Aurora Veil
-        MESSAGE("Your team became cloaked in a mystical veil!");
-        MESSAGE("The foe's team became cloaked in a mystical veil!");
+        MESSAGE("Aurora Veil raised your team's Special Defense! Aurora Veil raised your team's Defense!");
+        MESSAGE("Aurora Veil raised the opposing team's Special Defense! Aurora Veil raised the opposing team's Defense!");
         // Safeguard END
         MESSAGE("Your team is no longer protected by Safeguard!");
         MESSAGE("The foe's team is no longer protected by Safeguard!");
