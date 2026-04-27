@@ -76,6 +76,10 @@ static const u8 sText_TheGhostAppeared[] = _("The GHOST appeared!\p");
 
 static const u8 sTrainerIntro[] =                   _("You are challenged by\n{B_TRAINER1_NAME_WITH_CLASS}!\p");
 static const u8 sTrainerIntroDouble[] =             _("You are challenged by\n{B_TRAINER1_NAME_WITH_CLASS} and\l{B_TRAINER2_NAME_WITH_CLASS}!\p");
+static const u8 sText_TwoLinkTrainersWantToBattle[] = _("You are challenged by {B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}!");
+static const u8 sText_LinkTrainerWantsToBattlePause[] = _("You are challenged by {B_LINK_OPPONENT1_NAME}!\p");
+static const u8 sText_TwoLinkTrainersWantToBattlePause[] = _("You are challenged by {B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}!\p");
+static const u8 sText_LinkTrainerWantsToBattle[] = _("You are challenged by {B_LINK_OPPONENT1_NAME}!");
 static const u8 sWildMonAppeared[] =                _("A wild {B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Double[] =         _("Oh! A wild {B_OPPONENT_MON1_NAME} and\n{B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sWildMonAppeared_Trainer[] =        _("{B_OPPONENT_MON1_NAME} wants to battle!\p");
@@ -1530,8 +1534,8 @@ static const u8 sText_InGamePartnerWithdrewPkmn1[] = _("{B_PARTNER_NAME_WITH_CLA
 static const u8 sText_InGamePartnerWithdrewPkmn2[] = _("{B_PARTNER_NAME_WITH_CLASS}\nwithdrew {B_PLAYER_MON2_NAME}!");
 static const u8 sText_LinkPartnerWithdrewPkmn1[] = _("{B_LINK_PARTNER_NAME}\nwithdrew {B_LINK_PLAYER_MON1_NAME}!");
 static const u8 sText_LinkPartnerWithdrewPkmn2[] = _("{B_LINK_PARTNER_NAME}\nwithdrew {B_LINK_PLAYER_MON2_NAME}!");
-static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_TRAINER1_CLASS} {B_LINK_OPPONENT1_NAME}\nwithdrew {B_BUFF1}!");
-static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_TRAINER2_CLASS} {B_LINK_OPPONENT2_NAME}\nwithdrew {B_BUFF1}!");
+static const u8 sText_LinkTrainer1WithdrewPkmn[] = _("{B_LINK_OPPONENT1_NAME}\nwithdrew {B_BUFF1}!");
+static const u8 sText_LinkTrainer2WithdrewPkmn[] = _("{B_LINK_OPPONENT2_NAME}\nwithdrew {B_BUFF1}!");
 static const u8 sText_Trainer2WithdrewPkmn[] = _("{B_TRAINER2_NAME_WITH_CLASS}\nwithdrew {B_BUFF1}!");
 static const u8 sText_Trainer1WithdrewPkmn[] = _("{B_TRAINER1_NAME_WITH_CLASS}\nwithdrew {B_BUFF1}!");
 
@@ -2570,7 +2574,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             {
                 if (gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI)
                 {
-                    stringPtr = sText_TwoTrainersWantToBattle;
+                    stringPtr = sTrainerIntroDouble;
                 }
                 else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
                 {
@@ -2583,7 +2587,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
                         if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
                             stringPtr = sText_LinkTrainerWantsToBattle;
                         else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                            stringPtr = sText_TwoTrainersWantToBattle;
+                            stringPtr = sTrainerIntroDouble;
                         else if (!(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
                             stringPtr = sText_LinkTrainerWantsToBattlePause;
                         else
@@ -2597,7 +2601,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
                 else
                 {
                     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_UNION_ROOM)
-                        stringPtr = sText_Trainer1WantsToBattle;
+                        stringPtr = sTrainerIntro;
                     else if (gBattleTypeFlags & BATTLE_TYPE_RECORDED)
                         stringPtr = sText_LinkTrainerWantsToBattlePause;
                     else
@@ -2607,25 +2611,23 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             else
             {
                 if (BATTLE_TWO_VS_ONE_OPPONENT)
-                    stringPtr = sText_Trainer1WantsToBattle;
+                    stringPtr = sTrainerIntro;
                 else if (gBattleTypeFlags & (BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER))
-                    stringPtr = sText_TwoTrainersWantToBattle;
+                    stringPtr = sTrainerIntroDouble;
                 else if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-                    stringPtr = sText_TwoTrainersWantToBattle;
+                    stringPtr = sTrainerIntroDouble;
                 else
-                    stringPtr = sText_Trainer1WantsToBattle;
+                    stringPtr = sTrainerIntro;
             }
         }
         else
         {
             if (IsGhostBattleWithoutScope())
                 stringPtr = sText_GhostAppearedCantId;
-            else if (gBattleTypeFlags & BATTLE_TYPE_LEGENDARY)
-                stringPtr = sText_LegendaryPkmnAppeared;
             else if (IsDoubleBattle() && IsValidForBattle(GetBattlerMon(GetBattlerAtPosition(B_POSITION_OPPONENT_RIGHT))))
-                stringPtr = sText_TwoWildPkmnAppeared;
+                stringPtr = sWildMonAppeared_Double;
             else
-                stringPtr = sText_WildPkmnAppeared;
+                stringPtr = sWildMonAppeared;
         }
         break;
     case STRINGID_INTROSENDOUT: // poke first send-out

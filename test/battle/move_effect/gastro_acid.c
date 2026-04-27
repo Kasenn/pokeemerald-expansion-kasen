@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Gastro Acid immediately ends Neutralizing Gas and reactivate
         ABILITY_POPUP(opponent, ABILITY_NEUTRALIZING_GAS);
         MESSAGE("Neutralizing gas filled the area!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GASTRO_ACID, player);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ABILITY_POPUP(player, ABILITY_DROUGHT);
     }
 }

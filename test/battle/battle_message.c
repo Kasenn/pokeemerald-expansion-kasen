@@ -132,7 +132,7 @@ MULTI_BATTLE_TEST("Battle Message: STRINGID_INTROMSG, STRINGID_INTROSENDOUT, STR
     } SCENE {
         MESSAGE("You are challenged by 2 and 4!");
         MESSAGE("2 sent out Wobbuffet! 4 sent out Wynaut!");
-        MESSAGE("3 sent out Haunter! Go, Gastly!");
+        MESSAGE("3 sent out Haunter! Go! Gastly!");
         MESSAGE("2 withdrew Wobbuffet!");
         MESSAGE("2 sent out Farigiraf!");
         MESSAGE("3 withdrew Haunter!");
@@ -191,7 +191,7 @@ TWO_VS_ONE_BATTLE_TEST("Battle Message: STRINGID_INTROMSG, STRINGID_INTROSENDOUT
     } SCENE {
         MESSAGE("You are challenged by 2!");
         MESSAGE("2 sent out Wobbuffet and Wynaut!");
-        MESSAGE("3 sent out Haunter! Go, Gastly!");
+        MESSAGE("3 sent out Haunter! Go! Gastly!");
         MESSAGE("2 withdrew Wobbuffet!");
         MESSAGE("2 sent out Farigiraf!");
         MESSAGE("2 withdrew Wynaut!");

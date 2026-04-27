@@ -87,7 +87,7 @@ SINGLE_BATTLE_TEST("Core Enforcer immediately ends Neutralizing Gas and reactiva
         MESSAGE("Neutralizing gas filled the area!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CORE_ENFORCER, player);
-        MESSAGE("The effects of the neutralizing gas wore off!");
+        MESSAGE("The effects of neutralizing gas wore off!");
         ABILITY_POPUP(player, ABILITY_DROUGHT);
     }
 }
