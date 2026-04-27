@@ -10,7 +10,7 @@
 #include "link.h"
 #include "metatile_behavior.h"
 #include "overworld.h"
-#include "ow_synchronize.h"
+#include "ow_abilities.h"
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "random.h"
