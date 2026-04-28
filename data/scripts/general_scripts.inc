@@ -876,7 +876,7 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	applymovement 1, Debug_Script_3_Movement_0
+	applymovement LOCALID_PLAYER, Debug_Script_3_Movement_0
 # 555 "data/scripts/general_scripts.pory"
 	waitmovement 0
 	return
@@ -2245,13 +2245,7 @@ RopeBridgeScript_Movement_0:
 # 554 "data/scripts/general_scripts.pory"
 Debug_Script_3_Movement_0:
 # 554 "data/scripts/general_scripts.pory"
-	jump_special_down
-# 554 "data/scripts/general_scripts.pory"
-	jump_special_up
-# 554 "data/scripts/general_scripts.pory"
-	jump_special_left
-# 554 "data/scripts/general_scripts.pory"
-	jump_special_right
+	emote_double_exclamation_mark
 	step_end
 
 # 573 "data/scripts/general_scripts.pory"

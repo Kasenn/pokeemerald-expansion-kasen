@@ -551,7 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    applymovement(1, moves(jump_special_down, jump_special_up, jump_special_left, jump_special_right))
+    applymovement(LOCALID_PLAYER, moves(emote_double_exclamation_mark))
     waitmovement(0)
     return
 }

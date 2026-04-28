@@ -77,8 +77,8 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_XIcon                          @ FLDEFF_X_ICON
 	.4byte gFldEffScript_DoubleExclMarkIcon             @ FLDEFF_DOUBLE_EXCL_MARK_ICON
 	.4byte gFieldEffectScript_TracksSlither             @ FLDEFF_TRACKS_SLITHER
-	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
 	.4byte gFieldEffectScript_TracksSpot                @ FLDEFF_TRACKS_SPOT
+	.4byte gFieldEffectScript_TracksBug                 @ FLDEFF_TRACKS_BUG
 	.4byte gFieldEffectScript_CaveDust                  @ FLDEFF_CAVE_DUST
 	.4byte gFieldEffectScript_Defog                     @ FLDEFF_DEFOG
 	.4byte gFieldEffectScript_TallGrassAutumn           @ FLDEFF_TALL_GRASS_AUTUMN
@@ -87,9 +87,9 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_UseRockClimb              @ FLDEFF_USE_ROCK_CLIMB
 	.4byte gFieldEffectScript_TallGrassMountain         @ FLDEFF_TALL_GRASS_MOUNTAIN
 	.4byte gFieldEffectScript_SnowFootprints            @ FLDEFF_SNOW_FOOTPRINTS
+	.4byte gFieldEffectScript_DeepSnowFootprints 		@ FLDEFF_DEEP_SNOW_FOOTPRINTS
 	.4byte gFieldEffectScript_BikeTireTracksSnow        @ FLDEFF_BIKE_TIRE_TRACKS_SNOW
 	.4byte gFieldEffectScript_TracksSlitherSnow         @ FLDEFF_TRACKS_SLITHER_SNOW
-	.4byte gFieldEffectScript_DeepSnowFootprints 		@ FLDEFF_DEEP_SNOW_FOOTPRINTS
 	.4byte gFieldEffectScript_TracksSpotSnow 			@ FLDEFF_TRACKS_SPOT_SNOW
 	.4byte gFieldEffectScript_TracksBugSnow 			@ FLDEFF_TRACKS_BUG_SNOW
 	.4byte gFieldEffectScript_TallGrassSnow         	@ FLDEFF_TALL_GRASS_SNOW
