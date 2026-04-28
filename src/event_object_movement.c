@@ -12509,7 +12509,6 @@ static void DoTracksGroundSnowEffect_BikeTireTracks(struct ObjectEvent *objEvent
         gFieldEffectArguments[3] = 2;
         gFieldEffectArguments[4] =
         bikeTireTracks_Transitions[movementDir][objEvent->facingDirection - 5];
-
         FieldEffectStart(FLDEFF_BIKE_TIRE_TRACKS_SNOW);
     }
 }

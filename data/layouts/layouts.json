@@ -7047,7 +7047,7 @@
       "width": 61,
       "height": 80,
       "primary_tileset": "gTileset_Summer",
-      "secondary_tileset": "gTileset_Mauville2",
+      "secondary_tileset": "gTileset_Skyloch",
       "border_filepath": "data/layouts/SouthernDesert/border.bin",
       "blockdata_filepath": "data/layouts/SouthernDesert/map.bin"
     },
