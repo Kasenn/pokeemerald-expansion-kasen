@@ -102,6 +102,10 @@ gFieldEffectScriptPointers::
 	.4byte gFldEffScript_SmileyFaceIcon    		        @ FLDEFF_SMILEY_FACE_ICON
 	.4byte gFieldEffectScript_HallOfFameRecordFrlg      @ FLDEFF_HALL_OF_FAME_RECORD_FRLG
 	.4byte gFldEffScript_PhotoFlash      		        @ FLDEFF_PHOTO_FLASH
+	.4byte gFieldEffectScript_TracksSpotMud 			@ FLDEFF_TRACKS_SPOT_MUD
+	.4byte gFieldEffectScript_TracksBugMud 				@ FLDEFF_TRACKS_BUG_MUD
+	.4byte gFieldEffectScript_TracksSlitherMud         	@ FLDEFF_TRACKS_SLITHER_MUD
+
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -404,6 +408,18 @@ gFieldEffectScript_CaveDust::
 
 gFieldEffectScript_Defog::
 	field_eff_callnative FldEff_Defog
+	field_eff_end
+
+gFieldEffectScript_TracksSlitherMud::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_TracksSlitherMud
+	field_eff_end
+
+gFieldEffectScript_TracksBugMud::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_TracksBugMud
+	field_eff_end
+
+gFieldEffectScript_TracksSpotMud::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect3, FldEff_TracksSpotMud
 	field_eff_end
 
 gFieldEffectScript_MudFootprints::

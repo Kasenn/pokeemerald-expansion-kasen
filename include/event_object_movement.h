@@ -87,7 +87,7 @@ enum FollowerTransformTypes
 #define GROUND_EFFECT_FLAG_SHORT_GRASS           (1 << 17)
 #define GROUND_EFFECT_FLAG_HOT_SPRINGS           (1 << 18)
 #define GROUND_EFFECT_FLAG_SEAWEED               (1 << 19)
-#define GROUND_EFFECT_FLAG_MUD                   (1 << 20)
+#define GROUND_EFFECT_FLAG_DEEP_MUD              (1 << 20)
 #define GROUND_EFFECT_FLAG_MUD_PILE              (1 << 21)
 #define GROUND_EFFECT_FLAG_MIRROR_REFLECTION     (1 << 22)
 #define GROUND_EFFECT_FLAG_SNOW     (1 << 23)

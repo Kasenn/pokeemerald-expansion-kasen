@@ -285,7 +285,9 @@ static bool8 LoadBattlerSpriteGfx(enum BattlerId battler)
         else if (gBattleTypeFlags & BATTLE_TYPE_SAFARI && position == B_POSITION_PLAYER_LEFT)
         {
             enum TrainerPicID trainerPicId = GetPlayerTrainerPic();
-            LoadSpritePaletteWithTag(GetTrainerBackPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, FALSE));
+            u32 index = LoadSpritePaletteWithTag(GetTrainerBackPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, FALSE));
+            if (index != 0xFF)
+                TimeMixBattleSpritePalette(OBJ_PLTT_ID(index));
         }
         else if (!gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
             BattleLoadMonSpriteGfx(GetBattlerMon(battler), battler);

@@ -101,7 +101,9 @@ static void LoadPicPaletteByTagOrSlot(u16 species, bool8 isShiny, u32 personalit
         else
         {
             sCreatingSpriteTemplate.paletteTag = paletteTag;
-            LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(species), GetTrainerPicTag(species, TRUE));
+            u32 index = LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(species), GetTrainerPicTag(species, TRUE));
+            if (index != 0xFF)
+                TimeMixBattleSpritePalette(OBJ_PLTT_ID(index));
         }
     }
 }

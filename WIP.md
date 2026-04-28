@@ -5,9 +5,8 @@ fix upwards stairs slowing
 fix southern desert (transition tiles + dns)
 more battle BGs
 
-blaine + pryce intro
-back pick dns
-mugshot wrapping
+fix retire from safari zone
+#if IS_FRLG
 
 eventual redesigns:
 move trainers out of route 1?

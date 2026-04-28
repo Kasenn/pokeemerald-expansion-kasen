@@ -1016,7 +1016,9 @@ u8 CreateTrainerSprite(enum TrainerPicID trainerPicId, s16 x, s16 y, u8 subprior
     spriteSheet.size = TRAINER_PIC_SIZE;
     spriteSheet.tag = GetTrainerPicTag(trainerPicId, TRUE);
 
-    LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, TRUE));
+    u32 index = LoadSpritePaletteWithTag(GetTrainerFrontPicPalette(trainerPicId), GetTrainerPicTag(trainerPicId, TRUE));
+    if (index != 0xFF)
+        TimeMixBattleSpritePalette(OBJ_PLTT_ID(index));
     LoadCompressedSpriteSheetOverrideBuffer(&spriteSheet, buffer);
     if (alloced)
         Free(buffer);

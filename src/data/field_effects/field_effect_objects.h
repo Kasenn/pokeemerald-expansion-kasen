@@ -1597,3 +1597,31 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_RockClimbDust = {
 };
 
 const struct SpritePalette gSpritePalette_BigDust = {gFieldEffectPal_DustCloud, FLDEFF_PAL_TAG_DUST_CLOUD};
+
+const struct SpriteTemplate gFieldEffectObjectTemplate_BugTracksMud = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_BugTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_SpotTracksMud = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_DeepSandFootprints,
+    .images = sPicTable_SpotTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
+const struct SpriteTemplate gFieldEffectObjectTemplate_SlitherTracksMud = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_3,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_BikeTireTracks,
+    .images = sPicTable_SlitherTracks,
+    .affineAnims = gDummySpriteAffineAnimTable,
+    .callback = UpdateFootprintsTireTracksFieldEffect,
+};
