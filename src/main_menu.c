@@ -178,6 +178,7 @@
 
 static EWRAM_DATA bool8 sStartedPokeBallTask = 0;
 static EWRAM_DATA u16 sCurrItemAndOptionMenuCheck = 0;
+static EWRAM_DATA bool8 sStopCuccoSwarm = 0;
 
 static u8 sBirchSpeechMainTaskId;
 
@@ -798,7 +799,7 @@ static void Task_CuccoSwarm(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
 
-    if (++tEventDuration > 320)
+    if (++tEventDuration > 320 || sStopCuccoSwarm == TRUE)
     {
         DestroyTask(taskId);
         return;
@@ -1254,6 +1255,7 @@ static void Task_HandleMainMenuAPressed(u8 taskId)
         ClearStdWindowAndFrame(6, TRUE);
         ClearStdWindowAndFrame(7, TRUE);
         wirelessAdapterConnected = IsWirelessAdapterConnected();
+        sStopCuccoSwarm = TRUE;
         switch (gTasks[taskId].tMenuType)
         {
         case HAS_NO_SAVED_GAME:

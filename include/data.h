@@ -150,8 +150,8 @@ enum TrainerBattleType
 
 enum MultiTeamSize
 {
-    MULTI_TEAM_SIZE_FULL,
     MULTI_TEAM_SIZE_HALF,
+    MULTI_TEAM_SIZE_FULL,
 };
 
 #define UNPACK_STARTING_STATUSES_STRUCT(_enum, _fieldName, _typeMaxValue, ...) INVOKE_WITH_(UNPACK_STARTING_STATUSES_STRUCT_, _fieldName, UNPACK_B(_typeMaxValue));

@@ -1966,7 +1966,7 @@ static void fprint_trainers(const char *output_path, FILE *f, struct Parsed *par
         else // default to full parties
         {
             fprintf(f, "#line %d\n", trainer->multi_team_line);
-            fprintf(f, "        .multiTeamSize = MULTI_TEAM_SIZE_FULL,\n");
+            fprintf(f, "        .multiTeamSize = MULTI_TEAM_SIZE_HALF,\n");
         }
 
         if (trainer->macro_line)

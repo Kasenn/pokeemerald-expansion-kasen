@@ -6,9 +6,8 @@ fix southern desert (transition tiles + dns)
 more battle BGs
 
 blaine + pryce intro
-roste berry graphics etc
-correct back pics for player + partner
-camera confuse effect
+back pick dns
+mugshot wrapping
 
 eventual redesigns:
 move trainers out of route 1?

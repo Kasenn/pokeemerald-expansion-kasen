@@ -32,7 +32,8 @@ void FillPartnerParty(u16 trainerId)
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
     SetFacilityPtrsGetLevel();
     ZeroPartyMons(gPartnerParty);
-    s32 actualMonIndex, baseMonIndex;
+    s32 actualMonIndex = 0;
+    s32 baseMonIndex;
 
     if (trainerId > TRAINER_PARTNER(PARTNER_NONE))
     {
@@ -61,7 +62,7 @@ void FillPartnerParty(u16 trainerId)
                     thirdIdPart = partnerName[k];
                 }
             }
-            if (trainerId >= PARTNER_MAY_ROWLET && trainerId <= PARTNER_BRENDAN_ORAS_PIPLUP)
+            if (trainerId >= TRAINER_PARTNER(PARTNER_MAY_ROWLET) && trainerId <= TRAINER_PARTNER(PARTNER_BRENDAN_ORAS_PIPLUP))
             {
                 if (baseMonIndex == 0)
                     actualMonIndex = VarGet(VAR_FIRST_MON);
@@ -117,6 +118,8 @@ void FillPartnerParty(u16 trainerId)
             if (partyData[actualMonIndex].ball < POKEBALL_COUNT)
             {
                 enum PokeBall ball = partyData[actualMonIndex].ball;
+                if (ball == BALL_STRANGE && !TESTING)
+                    ball = BALL_POKE;
                 SetMonData(&gPartnerParty[baseMonIndex], MON_DATA_POKEBALL, &ball);
             }
             if (partyData[actualMonIndex].nickname != NULL)
