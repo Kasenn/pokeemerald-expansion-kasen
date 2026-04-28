@@ -2635,7 +2635,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     {
         trainerAPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
         trainerBPicId = TRAINER_PIC_LEADER_TATE_AND_LIZA;
-        addX = 208;
+        addX = 176;
     }
 
     enum TrainerPicID partnerPicId = GetTrainerPicFromId(gPartnerTrainerId);
@@ -2685,7 +2685,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
     }
 
     task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
-                                                DISPLAY_WIDTH + 32,
+                                                DISPLAY_WIDTH + 48,
                                                 106,
                                                 0, NULL);
 
