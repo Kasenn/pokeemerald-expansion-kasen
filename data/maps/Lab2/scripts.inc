@@ -130,63 +130,65 @@ Lab_BallMain::
 # 74 "data/maps/Lab2/scripts.pory"
 	playmoncry VAR_TEMP_3, CRY_MODE_NORMAL
 # 75 "data/maps/Lab2/scripts.pory"
-	defaultmonpic VAR_TEMP_3
-# 76 "data/maps/Lab2/scripts.pory"
-	waitmoncry
-# 77 "data/maps/Lab2/scripts.pory"
-	bufferspeciesname STR_VAR_1, VAR_TEMP_3
-# 78 "data/maps/Lab2/scripts.pory"
 	switch VAR_TEMP_3
-# 79 "data/maps/Lab2/scripts.pory"
+# 76 "data/maps/Lab2/scripts.pory"
 	case SPECIES_ROWLET, Lab_BallMain_6
-# 81 "data/maps/Lab2/scripts.pory"
+# 85 "data/maps/Lab2/scripts.pory"
 	case SPECIES_TORCHIC, Lab_BallMain_7
-# 83 "data/maps/Lab2/scripts.pory"
+# 94 "data/maps/Lab2/scripts.pory"
 	case SPECIES_PIPLUP, Lab_BallMain_8
 Lab_BallMain_4:
-# 86 "data/maps/Lab2/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Lab_BallMain_10
-# 91 "data/maps/Lab2/scripts.pory"
-	givemon VAR_TEMP_3, 5
-# 92 "data/maps/Lab2/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
-# 93 "data/maps/Lab2/scripts.pory"
-	message Lab_BallMain_Text_4
-# 94 "data/maps/Lab2/scripts.pory"
-	waitmessage
-# 95 "data/maps/Lab2/scripts.pory"
-	waitfanfare
-# 96 "data/maps/Lab2/scripts.pory"
-	removeobject VAR_LAST_TALKED
-# 97 "data/maps/Lab2/scripts.pory"
-	switch VAR_TEMP_3
-# 98 "data/maps/Lab2/scripts.pory"
-	case SPECIES_ROWLET, Lab_BallMain_14
-# 100 "data/maps/Lab2/scripts.pory"
-	case SPECIES_TORCHIC, Lab_BallMain_15
-# 102 "data/maps/Lab2/scripts.pory"
-	case SPECIES_PIPLUP, Lab_BallMain_16
-Lab_BallMain_12:
+# 104 "data/maps/Lab2/scripts.pory"
+	waitmoncry
 # 105 "data/maps/Lab2/scripts.pory"
-	setflag FLAG_SYS_POKEMON_GET
+	bufferspeciesname STR_VAR_1, VAR_TEMP_3
 # 106 "data/maps/Lab2/scripts.pory"
-	setflag FLAG_HEAL_AFTER_BATTLE
+	switch VAR_TEMP_3
 # 107 "data/maps/Lab2/scripts.pory"
-	setflag FLAG_TEMP_4
-# 108 "data/maps/Lab2/scripts.pory"
-	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED
+	case SPECIES_ROWLET, Lab_BallMain_11
 # 109 "data/maps/Lab2/scripts.pory"
-	msgbox Lab_BallMain_Text_5, MSGBOX_YESNO
-# 110 "data/maps/Lab2/scripts.pory"
-	hidemonpic
+	case SPECIES_TORCHIC, Lab_BallMain_12
 # 111 "data/maps/Lab2/scripts.pory"
+	case SPECIES_PIPLUP, Lab_BallMain_13
+Lab_BallMain_9:
+# 114 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab_BallMain_24
+# 119 "data/maps/Lab2/scripts.pory"
+	givemon VAR_TEMP_3, 5
+# 120 "data/maps/Lab2/scripts.pory"
+	playfanfare MUS_OBTAIN_ITEM
+# 121 "data/maps/Lab2/scripts.pory"
+	message Lab_BallMain_Text_4
+# 122 "data/maps/Lab2/scripts.pory"
+	waitmessage
+# 123 "data/maps/Lab2/scripts.pory"
+	waitfanfare
+# 124 "data/maps/Lab2/scripts.pory"
+	removeobject VAR_LAST_TALKED
+# 125 "data/maps/Lab2/scripts.pory"
+	copyvar VAR_STARTER_MON, VAR_TEMP_3
+# 126 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_SYS_POKEMON_GET
+# 127 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_HEAL_AFTER_BATTLE
+# 128 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_TEMP_4
+# 129 "data/maps/Lab2/scripts.pory"
+	clearflag FLAG_FORCE_SHINY
+# 130 "data/maps/Lab2/scripts.pory"
+	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED
+# 131 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_BallMain_Text_5, MSGBOX_YESNO
+# 132 "data/maps/Lab2/scripts.pory"
+	hidemonpic
+# 133 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, YES
-	goto_if_eq Lab_BallMain_18
-Lab_BallMain_17:
-# 115 "data/maps/Lab2/scripts.pory"
+	goto_if_eq Lab_BallMain_27
+Lab_BallMain_26:
+# 137 "data/maps/Lab2/scripts.pory"
 	callnative UpdateFollowingPokemon
-# 116 "data/maps/Lab2/scripts.pory"
+# 138 "data/maps/Lab2/scripts.pory"
 	release
 	return
 
@@ -196,513 +198,546 @@ Lab_BallMain_2:
 	end
 
 Lab_BallMain_6:
-# 80 "data/maps/Lab2/scripts.pory"
-	msgbox Lab_BallMain_Text_1, MSGBOX_YESNO
+# 77 "data/maps/Lab2/scripts.pory"
+	goto_if_set FLAG_FIRST_STARTER_SHINY, Lab_BallMain_14
+# 82 "data/maps/Lab2/scripts.pory"
+	defaultmonpic VAR_TEMP_3
+# 83 "data/maps/Lab2/scripts.pory"
+	clearflag FLAG_FORCE_SHINY
 	goto Lab_BallMain_4
 
 Lab_BallMain_7:
-# 82 "data/maps/Lab2/scripts.pory"
-	msgbox Lab_BallMain_Text_2, MSGBOX_YESNO
+# 86 "data/maps/Lab2/scripts.pory"
+	goto_if_set FLAG_SECOND_STARTER_SHINY, Lab_BallMain_17
+# 91 "data/maps/Lab2/scripts.pory"
+	defaultmonpic VAR_TEMP_3
+# 92 "data/maps/Lab2/scripts.pory"
+	clearflag FLAG_FORCE_SHINY
 	goto Lab_BallMain_4
 
 Lab_BallMain_8:
-# 84 "data/maps/Lab2/scripts.pory"
-	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
+# 95 "data/maps/Lab2/scripts.pory"
+	goto_if_set FLAG_THIRD_STARTER_SHINY, Lab_BallMain_20
+# 100 "data/maps/Lab2/scripts.pory"
+	defaultmonpic VAR_TEMP_3
+# 101 "data/maps/Lab2/scripts.pory"
+	clearflag FLAG_FORCE_SHINY
 	goto Lab_BallMain_4
 
-Lab_BallMain_10:
+Lab_BallMain_11:
+# 108 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_BallMain_Text_1, MSGBOX_YESNO
+	goto Lab_BallMain_9
+
+Lab_BallMain_12:
+# 110 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_BallMain_Text_2, MSGBOX_YESNO
+	goto Lab_BallMain_9
+
+Lab_BallMain_13:
+# 112 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_BallMain_Text_3, MSGBOX_YESNO
+	goto Lab_BallMain_9
+
+Lab_BallMain_14:
+# 78 "data/maps/Lab2/scripts.pory"
+	defaultmonpic VAR_TEMP_3, TRUE
+# 79 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_FORCE_SHINY
+	goto Lab_BallMain_4
+
+Lab_BallMain_17:
 # 87 "data/maps/Lab2/scripts.pory"
-	hidemonpic
+	defaultmonpic VAR_TEMP_3, TRUE
 # 88 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_FORCE_SHINY
+	goto Lab_BallMain_4
+
+Lab_BallMain_20:
+# 96 "data/maps/Lab2/scripts.pory"
+	defaultmonpic VAR_TEMP_3, TRUE
+# 97 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_FORCE_SHINY
+	goto Lab_BallMain_4
+
+Lab_BallMain_24:
+# 115 "data/maps/Lab2/scripts.pory"
+	hidemonpic
+# 116 "data/maps/Lab2/scripts.pory"
 	release
 	end
 
-Lab_BallMain_14:
-# 99 "data/maps/Lab2/scripts.pory"
-	setvar VAR_STARTER_MON, SPECIES_ROWLET
-	goto Lab_BallMain_12
-
-Lab_BallMain_15:
-# 101 "data/maps/Lab2/scripts.pory"
-	setvar VAR_STARTER_MON, SPECIES_TORCHIC
-	goto Lab_BallMain_12
-
-Lab_BallMain_16:
-# 103 "data/maps/Lab2/scripts.pory"
-	setvar VAR_STARTER_MON, SPECIES_PIPLUP
-	goto Lab_BallMain_12
-
-Lab_BallMain_18:
-# 112 "data/maps/Lab2/scripts.pory"
+Lab_BallMain_27:
+# 134 "data/maps/Lab2/scripts.pory"
 	call Common_EventScript_GetGiftMonPartySlot
-# 113 "data/maps/Lab2/scripts.pory"
+# 135 "data/maps/Lab2/scripts.pory"
 	call Common_EventScript_NameReceivedPartyMon
-	goto Lab_BallMain_17
+	goto Lab_BallMain_26
 
 
 Lab_NoPokemon::
-# 120 "data/maps/Lab2/scripts.pory"
+# 142 "data/maps/Lab2/scripts.pory"
 	lock
-# 121 "data/maps/Lab2/scripts.pory"
+# 143 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_NoPokemon_Text_0, MSGBOX_AUTOCLOSE
-# 122 "data/maps/Lab2/scripts.pory"
+# 144 "data/maps/Lab2/scripts.pory"
 	waitmove LOCALID_PLAYER, Walk1Up
-# 123 "data/maps/Lab2/scripts.pory"
+# 145 "data/maps/Lab2/scripts.pory"
 	release
 	return
 
 
 Lab_FollowerEvent2::
-# 127 "data/maps/Lab2/scripts.pory"
+# 149 "data/maps/Lab2/scripts.pory"
 	setflag FLAG_TEMP_5
-# 128 "data/maps/Lab2/scripts.pory"
+# 150 "data/maps/Lab2/scripts.pory"
 	goto Lab_FollowerEvent
 	return
 
 
 Lab_FollowerEvent::
-# 132 "data/maps/Lab2/scripts.pory"
+# 154 "data/maps/Lab2/scripts.pory"
 	safefollow
-# 133 "data/maps/Lab2/scripts.pory"
+# 155 "data/maps/Lab2/scripts.pory"
 	unlockfollowermovement
-# 134 "data/maps/Lab2/scripts.pory"
+# 156 "data/maps/Lab2/scripts.pory"
 	lock
-# 135 "data/maps/Lab2/scripts.pory"
+# 157 "data/maps/Lab2/scripts.pory"
 	playse SE_PIN
-# 136 "data/maps/Lab2/scripts.pory"
+# 158 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_TEMP_5, Lab_FollowerEvent_2
-# 140 "data/maps/Lab2/scripts.pory"
+# 162 "data/maps/Lab2/scripts.pory"
 	turnobject LOCALID_LAB_BIRCH, DIR_EAST
 Lab_FollowerEvent_1:
-# 142 "data/maps/Lab2/scripts.pory"
+# 164 "data/maps/Lab2/scripts.pory"
 	exclamationmark LOCALID_LAB_BIRCH
-# 143 "data/maps/Lab2/scripts.pory"
+# 165 "data/maps/Lab2/scripts.pory"
 	msgbox BirchSurprised
-# 144 "data/maps/Lab2/scripts.pory"
+# 166 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_FollowerEvent_Text_0, MSGBOX_AUTOCLOSE
-# 145 "data/maps/Lab2/scripts.pory"
+# 167 "data/maps/Lab2/scripts.pory"
 	clearflag FLAG_TEMP_4
-# 146 "data/maps/Lab2/scripts.pory"
+# 168 "data/maps/Lab2/scripts.pory"
 	clearflag FLAG_HEAL_AFTER_BATTLE
 	return
 
 Lab_FollowerEvent_2:
-# 137 "data/maps/Lab2/scripts.pory"
+# 159 "data/maps/Lab2/scripts.pory"
 	turnobject LOCALID_LAB_BIRCH, DIR_NORTH
 	goto Lab_FollowerEvent_1
 
 
 Lab_DexGet::
-# 150 "data/maps/Lab2/scripts.pory"
+# 172 "data/maps/Lab2/scripts.pory"
 	safefollow
-# 151 "data/maps/Lab2/scripts.pory"
+# 173 "data/maps/Lab2/scripts.pory"
 	waitmove LOCALID_PLAYER, Walk6Up
-# 152 "data/maps/Lab2/scripts.pory"
+# 174 "data/maps/Lab2/scripts.pory"
 	unlockfollowermovement
-# 153 "data/maps/Lab2/scripts.pory"
+# 175 "data/maps/Lab2/scripts.pory"
 	lock
 	checkplayergender
 # 0 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab_DexGet_2
 Lab_DexGet_1:
-# 164 "data/maps/Lab2/scripts.pory"
+# 186 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, FEMALE
 	goto_if_eq Lab_DexGet_5
 Lab_DexGet_4:
-# 174 "data/maps/Lab2/scripts.pory"
+# 196 "data/maps/Lab2/scripts.pory"
 	playfanfare MUS_OBTAIN_TMHM
-# 175 "data/maps/Lab2/scripts.pory"
+# 197 "data/maps/Lab2/scripts.pory"
 	message Lab_DexGet_Text_0
-# 176 "data/maps/Lab2/scripts.pory"
+# 198 "data/maps/Lab2/scripts.pory"
 	waitmessage
-# 177 "data/maps/Lab2/scripts.pory"
+# 199 "data/maps/Lab2/scripts.pory"
 	waitfanfare
-# 178 "data/maps/Lab2/scripts.pory"
+# 200 "data/maps/Lab2/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_EAST
-# 179 "data/maps/Lab2/scripts.pory"
+# 201 "data/maps/Lab2/scripts.pory"
 	turnobject LOCALID_LAB_RIVAL, DIR_WEST
-# 180 "data/maps/Lab2/scripts.pory"
+# 202 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexGet_Text_1
-# 181 "data/maps/Lab2/scripts.pory"
+# 203 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_POKE_BALL, 5
-# 182 "data/maps/Lab2/scripts.pory"
+# 204 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexGet_Text_2
 	checkplayergender
 # 0 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab_DexGet_8
-# 187 "data/maps/Lab2/scripts.pory"
+# 209 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexGet_Text_4, MSGBOX_AUTOCLOSE
 Lab_DexGet_7:
-# 189 "data/maps/Lab2/scripts.pory"
+# 211 "data/maps/Lab2/scripts.pory"
 	applymovement OBJ_EVENT_ID_FOLLOWER, LabFaceDown
-# 190 "data/maps/Lab2/scripts.pory"
+# 212 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_PLAYER, LabFaceDown
-# 191 "data/maps/Lab2/scripts.pory"
+# 213 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_LAB_RIVAL, Lab_Movement_RivalExit1
-# 192 "data/maps/Lab2/scripts.pory"
+# 214 "data/maps/Lab2/scripts.pory"
 	waitmovement 0
-# 193 "data/maps/Lab2/scripts.pory"
+# 215 "data/maps/Lab2/scripts.pory"
 	delay 60
-# 194 "data/maps/Lab2/scripts.pory"
+# 216 "data/maps/Lab2/scripts.pory"
 	removeobject LOCALID_LAB_RIVAL
-# 195 "data/maps/Lab2/scripts.pory"
+# 217 "data/maps/Lab2/scripts.pory"
 	savebgm MUS_DUMMY
-# 196 "data/maps/Lab2/scripts.pory"
+# 218 "data/maps/Lab2/scripts.pory"
 	turnobject OBJ_EVENT_ID_FOLLOWER, DIR_NORTH
-# 197 "data/maps/Lab2/scripts.pory"
+# 219 "data/maps/Lab2/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 198 "data/maps/Lab2/scripts.pory"
+# 220 "data/maps/Lab2/scripts.pory"
 	fadedefaultbgm
-# 199 "data/maps/Lab2/scripts.pory"
+# 221 "data/maps/Lab2/scripts.pory"
 	delay 25
-# 200 "data/maps/Lab2/scripts.pory"
+# 222 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexGet_Text_5, MSGBOX_AUTOCLOSE
-# 201 "data/maps/Lab2/scripts.pory"
+# 223 "data/maps/Lab2/scripts.pory"
 	special SetUnlockedPokedexFlags
-# 202 "data/maps/Lab2/scripts.pory"
+# 224 "data/maps/Lab2/scripts.pory"
 	setflag FLAG_SYS_POKEDEX_GET
-# 203 "data/maps/Lab2/scripts.pory"
+# 225 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED
 	return
 
 Lab_DexGet_2:
-# 155 "data/maps/Lab2/scripts.pory"
+# 177 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayA
-# 156 "data/maps/Lab2/scripts.pory"
+# 178 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayB
-# 157 "data/maps/Lab2/scripts.pory"
+# 179 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayC
-# 158 "data/maps/Lab2/scripts.pory"
+# 180 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayD
-# 159 "data/maps/Lab2/scripts.pory"
+# 181 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayE
-# 160 "data/maps/Lab2/scripts.pory"
+# 182 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayF
-# 161 "data/maps/Lab2/scripts.pory"
+# 183 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayG
-# 162 "data/maps/Lab2/scripts.pory"
+# 184 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkMayH, MSGBOX_AUTOCLOSE
 	goto Lab_DexGet_1
 
 Lab_DexGet_5:
-# 165 "data/maps/Lab2/scripts.pory"
+# 187 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanA
-# 166 "data/maps/Lab2/scripts.pory"
+# 188 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanB
-# 167 "data/maps/Lab2/scripts.pory"
+# 189 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanC
-# 168 "data/maps/Lab2/scripts.pory"
+# 190 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanD
-# 169 "data/maps/Lab2/scripts.pory"
+# 191 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanE
-# 170 "data/maps/Lab2/scripts.pory"
+# 192 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanF
-# 171 "data/maps/Lab2/scripts.pory"
+# 193 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanG
-# 172 "data/maps/Lab2/scripts.pory"
+# 194 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexTalkBrendanH, MSGBOX_AUTOCLOSE
 	goto Lab_DexGet_4
 
 Lab_DexGet_8:
-# 184 "data/maps/Lab2/scripts.pory"
+# 206 "data/maps/Lab2/scripts.pory"
 	msgbox Lab_DexGet_Text_3, MSGBOX_AUTOCLOSE
 	goto Lab_DexGet_7
 
 
 Lab_MegaStoneGet::
-# 207 "data/maps/Lab2/scripts.pory"
+# 229 "data/maps/Lab2/scripts.pory"
 	safefollow
-# 208 "data/maps/Lab2/scripts.pory"
+# 230 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_PLAYER, Walk6Up
-# 209 "data/maps/Lab2/scripts.pory"
+# 231 "data/maps/Lab2/scripts.pory"
 	waitmovement 0
-# 210 "data/maps/Lab2/scripts.pory"
+# 232 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_HIDE_LAB_RIVAL, Lab_MegaStoneGet_2
-# 214 "data/maps/Lab2/scripts.pory"
+# 236 "data/maps/Lab2/scripts.pory"
 	msgbox LabMegaStones
 Lab_MegaStoneGet_1:
-# 216 "data/maps/Lab2/scripts.pory"
+# 238 "data/maps/Lab2/scripts.pory"
 	closemessage
-# 217 "data/maps/Lab2/scripts.pory"
+# 239 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, Lab_MegaStoneGet_6
 Lab_MegaStoneGet_5:
-# 225 "data/maps/Lab2/scripts.pory"
+# 247 "data/maps/Lab2/scripts.pory"
 	switch VAR_STARTER_MON
-# 226 "data/maps/Lab2/scripts.pory"
+# 248 "data/maps/Lab2/scripts.pory"
 	case SPECIES_ROWLET, Lab_MegaStoneGet_10
-# 228 "data/maps/Lab2/scripts.pory"
+# 250 "data/maps/Lab2/scripts.pory"
 	case SPECIES_TORCHIC, Lab_MegaStoneGet_11
-# 230 "data/maps/Lab2/scripts.pory"
+# 252 "data/maps/Lab2/scripts.pory"
 	case SPECIES_PIPLUP, Lab_MegaStoneGet_12
 Lab_MegaStoneGet_8:
-# 233 "data/maps/Lab2/scripts.pory"
+# 255 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_RECEIVED_CAPSULE, Lab_MegaStoneGet_14
-# 237 "data/maps/Lab2/scripts.pory"
+# 259 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 Lab_MegaStoneGet_13:
-# 239 "data/maps/Lab2/scripts.pory"
+# 261 "data/maps/Lab2/scripts.pory"
 	goto_if_unset FLAG_HIDE_LAB_RIVAL, Lab_MegaStoneGet_18
 Lab_MegaStoneGet_17:
-# 258 "data/maps/Lab2/scripts.pory"
+# 280 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_Q33_PROF_BIRCH_MEGASTONE_START, Lab_MegaStoneGet_21
 Lab_MegaStoneGet_20:
-# 262 "data/maps/Lab2/scripts.pory"
+# 284 "data/maps/Lab2/scripts.pory"
 	release
 	return
 
 Lab_MegaStoneGet_2:
-# 211 "data/maps/Lab2/scripts.pory"
+# 233 "data/maps/Lab2/scripts.pory"
 	msgbox LabMegaStonesWithoutRival
 	goto Lab_MegaStoneGet_1
 
 Lab_MegaStoneGet_6:
-# 218 "data/maps/Lab2/scripts.pory"
+# 240 "data/maps/Lab2/scripts.pory"
 	playse SE_PIN
-# 219 "data/maps/Lab2/scripts.pory"
+# 241 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_LAB_BIRCH, Common_Movement_QuestionMark
-# 220 "data/maps/Lab2/scripts.pory"
+# 242 "data/maps/Lab2/scripts.pory"
 	waitmovement 0
-# 221 "data/maps/Lab2/scripts.pory"
+# 243 "data/maps/Lab2/scripts.pory"
 	delay 30
-# 222 "data/maps/Lab2/scripts.pory"
+# 244 "data/maps/Lab2/scripts.pory"
 	msgbox TradedAwayStarter, MSGBOX_AUTOCLOSE
-# 223 "data/maps/Lab2/scripts.pory"
+# 245 "data/maps/Lab2/scripts.pory"
 	closemessage
 	goto Lab_MegaStoneGet_5
 
 Lab_MegaStoneGet_10:
-# 227 "data/maps/Lab2/scripts.pory"
+# 249 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_DECIDUEITE
 	goto Lab_MegaStoneGet_8
 
 Lab_MegaStoneGet_11:
-# 229 "data/maps/Lab2/scripts.pory"
+# 251 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_BLAZIKENITE
 	goto Lab_MegaStoneGet_8
 
 Lab_MegaStoneGet_12:
-# 231 "data/maps/Lab2/scripts.pory"
+# 253 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_EMPOLEONITE
 	goto Lab_MegaStoneGet_8
 
 Lab_MegaStoneGet_14:
-# 234 "data/maps/Lab2/scripts.pory"
+# 256 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	goto Lab_MegaStoneGet_13
 
 Lab_MegaStoneGet_18:
-# 240 "data/maps/Lab2/scripts.pory"
+# 262 "data/maps/Lab2/scripts.pory"
 	closemessage
-# 241 "data/maps/Lab2/scripts.pory"
+# 263 "data/maps/Lab2/scripts.pory"
 	delay 24
-# 242 "data/maps/Lab2/scripts.pory"
+# 264 "data/maps/Lab2/scripts.pory"
 	waitmove LOCALID_LAB_BIRCH, ProfBackAndForth
-# 243 "data/maps/Lab2/scripts.pory"
+# 265 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_LAB_RIVAL, Common_Movement_WalkInPlaceFasterLeft
-# 244 "data/maps/Lab2/scripts.pory"
+# 266 "data/maps/Lab2/scripts.pory"
 	waitmove LOCALID_PLAYER, Common_Movement_WalkInPlaceFasterRight
 	checkplayergender
 # 0 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq Lab_MegaStoneGet_24
-# 249 "data/maps/Lab2/scripts.pory"
+# 271 "data/maps/Lab2/scripts.pory"
 	msgbox GonnaTakeMyLeave_Brendan
 Lab_MegaStoneGet_23:
-# 251 "data/maps/Lab2/scripts.pory"
+# 273 "data/maps/Lab2/scripts.pory"
 	waitmove LOCALID_LAB_RIVAL, Common_Movement_WalkInPlaceFasterUp
-# 252 "data/maps/Lab2/scripts.pory"
+# 274 "data/maps/Lab2/scripts.pory"
 	msgbox ThanksDadBirch, MSGBOX_AUTOCLOSE
-# 253 "data/maps/Lab2/scripts.pory"
+# 275 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_LAB_RIVAL, Walk7Down
-# 254 "data/maps/Lab2/scripts.pory"
+# 276 "data/maps/Lab2/scripts.pory"
 	applymovement LOCALID_PLAYER, TurnPlayer
-# 255 "data/maps/Lab2/scripts.pory"
+# 277 "data/maps/Lab2/scripts.pory"
 	waitmovement LOCALID_LAB_RIVAL
-# 256 "data/maps/Lab2/scripts.pory"
+# 278 "data/maps/Lab2/scripts.pory"
 	removeobject LOCALID_LAB_RIVAL
 	goto Lab_MegaStoneGet_17
 
 Lab_MegaStoneGet_21:
-# 259 "data/maps/Lab2/scripts.pory"
+# 281 "data/maps/Lab2/scripts.pory"
 	completequest FLAG_Q33_PROF_BIRCH_MEGASTONE_COMPLETE
-# 260 "data/maps/Lab2/scripts.pory"
+# 282 "data/maps/Lab2/scripts.pory"
 	special ShowJournalPopupRemove
 	goto Lab_MegaStoneGet_20
 
 Lab_MegaStoneGet_24:
-# 246 "data/maps/Lab2/scripts.pory"
+# 268 "data/maps/Lab2/scripts.pory"
 	msgbox GonnaTakeMyLeave_May
 	goto Lab_MegaStoneGet_23
 
 
 Lab_Birch::
-# 266 "data/maps/Lab2/scripts.pory"
+# 288 "data/maps/Lab2/scripts.pory"
 	switch VAR_PEARLWOOD_TOWN_STATE
-# 267 "data/maps/Lab2/scripts.pory"
+# 289 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_PROF_INTRO, Lab_Birch_3
-# 269 "data/maps/Lab2/scripts.pory"
+# 291 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_PKMN_OBTAINED, Lab_Birch_4
-# 270 "data/maps/Lab2/scripts.pory"
+# 292 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_BROTHER_FOUGHT, Lab_Birch_4
-# 271 "data/maps/Lab2/scripts.pory"
+# 293 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_GIVEN_GOODBYE_TO_MOM, Lab_Birch_4
-# 272 "data/maps/Lab2/scripts.pory"
+# 294 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_RIVAL_FOUGHT_IN_MEADOW, Lab_Birch_4
-# 274 "data/maps/Lab2/scripts.pory"
+# 296 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_GET_MEGA_STONE_LATER, Lab_Birch_5
-# 276 "data/maps/Lab2/scripts.pory"
+# 298 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_MEGA_STONE_OBTAINED, Lab_Birch_6
-# 282 "data/maps/Lab2/scripts.pory"
+# 304 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_MEGA_EVENT_COMPLETED, Lab_Birch_7
-# 283 "data/maps/Lab2/scripts.pory"
+# 305 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_DEX_OBTAINED, Lab_Birch_7
-# 284 "data/maps/Lab2/scripts.pory"
+# 306 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_MEGA_RING_OBTAINED, Lab_Birch_7
 Lab_Birch_1:
-# 287 "data/maps/Lab2/scripts.pory"
+# 309 "data/maps/Lab2/scripts.pory"
 	release
 	return
 
 Lab_Birch_3:
-# 268 "data/maps/Lab2/scripts.pory"
+# 290 "data/maps/Lab2/scripts.pory"
 	msgbox PickABall, MSGBOX_NPC
 	goto Lab_Birch_1
 
 Lab_Birch_4:
-# 273 "data/maps/Lab2/scripts.pory"
+# 295 "data/maps/Lab2/scripts.pory"
 	msgbox TakeCareOfPokemon, MSGBOX_NPC
 	goto Lab_Birch_1
 
 Lab_Birch_5:
-# 275 "data/maps/Lab2/scripts.pory"
+# 297 "data/maps/Lab2/scripts.pory"
 	call Lab_MegaStoneGetLater
 	goto Lab_Birch_1
 
 Lab_Birch_6:
-# 277 "data/maps/Lab2/scripts.pory"
+# 299 "data/maps/Lab2/scripts.pory"
 	msgbox YourFatherIsInTown, MSGBOX_NPC
-# 278 "data/maps/Lab2/scripts.pory"
+# 300 "data/maps/Lab2/scripts.pory"
 	goto_if_unset FLAG_Q34_DADS_HOME_START, Lab_Birch_8
 	goto Lab_Birch_1
 
 Lab_Birch_7:
-# 285 "data/maps/Lab2/scripts.pory"
+# 307 "data/maps/Lab2/scripts.pory"
 	call ProfBirch_EventScript_RatePokedexOrRegister
 	goto Lab_Birch_1
 
 Lab_Birch_8:
-# 279 "data/maps/Lab2/scripts.pory"
+# 301 "data/maps/Lab2/scripts.pory"
 	startquest FLAG_Q34_DADS_HOME_START
-# 280 "data/maps/Lab2/scripts.pory"
+# 302 "data/maps/Lab2/scripts.pory"
 	special ShowJournalPopupAdd
 	goto Lab_Birch_1
 
 
 Lab_MegaStoneGetLater::
-# 291 "data/maps/Lab2/scripts.pory"
+# 313 "data/maps/Lab2/scripts.pory"
 	lock
-# 292 "data/maps/Lab2/scripts.pory"
+# 314 "data/maps/Lab2/scripts.pory"
 	faceplayer
-# 293 "data/maps/Lab2/scripts.pory"
+# 315 "data/maps/Lab2/scripts.pory"
 	msgbox HeresYourStoneNow
-# 294 "data/maps/Lab2/scripts.pory"
+# 316 "data/maps/Lab2/scripts.pory"
 	switch VAR_STARTER_MON
-# 295 "data/maps/Lab2/scripts.pory"
+# 317 "data/maps/Lab2/scripts.pory"
 	case SPECIES_ROWLET, Lab_MegaStoneGetLater_3
-# 297 "data/maps/Lab2/scripts.pory"
+# 319 "data/maps/Lab2/scripts.pory"
 	case SPECIES_TORCHIC, Lab_MegaStoneGetLater_4
-# 299 "data/maps/Lab2/scripts.pory"
+# 321 "data/maps/Lab2/scripts.pory"
 	case SPECIES_PIPLUP, Lab_MegaStoneGetLater_5
 Lab_MegaStoneGetLater_1:
-# 302 "data/maps/Lab2/scripts.pory"
+# 324 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_RECEIVED_CAPSULE, Lab_MegaStoneGetLater_6
-# 306 "data/maps/Lab2/scripts.pory"
+# 328 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	return
 
 Lab_MegaStoneGetLater_3:
-# 296 "data/maps/Lab2/scripts.pory"
+# 318 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_DECIDUEITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_4:
-# 298 "data/maps/Lab2/scripts.pory"
+# 320 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_BLAZIKENITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_5:
-# 300 "data/maps/Lab2/scripts.pory"
+# 322 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_EMPOLEONITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_6:
-# 303 "data/maps/Lab2/scripts.pory"
+# 325 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	return
 
 
-# 310 "data/maps/Lab2/scripts.pory"
+# 332 "data/maps/Lab2/scripts.pory"
 Lab_Movement_RivalExit1:
-# 311 "data/maps/Lab2/scripts.pory"
+# 333 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 311 "data/maps/Lab2/scripts.pory"
+# 333 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 311 "data/maps/Lab2/scripts.pory"
+# 333 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 312 "data/maps/Lab2/scripts.pory"
+# 334 "data/maps/Lab2/scripts.pory"
 	player_run_left
-# 313 "data/maps/Lab2/scripts.pory"
+# 335 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 313 "data/maps/Lab2/scripts.pory"
+# 335 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 313 "data/maps/Lab2/scripts.pory"
+# 335 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 313 "data/maps/Lab2/scripts.pory"
+# 335 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 313 "data/maps/Lab2/scripts.pory"
+# 335 "data/maps/Lab2/scripts.pory"
 	player_run_down
 	step_end
 
-# 315 "data/maps/Lab2/scripts.pory"
+# 337 "data/maps/Lab2/scripts.pory"
 LabFaceDown:
-# 316 "data/maps/Lab2/scripts.pory"
+# 338 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 317 "data/maps/Lab2/scripts.pory"
+# 339 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
 	step_end
 
-# 319 "data/maps/Lab2/scripts.pory"
+# 341 "data/maps/Lab2/scripts.pory"
 ProfBackAndForth:
-# 320 "data/maps/Lab2/scripts.pory"
+# 342 "data/maps/Lab2/scripts.pory"
 	walk_right
-# 321 "data/maps/Lab2/scripts.pory"
+# 343 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 322 "data/maps/Lab2/scripts.pory"
+# 344 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 323 "data/maps/Lab2/scripts.pory"
+# 345 "data/maps/Lab2/scripts.pory"
 	walk_left
-# 324 "data/maps/Lab2/scripts.pory"
+# 346 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
-# 325 "data/maps/Lab2/scripts.pory"
+# 347 "data/maps/Lab2/scripts.pory"
 	step_end
 
-# 327 "data/maps/Lab2/scripts.pory"
+# 349 "data/maps/Lab2/scripts.pory"
 TurnPlayer:
-# 328 "data/maps/Lab2/scripts.pory"
+# 350 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_right
-# 329 "data/maps/Lab2/scripts.pory"
+# 351 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
 	step_end
 
@@ -711,59 +746,59 @@ Lab_BallMain_Text_0:
 	.string "You already received a Pokémon.$"
 
 Lab_BallMain_Text_1:
-# 80 "data/maps/Lab2/scripts.pory"
+# 108 "data/maps/Lab2/scripts.pory"
 	.string "Do you want to choose Rowlet,\nthe Grass Quill Pokémon?$"
 
 Lab_BallMain_Text_2:
-# 82 "data/maps/Lab2/scripts.pory"
+# 110 "data/maps/Lab2/scripts.pory"
 	.string "Do you want to choose Torchic,\nthe Chick Pokémon?$"
 
 Lab_BallMain_Text_3:
-# 84 "data/maps/Lab2/scripts.pory"
+# 112 "data/maps/Lab2/scripts.pory"
 	.string "Do you want to choose Piplup,\nthe Penguin Pokémon?$"
 
 Lab_BallMain_Text_4:
-# 93 "data/maps/Lab2/scripts.pory"
+# 121 "data/maps/Lab2/scripts.pory"
 	.string "{PLAYER} received the {STR_VAR_1}!$"
 
 Lab_BallMain_Text_5:
-# 109 "data/maps/Lab2/scripts.pory"
+# 131 "data/maps/Lab2/scripts.pory"
 	.string "Do you want to give a nickname\nto your new Pokémon?$"
 
 Lab_NoPokemon_Text_0:
-# 121 "data/maps/Lab2/scripts.pory"
+# 143 "data/maps/Lab2/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}You haven't chosen a Pokémon yet!$"
 
 Lab_FollowerEvent_Text_0:
-# 144 "data/maps/Lab2/scripts.pory"
+# 166 "data/maps/Lab2/scripts.pory"
 	.string "{COLOR RED}{SHADOW LIGHT_RED}You can use the party menu to set\na preferred Pokémon, withdraw your\lcurrent one, or let another one out.$"
 
 Lab_DexGet_Text_0:
-# 175 "data/maps/Lab2/scripts.pory"
+# 197 "data/maps/Lab2/scripts.pory"
 	.string "Obtained the Pokédex!$"
 
 Lab_DexGet_Text_1:
-# 180 "data/maps/Lab2/scripts.pory"
+# 202 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Here, you can have\nthese as well.$"
 
 Lab_DexGet_Text_2:
-# 182 "data/maps/Lab2/scripts.pory"
+# 204 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Now you can start catching\nyour own Pokémon and we can see which\lof us can fill our Pokédex faster!$"
 
 Lab_DexGet_Text_3:
-# 184 "data/maps/Lab2/scripts.pory"
+# 206 "data/maps/Lab2/scripts.pory"
 	.string "Last one out the door is a rotten egg!$"
 
 Lab_DexGet_Text_4:
-# 187 "data/maps/Lab2/scripts.pory"
+# 209 "data/maps/Lab2/scripts.pory"
 	.string "Come on, let's go catch some Pokémon!$"
 
 Lab_DexGet_Text_5:
-# 200 "data/maps/Lab2/scripts.pory"
+# 222 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…$"
 
 Lab_Intro_Speech::
-# 332 "data/maps/Lab2/scripts.pory"
+# 354 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Hello!\n"
 	.string "You must be {PLAYER}!\p"
 	.string "As you may know, it is customary in\n"
@@ -777,7 +812,7 @@ Lab_Intro_Speech::
 	.string "your decision.$"
 
 Lab_Intro_Speech2::
-# 346 "data/maps/Lab2/scripts.pory"
+# 368 "data/maps/Lab2/scripts.pory"
 	.string "Over there on the table lies three\n"
 	.string "Poké Balls. Each of them stores\l"
 	.string "some very rare Pokémon.\p"
@@ -787,7 +822,7 @@ Lab_Intro_Speech2::
 	.string "sure you decide carefully!$"
 
 BirchSurprised::
-# 355 "data/maps/Lab2/scripts.pory"
+# 377 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh my!\p"
 	.string "I knew these little fellas were\n"
 	.string "energetic, but I never expected one\l"
@@ -797,12 +832,12 @@ BirchSurprised::
 	.string "its ball if you simply ask it nicely.$"
 
 Lab_DexTalkMayA::
-# 364 "data/maps/Lab2/scripts.pory"
+# 386 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "is there something you need?$"
 
 Lab_DexTalkMayB::
-# 368 "data/maps/Lab2/scripts.pory"
+# 390 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Oh boy, is there…\p"
 	.string "You gave {PLAYER} a Pokémon but\n"
 	.string "never gave him a Pokédex, dad!\p"
@@ -810,19 +845,19 @@ Lab_DexTalkMayB::
 	.string "a great trainer without one?!$"
 
 Lab_DexTalkMayC::
-# 375 "data/maps/Lab2/scripts.pory"
+# 397 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, it must've\n"
 	.string "slipped my mind…$"
 
 Lab_DexTalkMayD::
-# 379 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Slipped your mind?!\n"
 	.string "You're a Pokémon professor!\p"
 	.string "Surely you realize that giving one to\n"
 	.string "{PLAYER} helps your research as well?$"
 
 Lab_DexTalkMayE::
-# 385 "data/maps/Lab2/scripts.pory"
+# 407 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I know, I know.\n"
 	.string "I'll get {PLAYER} one right away.\p"
 	.string "Now, let's see…\p"
@@ -832,46 +867,46 @@ Lab_DexTalkMayE::
 	.string "lying around at this time…$"
 
 Lab_DexTalkMayF::
-# 394 "data/maps/Lab2/scripts.pory"
+# 416 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Well we can't have {PLAYER}\n"
 	.string "leaving empty-handed, now can we?!$"
 
 Lab_DexTalkMayG::
-# 398 "data/maps/Lab2/scripts.pory"
+# 420 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Here, {PLAYER},\n"
 	.string "you can have mine.\l"
 	.string "I'll order myself a new one.$"
 
 Lab_DexTalkMayH::
-# 403 "data/maps/Lab2/scripts.pory"
+# 425 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Yay! Thanks, dad!$"
 
 Lab_DexTalkBrendanA::
-# 407 "data/maps/Lab2/scripts.pory"
+# 429 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "is there something you need?$"
 
 Lab_DexTalkBrendanB::
-# 411 "data/maps/Lab2/scripts.pory"
+# 433 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: As a matter of fact, there is.\n"
 	.string "You never gave {PLAYER} a Pokédex!\p"
 	.string "How do you expect her to become\n"
 	.string "a great trainer without one?$"
 
 Lab_DexTalkBrendanC::
-# 417 "data/maps/Lab2/scripts.pory"
+# 439 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, it must've\n"
 	.string "slipped my mind…$"
 
 Lab_DexTalkBrendanD::
-# 421 "data/maps/Lab2/scripts.pory"
+# 443 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Slipped your mind?\n"
 	.string "Aren't you a Pokémon professor?\p"
 	.string "Surely giving one to {PLAYER}\n"
 	.string "helps your research as well.$"
 
 Lab_DexTalkBrendanE::
-# 427 "data/maps/Lab2/scripts.pory"
+# 449 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I know, I know.\n"
 	.string "I'll get {PLAYER} one right away.\p"
 	.string "Now, let's see…\p"
@@ -881,22 +916,22 @@ Lab_DexTalkBrendanE::
 	.string "lying around at this time…$"
 
 Lab_DexTalkBrendanF::
-# 436 "data/maps/Lab2/scripts.pory"
+# 458 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Well we can't have {PLAYER}\n"
 	.string "leaving empty-handed, now can we?$"
 
 Lab_DexTalkBrendanG::
-# 440 "data/maps/Lab2/scripts.pory"
+# 462 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Yes, I know. {PLAYER},\n"
 	.string "you can have mine.\l"
 	.string "I'll order myself a new one.$"
 
 Lab_DexTalkBrendanH::
-# 445 "data/maps/Lab2/scripts.pory"
+# 467 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: You're the best, dad!$"
 
 LabMegaStones::
-# 448 "data/maps/Lab2/scripts.pory"
+# 470 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "what a pleasant surprise.\l"
 	.string "I was hoping to see you two soon.\p"
@@ -922,7 +957,7 @@ LabMegaStones::
 	.string "I have given you.$"
 
 LabMegaStonesWithoutRival::
-# 473 "data/maps/Lab2/scripts.pory"
+# 495 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, hello, {PLAYER}.\n"
 	.string "what a pleasant surprise.\p"
 	.string "I must say, I was expecting to see\n"
@@ -950,7 +985,7 @@ LabMegaStonesWithoutRival::
 	.string "I have given you.$"
 
 TradedAwayStarter::
-# 500 "data/maps/Lab2/scripts.pory"
+# 522 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, you haven't traded my\n"
 	.string "magnanimous gift away, have you?\p"
 	.string "Don't worry, I'm just kidding.\p"
@@ -964,7 +999,7 @@ TradedAwayStarter::
 	.string "In any case, here you go.$"
 
 GonnaTakeMyLeave_May::
-# 513 "data/maps/Lab2/scripts.pory"
+# 535 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "You better train your Pokémon to use\n"
@@ -974,7 +1009,7 @@ GonnaTakeMyLeave_May::
 	.string "to use Mega Evolution!$"
 
 GonnaTakeMyLeave_Brendan::
-# 522 "data/maps/Lab2/scripts.pory"
+# 544 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "I hope you train your Pokémon to get\n"
@@ -984,28 +1019,28 @@ GonnaTakeMyLeave_Brendan::
 	.string "know how to Mega Evolve your Pokémon.$"
 
 ThanksDadBirch::
-# 531 "data/maps/Lab2/scripts.pory"
+# 553 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Thanks dad! I'm going to go\n"
 	.string "and give this thing a try right away!$"
 
 PickABall::
-# 536 "data/maps/Lab2/scripts.pory"
+# 558 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Go on, pick one of the\n"
 	.string "balls from the table.$"
 
 TakeCareOfPokemon::
-# 540 "data/maps/Lab2/scripts.pory"
+# 562 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I hope you take\n"
 	.string "good care of your new companion.$"
 
 YourFatherIsInTown::
-# 544 "data/maps/Lab2/scripts.pory"
+# 566 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, I almost forgot!\n"
 	.string "Your father is currently in town.\p"
 	.string "I know he's a busy man. You may want\n"
 	.string "to dash on home before he leaves.$"
 
 HeresYourStoneNow::
-# 550 "data/maps/Lab2/scripts.pory"
+# 572 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I hope you've made enough\n"
 	.string "space in your bag to hold this stone.$"

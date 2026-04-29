@@ -1088,3 +1088,13 @@ void ScrCmd_openchest(void)
             ObjectEventFaceOppositeDirection(&gObjectEvents[gSelectedObjectEvent], DIR_NORTH);
     }
 }
+
+void TryShinyStarters(void)
+{
+    if (Random() < SHINY_ODDS)
+        FlagSet(FLAG_FIRST_STARTER_SHINY);
+    if (Random() < SHINY_ODDS)
+        FlagSet(FLAG_SECOND_STARTER_SHINY);
+    if (Random() < SHINY_ODDS)
+        FlagSet(FLAG_THIRD_STARTER_SHINY);
+}

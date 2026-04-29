@@ -72,7 +72,35 @@ script Lab_BallMain{
     lock
     waitse
     playmoncry(STARTER, CRY_MODE_NORMAL)
-    defaultmonpic(STARTER)
+    switch(var(STARTER)){
+        case SPECIES_ROWLET:
+            if(flag(FLAG_FIRST_STARTER_SHINY)){
+                defaultmonpic(STARTER, TRUE)
+                setflag(FLAG_FORCE_SHINY)
+            }
+            else{
+                defaultmonpic(STARTER)
+                clearflag(FLAG_FORCE_SHINY)
+            }
+        case SPECIES_TORCHIC:
+            if(flag(FLAG_SECOND_STARTER_SHINY)){
+                defaultmonpic(STARTER, TRUE)
+                setflag(FLAG_FORCE_SHINY)
+            }
+            else{
+                defaultmonpic(STARTER)
+                clearflag(FLAG_FORCE_SHINY)
+            }
+        case SPECIES_PIPLUP:
+            if(flag(FLAG_THIRD_STARTER_SHINY)){
+                defaultmonpic(STARTER, TRUE)
+                setflag(FLAG_FORCE_SHINY)
+            }
+            else{
+                defaultmonpic(STARTER)
+                clearflag(FLAG_FORCE_SHINY)
+            }
+    }
     waitmoncry
     bufferspeciesname(STR_VAR_1, STARTER)
     switch(var(STARTER)){
@@ -94,17 +122,11 @@ script Lab_BallMain{
     waitmessage
     waitfanfare
     removeobject(VAR_LAST_TALKED)
-    switch(var(STARTER)){
-        case SPECIES_ROWLET:
-            setvar(VAR_STARTER_MON, SPECIES_ROWLET)
-        case SPECIES_TORCHIC:
-            setvar(VAR_STARTER_MON, SPECIES_TORCHIC)
-        case SPECIES_PIPLUP:
-            setvar(VAR_STARTER_MON, SPECIES_PIPLUP)
-    }
+    copyvar(VAR_STARTER_MON, STARTER)
     setflag(FLAG_SYS_POKEMON_GET)
     setflag(FLAG_HEAL_AFTER_BATTLE)     // Janky way to make sure the player can't access the follower party menu too early
     setflag(FOLLOWER_TRIGGER)
+    clearflag(FLAG_FORCE_SHINY)
     setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_PKMN_OBTAINED)
     msgbox("Do you want to give a nickname\nto your new Pokémon?", MSGBOX_YESNO)
     hidemonpic
