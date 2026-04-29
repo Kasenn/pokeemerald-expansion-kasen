@@ -81,7 +81,7 @@ script HoundoomTrigger{
 
 script HoundoomBattleFirst{
     call(HoundoomCry)
-    createmon(1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT)
+    createmon(1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER)
     doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
@@ -99,7 +99,7 @@ script HoundoomBattleSecond{
     applymovement(2, MoveHoundoom2)
     waitmovement(0)
     call(HoundoomCry)
-    createmon(1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    createmon(1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER)
     doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
@@ -117,7 +117,7 @@ script HoundoomBattleThird{
     applymovement(3, MoveHoundoom3)
     waitmovement(0)
     call(HoundoomCry)
-    createmon(1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    createmon(1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER)
     doscriptednorunningbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){
@@ -135,7 +135,7 @@ script HoundoomBattleFourth{
     applymovement(4, MoveHoundoom4)
     waitmovement(0)
     call(HoundoomCry)
-    createmon(1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT)
+    createmon(1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER)
     doscriptedbattle
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){

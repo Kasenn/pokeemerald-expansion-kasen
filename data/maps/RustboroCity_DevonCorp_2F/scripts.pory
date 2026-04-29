@@ -178,7 +178,7 @@ script Devon_FossilMonReady{
 	callnative(ScrCmd_FossilToPokemon)
 	bufferspeciesname(STR_VAR_2, VAR_TEMP_TRANSFERRED_SPECIES)
     msgbox(FossilBroughtBackToLife, MSGBOX_DEFAULT)
-    givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20)
+    givemon(VAR_TEMP_TRANSFERRED_SPECIES, 20, shinyMode = SHINY_MODE_RANDOM)
 	bufferspeciesname(STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES)
     playfanfare(MUS_OBTAIN_ITEM)
     message(ReceivedMonFromResearcher)

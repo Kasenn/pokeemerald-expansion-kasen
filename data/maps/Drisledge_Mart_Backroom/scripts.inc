@@ -661,7 +661,7 @@ LitwickEligibleBall::
 # 244 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	removeitem VAR_ITEM_ID, 1
 # 245 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
-	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID
+	givemon SPECIES_LITWICK, 5, ITEM_NONE, VAR_ITEM_ID, shinyMode = SHINY_MODE_RANDOM
 # 246 "data/maps/Drisledge_Mart_Backroom/scripts.pory"
 	call GiveMon_Script
 # 247 "data/maps/Drisledge_Mart_Backroom/scripts.pory"

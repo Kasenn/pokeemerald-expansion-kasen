@@ -183,7 +183,7 @@ HoundoomBattleFirst::
 # 83 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
 # 84 "data/maps/HoundoomCave/scripts.pory"
-	createmon 1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT
+	createmon 1, 0, SPECIES_HOUNDOOM, 45, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_BEAT_UP, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER
 # 85 "data/maps/HoundoomCave/scripts.pory"
 	doscriptednorunningbattle
 # 86 "data/maps/HoundoomCave/scripts.pory"
@@ -224,7 +224,7 @@ HoundoomBattleSecond::
 # 101 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
 # 102 "data/maps/HoundoomCave/scripts.pory"
-	createmon 1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+	createmon 1, 0, SPECIES_HOUNDOOM, 50, move1 = MOVE_BITE, move2 = MOVE_EMBER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER
 # 103 "data/maps/HoundoomCave/scripts.pory"
 	doscriptednorunningbattle
 # 104 "data/maps/HoundoomCave/scripts.pory"
@@ -265,7 +265,7 @@ HoundoomBattleThird::
 # 119 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
 # 120 "data/maps/HoundoomCave/scripts.pory"
-	createmon 1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+	createmon 1, 0, SPECIES_HOUNDOOM, 55, move1 = MOVE_BITE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER
 # 121 "data/maps/HoundoomCave/scripts.pory"
 	doscriptednorunningbattle
 # 122 "data/maps/HoundoomCave/scripts.pory"
@@ -306,7 +306,7 @@ HoundoomBattleFourth::
 # 137 "data/maps/HoundoomCave/scripts.pory"
 	call HoundoomCry
 # 138 "data/maps/HoundoomCave/scripts.pory"
-	createmon 1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT
+	createmon 1, 0, SPECIES_HOUNDOOM, 60, move1 = MOVE_DARK_PULSE, move2 = MOVE_FLAMETHROWER, move3 = MOVE_FOUL_PLAY, move4 = MOVE_NASTY_PLOT, shinyMode = SHINY_MODE_NEVER
 # 139 "data/maps/HoundoomCave/scripts.pory"
 	doscriptedbattle
 # 140 "data/maps/HoundoomCave/scripts.pory"

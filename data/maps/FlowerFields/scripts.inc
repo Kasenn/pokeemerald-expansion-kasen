@@ -342,17 +342,17 @@ FlowerFields_Granbull::
 # 212 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_BATTLED
 	goto_if_eq FlowerFields_Granbull_2
-# 245 "data/maps/FlowerFields/scripts.pory"
+# 243 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_DEFEATED
 	goto_if_ge FlowerFields_Granbull_3
-# 252 "data/maps/FlowerFields/scripts.pory"
+# 250 "data/maps/FlowerFields/scripts.pory"
 	playmoncry SPECIES_GRANBULL, CRY_MODE_NORMAL
-# 253 "data/maps/FlowerFields/scripts.pory"
+# 251 "data/maps/FlowerFields/scripts.pory"
 	msgbox FlowerFields_Granbull_Text_1
-# 254 "data/maps/FlowerFields/scripts.pory"
+# 252 "data/maps/FlowerFields/scripts.pory"
 	waitmoncry
 FlowerFields_Granbull_1:
-# 256 "data/maps/FlowerFields/scripts.pory"
+# 254 "data/maps/FlowerFields/scripts.pory"
 	release
 	return
 
@@ -379,37 +379,33 @@ FlowerFields_Granbull_12:
 # 232 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_BATTLED
 # 233 "data/maps/FlowerFields/scripts.pory"
-	setvar VAR_SHINY_MULTIPLIER, 200
-# 234 "data/maps/FlowerFields/scripts.pory"
 	doscriptedmonwithouttrainerbattle
-# 235 "data/maps/FlowerFields/scripts.pory"
-	setvar VAR_SHINY_MULTIPLIER, 0
-# 236 "data/maps/FlowerFields/scripts.pory"
+# 234 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_MINA_INTRO_QUEST, STORY_MINA_GRANBULL_DEFEATED
-# 237 "data/maps/FlowerFields/scripts.pory"
+# 235 "data/maps/FlowerFields/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 238 "data/maps/FlowerFields/scripts.pory"
+# 236 "data/maps/FlowerFields/scripts.pory"
 	delay 40
-# 239 "data/maps/FlowerFields/scripts.pory"
+# 237 "data/maps/FlowerFields/scripts.pory"
 	msgbox CombeeFliesAway
-# 240 "data/maps/FlowerFields/scripts.pory"
+# 238 "data/maps/FlowerFields/scripts.pory"
 	closemessage
-# 241 "data/maps/FlowerFields/scripts.pory"
+# 239 "data/maps/FlowerFields/scripts.pory"
 	removeobject 3
-# 242 "data/maps/FlowerFields/scripts.pory"
+# 240 "data/maps/FlowerFields/scripts.pory"
 	warpsilentnofadeout MAP_FLOWER_FIELDS, 32, 37
-# 243 "data/maps/FlowerFields/scripts.pory"
+# 241 "data/maps/FlowerFields/scripts.pory"
 	waitstate
 	goto FlowerFields_Granbull_1
 
 FlowerFields_Granbull_3:
-# 246 "data/maps/FlowerFields/scripts.pory"
+# 244 "data/maps/FlowerFields/scripts.pory"
 	playmoncry SPECIES_GRANBULL, CRY_MODE_FAINT
-# 247 "data/maps/FlowerFields/scripts.pory"
+# 245 "data/maps/FlowerFields/scripts.pory"
 	msgbox FlowerFields_Granbull_Text_0
-# 248 "data/maps/FlowerFields/scripts.pory"
+# 246 "data/maps/FlowerFields/scripts.pory"
 	waitmoncry
-# 249 "data/maps/FlowerFields/scripts.pory"
+# 247 "data/maps/FlowerFields/scripts.pory"
 	turnobject 2, DIR_NORTH
 	goto FlowerFields_Granbull_1
 
@@ -435,19 +431,19 @@ FlowerFields_Granbull_15:
 
 
 Route8_HoneyTrader::
-# 260 "data/maps/FlowerFields/scripts.pory"
+# 258 "data/maps/FlowerFields/scripts.pory"
 	faceplayer
-# 261 "data/maps/FlowerFields/scripts.pory"
+# 259 "data/maps/FlowerFields/scripts.pory"
 	goto_if_set FLAG_INTRODUCED_TO_BERRY_TRADER, Route8_HoneyTrader_2
 Route8_HoneyTrader_1:
-# 269 "data/maps/FlowerFields/scripts.pory"
+# 267 "data/maps/FlowerFields/scripts.pory"
 	setflag FLAG_INTRODUCED_TO_BERRY_TRADER
 	msgbox GotAnyOranBerries
 # 0 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route8_HoneyTrader_5
 Route8_HoneyTrader_4:
-# 283 "data/maps/FlowerFields/scripts.pory"
+# 281 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesGoodbye
 	return
 
@@ -457,7 +453,7 @@ Route8_HoneyTrader_2:
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route8_HoneyTrader_8
 Route8_HoneyTrader_7:
-# 267 "data/maps/FlowerFields/scripts.pory"
+# 265 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesGoodbye
 	goto Route8_HoneyTrader_1
 
@@ -466,9 +462,9 @@ Route8_HoneyTrader_5:
 # 0 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Route8_HoneyTrader_10
-# 275 "data/maps/FlowerFields/scripts.pory"
+# 273 "data/maps/FlowerFields/scripts.pory"
 	msgbox Route8_HoneyTrader_DontHaveBerries, MSGBOX_NPC
-# 276 "data/maps/FlowerFields/scripts.pory"
+# 274 "data/maps/FlowerFields/scripts.pory"
 	goto_if_unset FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START, Route8_HoneyTrader_16
 Route8_HoneyTrader_15:
 	end
@@ -481,41 +477,41 @@ Route8_HoneyTrader_8:
 	goto Route8_HoneyTrader_7
 
 Route8_HoneyTrader_10:
-# 272 "data/maps/FlowerFields/scripts.pory"
+# 270 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesMain
 	goto Route8_HoneyTrader_4
 
 Route8_HoneyTrader_13:
-# 264 "data/maps/FlowerFields/scripts.pory"
+# 262 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesMain
 	goto Route8_HoneyTrader_7
 
 Route8_HoneyTrader_16:
-# 277 "data/maps/FlowerFields/scripts.pory"
+# 275 "data/maps/FlowerFields/scripts.pory"
 	startquest FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START
-# 278 "data/maps/FlowerFields/scripts.pory"
+# 276 "data/maps/FlowerFields/scripts.pory"
 	special ShowJournalPopupAdd
 	goto Route8_HoneyTrader_15
 
 
 TradeBerriesMain::
-# 286 "data/maps/FlowerFields/scripts.pory"
+# 284 "data/maps/FlowerFields/scripts.pory"
 	checkitemquant ITEM_ORAN_BERRY
 	msgbox TradeHowManyBerries, MSGBOX_HOWMANY
 # 0 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq TradeBerriesMain_1
-# 291 "data/maps/FlowerFields/scripts.pory"
+# 289 "data/maps/FlowerFields/scripts.pory"
 	copyvar VAR_TEMP_2, VAR_RESULT
-# 292 "data/maps/FlowerFields/scripts.pory"
+# 290 "data/maps/FlowerFields/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_TEMP_2
 TradeBerriesMain_5:
-# 293 "data/maps/FlowerFields/scripts.pory"
+# 291 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_ne TradeBerriesMain_6
-# 297 "data/maps/FlowerFields/scripts.pory"
+# 295 "data/maps/FlowerFields/scripts.pory"
 	buffernumberstring STR_VAR_2, VAR_TEMP_1
-# 298 "data/maps/FlowerFields/scripts.pory"
+# 296 "data/maps/FlowerFields/scripts.pory"
 	compare VAR_TEMP_2, 1
 	goto_if_eq TradeBerriesMain_9
 	msgbox TradeBerriesForHoney_Text_Multiple, MSGBOX_YESNO
@@ -523,19 +519,19 @@ TradeBerriesMain_5:
 	compare VAR_RESULT, TRUE
 	goto_if_eq TradeBerriesMain_14
 TradeBerriesMain_8:
-# 320 "data/maps/FlowerFields/scripts.pory"
+# 318 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesGoodbye
 	return
 
 TradeBerriesMain_1:
-# 288 "data/maps/FlowerFields/scripts.pory"
+# 286 "data/maps/FlowerFields/scripts.pory"
 	goto TradeBerriesGoodbye
 	return
 
 TradeBerriesMain_6:
-# 294 "data/maps/FlowerFields/scripts.pory"
+# 292 "data/maps/FlowerFields/scripts.pory"
 	subvar VAR_RESULT, 1
-# 295 "data/maps/FlowerFields/scripts.pory"
+# 293 "data/maps/FlowerFields/scripts.pory"
 	addvar VAR_TEMP_1, 2
 	goto TradeBerriesMain_5
 
@@ -552,9 +548,9 @@ TradeBerriesMain_12:
 	compare VAR_RESULT, FALSE
 	goto_if_eq TradeBerriesMain_17
 TradeBerriesMain_16:
-# 305 "data/maps/FlowerFields/scripts.pory"
+# 303 "data/maps/FlowerFields/scripts.pory"
 	giveitem ITEM_HONEY, VAR_TEMP_1
-# 306 "data/maps/FlowerFields/scripts.pory"
+# 304 "data/maps/FlowerFields/scripts.pory"
 	removeitem ITEM_ORAN_BERRY, VAR_TEMP_2
 	goto TradeBerriesMain_8
 
@@ -564,52 +560,52 @@ TradeBerriesMain_14:
 	compare VAR_RESULT, FALSE
 	goto_if_eq TradeBerriesMain_20
 TradeBerriesMain_19:
-# 316 "data/maps/FlowerFields/scripts.pory"
+# 314 "data/maps/FlowerFields/scripts.pory"
 	giveitem ITEM_HONEY, VAR_TEMP_1
-# 317 "data/maps/FlowerFields/scripts.pory"
+# 315 "data/maps/FlowerFields/scripts.pory"
 	removeitem ITEM_ORAN_BERRY, VAR_TEMP_2
 	goto TradeBerriesMain_8
 
 TradeBerriesMain_17:
-# 301 "data/maps/FlowerFields/scripts.pory"
+# 299 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_1, 0
-# 302 "data/maps/FlowerFields/scripts.pory"
+# 300 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_2, 0
-# 303 "data/maps/FlowerFields/scripts.pory"
+# 301 "data/maps/FlowerFields/scripts.pory"
 	goto ZeBagIsFull
 	goto TradeBerriesMain_16
 
 TradeBerriesMain_20:
-# 312 "data/maps/FlowerFields/scripts.pory"
+# 310 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_1, 0
-# 313 "data/maps/FlowerFields/scripts.pory"
+# 311 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_2, 0
-# 314 "data/maps/FlowerFields/scripts.pory"
+# 312 "data/maps/FlowerFields/scripts.pory"
 	goto ZeBagIsFull
 	goto TradeBerriesMain_19
 
 
 TradeBerriesGoodbye::
-# 324 "data/maps/FlowerFields/scripts.pory"
+# 322 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_1, 0
-# 325 "data/maps/FlowerFields/scripts.pory"
+# 323 "data/maps/FlowerFields/scripts.pory"
 	setvar VAR_TEMP_2, 0
-# 326 "data/maps/FlowerFields/scripts.pory"
+# 324 "data/maps/FlowerFields/scripts.pory"
 	msgbox ComeTradeWhenGetMoreBerries, MSGBOX_NPC
-# 327 "data/maps/FlowerFields/scripts.pory"
+# 325 "data/maps/FlowerFields/scripts.pory"
 	goto_if_set FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_START, TradeBerriesGoodbye_3
 TradeBerriesGoodbye_1:
 	end
 
 TradeBerriesGoodbye_2:
-# 328 "data/maps/FlowerFields/scripts.pory"
+# 326 "data/maps/FlowerFields/scripts.pory"
 	completequest FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_COMPLETE
-# 329 "data/maps/FlowerFields/scripts.pory"
+# 327 "data/maps/FlowerFields/scripts.pory"
 	special ShowJournalPopupRemove
 	goto TradeBerriesGoodbye_1
 
 TradeBerriesGoodbye_3:
-# 327 "data/maps/FlowerFields/scripts.pory"
+# 325 "data/maps/FlowerFields/scripts.pory"
 	goto_if_unset FLAG_Q09_FLOWER_FIELDS_BERRYTRADE_COMPLETE, TradeBerriesGoodbye_2
 	goto TradeBerriesGoodbye_1
 
@@ -619,11 +615,11 @@ FlowerFields_Combee_Text_0:
 	.string "Bzzz!$"
 
 FlowerFields_Granbull_Text_0:
-# 247 "data/maps/FlowerFields/scripts.pory"
+# 245 "data/maps/FlowerFields/scripts.pory"
 	.string "Grr…$"
 
 FlowerFields_Granbull_Text_1:
-# 253 "data/maps/FlowerFields/scripts.pory"
+# 251 "data/maps/FlowerFields/scripts.pory"
 	.string "Grr!$"
 
 GranbullBeingRowdy::
@@ -691,12 +687,12 @@ CombeeFliesAway::
 	.string "for the Combee to escape.$"
 
 HereToTradeMoreBerries::
-# 333 "data/maps/FlowerFields/scripts.pory"
+# 331 "data/maps/FlowerFields/scripts.pory"
 	.string "Have you come to trade\n"
 	.string "Oran Berries?$"
 
 GotAnyOranBerries::
-# 336 "data/maps/FlowerFields/scripts.pory"
+# 334 "data/maps/FlowerFields/scripts.pory"
 	.string "While my Pokémon mainly eat honey,\n"
 	.string "they absolutely adore Oran Berries!\p"
 	.string "Do you have any Oran Berries you\n"
@@ -705,27 +701,27 @@ GotAnyOranBerries::
 	.string "for each Oran Berry.$"
 
 TradeHowManyBerries::
-# 343 "data/maps/FlowerFields/scripts.pory"
+# 341 "data/maps/FlowerFields/scripts.pory"
 	.string "How many berries would you\n"
 	.string "like to trade?$"
 
 TradeBerriesForHoney_Text_Single::
-# 346 "data/maps/FlowerFields/scripts.pory"
+# 344 "data/maps/FlowerFields/scripts.pory"
 	.string "One Oran Berry for two jars of honey.\p"
 	.string "Is that trade okay?$"
 
 TradeBerriesForHoney_Text_Multiple::
-# 349 "data/maps/FlowerFields/scripts.pory"
+# 347 "data/maps/FlowerFields/scripts.pory"
 	.string "{STR_VAR_1} berries for {STR_VAR_2} jars\n"
 	.string "of honey.\p"
 	.string "Is that trade okay?$"
 
 ComeTradeWhenGetMoreBerries::
-# 353 "data/maps/FlowerFields/scripts.pory"
+# 351 "data/maps/FlowerFields/scripts.pory"
 	.string "If you ever need any honey,\n"
 	.string "you can find me here.$"
 
 Route8_HoneyTrader_DontHaveBerries::
-# 356 "data/maps/FlowerFields/scripts.pory"
+# 354 "data/maps/FlowerFields/scripts.pory"
 	.string "Hm… You don't seem to be carrying\n"
 	.string "any Oran Berries…$"

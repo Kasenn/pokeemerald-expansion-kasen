@@ -450,7 +450,7 @@ Devon_FossilMonReady::
 # 180 "data/maps/RustboroCity_DevonCorp_2F/scripts.pory"
 	msgbox FossilBroughtBackToLife, MSGBOX_DEFAULT
 # 181 "data/maps/RustboroCity_DevonCorp_2F/scripts.pory"
-	givemon VAR_TEMP_TRANSFERRED_SPECIES, 20
+	givemon VAR_TEMP_TRANSFERRED_SPECIES, 20, shinyMode = SHINY_MODE_RANDOM
 # 182 "data/maps/RustboroCity_DevonCorp_2F/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_TEMP_TRANSFERRED_SPECIES
 # 183 "data/maps/RustboroCity_DevonCorp_2F/scripts.pory"
