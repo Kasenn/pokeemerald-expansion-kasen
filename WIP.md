@@ -1,6 +1,7 @@
 ENSURE THAT ALL PLAYER SPRITES WORK!!!
 CONTEST SPRITES
 fix slot machine rng + add quest to manip them
+eventually fix song instruments
 
 eventual redesigns:
 move trainers out of route 1?
@@ -20,6 +21,7 @@ add tide to route 3
 add park or something to aldeleaf
 add rival or brother fight to somewhere near skyloch
 add something extra in sandstone city?
+nurse trainers that heal, especially north of amberock
 fishing contest in fishing village??
 add some extra exploration stuff in frosthearth city
 	ice rink with daily trainers??
