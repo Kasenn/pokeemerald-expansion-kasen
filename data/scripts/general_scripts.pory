@@ -551,8 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    applymovement(LOCALID_PLAYER, moves(emote_double_exclamation_mark))
-    waitmovement(0)
+    trainerbattle_no_intro(TRAINER_UNUSED_54_, "asd")
     return
 }
 script Debug_Script_4{
