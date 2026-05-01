@@ -271,7 +271,8 @@ Blurose's DPPt Bike
 Ghoulslash follow me, edited by Bivurnum
 
 Graphics:
-hyo-oppa's ORAS Brendan & May trainer front & trainer back pics, Emerald Brendan & May front pic
+hyo-oppa's ORAS Brendan & May trainer front pics, Emerald Brendan & May front pics
+Solo993's & Kyuzee's ORAS Brendan & May back pics
 Kyledove's RS Brendan & May front pics
 
 Music MIDIs:

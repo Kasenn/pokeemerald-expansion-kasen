@@ -291,6 +291,9 @@ const u16 gTrainerPalette_BW_ACE_TRAINER_F_SWIMMER[] = INCBIN_U16("graphics/trai
 const u32 gTrainerFrontPic_Drayden[] = INCBIN_U32("graphics/trainers/front_pics/drayden.4bpp.smol");
 const u16 gTrainerPalette_Drayden[] = INCBIN_U16("graphics/trainers/front_pics/drayden.gbapal");
 
+const u32 gTrainerFrontPic_FairyTaleGirl[] = INCBIN_U32("graphics/trainers/front_pics/fairy_tale_girl.4bpp.smol");
+const u16 gTrainerPalette_FairyTaleGirl[] = INCBIN_U16("graphics/trainers/front_pics/fairy_tale_girl.gbapal");
+
 const u32 gTrainerFrontPic_IrisCasual[] = INCBIN_U32("graphics/trainers/front_pics/iris_casual.4bpp.smol");
 const u16 gTrainerPalette_IrisCasual[] = INCBIN_U16("graphics/trainers/front_pics/iris_casual.gbapal");
 
@@ -1353,6 +1356,10 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_DRAYDEN] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Drayden, gTrainerPalette_Drayden),
+    },
+    [TRAINER_PIC_FAIRY_TALE_GIRL] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_FairyTaleGirl, gTrainerPalette_FairyTaleGirl),
     },
     [TRAINER_PIC_IRIS_CASUAL] =
     {

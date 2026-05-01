@@ -388,7 +388,7 @@ const struct TrainerClass gTrainerClasses[TRAINER_CLASS_COUNT] =
     [TRAINER_CLASS_SWIMMERS]         = { _("Swimmers"), 17},
     [TRAINER_CLASS_SENIOR]        = { _("Senior"), 2},
     [TRAINER_CLASS_JUNIOR]        = { _("Junior"), 2},
-
+    [TRAINER_CLASS_FAIRY_TALE_GIRL]       = { _("Fairy Tale Girl"), 2},
 
     [TRAINER_CLASS_YOUNGSTER_FRLG] =       { _("YOUNGSTER"), 4 },
     [TRAINER_CLASS_BUG_CATCHER_FRLG] =     { _("BUG CATCHER"), 3 },

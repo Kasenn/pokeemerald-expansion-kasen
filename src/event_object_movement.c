@@ -698,6 +698,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Latios,             OBJ_EVENT_PAL_LATIOS},
     {gObjectEventPalette_LatiosShiny,        OBJ_EVENT_PAL_LATIOS_SHINY},
     {gObjectEventPalette_LatiBall,        OBJ_EVENT_PAL_LATI_BALL},
+    {gObjectEventPalette_FairyTaleGirl,     OBJ_EVENT_PAL_TAG_FAIRY_TALE_GIRL},
     ZOBJ(SHORESLATE_WINDOW1),
     {NULL,                                  OBJ_EVENT_PAL_TAG_NONE},
 };

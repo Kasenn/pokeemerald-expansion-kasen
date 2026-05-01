@@ -94,10 +94,15 @@
 
 #define LASS                                                    \
     .trainerClass = TRAINER_CLASS_LASS,                         \
-    .gender = FEMALE,   \
- .encounterMusic =                 \
-                             TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
+    .gender = FEMALE,                                           \
+ .encounterMusic = TRAINER_ENCOUNTER_MUSIC_FEMALE,              \
     .trainerPic = TRAINER_PIC_LASS
+
+#define FAIRY_TALE_GIRL                                         \
+    .trainerClass = TRAINER_CLASS_FAIRY_TALE_GIRL,              \
+    .gender = FEMALE,                                           \
+    .encounterMusic = TRAINER_ENCOUNTER_MUSIC_FEMALE,           \
+    .trainerPic = TRAINER_PIC_FAIRY_TALE_GIRL
 
 #define BLACK_BELT                                              \
     .trainerClass = TRAINER_CLASS_BLACK_BELT,                   \
@@ -118,9 +123,8 @@
 
 #define LADY                                                    \
     .trainerClass = TRAINER_CLASS_LADY,                         \
-    .gender = FEMALE,   \
- .encounterMusic =                 \
-                             TRAINER_ENCOUNTER_MUSIC_FEMALE,    \
+    .gender = FEMALE,                                           \
+    .encounterMusic = TRAINER_ENCOUNTER_MUSIC_FEMALE,           \
     .trainerPic = TRAINER_PIC_LADY
 
 #define TEAM_ROCKET_M                                           \
@@ -1068,7 +1072,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R19_PICNICKER] =       {EBP, PICNICKER,    BASIC_AI,       NAME("Cyndy"),          TPARTY(sParty_TRAINER_R19_PICNICKER)},
     [TRAINER_R19_SWIMMER_M4] =      {EBP, SWIMMER_M,    BASIC_AI,       NAME("Jared"),          TPARTY(sParty_TRAINER_R19_SWIMMER_M4)},
 
-    [TRAINER_UNUSED_54_] = {},
+    [TRAINER_UNUSED_54_] = {FAIRY_TALE_GIRL, BASIC_AI, NAME("Asd"), TPARTY(sParty_TRAINER_R19_SWIMMER_M4)},
     [TRAINER_UNUSED_225_] = {},
     [TRAINER_UNUSED_226_] = {},
     [TRAINER_UNUSED_227_] = {},

@@ -222,6 +222,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AggronMount
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gen4_Breeder_F;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Breeder;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Drayden;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_FairyTaleGirl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Window;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Railing;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Megaman;
@@ -880,6 +881,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GEN4_BREEDER_F] =                &gObjectEventGraphicsInfo_Gen4_Breeder_F,
     [OBJ_EVENT_GFX_BREEDER] =                       &gObjectEventGraphicsInfo_Breeder,
     [OBJ_EVENT_GFX_DRAYDEN] =                       &gObjectEventGraphicsInfo_Drayden,
+    [OBJ_EVENT_GFX_FAIRY_TALE_GIRL] =                       &gObjectEventGraphicsInfo_FairyTaleGirl,
     [OBJ_EVENT_GFX_WINDOW] =                       &gObjectEventGraphicsInfo_Window,
     [OBJ_EVENT_GFX_RAILING] =                       &gObjectEventGraphicsInfo_Railing,
     [OBJ_EVENT_GFX_FLAG] =                          &gObjectEventGraphicsInfo_Flag,
