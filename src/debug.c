@@ -5135,6 +5135,7 @@ static void DebugAction_Party_BattleSingle(u8 taskId)
     CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_0], &sDebugTrainers[DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
     CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_1], GetDebugAiTrainer(), FALSE, BATTLE_TYPE_TRAINER);
 
+    VarSet(VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST);
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;
     if (sDebugTrainers[DEBUG_TRAINER_AI].battleType == TRAINER_BATTLE_TYPE_DOUBLES)
         gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;

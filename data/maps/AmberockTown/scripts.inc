@@ -1677,11 +1677,11 @@ Amberock_SetPlayerModel::
 # 1043 "data/maps/AmberockTown/scripts.pory"
 	switch VAR_CHOSEN_OUTFIT
 # 1044 "data/maps/AmberockTown/scripts.pory"
-	case 0, Amberock_SetPlayerModel_10
+	case OUTFIT_RUBYSAPPHIRE, Amberock_SetPlayerModel_10
 # 1046 "data/maps/AmberockTown/scripts.pory"
-	case 1, Amberock_SetPlayerModel_11
+	case OUTFIT_EMERALD, Amberock_SetPlayerModel_11
 # 1048 "data/maps/AmberockTown/scripts.pory"
-	case 2, Amberock_SetPlayerModel_12
+	case OUTFIT_ORAS, Amberock_SetPlayerModel_12
 Amberock_SetPlayerModel_1:
 	return
 
@@ -1689,11 +1689,11 @@ Amberock_SetPlayerModel_2:
 # 1033 "data/maps/AmberockTown/scripts.pory"
 	switch VAR_CHOSEN_OUTFIT
 # 1034 "data/maps/AmberockTown/scripts.pory"
-	case 0, Amberock_SetPlayerModel_6
+	case OUTFIT_RUBYSAPPHIRE, Amberock_SetPlayerModel_6
 # 1036 "data/maps/AmberockTown/scripts.pory"
-	case 1, Amberock_SetPlayerModel_7
+	case OUTFIT_EMERALD, Amberock_SetPlayerModel_7
 # 1038 "data/maps/AmberockTown/scripts.pory"
-	case 2, Amberock_SetPlayerModel_8
+	case OUTFIT_ORAS, Amberock_SetPlayerModel_8
 	goto Amberock_SetPlayerModel_1
 
 Amberock_SetPlayerModel_6:
@@ -1749,13 +1749,13 @@ SetSittingPlayerModel::
 # 1076 "data/maps/AmberockTown/scripts.pory"
 	switch VAR_CHOSEN_OUTFIT
 # 1077 "data/maps/AmberockTown/scripts.pory"
-	case 0, SetSittingPlayerModel_11
+	case OUTFIT_RUBYSAPPHIRE, SetSittingPlayerModel_11
 # 1079 "data/maps/AmberockTown/scripts.pory"
-	case 1, SetSittingPlayerModel_12
+	case OUTFIT_EMERALD, SetSittingPlayerModel_12
 # 1081 "data/maps/AmberockTown/scripts.pory"
-	case 2, SetSittingPlayerModel_13
+	case OUTFIT_ORAS, SetSittingPlayerModel_13
 # 1083 "data/maps/AmberockTown/scripts.pory"
-	case 3, SetSittingPlayerModel_14
+	case OUTFIT_CONTEST, SetSittingPlayerModel_14
 SetSittingPlayerModel_1:
 	return
 
@@ -1763,13 +1763,13 @@ SetSittingPlayerModel_2:
 # 1064 "data/maps/AmberockTown/scripts.pory"
 	switch VAR_CHOSEN_OUTFIT
 # 1065 "data/maps/AmberockTown/scripts.pory"
-	case 0, SetSittingPlayerModel_6
+	case OUTFIT_RUBYSAPPHIRE, SetSittingPlayerModel_6
 # 1067 "data/maps/AmberockTown/scripts.pory"
-	case 1, SetSittingPlayerModel_7
+	case OUTFIT_EMERALD, SetSittingPlayerModel_7
 # 1069 "data/maps/AmberockTown/scripts.pory"
-	case 2, SetSittingPlayerModel_8
+	case OUTFIT_ORAS, SetSittingPlayerModel_8
 # 1071 "data/maps/AmberockTown/scripts.pory"
-	case 3, SetSittingPlayerModel_9
+	case OUTFIT_CONTEST, SetSittingPlayerModel_9
 	goto SetSittingPlayerModel_1
 
 SetSittingPlayerModel_6:

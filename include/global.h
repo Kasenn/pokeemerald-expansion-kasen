@@ -27,14 +27,6 @@
 #include "config/save.h"
 #include "trainer_card.h"
 
-enum {
-    OUTFIT_RUBYSAPPHIRE,
-    OUTFIT_EMERALD,
-    OUTFIT_ORAS,
-    OUTFIT_CONTEST,
-    OUTFIT_COUNT,
-};
-
 #define QUEST_COUNT     80
 
 #define TRAINER_SCRIPT(trainer)                                \

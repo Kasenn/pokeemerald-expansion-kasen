@@ -31,6 +31,8 @@ extern const u32 gTrainerFrontPic_Empty[];
 
 extern const u16 gTrainerPalette_BrendanContest[];
 extern const u16 gTrainerPalette_MayContest[];
+extern const u16 gTrainerPaletteBackpic_BrendanContest[];
+extern const u16 gTrainerPaletteBackpic_MayContest[];
 extern const u32 gTrainerFrontPic_MayContest[];
 extern const u32 gTrainerFrontPic_BrendanContest[];
 

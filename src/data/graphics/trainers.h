@@ -349,10 +349,14 @@ const u16 gTrainerPalette_BWAceTrainerF[] = INCBIN_U16("graphics/trainers/front_
 
 const u32 gTrainerFrontPic_MayOras[] = INCBIN_U32("graphics/trainers/front_pics/may_oras.4bpp.smol");
 const u16 gTrainerPalette_MayOras[] = INCBIN_U16("graphics/trainers/front_pics/may_oras.gbapal");
+const u16 gTrainerPaletteBackpic_MayOras[] = INCBIN_U16("graphics/trainers/back_pics/may_oras.gbapal");
 
 const u32 gTrainerFrontPic_BrendanOras[] = INCBIN_U32("graphics/trainers/front_pics/brendan_oras.4bpp.smol");
 const u16 gTrainerPalette_BrendanOras[] = INCBIN_U16("graphics/trainers/front_pics/brendan_oras.gbapal");
+const u16 gTrainerPaletteBackpic_BrendanOras[] = INCBIN_U16("graphics/trainers/back_pics/brendan_oras.gbapal");
 
+const u16 gTrainerPaletteBackpic_BrendanContest[] =    INCBIN_U16("graphics/trainers/back_pics/brendan_contest.gbapal");
+const u16 gTrainerPaletteBackpic_MayContest[] =    INCBIN_U16("graphics/trainers/back_pics/may_contest.gbapal");
 const u16 gTrainerPalette_BrendanContest[] =    INCBIN_U16("graphics/trainers/front_pics/brendan_contest.gbapal");
 const u16 gTrainerPalette_MayContest[] =    INCBIN_U16("graphics/trainers/front_pics/may_contest.gbapal");
 const u32 gTrainerFrontPic_MayContest[] =   INCBIN_U32("graphics/trainers/front_pics/may_contest.4bpp.smol");
@@ -1408,12 +1412,12 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_MAY_ORAS] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_MayOras, gTrainerPalette_MayOras),
-        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_MayOras, gTrainerPalette_MayOras, sBackAnims_Hoenn)
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_MayOras, gTrainerPaletteBackpic_MayOras, sBackAnims_Hoenn)
     },
     [TRAINER_PIC_BRENDAN_ORAS] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_BrendanOras, gTrainerPalette_BrendanOras),
-        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_BrendanOras, gTrainerPalette_BrendanOras, sBackAnims_Hoenn)
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_BrendanOras, gTrainerPaletteBackpic_BrendanOras, sBackAnims_Hoenn)
     },
     [TRAINER_PIC_ACEROLA] =
     {
@@ -1426,11 +1430,11 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     [TRAINER_PIC_MAY_CONTEST] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_MayContest, gTrainerPalette_MayContest),
-        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_MayContest, gTrainerPalette_MayContest, sBackAnims_Hoenn)
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_MayContest, gTrainerPaletteBackpic_MayContest, sBackAnims_Hoenn)
     },
     [TRAINER_PIC_BRENDAN_CONTEST] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_BrendanContest, gTrainerPalette_BrendanContest),
-        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_BrendanContest, gTrainerPalette_BrendanContest, sBackAnims_Hoenn)
+        .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_BrendanContest, gTrainerPaletteBackpic_BrendanContest, sBackAnims_Hoenn)
     },
 };

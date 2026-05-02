@@ -180,6 +180,14 @@ enum ContestCategories
 
 #define MAX_STAMP_CARD_STAMPS 7
 
+enum {
+    OUTFIT_RUBYSAPPHIRE,
+    OUTFIT_EMERALD,
+    OUTFIT_ORAS,
+    OUTFIT_CONTEST,
+    OUTFIT_COUNT,
+};
+
 enum Gender
 {
     MALE,

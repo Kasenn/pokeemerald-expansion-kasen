@@ -269,28 +269,28 @@ WardrobeMain_18:
 
 WardrobeMain_21:
 # 174 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_RUBYSAPPHIRE
 # 175 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_22:
 # 177 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_EMERALD
 # 178 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_23:
 # 180 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_ORAS
 # 181 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_24:
 # 183 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 3
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST
 # 184 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
@@ -304,28 +304,28 @@ WardrobeMain_25:
 
 WardrobeMain_27:
 # 205 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_RUBYSAPPHIRE
 # 206 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_28:
 # 208 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_EMERALD
 # 209 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_29:
 # 211 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_ORAS
 # 212 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4
 
 WardrobeMain_30:
 # 214 "data/maps/Sandstone_SmallHouse1/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 3
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST
 # 215 "data/maps/Sandstone_SmallHouse1/scripts.pory"
 	closemessage
 	goto WardrobeMain_4

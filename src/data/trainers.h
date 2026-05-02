@@ -2030,7 +2030,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     {
     .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
+        .trainerPic = TRAINER_PIC_BRENDAN_CONTEST,
         .trainerName = _("grunt"),
         .items = {},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,
@@ -4390,7 +4390,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     {
     .trainerClass = TRAINER_CLASS_TEAM_ROCKET,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_AQUA,
-        .trainerPic = TRAINER_PIC_AQUA_GRUNT_M,
+        .trainerPic = TRAINER_PIC_MAY_CONTEST,
         .trainerName = _("grunt"),
         .items = {},
         .battleType = TRAINER_BATTLE_TYPE_SINGLES,

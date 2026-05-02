@@ -66,7 +66,7 @@ static const u8* const sTrainerSlides[TRAINER_PARTNER(PARTNER_COUNT)][TRAINER_SL
     [TRAINER_BTUN_BROCK] =  {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("Not bad, but this is the end!{PAUSE 90}")},
     [TRAINER_LEADER_BLAINE] =           {[TRAINER_SLIDE_MEGA_EVOLUTION] = COMPOUND_STRING("This battle has gone on for too long.\nIt's time to end it.{PAUSE 90}")},
     [TRAINER_LEADER_JASMINE] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("We're not giving up just yet!{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}")},
-    [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("{PAUSE_MUSIC}Let's see how you deal with this!{PAUSE 90}")},
+    [TRAINER_BROTHER_6_ROUTE20] =          {[TRAINER_SLIDE_LAST_SWITCHIN] = COMPOUND_STRING("{PAUSE_MUSIC}{PLAY_BGM MUS_DUMMY}Let's see how you deal with this!{PAUSE 90}")},
 };
 
 static const u8* const sFrontierTrainerSlides[FRONTIER_TRAINERS_COUNT][TRAINER_SLIDE_COUNT] = {};

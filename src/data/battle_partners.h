@@ -14,17 +14,17 @@
     {
         .trainerName = _("STEVEN"),
         .trainerClass = TRAINER_CLASS_RIVAL,
-        .trainerPic = TRAINER_PIC_STEVEN,
+        .trainerPic = TRAINER_PIC_MAY_CONTEST,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
             {
-            .species = SPECIES_RATTATA_OUTSIDER,
+            .species = SPECIES_SWAMPERT,
             .gender = TRAINER_MON_RANDOM_GENDER,
             EVS(0, 252, 252, 0, 6, 0),
             IVS(31, 31, 31, 31, 31, 31),
-            .lvl = 5,
+            .lvl = 45,
             .nature = NATURE_BRAVE,
             .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             .moves = {

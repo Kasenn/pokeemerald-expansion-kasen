@@ -7283,8 +7283,8 @@ static const struct TrainerMon sParty_Hector[] = {
 static const struct TrainerMon sParty_TabithaMossdeep[] = {
     {
     IVS_ALL(18),
-    .lvl = 5,
-    .species = SPECIES_GASTLY,
+    .lvl = 45,
+    .species = SPECIES_SWAMPERT,
     },
     {
     IVS_ALL(18),
@@ -10041,8 +10041,8 @@ static const struct TrainerMon sParty_Darcy[] = {
 static const struct TrainerMon sParty_MaxieMossdeep[] = {
     {
     IVS_ALL(18),
-    .lvl = 5,
-    .species = SPECIES_GASTLY,
+    .lvl = 45,
+    .species = SPECIES_BLAZIKEN,
     },
     {
     IVS_ALL(18),

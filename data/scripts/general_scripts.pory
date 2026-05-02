@@ -551,7 +551,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    trainerbattle_no_intro(TRAINER_UNUSED_54_, "asd")
+    setvar(VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST)
+    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)
     return
 }
 script Debug_Script_4{

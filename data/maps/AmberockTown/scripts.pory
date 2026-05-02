@@ -1031,21 +1031,21 @@ script Amberock_AcerolaEvent{
 script Amberock_SetPlayerModel{
     if(checkplayergender == MALE){
         switch(var(VAR_CHOSEN_OUTFIT)){
-            case 0:
+            case OUTFIT_RUBYSAPPHIRE:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_NORMAL)
-            case 1:
+            case OUTFIT_EMERALD:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL)
-            case 2:
+            case OUTFIT_ORAS:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_NORMAL)
         }
     }
     else{
         switch(var(VAR_CHOSEN_OUTFIT)){
-            case 0:
+            case OUTFIT_RUBYSAPPHIRE:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_NORMAL)
-            case 1:
+            case OUTFIT_EMERALD:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_NORMAL)
-            case 2:
+            case OUTFIT_ORAS:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_NORMAL)
         }
     }
@@ -1062,25 +1062,25 @@ script SetPlayerKrokorokModel{
 script SetSittingPlayerModel{
     if(checkplayergender == MALE){
         switch(var(VAR_CHOSEN_OUTFIT)){
-            case 0:
+            case OUTFIT_RUBYSAPPHIRE:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_RS_RIDE)
-            case 1:
+            case OUTFIT_EMERALD:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_BRENDAN_SURFING)
-            case 2:
+            case OUTFIT_ORAS:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_ORAS_RIDE)
-            case 3:
+            case OUTFIT_CONTEST:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_BRENDAN_CONTEST_RIDE)
         }
     }
     else{
         switch(var(VAR_CHOSEN_OUTFIT)){
-            case 0:
+            case OUTFIT_RUBYSAPPHIRE:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_RS_RIDE)
-            case 1:
+            case OUTFIT_EMERALD:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_RIVAL_MAY_SURFING)
-            case 2:
+            case OUTFIT_ORAS:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_ORAS_RIDE)
-            case 3:
+            case OUTFIT_CONTEST:
                 setvar(VAR_OBJ_GFX_ID_1, OBJ_EVENT_GFX_MAY_CONTEST_RIDE)
         }
     }

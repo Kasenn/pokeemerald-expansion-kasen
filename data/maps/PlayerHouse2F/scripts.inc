@@ -330,28 +330,28 @@ PlayerWardrobe_17:
 
 PlayerWardrobe_20:
 # 165 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_RUBYSAPPHIRE
 # 166 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_21:
 # 168 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_EMERALD
 # 169 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_22:
 # 171 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_ORAS
 # 172 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_23:
 # 174 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 3
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST
 # 175 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
@@ -363,28 +363,28 @@ PlayerWardrobe_24:
 
 PlayerWardrobe_26:
 # 195 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 0
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_RUBYSAPPHIRE
 # 196 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_27:
 # 198 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 1
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_EMERALD
 # 199 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_28:
 # 201 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 2
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_ORAS
 # 202 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
 
 PlayerWardrobe_29:
 # 204 "data/maps/PlayerHouse2F/scripts.pory"
-	setvar VAR_CHOSEN_OUTFIT, 3
+	setvar VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST
 # 205 "data/maps/PlayerHouse2F/scripts.pory"
 	goto ChangePlayerOutfit
 	return
