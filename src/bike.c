@@ -47,7 +47,6 @@ static void AcroBikeTransition_WheelieLoweringMoving(enum Direction);
 static void AcroBikeTransition_Downhill(enum Direction);
 static void AcroBikeTransition_Uphill(enum Direction);
 static void AcroBike_TryHistoryUpdate(u16, u16);
-static u8 AcroBike_GetJumpDirection(void);
 static void Bike_UpdateDirTimerHistory(enum Direction);
 static void Bike_UpdateABStartSelectHistory(u8);
 static enum Direction Bike_DPadToDirection(u16);
@@ -563,27 +562,9 @@ static enum AcroTransition AcroBikeHandleInputNormal(enum Direction *newDirectio
     }
     if (*newDirection == DIR_NONE)
     {
-        if (newKeys & B_BUTTON)
-        {
-            //We're standing still with the B button held.
-            //Do a wheelie.
-            *newDirection = direction;
-            gPlayerAvatar.runningState = NOT_MOVING;
-            gPlayerAvatar.acroBikeState = ACRO_STATE_WHEELIE_STANDING;
-            return ACRO_TRANS_NORMAL_TO_WHEELIE;
-        }
-        else
-        {
-            *newDirection = direction;
-            gPlayerAvatar.runningState = NOT_MOVING;
-            return ACRO_TRANS_FACE_DIRECTION;
-        }
-    }
-    if (*newDirection == direction && (heldKeys & B_BUTTON) && gPlayerAvatar.bikeSpeed == PLAYER_SPEED_STANDING)
-    {
-        gPlayerAvatar.bikeSpeed++;
-        gPlayerAvatar.acroBikeState = ACRO_STATE_WHEELIE_MOVING;
-        return ACRO_TRANS_WHEELIE_RISING_MOVING;
+        *newDirection = direction;
+        gPlayerAvatar.runningState = NOT_MOVING;
+        return ACRO_TRANS_FACE_DIRECTION;
     }
     if (*newDirection != direction && gPlayerAvatar.runningState != MOVING)
     {
@@ -612,25 +593,6 @@ static enum AcroTransition AcroBikeHandleInputTurning(enum Direction *newDirecti
         return ACRO_TRANS_TURN_DIRECTION;
     }
     direction = GetPlayerMovementDirection();
-    if (*newDirection == AcroBike_GetJumpDirection())
-    {
-        Bike_SetBikeStill(); // Bike_SetBikeStill sets speed to standing, but the next line immediately overrides it. could have just reset acroBikeState to 0 here instead of wasting a jump.
-        gPlayerAvatar.bikeSpeed = PLAYER_SPEED_NORMAL;
-        if (*newDirection == GetOppositeDirection(direction))
-        {
-            // do a turn jump.
-            // no need to update runningState, didnt move.
-            gPlayerAvatar.acroBikeState = ACRO_STATE_TURN_JUMP;
-            return ACRO_TRANS_TURN_JUMP;
-        }
-        else
-        {
-            // do a sideways jump.
-            gPlayerAvatar.runningState = MOVING; // we need to move, set state to moving.
-            gPlayerAvatar.acroBikeState = ACRO_STATE_SIDE_JUMP;
-            return ACRO_TRANS_SIDE_JUMP;
-        }
-    }
     *newDirection = direction;
     return ACRO_TRANS_FACE_DIRECTION;
 }
@@ -1112,41 +1074,6 @@ static void AcroBike_TryHistoryUpdate(u16 newKeys, u16 heldKeys) // newKeys is u
         Bike_UpdateABStartSelectHistory(direction);
         gPlayerAvatar.bikeSpeed = PLAYER_SPEED_STANDING;
     }
-}
-
-static bool8 HasPlayerInputTakenLongerThanList(const u8 *dirTimerList, const u8 *abStartSelectTimerList)
-{
-    u8 i;
-
-    for (i = 0; dirTimerList[i] != 0; i++)
-    {
-        if (gPlayerAvatar.dirTimerHistory[i] > dirTimerList[i])
-            return FALSE;
-    }
-    for (i = 0; abStartSelectTimerList[i] != 0; i++)
-    {
-        if (gPlayerAvatar.abStartSelectTimerHistory[i] > abStartSelectTimerList[i])
-            return FALSE;
-    }
-    return TRUE;
-}
-
-static u8 AcroBike_GetJumpDirection(void)
-{
-    u32 i;
-
-    for (i = 0; i < ARRAY_COUNT(sAcroBikeTricksList); i++)
-    {
-        const struct BikeHistoryInputInfo *historyInputInfo = &sAcroBikeTricksList[i];
-        u32 dirHistory = gPlayerAvatar.directionHistory;
-        u32 abStartSelectHistory = gPlayerAvatar.abStartSelectHistory;
-
-        dirHistory &= historyInputInfo->dirHistoryMask;
-        abStartSelectHistory &= historyInputInfo->abStartSelectHistoryMask;
-        if (dirHistory == historyInputInfo->dirHistoryMatch && abStartSelectHistory == historyInputInfo->abStartSelectHistoryMatch && HasPlayerInputTakenLongerThanList(historyInputInfo->dirTimerHistoryList, historyInputInfo->abStartSelectHistoryList))
-            return historyInputInfo->direction;
-    }
-    return 0;
 }
 
 static void Bike_UpdateDirTimerHistory(enum Direction dir)
