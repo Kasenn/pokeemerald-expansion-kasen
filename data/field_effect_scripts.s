@@ -105,7 +105,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_TracksSpotMud 			@ FLDEFF_TRACKS_SPOT_MUD
 	.4byte gFieldEffectScript_TracksBugMud 				@ FLDEFF_TRACKS_BUG_MUD
 	.4byte gFieldEffectScript_TracksSlitherMud         	@ FLDEFF_TRACKS_SLITHER_MUD
-
+	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -505,4 +505,8 @@ gFieldEffectScript_HallOfFameRecordFrlg::
 
 gFldEffScript_PhotoFlash::
 	field_eff_callnative FldEff_PhotoFlash
+	field_eff_end
+
+gFieldEffectScript_OWE_SpawnAnim::
+	field_eff_callnative FldEff_OWE_SpawnAnim
 	field_eff_end

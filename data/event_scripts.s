@@ -2440,3 +2440,4 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Crystalpine_SmallHouse_2/scripts.inc"
 
 	.include "data/maps/Nes/scripts.inc"
+	.include "data/scripts/wild_encounter.inc"

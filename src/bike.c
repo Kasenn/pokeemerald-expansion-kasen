@@ -9,6 +9,8 @@
 #include "oras_dowse.h"
 #include "overworld.h"
 #include "sound.h"
+#include "wild_encounter.h"
+#include "wild_encounter_ow.h"
 #include "constants/songs.h"
 #include "constants/items.h"
 

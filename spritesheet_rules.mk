@@ -1,8 +1,4 @@
-POKEMONGFXDIR := graphics/pokemon
 OBJEVENTGFXDIR := graphics/object_events/pics
-FLDEFFGFXDIR := graphics/field_effects/pics
-BATINTGFXDIR := graphics/battle_interface
-MISCGFXDIR := graphics/misc
 
 $(OBJEVENTGFXDIR)/pokemon/latias.4bpp: %.4bpp: %.png
 	$(GFX) $< $@ -mwidth 4 -mheight 4
