@@ -552,7 +552,6 @@ script Debug_Script_2{              //
 }
 script Debug_Script_3{
     setvar(VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST)
-    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)
     return
 }
 script Debug_Script_4{
