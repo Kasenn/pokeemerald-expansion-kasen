@@ -52,6 +52,10 @@ mapscripts FrostfireCity_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_TEMP_5, 1: FrosthearthBottleCapReward
     ]
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_DUMMY)
+    }
+
 }
 
 script FrostHearth_Sign1{

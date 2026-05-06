@@ -1,5 +1,8 @@
 mapscripts FishingVillage_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: FishingVillage_DespawnBrother
+    MAP_SCRIPT_ON_RESUME{
+        setstepcallback(STEP_CB_DUMMY)
+    }
 }
 
 script FishingVillage_DespawnBrother{

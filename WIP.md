@@ -3,10 +3,7 @@ CONTEST SPRITES
 fix slot machine rng + add quest to manip them
 eventually fix song instruments
 
-fix contest brendan animations
 fix contest brendan backpic
-fix lighting in frosthearth city
-fix fishing encounters
 
 eventual redesigns:
 move trainers out of route 1?

@@ -773,10 +773,10 @@ const u32 gObjectEventPic_BrendanFishingContest[] =          INCGFX_U32("graphic
 const u32 gObjectEventPic_BrendanContest_Watering[] =         INCGFX_U32("graphics/object_events/pics/people/brendan/contest/watering.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u32 gObjectEventPic_BrendanContest_Fertilizing[] =      INCGFX_U32("graphics/object_events/pics/people/brendan/contest/fertilizing.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u32 gObjectEventPic_BrendanContest_RockClimb[] =     INCGFX_U32("graphics/object_events/pics/people/brendan/contest/rock_climbing.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_BrendanContestSnow4Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanRSSnow4Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_BrendanContestSnow6Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanRSSnow6Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_BrendanContestSnow8Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanRSSnow8Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_BrendanContestSnow10Px[] =         INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanRSSnow10Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_BrendanContestSnow4Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanSnow4Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_BrendanContestSnow6Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanSnow6Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_BrendanContestSnow8Px[] =          INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanSnow8Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_BrendanContestSnow10Px[] =         INCGFX_U32("graphics/object_events/pics/people/brendan/contest/BrendanSnow10Px.png", ".4bpp", "-mwidth 4 -mheight 4");
 
 const u32 gObjectEventPic_MayNormalRunningContest[] =        INCBIN_U32("graphics/object_events/pics/people/may/contest/walking.4bpp", "graphics/object_events/pics/people/may/contest/running.4bpp");
 const u32 gObjectEventPic_MayBikeContest[] =                 INCGFX_U32("graphics/object_events/pics/people/may/contest/acro_bike.png", ".4bpp", "-mwidth 4 -mheight 4");

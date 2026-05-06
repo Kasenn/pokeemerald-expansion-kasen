@@ -39,7 +39,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name = {    \
 };
 
 
-#define PLAYER_OBJECT_BIKE(palette, picTable)   \
+#define PLAYER_OBJECT_BIKE(palette, picTable, animation)   \
 .tileTag = TAG_NONE,                            \
 .paletteTag = palette,                          \
 .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
@@ -53,11 +53,11 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name = {    \
 .tracks = TRACKS_BIKE_TIRE,                     \
 .oam = &gObjectEventBaseOam_32x32,              \
 .subspriteTables = sOamTables_32x32,            \
-.anims = sAnimTable_Bike,                       \
+.anims = animation,                             \
 .images = picTable,                             \
 .affineAnims = gDummySpriteAffineAnimTable,
 
-#define PLAYER_OBJECT_SURF(palette, picTable)   \
+#define PLAYER_OBJECT_SURF(palette, picTable, animation)   \
 .tileTag = TAG_NONE,                            \
 .paletteTag = palette,                          \
 .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
@@ -71,7 +71,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name = {    \
 .tracks = TRACKS_FOOT,                          \
 .oam = &gObjectEventBaseOam_32x32,              \
 .subspriteTables = sOamTables_32x32,            \
-.anims = sAnimTable_Surfing,                    \
+.anims = animation,                             \
 .images = picTable,                             \
 .affineAnims = gDummySpriteAffineAnimTable,
 
@@ -99,8 +99,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_##name = {    \
 
 // OUTFIT_RS
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Normal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Bike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Surf, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_FieldMove, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Fishing, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Watering, sAnimTable_BrendanMayNormal)};
@@ -108,8 +108,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_Fertiliz
 
 // OUTFIT_EMERALD
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Normal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Bike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Surf, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_FieldMove, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Fishing, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN, sPicTable_BrendanEM_Watering, sAnimTable_BrendanMayNormal)};
@@ -117,21 +117,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanEM_Fertiliz
 
 // OUTFIT_ORAS
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Normal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Bike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Surf, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_FieldMove, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Fishing, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Watering, sAnimTable_BrendanMayNormal)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanORAS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_ORAS, sPicTable_BrendanORAS_Fertilizing, sAnimTable_BrendanMayNormal)};
 
 // OUTFIT_CONTEST
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Normal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Bike =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Bike, sAnimTable_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Normal, sAnimTable_BrendanMayNormalAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Bike, sAnimTable_BikeAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Surf, sAnimTable_SurfingAsymmetrical)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_FieldMove, sAnimTable_FieldMove)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fishing, sAnimTable_Fishing)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Watering, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fertilizing, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fishing, sAnimTable_FishingAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Watering, sAnimTable_BrendanMayNormalAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST, sPicTable_BrendanContest_Fertilizing, sAnimTable_BrendanMayNormalAsymmetrical)};
 
 ///////////////////
 ///     MAY     ///
@@ -139,8 +139,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanContest_Fer
 
 // OUTFIT_RS
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Normal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Surf)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Bike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Surf, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_FieldMove, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Fishing, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_RS, sPicTable_MayRS_Watering, sAnimTable_BrendanMayNormal)};
@@ -148,8 +148,8 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayRS_Fertilizing 
 
 // OUTFIT_EMERALD
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayNormal, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayAcroBike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MaySurfing)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayAcroBike, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Surfing =     {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MaySurfing, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayFieldMove, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayFishing, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY, sPicTable_MayWatering, sAnimTable_BrendanMayNormal)};
@@ -157,21 +157,21 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayEM_Fertilizing 
 
 // OUTFIT_ORAS
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Normal =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayNormalOras, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayAcroBikeOras)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MaySurfingOras)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Bike =        {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayAcroBikeOras, sAnimTable_Bike)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Surf =        {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MaySurfingOras, sAnimTable_Surfing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_FieldMove =   {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFieldMoveOras, sAnimTable_FieldMove)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Fishing =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFishingOras, sAnimTable_Fishing)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Watering =    {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayWateringOras, sAnimTable_BrendanMayNormal)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_MayORAS_Fertilizing = {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_MAY_ORAS, sPicTable_MayFertilizingOras, sAnimTable_BrendanMayNormal)};
 
 // OUTFIT_CONTEST
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_NORMAL =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayNormalContest, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_BIKE =            {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayBikeContest, sAnimTable_Bike)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_SURFING =         {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MaySurfingContest)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_NORMAL =          {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayNormalContest, sAnimTable_BrendanMayNormalAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_BIKE =            {PLAYER_OBJECT_BIKE(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayBikeContest, sAnimTable_BikeAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_SURFING =         {PLAYER_OBJECT_SURF(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MaySurfingContest, sAnimTable_SurfingAsymmetrical)};
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FIELD_MOVE =      {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFieldMoveContest, sAnimTable_FieldMove)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FISHING =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFishingContest, sAnimTable_Fishing)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_WATERING =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayWateringContest, sAnimTable_BrendanMayNormal)};
-const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FERTILIZING =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFertilizingContest, sAnimTable_BrendanMayNormal)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FISHING =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFishingContest, sAnimTable_FishingAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_WATERING =        {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayWateringContest, sAnimTable_BrendanMayNormalAsymmetrical)};
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_CONTEST_MAY_FERTILIZING =     {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_CONTEST_MAY, sPicTable_MayFertilizingContest, sAnimTable_BrendanMayNormalAsymmetrical)};
 
 /* SNOW SPRITES */
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_BrendanRS_4pxSnow =         {PLAYER_OBJECT_INFO(OBJ_EVENT_PAL_TAG_BRENDAN_RS, sPicTable_BrendanRS_Snow4Px, sAnimTable_BrendanMayNormal)};

@@ -2560,9 +2560,9 @@ static bool32 Fishing_ShowDots(struct Task *task)
             task->tFrameCounter = 0;
             if (task->tNumDots >= task->tDotsRequired)
             {
-                task->tStep = FISHING_GOT_BITE;
+                task->tStep = FISHING_CHECK_FOR_BITE;
                 if (task->tRoundsPlayed != 0)
-                    task->tStep = FISHING_GOT_BITE;
+                    task->tStep = FISHING_CHECK_FOR_BITE;
                 task->tRoundsPlayed++;
             }
             else
@@ -2861,7 +2861,7 @@ static void AlignFishingAnimationFrames(void)
             animCmdIndex--;
     }
     animType = playerSprite->anims[playerSprite->animNum][animCmdIndex].type;
-    if (animType == 1 || animType == 2 || animType == 3)
+    if (animType == 1 || animType == 2 || animType == 3 || animType == 13 || animType == 14 || animType == 15)
     {
         playerSprite->x2 = 8;
         if (GetPlayerFacingDirection() == 3)

@@ -21,6 +21,25 @@ static const struct SpriteFrameImage sPicTable_##name[] = { \
     overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
 };
 
+#define SURF_PICTABLE_ASYMMETRICAL(name)                                \
+static const struct SpriteFrameImage sPicTable_##name[] = { \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 0),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 2),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 4),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 0),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 0),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 2),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 2),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 4),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 4),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 1),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 3),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 6),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 6),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 7),       \
+};
+
 #define UNDERWATER_PICTABLE(name)                             \
 static const struct SpriteFrameImage sPicTable_##name[] = { \
     overworld_frame(gObjectEventPic_##name, 4, 4, 0),       \
@@ -45,6 +64,22 @@ static const struct SpriteFrameImage sPicTable_##name[] = { \
     overworld_frame(gObjectEventPic_##name, 4, 4, 3),       \
     overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
     overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
+};
+
+#define WATERING_PICTABLE_ASYMMETRICAL(name)                               \
+static const struct SpriteFrameImage sPicTable_##name[] = { \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 0),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 2),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 4),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 1),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 1),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 3),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 3),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 5),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 6),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 7),       \
+    overworld_frame(gObjectEventPic_##name, 4, 4, 7),       \
 };
 
 
@@ -2419,10 +2454,10 @@ static const struct SpriteFrameImage sPicTable_MayOrasSnow8Px[] =   {overworld_a
 static const struct SpriteFrameImage sPicTable_MayOrasSnow10Px[] =  {overworld_ascending_frames(gObjectEventPic_MayOrasSnow10Px, 4, 4)};
 
 // OUTFIT_CONTEST
-SURF_PICTABLE(BrendanContest_Surf)
-SURF_PICTABLE(BrendanContest_RockClimb)
-WATERING_PICTABLE(BrendanContest_Watering)
-WATERING_PICTABLE(BrendanContest_Fertilizing)
+SURF_PICTABLE_ASYMMETRICAL(BrendanContest_Surf)
+SURF_PICTABLE_ASYMMETRICAL(BrendanContest_RockClimb)
+WATERING_PICTABLE_ASYMMETRICAL(BrendanContest_Watering)
+WATERING_PICTABLE_ASYMMETRICAL(BrendanContest_Fertilizing)
 static const struct SpriteFrameImage sPicTable_BrendanContest_Normal[] =     {overworld_ascending_frames(gObjectEventPic_BrendanNormalRunningContest, 4, 4)};
 static const struct SpriteFrameImage sPicTable_BrendanContest_Bike[] =       {overworld_ascending_frames(gObjectEventPic_BrendanBikeContest, 4, 4)};
 static const struct SpriteFrameImage sPicTable_BrendanContest_FieldMove[] =  {overworld_ascending_frames(gObjectEventPic_BrendanFieldMoveContest, 4, 4)};
@@ -2432,10 +2467,10 @@ static const struct SpriteFrameImage sPicTable_BrendanContest_Snow6Px[] =    {ov
 static const struct SpriteFrameImage sPicTable_BrendanContest_Snow8Px[] =    {overworld_ascending_frames(gObjectEventPic_BrendanContestSnow8Px, 4, 4)};
 static const struct SpriteFrameImage sPicTable_BrendanContest_Snow10Px[] =   {overworld_ascending_frames(gObjectEventPic_BrendanContestSnow10Px, 4, 4)};
 
-SURF_PICTABLE(MaySurfingContest)
-SURF_PICTABLE(MayRockClimbingContest)
-WATERING_PICTABLE(MayWateringContest)
-WATERING_PICTABLE(MayFertilizingContest)
+SURF_PICTABLE_ASYMMETRICAL(MaySurfingContest)
+SURF_PICTABLE_ASYMMETRICAL(MayRockClimbingContest)
+WATERING_PICTABLE_ASYMMETRICAL(MayWateringContest)
+WATERING_PICTABLE_ASYMMETRICAL(MayFertilizingContest)
 static const struct SpriteFrameImage sPicTable_MayNormalContest[] =      {overworld_ascending_frames(gObjectEventPic_MayNormalRunningContest, 4, 4)};
 static const struct SpriteFrameImage sPicTable_MayBikeContest[] =        {overworld_ascending_frames(gObjectEventPic_MayBikeContest, 4, 4)};
 static const struct SpriteFrameImage sPicTable_MayFieldMoveContest[] =   {overworld_ascending_frames(gObjectEventPic_MayFieldMoveContest, 4, 4)};
