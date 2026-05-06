@@ -97,13 +97,13 @@ static const struct BgTemplate sBgTemplates[4] = {
     },
 };
 
-const u32 gLatiRide_Water_Gfx[]      = INCBIN_U32("graphics/cable_car/latiwater.4bpp.smol");
-const u32 gLatiRide_Cloud1_Left_Gfx[]      = INCBIN_U32("graphics/cable_car/cloud1.4bpp.smol");
-const u32 gLatiRide_Cloud1_Right_Gfx[]      = INCBIN_U32("graphics/cable_car/cloud2.4bpp.smol");
-const u32 gLatiRide_Cloud2_Left_Gfx[]      = INCBIN_U32("graphics/cable_car/cloud3.4bpp.smol");
-const u32 gLatiRide_Cloud2_Right_Gfx[]      = INCBIN_U32("graphics/cable_car/cloud4.4bpp.smol");
+const u32 gLatiRide_Water_Gfx[]      = INCGFX_U32("graphics/cable_car/latiwater.png", ".4bpp.smol");
+const u32 gLatiRide_Cloud1_Left_Gfx[]      = INCGFX_U32("graphics/cable_car/cloud1.png", ".4bpp.smol");
+const u32 gLatiRide_Cloud1_Right_Gfx[]      = INCGFX_U32("graphics/cable_car/cloud2.png", ".4bpp.smol");
+const u32 gLatiRide_Cloud2_Left_Gfx[]      = INCGFX_U32("graphics/cable_car/cloud3.png", ".4bpp.smol");
+const u32 gLatiRide_Cloud2_Right_Gfx[]      = INCGFX_U32("graphics/cable_car/cloud4.png", ".4bpp.smol");
 
-const u16 gLatiRide_Pal[]      = INCBIN_U16("graphics/cable_car/latiwater.gbapal");
+const u16 gLatiRide_Pal[]      = INCGFX_U16("graphics/cable_car/latiwater.png", ".gbapal");
 
 
 

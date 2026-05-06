@@ -893,7 +893,7 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
 
     EnableInterrupts(1);
     SetVBlankCallback(VBlankCB_MainMenu);
-    gIntroFrameCounter = gMain.vblankCounter1;
+    gIntroFrameCounter = 0xFFFFFFF0;
     SetMainCallback2(CB2_MainMenu);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_WIN0_ON | DISPCNT_OBJ_ON | DISPCNT_OBJ_1D_MAP);
     ShowBg(0);
@@ -1168,6 +1168,7 @@ static void Task_DisplayMainMenu(u8 taskId)
                 }
                 break;
         }
+        gIntroFrameCounter = gMain.vblankCounter1;
         gTasks[taskId].func = Task_HighlightSelectedMainMenuItem;
     }
 }

@@ -33,14 +33,14 @@
 #include "pokemon_summary_screen.h"
 #include "line_break.h"
 
-static const u32 gTMCase_Gfx[] = INCBIN_U32("graphics/tm_case/unk_8E845D8.4bpp.smol");
+static const u32 gTMCase_Gfx[] = INCGFX_U32("graphics/tm_case/unk_8E845D8.png", ".4bpp.smol");
 static const u32 gTMCaseMenu_Tilemap[] = INCBIN_U32("graphics/tm_case/unk_8E84A24.bin.smolTM");
-static const u16 gTMCaseMenu_Male_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84CB0.gbapal");
-static const u16 gTMCaseMenu_Female_Pal[] = INCBIN_U16("graphics/tm_case/unk_8E84D20.gbapal");
-static const u8 gTMCaseHM_Gfx[] = INCBIN_U8("graphics/tm_case/unk_8E99118.4bpp");
+static const u16 gTMCaseMenu_Male_Pal[] = INCGFX_U16("graphics/tm_case/unk_8E84CB0.pal", ".gbapal");
+static const u16 gTMCaseMenu_Female_Pal[] = INCGFX_U16("graphics/tm_case/unk_8E84D20.pal", ".gbapal");
+static const u8 gTMCaseHM_Gfx[] = INCGFX_U8("graphics/tm_case/unk_8E99118.png", ".4bpp");
 
-static const u8 sUI_Tiles[] = INCBIN_U8("graphics/interface/ui_learn_move.4bpp");
-static const u16 sUI_Pal[] = INCBIN_U16("graphics/interface/ui_learn_move.gbapal");
+static const u8 sUI_Tiles[] = INCGFX_U8("graphics/interface/ui_learn_move.png", ".4bpp");
+static const u16 sUI_Pal[] = INCGFX_U16("graphics/interface/ui_learn_move.png", ".gbapal");
 
 const u8 gText_TMCase[] =                      _("TM Case");
 static const u8 sText_Close[] =                _("Close");

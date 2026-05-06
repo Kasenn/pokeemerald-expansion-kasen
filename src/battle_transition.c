@@ -315,8 +315,9 @@ static const u32 sRegice_Tilemap[] = INCBIN_U32("graphics/battle_transitions/reg
 static const u32 sRegisteel_Tilemap[] = INCBIN_U32("graphics/battle_transitions/registeel.bin");
 static const u32 sRegirock_Tilemap[] = INCBIN_U32("graphics/battle_transitions/regirock.bin");
 
+static const u32 sZapdos_Tilemap[] = INCBIN_U32("graphics/battle_transitions/zapdos.bin");
 static const u32 sZapdos_Tileset[] = INCGFX_U32("graphics/battle_transitions/zapdos.png", ".4bpp.smol");
-static const u16 sZapdos_Palette[] = INCGFX_U16("graphics/battle_transitions/zapdos.pal", ".gbapal");
+static const u16 sZapdos_Palette[] = INCGFX_U16("graphics/battle_transitions/zapdos.png", ".gbapal");
 static const u16 sUnused_Palette[] = INCGFX_U16("graphics/battle_transitions/unused.pal", ".gbapal");
 static const u32 sKyogre_Tileset[] = INCGFX_U32("graphics/battle_transitions/kyogre.png", ".4bpp.smol");
 static const u32 sKyogre_Tilemap[] = INCBIN_U32("graphics/battle_transitions/kyogre.bin.smolTM");

@@ -714,14 +714,14 @@ const u32 gUnusedTilemap_BasicFrame[] = INCBIN_U32("graphics/unused/basic_frame.
 
 // Battle Interface
 
-const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/ball_status_bar.gbapal");
-const u16 gBattleInterface_BallStatusBarPal2[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_2.gbapal");
-const u16 gBattleInterface_BallStatusBarPal3[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_3.gbapal");
-const u16 gBattleInterface_BallStatusBarPal4[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_4.gbapal");
-const u16 gBattleInterface_BallStatusBarPal5[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_5.gbapal");
-const u16 gBattleInterface_BallStatusBarPal6[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_6.gbapal");
-const u16 gBattleInterface_BallStatusBarPal7[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_7.gbapal");
-const u16 gBattleInterface_BallStatusBarPal8[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_8.gbapal");
+const u16 gBattleInterface_BallStatusBarPal[] = INCGFX_U16("graphics/battle_interface/ball_status_bar.png", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal2[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_2.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal3[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_3.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal4[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_4.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal5[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_5.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal6[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_6.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal7[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_7.pal", ".gbapal");
+const u16 gBattleInterface_BallStatusBarPal8[] = INCGFX_U16("graphics/battle_interface/ball_status_bar_8.pal", ".gbapal");
 
 const u16 gBattleInterface_BallDisplayPal[] = INCGFX_U16("graphics/battle_interface/ball_display.png", ".gbapal");
 
@@ -1026,11 +1026,11 @@ const u16 gUnusedPal_Shadow[] = INCGFX_U16("graphics/unused/shadow.png", ".gbapa
 const u32 gBattleAnimSpriteGfx_LockOn[] = INCGFX_U32("graphics/battle_anims/sprites/lock_on.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_LockOn[] = INCGFX_U16("graphics/battle_anims/sprites/lock_on.png", ".gbapal");
 
-const u32 gBattleAnimSpriteGfx_Camera[] = INCBIN_U32("graphics/battle_anims/sprites/camera.4bpp.smol");
-const u16 gBattleAnimSpritePal_Camera[] = INCBIN_U16("graphics/battle_anims/sprites/camera.gbapal");
+const u32 gBattleAnimSpriteGfx_Camera[] = INCGFX_U32("graphics/battle_anims/sprites/camera.png", ".4bpp.smol");
+const u16 gBattleAnimSpritePal_Camera[] = INCGFX_U16("graphics/battle_anims/sprites/camera.png", ".gbapal");
 
-const u32 gBattleAnimSpriteGfx_OpeningEye[] = INCBIN_U32("graphics/battle_anims/sprites/opening_eye.4bpp.smol");
-const u16 gBattleAnimSpritePal_OpeningEye[] = INCBIN_U16("graphics/battle_anims/sprites/opening_eye.gbapal");
+const u32 gBattleAnimSpriteGfx_OpeningEye[] = INCGFX_U32("graphics/battle_anims/sprites/opening_eye.png", ".4bpp.smol");
+const u16 gBattleAnimSpritePal_OpeningEye[] = INCGFX_U16("graphics/battle_anims/sprites/opening_eye.png", ".gbapal");
 
 const u32 gBattleAnimSpriteGfx_RoundWhiteHalo[] = INCGFX_U32("graphics/battle_anims/sprites/round_white_halo.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_RoundWhiteHalo[] = INCGFX_U16("graphics/battle_anims/sprites/round_white_halo.png", ".gbapal");
@@ -1578,8 +1578,8 @@ const u32 gBattleAnimBgImage_MistyTerrain[] = INCGFX_U32("graphics/battle_anims/
 const u16 gBattleAnimBgPalette_MistyTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/misty_terrain.pal", ".gbapal");
 const u32 gBattleAnimBgTilemap_MistyTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/misty_terrain.bin.smolTM");
 #endif
-const u32 gBattleAnimBgImage_RockyTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/rocky_terrain.4bpp.smol");
-const u16 gBattleAnimBgPalette_RockyTerrain[] = INCBIN_U16("graphics/battle_anims/backgrounds/rocky_terrain.gbapal");
+const u32 gBattleAnimBgImage_RockyTerrain[] = INCGFX_U32("graphics/battle_anims/backgrounds/rocky_terrain.png", ".4bpp.smol");
+const u16 gBattleAnimBgPalette_RockyTerrain[] = INCGFX_U16("graphics/battle_anims/backgrounds/rocky_terrain.png", ".gbapal");
 const u32 gBattleAnimBgTilemap_RockyTerrain[] = INCBIN_U32("graphics/battle_anims/backgrounds/rocky_terrain.bin.smolTM");
 
 const u32 gBattleAnimBgImage_Nightmare[] = INCGFX_U32("graphics/battle_anims/backgrounds/nightmare.png", ".4bpp.smol");
@@ -1749,10 +1749,10 @@ const u32 gSummaryPage_BattleMoves_Tilemap[]  = INCBIN_U32("graphics/summary_scr
 const u32 gSummaryPage_ContestMoves_Tilemap[] = INCBIN_U32("graphics/summary_screen/page_contest_moves.bin.smolTM");
 const u32 gSummaryPage_InfoEgg_Tilemap[]      = INCBIN_U32("graphics/summary_screen/page_info_egg.bin.smolTM");
 
-const u32 gBagMaleTiles[] = INCBIN_U32("graphics/bag/bag_male.4bpp.smol");
-const u32 gBagFemaleTiles[] = INCBIN_U32("graphics/bag/bag_female.4bpp.smol");
-const u16 gBagPalette[] = INCBIN_U16("graphics/bag/bag.gbapal");
-const u16 gBagPaletteOras[] = INCBIN_U16("graphics/bag/bag_oras.gbapal");
+const u32 gBagMaleTiles[] = INCGFX_U32("graphics/bag/bag_male.png", ".4bpp.smol");
+const u32 gBagFemaleTiles[] = INCGFX_U32("graphics/bag/bag_female.png", ".4bpp.smol");
+const u16 gBagPalette[] = INCGFX_U16("graphics/bag/bag.pal", ".gbapal");
+const u16 gBagPaletteOras[] = INCGFX_U16("graphics/bag/bag_oras.pal", ".gbapal");
 
 const u16 gBagScreenMale_Pal[] = INCGFX_U16("graphics/bag/menu_male.pal", ".gbapal");
 const u16 gBagScreenFemale_Pal[] = INCGFX_U16("graphics/bag/menu_female.pal", ".gbapal");
@@ -1770,17 +1770,17 @@ const u32 gSwapLineGfx[] = INCGFX_U32("graphics/interface/swap_line.png", ".4bpp
 const u16 gSwapLinePal[] = INCGFX_U16("graphics/interface/swap_line.png", ".gbapal");
 
 //tx_registered_items_menu
-const u32 gSwapLineGfx_RegisteredItemsMenu[] = INCBIN_U32("graphics/interface/swap_line_tx.4bpp.smol");
+const u32 gSwapLineGfx_RegisteredItemsMenu[] = INCGFX_U32("graphics/interface/swap_line_tx.png", ".4bpp.smol");
 
-const u32 gShopMenu_Gfx[] = INCBIN_U32("graphics/shop/menu.4bpp.smol");
-const u16 gShopMenu_Pal[] = INCBIN_U16("graphics/shop/menu.gbapal");
+const u32 gShopMenu_Gfx[] = INCGFX_U32("graphics/shop/menu.png", ".4bpp.smol");
+const u16 gShopMenu_Pal[] = INCGFX_U16("graphics/shop/menu.png", ".gbapal");
 const u32 gShopMenu_Tilemap[] = INCBIN_U32("graphics/shop/menu.bin.smolTM");
-const u32 gShopMenuMoney_Gfx[] = INCBIN_U32("graphics/shop/money.4bpp.smol");
-const u32 gTime_Gfx[] = INCBIN_U32("graphics/shop/time.4bpp.smol");
-const u16 gTime_PalMale[] = INCBIN_U16("graphics/shop/time_male.gbapal");
-const u16 gTime_PalFemale[] = INCBIN_U16("graphics/shop/time_female.gbapal");
+const u32 gShopMenuMoney_Gfx[] = INCGFX_U32("graphics/shop/money.png", ".4bpp.smol");
+const u32 gTime_Gfx[] = INCGFX_U32("graphics/shop/time.png", ".4bpp.smol");
+const u16 gTime_PalMale[] = INCGFX_U16("graphics/shop/time_male.pal", ".gbapal");
+const u16 gTime_PalFemale[] = INCGFX_U16("graphics/shop/time_female.pal", ".gbapal");
 const u32 gShopMenu_Tilemap_MoveTutor[] = INCBIN_U32("graphics/shop/menu2.bin.smolTM");
-const u32 gShopMenu_Gfx_MoveTutor[] = INCBIN_U32("graphics/shop/menu2.4bpp.smol");
+const u32 gShopMenu_Gfx_MoveTutor[] = INCGFX_U32("graphics/shop/menu2.png", ".4bpp.smol");
 
 // Pokeblock
 
@@ -1973,10 +1973,10 @@ const u16 gEasyChatMode_Pal[] = INCGFX_U16("graphics/easy_chat/mode.png", ".gbap
 const u32 gEasyChatWindow_Gfx[] = INCGFX_U32("graphics/easy_chat/window.png", ".4bpp.smol"); // uses mode pal
 const u32 gEasyChatWindow_Tilemap[] = INCBIN_U32("graphics/easy_chat/window.bin.smolTM");
 
-const u16 gWallClockMale_Pal[]      = INCBIN_U16("graphics/wallclock/male.gbapal");
-const u16 gWallClockFemale_Pal[]    = INCBIN_U16("graphics/wallclock/female.gbapal");
-const u16 gWallClockTime_Pal[]    = INCBIN_U16("graphics/wallclock/time.gbapal");
-const u32 gWallClock_Gfx[]          = INCBIN_U32("graphics/wallclock/clock.4bpp.smol");
+const u16 gWallClockMale_Pal[]      = INCGFX_U16("graphics/wallclock/male.pal", ".gbapal");
+const u16 gWallClockFemale_Pal[]    = INCGFX_U16("graphics/wallclock/female.pal", ".gbapal");
+const u16 gWallClockTime_Pal[]    = INCGFX_U16("graphics/wallclock/time.pal", ".gbapal");
+const u32 gWallClock_Gfx[]          = INCGFX_U32("graphics/wallclock/clock.png", ".4bpp.smol");
 const u32 gWallClockStart_Tilemap[] = INCBIN_U32("graphics/wallclock/clock_start.bin.smolTM");
 const u32 gWallClockView_Tilemap[]  = INCBIN_U32("graphics/wallclock/clock_view.bin.smolTM");
 
@@ -2010,13 +2010,13 @@ const u32 gKantoTrainerCardFront_Tilemap[] = INCBIN_U32("graphics/trainer_card/f
 const u32 gKantoTrainerCardBack_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/back.bin.smolTM");
 const u32 gKantoTrainerCardFrontLink_Tilemap[] = INCBIN_U32("graphics/trainer_card/frlg/front_link.bin.smolTM");
 
-const u16 gJournal_Pal_Female[] = INCBIN_U16("graphics/trainer_card/journal/journal_female.gbapal");
-const u32 gJournal_Gfx_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_female.4bpp.smol");
+const u16 gJournal_Pal_Female[] = INCGFX_U16("graphics/trainer_card/journal/journal_female.png", ".gbapal");
+const u32 gJournal_Gfx_Female[] = INCGFX_U32("graphics/trainer_card/journal/journal_female.png", ".4bpp.smol");
 const u32 gJournal_Tilemap_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_female.bin.smolTM");
 const u32 gJournal_TilemapPageFlip_Female[] = INCBIN_U32("graphics/trainer_card/journal/journal_flippage_female.bin.smolTM");
 
-const u16 gJournal_Pal_Male[] = INCBIN_U16("graphics/trainer_card/journal/journal_male.gbapal");
-const u32 gJournal_Gfx_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_male.4bpp.smol");
+const u16 gJournal_Pal_Male[] = INCGFX_U16("graphics/trainer_card/journal/journal_male.png", ".gbapal");
+const u32 gJournal_Gfx_Male[] = INCGFX_U32("graphics/trainer_card/journal/journal_male.png", ".4bpp.smol");
 const u32 gJournal_Tilemap_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_male.bin.smolTM");
 const u32 gJournal_TilemapPageFlip_Male[] = INCBIN_U32("graphics/trainer_card/journal/journal_flippage_male.bin.smolTM");
 
@@ -2150,6 +2150,7 @@ const u16 gTitleScreenBgPalettes[]         = INCBIN_U16("graphics/title_screen/p
                                                         "graphics/title_screen/yveltal_and_clouds.gbapal");
 const u16 gTitleScreenBgPalettesAlternative[]         = INCBIN_U16("graphics/title_screen/pokemon_logo.gbapal",
                                                         "graphics/title_screen/rayquaza_and_clouds.gbapal");
+    
 const u16 gTitleScreenEmeraldVersionPal[]  = INCGFX_U16("graphics/title_screen/emerald_version.png", ".gbapal");
 const u32 gTitleScreenCloudsTilemap[]      = INCBIN_U32("graphics/title_screen/clouds.bin.smolTM");
 const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/pokemon_logo.png", ".8bpp.smol");

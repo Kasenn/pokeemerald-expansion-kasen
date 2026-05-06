@@ -131,36 +131,36 @@ static const u16 sRegionMapCursorPal[] = INCGFX_U16("graphics/pokenav/region_map
 static const u32 sRegionMapCursorSmallGfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/cursor_small.png", ".4bpp.smol");
 static const u32 sRegionMapCursorLargeGfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/cursor_large.png", ".4bpp.smol");
 static const u16 sRegionMapBg_Pal[] = INCGFX_U16("graphics/pokenav/region_map/map.pal", ".gbapal");
-static const u32 sRegionMapBg_GfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/map.png", ".8bpp.smol", "-num_tiles 233 -Wnum_tiles");
+static const u32 sRegionMapBg_GfxLZ[] = INCGFX_U32("graphics/pokenav/region_map/map.png", ".8bpp.smol", "-num_tiles 256 -Wnum_tiles");
 static const u32 sRegionMapBg_TilemapLZ[] = INCBIN_U32("graphics/pokenav/region_map/map.bin.smolTM");
 static const u32 sRegionMapBg_TilemapLZEmpty[] = INCBIN_U32("graphics/pokenav/region_map/map_empty.bin.smolTM");
-static const u16 sRegionMapPlayerIcon_BrendanPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon.gbapal");
-static const u8 sRegionMapPlayerIcon_BrendanGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon.4bpp");
-static const u16 sRegionMapPlayerIcon_MayPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon.gbapal");
-static const u8 sRegionMapPlayerIcon_MayGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon.4bpp");
-static const u16 sRegionMapPlayerIcon_BrendanOrasPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_oras.gbapal");
-static const u8 sRegionMapPlayerIcon_BrendanOrasGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_oras.4bpp");
-static const u16 sRegionMapPlayerIcon_MayOrasPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_oras.gbapal");
-static const u8 sRegionMapPlayerIcon_MayOrasGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_oras.4bpp");
-static const u16 sRegionMapPlayerIcon_MayPalRS[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_rs.gbapal");
-static const u8 sRegionMapPlayerIcon_MayGfxRS[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_rs.4bpp");
-static const u16 sRegionMapPlayerIcon_BrendanPalRS[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_rs.gbapal");
-static const u8 sRegionMapPlayerIcon_BrendanGfxRS[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_rs.4bpp");
+static const u16 sRegionMapPlayerIcon_BrendanPal[] = INCGFX_U16("graphics/pokenav/region_map/brendan_icon.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanGfx[] = INCGFX_U8("graphics/pokenav/region_map/brendan_icon.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_MayPal[] = INCGFX_U16("graphics/pokenav/region_map/may_icon.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_MayGfx[] = INCGFX_U8("graphics/pokenav/region_map/may_icon.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_BrendanOrasPal[] = INCGFX_U16("graphics/pokenav/region_map/brendan_icon_oras.pal", ".gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanOrasGfx[] = INCGFX_U8("graphics/pokenav/region_map/brendan_icon_oras.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_MayOrasPal[] = INCGFX_U16("graphics/pokenav/region_map/may_icon_oras.pal", ".gbapal");
+static const u8 sRegionMapPlayerIcon_MayOrasGfx[] = INCGFX_U8("graphics/pokenav/region_map/may_icon_oras.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_MayPalRS[] = INCGFX_U16("graphics/pokenav/region_map/may_icon_rs.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_MayGfxRS[] = INCGFX_U8("graphics/pokenav/region_map/may_icon_rs.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_BrendanPalRS[] = INCGFX_U16("graphics/pokenav/region_map/brendan_icon_rs.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanGfxRS[] = INCGFX_U8("graphics/pokenav/region_map/brendan_icon_rs.png", ".4bpp");
 
-static const u16 sRegionMapRoamerIcon_LatiasPal[] = INCBIN_U16("graphics/pokenav/region_map/latias_icon.gbapal");
-static const u8 sRegionMapRoamerIcon_LatiasGfx[] = INCBIN_U8("graphics/pokenav/region_map/latias_icon.4bpp");
-static const u16 sRegionMapRoamerIcon_LatiosPal[] = INCBIN_U16("graphics/pokenav/region_map/latios_icon.gbapal");
-static const u8 sRegionMapRoamerIcon_LatiosGfx[] = INCBIN_U8("graphics/pokenav/region_map/latios_icon.4bpp");
+static const u16 sRegionMapRoamerIcon_LatiasPal[] = INCGFX_U16("graphics/pokenav/region_map/latias_icon.png", ".gbapal");
+static const u8 sRegionMapRoamerIcon_LatiasGfx[] = INCGFX_U8("graphics/pokenav/region_map/latias_icon.png", ".4bpp");
+static const u16 sRegionMapRoamerIcon_LatiosPal[] = INCGFX_U16("graphics/pokenav/region_map/latios_icon.png", ".gbapal");
+static const u8 sRegionMapRoamerIcon_LatiosGfx[] = INCGFX_U8("graphics/pokenav/region_map/latios_icon.png", ".4bpp");
 
-static const u16 sRegionMapPlayerIcon_BrendanContestPal[] = INCBIN_U16("graphics/pokenav/region_map/brendan_icon_contest.gbapal");
-static const u8 sRegionMapPlayerIcon_BrendanContestGfx[] = INCBIN_U8("graphics/pokenav/region_map/brendan_icon_contest.4bpp");
-static const u16 sRegionMapPlayerIcon_MayContestPal[] = INCBIN_U16("graphics/pokenav/region_map/may_icon_contest.gbapal");
-static const u8 sRegionMapPlayerIcon_MayContestGfx[] = INCBIN_U8("graphics/pokenav/region_map/may_icon_contest.4bpp");//wip
+static const u16 sRegionMapPlayerIcon_BrendanContestPal[] = INCGFX_U16("graphics/pokenav/region_map/brendan_icon_contest.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_BrendanContestGfx[] = INCGFX_U8("graphics/pokenav/region_map/brendan_icon_contest.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_MayContestPal[] = INCGFX_U16("graphics/pokenav/region_map/may_icon_contest.png", ".gbapal");
+static const u8 sRegionMapPlayerIcon_MayContestGfx[] = INCGFX_U8("graphics/pokenav/region_map/may_icon_contest.png", ".4bpp");//wip
 
-static const u16 sRegionMapPlayerIcon_RedPal[] = INCBIN_U16("graphics/pokenav/region_map/red_icon.gbapal");
-static const u8 sRegionMapPlayerIcon_RedGfx[] = INCBIN_U8("graphics/pokenav/region_map/red_icon.4bpp");
-static const u16 sRegionMapPlayerIcon_LeafPal[] = INCBIN_U16("graphics/pokenav/region_map/leaf_icon.gbapal");
-static const u8 sRegionMapPlayerIcon_LeafGfx[] = INCBIN_U8("graphics/pokenav/region_map/leaf_icon.4bpp");
+static const u16 sRegionMapPlayerIcon_RedPal[] = INCGFX_U16("graphics/pokenav/region_map/red_icon.pal", ".gbapal");
+static const u8 sRegionMapPlayerIcon_RedGfx[] = INCGFX_U8("graphics/pokenav/region_map/red_icon.png", ".4bpp");
+static const u16 sRegionMapPlayerIcon_LeafPal[] = INCGFX_U16("graphics/pokenav/region_map/leaf_icon.pal", ".gbapal");
+static const u8 sRegionMapPlayerIcon_LeafGfx[] = INCGFX_U8("graphics/pokenav/region_map/leaf_icon.png", ".4bpp");
 
 #include "data/region_map/region_map_layout.h"
 #include "data/region_map/region_map_layout_kanto.h"

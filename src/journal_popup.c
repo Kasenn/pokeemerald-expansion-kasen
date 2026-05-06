@@ -30,10 +30,10 @@ static void ShowJournalPopUpWindow(void);
 static void LoadJournalPopUpWindowBg(void);
 
 // .rodata
-static const u8 sJournalPopUp_Background[] = INCBIN_U8("graphics/map_popup/journal.4bpp");
-static const u8 sJournalPopUp_Outline[] = INCBIN_U8("graphics/map_popup/journal_outline.4bpp");
-static const u16 sJournalPopUp_Palette_Female[] = INCBIN_U16("graphics/map_popup/journal_pal_female.gbapal");
-static const u16 sJournalPopUp_Palette_Male[] = INCBIN_U16("graphics/map_popup/journal_pal_male.gbapal");
+static const u8 sJournalPopUp_Background[] = INCGFX_U8("graphics/map_popup/journal.png", ".4bpp");
+static const u8 sJournalPopUp_Outline[] = INCGFX_U8("graphics/map_popup/journal_outline.png", ".4bpp");
+static const u16 sJournalPopUp_Palette_Female[] = INCGFX_U16("graphics/map_popup/journal_pal_female.pal", ".gbapal");
+static const u16 sJournalPopUp_Palette_Male[] = INCGFX_U16("graphics/map_popup/journal_pal_male.pal", ".gbapal");
 
 EWRAM_DATA u8 gJournalPopupTaskId = 0;
 static EWRAM_DATA u8 sIsQuestStarted = 0;

@@ -421,17 +421,8 @@ void SetOverworldObjectSpecies(struct ScriptContext *ctx)
 
     switch (object->graphicsId)
     {
-    case OBJ_EVENT_GFX_RAYQUAZA_STILL:
     case OBJ_EVENT_GFX_RAYQUAZA:
         speciesId = SPECIES_RAYQUAZA;
-        break;
-
-    case OBJ_EVENT_GFX_UNUSED_NATU_DOLL:
-        speciesId = SPECIES_NATU;
-        break;
-
-    case OBJ_EVENT_GFX_UNUSED_SQUIRTLE_DOLL:
-        speciesId = SPECIES_SQUIRTLE;
         break;
 
     case OBJ_EVENT_GFX_UNUSED_WOOPER_DOLL:
@@ -443,19 +434,6 @@ void SetOverworldObjectSpecies(struct ScriptContext *ctx)
     case OBJ_EVENT_GFX_PIKACHU:
     case OBJ_EVENT_GFX_PIKACHU_FRLG:
         speciesId = SPECIES_PIKACHU;
-        break;
-
-    case OBJ_EVENT_GFX_UNUSED_MAGNEMITE_DOLL:
-        speciesId = SPECIES_MAGNEMITE;
-        break;
-
-    case OBJ_EVENT_GFX_UNUSED_PORYGON2_DOLL:
-        speciesId = SPECIES_PORYGON2;
-        break;
-
-    case OBJ_EVENT_GFX_VIGOROTH_CARRYING_BOX:
-    case OBJ_EVENT_GFX_VIGOROTH_FACING_AWAY:
-        speciesId = SPECIES_VIGOROTH;
         break;
 
     case OBJ_EVENT_GFX_ZIGZAGOON_1:
@@ -669,10 +647,6 @@ void SetOverworldObjectSpecies(struct ScriptContext *ctx)
 
     case OBJ_EVENT_GFX_LUGIA:
         speciesId = SPECIES_LUGIA;
-        break;
-
-    case OBJ_EVENT_GFX_HOOH:
-        speciesId = SPECIES_HO_OH;
         break;
 
     case OBJ_EVENT_GFX_SPEAROW:

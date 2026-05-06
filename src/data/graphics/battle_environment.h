@@ -57,9 +57,9 @@ const u32 gBattleEnvironmentTiles_Rayquaza[] = INCGFX_U32("graphics/battle_envir
 const u16 gBattleEnvironmentPalette_Rayquaza[] = INCGFX_U16("graphics/battle_environment/sky/palette.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/map.bin.smolTM");
 
-const u16 gBattleEnvironmentPalette_Snow[] = INCBIN_U16("graphics/battle_terrain/sand/palette_snow.gbapal");
-const u16 gBattleEnvironmentPalette_Mud[] = INCBIN_U16("graphics/battle_terrain/rock/palette2.gbapal");
-const u32 gBattleEnvironmentTiles_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/tiles.4bpp.smol");
+const u16 gBattleEnvironmentPalette_Snow[] = INCGFX_U16("graphics/battle_terrain/sand/palette_snow.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_Mud[] = INCGFX_U16("graphics/battle_terrain/rock/palette2.pal", ".gbapal");
+const u32 gBattleEnvironmentTiles_Mud[] = INCGFX_U32("graphics/battle_terrain/rock/tiles.png", ".4bpp.smol");
 const u32 gBattleEnvironmentTilemap_Mud[] = INCBIN_U32("graphics/battle_terrain/rock/map.bin.smolTM");
 
 const u32 gBattleEnvironmentAnimTiles_TallGrass[] = INCGFX_U32("graphics/battle_environment/tall_grass/anim_tiles.png", ".4bpp.smol");
@@ -92,48 +92,48 @@ const u32 gBattleEnvironmentAnimTilemap_Building[] = INCBIN_U32("graphics/battle
 const u32 gBattleEnvironmentAnimTiles_Rayquaza[] = INCGFX_U32("graphics/battle_environment/sky/anim_tiles.png", ".4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_Rayquaza[] = INCBIN_U32("graphics/battle_environment/sky/anim_map.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/tiles.4bpp.smol");
-const u16 gBattleEnvironmentPalette_LongGrassAutumn[] = INCBIN_U16("graphics/battle_environment/long_grass_autumn/palette.gbapal");
+const u32 gBattleEnvironmentTiles_LongGrassAutumn[] = INCGFX_U32("graphics/battle_environment/long_grass_autumn/tiles.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_LongGrassAutumn[] = INCGFX_U16("graphics/battle_environment/long_grass_autumn/palette.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/map.bin.smolTM");
-const u32 gBattleEnvironmentAnimTiles_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/anim_tiles.4bpp.smol");
+const u32 gBattleEnvironmentAnimTiles_LongGrassAutumn[] = INCGFX_U32("graphics/battle_environment/long_grass_autumn/anim_tiles.png", ".4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_LongGrassAutumn[] = INCBIN_U32("graphics/battle_environment/long_grass_autumn/anim_map.bin.smolTM");
 
-const u16 gBattleEnvironmentPalette_TallGrassAutumn[] = INCBIN_U16("graphics/battle_environment/tallgrass_autumn.gbapal");
-const u16 gBattleEnvironmentPalette_TallGrassDark[] = INCBIN_U16("graphics/battle_environment/tallgrass_dark.gbapal");
-const u16 gBattleEnvironmentPalette_TallGrassAsh[] = INCBIN_U16("graphics/battle_environment/tallgrass_ash.gbapal");
-const u16 gBattleEnvironmentPalette_TallGrassCrystal[] = INCBIN_U16("graphics/battle_environment/tallgrass_crystal.gbapal");
+const u16 gBattleEnvironmentPalette_TallGrassAutumn[] = INCGFX_U16("graphics/battle_environment/tallgrass_autumn.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_TallGrassDark[] = INCGFX_U16("graphics/battle_environment/tallgrass_dark.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_TallGrassAsh[] = INCGFX_U16("graphics/battle_environment/tallgrass_ash.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_TallGrassCrystal[] = INCGFX_U16("graphics/battle_environment/tallgrass_crystal.pal", ".gbapal");
 
-const u32 gBattleEnvironmentTiles_BugGym[] = INCBIN_U32("graphics/battle_environment/buggym/terrain.4bpp.smol");
-const u16 gBattleEnvironmentPalette_BugGym[] = INCBIN_U16("graphics/battle_environment/buggym/terrain.gbapal");
+const u32 gBattleEnvironmentTiles_BugGym[] = INCGFX_U32("graphics/battle_environment/buggym/terrain.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_BugGym[] = INCGFX_U16("graphics/battle_environment/buggym/terrain.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_BugGym[] = INCBIN_U32("graphics/battle_environment/buggym/terrain.bin.smolTM");
-const u32 gBattleEnvironmentAnimTiles_BugGym[] = INCBIN_U32("graphics/battle_environment/buggym/anim.4bpp.smol");
+const u32 gBattleEnvironmentAnimTiles_BugGym[] = INCGFX_U32("graphics/battle_environment/buggym/anim.png", ".4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_BugGym[] = INCBIN_U32("graphics/battle_environment/buggym/anim.bin.smolTM");
 
-const u16 gBattleEnvironmentPalette_ElectricGym[] = INCBIN_U16("graphics/battle_environment/electricgym.gbapal");
-const u16 gBattleEnvironmentPalette_FightingGym[] = INCBIN_U16("graphics/battle_environment/fightinggym.gbapal");
+const u16 gBattleEnvironmentPalette_ElectricGym[] = INCGFX_U16("graphics/battle_environment/electricgym.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_FightingGym[] = INCGFX_U16("graphics/battle_environment/fightinggym.pal", ".gbapal");
 
-const u32 gBattleEnvironmentTiles_GroundGym[] = INCBIN_U32("graphics/battle_environment/groundgym/terrain.4bpp.smol");
-const u16 gBattleEnvironmentPalette_GroundGym[] = INCBIN_U16("graphics/battle_environment/groundgym/terrain.gbapal");
+const u32 gBattleEnvironmentTiles_GroundGym[] = INCGFX_U32("graphics/battle_environment/groundgym/terrain.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_GroundGym[] = INCGFX_U16("graphics/battle_environment/groundgym/terrain.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_GroundGym[] = INCBIN_U32("graphics/battle_environment/groundgym/terrain.bin.smolTM");
-const u32 gBattleEnvironmentAnimTiles_GroundGym[] = INCBIN_U32("graphics/battle_environment/groundgym/anim.4bpp.smol");
+const u32 gBattleEnvironmentAnimTiles_GroundGym[] = INCGFX_U32("graphics/battle_environment/groundgym/anim.png", ".4bpp.smol");
 const u32 gBattleEnvironmentAnimTilemap_GroundGym[] = INCBIN_U32("graphics/battle_environment/groundgym/anim.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_GhostGym[] = INCBIN_U32("graphics/battle_environment/ghostgym/ghostgym.4bpp.smol");
-const u16 gBattleEnvironmentPalette_GhostGym[] = INCBIN_U16("graphics/battle_environment/ghostgym/ghostgym.gbapal");
+const u32 gBattleEnvironmentTiles_GhostGym[] = INCGFX_U32("graphics/battle_environment/ghostgym/ghostgym.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_GhostGym[] = INCGFX_U16("graphics/battle_environment/ghostgym/ghostgym.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_GhostGym[] = INCBIN_U32("graphics/battle_environment/ghostgym/ghostgym.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_FrostfireGym[] = INCBIN_U32("graphics/battle_environment/frostfire/frostfiregym.4bpp.smol");
-const u16 gBattleEnvironmentPalette_FrostfireGym[] = INCBIN_U16("graphics/battle_environment/frostfire/frostfiregym.gbapal");
+const u32 gBattleEnvironmentTiles_FrostfireGym[] = INCGFX_U32("graphics/battle_environment/frostfire/frostfiregym.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_FrostfireGym[] = INCGFX_U16("graphics/battle_environment/frostfire/frostfiregym.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_FrostfireGym[] = INCBIN_U32("graphics/battle_environment/frostfire/frostfiregym.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_Grotto[] = INCBIN_U32("graphics/battle_environment/grotto/grotto.4bpp.smol");
-const u16 gBattleEnvironmentPalette_Grotto[] = INCBIN_U16("graphics/battle_environment/grotto/grotto.gbapal");
+const u32 gBattleEnvironmentTiles_Grotto[] = INCGFX_U32("graphics/battle_environment/grotto/grotto.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_Grotto[] = INCGFX_U16("graphics/battle_environment/grotto/grotto.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_Grotto[] = INCBIN_U32("graphics/battle_environment/grotto/grotto.bin.smolTM");
 
-const u32 gBattleEnvironmentTiles_AdamantTower[] = INCBIN_U32("graphics/battle_environment/adamanttower/adamanttower.4bpp.smol");
-const u16 gBattleEnvironmentPalette_AdamantTower[] = INCBIN_U16("graphics/battle_environment/adamanttower/adamanttower.gbapal");
+const u32 gBattleEnvironmentTiles_AdamantTower[] = INCGFX_U32("graphics/battle_environment/adamanttower/adamanttower.png", ".4bpp.smol");
+const u16 gBattleEnvironmentPalette_AdamantTower[] = INCGFX_U16("graphics/battle_environment/adamanttower/adamanttower.pal", ".gbapal");
 const u32 gBattleEnvironmentTilemap_AdamantTower[] = INCBIN_U32("graphics/battle_environment/adamanttower/adamanttower.bin.smolTM");
 
-const u16 gBattleEnvironmentPalette_SerpentCave[] = INCBIN_U16("graphics/battle_environment/serpentcave.gbapal");
-const u16 gBattleEnvironmentPalette_WindplumeCave[] = INCBIN_U16("graphics/battle_environment/windplumecave.gbapal");
-const u16 gBattleEnvironmentPalette_Ruins[] = INCBIN_U16("graphics/battle_environment/ruins.gbapal");
+const u16 gBattleEnvironmentPalette_SerpentCave[] = INCGFX_U16("graphics/battle_environment/serpentcave.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_WindplumeCave[] = INCGFX_U16("graphics/battle_environment/windplumecave.pal", ".gbapal");
+const u16 gBattleEnvironmentPalette_Ruins[] = INCGFX_U16("graphics/battle_environment/ruins.pal", ".gbapal");

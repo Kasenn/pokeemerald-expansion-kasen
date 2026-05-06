@@ -203,7 +203,7 @@ DOUBLE_BATTLE_TEST("Pursuit attacks a switching the foe but not switching allies
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, opponentLeft);
         SEND_IN_MESSAGE("Grimer");
-        MESSAGE("{PKMN} Trainer 2 withdrew Linoone!");
+        MESSAGE("2 withdrew Linoone!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PURSUIT, playerRight);
         MESSAGE("2 sent out Abra!");
     }

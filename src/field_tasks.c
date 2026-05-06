@@ -407,35 +407,35 @@ static bool32 ShouldSinkPacifidlogLogs(s16 newX, s16 newY, s16 oldX, s16 oldY)
     return TRUE;
 }
 
-const u8 sWailordSpriteUp1[] = INCBIN_U8("graphics/biigwailord/wailordup1.4bpp");
-const u8 sWailordSpriteUp2[] = INCBIN_U8("graphics/biigwailord/wailordup2.4bpp");
-const u8 sWailordSpriteUp3[] = INCBIN_U8("graphics/biigwailord/wailordup3.4bpp");
-const u8 sWailordSpriteUp4[] = INCBIN_U8("graphics/biigwailord/wailordup4.4bpp");
-const u8 sWailordSpriteUp5[] = INCBIN_U8("graphics/biigwailord/wailordup5.4bpp");
-const u8 sWailordSpriteUp6[] = INCBIN_U8("graphics/biigwailord/wailordup6.4bpp");
+const u8 sWailordSpriteUp1[] = INCGFX_U8("graphics/biigwailord/wailordup1.png", ".4bpp");
+const u8 sWailordSpriteUp2[] = INCGFX_U8("graphics/biigwailord/wailordup2.png", ".4bpp");
+const u8 sWailordSpriteUp3[] = INCGFX_U8("graphics/biigwailord/wailordup3.png", ".4bpp");
+const u8 sWailordSpriteUp4[] = INCGFX_U8("graphics/biigwailord/wailordup4.png", ".4bpp");
+const u8 sWailordSpriteUp5[] = INCGFX_U8("graphics/biigwailord/wailordup5.png", ".4bpp");
+const u8 sWailordSpriteUp6[] = INCGFX_U8("graphics/biigwailord/wailordup6.png", ".4bpp");
 
-const u8 sWailordSpriteDown1[] = INCBIN_U8("graphics/biigwailord/wailorddown1.4bpp");
-const u8 sWailordSpriteDown2[] = INCBIN_U8("graphics/biigwailord/wailorddown2.4bpp");
-const u8 sWailordSpriteDown3[] = INCBIN_U8("graphics/biigwailord/wailorddown3.4bpp");
-const u8 sWailordSpriteDown4[] = INCBIN_U8("graphics/biigwailord/wailorddown4.4bpp");
-const u8 sWailordSpriteDown5[] = INCBIN_U8("graphics/biigwailord/wailorddown5.4bpp");
-const u8 sWailordSpriteDown6[] = INCBIN_U8("graphics/biigwailord/wailorddown6.4bpp");
+const u8 sWailordSpriteDown1[] = INCGFX_U8("graphics/biigwailord/wailorddown1.png", ".4bpp");
+const u8 sWailordSpriteDown2[] = INCGFX_U8("graphics/biigwailord/wailorddown2.png", ".4bpp");
+const u8 sWailordSpriteDown3[] = INCGFX_U8("graphics/biigwailord/wailorddown3.png", ".4bpp");
+const u8 sWailordSpriteDown4[] = INCGFX_U8("graphics/biigwailord/wailorddown4.png", ".4bpp");
+const u8 sWailordSpriteDown5[] = INCGFX_U8("graphics/biigwailord/wailorddown5.png", ".4bpp");
+const u8 sWailordSpriteDown6[] = INCGFX_U8("graphics/biigwailord/wailorddown6.png", ".4bpp");
 
-const u8 sWailordSpriteLeft1[] = INCBIN_U8("graphics/biigwailord/wailordleft1.4bpp");
-const u8 sWailordSpriteLeft2[] = INCBIN_U8("graphics/biigwailord/wailordleft2.4bpp");
-const u8 sWailordSpriteLeft3[] = INCBIN_U8("graphics/biigwailord/wailordleft3.4bpp");
-const u8 sWailordSpriteLeft4[] = INCBIN_U8("graphics/biigwailord/wailordleft4.4bpp");
-const u8 sWailordSpriteLeft5[] = INCBIN_U8("graphics/biigwailord/wailordleft5.4bpp");
-const u8 sWailordSpriteLeft6[] = INCBIN_U8("graphics/biigwailord/wailordleft6.4bpp");
+const u8 sWailordSpriteLeft1[] = INCGFX_U8("graphics/biigwailord/wailordleft1.png", ".4bpp");
+const u8 sWailordSpriteLeft2[] = INCGFX_U8("graphics/biigwailord/wailordleft2.png", ".4bpp");
+const u8 sWailordSpriteLeft3[] = INCGFX_U8("graphics/biigwailord/wailordleft3.png", ".4bpp");
+const u8 sWailordSpriteLeft4[] = INCGFX_U8("graphics/biigwailord/wailordleft4.png", ".4bpp");
+const u8 sWailordSpriteLeft5[] = INCGFX_U8("graphics/biigwailord/wailordleft5.png", ".4bpp");
+const u8 sWailordSpriteLeft6[] = INCGFX_U8("graphics/biigwailord/wailordleft6.png", ".4bpp");
 
-const u8 sWailordSpriteRight1[] = INCBIN_U8("graphics/biigwailord/wailordright1.4bpp");
-const u8 sWailordSpriteRight2[] = INCBIN_U8("graphics/biigwailord/wailordright2.4bpp");
-const u8 sWailordSpriteRight3[] = INCBIN_U8("graphics/biigwailord/wailordright3.4bpp");
-const u8 sWailordSpriteRight4[] = INCBIN_U8("graphics/biigwailord/wailordright4.4bpp");
-const u8 sWailordSpriteRight5[] = INCBIN_U8("graphics/biigwailord/wailordright5.4bpp");
-const u8 sWailordSpriteRight6[] = INCBIN_U8("graphics/biigwailord/wailordright6.4bpp");
+const u8 sWailordSpriteRight1[] = INCGFX_U8("graphics/biigwailord/wailordright1.png", ".4bpp");
+const u8 sWailordSpriteRight2[] = INCGFX_U8("graphics/biigwailord/wailordright2.png", ".4bpp");
+const u8 sWailordSpriteRight3[] = INCGFX_U8("graphics/biigwailord/wailordright3.png", ".4bpp");
+const u8 sWailordSpriteRight4[] = INCGFX_U8("graphics/biigwailord/wailordright4.png", ".4bpp");
+const u8 sWailordSpriteRight5[] = INCGFX_U8("graphics/biigwailord/wailordright5.png", ".4bpp");
+const u8 sWailordSpriteRight6[] = INCGFX_U8("graphics/biigwailord/wailordright6.png", ".4bpp");
 
-const u16 sWailordPal[] = INCBIN_U16("graphics/biigwailord/wailord.gbapal");
+const u16 sWailordPal[] = INCGFX_U16("graphics/biigwailord/wailord.pal", ".gbapal");
 
 #define tState    data[1]
 #define tToRaiseX data[4]

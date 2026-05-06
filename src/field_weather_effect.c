@@ -19,22 +19,22 @@
 
 EWRAM_DATA static u8 sCurrentAbnormalWeather = 0;
 
-const u16 gCloudsWeatherPalette[] = INCBIN_U16("graphics/weather/cloud.gbapal");
-const u16 gSandstormWeatherPalette[] = INCBIN_U16("graphics/weather/sandstorm.gbapal");
-const u16 gWindWeatherPalette[] = INCBIN_U16("graphics/weather/wind.gbapal");
-const u16 gDarkWindWeatherPalette[] = INCBIN_U16("graphics/weather/dark_wind.gbapal");
-const u16 gSnowWindWeatherPalette[] = INCBIN_U16("graphics/weather/snow_wind.gbapal");
-const u8 gWeatherFogDiagonalTiles[] = INCBIN_U8("graphics/weather/fog_diagonal.4bpp");
-const u8 gWeatherFogHorizontalTiles[] = INCBIN_U8("graphics/weather/fog_horizontal.4bpp");
-const u8 gWeatherCloudTiles[] = INCBIN_U8("graphics/weather/cloud.4bpp");
-const u8 gWeatherSnow1Tiles[] = INCBIN_U8("graphics/weather/snow0.4bpp");
-const u8 gWeatherSnow2Tiles[] = INCBIN_U8("graphics/weather/snow1.4bpp");
-const u8 gWeatherBubbleTiles[] = INCBIN_U8("graphics/weather/bubble.4bpp");
-const u8 gWeatherAshTiles[] = INCBIN_U8("graphics/weather/ash.4bpp");
-const u8 gWeatherAshSnowTiles[] = INCBIN_U8("graphics/weather/ashsnow.4bpp");
-const u8 gWeatherRainTiles[] = INCBIN_U8("graphics/weather/rain.4bpp");
-const u8 gWeatherSandstormTiles[] = INCBIN_U8("graphics/weather/sandstorm.4bpp");
-const u8 gWeatherWindTiles[] = INCBIN_U8("graphics/weather/wind.4bpp");
+const u16 gCloudsWeatherPalette[] = INCGFX_U16("graphics/weather/cloud.png", ".gbapal");
+const u16 gSandstormWeatherPalette[] = INCGFX_U16("graphics/weather/sandstorm.png", ".gbapal");
+const u16 gWindWeatherPalette[] = INCGFX_U16("graphics/weather/wind.png", ".gbapal");
+const u16 gDarkWindWeatherPalette[] = INCGFX_U16("graphics/weather/dark_wind.png", ".gbapal");
+const u16 gSnowWindWeatherPalette[] = INCGFX_U16("graphics/weather/snow_wind.png", ".gbapal");
+const u8 gWeatherFogDiagonalTiles[] = INCGFX_U8("graphics/weather/fog_diagonal.png", ".4bpp");
+const u8 gWeatherFogHorizontalTiles[] = INCGFX_U8("graphics/weather/fog_horizontal.png", ".4bpp");
+const u8 gWeatherCloudTiles[] = INCGFX_U8("graphics/weather/cloud.png", ".4bpp");
+const u8 gWeatherSnow1Tiles[] = INCGFX_U8("graphics/weather/snow0.png", ".4bpp");
+const u8 gWeatherSnow2Tiles[] = INCGFX_U8("graphics/weather/snow1.png", ".4bpp");
+const u8 gWeatherBubbleTiles[] = INCGFX_U8("graphics/weather/bubble.png", ".4bpp");
+const u8 gWeatherAshTiles[] = INCGFX_U8("graphics/weather/ash.png", ".4bpp");
+const u8 gWeatherAshSnowTiles[] = INCGFX_U8("graphics/weather/ashsnow.png", ".4bpp");
+const u8 gWeatherRainTiles[] = INCGFX_U8("graphics/weather/rain.png", ".4bpp");
+const u8 gWeatherSandstormTiles[] = INCGFX_U8("graphics/weather/sandstorm.png", ".4bpp");
+const u8 gWeatherWindTiles[] = INCGFX_U8("graphics/weather/wind.png", ".4bpp");
 
 const struct SpritePalette sFogSpritePalette = {gFogPalette, 0x1201};
 const struct SpritePalette sCloudsSpritePalette = {gCloudsWeatherPalette, 0x1207};

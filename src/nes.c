@@ -31,10 +31,10 @@ static const u16 sTextColor1[] = {RGB2GBA(116, 116, 116)};
 static const u16 sTextColor2[] = {RGB2GBA(188, 188, 188)};
 static const u16 sTextColor3[] = {RGB2GBA(252, 252, 252)};
 
-static const u16 sCutscenePal0[] = INCBIN_U16("graphics/nes/cutscenepal0.gbapal");
-static const u16 sCutscenePal1[] = INCBIN_U16("graphics/nes/cutscenepal1.gbapal");
-static const u16 sCutscenePal2[] = INCBIN_U16("graphics/nes/cutscenepal2.gbapal");
-static const u16 sCutscenePal3[] = INCBIN_U16("graphics/nes/cutscenepal3.gbapal");
+static const u16 sCutscenePal0[] = INCGFX_U16("graphics/nes/cutscenepal0.pal", ".gbapal");
+static const u16 sCutscenePal1[] = INCGFX_U16("graphics/nes/cutscenepal1.pal", ".gbapal");
+static const u16 sCutscenePal2[] = INCGFX_U16("graphics/nes/cutscenepal2.pal", ".gbapal");
+static const u16 sCutscenePal3[] = INCGFX_U16("graphics/nes/cutscenepal3.pal", ".gbapal");
 
 void LoadTextColor0(void)
 {
@@ -85,10 +85,10 @@ void DisableCutsceneSkip(void)
     sSkipCutscene = TRUE;
 }
 
-const u8 sRooftopFrame1[] = INCBIN_U8("graphics/biigwailord/rooftop2.4bpp");
-const u8 sRooftopFrame2[] = INCBIN_U8("graphics/biigwailord/rooftop1.4bpp");
+const u8 sRooftopFrame1[] = INCGFX_U8("graphics/biigwailord/rooftop2.png", ".4bpp");
+const u8 sRooftopFrame2[] = INCGFX_U8("graphics/biigwailord/rooftop1.png", ".4bpp");
 
-const u16 sRooftopPal[] = INCBIN_U16("graphics/biigwailord/rooftop1.gbapal");
+const u16 sRooftopPal[] = INCGFX_U16("graphics/biigwailord/rooftop1.png", ".gbapal");
 
 enum {
     TAG_ROOFTOP_FRAME1 = 4612,

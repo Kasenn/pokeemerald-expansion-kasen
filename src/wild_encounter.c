@@ -968,10 +968,6 @@ bool8 DoesCurrentMapHaveFishingMons(void)
 
 void FishingWildEncounter(u8 rod)
 {
-    struct ObjectEvent *playerObjEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    s16 x = playerObjEvent->currentCoords.x;
-    s16 y = playerObjEvent->currentCoords.y;
-    MoveCoords(playerObjEvent->facingDirection, &x, &y);
     enum Species species;
     u32 headerId;
     s16 x, y;

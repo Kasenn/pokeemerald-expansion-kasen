@@ -82,7 +82,7 @@ const u16 gBallPal_Beast[] = INCGFX_U16("graphics/balls/beast.png", ".gbapal");
 const u32 gBallGfx_Cherish[] = INCGFX_U32("graphics/balls/cherish.png", ".4bpp.smol");
 const u16 gBallPal_Cherish[] = INCGFX_U16("graphics/balls/cherish.png", ".gbapal");
 
-const u32 gBallGfx_Dire[] = INCBIN_U32("graphics/balls/dire.4bpp.smol");
-const u16 gBallPal_Dire[] = INCBIN_U16("graphics/balls/dire.gbapal");
+const u32 gBallGfx_Dire[] = INCGFX_U32("graphics/balls/dire.png", ".4bpp.smol");
+const u16 gBallPal_Dire[] = INCGFX_U16("graphics/balls/dire.png", ".gbapal");
 
 const u32 gOpenPokeballGfx[] = INCGFX_U32("graphics/balls/open.png", ".4bpp.smol");
