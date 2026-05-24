@@ -151,9 +151,9 @@ DeclineChanseyTrade::
 
 
 ChanseyNotRequestedMon::
-# 135 "data/maps/Amberock_House1/scripts.pory"
+# 140 "data/maps/Amberock_House1/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_0x8009
-# 136 "data/maps/Amberock_House1/scripts.pory"
+# 141 "data/maps/Amberock_House1/scripts.pory"
 	msgbox ChanseyWrongMonText, MSGBOX_NPC
 	end
 
@@ -219,30 +219,30 @@ ComeSeekMeForHP::
 	.string "If you would like to learn of\n"
 	.string "another Pokémon, come seek me out.$"
 
+ChanseyTradeDeclineText::
+# 134 "data/maps/Amberock_House1/scripts.pory"
+	.string "You don't want to trade?\n"
+	.string "That's a shame…$"
+
 ThanksForTrade_Chansey::
-# 140 "data/maps/Amberock_House1/scripts.pory"
+# 145 "data/maps/Amberock_House1/scripts.pory"
 	.string "Don't worry.\n"
 	.string "I'll take good care of Audino!$"
 
 WantToTradeChansey::
-# 144 "data/maps/Amberock_House1/scripts.pory"
+# 149 "data/maps/Amberock_House1/scripts.pory"
 	.string "Hi!\n"
 	.string "I'm looking for an Audino.\p"
 	.string "Do you have one?\n"
 	.string "I could trade my Chansey for it.$"
 
 ChanseyTradeThanks::
-# 150 "data/maps/Amberock_House1/scripts.pory"
+# 155 "data/maps/Amberock_House1/scripts.pory"
 	.string "Aww, it's so cute!\p"
 	.string "Don't worry.\n"
 	.string "I'll take good care of Audino!$"
 
-ChanseyTradeDeclineText::
-# 155 "data/maps/Amberock_House1/scripts.pory"
-	.string "You don't want to trade?\n"
-	.string "That's a shame…$"
-
 ChanseyWrongMonText::
-# 159 "data/maps/Amberock_House1/scripts.pory"
+# 160 "data/maps/Amberock_House1/scripts.pory"
 	.string "Hm… That doesn't look like\n"
 	.string "an Audino to me…$"

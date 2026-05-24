@@ -1980,6 +1980,10 @@ const union AnimCmd *const sAnimTable_Following_Spheal[] = {
     [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoNorthFastestSpheal,
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoWestFastestSpheal,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoEastFastestSpheal,
+    [ANIM_EXIT_POKEBALL_FAST_SOUTH] = sAnim_ExitPokeballFastSouth,
+    [ANIM_EXIT_POKEBALL_FAST_NORTH] = sAnim_ExitPokeballFastNorth,
+    [ANIM_EXIT_POKEBALL_FAST_WEST] = sAnim_ExitPokeballFastWest,
+    [ANIM_EXIT_POKEBALL_FAST_EAST] = sAnim_ExitPokeballFastEast,
 };
 
 static const union AnimCmd *const sAnimTable_Korrina[] = {

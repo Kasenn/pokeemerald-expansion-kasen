@@ -131,6 +131,11 @@ script DeclineChanseyTrade{
 	end
 }
 
+text ChanseyTradeDeclineText{
+    "You don't want to trade?\n"
+    "That's a shame…"
+}
+
 script ChanseyNotRequestedMon{
 	bufferspeciesname(STR_VAR_1, VAR_0x8009)
 	msgbox(ChanseyWrongMonText, MSGBOX_NPC)
@@ -151,10 +156,6 @@ text ChanseyTradeThanks{
     "Aww, it's so cute!\p"
     "Don't worry.\n"
     "I'll take good care of Audino!"
-}
-text ChanseyTradeDeclineText{
-    "You don't want to trade?\n"
-    "That's a shame…"
 }
 text ChanseyWrongMonText{
     "Hm… That doesn't look like\n"
