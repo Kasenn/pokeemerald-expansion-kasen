@@ -551,7 +551,11 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    setvar(VAR_CHOSEN_OUTFIT, OUTFIT_CONTEST)
+    while(var(VAR_TEMP_0) <= 200)
+    {
+        givemon(1, 5)
+        addvar(VAR_TEMP_0, 1)
+    }
     return
 }
 script Debug_Script_4{

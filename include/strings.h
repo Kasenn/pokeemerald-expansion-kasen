@@ -791,6 +791,8 @@ extern const u8 gText_DexSearchColorPurple[];
 extern const u8 gText_DexSearchColorGray[];
 extern const u8 gText_DexSearchColorWhite[];
 extern const u8 gText_DexSearchColorPink[];
+extern const u8 gText_DexSearchColorCyan[];
+extern const u8 gText_DexSearchColorOrange[];
 extern const u8 gText_DexHoennDescription[];
 extern const u8 gText_DexNatDescription[];
 extern const u8 gText_DexSortNumericalDescription[];
