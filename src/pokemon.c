@@ -5412,6 +5412,16 @@ const u16 *GetMonSpritePalFromSpeciesIsEgg(enum Species species, bool32 isShiny,
 
     if (isEgg)
     {
+    #if SPECIES_EGG_COLOR
+        if (gSpeciesInfo[species].eggPalette != NULL)
+        {
+            if (species == SPECIES_FRILLISH && isFemale && GEN_5_EGG_COLORS)
+                return gEggPalette_FrillishF;
+            else
+                return gSpeciesInfo[species].eggPalette;
+        }
+        else
+    #endif
         if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
             return gEggDatas[gSpeciesInfo[species].eggId].eggPalette;
         else

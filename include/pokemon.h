@@ -521,6 +521,9 @@ struct SpeciesInfo /*0xC4*/
 #endif //OW_PKMN_OBJECTS_SHARE_PALETTES
 #endif //OW_POKEMON_OBJECT_EVENTS
     enum OverworldWildEncounterBehaviors overworldEncounterBehavior;
+#if SPECIES_EGG_COLOR
+    const u16 *eggPalette;
+#endif
 };
 
 struct EggData
