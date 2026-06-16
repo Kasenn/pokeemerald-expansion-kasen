@@ -81,4 +81,19 @@
 #define P_MODIFIED_MEGA_CRIES            FALSE  // If TRUE, will use the extra separate Mega Cries (approx. 3% space of ROM). if FALSE, will use the same cry for all Mega Evolutions except modified with P_MODIFIED_MEGA_CRY_MODE. By default, this is set based on if mega evolutions are enabled.
 #define P_MODIFIED_MEGA_CRY_MODE         CRY_MODE_HIGH_PITCH
 
+#define SPECIES_EGG_COLOR               TRUE    // Gives all Pokémon families a species-specific egg color.
+                                                // Note: Pokémon families spread across multiple generations use the color of the Pokémon
+                                                // of said family that was introduced the earliest.
+                                                // For example, Pichu uses Gen 1 (Pikachu) colors, Budew uses Gen 3 (Roselia) colors.
+                                                // Regional variants are found in the generation the region was introduced in.
+#define GEN_1_EGG_COLORS                TRUE
+#define GEN_2_EGG_COLORS                TRUE
+#define GEN_3_EGG_COLORS                TRUE
+#define GEN_4_EGG_COLORS                TRUE
+#define GEN_5_EGG_COLORS                TRUE
+#define GEN_6_EGG_COLORS                TRUE
+#define GEN_7_EGG_COLORS                TRUE
+#define GEN_8_EGG_COLORS                TRUE
+#define GEN_9_EGG_COLORS                TRUE
+
 #endif // GUARD_CONFIG_POKEMON_H

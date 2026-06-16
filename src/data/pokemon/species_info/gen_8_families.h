@@ -47,6 +47,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Grookey,
+    #endif
         .palette = gMonPalette_Grookey,
         .shinyPalette = gMonShinyPalette_Grookey,
         .iconSprite = gMonIcon_Grookey,
@@ -111,6 +114,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Grookey,
+    #endif
         .palette = gMonPalette_Thwackey,
         .shinyPalette = gMonShinyPalette_Thwackey,
         .iconSprite = gMonIcon_Thwackey,
@@ -174,6 +180,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Grookey,
+    #endif
         .palette = gMonPalette_Rillaboom,
         .shinyPalette = gMonShinyPalette_Rillaboom,
         .iconSprite = gMonIcon_Rillaboom,
@@ -239,6 +248,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Grookey,
+    #endif
         .palette = gMonPalette_RillaboomGmax,
         .shinyPalette = gMonShinyPalette_RillaboomGmax,
         .iconSprite = gMonIcon_RillaboomGmax,
@@ -299,6 +311,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Scorbunny,
+    #endif
         .palette = gMonPalette_Scorbunny,
         .shinyPalette = gMonShinyPalette_Scorbunny,
         .iconSprite = gMonIcon_Scorbunny,
@@ -363,6 +378,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Scorbunny,
+    #endif
         .palette = gMonPalette_Raboot,
         .shinyPalette = gMonShinyPalette_Raboot,
         .iconSprite = gMonIcon_Raboot,
@@ -427,6 +445,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Scorbunny,
+    #endif
         .palette = gMonPalette_Cinderace,
         .shinyPalette = gMonShinyPalette_Cinderace,
         .iconSprite = gMonIcon_Cinderace,
@@ -493,6 +514,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Scorbunny,
+    #endif
         .palette = gMonPalette_CinderaceGmax,
         .shinyPalette = gMonShinyPalette_CinderaceGmax,
         .iconSprite = gMonIcon_CinderaceGmax,
@@ -554,6 +578,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sobble,
+    #endif
         .palette = gMonPalette_Sobble,
         .shinyPalette = gMonShinyPalette_Sobble,
         .iconSprite = gMonIcon_Sobble,
@@ -618,6 +645,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 9,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sobble,
+    #endif
         .palette = gMonPalette_Drizzile,
         .shinyPalette = gMonShinyPalette_Drizzile,
         .iconSprite = gMonIcon_Drizzile,
@@ -682,6 +712,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sobble,
+    #endif
         .palette = gMonPalette_Inteleon,
         .shinyPalette = gMonShinyPalette_Inteleon,
         .iconSprite = gMonIcon_Inteleon,
@@ -748,6 +781,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sobble,
+    #endif
         .palette = gMonPalette_InteleonGmax,
         .shinyPalette = gMonShinyPalette_InteleonGmax,
         .iconSprite = gMonIcon_InteleonGmax,
@@ -808,6 +844,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Skwovet,
+    #endif
         .palette = gMonPalette_Skwovet,
         .shinyPalette = gMonShinyPalette_Skwovet,
         .iconSprite = gMonIcon_Skwovet,
@@ -874,6 +913,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Skwovet,
+    #endif
         .palette = gMonPalette_Greedent,
         .shinyPalette = gMonShinyPalette_Greedent,
         .iconSprite = gMonIcon_Greedent,
@@ -947,6 +989,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 32),
         .backPicYOffset = 17,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rookidee,
+    #endif
         .palette = gMonPalette_Rookidee,
         .shinyPalette = gMonShinyPalette_Rookidee,
         .iconSprite = gMonIcon_Rookidee,
@@ -1021,6 +1066,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 9,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rookidee,
+    #endif
         .palette = gMonPalette_Corvisquire,
         .shinyPalette = gMonShinyPalette_Corvisquire,
         .iconSprite = gMonIcon_Corvisquire,
@@ -1089,6 +1137,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rookidee,
+    #endif
         .palette = gMonPalette_Corviknight,
         .shinyPalette = gMonShinyPalette_Corviknight,
         .iconSprite = gMonIcon_Corviknight,
@@ -1155,6 +1206,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rookidee,
+    #endif
         .palette = gMonPalette_CorviknightGmax,
         .shinyPalette = gMonShinyPalette_CorviknightGmax,
         .iconSprite = gMonIcon_CorviknightGmax,
@@ -1214,6 +1268,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Blipbug,
+    #endif
         .palette = gMonPalette_Blipbug,
         .shinyPalette = gMonShinyPalette_Blipbug,
         .iconSprite = gMonIcon_Blipbug,
@@ -1281,6 +1338,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 32),
         .backPicYOffset = 17,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Blipbug,
+    #endif
         .palette = gMonPalette_Dottler,
         .shinyPalette = gMonShinyPalette_Dottler,
         .iconSprite = gMonIcon_Dottler,
@@ -1347,6 +1407,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Blipbug,
+    #endif
         .palette = gMonPalette_Orbeetle,
         .shinyPalette = gMonShinyPalette_Orbeetle,
         .iconSprite = gMonIcon_Orbeetle,
@@ -1414,6 +1477,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Blipbug,
+    #endif
         .palette = gMonPalette_OrbeetleGmax,
         .shinyPalette = gMonShinyPalette_OrbeetleGmax,
         .iconSprite = gMonIcon_OrbeetleGmax,
@@ -1474,6 +1540,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Nickit,
+    #endif
         .palette = gMonPalette_Nickit,
         .shinyPalette = gMonShinyPalette_Nickit,
         .iconSprite = gMonIcon_Nickit,
@@ -1539,6 +1608,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Nickit,
+    #endif
         .palette = gMonPalette_Thievul,
         .shinyPalette = gMonShinyPalette_Thievul,
         .iconSprite = gMonIcon_Thievul,
@@ -1604,6 +1676,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Gossifleur,
+    #endif
         .palette = gMonPalette_Gossifleur,
         .shinyPalette = gMonShinyPalette_Gossifleur,
         .iconSprite = gMonIcon_Gossifleur,
@@ -1669,6 +1744,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Gossifleur,
+    #endif
         .palette = gMonPalette_Eldegoss,
         .shinyPalette = gMonShinyPalette_Eldegoss,
         .iconSprite = gMonIcon_Eldegoss,
@@ -1734,6 +1812,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 32),
         .backPicYOffset = 18,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Wooloo,
+    #endif
         .palette = gMonPalette_Wooloo,
         .shinyPalette = gMonShinyPalette_Wooloo,
         .iconSprite = gMonIcon_Wooloo,
@@ -1799,6 +1880,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Wooloo,
+    #endif
         .palette = gMonPalette_Dubwool,
         .shinyPalette = gMonShinyPalette_Dubwool,
         .iconSprite = gMonIcon_Dubwool,
@@ -1867,6 +1951,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Chewtle,
+    #endif
         .palette = gMonPalette_Chewtle,
         .shinyPalette = gMonShinyPalette_Chewtle,
         .iconSprite = gMonIcon_Chewtle,
@@ -1935,6 +2022,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 18,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Chewtle,
+    #endif
         .palette = gMonPalette_Drednaw,
         .shinyPalette = gMonShinyPalette_Drednaw,
         .iconSprite = gMonIcon_Drednaw,
@@ -2001,6 +2091,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 12,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Chewtle,
+    #endif
         .palette = gMonPalette_DrednawGmax,
         .shinyPalette = gMonShinyPalette_DrednawGmax,
         .iconSprite = gMonIcon_DrednawGmax,
@@ -2061,6 +2154,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 48),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Yamper,
+    #endif
         .palette = gMonPalette_Yamper,
         .shinyPalette = gMonShinyPalette_Yamper,
         .iconSprite = gMonIcon_Yamper,
@@ -2126,6 +2222,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Yamper,
+    #endif
         .palette = gMonPalette_Boltund,
         .shinyPalette = gMonShinyPalette_Boltund,
         .iconSprite = gMonIcon_Boltund,
@@ -2191,6 +2290,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 32),
         .backPicYOffset = 17,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rolycoly,
+    #endif
         .palette = gMonPalette_Rolycoly,
         .shinyPalette = gMonShinyPalette_Rolycoly,
         .iconSprite = gMonIcon_Rolycoly,
@@ -2255,6 +2357,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rolycoly,
+    #endif
         .palette = gMonPalette_Carkol,
         .shinyPalette = gMonShinyPalette_Carkol,
         .iconSprite = gMonIcon_Carkol,
@@ -2319,6 +2424,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rolycoly,
+    #endif
         .palette = gMonPalette_Coalossal,
         .shinyPalette = gMonShinyPalette_Coalossal,
         .iconSprite = gMonIcon_Coalossal,
@@ -2385,6 +2493,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Rolycoly,
+    #endif
         .palette = gMonPalette_CoalossalGmax,
         .shinyPalette = gMonShinyPalette_CoalossalGmax,
         .iconSprite = gMonIcon_CoalossalGmax,
@@ -2445,6 +2556,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 48),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_Applin,
         .shinyPalette = gMonShinyPalette_Applin,
         .iconSprite = gMonIcon_Applin,
@@ -2516,6 +2630,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_Flapple,
         .shinyPalette = gMonShinyPalette_Flapple,
         .iconSprite = gMonIcon_Flapple,
@@ -2582,6 +2699,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_FlappleGmax,
         .shinyPalette = gMonShinyPalette_FlappleGmax,
         .iconSprite = gMonIcon_FlappleGmax,
@@ -2639,6 +2759,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_Appletun,
         .shinyPalette = gMonShinyPalette_Appletun,
         .iconSprite = gMonIcon_Appletun,
@@ -2705,6 +2828,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_AppletunGmax,
         .shinyPalette = gMonShinyPalette_AppletunGmax,
         .iconSprite = gMonIcon_AppletunGmax,
@@ -2763,6 +2889,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_Dipplin,
         .shinyPalette = gMonShinyPalette_Dipplin,
         .iconSprite = gMonIcon_Dipplin,
@@ -2827,6 +2956,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Applin,
+    #endif
         .palette = gMonPalette_Hydrapple,
         .shinyPalette = gMonShinyPalette_Hydrapple,
         .iconSprite = gMonIcon_Hydrapple,
@@ -2892,6 +3024,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 10,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Silicobra,
+    #endif
         .palette = gMonPalette_Silicobra,
         .shinyPalette = gMonShinyPalette_Silicobra,
         .iconSprite = gMonIcon_Silicobra,
@@ -2957,6 +3092,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Silicobra,
+    #endif
         .palette = gMonPalette_Sandaconda,
         .shinyPalette = gMonShinyPalette_Sandaconda,
         .iconSprite = gMonIcon_Sandaconda,
@@ -3023,6 +3161,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Silicobra,
+    #endif
         .palette = gMonPalette_SandacondaGmax,
         .shinyPalette = gMonShinyPalette_SandacondaGmax,
         .iconSprite = gMonIcon_SandacondaGmax,
@@ -3082,6 +3223,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cramorant,
+    #endif
         .palette = gMonPalette_Cramorant,
         .shinyPalette = gMonShinyPalette_Cramorant,
         .iconSprite = gMonIcon_Cramorant,
@@ -3148,6 +3292,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cramorant,
+    #endif
         .palette = gMonPalette_CramorantGulping,
         .shinyPalette = gMonShinyPalette_CramorantGulping,
         .iconSprite = gMonIcon_CramorantGulping,
@@ -3205,6 +3352,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cramorant,
+    #endif
         .palette = gMonPalette_CramorantGorging,
         .shinyPalette = gMonShinyPalette_CramorantGorging,
         .iconSprite = gMonIcon_CramorantGorging,
@@ -3264,6 +3414,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 40),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Arrokuda,
+    #endif
         .palette = gMonPalette_Arrokuda,
         .shinyPalette = gMonShinyPalette_Arrokuda,
         .iconSprite = gMonIcon_Arrokuda,
@@ -3329,6 +3482,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Arrokuda,
+    #endif
         .palette = gMonPalette_Barraskewda,
         .shinyPalette = gMonShinyPalette_Barraskewda,
         .iconSprite = gMonIcon_Barraskewda,
@@ -3394,6 +3550,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Toxel,
+    #endif
         .palette = gMonPalette_Toxel,
         .shinyPalette = gMonShinyPalette_Toxel,
         .iconSprite = gMonIcon_Toxel,
@@ -3460,6 +3619,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Toxel,
+    #endif
         .palette = gMonPalette_ToxtricityAmped,
         .shinyPalette = gMonShinyPalette_ToxtricityAmped,
         .iconSprite = gMonIcon_ToxtricityAmped,
@@ -3522,6 +3684,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Toxel,
+    #endif
         .palette = gMonPalette_ToxtricityGmax,
         .shinyPalette = gMonShinyPalette_ToxtricityGmax,
         .iconSprite = gMonIcon_ToxtricityGmax,
@@ -3579,6 +3744,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Toxel,
+    #endif
         .palette = gMonPalette_ToxtricityLowKey,
         .shinyPalette = gMonShinyPalette_ToxtricityLowKey,
         .iconSprite = gMonIcon_ToxtricityLowKey,
@@ -3641,6 +3809,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Toxel,
+    #endif
         .palette = gMonPalette_ToxtricityGmax,
         .shinyPalette = gMonShinyPalette_ToxtricityGmax,
         .iconSprite = gMonIcon_ToxtricityGmax,
@@ -3704,6 +3875,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 32),
         .backPicYOffset = 16,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sizzlipede,
+    #endif
         .palette = gMonPalette_Sizzlipede,
         .shinyPalette = gMonShinyPalette_Sizzlipede,
         .iconSprite = gMonIcon_Sizzlipede,
@@ -3773,6 +3947,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sizzlipede,
+    #endif
         .palette = gMonPalette_Centiskorch,
         .shinyPalette = gMonShinyPalette_Centiskorch,
         .iconSprite = gMonIcon_Centiskorch,
@@ -3839,6 +4016,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 1,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sizzlipede,
+    #endif
         .palette = gMonPalette_CentiskorchGmax,
         .shinyPalette = gMonShinyPalette_CentiskorchGmax,
         .iconSprite = gMonIcon_CentiskorchGmax,
@@ -3899,6 +4079,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 14,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Clobbopus,
+    #endif
         .palette = gMonPalette_Clobbopus,
         .shinyPalette = gMonShinyPalette_Clobbopus,
         .iconSprite = gMonIcon_Clobbopus,
@@ -3963,6 +4146,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Clobbopus,
+    #endif
         .palette = gMonPalette_Grapploct,
         .shinyPalette = gMonShinyPalette_Grapploct,
         .iconSprite = gMonIcon_Grapploct,
@@ -4028,6 +4214,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 32),
         .backPicYOffset = 16,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sinistea,
+    #endif
         .palette = gMonPalette_Sinistea,
         .shinyPalette = gMonShinyPalette_Sinistea,
         .iconSprite = gMonIcon_Sinistea,
@@ -4094,6 +4283,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 32),
         .backPicYOffset = 16,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sinistea,
+    #endif
         .palette = gMonPalette_Sinistea,
         .shinyPalette = gMonShinyPalette_Sinistea,
         .iconSprite = gMonIcon_Sinistea,
@@ -4159,6 +4351,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sinistea,
+    #endif
         .palette = gMonPalette_Polteageist,
         .shinyPalette = gMonShinyPalette_Polteageist,
         .iconSprite = gMonIcon_Polteageist,
@@ -4224,6 +4419,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Sinistea,
+    #endif
         .palette = gMonPalette_Polteageist,
         .shinyPalette = gMonShinyPalette_Polteageist,
         .iconSprite = gMonIcon_Polteageist,
@@ -4290,6 +4488,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 40),
         .backPicYOffset = 12,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Hatenna,
+    #endif
         .palette = gMonPalette_Hatenna,
         .shinyPalette = gMonShinyPalette_Hatenna,
         .iconSprite = gMonIcon_Hatenna,
@@ -4354,6 +4555,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Hatenna,
+    #endif
         .palette = gMonPalette_Hattrem,
         .shinyPalette = gMonShinyPalette_Hattrem,
         .iconSprite = gMonIcon_Hattrem,
@@ -4417,6 +4621,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Hatenna,
+    #endif
         .palette = gMonPalette_Hatterene,
         .shinyPalette = gMonShinyPalette_Hatterene,
         .iconSprite = gMonIcon_Hatterene,
@@ -4483,6 +4690,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Hatenna,
+    #endif
         .palette = gMonPalette_HattereneGmax,
         .shinyPalette = gMonShinyPalette_HattereneGmax,
         .iconSprite = gMonIcon_HattereneGmax,
@@ -4543,6 +4753,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Impidimp,
+    #endif
         .palette = gMonPalette_Impidimp,
         .shinyPalette = gMonShinyPalette_Impidimp,
         .iconSprite = gMonIcon_Impidimp,
@@ -4607,6 +4820,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Impidimp,
+    #endif
         .palette = gMonPalette_Morgrem,
         .shinyPalette = gMonShinyPalette_Morgrem,
         .iconSprite = gMonIcon_Morgrem,
@@ -4671,6 +4887,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 10,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Impidimp,
+    #endif
         .palette = gMonPalette_Grimmsnarl,
         .shinyPalette = gMonShinyPalette_Grimmsnarl,
         .iconSprite = gMonIcon_Grimmsnarl,
@@ -4737,6 +4956,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 10,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Impidimp,
+    #endif
         .palette = gMonPalette_GrimmsnarlGmax,
         .shinyPalette = gMonShinyPalette_GrimmsnarlGmax,
         .iconSprite = gMonIcon_GrimmsnarlGmax,
@@ -4797,6 +5019,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 16,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Milcery,
+    #endif
         .palette = gMonPalette_Milcery,
         .shinyPalette = gMonShinyPalette_Milcery,
         .iconSprite = gMonIcon_Milcery,
@@ -5009,7 +5234,14 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
                         )
     },
 
+#if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+    #define ALCREMIE_EGG_COLOR .eggPalette = gEggPalette_Milcery,
+#else
+    #define ALCREMIE_EGG_COLOR
+#endif
+
 #define ALCREMIE_MISC_INFO(color)                                               \
+        ALCREMIE_EGG_COLOR                                                      \
         .baseHP        = 65,                                                    \
         .baseAttack    = 60,                                                    \
         .baseDefense   = 75,                                                    \
@@ -5223,6 +5455,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 40),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Falinks,
+    #endif
         .palette = gMonPalette_Falinks,
         .shinyPalette = gMonShinyPalette_Falinks,
         .iconSprite = gMonIcon_Falinks,
@@ -5290,6 +5525,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Falinks,
+    #endif
         .palette = gMonPalette_FalinksMega,
         .shinyPalette = gMonShinyPalette_FalinksMega,
         .iconSprite = gMonIcon_FalinksMega,
@@ -5349,6 +5587,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 40),
         .backPicYOffset = 13,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Pincurchin,
+    #endif
         .palette = gMonPalette_Pincurchin,
         .shinyPalette = gMonShinyPalette_Pincurchin,
         .iconSprite = gMonIcon_Pincurchin,
@@ -5416,6 +5657,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 32),
         .backPicYOffset = 17,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Snom,
+    #endif
         .palette = gMonPalette_Snom,
         .shinyPalette = gMonShinyPalette_Snom,
         .iconSprite = gMonIcon_Snom,
@@ -5482,6 +5726,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Snom,
+    #endif
         .palette = gMonPalette_Frosmoth,
         .shinyPalette = gMonShinyPalette_Frosmoth,
         .iconSprite = gMonIcon_Frosmoth,
@@ -5547,6 +5794,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Stonjourner,
+    #endif
         .palette = gMonPalette_Stonjourner,
         .shinyPalette = gMonShinyPalette_Stonjourner,
         .iconSprite = gMonIcon_Stonjourner,
@@ -5613,6 +5863,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Eiscue,
+    #endif
         .palette = gMonPalette_EiscueIce,
         .shinyPalette = gMonShinyPalette_EiscueIce,
         .iconSprite = gMonIcon_EiscueIce,
@@ -5679,6 +5932,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(40, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Eiscue,
+    #endif
         .palette = gMonPalette_EiscueNoice,
         .shinyPalette = gMonShinyPalette_EiscueNoice,
         .iconSprite = gMonIcon_EiscueNoice,
@@ -5738,6 +5994,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Indeedee,
+    #endif
         .palette = gMonPalette_IndeedeeM,
         .shinyPalette = gMonShinyPalette_IndeedeeM,
         .iconSprite = gMonIcon_IndeedeeM,
@@ -5802,6 +6061,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Indeedee,
+    #endif
         .palette = gMonPalette_IndeedeeF,
         .shinyPalette = gMonShinyPalette_IndeedeeF,
         .iconSprite = gMonIcon_IndeedeeF,
@@ -5869,6 +6131,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Morpeko,
+    #endif
         .palette = gMonPalette_MorpekoFullBelly,
         .shinyPalette = gMonShinyPalette_MorpekoFullBelly,
         .iconSprite = gMonIcon_MorpekoFullBelly,
@@ -5935,6 +6200,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(48, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Morpeko,
+    #endif
         .palette = gMonPalette_MorpekoHangry,
         .shinyPalette = gMonShinyPalette_MorpekoHangry,
         .iconSprite = gMonIcon_MorpekoHangry,
@@ -5995,6 +6263,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cufant,
+    #endif
         .palette = gMonPalette_Cufant,
         .shinyPalette = gMonShinyPalette_Cufant,
         .iconSprite = gMonIcon_Cufant,
@@ -6060,6 +6331,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 32),
         .backPicYOffset = 16,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cufant,
+    #endif
         .palette = gMonPalette_Copperajah,
         .shinyPalette = gMonShinyPalette_Copperajah,
         .iconSprite = gMonIcon_Copperajah,
@@ -6127,6 +6401,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Cufant,
+    #endif
         .palette = gMonPalette_CopperajahGmax,
         .shinyPalette = gMonShinyPalette_CopperajahGmax,
         .iconSprite = gMonIcon_CopperajahGmax,
@@ -6187,6 +6464,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Dracozolt,
+    #endif
         .palette = gMonPalette_Dracozolt,
         .shinyPalette = gMonShinyPalette_Dracozolt,
         .iconSprite = gMonIcon_Dracozolt,
@@ -6251,6 +6531,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 8,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Arctozolt,
+    #endif
         .palette = gMonPalette_Arctozolt,
         .shinyPalette = gMonShinyPalette_Arctozolt,
         .iconSprite = gMonIcon_Arctozolt,
@@ -6316,6 +6599,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Dracovish,
+    #endif
         .palette = gMonPalette_Dracovish,
         .shinyPalette = gMonShinyPalette_Dracovish,
         .iconSprite = gMonIcon_Dracovish,
@@ -6381,6 +6667,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Arctovish,
+    #endif
         .palette = gMonPalette_Arctovish,
         .shinyPalette = gMonShinyPalette_Arctovish,
         .iconSprite = gMonIcon_Arctovish,
@@ -6449,6 +6738,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Duraludon,
+    #endif
         .palette = gMonPalette_Duraludon,
         .shinyPalette = gMonShinyPalette_Duraludon,
         .iconSprite = gMonIcon_Duraludon,
@@ -6519,6 +6811,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Duraludon,
+    #endif
         .palette = gMonPalette_DuraludonGmax,
         .shinyPalette = gMonShinyPalette_DuraludonGmax,
         .iconSprite = gMonIcon_DuraludonGmax,
@@ -6579,6 +6874,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
         .backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Duraludon,
+    #endif
         .palette = gMonPalette_Archaludon,
         .shinyPalette = gMonShinyPalette_Archaludon,
         .iconSprite = gMonIcon_Archaludon,
@@ -6646,6 +6944,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 40),
         .backPicYOffset = 15,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Dreepy,
+    #endif
         .palette = gMonPalette_Dreepy,
         .shinyPalette = gMonShinyPalette_Dreepy,
         .iconSprite = gMonIcon_Dreepy,
@@ -6711,6 +7012,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 11,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Dreepy,
+    #endif
         .palette = gMonPalette_Drakloak,
         .shinyPalette = gMonShinyPalette_Drakloak,
         .iconSprite = gMonIcon_Drakloak,
@@ -6776,6 +7080,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Dreepy,
+    #endif
         .palette = gMonPalette_Dragapult,
         .shinyPalette = gMonShinyPalette_Dragapult,
         .iconSprite = gMonIcon_Dragapult,
@@ -6840,6 +7147,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zacian,
+    #endif
         .palette = gMonPalette_ZacianHero,
         .shinyPalette = gMonShinyPalette_ZacianHero,
         .iconSprite = gMonIcon_ZacianHero,
@@ -6908,6 +7218,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zacian,
+    #endif
         .palette = gMonPalette_ZacianCrowned,
         .shinyPalette = gMonShinyPalette_ZacianCrowned,
         .iconSprite = gMonIcon_ZacianCrowned,
@@ -6978,6 +7291,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zamazenta,
+    #endif
         .palette = gMonPalette_ZamazentaHero,
         .shinyPalette = gMonShinyPalette_ZamazentaHero,
         .iconSprite = gMonIcon_ZamazentaHero,
@@ -7046,6 +7362,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 3,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zamazenta,
+    #endif
         .palette = gMonPalette_ZamazentaCrowned,
         .shinyPalette = gMonShinyPalette_ZamazentaCrowned,
         .iconSprite = gMonIcon_ZamazentaCrowned,
@@ -7117,6 +7436,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 2,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Eternatus,
+    #endif
         .palette = gMonPalette_Eternatus,
         .shinyPalette = gMonShinyPalette_Eternatus,
         .iconSprite = gMonIcon_Eternatus,
@@ -7185,6 +7507,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Eternatus,
+    #endif
         .palette = gMonPalette_EternatusEternamax,
         .shinyPalette = gMonShinyPalette_EternatusEternamax,
         .iconSprite = gMonIcon_EternatusEternamax,
@@ -7244,6 +7569,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 9,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Kubfu,
+    #endif
         .palette = gMonPalette_Kubfu,
         .shinyPalette = gMonShinyPalette_Kubfu,
         .iconSprite = gMonIcon_Kubfu,
@@ -7313,6 +7641,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Kubfu,
+    #endif
         .palette = gMonPalette_UrshifuSingleStrike,
         .shinyPalette = gMonShinyPalette_UrshifuSingleStrike,
         .iconSprite = gMonIcon_Urshifu,
@@ -7381,6 +7712,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Kubfu,
+    #endif
         .palette = gMonPalette_UrshifuSingleStrikeGmax,
         .shinyPalette = gMonShinyPalette_UrshifuSingleStrikeGmax,
         .iconSprite = gMonIcon_UrshifuSingleStrikeGmax,
@@ -7441,6 +7775,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Kubfu,
+    #endif
         .palette = gMonPalette_UrshifuRapidStrike,
         .shinyPalette = gMonShinyPalette_UrshifuRapidStrike,
         .iconSprite = gMonIcon_Urshifu,
@@ -7509,6 +7846,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 4,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Kubfu,
+    #endif
         .palette = gMonPalette_UrshifuRapidStrikeGmax,
         .shinyPalette = gMonShinyPalette_UrshifuRapidStrikeGmax,
         .iconSprite = gMonIcon_UrshifuRapidStrikeGmax,
@@ -7572,6 +7912,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zarude,
+    #endif
         .palette = gMonPalette_Zarude,
         .shinyPalette = gMonShinyPalette_Zarude,
         .iconSprite = gMonIcon_Zarude,
@@ -7639,6 +7982,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Zarude,
+    #endif
         .palette = gMonPalette_ZarudeDada,
         .shinyPalette = gMonShinyPalette_ZarudeDada,
         .iconSprite = gMonIcon_ZarudeDada,
@@ -7700,6 +8046,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 48),
         .backPicYOffset = 9,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Regieleki,
+    #endif
         .palette = gMonPalette_Regieleki,
         .shinyPalette = gMonShinyPalette_Regieleki,
         .iconSprite = gMonIcon_Regieleki,
@@ -7768,6 +8117,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Regidrago,
+    #endif
         .palette = gMonPalette_Regidrago,
         .shinyPalette = gMonShinyPalette_Regidrago,
         .iconSprite = gMonIcon_Regidrago,
@@ -7834,6 +8186,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 64),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Glastrier,
+    #endif
         .palette = gMonPalette_Glastrier,
         .shinyPalette = gMonShinyPalette_Glastrier,
         .iconSprite = gMonIcon_Glastrier,
@@ -7901,6 +8256,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 56),
         .backPicYOffset = 5,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Spectrier,
+    #endif
         .palette = gMonPalette_Spectrier,
         .shinyPalette = gMonShinyPalette_Spectrier,
         .iconSprite = gMonIcon_Spectrier,
@@ -7968,6 +8326,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(56, 48),
         .backPicYOffset = 10,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Calyrex,
+    #endif
         .palette = gMonPalette_Calyrex,
         .shinyPalette = gMonShinyPalette_Calyrex,
         .iconSprite = gMonIcon_Calyrex,
@@ -8036,6 +8397,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Calyrex,
+    #endif
         .palette = gMonPalette_CalyrexIce,
         .shinyPalette = gMonShinyPalette_CalyrexIce,
         .iconSprite = gMonIcon_CalyrexIce,
@@ -8104,6 +8468,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 56),
         .backPicYOffset = 7,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Calyrex,
+    #endif
         .palette = gMonPalette_CalyrexShadow,
         .shinyPalette = gMonShinyPalette_CalyrexShadow,
         .iconSprite = gMonIcon_CalyrexShadow,
@@ -8176,6 +8543,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 0,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Enamorus,
+    #endif
         .palette = gMonPalette_EnamorusIncarnate,
         .shinyPalette = gMonShinyPalette_EnamorusIncarnate,
         .iconSprite = gMonIcon_EnamorusIncarnate,
@@ -8244,6 +8614,9 @@ const struct SpeciesInfo gSpeciesInfoGen8[] =
         .backPicSize = MON_COORDS_SIZE(64, 64),
         .backPicYOffset = 6,
         //.backAnimId = BACK_ANIM_NONE,
+    #if SPECIES_EGG_COLOR && GEN_8_EGG_COLORS
+        .eggPalette = gEggPalette_Enamorus,
+    #endif
         .palette = gMonPalette_EnamorusTherian,
         .shinyPalette = gMonShinyPalette_EnamorusTherian,
         .iconSprite = gMonIcon_EnamorusTherian,

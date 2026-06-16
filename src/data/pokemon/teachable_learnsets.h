@@ -29958,7 +29958,6 @@ static const u16 sWormadamTrashTeachableLearnset[] = {
     MOVE_UPROAR,
     MOVE_UNAVAILABLE,
 };
-
 static const u16 sMothimTeachableLearnset[] = {
     MOVE_ACROBATICS,
     MOVE_AERIAL_ACE,
@@ -48928,7 +48927,6 @@ static const u16 sTypeNullTeachableLearnset[] = {
     MOVE_THUNDER_WAVE,
     MOVE_UNAVAILABLE,
 };
-
 static const u16 sSilvallyTeachableLearnset[] = {
     MOVE_AERIAL_ACE,
     MOVE_DOUBLE_TEAM,
@@ -52840,7 +52838,6 @@ static const u16 sMilceryTeachableLearnset[] = {
     MOVE_SUBSTITUTE,
     MOVE_UNAVAILABLE,
 };
-
 static const u16 sAlcremieTeachableLearnset[] = {
     MOVE_ATTRACT,
     MOVE_CALM_MIND,

@@ -5422,60 +5422,26 @@ const u16 *GetMonSpritePalFromSpecies(enum Species species, bool32 isShiny, bool
     return GetMonSpritePalFromSpeciesIsEgg(species, isShiny, isFemale, FALSE);
 }
 
-static const u16 sEggColorRed[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/red.pal", ".gbapal");
-static const u16 sEggColorBlue[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/blue.pal", ".gbapal");
-static const u16 sEggColorYellow[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/yellow.pal", ".gbapal");
-static const u16 sEggColorGreen[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/green.pal", ".gbapal");
-static const u16 sEggColorBlack[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/black.pal", ".gbapal");
-static const u16 sEggColorBrown[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/brown.pal", ".gbapal");
-static const u16 sEggColorPurple[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/purple.pal", ".gbapal");
-static const u16 sEggColorGray[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/gray.pal", ".gbapal");
-static const u16 sEggColorWhite[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/white.pal", ".gbapal");
-static const u16 sEggColorPink[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/pink.pal", ".gbapal");
-static const u16 sEggColorOrange[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/orange.pal", ".gbapal");
-static const u16 sEggColorCyan[] = INCGFX_U16("graphics/pokemon/egg/eggcolor/cyan.pal", ".gbapal");
-
 const u16 *GetMonSpritePalFromSpeciesIsEgg(enum Species species, bool32 isShiny, bool32 isFemale, bool32 isEgg)
 {
     species = SanitizeSpeciesId(species);
-    enum BodyColor speciesColor = gSpeciesInfo[species].bodyColor;
 
     if (isEgg)
     {
+    #if SPECIES_EGG_COLOR
+        if (gSpeciesInfo[species].eggPalette != NULL)
+        {
+            if (species == SPECIES_FRILLISH && isFemale && GEN_5_EGG_COLORS)
+                return gEggPalette_FrillishF;
+            else
+                return gSpeciesInfo[species].eggPalette;
+        }
+        else
+    #endif
         if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
             return gEggDatas[gSpeciesInfo[species].eggId].eggPalette;
         else
-        {
-            switch (speciesColor)
-            {
-            case BODY_COLOR_RED:
-                return sEggColorRed;
-            case BODY_COLOR_BLUE:
-                return sEggColorBlue;
-            case BODY_COLOR_YELLOW:
-                return sEggColorYellow;
-            case BODY_COLOR_GREEN:
-                return sEggColorGreen;
-            case BODY_COLOR_BLACK:
-                return sEggColorBlack;
-            case BODY_COLOR_BROWN:
-                return sEggColorBrown;
-            case BODY_COLOR_PURPLE:
-                return sEggColorPurple;
-            case BODY_COLOR_GRAY:
-                return sEggColorGray;
-            case BODY_COLOR_WHITE:
-                return sEggColorWhite;
-            case BODY_COLOR_PINK:
-                return sEggColorPink;
-            case BODY_COLOR_ORANGE:
-                return sEggColorOrange;
-            case BODY_COLOR_CYAN:
-                return sEggColorCyan;
-            default:
-                return gSpeciesInfo[SPECIES_EGG].palette;
-            }
-        }
+            return gSpeciesInfo[SPECIES_EGG].palette;
     }
     else if (isShiny)
     {
