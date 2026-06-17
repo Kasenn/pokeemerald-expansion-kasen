@@ -786,10 +786,10 @@ const u32 gObjectEventPic_MayFishingContest[] =              INCGFX_U32("graphic
 const u32 gObjectEventPic_MayWateringContest[] =             INCGFX_U32("graphics/object_events/pics/people/may/contest/watering.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u32 gObjectEventPic_MayFertilizingContest[] =          INCGFX_U32("graphics/object_events/pics/people/may/contest/fertilizing.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u32 gObjectEventPic_MayRockClimbingContest[] =         INCGFX_U32("graphics/object_events/pics/people/may/contest/rock_climbing.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_MayContestSnow4Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayRSSnow4Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_MayContestSnow6Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayRSSnow6Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_MayContestSnow8Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayRSSnow8Px.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u32 gObjectEventPic_MayContestSnow10Px[] =             INCGFX_U32("graphics/object_events/pics/people/may/contest/MayRSSnow10Px.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u32 gObjectEventPic_MayContestSnow4Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayContestSnow4Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_MayContestSnow6Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayContestSnow6Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_MayContestSnow8Px[] =              INCGFX_U32("graphics/object_events/pics/people/may/contest/MayContestSnow8Px.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_MayContestSnow10Px[] =             INCGFX_U32("graphics/object_events/pics/people/may/contest/MayContestSnow10Px.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
 
 const u32 gObjectEventPic_Spotlight[] =                      INCGFX_U32("graphics/object_events/pics/people/spotlight.png", ".4bpp", "-mwidth 8 -mheight 8");
 

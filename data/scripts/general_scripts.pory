@@ -551,11 +551,19 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    while(var(VAR_TEMP_0) <= 200)
-    {
-        givemon(1, 5)
-        addvar(VAR_TEMP_0, 1)
-    }
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    givemon(SPECIES_SPINDA, 5)
+    giveegg(SPECIES_SPINDA)
+    giveegg(SPECIES_SPINDA)
+    giveegg(SPECIES_SPINDA)
+    giveegg(SPECIES_SPINDA)
+    giveegg(SPECIES_SPINDA)
+    giveegg(SPECIES_SPINDA)
     return
 }
 script Debug_Script_4{
