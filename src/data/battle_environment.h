@@ -80,7 +80,7 @@
 #else
     #define PLAIN_SECRET_POWER_ANIMATION gBattleAnimMove_Slam
 #endif
-#define PLAIN_SECRET_POWER_EFFECT (B_SECRET_POWER_EFFECT == GEN_4 || B_SECRET_POWER_EFFECT == GEN_5) ? MOVE_EFFECT_ACC_MINUS_1 : MOVE_EFFECT_PARALYSIS
+#define PLAIN_SECRET_POWER_EFFECT (B_SECRET_POWER_EFFECT == GEN_4 || B_SECRET_POWER_EFFECT == GEN_5) ? SECRET_POWER_ACC_MINUS_1 : MOVE_EFFECT_PARALYSIS
 #define PLAIN_CAMOUFLAGE_TYPE     (B_CAMOUFLAGE_TYPES == GEN_4 || B_CAMOUFLAGE_TYPES == GEN_5) ? TYPE_GROUND : TYPE_NORMAL
 #define PLAIN_CAMOUFLAGE_BLEND    RGB_WHITE
 #define PLAIN_BATTLE_INTRO_SLIDE  BattleIntroSlide3
@@ -107,7 +107,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_SAND] =
     {
         ENVIRONMENT_GRAPHICS(Sand, Sand, Sand, BattleIntroSlide2),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudSlap, MOVE_EFFECT_ACC_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudSlap, SECRET_POWER_ACC_MINUS_1),
         .name = _("Sand"),
         .naturePower = MOVE_EARTH_POWER,
         .camouflageType = TYPE_GROUND, .camouflageBlend = RGB(30, 24, 11),
@@ -116,7 +116,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_UNDERWATER] =
     {
         ENVIRONMENT_GRAPHICS(Underwater, Underwater, Underwater, BattleIntroSlide2),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, MOVE_EFFECT_ATK_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, SECRET_POWER_ATK_MINUS_1),
         .name = _("Underwater"),
         .naturePower = MOVE_HYDRO_PUMP,
         .camouflageType = TYPE_WATER, .camouflageBlend = RGB(0, 0, 18),
@@ -125,7 +125,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_WATER] =
     {
         ENVIRONMENT_GRAPHICS(Water, Water, Water, BattleIntroSlide2),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, MOVE_EFFECT_ATK_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, SECRET_POWER_ATK_MINUS_1),
         .name = _("Water"),
         .naturePower = MOVE_HYDRO_PUMP,
         .camouflageType = TYPE_WATER, .camouflageBlend = RGB(11, 22, 31),
@@ -134,7 +134,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_POND] =
     {
         ENVIRONMENT_GRAPHICS(PondWater, PondWater, PondWater, BattleIntroSlide1),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, MOVE_EFFECT_ATK_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_WaterPulse, SECRET_POWER_ATK_MINUS_1),
         .name = _("Pond"),
         .naturePower = MOVE_HYDRO_PUMP,
         .camouflageType = TYPE_WATER, .camouflageBlend = RGB(11, 22, 31),
@@ -143,7 +143,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_MOUNTAIN] =
     {
         ENVIRONMENT_GRAPHICS(Rock, Rock, Rock, BattleIntroSlide1),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudSlap, MOVE_EFFECT_ACC_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudSlap, SECRET_POWER_ACC_MINUS_1),
         .name = _("Mountain"),
         .naturePower = MOVE_EARTH_POWER,
         .camouflageType = TYPE_GROUND, .camouflageBlend = RGB(22, 16, 10),
@@ -285,7 +285,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_SKY_PILLAR] =
     {
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Gust, MOVE_EFFECT_SPD_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Gust, SECRET_POWER_SPD_MINUS_1),
         .name = _("Sky Pillar"),
         .naturePower = MOVE_AIR_SLASH,
         .camouflageType = TYPE_FLYING, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -301,7 +301,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_PUDDLE] =
     {
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, MOVE_EFFECT_SPD_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, SECRET_POWER_SPD_MINUS_1),
         .name = _("Puddle"),
         .naturePower = MOVE_MUD_BOMB,
         .camouflageType = TYPE_GROUND, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -309,7 +309,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_MARSH] =
     {
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, MOVE_EFFECT_SPD_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, SECRET_POWER_SPD_MINUS_1),
         .name = _("Marsh"),
         .naturePower = MOVE_MUD_BOMB,
         .camouflageType = TYPE_GROUND, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -317,7 +317,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_SWAMP] =
     {
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, MOVE_EFFECT_SPD_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudShot, SECRET_POWER_SPD_MINUS_1),
         .name = _("Swamp"),
         .naturePower = MOVE_MUD_BOMB,
         .camouflageType = TYPE_GROUND, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -357,7 +357,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
 
     [BATTLE_ENVIRONMENT_ULTRA_SPACE] =
     {
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Psywave, MOVE_EFFECT_DEF_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Psywave, SECRET_POWER_DEF_MINUS_1),
         .name = _("Ultra Space"),
         .naturePower = MOVE_PSYSHOCK,
         .camouflageType = TYPE_PSYCHIC, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -368,7 +368,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_SOARING] =
     {
         ENVIRONMENT_GRAPHICS(Rayquaza, Rayquaza, Rayquaza, BattleIntroSlide3),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Gust, MOVE_EFFECT_SPD_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Gust, SECRET_POWER_SPD_MINUS_1),
         .name = _("Soaring"),
         .naturePower = MOVE_AIR_SLASH,
         .camouflageType = TYPE_FLYING, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
@@ -386,7 +386,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_MUD] =
     {
         ENVIRONMENT_GRAPHICS(Building, Mud, Mud, BattleIntroSlide3),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudBomb, MOVE_EFFECT_ACC_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_MudBomb, SECRET_POWER_ACC_MINUS_1),
         .name = _("Mud"),
         .camouflageType = TYPE_GROUND, .camouflageBlend = DEFAULT_CAMOUFLAGE_BLEND,
         .naturePower = MOVE_MUD_BOMB,
@@ -455,7 +455,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_GYM_3] =
     {
         ENVIRONMENT_GRAPHICS(GroundGym, GroundGym, GroundGym, BattleIntroSlide1),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Earthquake, MOVE_EFFECT_ACC_MINUS_1),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_Earthquake, SECRET_POWER_ACC_MINUS_1),
         .name = _("Ground Gym"),
         .naturePower = MOVE_EARTH_POWER,
         .camouflageType = TYPE_GROUND, .camouflageBlend = RGB(25, 23, 18),

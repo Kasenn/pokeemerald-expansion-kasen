@@ -5,9 +5,6 @@ SINGLE_BATTLE_TEST("Rapid Spin activates after Toxic Debris")
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_RAPID_SPIN) == EFFECT_RAPID_SPIN);
-    #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
-        ASSUME(MoveHasAdditionalEffectSelf(MOVE_RAPID_SPIN, MOVE_EFFECT_SPD_PLUS_1) == TRUE);
-    #endif
         PLAYER(SPECIES_GLIMMORA) { Ability(ABILITY_TOXIC_DEBRIS); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
@@ -24,9 +21,9 @@ SINGLE_BATTLE_TEST("Rapid Spin blows away Wrap, hazards and raises Speed (Gen 8+
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_RAPID_SPIN) == EFFECT_RAPID_SPIN);
-    #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
-        ASSUME(MoveHasAdditionalEffectSelf(MOVE_RAPID_SPIN, MOVE_EFFECT_SPD_PLUS_1) == TRUE);
-    #endif
+        #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
+        ASSUME_MOVE_EFFECT_STAT_CHANGE(MOVE_RAPID_SPIN, self: TRUE, speed: 1);
+        #endif
         PLAYER(SPECIES_WOBBUFFET);
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
@@ -40,7 +37,7 @@ SINGLE_BATTLE_TEST("Rapid Spin blows away Wrap, hazards and raises Speed (Gen 8+
         MESSAGE("Wobbuffet's Speed rose!");
     #endif
         MESSAGE("Wobbuffet was freed from Wrap!");
-        MESSAGE("The pointed stones disappeared from around your team!");
+        MESSAGE("The pointed stones disappeared from your side!");
     }
 }
 
@@ -60,7 +57,7 @@ SINGLE_BATTLE_TEST("Rapid Spin: Mortal Spin blows away Wrap, hazards and poisons
         MESSAGE("The foe Wobbuffet was poisoned!");
         STATUS_ICON(opponent, poison: TRUE);
         MESSAGE("Wobbuffet was freed from Wrap!");
-        MESSAGE("The pointed stones disappeared from around your team!");
+        MESSAGE("The pointed stones disappeared from your side!");
     }
 }
 
@@ -99,9 +96,9 @@ SINGLE_BATTLE_TEST("Rapid Spin doesn't blow away Wrap, hazards or raise Speed wh
 {
     GIVEN {
         ASSUME(GetMoveEffect(MOVE_RAPID_SPIN) == EFFECT_RAPID_SPIN);
-    #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
-        ASSUME(MoveHasAdditionalEffectSelf(MOVE_RAPID_SPIN, MOVE_EFFECT_SPD_PLUS_1) == TRUE);
-    #endif
+        #if B_SPEED_BUFFING_RAPID_SPIN >= GEN_8
+        ASSUME_MOVE_EFFECT_STAT_CHANGE(MOVE_RAPID_SPIN, self: TRUE, speed: 1);
+        #endif
         PLAYER(SPECIES_TAUROS) { Ability(ABILITY_SHEER_FORCE); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {

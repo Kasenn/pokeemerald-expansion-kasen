@@ -738,7 +738,6 @@ SlateportCity_EventScript_ChooseBerryPowderItem::
 	waitmessage
 	setvar VAR_0x8004, SCROLL_MULTI_BERRY_POWDER_VENDOR
 	special ShowScrollableMultichoice
-	waitstate
 	switch VAR_RESULT
 	case 0, SlateportCity_EventScript_EnergyPowder
 	case 1, SlateportCity_EventScript_EnergyRoot

@@ -7,8 +7,10 @@
 #include "field_weather.h"
 #include "lottery_corner.h"
 #include "main.h"
+#include "mass_outbreak.h"
 #include "overworld.h"
 #include "pokerus.h"
+#include "random.h"
 #include "rtc.h"
 #include "time_events.h"
 #include "tv.h"
@@ -78,6 +80,35 @@ void UpdateVarsAndFlags(void)
         VarSet(VAR_DEBUG, 2);
     }
 }
+void UpdateDailySeed(void)
+{
+    gSaveBlock3Ptr->dailySeed = Random32();
+}
+
+void DoDailyEvents(u32 daysSince)
+{
+    ClearDailyFlags();
+    RandomizeDailyVariables();
+    RandomizeFanClubTrade();
+    SetGrottos();
+    UpdateDailySeed();
+    UpdateMassOutbreakDaysLeft(daysSince);
+    // UpdateDewfordTrendPerDay(daysSince);
+    UpdateTVShowsPerDay(daysSince);
+    UpdateWeatherPerDay(daysSince);
+    UpdatePartyPokerusTime(daysSince);
+    UpdateBirchState(daysSince);
+    UpdateFrontierManiac(daysSince);
+    UpdateFrontierGambler(daysSince);
+    SetShoalItemFlag(daysSince);
+    if (!OW_USE_DAILY_SEED_FOR_VANILLA_VARIABLES)
+    {
+        UpdateMirageRnd(daysSince);
+        SetRandomLotteryNumber(daysSince);
+    }
+    UpdateDaysPassedSinceFormChange(daysSince);
+    DailyResetApricornTrees();
+}
 
 static void UpdatePerDay(struct Time *localTime)
 {
@@ -87,22 +118,7 @@ static void UpdatePerDay(struct Time *localTime)
     if (*days != localTime->days && *days <= localTime->days)
     {
         daysSince = localTime->days - *days;
-        ClearDailyFlags();
-        RandomizeDailyVariables();
-        RandomizeFanClubTrade();
-        SetGrottos();
-        // UpdateDewfordTrendPerDay(daysSince);
-        UpdateTVShowsPerDay(daysSince);
-        UpdateWeatherPerDay(daysSince);
-        UpdatePartyPokerusTime(daysSince);
-        UpdateMirageRnd(daysSince);
-        UpdateBirchState(daysSince);
-        UpdateFrontierManiac(daysSince);
-        UpdateFrontierGambler(daysSince);
-        SetShoalItemFlag(daysSince);
-        SetRandomLotteryNumber(daysSince);
-        UpdateDaysPassedSinceFormChange(daysSince);
-        DailyResetApricornTrees();
+        DoDailyEvents(daysSince);
         *days = localTime->days;
     }
 }
@@ -131,7 +147,7 @@ void UNUSED FormChangeTimeUpdate()
     s32 i;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        TryFormChange(&gParties[B_TRAINER_0][i], FORM_CHANGE_TIME_OF_DAY, B_TRAINER_0);
+        TryFormChange(&gParties[B_TRAINER_PLAYER][i], FORM_CHANGE_TIME_OF_DAY, B_TRAINER_PLAYER);
     }
 }
 

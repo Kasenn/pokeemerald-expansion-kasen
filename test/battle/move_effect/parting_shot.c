@@ -27,7 +27,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Passes Substitute and switches the user out")
 
 SINGLE_BATTLE_TEST("Parting Shot: Soundproof and Good as Gold block Parting Shot")
 {
-    u16 species, ability;
+    enum Species species;
+    enum Ability ability;
 
     PARAMETRIZE { species = SPECIES_EXPLOUD;   ability = ABILITY_SOUNDPROOF; }
     PARAMETRIZE { species = SPECIES_GHOLDENGO; ability = ABILITY_GOOD_AS_GOLD; }
@@ -103,7 +104,9 @@ SINGLE_BATTLE_TEST("Parting Shot: Hyper Cutter blocks Attack drop but still swit
 
 SINGLE_BATTLE_TEST("Parting Shot: Mirror Armor switches the user even if reflected drops fail")
 {
-    u16 species, ability, item;
+    enum Species species;
+    enum Ability ability;
+    enum Item item;
 
     PARAMETRIZE { species = SPECIES_METAGROSS; ability = ABILITY_CLEAR_BODY;      item = ITEM_NONE; }
     PARAMETRIZE { species = SPECIES_TORKOAL;   ability = ABILITY_WHITE_SMOKE;     item = ITEM_NONE; }
@@ -205,7 +208,9 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if Contrary is at maximum stat
 
 SINGLE_BATTLE_TEST("Parting Shot: Stat drop prevention by abilities/items does not switch (Gen7+)")
 {
-    u16 species, ability, item;
+    enum Species species;
+    enum Ability ability;
+    enum Item item;
 
     PARAMETRIZE { species = SPECIES_METAGROSS; ability = ABILITY_CLEAR_BODY;      item = ITEM_NONE; }
     PARAMETRIZE { species = SPECIES_TORKOAL;   ability = ABILITY_WHITE_SMOKE;     item = ITEM_NONE; }
@@ -221,7 +226,7 @@ SINGLE_BATTLE_TEST("Parting Shot: Stat drop prevention by abilities/items does n
     } WHEN {
         TURN { MOVE(player, MOVE_PARTING_SHOT); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player);
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], DEFAULT_STAT_STAGE);
@@ -240,7 +245,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Mist prevents stat drops and does not switch (
         TURN { MOVE(opponent, MOVE_MIST); MOVE(player, MOVE_CELEBRATE); }
         TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_PARTING_SHOT); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player);
+        // ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player); ???
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, player);
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], DEFAULT_STAT_STAGE);
@@ -261,7 +267,7 @@ DOUBLE_BATTLE_TEST("Parting Shot: Flower Veil prevents stat drops and does not s
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_PARTING_SHOT, target: opponentLeft); MOVE(playerRight, MOVE_CELEBRATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, playerLeft);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PARTING_SHOT, playerLeft);
     } THEN {
         EXPECT_EQ(opponentLeft->statStages[STAT_ATK], DEFAULT_STAT_STAGE);
         EXPECT_EQ(opponentLeft->statStages[STAT_SPATK], DEFAULT_STAT_STAGE);
@@ -317,7 +323,9 @@ SINGLE_BATTLE_TEST("Parting Shot: Switches if Contrary is at maximum stats (Gen6
 
 SINGLE_BATTLE_TEST("Parting Shot: Stat drop prevention by abilities/items switches (Gen6)")
 {
-    u16 species, ability, item;
+    enum Species species;
+    enum Ability ability;
+    enum Item item;
 
     PARAMETRIZE { species = SPECIES_METAGROSS; ability = ABILITY_CLEAR_BODY;      item = ITEM_NONE; }
     PARAMETRIZE { species = SPECIES_TORKOAL;   ability = ABILITY_WHITE_SMOKE;     item = ITEM_NONE; }

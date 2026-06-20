@@ -290,7 +290,7 @@ u32 FreeSpace_GetFreeSpaceForItemInBag(u16 itemId);
 bool32 FreeSpace_RemoveBagItem(u16 itemId, u16 count, u16 direction);
 bool32 FreeSpace_AddBagItem(u16 itemId, u16 count, u16 direction);
 
-ShopCriteriaFunc GetItemShopCriteriaFunc(u32 itemId);
-bool32 IsItemShopCriteriaFulfilled(u32 itemId);
+ShopCriteriaFunc GetItemShopCriteriaFunc(enum Item itemId);
+bool32 IsItemShopCriteriaFulfilled(enum Item itemId);
 
 #endif // GUARD_ITEM_H

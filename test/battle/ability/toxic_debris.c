@@ -56,7 +56,7 @@ SINGLE_BATTLE_TEST("Toxic Debris does not activate if two layers of Toxic Spikes
     }
 }
 
-SINGLE_BATTLE_TEST("If a Substitute is hit, Toxic Debris does not set Toxic Spikes")
+SINGLE_BATTLE_TEST("Toxic Debris does not activate when a Substitute is hit")
 {
     GIVEN {
         PLAYER(SPECIES_GLIMMORA) { Ability(ABILITY_TOXIC_DEBRIS); }
@@ -74,7 +74,7 @@ SINGLE_BATTLE_TEST("If a Substitute is hit, Toxic Debris does not set Toxic Spik
     }
 }
 
-SINGLE_BATTLE_TEST("Each hit of a Multi Hit move activates Toxic Debris")
+SINGLE_BATTLE_TEST("Toxic Debris activates on each hit of a multi-hit move")
 {
     GIVEN {
         PLAYER(SPECIES_GLIMMORA) { Ability(ABILITY_TOXIC_DEBRIS); }
@@ -138,5 +138,26 @@ DOUBLE_BATTLE_TEST("Toxic Debris sets Toxic Spikes on the opposing side even whe
     } SCENE {
         ABILITY_POPUP(playerLeft, ABILITY_TOXIC_DEBRIS);
         MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
+    }
+}
+
+DOUBLE_BATTLE_TEST("Toxic Debris does not activate if two layers of Toxic Spikes are already up on the opposing side of the field")
+{
+    GIVEN {
+        PLAYER(SPECIES_GLIMMORA) { Ability(ABILITY_TOXIC_DEBRIS); }
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WYNAUT);
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_TOXIC_SPIKES), MOVE(playerRight, MOVE_TOXIC_SPIKES); }
+        TURN { MOVE(playerRight, MOVE_SCRATCH, target: playerLeft); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, playerLeft);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_TOXIC_SPIKES, playerRight);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerRight);
+        NONE_OF {
+            ABILITY_POPUP(playerLeft, ABILITY_TOXIC_DEBRIS);
+            MESSAGE("Poison spikes were scattered all around the feet of the foe's team!");
+        }
     }
 }

@@ -39,7 +39,7 @@ Std_ReceivedItem::
 	textcolor NPC_TEXT_COLOR_NEUTRAL
 	call_if_eq VAR_0x8002, MUS_LEVEL_UP, EventScript_ReceivedItemFanfare1
 	call_if_eq VAR_0x8002, MUS_RG_OBTAIN_KEY_ITEM, EventScript_ReceivedItemFanfare2
-	message 0x0
+	message NULL
 	waitmessage
 	waitfanfare
 	call_if_eq VAR_0x8002, MUS_LEVEL_UP, EventScript_ReceivedItemWaitFanfare
@@ -77,5 +77,4 @@ EventScript_UnusedReturn:
 
 Common_EventScript_SaveGame::
 	special SaveGame
-	waitstate
 	return

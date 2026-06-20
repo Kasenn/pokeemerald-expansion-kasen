@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(MoveHasAdditionalEffectSelf(MOVE_GLITZY_GLOW, MOVE_EFFECT_LIGHT_SCREEN) == TRUE);
 }
 
-SINGLE_BATTLE_TEST("Glitzy Glow sets up Light Screen when it was succesful")
+SINGLE_BATTLE_TEST("Glitzy Glow sets up Light Screen if it was successful")
 {
     bool32 moveSuccess;
     PARAMETRIZE { moveSuccess = FALSE; }

@@ -6,7 +6,7 @@ ASSUMPTIONS
     ASSUME(MoveHasAdditionalEffect(MOVE_G_MAX_STONESURGE, MOVE_EFFECT_STEALTH_ROCK));
 }
 
-SINGLE_BATTLE_TEST("Steath Rock: Rock from G-Max Stonesurge are set up before any ability activation")
+SINGLE_BATTLE_TEST("Stealth Rock: Rock from G-Max Stonesurge are set up before any ability activation")
 {
     GIVEN {
         PLAYER(SPECIES_DREDNAW) { GigantamaxFactor(TRUE); }

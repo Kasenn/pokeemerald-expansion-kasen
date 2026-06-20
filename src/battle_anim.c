@@ -268,7 +268,7 @@ static const u8* const sBattleAnims_General[NUM_B_ANIMS_GENERAL] =
     [B_ANIM_SILPH_SCOPED]           = gBattleAnimGeneral_SilphScoped,
     [B_ANIM_ROCK_THROW]             = gBattleAnimGeneral_SafariRockThrow,
     [B_ANIM_SAFARI_REACTION]        = gBattleAnimGeneral_SafariReaction,
-	[B_ANIM_HELD_ITEM_BERRY]        = gBattleAnimGeneral_HeldItemBerry,
+    [B_ANIM_HELD_ITEM_BERRY]        = gBattleAnimGeneral_HeldItemBerry,
 };
 
 static const u8* const sBattleAnims_Special[NUM_B_ANIMS_SPECIAL] =
@@ -342,16 +342,37 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
     if (gTestRunnerEnabled)
     {
         TestRunner_Battle_RecordAnimation(animType, animId);
-        // Play Transform and Ally Switch even in Headless as these move animations also change mon data.
-        if (gTestRunnerHeadless
-            #if TESTING // Because gBattleTestRunnerState is not seen outside of test env.
-             && !gBattleTestRunnerState->forceMoveAnim
-            #endif // TESTING
-            && !(animType == ANIM_TYPE_MOVE && (animId == MOVE_TRANSFORM || animId == MOVE_ALLY_SWITCH)))
+
+        bool32 forceMoveAnim = FALSE;
+        #if TESTING // Because gBattleTestRunnerState is not seen outside of test env.
+        forceMoveAnim = gBattleTestRunnerState->forceMoveAnim;
+        #endif
+        if (!forceMoveAnim)
         {
-            gAnimScriptCallback = Nop;
-            gAnimScriptActive = FALSE;
-            return;
+            enum { DEFAULT, PLAY, SKIP } mode = DEFAULT;
+            if (animType == ANIM_TYPE_MOVE)
+            {
+                switch (animId)
+                {
+                // Play Transform and Ally Switch even in headless
+                // because the animations also change mon data.
+                case MOVE_TRANSFORM:
+                case MOVE_ALLY_SWITCH:
+                    mode = PLAY;
+                    break;
+                // Skip Celebrate even in non-headless because it's
+                // very noisy.
+                case MOVE_CELEBRATE:
+                    mode = SKIP;
+                    break;
+                }
+            }
+            if ((mode == DEFAULT && gTestRunnerHeadless) || mode == SKIP)
+            {
+                gAnimScriptCallback = Nop;
+                gAnimScriptActive = FALSE;
+                return;
+            }
         }
     }
 

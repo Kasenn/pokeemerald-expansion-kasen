@@ -62,8 +62,8 @@ SINGLE_BATTLE_TEST("Grudge depletes all PP from a Max Move's base move")
         MESSAGE("Wobbuffet used Grudge!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRUDGE, player);
         MESSAGE("The foe Wobbuffet used Max Strike!");
-        MESSAGE("Wobbuffet fainted!");
         MESSAGE("The foe Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     } THEN {
         EXPECT_GT(opponent->pp[0], 0);
         EXPECT_EQ(opponent->pp[1], 0);
@@ -85,8 +85,8 @@ SINGLE_BATTLE_TEST("Grudge does not activate for Struggle")
     SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRUDGE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRUGGLE, opponent);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Struggle lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -112,8 +112,8 @@ SINGLE_BATTLE_TEST("Grudge's effect disappears if the user takes a new turn - Mo
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -144,8 +144,8 @@ SINGLE_BATTLE_TEST("Grudge's effect disappears if the user takes a new turn - Sl
         STATUS_ICON(player, sleep: TRUE);
         MESSAGE("Wobbuffet is fast asleep.");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VITAL_THROW, opponent);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -177,8 +177,8 @@ SINGLE_BATTLE_TEST("Grudge's effect disappears if the user takes a new turn - Pa
         STATUS_ICON(player, paralysis: TRUE);
         MESSAGE("Wobbuffet is paralyzed! It can't move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VITAL_THROW, opponent);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -209,8 +209,8 @@ SINGLE_BATTLE_TEST("Grudge's effect disappears if the user takes a new turn - Fl
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FALSE_SWIPE, opponent);
         MESSAGE("Wobbuffet flinched!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Scratch lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -238,8 +238,8 @@ SINGLE_BATTLE_TEST("Grudge's effect doesn't trigger on indirect damage - Sandsto
         MESSAGE("The sandstorm rages.");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SANDSTORM_CONTINUES);
         MESSAGE("Wobbuffet is buffeted by the sandstorm!");
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Sandstorm lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -265,8 +265,8 @@ SINGLE_BATTLE_TEST("Grudge's effect doesn't trigger on indirect damage - Leech S
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LEECH_SEED, opponent);
         MESSAGE("Wobbuffet was seeded!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_LEECH_SEED_DRAIN, player);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Leech Seed lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);
@@ -295,8 +295,8 @@ SINGLE_BATTLE_TEST("Grudge's effect doesn't trigger on indirect damage - Future 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRUDGE, player);
         MESSAGE("Wobbuffet took the Future Sight attack!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FUTURE_SIGHT_HIT);
-        MESSAGE("Wobbuffet fainted!");
         NOT MESSAGE("The foe Wobbuffet's Future Sight lost all its PP due to the grudge!");
+        MESSAGE("Wobbuffet fainted!");
     }
     THEN {
         EXPECT_GT(opponent->pp[0], 0);

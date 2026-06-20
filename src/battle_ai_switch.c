@@ -62,8 +62,8 @@ static enum Ability GetPartyMonAbilityForSwitchCalc(enum BattlerId battler, u32 
     if (gTestRunnerEnabled)
     {
         enum BattleTrainer trainer = !IsPartnerMonFromSameTrainer(battler) ? battler : GetBattlerSide(battler);
-        u32 forcedAbility = TestRunner_Battle_GetForcedAbility(trainer, monIndex);
-        if (forcedAbility != 0)
+        enum Ability forcedAbility = TestRunner_Battle_GetForcedAbility(trainer, monIndex);
+        if (forcedAbility != ABILITY_NONE)
             ability = forcedAbility;
     }
 #endif
@@ -278,7 +278,7 @@ bool32 IsSwitchinTSpikesAffected(enum BattlerId battler)
         return FALSE;
     if (IS_BATTLER_ANY_TYPE(battler, TYPE_POISON, TYPE_STEEL))
         return FALSE;
-    if (ability == ABILITY_IMMUNITY || IsAbilityOnSide(battler, ABILITY_PASTEL_VEIL))
+    if (ability == ABILITY_IMMUNITY || AI_IsAbilityOnSide(battler, ABILITY_PASTEL_VEIL))
         return FALSE;
     if ((heldItemEffect == HOLD_EFFECT_HEAVY_DUTY_BOOTS || heldItemEffect == HOLD_EFFECT_CURE_PSN || heldItemEffect == HOLD_EFFECT_LUM_BERRY) && !ignoreItem)
         return FALSE;
@@ -575,7 +575,7 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
         return FALSE;
     if (AreStatsRaised(switchContext->battler))
         return FALSE;
-    if (IsMoldBreakerTypeAbility(switchContext->opposingBattler, gAiLogicData->abilities[switchContext->opposingBattler]))
+    if (IsMoldBreakerTypeAbility(switchContext->opposingBattler, gAiLogicData->abilities[switchContext->opposingBattler], switchContext->incomingMove))
         return FALSE;
     if (switchContext->canBattlerWin1v1)
         return FALSE;
@@ -608,6 +608,7 @@ static bool32 FindMonThatAbsorbsOpponentsMove(struct SwitchAiContext *switchCont
     {
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EARTH_EATER;
         absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_LEVITATE;
+        absorbingTypeAbilities[numAbsorbingAbilities++] = ABILITY_EELEVATE;
     }
     if (IsSoundMove(switchContext->incomingMove))
     {
@@ -870,10 +871,10 @@ static bool32 GetHitEscapeTransformState(enum BattlerId battlerAtk, enum Move mo
 
         if (gAiLogicData->effectiveness[battlerAtk][battlerDef][moveIndex] > UQ_4_12(0.0))
         {
-            enum Move predictedMoveSpeedCheck = GetIncomingMoveSpeedCheck(battlerAtk, battlerDef, gAiLogicData);
+            enum Move predictedMove = GetPredictedMove(battlerAtk, battlerDef, gAiLogicData);
 
             hasValidTarget = TRUE;
-            if (!AI_IsFaster(battlerAtk, battlerDef, move, predictedMoveSpeedCheck, CONSIDER_PRIORITY))
+            if (!AI_IsFaster(battlerAtk, battlerDef, move, predictedMove, CONSIDER_PRIORITY))
                 isFasterThanAll = FALSE;
         }
     }
@@ -1065,7 +1066,7 @@ static bool32 ShouldSwitchIfWishPassing(struct SwitchAiContext *switchContext)
     // Current mon has good or neutral matchup - no need to switch for Wish
     if (switchContext->typeMatchup <= UQ_4_12(2.0))
         return FALSE;
-    
+
     // Current mon wins 1v1 - no need to switch for Wish
     if (switchContext->canBattlerWin1v1)
         return FALSE;
@@ -1393,7 +1394,7 @@ bool32 ShouldSwitch(enum BattlerId battler)
     switchContext.opposingBattler = GetOppositeBattler(switchContext.battler);
     switchContext.party = GetBattlerParty(switchContext.battler);
     switchContext.lastId = GetAILastPartyIndex(switchContext.battler);
-    switchContext.incomingMove = GetPredictedMoveSpeedCheck(switchContext.battler, switchContext.opposingBattler, gAiLogicData);
+    switchContext.incomingMove = GetIncomingMove(switchContext.battler, switchContext.opposingBattler, gAiLogicData);
     switchContext.hasStatRaised = AnyUsefulStatIsRaised(switchContext.battler);
     switchContext.typeMatchup = GetBattlerTypeMatchup(switchContext.opposingBattler, switchContext.battler);
     GetActiveBattlerIds(switchContext.battler, &switchContext.battlerIn1, &switchContext.battlerIn2);
@@ -1586,11 +1587,7 @@ static u32 GetSwitchinSingleUseItemHealing(enum BattlerId battler, enum BattlerI
                 itemHeal = 1;
         }
         break;
-    case HOLD_EFFECT_CONFUSE_SPICY:
-    case HOLD_EFFECT_CONFUSE_DRY:
-    case HOLD_EFFECT_CONFUSE_SWEET:
-    case HOLD_EFFECT_CONFUSE_BITTER:
-    case HOLD_EFFECT_CONFUSE_SOUR:
+    case HOLD_EFFECT_CONFUSE_FLAVOR:
         if (currentHP < maxHP / CONFUSE_BERRY_HP_FRACTION)
         {
             itemHeal = maxHP / GetItemHoldEffectParam(aiItem);
@@ -1670,60 +1667,59 @@ static s32 GetSwitchinWeatherImpact(enum BattlerId battler)
     s32 weatherImpact = 0, maxHP = gBattleMons[battler].maxHP;
     enum Ability ability = gAiLogicData->abilities[battler];
     enum HoldEffect holdEffect = gAiLogicData->holdEffects[battler];
+    u32 weather = AI_GetSwitchinWeather(battler);
 
-    if (HasWeatherEffect())
+    // Damage
+    if (holdEffect != HOLD_EFFECT_SAFETY_GOGGLES && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT)
     {
-        // Damage
-        if (holdEffect != HOLD_EFFECT_SAFETY_GOGGLES && ability != ABILITY_MAGIC_GUARD && ability != ABILITY_OVERCOAT)
+        if ((weather  & B_WEATHER_HAIL)
+         && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
+         && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_ICE_BODY)
         {
-            if ((gBattleWeather & B_WEATHER_HAIL)
-             && !IS_BATTLER_OF_TYPE(battler, TYPE_ICE)
-             && ability != ABILITY_SNOW_CLOAK && ability != ABILITY_ICE_BODY)
-            {
-                weatherImpact = maxHP / 16;
-                if (weatherImpact == 0)
-                    weatherImpact = 1;
-            }
-            else if ((gBattleWeather & B_WEATHER_SANDSTORM)
-                && !IS_BATTLER_ANY_TYPE(battler, TYPE_ROCK, TYPE_GROUND, TYPE_STEEL)
-                && ability != ABILITY_SAND_VEIL && ability != ABILITY_SAND_RUSH && ability != ABILITY_SAND_FORCE)
-            {
-                weatherImpact = maxHP / 16;
-                if (weatherImpact == 0)
-                    weatherImpact = 1;
-            }
-        }
-        if ((gBattleWeather & B_WEATHER_SUN) && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
-         && (ability == ABILITY_SOLAR_POWER || ability == ABILITY_DRY_SKIN))
-        {
-            weatherImpact = maxHP / 8;
+            weatherImpact = maxHP / 16;
             if (weatherImpact == 0)
                 weatherImpact = 1;
         }
-
-        // Healing
-        if (gBattleWeather & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+        else if ((weather  & B_WEATHER_SANDSTORM)
+            && !IS_BATTLER_ANY_TYPE(battler, TYPE_ROCK, TYPE_GROUND, TYPE_STEEL)
+            && ability != ABILITY_SAND_VEIL && ability != ABILITY_SAND_RUSH && ability != ABILITY_SAND_FORCE)
         {
-            if (ability == ABILITY_DRY_SKIN)
-            {
-                weatherImpact = -(maxHP / 8);
-                if (weatherImpact == 0)
-                    weatherImpact = -1;
-            }
-            else if (ability == ABILITY_RAIN_DISH)
-            {
-                weatherImpact = -(maxHP / 16);
-                if (weatherImpact == 0)
-                    weatherImpact = -1;
-            }
+            weatherImpact = maxHP / 16;
+            if (weatherImpact == 0)
+                weatherImpact = 1;
         }
-        if (((gBattleWeather & B_WEATHER_HAIL) || (gBattleWeather & B_WEATHER_SNOW)) && ability == ABILITY_ICE_BODY)
+    }
+    if ((weather  & B_WEATHER_SUN) && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA
+     && (ability == ABILITY_SOLAR_POWER || ability == ABILITY_DRY_SKIN))
+    {
+        weatherImpact = maxHP / 8;
+        if (weatherImpact == 0)
+            weatherImpact = 1;
+    }
+
+    // Healing
+    if (weather  & B_WEATHER_RAIN && holdEffect != HOLD_EFFECT_UTILITY_UMBRELLA)
+    {
+        if (ability == ABILITY_DRY_SKIN)
+        {
+            weatherImpact = -(maxHP / 8);
+            if (weatherImpact == 0)
+                weatherImpact = -1;
+        }
+        else if (ability == ABILITY_RAIN_DISH)
         {
             weatherImpact = -(maxHP / 16);
             if (weatherImpact == 0)
                 weatherImpact = -1;
         }
     }
+    if ((weather & (B_WEATHER_HAIL | B_WEATHER_SNOW)) && ability == ABILITY_ICE_BODY)
+    {
+        weatherImpact = -(maxHP / 16);
+        if (weatherImpact == 0)
+            weatherImpact = -1;
+    }
+
     return weatherImpact;
 }
 
@@ -1886,11 +1882,13 @@ static u32 GetSwitchinHitsToKO(s32 damageTaken, enum BattlerId battler, const st
     u32 recurringHealing = GetSwitchinRecurringHealing(battler);
     u32 statusDamage = GetSwitchinStatusDamage(battler);
     u32 hitsToKO = 0;
-    u16 maxHP = gBattleMons[battler].maxHP, item = gAiLogicData->items[battler], heldItemEffect = GetItemHoldEffect(item);
+    u16 maxHP = gBattleMons[battler].maxHP;
+    enum Item item = gAiLogicData->items[battler];
+    enum HoldEffect heldItemEffect = GetItemHoldEffect(item);
     u8 weatherDuration = gBattleStruct->weatherDuration;
     enum BattlerId opposingBattler = GetOppositeBattler(battler);
     enum Ability opposingAbility = gAiLogicData->abilities[opposingBattler], ability = gAiLogicData->abilities[battler];
-    bool32 usedSingleUseHealingItem = FALSE, opponentCanBreakMold = IsMoldBreakerTypeAbility(opposingBattler, opposingAbility);
+    bool32 usedSingleUseHealingItem = FALSE, opponentCanBreakMold = IsMoldBreakerTypeAbility(opposingBattler, opposingAbility, MOVE_NONE);
     s32 currentHP = startingHP, singleUseItemHeal = 0;
     bool32 applyWishNow = healInfo->healEndOfTurn && healInfo->wishCounter == 1;
 
@@ -2721,9 +2719,13 @@ static void SetBattlerStatusForSwitchin(enum BattlerId battler)
 
 static void SetBattlerStatStagesForSwitchin(enum BattlerId battler, enum BattlerId opposingBattler, u32 fieldStatus)
 {
-    u32 aiAbility = gAiLogicData->abilities[battler];
+    enum Ability aiAbility = gAiLogicData->abilities[battler];
+    enum HoldEffect aiHoldEffect = gAiLogicData->holdEffects[battler];
     enum Item aiItem = gAiLogicData->items[battler];
-    bool32 isStickyWebsAffected = (IsHazardOnSide(GetBattlerSide(battler), HAZARDS_STICKY_WEB) && IsBattlerAffectedByHazards(battler, GetItemHoldEffect(aiItem), FALSE) && IsBattlerGrounded(battler, gAiLogicData->abilities[battler], GetItemHoldEffect(aiItem)));
+    bool32 isStickyWebsAffected = (IsHazardOnSide(GetBattlerSide(battler), HAZARDS_STICKY_WEB)
+                                && IsBattlerAffectedByHazards(battler, aiHoldEffect, FALSE)
+                                && IsBattlerGrounded(battler, aiAbility, aiHoldEffect));
+
     bool32 opponentStatDrop = FALSE;
 
     // Ability stat changes
@@ -2734,8 +2736,6 @@ static void SetBattlerStatStagesForSwitchin(enum BattlerId battler, enum Battler
         break;
     case ABILITY_DAUNTLESS_SHIELD:
         gBattleMons[battler].statStages[STAT_DEF] += 1;
-        break;
-    case ABILITY_SUPREME_OVERLORD:
         break;
     case ABILITY_DOWNLOAD:
         gBattleMons[battler].statStages[GetDownloadStat(battler)] += 1;
@@ -2796,7 +2796,7 @@ static void SetBattlerStatStagesForSwitchin(enum BattlerId battler, enum Battler
     }
 
     // Item stat changes
-    switch(GetItemHoldEffect(aiItem))
+    switch(aiHoldEffect)
     {
     case HOLD_EFFECT_TERRAIN_SEED:
     {
@@ -2842,7 +2842,7 @@ static void SetBattlerStatStagesForSwitchin(enum BattlerId battler, enum Battler
     }
 
     // Hazard stat changes
-    if (isStickyWebsAffected && GetItemHoldEffect(aiItem) != HOLD_EFFECT_WHITE_HERB)
+    if (isStickyWebsAffected && aiHoldEffect != HOLD_EFFECT_WHITE_HERB)
         gBattleMons[battler].statStages[STAT_SPEED] -= 1;
 }
 
@@ -2865,7 +2865,6 @@ static void SetBattlerHPChangeForSwitch(enum BattlerId battler, enum BattlerId o
 // Set potential field effect from ability for switch in
 static void SetBattlerVolatilesForSwitchin(enum BattlerId battler, u32 weather, u32 fieldStatus)
 {
-    enum Item aiItem = gAiLogicData->items[battler];
     switch (gAiLogicData->abilities[battler])
     {
     case ABILITY_VESSEL_OF_RUIN:
@@ -2881,16 +2880,19 @@ static void SetBattlerVolatilesForSwitchin(enum BattlerId battler, u32 weather, 
         gBattleMons[battler].volatiles.beadsOfRuin = TRUE;
         break;
     case ABILITY_QUARK_DRIVE:
-        if ((fieldStatus & STATUS_FIELD_ELECTRIC_TERRAIN) || GetItemHoldEffect(aiItem) == HOLD_EFFECT_BOOSTER_ENERGY)
+        if ((fieldStatus & STATUS_FIELD_ELECTRIC_TERRAIN) || gAiLogicData->holdEffects[battler] == HOLD_EFFECT_BOOSTER_ENERGY)
             gBattleMons[battler].volatiles.boosterEnergyActivated = TRUE;
         break;
     case ABILITY_PROTOSYNTHESIS:
-        if (((weather & B_WEATHER_SUN) && HasWeatherEffect()) || GetItemHoldEffect(aiItem) == HOLD_EFFECT_BOOSTER_ENERGY)
+        if ((weather & B_WEATHER_SUN) || gAiLogicData->holdEffects[battler] == HOLD_EFFECT_BOOSTER_ENERGY)
             gBattleMons[battler].volatiles.boosterEnergyActivated = TRUE;
         break;
     case ABILITY_WIND_POWER:
         if (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_TAILWIND)
             gBattleMons[battler].volatiles.chargeTimer = 2;
+        break;
+    case ABILITY_SUPREME_OVERLORD:
+        gBattleMons[battler].volatiles.supremeOverlordCounter = min(5, gBattleStruct->faintCounter[GetBattlerTrainer(battler)]);
         break;
     default:
         break;

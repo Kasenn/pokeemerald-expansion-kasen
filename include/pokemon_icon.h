@@ -5,8 +5,15 @@ extern const u8 gMonIconPaletteIndices[];
 extern const u8 *const gMonIconTable[];
 extern const struct SpritePalette gMonIconPaletteTable[6];
 
+enum SpeciesIconType {
+    NORMAL_ICON,
+    FEMALE_ICON,
+    EGG_ICON
+};
+
 const u8 *GetMonIconTiles(enum Species species, u32 personality);
 const u8 *GetMonIconTilesIsEgg(enum Species species, u32 personality, bool32 isEgg);
+const u8 *GetMonIconTilesByIconType(enum Species species, enum SpeciesIconType iconType);
 void TryLoadAllMonIconPalettesAtOffset(u16 offset);
 u8 GetValidMonIconPalIndex(enum Species species);
 const u8 *GetMonIconPtr(enum Species species, u32 personality);

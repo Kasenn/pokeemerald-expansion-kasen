@@ -128,7 +128,8 @@ SINGLE_BATTLE_TEST("Desolate Land blocks weather-setting moves")
 
 SINGLE_BATTLE_TEST("Desolate Land prevents other weather abilities")
 {
-    enum Ability ability; u16 species;
+    enum Ability ability;
+    enum Species species;
     PARAMETRIZE { ability = ABILITY_DROUGHT;      species = SPECIES_NINETALES; }
     PARAMETRIZE { ability = ABILITY_DRIZZLE;      species = SPECIES_POLITOED; }
     PARAMETRIZE { ability = ABILITY_SAND_STREAM;  species = SPECIES_HIPPOWDON; }
@@ -144,5 +145,21 @@ SINGLE_BATTLE_TEST("Desolate Land prevents other weather abilities")
         ABILITY_POPUP(opponent, ability);
     } THEN {
         EXPECT(gBattleWeather & B_WEATHER_SUN_PRIMAL);
+    }
+}
+
+SINGLE_BATTLE_TEST("Desolate Land can be replaced by Primordial Sea")
+{
+    GIVEN {
+        PLAYER(SPECIES_GROUDON) { Item(ITEM_RED_ORB); }
+        OPPONENT(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_KYOGRE) { Item(ITEM_BLUE_ORB); }
+    } WHEN {
+        TURN { SWITCH(opponent, 1); }
+    } SCENE {
+        ABILITY_POPUP(opponent, ABILITY_PRIMORDIAL_SEA);
+        MESSAGE("A heavy rain began to fall!");
+    } THEN {
+        EXPECT(gBattleWeather & B_WEATHER_RAIN_PRIMAL);
     }
 }

@@ -25,5 +25,4 @@ MauvilleCity_GameCorner_EventScript_NoCoinCase::
 
 Roulette_EventScript_Play::
 	special PlayRoulette
-	waitstate
 	end

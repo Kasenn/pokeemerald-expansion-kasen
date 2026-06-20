@@ -101,7 +101,7 @@ SINGLE_BATTLE_TEST("Magic Bounce cannot bounce back powder moves against Grass T
 DOUBLE_BATTLE_TEST("Magic Bounce bounces back moves hitting both foes at two foes")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME_STAT_CHANGE(MOVE_LEER, defense: -1);
         ASSUME(GetMoveTarget(MOVE_LEER) == TARGET_BOTH);
         PLAYER(SPECIES_ABRA);
         PLAYER(SPECIES_KADABRA);
@@ -129,7 +129,7 @@ DOUBLE_BATTLE_TEST("Magic Bounce bounces back moves hitting both foes at two foe
 DOUBLE_BATTLE_TEST("Magic Bounce activates on all opposing mons")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME_STAT_CHANGE(MOVE_LEER, defense: -1);
         ASSUME(GetMoveTarget(MOVE_LEER) == TARGET_BOTH);
         PLAYER(SPECIES_ABRA);
         PLAYER(SPECIES_KADABRA);
@@ -158,7 +158,8 @@ DOUBLE_BATTLE_TEST("Magic Bounce activates on all opposing mons")
 
 DOUBLE_BATTLE_TEST("Magic Bounce bounces back moves hitting foes field")
 {
-    u32 battlerOne, battlerTwo, abilityBattlerOne, abilityBattlerTwo;
+    enum Species battlerOne, battlerTwo;
+    enum Ability abilityBattlerOne, abilityBattlerTwo;
 
     PARAMETRIZE { battlerOne = SPECIES_NATU; abilityBattlerOne = ABILITY_MAGIC_BOUNCE;
                   battlerTwo = SPECIES_ESPEON; abilityBattlerTwo = ABILITY_SYNCHRONIZE; }
@@ -228,7 +229,7 @@ SINGLE_BATTLE_TEST("Magic Bounce can't reflect back Stealth Rock from a semi-inv
 SINGLE_BATTLE_TEST("Magic Bounce bounces back status moves before Magic Coat")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME_STAT_CHANGE(MOVE_LEER, defense: -1);
         PLAYER(SPECIES_WYNAUT);
         OPPONENT(SPECIES_ESPEON) { Ability(ABILITY_MAGIC_BOUNCE); }
     } WHEN {
@@ -244,7 +245,7 @@ DOUBLE_BATTLE_TEST("Magic Bounce will trigger after all valid targets have been 
 {
     GIVEN {
         ASSUME(gItemsInfo[ITEM_EJECT_PACK].holdEffect == HOLD_EFFECT_EJECT_PACK);
-        ASSUME(GetMoveEffect(MOVE_LEER) == EFFECT_DEFENSE_DOWN);
+        ASSUME_STAT_CHANGE(MOVE_LEER, defense: -1);
         ASSUME(GetMoveTarget(MOVE_LEER) == TARGET_BOTH);
         PLAYER(SPECIES_ABRA);
         PLAYER(SPECIES_KADABRA) { Item(ITEM_EJECT_PACK); }

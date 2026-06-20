@@ -20,6 +20,7 @@ DOUBLE_BATTLE_TEST("End Turn Effects: First Event Block is executed correctly (d
         MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
         MESSAGE("Ekans is healed by the grassy terrain!");
         MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
@@ -73,6 +74,7 @@ MULTI_BATTLE_TEST("End Turn Effects: First Event Block is executed correctly (mu
         MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
         MESSAGE("Ekans is healed by the grassy terrain!");
         MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
@@ -102,6 +104,7 @@ TWO_VS_ONE_BATTLE_TEST("End Turn Effects: First Event Block is executed correctl
         MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
         MESSAGE("Ekans is healed by the grassy terrain!");
         MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");
@@ -131,6 +134,7 @@ ONE_VS_TWO_BATTLE_TEST("End Turn Effects: First Event Block is executed correctl
         MESSAGE("The foe Wobbuffet lost some of its HP!");
         MESSAGE("The foe Wynaut is healed by the grassy terrain!");
         MESSAGE("The foe Wynaut restored a little HP using its Leftovers!");
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponentLeft);
         MESSAGE("Ekans is healed by the grassy terrain!");
         MESSAGE("Ekans's burn was healed!");
         MESSAGE("Wynaut is healed by the grassy terrain!");

@@ -23,7 +23,8 @@
 #define WEATHER_BLIZZARD                23
 #define WEATHER_ROUTE18_CYCLE           24
 #define WEATHER_FOG                     25  // Aggregate of WEATHER_FOG_HORIZONTAL and WEATHER_FOG_DIAGONAL
-#define WEATHER_COUNT                   26
+#define WEATHER_DYNAMIC                 26
+#define WEATHER_COUNT                   27
 
 // These are used in maps' coord_weather_event entries.
 // They are not a one-to-one mapping with the engine's
