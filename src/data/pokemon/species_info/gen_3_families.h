@@ -2852,7 +2852,6 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
             gShinyOverworldPalette_Ralts
         )
         .levelUpLearnset = sRaltsLevelUpLearnset,
-        .moveReminderLearnset = sRaltsMoveReminderLearnset,
         .teachableLearnset = sRaltsTeachableLearnset,
         .eggMoveLearnset = sRaltsEggMoveLearnset,
         .evolutions = EVOLUTION({EVO_LEVEL, 20, SPECIES_KIRLIA}),

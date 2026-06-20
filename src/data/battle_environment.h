@@ -509,7 +509,7 @@ const struct BattleEnvironment gBattleEnvironmentInfo[BATTLE_ENVIRONMENT_COUNT] 
     [BATTLE_ENVIRONMENT_UNDERGROUNDRUINS] =
     {
         ENVIRONMENT_GRAPHICS(Sand, Cave, Ruins, CAVE_BATTLE_INTRO_SLIDE),
-        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_RockTomb, MOVE_EFFECT_LOWER_SPEED_SIDE),
+        SECRET_POWER_ENVIRONMENT(gBattleAnimMove_SandTomb, SECRET_POWER_SPD_MINUS_1),
         .name = _("Ruins"),
         .naturePower = MOVE_SAND_TOMB,
         .camouflageType = CAVE_CAMOUFLAGE_TYPE, .camouflageBlend = CAVE_CAMOUFLAGE_BLEND,

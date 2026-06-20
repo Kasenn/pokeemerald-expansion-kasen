@@ -8140,6 +8140,7 @@ void BS_SetCameraEffect(void)
     CMD_ARGS();
 
     u16 effect = sCameraChoices[Random() % ARRAY_COUNT(sCameraChoices)];
+    effect = CAMERA_STAT_DOWN;
     u16 ability = GetBattlerAbility(gBattlerTarget);
     u16 holdEffect = GetBattlerHoldEffect(gBattlerTarget);
 
@@ -8159,6 +8160,7 @@ void BS_SetCameraEffect(void)
                 break;
             }
         case CAMERA_STAT_DOWN:
+            DebugPrintf("0");
             if (holdEffect != HOLD_EFFECT_CLEAR_AMULET
              && !IsMistyTerrainAffected(gBattlerTarget, ability, holdEffect, STATUS_FIELD_MISTY_TERRAIN)
              && ability != ABILITY_FULL_METAL_BODY
@@ -8170,14 +8172,19 @@ void BS_SetCameraEffect(void)
              && !IsFlowerVeilProtected(gBattlerTarget)
              && gSideTimers[GetBattlerSide(gBattlerTarget)].mistTimer < 1)
             {
+                DebugPrintf("1");
                 if (CompareStat(gBattlerTarget, STAT_ACC, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
                 {
-                    gBattlescriptCurrInstr = BattleScript_EffectAccuracyDownCamera;
+                    DebugPrintf("2");
+                    SetStatChange(gBattlerTarget, STAT_ACC, -1);
+                    gBattlescriptCurrInstr = BattleScript_EffectCamera;
                     break;
                 }
                 else if (CompareStat(gBattlerTarget, STAT_SPEED, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
                 {
-                    gBattlescriptCurrInstr = BattleScript_EffectSpeedDownCamera;
+                    DebugPrintf("3");
+                    SetStatChange(gBattlerTarget, STAT_SPEED, -1);
+                    gBattlescriptCurrInstr = BattleScript_EffectCamera;
                     break;
                 }
             }
@@ -15159,7 +15166,7 @@ void BS_MultiHitPlurality(void)
 
     if (gBattleScripting.multihitString[4] == 1)
     {
-        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING3);
+        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
     }
     else
     {

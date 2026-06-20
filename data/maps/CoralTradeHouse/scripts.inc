@@ -136,146 +136,134 @@ CoralgroveDartrixTrade::
 # 77 "data/maps/CoralTradeHouse/scripts.pory"
 	special ChoosePartyMon
 # 78 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 79 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Coralgrove_TradeDecline
-# 80 "data/maps/CoralTradeHouse/scripts.pory"
+# 79 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8005, VAR_0x8004
-# 81 "data/maps/CoralTradeHouse/scripts.pory"
+# 80 "data/maps/CoralTradeHouse/scripts.pory"
 	specialvar VAR_RESULT, GetTradeSpecies
-# 82 "data/maps/CoralTradeHouse/scripts.pory"
+# 81 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_ne VAR_RESULT, VAR_0x8009, Coralgrove_NotRequestedMon
-# 83 "data/maps/CoralTradeHouse/scripts.pory"
+# 82 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 84 "data/maps/CoralTradeHouse/scripts.pory"
+# 83 "data/maps/CoralTradeHouse/scripts.pory"
 	special CreateInGameTradePokemon
-# 85 "data/maps/CoralTradeHouse/scripts.pory"
+# 84 "data/maps/CoralTradeHouse/scripts.pory"
 	special DoInGameTradeScene
-# 86 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 87 "data/maps/CoralTradeHouse/scripts.pory"
+# 85 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_TradeThanks, MSGBOX_DEFAULT
-# 88 "data/maps/CoralTradeHouse/scripts.pory"
+# 86 "data/maps/CoralTradeHouse/scripts.pory"
 	setflag FLAG_CORALGROVE_TRADE_COMPLETED
-# 89 "data/maps/CoralTradeHouse/scripts.pory"
+# 87 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
 
 CoralgroveCombuskenTrade::
-# 94 "data/maps/CoralTradeHouse/scripts.pory"
+# 92 "data/maps/CoralTradeHouse/scripts.pory"
 	lock
-# 95 "data/maps/CoralTradeHouse/scripts.pory"
+# 93 "data/maps/CoralTradeHouse/scripts.pory"
 	faceplayer
-# 96 "data/maps/CoralTradeHouse/scripts.pory"
+# 94 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted
-# 97 "data/maps/CoralTradeHouse/scripts.pory"
+# 95 "data/maps/CoralTradeHouse/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_TORRACAT
-# 98 "data/maps/CoralTradeHouse/scripts.pory"
+# 96 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 99 "data/maps/CoralTradeHouse/scripts.pory"
+# 97 "data/maps/CoralTradeHouse/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 100 "data/maps/CoralTradeHouse/scripts.pory"
+# 98 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_WillingToTrade, MSGBOX_YESNO
-# 101 "data/maps/CoralTradeHouse/scripts.pory"
+# 99 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_eq VAR_RESULT, NO, Coralgrove_TradeDecline
-# 102 "data/maps/CoralTradeHouse/scripts.pory"
+# 100 "data/maps/CoralTradeHouse/scripts.pory"
 	special ChoosePartyMon
-# 103 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 104 "data/maps/CoralTradeHouse/scripts.pory"
+# 101 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Coralgrove_TradeDecline
-# 105 "data/maps/CoralTradeHouse/scripts.pory"
+# 102 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8005, VAR_0x8004
-# 106 "data/maps/CoralTradeHouse/scripts.pory"
+# 103 "data/maps/CoralTradeHouse/scripts.pory"
 	specialvar VAR_RESULT, GetTradeSpecies
-# 107 "data/maps/CoralTradeHouse/scripts.pory"
+# 104 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_ne VAR_RESULT, VAR_0x8009, Coralgrove_NotRequestedMon
-# 108 "data/maps/CoralTradeHouse/scripts.pory"
+# 105 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 109 "data/maps/CoralTradeHouse/scripts.pory"
+# 106 "data/maps/CoralTradeHouse/scripts.pory"
 	special CreateInGameTradePokemon
-# 110 "data/maps/CoralTradeHouse/scripts.pory"
+# 107 "data/maps/CoralTradeHouse/scripts.pory"
 	special DoInGameTradeScene
-# 111 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 112 "data/maps/CoralTradeHouse/scripts.pory"
+# 108 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_TradeThanks, MSGBOX_DEFAULT
-# 113 "data/maps/CoralTradeHouse/scripts.pory"
+# 109 "data/maps/CoralTradeHouse/scripts.pory"
 	setflag FLAG_CORALGROVE_TRADE_COMPLETED
-# 114 "data/maps/CoralTradeHouse/scripts.pory"
+# 110 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
 
 CoralgrovePrinplupTrade::
-# 119 "data/maps/CoralTradeHouse/scripts.pory"
+# 115 "data/maps/CoralTradeHouse/scripts.pory"
 	lock
-# 120 "data/maps/CoralTradeHouse/scripts.pory"
+# 116 "data/maps/CoralTradeHouse/scripts.pory"
 	faceplayer
-# 121 "data/maps/CoralTradeHouse/scripts.pory"
+# 117 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_set FLAG_CORALGROVE_TRADE_COMPLETED, CoralgroveTradeCompleted
-# 122 "data/maps/CoralTradeHouse/scripts.pory"
+# 118 "data/maps/CoralTradeHouse/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_MARSHTOMP
-# 123 "data/maps/CoralTradeHouse/scripts.pory"
+# 119 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 124 "data/maps/CoralTradeHouse/scripts.pory"
+# 120 "data/maps/CoralTradeHouse/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 125 "data/maps/CoralTradeHouse/scripts.pory"
+# 121 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_WillingToTrade, MSGBOX_YESNO
-# 126 "data/maps/CoralTradeHouse/scripts.pory"
+# 122 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_eq VAR_RESULT, NO, Coralgrove_TradeDecline
-# 127 "data/maps/CoralTradeHouse/scripts.pory"
+# 123 "data/maps/CoralTradeHouse/scripts.pory"
 	special ChoosePartyMon
-# 128 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 129 "data/maps/CoralTradeHouse/scripts.pory"
+# 124 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, Coralgrove_TradeDecline
-# 130 "data/maps/CoralTradeHouse/scripts.pory"
+# 125 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8005, VAR_0x8004
-# 131 "data/maps/CoralTradeHouse/scripts.pory"
+# 126 "data/maps/CoralTradeHouse/scripts.pory"
 	specialvar VAR_RESULT, GetTradeSpecies
-# 132 "data/maps/CoralTradeHouse/scripts.pory"
+# 127 "data/maps/CoralTradeHouse/scripts.pory"
 	goto_if_ne VAR_RESULT, VAR_0x8009, Coralgrove_NotRequestedMon
-# 133 "data/maps/CoralTradeHouse/scripts.pory"
+# 128 "data/maps/CoralTradeHouse/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 134 "data/maps/CoralTradeHouse/scripts.pory"
+# 129 "data/maps/CoralTradeHouse/scripts.pory"
 	special CreateInGameTradePokemon
-# 135 "data/maps/CoralTradeHouse/scripts.pory"
+# 130 "data/maps/CoralTradeHouse/scripts.pory"
 	special DoInGameTradeScene
-# 136 "data/maps/CoralTradeHouse/scripts.pory"
-	waitstate
-# 137 "data/maps/CoralTradeHouse/scripts.pory"
+# 131 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_TradeThanks, MSGBOX_DEFAULT
-# 138 "data/maps/CoralTradeHouse/scripts.pory"
+# 132 "data/maps/CoralTradeHouse/scripts.pory"
 	setflag FLAG_CORALGROVE_TRADE_COMPLETED
-# 139 "data/maps/CoralTradeHouse/scripts.pory"
+# 133 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
 
 Coralgrove_TradeDecline::
-# 144 "data/maps/CoralTradeHouse/scripts.pory"
+# 138 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_TradeDeclineText, MSGBOX_DEFAULT
-# 145 "data/maps/CoralTradeHouse/scripts.pory"
+# 139 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
 
 Coralgrove_NotRequestedMon::
-# 158 "data/maps/CoralTradeHouse/scripts.pory"
+# 152 "data/maps/CoralTradeHouse/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_0x8009
-# 159 "data/maps/CoralTradeHouse/scripts.pory"
+# 153 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox Coralgrove_WrongMonText, MSGBOX_DEFAULT
-# 160 "data/maps/CoralTradeHouse/scripts.pory"
+# 154 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
 
 CoralgroveTradeCompleted::
-# 169 "data/maps/CoralTradeHouse/scripts.pory"
+# 163 "data/maps/CoralTradeHouse/scripts.pory"
 	msgbox CoralgroveTradeCompleteText, MSGBOX_DEFAULT
-# 170 "data/maps/CoralTradeHouse/scripts.pory"
+# 164 "data/maps/CoralTradeHouse/scripts.pory"
 	release
 	end
 
@@ -300,21 +288,21 @@ HoldTightToStone::
 	.string "journeys!$"
 
 Coralgrove_TradeDeclineText::
-# 149 "data/maps/CoralTradeHouse/scripts.pory"
+# 143 "data/maps/CoralTradeHouse/scripts.pory"
 	.string "Let me know if you change your mind.$"
 
 Coralgrove_WillingToTrade::
-# 153 "data/maps/CoralTradeHouse/scripts.pory"
+# 147 "data/maps/CoralTradeHouse/scripts.pory"
 	.string "I really wanted to get a Pokémon from\nthe Pokémon Professor but\lhe only hands them out to locals.\pSay, do you have a {STR_VAR_1}?\pI have a {STR_VAR_2} if you're\ninterested in an equal trade.$"
 
 Coralgrove_WrongMonText::
-# 164 "data/maps/CoralTradeHouse/scripts.pory"
+# 158 "data/maps/CoralTradeHouse/scripts.pory"
 	.string "I'm sorry, but that's\nnot a {STR_VAR_1}.$"
 
 CoralgroveTradeCompleteText::
-# 174 "data/maps/CoralTradeHouse/scripts.pory"
+# 168 "data/maps/CoralTradeHouse/scripts.pory"
 	.string "Thanks for the trade!$"
 
 Coralgrove_TradeThanks::
-# 178 "data/maps/CoralTradeHouse/scripts.pory"
+# 172 "data/maps/CoralTradeHouse/scripts.pory"
 	.string "Oh wow! What a strong Pokémon!$"

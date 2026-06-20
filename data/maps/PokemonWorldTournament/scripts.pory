@@ -426,7 +426,6 @@ script PWT_Frosthearth_Double{
 	// copyvar (VAR_0x8004, VAR_RESULT)
 	setvar (VAR_0x8005, FRONTIER_DOUBLES_PARTY_SIZE)
 	special (ChoosePartyForBattleFrontier)
-	waitstate
 	goto_if_eq (VAR_RESULT, 0, BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge)
 	msgbox(BattleFrontier_BattleArenaLobby_Text_OkayToSave, MSGBOX_YESNO)
     if(var(VAR_RESULT) == TRUE){

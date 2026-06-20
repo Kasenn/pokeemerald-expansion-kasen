@@ -551,7 +551,6 @@ u16 GetMiniStepCount(u8 speed);
 void RunMiniStep(struct Sprite *sprite, u8 speed, u8 currentFrame);
 bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent);
 
-void ReturnFollowingMonToBall(void);
 u8 GetObjectEventApricornTreeId(u8 objectEventId);
 u16 GetGraphicsIdForMon(enum Species species, bool32 shiny, bool32 female);
 

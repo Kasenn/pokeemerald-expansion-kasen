@@ -427,7 +427,6 @@ script ReassemblyUnit_Assemble10Forme{
         }
         msgbox(ChooseZygardeForAssembly)
 	    special(ChoosePartyMon)
-	    waitstate
         if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
             msgbox(AssemblyAborted)
             goto(ReassemblyUnit_MainScript)
@@ -486,7 +485,6 @@ script ReassemblyUnit_Assemble50Forme{
         }
         msgbox(ChooseZygardeForAssembly)
 	    special(ChoosePartyMon)
-	    waitstate
         if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
             msgbox(AssemblyAborted)
             goto(ReassemblyUnit_MainScript)
@@ -554,7 +552,6 @@ script ReassemblyUnit_Separation{
     }
 	msgbox(ChooseZygardeForSeparation)
 	special(ChoosePartyMon)
-	waitstate
     if(var(VAR_0x8004) == PARTY_NOTHING_CHOSEN){
         msgbox(SeparationAborted)
         goto(ReassemblyUnit_MainScript)

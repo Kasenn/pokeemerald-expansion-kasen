@@ -103,7 +103,6 @@ script Tower_3F_Tr1_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text Tr1_3F_ExpertMIntro{
@@ -213,7 +212,6 @@ script Tower_3F_Tr2_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text Tr2_3F_HexManiacIntro{

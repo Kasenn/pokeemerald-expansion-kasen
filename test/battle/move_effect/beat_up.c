@@ -296,6 +296,7 @@ SINGLE_BATTLE_TEST("Beat Up's damage is typeless (up to Gen4)", s16 damage)
             case SPECIES_SYLVEON:
                 MESSAGE("It doesn't affect the foe Sylveon…");
                 break;
+            default: break;
             }
         }
     } THEN {

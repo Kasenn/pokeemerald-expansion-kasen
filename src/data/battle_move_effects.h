@@ -943,12 +943,6 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleFactoryStyle = FACTORY_STYLE_WEATHER,
     },
 
-    [EFFECT_FLASH] =
-    {
-        .battleScript = BattleScript_EffectFlash,
-        .battleTvScore = 1,
-    },
-
     [EFFECT_WATER_SPORT] =
     {
         .battleScript = BattleScript_EffectWaterSport,

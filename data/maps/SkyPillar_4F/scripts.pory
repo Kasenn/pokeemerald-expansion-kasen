@@ -72,7 +72,6 @@ script Tower_4F_Tr1_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text AT_4F_Tr1_PostBatHexManiac{
@@ -189,7 +188,6 @@ script Tower_4F_Tr2_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text AT_4F_Tr2_PostBatLass{
@@ -308,7 +306,6 @@ script Tower_4F_Tr3_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text AT_4F_Tr3_PostBatBlackbelt{

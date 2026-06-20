@@ -81,7 +81,6 @@ script Tower_5F_Tr1_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text AT_5F_PostBatMale{

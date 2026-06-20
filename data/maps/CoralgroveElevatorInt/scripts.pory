@@ -10,7 +10,6 @@ script CGC_ElevatorUp{
 	setvar(VAR_0x8005, 7)
     setvar(VAR_0x8006, 1)
     special(MoveElevator)
-	waitstate
     waitse
     applymovement(LOCALID_PLAYER, Walk1Down)
     waitmovement(0)

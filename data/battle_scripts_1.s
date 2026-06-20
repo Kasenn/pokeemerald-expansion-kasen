@@ -1636,23 +1636,14 @@ BattleScript_StatUp::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
-BattleScript_EffectSpeedDownCamera::@//wip
-	setstatchanger STAT_SPEED, 1, TRUE
-	goto BattleScript_EffectStatDownFromStatBuffChangeCamera
-
-BattleScript_EffectAccuracyDownCamera::
-	setstatchanger STAT_ACC, 1, TRUE
-	goto BattleScript_EffectStatDownFromStatBuffChangeCamera
-
-BattleScript_EffectStatDownFromStatBuffChangeCamera:
-	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR | STAT_CHANGE_ONLY_CHECKING, BattleScript_StatDownEnd
+BattleScript_EffectCamera::
+	trybattlerstatchange BS_TARGET, STAT_CHANGE_NO_FLAGS@//wip
 	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_StatDownDoAnimCamera
 	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_CHANGE_EMPTY, BattleScript_StatDownEnd
 	pause B_WAIT_TIME_SHORT
 	setmoveresultflags MOVE_RESULT_MISSED @ TODO: Is this even necessary?
 	goto BattleScript_StatDownPrintString
 BattleScript_StatDownDoAnimCamera::
-	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_StatDownEnd
 	bicword gHitMarker, HITMARKER_DISABLE_ANIMATION
 	goto BattleScript_StatDownPrintString
 
@@ -2208,7 +2199,7 @@ BattleScript_ForestsCurseEqualByte::
 	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
-	accuracycheck BattleScript_MoveMissedPause
+	accuracycheck
 	forestscursetarget BattleScript_ButItFailed
 	setbyte sB_ANIM_TURN, 0
 	attackanimation
@@ -6551,29 +6542,6 @@ BattleScript_ForfeitBattleGaveMoney::
 .endif
 	waitmessage B_WAIT_TIME_LONG
 	end2
-
-BattleScript_EffectFlash::
-	attackcanceler
-	jumpifstat BS_TARGET, CMP_GREATER_THAN, STAT_ACC, MIN_STAT_STAGE, BattleScript_FlashDoMoveAnim
-	jumpifstat BS_TARGET, CMP_EQUAL, STAT_SPEED, MIN_STAT_STAGE, BattleScript_CantLowerMultipleStats
-BattleScript_FlashDoMoveAnim::
-	accuracycheck BattleScript_ButItFailed
-	attackanimation
-	waitanimation
-	setbyte sSTAT_ANIM_PLAYED, FALSE
-	setstatchanger STAT_ACC, 1, TRUE
-	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashTryLowerSpeed, BIT_ACC | BIT_SPEED
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_FlashTryLowerSpeed
-	printfromtable gStatDownStringIds
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_FlashTryLowerSpeed::
-	setstatchanger STAT_SPEED, 1, TRUE
-	statbuffchange BS_TARGET, STAT_CHANGE_ALLOW_PTR, BattleScript_FlashEnd, BIT_SPEED
-	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_CHANGE, BattleScript_FlashEnd
-	printfromtable gStatDownStringIds
-	waitmessage B_WAIT_TIME_LONG
-BattleScript_FlashEnd::
-	goto BattleScript_MoveEnd
 
 BattleScript_MegaExhaustion::
 	printstring STRINGID_TARGETISHURTBYMEGAEXHAUSTION

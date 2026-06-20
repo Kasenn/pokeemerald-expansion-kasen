@@ -119,7 +119,6 @@ script Player2FSetClock{
 	msgbox(PlayersHouse_2F_Text_ClockIsStopped, MSGBOX_DEFAULT)
     fadescreen(FADE_TO_BLACK)
 	special(StartWallClock)
-	waitstate
 	release
 }
 
@@ -127,7 +126,6 @@ script Player2FCheckClock{
 	incrementgamestat(GAME_STAT_CHECKED_CLOCK)
 	fadescreen(FADE_TO_BLACK)
 	special(Special_ViewWallClock)
-	waitstate
 	release
 }
 

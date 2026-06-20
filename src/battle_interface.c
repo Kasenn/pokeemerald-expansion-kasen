@@ -2971,7 +2971,7 @@ void CreateItemPopUp(enum BattlerId battler)
     const s16 (*coords)[2];
 
     if (!IsAnyAbilityPopUpActive())
-        LoadSpritePalette(&sSpritePalette_AbilityPopUp);
+        LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
 
     tileTag = (TAG_ABILITY_POP_UP_PLAYER1 + battler);
     if (IndexOfSpriteTileTag(tileTag) == 0xFF)

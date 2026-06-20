@@ -29,7 +29,6 @@ script Windplume_Zapdos{
 	setwildbattle(SPECIES_ZAPDOS, 50)
 	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
 	special(StartRegiBattle)
-	waitstate
 	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
     specialvar(VAR_RESULT, GetBattleOutcome)
 	if(var(VAR_RESULT) == B_OUTCOME_WON){

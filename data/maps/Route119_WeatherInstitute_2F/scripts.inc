@@ -495,29 +495,29 @@ ReassemblyUnit_Assemble10Forme_1:
 # 422 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Assemble10Forme_5
 ReassemblyUnit_Assemble10Forme_4:
-# 449 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 448 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	message AttemptingToAssemble10Forme
-# 450 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 449 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitmessage
-# 451 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 450 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	closemessage
-# 452 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 451 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_10
-# 453 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 452 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	givemon SPECIES_ZYGARDE_10, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, SHINY_MODE_NEVER, 0, 0
-# 454 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 453 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	call GiveMon_Script
-# 455 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 454 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setflag FLAG_ZYGARDE10_ASSEMBLED
-# 456 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 455 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_PROGRESS, 0
 	goto_if_eq ReassemblyUnit_Assemble10Forme_8
 ReassemblyUnit_Assemble10Forme_7:
-# 459 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 458 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CELLS, 10
-# 460 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 459 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CORES, 1
-# 461 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 460 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	release
 	return
 
@@ -540,37 +540,35 @@ ReassemblyUnit_Assemble10Forme_10:
 # 429 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ChoosePartyMon
 # 430 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
-	waitstate
-# 431 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq ReassemblyUnit_Assemble10Forme_14
 ReassemblyUnit_Assemble10Forme_13:
-# 435 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 434 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
-# 436 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 435 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8005, SPECIES_ZYGARDE_50
 	goto_if_ne ReassemblyUnit_Assemble10Forme_17
 ReassemblyUnit_Assemble10Forme_16:
-# 440 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 439 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CELLS, 40
-# 441 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 440 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CORES, 2
-# 442 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 441 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE50_ASSEMBLED
-# 443 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 442 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setflag FLAG_ZYGARDE10_ASSEMBLED
-# 444 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 443 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ConvertZygarde
-# 445 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 444 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	callnative UpdateFollowingPokemon
-# 446 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 445 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox AttemptingToAssemble10Forme
-# 447 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 446 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble10Forme_4
 
 ReassemblyUnit_Assemble10Forme_8:
-# 457 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 456 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_ZYGARDE_PROGRESS, 1
 	goto ReassemblyUnit_Assemble10Forme_7
 
@@ -582,678 +580,674 @@ ReassemblyUnit_Assemble10Forme_11:
 	goto ReassemblyUnit_Assemble10Forme_10
 
 ReassemblyUnit_Assemble10Forme_14:
-# 432 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 431 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox AssemblyAborted
-# 433 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 432 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble10Forme_13
 
 ReassemblyUnit_Assemble10Forme_17:
-# 437 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 436 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SpeciesNotZygarde
-# 438 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 437 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble10Forme_16
 
 
 ReassemblyUnit_Assemble50Forme::
-# 464 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 463 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Assemble50Forme_2
 ReassemblyUnit_Assemble50Forme_1:
-# 468 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 467 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_5
 ReassemblyUnit_Assemble50Forme_4:
-# 508 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 506 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_CELLS, 50
 	goto_if_lt ReassemblyUnit_Assemble50Forme_9
 ReassemblyUnit_Assemble50Forme_7:
-# 521 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 519 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	message AttemptingToAssemble50Forme
-# 522 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 520 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitmessage
-# 523 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 521 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	closemessage
-# 524 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 522 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_TEMP_TRANSFERRED_SPECIES, SPECIES_ZYGARDE_50
-# 525 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 523 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	givemon SPECIES_ZYGARDE_50, 40, ITEM_NONE, ITEM_STRANGE_BALL, NATURE_HARDY, 0, 0, 0, 0, 0, 0, 0, 0, 15, 15, 15, 15, 15, 15, MOVE_DIG, MOVE_BIND, MOVE_LANDS_WRATH, MOVE_SANDSTORM, SHINY_MODE_NEVER, 0, 0
-# 526 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 524 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	call GiveMon_Script
-# 527 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 525 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_PROGRESS, 3
 	goto_if_lt ReassemblyUnit_Assemble50Forme_18
 ReassemblyUnit_Assemble50Forme_17:
-# 530 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 528 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setflag FLAG_ZYGARDE50_ASSEMBLED
-# 531 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 529 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CELLS, 50
-# 532 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 530 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CORES, 3
 	return
 
 ReassemblyUnit_Assemble50Forme_2:
-# 465 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 464 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox OnlyOneZygarde
-# 466 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 465 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_1
 
 ReassemblyUnit_Assemble50Forme_5:
-# 469 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 468 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_CELLS, 40
 	goto_if_lt ReassemblyUnit_Assemble50Forme_14
 ReassemblyUnit_Assemble50Forme_12:
-# 482 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 481 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	checkpartymon SPECIES_ZYGARDE_10, 0
-# 483 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 482 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ReassemblyUnit_Assemble50Forme_24
 ReassemblyUnit_Assemble50Forme_23:
-# 487 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 486 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ChooseZygardeForAssembly
-# 488 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 487 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ChoosePartyMon
-# 489 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
-	waitstate
-# 490 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 488 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq ReassemblyUnit_Assemble50Forme_30
 ReassemblyUnit_Assemble50Forme_29:
-# 494 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 492 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
-# 495 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 493 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8005, SPECIES_ZYGARDE_10
 	goto_if_ne ReassemblyUnit_Assemble50Forme_33
 ReassemblyUnit_Assemble50Forme_32:
-# 499 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 497 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CELLS, 40
-# 500 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 498 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	subvar VAR_ZYGARDE_CORES, 2
-# 501 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 499 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE10_ASSEMBLED
-# 502 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 500 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setflag FLAG_ZYGARDE50_ASSEMBLED
-# 503 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 501 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ConvertZygarde
-# 504 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 502 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	callnative UpdateFollowingPokemon
-# 505 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 503 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox AttemptingToAssemble50Forme
-# 506 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 504 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_4
 
 ReassemblyUnit_Assemble50Forme_8:
-# 510 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 508 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	copyvar VAR_TEMP_2, VAR_ZYGARDE_CELLS
-# 511 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 509 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	copyvar VAR_TEMP_3, VAR_ZYGARDE_CORES
-# 512 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 510 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_21
 ReassemblyUnit_Assemble50Forme_20:
-# 516 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 514 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_TEMP_2
-# 517 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 515 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, VAR_TEMP_3
-# 518 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 516 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NotEnoughCellsAndCoresInCube
-# 519 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 517 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_7
 
 ReassemblyUnit_Assemble50Forme_9:
-# 509 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 507 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_CORES, 3
 	goto_if_lt ReassemblyUnit_Assemble50Forme_8
 	goto ReassemblyUnit_Assemble50Forme_7
 
 ReassemblyUnit_Assemble50Forme_13:
-# 471 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 470 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	copyvar VAR_TEMP_2, VAR_ZYGARDE_CELLS
-# 472 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 471 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	copyvar VAR_TEMP_3, VAR_ZYGARDE_CORES
-# 473 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 472 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Assemble50Forme_27
 ReassemblyUnit_Assemble50Forme_26:
-# 477 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 476 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	buffernumberstring STR_VAR_1, VAR_TEMP_2
-# 478 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 477 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	buffernumberstring STR_VAR_2, VAR_TEMP_3
-# 479 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 478 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NotEnoughCellsAndCoresInCube
-# 480 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 479 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_12
 
 ReassemblyUnit_Assemble50Forme_14:
-# 470 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 469 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_ZYGARDE_CORES, 2
 	goto_if_lt ReassemblyUnit_Assemble50Forme_13
 	goto ReassemblyUnit_Assemble50Forme_12
 
 ReassemblyUnit_Assemble50Forme_18:
-# 528 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 526 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_ZYGARDE_PROGRESS, 3
 	goto ReassemblyUnit_Assemble50Forme_17
 
 ReassemblyUnit_Assemble50Forme_21:
-# 513 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 511 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_TEMP_2, 10
-# 514 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 512 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_TEMP_3, 1
 	goto ReassemblyUnit_Assemble50Forme_20
 
 ReassemblyUnit_Assemble50Forme_24:
-# 484 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 483 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NoZygardeDetectedInParty_Assembly
-# 485 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 484 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_23
 
 ReassemblyUnit_Assemble50Forme_27:
-# 474 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 473 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_TEMP_2, 10
-# 475 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 474 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_TEMP_3, 1
 	goto ReassemblyUnit_Assemble50Forme_26
 
 ReassemblyUnit_Assemble50Forme_30:
-# 491 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 489 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox AssemblyAborted
-# 492 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 490 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_29
 
 ReassemblyUnit_Assemble50Forme_33:
-# 496 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 494 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SpeciesNotZygarde
-# 497 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 495 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Assemble50Forme_32
 
 
 ReassemblyUnit_Separation::
-# 537 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 535 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_unset FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_Separation_3
 ReassemblyUnit_Separation_1:
-# 542 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 540 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	checkpartymon SPECIES_ZYGARDE_10, 0
-# 543 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 541 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ReassemblyUnit_Separation_7
 ReassemblyUnit_Separation_6:
-# 550 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 548 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	specialvar VAR_RESULT, CountPartyNonEggMons
-# 551 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 549 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, 1
 	goto_if_eq ReassemblyUnit_Separation_10
 ReassemblyUnit_Separation_9:
-# 555 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 553 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ChooseZygardeForSeparation
-# 556 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 554 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ChoosePartyMon
-# 557 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
-	waitstate
-# 558 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 555 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8004, PARTY_NOTHING_CHOSEN
 	goto_if_eq ReassemblyUnit_Separation_15
 ReassemblyUnit_Separation_14:
-# 562 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 559 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	specialvar VAR_RESULT, CountPartyAliveNonEggMons_IgnoreVar0x8004Slot
-# 563 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 560 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq ReassemblyUnit_Separation_18
 ReassemblyUnit_Separation_17:
-# 567 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 564 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	specialvar VAR_0x8005, GetSelectedMonNicknameAndSpecies
-# 568 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 565 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8005, SPECIES_ZYGARDE_10
 	goto_if_eq ReassemblyUnit_Separation_21
-# 573 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 570 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_0x8005, SPECIES_ZYGARDE_50
 	goto_if_eq ReassemblyUnit_Separation_22
-# 579 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 576 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SpeciesNotZygarde
-# 580 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 577 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 ReassemblyUnit_Separation_20:
-# 582 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 579 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special SeparateZygarde
-# 583 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 580 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	callnative UpdateFollowingPokemon
-# 584 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 581 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	message ZygardeRevertedBackToCellsAndCores
-# 585 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 582 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitmessage
-# 586 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 583 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SeparatedSuccessfully
-# 587 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 584 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	return
 
 ReassemblyUnit_Separation_2:
-# 539 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 537 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NoZygardeCurrentlyAssembled
-# 540 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 538 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Separation_1
 
 ReassemblyUnit_Separation_3:
-# 538 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 536 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_unset FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_Separation_2
 	goto ReassemblyUnit_Separation_1
 
 ReassemblyUnit_Separation_7:
-# 544 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 542 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	checkpartymon SPECIES_ZYGARDE_50, 0
-# 545 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 543 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq ReassemblyUnit_Separation_12
 	goto ReassemblyUnit_Separation_6
 
 ReassemblyUnit_Separation_10:
-# 552 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 550 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ZygardeOnlyMonInParty
-# 553 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 551 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Separation_9
 
 ReassemblyUnit_Separation_12:
-# 546 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 544 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NoZygardeDetectedInParty
-# 547 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 545 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Separation_6
 
 ReassemblyUnit_Separation_15:
-# 559 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 556 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SeparationAborted
-# 560 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 557 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Separation_14
 
 ReassemblyUnit_Separation_18:
-# 564 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 561 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ZygardeOnlyAliveMon
-# 565 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 562 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_Separation_17
 
 ReassemblyUnit_Separation_21:
-# 569 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 566 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CELLS, 10
-# 570 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 567 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CORES, 1
-# 571 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 568 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE10_ASSEMBLED
 	goto ReassemblyUnit_Separation_20
 
 ReassemblyUnit_Separation_22:
-# 574 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 571 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CELLS, 50
-# 575 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 572 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	addvar VAR_ZYGARDE_CORES, 3
-# 576 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 573 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE50_ASSEMBLED
 	goto ReassemblyUnit_Separation_20
 
 
 ReassemblyUnit_CoreMoves::
-# 590 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 587 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_unset FLAG_ZYGARDE10_ASSEMBLED, ReassemblyUnit_CoreMoves_3
 ReassemblyUnit_CoreMoves_1:
-# 595 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 592 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE_CORE_1, ReassemblyUnit_CoreMoves_7
 ReassemblyUnit_CoreMoves_6:
-# 598 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 595 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE_CORE_2, ReassemblyUnit_CoreMoves_10
 ReassemblyUnit_CoreMoves_9:
-# 601 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 598 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE_CORE_3, ReassemblyUnit_CoreMoves_13
 ReassemblyUnit_CoreMoves_12:
-# 604 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 601 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE_CORE_4, ReassemblyUnit_CoreMoves_16
 ReassemblyUnit_CoreMoves_15:
-# 607 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 604 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_set FLAG_ZYGARDE_CORE_5, ReassemblyUnit_CoreMoves_19
 ReassemblyUnit_CoreMoves_18:
-# 610 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 607 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush MainScientist_ExplainFeatures_Text_3, 5
-# 611 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 608 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	message TeachZygardeWhichMove
-# 612 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 609 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitmessage
-# 613 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 610 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultistack 23, 0, FALSE, 6, FALSE, 0, 0
-# 614 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 611 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	switch VAR_RESULT
-# 615 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 612 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 0, ReassemblyUnit_CoreMoves_22
-# 618 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 615 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 1, ReassemblyUnit_CoreMoves_23
-# 621 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 618 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 2, ReassemblyUnit_CoreMoves_24
-# 624 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 621 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 3, ReassemblyUnit_CoreMoves_25
-# 627 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 624 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 4, ReassemblyUnit_CoreMoves_26
-# 630 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 627 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case 5, ReassemblyUnit_CoreMoves_27
-# 631 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 628 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	case MULTI_B_PRESSED, ReassemblyUnit_CoreMoves_27
 	return
 
 ReassemblyUnit_CoreMoves_2:
-# 592 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 589 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox NoZygardeCurrentlyAssembled
-# 593 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 590 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	goto ReassemblyUnit_CoreMoves_1
 
 ReassemblyUnit_CoreMoves_3:
-# 591 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 588 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto_if_unset FLAG_ZYGARDE50_ASSEMBLED, ReassemblyUnit_CoreMoves_2
 	goto ReassemblyUnit_CoreMoves_1
 
 ReassemblyUnit_CoreMoves_7:
-# 596 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 593 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush ReassemblyUnit_CoreMoves_Text_0, 0
 	goto ReassemblyUnit_CoreMoves_6
 
 ReassemblyUnit_CoreMoves_10:
-# 599 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 596 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush ReassemblyUnit_CoreMoves_Text_1, 1
 	goto ReassemblyUnit_CoreMoves_9
 
 ReassemblyUnit_CoreMoves_13:
-# 602 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 599 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush ReassemblyUnit_CoreMoves_Text_2, 2
 	goto ReassemblyUnit_CoreMoves_12
 
 ReassemblyUnit_CoreMoves_16:
-# 605 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 602 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush ReassemblyUnit_CoreMoves_Text_3, 3
 	goto ReassemblyUnit_CoreMoves_15
 
 ReassemblyUnit_CoreMoves_19:
-# 608 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 605 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	dynmultipush ReassemblyUnit_CoreMoves_Text_4, 4
 	goto ReassemblyUnit_CoreMoves_18
 
 ReassemblyUnit_CoreMoves_22:
-# 616 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 613 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_0x8005, MOVE_EXTREME_SPEED
-# 617 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 614 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_23:
-# 619 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 616 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_0x8005, MOVE_DRAGON_DANCE
-# 620 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 617 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_24:
-# 622 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 619 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_0x8005, MOVE_CORE_ENFORCER
-# 623 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 620 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_25:
-# 625 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 622 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_0x8005, MOVE_THOUSAND_ARROWS
-# 626 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 623 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_26:
-# 628 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 625 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	setvar VAR_0x8005, MOVE_THOUSAND_WAVES
-# 629 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 626 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ZygardeTeachCoreMove
 	return
 
 ReassemblyUnit_CoreMoves_27:
-# 632 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 629 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ZygardeMoveAborted
-# 633 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 630 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	return
 
 
 ZygardeTeachCoreMove::
-# 637 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 634 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox SelectZygardeToTeachMove
-# 638 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 635 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	special ChooseZygardeForMoveTutor
-# 639 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 636 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitstate
-# 640 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 637 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq ZygardeTeachCoreMove_2
 ZygardeTeachCoreMove_1:
-# 643 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 640 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	goto ReassemblyUnit_MainScript
 	return
 
 ZygardeTeachCoreMove_2:
-# 641 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 638 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	msgbox ZygardeMoveAborted
 	goto ZygardeTeachCoreMove_1
 
 
 ReassemblyUnit_TurnOff::
-# 647 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 644 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	waitse
-# 648 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 645 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	playse SE_PC_OFF
-# 649 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 646 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	release
 	return
 
 
 ReleaseZygardeCellsCores::
-# 741 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 738 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_1
-# 742 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 739 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_2
-# 743 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 740 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_3
-# 744 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 741 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_4
-# 745 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 742 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_5
-# 746 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 743 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_6
-# 747 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 744 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_7
-# 748 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 745 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_8
-# 749 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 746 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_9
-# 750 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 747 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_10
-# 751 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 748 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_11
-# 752 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 749 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_12
-# 753 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 750 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_13
-# 754 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 751 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_14
-# 755 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 752 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_15
-# 756 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 753 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_16
-# 757 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 754 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_17
-# 758 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 755 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_18
-# 759 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 756 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_19
-# 760 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 757 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_20
-# 761 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 758 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_21
-# 762 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 759 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_22
-# 763 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 760 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_23
-# 764 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 761 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_24
-# 765 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 762 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_25
-# 766 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 763 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_26
-# 767 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 764 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_27
-# 768 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 765 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_28
-# 769 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 766 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_29
-# 770 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 767 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_30
-# 771 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 768 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_31
-# 772 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 769 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_32
-# 773 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 770 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_33
-# 774 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 771 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_34
-# 775 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 772 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_35
-# 776 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 773 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_36
-# 777 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 774 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_37
-# 778 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 775 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_38
-# 779 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 776 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_39
-# 780 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 777 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_40
-# 781 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 778 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_41
-# 782 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 779 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_42
-# 783 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 780 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_43
-# 784 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 781 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_44
-# 785 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 782 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_45
-# 786 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 783 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_46
-# 787 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 784 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_47
-# 788 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 785 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_48
-# 789 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 786 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_49
-# 790 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 787 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_50
-# 791 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 788 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_51
-# 792 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 789 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_52
-# 793 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 790 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_53
-# 794 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 791 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_54
-# 795 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 792 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_55
-# 796 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 793 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_56
-# 797 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 794 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_57
-# 798 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 795 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_58
-# 799 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 796 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_59
-# 800 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 797 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_60
-# 801 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 798 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_61
-# 802 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 799 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_62
-# 803 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 800 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_63
-# 804 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 801 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_64
-# 805 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 802 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_65
-# 806 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 803 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_66
-# 807 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 804 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_67
-# 808 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 805 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_68
-# 809 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 806 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_69
-# 810 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 807 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_70
-# 811 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 808 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_71
-# 812 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 809 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_72
-# 813 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 810 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_73
-# 814 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 811 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_74
-# 815 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 812 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_75
-# 816 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 813 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_76
-# 817 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 814 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_77
-# 818 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 815 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_78
-# 819 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 816 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_79
-# 820 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 817 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_80
-# 821 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 818 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_81
-# 822 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 819 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_82
-# 823 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 820 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_83
-# 824 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 821 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_84
-# 825 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 822 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_85
-# 826 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 823 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_86
-# 827 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 824 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_87
-# 828 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 825 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_88
-# 829 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 826 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_89
-# 830 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 827 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_90
-# 831 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 828 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_91
-# 832 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 829 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_92
-# 833 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 830 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_93
-# 834 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 831 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_94
-# 835 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 832 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CELL_95
-# 836 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 833 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CORE_1
-# 837 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 834 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CORE_2
-# 838 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 835 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CORE_3
-# 839 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 836 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CORE_4
-# 840 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 837 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	clearflag FLAG_ZYGARDE_CORE_5
 	return
 
@@ -1299,23 +1293,23 @@ ReassemblyUnit_Assembly_Text_1:
 	.string "50% Forme$"
 
 ReassemblyUnit_CoreMoves_Text_0:
-# 596 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 593 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Extreme Speed$"
 
 ReassemblyUnit_CoreMoves_Text_1:
-# 599 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 596 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Dragon Dance$"
 
 ReassemblyUnit_CoreMoves_Text_2:
-# 602 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 599 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Core Enforcer$"
 
 ReassemblyUnit_CoreMoves_Text_3:
-# 605 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 602 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Thousand Arrows$"
 
 ReassemblyUnit_CoreMoves_Text_4:
-# 608 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 605 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Thousand Waves$"
 
 CanIHaveThePapers::
@@ -1553,101 +1547,101 @@ DoWhatWithReassemblyUnit::
 	.string "Do what with the Reassembly Unit?$"
 
 ZygardeMoveAborted::
-# 651 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 648 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Core Moves program aborted.\n"
 	.string "Returning back to main menu.$"
 
 TeachZygardeWhichMove::
-# 655 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 652 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Teach Zygarde which move?$"
 
 OnlyOneZygarde::
-# 658 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 655 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Only one Zygarde can be\n"
 	.string "assembled at a time.\p"
 	.string "Returning back to main menu.$"
 
 AssembleWhichZygarde::
-# 663 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 660 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Assemble which Zygarde?$"
 
 AttemptingToAssemble10Forme::
-# 666 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 663 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Attempting to assemble 10% Forme\n"
 	.string "{PLAY_SE SE_ELEVATOR}Zygarde…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG} Assembly completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
 
 AttemptingToAssemble50Forme::
-# 670 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 667 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Attempting to assemble 50% Forme\n"
 	.string "{PLAY_SE SE_ELEVATOR}Zygarde…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG} Assembly completed.{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}$"
 
 NoZygardeCurrentlyAssembled::
-# 674 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 671 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "No Zygarde is currently\n"
 	.string "assembled.\p"
 	.string "Returning back to main menu.$"
 
 NoZygardeDetectedInParty::
-# 679 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 676 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "No Zygarde found for\n"
 	.string "interaction.\p"
 	.string "Returning back to main menu.$"
 
 ZygardeOnlyMonInParty::
-# 684 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 681 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Zygarde is currently your only Pokémon\n"
 	.string "and as such can't be separated.$"
 
 ChooseZygardeForSeparation::
-# 688 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 685 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Please choose a Zygarde for\n"
 	.string "the separation process.$"
 
 SeparationAborted::
-# 692 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 689 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Separation process aborted.\n"
 	.string "Returning back to main menu.$"
 
 ZygardeOnlyAliveMon::
-# 696 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 693 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Cannot separate Zygarde when it is\n"
 	.string "the only non-fainted Pokemon.$"
 
 ZygardeRevertedBackToCellsAndCores::
-# 700 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 697 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Attempting to separate Zygarde back\n"
 	.string "to Cells and Cores…{PLAY_SE SE_ELEVATOR}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}…{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PAUSE 0x0F}{PLAY_SE SE_DING_DONG}{PAUSE 0x0F}{PAUSE 0x0F}$"
 
 SeparatedSuccessfully::
-# 704 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 701 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Zygarde separated successfully.\n"
 	.string "Returning back to main menu.$"
 
 NoZygardeDetectedInParty_Assembly::
-# 708 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 705 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "A Zygarde has alredy been assembled,\n"
 	.string "but could not be found in the party.\p"
 	.string "Returning back to main menu.$"
 
 ChooseZygardeForAssembly::
-# 713 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 710 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Only one Zygarde can be\n"
 	.string "assembled at a time.\p"
 	.string "Please choose an existing Zygarde\n"
 	.string "for the assembly process.$"
 
 AssemblyAborted::
-# 719 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 716 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Assembly process aborted.\n"
 	.string "Returning back to main menu.$"
 
 SpeciesNotZygarde::
-# 723 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 720 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Chosen Pokémon is not a Zygarde.\n"
 	.string "Returning back to main menu.$"
 
 NotEnoughCellsAndCoresInCube::
-# 727 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 724 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Assembling a 50% Forme Zygarde\n"
 	.string "requires at least 50 Cells and\l"
 	.string "3 Cores.\p"
@@ -1655,6 +1649,6 @@ NotEnoughCellsAndCoresInCube::
 	.string "{STR_VAR_2} Cores have been collected.$"
 
 SelectZygardeToTeachMove::
-# 734 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
+# 731 "data/maps/Route119_WeatherInstitute_2F/scripts.pory"
 	.string "Please choose a Zygarde for\n"
 	.string "the Core Moves program.$"

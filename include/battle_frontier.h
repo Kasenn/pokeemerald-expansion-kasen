@@ -2,6 +2,7 @@
 #define GUARD_BATTLE_FRONTIER_H
 
 #include "data.h"
+#include "script.h"
 
 struct BattleFrontierTrainer
 {

@@ -556,15 +556,13 @@ PWT_Frosthearth_Double::
 # 428 "data/maps/PokemonWorldTournament/scripts.pory"
 	special ChoosePartyForBattleFrontier
 # 429 "data/maps/PokemonWorldTournament/scripts.pory"
-	waitstate
-# 430 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto_if_eq VAR_RESULT, 0, BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
-# 431 "data/maps/PokemonWorldTournament/scripts.pory"
+# 430 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox BattleFrontier_BattleArenaLobby_Text_OkayToSave, MSGBOX_YESNO
-# 432 "data/maps/PokemonWorldTournament/scripts.pory"
+# 431 "data/maps/PokemonWorldTournament/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq PWT_Frosthearth_Double_5
-# 436 "data/maps/PokemonWorldTournament/scripts.pory"
+# 435 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto BattleFrontier_BattleArenaLobby_EventScript_LoadPartyAndCancelChallenge
 PWT_Frosthearth_Double_4:
 	end
@@ -579,37 +577,37 @@ PWT_Frosthearth_Double_2:
 	end
 
 PWT_Frosthearth_Double_5:
-# 433 "data/maps/PokemonWorldTournament/scripts.pory"
+# 432 "data/maps/PokemonWorldTournament/scripts.pory"
 	goto BattleFrontier_BattleArenaLobby_EventScript_SaveBeforeChallenge
 	goto PWT_Frosthearth_Double_4
 
 
 PWT_Rental_Single::
-# 441 "data/maps/PokemonWorldTournament/scripts.pory"
+# 440 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Rental_Double::
-# 445 "data/maps/PokemonWorldTournament/scripts.pory"
+# 444 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Mix_Single::
-# 449 "data/maps/PokemonWorldTournament/scripts.pory"
+# 448 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 PWT_Mix_Double::
-# 453 "data/maps/PokemonWorldTournament/scripts.pory"
+# 452 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox FeatureNotReady_Text, MSGBOX_NPC
 	end
 
 
 Pwt_Incomplete::
-# 469 "data/maps/PokemonWorldTournament/scripts.pory"
+# 468 "data/maps/PokemonWorldTournament/scripts.pory"
 	msgbox Pwt_Incomplete_Text, MSGBOX_NPC
 	return
 
@@ -827,7 +825,7 @@ WhichBattleFormat::
 	.string "will you choose?$"
 
 PWT_NotEnoughValidMons::
-# 457 "data/maps/PokemonWorldTournament/scripts.pory"
+# 456 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "My dear challenger!\p"
 	.string "You do not have the {STR_VAR_2} Pokémon\n"
 	.string "required for entry.\p"
@@ -838,7 +836,7 @@ PWT_NotEnoughValidMons::
 	.string "please do return.$"
 
 Pwt_Incomplete_Text::
-# 471 "data/maps/PokemonWorldTournament/scripts.pory"
+# 470 "data/maps/PokemonWorldTournament/scripts.pory"
 	.string "Hello, and welcome to the\n"
 	.string "Pokémon World Tournament!\p"
 	.string "…Is what I would normally say.\p"

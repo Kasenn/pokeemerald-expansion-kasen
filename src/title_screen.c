@@ -65,9 +65,9 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite);
 static const u16 sUnusedUnknownPal[] = INCGFX_U16("graphics/title_screen/unused.pal", ".gbapal");
 
 static const u32 sTitleScreenRayquazaGfx[] = INCGFX_U32("graphics/title_screen/rayquaza.png", ".4bpp.smol");
-static const u32 sTitleScreenRayquazaTilemap[] = INCBIN_U32("graphics/title_screen/rayquaza.bin", ".smolTM");
+static const u32 sTitleScreenRayquazaTilemap[] = INCGFX_U32("graphics/title_screen/rayquaza.bin", ".smolTM");
 static const u32 sTitleScreenYveltalGfx[] = INCGFX_U32("graphics/title_screen/yveltal.png", ".4bpp.smol");
-static const u32 sTitleScreenYveltalTilemap[] = INCBIN_U32("graphics/title_screen/yveltal.bin", ".smolTM");
+static const u32 sTitleScreenYveltalTilemap[] = INCGFX_U32("graphics/title_screen/yveltal.bin", ".smolTM");
 static const u32 sTitleScreenLogoShineGfx[] = INCGFX_U32("graphics/title_screen/logo_shine.png", ".4bpp.smol");
 static const u32 sTitleScreenCloudsGfx[] = INCGFX_U32("graphics/title_screen/clouds.png", ".4bpp.smol");
 

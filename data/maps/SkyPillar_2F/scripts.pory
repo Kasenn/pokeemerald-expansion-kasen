@@ -101,7 +101,6 @@ script Tower_2F_Tr2_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text Tr2_2F_Man3Intro{
@@ -218,7 +217,6 @@ script Tower_2F_Tr1_Battle{
     }
 	fadescreen(FADE_TO_BLACK)
 	special(SetCB2WhiteOut)
-	waitstate
 }
 
 text Tr1_2F_PsychicIntro{

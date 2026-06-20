@@ -91,52 +91,50 @@ Route12_SideArea_Cobalion::
 # 65 "data/maps/Route12_SideArea/scripts.pory"
 	special BattleSetup_StartLegendaryBattle
 # 66 "data/maps/Route12_SideArea/scripts.pory"
-	waitstate
-# 67 "data/maps/Route12_SideArea/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 68 "data/maps/Route12_SideArea/scripts.pory"
+# 67 "data/maps/Route12_SideArea/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 69 "data/maps/Route12_SideArea/scripts.pory"
+# 68 "data/maps/Route12_SideArea/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Route12_SideArea_Cobalion_2
-# 77 "data/maps/Route12_SideArea/scripts.pory"
+# 76 "data/maps/Route12_SideArea/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq Route12_SideArea_Cobalion_5
 Route12_SideArea_Cobalion_4:
-# 81 "data/maps/Route12_SideArea/scripts.pory"
+# 80 "data/maps/Route12_SideArea/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq Route12_SideArea_Cobalion_8
 Route12_SideArea_Cobalion_7:
-# 85 "data/maps/Route12_SideArea/scripts.pory"
+# 84 "data/maps/Route12_SideArea/scripts.pory"
 	setflag FLAG_DEFEATED_COBALION
-# 86 "data/maps/Route12_SideArea/scripts.pory"
+# 85 "data/maps/Route12_SideArea/scripts.pory"
 	release
 	end
 
 Route12_SideArea_Cobalion_2:
-# 70 "data/maps/Route12_SideArea/scripts.pory"
+# 69 "data/maps/Route12_SideArea/scripts.pory"
 	setflag FLAG_DEFEATED_COBALION
-# 71 "data/maps/Route12_SideArea/scripts.pory"
+# 70 "data/maps/Route12_SideArea/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 72 "data/maps/Route12_SideArea/scripts.pory"
+# 71 "data/maps/Route12_SideArea/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 73 "data/maps/Route12_SideArea/scripts.pory"
+# 72 "data/maps/Route12_SideArea/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 74 "data/maps/Route12_SideArea/scripts.pory"
+# 73 "data/maps/Route12_SideArea/scripts.pory"
 	release
 	end
 
 Route12_SideArea_Cobalion_5:
-# 78 "data/maps/Route12_SideArea/scripts.pory"
+# 77 "data/maps/Route12_SideArea/scripts.pory"
 	setvar VAR_0x8004, SPECIES_COBALION
-# 79 "data/maps/Route12_SideArea/scripts.pory"
+# 78 "data/maps/Route12_SideArea/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto Route12_SideArea_Cobalion_4
 
 Route12_SideArea_Cobalion_8:
-# 82 "data/maps/Route12_SideArea/scripts.pory"
+# 81 "data/maps/Route12_SideArea/scripts.pory"
 	setvar VAR_0x8004, SPECIES_COBALION
-# 83 "data/maps/Route12_SideArea/scripts.pory"
+# 82 "data/maps/Route12_SideArea/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto Route12_SideArea_Cobalion_7
 

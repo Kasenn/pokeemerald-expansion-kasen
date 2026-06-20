@@ -439,66 +439,64 @@ TriggerLatiasRoam_18:
 # 450 "data/maps/Town_Wip2/scripts.pory"
 	special FadeOutOrbEffect
 # 451 "data/maps/Town_Wip2/scripts.pory"
-	waitstate
-# 452 "data/maps/Town_Wip2/scripts.pory"
 	delay 60
-# 453 "data/maps/Town_Wip2/scripts.pory"
+# 452 "data/maps/Town_Wip2/scripts.pory"
 	playse SE_M_FLY
-# 454 "data/maps/Town_Wip2/scripts.pory"
+# 453 "data/maps/Town_Wip2/scripts.pory"
 	waitse
-# 455 "data/maps/Town_Wip2/scripts.pory"
+# 454 "data/maps/Town_Wip2/scripts.pory"
 	delay 30
-# 456 "data/maps/Town_Wip2/scripts.pory"
+# 455 "data/maps/Town_Wip2/scripts.pory"
 	goto_if_set FLAG_LATIAS_SHINY, TriggerLatiasRoam_23
-# 460 "data/maps/Town_Wip2/scripts.pory"
+# 459 "data/maps/Town_Wip2/scripts.pory"
 	applymovement 8, TriggerLatiasRoam_Movement_4
 TriggerLatiasRoam_22:
-# 462 "data/maps/Town_Wip2/scripts.pory"
+# 461 "data/maps/Town_Wip2/scripts.pory"
 	waitmovement 0
+# 462 "data/maps/Town_Wip2/scripts.pory"
+	delay 60
 # 463 "data/maps/Town_Wip2/scripts.pory"
-	delay 60
-# 464 "data/maps/Town_Wip2/scripts.pory"
 	playmoncry SPECIES_LATIAS, CRY_MODE_NORMAL
-# 465 "data/maps/Town_Wip2/scripts.pory"
+# 464 "data/maps/Town_Wip2/scripts.pory"
 	waitmoncry
-# 466 "data/maps/Town_Wip2/scripts.pory"
+# 465 "data/maps/Town_Wip2/scripts.pory"
 	delay 30
-# 467 "data/maps/Town_Wip2/scripts.pory"
+# 466 "data/maps/Town_Wip2/scripts.pory"
 	playse SE_PC_ON
-# 468 "data/maps/Town_Wip2/scripts.pory"
+# 467 "data/maps/Town_Wip2/scripts.pory"
 	waitse
-# 469 "data/maps/Town_Wip2/scripts.pory"
+# 468 "data/maps/Town_Wip2/scripts.pory"
 	msgbox LatisRegistered, MSGBOX_SIGN
-# 470 "data/maps/Town_Wip2/scripts.pory"
+# 469 "data/maps/Town_Wip2/scripts.pory"
 	delay 60
-# 471 "data/maps/Town_Wip2/scripts.pory"
+# 470 "data/maps/Town_Wip2/scripts.pory"
 	playse SE_M_FLY
-# 472 "data/maps/Town_Wip2/scripts.pory"
+# 471 "data/maps/Town_Wip2/scripts.pory"
 	goto_if_set FLAG_LATIAS_SHINY, TriggerLatiasRoam_27
-# 476 "data/maps/Town_Wip2/scripts.pory"
+# 475 "data/maps/Town_Wip2/scripts.pory"
 	applymovement 8, TriggerLatiasRoam_Movement_5
 TriggerLatiasRoam_26:
-# 478 "data/maps/Town_Wip2/scripts.pory"
+# 477 "data/maps/Town_Wip2/scripts.pory"
 	waitmovement 0
-# 479 "data/maps/Town_Wip2/scripts.pory"
+# 478 "data/maps/Town_Wip2/scripts.pory"
 	waitse
-# 480 "data/maps/Town_Wip2/scripts.pory"
+# 479 "data/maps/Town_Wip2/scripts.pory"
 	delay 60
-# 481 "data/maps/Town_Wip2/scripts.pory"
+# 480 "data/maps/Town_Wip2/scripts.pory"
 	setseenmon SPECIES_LATIAS
-# 482 "data/maps/Town_Wip2/scripts.pory"
+# 481 "data/maps/Town_Wip2/scripts.pory"
 	setflag FLAG_LATIAS_ROAMING
-# 483 "data/maps/Town_Wip2/scripts.pory"
+# 482 "data/maps/Town_Wip2/scripts.pory"
 	setvar VAR_0x8004, 0
-# 484 "data/maps/Town_Wip2/scripts.pory"
+# 483 "data/maps/Town_Wip2/scripts.pory"
 	special InitRoamer
-# 485 "data/maps/Town_Wip2/scripts.pory"
+# 484 "data/maps/Town_Wip2/scripts.pory"
 	removeobject 8
-# 486 "data/maps/Town_Wip2/scripts.pory"
+# 485 "data/maps/Town_Wip2/scripts.pory"
 	removeobject 9
-# 487 "data/maps/Town_Wip2/scripts.pory"
+# 486 "data/maps/Town_Wip2/scripts.pory"
 	fadeinbgm 0
-# 488 "data/maps/Town_Wip2/scripts.pory"
+# 487 "data/maps/Town_Wip2/scripts.pory"
 	delay 48
 	end
 
@@ -607,12 +605,12 @@ TriggerLatiasRoam_19:
 	goto TriggerLatiasRoam_18
 
 TriggerLatiasRoam_23:
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	applymovement 9, TriggerLatiasRoam_Movement_4
 	goto TriggerLatiasRoam_22
 
 TriggerLatiasRoam_27:
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	applymovement 9, TriggerLatiasRoam_Movement_5
 	goto TriggerLatiasRoam_26
 
@@ -669,37 +667,37 @@ TriggerLatiasRoam_Movement_3:
 	walk_faster_up
 	step_end
 
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 TriggerLatiasRoam_Movement_4:
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
-# 457 "data/maps/Town_Wip2/scripts.pory"
+# 456 "data/maps/Town_Wip2/scripts.pory"
 	walk_slow_down
 	step_end
 
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 TriggerLatiasRoam_Movement_5:
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
-# 473 "data/maps/Town_Wip2/scripts.pory"
+# 472 "data/maps/Town_Wip2/scripts.pory"
 	walk_fast_up
 	step_end
 

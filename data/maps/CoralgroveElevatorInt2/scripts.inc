@@ -21,18 +21,16 @@ CGC_ElevatorDown::
 # 12 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	special MoveElevator
 # 13 "data/maps/CoralgroveElevatorInt2/scripts.pory"
-	waitstate
-# 14 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	waitse
-# 15 "data/maps/CoralgroveElevatorInt2/scripts.pory"
+# 14 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	applymovement LOCALID_PLAYER, Walk1Down
-# 16 "data/maps/CoralgroveElevatorInt2/scripts.pory"
+# 15 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	waitmovement 0
-# 17 "data/maps/CoralgroveElevatorInt2/scripts.pory"
+# 16 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	warp MAP_CORALGROVE_ELEVATOR1, 11, 1
-# 18 "data/maps/CoralgroveElevatorInt2/scripts.pory"
+# 17 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	waitstate
-# 19 "data/maps/CoralgroveElevatorInt2/scripts.pory"
+# 18 "data/maps/CoralgroveElevatorInt2/scripts.pory"
 	release
 	end
 

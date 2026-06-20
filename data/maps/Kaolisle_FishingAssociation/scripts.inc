@@ -357,236 +357,232 @@ FanClub_TradeSetup::
 # 211 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	special ChoosePartyMon
 # 212 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
-	waitstate
-# 213 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, FanClub_TradeDecline
-# 214 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 213 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8005, VAR_0x8004
-# 215 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 214 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_RESULT, GetTradeSpecies
-# 216 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 215 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_ne VAR_RESULT, VAR_0x8009, FanClub_NotRequestedMon
-# 217 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 216 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 218 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 217 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	special CreateInGameTradePokemon
-# 219 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 218 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	special DoInGameTradeScene
-# 220 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
-	waitstate
-# 221 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 219 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox Fanclub_TradeThanks, MSGBOX_DEFAULT
 	return
 
 
 TradeGrowlithe::
-# 225 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 223 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 226 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 224 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 227 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 225 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_GROWLITHE, FanClubTradeCompleted
-# 228 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 226 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_GROWLITHE
-# 229 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 227 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 230 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 228 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 231 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 229 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeGrowlithe, MSGBOX_YESNO
-# 232 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 230 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 233 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 231 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_GROWLITHE
-# 234 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 232 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeVoltorb::
-# 238 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 236 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 239 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 237 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 240 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 238 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_VOLTORB, FanClubTradeCompleted
-# 241 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 239 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_VOLTORB
-# 242 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 240 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 243 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 241 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 244 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 242 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeVoltorb, MSGBOX_YESNO
-# 245 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 243 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 246 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 244 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_VOLTORB
-# 247 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 245 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeQwilfish::
-# 251 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 249 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 252 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 250 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 253 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 251 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_QWILFISH, FanClubTradeCompleted
-# 254 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 252 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_QWILFISH
-# 255 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 253 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 256 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 254 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 257 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 255 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeQwilfish, MSGBOX_YESNO
-# 258 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 256 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 259 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 257 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_QWILFISH
-# 260 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 258 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeSneasel::
-# 264 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 262 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 265 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 263 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 266 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 264 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_SNEASEL, FanClubTradeCompleted
-# 267 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 265 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_SNEASEL
-# 268 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 266 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 269 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 267 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 270 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 268 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeSneasel, MSGBOX_YESNO
-# 271 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 269 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 272 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 270 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_SNEASEL
-# 273 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 271 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeZorua::
-# 277 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 275 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 278 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 276 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 279 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 277 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_ZORUA, FanClubTradeCompleted
-# 280 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 278 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_ZORUA
-# 281 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 279 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 282 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 280 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 283 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 281 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeZorua, MSGBOX_YESNO
-# 284 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 282 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 285 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 283 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_ZORUA
-# 286 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 284 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeBulbasaur::
-# 290 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 288 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 291 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 289 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 292 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 290 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_BULBASAUR, FanClubTradeCompleted
-# 293 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 291 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_BULBASAUR
-# 294 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 292 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 295 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 293 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 296 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 294 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeBulbasaur, MSGBOX_YESNO
-# 297 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 295 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 298 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 296 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_BULBASAUR
-# 299 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 297 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeCharmander::
-# 303 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 301 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 304 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 302 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 305 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 303 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_CHARMANDER, FanClubTradeCompleted
-# 306 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 304 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_CHARMANDER
-# 307 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 305 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 308 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 306 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 309 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 307 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeCharmander, MSGBOX_YESNO
-# 310 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 308 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 311 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 309 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_CHARMANDER
-# 312 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 310 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 TradeSquirtle::
-# 316 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 314 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	lock
-# 317 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 315 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	faceplayer
-# 318 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 316 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	goto_if_set FLAG_TRADED_SQUIRTLE, FanClubTradeCompleted
-# 319 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 317 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setvar VAR_0x8008, INGAME_TRADE_SQUIRTLE
-# 320 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 318 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	copyvar VAR_0x8004, VAR_0x8008
-# 321 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 319 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	specialvar VAR_0x8009, GetInGameTradeSpeciesInfo
-# 322 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 320 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WantToTradeSquirtle, MSGBOX_YESNO
-# 323 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 321 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	call FanClub_TradeSetup
-# 324 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 322 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	setflag FLAG_TRADED_SQUIRTLE
-# 325 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 323 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	release
 	end
 
 
 FanClub_TradeDecline::
-# 420 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 418 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_TradeDeclineText, MSGBOX_NPC
 	end
 
 
 FanClub_NotRequestedMon::
-# 427 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 425 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	bufferspeciesname STR_VAR_1, VAR_0x8009
-# 428 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 426 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_WrongMonText, MSGBOX_NPC
 	end
 
 
 FanClubTradeCompleted::
-# 435 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 433 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	msgbox FanClub_TradeCompleteText, MSGBOX_NPC
 	end
 
@@ -663,7 +659,7 @@ Kaolisle_FanClub_ExpertF_Text::
 	.string "next to the table.$"
 
 FanClub_WantToTradeGrowlithe::
-# 329 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 327 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "Where I come from we have this\n"
 	.string "different breed of Growlithe,\l"
 	.string "often referred to as “Hisuian”\l"
@@ -673,7 +669,7 @@ FanClub_WantToTradeGrowlithe::
 	.string "Growlithe for another?$"
 
 FanClub_WantToTradeVoltorb::
-# 338 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 336 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "One day I came across this really\n"
 	.string "old-looking Voltorb.\p"
 	.string "It's almost like it's made out\n"
@@ -686,7 +682,7 @@ FanClub_WantToTradeVoltorb::
 	.string "antique-looking one instead?$"
 
 FanClub_WantToTradeQwilfish::
-# 350 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 348 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "I found this really weird Qwilfish\n"
 	.string "when I was visiting abroad.\p"
 	.string "I have to be frank, I'm not sure\n"
@@ -696,7 +692,7 @@ FanClub_WantToTradeQwilfish::
 	.string "this darker, edgier looking one?$"
 
 FanClub_WantToTradeSneasel::
-# 359 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 357 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "I was under the impression that\n"
 	.string "Sneasels were Dark-type, but for some\l"
 	.string "reason mine isn't.\p"
@@ -706,7 +702,7 @@ FanClub_WantToTradeSneasel::
 	.string "I'd gladly trade you mine.$"
 
 FanClub_WantToTradeZorua::
-# 368 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 366 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "On one of my business trips,\n"
 	.string "I came across this peculiar Pokémon.\l"
 	.string "The locals called it “Hisuian Zorua.”\p"
@@ -722,7 +718,7 @@ FanClub_WantToTradeZorua::
 	.string "something more exquisite?$"
 
 FanClub_WantToTradeBulbasaur::
-# 383 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 381 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "My family and I came here all the way\n"
 	.string "from Kanto for a holiday.\p"
 	.string "From what I've heard, There are many\n"
@@ -739,7 +735,7 @@ FanClub_WantToTradeBulbasaur::
 	.string "a Rowlet.$"
 
 FanClub_WantToTradeCharmander::
-# 399 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 397 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "I love Torchics!\p"
 	.string "They're so cute and fluffy and their\n"
 	.string "evolution is simply way too cool!\p"
@@ -748,7 +744,7 @@ FanClub_WantToTradeCharmander::
 	.string "for one.$"
 
 FanClub_WantToTradeSquirtle::
-# 407 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 405 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "For some reason this Squirtle wouldn't\n"
 	.string "stop following me.\p"
 	.string "In my frustration, I threw a Poké Ball\n"
@@ -760,17 +756,17 @@ FanClub_WantToTradeSquirtle::
 	.string "Maybe a Piplup?$"
 
 FanClub_TradeDeclineText::
-# 423 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 421 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "Let me know if you change your mind.$"
 
 FanClub_WrongMonText::
-# 431 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 429 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "I'm sorry, but that's\nnot a {STR_VAR_1}.$"
 
 FanClub_TradeCompleteText::
-# 438 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 436 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "Thank you for the trade!$"
 
 Fanclub_TradeThanks::
-# 441 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
+# 439 "data/maps/Kaolisle_FishingAssociation/scripts.pory"
 	.string "Take care of your new Pokémon!$"

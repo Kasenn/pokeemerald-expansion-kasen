@@ -64,52 +64,50 @@ DesertCliffs_Terrakion::
 # 30 "data/maps/DesertCliffs/scripts.pory"
 	special BattleSetup_StartLegendaryBattle
 # 31 "data/maps/DesertCliffs/scripts.pory"
-	waitstate
-# 32 "data/maps/DesertCliffs/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 33 "data/maps/DesertCliffs/scripts.pory"
+# 32 "data/maps/DesertCliffs/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 34 "data/maps/DesertCliffs/scripts.pory"
+# 33 "data/maps/DesertCliffs/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq DesertCliffs_Terrakion_2
-# 42 "data/maps/DesertCliffs/scripts.pory"
+# 41 "data/maps/DesertCliffs/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq DesertCliffs_Terrakion_5
 DesertCliffs_Terrakion_4:
-# 46 "data/maps/DesertCliffs/scripts.pory"
+# 45 "data/maps/DesertCliffs/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq DesertCliffs_Terrakion_8
 DesertCliffs_Terrakion_7:
-# 50 "data/maps/DesertCliffs/scripts.pory"
+# 49 "data/maps/DesertCliffs/scripts.pory"
 	setflag FLAG_DEFEATED_TERRAKION
-# 51 "data/maps/DesertCliffs/scripts.pory"
+# 50 "data/maps/DesertCliffs/scripts.pory"
 	release
 	end
 
 DesertCliffs_Terrakion_2:
-# 35 "data/maps/DesertCliffs/scripts.pory"
+# 34 "data/maps/DesertCliffs/scripts.pory"
 	setflag FLAG_DEFEATED_TERRAKION
-# 36 "data/maps/DesertCliffs/scripts.pory"
+# 35 "data/maps/DesertCliffs/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 37 "data/maps/DesertCliffs/scripts.pory"
+# 36 "data/maps/DesertCliffs/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 38 "data/maps/DesertCliffs/scripts.pory"
+# 37 "data/maps/DesertCliffs/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 39 "data/maps/DesertCliffs/scripts.pory"
+# 38 "data/maps/DesertCliffs/scripts.pory"
 	release
 	end
 
 DesertCliffs_Terrakion_5:
-# 43 "data/maps/DesertCliffs/scripts.pory"
+# 42 "data/maps/DesertCliffs/scripts.pory"
 	setvar VAR_0x8004, SPECIES_TERRAKION
-# 44 "data/maps/DesertCliffs/scripts.pory"
+# 43 "data/maps/DesertCliffs/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto DesertCliffs_Terrakion_4
 
 DesertCliffs_Terrakion_8:
-# 47 "data/maps/DesertCliffs/scripts.pory"
+# 46 "data/maps/DesertCliffs/scripts.pory"
 	setvar VAR_0x8004, SPECIES_TERRAKION
-# 48 "data/maps/DesertCliffs/scripts.pory"
+# 47 "data/maps/DesertCliffs/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto DesertCliffs_Terrakion_7
 
@@ -119,22 +117,22 @@ DesertCliff_Sign::
 # 0 "data/maps/DesertCliffs/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DesertCliff_Sign_2
-# 62 "data/maps/DesertCliffs/scripts.pory"
+# 61 "data/maps/DesertCliffs/scripts.pory"
 	msgbox DesertCliff_Sign_Text, MSGBOX_SIGN
 	return
 
 DesertCliff_Sign_2:
-# 57 "data/maps/DesertCliffs/scripts.pory"
+# 56 "data/maps/DesertCliffs/scripts.pory"
 	msgbox DesertCliff_Sign_TextRope
-# 58 "data/maps/DesertCliffs/scripts.pory"
+# 57 "data/maps/DesertCliffs/scripts.pory"
 	finditem ITEM_ESCAPE_ROPE
-# 59 "data/maps/DesertCliffs/scripts.pory"
+# 58 "data/maps/DesertCliffs/scripts.pory"
 	release
 	end
 
 
 DesertCliff_Sign_Text::
-# 64 "data/maps/DesertCliffs/scripts.pory"
+# 63 "data/maps/DesertCliffs/scripts.pory"
 	.string "Notice from the Pokémon Rangers:\p"
 	.string "The cliffs before you can be\n"
 	.string "treacherous to climb.\p"
@@ -142,7 +140,7 @@ DesertCliff_Sign_Text::
 	.string "or a Pokémon with Fly with you!$"
 
 DesertCliff_Sign_TextRope::
-# 71 "data/maps/DesertCliffs/scripts.pory"
+# 70 "data/maps/DesertCliffs/scripts.pory"
 	.string "Notice from the Pokémon Rangers:\p"
 	.string "The cliffs before you can be\n"
 	.string "treacherous to climb.\p"

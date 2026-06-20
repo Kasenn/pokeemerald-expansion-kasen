@@ -82,10 +82,6 @@ enum __attribute__((packed)) BattleTrainer
     B_TRAINER_PARTNER,
     B_TRAINER_OPPONENT_B,
     MAX_BATTLE_TRAINERS,
-    B_TRAINER_PLAYER = B_TRAINER_0,
-    B_TRAINER_OPPONENT_1 = B_TRAINER_1,
-    B_TRAINER_PARTNER = B_TRAINER_2,
-    B_TRAINER_OPPONENT_2 = B_TRAINER_3,
 };
 
 // These macros can be used with either battler ID or positions to get the partner or the opposite mon
@@ -534,7 +530,7 @@ enum __attribute__((packed)) MoveEffect
     MOVE_EFFECT_WRAP,
     MOVE_EFFECT_STAT_PLUS,
     MOVE_EFFECT_STAT_MINUS,
-
+    MOVE_EFFECT_OMNIBOOST,
     MOVE_EFFECT_REMOVE_ARG_TYPE,
     MOVE_EFFECT_RECHARGE,
     MOVE_EFFECT_RAGE,

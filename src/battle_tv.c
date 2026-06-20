@@ -882,6 +882,7 @@ static void AddMovePoints(u8 caseId, u16 arg1, u8 arg2, u8 arg3)
                 if (additionalEffect->self == TRUE)
                     baseFromEffect += 3;
                 break;
+            case MOVE_EFFECT_OMNIBOOST:
             case MOVE_EFFECT_STAT_PLUS:
                 for (enum Stat i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
                 {

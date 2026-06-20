@@ -60,56 +60,54 @@ Windplume_Zapdos::
 # 31 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	special StartRegiBattle
 # 32 "data/maps/WindplumeMountain_Peak/scripts.pory"
-	waitstate
-# 33 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 34 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 33 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 35 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 34 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq Windplume_Zapdos_2
-# 45 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 44 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq Windplume_Zapdos_5
 Windplume_Zapdos_4:
-# 49 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 48 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq Windplume_Zapdos_8
 Windplume_Zapdos_7:
-# 53 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 52 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setflag FLAG_DEFEATED_ZAPDOS
-# 54 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 53 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	release
 	end
 
 Windplume_Zapdos_2:
-# 36 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 35 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setflag FLAG_DEFEATED_ZAPDOS
-# 37 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 36 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 38 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 37 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 39 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 38 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setobjectxy 2, 18, 12
-# 40 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 39 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setobjectxyperm 2, 18, 12
-# 41 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 40 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 42 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 41 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	release
 	end
 
 Windplume_Zapdos_5:
-# 46 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 45 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setvar VAR_0x8004, SPECIES_ZAPDOS
-# 47 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 46 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	goto Common_EventScript_LegendaryFlewAway
 	goto Windplume_Zapdos_4
 
 Windplume_Zapdos_8:
-# 50 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 49 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	setvar VAR_0x8004, SPECIES_ZAPDOS
-# 51 "data/maps/WindplumeMountain_Peak/scripts.pory"
+# 50 "data/maps/WindplumeMountain_Peak/scripts.pory"
 	goto Common_EventScript_LegendaryFlewAway
 	goto Windplume_Zapdos_7
 

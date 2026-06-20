@@ -163,7 +163,7 @@ u32 GetLotteryNumber(void)
     u16 lowNum = VarGet(VAR_POKELOT_RND2);
     return (lowNum << 16) | highNum;
     #else
-    rng_value_t localRngState = LocalRandomSeed(gSaveBlock1Ptr->dailySeed ^ LOTTERY_CORNER_SALT);
+    rng_value_t localRngState = LocalRandomSeed(gSaveBlock3Ptr->dailySeed ^ LOTTERY_CORNER_SALT);
     return LocalRandom32(&localRngState);
     #endif
 }

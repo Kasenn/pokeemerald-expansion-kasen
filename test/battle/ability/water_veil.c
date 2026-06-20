@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Water Veil lets Rawst and Lum Berries cure Mold Breaker burn
         ASSUME(GetMoveEffect(MOVE_WILL_O_WISP) == EFFECT_NON_VOLATILE_STATUS);
         ASSUME(GetMoveNonVolatileStatus(MOVE_WILL_O_WISP) == MOVE_EFFECT_BURN);
         ASSUME(gItemsInfo[ITEM_RAWST_BERRY].holdEffect == HOLD_EFFECT_CURE_BRN);
-        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_CURE_STATUS);
+        ASSUME(gItemsInfo[ITEM_LUM_BERRY].holdEffect == HOLD_EFFECT_LUM_BERRY);
         PLAYER(SPECIES_BUIZEL) { Ability(ABILITY_WATER_VEIL); Item(item); }
         OPPONENT(SPECIES_VELUZA) { Ability(ABILITY_MOLD_BREAKER); }
     } WHEN {

@@ -2745,29 +2745,6 @@ void UpdateFollowingPokemon(void)
     sprite->data[6] = 0; // set animation data
 }
 
-void ReturnFollowingMonToBall(void)
-{
-    struct ObjectEvent *objectEvent = GetFollowerObject();
-    struct Sprite *sprite = &gSprites[objectEvent->spriteId];
-    u32 species;
-    bool32 shiny;
-    bool32 form;
-
-    if (OW_POKEMON_OBJECT_EVENTS == FALSE
-     || OW_FOLLOWERS_ENABLED == FALSE
-     || !GetFollowerInfo(&species, &form, &shiny)
-     || SpeciesToGraphicsInfo(species, form, shiny) == NULL
-     || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, form, shiny)->oam->size > ST_OAM_SIZE_2)
-     || FlagGet(FLAG_TEMP_HIDE_FOLLOWER))
-    {
-        RemoveFollowingPokemon();
-        return;
-    }
-
-    ClearObjectEventMovement(objectEvent, sprite);
-    ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_ENTER_POKEBALL);
-}
-
 // Remove follower object. Idempotent.
 void RemoveFollowingPokemon(void)
 {

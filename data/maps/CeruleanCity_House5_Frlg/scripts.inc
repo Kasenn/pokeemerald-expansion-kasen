@@ -167,7 +167,7 @@ CeruleanCity_House5_EventScript_NotEnoughBerryPowder::
 
 CeruleanCity_House5_EventScript_BerryCrushRankings::
 	lockall
-	special ShowBerryCrushRankings
+	// special ShowBerryCrushRankings
 	releaseall
 	end
 

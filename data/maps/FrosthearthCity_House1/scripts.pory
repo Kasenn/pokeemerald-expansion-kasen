@@ -24,7 +24,6 @@ script Frosthearth_HyperTraining_Guru{
     }
     msgbox(ChooseMonForHyperTraining)
     special(ChoosePartyMon)
-    waitstate
     if(var(VAR_MON_SLOT) == PARTY_NOTHING_CHOSEN){
         msgbox(NotInterestedInHyperTraining, MSGBOX_AUTOCLOSE)
         end

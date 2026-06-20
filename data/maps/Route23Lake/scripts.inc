@@ -71,66 +71,64 @@ TriggerLatiosRoam_18:
 # 91 "data/maps/Route23Lake/scripts.pory"
 	special FadeOutOrbEffect
 # 92 "data/maps/Route23Lake/scripts.pory"
-	waitstate
-# 93 "data/maps/Route23Lake/scripts.pory"
 	delay 60
-# 94 "data/maps/Route23Lake/scripts.pory"
+# 93 "data/maps/Route23Lake/scripts.pory"
 	playse SE_M_FLY
-# 95 "data/maps/Route23Lake/scripts.pory"
+# 94 "data/maps/Route23Lake/scripts.pory"
 	waitse
-# 96 "data/maps/Route23Lake/scripts.pory"
+# 95 "data/maps/Route23Lake/scripts.pory"
 	delay 30
-# 97 "data/maps/Route23Lake/scripts.pory"
+# 96 "data/maps/Route23Lake/scripts.pory"
 	goto_if_set FLAG_LATIOS_SHINY, TriggerLatiosRoam_23
-# 101 "data/maps/Route23Lake/scripts.pory"
+# 100 "data/maps/Route23Lake/scripts.pory"
 	applymovement 2, TriggerLatiosRoam_Movement_4
 TriggerLatiosRoam_22:
-# 103 "data/maps/Route23Lake/scripts.pory"
+# 102 "data/maps/Route23Lake/scripts.pory"
 	waitmovement 0
+# 103 "data/maps/Route23Lake/scripts.pory"
+	delay 60
 # 104 "data/maps/Route23Lake/scripts.pory"
-	delay 60
-# 105 "data/maps/Route23Lake/scripts.pory"
 	playmoncry SPECIES_LATIOS, CRY_MODE_NORMAL
-# 106 "data/maps/Route23Lake/scripts.pory"
+# 105 "data/maps/Route23Lake/scripts.pory"
 	waitmoncry
-# 107 "data/maps/Route23Lake/scripts.pory"
+# 106 "data/maps/Route23Lake/scripts.pory"
 	delay 30
-# 108 "data/maps/Route23Lake/scripts.pory"
+# 107 "data/maps/Route23Lake/scripts.pory"
 	playse SE_PC_ON
-# 109 "data/maps/Route23Lake/scripts.pory"
+# 108 "data/maps/Route23Lake/scripts.pory"
 	waitse
-# 110 "data/maps/Route23Lake/scripts.pory"
+# 109 "data/maps/Route23Lake/scripts.pory"
 	msgbox LatisRegistered, MSGBOX_SIGN
-# 111 "data/maps/Route23Lake/scripts.pory"
+# 110 "data/maps/Route23Lake/scripts.pory"
 	delay 60
-# 112 "data/maps/Route23Lake/scripts.pory"
+# 111 "data/maps/Route23Lake/scripts.pory"
 	playse SE_M_FLY
-# 113 "data/maps/Route23Lake/scripts.pory"
+# 112 "data/maps/Route23Lake/scripts.pory"
 	goto_if_set FLAG_LATIOS_SHINY, TriggerLatiosRoam_27
-# 117 "data/maps/Route23Lake/scripts.pory"
+# 116 "data/maps/Route23Lake/scripts.pory"
 	applymovement 2, TriggerLatiosRoam_Movement_5
 TriggerLatiosRoam_26:
-# 119 "data/maps/Route23Lake/scripts.pory"
+# 118 "data/maps/Route23Lake/scripts.pory"
 	waitmovement 0
-# 120 "data/maps/Route23Lake/scripts.pory"
+# 119 "data/maps/Route23Lake/scripts.pory"
 	waitse
-# 121 "data/maps/Route23Lake/scripts.pory"
+# 120 "data/maps/Route23Lake/scripts.pory"
 	delay 60
-# 122 "data/maps/Route23Lake/scripts.pory"
+# 121 "data/maps/Route23Lake/scripts.pory"
 	setseenmon SPECIES_LATIOS
-# 123 "data/maps/Route23Lake/scripts.pory"
+# 122 "data/maps/Route23Lake/scripts.pory"
 	setflag FLAG_LATIOS_ROAMING
-# 124 "data/maps/Route23Lake/scripts.pory"
+# 123 "data/maps/Route23Lake/scripts.pory"
 	setvar VAR_0x8004, 1
-# 125 "data/maps/Route23Lake/scripts.pory"
+# 124 "data/maps/Route23Lake/scripts.pory"
 	special InitRoamer
-# 126 "data/maps/Route23Lake/scripts.pory"
+# 125 "data/maps/Route23Lake/scripts.pory"
 	removeobject 2
-# 127 "data/maps/Route23Lake/scripts.pory"
+# 126 "data/maps/Route23Lake/scripts.pory"
 	removeobject 3
-# 128 "data/maps/Route23Lake/scripts.pory"
+# 127 "data/maps/Route23Lake/scripts.pory"
 	fadeinbgm 0
-# 129 "data/maps/Route23Lake/scripts.pory"
+# 128 "data/maps/Route23Lake/scripts.pory"
 	delay 48
 	end
 
@@ -239,12 +237,12 @@ TriggerLatiosRoam_19:
 	goto TriggerLatiosRoam_18
 
 TriggerLatiosRoam_23:
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	applymovement 3, TriggerLatiosRoam_Movement_4
 	goto TriggerLatiosRoam_22
 
 TriggerLatiosRoam_27:
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	applymovement 3, TriggerLatiosRoam_Movement_5
 	goto TriggerLatiosRoam_26
 
@@ -301,42 +299,42 @@ TriggerLatiosRoam_Movement_3:
 	walk_faster_up
 	step_end
 
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 TriggerLatiosRoam_Movement_4:
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	walk_slow_down
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	walk_slow_down
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	walk_slow_down
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	walk_slow_down
-# 98 "data/maps/Route23Lake/scripts.pory"
+# 97 "data/maps/Route23Lake/scripts.pory"
 	walk_slow_down
 	step_end
 
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 TriggerLatiosRoam_Movement_5:
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
-# 114 "data/maps/Route23Lake/scripts.pory"
+# 113 "data/maps/Route23Lake/scripts.pory"
 	walk_fast_up
 	step_end
 
 SoulDewStartsShining::
-# 133 "data/maps/Route23Lake/scripts.pory"
+# 132 "data/maps/Route23Lake/scripts.pory"
 	.string "The Soul Dew in your bag suddenly\n"
 	.string "began shining by itself!$"
 
 LatisRegistered::
-# 137 "data/maps/Route23Lake/scripts.pory"
+# 136 "data/maps/Route23Lake/scripts.pory"
 	.string "The Pokémon was registered on your\n"
 	.string "Pokédex.$"

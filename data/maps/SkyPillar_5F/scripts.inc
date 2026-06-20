@@ -111,8 +111,6 @@ Tower_5F_Tr1_Battle_5:
 	fadescreen FADE_TO_BLACK
 # 83 "data/maps/SkyPillar_5F/scripts.pory"
 	special SetCB2WhiteOut
-# 84 "data/maps/SkyPillar_5F/scripts.pory"
-	waitstate
 	return
 
 Tower_5F_Tr1_Battle_3:
@@ -200,31 +198,31 @@ Tower_5F_Tr1_Battle_21:
 
 
 AT_5F_PostBatMale::
-# 87 "data/maps/SkyPillar_5F/scripts.pory"
+# 86 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "I never expected to battle anyone\n"
 	.string "as strong as you two.\p"
 	.string "Go, ascend the tower.$"
 
 AT_5F_PostBatFemale::
-# 92 "data/maps/SkyPillar_5F/scripts.pory"
+# 91 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "Okay, I admit, you two are pretty good.\p"
 	.string "Now go, I believe Korrina is waiting\n"
 	.string "for you.$"
 
 Tr1_5F_MaleIntro::
-# 97 "data/maps/SkyPillar_5F/scripts.pory"
+# 96 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "You're here to meet Korrina?\n"
 	.string "Not unless you can defeat us!$"
 
 Tr1_5F_FemaleIntro::
-# 101 "data/maps/SkyPillar_5F/scripts.pory"
+# 100 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "You're here to meet Korrina?\n"
 	.string "Not unless you can defeat us!$"
 
 Tr1_5F_Male_Lost::
-# 105 "data/maps/SkyPillar_5F/scripts.pory"
+# 104 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "Outstanding…$"
 
 Tr1_5F_Female_Lost::
-# 108 "data/maps/SkyPillar_5F/scripts.pory"
+# 107 "data/maps/SkyPillar_5F/scripts.pory"
 	.string "How is this possible?!$"

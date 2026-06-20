@@ -343,7 +343,7 @@ HowManyCastelias::
 # 313 "data/maps/ShoreslateCity/scripts.pory"
 	waitmessage
 # 314 "data/maps/ShoreslateCity/scripts.pory"
-	multichoice 23, 0, 9, 0
+	multichoice 23, 0, MULTI_CASTELIACONE, 0
 # 315 "data/maps/ShoreslateCity/scripts.pory"
 	switch VAR_RESULT
 # 316 "data/maps/ShoreslateCity/scripts.pory"

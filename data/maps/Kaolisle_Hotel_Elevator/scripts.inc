@@ -226,14 +226,12 @@ Hotel_Elevator_MoveElevator::
 # 118 "data/maps/Kaolisle_Hotel_Elevator/scripts.pory"
 	special MoveElevator
 # 119 "data/maps/Kaolisle_Hotel_Elevator/scripts.pory"
-	waitstate
-# 120 "data/maps/Kaolisle_Hotel_Elevator/scripts.pory"
 	setflag FLAG_TEMP_2
 	return
 
 
 HotelElevatorSetFloor::
-# 125 "data/maps/Kaolisle_Hotel_Elevator/scripts.pory"
+# 124 "data/maps/Kaolisle_Hotel_Elevator/scripts.pory"
 	special SetHotelFloor
 	return
 

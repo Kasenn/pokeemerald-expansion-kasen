@@ -55,52 +55,50 @@ SnowyRidge_Virizion::
 # 27 "data/maps/SnowyRidge/scripts.pory"
 	special BattleSetup_StartLegendaryBattle
 # 28 "data/maps/SnowyRidge/scripts.pory"
-	waitstate
-# 29 "data/maps/SnowyRidge/scripts.pory"
 	clearflag FLAG_SYS_CTRL_OBJ_DELETE
-# 30 "data/maps/SnowyRidge/scripts.pory"
+# 29 "data/maps/SnowyRidge/scripts.pory"
 	specialvar VAR_RESULT, GetBattleOutcome
-# 31 "data/maps/SnowyRidge/scripts.pory"
+# 30 "data/maps/SnowyRidge/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_WON
 	goto_if_eq SnowyRidge_Virizion_2
-# 39 "data/maps/SnowyRidge/scripts.pory"
+# 38 "data/maps/SnowyRidge/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_RAN
 	goto_if_eq SnowyRidge_Virizion_5
 SnowyRidge_Virizion_4:
-# 43 "data/maps/SnowyRidge/scripts.pory"
+# 42 "data/maps/SnowyRidge/scripts.pory"
 	compare VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED
 	goto_if_eq SnowyRidge_Virizion_8
 SnowyRidge_Virizion_7:
-# 47 "data/maps/SnowyRidge/scripts.pory"
+# 46 "data/maps/SnowyRidge/scripts.pory"
 	setflag FLAG_DEFEATED_VIRIZION
-# 48 "data/maps/SnowyRidge/scripts.pory"
+# 47 "data/maps/SnowyRidge/scripts.pory"
 	release
 	end
 
 SnowyRidge_Virizion_2:
-# 32 "data/maps/SnowyRidge/scripts.pory"
+# 31 "data/maps/SnowyRidge/scripts.pory"
 	setflag FLAG_DEFEATED_VIRIZION
-# 33 "data/maps/SnowyRidge/scripts.pory"
+# 32 "data/maps/SnowyRidge/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 34 "data/maps/SnowyRidge/scripts.pory"
+# 33 "data/maps/SnowyRidge/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 35 "data/maps/SnowyRidge/scripts.pory"
+# 34 "data/maps/SnowyRidge/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 36 "data/maps/SnowyRidge/scripts.pory"
+# 35 "data/maps/SnowyRidge/scripts.pory"
 	release
 	end
 
 SnowyRidge_Virizion_5:
-# 40 "data/maps/SnowyRidge/scripts.pory"
+# 39 "data/maps/SnowyRidge/scripts.pory"
 	setvar VAR_0x8004, SPECIES_VIRIZION
-# 41 "data/maps/SnowyRidge/scripts.pory"
+# 40 "data/maps/SnowyRidge/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto SnowyRidge_Virizion_4
 
 SnowyRidge_Virizion_8:
-# 44 "data/maps/SnowyRidge/scripts.pory"
+# 43 "data/maps/SnowyRidge/scripts.pory"
 	setvar VAR_0x8004, SPECIES_VIRIZION
-# 45 "data/maps/SnowyRidge/scripts.pory"
+# 44 "data/maps/SnowyRidge/scripts.pory"
 	goto Common_EventScript_LegendaryRanAway
 	goto SnowyRidge_Virizion_7
 

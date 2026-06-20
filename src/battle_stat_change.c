@@ -145,7 +145,13 @@ static bool32 CheckSpecificMoveCondition(struct BattleCalcValues *cv, struct Sta
         }
         break;
     case EFFECT_SWAGGER:
-        if (cv->abilities[cv->battlerDef] == ABILITY_OWN_TEMPO)
+        if (cv->abilities[cv->battlerAtk] == ABILITY_DATA_BREACH && GetMoveType(gCurrentMove) == TYPE_NORMAL)
+        {
+            st->additionalEffectTriggers = TRUE;
+            if (!st->onlyChecking)
+                st->moveScript = BattleScript_SwaggerConfusion;
+        }
+        else if (cv->abilities[cv->battlerDef] == ABILITY_OWN_TEMPO)
         {
             if (!st->onlyChecking)
             {
@@ -345,7 +351,7 @@ static enum StatChangeResult DecreaseStat(struct BattleCalcValues *cv, struct St
     }
     else
     {
-        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING3);
+        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
     }
 
     if (currStage == MIN_STAT_STAGE)
@@ -406,7 +412,7 @@ static enum StatChangeResult IncreaseStat(struct BattleCalcValues *cv, struct St
     }
     else
     {
-        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING3);
+        PREPARE_STRING_BUFFER(gBattleTextBuff2, STRINGID_EMPTYSTRING);
     }
 
     if (gBattleMons[cv->battlerDef].statStages[st->stat] == MAX_STAT_STAGE)
@@ -587,6 +593,9 @@ static bool32 IsMistProtected(struct BattleCalcValues *cv, struct StatChange *st
         return FALSE;
 
     if (!IsBattlerAlly(cv->battlerDef, cv->battlerAtk) && cv->abilities[cv->battlerAtk] == ABILITY_INFILTRATOR)
+        return FALSE;
+
+    if (!(cv->abilities[cv->battlerAtk] == ABILITY_DATA_BREACH && GetMoveType(gCurrentMove) == TYPE_NORMAL))
         return FALSE;
 
     if (!st->onlyChecking)

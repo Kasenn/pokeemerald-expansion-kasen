@@ -30,11 +30,11 @@ SINGLE_BATTLE_TEST("Mirror Armor lowers a stat of the attacking Pokémon")
             MESSAGE("The foe Wynaut's Attack fell!");
             break;
         case STAT_EVASION:
-            if (GetMoveEffect(move) == EFFECT_EVASION_DOWN_2) {
-                MESSAGE("The foe Wynaut's evasiveness fell harshly!");
-            } else {
-                MESSAGE("The foe Wynaut's evasiveness fell!");
-            }
+            // if (GetMoveEffect(move) == EFFECT_EVASION_DOWN_2) {
+                MESSAGE("The foe Wynaut's evasiveness fell harshly!");//wip
+            // } else {
+            //     MESSAGE("The foe Wynaut's evasiveness fell!");
+            // }
             break;
         case STAT_ACC:
             MESSAGE("The foe Wynaut's accuracy fell!");

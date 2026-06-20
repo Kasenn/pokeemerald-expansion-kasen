@@ -18,7 +18,7 @@ static u32 GetMirageRnd(void)
     u32 lo = VarGet(VAR_MIRAGE_RND_L);
     return (hi << 16) | lo;
     #else
-    rng_value_t localRngState = LocalRandomSeed(gSaveBlock1Ptr->dailySeed ^ MIRAGE_ISLAND_SALT);
+    rng_value_t localRngState = LocalRandomSeed(gSaveBlock3Ptr->dailySeed ^ MIRAGE_ISLAND_SALT);
     return LocalRandom32(&localRngState);
     #endif
 }

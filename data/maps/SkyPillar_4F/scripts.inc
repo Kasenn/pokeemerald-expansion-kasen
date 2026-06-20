@@ -102,8 +102,6 @@ Tower_4F_Tr1_Battle_1:
 	fadescreen FADE_TO_BLACK
 # 74 "data/maps/SkyPillar_4F/scripts.pory"
 	special SetCB2WhiteOut
-# 75 "data/maps/SkyPillar_4F/scripts.pory"
-	waitstate
 	return
 
 Tower_4F_Tr1_Battle_3:
@@ -177,512 +175,508 @@ Tower_4F_Tr1_Battle_17:
 
 
 AT_4F_Tr2_Right::
-# 107 "data/maps/SkyPillar_4F/scripts.pory"
+# 106 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_Right_2
-# 111 "data/maps/SkyPillar_4F/scripts.pory"
+# 110 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 1
-# 112 "data/maps/SkyPillar_4F/scripts.pory"
+# 111 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr2_Battle
 	return
 
 AT_4F_Tr2_Right_2:
-# 108 "data/maps/SkyPillar_4F/scripts.pory"
+# 107 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr2_RightTalk::
-# 115 "data/maps/SkyPillar_4F/scripts.pory"
+# 114 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox AT_4F_Tr2_PostBatLass, MSGBOX_NPC
 	end
 
 
 AT_4F_Tr2_Left::
-# 119 "data/maps/SkyPillar_4F/scripts.pory"
+# 118 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_Left_2
-# 123 "data/maps/SkyPillar_4F/scripts.pory"
+# 122 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 2
-# 124 "data/maps/SkyPillar_4F/scripts.pory"
+# 123 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr2_Battle
 	return
 
 AT_4F_Tr2_Left_2:
-# 120 "data/maps/SkyPillar_4F/scripts.pory"
+# 119 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr2_LeftTalk::
-# 127 "data/maps/SkyPillar_4F/scripts.pory"
+# 126 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_LASS
 	goto_if 1, AT_4F_Tr2_LeftTalk_2
-# 131 "data/maps/SkyPillar_4F/scripts.pory"
+# 130 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 3
-# 132 "data/maps/SkyPillar_4F/scripts.pory"
+# 131 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr2_Battle
 	return
 
 AT_4F_Tr2_LeftTalk_2:
-# 128 "data/maps/SkyPillar_4F/scripts.pory"
+# 127 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox AT_4F_Tr2_PostBatYoungster, MSGBOX_NPC
 	end
 
 
 Tower_4F_Tr2_Battle::
-# 137 "data/maps/SkyPillar_4F/scripts.pory"
+# 136 "data/maps/SkyPillar_4F/scripts.pory"
 	lock
-# 138 "data/maps/SkyPillar_4F/scripts.pory"
+# 137 "data/maps/SkyPillar_4F/scripts.pory"
 	special SavePlayerParty
-# 139 "data/maps/SkyPillar_4F/scripts.pory"
+# 138 "data/maps/SkyPillar_4F/scripts.pory"
 	special SetPlayerParty
-# 140 "data/maps/SkyPillar_4F/scripts.pory"
+# 139 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_TEMP_2
-# 141 "data/maps/SkyPillar_4F/scripts.pory"
+# 140 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr2_Battle_3
-# 146 "data/maps/SkyPillar_4F/scripts.pory"
+# 145 "data/maps/SkyPillar_4F/scripts.pory"
 	case 2, Tower_4F_Tr2_Battle_4
-# 151 "data/maps/SkyPillar_4F/scripts.pory"
+# 150 "data/maps/SkyPillar_4F/scripts.pory"
 	case 3, Tower_4F_Tr2_Battle_5
 Tower_4F_Tr2_Battle_1:
-# 156 "data/maps/SkyPillar_4F/scripts.pory"
+# 155 "data/maps/SkyPillar_4F/scripts.pory"
 	closemessage
-# 157 "data/maps/SkyPillar_4F/scripts.pory"
+# 156 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_TOWER_PARTNER
-# 158 "data/maps/SkyPillar_4F/scripts.pory"
+# 157 "data/maps/SkyPillar_4F/scripts.pory"
 	case 0, Tower_4F_Tr2_Battle_8
-# 160 "data/maps/SkyPillar_4F/scripts.pory"
+# 159 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr2_Battle_9
-# 162 "data/maps/SkyPillar_4F/scripts.pory"
+# 161 "data/maps/SkyPillar_4F/scripts.pory"
 	case 2, Tower_4F_Tr2_Battle_10
-# 164 "data/maps/SkyPillar_4F/scripts.pory"
+# 163 "data/maps/SkyPillar_4F/scripts.pory"
 	case 3, Tower_4F_Tr2_Battle_11
-# 166 "data/maps/SkyPillar_4F/scripts.pory"
+# 165 "data/maps/SkyPillar_4F/scripts.pory"
 	case 4, Tower_4F_Tr2_Battle_12
-# 168 "data/maps/SkyPillar_4F/scripts.pory"
+# 167 "data/maps/SkyPillar_4F/scripts.pory"
 	case 5, Tower_4F_Tr2_Battle_13
-# 170 "data/maps/SkyPillar_4F/scripts.pory"
+# 169 "data/maps/SkyPillar_4F/scripts.pory"
 	case 6, Tower_4F_Tr2_Battle_14
-# 172 "data/maps/SkyPillar_4F/scripts.pory"
+# 171 "data/maps/SkyPillar_4F/scripts.pory"
 	case 7, Tower_4F_Tr2_Battle_15
-# 174 "data/maps/SkyPillar_4F/scripts.pory"
+# 173 "data/maps/SkyPillar_4F/scripts.pory"
 	case 8, Tower_4F_Tr2_Battle_16
-# 176 "data/maps/SkyPillar_4F/scripts.pory"
+# 175 "data/maps/SkyPillar_4F/scripts.pory"
 	case 9, Tower_4F_Tr2_Battle_17
-# 178 "data/maps/SkyPillar_4F/scripts.pory"
+# 177 "data/maps/SkyPillar_4F/scripts.pory"
 	case 10, Tower_4F_Tr2_Battle_18
-# 180 "data/maps/SkyPillar_4F/scripts.pory"
+# 179 "data/maps/SkyPillar_4F/scripts.pory"
 	case 11, Tower_4F_Tr2_Battle_19
 Tower_4F_Tr2_Battle_6:
-# 183 "data/maps/SkyPillar_4F/scripts.pory"
+# 182 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_RESULT
-# 184 "data/maps/SkyPillar_4F/scripts.pory"
+# 183 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr2_Battle_22
-# 190 "data/maps/SkyPillar_4F/scripts.pory"
+# 189 "data/maps/SkyPillar_4F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 191 "data/maps/SkyPillar_4F/scripts.pory"
+# 190 "data/maps/SkyPillar_4F/scripts.pory"
 	special SetCB2WhiteOut
-# 192 "data/maps/SkyPillar_4F/scripts.pory"
-	waitstate
 	return
 
 Tower_4F_Tr2_Battle_3:
-# 142 "data/maps/SkyPillar_4F/scripts.pory"
+# 141 "data/maps/SkyPillar_4F/scripts.pory"
 	playbgm MUS_ENCOUNTER_MALE, FALSE
-# 143 "data/maps/SkyPillar_4F/scripts.pory"
+# 142 "data/maps/SkyPillar_4F/scripts.pory"
 	exclamationmark 3
-# 144 "data/maps/SkyPillar_4F/scripts.pory"
+# 143 "data/maps/SkyPillar_4F/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 145 "data/maps/SkyPillar_4F/scripts.pory"
+# 144 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr2_4F_LassIntro
 	goto Tower_4F_Tr2_Battle_1
 
 Tower_4F_Tr2_Battle_4:
-# 147 "data/maps/SkyPillar_4F/scripts.pory"
+# 146 "data/maps/SkyPillar_4F/scripts.pory"
 	playbgm MUS_ENCOUNTER_FEMALE, FALSE
-# 148 "data/maps/SkyPillar_4F/scripts.pory"
+# 147 "data/maps/SkyPillar_4F/scripts.pory"
 	exclamationmark 4
-# 149 "data/maps/SkyPillar_4F/scripts.pory"
+# 148 "data/maps/SkyPillar_4F/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 150 "data/maps/SkyPillar_4F/scripts.pory"
+# 149 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr2_4F_YoungsterIntro
 	goto Tower_4F_Tr2_Battle_1
 
 Tower_4F_Tr2_Battle_5:
-# 152 "data/maps/SkyPillar_4F/scripts.pory"
+# 151 "data/maps/SkyPillar_4F/scripts.pory"
 	playbgm MUS_ENCOUNTER_MALE, FALSE
-# 153 "data/maps/SkyPillar_4F/scripts.pory"
+# 152 "data/maps/SkyPillar_4F/scripts.pory"
 	faceplayer
-# 154 "data/maps/SkyPillar_4F/scripts.pory"
+# 153 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr2_4F_YoungsterIntro
 	goto Tower_4F_Tr2_Battle_1
 
 Tower_4F_Tr2_Battle_8:
-# 159 "data/maps/SkyPillar_4F/scripts.pory"
+# 158 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_9:
-# 161 "data/maps/SkyPillar_4F/scripts.pory"
+# 160 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_10:
-# 163 "data/maps/SkyPillar_4F/scripts.pory"
+# 162 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_11:
-# 165 "data/maps/SkyPillar_4F/scripts.pory"
+# 164 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_12:
-# 167 "data/maps/SkyPillar_4F/scripts.pory"
+# 166 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_13:
-# 169 "data/maps/SkyPillar_4F/scripts.pory"
+# 168 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_14:
-# 171 "data/maps/SkyPillar_4F/scripts.pory"
+# 170 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_15:
-# 173 "data/maps/SkyPillar_4F/scripts.pory"
+# 172 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_16:
-# 175 "data/maps/SkyPillar_4F/scripts.pory"
+# 174 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_17:
-# 177 "data/maps/SkyPillar_4F/scripts.pory"
+# 176 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_18:
-# 179 "data/maps/SkyPillar_4F/scripts.pory"
+# 178 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_19:
-# 181 "data/maps/SkyPillar_4F/scripts.pory"
+# 180 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_4F_Tr2_Battle_6
 
 Tower_4F_Tr2_Battle_22:
-# 185 "data/maps/SkyPillar_4F/scripts.pory"
+# 184 "data/maps/SkyPillar_4F/scripts.pory"
 	settrainerflag TRAINER_AT_4F_LASS
-# 186 "data/maps/SkyPillar_4F/scripts.pory"
+# 185 "data/maps/SkyPillar_4F/scripts.pory"
 	settrainerflag TRAINER_AT_4F_YOUNGSTER
-# 187 "data/maps/SkyPillar_4F/scripts.pory"
+# 186 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr3_Up::
-# 228 "data/maps/SkyPillar_4F/scripts.pory"
+# 226 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_Up_2
-# 232 "data/maps/SkyPillar_4F/scripts.pory"
+# 230 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 1
-# 233 "data/maps/SkyPillar_4F/scripts.pory"
+# 231 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr3_Battle
 	return
 
 AT_4F_Tr3_Up_2:
-# 229 "data/maps/SkyPillar_4F/scripts.pory"
+# 227 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr3_UpTalk::
-# 236 "data/maps/SkyPillar_4F/scripts.pory"
+# 234 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_UpTalk_2
-# 240 "data/maps/SkyPillar_4F/scripts.pory"
+# 238 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 2
-# 241 "data/maps/SkyPillar_4F/scripts.pory"
+# 239 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr3_Battle
 	return
 
 AT_4F_Tr3_UpTalk_2:
-# 237 "data/maps/SkyPillar_4F/scripts.pory"
+# 235 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox AT_4F_Tr3_PostBatBlackbelt, MSGBOX_NPC
 	end
 
 
 AT_4F_Tr3_Down::
-# 244 "data/maps/SkyPillar_4F/scripts.pory"
+# 242 "data/maps/SkyPillar_4F/scripts.pory"
 	checktrainerflag TRAINER_AT_4F_BATTLEGIRL
 	goto_if 1, AT_4F_Tr3_Down_2
-# 248 "data/maps/SkyPillar_4F/scripts.pory"
+# 246 "data/maps/SkyPillar_4F/scripts.pory"
 	setvar VAR_TEMP_2, 3
-# 249 "data/maps/SkyPillar_4F/scripts.pory"
+# 247 "data/maps/SkyPillar_4F/scripts.pory"
 	goto Tower_4F_Tr3_Battle
 	return
 
 AT_4F_Tr3_Down_2:
-# 245 "data/maps/SkyPillar_4F/scripts.pory"
+# 243 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr3_DownTalk::
-# 252 "data/maps/SkyPillar_4F/scripts.pory"
+# 250 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox AT_4F_Tr3_PostBatBattleGirl, MSGBOX_NPC
 	end
 
 
 Tower_4F_Tr3_Battle::
-# 258 "data/maps/SkyPillar_4F/scripts.pory"
+# 256 "data/maps/SkyPillar_4F/scripts.pory"
 	lock
-# 259 "data/maps/SkyPillar_4F/scripts.pory"
+# 257 "data/maps/SkyPillar_4F/scripts.pory"
 	special SavePlayerParty
-# 260 "data/maps/SkyPillar_4F/scripts.pory"
+# 258 "data/maps/SkyPillar_4F/scripts.pory"
 	special SetPlayerParty
-# 261 "data/maps/SkyPillar_4F/scripts.pory"
+# 259 "data/maps/SkyPillar_4F/scripts.pory"
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
-# 262 "data/maps/SkyPillar_4F/scripts.pory"
+# 260 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_TEMP_2
-# 263 "data/maps/SkyPillar_4F/scripts.pory"
+# 261 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr3_Battle_3
-# 267 "data/maps/SkyPillar_4F/scripts.pory"
+# 265 "data/maps/SkyPillar_4F/scripts.pory"
 	case 2, Tower_4F_Tr3_Battle_4
-# 270 "data/maps/SkyPillar_4F/scripts.pory"
+# 268 "data/maps/SkyPillar_4F/scripts.pory"
 	case 3, Tower_4F_Tr3_Battle_5
 Tower_4F_Tr3_Battle_1:
-# 275 "data/maps/SkyPillar_4F/scripts.pory"
+# 273 "data/maps/SkyPillar_4F/scripts.pory"
 	closemessage
-# 276 "data/maps/SkyPillar_4F/scripts.pory"
+# 274 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_TOWER_PARTNER
-# 277 "data/maps/SkyPillar_4F/scripts.pory"
+# 275 "data/maps/SkyPillar_4F/scripts.pory"
 	case 0, Tower_4F_Tr3_Battle_8
-# 279 "data/maps/SkyPillar_4F/scripts.pory"
+# 277 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr3_Battle_9
-# 281 "data/maps/SkyPillar_4F/scripts.pory"
+# 279 "data/maps/SkyPillar_4F/scripts.pory"
 	case 2, Tower_4F_Tr3_Battle_10
-# 283 "data/maps/SkyPillar_4F/scripts.pory"
+# 281 "data/maps/SkyPillar_4F/scripts.pory"
 	case 3, Tower_4F_Tr3_Battle_11
-# 285 "data/maps/SkyPillar_4F/scripts.pory"
+# 283 "data/maps/SkyPillar_4F/scripts.pory"
 	case 4, Tower_4F_Tr3_Battle_12
-# 287 "data/maps/SkyPillar_4F/scripts.pory"
+# 285 "data/maps/SkyPillar_4F/scripts.pory"
 	case 5, Tower_4F_Tr3_Battle_13
-# 289 "data/maps/SkyPillar_4F/scripts.pory"
+# 287 "data/maps/SkyPillar_4F/scripts.pory"
 	case 6, Tower_4F_Tr3_Battle_14
-# 291 "data/maps/SkyPillar_4F/scripts.pory"
+# 289 "data/maps/SkyPillar_4F/scripts.pory"
 	case 7, Tower_4F_Tr3_Battle_15
-# 293 "data/maps/SkyPillar_4F/scripts.pory"
+# 291 "data/maps/SkyPillar_4F/scripts.pory"
 	case 8, Tower_4F_Tr3_Battle_16
-# 295 "data/maps/SkyPillar_4F/scripts.pory"
+# 293 "data/maps/SkyPillar_4F/scripts.pory"
 	case 9, Tower_4F_Tr3_Battle_17
-# 297 "data/maps/SkyPillar_4F/scripts.pory"
+# 295 "data/maps/SkyPillar_4F/scripts.pory"
 	case 10, Tower_4F_Tr3_Battle_18
-# 299 "data/maps/SkyPillar_4F/scripts.pory"
+# 297 "data/maps/SkyPillar_4F/scripts.pory"
 	case 11, Tower_4F_Tr3_Battle_19
 Tower_4F_Tr3_Battle_6:
-# 302 "data/maps/SkyPillar_4F/scripts.pory"
+# 300 "data/maps/SkyPillar_4F/scripts.pory"
 	switch VAR_RESULT
-# 303 "data/maps/SkyPillar_4F/scripts.pory"
+# 301 "data/maps/SkyPillar_4F/scripts.pory"
 	case 1, Tower_4F_Tr3_Battle_22
-# 309 "data/maps/SkyPillar_4F/scripts.pory"
+# 307 "data/maps/SkyPillar_4F/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 310 "data/maps/SkyPillar_4F/scripts.pory"
+# 308 "data/maps/SkyPillar_4F/scripts.pory"
 	special SetCB2WhiteOut
-# 311 "data/maps/SkyPillar_4F/scripts.pory"
-	waitstate
 	return
 
 Tower_4F_Tr3_Battle_3:
-# 264 "data/maps/SkyPillar_4F/scripts.pory"
+# 262 "data/maps/SkyPillar_4F/scripts.pory"
 	exclamationmark 1
-# 265 "data/maps/SkyPillar_4F/scripts.pory"
+# 263 "data/maps/SkyPillar_4F/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_WEST
-# 266 "data/maps/SkyPillar_4F/scripts.pory"
+# 264 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr3_4F_BlackBeltIntro
 	goto Tower_4F_Tr3_Battle_1
 
 Tower_4F_Tr3_Battle_4:
-# 268 "data/maps/SkyPillar_4F/scripts.pory"
+# 266 "data/maps/SkyPillar_4F/scripts.pory"
 	faceplayer
-# 269 "data/maps/SkyPillar_4F/scripts.pory"
+# 267 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr3_4F_BlackBeltIntro
 	goto Tower_4F_Tr3_Battle_1
 
 Tower_4F_Tr3_Battle_5:
-# 271 "data/maps/SkyPillar_4F/scripts.pory"
+# 269 "data/maps/SkyPillar_4F/scripts.pory"
 	exclamationmark 2
-# 272 "data/maps/SkyPillar_4F/scripts.pory"
+# 270 "data/maps/SkyPillar_4F/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_WEST
-# 273 "data/maps/SkyPillar_4F/scripts.pory"
+# 271 "data/maps/SkyPillar_4F/scripts.pory"
 	msgbox Tr3_4F_BattleGirlIntro
 	goto Tower_4F_Tr3_Battle_1
 
 Tower_4F_Tr3_Battle_8:
-# 278 "data/maps/SkyPillar_4F/scripts.pory"
+# 276 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_9:
-# 280 "data/maps/SkyPillar_4F/scripts.pory"
+# 278 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_10:
-# 282 "data/maps/SkyPillar_4F/scripts.pory"
+# 280 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_11:
-# 284 "data/maps/SkyPillar_4F/scripts.pory"
+# 282 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_12:
-# 286 "data/maps/SkyPillar_4F/scripts.pory"
+# 284 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_13:
-# 288 "data/maps/SkyPillar_4F/scripts.pory"
+# 286 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_14:
-# 290 "data/maps/SkyPillar_4F/scripts.pory"
+# 288 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_15:
-# 292 "data/maps/SkyPillar_4F/scripts.pory"
+# 290 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_16:
-# 294 "data/maps/SkyPillar_4F/scripts.pory"
+# 292 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_17:
-# 296 "data/maps/SkyPillar_4F/scripts.pory"
+# 294 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_TORCHIC
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_18:
-# 298 "data/maps/SkyPillar_4F/scripts.pory"
+# 296 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_PIPLUP
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_19:
-# 300 "data/maps/SkyPillar_4F/scripts.pory"
+# 298 "data/maps/SkyPillar_4F/scripts.pory"
 	multi_2_vs_2 TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ROWLET
 	goto Tower_4F_Tr3_Battle_6
 
 Tower_4F_Tr3_Battle_22:
-# 304 "data/maps/SkyPillar_4F/scripts.pory"
+# 302 "data/maps/SkyPillar_4F/scripts.pory"
 	settrainerflag TRAINER_AT_4F_BATTLEGIRL
-# 305 "data/maps/SkyPillar_4F/scripts.pory"
+# 303 "data/maps/SkyPillar_4F/scripts.pory"
 	settrainerflag TRAINER_AT_4F_BLACKBELT2
-# 306 "data/maps/SkyPillar_4F/scripts.pory"
+# 304 "data/maps/SkyPillar_4F/scripts.pory"
 	release
 	end
 
 
 AT_4F_Tr1_PostBatHexManiac::
-# 78 "data/maps/SkyPillar_4F/scripts.pory"
+# 77 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Please…\n"
 	.string "Leave me be…$"
 
 AT_4F_Tr1_PostBatBlackBelt::
-# 82 "data/maps/SkyPillar_4F/scripts.pory"
+# 81 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Maybe I should go back to the gym.\n"
 	.string "To be defeated by newcomers so easily…$"
 
 Tr1_4F_BlackbeltIntro::
-# 86 "data/maps/SkyPillar_4F/scripts.pory"
+# 85 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "I was trained by Korrina herself.\n"
 	.string "You stand no chance!$"
 
 Tr1_4F_HexManiacIntro::
-# 90 "data/maps/SkyPillar_4F/scripts.pory"
+# 89 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Please…\n"
 	.string "Show me your Pokémon…$"
 
 Tr1_4F_Blackbelt_Lost::
-# 94 "data/maps/SkyPillar_4F/scripts.pory"
+# 93 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "I have failed you, master!$"
 
 Tr1_4F_HexManiac_Lost::
-# 97 "data/maps/SkyPillar_4F/scripts.pory"
+# 96 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Please…\n"
 	.string "Stop showing me your Pokémon…$"
 
 AT_4F_Tr2_PostBatLass::
-# 195 "data/maps/SkyPillar_4F/scripts.pory"
+# 193 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Please don't tell anyone we're here!\p"
 	.string "We just wanted to catch some strong\n"
 	.string "Pokémon!$"
 
 AT_4F_Tr2_PostBatYoungster::
-# 200 "data/maps/SkyPillar_4F/scripts.pory"
+# 198 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "We heard there were strong Pokémon\n"
 	.string "here, so we snuck past the guard.$"
 
 Tr2_4F_LassIntro::
-# 204 "data/maps/SkyPillar_4F/scripts.pory"
+# 202 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Eek!\n"
 	.string "Not a trainer battle!$"
 
 Tr2_4F_YoungsterIntro::
-# 208 "data/maps/SkyPillar_4F/scripts.pory"
+# 206 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "I'm the luckiest guy alive.\n"
 	.string "Think you stand a chance?$"
 
 Tr2_4F_Lass_Lost::
-# 212 "data/maps/SkyPillar_4F/scripts.pory"
+# 210 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Please don't tell anyone we're here!$"
 
 Tr2_4F_Youngster_Lost::
-# 215 "data/maps/SkyPillar_4F/scripts.pory"
+# 213 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "All I wanted was to catch strong\n"
 	.string "Pokemon…$"
 
 LassMegaRing::
-# 219 "data/maps/SkyPillar_4F/scripts.pory"
+# 217 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "No way am I fighting against someone\n"
 	.string "with a Mega Ring!$"
 
 AT_4F_Tr3_PostBatBlackbelt::
-# 314 "data/maps/SkyPillar_4F/scripts.pory"
+# 311 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "You are almost to the top.\n"
 	.string "Keep pushing!$"
 
 AT_4F_Tr3_PostBatBattleGirl::
-# 318 "data/maps/SkyPillar_4F/scripts.pory"
+# 315 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Next time we will win!$"
 
 Tr3_4F_BlackBeltIntro::
-# 321 "data/maps/SkyPillar_4F/scripts.pory"
+# 318 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "“The best offense is a good defense”.\n"
 	.string "That's how the saying goes, right?$"
 
 Tr3_4F_BattleGirlIntro::
-# 325 "data/maps/SkyPillar_4F/scripts.pory"
+# 322 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "“Strength over speed,”\n"
 	.string "that's my motto!$"
 
 Tr3_4F_BattleGirl_Lost::
-# 329 "data/maps/SkyPillar_4F/scripts.pory"
+# 326 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "I couldn't break your defense…$"
 
 Tr3_4F_Blackbelt_Lost::
-# 332 "data/maps/SkyPillar_4F/scripts.pory"
+# 329 "data/maps/SkyPillar_4F/scripts.pory"
 	.string "Even together, we still lose…$"

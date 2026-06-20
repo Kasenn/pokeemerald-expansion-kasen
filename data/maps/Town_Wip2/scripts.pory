@@ -448,7 +448,6 @@ script TriggerLatiasRoam{
         addobject(8)
     }
     special(FadeOutOrbEffect)
-	waitstate
     delay(60)
     playse(SE_M_FLY)
     waitse

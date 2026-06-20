@@ -879,7 +879,7 @@ void Debug_ShowMainMenu(void)
 void Debug_ShowMainMenuLimited(void)
 {
     sDebugMenuListData = AllocZeroed(sizeof(*sDebugMenuListData));
-    sDebugMenuListData->listId = 0;
+    sDebugMenuListData->menuType = DEBUG_BASIC_MENU;
     Debug_ShowMenu(DebugTask_HandleMenuInput_General, sDebugMenu_Actions_MainLimited);
 }
 

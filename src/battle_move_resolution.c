@@ -13,6 +13,7 @@
 #include "battle_controllers.h"
 #include "move.h"
 #include "constants/battle_move_resolution.h"
+#include "overworld.h"
 
 static void ValidateBattlers(void);
 static enum Move GetOriginallyUsedMove(enum Move chosenMove);
@@ -308,6 +309,8 @@ static enum CancelerResult CancelerFlinch(struct BattleCalcValues *cv)
         }
         else
         {
+            if(GetBattlerSide(cv->battlerAtk) == B_SIDE_PLAYER)
+                IncrementGameStat(GAME_STAT_FLINCHED);
             gBattlescriptCurrInstr = BattleScript_MoveUsedFlinched;
         }
         return CANCELER_RESULT_FAILURE;
@@ -2132,6 +2135,10 @@ static bool32 ShouldSkipAccuracyCalcPastFirstHit(enum BattlerId battlerAtk, enum
     if (gSpecialStatuses[battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
         return TRUE;
 
+    if (gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_2ND_HIT
+     || gSpecialStatuses[battlerAtk].rapidFistsState == RAPID_FISTS_3RD_HIT)
+        return TRUE;
+
     if (!gSpecialStatuses[battlerAtk].multiHitOn)
         return FALSE;
 
@@ -2156,9 +2163,6 @@ static bool32 ShouldSkipFRLGAccuracyCheck(void)
     {
         return TRUE;
     }
-
-    if (gBattleTypeFlags & BATTLE_TYPE_POKEDUDE)
-        return TRUE;
 
     return FALSE;
 }
@@ -4771,17 +4775,17 @@ static enum MoveResult StatChangeBeforeChange(struct BattleCalcValues *cv)
                 TryDeactivateSleepClause(GetBattlerSide(cv->battlerAtk), gBattlerPartyIndexes[cv->battlerAtk]);
 
             if (status & STATUS1_PARALYSIS)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_PARALYSIS;
             else if (status & STATUS1_POISON || status & STATUS1_TOXIC_POISON)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_POISON;
             else if (status & STATUS1_BURN)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_BURN;
             else if (status & STATUS1_SLEEP)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SLEEP;
             else if (status & STATUS1_FREEZE)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
             else if (status & STATUS1_FROSTBITE)
-                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE;
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FREEZE;
 
             gBattleScripting.battler = cv->battlerAtk;
             gBattleMons[gBattlerAttacker].status1 = 0;

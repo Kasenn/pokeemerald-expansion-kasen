@@ -164,58 +164,54 @@ MoveReminder_ChooseMon::
 # 72 "data/maps/Route15_MoveReminder/scripts.pory"
 	special ChooseMonForMoveRelearner
 # 73 "data/maps/Route15_MoveReminder/scripts.pory"
-	waitstate
-# 74 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto_if_eq VAR_0x8004, PARTY_NOTHING_CHOSEN, ComeBackWithHeartScale
-# 75 "data/maps/Route15_MoveReminder/scripts.pory"
+# 74 "data/maps/Route15_MoveReminder/scripts.pory"
 	special IsSelectedMonEgg
-# 76 "data/maps/Route15_MoveReminder/scripts.pory"
+# 75 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto_if_eq VAR_RESULT, TRUE, CantTeachEgg
-# 77 "data/maps/Route15_MoveReminder/scripts.pory"
+# 76 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto_if_eq VAR_0x8005, 0, NoMoveToTeachMon
-# 78 "data/maps/Route15_MoveReminder/scripts.pory"
+# 77 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto ChooseMoveToTeach
 	return
 
 
 ChooseMoveToTeach::
-# 82 "data/maps/Route15_MoveReminder/scripts.pory"
+# 81 "data/maps/Route15_MoveReminder/scripts.pory"
 	msgbox TeachWhichMove
-# 83 "data/maps/Route15_MoveReminder/scripts.pory"
+# 82 "data/maps/Route15_MoveReminder/scripts.pory"
 	special TeachMoveRelearnerMove
-# 84 "data/maps/Route15_MoveReminder/scripts.pory"
-	waitstate
-# 85 "data/maps/Route15_MoveReminder/scripts.pory"
+# 83 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto_if_eq VAR_0x8004, 0, MoveReminder_ChooseMon
-# 86 "data/maps/Route15_MoveReminder/scripts.pory"
+# 84 "data/maps/Route15_MoveReminder/scripts.pory"
 	msgbox HandedOverHeartScale
-# 87 "data/maps/Route15_MoveReminder/scripts.pory"
+# 85 "data/maps/Route15_MoveReminder/scripts.pory"
 	removeitem ITEM_HEART_SCALE
-# 88 "data/maps/Route15_MoveReminder/scripts.pory"
+# 86 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto ComeBackWithHeartScale
 	return
 
 
 NoMoveToTeachMon::
-# 92 "data/maps/Route15_MoveReminder/scripts.pory"
+# 90 "data/maps/Route15_MoveReminder/scripts.pory"
 	msgbox DontHaveMoveToTeachPokemon
-# 93 "data/maps/Route15_MoveReminder/scripts.pory"
+# 91 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto MoveReminder_ChooseMon
 	return
 
 
 CantTeachEgg::
-# 96 "data/maps/Route15_MoveReminder/scripts.pory"
+# 94 "data/maps/Route15_MoveReminder/scripts.pory"
 	msgbox CantTeachEgg_Text
-# 97 "data/maps/Route15_MoveReminder/scripts.pory"
+# 95 "data/maps/Route15_MoveReminder/scripts.pory"
 	goto MoveReminder_ChooseMon
 	return
 
 
 ComeBackWithHeartScale::
-# 100 "data/maps/Route15_MoveReminder/scripts.pory"
+# 98 "data/maps/Route15_MoveReminder/scripts.pory"
 	msgbox ComeBackWithHeartScale_Text
-# 101 "data/maps/Route15_MoveReminder/scripts.pory"
+# 99 "data/maps/Route15_MoveReminder/scripts.pory"
 	release
 	end
 
@@ -237,18 +233,18 @@ Route15_MoveReminder_Text_3:
 	.string "Goodbye$"
 
 HowMayIHelp::
-# 105 "data/maps/Route15_MoveReminder/scripts.pory"
+# 103 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "How may I help?$"
 
 HaveScaleWantMeToTeachMove::
-# 108 "data/maps/Route15_MoveReminder/scripts.pory"
+# 106 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Oh! That's it! That's an honest to\n"
 	.string "goodness Heart Scale!\p"
 	.string "Let me guess, you want me to teach\n"
 	.string "a move?$"
 
 R15_ImTheMoveTutor::
-# 114 "data/maps/Route15_MoveReminder/scripts.pory"
+# 112 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "I'm the Move Reminder.\p"
 	.string "I know all the moves that Pokémon\n"
 	.string "learn--every one of them--and I can\l"
@@ -259,7 +255,7 @@ R15_ImTheMoveTutor::
 	.string "I'm collecting those now.$"
 
 WhyILiveHere::
-# 124 "data/maps/Route15_MoveReminder/scripts.pory"
+# 122 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "I used to live in Sandstone City, but\n"
 	.string "over time the big city life grew\l"
 	.string "too hectic for me.\p"
@@ -267,35 +263,35 @@ WhyILiveHere::
 	.string "living next to the ocean provides.$"
 
 ReminderGoodbye_Text::
-# 131 "data/maps/Route15_MoveReminder/scripts.pory"
+# 129 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Okay then.\n"
 	.string "Have a nice day.$"
 
 TutorWhichMon::
-# 135 "data/maps/Route15_MoveReminder/scripts.pory"
+# 133 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Which Pokémon needs tutoring?$"
 
 TeachWhichMove::
-# 138 "data/maps/Route15_MoveReminder/scripts.pory"
+# 136 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Which move should I teach?$"
 
 HandedOverHeartScale::
-# 141 "data/maps/Route15_MoveReminder/scripts.pory"
+# 139 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "{PLAYER} handed over one Heart Scale\n"
 	.string "in exchange.$"
 
 DontHaveMoveToTeachPokemon::
-# 145 "data/maps/Route15_MoveReminder/scripts.pory"
+# 143 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Sorry…\p"
 	.string "It doesn't appear as if I have any move\n"
 	.string "I can teach that Pokémon.$"
 
 CantTeachEgg_Text::
-# 150 "data/maps/Route15_MoveReminder/scripts.pory"
+# 148 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "Hunh? There isn't a single move that\n"
 	.string "I can teach an egg.$"
 
 ComeBackWithHeartScale_Text::
-# 154 "data/maps/Route15_MoveReminder/scripts.pory"
+# 152 "data/maps/Route15_MoveReminder/scripts.pory"
 	.string "If your Pokémon need to learn a move,\n"
 	.string "come back with a Heart Scale.$"

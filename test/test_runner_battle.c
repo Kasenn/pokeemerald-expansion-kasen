@@ -3960,7 +3960,7 @@ void AssumeMoveEffectStatChange_(u32 sourceLine, u32 moveId, struct StatChangeAs
 
             ASSUME(asc.self == effect->self);
         }
-        else if (effect->moveEffect == MOVE_EFFECT_STAT_PLUS)
+        else if (effect->moveEffect == MOVE_EFFECT_STAT_PLUS || effect->moveEffect == MOVE_EFFECT_OMNIBOOST)
         {
             if (!expectPlus)
               continue;

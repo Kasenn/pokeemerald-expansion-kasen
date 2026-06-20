@@ -2566,7 +2566,7 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
                         0,
                         &gFieldTimers.terrainTimer, 0);
             gStartingStatuses.rockyTerrain = FALSE;
-            isTerrain = TRUE;
+            return effect;
         }
         else if (gStartingStatuses.trickRoom || gStartingStatuses.trickRoomTemporary)
         {
@@ -5379,6 +5379,9 @@ bool32 IsSafeguardProtected(enum BattlerId battlerAtk, enum BattlerId battlerDef
         return TRUE;
     if (abilityAtk == ABILITY_INFILTRATOR)
         return FALSE;
+    if (abilityAtk == ABILITY_DATA_BREACH && GetMoveType(gCurrentMove) == TYPE_NORMAL)
+        return FALSE;
+
     return TRUE;
 }
 
@@ -11263,15 +11266,12 @@ void SetValuesOnFaint(enum BattlerId battler)
 
 bool32 IsVictoryCatch(void)
 {
-    return gBattleTypeFlags & BATTLE_TYPE_RAID
-        || FlagGet(B_FLAG_VICTORY_CATCH_RANDOM)
-        || FlagGet(B_FLAG_VICTORY_CATCH_GUARANTEED);
+    return FALSE;
 }
 
 bool32 IsVictoryCatchGuaranteed(void)
 {
-    return gBattleTypeFlags & BATTLE_TYPE_RAID
-        || FlagGet(B_FLAG_VICTORY_CATCH_GUARANTEED);
+    return FALSE;
 }
 
 bool32 IsBattlerInvolvedInSkyDrop(enum BattlerId battler)
