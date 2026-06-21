@@ -7,7 +7,7 @@
 #include "graphics.h"
 #include "menu.h"
 
-static const u16 sStdTextWindow_Gfx[]  = INCBIN_U16("graphics/text_window/std.4bpp");
+static const u16 sStdTextWindow_Gfx[]  = INCGFX_U16("graphics/text_window/std.png", ".4bpp");
 
 const u8 gTextWindowFrame1_Gfx[] = INCBIN_U8("graphics/text_window/1.4bpp");
 const u8 sTextWindowFrame2_Gfx[] = INCBIN_U8("graphics/text_window/2.4bpp");
@@ -113,11 +113,11 @@ const u16 sTextWindowFrame21_Pal8Opaque[] = INCBIN_U16("graphics/text_window/opa
 
 static const u16 sTextWindowPalettes[][16] =
 {
-    INCBIN_U16("graphics/text_window/message_box.gbapal"),
-    INCBIN_U16("graphics/text_window/text_pal1.gbapal"),
-    INCBIN_U16("graphics/text_window/text_pal2.gbapal"),
-    INCBIN_U16("graphics/text_window/text_pal3.gbapal"),
-    INCBIN_U16("graphics/text_window/text_pal4.gbapal")
+    INCGFX_U16("graphics/text_window/message_box.png", ".gbapal"),
+    INCGFX_U16("graphics/text_window/text_pal1.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/text_pal2.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/text_pal3.pal", ".gbapal"),
+    INCGFX_U16("graphics/text_window/text_pal4.pal", ".gbapal")
 };
 
 static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
@@ -152,7 +152,7 @@ static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
     {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal8},
 };
 
-static const u16 sTextWindowDexNavFrame[] = INCBIN_U16("graphics/text_window/dexnav_pal.gbapal");
+static const u16 sTextWindowDexNavFrame[] = INCGFX_U16("graphics/text_window/dexnav_pal.pal", ".gbapal");
 static const struct TilesPal sDexNavWindowFrame = {gTextWindowFrame1_Gfx, sTextWindowDexNavFrame};
 
 // code
