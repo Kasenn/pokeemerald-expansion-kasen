@@ -387,7 +387,7 @@ static void SpriteCB_VersionBannerLeft(struct Sprite *sprite)
             sprite->y++;
         if (sprite->sAlphaBlendIdx != 0)
             sprite->sAlphaBlendIdx--;
-        SetGpuReg(REG_OFFSET_BLDALPHA, gTitleScreenAlphaBlend[sprite->sAlphaBlendIdx]);
+        // SetGpuReg(REG_OFFSET_BLDALPHA, gTitleScreenAlphaBlend[sprite->sAlphaBlendIdx]);
     }
 }
 
@@ -698,6 +698,11 @@ static void Task_TitleScreenPhase1(u8 taskId)
     // Skip to next phase when A, B, Start, or Select is pressed
     if (JOY_NEW(A_B_START_SELECT) || gTasks[taskId].tSkipToNext)
     {
+        for (int i = 0; i < 64; i++)
+        {
+            if (gSprites[i].callback == SpriteCB_PokemonLogoShine)
+                DestroySprite(&gSprites[i]);
+        }
         gTasks[taskId].tSkipToNext = TRUE;
         gTasks[taskId].tCounter = 0;
     }

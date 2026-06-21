@@ -3,6 +3,8 @@
 
 #include "config/quickstart.h"
 
+void CB2_SkipToNewGame(void);
+
 #if RELEASE
     #define QUICKSTART FALSE
 #else

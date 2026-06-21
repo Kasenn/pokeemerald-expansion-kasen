@@ -41,11 +41,11 @@ enum
 };
 
 #define YPOS_TEXTSPEED    (MENUITEM_BATTLESCENE * 16)
-#define YPOS_BATTLESCENE  (MENUITEM_BATTLESTYLE * 16)
-#define YPOS_BATTLESTYLE  (MENUITEM_SOUND * 16)
-#define YPOS_SOUND        (MENUITEM_BUTTONMODE * 16)
-#define YPOS_BUTTONMODE   (MENUITEM_FRAMETYPE * 16)
-#define YPOS_FRAMETYPE    (MENUITEM_CANCEL * 16)
+#define YPOS_BATTLESCENE  (MENUITEM_BATTLESCENE * 16)
+#define YPOS_BATTLESTYLE  (MENUITEM_BATTLESTYLE * 16)
+#define YPOS_SOUND        (MENUITEM_SOUND * 16)
+#define YPOS_BUTTONMODE   (MENUITEM_BUTTONMODE * 16)
+#define YPOS_FRAMETYPE    (MENUITEM_FRAMETYPE * 16)
 
 static void Task_OptionMenuFadeIn(u8 taskId);
 static void Task_OptionMenuProcessInput(u8 taskId);
@@ -97,7 +97,7 @@ static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
     [MENUITEM_SOUND]       = COMPOUND_STRING("Sound"),
     [MENUITEM_BUTTONMODE]  = COMPOUND_STRING("Button Mode"),
     [MENUITEM_FRAMETYPE]   = COMPOUND_STRING("Frame"),
-    [MENUITEM_CANCEL]      = COMPOUND_STRING("Key Layout"),
+    [MENUITEM_CANCEL]      = COMPOUND_STRING("Cancel"),
 };
 
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
