@@ -48,7 +48,6 @@
 #include "type_icons.h"
 #include "pokedex.h"
 #include "test/battle.h"
-#include "test/test_runner_battle.h"
 #include "graphics.h"
 #include "text_window.h"
 

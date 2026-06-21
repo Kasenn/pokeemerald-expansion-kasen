@@ -1808,7 +1808,7 @@ void UpdateNickInHealthbox(u8 healthboxSpriteId, struct Pokemon *mon)
     u32 healthboxSpriteId2 = gSprites[healthboxSpriteId].oam.affineParam;
     u8 nickname[POKEMON_NAME_LENGTH + 1];
     void *ptr;
-    u32 species;
+    enum Species species;
     u8 gender;
     struct Pokemon *illusionMon = GetIllusionMonPtr(gSprites[healthboxSpriteId].hMain_Battler);
     if (illusionMon != NULL)
@@ -1897,11 +1897,11 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 u32 WhichBattleCoords(u32 battlerId) // 0 - singles, 1 - doubles
 {
     if (GetBattlerPosition(battlerId) == B_POSITION_PLAYER_LEFT
-        && gPlayerPartyCount == 1
+        && gPartiesCount[B_TRAINER_PLAYER] == 1
         && !(gBattleTypeFlags & BATTLE_TYPE_MULTI))
         return 0;
     else if (GetBattlerPosition(battlerId) == B_POSITION_OPPONENT_LEFT
-             && gEnemyPartyCount == 1
+             && gPartiesCount[B_TRAINER_OPPONENT_A] == 1
              && !(gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS))
         return 0;
     else
@@ -2605,15 +2605,15 @@ enum
     TAG_LAST_BALL_WINDOW,
 };
 
-static const u32 sAbilityPopUpGfx[] = INCBIN_U32("graphics/battle_interface/ability_pop_up.4bpp");
-static const u16 sAbilityPopUpPalette[] = INCBIN_U16("graphics/battle_interface/ability_pop_up.gbapal");
-static const u16 sAbilityPopUpPalette2[] = INCBIN_U16("graphics/battle_interface/ability_pop_up2.gbapal");
-static const u16 sAbilityPopUpPalette3[] = INCBIN_U16("graphics/battle_interface/ability_pop_up3.gbapal");
-static const u16 sAbilityPopUpPalette4[] = INCBIN_U16("graphics/battle_interface/ability_pop_up4.gbapal");
-static const u16 sAbilityPopUpPalette5[] = INCBIN_U16("graphics/battle_interface/ability_pop_up5.gbapal");
-static const u16 sAbilityPopUpPalette6[] = INCBIN_U16("graphics/battle_interface/ability_pop_up6.gbapal");
-static const u16 sAbilityPopUpPalette7[] = INCBIN_U16("graphics/battle_interface/ability_pop_up7.gbapal");
-static const u16 sAbilityPopUpPalette8[] = INCBIN_U16("graphics/battle_interface/ability_pop_up8.gbapal");
+static const u32 sAbilityPopUpGfx[] = INCGFX_U32("graphics/battle_interface/ability_pop_up.png", ".4bpp", "-mwidth 8 -mheight 4");
+static const u16 sAbilityPopUpPalette[] = INCGFX_U16("graphics/battle_interface/ability_pop_up.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette2[] = INCGFX_U16("graphics/battle_interface/ability_pop_up2.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette3[] = INCGFX_U16("graphics/battle_interface/ability_pop_up3.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette4[] = INCGFX_U16("graphics/battle_interface/ability_pop_up4.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette5[] = INCGFX_U16("graphics/battle_interface/ability_pop_up5.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette6[] = INCGFX_U16("graphics/battle_interface/ability_pop_up6.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette7[] = INCGFX_U16("graphics/battle_interface/ability_pop_up7.pal", ".gbapal");
+static const u16 sAbilityPopUpPalette8[] = INCGFX_U16("graphics/battle_interface/ability_pop_up8.pal", ".gbapal");
 
 
 static const struct SpriteSheet sSpriteSheet_AbilityPopUp =
