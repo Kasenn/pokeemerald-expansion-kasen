@@ -981,12 +981,26 @@ void DrawMainBattleBackground(void)
     LoadBattleEnvironmentGfx(GetBattleEnvironmentOverride());
 }
 
+static const u16 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
 void LoadBattleTextboxAndBackground(void)
 {
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+
     DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
     CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
     CopyBgTilemapBufferToVram(0);
-    LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+    LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
     LoadBattleMenuWindowGfx();
     if (B_TERRAIN_BG_CHANGE == TRUE)
         DrawTerrainTypeBattleBackground();
@@ -1315,6 +1329,7 @@ void DrawBattleEntryBackground(void)
 bool8 LoadChosenBattleElement(u8 caseId)
 {
     bool8 ret = FALSE;
+    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
 
     switch (caseId)
     {
@@ -1326,7 +1341,7 @@ bool8 LoadChosenBattleElement(u8 caseId)
         CopyBgTilemapBufferToVram(0);
         break;
     case 2:
-        LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
+        LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), 2 * PLTT_SIZE_4BPP);
         break;
     case 3:
         DecompressDataWithHeaderVram(gBattleEnvironmentInfo[GetBattleEnvironmentOverride()].background.tileset, (void *)(BG_CHAR_ADDR(2)));

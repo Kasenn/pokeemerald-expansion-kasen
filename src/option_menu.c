@@ -17,7 +17,6 @@
 #include "constants/rgb.h"
 
 #define tMenuSelection data[0]
-#define tTextSpeed data[1]
 #define tBattleSceneOff data[2]
 #define tBattleStyle data[3]
 #define tSound data[4]
@@ -26,7 +25,6 @@
 
 enum
 {
-    MENUITEM_TEXTSPEED,
     MENUITEM_BATTLESCENE,
     MENUITEM_BATTLESTYLE,
     MENUITEM_SOUND,
@@ -42,12 +40,12 @@ enum
     WIN_OPTIONS
 };
 
-#define YPOS_TEXTSPEED    (MENUITEM_TEXTSPEED * 16)
-#define YPOS_BATTLESCENE  (MENUITEM_BATTLESCENE * 16)
-#define YPOS_BATTLESTYLE  (MENUITEM_BATTLESTYLE * 16)
-#define YPOS_SOUND        (MENUITEM_SOUND * 16)
-#define YPOS_BUTTONMODE   (MENUITEM_BUTTONMODE * 16)
-#define YPOS_FRAMETYPE    (MENUITEM_FRAMETYPE * 16)
+#define YPOS_TEXTSPEED    (MENUITEM_BATTLESCENE * 16)
+#define YPOS_BATTLESCENE  (MENUITEM_BATTLESTYLE * 16)
+#define YPOS_BATTLESTYLE  (MENUITEM_SOUND * 16)
+#define YPOS_SOUND        (MENUITEM_BUTTONMODE * 16)
+#define YPOS_BUTTONMODE   (MENUITEM_FRAMETYPE * 16)
+#define YPOS_FRAMETYPE    (MENUITEM_CANCEL * 16)
 
 static void Task_OptionMenuFadeIn(u8 taskId);
 static void Task_OptionMenuProcessInput(u8 taskId);
@@ -94,13 +92,12 @@ static const u8 sEqualSignGfx[] = INCBIN_U8("graphics/interface/option_menu_equa
 
 static const u8 *const sOptionMenuItemsNames[MENUITEM_COUNT] =
 {
-    [MENUITEM_TEXTSPEED]   = COMPOUND_STRING("TEXT SPEED"),
-    [MENUITEM_BATTLESCENE] = COMPOUND_STRING("BATTLE SCENE"),
-    [MENUITEM_BATTLESTYLE] = COMPOUND_STRING("BATTLE STYLE"),
-    [MENUITEM_SOUND]       = COMPOUND_STRING("SOUND"),
-    [MENUITEM_BUTTONMODE]  = COMPOUND_STRING("BUTTON MODE"),
-    [MENUITEM_FRAMETYPE]   = COMPOUND_STRING("FRAME"),
-    [MENUITEM_CANCEL]      = COMPOUND_STRING("CANCEL"),
+    [MENUITEM_BATTLESCENE] = COMPOUND_STRING("Battle Scene"),
+    [MENUITEM_BATTLESTYLE] = COMPOUND_STRING("Battle Style"),
+    [MENUITEM_SOUND]       = COMPOUND_STRING("Sound"),
+    [MENUITEM_BUTTONMODE]  = COMPOUND_STRING("Button Mode"),
+    [MENUITEM_FRAMETYPE]   = COMPOUND_STRING("Frame"),
+    [MENUITEM_CANCEL]      = COMPOUND_STRING("Key Layout"),
 };
 
 static const struct WindowTemplate sOptionMenuWinTemplates[] =
@@ -244,14 +241,12 @@ void CB2_InitOptionMenu(void)
         u8 taskId = CreateTask(Task_OptionMenuFadeIn, 0);
 
         gTasks[taskId].tMenuSelection = 0;
-        gTasks[taskId].tTextSpeed = gSaveBlock2Ptr->optionsTextSpeed;
         gTasks[taskId].tBattleSceneOff = gSaveBlock2Ptr->optionsBattleSceneOff;
         gTasks[taskId].tBattleStyle = gSaveBlock2Ptr->optionsBattleStyle;
         gTasks[taskId].tSound = gSaveBlock2Ptr->optionsSound;
         gTasks[taskId].tButtonMode = gSaveBlock2Ptr->optionsButtonMode;
         gTasks[taskId].tWindowFrameType = gSaveBlock2Ptr->optionsWindowFrameType;
 
-        TextSpeed_DrawChoices(gTasks[taskId].tTextSpeed);
         BattleScene_DrawChoices(gTasks[taskId].tBattleSceneOff);
         BattleStyle_DrawChoices(gTasks[taskId].tBattleStyle);
         Sound_DrawChoices(gTasks[taskId].tSound);
@@ -310,13 +305,6 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 
         switch (gTasks[taskId].tMenuSelection)
         {
-        case MENUITEM_TEXTSPEED:
-            previousOption = gTasks[taskId].tTextSpeed;
-            gTasks[taskId].tTextSpeed = TextSpeed_ProcessInput(gTasks[taskId].tTextSpeed);
-
-            if (previousOption != gTasks[taskId].tTextSpeed)
-                TextSpeed_DrawChoices(gTasks[taskId].tTextSpeed);
-            break;
         case MENUITEM_BATTLESCENE:
             previousOption = gTasks[taskId].tBattleSceneOff;
             gTasks[taskId].tBattleSceneOff = BattleScene_ProcessInput(gTasks[taskId].tBattleSceneOff);
@@ -366,7 +354,6 @@ static void Task_OptionMenuProcessInput(u8 taskId)
 
 static void Task_OptionMenuSave(u8 taskId)
 {
-    gSaveBlock2Ptr->optionsTextSpeed = gTasks[taskId].tTextSpeed;
     gSaveBlock2Ptr->optionsBattleSceneOff = gTasks[taskId].tBattleSceneOff;
     gSaveBlock2Ptr->optionsBattleStyle = gTasks[taskId].tBattleStyle;
     gSaveBlock2Ptr->optionsSound = gTasks[taskId].tSound;
@@ -434,7 +421,7 @@ static u8 TextSpeed_ProcessInput(u8 selection)
     return selection;
 }
 
-static void TextSpeed_DrawChoices(u8 selection)
+static void UNUSED TextSpeed_DrawChoices(u8 selection)
 {
     u8 styles[3];
     s32 widthSlow, widthMid, widthFast, xMid;

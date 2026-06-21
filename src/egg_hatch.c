@@ -457,6 +457,18 @@ static u8 EggHatchCreateMonSprite(u8 useAlt, u8 state, u8 partyId, u16 *speciesL
     return spriteId;
 }
 
+static const u16 *const sBattleTextboxColor[] =
+{
+    gBattleTextboxPalette,
+    gBattleTextboxPalette2,
+    gBattleTextboxPalette3,
+    gBattleTextboxPalette4,
+    gBattleTextboxPalette5,
+    gBattleTextboxPalette6,
+    gBattleTextboxPalette7,
+    gBattleTextboxPalette8,
+};
+
 static void VBlankCB_EggHatch(void)
 {
     LoadOam();
@@ -525,9 +537,11 @@ static void CB2_LoadEggHatch(void)
         gMain.state++;
         break;
     case 2:
+        u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+
         DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
         CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
-        LoadPalette(gBattleTextboxPalette, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
+        LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), PLTT_SIZE_4BPP);
         gMain.state++;
         break;
     case 3:

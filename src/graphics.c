@@ -3,6 +3,13 @@
 
 const u32 gBattleTextboxTiles[] = INCBIN_U32("graphics/battle_interface/textbox.4bpp.smol");
 const u16 gBattleTextboxPalette[] = INCBIN_U16("graphics/battle_interface/textbox.gbapal");
+const u16 gBattleTextboxPalette2[] = INCBIN_U16("graphics/battle_interface/textbox2.gbapal");
+const u16 gBattleTextboxPalette3[] = INCBIN_U16("graphics/battle_interface/textbox3.gbapal");
+const u16 gBattleTextboxPalette4[] = INCBIN_U16("graphics/battle_interface/textbox4.gbapal");
+const u16 gBattleTextboxPalette5[] = INCBIN_U16("graphics/battle_interface/textbox5.gbapal");
+const u16 gBattleTextboxPalette6[] = INCBIN_U16("graphics/battle_interface/textbox6.gbapal");
+const u16 gBattleTextboxPalette7[] = INCBIN_U16("graphics/battle_interface/textbox7.gbapal");
+const u16 gBattleTextboxPalette8[] = INCBIN_U16("graphics/battle_interface/textbox8.gbapal");
 const u32 gBattleTextboxTilemap[] = INCBIN_U32("graphics/battle_interface/textbox_map.bin.smolTM");
 
 const u32 gUnusedGfx_OldCharmap[] = INCBIN_U32("graphics/unused/old_charmap.4bpp.smol"); // japanese table and bunch of stuff
@@ -708,6 +715,13 @@ const u32 gUnusedTilemap_BasicFrame[] = INCBIN_U32("graphics/unused/basic_frame.
 // Battle Interface
 
 const u16 gBattleInterface_BallStatusBarPal[] = INCBIN_U16("graphics/battle_interface/ball_status_bar.gbapal");
+const u16 gBattleInterface_BallStatusBarPal2[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_2.gbapal");
+const u16 gBattleInterface_BallStatusBarPal3[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_3.gbapal");
+const u16 gBattleInterface_BallStatusBarPal4[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_4.gbapal");
+const u16 gBattleInterface_BallStatusBarPal5[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_5.gbapal");
+const u16 gBattleInterface_BallStatusBarPal6[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_6.gbapal");
+const u16 gBattleInterface_BallStatusBarPal7[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_7.gbapal");
+const u16 gBattleInterface_BallStatusBarPal8[] = INCBIN_U16("graphics/battle_interface/ball_status_bar_8.gbapal");
 
 const u16 gBattleInterface_BallDisplayPal[] = INCBIN_U16("graphics/battle_interface/ball_display.gbapal");
 
