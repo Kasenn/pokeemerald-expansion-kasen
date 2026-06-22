@@ -1893,6 +1893,57 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+    [MOVE_SEISMIC_TOSS_CHANSEY] =
+    {
+        .name = COMPOUND_STRING("Seismic Toss"),
+        .description = COMPOUND_STRING(
+            "Inflicts static amount\n"
+            "of damage."),
+        .power = 1,
+        .effect = EFFECT_FIXED_HP_DAMAGE,
+        .argument = { .fixedDamage = 50 },
+        .type = TYPE_FIGHTING,
+        .accuracy = 100,
+        .pp = 3,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .skyBattleBanned = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_REPETITION_NOT_BORING : CONTEST_EFFECT_STARTLE_MONS_SAME_TYPE_APPEAL,
+        .contestCategory = CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_FAKE_OUT, COMBO_STARTER_ENTRAINMENT, COMBO_STARTER_PLAY_NICE},
+        .battleAnimScript = gBattleAnimMove_SeismicToss,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_CHUCK_EGG] =
+    {
+        .name = COMPOUND_STRING("Chuck Egg"),
+        .description = COMPOUND_STRING(
+            "Throws one of the eggs\n"
+            "you are carrying."),
+        .power = 1,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 10,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .effect = EFFECT_CHUCK_EGG,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_BETTER_WITH_GOOD_CONDITION : CONTEST_EFFECT_BADLY_STARTLE_MONS_WITH_GOOD_APPEALS,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_CHUCK_EGG,
+            .chance = 50,
+        }),
+        .contestComboMoves = {0},
+        .validApprenticeMove = TRUE,
+        .battleAnimScript = gBattleAnimMove_EggBomb,
+    },
+
     [MOVE_STRENGTH] =
     {
         .name = COMPOUND_STRING("Strength"),

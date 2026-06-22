@@ -7643,6 +7643,9 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
 
     switch (GetMoveEffect(ctx->move))
     {
+    case EFFECT_CHUCK_EGG:
+        dmg = 20;
+        break;
     case EFFECT_LEVEL_DAMAGE:
         dmg = gBattleMons[ctx->battlerAtk].level;
         break;

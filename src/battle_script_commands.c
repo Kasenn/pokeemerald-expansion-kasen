@@ -565,6 +565,7 @@ static void Cmd_trystatchanges(void);
 static void Cmd_trybattlerstatchange(void);
 static void Cmd_dummy(void);
 static void Cmd_callnative(void);
+static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType);
 
 void (*const gBattleScriptingCommandsTable[])(void) =
 {
@@ -2951,6 +2952,31 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
                 gBattlescriptCurrInstr = BattleScript_MoveEffectEerieSpell;
             }
         }
+        break;
+    case MOVE_EFFECT_CHUCK_EGG:
+        u16 eggUsed = 1;
+        enum Type moveType = TYPE_NORMAL;
+        for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+        {
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
+            {
+                SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN, &eggUsed);
+                enum Type eggTypes[2];
+                enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
+                
+                eggTypes[0] = GetSpeciesType(species, 0);
+                eggTypes[1] = GetSpeciesType(species, 1);
+                if (eggTypes[0] != TYPE_NORMAL)
+                    moveType = eggTypes[0];
+                else if (eggTypes[1] != TYPE_NORMAL)
+                    moveType = eggTypes[1];
+                else
+                    moveType = TYPE_NORMAL;
+
+                break;
+            }
+        }
+        SetMoveEffect(battlerAtk, effectBattler, GetMoveEffectFromEgg(moveType), gBattlescriptCurrInstr, NO_FLAGS);
         break;
     case MOVE_EFFECT_FLING:
         if (CanFling(battlerAtk, abilities[battlerAtk]) || gBattleStruct->flungItem == FLUNG_ITEM_REMOVED)
@@ -13982,3 +14008,23 @@ void BS_RestoreStatChangeQueue(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
+static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType)
+{
+    switch (eggType)
+    {
+    case TYPE_FIGHTING: return MOVE_EFFECT_THROAT_CHOP;
+    case TYPE_FLYING:   return MOVE_EFFECT_FLINCH;
+    case TYPE_POISON:   return MOVE_EFFECT_POISON;
+    case TYPE_GROUND:   return MOVE_EFFECT_GRAVITY;
+    case TYPE_ROCK:     return MOVE_EFFECT_SALT_CURE;
+    case TYPE_FIRE:     return MOVE_EFFECT_BURN;
+    case TYPE_GRASS:    return MOVE_EFFECT_LEECH_SEED;
+    case TYPE_ELECTRIC: return MOVE_EFFECT_PARALYSIS;
+    case TYPE_PSYCHIC:  return MOVE_EFFECT_CONFUSION;
+    case TYPE_ICE:      return MOVE_EFFECT_FREEZE;
+    case TYPE_DARK:     return MOVE_EFFECT_TORMENT_SIDE;
+    case TYPE_FAIRY:    return MOVE_EFFECT_INFATUATE_SIDE;
+    case TYPE_STELLAR:  return MOVE_EFFECT_RAINBOW; // For testing purposes only
+    default:            return MOVE_EFFECT_NONE;
+    }
+}

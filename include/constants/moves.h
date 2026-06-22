@@ -905,9 +905,12 @@ enum __attribute__((packed)) Move
     MOVE_MALIGNANT_CHAIN = 847,
     MOVES_COUNT_GEN9,
 
+    MOVE_SEISMIC_TOSS_CHANSEY,
+    MOVE_CHUCK_EGG,
+
     // Add any custom moves here, not further down!
 
-    MOVES_COUNT = MOVES_COUNT_GEN9,
+    MOVES_COUNT = MOVE_CHUCK_EGG + 1,
 
     // Z Moves
     FIRST_Z_MOVE = MOVES_COUNT,

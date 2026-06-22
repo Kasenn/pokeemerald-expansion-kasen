@@ -203,3 +203,50 @@ SINGLE_BATTLE_TEST("Absorb does not play the draining message at full HP in Gen5
             NOT MESSAGE("The opposing Wobbuffet had its energy drained!");
     }
 }
+
+SINGLE_BATTLE_TEST("Chuck Egg effects work correctly")
+{
+    enum Species eggMon;
+    PARAMETRIZE { eggMon = SPECIES_HITMONCHAN; }
+    PARAMETRIZE { eggMon = SPECIES_ROOKIDEE; }
+    PARAMETRIZE { eggMon = SPECIES_EKANS; }
+    PARAMETRIZE { eggMon = SPECIES_SANDSHREW; }
+    PARAMETRIZE { eggMon = SPECIES_SUDOWOODO; }
+    PARAMETRIZE { eggMon = SPECIES_CHARMANDER; }
+    PARAMETRIZE { eggMon = SPECIES_TANGELA; }
+    PARAMETRIZE { eggMon = SPECIES_PIKACHU; }
+    PARAMETRIZE { eggMon = SPECIES_ABRA; }
+    PARAMETRIZE { eggMon = SPECIES_SNORUNT; }
+    PARAMETRIZE { eggMon = SPECIES_UMBREON; }
+    PARAMETRIZE { eggMon = SPECIES_CLEFAIRY; }
+
+    bool32 isEgg = TRUE;
+
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(eggMon);
+        SetMonData(&PLAYER_PARTY[1], MON_DATA_IS_EGG, &isEgg);
+        OPPONENT(SPECIES_WOBBUFFET) { Gender(MON_FEMALE); }
+    }
+    WHEN {
+        TURN { MOVE(player, MOVE_CHUCK_EGG); MOVE(opponent, MOVE_HYPER_VOICE); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CHUCK_EGG, player);
+        switch (eggMon)
+        {
+            case SPECIES_HITMONCHAN:    MESSAGE("The effects of the egg prevent the opposing Wobbuffet from using certain moves!");
+            case SPECIES_ROOKIDEE:      MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+            case SPECIES_EKANS:         MESSAGE("The opposing Wobbuffet was poisoned!");
+            case SPECIES_SANDSHREW:     MESSAGE("Gravity intensified!");
+            case SPECIES_SUDOWOODO:     MESSAGE("The opposing Wobbuffet is being salt cured");
+            case SPECIES_CHARMANDER:    MESSAGE("The opposing Wobbuffet was burned!");
+            case SPECIES_TANGELA:       MESSAGE("The opposing Wobbuffet was seeded!");
+            case SPECIES_PIKACHU:       MESSAGE("The opposing Wobbuffet is paralyzed, so it may be unable to move!");
+            case SPECIES_ABRA:          MESSAGE("The opposing Wobbuffet became confused!");
+            case SPECIES_SNORUNT:       MESSAGE("The opposing Wobbuffet got frostbite!");
+            case SPECIES_UMBREON:       MESSAGE("The opposing Wobbuffet was subjected to torment!");
+            case SPECIES_CLEFAIRY:      MESSAGE("The opposing Wobbuffet fell in love!");
+            default:                    break;
+        }
+    }
+}

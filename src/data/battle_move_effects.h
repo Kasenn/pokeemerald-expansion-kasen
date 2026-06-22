@@ -171,6 +171,12 @@ const struct BattleMoveEffect gBattleMoveEffects[NUM_BATTLE_MOVE_EFFECTS] =
         .battleTvScore = 1,
     },
 
+    [EFFECT_CHUCK_EGG] =
+    {
+        .battleScript = BattleScript_EffectHit,
+        .battleTvScore = 1,
+    },
+
     [EFFECT_HEAL_BLOCK] =
     {
         .battleScript = BattleScript_EffectHealBlock,
