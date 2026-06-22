@@ -3259,6 +3259,20 @@ enum Type GetSpeciesType(enum Species species, u8 slot)
     return gSpeciesInfo[SanitizeSpeciesId(species)].types[slot];
 }
 
+enum Type GetEggMainType(enum Species species)
+{
+    enum Type eggType = TYPE_NORMAL;
+    enum Type type1 = GetSpeciesType(species, 0);
+    enum Type type2 = GetSpeciesType(species, 1);
+
+    if (type1 != TYPE_NORMAL)
+        eggType = type1;
+    else if (type2 != TYPE_NORMAL)
+        eggType = type2;
+
+    return eggType;
+}
+
 enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 {
     return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];

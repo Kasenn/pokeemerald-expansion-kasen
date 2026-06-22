@@ -201,6 +201,25 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	giveegg 1
+	giveegg 1
+	giveegg SPECIES_RATTATA
+	giveegg SPECIES_HITMONCHAN
+	giveegg SPECIES_ROOKIDEE
+	giveegg SPECIES_EKANS
+	giveegg SPECIES_SANDSHREW
+	giveegg SPECIES_SUDOWOODO
+	giveegg SPECIES_CATERPIE
+	giveegg SPECIES_GASTLY
+	giveegg SPECIES_CHARMANDER
+	giveegg SPECIES_SQUIRTLE
+	giveegg SPECIES_TANGELA
+	giveegg SPECIES_PIKACHU
+	giveegg SPECIES_ABRA
+	giveegg SPECIES_SNORUNT
+	giveegg SPECIES_DRATINI
+	giveegg SPECIES_UMBREON
+	giveegg SPECIES_CLEFAIRY
 	release
 	end
 

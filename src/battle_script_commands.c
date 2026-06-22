@@ -2961,17 +2961,9 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
             if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
             {
                 SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN, &eggUsed);
-                enum Type eggTypes[2];
                 enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
                 
-                eggTypes[0] = GetSpeciesType(species, 0);
-                eggTypes[1] = GetSpeciesType(species, 1);
-                if (eggTypes[0] != TYPE_NORMAL)
-                    moveType = eggTypes[0];
-                else if (eggTypes[1] != TYPE_NORMAL)
-                    moveType = eggTypes[1];
-                else
-                    moveType = TYPE_NORMAL;
+                moveType = GetEggMainType(species);
 
                 break;
             }

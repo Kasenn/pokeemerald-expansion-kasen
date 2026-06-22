@@ -3708,41 +3708,61 @@ static void PrintEggOTID(void)
 static void PrintEggState(void)
 {
     const u8 *text;
-    struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     if (sMonSummaryScreen->summary.sanity == TRUE)
         text = gText_EggWillTakeALongTime;
-    else if (sum->friendship <= 5)
-        text = gText_EggAboutToHatch;
-    else if (sum->friendship <= 10)
-        text = gText_EggWillHatchSoon;
-    else if (sum->friendship <= 40)
-        text = gText_EggWillTakeSomeTime;
     else
         text = gText_EggWillTakeALongTime;
 
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), text, 0, 1, 0, 0);
 }
 
+static const u8 sText_NormalEgg[]       = _("A peculiar POKéMON EGG.\nIt looks very plain.");
+static const u8 sText_FlyingEgg[]       = _("A peculiar POKéMON EGG.\nIt feels very light.");
+static const u8 sText_FightingEgg[]     = _("A peculiar POKéMON EGG.\nYou sense a fighting spirit\nemanating from it.");
+static const u8 sText_PoisonEgg[]       = _("A peculiar POKéMON EGG.\nIt looks like it might be\ntoxic…");
+static const u8 sText_GroundEgg[]       = _("A peculiar POKéMON EGG.\nThe surface feels a bit\ndirty and rough.");
+static const u8 sText_RockEgg[]         = _("A peculiar POKéMON EGG.\nIt feels hard and heavy.");
+static const u8 sText_BugEgg[]          = _("A peculiar POKéMON EGG.\nIt feels creepy to hold.");
+static const u8 sText_GhostEgg[]        = _("A peculiar POKéMON EGG.\nIt seems almost\ntranslucent.");
+static const u8 sText_SteelEgg[]        = _("A peculiar POKéMON EGG.\nIt feels very sturdy\nand heavy.");
+static const u8 sText_FireEgg[]         = _("A peculiar POKéMON EGG.\nIt's warm to the touch.");
+static const u8 sText_WaterEgg[]        = _("A peculiar POKéMON EGG.\nIt feels damp and slippery.");
+static const u8 sText_GrassEgg[]        = _("A peculiar POKéMON EGG.\nIt gives off a nice aroma.");
+static const u8 sText_ElectricEgg[]     = _("A peculiar POKéMON EGG.\nYou feel a tingle as you\nhold it.");
+static const u8 sText_PsychicEgg[]      = _("A peculiar POKéMON EGG.\nIt's hard to take your\neyes off it.");
+static const u8 sText_IceEgg[]          = _("A peculiar POKéMON EGG.\nIt feels cold to the touch.");
+static const u8 sText_DragonEgg[]       = _("A peculiar POKéMON EGG.\nIt feels old and powerful.");
+static const u8 sText_DarkEgg[]         = _("A peculiar POKéMON EGG.\nThe surface barely\nreflects any light.");
+static const u8 sText_FairyEgg[]        = _("A peculiar POKéMON EGG.\nIt's got a peculiar glow.");
+
 static void PrintEggMemo(void)
 {
     const u8 *text;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
-    if (sMonSummaryScreen->summary.sanity != 1)
+    enum Type eggType = GetEggMainType(sum->species);
+
+    switch (eggType)
     {
-        if (sum->metLocation == METLOC_FATEFUL_ENCOUNTER)
-            text = gText_PeculiarEggNicePlace;
-        else if (DidMonComeFromGBAGames() == FALSE || DoesMonOTMatchOwner() == FALSE)
-            text = gText_PeculiarEggTrade;
-        else if (sum->metLocation == METLOC_SPECIAL_EGG)
-            text = (DidMonComeFromRSE() == TRUE) ? gText_EggFromHotSprings : gText_EggFromTraveler;
-        else
-            text = gText_OddEggFoundByCouple;
-    }
-    else
-    {
-        text = gText_OddEggFoundByCouple;
+    case TYPE_FIGHTING: text = sText_FightingEgg; break;
+    case TYPE_FLYING:   text = sText_FlyingEgg;   break;
+    case TYPE_POISON:   text = sText_PoisonEgg;   break;
+    case TYPE_GROUND:   text = sText_GroundEgg;   break;
+    case TYPE_ROCK:     text = sText_RockEgg;     break;
+    case TYPE_BUG:      text = sText_BugEgg;      break;
+    case TYPE_GHOST:    text = sText_GhostEgg;    break;
+    case TYPE_STEEL:    text = sText_SteelEgg;    break;
+    case TYPE_FIRE:     text = sText_FireEgg;     break;
+    case TYPE_WATER:    text = sText_WaterEgg;    break;
+    case TYPE_GRASS:    text = sText_GrassEgg;    break;
+    case TYPE_ELECTRIC: text = sText_ElectricEgg; break;
+    case TYPE_PSYCHIC:  text = sText_PsychicEgg;  break;
+    case TYPE_ICE:      text = sText_IceEgg;      break;
+    case TYPE_DRAGON:   text = sText_DragonEgg;   break;
+    case TYPE_DARK:     text = sText_DarkEgg;     break;
+    case TYPE_FAIRY:    text = sText_FairyEgg;    break;
+    default:            text = sText_NormalEgg;   break;
     }
 
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), text, 0, 1, 0, 0);

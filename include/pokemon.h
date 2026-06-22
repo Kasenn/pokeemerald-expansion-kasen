@@ -825,6 +825,7 @@ const u8 *GetSpeciesPokedexDescription(enum Species species);
 u32 GetSpeciesHeight(enum Species species);
 u32 GetSpeciesWeight(enum Species species);
 enum Type GetSpeciesType(enum Species species, u8 slot);
+enum Type GetEggMainType(enum Species species);
 enum Ability GetSpeciesAbility(enum Species species, u8 slot);
 u32 GetSpeciesBaseHP(enum Species species);
 u32 GetSpeciesBaseAttack(enum Species species);

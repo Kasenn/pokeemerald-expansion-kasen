@@ -1157,6 +1157,8 @@ void GiveEggFromDaycare(void)
 
 static bool8 TryProduceOrHatchEgg(struct DayCare *daycare)
 {
+    return FALSE;
+    
     u32 i, validEggs = 0;
 
     for (i = 0; i < DAYCARE_MON_COUNT; i++)
