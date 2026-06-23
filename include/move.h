@@ -283,8 +283,47 @@ static inline enum MoveTarget GetMoveTarget(enum Move moveId)
     return target;
 }
 
+static inline void ResetEggs(void)
+{
+    u32 zero = 0;
+
+    for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG))
+            SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN, &zero);
+    }
+}
+
+static inline u8 CalculateCurrentEggs(void)
+{
+    u8 eggs = 0;
+
+    for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
+            eggs++;
+    }
+
+    return eggs;
+}
+
+static u32 CalculateTotalEggs(void)
+{
+    u32 eggs = 0;
+
+    for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG))
+            eggs++;
+    }
+
+    return eggs;
+}
+
 static inline u32 GetMovePP(enum Move moveId)
 {
+    if (moveId == MOVE_CHUCK_EGG)
+        return CalculateTotalEggs();
     return gMovesInfo[SanitizeMoveId(moveId)].pp;
 }
 

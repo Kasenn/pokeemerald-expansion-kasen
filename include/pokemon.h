@@ -524,6 +524,7 @@ struct SpeciesInfo /*0xC4*/
 #if SPECIES_EGG_COLOR
     const u16 *eggPalette;
 #endif
+    const u8 *battleIntro;
 };
 
 struct EggData
@@ -700,6 +701,8 @@ struct OriginalTrainerId
 #define OTID_STRUCT_RANDOM_NO_SHINY ((struct OriginalTrainerId) {OT_ID_RANDOM_NO_SHINY, 0})
 
 extern u8 gPartiesCount[MAX_BATTLE_TRAINERS];
+extern u8 gCurrentUsableEggs;
+extern u8 gChuckedEggs;
 extern struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE];
 
 DEPRECATED("Use gParties[B_TRAINER_PLAYER] for player and gParties[B_TRAINER_PARTNER] for partner instead")

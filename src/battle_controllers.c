@@ -1979,6 +1979,7 @@ static void SetBattlerMonData(enum BattlerId battler, struct Pokemon *party, u32
 // In normal singles, if follower Pokémon exists, and the Pokémon following is being sent out, have it slide in instead of being thrown
 static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
 {
+    return TRUE;
     struct ObjectEvent *followerObj = GetFollowerObject();
     if (!followerObj || followerObj->invisible)
         return FALSE;

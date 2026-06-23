@@ -632,6 +632,8 @@ void StartRegiBattle(void)
 
 static void DowngradeBadPoison(void)
 {
+    ResetEggs();
+    gCurrentUsableEggs = CalculateCurrentEggs();
     u8 i;
     u32 status = STATUS1_POISON;
     if (B_TOXIC_REVERSAL < GEN_5)

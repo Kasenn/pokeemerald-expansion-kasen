@@ -581,6 +581,8 @@ static void CB2_InitBattleInternal(void)
     gReservedSpritePaletteCount = MAX_BATTLERS_COUNT;
     SetVBlankCallback(VBlankCB_Battle);
     SetUpBattleVarsAndBirchZigzagoon();
+    ResetEggs();
+    gCurrentUsableEggs = CalculateCurrentEggs();
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI
      && (TESTING || gBattleTypeFlags & (BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_INGAME_PARTNER)))
@@ -2923,8 +2925,8 @@ void SpriteCB_PlayerMonSlideIn(struct Sprite *sprite)
     }
     else if (sprite->data[3] < 27)
     {
-        sprite->x += 4;
-        sprite->data[3]++;
+        sprite->x += 8;
+        sprite->data[3] += 2;
     }
     else
     {
@@ -4194,26 +4196,10 @@ static void HandleTurnActionSelectionState(void)
                     }
                     break;
                 case B_ACTION_USE_ITEM:
-                    if (ShouldBattleRestrictionsApply(battler) && !IsAllowedToUseBag())
+                    if (!gChuckedEggs)
                     {
                         RecordedBattle_ClearBattlerAction(battler, 1);
-                        gSelectionBattleScripts[battler] = BattleScript_ActionSelectionItemsCantBeUsed;
-                        gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
-                        gBattleStruct->battlerState[battler].selectionScriptFinished = FALSE;
-                        gBattleStruct->stateIdAfterSelScript[battler] = STATE_BEFORE_ACTION_CHOSEN;
-                        return;
-                    }
-
-                    if (((gBattleTypeFlags & (BATTLE_TYPE_LINK
-                                            | BATTLE_TYPE_FRONTIER_NO_PYRAMID
-                                            | BATTLE_TYPE_EREADER_TRAINER
-                                            | BATTLE_TYPE_RECORDED_LINK))
-                                            && !gTestRunnerEnabled)
-                                            // Or if currently held by Sky Drop
-                                            || gBattleMons[battler].volatiles.semiInvulnerable == STATE_SKY_DROP_TARGET)
-                    {
-                        RecordedBattle_ClearBattlerAction(battler, 1);
-                        gSelectionBattleScripts[battler] = BattleScript_ActionSelectionItemsCantBeUsed;
+                        gSelectionBattleScripts[battler] = BattleScript_NoEggsToScoop;
                         gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
                         gBattleStruct->battlerState[battler].selectionScriptFinished = FALSE;
                         gBattleStruct->stateIdAfterSelScript[battler] = STATE_BEFORE_ACTION_CHOSEN;
@@ -4221,8 +4207,27 @@ static void HandleTurnActionSelectionState(void)
                     }
                     else
                     {
-                        BtlController_EmitChooseItem(battler, B_COMM_TO_CONTROLLER, gBattleStruct->battlerPartyOrders[battler]);
-                        MarkBattlerForControllerExec(battler);
+                        if (gBattleMons[battler].status1 & (STATUS1_SLEEP | STATUS1_FREEZE))
+                        {
+                            RecordedBattle_ClearBattlerAction(battler, 1);
+                            gSelectionBattleScripts[battler] = BattleScript_CantScoopUpEggs;
+                            gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
+                            gBattleStruct->battlerState[battler].selectionScriptFinished = FALSE;
+                            gBattleStruct->stateIdAfterSelScript[battler] = STATE_BEFORE_ACTION_CHOSEN;
+                            return;
+                        }
+                        else
+                        {
+                            gChuckedEggs = 0;
+                            ResetEggs();
+                            RecordedBattle_ClearBattlerAction(battler, 1);
+                            gChosenActionByBattler[battler] = B_ACTION_NOTHING_FAINTED;
+                            gSelectionBattleScripts[battler] = BattleScript_ScoopUpEggs;
+                            gBattleCommunication[battler] = STATE_SELECTION_SCRIPT;
+                            gBattleStruct->battlerState[battler].selectionScriptFinished = FALSE;
+                            gBattleStruct->stateIdAfterSelScript[battler] = STATE_WAIT_ACTION_CONFIRMED_STANDBY;
+                            return;
+                        }
                     }
                     break;
                 case B_ACTION_SWITCH:
@@ -5433,7 +5438,15 @@ static void HandleEndTurn_RanFromBattle(void)
         switch (gProtectStructs[gBattlerAttacker].fleeType)
         {
         default:
-            gBattlescriptCurrInstr = BattleScript_GotAwaySafely;
+            if (gChuckedEggs)
+            {
+                gChuckedEggs = 0;
+                gBattlescriptCurrInstr = BattleScript_GotAwaySafelyEggs;
+            }
+            else
+            {
+                gBattlescriptCurrInstr = BattleScript_GotAwaySafely;
+            }
             break;
         case FLEE_ITEM:
             gBattlescriptCurrInstr = BattleScript_SmokeBallEscape;

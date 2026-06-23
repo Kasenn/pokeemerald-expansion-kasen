@@ -1936,6 +1936,8 @@ void CB2_WhiteOut(void)
 
     if (++gMain.state >= 120)
     {
+        ResetEggs();
+        gCurrentUsableEggs = CalculateCurrentEggs();
         FieldClearVBlankHBlankCallbacks();
         StopMapMusic();
         ResetSafariZoneFlag_();

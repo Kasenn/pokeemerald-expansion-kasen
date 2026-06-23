@@ -4235,6 +4235,16 @@ static bool32 ShouldSetStompingTantrumTimer(void)
 static enum MoveEndResult MoveEndClearBits(struct BattleCalcValues *cv)
 {
     ValidateBattlers();
+    gCurrentUsableEggs = CalculateCurrentEggs();
+    
+    for (int i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (gBattleMons[cv->battlerAtk].moves[i] == MOVE_CHUCK_EGG)
+        {
+            gBattleMons[cv->battlerAtk].pp[i] = gCurrentUsableEggs;
+            break;
+        }
+    }
 
     enum Move originallyUsedMove = GetOriginallyUsedMove(gChosenMove);
     enum Type moveType = GetBattleMoveType(cv->move);

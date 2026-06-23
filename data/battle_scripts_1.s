@@ -3038,6 +3038,11 @@ BattleScript_GotAwaySafely::
 	waitmessage B_WAIT_TIME_LONG
 	end2
 
+BattleScript_GotAwaySafelyEggs::
+	printstring STRINGID_GOTAWAYSAFELY_EGG
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
 BattleScript_WildMonFled::
 	printstring STRINGID_WILDPKMNFLED
 	waitmessage B_WAIT_TIME_LONG
@@ -3046,6 +3051,18 @@ BattleScript_WildMonFled::
 BattleScript_PrintCantRunFromTrainer::
 	printstring STRINGID_NORUNNINGFROMTRAINERS
 	end2
+
+BattleScript_NoEggsToScoop::
+	printstring STRINGID_NOEGGSTOSCOOP
+	endselectionscript
+
+BattleScript_ScoopUpEggs::
+	printstring STRINGID_SCOOPUPEGGS
+	endselectionscript
+
+BattleScript_CantScoopUpEggs::
+	printstring STRINGID_CANTSCOOPUPEGGS
+	endselectionscript
 
 BattleScript_PrintFailedToRunString::
 	printfromtable gNoEscapeStringIds

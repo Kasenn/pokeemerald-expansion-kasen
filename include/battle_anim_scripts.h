@@ -124,6 +124,7 @@ extern const u8 gBattleAnimMove_Metronome[];
 extern const u8 gBattleAnimMove_MirrorMove[];
 extern const u8 gBattleAnimMove_SelfDestruct[];
 extern const u8 gBattleAnimMove_EggBomb[];
+extern const u8 gBattleAnimMove_ChuckEgg[];
 extern const u8 gBattleAnimMove_Lick[];
 extern const u8 gBattleAnimMove_Smog[];
 extern const u8 gBattleAnimMove_Sludge[];

@@ -4939,9 +4939,9 @@ static void DebugAction_Party_SetParty(u8 taskId)
 
 static void DebugAction_Party_BattleSingle(u8 taskId)
 {
-    ZeroPlayerPartyMons();
+    // ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
-    CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
+    // CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_PLAYER], &sDebugTrainers[DIFFICULTY_NORMAL][DEBUG_TRAINER_PLAYER], TRUE, BATTLE_TYPE_TRAINER);
     CreateNPCTrainerPartyFromTrainer(gParties[B_TRAINER_OPPONENT_A], GetDebugAiTrainer(), FALSE, BATTLE_TYPE_TRAINER);
 
     gBattleTypeFlags = BATTLE_TYPE_TRAINER;

@@ -6299,6 +6299,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
 #if P_FAMILY_ODDISH
     [SPECIES_ODDISH] =
     {
+        .battleIntro = COMPOUND_STRING("a tiny"),
         .baseHP        = 45,
         .baseAttack    = 50,
         .baseDefense   = 55,

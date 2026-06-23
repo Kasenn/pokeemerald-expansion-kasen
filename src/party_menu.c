@@ -257,7 +257,7 @@ static void DisplayPartyPokemonDataForWirelessMinigame(u8);
 static void DisplayPartyPokemonDataForBattlePyramidHeldItem(u8);
 static bool8 DisplayPartyPokemonDataForMoveTutorOrEvolutionItem(u8);
 static void DisplayPartyPokemonData(u8);
-static void DisplayPartyPokemonNickname(struct Pokemon *, struct PartyMenuBox *, u8);
+static void DisplayPartyPokemonNickname(struct Pokemon *, struct PartyMenuBox *, u8, u32 wasChucked);
 static void DisplayPartyPokemonLevelCheck(struct Pokemon *, struct PartyMenuBox *, u8);
 static void DisplayPartyPokemonGenderNidoranCheck(struct Pokemon *, struct PartyMenuBox *, u8);
 static void DisplayPartyPokemonHPCheck(struct Pokemon *, struct PartyMenuBox *, u8);
@@ -1059,15 +1059,17 @@ static void RenderPartyMenuBox(u8 slot)
 static void DisplayPartyPokemonData(u8 slot)
 {
     struct Pokemon *mon = GetPartyMonFromPartyMenuId(slot);
+    u32 wasChucked = GetMonData(mon, MON_DATA_SHEEN);
+
     if (GetMonData(mon, MON_DATA_IS_EGG))
     {
         sPartyMenuBoxes[slot].infoRects->blitFunc(sPartyMenuBoxes[slot].windowId, 0, 0, 0, 0, TRUE);
-        DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
+        DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0, wasChucked);
     }
     else
     {
         sPartyMenuBoxes[slot].infoRects->blitFunc(sPartyMenuBoxes[slot].windowId, 0, 0, 0, 0, FALSE);
-        DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
+        DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0, wasChucked);
         DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonGenderNidoranCheck(mon, &sPartyMenuBoxes[slot], 0);
         DisplayPartyPokemonHPCheck(mon, &sPartyMenuBoxes[slot], 0);
@@ -1079,9 +1081,10 @@ static void DisplayPartyPokemonData(u8 slot)
 static void DisplayPartyPokemonDescriptionData(u8 slot, u8 stringID)
 {
     struct Pokemon *mon = GetPartyMonFromPartyMenuId(slot);
+    u32 wasChucked = GetMonData(mon, MON_DATA_SHEEN);
 
     sPartyMenuBoxes[slot].infoRects->blitFunc(sPartyMenuBoxes[slot].windowId, 0, 0, 0, 0, TRUE);
-    DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0);
+    DisplayPartyPokemonNickname(mon, &sPartyMenuBoxes[slot], 0, wasChucked);
     if (!GetMonData(mon, MON_DATA_IS_EGG))
     {
         DisplayPartyPokemonLevelCheck(mon, &sPartyMenuBoxes[slot], 0);
@@ -1379,6 +1382,8 @@ static u8 GetPartyBoxPaletteFlags(u8 slot, u8 animNum)
 
     if (animNum == 1)
         palFlags |= PARTY_PAL_SELECTED;
+    if (GetMonData(mon, MON_DATA_SHEEN) == 1)
+        palFlags |= PARTY_PAL_FAINTED;
     if (GetMonData(mon, MON_DATA_HP) == 0)
         palFlags |= PARTY_PAL_FAINTED;
     if (PartyBoxPal_ParnterOrDisqualifiedInArena(slot) == TRUE)
@@ -2589,7 +2594,9 @@ static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 col
     AddTextPrinterParameterized3(windowId, GetFontIdToFit(str, FONT_SMALL, 0, width), align[0], align[1], sFontColorTable[color], 0, str);
 }
 
-static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c)
+const u8 sText_Chucked[] = _("Chucked");
+
+static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c, u32 wasChucked)
 {
     u8 nickname[POKEMON_NAME_LENGTH + 1];
 
@@ -2598,6 +2605,9 @@ static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox
         if (c == 1)
             menuBox->infoRects->blitFunc(menuBox->windowId, menuBox->infoRects->dimensions[0] >> 3, menuBox->infoRects->dimensions[1] >> 3, menuBox->infoRects->dimensions[2] >> 3, menuBox->infoRects->dimensions[3] >> 3, FALSE);
         GetMonNickname(mon, nickname);
+
+        if (wasChucked)
+            StringCopy(nickname, sText_Chucked);
         DisplayPartyPokemonBarDetailToFit(menuBox->windowId, nickname, 0, menuBox->infoRects->dimensions, 50);
     }
 }

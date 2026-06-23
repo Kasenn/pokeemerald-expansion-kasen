@@ -50,6 +50,7 @@
 #include "test/battle.h"
 #include "graphics.h"
 #include "text_window.h"
+#include "move.h"
 
 static void PlayerHandleLoadMonSprite(enum BattlerId battler);
 static void PlayerHandleDrawTrainerPic(enum BattlerId battler);
@@ -856,6 +857,9 @@ void HandleInputChooseMove(enum BattlerId battler)
     {
         TryToHideMoveInfoWindow();
         PlaySE(SE_SELECT);
+
+        if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
+            gChuckedEggs = TRUE;
 
         enum MoveTarget moveTarget = GetBattlerMoveTargetType(battler, moveInfo->moves[gMoveSelectionCursor[battler]]);
         bool32 isUserOrAlly = moveTarget == TARGET_USER || moveTarget == TARGET_USER_OR_ALLY || moveTarget == TARGET_USER_AND_ALLY;
@@ -1855,6 +1859,8 @@ static void MoveSelectionDisplayPpNumber(enum BattlerId battler)
 
     SetPpNumbersPaletteInMoveSelection(battler);
     moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
+    if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
+        moveInfo->currentPp[gMoveSelectionCursor[battler]] = CalculateCurrentEggs();
     txtPtr = ConvertIntToDecimalStringN(gDisplayedStringBattle, moveInfo->currentPp[gMoveSelectionCursor[battler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
     *(txtPtr)++ = CHAR_SLASH;
     ConvertIntToDecimalStringN(txtPtr, moveInfo->maxPp[gMoveSelectionCursor[battler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
@@ -2452,7 +2458,7 @@ static void PlayerHandleIntroTrainerBallThrow(enum BattlerId battler)
 {
     enum TrainerPicID trainerPicID = PlayerGetTrainerBackPicId();
     const u16 *trainerPal = GetTrainerBackPicPalette(trainerPicID);
-    BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 31, Intro_TryShinyAnimShowHealthbox);
+    BtlController_HandleIntroTrainerBallThrow(battler, 0xD6F8, trainerPal, 0, Intro_TryShinyAnimShowHealthbox);
 }
 
 static void PlayerHandleDrawPartyStatusSummary(enum BattlerId battler)

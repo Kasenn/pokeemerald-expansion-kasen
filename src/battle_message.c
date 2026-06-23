@@ -76,7 +76,8 @@ const u8 gText_StatSharply[] = _(" sharply");
 const u8 gText_StatRose[] = _("rose!");
 const u8 gText_StatFell[] = _("fell!");
 const u8 gText_DefendersStatRose[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1} rose{B_BUFF2}!");
-static const u8 sText_GotAwaySafely[] = _("{PLAY_SE SE_FLEE}You got away safely!\p");
+static const u8 sText_GotAwaySafely[] = _("{PLAY_SE SE_FLEE}Got away safely!\p");
+static const u8 sText_FetchEggsGotAwaySafely[] = _("Chansey scooped up any eggs she chucked.\p{PLAY_SE SE_FLEE}Got away safely!\p");
 static const u8 sText_PlayerDefeatedLinkTrainer[] = _("You defeated {B_LINK_OPPONENT1_NAME}!");
 static const u8 sText_TwoLinkTrainersDefeated[] = _("You defeated {B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}!");
 static const u8 sText_PlayerLostAgainstLinkTrainer[] = _("You lost against {B_LINK_OPPONENT1_NAME}!");
@@ -87,7 +88,7 @@ static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} f
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME} fled!"); //not in gen 5+, replaced with match was forfeited text
 static const u8 sText_PlayerDefeatedLinkTrainerTrainer1[] = _("You defeated {B_TRAINER1_NAME_WITH_CLASS}!\p");
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
-static const u8 sText_WildPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
+static const u8 sText_WildPkmnAppeared[] = _("You encountered {B_BUFF1} {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_LegendaryPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Oh! A wild {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME} appeared!\p");
@@ -106,8 +107,8 @@ static const u8 sText_LinkTrainerSentOutTwoPkmn[] = _("{B_LINK_OPPONENT1_NAME} s
 static const u8 sText_TwoLinkTrainersIntroSendOutPkmn[] = _("{B_LINK_OPPONENT1_NAME} sent out {B_LINK_OPPONENT_MON1_NAME}! {B_LINK_OPPONENT2_NAME} sent out {B_LINK_OPPONENT_MON2_NAME}!");
 static const u8 sText_LinkTrainerSentOutPkmn2[] = _("{B_LINK_OPPONENT1_NAME} sent out {B_LINK_OPPONENT_MON2_NAME}!");
 static const u8 sText_LinkTrainerMultiSentOutPkmn[] = _("{B_LINK_SCR_TRAINER_NAME} sent out {B_BUFF1}!");
-static const u8 sText_GoPkmn[] = _("Go! {B_PLAYER_MON1_NAME}!");
-static const u8 sText_GoTwoPkmn[] = _("Go! {B_PLAYER_MON1_NAME} and {B_PLAYER_MON2_NAME}!");
+static const u8 sText_GoPkmn[] = _("Better not back down now!");
+static const u8 sText_GoTwoPkmn[] = _("Together we can do this!");
 static const u8 sText_GoPkmn2[] = _("Go! {B_BUFF1}!");
 static const u8 sText_DoItPkmn[] = _("You're in charge, {B_BUFF1}!");
 static const u8 sText_GoForItPkmn[] = _("Go for it, {B_BUFF1}!");
@@ -192,6 +193,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
 {
     [STRINGID_TRAINER1LOSETEXT]                     = COMPOUND_STRING("{B_TRAINER1_LOSE_TEXT}"),
     [STRINGID_PKMNGAINEDEXP]                        = COMPOUND_STRING("{B_BUFF1} gained{B_BUFF2} {B_BUFF3} Exp. Points!\p"),
+    [STRINGID_PKMNGAINEDEXPRETURNEGGS]              = COMPOUND_STRING("{B_BUFF1} gained{B_BUFF2} {B_BUFF3} Exp. Points!\p{B_BUFF1} picked up any eggs she chucked.\p"),
     [STRINGID_PKMNGREWTOLV]                         = COMPOUND_STRING("{B_BUFF1} grew to Lv. {B_BUFF2}!{WAIT_SE}\p"),
     [STRINGID_PKMNLEARNEDMOVE]                      = COMPOUND_STRING("{B_BUFF1} learned {B_BUFF2}!{WAIT_SE}\p"),
     [STRINGID_TRYTOLEARNMOVE1]                      = COMPOUND_STRING("{B_BUFF1} wants to learn the move {B_BUFF2}.\p"),
@@ -205,7 +207,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_ITDOESNTAFFECT]                       = COMPOUND_STRING("It doesn't affect {B_DEF_NAME_WITH_PREFIX2}…"),
     [STRINGID_ITDOESNTAFFECTSCR]                    = COMPOUND_STRING("It doesn't affect {B_SCR_NAME_WITH_PREFIX2}…"),
     [STRINGID_BATTLERFAINTED]                       = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} fainted!\p"),
-    [STRINGID_PLAYERGOTMONEY]                       = COMPOUND_STRING("You got ¥{B_BUFF1} for winning!\p"),
+    [STRINGID_PLAYERGOTMONEY]                       = COMPOUND_STRING("Chansey picked up any eggs she chucked.\p"),
     [STRINGID_PLAYERWHITEOUT]                       = COMPOUND_STRING("You have no more Pokémon that can fight!\p"),
     [STRINGID_PLAYERWHITEOUT2_WILD]                 = COMPOUND_STRING("You panicked and dropped ¥{B_BUFF1}…"),
     [STRINGID_PLAYERWHITEOUT2_TRAINER]              = COMPOUND_STRING("You gave ¥{B_BUFF1} to the winner…"),
@@ -385,7 +387,11 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_NOTVERYEFFECTIVE]                     = COMPOUND_STRING("It's not very effective…"),
     [STRINGID_SUPEREFFECTIVE]                       = COMPOUND_STRING("It's super effective!"),
     [STRINGID_GOTAWAYSAFELY]                        = sText_GotAwaySafely,
+    [STRINGID_GOTAWAYSAFELY_EGG]                        = sText_FetchEggsGotAwaySafely,
     [STRINGID_WILDPKMNFLED]                         = COMPOUND_STRING("{PLAY_SE SE_FLEE}The wild {B_BUFF1} fled!"),
+    [STRINGID_SCOOPUPEGGS]                          = COMPOUND_STRING("{PLAY_SE SE_USE_ITEM}Chansey scooped up any eggs she had chucked!\p"),
+    [STRINGID_CANTSCOOPUPEGGS]                      = COMPOUND_STRING("Chansey is unable to scoop up any eggs at the moment!\p"),
+    [STRINGID_NOEGGSTOSCOOP]                        = COMPOUND_STRING("There are no eggs for Chancey to fetch!\p"),
     [STRINGID_NORUNNINGFROMTRAINERS]                = COMPOUND_STRING("No! There's no running from a Trainer battle!\p"),
     [STRINGID_CANTESCAPE]                           = COMPOUND_STRING("You can't escape!\p"),
     [STRINGID_DONTLEAVEBIRCH]                       = COMPOUND_STRING("PROF. BIRCH: Don't leave me like this!\p"), //no decapitalize until it is everywhere
@@ -1455,7 +1461,7 @@ const u8 gText_WhatWillPkmnDo[] = _("What will\n{B_BUFF1} do?");
 const u8 gText_WhatWillPkmnDo2[] = _("What will\n{B_PLAYER_NAME} do?");
 const u8 gText_WhatWillWallyDo[] = _("What will\nWALLY do?");
 const u8 gText_LinkStandby[] = _("{PAUSE 16}Link standby…");
-const u8 gText_BattleMenu[] = _("Battle{CLEAR_TO 56}Bag\nPokémon{CLEAR_TO 56}Run");
+const u8 gText_BattleMenu[] = _("Battle{CLEAR_TO 56}Fetch\nPokémon{CLEAR_TO 56}Run");
 const u8 gText_SafariZoneMenu[] = _("Ball{CLEAR_TO 56}{POKEBLOCK}\nGo Near{CLEAR_TO 56}Run");
 const u8 gText_SafariZoneMenuFrlg[] = _("{PALETTE 5}{COLOR_HIGHLIGHT_SHADOW 13 14 15}BALL{CLEAR_TO 56}BAIT\nROCK{CLEAR_TO 56}RUN");
 const u8 gText_MoveInterfacePP[] = _("PP ");
@@ -2372,6 +2378,8 @@ static const struct BattleWindowText *const sBattleTextOnWindowsInfo[] =
 
 static const u8 sRecordedBattleTextSpeeds[] = {8, 4, 1, 0};
 
+static const u8 sText_WildPkmnIntro[] = _("You encountered a wild");
+
 void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
 {
     s32 i;
@@ -2454,6 +2462,13 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         }
         else
         {
+            u16 species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
+            const u8 *battleIntro = gSpeciesInfo[species].battleIntro;
+
+            if (battleIntro == NULL)
+                battleIntro = sText_WildPkmnIntro;
+            StringCopy(gBattleTextBuff1, battleIntro);
+
             if (IsGhostBattleWithoutScope())
                 stringPtr = sText_GhostAppearedCantId;
             else if (gBattleTypeFlags & BATTLE_TYPE_GHOST)
@@ -2683,7 +2698,17 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
                 gBattleTextBuff1[0] ^= (B_OUTCOME_LOST | B_OUTCOME_WON);
 
             if (gBattleTextBuff1[0] == B_OUTCOME_LOST || gBattleTextBuff1[0] == B_OUTCOME_DREW)
-                stringPtr = sText_GotAwaySafely;
+            {
+                if (gChuckedEggs)
+                {
+                    stringPtr = sText_FetchEggsGotAwaySafely;
+                    gChuckedEggs = 0;
+                }
+                else
+                {
+                    stringPtr = sText_GotAwaySafely;
+                }
+            }
             else if (gBattleTypeFlags & BATTLE_TYPE_MULTI)
                 stringPtr = sText_TwoWildFled;
             else
@@ -3873,6 +3898,10 @@ void SetPpNumbersPaletteInMoveSelection(enum BattlerId battler)
     struct ChooseMoveStruct *chooseMoveStruct = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
     const u16 *palPtr = gPPTextPalette;
     u8 var;
+
+    if (chooseMoveStruct->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
+        chooseMoveStruct->currentPp[gMoveSelectionCursor[battler]] = CalculateCurrentEggs();
+
 
     if (!gBattleStruct->zmove.viewing)
         var = GetCurrentPpToMaxPpState(chooseMoveStruct->currentPp[gMoveSelectionCursor[battler]],

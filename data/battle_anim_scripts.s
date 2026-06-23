@@ -26076,6 +26076,17 @@ gBattleAnimMove_EggBomb::
 	waitforvisualfinish
 	end
 
+gBattleAnimMove_ChuckEgg::
+	playsewithpan SE_M_TAIL_WHIP, SOUND_PAN_ATTACKER
+	createsprite gEggThrowSpriteTemplate, ANIM_TARGET, 2, 10, 0, 0, 0, 25, -32
+	waitforvisualfinish
+	create_basic_hitsplat_sprite ANIM_ATTACKER, 2, x=0, y=0, relative_to=ANIM_TARGET, animation=2
+	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 6, 1
+	playsewithpan SE_M_VITAL_THROW, +63
+	clearmonbg ANIM_DEF_PARTNER
+	blendoff
+	end
+
 gBattleAnimMove_ShadowBall::
 	fadetobg BG_GHOST
 	waitbgfadein

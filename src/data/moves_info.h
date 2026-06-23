@@ -1941,7 +1941,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         }),
         .contestComboMoves = {0},
         .validApprenticeMove = TRUE,
-        .battleAnimScript = gBattleAnimMove_EggBomb,
+        .battleAnimScript = gBattleAnimMove_ChuckEgg,
     },
 
     [MOVE_STRENGTH] =

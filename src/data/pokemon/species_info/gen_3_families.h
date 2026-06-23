@@ -964,6 +964,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_POOCHYENA
     [SPECIES_POOCHYENA] =
     {
+        .battleIntro = COMPOUND_STRING("a scary-looking"),
         .baseHP        = 35,
         .baseAttack    = 55,
         .baseDefense   = 35,
@@ -1124,6 +1125,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_ZIGZAGOON
     [SPECIES_ZIGZAGOON] =
     {
+        .battleIntro = COMPOUND_STRING("a weak-looking"),
         .baseHP        = 38,
         .baseAttack    = 30,
         .baseDefense   = 41,
@@ -1211,6 +1213,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 
     [SPECIES_LINOONE] =
     {
+        .battleIntro = COMPOUND_STRING("a strong-looking"),
         .baseHP        = 78,
         .baseAttack    = 70,
         .baseDefense   = 61,
@@ -2609,6 +2612,7 @@ const struct SpeciesInfo gSpeciesInfoGen3[] =
 #if P_FAMILY_WINGULL
     [SPECIES_WINGULL] =
     {
+        .battleIntro = COMPOUND_STRING("a weak-looking"),
         .baseHP        = 40,
         .baseAttack    = 30,
         .baseDefense   = 30,

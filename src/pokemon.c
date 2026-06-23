@@ -95,6 +95,8 @@ void TrySpecialOverworldEvo();
 
 EWRAM_DATA static u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPartiesCount[MAX_BATTLE_TRAINERS] = {0};
+EWRAM_DATA u8 gCurrentUsableEggs = 0;
+EWRAM_DATA bool8 gChuckedEggs = FALSE;
 EWRAM_DATA struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE] = {0};
 EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
@@ -2185,16 +2187,28 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
             retVal = GetSubstruct1(boxMon)->move4;
             break;
         case MON_DATA_PP1:
-            retVal = GetSubstruct1(boxMon)->pp1;
+            if (GetSubstruct1(boxMon)->move1 == MOVE_CHUCK_EGG)
+                retVal = gCurrentUsableEggs;
+            else
+                retVal = GetSubstruct1(boxMon)->pp1;
             break;
         case MON_DATA_PP2:
-            retVal = GetSubstruct1(boxMon)->pp2;
+            if (GetSubstruct1(boxMon)->move2 == MOVE_CHUCK_EGG)
+                retVal = gCurrentUsableEggs;
+            else
+                retVal = GetSubstruct1(boxMon)->pp2;
             break;
         case MON_DATA_PP3:
-            retVal = GetSubstruct1(boxMon)->pp3;
+            if (GetSubstruct1(boxMon)->move3 == MOVE_CHUCK_EGG)
+                retVal = gCurrentUsableEggs;
+            else
+                retVal = GetSubstruct1(boxMon)->pp3;
             break;
         case MON_DATA_PP4:
-            retVal = GetSubstruct1(boxMon)->pp4;
+            if (GetSubstruct1(boxMon)->move4 == MOVE_CHUCK_EGG)
+                retVal = gCurrentUsableEggs;
+            else
+                retVal = GetSubstruct1(boxMon)->pp4;
             break;
         case MON_DATA_HP_EV:
             retVal = GetSubstruct2(boxMon)->hpEV;

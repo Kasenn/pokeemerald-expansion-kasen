@@ -224,6 +224,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	giveegg SPECIES_SPHEAL
 	release
 	end
 
