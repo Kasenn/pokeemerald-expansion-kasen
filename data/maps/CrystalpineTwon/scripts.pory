@@ -1,4 +1,19 @@
-mapscripts CrystalpineTwon_MapScripts{}
+mapscripts CrystalpineTwon_MapScripts{
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_4, 0 {
+            msgbox(EndOfBetaNotice2, MSGBOX_AUTOCLOSE)
+            setvar(VAR_TEMP_4, 1)
+        }
+    ]
+}
+
+text EndOfBetaNotice2{
+    "Everything from this point is\n"
+    "entirely unfinished.\p"
+    "If you care for the stability\n"
+    "of your save file, I really\l"
+    "do not recommend exploring further!"
+}
 
 script Crystalpine_Sign1{
     msgbox(Crystalpine_Sign1_Text, MSGBOX_NPC)

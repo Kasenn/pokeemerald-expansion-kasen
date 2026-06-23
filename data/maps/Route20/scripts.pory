@@ -44,6 +44,10 @@ mapscripts Route20_MapScripts {
         VAR_AUTOPLAY, RACE_1_SUCCESS: GogoatRace1RewardCeremony
         VAR_AUTOPLAY, RACE_2_FAIL: GogoatRace2Failed
         VAR_AUTOPLAY, RACE_2_SUCCESS: GogoatRace2RewardCeremony
+        VAR_TEMP_4, 0 {
+            msgbox(EndOfBetaNotice, MSGBOX_AUTOCLOSE)
+            setvar(VAR_TEMP_4, 1)
+        }
     ]
 }
 

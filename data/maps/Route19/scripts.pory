@@ -29,8 +29,20 @@ mapscripts Route19_MapScripts {
             setmetatile(83, 5, 0x170, FALSE)
         }
     }
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 0 {
+            msgbox(EndOfBetaNotice, MSGBOX_AUTOCLOSE)
+            setvar(VAR_TEMP_0, 1)
+        }
+    ]
 }
-
+text EndOfBetaNotice{
+    "This is the end of the current beta.\p"
+    "You may continue to explore further,\n"
+    "but do know that this area has not\l"
+    "been fully tested.\p"
+    "Proceed at your own risk!"
+}
 script Route19_Tr1_SwimmerF {
     trainerbattle_single(TRAINER_R19_SWIMMER_F, R19Tr1_Intro, R19Tr1_Lose)
     msgbox(R19Tr1_PostBattle, MSGBOX_AUTOCLOSE)
