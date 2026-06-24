@@ -2376,7 +2376,6 @@ void UpdateFollowingPokemon(void)
      || SpeciesToGraphicsInfo(species, shiny, female) == NULL
      || (gMapHeader.mapType == MAP_TYPE_INDOOR && SpeciesToGraphicsInfo(species, shiny, female)->oam->size > ST_OAM_SIZE_2)
      || FlagGet(FLAG_TEMP_HIDE_FOLLOWER)
-     || PlayerHasFollowerNPC()
      )
     {
         RemoveFollowingPokemon();
