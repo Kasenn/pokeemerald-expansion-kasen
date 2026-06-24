@@ -142,7 +142,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
             .oam = &gObjectEventBaseOam_32x32,
             .subspriteTables = sOamTables_32x32,
             .anims = sAnimTable_Following,
-            .images = sPicTable_Substitute,
+            .images = sPicTable_Egg,
         },
     #endif
         .levelUpLearnset = sNoneLevelUpLearnset,
@@ -172,6 +172,15 @@ const struct SpeciesInfo gSpeciesInfo[] =
         .shinyPalette = gMonPalette_Egg,
         .iconSprite = gMonIcon_Egg,
         .iconPalIndex = 1,
+        OVERWORLD(
+            sPicTable_Egg,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_SPOT,
+            sAnimTable_Following,
+            gOverworldPalette_Egg,
+            gShinyOverworldPalette_Egg
+        )
     },
 
     /* You may add any custom species below this point based on the following structure: */

@@ -2117,7 +2117,7 @@ struct Pokemon *GetFirstLiveMon(void)
     for (i = 0; i < PARTY_SIZE; i++)
     {
         struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][i];
-        enum Species species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+        enum Species species = GetMonData(mon, MON_DATA_SPECIES);
         if (species == SPECIES_NONE)
             continue;
 
@@ -2126,7 +2126,7 @@ struct Pokemon *GetFirstLiveMon(void)
          || (OW_FOLLOWERS_ALLOWED_MET_LOC && GetMonData(mon, MON_DATA_MET_LOCATION) != VarGet(OW_FOLLOWERS_ALLOWED_MET_LOC)))
             continue;
 
-        if (gParties[B_TRAINER_PLAYER][i].hp > 0 && !(gParties[B_TRAINER_PLAYER][i].box.isEgg || gParties[B_TRAINER_PLAYER][i].box.isBadEgg))
+        if (gParties[B_TRAINER_PLAYER][i].hp > 0 && !(gParties[B_TRAINER_PLAYER][i].box.isBadEgg))
             return &gParties[B_TRAINER_PLAYER][i];
     }
     return NULL;
@@ -2155,8 +2155,12 @@ const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species
         graphicsInfo = &gSpeciesInfo[species].overworldData;
         break;
     default:
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_IS_EGG))
+        {
+            graphicsInfo = &gSpeciesInfo[SPECIES_EGG].overworldData;
+        }
     #if P_GENDER_DIFFERENCES
-        if (female && gSpeciesInfo[species].overworldDataFemale.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
+        else if (female && gSpeciesInfo[species].overworldDataFemale.paletteTag == OBJ_EVENT_PAL_TAG_DYNAMIC)
         {
             graphicsInfo = &gSpeciesInfo[species].overworldDataFemale;
         }
@@ -2172,7 +2176,7 @@ const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species
     if ((graphicsInfo->tileTag == 0 && species < NUM_SPECIES) || (graphicsInfo->tileTag != TAG_NONE && species >= NUM_SPECIES))
     {
         if (OW_SUBSTITUTE_PLACEHOLDER)
-            return &gSpeciesInfo[SPECIES_NONE].overworldData;
+            return &gSpeciesInfo[SPECIES_EGG].overworldData;
         return NULL;
     }
 #endif // OW_POKEMON_OBJECT_EVENTS
@@ -2182,6 +2186,8 @@ const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species
 // Find, or load, the palette for the specified Pokémon info
 static u32 LoadDynamicFollowerPalette(enum Species species, bool32 shiny, bool32 female)
 {
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_IS_EGG))
+        species = SPECIES_EGG;
     u32 paletteNum;
     // Use standalone palette, unless entry is OOB or NULL (fallback to front-sprite-based)
 #if OW_POKEMON_OBJECT_EVENTS == TRUE && OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
@@ -2347,7 +2353,7 @@ static bool8 GetMonInfo(struct Pokemon *mon, u32 *species, bool32 *shiny, bool32
 // Retrieve graphic information about the following Pokémon, if any
 bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female)
 {
-    return GetMonInfo(GetFirstLiveMon(), species, shiny, female);
+    return GetMonInfo(&gParties[B_TRAINER_PLAYER][1], species, shiny, female);
 }
 
 // Update following Pokémon if any
@@ -7786,7 +7792,7 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
         }
     }
     #endif //OW_FOLLOWERS_POKEBALLS
-    ObjectEventSetGraphicsId(objEvent, OBJ_EVENT_GFX_POKE_BALL);
+    // ObjectEventSetGraphicsId(objEvent, OBJ_EVENT_GFX_POKE_BALL);
 }
 
 #define sDuration   data[3]
@@ -7866,36 +7872,36 @@ static const union AffineAnimCmd *const sAffineAnims_PokeballFollower[] =
 bool8 MovementAction_ExitPokeball_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
     // for different speeds, anim steps occur on different frame #s
-    u32 animStepFrame = (sprite->sSpeedFlip & 1) ? 7 : 3; // 0 -> 3, 1 -> 7
-    if (--sprite->sDuration == 0)
-    {
+    // u32 animStepFrame = (sprite->sSpeedFlip & 1) ? 7 : 3; // 0 -> 3, 1 -> 7
+    // if (--sprite->sDuration == 0)
+    // {
         sprite->sActionFuncId = 2;
         sprite->animCmdIndex = 0;
         sprite->animPaused = TRUE;
-        return TRUE;
-    }
+    //     return TRUE;
+    // }
     // Set graphics, palette, and affine animation
-    else if (sprite->sDuration == animStepFrame)
-    {
-        FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
-        LoadFillColorPalette(RGB_WHITE, OBJ_EVENT_PAL_TAG_WHITE, sprite);
-        // Initialize affine animation
-        sprite->affineAnims = sAffineAnims_PokeballFollower;
-        if (OW_LARGE_OW_SUPPORT && !IS_POW_OF_TWO(-sprite->centerToCornerVecX))
-            return FALSE;
-        sprite->affineAnims = sAffineAnims_PokeballFollower;
-        sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
-        InitSpriteAffineAnim(sprite);
-        StartSpriteAffineAnim(sprite, sprite->sSpeedFlip >> 4);
+    // else if (sprite->sDuration == animStepFrame)
+    // {
+    //     FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
+    //     LoadFillColorPalette(RGB_WHITE, OBJ_EVENT_PAL_TAG_WHITE, sprite);
+    //     // Initialize affine animation
+    //     sprite->affineAnims = sAffineAnims_PokeballFollower;
+    //     if (OW_LARGE_OW_SUPPORT && !IS_POW_OF_TWO(-sprite->centerToCornerVecX))
+    //         return FALSE;
+    //     sprite->affineAnims = sAffineAnims_PokeballFollower;
+    //     sprite->oam.affineMode = ST_OAM_AFFINE_NORMAL;
+    //     InitSpriteAffineAnim(sprite);
+    //     StartSpriteAffineAnim(sprite, sprite->sSpeedFlip >> 4);
     // Restore original palette & disable affine
-    }
-    else if (sprite->sDuration == (animStepFrame >> 1))
-    {
+    // }
+    // else if (sprite->sDuration == (animStepFrame >> 1))
+    // {
         sprite->affineAnimEnded = TRUE;
         FreeSpriteOamMatrix(sprite);
         sprite->oam.affineMode = ST_OAM_AFFINE_OFF;
         FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
-    }
+    // }
     return FALSE;
 }
 

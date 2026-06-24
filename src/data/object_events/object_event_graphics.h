@@ -387,7 +387,7 @@ const u16 gObjectEventPal_Lugia[] = INCGFX_U16("graphics/object_events/palettes/
 
 const u16 gObjectEventPaletteLight[] = INCGFX_U16("graphics/object_events/palettes/light.pal", ".gbapal");
 const u16 gObjectEventPaletteLight2[] = INCGFX_U16("graphics/object_events/palettes/light2.pal", ".gbapal");
-const u16 gObjectEventPal_Substitute[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/substitute.png", ".gbapal");
+const u16 gObjectEventPal_Substitute[] = INCGFX_U16("graphics/pokemon/egg/overworld.png", ".gbapal");
 
 const u16 gObjectEventPaletteEmotes[] = INCGFX_U16("graphics/misc/emotes.pal", ".gbapal");
 const u16 gObjectEventPaletteNeonLight[] = INCGFX_U16("graphics/object_events/palettes/neon_light.pal", ".gbapal");

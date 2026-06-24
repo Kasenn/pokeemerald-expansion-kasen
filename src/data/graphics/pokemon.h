@@ -4,6 +4,9 @@
 #define INCGFX_COMP INCGFX_U32
 #endif
 
+const u16 gOverworldPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/overworld.png", ".gbapal");
+const u16 gShinyOverworldPalette_Egg[] = INCGFX_U16("graphics/pokemon/egg/overworld.png", ".gbapal");
+
 const u32 gMonFrontPic_CircledQuestionMark[] = INCGFX_U32("graphics/pokemon/question_mark/circled/anim_front.png", ".4bpp.smol");
 const u32 gMonBackPic_CircledQuestionMark[] = INCGFX_U32("graphics/pokemon/question_mark/circled/back.png", ".4bpp.smol");
 const u16 gMonPalette_CircledQuestionMark[] = INCGFX_U16("graphics/pokemon/question_mark/circled/normal.pal", ".gbapal");
@@ -17,6 +20,7 @@ const u8 gMonIcon_QuestionMark[] = INCGFX_U8("graphics/pokemon/question_mark/ico
 #endif //P_GBA_STYLE_SPECIES_FOOTPRINTS
 #endif //P_FOOTPRINTS
 const u32 gObjectEventPic_Substitute[] = INCGFX_COMP("graphics/pokemon/question_mark/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u32 gObjectEventPic_Egg[] = INCGFX_COMP("graphics/pokemon/egg/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
 
 #if P_FAMILY_BULBASAUR
 #if !P_GBA_STYLE_SPECIES_GFX

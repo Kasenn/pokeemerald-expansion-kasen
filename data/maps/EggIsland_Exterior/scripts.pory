@@ -1,5 +1,7 @@
 mapscripts EggIsland_Exterior_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION{
+        setvar(VAR_AI_FLAGS, 0)
+    }
 }
 
 script Script_TryLootEgg{
@@ -7,4 +9,5 @@ script Script_TryLootEgg{
     msgbox("found an egg!", MSGBOX_AUTOCLOSE)
     giveegg(VAR_0x8000)
     callnative(UpdateEggPP)
+    callnative(UpdateFollowingPokemon)
 }

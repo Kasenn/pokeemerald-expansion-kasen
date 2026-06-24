@@ -225,6 +225,16 @@ static u64 GetWildAiFlags(void)
     u32 avgLevel = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LEVEL);
     u64 flags = 0;
 
+    switch (VarGet(VAR_AI_FLAGS))
+    {
+    case 0: flags |= AI_FLAG_CHECK_BAD_MOVE; break;
+    case 1: flags |= AI_FLAG_CHECK_BAD_MOVE; break;
+    case 2: flags |= AI_FLAG_CHECK_BAD_MOVE; flags |= AI_FLAG_CHECK_VIABILITY; break;
+    case 3: flags |= AI_FLAG_CHECK_BAD_MOVE; flags |= AI_FLAG_CHECK_VIABILITY; break;
+    case 4: flags |= (AI_FLAG_SMART_TRAINER); break;
+    default: break;
+    }
+
     if (IsDoubleBattle())
         avgLevel = (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LEVEL) + GetMonData(&gParties[B_TRAINER_OPPONENT_A][1], MON_DATA_LEVEL)) / 2;
 

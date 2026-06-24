@@ -9,6 +9,7 @@
 #include "constants/battle_string_ids.h"
 #include "constants/battle_z_move_effects.h"
 #include "constants/moves.h"
+#include "event_data.h"
 
 #define STAT_CHANGE_FORCE_MAX 7 // Used for belly drum as a way to show that stats are maxed
 
@@ -304,6 +305,11 @@ static inline u8 CalculateCurrentEggs(void)
             eggs++;
     }
 
+    if (eggs)
+        FlagClear(B_FLAG_FOLLOWERS_DISABLED);
+    else
+        FlagSet(B_FLAG_FOLLOWERS_DISABLED);
+    
     return eggs;
 }
 
