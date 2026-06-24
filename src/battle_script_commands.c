@@ -2968,7 +2968,32 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
                 break;
             }
         }
-        SetMoveEffect(battlerAtk, effectBattler, GetMoveEffectFromEgg(moveType), gBattlescriptCurrInstr, NO_FLAGS);
+
+        enum Stat stat = NUM_STATS;
+        switch (moveType)
+        {
+        case TYPE_GROUND:   stat = STAT_ACC;    break;
+        case TYPE_FIGHTING: stat = STAT_ATK;    break;
+        case TYPE_GHOST:    stat = STAT_SPATK;  break;
+        case TYPE_BUG:      stat = STAT_SPDEF;  break;
+        case TYPE_STEEL:    stat = STAT_DEF;    break;
+        case TYPE_WATER:    stat = STAT_SPEED;  break;
+        case TYPE_DRAGON:   stat = STAT_SPATK;  break;
+        default: break;
+        }
+
+        if (stat != NUM_STATS)
+        {
+            if (moveType == TYPE_DRAGON)
+                SetStatChange(effectBattler, STAT_ATK, -2);
+            SetStatChange(effectBattler, stat, -2);
+            BattleScriptPush(battleScript);
+            gBattlescriptCurrInstr = BattleScript_MoveEffectStatChange;
+        }
+        else
+        {
+            SetMoveEffect(battlerAtk, effectBattler, GetMoveEffectFromEgg(moveType), gBattlescriptCurrInstr, NO_FLAGS);
+        }
         break;
     case MOVE_EFFECT_FLING:
         if (CanFling(battlerAtk, abilities[battlerAtk]) || gBattleStruct->flungItem == FLUNG_ITEM_REMOVED)
@@ -14022,10 +14047,10 @@ static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType)
 {
     switch (eggType)
     {
-    case TYPE_FIGHTING: return MOVE_EFFECT_THROAT_CHOP;
+    // case TYPE_FIGHTING: return MOVE_EFFECT_THROAT_CHOP;
     case TYPE_FLYING:   return MOVE_EFFECT_FLINCH;
     case TYPE_POISON:   return MOVE_EFFECT_POISON;
-    case TYPE_GROUND:   return MOVE_EFFECT_GRAVITY;
+    // case TYPE_GROUND:   return MOVE_EFFECT_GRAVITY;
     case TYPE_ROCK:     return MOVE_EFFECT_SALT_CURE;
     case TYPE_FIRE:     return MOVE_EFFECT_BURN;
     case TYPE_GRASS:    return MOVE_EFFECT_LEECH_SEED;
@@ -14034,6 +14059,11 @@ static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType)
     case TYPE_ICE:      return MOVE_EFFECT_FREEZE;
     case TYPE_DARK:     return MOVE_EFFECT_TORMENT_SIDE;
     case TYPE_FAIRY:    return MOVE_EFFECT_INFATUATE_SIDE;
+    // case TYPE_BUG:      return MOVE_EFFECT_STAT_MINUS;
+    // case TYPE_GHOST:    return MOVE_EFFECT_STAT_MINUS;
+    // case TYPE_STEEL:    return MOVE_EFFECT_STAT_MINUS;
+    // case TYPE_WATER:    return MOVE_EFFECT_STAT_MINUS;
+    // case TYPE_DRAGON:   return MOVE_EFFECT_STAT_MINUS;
     case TYPE_STELLAR:  return MOVE_EFFECT_RAINBOW; // For testing purposes only
     default:            return MOVE_EFFECT_NONE;
     }

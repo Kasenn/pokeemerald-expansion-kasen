@@ -758,7 +758,7 @@ static const u8 *const sActionStringTable[] =
     [PARTY_MSG_NO_POKEMON]             = COMPOUND_STRING("You have no POKéMON."),
     [PARTY_MSG_CHOOSE_MON_FOR_BOX]     = gText_SendWhichMonToPC,
     [PARTY_MSG_MOVE_ITEM_WHERE]        = gText_MoveItemWhere,
-    [PARTY_MSG_NOT_ENOUGH_PP]          = COMPOUND_STRING("Not enough PP…");
+    [PARTY_MSG_NOT_ENOUGH_PP]          = COMPOUND_STRING("Not enough PP…"),
 };
 
 static const u8 *const sDescriptionStringTable[] =
