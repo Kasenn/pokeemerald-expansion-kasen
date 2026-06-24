@@ -1547,6 +1547,10 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
         }
     }
 
+    if (gBattleMons[battler].moves[moveId] == MOVE_CHUCK_EGG)
+    {
+        gBattleMons[battler].pp[moveId] = CalculateCurrentEggs();
+    }
     if (gBattleMons[battler].pp[moveId] == 0)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_PALACE)
@@ -5576,6 +5580,8 @@ enum Obedience GetAttackerObedienceForAction(void)
     s32 calc;
     u8 obedienceLevel = 0;
     u8 levelReferenced;
+
+    return OBEYS;
 
     if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))
         return OBEYS;

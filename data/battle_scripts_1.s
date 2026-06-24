@@ -3066,7 +3066,7 @@ BattleScript_CantScoopUpEggs::
 
 BattleScript_PrintFailedToRunString::
 	printfromtable gNoEscapeStringIds
-	waitmessage B_WAIT_TIME_LONG
+	@waitmessage B_WAIT_TIME_LONG
 	end2
 
 BattleScript_PrintCantEscapeFromBattle::

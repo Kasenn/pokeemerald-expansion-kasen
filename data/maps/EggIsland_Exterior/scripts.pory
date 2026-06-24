@@ -1,0 +1,10 @@
+mapscripts EggIsland_Exterior_MapScripts {
+    
+}
+
+script Script_TryLootEgg{
+    callnative(GeneratePokemonForEgg)
+    msgbox("found an egg!", MSGBOX_AUTOCLOSE)
+    giveegg(VAR_0x8000)
+    callnative(UpdateEggPP)
+}

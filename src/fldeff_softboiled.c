@@ -17,17 +17,18 @@ static void CantUseSoftboiledOnMon(u8 taskId);
 
 bool32 SetUpFieldMove_SoftBoiled(void)
 {
-    u16 maxHp;
-    u16 hp;
-    u16 minHp;
+    struct Pokemon mon = gParties[B_TRAINER_PLAYER][GetCursorSelectionMonId()];
 
-    maxHp = GetMonData(&gParties[B_TRAINER_PLAYER][GetCursorSelectionMonId()], MON_DATA_MAX_HP);
-    hp = GetMonData(&gParties[B_TRAINER_PLAYER][GetCursorSelectionMonId()], MON_DATA_HP);
+    for (int i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (GetMonData(&mon, MON_DATA_MOVE1 + i) == MOVE_SOFT_BOILED)
+        {
+            if (GetMonData(&mon, MON_DATA_PP1 + i) == 0)
+                return FALSE;
+        }
+    }
 
-    minHp = (maxHp / 5);
-    if (hp > minHp)
-        return TRUE;
-    return FALSE;
+    return TRUE;
 }
 
 void ChooseMonForSoftboiled(u8 taskId)
@@ -54,7 +55,7 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
     }
 
     hp = GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_HP);
-    if (hp == 0 || userPartyId == recipientPartyId || GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP) == hp)
+    if (hp == 0 || GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP) == hp)
     {
         CantUseSoftboiledOnMon(taskId);
         return;
@@ -62,13 +63,21 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
 
     // Take away Softboiled user's health first (-1)
     PlaySE(SE_USE_ITEM);
-    PartyMenuModifyHP(taskId, userPartyId, -1, GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_MAX_HP)/5, Task_SoftboiledRestoreHealth);
+    for (int i = 0; i < MAX_MON_MOVES; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_MOVE1 + i) == MOVE_SOFT_BOILED)
+        {
+            u16 pp = (GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + i) - 1);
+            SetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + 1, &pp);
+        }
+    }
+    PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);
 }
 
-static void Task_SoftboiledRestoreHealth(u8 taskId)
+static void UNUSED Task_SoftboiledRestoreHealth(u8 taskId)
 {
     PlaySE(SE_USE_ITEM);
-    PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/5, Task_DisplayHPRestoredMessage);
+    PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);
 }
 
 static void Task_DisplayHPRestoredMessage(u8 taskId)

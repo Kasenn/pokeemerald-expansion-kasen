@@ -1002,17 +1002,17 @@ static void UpdateLvlInHealthbox(u8 healthboxSpriteId, u8 lvl)
         UpdateIndicatorVisibilityAndType(healthboxSpriteId, TRUE);
     }
 
-    u32 width = GetStringWidth(FONT_SMALL, text, 0);
+    // u32 width = GetStringWidth(FONT_SMALL, text, 0);
 
     if (IsOnPlayerSide(battler))
     {
         FillSpriteRectColor(spriteId, 8, 5, 24, 11, 7);
-        AddSpriteTextPrinterParameterized6(spriteId, FONT_SMALL, 32 - width, 3, 0, 0, sHealthBoxTextColorInvert, 0, text);
+        // AddSpriteTextPrinterParameterized6(spriteId, FONT_SMALL, 32 - width, 3, 0, 0, sHealthBoxTextColorInvert, 0, text);
     }
     else
     {
         FillSpriteRectColor(spriteId, 0, 5, 24, 11, 7);
-        AddSpriteTextPrinterParameterized6(spriteId, FONT_SMALL, 24 - width, 3, 0, 0, sHealthBoxTextColorInvert, 0, text);
+        // AddSpriteTextPrinterParameterized6(spriteId, FONT_SMALL, 24 - width, 3, 0, 0, sHealthBoxTextColorInvert, 0, text);
     }
 }
 
