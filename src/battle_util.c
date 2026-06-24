@@ -556,6 +556,7 @@ bool32 TryRunFromBattle(enum BattlerId battler)
 
     gPotentialItemEffectBattler = battler;
 
+    effect = TRUE;
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
     {
         gLastUsedItem = gBattleMons[battler].item;
