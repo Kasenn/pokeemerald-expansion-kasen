@@ -370,10 +370,11 @@ void PlayerStep(enum Direction direction, u16 newKeys, u16 heldKeys)
             DoPlayerAvatarTransition();
             if (TryDoMetatileBehaviorForcedMovement() == 0)
             {
-                if (GetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT) != FNPC_FORCED_NONE)
+                if (GetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, 0) != FNPC_FORCED_NONE)
                 {
                     gPlayerAvatar.preventStep = TRUE;
-                    CreateTask(Task_MoveNPCFollowerAfterForcedMovement, 1);
+                    u8 taskId = CreateTask(Task_MoveNPCFollowerAfterForcedMovement, 1);
+                    gTasks[taskId].data[4] = 0; //wip this is probably horribly broken and would actually need to loop all
                 }
                 else
                 {
@@ -550,7 +551,8 @@ static bool8 DoForcedMovement(enum Direction direction, void (*moveFunc)(enum Di
         {
             if (collision == COLLISION_LEDGE_JUMP)
             {
-                SetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, FNPC_FORCED_NONE);
+                for (FOLLOWER_CHECK)
+                    SetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, FNPC_FORCED_NONE, slot);//wip, this might be horribly broken
                 PlayerJumpLedge(direction);
             }
 
@@ -561,8 +563,11 @@ static bool8 DoForcedMovement(enum Direction direction, void (*moveFunc)(enum Di
     }
     else
     {
-        if (PlayerHasFollowerNPC() && GetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT) != FNPC_FORCED_STAY)
-            SetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, FNPC_FORCED_FOLLOW);
+        for (FOLLOWER_CHECK)
+        {
+            if (PlayerHasFollowerNPC(slot) && GetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, slot) != FNPC_FORCED_STAY)
+                SetFollowerNPCData(FNPC_DATA_FORCED_MOVEMENT, FNPC_FORCED_FOLLOW, slot);
+        }
 
         playerAvatar->runningState = MOVING;
         moveFunc(direction);
@@ -909,7 +914,7 @@ static void PlayerNotOnBikeMoving(enum Direction direction, u16 heldKeys)
      && (heldKeys & B_BUTTON)
      && FlagGet(FLAG_SYS_B_DASH)
      && IsRunningDisallowed(gObjectEvents[gPlayerAvatar.objectEventId].currentMetatileBehavior) == 0
-     && !FollowerNPCComingThroughDoor()
+     && !FollowerNPCComingThroughDoor(0)//wip, probably broken
      && (I_ORAS_DOWSING_FLAG == 0 || (I_ORAS_DOWSING_FLAG != 0 && !FlagGet(I_ORAS_DOWSING_FLAG))))
     {
         if (ObjectMovingOnRockStairs(&gObjectEvents[gPlayerAvatar.objectEventId], direction))
@@ -1002,7 +1007,7 @@ static bool8 CanStopSurfing(s16 x, s16 y, enum Direction direction)
     if ((gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_SURFING)
      && MapGridGetElevationAt(x, y) == ELEVATION_DEFAULT
      && (GetObjectEventIdByPosition(x, y, ELEVATION_DEFAULT) == OBJECT_EVENTS_COUNT
-     || GetObjectEventIdByPosition(x, y, ELEVATION_DEFAULT) == GetFollowerNPCObjectId()
+     || GetObjectEventIdByPosition(x, y, ELEVATION_DEFAULT) == GetFollowerNPCObjectId(0)//wip
      ))
     {
         CreateStopSurfingTask(direction);
@@ -1300,9 +1305,9 @@ void PlayerOnBikeCollide(enum Direction direction)
     PlayerSetAnimId(GetWalkInPlaceNormalMovementAction(direction), COPY_MOVE_WALK_COLLIDE);
     // Edge case: If the player stops at the top of a mud slide, but the NPC follower is still on a mud slide tile,
     // move the follower into the player and hide them.
-    if (PlayerHasFollowerNPC())
+    if (PlayerHasFollowerNPC(0))//wip
     {
-        struct ObjectEvent *npcFollower = &gObjectEvents[GetFollowerNPCObjectId()];
+        struct ObjectEvent *npcFollower = &gObjectEvents[GetFollowerNPCObjectId(0)];//wip
         struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
 
         if (npcFollower->invisible == FALSE
@@ -1731,7 +1736,8 @@ void InitPlayerAvatar(s16 x, s16 y, enum Direction direction, enum Gender gender
     gPlayerAvatar.spriteId = objectEvent->spriteId;
     gPlayerAvatar.gender = gender;
     SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_CONTROLLABLE | PLAYER_AVATAR_FLAG_ON_FOOT);
-    CreateFollowerNPCAvatar();
+    for (FOLLOWER_CHECK)
+        CreateFollowerNPCAvatar(slot);
 }
 
 void SetPlayerInvisibility(bool8 invisible)
@@ -1991,7 +1997,7 @@ static void CreateStopSurfingTask(enum Direction direction)
     taskId = CreateTask(Task_StopSurfingInit, 0xFF);
     gTasks[taskId].data[0] = direction;
     Task_StopSurfingInit(taskId);
-    PrepareFollowerNPCDismountSurf();
+    PrepareFollowerNPCDismountSurf(0);//wip, this is most definitely broken
 }
 
 static void Task_StopSurfingInit(u8 taskId)

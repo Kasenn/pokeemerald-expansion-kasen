@@ -402,9 +402,11 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
 
     gSelectedObjectEvent = objectEventId;
     gSpecialVar_LastTalked = gObjectEvents[objectEventId].localId;
+    
+    u8 slot = GetFollowerSlotByObjectId(objectEventId);
 
-    if (PlayerHasFollowerNPC() && objectEventId == GetFollowerNPCObjectId())
-        script = GetFollowerNPCScriptPointer();
+    if (PlayerHasFollowerNPC(slot) && objectEventId == GetFollowerNPCObjectId(slot))
+        script = GetFollowerNPCScriptPointer(slot);
     else if (IsOverworldWildEncounter(&gObjectEvents[objectEventId], OWE_ANY))
         script = GetOverworlWildEncounterScript(objectEventId);
     else if (gObjectEvents[objectEventId].localId == OBJ_EVENT_ID_FOLLOWER)
@@ -642,12 +644,12 @@ static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metati
     if (MetatileBehavior_IsFastWater(metatileBehavior) == TRUE && !TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_SURFING))
         return EventScript_CurrentTooFast;
     if (IsFieldMoveUnlocked(FIELD_MOVE_SURF) && PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE
-     && CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_SURF)
+     && CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_SURF, 0)//wip, this assumes that if the 1st follower can swim, all can swim
      )
         return EventScript_UseSurf;
 
     if (MetatileBehavior_IsWaterfall(metatileBehavior) == TRUE
-     && CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL)
+     && CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL, 0)//wip, same as above
      )
     {
         if (IsFieldMoveUnlocked(FIELD_MOVE_WATERFALL) && IsPlayerSurfingNorth() == TRUE)
@@ -660,7 +662,7 @@ static const u8 *GetInteractedWaterScript(struct MapPosition *unused1, u8 metati
 
 static bool32 TrySetupDiveDownScript(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE, 0))//wip, same as above
         return FALSE;
 
     if (IsFieldMoveUnlocked(FIELD_MOVE_DIVE) && TrySetDiveWarp() == 2)
@@ -673,7 +675,7 @@ static bool32 TrySetupDiveDownScript(void)
 
 static bool32 TrySetupDiveEmergeScript(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE, 0))//wip, same as above
         return FALSE;
 
     if (IsFieldMoveUnlocked(FIELD_MOVE_DIVE) && gMapHeader.mapType == MAP_TYPE_UNDERWATER && TrySetDiveWarp() == 1)
@@ -812,6 +814,14 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
             return TRUE;
         }
     }
+
+    for (FOLLOWER_CHECK)
+        DebugPrintf("slot=%d objId=%d localId=%d active=%d invisible=%d",
+        slot, GetFollowerNPCObjectId(slot),
+        gObjectEvents[GetFollowerNPCObjectId(slot)].localId,
+        gObjectEvents[GetFollowerNPCObjectId(slot)].active,
+        gObjectEvents[GetFollowerNPCObjectId(slot)].invisible);
+
 
     if (SafariZoneTakeStep() == TRUE)
         return TRUE;

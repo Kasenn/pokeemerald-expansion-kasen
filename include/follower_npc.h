@@ -93,51 +93,53 @@ enum FollowerNPCForcedMovementStates
 #define FNPC_NONE   0
 #define FNPC_ALWAYS 2
 
-void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value);
-const u8 *GetFollowerNPCScriptPointer(void);
-u32 GetFollowerNPCData(enum FollowerNPCDataTypes type);
-void ClearFollowerNPCData(void);
+void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value, u8 slot);
+const u8 *GetFollowerNPCScriptPointer(u8 slot);
+u32 GetFollowerNPCData(enum FollowerNPCDataTypes type, u8 slot);
+void ClearFollowerNPCData(u8 slot);
 
-void CreateFollowerNPC(u32 gfx, u32 followerFlags, const u8 *scriptPtr);
-void DestroyFollowerNPC(void);
-u32 DetermineFollowerNPCState(struct ObjectEvent *follower, u32 state, enum Direction direction);
-void SetFollowerNPCSprite(u32 spriteIndex);
+void CreateFollowerNPC(u32 gfx, u32 followerFlags, const u8 *scriptPtr, u8 slot);
+void DestroyFollowerNPC(u8 slot);
+u32 DetermineFollowerNPCState(struct ObjectEvent *follower, u32 state, enum Direction direction, u8 slot);
+void SetFollowerNPCSprite(u32 spriteIndex, u8 slot);
 
-bool32 PlayerHasFollowerNPC(void);
-void NPCFollow(struct ObjectEvent *npc, u32 state, bool32 ignoreScriptActive);
-void CreateFollowerNPCAvatar(void);
-void FollowerNPC_HandleSprite(void);
-enum Direction DetermineFollowerNPCDirection(struct ObjectEvent *player, struct ObjectEvent *follower);
-u32 GetFollowerNPCObjectId(void);
-bool32 CheckFollowerNPCFlag(u32 flag);
-bool32 FollowerNPC_IsCollisionExempt(struct ObjectEvent *obstacle, struct ObjectEvent *collider);
-void HideNPCFollower(void);
+bool32 PlayerHasFollowerNPC(u8 slot);
+void NPCFollow(struct ObjectEvent *npc, u32 state, bool32 ignoreScriptActive, u8 slot);
+void CreateFollowerNPCAvatar(u8 slot);
+void FollowerNPC_HandleSprite(u8 slot);
+enum Direction DetermineFollowerNPCDirection(struct ObjectEvent *target, struct ObjectEvent *follower);
+u8 GetFollowerSlotByObjectId(u8 slot);
+u8 GetFollowerTargetIdBySlot(u8 slot);
+u32 GetFollowerNPCObjectId(u8 slot);
+bool32 CheckFollowerNPCFlag(u32 flag, u8 slot);
+bool32 FollowerNPC_IsCollisionExempt(struct ObjectEvent *obstacle, struct ObjectEvent *collider, u8 slot);
+void HideNPCFollower(u8 slot);
 void FollowerNPC_WarpSetEnd(void);
 
-bool32 FollowerNPCCanBike(void);
-void FollowerNPC_HandleBike(void);
+bool32 FollowerNPCCanBike(u8 slot);
+void FollowerNPC_HandleBike(u8 slot);
 
-void FollowerNPC_FollowerToWater(void);
-void FollowerNPC_SetIndicatorToRecreateSurfBlob(void);
-void FollowerNPC_BindToSurfBlobOnReloadScreen(void);
-void PrepareFollowerNPCDismountSurf(void);
+void FollowerNPC_FollowerToWater(u8 slot);
+void FollowerNPC_SetIndicatorToRecreateSurfBlob(u8 slot);
+void FollowerNPC_BindToSurfBlobOnReloadScreen(u8 slot);
+void PrepareFollowerNPCDismountSurf(u8 slot);
 
-bool32 FollowerNPCComingThroughDoor(void);
-void FollowerNPC_SetIndicatorToComeOutDoor(void);
+bool32 FollowerNPCComingThroughDoor(u8 slot);
+void FollowerNPC_SetIndicatorToComeOutDoor(u8 slot);
 
-void EscalatorMoveFollowerNPC(u32 movementType);
-void EscalatorMoveFollowerNPCFinish(void);
+void EscalatorMoveFollowerNPC(u32 movementType, u8 slot);
+void EscalatorMoveFollowerNPCFinish(u8 slot);
 
-void FollowerNPCWalkIntoPlayerForLeaveMap(void);
-void FollowerNPCHideForLeaveMap(struct ObjectEvent *follower);
-void FollowerNPCReappearAfterLeaveMap(struct ObjectEvent *follower, struct ObjectEvent *player);
-void FollowerNPCFaceAfterLeaveMap(void);
+void FollowerNPCWalkIntoPlayerForLeaveMap(u8 slot);
+void FollowerNPCHideForLeaveMap(struct ObjectEvent *follower, u8 slot);
+void FollowerNPCReappearAfterLeaveMap(struct ObjectEvent *follower, struct ObjectEvent *target, u8 slot);
+void FollowerNPCFaceAfterLeaveMap(u8 slot);
 
 bool32 FollowerNPCIsBattlePartner(void);
 bool32 IsNPCFollowerWildBattle(void);
 void PrepareForFollowerNPCBattle(void);
 void RestorePartyAfterFollowerNPCBattle(void);
-void FollowerNPC_TryRemoveFollowerOnWhiteOut(void);
+void FollowerNPC_TryRemoveFollowerOnWhiteOut(u8 slot);
 
 void Task_MoveNPCFollowerAfterForcedMovement(u8 taskId);
 void Task_HideNPCFollowerAfterMovementFinish(u8 taskId);

@@ -233,7 +233,8 @@ void NewGameInitData(void)
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
     ResetItemFlags();
     ResetDexNav();
-    ClearFollowerNPCData();
+    for (FOLLOWER_CHECK)
+        ClearFollowerNPCData(slot);
 }
 
 static void ResetMiniGamesRecords(void)

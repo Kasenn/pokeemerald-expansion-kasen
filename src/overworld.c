@@ -474,7 +474,8 @@ static void Overworld_ResetStateAfterWhiteOut(void)
         VarSet(VAR_SHOULD_END_ABNORMAL_WEATHER, 0);
         VarSet(VAR_ABNORMAL_WEATHER_LOCATION, ABNORMAL_WEATHER_NONE);
     }
-    FollowerNPC_TryRemoveFollowerOnWhiteOut();
+    for (FOLLOWER_CHECK)
+        FollowerNPC_TryRemoveFollowerOnWhiteOut(slot);
 }
 
 static void UpdateMiscOverworldStates(void)
@@ -1662,8 +1663,11 @@ static void DoCB1_Overworld(u16 newKeys, u16 heldKeys)
         }
     }
     // If stop running but keep holding B -> fix follower frame.
-    if (PlayerHasFollowerNPC() && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT) && IsPlayerStandingStill())
-        ObjectEventSetHeldMovement(&gObjectEvents[GetFollowerNPCObjectId()], GetFaceDirectionAnimNum(gObjectEvents[GetFollowerNPCObjectId()].facingDirection));
+    for (FOLLOWER_CHECK)
+    {
+        if (PlayerHasFollowerNPC(slot) && (gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_ON_FOOT) && IsPlayerStandingStill())
+            ObjectEventSetHeldMovement(&gObjectEvents[GetFollowerNPCObjectId(slot)], GetFaceDirectionAnimNum(gObjectEvents[GetFollowerNPCObjectId(slot)].facingDirection));
+    }
 }
 
 void CB1_Overworld(void)
@@ -1950,7 +1954,8 @@ void CB2_WhiteOut(void)
         else
             gFieldCallback = FieldCB_WarpExitFadeFromBlack;
         state = 0;
-        SetFollowerNPCData(FNPC_DATA_SURF_BLOB, FNPC_SURF_BLOB_NONE);
+        for (FOLLOWER_CHECK)
+            SetFollowerNPCData(FNPC_DATA_SURF_BLOB, FNPC_SURF_BLOB_NONE, slot);
         DoMapLoadLoop(&state);
         SetFieldVBlankCallback();
         SetMainCallback1(CB1_Overworld);
@@ -2373,7 +2378,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
     case 1:
         InitViewGraphics();
         TryLoadTrainerHillEReaderPalette();
-        FollowerNPC_BindToSurfBlobOnReloadScreen();
+        FollowerNPC_BindToSurfBlobOnReloadScreen(0);//wip
         ResumeORASDowseFieldEffect();
         (*state)++;
         break;
@@ -2605,7 +2610,8 @@ static void InitObjectEventsLocal(void)
     SetPlayerAvatarTransitionFlags(player->transitionFlags);
     ResetInitialPlayerAvatarState();
     TrySpawnObjectEvents(0, 0);
-    FollowerNPC_HandleSprite();
+    for (FOLLOWER_CHECK)
+        FollowerNPC_HandleSprite(slot);
     UpdateFollowingPokemon();
     TryRunOnWarpIntoMapScript();
 }

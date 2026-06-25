@@ -156,6 +156,9 @@
 
 #define READ_OTID_FROM_SAVE T1_READ_32(gSaveBlock2Ptr->playerTrainerId)
 
+#define MAX_FOLLOWERS 5
+#define FOLLOWER_CHECK int slot = 0; slot < MAX_FOLLOWERS; slot++
+
 // NOTE: This uses hardware timers 2 and 3; this will not work during active link connections or with the eReader
 static inline void CycleCountStart()
 {
@@ -259,7 +262,7 @@ struct SaveBlock3
     struct SiiRtcInfo fakeRTC;
 #endif
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    struct NPCFollower NPCfollower;
+    struct NPCFollower NPCfollower[5];
 #endif
 #if OW_SHOW_ITEM_DESCRIPTIONS == OW_ITEM_DESCRIPTIONS_FIRST_TIME
     u8 itemFlags[ITEM_FLAGS_COUNT];

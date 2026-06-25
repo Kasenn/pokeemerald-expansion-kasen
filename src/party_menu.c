@@ -4211,7 +4211,7 @@ bool8 FieldCallback_PrepareFadeInFromMenu(void)
 {
     FadeInFromBlack();
     CreateTask(Task_FieldMoveWaitForFade, 8);
-    if (PlayerHasFollowerNPC())
+    if (PlayerHasFollowerNPC(0))//wip
         CreateTask(Task_HideFollowerNPCForTeleport, 0);
 
     return TRUE;
@@ -4234,18 +4234,18 @@ enum
 
 static void Task_HideFollowerNPCForTeleport(u8 taskId)
 {
-    struct ObjectEvent *follower = &gObjectEvents[GetFollowerNPCObjectId()];
+    struct ObjectEvent *follower = &gObjectEvents[GetFollowerNPCObjectId(0)];//wip
     struct Task *task;
     task = &gTasks[taskId];
     if (taskState == FNPC_WALK_INTO_PLAYER)
     {
-        if (!PlayerHasFollowerNPC())
+        if (!PlayerHasFollowerNPC(0))//wip
         {
             DestroyTask(taskId);
         }
         else
         {
-            FollowerNPCWalkIntoPlayerForLeaveMap();
+            FollowerNPCWalkIntoPlayerForLeaveMap(0);//wip
             taskState = FNPC_WAIT_FOR_ANIM_FINISH;
         }
     }
@@ -4253,7 +4253,7 @@ static void Task_HideFollowerNPCForTeleport(u8 taskId)
     {
         if (ObjectEventClearHeldMovementIfFinished(follower))
         {
-            FollowerNPCHideForLeaveMap(follower);
+            FollowerNPCHideForLeaveMap(follower, 0);//wip
             DestroyTask(taskId);
         }
     }
@@ -4298,7 +4298,7 @@ static void FieldCallback_Surf(void)
 
 bool32 SetUpFieldMove_Surf(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_SURF))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_SURF, 0))//wip, assumes that if one can, all can
         return FALSE;
 
     if (PartyHasMonWithSurf() == TRUE && IsPlayerFacingSurfableFishableWater() == TRUE)
@@ -4320,7 +4320,7 @@ static void DisplayCantUseSurfMessage(void)
 
 bool32 SetUpFieldMove_Fly(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE, 0))//wip, assumes that if one can, all can
         return FALSE;
 
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
@@ -4344,7 +4344,7 @@ bool32 SetUpFieldMove_Waterfall(void)
 {
     s16 x, y;
 
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_WATERFALL, 0))//wip, assumes that if one can, all can
         return FALSE;
 
     GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
@@ -4380,7 +4380,7 @@ static void FieldCallback_Dive(void)
 
 bool32 SetUpFieldMove_Dive(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_DIVE, 0))//wip, assumes that if one can, all can
         return FALSE;
 
     gFieldEffectArguments[1] = TrySetDiveWarp();

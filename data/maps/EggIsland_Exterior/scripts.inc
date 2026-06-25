@@ -20,6 +20,24 @@ Script_TryLootEgg::
 	callnative UpdateEggPP
 # 12 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative UpdateFollowingPokemon
+# 15 "data/maps/EggIsland_Exterior/scripts.pory"
+	createfollowernpc OBJ_EVENT_GFX_SPECIES ( EGG ), FNPC_ALL, 0
+# 16 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 60
+# 17 "data/maps/EggIsland_Exterior/scripts.pory"
+	createfollowernpc OBJ_EVENT_GFX_SPECIES ( EGG ), FNPC_ALL, 1
+# 18 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 60
+# 19 "data/maps/EggIsland_Exterior/scripts.pory"
+	createfollowernpc OBJ_EVENT_GFX_SPECIES ( EGG ), FNPC_ALL, 2
+# 20 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 60
+# 21 "data/maps/EggIsland_Exterior/scripts.pory"
+	createfollowernpc OBJ_EVENT_GFX_SPECIES ( EGG ), FNPC_ALL, 3
+# 22 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 60
+# 23 "data/maps/EggIsland_Exterior/scripts.pory"
+	createfollowernpc OBJ_EVENT_GFX_SPECIES ( EGG ), FNPC_ALL, 4
 	return
 
 

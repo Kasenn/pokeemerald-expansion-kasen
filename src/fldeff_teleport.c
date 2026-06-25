@@ -13,7 +13,7 @@ static void StartTeleportFieldEffect(void);
 
 bool32 SetUpFieldMove_Teleport(void)
 {
-    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE))
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE, 0))//wip, assumes that if the 1st can, all can
         return FALSE;
 
     if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)

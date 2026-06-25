@@ -2012,7 +2012,7 @@ static void Task_OWEApproachForBattle(u8 taskId)
         
         if (CheckRestrictedOWEMovement(OWE, OWE->movementDirection))
         {
-            u32 idFollowerNPC = GetFollowerNPCObjectId();
+            u32 idFollowerNPC = GetFollowerNPCObjectId(0);//wip
             struct ObjectEvent *followerNPC = &gObjectEvents[idFollowerNPC];
             s16 x = OWE->currentCoords.x;
             s16 y = OWE->currentCoords.y;
@@ -2027,7 +2027,7 @@ static void Task_OWEApproachForBattle(u8 taskId)
                 gSprites[followerMon->spriteId].animCmdIndex = 0;
                 ObjectEventSetHeldMovement(followerMon, MOVEMENT_ACTION_ENTER_POKEBALL);
             }
-            else if (collidingObject == idFollowerNPC && FNPC_ENABLE_NPC_FOLLOWERS && PlayerHasFollowerNPC() && !followerNPC->invisible)
+            else if (collidingObject == idFollowerNPC && FNPC_ENABLE_NPC_FOLLOWERS && PlayerHasFollowerNPC(0) && !followerNPC->invisible)//wip
             {
                 enum Direction direction = DetermineFollowerNPCDirection(&gObjectEvents[gPlayerAvatar.objectEventId], followerNPC);
                 ClearObjectEventMovement(followerNPC, &gSprites[followerNPC->spriteId]);

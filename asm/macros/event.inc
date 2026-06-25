@@ -2763,7 +2763,7 @@
 	@ Sets an existing NPC up to follow the player.
 	@ Follower flags are defined in include/constants/follower_npc.h
 	@ If you want to specify a battle partner without specifying a custom script, you can set the script parameter to 0.
-	.macro setfollowernpc localId:req, flags:req, script=0, battlePartner=0
+	.macro setfollowernpc localId:req, flags:req, slot:req, script=0, battlePartner=0
 	.if FNPC_ENABLE_NPC_FOLLOWERS
 		checkfollowernpc
 		compare VAR_RESULT, FALSE
@@ -2778,6 +2778,7 @@
 		.endif
 		.byte \localId
 		.2byte \flags
+		.byte \slot
 		.byte setScript
 		.2byte \battlePartner
 		.4byte \script
@@ -2789,11 +2790,12 @@
 	.endm
 
 	@ Creates a new follower NPC with the specified graphics id.
-	.macro createfollowernpc gfx:req, flags:req, script=0, battlePartner=0
+	.macro createfollowernpc gfx:req, flags:req, slot:req, script=0, battlePartner=0
 	.if FNPC_ENABLE_NPC_FOLLOWERS
 		callnative ScriptCreateFollowerNPC
 		.2byte \gfx
 		.2byte \flags
+		.byte \slot
 		.4byte \script
 		.2byte \battlePartner
 	.else
@@ -2802,17 +2804,19 @@
 	.endm
 
 	@ Remove the follower NPC (assumes there will only ever be one).
-	.macro destroyfollowernpc
+	.macro destroyfollowernpc slot:req
 	.if FNPC_ENABLE_NPC_FOLLOWERS
 		callnative ScriptDestroyFollowerNPC
 	.else
 		.error "destroyfollowernpc unavailable with FNPC_ENABLE_NPC_FOLLOWERS defined as FALSE"
 	.endif
+	.byte \slot
 	.endm
 
 	@ Makes the player and follower NPC face one another.
-	.macro facefollowernpc
+	.macro facefollowernpc slot:req
 	callnative ScriptFaceFollowerNPC
+	.byte \slot
 	.endm
 
 	@ Makes the follower NPC walk into the player and get hidden.
@@ -2821,16 +2825,18 @@
 	@ 1 = Normal (default)
 	@ 2 = Fast
 	@ 3 = Faster
-	.macro hidefollowernpc speed=1
+	.macro hidefollowernpc, slot:req, speed=1
 	callnative ScriptHideNPCFollower
+	.byte \slot
 	.byte \speed
-	waitmovement OBJ_EVENT_ID_NPC_FOLLOWER
+	waitmovement OBJ_EVENT_ID_NPC_FOLLOWER1
 	callnative HideNPCFollower
 	.endm
 
 	@ Checks if you have a follower NPC. Returns the result to VAR_RESULT.
-	.macro checkfollowernpc
+	.macro checkfollowernpc, slot:req
 	callnative ScriptCheckFollowerNPC
+	.byte \slot
 	.endm
 
 	@ Updates Pokemon follower.

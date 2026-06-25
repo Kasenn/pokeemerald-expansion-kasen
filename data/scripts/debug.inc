@@ -363,7 +363,7 @@ Debug_Enable_To_Use_Follower_NPCs:
 
 Debug_Follower_NPC_Event_Script::
 	lock
-	facefollowernpc
+	facefollowernpc 0 @//wip
 	msgbox Debug_Follower_NPC_Test_Message, MSGBOX_DEFAULT
 	releaseall
 	end

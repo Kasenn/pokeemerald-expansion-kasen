@@ -1428,8 +1428,13 @@ u8 GetObjectEventIdByLocalIdAndMap(u8 localId, u8 mapNum, u8 mapGroupId)
 {
     if (localId < OBJ_EVENT_ID_DYNAMIC_BASE)
     {
-        if (PlayerHasFollowerNPC() && localId == OBJ_EVENT_ID_NPC_FOLLOWER)
-            return GetFollowerNPCObjectId();
+        if (PlayerHasFollowerNPC(GetFollowerSlotByObjectId(localId)) &&
+        (localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+      || localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+      || localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+      || localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+      || localId == OBJ_EVENT_ID_NPC_FOLLOWER5))
+            return GetFollowerNPCObjectId(GetFollowerSlotByObjectId(localId));
         else
             return GetObjectEventIdByLocalIdAndMapInternal(localId, mapNum, mapGroupId);
     }
@@ -2950,7 +2955,12 @@ void RemoveObjectEventsOutsideView(void)
                 continue;
             if (objectEvent->isPlayer)
                 continue;
-            if (objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER)
+            if (objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+             || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+             || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+             || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+             || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER5
+             || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER)
                 continue;
             if (IsOWEDespawnExempt(objectEvent))
                 continue;
@@ -6633,7 +6643,7 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
     {
         curObject = &gObjectEvents[i];
         if (curObject->active && (curObject->movementType != MOVEMENT_TYPE_FOLLOW_PLAYER || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent
-         && !FollowerNPC_IsCollisionExempt(curObject, objectEvent)
+         && !FollowerNPC_IsCollisionExempt(curObject, objectEvent, 0)//wip, this is potentially broken
          )
         {
             // check for collision if curObject is active, not the object in question, and not exempt from collisions
@@ -6786,7 +6796,12 @@ bool8 ObjectEventIsHeldMovementActive(struct ObjectEvent *objectEvent)
 
 static u8 TryUpdateMovementActionOnStairs(struct ObjectEvent *objectEvent, u8 movementActionId)
 {
-    if (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER)
+    if (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER
+     || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+     || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+     || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+     || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+     || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER5)
         return movementActionId;    // handled separately
 
     if (!ObjectMovingOnRockStairs(objectEvent, objectEvent->movementDirection))
@@ -6832,7 +6847,18 @@ bool8 ObjectEventSetHeldMovement(struct ObjectEvent *objectEvent, u8 movementAct
     objectEvent->heldMovementActive = TRUE;
     objectEvent->heldMovementFinished = FALSE;
     gSprites[objectEvent->spriteId].sActionFuncId = 0;
-    NPCFollow(objectEvent, movementActionId, FALSE);
+
+    // u8 slot = 0;
+
+    // if (objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+    //  || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+    //  || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+    //  || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+    //  || objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER5)
+    //     slot = GetFollowerSlotByObjectId(objectEvent->localId);
+
+    for (FOLLOWER_CHECK)
+        NPCFollow(objectEvent, movementActionId, FALSE, slot);
 
     // When player is moved via script, set copyable movement
     // for any followers via a lookup table
@@ -10043,7 +10069,12 @@ static void UpdateObjectEventElevationAndPriority(struct ObjectEvent *objEvent, 
         return;
 
     ObjectEventUpdateElevation(objEvent, sprite);
-    if (objEvent->localId == OBJ_EVENT_ID_FOLLOWER || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER)
+    if (objEvent->localId == OBJ_EVENT_ID_FOLLOWER 
+     || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+     || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+     || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+     || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+     || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER5)
     {
         // keep subspriteMode synced with player's
         // so that it disappears under bridges when they do
@@ -10106,7 +10137,12 @@ static void ObjectEventUpdateSubpriority(struct ObjectEvent *objEvent, struct Sp
         return;
 
     // If transitioning between elevations, use the player's elevation
-    if (!objEvent->currentElevation && (objEvent->localId == OBJ_EVENT_ID_FOLLOWER || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER))
+    if (!objEvent->currentElevation && (objEvent->localId == OBJ_EVENT_ID_FOLLOWER
+       || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+       || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+       || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+       || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+       || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER5))
         objEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
     SetObjectSubpriorityByElevation(objEvent->previousElevation, sprite, 1);

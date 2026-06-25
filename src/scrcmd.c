@@ -1440,8 +1440,12 @@ bool8 ScrCmd_setobjectxy(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     // Don't do follower NPC post-warp position set after setobjectxy.
-    if (localId == OBJ_EVENT_ID_NPC_FOLLOWER)
-        SetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR, FNPC_DOOR_NO_POS_SET);
+    if (localId == OBJ_EVENT_ID_NPC_FOLLOWER1
+     || localId == OBJ_EVENT_ID_NPC_FOLLOWER2
+     || localId == OBJ_EVENT_ID_NPC_FOLLOWER3
+     || localId == OBJ_EVENT_ID_NPC_FOLLOWER4
+     || localId == OBJ_EVENT_ID_NPC_FOLLOWER5)
+        SetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR, FNPC_DOOR_NO_POS_SET, GetFollowerSlotByObjectId(localId));
 
     TryMoveObjectEventToMapCoords(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, x, y);
     return FALSE;
@@ -1521,25 +1525,25 @@ bool8 ScrCmd_resetobjectsubpriority(struct ScriptContext *ctx)
 bool8 ScrCmd_faceplayer(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
-    if (PlayerHasFollowerNPC()
-     && gObjectEvents[GetFollowerNPCObjectId()].invisible == FALSE
-     && gSelectedObjectEvent == GetFollowerNPCObjectId())
+    if (PlayerHasFollowerNPC(0)//wip
+     && gObjectEvents[GetFollowerNPCObjectId(0)].invisible == FALSE//wip
+     && gSelectedObjectEvent == GetFollowerNPCObjectId(0))//wip
     {
-        struct ObjectEvent *npcFollower = &gObjectEvents[GetFollowerNPCObjectId()];
+        struct ObjectEvent *npcFollower = &gObjectEvents[GetFollowerNPCObjectId(0)];//wip
 
         switch (DetermineFollowerNPCDirection(&gObjectEvents[gPlayerAvatar.objectEventId], npcFollower))
         {
         case DIR_NORTH:
-            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceUp);
+            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER1, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceUp);
             break;
         case DIR_SOUTH:
-            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceDown);
+            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER1, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceDown);
             break;
         case DIR_EAST:
-            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceRight);
+            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER1, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceRight);
             break;
         case DIR_WEST:
-            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceLeft);
+            ScriptMovement_StartObjectMovementScript(OBJ_EVENT_ID_NPC_FOLLOWER1, npcFollower->mapGroup, npcFollower->mapNum, Common_Movement_FaceLeft);
             break;
         default:
             break;
@@ -3639,7 +3643,7 @@ void UpdateEggPP(void)
             break;
     }
 
-    gCurrentUsableEggs = CalculateCurrentEggs();
+    gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
 
     enum Move move1 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE1);
     enum Move move2 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE2);

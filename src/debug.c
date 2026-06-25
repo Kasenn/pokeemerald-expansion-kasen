@@ -4002,7 +4002,7 @@ static void DebugAction_Sound_MUS_SelectId(u8 taskId)
     }
 }
 
-static const u32 gDebugFollowerNPCGraphics[] =
+static const u32 gDebugFollowerNPCGraphics[] =//wip, add some eggs here maybe?
 {
     OBJ_EVENT_GFX_RIVAL_BRENDAN_NORMAL,
     OBJ_EVENT_GFX_RIVAL_MAY_NORMAL,
@@ -4015,13 +4015,16 @@ static const u32 gDebugFollowerNPCGraphics[] =
 static void DebugAction_CreateFollowerNPC(u8 taskId)
 {
     u32 input = ListMenu_ProcessInput(gTasks[taskId].tMenuTaskId);
-    u32 gfx = gDebugFollowerNPCGraphics[input];
+    // u32 gfx = gDebugFollowerNPCGraphics[input];
 
     Debug_DestroyMenu_Full(taskId);
     LockPlayerFieldControls();
-    DestroyFollowerNPC();
-    SetFollowerNPCData(FNPC_DATA_BATTLE_PARTNER, PARTNER_STEVEN);
-    CreateFollowerNPC(gfx, FNPC_ALL, Debug_Follower_NPC_Event_Script);
+    for (FOLLOWER_CHECK)
+    {
+        DestroyFollowerNPC(slot);
+        SetFollowerNPCData(FNPC_DATA_BATTLE_PARTNER, PARTNER_STEVEN, slot);
+        CreateFollowerNPC(gDebugFollowerNPCGraphics[Random() % ARRAY_COUNT(gDebugFollowerNPCGraphics)], FNPC_ALL, Debug_Follower_NPC_Event_Script, slot);
+    }
     UnlockPlayerFieldControls();
 }
 
@@ -4031,7 +4034,8 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     {
         Debug_DestroyMenu_Full(taskId);
         LockPlayerFieldControls();
-        DestroyFollowerNPC();
+        for (FOLLOWER_CHECK)
+            DestroyFollowerNPC(slot);
         UnlockPlayerFieldControls();
     }
     else
