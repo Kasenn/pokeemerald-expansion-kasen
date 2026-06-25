@@ -62,6 +62,7 @@ static EWRAM_DATA u8 sSpinStartFacingDir = 0;
 EWRAM_DATA struct ObjectEvent gObjectEvents[OBJECT_EVENTS_COUNT] = {};
 EWRAM_DATA struct PlayerAvatar gPlayerAvatar = {};
 EWRAM_DATA struct SpinData gPlayerSpinData = {};
+EWRAM_DATA u8 gFollowerId[4] = {};
 
 // static declarations
 static u8 ObjectEventCB2_NoMovement2(void);
@@ -1230,6 +1231,8 @@ static bool8 PlayerCheckIfAnimFinishedOrInactive(void)
 static void PlayerSetCopyableMovement(enum CopyMovement movement)
 {
     gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = movement;
+    for (int i = 0; i < (gPlayerPartyCount - 1); i++)
+        gObjectEvents[gFollowerId[i]].playerCopyableMovement = movement;
 }
 
 enum CopyMovement PlayerGetCopyableMovement(void)
@@ -2229,7 +2232,7 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, enum Direction d
         s16 x = objectEvent->currentCoords.x;
         s16 y = objectEvent->currentCoords.y;
 
-        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
+        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1))
             return FALSE;
 
         switch (direction)

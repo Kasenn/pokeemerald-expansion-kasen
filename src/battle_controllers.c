@@ -1980,7 +1980,7 @@ static void SetBattlerMonData(enum BattlerId battler, struct Pokemon *party, u32
 static bool8 ShouldDoSlideInAnim(enum BattlerId battler)
 {
     return TRUE;
-    struct ObjectEvent *followerObj = GetFollowerObject();
+    struct ObjectEvent *followerObj = GetFollowerObject(0);
     if (!followerObj || followerObj->invisible)
         return FALSE;
 

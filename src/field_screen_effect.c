@@ -741,7 +741,11 @@ void Task_DoDoorWarp(u8 taskId)
     s16 *y = &task->data[3];
     u8 playerObjId = gPlayerAvatar.objectEventId;
     u8 followerObjId = GetFollowerNPCObjectId();
-    struct ObjectEvent *followerObject = GetFollowerObject();
+    struct ObjectEvent *followerObject[5];
+    for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
+    {
+        followerObject[slot] = GetFollowerObject(slot);
+    }
 
     switch (task->tState)
     {
@@ -755,11 +759,14 @@ void Task_DoDoorWarp(u8 taskId)
         FreezeObjectEvents();
         PlayerGetDestCoords(x, y);
         PlaySE(GetDoorSoundEffect(*x, *y - 1));
-        if (followerObject)
+        for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
         {
-            // Put follower into pokeball
-            ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
-            ObjectEventSetHeldMovement(followerObject, MOVEMENT_ACTION_ENTER_POKEBALL);
+            if (followerObject[slot])
+            {
+                // Put follower into pokeball
+                ClearObjectEventMovement(followerObject[slot], &gSprites[followerObject[slot]->spriteId]);
+                ObjectEventSetHeldMovement(followerObject[slot], MOVEMENT_ACTION_ENTER_POKEBALL);
+            }
         }
         task->tDoorTask = FieldAnimateDoorOpen(*x, *y - 1);
         EndORASDowsing();

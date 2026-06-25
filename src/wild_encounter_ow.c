@@ -1025,9 +1025,9 @@ void TryTriggerOverworldWildEncounter(struct ObjectEvent *obstacle, struct Objec
     if (WE_OWE_NO_REPEL_DEXNAV_COLLISION && (FlagGet(DN_FLAG_SEARCHING) || REPEL_STEP_COUNT))
         return;
 
-    bool32 playerFollowerIsColliderOWE = ((collider->isPlayer || collider->localId == OBJ_EVENT_ID_FOLLOWER)
+    bool32 playerFollowerIsColliderOWE = ((collider->isPlayer || collider->localId == OBJ_EVENT_ID_FOLLOWER1)
                                           && IsOverworldWildEncounter(obstacle, OWE_ANY));
-    bool32 playerFollowerIsObstacleOWE = ((obstacle->isPlayer || obstacle->localId == OBJ_EVENT_ID_FOLLOWER)
+    bool32 playerFollowerIsObstacleOWE = ((obstacle->isPlayer || obstacle->localId == OBJ_EVENT_ID_FOLLOWER1)
                                           && IsOverworldWildEncounter(collider, OWE_ANY));
 
     if (!playerFollowerIsColliderOWE && !playerFollowerIsObstacleOWE)
@@ -1983,7 +1983,7 @@ static void Task_OWEApproachForBattle(u8 taskId)
     if (ObjectEventClearHeldMovementIfFinished(OWE))
     {
         struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
-        struct ObjectEvent *followerMon = GetFollowerObject();
+        struct ObjectEvent *followerMon = GetFollowerObject(0);//wip2 probably doesn't matter
         bool32 oweNextToPlayer = IsOWENextToPlayer(OWE);
         bool32 oweNextToFollowerMon = IsOWENextToObject(OWE, followerMon);
 

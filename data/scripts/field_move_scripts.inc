@@ -93,7 +93,7 @@ EventScript_SmashRock:: @ fallthrough
 	end
 
 EventScript_FollowerFieldMove:
-	getdirectiontoface VAR_0x8005, OBJ_EVENT_ID_FOLLOWER, OBJ_EVENT_ID_PLAYER
+	getdirectiontoface VAR_0x8005, OBJ_EVENT_ID_FOLLOWER1, OBJ_EVENT_ID_PLAYER
 	specialvar VAR_0x8006, GetPlayerFacingDirection
 	goto_if_eq VAR_0x8005, DIR_NONE, EventScript_FollowerFieldMoveEnd
 	@ Swap follower and player
@@ -144,22 +144,22 @@ EventScript_FollowerMoveWest:
 	return
 
 EventScript_FollowerJumpNorth:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_JumpUp
+	applymovement OBJ_EVENT_ID_FOLLOWER1, Movement_JumpUp
 	waitmovement 0
 	return
 
 EventScript_FollowerJumpEast:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_JumpRight
+	applymovement OBJ_EVENT_ID_FOLLOWER1, Movement_JumpRight
 	waitmovement 0
 	return
 
 EventScript_FollowerJumpSouth:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_JumpDown
+	applymovement OBJ_EVENT_ID_FOLLOWER1, Movement_JumpDown
 	waitmovement 0
 	return
 
 EventScript_FollowerJumpWest:
-	applymovement OBJ_EVENT_ID_FOLLOWER, Movement_JumpLeft
+	applymovement OBJ_EVENT_ID_FOLLOWER1, Movement_JumpLeft
 	waitmovement 0
 	return
 

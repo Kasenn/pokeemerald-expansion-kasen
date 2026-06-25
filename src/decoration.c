@@ -1418,7 +1418,7 @@ static void Task_PlaceDecoration(u8 taskId)
         }
         break;
     case 1:
-        RemoveFollowingPokemon();
+        RemoveFollowingPokemon(0);//wip2, shouldn't matter
         gPaletteFade.bufferTransferDisabled = TRUE;
         ConfigureCameraObjectForPlacingDecoration(&sPlaceDecorationGraphicsDataBuffer, gCurDecorationItems[gCurDecorationIndex]);
         SetUpDecorationShape(taskId);
@@ -2367,7 +2367,7 @@ static void Task_ContinuePuttingAwayDecorations(u8 taskId)
         }
         break;
     case 1:
-        RemoveFollowingPokemon();
+        RemoveFollowingPokemon(0);//wip2 shouldn't matter
         SetUpPuttingAwayDecorationPlayerAvatar();
         FadeInFromBlack();
         tState = 2;

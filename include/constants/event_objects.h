@@ -503,7 +503,11 @@ enum
 #define LOCALID_OW_ENCOUNTER_END                252 // This will use 4 (OWE_SPAWNS_MAX) IDs ending at 252, i.e. 249-252
 #define LOCALID_FOLLOWING_POKEMON               254
 #define LOCALID_PLAYER                          255
-#define OBJ_EVENT_ID_FOLLOWER                   0xFE
+#define OBJ_EVENT_ID_FOLLOWER1                  0xFA
+#define OBJ_EVENT_ID_FOLLOWER2                  0xFB
+#define OBJ_EVENT_ID_FOLLOWER3                  0xFC
+#define OBJ_EVENT_ID_FOLLOWER4                  0xFD
+#define OBJ_EVENT_ID_FOLLOWER5                  0xFE
 #define OBJ_EVENT_ID_NPC_FOLLOWER               0xFD
 
 #define IS_LOCALID_GENERATED_OWE(localId)       (localId <= LOCALID_OW_ENCOUNTER_END \

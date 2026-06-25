@@ -2363,10 +2363,13 @@ static bool32 ReturnToFieldLocal(u8 *state)
         ResetScreenForMapLoad();
         ResumeMap(FALSE);
         InitObjectEventsReturnToField();
-        if (gFieldCallback == FieldCallback_UseFly)
-            RemoveFollowingPokemon();
-        else
-            UpdateFollowingPokemon();
+            if (gFieldCallback == FieldCallback_UseFly)
+            {
+                for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
+                    RemoveFollowingPokemon(slot);
+            } 
+            else
+                UpdateFollowingPokemon();
         SetCameraToTrackPlayer();
         (*state)++;
         break;

@@ -2769,7 +2769,7 @@
 		compare VAR_RESULT, FALSE
 		goto_if_ne 1f
 		hidefollower
-		waitmovement OBJ_EVENT_ID_FOLLOWER
+		waitmovement OBJ_EVENT_ID_FOLLOWER1
 		callnative ScriptSetFollowerNPC
 		.if \script == 0
 			.set setScript, FALSE
