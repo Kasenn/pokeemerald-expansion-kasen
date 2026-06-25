@@ -5619,6 +5619,7 @@ void SetWildMonHeldItem(void)
                 continue; // prevent overwriting previously set item
 
             rnd = Random() % 100;
+            u16 berry = (Random() % (LAST_BERRY_INDEX - FIRST_BERRY_INDEX)) + FIRST_BERRY_INDEX;
             species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_SPECIES, 0);
             if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
             {
@@ -5636,9 +5637,9 @@ void SetWildMonHeldItem(void)
                     if (rnd < chanceNoItem)
                         continue;
                     if (rnd < chanceNotRare)
-                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &berry);
                     else
-                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
+                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &berry);
                 }
             }
             else
@@ -5646,16 +5647,16 @@ void SetWildMonHeldItem(void)
                 if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
                 {
                     // Both held items are the same, 100% chance to hold item
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &berry);
                 }
                 else
                 {
                     if (rnd < chanceNoItem)
                         continue;
                     if (rnd < chanceNotRare)
-                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &berry);
                     else
-                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
+                        SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &berry);
                 }
             }
         }
