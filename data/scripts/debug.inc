@@ -201,6 +201,7 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
+	call Script_TryLootEgg
 	giveegg 1
 	giveegg 1
 	giveegg SPECIES_RATTATA
@@ -220,6 +221,7 @@ Debug_EventScript_Script_1::
 	giveegg SPECIES_DRATINI
 	giveegg SPECIES_UMBREON
 	giveegg SPECIES_CLEFAIRY
+	callnative UpdateFollowingPokemon
 	release
 	end
 

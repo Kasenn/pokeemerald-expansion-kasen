@@ -1773,7 +1773,7 @@ static bool8 FallWarpEffect_End(struct Task *task)
 
 void HideFollowerForFieldEffect(void)
 {
-    for (int slot = 0; slot < (gPlayerPartyCount - 1); slot)
+    for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
     {
         struct ObjectEvent *followerObj = GetFollowerObject(slot);
         if (!followerObj || followerObj->invisible)
