@@ -353,14 +353,16 @@ static void DoStandardWildBattle(bool32 isDouble)
 {
     gCurrentUsableEggs = CalculateCurrentEggs();
 
-    if (gCurrentUsableEggs == 0 || (Random() % 100) > 30)
+    if (gCurrentUsableEggs == 0 || FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
     {
+        FlagClear(FLAG_FORCE_EGG);
         RestartWildEncounterImmunitySteps();
         ScriptContext_SetupScript(Script_TryLootEgg);
         LockPlayerFieldControls();
     }
     else
     {
+        FlagSet(FLAG_FORCE_EGG);
         LockPlayerFieldControls();
         FreezeObjectEvents();
         StopPlayerAvatar();
