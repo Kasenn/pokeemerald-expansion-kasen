@@ -113,6 +113,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
+	setflag WE_FLAG_NO_ENCOUNTER
 	setflag B_FLAG_FOLLOWERS_DISABLED
 	setflag FLAG_SYS_POKEDEX_GET
 	special SetUnlockedPokedexFlags
