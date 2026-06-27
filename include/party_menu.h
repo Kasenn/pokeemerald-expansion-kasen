@@ -72,6 +72,7 @@ bool8 IsMultiBattle(void);
 u8 GetCursorSelectionMonId(void);
 u8 GetPartyMenuType(void);
 void Task_HandleChooseMonInput(u8 taskId);
+void Task_HandleChooseMonInputChansey(u8 taskId);
 u8 *GetMonNickname(struct Pokemon *mon, u8 *dest);
 u8 DisplayPartyMenuMessage(const u8 *str, bool8 keepOpen);
 bool8 IsPartyMenuTextPrinterActive(void);

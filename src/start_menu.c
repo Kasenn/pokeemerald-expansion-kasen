@@ -50,6 +50,8 @@
 #include "constants/battle_frontier.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/metatile_behaviors.h"
+#include "script_pokemon_util.h"
 
 // Menu actions
 enum
@@ -332,7 +334,8 @@ static void AddStartMenuAction(u8 action)
 static void BuildNormalStartMenu(void)
 {
     AddStartMenuAction(MENU_ACTION_POKEMON);
-    AddStartMenuAction(MENU_ACTION_SAVE);
+    if (GetMetatileNearPlayer(MB_SAVE_POINT, TRUE))
+        AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
@@ -348,7 +351,6 @@ static void BuildDebugStartMenu(void)
     if (FlagGet(FLAG_SYS_POKENAV_GET) == TRUE)
         AddStartMenuAction(MENU_ACTION_POKENAV);
     AddStartMenuAction(MENU_ACTION_PLAYER);
-    AddStartMenuAction(MENU_ACTION_SAVE);
     AddStartMenuAction(MENU_ACTION_OPTION);
 }
 
@@ -1143,6 +1145,7 @@ static u8 SaveDoSaveCallback(void)
     u8 saveStatus;
 
     IncrementGameStat(GAME_STAT_SAVED_GAME);
+    HealPlayerParty();
     PausePyramidChallenge();
 
     if (gDifferentSaveFile == TRUE)

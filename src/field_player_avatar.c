@@ -1473,6 +1473,18 @@ void PlayerGetDestCoords(s16 *x, s16 *y)
     *y = gObjectEvents[gPlayerAvatar.objectEventId].currentCoords.y;
 }
 
+bool8 GetMetatileNearPlayer(u16 metatileBehavior, bool8 underPlayer)
+{
+    s16 x, y;
+
+    if (underPlayer)
+        PlayerGetDestCoords(&x, &y);
+    else
+        GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
+
+    return MapGridGetMetatileIdAt(x, y) == metatileBehavior;
+}
+
 u8 player_get_pos_including_state_based_drift(s16 *x, s16 *y)
 {
     struct ObjectEvent *object = &gObjectEvents[gPlayerAvatar.objectEventId];

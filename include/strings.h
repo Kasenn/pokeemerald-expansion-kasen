@@ -254,6 +254,7 @@ extern const u8 gText_PkmnAlreadyHoldingItemSwitch[];
 extern const u8 gText_SwitchedPkmnItem[];
 extern const u8 gText_BagFullCouldNotRemoveItem[];
 extern const u8 gText_PkmnCantParticipate[];
+extern const u8 gText_PkmnCantParticipate2[];
 extern const u8 gText_PkmnNotHolding[];
 extern const u8 gText_ThrowAwayItem[];
 extern const u8 gText_ItemThrownAway[];

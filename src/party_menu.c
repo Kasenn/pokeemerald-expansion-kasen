@@ -318,6 +318,7 @@ static void Task_CancelChooseMonYesNo(u8);
 static void PartyMenuDisplayYesNoMenu(void);
 static void Task_HandleCancelChooseMonYesNoInput(u8);
 static void Task_ReturnToChooseMonAfterText(u8);
+static void Task_ReturnToChooseMonAfterTextChansey(u8);
 static void UpdateCurrentPartySelection(s8 *, s8);
 static void UpdatePartySelectionSingleLayout(s8 *, s8);
 static void UpdatePartySelectionDoubleLayout(s8 *, s8);
@@ -504,6 +505,7 @@ static void Task_FirstBattleEnterParty_FadeNormal(u8 taskId);
 static void Task_FirstBattleEnterParty_WaitFadeNormal(u8 taskId);
 static u8 CombinedToIndividualPartyId(u8 index);
 static u8 IndividualToCombinedPartyId(u8 index, enum BattlerId battler);
+void IsSelectedMonEgg(void);
 
 static const u8 sText_askText[] = _("Would you like to change {STR_VAR_1}'s\nability to {STR_VAR_2}?");
 static const u8 sText_doneText[] = _("{STR_VAR_1}'s ability became\n{STR_VAR_2}!{PAUSE_UNTIL_PRESS}");
@@ -1475,6 +1477,55 @@ u8 GetPartyMenuType(void)
     return gPartyMenu.menuType;
 }
 
+void Task_HandleChooseMonInputChansey(u8 taskId)
+{
+    if (!gPaletteFade.active && MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
+    {
+        s8 *slotPtr = GetCurrentPartySlotPtr();
+
+        switch (PartyMenuButtonHandler(slotPtr))
+        {
+        case A_BUTTON: // Selected mon
+            if (!GetMonData(&gParties[B_TRAINER_PLAYER][*slotPtr], MON_DATA_IS_EGG))
+            {
+                PlaySE(SE_FAILURE);
+                DisplayPartyMenuMessage(gText_PkmnCantParticipate2, FALSE);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterTextChansey;
+            }
+            else
+                HandleChooseMonSelection(taskId, slotPtr);
+            break;
+        case B_BUTTON: // Selected Cancel / pressed B
+            HandleChooseMonCancel(taskId, slotPtr);
+            break;
+        case START_BUTTON:
+            if (sPartyMenuInternal->chooseHalf)
+            {
+                PlaySE(SE_SELECT);
+                MoveCursorToConfirm();
+            }
+            break;
+        case R_BUTTON: // Only used in full-team multis to cycle player/partner parties
+            PlaySE(SE_M_HARDEN);
+            UpdatePartyToFieldOrder();
+
+            if (gPartyMenu.layout == PARTY_LAYOUT_MULTI_FULL)
+                gPartyMenu.layout = PARTY_LAYOUT_MULTI_FULL_PARTNER;
+            else
+                gPartyMenu.layout = PARTY_LAYOUT_MULTI_FULL;
+
+            gPartyMenu.slotId = 0;
+            sPartyMenuInternal->lastSelectedSlot = 0;
+
+            LoadBattlePartyCurrentOrderForLayout();
+            UpdatePartyToBattleOrder();
+            RefreshPartyMenu();
+            break;
+        }
+    }
+}
+
 void Task_HandleChooseMonInput(u8 taskId)
 {
     if (!gPaletteFade.active && MenuHelpers_ShouldWaitForLinkRecv() != TRUE)
@@ -1581,8 +1632,18 @@ static void HandleChooseMonSelection(u8 taskId, s8 *slotPtr)
             SwitchSelectedMons(taskId);
             break;
         case PARTY_ACTION_CHOOSE_AND_CLOSE:
-            PlaySE(SE_SELECT);
-            Task_ClosePartyMenu(taskId);
+            if (!GetMonData(&gParties[B_TRAINER_PLAYER][*slotPtr], MON_DATA_IS_EGG))
+            {
+                PlaySE(SE_FAILURE);
+                DisplayPartyMenuMessage(gText_PkmnCantParticipate, FALSE);
+                ScheduleBgCopyTilemapToVram(2);
+                gTasks[taskId].func = Task_ReturnToChooseMonAfterText;
+            }
+            else
+            {
+                PlaySE(SE_SELECT);
+                Task_ClosePartyMenu(taskId);
+            }
             break;
         case PARTY_ACTION_MINIGAME:
             if (IsSelectedMonNotEgg((u8 *)slotPtr))
@@ -2049,6 +2110,27 @@ static void Task_WaitForLinkAndReturnToChooseMon(u8 taskId)
     {
         DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
         gTasks[taskId].func = Task_HandleChooseMonInput;
+    }
+}
+
+static void Task_ReturnToChooseMonAfterTextChansey(u8 taskId)
+{
+    if (IsPartyMenuTextPrinterActive() != TRUE)
+    {
+        ClearStdWindowAndFrameToTransparent(WIN_MSG, FALSE);
+        ClearWindowTilemap(WIN_MSG);
+        if (MenuHelpers_IsLinkActive() == TRUE)
+        {
+            gTasks[taskId].func = Task_WaitForLinkAndReturnToChooseMon;
+        }
+        else
+        {
+            if (gPartyMenu.action == PARTY_ACTION_SEND_MON_TO_BOX)
+                DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON_FOR_BOX);
+            else
+                DisplayPartyMenuStdMessage(PARTY_MSG_CHOOSE_MON);
+            gTasks[taskId].func = Task_HandleChooseMonInputChansey;
+        }
     }
 }
 
@@ -2983,12 +3065,12 @@ static void SetPartyMonFieldSelectionActions(struct Pokemon *mons, u8 slotId)
 
     if (!InBattlePike())
     {
-        if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE)
+        if (GetMonData(&mons[1], MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(&mons[slotId], MON_DATA_SPECIES) != SPECIES_CHANSEY)
             AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_SWITCH);
-        if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
-            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
-        else
-            AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
+        // if (ItemIsMail(GetMonData(&mons[slotId], MON_DATA_HELD_ITEM)))
+        //     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_MAIL);
+        // else
+        //     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_ITEM);
     }
     AppendToList(sPartyMenuInternal->actions, &sPartyMenuInternal->numActions, MENU_CANCEL1);
 }
@@ -3194,7 +3276,7 @@ static void CursorCb_Switch(u8 taskId)
     DisplayPartyMenuStdMessage(PARTY_MSG_MOVE_TO_WHERE);
     AnimatePartySlot(gPartyMenu.slotId, 1);
     gPartyMenu.slotId2 = gPartyMenu.slotId;
-    gTasks[taskId].func = Task_HandleChooseMonInput;
+    gTasks[taskId].func = Task_HandleChooseMonInputChansey;
 }
 
 #define tSlot1Left     data[0]

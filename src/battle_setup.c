@@ -353,8 +353,37 @@ static void DoStandardWildBattle(bool32 isDouble)
 {
     gCurrentUsableEggs = CalculateCurrentEggs();
 
-    if (gCurrentUsableEggs == 0 || FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
+    if (VarGet(VAR_FORCE_ENCOUNTER) == 2)
     {
+        VarSet(VAR_FORCE_ENCOUNTER, 0);
+        FlagSet(FLAG_FORCE_EGG);
+        LockPlayerFieldControls();
+        FreezeObjectEvents();
+        StopPlayerAvatar();
+        gMain.savedCallback = CB2_EndWildBattle;
+        gBattleTypeFlags = 0;
+        if (IsNPCFollowerWildBattle())
+        {
+            gBattleTypeFlags |= BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER | BATTLE_TYPE_DOUBLE;
+        }
+        else if (isDouble)
+            gBattleTypeFlags |= BATTLE_TYPE_DOUBLE;
+        if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
+        {
+            VarSet(VAR_TEMP_E, 0);
+            gBattleTypeFlags |= BATTLE_TYPE_PYRAMID;
+        }
+        CreateBattleStartTask(GetWildBattleTransition(), 0);
+        IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+        IncrementGameStat(GAME_STAT_WILD_BATTLES);
+        IncrementDailyWildBattles();
+        TryUpdateGymLeaderRematchFromWild();
+    }
+    else if (gCurrentUsableEggs == 0 || FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
+    {
+        if (gCurrentUsableEggs == 5)
+            VarSet(VAR_FORCE_ENCOUNTER, VarGet(VAR_FORCE_ENCOUNTER) + 1);
+
         FlagClear(FLAG_FORCE_EGG);
         RestartWildEncounterImmunitySteps();
         ScriptContext_SetupScript(Script_TryLootEgg);

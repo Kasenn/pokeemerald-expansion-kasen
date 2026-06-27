@@ -3626,6 +3626,7 @@ void GeneratePokemonForEgg(void)
           || eggMon == fifthMon
           || eggMon == sixthMon);
 
+    gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
     gSpecialVar_0x8000 = eggMon;
 }
 
@@ -3654,4 +3655,58 @@ void UpdateEggPP(void)
         SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP3, &gCurrentUsableEggs);
     else if (move4 == MOVE_CHUCK_EGG)
         SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP4, &gCurrentUsableEggs);
+}
+
+static const u8 sText_NormalEgg[]       = _("This one looks very plain.");
+static const u8 sText_FlyingEgg[]       = _("This one feels very light.");
+static const u8 sText_FightingEgg[]     = _("This one feels feisty.");
+static const u8 sText_PoisonEgg[]       = _("This one looks toxic.");
+static const u8 sText_GroundEgg[]       = _("This one seems dirty and rough.");
+static const u8 sText_RockEgg[]         = _("This one feels hard and heavy.");
+static const u8 sText_BugEgg[]          = _("This one feels creepy to hold.");
+static const u8 sText_GhostEgg[]        = _("This one seems almost translucent.");
+static const u8 sText_SteelEgg[]        = _("This one feels sturdy and heavy.");
+static const u8 sText_FireEgg[]         = _("This one's warm to the touch.");
+static const u8 sText_WaterEgg[]        = _("This one feels damp and slippery.");
+static const u8 sText_GrassEgg[]        = _("This one gives off a nice aroma.");
+static const u8 sText_ElectricEgg[]     = _("This one seems charged with energy.");
+static const u8 sText_PsychicEgg[]      = _("This one gives an odd sensation.");
+static const u8 sText_IceEgg[]          = _("This one feels cold to the touch.");
+static const u8 sText_DragonEgg[]       = _("This one feels old and powerful.");
+static const u8 sText_DarkEgg[]         = _("This one barely reflects any light.");
+static const u8 sText_FairyEgg[]        = _("This one's got a peculiar glow.");
+
+void BufferEggTextBasedOnType(void)
+{
+    const u8 *text;
+
+    switch (GetEggMainType(gSpecialVar_0x8000))
+    {
+    case TYPE_FIGHTING: text = sText_FightingEgg; break;
+    case TYPE_FLYING:   text = sText_FlyingEgg;   break;
+    case TYPE_POISON:   text = sText_PoisonEgg;   break;
+    case TYPE_GROUND:   text = sText_GroundEgg;   break;
+    case TYPE_ROCK:     text = sText_RockEgg;     break;
+    case TYPE_BUG:      text = sText_BugEgg;      break;
+    case TYPE_GHOST:    text = sText_GhostEgg;    break;
+    case TYPE_STEEL:    text = sText_SteelEgg;    break;
+    case TYPE_FIRE:     text = sText_FireEgg;     break;
+    case TYPE_WATER:    text = sText_WaterEgg;    break;
+    case TYPE_GRASS:    text = sText_GrassEgg;    break;
+    case TYPE_ELECTRIC: text = sText_ElectricEgg; break;
+    case TYPE_PSYCHIC:  text = sText_PsychicEgg;  break;
+    case TYPE_ICE:      text = sText_IceEgg;      break;
+    case TYPE_DRAGON:   text = sText_DragonEgg;   break;
+    case TYPE_DARK:     text = sText_DarkEgg;     break;
+    case TYPE_FAIRY:    text = sText_FairyEgg;    break;
+    default:            text = sText_NormalEgg;   break;
+    }
+
+    StringCopy(gStringVar1, text);
+}
+
+void ReplaceEggInParty(void)
+{
+    ZeroMonData(&gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004]);
+    ScriptGiveEgg(gSpecialVar_0x8000);
 }

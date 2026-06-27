@@ -5438,6 +5438,9 @@ const u16 *GetMonSpritePalFromSpeciesIsEgg(enum Species species, bool32 isShiny,
 {
     species = SanitizeSpeciesId(species);
 
+    if (FlagGet(FLAG_EGGPIC))
+        isEgg = TRUE;
+
     if (isEgg)
     {
     #if SPECIES_EGG_COLOR

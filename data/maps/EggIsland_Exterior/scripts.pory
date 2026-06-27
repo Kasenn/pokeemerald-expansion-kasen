@@ -5,9 +5,47 @@ mapscripts EggIsland_Exterior_MapScripts {
 }
 
 script Script_TryLootEgg{
+    lock
     callnative(GeneratePokemonForEgg)
-    msgbox("found an egg!", MSGBOX_AUTOCLOSE)
-    giveegg(VAR_0x8000)
-    callnative(UpdateEggPP)
-    callnative(UpdateFollowingPokemon)
+    if(var(VAR_0x8001) < 5)
+    {
+        playse(SE_ITEMFINDER)
+        message("Chansey found an egg!")
+        waitse
+	    waitmessage
+        giveegg(VAR_0x8000)
+        callnative(UpdateEggPP)
+        callnative(UpdateFollowingPokemon)
+    }
+    else{
+        setflag(FLAG_EGGPIC)
+        showmonpic(VAR_0x8000, 10, 3)
+        callnative(BufferEggTextBasedOnType)
+        msgbox(TooManyEggs, MSGBOX_YESNO)
+        hidemonpic
+        clearflag(FLAG_EGGPIC)
+        if (var(VAR_RESULT) == FALSE)
+        {
+            release
+            end
+        }
+        msgbox("Choose an egg to toss away.")
+        special(ChoosePartyMon)
+        if(var(VAR_0x8004) >= PARTY_SIZE)
+        {
+            msgbox("Chansey left the egg where it was.")
+            release
+            end
+        }
+        callnative(ReplaceEggInParty)
+        msgbox("Chansey replaced an older egg\nwith the new one.")
+    }
+    release
+}
+
+text TooManyEggs{
+    "Chansey found an egg, but she's\n"
+    "already carrying more than enough.\p"
+    "Replace an old egg with the new one?\n"
+    "{STR_VAR_1}"
 }

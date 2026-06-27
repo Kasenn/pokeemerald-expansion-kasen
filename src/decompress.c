@@ -8,6 +8,7 @@
 #include "pokemon_sprite_visualizer.h"
 #include "text.h"
 #include "menu.h"
+#include "event_data.h"
 
 //  === WARNING === WARNING === WARNING ===
 //  === No user serviceable code before ===
@@ -1132,6 +1133,8 @@ void LoadSpecialPokePic(void *dest, enum Species species, u32 personality, bool8
 
 void LoadSpecialPokePicIsEgg(void *dest, enum Species species, u32 personality, bool8 isFrontPic, bool32 isEgg)
 {
+    if (FlagGet(FLAG_EGGPIC))
+        isEgg = TRUE;
     species = SanitizeSpeciesId(species);
     if (species == SPECIES_UNOWN)
         species = GetUnownSpeciesId(personality);

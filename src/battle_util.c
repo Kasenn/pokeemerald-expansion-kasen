@@ -556,7 +556,6 @@ bool32 TryRunFromBattle(enum BattlerId battler)
 
     gPotentialItemEffectBattler = battler;
 
-    effect = TRUE;
     if (holdEffect == HOLD_EFFECT_CAN_ALWAYS_RUN)
     {
         gLastUsedItem = gBattleMons[battler].item;
@@ -616,7 +615,7 @@ bool32 TryRunFromBattle(enum BattlerId battler)
         }
         else if (gBattleMons[battler].speed < gBattleMons[runningFromBattler].speed)
         {
-            speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 30);
+            speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 20);
             if (speedVar > (Random() & 0xFF))
                 effect = TRUE;
         }

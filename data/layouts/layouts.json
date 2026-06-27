@@ -9327,7 +9327,7 @@
     {
       "id": "LAYOUT_EGG_ISLAND_EXTERIOR",
       "name": "EggIsland_Exterior_Layout",
-      "width": 80,
+      "width": 81,
       "height": 82,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_Mauville",
