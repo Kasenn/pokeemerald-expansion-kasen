@@ -1922,9 +1922,9 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Chuck Egg"),
         .description = COMPOUND_STRING(
-            "Throws one of the eggs\n"
-            "you are carrying."),
-        .power = 1,
+            "Power and effect vary\n"
+            "based on the egg chucked."),
+        .power = 40,
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 10,

@@ -88,6 +88,14 @@ static const u8 sText_WildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} f
 static const u8 sText_TwoWildFled[] = _("{PLAY_SE SE_FLEE}{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME} fled!"); //not in gen 5+, replaced with match was forfeited text
 static const u8 sText_PlayerDefeatedLinkTrainerTrainer1[] = _("You defeated {B_TRAINER1_NAME_WITH_CLASS}!\p");
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
+static const u8 sText_IntroLevel1[] = _("a weak-looking");
+static const u8 sText_IntroLevel2[] = _("a wild");
+static const u8 sText_IntroLevel3[] = _("an extremely dangerous-looking");
+static const u8 sText_IntroLevel4[] = _("a dangerous-looking");
+static const u8 sText_IntroLevel5[] = _("a powerful-looking");
+static const u8 sText_IntroLevel6[] = _("a strong-looking");
+static const u8 sText_IntroLevel7[] = _("a tough-looking");
+
 static const u8 sText_WildPkmnAppeared[] = _("You encountered {B_BUFF1} {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_LegendaryPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!{PAUSE 127}");
@@ -2462,11 +2470,19 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         }
         else
         {
-            u16 species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
-            const u8 *battleIntro = gSpeciesInfo[species].battleIntro;
+            u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+            u8 opponentLevel = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_LEVEL);
+            s16 levelDifference = playerLevel - opponentLevel;
+            const u8 *battleIntro = sText_IntroLevel2;
 
-            if (battleIntro == NULL)
-                battleIntro = sText_WildPkmnIntro;
+            if (levelDifference >= 7)           { battleIntro = sText_IntroLevel1; }
+            else if (levelDifference == 0)      { battleIntro = sText_IntroLevel2; }
+            else if (levelDifference <= -25)    { battleIntro = sText_IntroLevel3; }
+            else if (levelDifference <= -20)    { battleIntro = sText_IntroLevel4; }
+            else if (levelDifference <= -15)    { battleIntro = sText_IntroLevel5; }
+            else if (levelDifference <= -10)    { battleIntro = sText_IntroLevel6; }
+            else if (levelDifference <= -5)     { battleIntro = sText_IntroLevel7; }
+
             StringCopy(gBattleTextBuff1, battleIntro);
 
             if (IsGhostBattleWithoutScope())

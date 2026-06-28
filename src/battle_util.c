@@ -615,7 +615,7 @@ bool32 TryRunFromBattle(enum BattlerId battler)
         }
         else if (gBattleMons[battler].speed < gBattleMons[runningFromBattler].speed)
         {
-            speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 20);
+            speedVar = (gBattleMons[battler].speed * 128) / (gBattleMons[runningFromBattler].speed) + (gBattleStruct->runTries * 30);
             if (speedVar > (Random() & 0xFF))
                 effect = TRUE;
         }
@@ -6747,7 +6747,6 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     enum BattleMoveEffects moveEffect = GetMoveEffect(move);
 
     atkBaseSpeciesId = GET_BASE_SPECIES_ID(gBattleMons[battlerAtk].species);
-
     if (moveEffect == EFFECT_FOUL_PLAY)
     {
         if (IsBattleMovePhysical(move))
@@ -6759,6 +6758,20 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         {
             atkStat = gBattleMons[battlerDef].spAttack;
             atkStage = gBattleMons[battlerDef].statStages[STAT_SPATK];
+        }
+    }
+    else if (moveEffect == EFFECT_CHUCK_EGG)
+    {
+        atkStat = gBattleMons[battlerAtk].attack;
+        atkStage = gBattleMons[battlerAtk].statStages[STAT_ATK];
+
+        for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+        {
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
+            {
+                atkStat = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_ATK);
+                break;
+            }
         }
     }
     else if (moveEffect == EFFECT_BODY_PRESS)
@@ -7649,9 +7662,6 @@ s32 DoFixedDamageMoveCalc(struct DamageContext *ctx)
 
     switch (GetMoveEffect(ctx->move))
     {
-    case EFFECT_CHUCK_EGG:
-        dmg = 20;
-        break;
     case EFFECT_LEVEL_DAMAGE:
         dmg = gBattleMons[ctx->battlerAtk].level;
         break;
@@ -8081,7 +8091,7 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
         mod = UQ_4_12(1.0);
     }
     else if ((ctx->moveType == TYPE_FIGHTING || ctx->moveType == TYPE_NORMAL) && defType == TYPE_GHOST
-        && (ctx->abilities[ctx->battlerAtk] == ABILITY_SCRAPPY || ctx->abilities[ctx->battlerAtk] == ABILITY_MINDS_EYE)
+        && (ctx->abilities[ctx->battlerAtk] == ABILITY_SCRAPPY || ctx->abilities[ctx->battlerAtk] == ABILITY_MINDS_EYE || ctx->move == MOVE_CHUCK_EGG)
         && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);

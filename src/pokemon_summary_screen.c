@@ -3717,24 +3717,24 @@ static void PrintEggState(void)
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), text, 0, 1, 0, 0);
 }
 
-static const u8 sText_NormalEgg[]       = _("A peculiar POKéMON EGG.\nIt looks very plain.");
-static const u8 sText_FlyingEgg[]       = _("A peculiar POKéMON EGG.\nIt feels very light.");
-static const u8 sText_FightingEgg[]     = _("A peculiar POKéMON EGG.\nYou sense a fighting spirit\nemanating from it.");
-static const u8 sText_PoisonEgg[]       = _("A peculiar POKéMON EGG.\nIt looks like it might be\ntoxic…");
-static const u8 sText_GroundEgg[]       = _("A peculiar POKéMON EGG.\nThe surface feels a bit\ndirty and rough.");
-static const u8 sText_RockEgg[]         = _("A peculiar POKéMON EGG.\nIt feels hard and heavy.");
-static const u8 sText_BugEgg[]          = _("A peculiar POKéMON EGG.\nIt feels creepy to hold.");
-static const u8 sText_GhostEgg[]        = _("A peculiar POKéMON EGG.\nIt seems almost\ntranslucent.");
-static const u8 sText_SteelEgg[]        = _("A peculiar POKéMON EGG.\nIt feels very sturdy\nand heavy.");
-static const u8 sText_FireEgg[]         = _("A peculiar POKéMON EGG.\nIt's warm to the touch.");
-static const u8 sText_WaterEgg[]        = _("A peculiar POKéMON EGG.\nIt feels damp and slippery.");
-static const u8 sText_GrassEgg[]        = _("A peculiar POKéMON EGG.\nIt gives off a nice aroma.");
-static const u8 sText_ElectricEgg[]     = _("A peculiar POKéMON EGG.\nYou feel a tingle as you\nhold it.");
-static const u8 sText_PsychicEgg[]      = _("A peculiar POKéMON EGG.\nIt's hard to take your\neyes off it.");
-static const u8 sText_IceEgg[]          = _("A peculiar POKéMON EGG.\nIt feels cold to the touch.");
-static const u8 sText_DragonEgg[]       = _("A peculiar POKéMON EGG.\nIt feels old and powerful.");
-static const u8 sText_DarkEgg[]         = _("A peculiar POKéMON EGG.\nThe surface barely\nreflects any light.");
-static const u8 sText_FairyEgg[]        = _("A peculiar POKéMON EGG.\nIt's got a peculiar glow.");
+static const u8 sText_NormalEgg[]       = _("A peculiar Pokémon Egg.\nIt looks very plain.");
+static const u8 sText_FlyingEgg[]       = _("A peculiar Pokémon Egg.\nIt feels very light.");
+static const u8 sText_FightingEgg[]     = _("A peculiar Pokémon Egg.\nYou sense a fighting spirit\nemanating from it.");
+static const u8 sText_PoisonEgg[]       = _("A peculiar Pokémon Egg.\nIt looks like it might be\ntoxic…");
+static const u8 sText_GroundEgg[]       = _("A peculiar Pokémon Egg.\nThe surface feels a bit\ndirty and rough.");
+static const u8 sText_RockEgg[]         = _("A peculiar Pokémon Egg.\nIt feels hard and heavy.");
+static const u8 sText_BugEgg[]          = _("A peculiar Pokémon Egg.\nIt feels creepy to hold.");
+static const u8 sText_GhostEgg[]        = _("A peculiar Pokémon Egg.\nIt seems almost\ntranslucent.");
+static const u8 sText_SteelEgg[]        = _("A peculiar Pokémon Egg.\nIt feels very sturdy\nand heavy.");
+static const u8 sText_FireEgg[]         = _("A peculiar Pokémon Egg.\nIt's warm to the touch.");
+static const u8 sText_WaterEgg[]        = _("A peculiar Pokémon Egg.\nIt feels damp and slippery.");
+static const u8 sText_GrassEgg[]        = _("A peculiar Pokémon Egg.\nIt gives off a nice aroma.");
+static const u8 sText_ElectricEgg[]     = _("A peculiar Pokémon Egg.\nYou feel a tingle as you\nhold it.");
+static const u8 sText_PsychicEgg[]      = _("A peculiar Pokémon Egg.\nIt's hard to take your\neyes off it.");
+static const u8 sText_IceEgg[]          = _("A peculiar Pokémon Egg.\nIt feels cold to the touch.");
+static const u8 sText_DragonEgg[]       = _("A peculiar Pokémon Egg.\nIt feels old and powerful.");
+static const u8 sText_DarkEgg[]         = _("A peculiar Pokémon Egg.\nThe surface barely\nreflects any light.");
+static const u8 sText_FairyEgg[]        = _("A peculiar Pokémon Egg.\nIt's got a peculiar glow.");
 
 static void PrintEggMemo(void)
 {

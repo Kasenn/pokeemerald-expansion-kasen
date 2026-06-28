@@ -462,8 +462,39 @@ static u8 PickWildMonNature(enum Species species)
     return GetSynchronizedNature(WILDMON_ORIGIN, species);
 }
 
+static const u16 sEncounterTable1[] =
+{
+    SPECIES_PIDGEY,
+    SPECIES_RATTATA,
+    SPECIES_SPEAROW,
+    SPECIES_EKANS,
+    SPECIES_MEOWTH,
+    SPECIES_MANKEY,
+    SPECIES_GRIMER,
+    SPECIES_VOLTORB,
+    SPECIES_EXEGGCUTE,
+    SPECIES_KOFFING,
+    SPECIES_AIPOM,
+    SPECIES_GLIGAR,
+    SPECIES_SNUBBULL,
+    SPECIES_SNEASEL,
+    SPECIES_HOUNDOUR,
+    SPECIES_POOCHYENA,
+    SPECIES_ELECTRIKE,
+    SPECIES_ZIGZAGOON,
+};
+
 void CreateWildMon(enum Species species, u8 level)
 {
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+    level = Random() % 25 + playerLevel - 15;
+    switch (VarGet(VAR_ENCOUNTER_TABLE))
+    {
+        default:
+        case 0:
+            species = sEncounterTable1[Random() % ARRAY_COUNT(sEncounterTable1)];
+            break;
+    }
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);
     CreateMonWithIVs(&gParties[B_TRAINER_OPPONENT_A][0], species, level, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);

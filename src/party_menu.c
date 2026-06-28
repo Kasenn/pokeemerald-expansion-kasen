@@ -7588,8 +7588,10 @@ void OpenPartyMenuInBattle(u8 partyAction)
     {
         if (partyAction == PARTY_ACTION_SEND_MON_TO_BOX)
             InitPartyMenu(PARTY_MENU_TYPE_IN_BATTLE, GetPartyLayoutFromBattleType(), partyAction, FALSE, PARTY_MSG_CHOOSE_MON_FOR_BOX, Task_HandleChooseMonInput, ReshowBlankBattleScreenAfterMenu);
-        else
+        else if (FlagGet(FLAG_EGGS_HATCHED))
             InitPartyMenu(PARTY_MENU_TYPE_IN_BATTLE, GetPartyLayoutFromBattleType(), partyAction, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_SetUpReshowBattleScreenAfterMenu);
+        else
+            InitPartyMenu(PARTY_MENU_TYPE_FIELD, GetPartyLayoutFromBattleType(), partyAction, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_SetUpReshowBattleScreenAfterMenu);
     }
     ReshowBattleScreenDummy();
     UpdatePartyToBattleOrder();
