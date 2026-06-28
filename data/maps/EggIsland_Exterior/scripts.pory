@@ -30,13 +30,17 @@ script Script_TryLootEgg{
             end
         }
         msgbox("Choose an egg to toss away.")
+        special(SavePlayerParty)
+        callnative(ReplaceChanseyWithEgg)
         special(ChoosePartyMon)
-        if(var(VAR_0x8004) >= PARTY_SIZE)
+        if(var(VAR_0x8004) >= PARTY_SIZE || var(VAR_0x8004) == 0)
         {
+            special(LoadPlayerParty)
             msgbox("Chansey left the egg where it was.")
             release
             end
         }
+        special(LoadPlayerParty)
         callnative(ReplaceEggInParty)
         msgbox("Chansey replaced an older egg\nwith the new one.")
     }
@@ -46,6 +50,6 @@ script Script_TryLootEgg{
 text TooManyEggs{
     "Chansey found an egg, but she's\n"
     "already carrying more than enough.\p"
-    "Replace an old egg with the new one?\n"
-    "{STR_VAR_1}"
+    "{STR_VAR_1}\p"
+    "Replace an old egg with the new one?"
 }

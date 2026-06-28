@@ -523,7 +523,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
     [PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT] = {
         .bg = 0,
         .tilemapLeft = 10,
-        .tilemapTop = 7,
+        .tilemapTop = 9,
         .width = 6,
         .height = 6,
         .paletteNum = 6,
@@ -532,7 +532,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
     [PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT] = {
         .bg = 0,
         .tilemapLeft = 22,
-        .tilemapTop = 7,
+        .tilemapTop = 9,
         .width = 5,
         .height = 6,
         .paletteNum = 6,
@@ -541,7 +541,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
     [PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP] = {
         .bg = 0,
         .tilemapLeft = 10,
-        .tilemapTop = 14,
+        .tilemapTop = 16,
         .width = 11,
         .height = 4,
         .paletteNum = 6,
@@ -618,8 +618,8 @@ static const struct WindowTemplate sPageInfoTemplate[] =
         .bg = 0,
         .tilemapLeft = 11,
         .tilemapTop = 4,
-        .width = 11,
-        .height = 2,
+        .width = 18,
+        .height = 4,
         .paletteNum = 6,
         .baseBlock = 467,
     },
@@ -644,9 +644,9 @@ static const struct WindowTemplate sPageInfoTemplate[] =
     [PSS_DATA_WINDOW_INFO_MEMO] = {
         .bg = 0,
         .tilemapLeft = 11,
-        .tilemapTop = 14,
+        .tilemapTop = 9,
         .width = 18,
-        .height = 6,
+        .height = 12,
         .paletteNum = 6,
         .baseBlock = 575,
     },
@@ -674,29 +674,29 @@ static const struct WindowTemplate sPageSkillsTemplate[] =
     [PSS_DATA_WINDOW_SKILLS_STATS_LEFT] = {
         .bg = 0,
         .tilemapLeft = 16,
-        .tilemapTop = 7,
+        .tilemapTop = 9,
         .width = 6,
         .height = 6,
         .paletteNum = 6,
-        .baseBlock = 507,
+        .baseBlock = 575,
     },
     [PSS_DATA_WINDOW_SKILLS_STATS_RIGHT] = {
         .bg = 0,
         .tilemapLeft = 27,
-        .tilemapTop = 7,
+        .tilemapTop = 9,
         .width = 3,
         .height = 6,
         .paletteNum = 6,
-        .baseBlock = 543,
+        .baseBlock = 611,
     },
     [PSS_DATA_WINDOW_EXP] = {
         .bg = 0,
         .tilemapLeft = 24,
-        .tilemapTop = 14,
+        .tilemapTop = 16,
         .width = 6,
         .height = 4,
         .paletteNum = 6,
-        .baseBlock = 561,
+        .baseBlock = 629,
     },
 };
 static const struct WindowTemplate sPageMovesTemplate[] = // This is used for both battle and contest moves
@@ -1229,16 +1229,16 @@ void ShowPokemonSummaryScreen(u8 mode, void *mons, u8 monIndex, u8 maxMonIndex, 
     case SUMMARY_MODE_RELEARNER_BATTLE:
     case SUMMARY_MODE_RELEARNER_CONTEST:
         sMonSummaryScreen->minPageIndex = 0;
-        sMonSummaryScreen->maxPageIndex = PSS_PAGE_COUNT - 1;
+        sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;
         break;
     case SUMMARY_MODE_LOCK_MOVES:
         sMonSummaryScreen->minPageIndex = 0;
-        sMonSummaryScreen->maxPageIndex = PSS_PAGE_COUNT - 1;
+        sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;
         sMonSummaryScreen->lockMovesFlag = TRUE;
         break;
     case SUMMARY_MODE_SELECT_MOVE:
         sMonSummaryScreen->minPageIndex = PSS_PAGE_BATTLE_MOVES;
-        sMonSummaryScreen->maxPageIndex = PSS_PAGE_COUNT - 1;
+        sMonSummaryScreen->maxPageIndex = PSS_PAGE_BATTLE_MOVES;
         sMonSummaryScreen->lockMonFlag = TRUE;
         break;
     }
@@ -3195,12 +3195,18 @@ static void PrintMonInfo(void)
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER, PIXEL_FILL(0));
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, PIXEL_FILL(0));
     FillWindowPixelBuffer(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, PIXEL_FILL(0));
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT, PIXEL_FILL(0));
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT, PIXEL_FILL(0));
+    FillWindowPixelBuffer(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP, PIXEL_FILL(0));
+
     if (!sMonSummaryScreen->summary.isEgg)
         PrintNotEggInfo();
     else
         PrintEggInfo();
     ScheduleBgCopyTilemapToVram(0);
 }
+
+static const u8 sText_NewEgg[] = _("New Egg");
 
 static void PrintNotEggInfo(void)
 {
@@ -3245,15 +3251,23 @@ static void PrintNotEggInfo(void)
     PrintGenderSymbol(mon, summary->species2);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
+    PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
+    PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
+    PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
 }
 
 static void PrintEggInfo(void)
 {
     GetMonNickname(&sMonSummaryScreen->currentMon, gStringVar1);
+    if (GetMonData(&sMonSummaryScreen->currentMon, MON_DATA_SMART))
+        StringCopy(gStringVar1, sText_NewEgg);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gStringVar1, 0, 1, 0, 1);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
     ClearWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_DEX_NUMBER);
     ClearWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
+    ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
+    ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
+    ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
 }
 
 static void PrintGenderSymbol(struct Pokemon *mon, enum Species species)
@@ -3334,8 +3348,6 @@ static void PutPageWindowTilemaps(u8 page)
         if (InBattleFactory() == TRUE || InSlateportBattleTent() == TRUE)
             PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
-        break;
-    case PSS_PAGE_SKILLS:
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_TITLE);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         PutWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
@@ -3391,8 +3403,6 @@ static void ClearPageWindowTilemaps(u8 page)
             ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_RENTAL);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_INFO_TYPE);
         ClearWindowTilemap(PSS_LABEL_WINDOW_PROMPT_RELEARN);
-        break;
-    case PSS_PAGE_SKILLS:
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_LEFT);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_STATS_RIGHT);
         ClearWindowTilemap(PSS_LABEL_WINDOW_POKEMON_SKILLS_EXP);
@@ -3471,19 +3481,20 @@ static void PrintInfoPageText(void)
 {
     if (sMonSummaryScreen->summary.isEgg)
     {
-        PrintEggOTName();
-        PrintEggOTID();
+        // PrintEggOTName();
+        // PrintEggOTID();
         PrintEggState();
         PrintEggMemo();
     }
     else
     {
-        PrintMonOTName();
-        PrintMonOTID();
+        // PrintMonOTName();
+        // PrintMonOTID();
         PrintMonAbilityName();
         PrintMonAbilityDescription();
-        BufferMonTrainerMemo();
-        PrintMonTrainerMemo();
+        PrintSkillsPageText();
+        // BufferMonTrainerMemo();
+        // PrintMonTrainerMemo();
     }
 }
 
@@ -3493,10 +3504,10 @@ static void Task_PrintInfoPage(u8 taskId)
     switch (data[0])
     {
     case 1:
-        PrintMonOTName();
+        // PrintMonOTName();
         break;
     case 2:
-        PrintMonOTID();
+        // PrintMonOTID();
         break;
     case 3:
         PrintMonAbilityName();
@@ -3505,10 +3516,10 @@ static void Task_PrintInfoPage(u8 taskId)
         PrintMonAbilityDescription();
         break;
     case 5:
-        BufferMonTrainerMemo();
+        PrintSkillsPageText();
         break;
     case 6:
-        PrintMonTrainerMemo();
+        // PrintMonTrainerMemo();
         break;
     case 7:
         DestroyTask(taskId);
@@ -3517,7 +3528,7 @@ static void Task_PrintInfoPage(u8 taskId)
     data[0]++;
 }
 
-static void PrintMonOTName(void)
+static void UNUSED PrintMonOTName(void)
 {
     int x, windowId;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
@@ -3532,7 +3543,7 @@ static void PrintMonOTName(void)
     }
 }
 
-static void PrintMonOTID(void)
+static void UNUSED PrintMonOTID(void)
 {
     int xPos;
     if (InBattleFactory() != TRUE && InSlateportBattleTent() != TRUE)
@@ -3546,16 +3557,16 @@ static void PrintMonOTID(void)
 static void PrintMonAbilityName(void)
 {
     enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilitiesInfo[ability].name, 0, 1, 0, 1);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER), gAbilitiesInfo[ability].name, 0, 1, 0, 1);
 }
 
 static void PrintMonAbilityDescription(void)
 {
     enum Ability ability = GetAbilityBySpecies(sMonSummaryScreen->summary.species, sMonSummaryScreen->summary.abilityNum);
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), gAbilitiesInfo[ability].description, 0, 17, 0, 0);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER), gAbilitiesInfo[ability].description, 0, 17, 0, 0);
 }
 
-static void BufferMonTrainerMemo(void)
+static void UNUSED BufferMonTrainerMemo(void)
 {
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
     const u8 *text;
@@ -3607,7 +3618,7 @@ static void BufferMonTrainerMemo(void)
     }
 }
 
-static void PrintMonTrainerMemo(void)
+static void UNUSED PrintMonTrainerMemo(void)
 {
     PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 1, 0, 0);
 }
@@ -3688,7 +3699,7 @@ static bool8 IsInGamePartnerMon(void)
     return FALSE;
 }
 
-static void PrintEggOTName(void)
+static void UNUSED PrintEggOTName(void)
 {
     u32 windowId = AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER);
     u32 width = GetStringWidth(FONT_NORMAL, gText_OTSlash, 0);
@@ -3696,7 +3707,7 @@ static void PrintEggOTName(void)
     PrintTextOnWindow(windowId, gText_FiveMarks, width, 1, 0, 1);
 }
 
-static void PrintEggOTID(void)
+static void UNUSED PrintEggOTID(void)
 {
     int x;
     StringCopy(gStringVar1, gText_IDNumber2);
@@ -3714,7 +3725,7 @@ static void PrintEggState(void)
     else
         text = gText_EggWillTakeALongTime;
 
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ABILITY), text, 0, 1, 0, 0);
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_ORIGINAL_TRAINER), text, 0, 0, 0, 0);
 }
 
 static const u8 sText_NormalEgg[]       = _("A peculiar Pokémon Egg.\nIt looks very plain.");
@@ -3736,9 +3747,16 @@ static const u8 sText_DragonEgg[]       = _("A peculiar Pokémon Egg.\nIt feels 
 static const u8 sText_DarkEgg[]         = _("A peculiar Pokémon Egg.\nThe surface barely\nreflects any light.");
 static const u8 sText_FairyEgg[]        = _("A peculiar Pokémon Egg.\nIt's got a peculiar glow.");
 
+static const u8 sText_AtkText1[]       = _("\nIt looks like throwing it\nwill barely even hurt.");
+static const u8 sText_AtkText2[]       = _("\nIt looks like throwing it\nmight sting a little.");
+static const u8 sText_AtkText3[]       = _("\nIt looks like throwing it\nmight do some damage.");
+static const u8 sText_AtkText4[]       = _("\nIt looks like throwing it\nmight really hurt.");
+static const u8 sText_AtkText5[]       = _("\nIt looks like throwing it\nmight do serious damage.");
+
 static void PrintEggMemo(void)
 {
     const u8 *text;
+    const u8 *atkText;
     struct PokeSummary *sum = &sMonSummaryScreen->summary;
 
     enum Type eggType = GetEggMainType(sum->species);
@@ -3765,13 +3783,29 @@ static void PrintEggMemo(void)
     default:            text = sText_NormalEgg;   break;
     }
 
-    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), text, 0, 1, 0, 0);
+    u8 attack = gSpeciesInfo[sum->species].baseAttack;
+
+    if (attack < 25)
+        atkText = sText_AtkText1;
+    else if (attack < 50)
+        atkText = sText_AtkText2;
+    else if (attack < 75)
+        atkText = sText_AtkText3;
+    else if (attack < 100)
+        atkText = sText_AtkText4;
+    else
+        atkText = sText_AtkText5;
+
+    StringCopy(gStringVar4, text);
+    StringAppend(gStringVar4, atkText);
+
+    PrintTextOnWindow(AddWindowFromTemplateList(sPageInfoTemplate, PSS_DATA_WINDOW_INFO_MEMO), gStringVar4, 0, 1, 0, 0);
 }
 
 static void PrintSkillsPageText(void)
 {
     PrintHeldItemName();
-    PrintRibbonCount();
+    // PrintRibbonCount();
     if (ShouldShowIvEvPrompt())
         ShowUtilityPrompt(SUMMARY_SKILLS_MODE_STATS);
     BufferLeftColumnStats();
@@ -3818,6 +3852,8 @@ static void Task_PrintSkillsPage(u8 taskId)
     data[0]++;
 }
 
+static const u8 sText_HeldItem[] = _("Held Item:");
+
 static void PrintHeldItemName(void)
 {
     const u8 *text;
@@ -3840,9 +3876,11 @@ static void PrintHeldItemName(void)
         text = gStringVar1;
     }
 
-    fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sPageSkillsTemplate[PSS_DATA_WINDOW_SKILLS_HELD_ITEM]) - 8);
+    fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sSummaryTemplate[PSS_LABEL_WINDOW_PORTRAIT_SPECIES]) - 8);
     x = GetStringCenterAlignXOffset(fontId, text, 72) + 6;
-    PrintTextOnWindowWithFont(AddWindowFromTemplateList(sPageSkillsTemplate, PSS_DATA_WINDOW_SKILLS_HELD_ITEM), text, x, 1, 0, 0, fontId);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, sText_HeldItem, 0, 1, 0, 1);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, text, x, 15, 0, 1);
+    // PrintTextOnWindowWithFont(AddWindowFromTemplateList(sSummaryTemplate, PSS_LABEL_WINDOW_PORTRAIT_SPECIES), text, x, 1, 0, 0, fontId);
 }
 
 static void PrintRibbonCount(void)
@@ -4375,6 +4413,7 @@ void SetTypeSpritePosAndPal(enum Type typeId, u8 x, u8 y, u8 spriteArrayId)
 
 static void SetMonTypeIcons(void)
 {
+    return;
     struct PokeSummary *summary = &sMonSummaryScreen->summary;
     if (summary->isEgg)
     {
@@ -4641,6 +4680,7 @@ static void StopPokemonAnimations(void)  // A subtle effect, this function stops
 
 static void CreateMonMarkingsSprite(struct Pokemon *mon)
 {
+    return;
     struct Sprite *sprite = CreateMonMarkingAllCombosSprite(TAG_MON_MARKINGS, TAG_MON_MARKINGS, sMarkings_Pal);
 
     sMonSummaryScreen->markingsSprite = sprite;

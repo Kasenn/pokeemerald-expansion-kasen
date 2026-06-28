@@ -3606,6 +3606,14 @@ static const u16 sListOfEligibleEggMons[] =
     SPECIES_BELDUM,
 };
 
+void GetMonAttacks(void)
+{
+    for (int i = 0; i < ARRAY_COUNT(sListOfEligibleEggMons); i++)
+    {
+        DebugPrintf("atk %d", gSpeciesInfo[sListOfEligibleEggMons[i]].baseAttack);
+    }
+}
+
 void GeneratePokemonForEgg(void)
 {
     u16 firstMon  = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SPECIES);
@@ -3626,6 +3634,7 @@ void GeneratePokemonForEgg(void)
           || eggMon == fifthMon
           || eggMon == sixthMon);
 
+    ResetEggs();
     gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
     gSpecialVar_0x8000 = eggMon;
 }
@@ -3676,9 +3685,16 @@ static const u8 sText_DragonEgg[]       = _("This one feels old and powerful.");
 static const u8 sText_DarkEgg[]         = _("This one barely reflects any light.");
 static const u8 sText_FairyEgg[]        = _("This one's got a peculiar glow.");
 
+static const u8 sText_AtkText1[]       = _("\nIt doesn't look like throwing it\lhurts that much.");
+static const u8 sText_AtkText2[]       = _("\nIt looks like throwing it\lmight sting a little.");
+static const u8 sText_AtkText3[]       = _("\nIt looks like throwing it\lmight do some damage.");
+static const u8 sText_AtkText4[]       = _("\nIt looks like throwing it\lmight really hurt.");
+static const u8 sText_AtkText5[]       = _("\nIt looks like throwing it\lmight do some serious damage.");
+
 void BufferEggTextBasedOnType(void)
 {
     const u8 *text;
+    const u8 *atkText;
 
     switch (GetEggMainType(gSpecialVar_0x8000))
     {
@@ -3702,11 +3718,33 @@ void BufferEggTextBasedOnType(void)
     default:            text = sText_NormalEgg;   break;
     }
 
+    u8 attack = gSpeciesInfo[gSpecialVar_0x8000].baseAttack;
+
+    if (attack < 25)
+        atkText = sText_AtkText1;
+    else if (attack < 50)
+        atkText = sText_AtkText2;
+    else if (attack < 75)
+        atkText = sText_AtkText3;
+    else if (attack < 100)
+        atkText = sText_AtkText4;
+    else
+        atkText = sText_AtkText5;
+
     StringCopy(gStringVar1, text);
+    StringAppend(gStringVar1, atkText);
 }
 
 void ReplaceEggInParty(void)
 {
     ZeroMonData(&gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004]);
     ScriptGiveEgg(gSpecialVar_0x8000);
+}
+
+void ReplaceChanseyWithEgg(void)
+{
+    u16 check = 1;
+    ZeroMonData(&gParties[B_TRAINER_PLAYER][0]);
+    ScriptGiveEgg(gSpecialVar_0x8000);
+    SetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SMART, &check);
 }

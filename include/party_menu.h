@@ -24,6 +24,7 @@ enum PartyMenuType
     PARTY_MENU_TYPE_IN_BATTLE,
     PARTY_MENU_TYPE_CONTEST,
     PARTY_MENU_TYPE_CHOOSE_MON,
+    PARTY_MENU_TYPE_TOSS_EGG,
     PARTY_MENU_TYPE_CHOOSE_HALF,                // multi battles, eReader battles, and some battle facilities
     PARTY_MENU_TYPE_MULTI_SHOWCASE,
     PARTY_MENU_TYPE_DAYCARE,
