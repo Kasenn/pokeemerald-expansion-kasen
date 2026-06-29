@@ -21,7 +21,7 @@ u8 CreateMonIconNoPersonalityIsEgg(enum Species species, void (*callback)(struct
 void FreeMonIconPalette(enum Species species);
 void FreeAndDestroyMonIconSprite(struct Sprite *sprite);
 u8 CreateMonIcon(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality);
-u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 isEgg);
+u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 isEgg, s8 slot);
 u8 UpdateMonIconFrame(struct Sprite *sprite);
 void LoadMonIconPalette(enum Species species);
 void LoadMonIconPalettePersonality(enum Species species, u32 personality);

@@ -136,11 +136,27 @@ static const u16 sSpriteImageSizes[3][4] =
 
 u8 CreateMonIcon(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality)
 {
-    return CreateMonIconIsEgg(species, callback, x, y, subpriority, personality, FALSE);
+    return CreateMonIconIsEgg(species, callback, x, y, subpriority, personality, FALSE, -127);
 }
 
-u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 isEgg)
+u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s16 x, s16 y, u8 subpriority, u32 personality, bool32 isEgg, s8 slot)
 {
+    s8 iconPalIndex, eggIconPalIndex, specialEggIconPalIndex, IconPalIndexFemale;
+
+    if (slot == -127)
+    {
+        iconPalIndex = gSpeciesInfo[species].iconPalIndex;
+        eggIconPalIndex = gSpeciesInfo[SPECIES_EGG].iconPalIndex;
+        IconPalIndexFemale = gSpeciesInfo[species].iconPalIndexFemale;
+        specialEggIconPalIndex = gEggDatas[gSpeciesInfo[species].eggId].eggIconPalIndex;
+    }
+    else
+    {
+        iconPalIndex = slot;
+        eggIconPalIndex = slot;
+        IconPalIndexFemale = slot;
+        specialEggIconPalIndex = slot;
+    }
     u8 spriteId;
     struct MonIconSpriteTemplate iconTemplate =
     {
@@ -149,16 +165,16 @@ u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s
         .anims = sMonIconAnims,
         .affineAnims = sMonIconAffineAnims,
         .callback = callback,
-        .paletteTag = POKE_ICON_BASE_PAL_TAG + gSpeciesInfo[species].iconPalIndex,
+        .paletteTag = POKE_ICON_BASE_PAL_TAG + iconPalIndex,
     };
     species = SanitizeSpeciesId(species);
 
     if (isEgg)
     {
         if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
-            iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + gEggDatas[gSpeciesInfo[species].eggId].eggIconPalIndex;
+            iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + specialEggIconPalIndex;
         else
-            iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + gSpeciesInfo[SPECIES_EGG].iconPalIndex;
+            iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + eggIconPalIndex;
     }
     else if (species > NUM_SPECIES)
     {
@@ -167,7 +183,7 @@ u8 CreateMonIconIsEgg(enum Species species, void (*callback)(struct Sprite *), s
 #if P_GENDER_DIFFERENCES
     else if (gSpeciesInfo[species].iconSpriteFemale != NULL && IsPersonalityFemale(species, personality))
     {
-        iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + gSpeciesInfo[species].iconPalIndexFemale;
+        iconTemplate.paletteTag = POKE_ICON_BASE_PAL_TAG + IconPalIndexFemale;
     }
 #endif
 
@@ -247,8 +263,23 @@ void FreeAndDestroyMonIconSprite(struct Sprite *sprite)
 void LoadMonIconPalettes(void)
 {
     u8 i;
-    for (i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
-        LoadSpritePalette(&gMonIconPaletteTable[i]);
+    u16 isEgg;
+    enum Species species;
+    struct SpritePalette palette;
+    for (i = 0; i < PARTY_SIZE; i++)
+    {
+        species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
+        isEgg = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG);
+        if (species == SPECIES_NONE)
+            continue;
+        if (isEgg)
+            palette.data = gSpeciesInfo[species].eggPalette;
+        else
+            palette.data = gMonIconPaletteTable[gSpeciesInfo[species].iconPalIndex].data;
+        palette.tag = POKE_ICON_BASE_PAL_TAG + i;
+
+        LoadSpritePalette(&palette);
+    }
 }
 
 // unused
