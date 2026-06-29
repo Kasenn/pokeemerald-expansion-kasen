@@ -4,6 +4,29 @@ mapscripts EggIsland_Exterior_MapScripts {
     }
 }
 
+script Script_StartMenuRest{
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    callnative(UpdateEggPP)
+    msgbox("Your party has been fully healed.")
+    release
+    end
+}
+
+script Script_RetreatWithDiglett{
+    msgbox(RetreatWithDiglett_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setfieldeffectargument(0, 0xFF)
+    goto(EventScript_DigCommon)
+}
+
+text RetreatWithDiglett_Text{
+    "Call out for Diglett and\n"
+    "return back to latest save point?"
+}
+
 script Script_TryLootEgg{
     lock
     callnative(GeneratePokemonForEgg)

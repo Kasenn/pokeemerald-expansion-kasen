@@ -71,6 +71,8 @@ enum
     MENU_ACTION_PYRAMID_BAG,
     MENU_ACTION_DEBUG,
     MENU_ACTION_DEXNAV,
+    MENU_ACTION_RETREAT,
+    MENU_ACTION_REST,
 };
 
 // Save status
@@ -113,6 +115,8 @@ static bool8 StartMenuBattlePyramidRetireCallback(void);
 static bool8 StartMenuBattlePyramidBagCallback(void);
 static bool8 StartMenuDebugCallback(void);
 static bool8 StartMenuDexNavCallback(void);
+static bool8 StartMenuRetreatCallback(void);
+static bool8 StartMenuRestCallback(void);
 
 // Menu callbacks
 static bool8 SaveStartCallback(void);
@@ -190,11 +194,15 @@ static const struct WindowTemplate sWindowTemplate_PyramidPeak = {
 };
 
 static const u8 sText_MenuDebug[] = _("DEBUG");
+static const u8 sText_MenuRetreat[] = _("Retreat");
+static const u8 sText_MenuRest[] = _("Rest");
 
 static const struct MenuAction sStartMenuItems[] =
 {
     [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
     [MENU_ACTION_POKEMON]         = {gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback}},
+    [MENU_ACTION_RETREAT]         = {sText_MenuRetreat, {.u8_void = StartMenuRetreatCallback}},
+    [MENU_ACTION_REST]            = {sText_MenuRest,    {.u8_void = StartMenuRestCallback}},
     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
     [MENU_ACTION_POKENAV]         = {gText_MenuPokenav, {.u8_void = StartMenuPokeNavCallback}},
     [MENU_ACTION_PLAYER]          = {gText_MenuPlayer,  {.u8_void = StartMenuPlayerNameCallback}},
@@ -333,9 +341,14 @@ static void AddStartMenuAction(u8 action)
 
 static void BuildNormalStartMenu(void)
 {
+    if (FlagGet(FLAG_DIGLETT_RESCUED))
+        AddStartMenuAction(MENU_ACTION_RETREAT);
     AddStartMenuAction(MENU_ACTION_POKEMON);
     if (GetMetatileNearPlayer(MB_SAVE_POINT, TRUE))
+    {
+        AddStartMenuAction(MENU_ACTION_REST);
         AddStartMenuAction(MENU_ACTION_SAVE);
+    }
     AddStartMenuAction(MENU_ACTION_OPTION);
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
@@ -650,6 +663,8 @@ static bool8 HandleStartMenuInput(void)
         if (gMenuCallback != StartMenuSaveCallback
             && gMenuCallback != StartMenuExitCallback
             && gMenuCallback != StartMenuDebugCallback
+            && gMenuCallback != StartMenuRetreatCallback
+            && gMenuCallback != StartMenuRestCallback
             && gMenuCallback != StartMenuSafariZoneRetireCallback
             && gMenuCallback != StartMenuBattlePyramidRetireCallback)
         {
@@ -713,6 +728,24 @@ static bool8 StartMenuBagCallback(void)
     }
 
     return FALSE;
+}
+
+static bool8 StartMenuRetreatCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+    ScriptContext_SetupScript(Script_RetreatWithDiglett);
+
+    return TRUE;
+}
+
+static bool8 StartMenuRestCallback(void)
+{
+    RemoveExtraStartMenuWindows();
+    HideStartMenu();
+    ScriptContext_SetupScript(Script_StartMenuRest);
+
+    return TRUE;
 }
 
 static bool8 StartMenuPokeNavCallback(void)

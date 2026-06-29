@@ -1482,7 +1482,7 @@ bool8 GetMetatileNearPlayer(u16 metatileBehavior, bool8 underPlayer)
     else
         GetXYCoordsOneStepInFrontOfPlayer(&x, &y);
 
-    return MapGridGetMetatileIdAt(x, y) == metatileBehavior;
+    return MapGridGetMetatileBehaviorAt(x, y) == metatileBehavior;
 }
 
 u8 player_get_pos_including_state_based_drift(s16 *x, s16 *y)

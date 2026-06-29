@@ -44,6 +44,7 @@ static void TilesetAnim_BikeShop(u16);
 static void TilesetAnim_BattlePyramid(u16);
 static void TilesetAnim_BattleDome(u16);
 static void QueueAnimTiles_General_Flower(u16);
+static void QueueAnimTiles_General_SavePoint(u16);
 static void QueueAnimTiles_General_Water(u16);
 static void QueueAnimTiles_General_SandWaterEdge(u16);
 static void QueueAnimTiles_General_Waterfall(u16);
@@ -84,6 +85,18 @@ const u16 *const gTilesetAnims_General_Flower[] = {
     gTilesetAnims_General_Flower_Frame1,
     gTilesetAnims_General_Flower_Frame0,
     gTilesetAnims_General_Flower_Frame2
+};
+
+const u16 gTilesetAnims_General_Save_Point_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/save_point/frame1.png", ".4bpp");
+const u16 gTilesetAnims_General_Save_Point_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/save_point/frame2.png", ".4bpp");
+const u16 gTilesetAnims_General_Save_Point_Frame2[] = INCGFX_U16("data/tilesets/primary/general/anim/save_point/frame3.png", ".4bpp");
+const u16 gTilesetAnims_General_Save_Point_Frame3[] = INCGFX_U16("data/tilesets/primary/general/anim/save_point/frame4.png", ".4bpp");
+
+const u16 *const gTilesetAnims_General_Save_Point[] = {
+    gTilesetAnims_General_Save_Point_Frame0,
+    gTilesetAnims_General_Save_Point_Frame1,
+    gTilesetAnims_General_Save_Point_Frame2,
+    gTilesetAnims_General_Save_Point_Frame3
 };
 
 const u16 gTilesetAnims_General_Water_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/water/0.png", ".4bpp");
@@ -631,6 +644,8 @@ void InitTilesetAnim_Building(void)
 
 static void TilesetAnim_General(u16 timer)
 {
+    if (timer % 4 == 0)
+        QueueAnimTiles_General_SavePoint(timer / 4);
     if (timer % 16 == 0)
         QueueAnimTiles_General_Flower(timer / 16);
     if (timer % 16 == 1)
@@ -647,6 +662,11 @@ static void TilesetAnim_Building(u16 timer)
 {
     if (timer % 8 == 0)
         QueueAnimTiles_Building_TVTurnedOn(timer / 8);
+}
+static void QueueAnimTiles_General_SavePoint(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_General_Save_Point);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_Save_Point[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x110)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_General_Flower(u16 timer)

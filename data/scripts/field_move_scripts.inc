@@ -371,7 +371,7 @@ EventScript_NoSurface::
 	end
 
 EventScript_DigCommon:
-	isfollowerfieldmoveuser VAR_0x8004
+	setvar VAR_0x8004, TRUE
 	setfieldeffectargument 3, VAR_0x8004 @ skip pose if true
 	dofieldeffect FLDEFF_USE_DIG
 	waitstate

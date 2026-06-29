@@ -230,6 +230,7 @@ Debug_EventScript_Script_2::
 	end
 
 Debug_EventScript_Script_3::
+	setflag FLAG_DIGLETT_RESCUED
 	release
 	end
 

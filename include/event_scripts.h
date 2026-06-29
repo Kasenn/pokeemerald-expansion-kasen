@@ -5,6 +5,8 @@ extern const u8 EventScript_Follower[];
 extern const u8 EventScript_FollowerEnd[];
 extern const u8 EventScript_FollowerGeneric[];
 extern const u8 EventScript_FollowerLovesYou[];
+extern const u8 Script_RetreatWithDiglett[];
+extern const u8 Script_StartMenuRest[];
 
 extern const u8 EventScript_FollowerIsShivering[];
 extern const u8 EventScript_FollowerNostalgia[];
