@@ -1189,7 +1189,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
 
     [ABILITY_PRANKSTER] =
     {
-        .name = _("Prankster"),
+        .name = _("Swift"),
         .description = COMPOUND_STRING("Status moves go first."),
         .aiRating = 8,
     },

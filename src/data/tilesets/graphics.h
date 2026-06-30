@@ -3048,3 +3048,63 @@ const u16 ALIGNED(4) gTilesetPalettes_General_Frlg[][16] =
 const u32 gTilesetTiles_General_Frlg[] = INCGFX_U32("data/tilesets/primary/general_frlg/tiles.png", ".4bpp.smol");
 
 #endif // IS_FRLG
+
+const u16 gTilesetPalettes_YoshiIntro[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/yoshi_intro/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_YoshiIntro[] = INCBIN_U32("data/tilesets/primary/yoshi_intro/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_porytiles_primary_tutorial[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_porytiles_primary_tutorial[] = INCBIN_U32("data/tilesets/primary/porytiles_primary_tutorial/tiles.4bpp.lz");
+
+const u32 gTilesetTiles_PorytilesManaged_example[] = INCBIN_U32("data/tilesets/primary/example/porytiles_bin/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_PorytilesManaged_example[][16] =
+{
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/12.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/13.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/14.gbapal"),
+    INCBIN_U16("data/tilesets/primary/example/porytiles_bin/palettes/15.gbapal")
+};

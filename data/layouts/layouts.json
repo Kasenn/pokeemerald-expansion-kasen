@@ -9333,6 +9333,16 @@
       "secondary_tileset": "gTileset_Mauville",
       "border_filepath": "data/layouts/EggIsland_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/EggIsland_Exterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_YOSHI_INTRO",
+      "name": "YoshiIntro_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_example",
+      "secondary_tileset": "gTileset_Petalburg",
+      "border_filepath": "data/layouts/YoshiIntro/border.bin",
+      "blockdata_filepath": "data/layouts/YoshiIntro/map.bin"
     }
   ]
 }

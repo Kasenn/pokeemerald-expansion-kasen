@@ -1541,3 +1541,36 @@ const struct Tileset gTileset_HallOfFame =
 };
 
 #endif // IS_FRLG
+
+const struct Tileset gTileset_YoshiIntro =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_YoshiIntro,
+    .palettes = gTilesetPalettes_YoshiIntro,
+    .metatiles = gMetatiles_YoshiIntro,
+    .metatileAttributes = gMetatileAttributes_YoshiIntro,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_porytiles_primary_tutorial =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_porytiles_primary_tutorial,
+    .palettes = gTilesetPalettes_porytiles_primary_tutorial,
+    .metatiles = gMetatiles_porytiles_primary_tutorial,
+    .metatileAttributes = gMetatileAttributes_porytiles_primary_tutorial,
+    .callback = NULL,
+};
+
+const struct Tileset gTileset_example =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_PorytilesManaged_example,
+    .palettes = gTilesetPalettes_PorytilesManaged_example,
+    .metatiles = gMetatiles_PorytilesManaged_example,
+    .metatileAttributes = gMetatileAttributes_PorytilesManaged_example,
+    .callback = NULL,
+};

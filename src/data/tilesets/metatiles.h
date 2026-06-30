@@ -408,3 +408,12 @@ const u16 gMetatiles_HallOfFame[] = INCBIN_U16("data/tilesets/secondary/hall_of_
 const u16 gMetatileAttributes_HallOfFame[] = INCBIN_U16("data/tilesets/secondary/hall_of_fame_frlg/metatile_attributes.bin");
 
 #endif // IS_FRLG
+
+const u16 gMetatiles_YoshiIntro[] = INCBIN_U16("data/tilesets/primary/yoshi_intro/metatiles.bin");
+const u16 gMetatileAttributes_YoshiIntro[] = INCBIN_U16("data/tilesets/primary/yoshi_intro/metatile_attributes.bin");
+
+const u16 gMetatiles_porytiles_primary_tutorial[] = INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/metatiles.bin");
+const u16 gMetatileAttributes_porytiles_primary_tutorial[] = INCBIN_U16("data/tilesets/primary/porytiles_primary_tutorial/metatile_attributes.bin");
+
+const u16 gMetatiles_PorytilesManaged_example[] = INCBIN_U16("data/tilesets/primary/example/porytiles_bin/metatiles.bin");
+const u16 gMetatileAttributes_PorytilesManaged_example[] = INCBIN_U16("data/tilesets/primary/example/porytiles_bin/metatile_attributes.bin");

@@ -1452,3 +1452,6 @@ void InitTilesetAnim_CeladonGym(void)
     sSecondaryTilesetAnimCallback = TilesetAnim_CeladonGym;
 }
 
+
+// [Porytiles] Auto-generated include. Do not remove.
+#include "porytiles_generated/tilesets/example/generated_anim_code.h"
