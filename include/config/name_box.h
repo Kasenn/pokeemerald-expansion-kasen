@@ -7,7 +7,7 @@
 #define OW_NAME_BOX_USE_DYNAMIC_WIDTH TRUE  // When TRUE, the namebox window can use different width depending on the length of the speaker's name.
 #define OW_NAME_BOX_NPC_TRAINER       FALSE // When TRUE, any approaching NPC trainers will have a namebox shown automagically. The name will be taken from their trainer data.
 #define OW_NAME_BOX_DEFAULT_WIDTH     8     // Maximum width of what OW_NAME_BOX_USE_DYNAMIC_WIDTH can set. Also the default width when the config above is set to FALSE (or the dynamic width exceeds this value).
-#define OW_NAME_BOX_DEFAULT_HEIGHT    2     // Maximum height of the namebox window.
+#define OW_NAME_BOX_DEFAULT_HEIGHT    3     // Maximum height of the namebox window.
 
 // Text colors of Namebox. The numbers corresponds to the palette index.
 // The BG color is not provided as it always needs to be 0.

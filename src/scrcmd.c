@@ -833,6 +833,23 @@ bool8 ScrCmd_fadescreenspeed(struct ScriptContext *ctx)
     return TRUE;
 }
 
+static bool8 DoNothing(void)
+{
+    return TRUE;
+}
+
+bool8 ScrCmd_fadescreenspeednopause(struct ScriptContext *ctx)
+{
+    u8 mode = ScriptReadByte(ctx);
+    u8 speed = ScriptReadByte(ctx);
+
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    FadeScreen(mode, speed);
+    SetupNativeScript(ctx, DoNothing);
+    return TRUE;
+}
+
 bool8 ScrCmd_fadescreenswapbuffers(struct ScriptContext *ctx)
 {
     u8 mode = ScriptReadByte(ctx);

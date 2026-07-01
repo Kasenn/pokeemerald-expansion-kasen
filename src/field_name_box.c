@@ -65,7 +65,7 @@ void PrepareNamebox(u32 tileNum)
     {
         .bg = 0,
         .tilemapLeft = 2,
-        .tilemapTop = 13,
+        .tilemapTop = 12,
         .width = winWidth,
         .height = OW_NAME_BOX_DEFAULT_HEIGHT,
         .paletteNum = matchCall ? 14 : DLG_WINDOW_PALETTE_NUM,
@@ -84,7 +84,7 @@ void PrepareNamebox(u32 tileNum)
     }
 
     union TextColor savedTextColors = SaveTextColors();
-    AddTextPrinterParameterized3(sNameboxWindowId, fontId, strX, 0, colors, TEXT_SKIP_DRAW, strbuf);
+    AddTextPrinterParameterized3(sNameboxWindowId, fontId, strX, 6, colors, TEXT_SKIP_DRAW, strbuf);
     RestoreTextColors(savedTextColors);
     Free(strbuf);
 }
@@ -139,6 +139,7 @@ void FillNamebox(void)
         #define TILE(x) (8 * x)
         CopyToWindowPixelBuffer(sNameboxWindowId, &gfx[TILE(1)], TILE_SIZE_4BPP, i);
         CopyToWindowPixelBuffer(sNameboxWindowId, &gfx[TILE(4)], TILE_SIZE_4BPP, i + winSize);
+        CopyToWindowPixelBuffer(sNameboxWindowId, &gfx[TILE(7)], TILE_SIZE_4BPP, i + winSize * 2);
         #undef TILE
     }
 }
@@ -169,10 +170,12 @@ static void WindowFunc_DrawNamebox(u32 bg, u32 L, u32 T, u32 w, u32 h, u32 p, u3
     // left-most
     FillBgTilemapBufferRect(bg, tileNum,     L - 1, T,     1, 1, p);
     FillBgTilemapBufferRect(bg, tileNum + 3, L - 1, T + 1, 1, 1, p);
+    FillBgTilemapBufferRect(bg, tileNum + 6, L - 1, T + 2, 1, 1, p);
 
     // right-most
     FillBgTilemapBufferRect(bg, tileNum + 2, L + w, T,     1, 1, p);
     FillBgTilemapBufferRect(bg, tileNum + 5, L + w, T + 1, 1, 1, p);
+    FillBgTilemapBufferRect(bg, tileNum + 8, L + w, T + 2, 1, 1, p);
 }
 
 static void WindowFunc_ClearNamebox(u8 bg, u8 L, u8 T, u8 w, u8 h, u8 p)

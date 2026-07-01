@@ -19,7 +19,7 @@ void InitFieldMessageBox(void)
 {
     sFieldMessageBoxMode = FIELD_MESSAGE_BOX_HIDDEN;
     gTextFlags.canABSpeedUpPrint = FALSE;
-    gTextFlags.useAlternateDownArrow = FALSE;
+    gTextFlags.useAlternateDownArrow = TRUE;
     gTextFlags.autoScroll = FALSE;
     gTextFlags.forceMidTextSpeed = FALSE;
 }
@@ -42,7 +42,7 @@ static void Task_DrawFieldMessage(u8 taskId)
     case 1:
     {
         u32 nameboxWinId = GetNameboxWindowId();
-        DrawDialogueFrame(0, TRUE);
+        DrawDialogueFrameYoshi(0, TRUE);
         if (nameboxWinId != WINDOW_NONE)
             DrawNamebox(nameboxWinId, NAME_BOX_BASE_TILE_NUM - NAME_BOX_BASE_TILES_TOTAL, TRUE);
         task->tState++;

@@ -989,7 +989,7 @@ void SaveGame(void)
 static void ShowSaveMessage(const u8 *message, u8 (*saveCallback)(void))
 {
     StringExpandPlaceholders(gStringVar4, message);
-    LoadMessageBoxAndFrameGfx(0, TRUE);
+    LoadMessageBoxAndFrameGfx(0, TRUE, 11);
     AddTextPrinterForMessage(TRUE);
     sSavingComplete = TRUE;
     sSaveDialogCallback = saveCallback;

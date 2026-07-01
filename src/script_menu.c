@@ -769,7 +769,7 @@ static void CreatePCMultichoice(void)
 
 void ScriptMenu_DisplayPCStartupPrompt(void)
 {
-    LoadMessageBoxAndFrameGfx(0, TRUE);
+    LoadMessageBoxAndFrameGfx(0, TRUE, 11);
     AddTextPrinterParameterized2(0, FONT_NORMAL, gText_WhichPCShouldBeAccessed, 0, NULL, TEXT_COLOR_DARK_GRAY, TEXT_COLOR_WHITE, TEXT_COLOR_LIGHT_GRAY);
 }
 

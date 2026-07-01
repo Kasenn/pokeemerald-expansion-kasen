@@ -9337,7 +9337,7 @@
     {
       "id": "LAYOUT_YOSHI_INTRO",
       "name": "YoshiIntro_Layout",
-      "width": 20,
+      "width": 21,
       "height": 20,
       "primary_tileset": "gTileset_example",
       "secondary_tileset": "gTileset_Petalburg",

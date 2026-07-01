@@ -8727,7 +8727,7 @@ Cry_IronCrown::
 	.align 2
 Cry_Terapagos::
 .if TESTING == FALSE
-	.incbin "sound/direct_sound_samples/cries/terapagos.bin"
+	.incbin "sound/direct_sound_samples/cries/yoshi.bin"
 .endif
 .endif @ P_FAMILY_TERAPAGOS
 
@@ -8735,7 +8735,7 @@ Cry_Terapagos::
 	.align 2
 Cry_Pecharunt::
 .if TESTING == FALSE
-	.incbin "sound/direct_sound_samples/cries/pecharunt.bin"
+	.incbin "sound/direct_sound_samples/cries/kamek.bin"
 .endif
 .endif @ P_FAMILY_PECHARUNT
 .endif @ P_CRIES_ENABLED

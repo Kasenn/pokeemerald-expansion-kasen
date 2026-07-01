@@ -542,7 +542,11 @@ void DoDiveWarp(void)
 {
     LockPlayerFieldControls();
     TryFadeOutOldMapMusic();
-    WarpFadeOutScreen();
+    if (!FlagGet(FLAG_SKIP_FADEOUT))
+    {
+        WarpFadeOutScreen();
+        FlagClear(FLAG_SKIP_FADEOUT);
+    }
     PlayRainStoppingSoundEffect();
     SetFollowerNPCData(FNPC_DATA_COME_OUT_DOOR, FNPC_DOOR_NONE);
     gFieldCallback = FieldCB_DefaultWarpExit;
@@ -1310,7 +1314,7 @@ void DoOrbEffect(void)
     else if (gSpecialVar_Result == 1)
     {
         tBlueOrb = TRUE;
-        tCenterX = 136;
+        tCenterX = DISPLAY_WIDTH / 2;
     }
     else if (gSpecialVar_Result == 2)
     {

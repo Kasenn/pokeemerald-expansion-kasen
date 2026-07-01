@@ -644,7 +644,7 @@ static void VBlankCB(void)
 
 static void ShowMessage(const u8 *str)
 {
-    DrawDialogFrameWithCustomTileAndPalette(WIN_MSG, FALSE, 0x200, 0xF);
+    DrawDialogFrameWithCustomTileAndPalette(WIN_MSG, FALSE, 0x200, 0xF, 1);
     AddTextPrinterParameterized(WIN_MSG, FONT_NORMAL, str, 0, 1, 0, NULL);
     ScheduleBgCopyTilemapToVram(0);
 }

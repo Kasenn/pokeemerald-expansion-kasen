@@ -8603,7 +8603,7 @@ static bool8 FirstBattleEnterParty_CreateWindowAndMsg1Printer(void)
     u8 windowId = AddWindow(&sWindowTemplate_FirstBattleOakVoiceover);
 
     LoadMessageBoxGfx(windowId, 0x4F, BG_PLTT_ID(14));
-    DrawDialogFrameWithCustomTileAndPalette(windowId, 1, 0x4F, 0xE);
+    DrawDialogFrameWithCustomTileAndPalette(windowId, 1, 0x4F, 0xE, 1);
     PartyMenu_Oak_PrintText(windowId, gText_OakImportantToGetToKnowPokemonThroughly);
     return windowId;
 }

@@ -3029,3 +3029,30 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
 };
 
 #endif // IS_FRLG
+
+static const struct SpriteFrameImage sPicTable_SleepingYoshi[] = {
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 0),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 1),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 2),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+    overworld_frame(gObjectEventPic_SleepingYoshi, 4, 4, 3),
+};
+
+static const struct SpriteFrameImage sPicTable_KamekIntro[] = {
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 0),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 1),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 2),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 3),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 4),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 5),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 6),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 7),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 8),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 9),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 10),
+    overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 11),
+};

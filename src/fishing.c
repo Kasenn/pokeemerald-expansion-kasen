@@ -200,7 +200,7 @@ static bool32 Fishing_InitDots(struct Task *task)
 {
     u32 randVal;
 
-    LoadMessageBoxAndFrameGfx(0, TRUE);
+    LoadMessageBoxAndFrameGfx(0, TRUE, 1);
     task->tStep = FISHING_SHOW_DOTS;
     task->tFrameCounter = 0;
     task->tNumDots = 0;

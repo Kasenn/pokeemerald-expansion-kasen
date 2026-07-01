@@ -637,3 +637,9 @@ const u16 gObjectEventPic_PidgeyOld[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPic_ClefairyOld[] = INCGFX_U16("graphics/object_events/pics/pokemon_old/clefairy.png", ".4bpp", "-mwidth 2 -mheight 2");
 
 #endif // IS_FRLG
+
+const u16 gObjectEventPal_SleepingYoshi[] = INCGFX_U16("graphics/object_events/pics/people/sleeping_yoshi.png", ".gbapal");
+const u16 gObjectEventPic_SleepingYoshi[] = INCGFX_U16("graphics/object_events/pics/people/sleeping_yoshi.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_KamekIntro[] = INCGFX_U16("graphics/object_events/pics/people/kamek_intro.png", ".gbapal");
+const u16 gObjectEventPic_KamekIntro[] = INCGFX_U16("graphics/object_events/pics/people/kamek_intro.png", ".4bpp", "-mwidth 6 -mheight 6");
+

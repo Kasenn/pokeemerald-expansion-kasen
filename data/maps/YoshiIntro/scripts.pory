@@ -1,0 +1,62 @@
+const YOSHI = 1
+const KAMEK = 2
+mapscripts YoshiIntro_MapScripts {
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_0, 0{
+            hideplayer
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 0: YoshiIntroScript
+    ]
+}
+
+script YoshiIntroScript{
+    addobject(KAMEK)
+    delay(60)
+    fadenewbgm(MUS_KAMEK)
+    applymovement(KAMEK, moves(walk_faster_right * 20))
+    delay(80)
+    turnobject(YOSHI, DIR_NORTH)
+    waitmovement(0)
+    delay(60)
+    applymovement(KAMEK, moves(walk_left * 6))
+    delay(96)
+    turnobject(YOSHI, DIR_WEST)
+    waitmovement(0)
+    delay(30)
+    applymovement(KAMEK, moves(nurse_joy_bow))
+    delay(10)
+    playmoncry(SPECIES_PECHARUNT, 0)
+    delay(30)
+    playmoncry(SPECIES_PECHARUNT, 0)
+    delay(30)
+    playmoncry(SPECIES_PECHARUNT, 0)
+    waitmovement(0)
+    delay(10)
+    setspeaker("Kamek")
+    msgbox("yap yap\pmore yap", MSGBOX_AUTOCLOSE)
+    turnobject(KAMEK, DIR_WEST)
+    fadedefaultbgm
+    delay(30)
+    playse(SE_ORB)
+    fadescreenspeednopause(FADE_TO_WHITE, 6)
+    delay(60)
+    turnobject(YOSHI, DIR_EAST)
+    delay(90)
+    playmoncry(SPECIES_PECHARUNT, 0)
+    setspeaker("Kamek")
+    message("egads! something's gone awry!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p")
+    removeobject(YOSHI)
+    removeobject(KAMEK)
+    waitbuttonpress
+    closemessage
+    delay(60)
+    fadescreenspeed(FADE_FROM_WHITE, 6)
+    delay(180)
+    setflag(FLAG_SKIP_FADEOUT)
+    fadescreenspeed(FADE_TO_BLACK, 6)
+    delay(60)
+    warpsilent(MAP_EGG_ISLAND_EXTERIOR, 0)
+    waitstate
+}

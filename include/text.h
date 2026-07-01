@@ -166,7 +166,7 @@ struct GlyphWidthFunc
 
 typedef struct {
     bool8 canABSpeedUpPrint:1;
-    bool8 useAlternateDownArrow:1;
+    u8 useAlternateDownArrow;
     bool8 autoScroll:1;
     bool8 forceMidTextSpeed:1;
 } TextFlags;
