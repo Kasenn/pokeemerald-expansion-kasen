@@ -33,7 +33,7 @@ script Script_TryLootEgg{
     if(var(VAR_0x8001) < 5)
     {
         playse(SE_ITEMFINDER)
-        message("Chansey found an egg!")
+        message("Yoshi found an egg!")
         waitse
 	    waitmessage
         giveegg(VAR_0x8000)
@@ -59,19 +59,19 @@ script Script_TryLootEgg{
         if(var(VAR_0x8004) >= PARTY_SIZE || var(VAR_0x8004) == 0)
         {
             special(LoadPlayerParty)
-            msgbox("Chansey left the egg where it was.")
+            msgbox("Yoshi left the egg where it was.")
             release
             end
         }
         special(LoadPlayerParty)
         callnative(ReplaceEggInParty)
-        msgbox("Chansey replaced an older egg\nwith the new one.")
+        msgbox("Yoshi replaced an older egg\nwith the new one.")
     }
     release
 }
 
 text TooManyEggs{
-    "Chansey found an egg, but she's\n"
+    "Yoshi found an egg, but it's\n"
     "already carrying more than enough.\p"
     "{STR_VAR_1}\p"
     "Replace an old egg with the new one?"

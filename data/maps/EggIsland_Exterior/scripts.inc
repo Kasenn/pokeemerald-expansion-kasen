@@ -125,7 +125,7 @@ Script_StartMenuRest_Text_0:
 
 Script_TryLootEgg_Text_0:
 # 36 "data/maps/EggIsland_Exterior/scripts.pory"
-	.string "Chansey found an egg!$"
+	.string "Yoshi found an egg!$"
 
 Script_TryLootEgg_Text_1:
 # 55 "data/maps/EggIsland_Exterior/scripts.pory"
@@ -133,11 +133,11 @@ Script_TryLootEgg_Text_1:
 
 Script_TryLootEgg_Text_2:
 # 62 "data/maps/EggIsland_Exterior/scripts.pory"
-	.string "Chansey left the egg where it was.$"
+	.string "Yoshi left the egg where it was.$"
 
 Script_TryLootEgg_Text_3:
 # 68 "data/maps/EggIsland_Exterior/scripts.pory"
-	.string "Chansey replaced an older egg\nwith the new one.$"
+	.string "Yoshi replaced an older egg\nwith the new one.$"
 
 RetreatWithDiglett_Text::
 # 25 "data/maps/EggIsland_Exterior/scripts.pory"
@@ -146,7 +146,7 @@ RetreatWithDiglett_Text::
 
 TooManyEggs::
 # 73 "data/maps/EggIsland_Exterior/scripts.pory"
-	.string "Chansey found an egg, but she's\n"
+	.string "Yoshi found an egg, but it's\n"
 	.string "already carrying more than enough.\p"
 	.string "{STR_VAR_1}\p"
 	.string "Replace an old egg with the new one?$"

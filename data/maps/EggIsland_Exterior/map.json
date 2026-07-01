@@ -2,7 +2,7 @@
   "id": "MAP_EGG_ISLAND_EXTERIOR",
   "name": "EggIsland_Exterior",
   "layout": "LAYOUT_EGG_ISLAND_EXTERIOR",
-  "music": "MUS_ROUTE101",
+  "music": "MUS_YOSHI2",
   "region_map_section": "MAPSEC_ROUTE_101",
   "requires_flash": false,
   "weather": "WEATHER_NONE",

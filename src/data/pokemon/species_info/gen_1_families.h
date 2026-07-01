@@ -15391,25 +15391,25 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_CHANSEY] =
     {
         .baseHP        = 250,
-        .baseAttack    = 5,
-        .baseDefense   = 15,
+        .baseAttack    = 20,
+        .baseDefense   = 55,
         .baseSpeed     = 50,
-        .baseSpAttack  = P_UPDATED_STATS >= GEN_2 ? 35 : 105,
-        .baseSpDefense = 105,
+        .baseSpAttack  = 20,
+        .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 30,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 395 : 255,
         .evYield_HP = 2,
         .itemCommon = ITEM_OVAL_STONE,
-        .genderRatio = MON_FEMALE,
+        .genderRatio = MON_GENDERLESS,
         .eggCycles = 40,
         .friendship = 140,
         .growthRate = GROWTH_FAST,
         .eggGroups = MON_EGG_GROUPS(EGG_GROUP_FAIRY),
         .abilities = { ABILITY_PRANKSTER, ABILITY_PRANKSTER, ABILITY_PRANKSTER },
         .bodyColor = BODY_COLOR_PINK,
-        .speciesName = _("Chansey"),
-        .cryId = CRY_CHANSEY,
+        .speciesName = _("Yoshi"),
+        .cryId = CRY_TERAPAGOS,
         .natDexNum = NATIONAL_DEX_CHANSEY,
         .categoryName = _("Egg"),
         .height = 11,
@@ -15458,9 +15458,6 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .levelUpLearnset = sChanseyLevelUpLearnset,
         .teachableLearnset = sChanseyTeachableLearnset,
         .eggMoveLearnset = sChanseyEggMoveLearnset,
-    #if P_GEN_2_CROSS_EVOS
-        .evolutions = EVOLUTION({EVO_LEVEL, 0, SPECIES_BLISSEY, CONDITIONS({IF_MIN_FRIENDSHIP, FRIENDSHIP_EVO_THRESHOLD})}),
-    #endif
     },
 
 #if P_GEN_2_CROSS_EVOS
