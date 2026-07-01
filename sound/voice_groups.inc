@@ -17,6 +17,8 @@
 .include "sound/voicegroups/route110.inc"
 .include "sound/voicegroups/route101.inc"
 .include "sound/voicegroups/route301.inc"
+.include "sound/voicegroups/bw_rival.inc"
+.include "sound/voicegroups/bw_trainer.inc"
 .include "sound/voicegroups/fanfare.inc"
 .include "sound/voicegroups/gym.inc"
 .include "sound/voicegroups/route120.inc"

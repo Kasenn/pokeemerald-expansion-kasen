@@ -619,6 +619,8 @@ gSongTable::
 	song mus_kamek, MUSIC_PLAYER_BGM, 0
 	song mus_yoshi1, MUSIC_PLAYER_BGM, 0
 	song mus_yoshi2, MUSIC_PLAYER_BGM, 0
+	song mus_bw_rival, MUSIC_PLAYER_BGM, 0
+	song mus_bw_trainer, MUSIC_PLAYER_BGM, 0
 
 	.align 2
 dummy_song_header:

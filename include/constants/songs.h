@@ -545,6 +545,8 @@
 #define MUS_KAMEK                   610
 #define MUS_YOSHI1                  611
 #define MUS_YOSHI2                  612
+#define MUS_BW_RIVAL                613
+#define MUS_BW_TRAINER              614
 
 #define MUS_ROUTE118                0x7FFF  // Map is split into 2 music sections. controlled by GetCurrLocationDefaultMusic().
 
