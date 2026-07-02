@@ -193,7 +193,7 @@ u16 AddTextPrinterParameterized2(u8 windowId, u8 fontId, const u8 *str, u8 speed
 void AddTextPrinterForMessage(bool8 allowSkippingDelayWithButtonPress)
 {
     gTextFlags.canABSpeedUpPrint = allowSkippingDelayWithButtonPress;
-    AddTextPrinterParameterized2(0, FONT_NORMAL, gStringVar4, GetPlayerTextSpeedDelay(), NULL, 1, 11, 2);
+    AddTextPrinterParameterized2(0, FONT_YOSHI, gStringVar4, GetPlayerTextSpeedDelay(), NULL, 1, 11, 2);
     gTextFlags.useAlternateDownArrow = 2;
 }
 

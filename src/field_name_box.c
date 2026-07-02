@@ -43,7 +43,7 @@ void PrepareNamebox(u32 tileNum)
 
     StringExpandPlaceholders(strbuf, gSpeakerName);
 
-    u32 fontId = FONT_SMALL;
+    u32 fontId = FONT_YOSHI;
     u32 winWidth = OW_NAME_BOX_DEFAULT_WIDTH;
 
     if (OW_NAME_BOX_USE_DYNAMIC_WIDTH)
@@ -84,7 +84,7 @@ void PrepareNamebox(u32 tileNum)
     }
 
     union TextColor savedTextColors = SaveTextColors();
-    AddTextPrinterParameterized3(sNameboxWindowId, fontId, strX, 6, colors, TEXT_SKIP_DRAW, strbuf);
+    AddTextPrinterParameterized3(sNameboxWindowId, fontId, strX, 4, colors, TEXT_SKIP_DRAW, strbuf);
     RestoreTextColors(savedTextColors);
     Free(strbuf);
 }

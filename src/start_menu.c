@@ -196,11 +196,12 @@ static const struct WindowTemplate sWindowTemplate_PyramidPeak = {
 static const u8 sText_MenuDebug[] = _("DEBUG");
 static const u8 sText_MenuRetreat[] = _("Retreat");
 static const u8 sText_MenuRest[] = _("Rest");
+static const u8 sText_MenuParty[] = _("Party");
 
 static const struct MenuAction sStartMenuItems[] =
 {
     [MENU_ACTION_POKEDEX]         = {gText_MenuPokedex, {.u8_void = StartMenuPokedexCallback}},
-    [MENU_ACTION_POKEMON]         = {gText_MenuPokemon, {.u8_void = StartMenuPokemonCallback}},
+    [MENU_ACTION_POKEMON]         = {sText_MenuParty, {.u8_void = StartMenuPokemonCallback}},
     [MENU_ACTION_RETREAT]         = {sText_MenuRetreat, {.u8_void = StartMenuRetreatCallback}},
     [MENU_ACTION_REST]            = {sText_MenuRest,    {.u8_void = StartMenuRestCallback}},
     [MENU_ACTION_BAG]             = {gText_MenuBag,     {.u8_void = StartMenuBagCallback}},
