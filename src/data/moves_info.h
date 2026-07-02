@@ -1920,10 +1920,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
 
     [MOVE_CHUCK_EGG] =
     {
-        .name = COMPOUND_STRING("Chuck Egg"),
+        .name = COMPOUND_STRING("Toss Egg"),
         .description = COMPOUND_STRING(
             "Power and effect vary\n"
-            "based on the egg chucked."),
+            "based on the egg tossed."),
         .power = 50,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -1936,7 +1936,10 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_CHUCK_EGG,
+            .moveEffect = MOVE_EFFECT_CHUCK_EGG1,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_CHUCK_EGG2,
             .chance = 50,
         }),
         .contestComboMoves = {0},

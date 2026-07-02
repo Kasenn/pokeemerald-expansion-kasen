@@ -4614,9 +4614,9 @@ const u32 gObjectEventPic_Egg[] = INCGFX_COMP("graphics/pokemon/egg/overworld.pn
 
 #if !P_GBA_STYLE_SPECIES_GFX
     const u32 gMonFrontPic_Chansey[] = INCGFX_U32("graphics/pokemon/chansey/anim_front.png", ".4bpp.smol");
-    const u16 gMonPalette_Chansey[] = INCGFX_U16("graphics/pokemon/chansey/normal.pal", ".gbapal");
+    const u16 gMonPalette_Chansey[] = INCGFX_U16("graphics/pokemon/chansey/anim_front.png", ".gbapal");
     const u32 gMonBackPic_Chansey[] = INCGFX_U32("graphics/pokemon/chansey/back.png", ".4bpp.smol");
-    const u16 gMonShinyPalette_Chansey[] = INCGFX_U16("graphics/pokemon/chansey/shiny.pal", ".gbapal");
+    const u16 gMonShinyPalette_Chansey[] = INCGFX_U16("graphics/pokemon/chansey/anim_front.png", ".gbapal");
 #else
     const u32 gMonFrontPic_Chansey[] = INCGFX_U32("graphics/pokemon/chansey/anim_front_gba.png", ".4bpp.smol");
     const u16 gMonPalette_Chansey[] = INCGFX_U16("graphics/pokemon/chansey/normal_gba.pal", ".gbapal");

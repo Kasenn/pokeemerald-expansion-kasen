@@ -15392,10 +15392,10 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     {
         .baseHP        = 250,
         .baseAttack    = 20,
-        .baseDefense   = 55,
+        .baseDefense   = 45,
         .baseSpeed     = 50,
         .baseSpAttack  = 20,
-        .baseSpDefense = 55,
+        .baseSpDefense = 45,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 30,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 395 : 255,
@@ -15427,14 +15427,16 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .frontPicSize = MON_COORDS_SIZE(56, 48),
         .frontPicYOffset = 9,
         .frontAnimFrames = ANIM_FRAMES(
-            ANIMCMD_FRAME(0, 30),
-            ANIMCMD_FRAME(1, 30),
-            ANIMCMD_FRAME(0, 20),
+            ANIMCMD_FRAME(0, 5),
+            ANIMCMD_FRAME(1, 5),
+            ANIMCMD_FRAME(0, 5),
+            ANIMCMD_FRAME(1, 5),
+            ANIMCMD_FRAME(0, 1),
         ),
-        .frontAnimId = P_GBA_STYLE_SPECIES_GFX ? ANIM_V_SQUISH_AND_BOUNCE_SLOW : ANIM_V_SQUISH_AND_BOUNCE,
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE,
         .backPic = gMonBackPic_Chansey,
         .backPicSize = MON_COORDS_SIZE(64, 48),
-        .backPicYOffset = 11,
+        .backPicYOffset = 0,
         .backAnimId = BACK_ANIM_CONCAVE_ARC_SMALL,
     #if SPECIES_EGG_COLOR && GEN_1_EGG_COLORS
         .eggPalette = gEggPalette_Chansey,
@@ -15442,7 +15444,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
         .palette = gMonPalette_Chansey,
         .shinyPalette = gMonShinyPalette_Chansey,
         .iconSprite = gMonIcon_Chansey,
-        .iconPalIndex = 0,
+        .iconPalIndex = 1,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(1, 4, SHADOW_SIZE_L)
         FOOTPRINT(Chansey)

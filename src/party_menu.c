@@ -2679,7 +2679,7 @@ static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 col
     AddTextPrinterParameterized3(windowId, GetFontIdToFit(str, FONT_SMALL, 0, width), align[0], align[1], sFontColorTable[color], 0, str);
 }
 
-const u8 sText_Chucked[] = _("Chucked");
+const u8 sText_Chucked[] = _("Tossed");
 static const u8 sText_NewEgg[] = _("New Egg");
 
 static void DisplayPartyPokemonNickname(struct Pokemon *mon, struct PartyMenuBox *menuBox, u8 c, u32 wasChucked)

@@ -2953,9 +2953,9 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
             }
         }
         break;
-    case MOVE_EFFECT_CHUCK_EGG:
+    case MOVE_EFFECT_CHUCK_EGG1:
         u16 eggUsed = 1;
-        enum Type moveType = TYPE_NORMAL;
+        gBattleStruct->moveType = TYPE_MYSTERY;
         for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
         {
             if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
@@ -2963,14 +2963,15 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
                 SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN, &eggUsed);
                 enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
                 
-                moveType = GetEggMainType(species);
+                gBattleStruct->moveType = GetEggMainType(species);
 
                 break;
             }
         }
-
+        break;
+    case MOVE_EFFECT_CHUCK_EGG2:
         enum Stat stat = NUM_STATS;
-        switch (moveType)
+        switch (gBattleStruct->moveType)
         {
         case TYPE_GROUND:   stat = STAT_ACC;    break;
         case TYPE_FIGHTING: stat = STAT_ATK;    break;
@@ -2984,7 +2985,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
 
         if (stat != NUM_STATS)
         {
-            if (moveType == TYPE_DRAGON)
+            if (gBattleStruct->moveType == TYPE_DRAGON)
                 SetStatChange(effectBattler, STAT_ATK, -2);
             SetStatChange(effectBattler, stat, -2);
             BattleScriptPush(battleScript);
@@ -2992,7 +2993,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         }
         else
         {
-            SetMoveEffect(battlerAtk, effectBattler, GetMoveEffectFromEgg(moveType), gBattlescriptCurrInstr, NO_FLAGS);
+            SetMoveEffect(battlerAtk, effectBattler, GetMoveEffectFromEgg(gBattleStruct->moveType), gBattlescriptCurrInstr, NO_FLAGS);
         }
         break;
     case MOVE_EFFECT_FLING:

@@ -201,25 +201,11 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	giveegg 1
-	giveegg 1
-	giveegg SPECIES_RATTATA
-	giveegg SPECIES_HITMONCHAN
 	giveegg SPECIES_ROOKIDEE
-	giveegg SPECIES_EKANS
-	giveegg SPECIES_SANDSHREW
-	giveegg SPECIES_SUDOWOODO
-	giveegg SPECIES_CATERPIE
-	giveegg SPECIES_GASTLY
-	giveegg SPECIES_CHARMANDER
-	giveegg SPECIES_SQUIRTLE
-	giveegg SPECIES_TANGELA
-	giveegg SPECIES_PIKACHU
-	giveegg SPECIES_ABRA
-	giveegg SPECIES_SNORUNT
-	giveegg SPECIES_DRATINI
-	giveegg SPECIES_UMBREON
-	giveegg SPECIES_CLEFAIRY
+	giveegg SPECIES_ROOKIDEE
+	giveegg SPECIES_ROOKIDEE
+	giveegg SPECIES_ROOKIDEE
+	giveegg SPECIES_ROOKIDEE
 	release
 	end
 
@@ -689,7 +675,7 @@ Debug_EventScript_EWRAMCounters_Text::
 	.string "Fishing Chain: {STR_VAR_2}.$"
 
 Debug_EventScript_FontTest_Text_1::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Angel Adept Blind Bodice Clique\n"
 	.string "Coast Dunce Docile Enact Eosin\l"
 	.string "Furlong Focal Gnome Gondola Human\l"
@@ -703,7 +689,7 @@ Debug_EventScript_FontTest_Text_1::
 	.string "Zloty Zodiac.$"
 
 Debug_EventScript_FontTest_Text_2::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Angel angel adept for the nuance loads\n"
 	.string "of the arena cocoa and quaalude. Blind\l"
 	.string "blind bodice for the submit oboe of the\l"
@@ -714,7 +700,7 @@ Debug_EventScript_FontTest_Text_2::
 	.string "loud statehood and huddle.$"
 
 Debug_EventScript_FontTest_Text_3::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Enact enact eosin for the quench coed\n"
 	.string "of the pique canoe and bleep. Furlong\l"
 	.string "furlong focal for the genuflect\l"
@@ -726,7 +712,7 @@ Debug_EventScript_FontTest_Text_3::
 	.string "bathhouse.$"
 
 Debug_EventScript_FontTest_Text_4::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Inlet inlet iodine for the quince\n"
 	.string "champion of the ennui scampi and shiite.\l"
 	.string "Justin justin jocose for the djibouti\l"
@@ -738,7 +724,7 @@ Debug_EventScript_FontTest_Text_4::
 	.string "shallot.$"
 
 Debug_EventScript_FontTest_Text_5::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Milliner milliner modal for the alumna\n"
 	.string "solomon of the album custom and summon.\l"
 	.string "Number number nodule for the unmade\l"
@@ -750,7 +736,7 @@ Debug_EventScript_FontTest_Text_5::
 	.string "bishop and supplies.$"
 
 Debug_EventScript_FontTest_Text_6::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Quanta quanta qophs for the inquest\n"
 	.string "sheqel of the cinq coq and suqqu. Rhone\l"
 	.string "rhone roman for the burnt porous of the\l"
@@ -761,7 +747,7 @@ Debug_EventScript_FontTest_Text_6::
 	.string "of the peasant ingot and ottoman.$"
 
 Debug_EventScript_FontTest_Text_7::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Uncle uncle udder for the dunes cloud\n"
 	.string "of the hindu thou and continuum. Vulcan\l"
 	.string "vulcan vocal for the alluvial ovoid of\l"
@@ -773,7 +759,7 @@ Debug_EventScript_FontTest_Text_7::
 	.string "exxon.$"
 
 Debug_EventScript_FontTest_Text_8::
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "Yunnan yunnan young for the dynamo\n"
 	.string "coyote of the obloquy employ and\l"
 	.string "sayyid. Zloty zloty zodiac for the gizmo\l"
@@ -781,7 +767,7 @@ Debug_EventScript_FontTest_Text_8::
 
 
 Debug_EventScript_FontTest_Text_9::                 @ Special thanks to Nintendo for this nice pangram to test other glyphs
-	.string "{FONT_SMALL_NARROWER}"                 @ Edit this to test your font
+	.string "{FONT_YOSHI}"                 @ Edit this to test your font
 	.string "42 × 138 = 5796.\n"
 	.string "Mr Jock, TV quiz PhD: bags 20% fewer\l"
 	.string "lynx at a café; voilà, they're “worth”\l"
