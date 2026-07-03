@@ -520,7 +520,7 @@ static const u8 sText_CannotSendMonToBoxPartner[] = _("Cannot send a mon that do
 #include "data/party_menu.h"
 
 // code
-static void InitPartyMenu(enum PartyMenuType menuType, enum PartyMenuLayout layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
+void InitPartyMenu(enum PartyMenuType menuType, enum PartyMenuLayout layout, u8 partyAction, bool8 keepCursorPos, u8 messageId, TaskFunc task, MainCallback callback)
 {
     u16 i;
 
@@ -8213,6 +8213,23 @@ void ChoosePartyMon(void)
     LockPlayerFieldControls();
     FadeScreen(FADE_TO_BLACK, 0);
     CreateTask(Task_ChoosePartyMon, 10);
+}
+
+static void Task_OpenPartyMenu(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, 0, FALSE, 0, Task_HandleChooseMonInput, CB2_ReturnToFieldContinueScript);
+        DestroyTask(taskId);
+    }
+}
+
+void OpenPartyMenu(void)
+{
+    LockPlayerFieldControls();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_OpenPartyMenu, 10);
 }
 
 static void Task_ChoosePartyMon(u8 taskId)

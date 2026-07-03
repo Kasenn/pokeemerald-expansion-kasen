@@ -462,7 +462,7 @@ static const struct WindowTemplate sSummaryTemplate[] =
     [PSS_LABEL_WINDOW_PORTRAIT_NICKNAME] = {
         .bg = 0,
         .tilemapLeft = 1,
-        .tilemapTop = 12,
+        .tilemapTop = 2,
         .width = 9,
         .height = 2,
         .paletteNum = 6,
@@ -524,8 +524,8 @@ static const u8 sTextColors[][3] =
     {0, 3, 5},
     {0, 3, 6},
     {0, 9, 10},
-    {0, 11, 12},
-    {0, 13, 14},
+    {0, 11, 8},
+    {0, 13, 10},
     {0, 7, 8},
     {13, 15, 14},
     {0, 1, 2},
@@ -3035,10 +3035,10 @@ static void PrintGenderSymbol(struct Pokemon *mon, enum Species species)
         switch (GetMonGender(mon))
         {
         case MON_MALE:
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_MaleSymbol, 63, 2, 0, 3);//wip
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_MaleSymbol, 63, 2, 0, 5);//wip
             break;
         case MON_FEMALE:
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_FemaleSymbol, 63, 2, 0, 4);//wip
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_FemaleSymbol, 63, 2, 0, 6);//wip
             break;
         }
     }
@@ -3349,7 +3349,7 @@ static void PrintEggState(void)
     else
         text = gText_EggWillTakeALongTime;
 
-    PrintTextOnWindow(PSS_MAIN_SUMMARY_WINDOW, text, 8, 0, 0, TXT_COLOR_LIGHT_GREEN);
+    PrintTextOnWindow(PSS_MAIN_SUMMARY_WINDOW, text, 8, 0, 0, TXT_COLOR_DARK_GREEN);
 }
 
 static const u8 sText_NormalEgg[]       = _("A peculiar Pokémon Egg.\nIt looks very plain.");
@@ -3426,7 +3426,7 @@ static void PrintEggMemo(void)
     StringCopy(gStringVar4, text);
     StringAppend(gStringVar4, atkText);
 
-    PrintTextOnWindow(PSS_MAIN_SUMMARY_WINDOW, gStringVar4, 8, 41, 0, TXT_COLOR_LIGHT_GREEN);
+    PrintTextOnWindow(PSS_MAIN_SUMMARY_WINDOW, gStringVar4, 8, 41, 0, TXT_COLOR_DARK_GREEN);
 }
 
 static void PrintSkillsPageText(void)
@@ -4009,14 +4009,17 @@ static void SetMonTypeIcons(void)
     }
     else
     {
-        SetTypeSpritePosAndPal(GetSpeciesType(summary->species, 0), 8, 17, SPRITE_ARR_ID_TYPE);
+        SetTypeSpritePosAndPal(GetSpeciesType(summary->species, 0), 8, 97, SPRITE_ARR_ID_TYPE);
+        if (GetSpeciesType(summary->species, 0) == TYPE_NONE)
+            SetSpriteInvisibility(SPRITE_ARR_ID_TYPE, TRUE);
         if (GetSpeciesType(summary->species, 0) != GetSpeciesType(summary->species, 1))
         {
-            SetTypeSpritePosAndPal(GetSpeciesType(summary->species, 1), 40, 17, SPRITE_ARR_ID_TYPE + 1);
+            SetTypeSpritePosAndPal(GetSpeciesType(summary->species, 1), 40, 97, SPRITE_ARR_ID_TYPE + 1);
             SetSpriteInvisibility(SPRITE_ARR_ID_TYPE + 1, FALSE);
         }
         else
         {
+            SetTypeSpritePosAndPal(GetSpeciesType(summary->species, 0), 24, 97, SPRITE_ARR_ID_TYPE);
             SetSpriteInvisibility(SPRITE_ARR_ID_TYPE + 1, TRUE);
         }
         if (P_SHOW_TERA_TYPE >= GEN_9)

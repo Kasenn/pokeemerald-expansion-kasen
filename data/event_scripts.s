@@ -1551,7 +1551,8 @@ EventScript_DoInGameTrade::
 	return
 
 EventScript_SelectWithoutRegisteredItem::
-	msgbox gText_SelectWithoutRegisteredItem, MSGBOX_SIGN
+	special OpenPartyMenu
+	release
 	end
 
 	.include "data/scripts/field_poison.inc"
