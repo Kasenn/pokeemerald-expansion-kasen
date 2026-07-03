@@ -2111,6 +2111,7 @@ void CB2_ContinueSavedGame(void)
     else
         LoadSaveblockObjEventScripts();
 
+    gCurrentUsableEggs = CalculateCurrentEggs();
     UnfreezeObjectEvents();
     DoTimeBasedEvents();
     UpdateMiscOverworldStates();

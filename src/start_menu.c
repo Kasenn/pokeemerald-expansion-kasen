@@ -1179,7 +1179,7 @@ static u8 SaveDoSaveCallback(void)
     u8 saveStatus;
 
     IncrementGameStat(GAME_STAT_SAVED_GAME);
-    HealPlayerParty();
+    // HealPlayerParty();
     PausePyramidChallenge();
 
     if (gDifferentSaveFile == TRUE)
