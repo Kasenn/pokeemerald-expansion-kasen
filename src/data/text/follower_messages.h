@@ -30,9 +30,9 @@ static const u8 sHappyMsg07[] = _("{STR_VAR_1} put in extra effort.");
 static const u8 sHappyMsg08[] = _("{STR_VAR_1} is smelling the scents\nof the surrounding air.");
 static const u8 sHappyMsg09[] = _("{STR_VAR_1} is jumping for joy!");
 static const u8 sHappyMsg10[] = _("{STR_VAR_1} is still feeling great!");
-static const u8 sHappyMsg11[] = _("Your POKéMON has caught the scent of\nsmoke.");
+static const u8 sHappyMsg11[] = _("{STR_VAR_1} looks very happy.");
 static const u8 sHappyMsg12[] = _("{STR_VAR_1} is poking at your belly.");
-static const u8 sHappyMsg13[] = _("Your POKéMON stretched out its body\nand is relaxing.");
+static const u8 sHappyMsg13[] = _("{STR_VAR_1} looks very happy.");
 static const u8 sHappyMsg14[] = _("{STR_VAR_1} looks like it wants to\nlead!");
 static const u8 sHappyMsg15[] = _("{STR_VAR_1} is doing its best to\nkeep up with you.");
 static const u8 sHappyMsg16[] = _("{STR_VAR_1} is happily cuddling up\nto you!");
@@ -46,12 +46,12 @@ static const u8 sHappyMsg23[] = _("{STR_VAR_1} looks very interested.");
 static const u8 sHappyMsg24[] = _("{STR_VAR_1} is somehow forcing\nitself to keep going.");
 static const u8 sHappyMsg25[] = _("{STR_VAR_1} gave you a sunny look!");
 static const u8 sHappyMsg26[] = _("{STR_VAR_1} gives you a happy look\nand a smile.");
-static const u8 sHappyMsg27[] = _("Your POKéMON is smelling the scent\nof flowers.");
+static const u8 sHappyMsg27[] = _("{STR_VAR_1} gives you a happy look\nand a smile.");
 static const u8 sHappyMsg28[] = _("{STR_VAR_1} seems very happy to see\nyou!");
 static const u8 sHappyMsg29[] = _("{STR_VAR_1} faced this way and\ngrinned.");
 static const u8 sHappyMsg30[] = _("{STR_VAR_1} happily cuddled up to\nyou!");
 // Conditional messages begin here, index 31
-static const u8 sHappyMsg31[] = _("Your POKéMON seems happy about the\ngreat weather.");
+static const u8 sHappyMsg31[] = _("{STR_VAR_1} is very composed and\nsure of itself!");
 static const u8 sHappyMsg32[] = _("{STR_VAR_1} is very composed and\nsure of itself!");
 
 const struct FollowerMsgInfo gFollowerHappyMessages[] = {

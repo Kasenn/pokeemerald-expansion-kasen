@@ -6,7 +6,7 @@ static const struct MenuAction MultichoiceList_BrineyOnDewford[] =
     {gText_Exit},
 };
 
-const u8 gText_Info2[] = _("INFO");
+const u8 gText_Info2[] = _("Info");
 
 static const struct MenuAction MultichoiceList_EnterInfo[] =
 {
@@ -444,12 +444,12 @@ static const struct MenuAction MultichoiceList_ShardsRYBG[] =
     {gText_Exit},
 };
 
-const u8 gText_Opponent[] = _("OPPONENT");
+const u8 gText_Opponent[] = _("Opponent");
 const u8 gText_Tourney_Tree[] = _("TOURNEY TREE");
 const u8 gText_ReadyToStart[] = _("READY TO START");
 const u8 gText_Record2[] = _("RECORD");
-const u8 gText_Rest[] = _("REST");
-const u8 gText_Retire[] = _("RETIRE");
+const u8 gText_Rest[] = _("Rest");
+const u8 gText_Retire[] = _("Retire");
 
 static const struct MenuAction MultichoiceList_TourneyWithRecord[] =
 {
