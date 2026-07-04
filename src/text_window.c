@@ -122,6 +122,14 @@ static const u16 sTextWindowPalettes[][16] =
 
 static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
 {
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal1},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal2},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal3},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal4},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal5},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal6},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal7},
+    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal8},
     {gTextWindowFrame1_Gfx, gTextWindowFrame1_Pal},
     {sTextWindowFrame2_Gfx, sTextWindowFrame2_Pal},
     {sTextWindowFrame3_Gfx, sTextWindowFrame3_Pal},
@@ -142,14 +150,6 @@ static const struct TilesPal sWindowFrames[WINDOW_FRAMES_COUNT] =
     {sTextWindowFrame18_Gfx, sTextWindowFrame18_Pal},
     {sTextWindowFrame19_Gfx, sTextWindowFrame19_Pal},
     {sTextWindowFrame20_Gfx, sTextWindowFrame20_Pal},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal1},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal2},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal3},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal4},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal5},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal6},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal7},
-    {sTextWindowFrame21_Gfx, sTextWindowFrame21_Pal8},
 };
 
 static const u16 sTextWindowDexNavFrame[] = INCGFX_U16("graphics/text_window/dexnav_pal.pal", ".gbapal");
