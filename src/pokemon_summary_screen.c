@@ -3371,11 +3371,11 @@ static const u8 sText_DragonEgg[]       = _("A peculiar Pokémon Egg.\nIt feels 
 static const u8 sText_DarkEgg[]         = _("A peculiar Pokémon Egg.\nThe surface barely\nreflects any light.");
 static const u8 sText_FairyEgg[]        = _("A peculiar Pokémon Egg.\nIt's got a peculiar glow.");
 
-static const u8 sText_AtkText1[]       = _("\nIt looks like throwing it\nwill barely even hurt.");
-static const u8 sText_AtkText2[]       = _("\nIt looks like throwing it\nmight sting a little.");
-static const u8 sText_AtkText3[]       = _("\nIt looks like throwing it\nmight do some damage.");
-static const u8 sText_AtkText4[]       = _("\nIt looks like throwing it\nmight really hurt.");
-static const u8 sText_AtkText5[]       = _("\nIt looks like throwing it\nmight do serious damage.");
+static const u8 sText_AtkText1[]       = _("\nIt feels like throwing it\nwill barely even hurt.");
+static const u8 sText_AtkText2[]       = _("\nIt feels like throwing it\nmight sting a little.");
+static const u8 sText_AtkText3[]       = _("\nIt feels like throwing it\nmight do some damage.");
+static const u8 sText_AtkText4[]       = _("\nIt feels like throwing it\nmight really hurt.");
+static const u8 sText_AtkText5[]       = _("\nIt feels like throwing it\nmight do serious damage.");
 
 static void PrintEggMemo(void)
 {

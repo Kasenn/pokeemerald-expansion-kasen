@@ -69,12 +69,12 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
 {
     [PARTY_LAYOUT_SINGLE] =
     {
-        { 16,  40,  20,  50,  50,  52,  16,  34},
-        {104,  18, 108,  28, 136,  27, 102,  25},
-        {104,  42, 108,  52, 136,  51, 102,  49},
-        {104,  66, 108,  76, 136,  75, 102,  73},
-        {104,  90, 108, 100, 136,  99, 102,  97},
-        {104, 114, 108, 124, 136, 123, 102, 121},
+        { 28,  28,  32,  46,  62,  48,  16,  34},
+        {116,  17, 120,  27, 148,  26, 102,  25},
+        {116,  41, 120,  51, 148,  50, 102,  49},
+        {116,  65, 120,  75, 148,  74, 102,  73},
+        {116,  89, 120,  99, 148,  98, 102,  97},
+        {116, 113, 120, 123, 148, 122, 102, 121},
     },
     [PARTY_LAYOUT_DOUBLE] =
     {
@@ -149,7 +149,7 @@ static const u32 sCancelButton_Tilemap[] = INCBIN_U32("graphics/party_menu/cance
 static const u8 sFontColorTable[][3] =
 {
     {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_LIGHT_GRAY, TEXT_COLOR_DARK_GRAY},  // Default
-    {TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHITE,      TEXT_COLOR_GREEN},      // Unused
+    {TEXT_COLOR_TRANSPARENT, 14, 15},      // Unused
     {TEXT_COLOR_TRANSPARENT, TEXT_DYNAMIC_COLOR_2,  TEXT_DYNAMIC_COLOR_3},  // Gender symbol
     {TEXT_COLOR_WHITE,       TEXT_COLOR_DARK_GRAY,  TEXT_COLOR_LIGHT_GRAY}, // Selection actions
     {TEXT_COLOR_WHITE,       TEXT_COLOR_BLUE,       TEXT_COLOR_LIGHT_BLUE}, // Field moves
@@ -161,7 +161,7 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate[] =
 {
     { // Party mon 1
         .bg = 0,
-        .tilemapLeft = 1,
+        .tilemapLeft = 2,
         .tilemapTop = 3,
         .width = 10,
         .height = 7,
@@ -170,45 +170,45 @@ static const struct WindowTemplate sSinglePartyMenuWindowTemplate[] =
     },
     { // Party mon 2
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 13,
         .tilemapTop = 1,
-        .width = 18,
+        .width = 16,
         .height = 3,
         .paletteNum = 4,
         .baseBlock = 0xA9,
     },
     { // Party mon 3
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 13,
         .tilemapTop = 4,
-        .width = 18,
+        .width = 16,
         .height = 3,
         .paletteNum = 5,
         .baseBlock = 0xDF,
     },
     { // Party mon 4
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 13,
         .tilemapTop = 7,
-        .width = 18,
+        .width = 16,
         .height = 3,
         .paletteNum = 6,
         .baseBlock = 0x115,
     },
     { // Party mon 5
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 13,
         .tilemapTop = 10,
-        .width = 18,
+        .width = 16,
         .height = 3,
         .paletteNum = 7,
         .baseBlock = 0x14B,
     },
     { // Party mon 6
         .bg = 0,
-        .tilemapLeft = 12,
+        .tilemapLeft = 13,
         .tilemapTop = 13,
-        .width = 18,
+        .width = 16,
         .height = 3,
         .paletteNum = 8,
         .baseBlock = 0x181,
@@ -486,7 +486,7 @@ static const struct WindowTemplate sCancelButtonWindowTemplate =
     .tilemapTop = 17,
     .width = 6,
     .height = 2,
-    .paletteNum = 3,
+    .paletteNum = 13,
     .baseBlock = 0x1C7,
 };
 
@@ -497,7 +497,7 @@ static const struct WindowTemplate sMultiCancelButtonWindowTemplate =
     .tilemapTop = 18,
     .width = 6,
     .height = 2,
-    .paletteNum = 3,
+    .paletteNum = 13,
     .baseBlock = 0x1C7,
 };
 

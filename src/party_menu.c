@@ -2519,12 +2519,12 @@ static void CreateCancelConfirmWindows(bool8 chooseHalf)
         if (gPartyMenu.menuType != PARTY_MENU_TYPE_SPIN_TRADE)
         {
             mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel, 48);
-            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel);
+            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset - 7, 1, sFontColorTable[1], TEXT_SKIP_DRAW, gText_Cancel);
         }
         else
         {
             mainOffset = GetStringCenterAlignXOffset(FONT_SMALL, gText_Cancel2, 48);
-            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset, 1, sFontColorTable[0], TEXT_SKIP_DRAW, gText_Cancel2);
+            AddTextPrinterParameterized3(cancelWindowId, FONT_SMALL, mainOffset + offset - 7, 1, sFontColorTable[1], TEXT_SKIP_DRAW, gText_Cancel2);
         }
         PutWindowTilemap(cancelWindowId);
         CopyWindowToVram(cancelWindowId, COPYWIN_GFX);
@@ -2671,12 +2671,12 @@ static void LoadPartyBoxPalette(struct PartyMenuBox *menuBox, u8 palFlags)
 
 static void DisplayPartyPokemonBarDetail(u8 windowId, const u8 *str, u8 color, const u8 *align)
 {
-    AddTextPrinterParameterized3(windowId, FONT_SMALL, align[0], align[1], sFontColorTable[color], 0, str);
+    AddTextPrinterParameterized3(windowId, FONT_SMALL, align[0], align[1] - 8, sFontColorTable[color], 0, str);
 }
 
 static void DisplayPartyPokemonBarDetailToFit(u8 windowId, const u8 *str, u8 color, const u8 *align, u32 width)
 {
-    AddTextPrinterParameterized3(windowId, GetFontIdToFit(str, FONT_SMALL, 0, width), align[0], align[1], sFontColorTable[color], 0, str);
+    AddTextPrinterParameterized3(windowId, GetFontIdToFit(str, FONT_SMALL, 0, width), align[0] + 12, align[1], sFontColorTable[color], 0, str);
 }
 
 const u8 sText_Chucked[] = _("Tossed");
@@ -2844,14 +2844,22 @@ static void DisplayPartyPokemonHPBar(u16 hp, u16 maxhp, struct PartyMenuBox *men
         break;
     }
 
+    u16 x = 0;
+    u16 y = 0;
+
+    if (menuBox->windowId == 0)
+        y = 8;
+    else
+        x = 16;
+
     hpFraction = GetScaledHPFraction(hp, maxhp, menuBox->infoRects->dimensions[22]);
-    FillWindowPixelRect(menuBox->windowId, sHPBarPalOffsets[1], menuBox->infoRects->dimensions[20], menuBox->infoRects->dimensions[21], hpFraction, 1);
-    FillWindowPixelRect(menuBox->windowId, sHPBarPalOffsets[0], menuBox->infoRects->dimensions[20], menuBox->infoRects->dimensions[21] + 1, hpFraction, 2);
+    FillWindowPixelRect(menuBox->windowId, sHPBarPalOffsets[1], menuBox->infoRects->dimensions[20] - x, menuBox->infoRects->dimensions[21] - y, hpFraction, 1);
+    FillWindowPixelRect(menuBox->windowId, sHPBarPalOffsets[0], menuBox->infoRects->dimensions[20] - x, menuBox->infoRects->dimensions[21] + 1 - y, hpFraction, 2);
     if (hpFraction != menuBox->infoRects->dimensions[22])
     {
         // This appears to be an alternating fill
-        FillWindowPixelRect(menuBox->windowId, 0x0D, menuBox->infoRects->dimensions[20] + hpFraction, menuBox->infoRects->dimensions[21], menuBox->infoRects->dimensions[22] - hpFraction, 1);
-        FillWindowPixelRect(menuBox->windowId, 0x02, menuBox->infoRects->dimensions[20] + hpFraction, menuBox->infoRects->dimensions[21] + 1, menuBox->infoRects->dimensions[22] - hpFraction, 2);
+        FillWindowPixelRect(menuBox->windowId, 0x0D, menuBox->infoRects->dimensions[20] + hpFraction - x, menuBox->infoRects->dimensions[21] - y, menuBox->infoRects->dimensions[22] - hpFraction, 1);
+        FillWindowPixelRect(menuBox->windowId, 0x02, menuBox->infoRects->dimensions[20] + hpFraction - x, menuBox->infoRects->dimensions[21] + 1 - y, menuBox->infoRects->dimensions[22] - hpFraction, 2);
     }
     CopyWindowToVram(menuBox->windowId, COPYWIN_GFX);
 }
@@ -4503,7 +4511,7 @@ static void CreatePartyMonIconSpriteParameterized(enum Species species, u32 pid,
 {
     if (species != SPECIES_NONE)
     {
-        menuBox->monSpriteId = CreateMonIconIsEgg(species, SpriteCB_MonIcon, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, isEgg, slot);
+        menuBox->monSpriteId = CreateMonIconIsEgg(species, NULL, menuBox->spriteCoords[0], menuBox->spriteCoords[1], 4, pid, isEgg, slot);
         gSprites[menuBox->monSpriteId].oam.priority = priority;
     }
 }
@@ -4537,6 +4545,7 @@ static void UpdatePartyMonHPBar(u8 spriteId, struct Pokemon *mon)
 
 static void AnimateSelectedPartyIcon(u8 spriteId, u8 animNum)
 {
+    return;
     gSprites[spriteId].data[0] = 0;
     if (animNum == 0)
     {
@@ -4683,6 +4692,7 @@ static void CreatePartyMonPokeballSprite(struct Pokemon *mon, struct PartyMenuBo
 {
     if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE)
         menuBox->pokeballSpriteId = CreateSprite(&sSpriteTemplate_MenuPokeball, menuBox->spriteCoords[6], menuBox->spriteCoords[7], 8);
+    gSprites[menuBox->pokeballSpriteId].invisible = TRUE;
 }
 
 static void CreatePartyMonPokeballSpriteParameterized(enum Species species, struct PartyMenuBox *menuBox)
@@ -4691,6 +4701,7 @@ static void CreatePartyMonPokeballSpriteParameterized(enum Species species, stru
     {
         menuBox->pokeballSpriteId = CreateSprite(&sSpriteTemplate_MenuPokeball, menuBox->spriteCoords[6], menuBox->spriteCoords[7], 8);
         gSprites[menuBox->pokeballSpriteId].oam.priority = 0;
+        gSprites[menuBox->pokeballSpriteId].invisible = TRUE;
     }
 }
 
@@ -4700,13 +4711,19 @@ static u8 CreatePokeballButtonSprite(u8 x, u8 y)
     u8 spriteId = CreateSprite(&sSpriteTemplate_MenuPokeball, x, y, 8);
 
     gSprites[spriteId].oam.priority = 2;
+    gSprites[spriteId].invisible = TRUE;
     return spriteId;
 }
 
 // For Confirm and Cancel when both are present
 static u8 CreateSmallPokeballButtonSprite(u8 x, u8 y)
 {
-    return CreateSprite(&sSpriteTemplate_MenuPokeballSmall, x, y, 8);
+    u8 spriteId;
+
+    spriteId = CreateSprite(&sSpriteTemplate_MenuPokeballSmall, x, y, 8);
+    gSprites[spriteId].invisible = TRUE;
+
+    return spriteId;
 }
 
 static void PartyMenuStartSpriteAnim(u8 spriteId, u8 animNum)
