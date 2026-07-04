@@ -1024,6 +1024,7 @@ static void HideSaveMessageWindow(void)
 
 static void HideSaveInfoWindow(void)
 {
+    return;
     RemoveSaveInfoWindow();
 }
 
@@ -1067,7 +1068,7 @@ static u8 SaveConfirmSaveCallback(void)
 {
     ClearStdWindowAndFrame(GetStartMenuWindowId(), FALSE);
     RemoveStartMenuWindow();
-    ShowSaveInfoWindow();
+    // ShowSaveInfoWindow();
 
     if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
     {
@@ -1421,7 +1422,7 @@ static void Task_SaveAfterLinkBattle(u8 taskId)
     }
 }
 
-static void ShowSaveInfoWindow(void)
+static void UNUSED ShowSaveInfoWindow(void)
 {
     struct WindowTemplate saveInfoWindow = sSaveInfoWindowTemplate;
     enum Gender gender;
@@ -1537,7 +1538,7 @@ static bool8 StartMenuDexNavCallback(void)
 void Script_ForceSaveGame(struct ScriptContext *ctx)
 {
     SaveGame();
-    ShowSaveInfoWindow();
+    // ShowSaveInfoWindow();
     gMenuCallback = SaveCallback;
     sSaveDialogCallback = SaveSavingMessageCallback;
 }

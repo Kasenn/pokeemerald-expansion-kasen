@@ -2602,6 +2602,9 @@ void GetFollowerAction(struct ScriptContext *ctx) // Essentially a big switch fo
     };
     u32 i, j;
     bool32 pickedCondition = FALSE;
+    ScriptCall(ctx, EventScript_FollowerEgg);
+    return;
+    
     if (mon == NULL) // failsafe
     {
         ScriptCall(ctx, EventScript_FollowerLovesYou);

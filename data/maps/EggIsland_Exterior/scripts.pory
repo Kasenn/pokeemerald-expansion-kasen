@@ -4,6 +4,10 @@ mapscripts EggIsland_Exterior_MapScripts {
     }
 }
 
+script EventScript_FollowerEgg{
+    msgbox("It's a Pokémon egg.", MSGBOX_AUTOCLOSE)
+}
+
 script Script_StartMenuRest{
     call(Common_EventScript_OutOfCenterPartyHeal)
     callnative(UpdateEggPP)

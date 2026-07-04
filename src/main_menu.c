@@ -333,9 +333,9 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     {
         .bg = 0,
         .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN2,
+        .tilemapTop = MENU_TOP_WIN0,
         .width = MENU_WIDTH,
-        .height = MENU_HEIGHT_WIN2,
+        .height = MENU_HEIGHT_WIN0,
         .paletteNum = 15,
         .baseBlock = 1
     },
@@ -343,7 +343,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     {
         .bg = 0,
         .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN3,
+        .tilemapTop = MENU_TOP_WIN1,
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN3,
         .paletteNum = 15,
@@ -353,7 +353,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     {
         .bg = 0,
         .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN4,
+        .tilemapTop = MENU_TOP_WIN4 - 4,
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN4,
         .paletteNum = 15,
@@ -363,7 +363,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     {
         .bg = 0,
         .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN5,
+        .tilemapTop = MENU_TOP_WIN5 - 4,
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN5,
         .paletteNum = 15,
@@ -373,7 +373,7 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
     {
         .bg = 0,
         .tilemapLeft = MENU_LEFT,
-        .tilemapTop = MENU_TOP_WIN6,
+        .tilemapTop = MENU_TOP_WIN6 - 2,
         .width = MENU_WIDTH,
         .height = MENU_HEIGHT_WIN6,
         .paletteNum = 15,
@@ -789,7 +789,7 @@ static void Task_DisplayMainMenu(u8 taskId)
         // so the default gender is MALE.
         if (gSaveBlock2Ptr->playerGender == MALE)
         {
-            palette = RGB(4, 16, 31);
+            palette = RGB2GBA(68, 182, 60);
             LoadPalette(&palette, BG_PLTT_ID(15) + 1, PLTT_SIZEOF(1));
         }
         else
@@ -1228,13 +1228,13 @@ static void HighlightSelectedMainMenuItem(enum PartyMenuType menuType, u8 select
         {
         case 0:
         default:
-            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(2));
+            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(0));
             break;
         case 1:
-            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(3));
+            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(1));
             break;
         case 2:
-            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(4));
+            SetGpuReg(REG_OFFSET_WIN0V, MENU_WIN_VCOORDS(3));
             break;
         }
         break;
@@ -2188,11 +2188,11 @@ static void MainMenu_FormatSavegameTime(void)
     u8 *ptr;
 
     StringExpandPlaceholders(gStringVar4, gText_ContinueMenuTime);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C, 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, gStringVar4);
+    AddTextPrinterParameterized3(2, FONT_NORMAL, 0x6C + 16, 1, sTextColor_Headers, TEXT_SKIP_DRAW, gStringVar4);
     ptr = ConvertIntToDecimalStringN(str, gSaveBlock2Ptr->playTimeHours, STR_CONV_MODE_LEFT_ALIGN, 3);
     *ptr = 0xF0;
     ConvertIntToDecimalStringN(ptr + 1, gSaveBlock2Ptr->playTimeMinutes, STR_CONV_MODE_LEADING_ZEROS, 2);
-    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 17, sTextColor_MenuInfo, TEXT_SKIP_DRAW, str);
+    AddTextPrinterParameterized3(2, FONT_NORMAL, GetStringRightAlignXOffset(FONT_NORMAL, str, 0xD0), 1, sTextColor_Headers, TEXT_SKIP_DRAW, str);
 }
 
 static void MainMenu_FormatSavegamePokedex(void)
