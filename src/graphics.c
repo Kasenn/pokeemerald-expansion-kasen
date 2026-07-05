@@ -2117,19 +2117,19 @@ const u16 gMonIconPalettes[][16] =
     INCGFX_U16("graphics/pokemon/icon_palettes/pal5.pal", ".gbapal"),
 };
 
-const u16 gTitleScreenBgPalettes[]         = INCBIN_U16("graphics/title_screen/title_chansey.gbapal",
+const u16 gTitleScreenBgPalettes[]         = INCBIN_U16("graphics/title_screen/title_yoshi.gbapal",
                                                         "graphics/title_screen/rayquaza_and_clouds.gbapal");
 const u16 gTitleScreenBgPalettes2[]         = INCBIN_U16("graphics/title_screen/title_bg0.gbapal",
                                                         "graphics/title_screen/rayquaza_and_clouds.gbapal");
 const u16 gTitleScreenBgPalettes3[]         = INCBIN_U16("graphics/title_screen/title_bg2.gbapal");                                                      
 const u16 gTitleScreenEmeraldVersionPal[]  = INCGFX_U16("graphics/title_screen/emerald_version.png", ".gbapal");
 const u32 gTitleScreenCloudsTilemap[]      = INCGFX_U32("graphics/title_screen/title_bg2.bin", ".smolTM");
-const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/title_chansey.png", ".8bpp.smol");
+const u32 gTitleScreenPokemonLogoGfx[]     = INCGFX_U32("graphics/title_screen/title_yoshi.png", ".8bpp.smol");
 const u32 gTitleScreenEmeraldVersionGfx[]  = INCGFX_U32("graphics/title_screen/emerald_version.png", ".8bpp.smol", "-mwidth 8 -mheight 8");
 const u16 gTitleScreenPressStartPal[]      = INCGFX_U16("graphics/title_screen/press_start.png", ".gbapal");
 const u16 gTitleScreenTarc3Project[]       = INCGFX_U16("graphics/title_screen/logo_shine.png", ".gbapal");
 const u32 gTitleScreenPressStartGfx[]      = INCGFX_U32("graphics/title_screen/press_start.png", ".4bpp.smol");
-const u32 gTitleScreenPokemonLogoTilemap[] = INCGFX_U32("graphics/title_screen/title_chansey.bin", ".smolTM");
+const u32 gTitleScreenPokemonLogoTilemap[] = INCGFX_U32("graphics/title_screen/title_yoshi.bin", ".smolTM");
 
 const u16 gFrontierPassBg_Pal[][16]                      = INCGFX_U16("graphics/frontier_pass/bg.png", ".gbapal"); // 8 x 16
 const u32 gFrontierPassBg_Gfx[]                          = INCGFX_U32("graphics/frontier_pass/bg.png", ".4bpp.smol");

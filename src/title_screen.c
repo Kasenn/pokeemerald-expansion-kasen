@@ -32,11 +32,11 @@ enum {
 };
 
 #define VERSION_BANNER_RIGHT_TILEOFFSET 64
-#define VERSION_BANNER_LEFT_X 30
+#define VERSION_BANNER_LEFT_X 34
 #define VERSION_BANNER_RIGHT_X (VERSION_BANNER_LEFT_X + VERSION_BANNER_RIGHT_TILEOFFSET)
 #define VERSION_BANNER_Y -48
 #define VERSION_BANNER_Y_GOAL 48
-#define START_BANNER_X 70
+#define START_BANNER_X 74
 
 #define CLEAR_SAVE_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_UP)
 #define RESET_RTC_BUTTON_COMBO (B_BUTTON | SELECT_BUTTON | DPAD_LEFT)
@@ -504,7 +504,7 @@ static void SpriteCB_PokemonLogoShine(struct Sprite *sprite)
              || sprite->data[3] == DISPLAY_WIDTH / 2 + (4 * SHINE_SPEED)
              || sprite->data[3] == DISPLAY_WIDTH / 2 + (5 * SHINE_SPEED)
              || sprite->data[3] == DISPLAY_WIDTH / 2 + (6 * SHINE_SPEED))
-                gPlttBufferFaded[0] = RGB(31, 20, 24);
+                gPlttBufferFaded[0] = RGB(24, 31, 12);
             else
                 gPlttBufferFaded[0] = backgroundColor;
         }
