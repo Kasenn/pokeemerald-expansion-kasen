@@ -1290,7 +1290,7 @@ bool8 ScrCmd_fadeinbgm(struct ScriptContext *ctx)
 
 struct ObjectEvent *ScriptHideFollower(void)
 {
-    struct ObjectEvent *obj = GetFollowerObject();
+    struct ObjectEvent *obj = GetFollowerObject(0);//wip, this definitely needs fixing
 
     if (obj == NULL || obj->invisible)
         return NULL;
@@ -1312,7 +1312,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     // When applying script movements to follower, it may have frozen animation that must be cleared
-    if ((localId == OBJ_EVENT_ID_FOLLOWER && (objEvent = GetFollowerObject()) && objEvent->frozen)
+    if ((localId == OBJ_EVENT_ID_FOLLOWER1 && (objEvent = GetFollowerObject(0)) && objEvent->frozen) //wip
             || ((objEvent = &gObjectEvents[GetObjectEventIdByLocalId(localId)]) && IS_OW_MON_OBJ(objEvent)))
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
@@ -1322,7 +1322,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     gObjectEvents[GetObjectEventIdByLocalId(localId)].directionOverwrite = DIR_NONE;
     ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, movementScript);
     sMovingNpcId = localId;
-    if (localId != OBJ_EVENT_ID_FOLLOWER
+    if (localId != OBJ_EVENT_ID_FOLLOWER1 //wip
      && !FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)
      && (movementScript < Common_Movement_FollowerSafeStart || movementScript > Common_Movement_FollowerSafeEnd))
     {
@@ -1350,10 +1350,10 @@ static bool8 WaitForMovementFinish(void)
 {
     if (ScriptMovement_IsObjectMovementFinished(sMovingNpcId, sMovingNpcMapNum, sMovingNpcMapGroup))
     {
-        struct ObjectEvent *objEvent = GetFollowerObject();
+        struct ObjectEvent *objEvent = GetFollowerObject(0);//wip
         // If the follower is still entering the pokeball, wait for it to finish too
         // This prevents a `release` after this script command from getting the follower stuck in an intermediate state
-        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER && objEvent && ObjectEventGetHeldMovementActionId(objEvent) == MOVEMENT_ACTION_ENTER_POKEBALL)
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER1 && objEvent && ObjectEventGetHeldMovementActionId(objEvent) == MOVEMENT_ACTION_ENTER_POKEBALL)//wip
             return ScriptMovement_IsObjectMovementFinished(objEvent->localId, objEvent->mapNum, objEvent->mapGroup);
         return TRUE;
     }
@@ -1628,7 +1628,7 @@ bool8 ScrCmd_lockall(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj = GetFollowerObject();
+        struct ObjectEvent *followerObj = GetFollowerObject(0);//wip
         FreezeObjects_WaitForPlayer();
         SetupNativeScript(ctx, IsFreezePlayerFinished);
         if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT) && followerObj) // Unfreeze follower object (conditionally)
@@ -1649,13 +1649,13 @@ bool8 ScrCmd_lock(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj = GetFollowerObject();
+        struct ObjectEvent *followerObj = GetFollowerObject(0);//wip
         if (gObjectEvents[gSelectedObjectEvent].active)
         {
             FreezeObjects_WaitForPlayerAndSelected();
             SetupNativeScript(ctx, IsFreezeSelectedObjectAndPlayerFinished);
             // follower is being talked to; keep it frozen
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER)
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER1)//wip
                 followerObj = NULL;
         }
         else
@@ -1674,7 +1674,7 @@ bool8 ScrCmd_releaseall(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     u8 playerObjectId;
-    struct ObjectEvent *followerObject = GetFollowerObject();
+    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip
     // Release follower from movement iff it exists and is in the shadowing state
     if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
         ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
@@ -1693,7 +1693,7 @@ bool8 ScrCmd_release(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     u8 playerObjectId;
-    struct ObjectEvent *followerObject = GetFollowerObject();
+    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip
     // Release follower from movement iff it exists and is in the shadowing state
     if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
         ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);

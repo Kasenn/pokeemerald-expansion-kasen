@@ -13,6 +13,8 @@ bool8 GetMetatileNearPlayer(u16 metatileBehavior, bool8 underPlayer);
 enum Direction GetPlayerFacingDirection(void);
 enum Direction GetPlayerMovementDirection(void);
 enum CopyMovement PlayerGetCopyableMovement(void);
+enum Direction GetFollowerMovementDirection(u8 slot);
+enum CopyMovement FollowerGetCopyableMovement(u8 slot);
 void PlayerWalkNormal(enum Direction direction);
 void PlayerWalkFast(enum Direction direction);
 void PlayerRideWaterCurrent(enum Direction direction);

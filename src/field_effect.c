@@ -1773,11 +1773,14 @@ static bool8 FallWarpEffect_End(struct Task *task)
 
 void HideFollowerForFieldEffect(void)
 {
-    struct ObjectEvent *followerObj = GetFollowerObject();
-    if (!followerObj || followerObj->invisible)
-        return;
-    ClearObjectEventMovement(followerObj, &gSprites[followerObj->spriteId]);
-    ObjectEventSetHeldMovement(followerObj, MOVEMENT_ACTION_ENTER_POKEBALL);
+    for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
+    {
+        struct ObjectEvent *followerObj = GetFollowerObject(slot);
+        if (!followerObj || followerObj->invisible)
+            return;
+        ClearObjectEventMovement(followerObj, &gSprites[followerObj->spriteId]);
+        ObjectEventSetHeldMovement(followerObj, MOVEMENT_ACTION_ENTER_POKEBALL);
+    }
 }
 
 void StartEscalatorWarp(u8 metatileBehavior, u8 priority)
@@ -3425,7 +3428,7 @@ static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
 static void SurfFieldEffect_End(struct Task *task)
 {
     struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    struct ObjectEvent *followerObject = GetFollowerObject();
+    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip2 shouldn't matter
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
         gPlayerAvatar.preventStep = FALSE;
@@ -4520,7 +4523,7 @@ static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *
 
 static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *objectEvent)
 {
-    struct ObjectEvent *followerObject = GetFollowerObject();
+    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip2 shouldn't matter
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));

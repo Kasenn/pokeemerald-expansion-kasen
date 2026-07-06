@@ -1230,11 +1230,18 @@ static bool8 PlayerCheckIfAnimFinishedOrInactive(void)
 static void PlayerSetCopyableMovement(enum CopyMovement movement)
 {
     gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = movement;
+    for (int i = 0; i < (gPlayerPartyCount - 1); i++)
+        gObjectEvents[gSaveBlock3Ptr->followerId[i]].playerCopyableMovement = movement;
 }
 
 enum CopyMovement PlayerGetCopyableMovement(void)
 {
     return gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement;
+}
+
+enum CopyMovement FollowerGetCopyableMovement(u8 slot)
+{
+    return gObjectEvents[gSaveBlock3Ptr->followerId[slot]].playerCopyableMovement;
 }
 
 static void PlayerForceSetHeldMovement(u8 movementActionId)
@@ -1530,6 +1537,11 @@ enum Direction GetPlayerFacingDirection(void)
 enum Direction GetPlayerMovementDirection(void)
 {
     return gObjectEvents[gPlayerAvatar.objectEventId].movementDirection;
+}
+
+enum Direction GetFollowerMovementDirection(u8 slot)
+{
+    return gObjectEvents[gSaveBlock3Ptr->followerId[slot]].movementDirection;
 }
 
 u8 PlayerGetElevation(void)
@@ -2241,7 +2253,7 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, enum Direction d
         s16 x = objectEvent->currentCoords.x;
         s16 y = objectEvent->currentCoords.y;
 
-        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER))
+        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1))
             return FALSE;
 
         switch (direction)

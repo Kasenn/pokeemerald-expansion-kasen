@@ -411,24 +411,76 @@ bool8 (*const gCopyPlayerMovementFuncs[])(struct ObjectEvent *, struct Sprite *,
     [COPY_MOVE_WALK_COLLIDE_SLOW]   = CopyablePlayerMovement_WalkSlow,
 };
 
-u8 (*const gMovementTypeFuncs_FollowPlayer[])(struct ObjectEvent *, struct Sprite *) = {
-    MovementType_FollowPlayer_Shadow,
-    MovementType_FollowPlayer_Active,
-    MovementType_FollowPlayer_Moving,
+u8 (*const gMovementTypeFuncs_Follower1[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Follower_Shadow,
+    MovementType_Follower1_Active,
+    MovementType_Follower_Moving,
 };
 
-bool8 (*const gFollowPlayerMovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
-    [COPY_MOVE_NONE] = FollowablePlayerMovement_Idle,
-    [COPY_MOVE_FACE] = FollowablePlayerMovement_Idle,
-    [COPY_MOVE_WALK] = FollowablePlayerMovement_Step,
-    [COPY_MOVE_WALK_FAST] = FollowablePlayerMovement_GoSpeed1,
-    [COPY_MOVE_WALK_FASTER] = FollowablePlayerMovement_GoSpeed2,
-    [COPY_MOVE_SLIDE] = FollowablePlayerMovement_Slide,
-    [COPY_MOVE_JUMP_IN_PLACE] = FollowablePlayerMovement_JumpInPlace,
-    [COPY_MOVE_JUMP] = FollowablePlayerMovement_GoSpeed4,
-    [COPY_MOVE_JUMP2] = FollowablePlayerMovement_Step,
-    [COPY_MOVE_WALK_COLLIDE] = FollowablePlayerMovement_Idle,
-    [COPY_MOVE_WALK_COLLIDE_SLOW] = FollowablePlayerMovement_Idle,
+u8 (*const gMovementTypeFuncs_Follower2[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Follower_Shadow,
+    MovementType_Follower2_Active,
+    MovementType_Follower_Moving,
+};
+
+u8 (*const gMovementTypeFuncs_Follower3[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Follower_Shadow,
+    MovementType_Follower3_Active,
+    MovementType_Follower_Moving,
+};
+
+u8 (*const gMovementTypeFuncs_Follower4[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Follower_Shadow,
+    MovementType_Follower4_Active,
+    MovementType_Follower_Moving,
+};
+
+u8 (*const gMovementTypeFuncs_Follower5[])(struct ObjectEvent *, struct Sprite *) = {
+    MovementType_Follower_Shadow,
+    MovementType_Follower5_Active,
+    MovementType_Follower_Moving,
+};
+
+// These do not inherently depend on the player, so they should work for every follower
+#define DefaultFollowerFuncs                                            \
+    [COPY_MOVE_NONE] = FollowablePlayerMovement_Idle,                   \
+    [COPY_MOVE_FACE] = FollowablePlayerMovement_Idle,                   \
+    [COPY_MOVE_WALK_COLLIDE] = FollowablePlayerMovement_Idle,           \
+    [COPY_MOVE_WALK_COLLIDE_SLOW] = FollowablePlayerMovement_Idle,      \
+    [COPY_MOVE_WALK_FAST] = FollowablePlayerMovement_GoSpeed1,          \
+    [COPY_MOVE_WALK_FASTER] = FollowablePlayerMovement_GoSpeed2,        \
+    [COPY_MOVE_SLIDE] = FollowablePlayerMovement_Slide,                 \
+    [COPY_MOVE_JUMP_IN_PLACE] = FollowablePlayerMovement_JumpInPlace,   \
+    [COPY_MOVE_JUMP] = FollowablePlayerMovement_GoSpeed4
+
+bool8 (*const gFollower1_MovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
+    DefaultFollowerFuncs,
+    [COPY_MOVE_WALK] = Follower1Movement_Step,
+    [COPY_MOVE_JUMP2] = Follower1Movement_Step,
+};
+
+bool8 (*const gFollower2_MovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
+    DefaultFollowerFuncs,
+    [COPY_MOVE_WALK] = Follower2Movement_Step,
+    [COPY_MOVE_JUMP2] = Follower2Movement_Step,
+};
+
+bool8 (*const gFollower3_MovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
+    DefaultFollowerFuncs,
+    [COPY_MOVE_WALK] = Follower3Movement_Step,
+    [COPY_MOVE_JUMP2] = Follower3Movement_Step,
+};
+
+bool8 (*const gFollower4_MovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
+    DefaultFollowerFuncs,
+    [COPY_MOVE_WALK] = Follower4Movement_Step,
+    [COPY_MOVE_JUMP2] = Follower4Movement_Step,
+};
+
+bool8 (*const gFollower5_MovementFuncs[])(struct ObjectEvent *, struct Sprite *, enum Direction, bool8(u8)) = {
+    DefaultFollowerFuncs,
+    [COPY_MOVE_WALK] = Follower5Movement_Step,
+    [COPY_MOVE_JUMP2] = Follower5Movement_Step,
 };
 
 u8 (*const gMovementTypeFuncs_CopyPlayerInGrass[])(struct ObjectEvent *, struct Sprite *) = {

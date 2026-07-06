@@ -407,7 +407,7 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
         script = GetFollowerNPCScriptPointer();
     else if (IsOverworldWildEncounter(&gObjectEvents[objectEventId], OWE_ANY))
         script = GetOverworlWildEncounterScript(objectEventId);
-    else if (gObjectEvents[objectEventId].localId == OBJ_EVENT_ID_FOLLOWER)
+    else if (gObjectEvents[objectEventId].noCollision)
         script = EventScript_FollowerEgg;
     else if (InTrainerHill() == TRUE)
         script = GetTrainerHillTrainerScript();
