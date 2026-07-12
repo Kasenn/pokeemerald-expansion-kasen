@@ -51,76 +51,78 @@ Script_TryLootEgg::
 # 36 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative GeneratePokemonForEgg
 # 37 "data/maps/EggIsland_Exterior/scripts.pory"
+	clearflag FLAG_FORCE_ENCOUNTERRATE
+# 38 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_0x8001, 5
 	goto_if_lt Script_TryLootEgg_2
-# 48 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_EGGPIC
 # 49 "data/maps/EggIsland_Exterior/scripts.pory"
-	showmonpic VAR_0x8000, 10, 3
+	setflag FLAG_EGGPIC
 # 50 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative BufferEggTextBasedOnType
+	showmonpic VAR_0x8000, 10, 3
 # 51 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox TooManyEggs, MSGBOX_YESNO
+	callnative BufferEggTextBasedOnType
 # 52 "data/maps/EggIsland_Exterior/scripts.pory"
-	hidemonpic
+	msgbox TooManyEggs, MSGBOX_YESNO
 # 53 "data/maps/EggIsland_Exterior/scripts.pory"
-	clearflag FLAG_EGGPIC
+	hidemonpic
 # 54 "data/maps/EggIsland_Exterior/scripts.pory"
+	clearflag FLAG_EGGPIC
+# 55 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq Script_TryLootEgg_6
-# 59 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox Script_TryLootEgg_Text_1
 # 60 "data/maps/EggIsland_Exterior/scripts.pory"
-	special SavePlayerParty
+	msgbox Script_TryLootEgg_Text_1
 # 61 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative ReplaceChanseyWithEgg
+	special SavePlayerParty
 # 62 "data/maps/EggIsland_Exterior/scripts.pory"
-	special ChoosePartyMon
+	callnative ReplaceChanseyWithEgg
 # 63 "data/maps/EggIsland_Exterior/scripts.pory"
+	special ChoosePartyMon
+# 64 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_0x8004, PARTY_SIZE
 	goto_if_ge Script_TryLootEgg_9
-# 63 "data/maps/EggIsland_Exterior/scripts.pory"
+# 64 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_0x8004, 0
 	goto_if_eq Script_TryLootEgg_9
-# 70 "data/maps/EggIsland_Exterior/scripts.pory"
-	special LoadPlayerParty
 # 71 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative ReplaceEggInParty
+	special LoadPlayerParty
 # 72 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative ReplaceEggInParty
+# 73 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox Script_TryLootEgg_Text_3
 Script_TryLootEgg_1:
-# 74 "data/maps/EggIsland_Exterior/scripts.pory"
+# 75 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 Script_TryLootEgg_2:
-# 39 "data/maps/EggIsland_Exterior/scripts.pory"
-	playse SE_ITEMFINDER
 # 40 "data/maps/EggIsland_Exterior/scripts.pory"
-	message Script_TryLootEgg_Text_0
+	playse SE_ITEMFINDER
 # 41 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitse
+	message Script_TryLootEgg_Text_0
 # 42 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmessage
+	waitse
 # 43 "data/maps/EggIsland_Exterior/scripts.pory"
-	giveegg VAR_0x8000
+	waitmessage
 # 44 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative UpdateEggPP
+	giveegg VAR_0x8000
 # 45 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative UpdateEggPP
+# 46 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative UpdateFollowingPokemon
 	goto Script_TryLootEgg_1
 
 Script_TryLootEgg_6:
-# 56 "data/maps/EggIsland_Exterior/scripts.pory"
+# 57 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 Script_TryLootEgg_9:
-# 65 "data/maps/EggIsland_Exterior/scripts.pory"
-	special LoadPlayerParty
 # 66 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox Script_TryLootEgg_Text_2
+	special LoadPlayerParty
 # 67 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox Script_TryLootEgg_Text_2
+# 68 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
@@ -134,19 +136,19 @@ Script_StartMenuRest_Text_0:
 	.string "Your party has been fully healed.$"
 
 Script_TryLootEgg_Text_0:
-# 40 "data/maps/EggIsland_Exterior/scripts.pory"
+# 41 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi found an egg!$"
 
 Script_TryLootEgg_Text_1:
-# 59 "data/maps/EggIsland_Exterior/scripts.pory"
+# 60 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Choose an egg to toss away.$"
 
 Script_TryLootEgg_Text_2:
-# 66 "data/maps/EggIsland_Exterior/scripts.pory"
+# 67 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi left the egg where it was.$"
 
 Script_TryLootEgg_Text_3:
-# 72 "data/maps/EggIsland_Exterior/scripts.pory"
+# 73 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi replaced an older egg\nwith the new one.$"
 
 RetreatWithDiglett_Text::
@@ -155,7 +157,7 @@ RetreatWithDiglett_Text::
 	.string "return back to latest save point?$"
 
 TooManyEggs::
-# 77 "data/maps/EggIsland_Exterior/scripts.pory"
+# 78 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi found an egg, but it's\n"
 	.string "already carrying more than enough.\p"
 	.string "{STR_VAR_1}\p"

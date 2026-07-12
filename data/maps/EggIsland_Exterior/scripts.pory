@@ -4,6 +4,10 @@ mapscripts EggIsland_Exterior_MapScripts {
     }
 }
 
+script EventScript_LootMushroom{
+    //wip
+}
+
 script EventScript_FollowerEgg{
     msgbox("It's a Pokémon egg.", MSGBOX_AUTOCLOSE)
 }
@@ -34,6 +38,7 @@ text RetreatWithDiglett_Text{
 script Script_TryLootEgg{
     lock
     callnative(GeneratePokemonForEgg)
+    clearflag(FLAG_FORCE_ENCOUNTERRATE)
     if(var(VAR_0x8001) < 5)
     {
         playse(SE_ITEMFINDER)

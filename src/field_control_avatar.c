@@ -684,6 +684,16 @@ static bool32 TrySetupDiveEmergeScript(void)
     return FALSE;
 }
 
+static bool8 StandingOnMushroom(struct MapPosition *position)
+{
+    if (VarGet(VAR_MUSHROOM_X) == position->x - MAP_OFFSET && VarGet(VAR_MUSHROOM_Y) == position->y - MAP_OFFSET)
+    {
+        ScriptContext_SetupScript(EventScript_LootMushroom);
+        return TRUE;
+    }
+    return FALSE;
+}
+
 bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileBehavior, enum Direction direction)
 {
     if (TryStartCoordEventScript(position) == TRUE)
@@ -697,6 +707,8 @@ bool8 TryStartStepBasedScript(struct MapPosition *position, u16 metatileBehavior
     if (!(gPlayerAvatar.flags & PLAYER_AVATAR_FLAG_FORCED_MOVE) && !MetatileBehavior_IsForcedMovementTile(metatileBehavior) && UpdateRepelCounter() == TRUE)
         return TRUE;
     if (OnStep_DexNavSearch())
+        return TRUE;
+    if (StandingOnMushroom(position) == TRUE)
         return TRUE;
     return FALSE;
 }
