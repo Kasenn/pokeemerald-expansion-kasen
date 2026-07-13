@@ -3765,3 +3765,28 @@ void ReplaceChanseyWithEgg(void)
     ScriptGiveEgg(gSpecialVar_0x8000);
     SetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SMART, &check);
 }
+
+struct SpawnTile
+{
+    s16 x;
+    s16 y;
+};
+
+static const struct SpawnTile sSuperMushroomAreaZero[] =
+{
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
+};
+
+void RandomizeMushroom(void)
+{
+    u16 numOfEntries = ARRAY_COUNT(sSuperMushroomAreaZero);
+    u16 start = Random() % numOfEntries;
+
+    for (int i = start; i < start + numOfEntries; i++)
+    {
+        if (i > numOfEntries)
+            i -= numOfEntries;
+    }
+}

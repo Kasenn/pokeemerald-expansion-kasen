@@ -1742,3 +1742,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/EggIsland_Exterior/scripts.inc"
 
 	.include "data/maps/YoshiIntro/scripts.inc"
+
+	.include "data/maps/EggIsland_Interior/scripts.inc"

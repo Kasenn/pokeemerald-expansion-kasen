@@ -9343,6 +9343,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/YoshiIntro/border.bin",
       "blockdata_filepath": "data/layouts/YoshiIntro/map.bin"
+    },
+    {
+      "id": "LAYOUT_EGG_ISLAND_INTERIOR",
+      "name": "EggIsland_Interior_Layout",
+      "width": 84,
+      "height": 89,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/EggIsland_Interior/border.bin",
+      "blockdata_filepath": "data/layouts/EggIsland_Interior/map.bin"
     }
   ]
 }

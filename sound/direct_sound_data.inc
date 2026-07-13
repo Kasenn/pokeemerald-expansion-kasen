@@ -8723,7 +8723,7 @@ Cry_IronBoulder::
 	.align 2
 Cry_IronCrown::
 .if TESTING == FALSE
-	.incbin "sound/direct_sound_samples/cries/iron_crown.bin"
+	.incbin "sound/direct_sound_samples/cries/mushroom.bin"
 .endif
 .endif @ P_FAMILY_IRON_CROWN
 

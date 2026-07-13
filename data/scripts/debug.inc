@@ -201,7 +201,8 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	giveegg SPECIES_ROOKIDEE
+	waitse
+	call EventScript_LootMushroom
 	giveegg SPECIES_ROOKIDEE
 	giveegg SPECIES_ROOKIDEE
 	giveegg SPECIES_ROOKIDEE

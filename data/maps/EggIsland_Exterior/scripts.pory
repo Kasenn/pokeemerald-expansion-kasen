@@ -5,7 +5,24 @@ mapscripts EggIsland_Exterior_MapScripts {
 }
 
 script EventScript_LootMushroom{
-    //wip
+    playmoncry(SPECIES_IRON_CROWN, 0)
+    waitmoncry
+    if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
+        msgbox(EventScript_LootMushroom_Text, MSGBOX_AUTOCLOSE)
+    }
+    if(var(VAR_MUSHROOM_COUNT) < 10){
+        addvar(VAR_MUSHROOM_COUNT, 1)
+    }
+    release
+}
+
+text EventScript_LootMushroom_Text{
+    "Yoshi picked up a Super\n"
+    "Mushroom!\p"
+    "Use the move “Super Mushroom”\n"
+    "to consume a Super Mushroom\l"
+    "and recover some health."
 }
 
 script EventScript_FollowerEgg{
