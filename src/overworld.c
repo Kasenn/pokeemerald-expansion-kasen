@@ -32,6 +32,7 @@
 #include "io_reg.h"
 #include "item.h"
 #include "item_icon.h"
+#include "line_break.h"
 #include "link.h"
 #include "link_rfu.h"
 #include "load_save.h"
@@ -70,6 +71,7 @@
 #include "tv.h"
 #include "scanline_effect.h"
 #include "wild_encounter.h"
+#include "wild_encounter_ow.h"
 #include "vs_seeker.h"
 #include "frontier_util.h"
 #include "constants/abilities.h"
@@ -445,10 +447,10 @@ void Overworld_ResetBattleFlagsAndVars(void)
     #endif
 
     FlagClear(B_FLAG_INVERSE_BATTLE);
-    FlagClear(B_FLAG_FORCE_DOUBLE_WILD);
-    FlagClear(B_SMART_WILD_AI_FLAG);
-    FlagClear(B_FLAG_NO_CATCHING);
-    FlagClear(B_FLAG_NO_RUNNING);
+    FlagClear(WE_FLAG_FORCE_DOUBLE_WILD);
+    FlagClear(WE_SMART_WILD_AI_FLAG);
+    FlagClear(WE_FLAG_NO_CATCHING);
+    FlagClear(WE_FLAG_NO_RUNNING);
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
     FlagClear(B_FLAG_NO_WHITEOUT);
@@ -926,6 +928,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
          || gMapHeader.regionMapSectionId != sLastMapSectionId)
             ShowMapNamePopup();
     }
+    SetMinimumOWESpawnTimer();
 }
 
 static void LoadMapFromWarp(bool32 a1)
@@ -986,6 +989,7 @@ static void LoadMapFromWarp(bool32 a1)
         UpdateTVScreensOnMap(gBackupMapLayout.width, gBackupMapLayout.height);
         InitSecretBaseAppearance(TRUE);
     }
+    SetMinimumOWESpawnTimer();
 }
 
 void ResetInitialPlayerAvatarState(void)
@@ -1393,8 +1397,28 @@ void Overworld_FadeOutMapMusic(void)
     FadeOutMapMusic(4);
 }
 
+static bool32 ShouldPlayVanillaAmbientCry(void)
+{
+    switch (OW_AMBIENT_CRIES)
+    {
+    case OW_AMBIENT_CRIES_VANILLA:
+        return TRUE;
+    case OW_AMBIENT_CRIES_OWE_PRIORITY:
+        return !TryPlayAmbientCryOWE();
+    case OW_AMBIENT_CRIES_OWE_ONLY:
+        TryPlayAmbientCryOWE();
+        return FALSE;
+    case OW_AMBIENT_CRIES_NONE:
+    default:
+        return FALSE;
+    }
+}
+
 static void PlayAmbientCry(void)
 {
+    if (!ShouldPlayVanillaAmbientCry())
+        return;
+    
     s16 x, y;
     s8 pan;
     s8 volume;
@@ -1449,8 +1473,8 @@ void UpdateAmbientCry(s16 *state, u16 *delayCounter)
         monsCount = CalculatePlayerPartyCount();
         for (i = 0; i < monsCount; i++)
         {
-            if (!GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SANITY_IS_EGG)
-                && GetMonAbility(&gParties[B_TRAINER_0][0]) == ABILITY_SWARM)
+            if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SANITY_IS_EGG)
+                && GetMonAbility(&gParties[B_TRAINER_PLAYER][0]) == ABILITY_SWARM)
             {
                 divBy = 2;
                 break;
@@ -1664,7 +1688,7 @@ const struct BlendSettings gTimeOfDayBlend[] =
 
 #define MORNING_HOUR_MIDDLE (MORNING_HOUR_BEGIN + ((MORNING_HOUR_END - MORNING_HOUR_BEGIN) / 2))
 
-void UpdateTimeOfDay(void)
+void UpdateTimeOfDay(bool32 updateBlend)
 {
     s32 hours, minutes;
     RtcCalcLocalTime();
@@ -1673,47 +1697,65 @@ void UpdateTimeOfDay(void)
 
     if (IsBetweenHours(hours, MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE)) // night->morning
     {
-        gTimeBlend.startBlend = gTimeOfDayBlend[TIME_NIGHT];
-        gTimeBlend.endBlend = gTimeOfDayBlend[TIME_MORNING];
-        gTimeBlend.weight = TIME_BLEND_WEIGHT(MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE);
-        gTimeBlend.altWeight = (DEFAULT_WEIGHT - gTimeBlend.weight) / 2;
+        if (updateBlend)
+        {
+            gTimeBlend.startBlend = gTimeOfDayBlend[TIME_NIGHT];
+            gTimeBlend.endBlend = gTimeOfDayBlend[TIME_MORNING];
+            gTimeBlend.weight = TIME_BLEND_WEIGHT(MORNING_HOUR_BEGIN, MORNING_HOUR_MIDDLE);
+            gTimeBlend.altWeight = (DEFAULT_WEIGHT - gTimeBlend.weight) / 2;
+        }
         gTimeOfDay = TIME_MORNING;
     }
     else if (IsBetweenHours(hours, MORNING_HOUR_MIDDLE, MORNING_HOUR_END)) // morning->day
     {
-        gTimeBlend.startBlend = gTimeOfDayBlend[TIME_MORNING];
-        gTimeBlend.endBlend = gTimeOfDayBlend[TIME_DAY];
-        gTimeBlend.weight = TIME_BLEND_WEIGHT(MORNING_HOUR_MIDDLE, MORNING_HOUR_END);
-        gTimeBlend.altWeight = (DEFAULT_WEIGHT - gTimeBlend.weight) / 2 + (DEFAULT_WEIGHT / 2);
+        if (updateBlend)
+        {
+            gTimeBlend.startBlend = gTimeOfDayBlend[TIME_MORNING];
+            gTimeBlend.endBlend = gTimeOfDayBlend[TIME_DAY];
+            gTimeBlend.weight = TIME_BLEND_WEIGHT(MORNING_HOUR_MIDDLE, MORNING_HOUR_END);
+            gTimeBlend.altWeight = (DEFAULT_WEIGHT - gTimeBlend.weight) / 2 + (DEFAULT_WEIGHT / 2);
+        }
         gTimeOfDay = TIME_MORNING;
     }
     else if (IsBetweenHours(hours, EVENING_HOUR_BEGIN, EVENING_HOUR_END)) // evening
     {
-        gTimeBlend.startBlend = gTimeOfDayBlend[TIME_DAY];
-        gTimeBlend.endBlend = gTimeOfDayBlend[TIME_EVENING];
-        gTimeBlend.weight = TIME_BLEND_WEIGHT(EVENING_HOUR_BEGIN, EVENING_HOUR_END);
-        gTimeBlend.altWeight = gTimeBlend.weight / 2 + (DEFAULT_WEIGHT / 2);
+        if (updateBlend)
+        {
+            gTimeBlend.startBlend = gTimeOfDayBlend[TIME_DAY];
+            gTimeBlend.endBlend = gTimeOfDayBlend[TIME_EVENING];
+            gTimeBlend.weight = TIME_BLEND_WEIGHT(EVENING_HOUR_BEGIN, EVENING_HOUR_END);
+            gTimeBlend.altWeight = gTimeBlend.weight / 2 + (DEFAULT_WEIGHT / 2);
+        }
         gTimeOfDay = TIME_EVENING;
     }
     else if (IsBetweenHours(hours, NIGHT_HOUR_BEGIN, NIGHT_HOUR_BEGIN + 1)) // evening->night
     {
-        gTimeBlend.startBlend = gTimeOfDayBlend[TIME_EVENING];
-        gTimeBlend.endBlend = gTimeOfDayBlend[TIME_NIGHT];
-        gTimeBlend.weight = TIME_BLEND_WEIGHT(NIGHT_HOUR_BEGIN, NIGHT_HOUR_BEGIN + 1);
-        gTimeBlend.altWeight = gTimeBlend.weight / 2;
+        if (updateBlend)
+        {
+            gTimeBlend.startBlend = gTimeOfDayBlend[TIME_EVENING];
+            gTimeBlend.endBlend = gTimeOfDayBlend[TIME_NIGHT];
+            gTimeBlend.weight = TIME_BLEND_WEIGHT(NIGHT_HOUR_BEGIN, NIGHT_HOUR_BEGIN + 1);
+            gTimeBlend.altWeight = gTimeBlend.weight / 2;
+        }
         gTimeOfDay = TIME_NIGHT;
     }
     else if (IsBetweenHours(hours, NIGHT_HOUR_BEGIN, NIGHT_HOUR_END)) // night
     {
-        gTimeBlend.weight = DEFAULT_WEIGHT;
-        gTimeBlend.altWeight = 0;
-        gTimeBlend.startBlend = gTimeBlend.endBlend = gTimeOfDayBlend[TIME_NIGHT];
+        if (updateBlend)
+        {
+            gTimeBlend.weight = DEFAULT_WEIGHT;
+            gTimeBlend.altWeight = 0;
+            gTimeBlend.startBlend = gTimeBlend.endBlend = gTimeOfDayBlend[TIME_NIGHT];
+        }
         gTimeOfDay = TIME_NIGHT;
     }
     else // day
     {
-        gTimeBlend.weight = gTimeBlend.altWeight = DEFAULT_WEIGHT;
-        gTimeBlend.startBlend = gTimeBlend.endBlend = gTimeOfDayBlend[TIME_DAY];
+        if (updateBlend)
+        {
+            gTimeBlend.weight = gTimeBlend.altWeight = DEFAULT_WEIGHT;
+            gTimeBlend.startBlend = gTimeBlend.endBlend = gTimeOfDayBlend[TIME_DAY];
+        }
         gTimeOfDay = TIME_DAY;
     }
 }
@@ -1812,7 +1854,7 @@ static void OverworldBasic(void)
         u32 *bld0 = (u32*)&cachedBlend;
         u32 *bld1 = (u32*)&gTimeBlend;
         gTimeUpdateCounter = (SECONDS_PER_MINUTE * 60 / FakeRtc_GetSecondsRatio());
-        UpdateTimeOfDay();
+        UpdateTimeOfDay(TRUE);
         FormChangeTimeUpdate();
         if (MapHasNaturalLight(gMapHeader.mapType) &&
            (bld0[0] != bld1[0]
@@ -1822,6 +1864,7 @@ static void OverworldBasic(void)
             ApplyWeatherColorMapIfIdle(gWeatherPtr->colorMapIndex);
         }
     }
+    UpdateOverworldWildEncounter();
 }
 
 // This CB2 is used when starting
@@ -3642,7 +3685,7 @@ static void SpriteCB_LinkPlayer(struct Sprite *sprite)
 
 #define ITEM_ICON_X     26
 #define ITEM_ICON_Y     24
-#define ITEM_TAG        0x2722 //same as money label
+#define ITEM_TAG        0x2722 | BLEND_IMMUNE_FLAG //same as money label
 
 bool8 GetSetItemObtained(enum Item item, enum ItemObtainFlags caseId)
 {
@@ -3671,44 +3714,10 @@ static void DestroyItemIconSprite(void);
 
 static u8 ReformatItemDescription(enum Item item, u8 *dest)
 {
-    u8 count = 0;
-    u8 numLines = 1;
-    u8 maxChars = 32;
-    u8 *desc = (u8 *)GetItemDescription(item);
-
-    while (*desc != EOS)
-    {
-        if (count >= maxChars)
-        {
-            while (*desc != CHAR_SPACE && *desc != CHAR_NEWLINE)
-            {
-                *dest = *desc;  //finish word
-                dest++;
-                desc++;
-            }
-
-            *dest = CHAR_NEWLINE;
-            count = 0;
-            numLines++;
-            dest++;
-            desc++;
-            continue;
-        }
-
-        *dest = *desc;
-        if (*desc == CHAR_NEWLINE)
-        {
-            *dest = CHAR_SPACE;
-        }
-
-        dest++;
-        desc++;
-        count++;
-    }
-
-    // finish string
-    *dest = EOS;
-    return numLines;
+    StringCopy(dest, GetItemDescription(item));
+    StripLineBreaks(dest);
+    BreakStringAutomatic(dest, 196, 2, FONT_SMALL, HIDE_SCROLL_PROMPT);
+    return CountLineBreaks(dest) + 1;
 }
 
 void ScriptShowItemDescription(struct ScriptContext *ctx)

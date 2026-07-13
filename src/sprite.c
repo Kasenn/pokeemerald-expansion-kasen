@@ -1,6 +1,7 @@
 #include "global.h"
 #include "sprite.h"
 #include "main.h"
+#include "overworld.h"
 #include "palette.h"
 #include "string_util.h"
 #include "text.h"
@@ -14,8 +15,8 @@
 
 #define SET_SPRITE_TILE_RANGE(index, start, count) \
 {                                                  \
-    sSpriteTileRanges[index * 2] = start;          \
-    (sSpriteTileRanges + 1)[index * 2] = count;    \
+    sSpriteTileRanges[index][0] = start;           \
+    sSpriteTileRanges[index][1] = count;           \
 }
 
 #define ALLOC_SPRITE_TILE(n)                             \
@@ -249,7 +250,7 @@ const struct OamDimensions gOamDimensions[3][4] =
 
 // iwram bss
 static u16 sSpriteTileRangeTags[MAX_SPRITES];
-static u16 sSpriteTileRanges[MAX_SPRITES * 2];
+static u16 sSpriteTileRanges[MAX_SPRITES][2];
 static struct AffineAnimState sAffineAnimStates[OAM_MATRIX_COUNT];
 static u16 sSpritePaletteTags[16];
 
@@ -432,8 +433,7 @@ static void SortSprites(u32 *spritePriorities, s32 n)
 u32 CreateSprite(const struct SpriteTemplate *template, s16 x, s16 y, u32 subpriority)
 {
     u32 spriteId = CreateSpriteUnchecked(template, x, y, subpriority);
-
-    assertf(spriteId < MAX_SPRITES, "Out of sprite slots");
+    fatal_assertf(spriteId < MAX_SPRITES, "Out of sprite slots");
     return spriteId;
 }
 
@@ -449,8 +449,7 @@ u32 CreateSpriteUnchecked(const struct SpriteTemplate *template, s16 x, s16 y, u
 u32 CreateSpriteAtEnd(const struct SpriteTemplate *template, s16 x, s16 y, u32 subpriority)
 {
     u32 spriteId = CreateSpriteAtEndUnchecked(template, x, y, subpriority);
-
-    assertf(spriteId < MAX_SPRITES, "Out of sprite slots");
+    fatal_assertf(spriteId < MAX_SPRITES, "Out of sprite slots");
     return spriteId;
 }
 
@@ -700,6 +699,44 @@ s16 AllocSpriteTiles(u16 tileCount)
         ALLOC_SPRITE_TILE(i);
 
     return start;
+}
+
+bool32 CanAllocSpriteTiles(u16 tileCount)
+{
+    u16 i;
+    u16 numTilesFound;
+
+    if (tileCount == 0)
+        return TRUE;
+
+    i = gReservedSpriteTileCount;
+
+    for (;;)
+    {
+        while (SPRITE_TILE_IS_ALLOCATED(i))
+        {
+            i++;
+            if (i == TOTAL_OBJ_TILE_COUNT)
+                return FALSE;
+        }
+
+        numTilesFound = 1;
+
+        while (numTilesFound != tileCount)
+        {
+            i++;
+            if (i == TOTAL_OBJ_TILE_COUNT)
+                return FALSE;
+
+            if (!SPRITE_TILE_IS_ALLOCATED(i))
+                numTilesFound++;
+            else
+                break;
+        }
+
+        if (numTilesFound == tileCount)
+            return TRUE;
+    }
 }
 
 u8 SpriteTileAllocBitmapOp(u16 bit, u8 op)
@@ -1524,14 +1561,10 @@ void FreeSpriteTilesByTag(u16 tag)
             gSpriteAllocs--;
 #endif
         u16 i;
-        u16 *rangeStarts;
-        u16 *rangeCounts;
         u16 start;
         u16 count;
-        rangeStarts = sSpriteTileRanges;
-        start = rangeStarts[index * 2];
-        rangeCounts = sSpriteTileRanges + 1;
-        count = rangeCounts[index * 2];
+        start = sSpriteTileRanges[index][0];
+        count = sSpriteTileRanges[index][1];
 
         for (i = start; i < start + count; i++)
             FREE_SPRITE_TILE(i);
@@ -1556,7 +1589,7 @@ u16 GetSpriteTileStartByTag(u16 tag)
     u8 index = IndexOfSpriteTileTag(tag);
     if (index == 0xFF)
         return 0xFFFF;
-    return sSpriteTileRanges[index * 2];
+    return sSpriteTileRanges[index][0];
 }
 
 u8 IndexOfSpriteTileTag(u16 tag)
@@ -1576,7 +1609,7 @@ u16 GetSpriteTileTagByTileStart(u16 start)
 
     for (i = 0; i < MAX_SPRITES; i++)
     {
-        if (sSpriteTileRangeTags[i] != TAG_NONE && sSpriteTileRanges[i * 2] == start)
+        if (sSpriteTileRangeTags[i] != TAG_NONE && sSpriteTileRanges[i][0] == start)
             return sSpriteTileRangeTags[i];
     }
 
@@ -1613,14 +1646,26 @@ u32 LoadSpritePalette(const struct SpritePalette *palette)
 
     if (index == 0xFF)
     {
-        return 0xFF;
+        if (gMain.callback2 == CB2_Overworld)
+        {
+            u32 count = GetNumberOfActiveOWEs(OWE_GENERATED);
+
+            for (; count > 0; count--)
+            {
+                RemoveOldestGeneratedOWE();
+                index = IndexOfSpritePaletteTag(TAG_NONE);
+                if (index != 0xFF)
+                    break;
+            }
+        }
+        
+        if (index == 0xFF)
+            return 0xFF;
     }
-    else
-    {
-        sSpritePaletteTags[index] = palette->tag;
-        DoLoadSpritePalette(palette->data, PLTT_ID(index));
-        return index;
-    }
+
+    sSpritePaletteTags[index] = palette->tag;
+    DoLoadSpritePalette(palette->data, PLTT_ID(index));
+    return index;
 }
 
 u32 LoadSpritePaletteWithTag(const u16 *pal, u16 tag)
@@ -1942,6 +1987,16 @@ static void FillSpriteRect(u32 spriteId, u32 left, u32 top, u32 width, u32 heigh
         u32 srcMask;
         u32 dstMask;
         u32 currSpriteId = spriteId;
+
+        //  Handle switching sprites along X-axis
+        if (currStart > 0 && (currStart & widthMask) == 0)
+        {
+            spriteId = gSprites[spriteId].nextX;
+            tiles = (u32 *)((OBJ_VRAM0) + gSprites[spriteId].oam.tileNum * TILE_SIZE_4BPP);
+            if (!isColor)
+                src = GetSrcPtrFromSprite(&gSprites[spriteId]);
+        }
+
         if (currStart % PIXELS_PER_TILE == 0 && remainingWidth >= PIXELS_PER_TILE)
         {
             //  Full tile width, nothing special
@@ -1954,19 +2009,19 @@ static void FillSpriteRect(u32 spriteId, u32 left, u32 top, u32 width, u32 heigh
             srcMask = 0xFFFFFFFF >> (BITS_PER_PIXEL * (PIXELS_PER_TILE - currWidth));
             dstMask = ~srcMask;
         }
-        else if (remainingWidth > PIXELS_PER_TILE || remainingWidth + currStart % PIXELS_PER_TILE == PIXELS_PER_TILE)
+        else if (remainingWidth + (currStart % PIXELS_PER_TILE) >= PIXELS_PER_TILE || remainingWidth + currStart % PIXELS_PER_TILE == PIXELS_PER_TILE)
         {
             //  Start of area, offset start, covers rest of tile
             currWidth = PIXELS_PER_TILE - (currStart % PIXELS_PER_TILE);
-            srcMask = 0xFFFFFFFF << (BITS_PER_PIXEL * currWidth);
-            dstMask = ~srcMask;
+            dstMask = 0xFFFFFFFF >> (BITS_PER_PIXEL * currWidth);
+            srcMask = ~dstMask;
         }
         else
         {
             //  Area doesn't start or end at a tile boundry
             currWidth = remainingWidth;
-            u32 leftMask = 0xFFFFFFFF << (BITS_PER_PIXEL * currStart);
-            u32 rightMask = 0xFFFFFFFF >> (BITS_PER_PIXEL * (PIXELS_PER_TILE - currStart - currWidth));
+            u32 leftMask = 0xFFFFFFFF << (BITS_PER_PIXEL * (currStart % PIXELS_PER_TILE));
+            u32 rightMask = 0xFFFFFFFF >> (BITS_PER_PIXEL * (PIXELS_PER_TILE - (currStart % PIXELS_PER_TILE) - currWidth));
             srcMask = leftMask & rightMask;
             dstMask = ~srcMask;
         }
@@ -2035,14 +2090,6 @@ static void FillSpriteRect(u32 spriteId, u32 left, u32 top, u32 width, u32 heigh
 
         remainingWidth -= currWidth;
         currStart += currWidth;
-        //  Handle switching sprites along X-axis
-        if (currStart > 0 && (currStart & widthMask) == 0)
-        {
-            spriteId = gSprites[spriteId].nextX;
-            tiles = (u32 *)((OBJ_VRAM0) + gSprites[spriteId].oam.tileNum * TILE_SIZE_4BPP);
-            if (!isColor)
-                src = GetSrcPtrFromSprite(&gSprites[spriteId]);
-        }
     }
     return;
 }
@@ -2131,4 +2178,15 @@ inline u32 GetSpriteWidth(struct Sprite *sprite)
 inline u32 GetSpriteHeight(struct Sprite *sprite)
 {
     return gOamDimensions[sprite->oam.shape][sprite->oam.size].height;
+}
+
+u32 CountFreePaletteSlots(void)
+{
+    u32 i, count = 0;
+
+    for (i = gReservedSpritePaletteCount; i < 16; i++)
+        if (sSpritePaletteTags[i] == TAG_NONE)
+            count++;
+
+    return count;
 }

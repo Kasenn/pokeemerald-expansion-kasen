@@ -63,6 +63,7 @@
 #include "list_menu.h"
 #include "malloc.h"
 #include "battle.h"
+#include "constants/comparison_operators.h"
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
@@ -88,19 +89,15 @@ extern const u8 *gStdScripts_End[];
 static void CloseBrailleWindow(void);
 static void DynamicMultichoiceSortList(struct ListMenuItem *items, u32 count);
 
-// This is defined in here so the optimizer can't see its value when compiling
-// script.c.
-void *const gNullScriptPtr = NULL;
-
-static const u8 sScriptConditionTable[6][3] =
+static const u8 sScriptConditionTable[COMPARISON_OPERATORS_COUNT][3] =
 {
-//  <  =  >
-    {1, 0, 0}, // <
-    {0, 1, 0}, // =
-    {0, 0, 1}, // >
-    {1, 1, 0}, // <=
-    {0, 1, 1}, // >=
-    {1, 0, 1}, // !=
+//                              <  =  >
+    [LESS_THAN] =              {1, 0, 0},
+    [EQUAL] =                  {0, 1, 0},
+    [GREATER_THAN] =           {0, 0, 1},
+    [LESS_THAN_OR_EQUAL] =     {1, 1, 0},
+    [GREATER_THAN_OR_EQUAL] =  {0, 1, 1},
+    [NOT_EQUAL] =              {1, 0, 1},
 };
 
 static u8 *const sScriptStringVars[] =
@@ -219,7 +216,7 @@ bool8 ScrCmd_call(struct ScriptContext *ctx)
 
 bool8 ScrCmd_goto_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     const u8 *ptr = (const u8 *)ScriptReadWord(ctx);
 
     Script_RequestEffects(SCREFF_V1);
@@ -231,7 +228,7 @@ bool8 ScrCmd_goto_if(struct ScriptContext *ctx)
 
 bool8 ScrCmd_call_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     const u8 *ptr = (const u8 *)ScriptReadWord(ctx);
 
     Script_RequestEffects(SCREFF_V1);
@@ -274,7 +271,7 @@ bool8 ScrCmd_vcall(struct ScriptContext *ctx)
 
 bool8 ScrCmd_vgoto_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     const u8 *ptr = (const u8 *)(ScriptReadWord(ctx) - sAddressOffset);
 
     Script_RequestEffects(SCREFF_V1);
@@ -286,7 +283,7 @@ bool8 ScrCmd_vgoto_if(struct ScriptContext *ctx)
 
 bool8 ScrCmd_vcall_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     const u8 *ptr = (const u8 *)(ScriptReadWord(ctx) - sAddressOffset);
 
     Script_RequestEffects(SCREFF_V1);
@@ -322,7 +319,7 @@ bool8 ScrCmd_callstd(struct ScriptContext *ctx)
 
 bool8 ScrCmd_gotostd_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     u8 index = ScriptReadByte(ctx);
 
     Script_RequestEffects(SCREFF_V1);
@@ -338,7 +335,7 @@ bool8 ScrCmd_gotostd_if(struct ScriptContext *ctx)
 
 bool8 ScrCmd_callstd_if(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     u8 index = ScriptReadByte(ctx);
 
     Script_RequestEffects(SCREFF_V1);
@@ -2134,7 +2131,7 @@ bool8 ScrCmd_bufferleadmonspeciesname(struct ScriptContext *ctx)
 
     u8 *dest = sScriptStringVars[stringVarIndex];
     u8 partyIndex = GetLeadMonIndex();
-    enum Species species = GetMonData(&gParties[B_TRAINER_0][partyIndex], MON_DATA_SPECIES);
+    enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_SPECIES);
     StringCopy(dest, GetSpeciesName(species));
     return FALSE;
 }
@@ -2156,7 +2153,7 @@ bool8 ScrCmd_bufferpartymonnick(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    GetMonData(&gParties[B_TRAINER_0][partyIndex], MON_DATA_NICKNAME, sScriptStringVars[stringVarIndex]);
+    GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_NICKNAME, sScriptStringVars[stringVarIndex]);
     StringGet_Nickname(sScriptStringVars[stringVarIndex]);
     return FALSE;
 }
@@ -2322,10 +2319,10 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
     move = FieldMove_GetMoveId(fieldMove);
     for (u32 i = 0; i < PARTY_SIZE; i++)
     {
-        enum Species species = GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_SPECIES);
+        enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
         if (!species)
             break;
-        if (!GetMonData(&gParties[B_TRAINER_0][i], MON_DATA_IS_EGG) && MonKnowsMove(&gParties[B_TRAINER_0][i], move) == TRUE)
+        if (!GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && MonKnowsMove(&gParties[B_TRAINER_PLAYER][i], move) == TRUE)
         {
             gSpecialVar_Result = i;
             gSpecialVar_0x8004 = species;
@@ -2770,7 +2767,7 @@ void NativeFunc_SetMetatileInRange(struct ScriptContext *ctx)
     bool8 hasCollision = ScriptReadByte(ctx);
     u8 elevation = ScriptReadByte(ctx);
     u32 temp;
-    
+
     if (xmin > xmax)
         SWAP(xmin, xmax, temp);
 
@@ -2994,7 +2991,7 @@ bool8 ScrCmd_setmodernfatefulencounter(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
-    SetMonData(&gParties[B_TRAINER_0][partyIndex], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
+    SetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
     return FALSE;
 }
 
@@ -3004,7 +3001,7 @@ bool8 ScrCmd_checkmodernfatefulencounter(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    gSpecialVar_Result = GetMonData(&gParties[B_TRAINER_0][partyIndex], MON_DATA_MODERN_FATEFUL_ENCOUNTER);
+    gSpecialVar_Result = GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_MODERN_FATEFUL_ENCOUNTER);
     return FALSE;
 }
 
@@ -3049,7 +3046,7 @@ bool8 ScrCmd_setmonmetlocation(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
     if (partyIndex < PARTY_SIZE)
-        SetMonData(&gParties[B_TRAINER_0][partyIndex], MON_DATA_MET_LOCATION, &location);
+        SetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_MET_LOCATION, &location);
     return FALSE;
 }
 
@@ -3191,7 +3188,7 @@ bool8 Scrcmd_checkspecies_choose(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1);
 
-    gSpecialVar_Result = (GetMonData(&gParties[B_TRAINER_0][gSpecialVar_0x8004], MON_DATA_SPECIES) == givenSpecies);
+    gSpecialVar_Result = (GetMonData(&gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004], MON_DATA_SPECIES) == givenSpecies);
 
     return FALSE;
 }
@@ -3312,15 +3309,15 @@ bool8 ScrCmd_fwdweekday(struct ScriptContext *ctx)
 static bool32 EventEvolution(u32 partyIndex)
 {
     bool32 canStopEvo = gSpecialVar_0x8000;
-    u32 targetSpecies = GetEvolutionTargetSpecies(&gPlayerParty[partyIndex], EVO_MODE_SCRIPT_TRIGGER, gSpecialVar_0x8005, NULL, &canStopEvo, CHECK_EVO);
+    u32 targetSpecies = GetEvolutionTargetSpecies(&gParties[B_TRAINER_PLAYER][partyIndex], EVO_MODE_SCRIPT_TRIGGER, gSpecialVar_0x8005, NULL, &canStopEvo, CHECK_EVO);
     if (targetSpecies == SPECIES_NONE)
     {
         gSpecialVar_Result = EVO_EVENT_IMPOSSIBLE;
         return FALSE;
     }
     gSpecialVar_Result = EVO_EVENT_SUCCESSFUL;
-    GetEvolutionTargetSpecies(&gPlayerParty[partyIndex], EVO_MODE_SCRIPT_TRIGGER, gSpecialVar_0x8005, NULL, &canStopEvo, DO_EVO);
-    BeginEvolutionScene(&gPlayerParty[partyIndex], targetSpecies, canStopEvo, partyIndex);
+    GetEvolutionTargetSpecies(&gParties[B_TRAINER_PLAYER][partyIndex], EVO_MODE_SCRIPT_TRIGGER, gSpecialVar_0x8005, NULL, &canStopEvo, DO_EVO);
+    BeginEvolutionScene(&gParties[B_TRAINER_PLAYER][partyIndex], targetSpecies, canStopEvo, partyIndex);
     ScriptContext_Stop();
     return TRUE;
 }
@@ -3331,7 +3328,7 @@ static void TriggerMultipleEvolutions_Repeatable(void)
         gSpecialVar_0x8006++;
 
     gCB2_AfterEvolution = TriggerMultipleEvolutions_Repeatable;
-    for (u32 i = 0; i < gPlayerPartyCount; i++)
+    for (u32 i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
         if (!(gTriedEvolving & (1u << i)))
         {
@@ -3371,7 +3368,7 @@ void Script_TriggerUniqueEvolution(struct ScriptContext *ctx)
 
 void Script_EndTrainerCanSeeIf(struct ScriptContext *ctx)
 {
-    u8 condition = ScriptReadByte(ctx);
+    enum ComparisonOperators condition = ScriptReadByte(ctx);
     if (ctx->breakOnTrainerBattle && sScriptConditionTable[condition][ctx->comparisonResult] == 1)
         StopScript(ctx);
 }

@@ -27,6 +27,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_dome.h"
 #include "constants/battle_string_ids.h"
+#include "constants/comparison_operators.h"
 #include "constants/flags.h"
 #include "constants/frontier_util.h"
 #include "constants/items.h"
@@ -40,7 +41,7 @@
 #include "trainer_slide.h"
 #include "battle_message.h"
 
-static u32 BattlerHPPercentage(enum BattlerId battler, u32 operation, u32 threshold);
+static u32 BattlerHPPercentage(enum BattlerId battler, enum ComparisonOperators operation, u32 threshold);
 static u32 GetPartyMonCount(u32 lastId, struct Pokemon *party, bool32 onlyAlive);
 static bool32 DoesTrainerHaveSlideMessage(enum DifficultyLevel difficulty, u32 trainerId, u32 slideId);
 static bool32 ShouldRunTrainerSlidePlayerLandsFirstCriticalHit(enum BattlerId battler, enum TrainerSlideType slideId);
@@ -79,7 +80,7 @@ static const u8* const sTestTrainerSlides[DIFFICULTY_COUNT][MAX_TRAINERS_COUNT_E
 #include "../test/battle/trainer_slides.h"
 };
 
-static u32 BattlerHPPercentage(enum BattlerId battler, u32 operation, u32 threshold)
+static u32 BattlerHPPercentage(enum BattlerId battler, enum ComparisonOperators operation, u32 threshold)
 {
     switch (operation)
     {
@@ -247,14 +248,14 @@ static void SetTrainerSlideParameters(enum BattlerId battler, u32* lastId, u32* 
         {
             if (!AreMultiPartiesFullTeams())
                 *lastId = MULTI_PARTY_SIZE;
-            if (GetBattlerTrainer(battler) == B_TRAINER_3)
+            if (GetBattlerTrainer(battler) == B_TRAINER_OPPONENT_B)
             {
                 *trainerId = TRAINER_BATTLE_PARAM.opponentB;
                 *retValue = TRAINER_SLIDE_TARGET_TRAINER_B;
             }
         }
     }
-    else if (GetBattlerTrainer(battler) == B_TRAINER_2 && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
+    else if (GetBattlerTrainer(battler) == B_TRAINER_PARTNER && gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
     {
         if (!AreMultiPartiesFullTeams())
             *lastId = MULTI_PARTY_SIZE;
