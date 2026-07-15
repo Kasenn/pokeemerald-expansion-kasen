@@ -100,6 +100,9 @@ EWRAM_DATA static u8 sSaveDialogTimer = 0;
 EWRAM_DATA static bool8 sSavingComplete = FALSE;
 EWRAM_DATA static u8 sSaveInfoWindowId = 0;
 
+EWRAM_DATA static u8 sMushroomWindowId = 0;
+static void ShowMushroomWindow(void);
+
 // Menu action callbacks
 static bool8 StartMenuPokedexCallback(void);
 static bool8 StartMenuPokemonCallback(void);
@@ -437,6 +440,30 @@ static void BuildMultiPartnerRoomStartMenu(void)
     AddStartMenuAction(MENU_ACTION_EXIT);
 }
 
+static const struct WindowTemplate sWindowTemplate_Mushroom = {
+    .bg = 0,
+    .tilemapLeft = 1,
+    .tilemapTop = 1,
+    .width = 13,
+    .height = 2,
+    .paletteNum = 15,
+    .baseBlock = 0x8
+};
+
+static const u8 sText_Mushroom[] = _("Mushrooms: {STR_VAR_1} / 10");
+
+static void ShowMushroomWindow(void)
+{
+    sMushroomWindowId = AddWindow(&sWindowTemplate_Mushroom);
+    PutWindowTilemap(sMushroomWindowId);               
+    DrawStdWindowFrame(sMushroomWindowId, FALSE);                                 
+    ConvertIntToDecimalStringN(gStringVar1, VarGet(VAR_MUSHROOM_COUNT), STR_CONV_MODE_LEFT_ALIGN, 2);
+    StringExpandPlaceholders(gStringVar4, sText_Mushroom);
+    AddTextPrinterParameterized(sMushroomWindowId, FONT_NORMAL, gStringVar4, 3, 2, TEXT_SKIP_DRAW, NULL);
+    CopyWindowToVram(sMushroomWindowId, COPYWIN_GFX);
+}
+
+
 static void ShowSafariBallsWindow(void)
 {
     sSafariBallsWindowId = AddWindow(&sWindowTemplate_SafariBalls);
@@ -486,6 +513,12 @@ static void RemoveExtraStartMenuWindows(void)
     {
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
+    }
+    if (FlagGet(FLAG_MUSHROOMS_UNLOCKED))
+    {
+        ClearStdWindowAndFrameToTransparent(sMushroomWindowId, FALSE);
+        CopyWindowToVram(sMushroomWindowId, COPYWIN_GFX);
+        RemoveWindow(sMushroomWindowId);
     }
 }
 
@@ -544,6 +577,8 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
             ShowPyramidFloorWindow();
+        if (FlagGet(FLAG_MUSHROOMS_UNLOCKED))
+            ShowMushroomWindow();
         sInitStartMenuData[0]++;
         break;
     case 4:

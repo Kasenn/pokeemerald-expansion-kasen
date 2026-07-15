@@ -1861,6 +1861,8 @@ static void MoveSelectionDisplayPpNumber(enum BattlerId battler)
     moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
     if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
         moveInfo->currentPp[gMoveSelectionCursor[battler]] = CalculateCurrentEggs();
+    else if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_SUPER_MUSHROOM)
+        moveInfo->currentPp[gMoveSelectionCursor[battler]] = VarGet(VAR_MUSHROOM_COUNT);
     txtPtr = ConvertIntToDecimalStringN(gDisplayedStringBattle, moveInfo->currentPp[gMoveSelectionCursor[battler]], STR_CONV_MODE_RIGHT_ALIGN, 2);
     *(txtPtr)++ = CHAR_SLASH;
     ConvertIntToDecimalStringN(txtPtr, moveInfo->maxPp[gMoveSelectionCursor[battler]], STR_CONV_MODE_RIGHT_ALIGN, 2);

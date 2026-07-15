@@ -3056,3 +3056,43 @@ static const struct SpriteFrameImage sPicTable_KamekIntro[] = {
     overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 10),
     overworld_frame(gObjectEventPic_KamekIntro, 6, 6, 11),
 };
+
+static const struct SpriteFrameImage sPicTable_Machop2[] = {
+    overworld_ascending_frames(gObjectEventPic_Machop2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Murkrow[] = {
+    overworld_ascending_frames(gObjectEventPic_Murkrow2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Diglett[] = {
+    overworld_ascending_frames(gObjectEventPic_Diglett2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Sandshrew[] = {
+    overworld_ascending_frames(gObjectEventPic_Sandshrew2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Skarmory[] = {
+    overworld_ascending_frames(gObjectEventPic_Skarmory2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Snorlax[] = {
+    overworld_ascending_frames(gObjectEventPic_Snorlax2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Primeape[] = {
+    overworld_ascending_frames(gObjectEventPic_Primeape2, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_Kamek[] = {
+    overworld_ascending_frames(gObjectEventPic_Kamek, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_SuperMushroom[] = {
+    overworld_ascending_frames(gObjectEventPic_SuperMushroom, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_ItemSparkle[] = {
+    overworld_ascending_frames(gObjectEventPic_ItemSparkle, 4, 4),
+};

@@ -3072,6 +3072,16 @@ const struct SpriteTemplate gFloatingBerryTemplate =
     .callback = AnimMetronomeFinger
 };
 
+const struct SpriteTemplate gSuperMushroomTemplate =
+{
+    .tileTag = ANIM_TAG_SUPER_MUSHROOM,
+    .paletteTag = ANIM_TAG_SUPER_MUSHROOM,
+    .oam = &gOamData_AffineDouble_ObjNormal_32x32,
+    .anims = sAnimCmdTable_BerryChomp,
+    .affineAnims = gMetronomeFingerAffineAnimTable,
+    .callback = AnimMetronomeFinger
+};
+
 // No Retreat
 static const struct OamData sPyroBallFlamesOAM =
 {

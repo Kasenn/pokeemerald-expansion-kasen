@@ -2792,6 +2792,8 @@ extern const u32 gBattleAnimSpriteGfx_BerryEaten[];
 extern const u16 gBattleAnimSpritePal_BerryEaten[];
 extern const u32 gBattleAnimSpriteGfx_BerryNormal[];
 extern const u16 gBattleAnimSpritePal_BerryNormal[];
+extern const u32 gBattleAnimSpriteGfx_SuperMushroom[];
+extern const u16 gBattleAnimSpritePal_SuperMushroom[];
 extern const u32 gBattleAnimSpriteGfx_BigRock[];
 extern const u16 gBattleAnimSpritePal_BigRock[];
 extern const u32 gBattleAnimSpriteGfx_BlacephalonHead[];

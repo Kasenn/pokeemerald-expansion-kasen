@@ -389,6 +389,16 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DeoxysN;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSAnne;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SleepingYoshi;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KamekIntro;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machop2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Murkrow;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diglett;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sandshrew;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skarmory;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snorlax2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperMushroom;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSparkle;
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -794,7 +804,17 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_SS_ANNE]                  = &gObjectEventGraphicsInfo_SSAnne,
 #endif // IS_FRLG
     [OBJ_EVENT_GFX_SLEEPING_YOSHI]           = &gObjectEventGraphicsInfo_SleepingYoshi,
-    [OBJ_EVENT_GFX_KAMEK_INTRO]           = &gObjectEventGraphicsInfo_KamekIntro,
+    [OBJ_EVENT_GFX_KAMEK_INTRO]              = &gObjectEventGraphicsInfo_KamekIntro,
+    [OBJ_EVENT_GFX_MACHOP2]                  = &gObjectEventGraphicsInfo_Machop2,
+    [OBJ_EVENT_GFX_MURKROW]                  = &gObjectEventGraphicsInfo_Murkrow,
+    [OBJ_EVENT_GFX_DIGLETT]                  = &gObjectEventGraphicsInfo_Diglett,
+    [OBJ_EVENT_GFX_SANDSHREW]                = &gObjectEventGraphicsInfo_Sandshrew,
+    [OBJ_EVENT_GFX_SKARMORY]                 = &gObjectEventGraphicsInfo_Skarmory,
+    [OBJ_EVENT_GFX_SNORLAX2]                 = &gObjectEventGraphicsInfo_Snorlax2,
+    [OBJ_EVENT_GFX_PRIMEAPE]                 = &gObjectEventGraphicsInfo_Primeape,
+    [OBJ_EVENT_GFX_KAMEK]                    = &gObjectEventGraphicsInfo_Kamek,
+    [OBJ_EVENT_GFX_SUPERMUSHROOM]            = &gObjectEventGraphicsInfo_SuperMushroom,
+    [OBJ_EVENT_GFX_ITEMSPARKLE]              = &gObjectEventGraphicsInfo_ItemSparkle,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

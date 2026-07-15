@@ -98,6 +98,9 @@ const u16 gBattleAnimSpritePal_Beam[] = INCGFX_U16("graphics/battle_anims/sprite
 const u32 gBattleAnimSpriteGfx_BerryEaten[] = INCGFX_U32("graphics/battle_anims/sprites/berry_eaten.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_BerryEaten[] = INCGFX_U16("graphics/battle_anims/sprites/berry_eaten.png", ".gbapal");
 
+const u32 gBattleAnimSpriteGfx_SuperMushroom[] = INCGFX_U32("graphics/object_events/pics/people/supermushroom2.png", ".4bpp.smol");
+const u16 gBattleAnimSpritePal_SuperMushroom[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom2.png", ".gbapal");
+
 const u32 gBattleAnimSpriteGfx_BerryNormal[] = INCGFX_U32("graphics/battle_anims/sprites/berry_normal.png", ".4bpp.smol");
 const u16 gBattleAnimSpritePal_BerryNormal[] = INCGFX_U16("graphics/battle_anims/sprites/berry_normal.png", ".gbapal");
 

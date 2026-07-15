@@ -643,3 +643,24 @@ const u16 gObjectEventPic_SleepingYoshi[] = INCGFX_U16("graphics/object_events/p
 const u16 gObjectEventPal_KamekIntro[] = INCGFX_U16("graphics/object_events/pics/people/kamek_intro.png", ".gbapal");
 const u16 gObjectEventPic_KamekIntro[] = INCGFX_U16("graphics/object_events/pics/people/kamek_intro.png", ".4bpp", "-mwidth 6 -mheight 6");
 
+const u16 gObjectEventPal_Machop2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Murkrow[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Diglett[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Sandshrew[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Skarmory[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Snorlax[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Primeape[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_SuperMushroom[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_ItemSparkle[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+
+const u16 gObjectEventPic_Machop2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Murkrow2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Diglett2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Sandshrew2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Skarmory2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Snorlax2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Primeape2[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_SuperMushroom[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_ItemSparkle[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip

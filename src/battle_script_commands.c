@@ -14071,3 +14071,11 @@ static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType)
     default:            return MOVE_EFFECT_NONE;
     }
 }
+
+void UpdateMushroomVar(void)
+{
+    VarSet(VAR_MUSHROOM_COUNT, (VarGet(VAR_MUSHROOM_COUNT) - 1));
+
+    NATIVE_ARGS();
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

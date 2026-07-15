@@ -1551,6 +1551,10 @@ u32 TrySetCantSelectMoveBattleScript(enum BattlerId battler)
     {
         gBattleMons[battler].pp[moveId] = CalculateCurrentEggs();
     }
+    if (gBattleMons[battler].moves[moveId] == MOVE_SUPER_MUSHROOM)
+    {
+        gBattleMons[battler].pp[moveId] = VarGet(VAR_MUSHROOM_COUNT);
+    }
     if (gBattleMons[battler].pp[moveId] == 0)
     {
         if (gBattleTypeFlags & BATTLE_TYPE_PALACE)

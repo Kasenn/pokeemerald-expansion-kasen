@@ -2373,6 +2373,7 @@ BattleScript_BeatUpAttackMessage::
 BattleScript_EffectSoftboiled::
 	attackcanceler
 	tryhealhalfhealth BS_TARGET, BattleScript_AlreadyAtFullHp
+	callnative UpdateMushroomVar
 BattleScript_PresentHealTarget::
 	attackanimation
 	waitanimation

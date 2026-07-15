@@ -697,6 +697,7 @@ extern const u8 gBattleAnimMove_DynamaxCannon[];
 extern const u8 gBattleAnimMove_SnipeShot[];
 extern const u8 gBattleAnimMove_JawLock[];
 extern const u8 gBattleAnimMove_StuffCheeks[];
+extern const u8 gBattleAnimMove_SuperMushroom[];
 extern const u8 gBattleAnimMove_NoRetreat[];
 extern const u8 gBattleAnimMove_TarShot[];
 extern const u8 gBattleAnimMove_MagicPowder[];

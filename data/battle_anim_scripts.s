@@ -12323,6 +12323,14 @@ gBattleAnimMove_JawLock::
 	delay 1
 	end
 
+gBattleAnimMove_SuperMushroom::
+	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER
+	createsprite gSuperMushroomTemplate, ANIM_ATTACKER, 1, 0
+	delay 69
+	createvisualtask AnimTask_IsTargetPlayerSide, 2
+	jumpargeq 7 1 BERRYEAT_ON_PLAYER
+	goto BerryEatingOpponent
+
 gBattleAnimGeneral_HeldItemBerry::
 gBattleAnimMove_StuffCheeks::
 	playsewithpan SE_M_METRONOME, SOUND_PAN_ATTACKER

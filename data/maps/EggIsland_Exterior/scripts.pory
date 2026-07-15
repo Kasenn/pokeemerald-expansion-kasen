@@ -1,19 +1,60 @@
+const VAR_X = VAR_TEMP_0
+const VAR_Y = VAR_TEMP_1
+
 mapscripts EggIsland_Exterior_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
-        setvar(VAR_AI_FLAGS, 0)
+        getplayerxy(VAR_X, VAR_Y)
+        if (var(VAR_X) == 50 && var(VAR_Y) == 54){ call(SetUpAreaOne) }
+        elif (var(VAR_X) == 19 && var(VAR_Y) == 57){ call(SetUpAreaTwo) }
+        elif (var(VAR_X) == 61 && var(VAR_Y) == 30){ call(SetUpAreaTwo) }
+        elif (var(VAR_X) == 19 && var(VAR_Y) == 57){ call(SetUpAreaFinal) }
+        else { call(SetUpAreaOne) }
+
+        call(SetupMushroom)
     }
 }
 
+script SetUpAreaOne{
+    setvar(VAR_AI_FLAGS, 0)
+    setvar(VAR_MUSHROOM_LOCATION, 0)
+}
+script SetUpAreaTwo{
+    setvar(VAR_AI_FLAGS, 2)
+    setvar(VAR_MUSHROOM_LOCATION, 2)
+}
+script SetUpAreaFinal{
+    setvar(VAR_AI_FLAGS, 4)
+    setvar(VAR_MUSHROOM_LOCATION, 0)
+}
+
+script SetupMushroom{
+    if(!flag(FLAG_MUSHROOMS_UNLOCKED)){
+        return
+    }
+    callnative(RandomizeMushroomOnSpawn)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP) 
+}
+
 script EventScript_LootMushroom{
+    if(var(VAR_MUSHROOM_COUNT) >= 10){
+        release
+        end
+    }
     playmoncry(SPECIES_IRON_CROWN, 0)
-    waitmoncry
+    removeobject(LOCALID_SUPER_MUSHROOM)
+    callnative(RandomizeMushroomScript)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP)
     if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        waitmoncry
         setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
         msgbox(EventScript_LootMushroom_Text, MSGBOX_AUTOCLOSE)
     }
     if(var(VAR_MUSHROOM_COUNT) < 10){
         addvar(VAR_MUSHROOM_COUNT, 1)
     }
+    callnative(UpdateMushroomPP)
     release
 }
 

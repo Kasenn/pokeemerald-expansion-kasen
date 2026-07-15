@@ -211,6 +211,8 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
+	setflag FLAG_MUSHROOMS_UNLOCKED
+	setvar VAR_MUSHROOM_COUNT, 1
 	giveegg SPECIES_DRATINI
 	giveegg SPECIES_CATERPIE
 	release

@@ -1350,6 +1350,7 @@ const struct BattleAnimation gBattleAnimTable[ANIM_TAG_COUNT] =
     BATTLE_ANIMATION(ANIM_TAG_AURA_SPHERE, gBattleAnimSpriteGfx_AuraSphere, 0x200, gBattleAnimSpritePal_AuraSphere),
     BATTLE_ANIMATION(ANIM_TAG_OMEGA_STONE, gBattleAnimSpriteGfx_OmegaStone, 0x800, gBattleAnimSpritePal_OmegaStone),
     BATTLE_ANIMATION(ANIM_TAG_ALPHA_STONE, gBattleAnimSpriteGfx_AlphaStone, 0x800, gBattleAnimSpritePal_AlphaStone),
+    BATTLE_ANIMATION(ANIM_TAG_SUPER_MUSHROOM, gBattleAnimSpriteGfx_SuperMushroom, 0x400, gBattleAnimSpritePal_SuperMushroom),
     BATTLE_ANIMATION(ANIM_TAG_BERRY_NORMAL, gBattleAnimSpriteGfx_BerryNormal, 0x400, gBattleAnimSpritePal_BerryNormal),
     BATTLE_ANIMATION(ANIM_TAG_BERRY_EATEN, gBattleAnimSpriteGfx_BerryEaten, 0x200, gBattleAnimSpritePal_SpacialRendSlices),
     BATTLE_ANIMATION(ANIM_TAG_DRAGON_ASCENT, gBattleAnimSpriteGfx_PurpleDrake, 0x800, gBattleAnimSpritePal_GreenDrake),

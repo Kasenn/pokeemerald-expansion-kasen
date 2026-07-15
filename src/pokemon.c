@@ -2189,24 +2189,32 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
         case MON_DATA_PP1:
             if (GetSubstruct1(boxMon)->move1 == MOVE_CHUCK_EGG)
                 retVal = gCurrentUsableEggs;
+            else if (GetSubstruct1(boxMon)->move1 == MOVE_SUPER_MUSHROOM)
+                retVal = VarGet(VAR_MUSHROOM_COUNT);
             else
                 retVal = GetSubstruct1(boxMon)->pp1;
             break;
         case MON_DATA_PP2:
             if (GetSubstruct1(boxMon)->move2 == MOVE_CHUCK_EGG)
                 retVal = gCurrentUsableEggs;
+            else if (GetSubstruct1(boxMon)->move2 == MOVE_SUPER_MUSHROOM)
+                retVal = VarGet(VAR_MUSHROOM_COUNT);
             else
                 retVal = GetSubstruct1(boxMon)->pp2;
             break;
         case MON_DATA_PP3:
             if (GetSubstruct1(boxMon)->move3 == MOVE_CHUCK_EGG)
                 retVal = gCurrentUsableEggs;
+            else if (GetSubstruct1(boxMon)->move3 == MOVE_SUPER_MUSHROOM)
+                retVal = VarGet(VAR_MUSHROOM_COUNT);
             else
                 retVal = GetSubstruct1(boxMon)->pp3;
             break;
         case MON_DATA_PP4:
             if (GetSubstruct1(boxMon)->move4 == MOVE_CHUCK_EGG)
                 retVal = gCurrentUsableEggs;
+            else if (GetSubstruct1(boxMon)->move4 == MOVE_SUPER_MUSHROOM)
+                retVal = VarGet(VAR_MUSHROOM_COUNT);
             else
                 retVal = GetSubstruct1(boxMon)->pp4;
             break;

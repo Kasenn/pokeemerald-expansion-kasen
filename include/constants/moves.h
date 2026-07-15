@@ -907,10 +907,11 @@ enum __attribute__((packed)) Move
 
     MOVE_SEISMIC_TOSS_CHANSEY,
     MOVE_CHUCK_EGG,
+    MOVE_SUPER_MUSHROOM,
 
     // Add any custom moves here, not further down!
 
-    MOVES_COUNT = MOVE_CHUCK_EGG + 1,
+    MOVES_COUNT = MOVE_SUPER_MUSHROOM + 1,
 
     // Z Moves
     FIRST_Z_MOVE = MOVES_COUNT,

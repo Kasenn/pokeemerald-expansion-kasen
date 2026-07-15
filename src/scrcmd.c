@@ -3683,6 +3683,33 @@ void UpdateEggPP(void)
         SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP4, &gCurrentUsableEggs);
 }
 
+void UpdateMushroomPP(void)
+{
+    int i;
+
+    for (i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_CHANSEY)
+            break;
+    }
+
+    enum Move move1 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE1);
+    enum Move move2 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE2);
+    enum Move move3 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE3);
+    enum Move move4 = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE4);
+
+    u16 mushroomCount = VarGet(VAR_MUSHROOM_COUNT);
+
+    if (move1 == MOVE_SUPER_MUSHROOM)
+        SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP1, &mushroomCount);
+    else if (move2 == MOVE_SUPER_MUSHROOM)
+        SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP2, &mushroomCount);
+    else if (move3 == MOVE_SUPER_MUSHROOM)
+        SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP3, &mushroomCount);
+    else if (move4 == MOVE_SUPER_MUSHROOM)
+        SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP4, &mushroomCount);
+}
+
 static const u8 sText_NormalEgg[]       = _("This one looks very plain.");
 static const u8 sText_FlyingEgg[]       = _("This one feels very light.");
 static const u8 sText_FightingEgg[]     = _("This one feels feisty.");
@@ -3766,27 +3793,89 @@ void ReplaceChanseyWithEgg(void)
     SetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_SMART, &check);
 }
 
-struct SpawnTile
+struct SpawnCoords
 {
     s16 x;
     s16 y;
 };
 
-static const struct SpawnTile sSuperMushroomAreaZero[] =
+struct SpawnAreas
+{
+    const struct SpawnCoords *tileCoords;
+    u16 count;
+};
+
+static const struct SpawnCoords sSuperMushroomGrassOne[] =
+{
+    {20, 61},{22, 61},{28, 63},{29, 64},{20, 64},{24, 65},{31, 67},{15, 66},{16, 66},{14, 67},{14, 68},{17, 68},{25, 70},
+    {22, 72},{23, 72},{30, 72},{28, 74},{48, 57},{54, 58},{55, 58},{56, 58},{57, 58},{47, 59},{49, 59},{50, 59},{46, 60},
+    {51, 63},{52, 63},{55, 65},{55, 66},{41, 66},{48, 68},{49, 68},{50, 68},{42, 70},{43, 70},{44, 70},{45, 70}
+};
+
+static const struct SpawnCoords sSuperMushroomGrassTwo[] =
+{
+    {19, 39},{29, 40},{21, 42},{21, 43},{20, 44},{20, 45},{22, 48},{17, 50},{22, 51},{21, 52},{22, 52},{17, 53},{18, 53},{26, 47},{26, 48},{25, 49},{24, 50},
+    {24, 52},{24, 53},{29, 47},{28, 52},{31, 50},{32, 50},{39, 48},{42, 48},{43, 50},{46, 47},{47, 49},{49, 46},{50, 45},{52, 44},{52, 42},{53, 48},
+    {56, 46},{57, 46},{58, 46},{63, 48},{67, 46},{67, 47},{65, 53},{65, 54},{65, 55},{66, 57},{68, 53},{70, 59},{71, 59},{72, 59},{75, 57},{77, 57}
+};
+
+static const struct SpawnCoords sSuperMushroomUndergroundOne[] =
 {
     {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
     {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
     {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
 };
 
-void RandomizeMushroom(void)
+static const struct SpawnCoords sSuperMushroomUndergroundTwo[] =
 {
-    u16 numOfEntries = ARRAY_COUNT(sSuperMushroomAreaZero);
-    u16 start = Random() % numOfEntries;
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
+    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
+};
 
-    for (int i = start; i < start + numOfEntries; i++)
+static const struct SpawnAreas sSpawnAreas[] =
+{
+    { sSuperMushroomGrassOne, ARRAY_COUNT(sSuperMushroomGrassOne) },
+    { sSuperMushroomUndergroundOne, ARRAY_COUNT(sSuperMushroomUndergroundOne) },
+    { sSuperMushroomGrassTwo,  ARRAY_COUNT(sSuperMushroomGrassTwo)  },
+    { sSuperMushroomUndergroundTwo,  ARRAY_COUNT(sSuperMushroomUndergroundTwo) },
+};
+
+void RandomizeMushroom(bool8 allowSpawnNearPlayer)
+{
+    u16 location = VarGet(VAR_MUSHROOM_LOCATION);
+    if (location >= ARRAY_COUNT(sSpawnAreas))
+        location = 0;
+
+    const struct SpawnAreas *spawnAreas = &sSpawnAreas[location];
+    u16 numOfEntries = spawnAreas->count;
+    u16 start = Random() % numOfEntries;
+    s16 playerX = gSaveBlock1Ptr->pos.x;
+    s16 playerY = gSaveBlock1Ptr->pos.y;
+
+    for (int i = 0; i < numOfEntries; i++)
     {
-        if (i > numOfEntries)
-            i -= numOfEntries;
+        u16 index = (start + i) % numOfEntries;
+        s16 mushroomX = spawnAreas->tileCoords[index].x;
+        s16 mushroomY = spawnAreas->tileCoords[index].y;
+
+        if (!allowSpawnNearPlayer
+         && mushroomX >= playerX - 7 && mushroomX <= playerX + 7
+         && mushroomY >= playerY - 5 && mushroomY <= playerY + 5)
+            continue;
+
+        VarSet(VAR_MUSHROOM_X, mushroomX);
+        VarSet(VAR_MUSHROOM_Y, mushroomY);
+        return;
     }
+}
+
+void RandomizeMushroomOnSpawn(void)
+{
+    RandomizeMushroom(TRUE);
+}
+
+void RandomizeMushroomScript(void)
+{
+    RandomizeMushroom(FALSE);
 }

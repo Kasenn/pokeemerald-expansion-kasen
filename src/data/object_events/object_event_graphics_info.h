@@ -7263,3 +7263,98 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KamekIntro = {
     .images = sPicTable_KamekIntro,
     .affineAnims = gDummySpriteAffineAnimTable,
 };
+
+#define BASE_OBJEVENT_INFO                              \
+    .tileTag = TAG_NONE,                                \
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE,     \
+    .paletteSlot = PALSLOT_NPC_1,                       \
+    .shadowSize = SHADOW_SIZE_M,                        \
+    .inanimate = FALSE,                                 \
+    .compressed = FALSE,                                \
+    .oam = &gObjectEventBaseOam_32x32,                  \
+    .subspriteTables = sOamTables_32x32,                \
+    .affineAnims = gDummySpriteAffineAnimTable,         \
+    .size = 512,                                        \
+    .width = 32,                                        \
+    .height = 32
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machop2 = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MACHOP2,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Machop2,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Murkrow = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_MURKROW,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Murkrow,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diglett = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_DIGLETT,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Diglett,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sandshrew = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SANDSHREW,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Sandshrew,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skarmory = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SKARMORY,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Skarmory,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snorlax2 = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SNORLAX,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Snorlax,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_PRIMEAPE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Primeape,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_KAMEK,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Kamek,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperMushroom = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_SUPERMUSHROOM,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_SuperMushroom,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSparkle = {
+    BASE_OBJEVENT_INFO,
+    .paletteTag = OBJ_EVENT_PAL_TAG_ITEMSPARKLE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,//wip
+    .images = sPicTable_ItemSparkle,
+};
+

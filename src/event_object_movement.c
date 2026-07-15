@@ -556,8 +556,18 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SSAnne,                OBJ_EVENT_PAL_TAG_SS_ANNE},
     {gObjectEventPal_Seagallop,             OBJ_EVENT_PAL_TAG_SEAGALLOP},
 #endif // IS_FRLG
-    {gObjectEventPal_SleepingYoshi,               OBJ_EVENT_PAL_TAG_SLEEPING_YOSHI},
-    {gObjectEventPal_KamekIntro,               OBJ_EVENT_PAL_TAG_KAMEK_INTRO},
+    {gObjectEventPal_SleepingYoshi,         OBJ_EVENT_PAL_TAG_SLEEPING_YOSHI},
+    {gObjectEventPal_KamekIntro,            OBJ_EVENT_PAL_TAG_KAMEK_INTRO},
+    {gObjectEventPal_Machop2,               OBJ_EVENT_PAL_TAG_MACHOP2},
+    {gObjectEventPal_Murkrow,               OBJ_EVENT_PAL_TAG_MURKROW},
+    {gObjectEventPal_Diglett,               OBJ_EVENT_PAL_TAG_DIGLETT},
+    {gObjectEventPal_Sandshrew,             OBJ_EVENT_PAL_TAG_SANDSHREW},
+    {gObjectEventPal_Skarmory,              OBJ_EVENT_PAL_TAG_SKARMORY},
+    {gObjectEventPal_Snorlax,               OBJ_EVENT_PAL_TAG_SNORLAX},
+    {gObjectEventPal_Primeape,              OBJ_EVENT_PAL_TAG_PRIMEAPE},
+    {gObjectEventPal_Kamek,                 OBJ_EVENT_PAL_TAG_KAMEK},
+    {gObjectEventPal_SuperMushroom,         OBJ_EVENT_PAL_TAG_SUPERMUSHROOM},
+    {gObjectEventPal_ItemSparkle,           OBJ_EVENT_PAL_TAG_ITEMSPARKLE},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -1850,6 +1860,23 @@ u16 LoadSheetGraphicsInfo(const struct ObjectEventGraphicsInfo *info, u16 uuid, 
     return tag;
 }
 
+static void ApplySpecialObjectEventSettings(struct Sprite *sprite, struct ObjectEvent *objectEvent, const struct ObjectEventTemplate *objectEventTemplate)
+{
+    switch (objectEvent->graphicsId)
+    {
+    case OBJ_EVENT_GFX_SUPERMUSHROOM:
+        objectEvent->noCollision = TRUE;
+        sprite->oam.priority = 2;
+        objectEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0xFF;
+        objectEvent->currentElevation = 3;
+        objectEvent->previousElevation = 3;
+        break;
+    default:
+        break;
+    }
+}
+
 static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEventTemplate, struct SpriteTemplate *spriteTemplate, u8 mapNum, u8 mapGroup, s16 cameraX, s16 cameraY)
 {
     u8 spriteId;
@@ -1903,6 +1930,8 @@ static u8 TrySetupObjectEventSprite(const struct ObjectEventTemplate *objectEven
 
     SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
     UpdateObjectEventVisibility(objectEvent, sprite);
+
+    ApplySpecialObjectEventSettings(sprite, objectEvent, objectEventTemplate);
     return objectEventId;
 }
 
@@ -3082,6 +3111,8 @@ static void SpawnObjectEventOnReturnToField(u8 objectEventId, s16 x, s16 y)
 
         ResetObjectEventFldEffData(objectEvent);
         SetObjectSubpriorityByElevation(objectEvent->previousElevation, sprite, 1);
+        const struct ObjectEventTemplate *objectEventTemplate = GetObjectEventTemplateByLocalIdAndMap(objectEvent->localId, objectEvent->mapNum, objectEvent->mapGroup);
+        ApplySpecialObjectEventSettings(sprite, objectEvent, objectEventTemplate);
         RestoreSavedOWEBehaviorState(objectEvent, sprite);
     }
 }

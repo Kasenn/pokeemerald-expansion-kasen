@@ -3746,6 +3746,33 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+    [MOVE_SUPER_MUSHROOM] =
+    {
+        .name = COMPOUND_STRING("Super Mushroom"),
+        .description = COMPOUND_STRING(
+            "Consume a Super Mushroom,\n"
+            "regaining some HP."),
+        .effect = EFFECT_SOFTBOILED,
+        .power = 0,
+        .type = TYPE_NORMAL,
+        .accuracy = 0,
+        .pp = 10,
+        .target = TARGET_USER_OR_ALLY,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .healingMove = TRUE,
+        .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .snatchAffected = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_BETTER_IF_FIRST : CONTEST_EFFECT_HIGHLY_APPEALING,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_BEAUTY,
+        .contestComboStarterId = COMBO_STARTER_SOFT_BOILED,
+        .contestComboMoves = {0},
+        .battleAnimScript = gBattleAnimMove_SuperMushroom,
+        .validApprenticeMove = TRUE,
+    },
+
     [MOVE_HIGH_JUMP_KICK] =
     {
         .name = COMPOUND_STRING("High Jump Kick"),
