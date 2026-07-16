@@ -709,11 +709,11 @@ static bool8 ShowPartyMenu(void)
         gMain.state++;
         break;
     case 14:
-        LoadMonIconPalettes();//wip
+        LoadMonIconPalettes();
         gMain.state++;
         break;
     case 15:
-        if (CreatePartyMonSpritesLoop())//wip
+        if (CreatePartyMonSpritesLoop())
         {
             sPartyMenuInternal->data[0] = 0;
             gMain.state++;

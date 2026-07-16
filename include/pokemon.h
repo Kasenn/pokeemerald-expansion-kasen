@@ -707,6 +707,7 @@ extern struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE];
 
 #define gPlayerPartyCount gPartiesCount[B_TRAINER_PLAYER]
 #define gPlayerParty gParties[B_TRAINER_PLAYER]
+#define gPlayerFollowerCount int slot = 0; slot < gPlayerPartyCount - 1; slot++
 // DEPRECATED("Use gParties[B_TRAINER_PLAYER] for player and gParties[B_TRAINER_PARTNER] for partner instead")
 // extern struct Pokemon (*const gPlayerPartyPtr)[6];
 // #define gPlayerParty (*gPlayerPartyPtr)

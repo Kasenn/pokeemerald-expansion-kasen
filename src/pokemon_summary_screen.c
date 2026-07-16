@@ -3035,10 +3035,10 @@ static void PrintGenderSymbol(struct Pokemon *mon, enum Species species)
         switch (GetMonGender(mon))
         {
         case MON_MALE:
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_MaleSymbol, 63, 2, 0, 5);//wip
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_MaleSymbol, 63, 2, 0, 5);
             break;
         case MON_FEMALE:
-            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_FemaleSymbol, 63, 2, 0, 6);//wip
+            PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME, gText_FemaleSymbol, 63, 2, 0, 6);
             break;
         }
     }
@@ -4275,7 +4275,7 @@ static void StopPokemonAnimations(void)  // A subtle effect, this function stops
 
     paletteIndex = OBJ_PLTT_ID(gSprites[sMonSummaryScreen->spriteIds[SPRITE_ARR_ID_MON]].oam.paletteNum);
 
-    for (i = 0; i < 32; i++)//wip
+    for (i = 0; i < 32; i++)
     {
         u16 id = i + paletteIndex;
         gPlttBufferUnfaded[id] = gPlttBufferFaded[id];

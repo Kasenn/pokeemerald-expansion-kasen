@@ -151,7 +151,11 @@ static void Task_FreezeObjectAndPlayer(u8 taskId)
 void FreezeForApproachingTrainers(void)
 {
     u8 trainerObjectId1, trainerObjectId2, taskId;
-    struct ObjectEvent *followerObj = GetFollowerObject(0);//wip
+    struct ObjectEvent *followerObj1 = GetFollowerObject(0);
+    struct ObjectEvent *followerObj2 = GetFollowerObject(1);
+    struct ObjectEvent *followerObj3 = GetFollowerObject(2);
+    struct ObjectEvent *followerObj4 = GetFollowerObject(3);
+    struct ObjectEvent *followerObj5 = GetFollowerObject(4);
     trainerObjectId1 = GetChosenApproachingTrainerObjectEventId(0);
 
     if (gNoOfApproachingTrainers == 2)
@@ -189,8 +193,16 @@ void FreezeForApproachingTrainers(void)
             gTasks[taskId].tObjectFrozen = TRUE;
         }
     }
-    if (followerObj) // Unfreeze follower so it can move behind player
-        UnfreezeObjectEvent(followerObj);
+    if (followerObj1) // Unfreeze follower so it can move behind player
+        UnfreezeObjectEvent(followerObj1);
+    if (followerObj2) // Unfreeze follower so it can move behind player
+        UnfreezeObjectEvent(followerObj2);
+    if (followerObj3) // Unfreeze follower so it can move behind player
+        UnfreezeObjectEvent(followerObj3);
+    if (followerObj4) // Unfreeze follower so it can move behind player
+        UnfreezeObjectEvent(followerObj4);
+    if (followerObj5) // Unfreeze follower so it can move behind player
+        UnfreezeObjectEvent(followerObj5);
 }
 
 bool8 IsFreezeObjectAndPlayerFinished(void)
