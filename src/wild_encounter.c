@@ -487,7 +487,12 @@ static const u16 sEncounterTable1[] =
 void CreateWildMon(enum Species species, u8 level)
 {
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
-    level = Random() % 25 + playerLevel - 15;
+
+    u8 delta = 3 + playerLevel / 8;
+    if (delta > 10)
+        delta = 10;
+
+    level = playerLevel + (Random() % (delta * 2 + 1)) - delta;
     switch (VarGet(VAR_ENCOUNTER_TABLE))
     {
         default:

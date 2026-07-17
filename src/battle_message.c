@@ -2475,13 +2475,13 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             s16 levelDifference = playerLevel - opponentLevel;
             const u8 *battleIntro = sText_IntroLevel2;
 
-            if (levelDifference >= 7)           { battleIntro = sText_IntroLevel1; }
-            else if (levelDifference == 0)      { battleIntro = sText_IntroLevel2; }
-            else if (levelDifference <= -25)    { battleIntro = sText_IntroLevel3; }
-            else if (levelDifference <= -20)    { battleIntro = sText_IntroLevel4; }
-            else if (levelDifference <= -15)    { battleIntro = sText_IntroLevel5; }
-            else if (levelDifference <= -10)    { battleIntro = sText_IntroLevel6; }
-            else if (levelDifference <= -5)     { battleIntro = sText_IntroLevel7; }
+            if (levelDifference >= 7)           battleIntro = sText_IntroLevel1;
+            else if (levelDifference >= 3)      battleIntro = sText_IntroLevel2;
+            else if (levelDifference >= -2)     battleIntro = sText_IntroLevel7;
+            else if (levelDifference >= -4)     battleIntro = sText_IntroLevel6;
+            else if (levelDifference >= -6)     battleIntro = sText_IntroLevel5;
+            else if (levelDifference >= -8)     battleIntro = sText_IntroLevel4;
+            else                                battleIntro = sText_IntroLevel3;
 
             StringCopy(gBattleTextBuff1, battleIntro);
 

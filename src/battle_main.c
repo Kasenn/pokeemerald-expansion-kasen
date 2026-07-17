@@ -582,6 +582,7 @@ static void CB2_InitBattleInternal(void)
     SetVBlankCallback(VBlankCB_Battle);
     SetUpBattleVarsAndBirchZigzagoon();
     ResetEggs();
+    gChuckedEggs = 0;
     gCurrentUsableEggs = CalculateCurrentEggs();
 
     if (gBattleTypeFlags & BATTLE_TYPE_MULTI

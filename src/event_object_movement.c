@@ -568,6 +568,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kamek,                 OBJ_EVENT_PAL_TAG_KAMEK},
     {gObjectEventPal_SuperMushroom,         OBJ_EVENT_PAL_TAG_SUPERMUSHROOM},
     {gObjectEventPal_ItemSparkle,           OBJ_EVENT_PAL_TAG_ITEMSPARKLE},
+    {gObjectEventPal_Honchkrow,             OBJ_EVENT_PAL_TAG_HONCHKROW},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -2451,6 +2452,9 @@ void UpdateFollowingPokemon(void)
             gSaveBlock3Ptr->followerId[slot - 1] = objId;
         }
         sprite = &gSprites[objEvent->spriteId];
+        objEvent->fixedPriority = TRUE;
+        sprite->subpriority = 0xFF;
+
         // Follower appearance changed; move to player and set invisible
         if (!FlagGet(FLAG_EGGS_HATCHED))
             species = SPECIES_EGG;
@@ -6645,6 +6649,8 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
                         continue;
 
                     TryTriggerOverworldWildEncounter(objectEvent, curObject);
+                    if (curObject->noCollision)
+                        return OBJECT_EVENTS_COUNT;
                     return i;
                 }
             }
@@ -10483,6 +10489,8 @@ static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *
 {
     u32 i;
     if (ObjectEventIsFarawayIslandMew(objEvent) == TRUE && !ShouldMewShakeGrass(objEvent))
+        return;
+    if (objEvent->graphicsId == OBJ_EVENT_GFX_ITEMSPARKLE || objEvent->graphicsId == OBJ_EVENT_GFX_MURKROW || objEvent->graphicsId == OBJ_EVENT_GFX_SKARMORY)
         return;
 
     for (i = 0; i < ARRAY_COUNT(sGroundEffectFuncs); i++, flags >>= 1)

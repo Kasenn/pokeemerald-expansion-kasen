@@ -399,6 +399,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperMushroom;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSparkle;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Honchkrow;
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -815,6 +816,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_KAMEK]                    = &gObjectEventGraphicsInfo_Kamek,
     [OBJ_EVENT_GFX_SUPERMUSHROOM]            = &gObjectEventGraphicsInfo_SuperMushroom,
     [OBJ_EVENT_GFX_ITEMSPARKLE]              = &gObjectEventGraphicsInfo_ItemSparkle,
+    [OBJ_EVENT_GFX_HONCHKROW]                = &gObjectEventGraphicsInfo_Honchkrow,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

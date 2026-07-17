@@ -29,7 +29,7 @@
       "flag": "FLAG_MUSHROOM_PICKED_UP"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MURKROW)",
+      "graphics_id": "OBJ_EVENT_GFX_MURKROW",
       "x": 53,
       "y": 58,
       "elevation": 0,
@@ -37,12 +37,12 @@
       "movement_range_x": 5,
       "movement_range_y": 6,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route102_EventScript_Allen",
       "flag": "FLAG_TEMP_1"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MURKROW)",
+      "graphics_id": "OBJ_EVENT_GFX_MURKROW",
       "x": 54,
       "y": 64,
       "elevation": 0,
@@ -50,12 +50,12 @@
       "movement_range_x": 5,
       "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route102_EventScript_Allen",
       "flag": "FLAG_TEMP_1"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MURKROW)",
+      "graphics_id": "OBJ_EVENT_GFX_MURKROW",
       "x": 45,
       "y": 66,
       "elevation": 0,
@@ -63,9 +63,48 @@
       "movement_range_x": 3,
       "movement_range_y": 5,
       "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "3",
+      "script": "Route102_EventScript_Allen",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEMSPARKLE",
+      "x": 41,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "FLAG_TEMP_1"
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_SNORLAX2",
+      "x": 54,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_HONCHKROW",
+      "x": 40,
+      "y": 17,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
