@@ -1288,9 +1288,9 @@ bool8 ScrCmd_fadeinbgm(struct ScriptContext *ctx)
     return FALSE;
 }
 
-struct ObjectEvent *ScriptHideFollower(void)
+struct ObjectEvent *ScriptHideFollower(u8 slot)
 {
-    struct ObjectEvent *obj = GetFollowerObject(0);//wip, this definitely needs fixing
+    struct ObjectEvent *obj = GetFollowerObject(slot);
 
     if (obj == NULL || obj->invisible)
         return NULL;
@@ -1312,7 +1312,11 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     // When applying script movements to follower, it may have frozen animation that must be cleared
-    if ((localId == OBJ_EVENT_ID_FOLLOWER1 && (objEvent = GetFollowerObject(0)) && objEvent->frozen) //wip
+    if ((localId == OBJ_EVENT_ID_FOLLOWER1 && (objEvent = GetFollowerObject(0)) && objEvent->frozen)
+     || (localId == OBJ_EVENT_ID_FOLLOWER2 && (objEvent = GetFollowerObject(1)) && objEvent->frozen)
+     || (localId == OBJ_EVENT_ID_FOLLOWER3 && (objEvent = GetFollowerObject(2)) && objEvent->frozen)
+     || (localId == OBJ_EVENT_ID_FOLLOWER4 && (objEvent = GetFollowerObject(3)) && objEvent->frozen)
+     || (localId == OBJ_EVENT_ID_FOLLOWER5 && (objEvent = GetFollowerObject(4)) && objEvent->frozen)
             || ((objEvent = &gObjectEvents[GetObjectEventIdByLocalId(localId)]) && IS_OW_MON_OBJ(objEvent)))
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
@@ -1322,11 +1326,12 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
     gObjectEvents[GetObjectEventIdByLocalId(localId)].directionOverwrite = DIR_NONE;
     ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, movementScript);
     sMovingNpcId = localId;
-    if (localId != OBJ_EVENT_ID_FOLLOWER1 //wip
+    if ((localId != OBJ_EVENT_ID_FOLLOWER1 && localId != OBJ_EVENT_ID_FOLLOWER2 && localId != OBJ_EVENT_ID_FOLLOWER3 && localId != OBJ_EVENT_ID_FOLLOWER4 && localId != OBJ_EVENT_ID_FOLLOWER5)
      && !FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)
      && (movementScript < Common_Movement_FollowerSafeStart || movementScript > Common_Movement_FollowerSafeEnd))
     {
-        ScriptHideFollower();
+        for (gPlayerFollowerCount)
+            ScriptHideFollower(slot);
     }
     return FALSE;
 }
@@ -1350,11 +1355,23 @@ static bool8 WaitForMovementFinish(void)
 {
     if (ScriptMovement_IsObjectMovementFinished(sMovingNpcId, sMovingNpcMapNum, sMovingNpcMapGroup))
     {
-        struct ObjectEvent *objEvent = GetFollowerObject(0);//wip
+        struct ObjectEvent *objEvent1 = GetFollowerObject(0);
+        struct ObjectEvent *objEvent2 = GetFollowerObject(1);
+        struct ObjectEvent *objEvent3 = GetFollowerObject(2);
+        struct ObjectEvent *objEvent4 = GetFollowerObject(3);
+        struct ObjectEvent *objEvent5 = GetFollowerObject(4);
         // If the follower is still entering the pokeball, wait for it to finish too
         // This prevents a `release` after this script command from getting the follower stuck in an intermediate state
-        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER1 && objEvent && ObjectEventGetHeldMovementActionId(objEvent) == MOVEMENT_ACTION_ENTER_POKEBALL)//wip
-            return ScriptMovement_IsObjectMovementFinished(objEvent->localId, objEvent->mapNum, objEvent->mapGroup);
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER5 && objEvent5 && ObjectEventGetHeldMovementActionId(objEvent5) == MOVEMENT_ACTION_ENTER_POKEBALL)
+            return ScriptMovement_IsObjectMovementFinished(objEvent5->localId, objEvent5->mapNum, objEvent5->mapGroup);
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER4 && objEvent4 && ObjectEventGetHeldMovementActionId(objEvent4) == MOVEMENT_ACTION_ENTER_POKEBALL)
+            return ScriptMovement_IsObjectMovementFinished(objEvent4->localId, objEvent4->mapNum, objEvent4->mapGroup);
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER3 && objEvent3 && ObjectEventGetHeldMovementActionId(objEvent3) == MOVEMENT_ACTION_ENTER_POKEBALL)
+            return ScriptMovement_IsObjectMovementFinished(objEvent3->localId, objEvent3->mapNum, objEvent3->mapGroup);
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER2 && objEvent2 && ObjectEventGetHeldMovementActionId(objEvent2) == MOVEMENT_ACTION_ENTER_POKEBALL)
+            return ScriptMovement_IsObjectMovementFinished(objEvent2->localId, objEvent2->mapNum, objEvent2->mapGroup);
+        if (sMovingNpcId != OBJ_EVENT_ID_FOLLOWER1 && objEvent1 && ObjectEventGetHeldMovementActionId(objEvent1) == MOVEMENT_ACTION_ENTER_POKEBALL)
+            return ScriptMovement_IsObjectMovementFinished(objEvent1->localId, objEvent1->mapNum, objEvent1->mapGroup);
         return TRUE;
     }
     return FALSE;
@@ -1628,11 +1645,26 @@ bool8 ScrCmd_lockall(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj = GetFollowerObject(0);//wip
+        struct ObjectEvent *followerObj1 = GetFollowerObject(0);
+        struct ObjectEvent *followerObj2 = GetFollowerObject(1);
+        struct ObjectEvent *followerObj3 = GetFollowerObject(2);
+        struct ObjectEvent *followerObj4 = GetFollowerObject(3);
+        struct ObjectEvent *followerObj5 = GetFollowerObject(4);
         FreezeObjects_WaitForPlayer();
         SetupNativeScript(ctx, IsFreezePlayerFinished);
-        if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT) && followerObj) // Unfreeze follower object (conditionally)
-            UnfreezeObjectEvent(followerObj);
+        if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)) // Unfreeze follower object (conditionally)
+        {
+            if (followerObj1) 
+                UnfreezeObjectEvent(followerObj1);
+            if (followerObj2)
+                UnfreezeObjectEvent(followerObj2);
+            if (followerObj3)
+                UnfreezeObjectEvent(followerObj3);
+            if (followerObj4)
+                UnfreezeObjectEvent(followerObj4);
+            if (followerObj5)
+                UnfreezeObjectEvent(followerObj5);
+        }
         return TRUE;
     }
 }
@@ -1649,22 +1681,43 @@ bool8 ScrCmd_lock(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj = GetFollowerObject(0);//wip
+        struct ObjectEvent *followerObj1 = GetFollowerObject(0);
+        struct ObjectEvent *followerObj2 = GetFollowerObject(1);
+        struct ObjectEvent *followerObj3 = GetFollowerObject(2);
+        struct ObjectEvent *followerObj4 = GetFollowerObject(3);
+        struct ObjectEvent *followerObj5 = GetFollowerObject(4);
         if (gObjectEvents[gSelectedObjectEvent].active)
         {
             FreezeObjects_WaitForPlayerAndSelected();
             SetupNativeScript(ctx, IsFreezeSelectedObjectAndPlayerFinished);
             // follower is being talked to; keep it frozen
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER1)//wip
-                followerObj = NULL;
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER1)
+                followerObj1 = NULL;
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER2)
+                followerObj2 = NULL;
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER3)
+                followerObj3 = NULL;
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER4)
+                followerObj4 = NULL;
+            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER5)
+                followerObj5 = NULL;
         }
         else
         {
             FreezeObjects_WaitForPlayer();
             SetupNativeScript(ctx, IsFreezePlayerFinished);
         }
-        if (followerObj) // Unfreeze follower object
-            UnfreezeObjectEvent(followerObj);
+        // Unfreeze follower object
+        if (followerObj1)
+            UnfreezeObjectEvent(followerObj1);
+        if (followerObj2)
+            UnfreezeObjectEvent(followerObj2);
+        if (followerObj3)
+            UnfreezeObjectEvent(followerObj3);
+        if (followerObj4)
+            UnfreezeObjectEvent(followerObj4);
+        if (followerObj5)
+            UnfreezeObjectEvent(followerObj5);
         return TRUE;
     }
 }
@@ -1674,10 +1727,13 @@ bool8 ScrCmd_releaseall(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     u8 playerObjectId;
-    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip
-    // Release follower from movement iff it exists and is in the shadowing state
-    if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
-        ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
+    for (gPlayerFollowerCount)
+    {
+        struct ObjectEvent *followerObject = GetFollowerObject(slot);
+        // Release follower from movement iff it exists and is in the shadowing state
+        if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
+            ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
+    }
 
     HideFieldMessageBox();
     playerObjectId = GetObjectEventIdByLocalIdAndMap(LOCALID_PLAYER, 0, 0);
@@ -1693,10 +1749,13 @@ bool8 ScrCmd_release(struct ScriptContext *ctx)
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
     u8 playerObjectId;
-    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip
-    // Release follower from movement iff it exists and is in the shadowing state
-    if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
-        ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
+    for (gPlayerFollowerCount)
+    {
+        struct ObjectEvent *followerObject = GetFollowerObject(slot);
+        // Release follower from movement iff it exists and is in the shadowing state
+        if (followerObject && gSprites[followerObject->spriteId].data[1] == 0)
+            ClearObjectEventMovement(followerObject, &gSprites[followerObject->spriteId]);
+    }
 
     HideFieldMessageBox();
     if (gObjectEvents[gSelectedObjectEvent].active)
@@ -3231,18 +3290,20 @@ bool8 ScrCmd_hidefollower(struct ScriptContext *ctx)
 
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
-    if ((obj = ScriptHideFollower()) != NULL && wait)
+    for (gPlayerFollowerCount)
     {
-        sMovingNpcId = obj->localId;
-        sMovingNpcMapGroup = obj->mapGroup;
-        sMovingNpcMapNum = obj->mapNum;
-        SetupNativeScript(ctx, WaitForMovementFinish);
+        if ((obj = ScriptHideFollower(slot)) != NULL && wait)
+        {
+            sMovingNpcId = obj->localId;
+            sMovingNpcMapGroup = obj->mapGroup;
+            sMovingNpcMapNum = obj->mapNum;
+            SetupNativeScript(ctx, WaitForMovementFinish);
+        }
+        // Just in case, prevent `applymovement`
+        // from hiding the follower again
+        if (obj)
+            FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
     }
-
-    // Just in case, prevent `applymovement`
-    // from hiding the follower again
-    if (obj)
-        FlagSet(FLAG_SAFE_FOLLOWER_MOVEMENT);
 
     // execute next script command with no delay
     return TRUE;

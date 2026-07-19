@@ -4326,7 +4326,8 @@ bool8 FieldCallback_PrepareFadeInFromMenu(void)
 // Same as above, but removes follower Pokémon
 bool8 FieldCallback_PrepareFadeInForTeleport(void)
 {
-    RemoveFollowingPokemon(0);//wip2 probably doesn't matter
+    for (gPlayerFollowerCount)
+        RemoveFollowingPokemon(slot);
     return FieldCallback_PrepareFadeInFromMenu();
 }
 

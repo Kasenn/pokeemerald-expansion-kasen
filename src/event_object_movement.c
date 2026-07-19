@@ -2224,8 +2224,8 @@ const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species
 // Find, or load, the palette for the specified Pokémon info
 static u32 LoadDynamicFollowerPalette(enum Species species, bool32 shiny, bool32 female)
 {
-    // if (!FlagGet(FLAG_EGGS_HATCHED))
-    //     species = SPECIES_EGG;
+    if (!FlagGet(FLAG_EGGS_HATCHED))
+        species = SPECIES_EGG;
     u32 paletteNum;
     // Use standalone palette, unless entry is OOB or NULL (fallback to front-sprite-based)
 #if OW_POKEMON_OBJECT_EVENTS == TRUE && OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
@@ -2452,8 +2452,8 @@ void UpdateFollowingPokemon(void)
             gSaveBlock3Ptr->followerId[slot - 1] = objId;
         }
         sprite = &gSprites[objEvent->spriteId];
-        objEvent->fixedPriority = TRUE;
-        sprite->subpriority = 0xFF;
+        // objEvent->fixedPriority = TRUE;
+        // sprite->subpriority = 140 - slot;
 
         // Follower appearance changed; move to player and set invisible
         if (!FlagGet(FLAG_EGGS_HATCHED))
@@ -10113,11 +10113,16 @@ static void ObjectEventUpdateSubpriority(struct ObjectEvent *objEvent, struct Sp
     if (objEvent->fixedPriority)
         return;
 
+    u8 subPriority = 1;
+
+    if (objEvent->localId >= OBJ_EVENT_ID_FOLLOWER1 && objEvent->localId <= OBJ_EVENT_ID_FOLLOWER5) //wip, make sure to properly test this
+        subPriority = 2;
+
     // If transitioning between elevations, use the player's elevation
     if (!objEvent->currentElevation && (objEvent->localId == OBJ_EVENT_ID_FOLLOWER1 || objEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER))
         objEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
 
-    SetObjectSubpriorityByElevation(objEvent->previousElevation, sprite, 1);
+    SetObjectSubpriorityByElevation(objEvent->previousElevation, sprite, subPriority);
 }
 
 bool8 AreElevationsCompatible(u8 a, u8 b)

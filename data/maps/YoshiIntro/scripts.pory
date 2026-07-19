@@ -35,7 +35,7 @@ script YoshiIntroScript{
     waitmovement(0)
     delay(10)
     setspeaker("Kamek")
-    msgbox("yap yap\pmore yap", MSGBOX_AUTOCLOSE)
+    msgbox(YoshiIntroText, MSGBOX_AUTOCLOSE)
     turnobject(KAMEK, DIR_WEST)
     fadedefaultbgm
     delay(30)
@@ -46,7 +46,7 @@ script YoshiIntroScript{
     delay(90)
     playmoncry(SPECIES_PECHARUNT, 0)
     setspeaker("Kamek")
-    message("egads! something's gone awry!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p")
+    message("Egads! Something's wrong\nwith the spell!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p")
     removeobject(YOSHI)
     removeobject(KAMEK)
     waitbuttonpress
@@ -59,4 +59,15 @@ script YoshiIntroScript{
     delay(60)
     warpsilent(MAP_EGG_ISLAND_EXTERIOR, 0)
     waitstate
+}
+
+text YoshiIntroText{
+    "There you are, Yoshi!\n"
+    "I've been looking for you!\p"
+    "Too long you have been a thorn\n"
+    "on the young master's side!\p"
+    "But no more!\p"
+    "I have conjured up a new\n"
+    "spell to get rid of you,\l"
+    "once and for all!"
 }

@@ -69,7 +69,7 @@ YoshiIntroScript::
 # 37 "data/maps/YoshiIntro/scripts.pory"
 	setspeaker YoshiIntroScript_Text_0
 # 38 "data/maps/YoshiIntro/scripts.pory"
-	msgbox YoshiIntroScript_Text_1, MSGBOX_AUTOCLOSE
+	msgbox YoshiIntroText, MSGBOX_AUTOCLOSE
 # 39 "data/maps/YoshiIntro/scripts.pory"
 	turnobject 2, DIR_WEST
 # 40 "data/maps/YoshiIntro/scripts.pory"
@@ -91,7 +91,7 @@ YoshiIntroScript::
 # 48 "data/maps/YoshiIntro/scripts.pory"
 	setspeaker YoshiIntroScript_Text_0
 # 49 "data/maps/YoshiIntro/scripts.pory"
-	message YoshiIntroScript_Text_2
+	message YoshiIntroScript_Text_1
 # 50 "data/maps/YoshiIntro/scripts.pory"
 	removeobject 1
 # 51 "data/maps/YoshiIntro/scripts.pory"
@@ -190,9 +190,16 @@ YoshiIntroScript_Text_0:
 	.string "Kamek$"
 
 YoshiIntroScript_Text_1:
-# 38 "data/maps/YoshiIntro/scripts.pory"
-	.string "yap yap\pmore yap$"
-
-YoshiIntroScript_Text_2:
 # 49 "data/maps/YoshiIntro/scripts.pory"
-	.string "egads! something's gone awry!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p$"
+	.string "Egads! Something's wrong\nwith the spell!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p$"
+
+YoshiIntroText::
+# 64 "data/maps/YoshiIntro/scripts.pory"
+	.string "There you are, Yoshi!\n"
+	.string "I've been looking for you!\p"
+	.string "Too long you have been a thorn\n"
+	.string "on the young master's side!\p"
+	.string "But no more!\p"
+	.string "I have conjured up a new\n"
+	.string "spell to get rid of you,\l"
+	.string "once and for all!$"
