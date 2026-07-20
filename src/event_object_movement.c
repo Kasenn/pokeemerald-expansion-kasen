@@ -10493,6 +10493,8 @@ static void (*const sGroundEffectFuncs[])(struct ObjectEvent *objEvent, struct S
 static void DoFlaggedGroundEffects(struct ObjectEvent *objEvent, struct Sprite *sprite, u32 flags)
 {
     u32 i;
+    if (FlagGet(FLAG_DISABLE_GROUND_EFFECTS))
+        return;
     if (ObjectEventIsFarawayIslandMew(objEvent) == TRUE && !ShouldMewShakeGrass(objEvent))
         return;
     if (objEvent->graphicsId == OBJ_EVENT_GFX_ITEMSPARKLE || objEvent->graphicsId == OBJ_EVENT_GFX_MURKROW || objEvent->graphicsId == OBJ_EVENT_GFX_SKARMORY)

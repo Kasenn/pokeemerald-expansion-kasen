@@ -9,6 +9,7 @@
 #include "task.h"
 #include "constants/party_menu.h"
 #include "constants/songs.h"
+#include "event_data.h"
 
 static void Task_SoftboiledRestoreHealth(u8 taskId);
 static void Task_DisplayHPRestoredMessage(u8 taskId);
@@ -21,7 +22,7 @@ bool32 SetUpFieldMove_SoftBoiled(void)
 
     for (int i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (GetMonData(&mon, MON_DATA_MOVE1 + i) == MOVE_SOFT_BOILED)
+        if (GetMonData(&mon, MON_DATA_MOVE1 + i) == MOVE_SUPER_MUSHROOM)
         {
             if (GetMonData(&mon, MON_DATA_PP1 + i) == 0)
                 return FALSE;
@@ -65,10 +66,11 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
     PlaySE(SE_USE_ITEM);
     for (int i = 0; i < MAX_MON_MOVES; i++)
     {
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_MOVE1 + i) == MOVE_SOFT_BOILED)
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_MOVE1 + i) == MOVE_SUPER_MUSHROOM)
         {
             u16 pp = (GetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + i) - 1);
-            SetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + 1, &pp);
+            VarSet(VAR_MUSHROOM_COUNT, pp);
+            // SetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + 1, &pp);
         }
     }
     PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);

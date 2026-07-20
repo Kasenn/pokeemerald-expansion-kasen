@@ -1436,63 +1436,66 @@ static const u8 *GenerateRecoveryMessage(u8 taskId)
 
 static void Task_RushInjuredPokemonToCenter(u8 taskId)
 {
-    u32 windowId;
+    DestroyTask(taskId);
+    ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);//wip
 
-    switch (gTasks[taskId].tState)
-    {
-    case WHITEOUT_CUTSCENE_ENTER_MSG_SCREEN:
-        windowId = AddWindow(&sWindowTemplate_WhiteoutText);
-        gTasks[taskId].tWindowId = windowId;
-        Menu_LoadStdPalAt(BG_PLTT_ID(15));
-        FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
-        PutWindowTilemap(windowId);
-        CopyWindowToVram(windowId, COPYWIN_FULL);
+    // u32 windowId;
 
-        gTasks[taskId].tIsPlayerHouse = IsLastHealLocationPlayerHouse();
-        gTasks[taskId].tState = WHITEOUT_CUTSCENE_PRINT_MSG;
-        break;
-    case WHITEOUT_CUTSCENE_PRINT_MSG:
-    {
-        const u8 *recoveryMessage = GenerateRecoveryMessage(taskId);
+    // switch (gTasks[taskId].tState)
+    // {
+    // case WHITEOUT_CUTSCENE_ENTER_MSG_SCREEN:
+    //     windowId = AddWindow(&sWindowTemplate_WhiteoutText);
+    //     gTasks[taskId].tWindowId = windowId;
+    //     Menu_LoadStdPalAt(BG_PLTT_ID(15));
+    //     FillWindowPixelBuffer(windowId, PIXEL_FILL(0));
+    //     PutWindowTilemap(windowId);
+    //     CopyWindowToVram(windowId, COPYWIN_FULL);
 
-        if (PrintWhiteOutRecoveryMessage(taskId, recoveryMessage, 2, 8))
-        {
-            ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
-            gTasks[taskId].tState = WHITEOUT_CUTSCENE_LEAVE_MSG_SCREEN;
-        }
-        break;
-    }
-    case WHITEOUT_CUTSCENE_LEAVE_MSG_SCREEN:
-        windowId = gTasks[taskId].tWindowId;
-        ClearWindowTilemap(windowId);
-        CopyWindowToVram(windowId, COPYWIN_MAP);
-        RemoveWindow(windowId);
-        FadeInFromBlack();
-        gTasks[taskId].tState = WHITEOUT_CUTSCENE_HEAL_SCRIPT;
-        break;
-    case WHITEOUT_CUTSCENE_HEAL_SCRIPT:
-        if (WaitForWeatherFadeIn() == TRUE)
-        {
-            DestroyTask(taskId);
-            if (gTasks[taskId].tIsPlayerHouse)
-            {
-                if (IS_FRLG)
-                    StringCopy(gStringVar1, COMPOUND_STRING("PROF. OAK"));
-                else
-                    StringCopy(gStringVar1, COMPOUND_STRING("PROF. BIRCH"));
-                ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
-            }
-            else if (IS_FRLG)
-            {
-                ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal_Frlg);
-            }
-            else
-            {
-                ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
-            }
-        }
-        break;
-    }
+    //     gTasks[taskId].tIsPlayerHouse = IsLastHealLocationPlayerHouse();
+    //     gTasks[taskId].tState = WHITEOUT_CUTSCENE_PRINT_MSG;
+    //     break;
+    // case WHITEOUT_CUTSCENE_PRINT_MSG:
+    // {
+    //     const u8 *recoveryMessage = GenerateRecoveryMessage(taskId);
+
+    //     if (PrintWhiteOutRecoveryMessage(taskId, recoveryMessage, 2, 8))
+    //     {
+    //         ObjectEventTurn(&gObjectEvents[gPlayerAvatar.objectEventId], DIR_NORTH);
+    //         gTasks[taskId].tState = WHITEOUT_CUTSCENE_LEAVE_MSG_SCREEN;
+    //     }
+    //     break;
+    // }
+    // case WHITEOUT_CUTSCENE_LEAVE_MSG_SCREEN:
+    //     windowId = gTasks[taskId].tWindowId;
+    //     ClearWindowTilemap(windowId);
+    //     CopyWindowToVram(windowId, COPYWIN_MAP);
+    //     RemoveWindow(windowId);
+    //     FadeInFromBlack();
+    //     gTasks[taskId].tState = WHITEOUT_CUTSCENE_HEAL_SCRIPT;
+    //     break;
+    // case WHITEOUT_CUTSCENE_HEAL_SCRIPT:
+    //     if (WaitForWeatherFadeIn() == TRUE)
+    //     {
+    //         DestroyTask(taskId);
+    //         if (gTasks[taskId].tIsPlayerHouse)
+    //         {
+    //             if (IS_FRLG)
+    //                 StringCopy(gStringVar1, COMPOUND_STRING("PROF. OAK"));
+    //             else
+    //                 StringCopy(gStringVar1, COMPOUND_STRING("PROF. BIRCH"));
+    //             ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);
+    //         }
+    //         else if (IS_FRLG)
+    //         {
+    //             ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal_Frlg);
+    //         }
+    //         else
+    //         {
+    //             ScriptContext_SetupScript(EventScript_AfterWhiteOutHeal);
+    //         }
+    //     }
+    //     break;
+    // }
 }
 
 void FieldCB_RushInjuredPokemonToCenter(void)
@@ -1501,7 +1504,7 @@ void FieldCB_RushInjuredPokemonToCenter(void)
 
     LockPlayerFieldControls();
     FillPalBufferBlack();
-    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);
+    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);//wip
     gTasks[taskId].tState = WHITEOUT_CUTSCENE_ENTER_MSG_SCREEN;
 }
 

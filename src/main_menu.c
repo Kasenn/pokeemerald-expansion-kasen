@@ -773,6 +773,9 @@ static void Task_DisplayMainMenu(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDALPHA, 0);
         SetGpuReg(REG_OFFSET_BLDY, 7);
 
+        if (IsBGMStopped())
+            PlayBGM(MUS_CREDITS);//wip
+
         palette = RGB_BLACK;
         LoadPalette(&palette, BG_PLTT_ID(15) + 14, PLTT_SIZEOF(1));
 
@@ -910,6 +913,35 @@ static bool8 HandleMainMenuInput(u8 taskId)
     {
         PlaySE(SE_SELECT);
         IsWirelessAdapterConnected();   // why bother calling this here? debug? Task_HandleMainMenuAPressed will check too
+        switch (gTasks[taskId].tMenuType)
+        {
+        case HAS_NO_SAVED_GAME:
+        default:
+            switch (gTasks[taskId].tCurrItem)
+            {
+            case 0:
+            default:
+                FadeOutBGM(5);
+                break;
+            case 1:
+                break;
+            }
+            break;
+        case HAS_SAVED_GAME:
+            switch (gTasks[taskId].tCurrItem)
+            {
+            case 0:
+            default:
+                FadeOutBGM(5);
+                break;
+            case 1:
+                FadeOutBGM(5);
+                break;
+            case 2:
+                break;
+            }
+            break;
+        }
         BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
         gTasks[taskId].func = Task_HandleMainMenuAPressed;
     }
@@ -923,6 +955,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
     }
     else if ((JOY_NEW(DPAD_UP)) && tCurrItem > 0)
     {
+        PlaySE(SE_SELECT);
         if (tMenuType == HAS_MYSTERY_EVENTS && tIsScrolled == TRUE && tCurrItem == 1)
         {
             ChangeBgY(0, 0x2000, BG_COORD_SUB);
@@ -935,6 +968,7 @@ static bool8 HandleMainMenuInput(u8 taskId)
     }
     else if ((JOY_NEW(DPAD_DOWN)) && tCurrItem < tItemCount - 1)
     {
+        PlaySE(SE_SELECT);
         if (tMenuType == HAS_MYSTERY_EVENTS && tCurrItem == 3 && tIsScrolled == FALSE)
         {
             ChangeBgY(0, 0x2000, BG_COORD_ADD);

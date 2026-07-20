@@ -62,9 +62,9 @@
 #define FLAG_FORCE_ENCOUNTERRATE    0x28
 #define FLAG_NO_COLLISION    0x29
 #define FLAG_INTRODUCTION_TO_MUSHROOMS    0x2A
-#define FLAG_MUSHROOM_PICKED_UP    0x2B // Unused Flag
-#define FLAG_MUSHROOMS_UNLOCKED    0x2C // Unused Flag
-#define FLAG_UNUSED_0x02D    0x2D // Unused Flag
+#define FLAG_MUSHROOM_PICKED_UP    0x2B
+#define FLAG_MUSHROOMS_UNLOCKED    0x2C
+#define FLAG_DISABLE_GROUND_EFFECTS    0x2D
 #define FLAG_UNUSED_0x02E    0x2E // Unused Flag
 #define FLAG_UNUSED_0x02F    0x2F // Unused Flag
 #define FLAG_UNUSED_0x030    0x30 // Unused Flag

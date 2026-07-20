@@ -742,6 +742,7 @@ void SetWarpDestinationToHealLocation(u8 healLocationId)
 
 static bool32 IsWhiteoutCutscene(void)
 {
+    return TRUE;
     if (OW_WHITEOUT_CUTSCENE < GEN_4)
         return FALSE;
     return GetHealNpcLocalId(GetHealLocationIndexByWarpData(&gSaveBlock1Ptr->lastHealLocation)) != LOCALID_NONE;
@@ -1945,6 +1946,7 @@ void CB2_WhiteOut(void)
         ResetInitialPlayerAvatarState();
         ScriptContext_Init();
         UnlockPlayerFieldControls();
+        FlagSet(FLAG_DISABLE_GROUND_EFFECTS);
         if (IsWhiteoutCutscene())
             gFieldCallback = FieldCB_RushInjuredPokemonToCenter;
         else

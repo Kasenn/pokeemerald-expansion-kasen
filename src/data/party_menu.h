@@ -39,8 +39,8 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
             24, 11, 40, 13, // Nickname
             32, 20, 32,  8, // Level
             64, 20,  8,  8, // Gender
-            38, 37, 24,  8, // HP
-            53, 37, 24,  8, // Max HP
+            30, 29, 24,  16, // HP
+            45, 29, 24,  16, // Max HP
             24, 35, 48,  3  // HP bar
         },
         12, 34, 64, 16      // Description text (e.g. NO USE)
@@ -69,7 +69,7 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
 {
     [PARTY_LAYOUT_SINGLE] =
     {
-        { 28,  28,  32,  46,  62,  48,  16,  34},
+        { 28,  28,  32,  46,  48,  32,  16,  34},
         {116,  17, 120,  27, 148,  26, 102,  25},
         {116,  41, 120,  51, 148,  50, 102,  49},
         {116,  65, 120,  75, 148,  74, 102,  73},
