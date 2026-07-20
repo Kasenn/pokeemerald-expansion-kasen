@@ -833,9 +833,6 @@ const struct Tileset gTileset_UnionRoom =
     .callback = NULL,
 };
 
-#else
-
-// FRLG tilesets
 const struct Tileset gTileset_BuildingFrlg =
 {
     .isCompressed = TRUE,
@@ -843,9 +840,13 @@ const struct Tileset gTileset_BuildingFrlg =
     .tiles = gTilesetTiles_Building_Frlg,
     .palettes = gTilesetPalettes_Building_Frlg,
     .metatiles = gMetatiles_Building_Frlg,
-    .metatileAttributes = gMetatileAttributes_Building_Frlg,
+    .metatileAttributes = gMetatileAttributes_UnionRoom,
     .callback = NULL,
 };
+
+#else
+
+// FRLG tilesets
 
 const struct Tileset gTileset_General_Frlg =
 {

@@ -7272,7 +7272,6 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KamekIntro = {
     .inanimate = FALSE,                                 \
     .compressed = FALSE,                                \
     .oam = &gObjectEventBaseOam_32x32,                  \
-    .subspriteTables = sOamTables_32x32,                \
     .affineAnims = gDummySpriteAffineAnimTable,         \
     .size = 512,                                        \
     .width = 32,                                        \
@@ -7280,6 +7279,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_KamekIntro = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machop2 = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_MACHOP2,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7288,6 +7288,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Machop2 = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Murkrow = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_MURKROW,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7296,6 +7297,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Murkrow = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diglett = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_DIGLETT,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7304,6 +7306,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diglett = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sandshrew = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_SANDSHREW,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7312,6 +7315,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Sandshrew = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Skarmory = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_SKARMORY,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7339,6 +7343,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Snorlax2 = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_PRIMEAPE,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7347,6 +7352,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Primeape = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_KAMEK,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7355,6 +7361,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SuperMushroom = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_SUPERMUSHROOM,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
@@ -7382,8 +7389,59 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_ItemSparkle = {
 
 const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Honchkrow = {
     BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_HONCHKROW,
     .tracks = TRACKS_FOOT,
     .anims = sAnimTable_Standard,
     .images = sPicTable_Honchkrow2,
+};
+
+#define GAME_OVER_INFO      \
+    .tileTag = TAG_NONE,    \
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_NONE, \
+    .size = 1152,   \
+    .width = 48,    \
+    .height = 48,   \
+    .paletteSlot = PALSLOT_NPC_1,   \
+    .shadowSize = SHADOW_SIZE_M,    \
+    .inanimate = FALSE,     \
+    .compressed = FALSE,    \
+    .tracks = TRACKS_FOOT,  \
+    .oam = &gObjectEventBaseOam_32x32,  \
+    .anims = sAnimTable_GameOver,   \
+    .affineAnims = gDummySpriteAffineAnimTable
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver1 = {
+    GAME_OVER_INFO,
+    .subspriteTables = sOamTables_48x48,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GAMEOVER_1,
+    .images = sPicTable_GameOver1,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver2 = {
+    GAME_OVER_INFO,
+    .subspriteTables = sOamTables_48x48,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GAMEOVER_2,
+    .images = sPicTable_GameOver2,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver3 = {
+    GAME_OVER_INFO,
+    .subspriteTables = sOamTables_48x48,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GAMEOVER_3,
+    .images = sPicTable_GameOver3,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver4 = {
+    GAME_OVER_INFO,
+    .subspriteTables = sOamTables_48x48,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GAMEOVER_4,
+    .images = sPicTable_GameOver4,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver5 = {
+    GAME_OVER_INFO,
+    .subspriteTables = sOamTables_48x48,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GAMEOVER_5,
+    .images = sPicTable_GameOver5,
 };

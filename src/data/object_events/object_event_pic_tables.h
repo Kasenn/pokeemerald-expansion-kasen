@@ -3100,3 +3100,23 @@ static const struct SpriteFrameImage sPicTable_ItemSparkle[] = {
 static const struct SpriteFrameImage sPicTable_Honchkrow2[] = {
     overworld_ascending_frames(gObjectEventPic_Honchkrow2, 4, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_GameOver1[] = {
+    overworld_ascending_frames(gObjectEventPic_GameOver1, 6, 6),
+};
+
+static const struct SpriteFrameImage sPicTable_GameOver2[] = {
+    overworld_ascending_frames(gObjectEventPic_GameOver2, 6, 6),
+};
+
+static const struct SpriteFrameImage sPicTable_GameOver3[] = {
+    overworld_ascending_frames(gObjectEventPic_GameOver3, 6, 6),
+};
+
+static const struct SpriteFrameImage sPicTable_GameOver4[] = {
+    overworld_ascending_frames(gObjectEventPic_GameOver4, 6, 6),
+};
+
+static const struct SpriteFrameImage sPicTable_GameOver5[] = {
+    overworld_ascending_frames(gObjectEventPic_GameOver5, 6, 6),
+};

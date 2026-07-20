@@ -66,6 +66,9 @@
 #include "constants/event_objects.h"
 #include "constants/map_types.h"
 #include "constants/party_menu.h"
+#include "constants/rgb.h"
+#include "constants/songs.h"
+#include "m4a.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -3939,4 +3942,78 @@ void RandomizeMushroomOnSpawn(void)
 void RandomizeMushroomScript(void)
 {
     RandomizeMushroom(FALSE);
+}
+
+static const u16 sTextColor0[] = {0};
+static const u16 sTextColor1[] = {RGB2GBA(116, 116, 116)};
+static const u16 sTextColor2[] = {RGB2GBA(188, 188, 188)};
+static const u16 sTextColor3[] = {RGB2GBA(252, 252, 252)};
+
+void LoadTextColor0(void)
+{ 
+    LoadPalette(sTextColor0, BG_PLTT_ID(0) + 1, PLTT_SIZEOF(1));
+}
+
+static u8 EWRAM_DATA sLoops = 0;
+
+void LoadTextColor1(void)
+{
+    u16 value = 2 + 2 * sLoops;
+    if (value > 31)
+        value = 31;
+
+    u16 color = RGB(value, value, value);
+
+    LoadPalette(&color, BG_PLTT_ID(5) + 4, PLTT_SIZEOF(1));
+    LoadPalette(&color, BG_PLTT_ID(6) + 4, PLTT_SIZEOF(1));
+    sLoops++;
+}
+
+void ResetPalSteps(void)
+{
+    sLoops = 0;
+}
+
+static bool8 WaitForGameOverInput(void)
+{
+    u16 colorBlack = RGB_BLACK;
+    u16 colorWhite = RGB_WHITE;
+
+    if (JOY_NEW(A_BUTTON))
+        return TRUE;
+    if (JOY_NEW(DPAD_LEFT | DPAD_RIGHT))
+    {
+        PlaySE(SE_SELECT);
+        FlagToggle(FLAG_GAMEOVER_QUIT);
+
+        if (FlagGet(FLAG_GAMEOVER_QUIT))
+        {
+            LoadPalette(&colorBlack, BG_PLTT_ID(6) + 4, PLTT_SIZEOF(1));
+            LoadPalette(&colorWhite, BG_PLTT_ID(7) + 4, PLTT_SIZEOF(1));
+        }
+        else
+        {
+            LoadPalette(&colorWhite, BG_PLTT_ID(6) + 4, PLTT_SIZEOF(1));
+            LoadPalette(&colorBlack, BG_PLTT_ID(7) + 4, PLTT_SIZEOF(1));
+        }
+    }
+    return FALSE;
+}
+
+bool8 ScrCmd_handleGameOverInput(struct ScriptContext *ctx)
+{
+    Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
+
+    SetupNativeScript(ctx, WaitForGameOverInput);
+    return TRUE;
+}
+
+void StopGameOverMusic(void)
+{
+    FadeOutBGMTemporarily(3);
+}
+
+void StopMusicCompletely(void)
+{
+    m4aSongNumStop(MUS_CREDITS);
 }

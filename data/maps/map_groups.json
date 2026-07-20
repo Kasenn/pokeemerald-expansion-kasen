@@ -136,7 +136,8 @@
     "Underwater_Route125",
     "EggIsland_Exterior",
     "YoshiIntro",
-    "EggIsland_Interior"
+    "EggIsland_Interior",
+    "Yoshi_GameOver"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

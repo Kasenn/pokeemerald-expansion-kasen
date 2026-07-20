@@ -9353,6 +9353,16 @@
       "secondary_tileset": "gTileset_Cave",
       "border_filepath": "data/layouts/EggIsland_Interior/border.bin",
       "blockdata_filepath": "data/layouts/EggIsland_Interior/map.bin"
+    },
+    {
+      "id": "LAYOUT_YOSHI_GAME_OVER",
+      "name": "Yoshi_GameOver_Layout",
+      "width": 20,
+      "height": 20,
+      "primary_tileset": "gTileset_BuildingFrlg",
+      "secondary_tileset": "gTileset_RustboroGym",
+      "border_filepath": "data/layouts/Yoshi_GameOver/border.bin",
+      "blockdata_filepath": "data/layouts/Yoshi_GameOver/map.bin"
     }
   ]
 }

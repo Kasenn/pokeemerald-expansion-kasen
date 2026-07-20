@@ -667,3 +667,13 @@ const u16 gObjectEventPic_ItemSparkle[] = INCGFX_U16("graphics/object_events/pic
 
 const u16 gObjectEventPal_Honchkrow[] = INCGFX_U16("graphics/object_events/pics/people/honchkrow.png", ".gbapal");
 const u16 gObjectEventPic_Honchkrow2[] = INCGFX_U16("graphics/object_events/pics/people/honchkrow.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_GameOver1[] = INCGFX_U16("graphics/object_events/pics/people/gameover1.png", ".gbapal");
+const u16 gObjectEventPic_GameOver1[] = INCGFX_U16("graphics/object_events/pics/people/gameover1.png", ".4bpp", "-mwidth 6 -mheight 6");
+const u16 gObjectEventPal_GameOver2[] = INCGFX_U16("graphics/object_events/pics/people/gameover2.png", ".gbapal");
+const u16 gObjectEventPic_GameOver2[] = INCGFX_U16("graphics/object_events/pics/people/gameover2.png", ".4bpp", "-mwidth 6 -mheight 6");
+const u16 gObjectEventPal_GameOver3[] = INCGFX_U16("graphics/object_events/pics/people/gameover3.png", ".gbapal");
+const u16 gObjectEventPic_GameOver3[] = INCGFX_U16("graphics/object_events/pics/people/gameover3.png", ".4bpp", "-mwidth 6 -mheight 6");
+const u16 gObjectEventPal_GameOver4[] = INCGFX_U16("graphics/object_events/pics/people/gameover4.png", ".gbapal");
+const u16 gObjectEventPic_GameOver4[] = INCGFX_U16("graphics/object_events/pics/people/gameover4.png", ".4bpp", "-mwidth 6 -mheight 6");
+const u16 gObjectEventPal_GameOver5[] = INCGFX_U16("graphics/object_events/pics/people/gameover5.png", ".gbapal");
+const u16 gObjectEventPic_GameOver5[] = INCGFX_U16("graphics/object_events/pics/people/gameover5.png", ".4bpp", "-mwidth 6 -mheight 6");

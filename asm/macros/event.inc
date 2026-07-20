@@ -2956,3 +2956,8 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	@ Blocks script execution until the player presses the A or B button.
+	.macro waitgameoverbutton
+	.byte SCR_OP_WAITGAMEOVER
+	.endm

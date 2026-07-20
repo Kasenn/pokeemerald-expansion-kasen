@@ -1437,7 +1437,7 @@ static const u8 *GenerateRecoveryMessage(u8 taskId)
 static void Task_RushInjuredPokemonToCenter(u8 taskId)
 {
     DestroyTask(taskId);
-    ScriptContext_SetupScript(EventScript_AfterWhiteOutMomHeal);//wip
+    ScriptContext_SetupScript(WarpToGameOverScreen);
 
     // u32 windowId;
 

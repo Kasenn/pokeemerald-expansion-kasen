@@ -1,0 +1,55 @@
+mapscripts Yoshi_GameOver_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_TEMP_1)
+        callnative(LoadTextColor0)
+    }
+    MAP_SCRIPT_ON_LOAD{
+        callnative(LoadTextColor0)
+    }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_0, 0{
+            hideplayer
+            setvar(VAR_TEMP_0, 1)
+        }
+    ]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_TEMP_0, 1: GameOverScreen
+    ]
+}
+
+script GameOverScreen{
+    delay(60)
+    addobject(1)
+    addobject(2)
+    addobject(3)
+    addobject(4)
+    addobject(5)
+    delay(404)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_slow_down * 2))
+    delay(45)
+    waitmovement(0)
+    while(var(VAR_TEMP_1) < 16)
+    {
+        addvar(VAR_TEMP_1, 1)
+        callnative(LoadTextColor1)
+        delay(2)
+    }
+    callnative(ResetPalSteps)
+    delay(16)
+    waitgameoverbutton
+    callnative(StopGameOverMusic)
+    fadescreen(FADE_TO_BLACK)
+    delay(60)
+    callnative(StopMusicCompletely)
+    if(!flag(FLAG_GAMEOVER_QUIT)){
+        callnative(ReloadSave)
+    }
+    else{
+        callnative(DoSoftReset)
+    }
+}
+
+script WarpToGameOverScreen{
+    warpsilent(MAP_YOSHI_GAME_OVER, 0)
+    waitstate
+}

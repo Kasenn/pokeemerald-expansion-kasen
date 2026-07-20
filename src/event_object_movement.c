@@ -569,6 +569,11 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_SuperMushroom,         OBJ_EVENT_PAL_TAG_SUPERMUSHROOM},
     {gObjectEventPal_ItemSparkle,           OBJ_EVENT_PAL_TAG_ITEMSPARKLE},
     {gObjectEventPal_Honchkrow,             OBJ_EVENT_PAL_TAG_HONCHKROW},
+    {gObjectEventPal_GameOver1,             OBJ_EVENT_PAL_TAG_GAMEOVER_1},
+    {gObjectEventPal_GameOver2,             OBJ_EVENT_PAL_TAG_GAMEOVER_2},
+    {gObjectEventPal_GameOver3,             OBJ_EVENT_PAL_TAG_GAMEOVER_3},
+    {gObjectEventPal_GameOver4,             OBJ_EVENT_PAL_TAG_GAMEOVER_4},
+    {gObjectEventPal_GameOver5,             OBJ_EVENT_PAL_TAG_GAMEOVER_5},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},

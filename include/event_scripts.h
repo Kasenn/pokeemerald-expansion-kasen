@@ -9,6 +9,7 @@ extern const u8 Script_RetreatWithDiglett[];
 extern const u8 Script_StartMenuRest[];
 extern const u8 EventScript_FollowerEgg[];
 extern const u8 EventScript_LootMushroom[];
+extern const u8 WarpToGameOverScreen[];
 
 extern const u8 EventScript_FollowerIsShivering[];
 extern const u8 EventScript_FollowerNostalgia[];
