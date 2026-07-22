@@ -432,6 +432,7 @@ enum
     OBJ_EVENT_GFX_GAMEOVER_4,
     OBJ_EVENT_GFX_GAMEOVER_5,
     OBJ_EVENT_GFX_PORTAL,
+    OBJ_EVENT_GFX_KAMEK2,
     NUM_OBJ_EVENT_GFX,
 };
 
@@ -610,6 +611,7 @@ enum
 #define OBJ_EVENT_PAL_TAG_GAMEOVER_4              0x1144
 #define OBJ_EVENT_PAL_TAG_GAMEOVER_5              0x1145
 #define OBJ_EVENT_PAL_TAG_PORTAL                  0x1146
+#define OBJ_EVENT_PAL_TAG_KAMEK2                  0x1147
 
 #if OW_FOLLOWERS_POKEBALLS
 // Vanilla
