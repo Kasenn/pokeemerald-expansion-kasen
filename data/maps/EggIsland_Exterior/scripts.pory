@@ -12,6 +12,12 @@ mapscripts EggIsland_Exterior_MapScripts {
 
         call(SetupMushroom)
     }
+    MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
+        VAR_TEMP_2, 0 {
+            hideobjectat(8, MAP_EGG_ISLAND_EXTERIOR)
+            setvar(VAR_TEMP_2, 1)
+        }
+    ]
 }
 
 script SetUpAreaOne{
@@ -142,4 +148,15 @@ text TooManyEggs{
     "already carrying more than enough.\p"
     "{STR_VAR_1}\p"
     "Replace an old egg with the new one?"
+}
+
+script DebugScript1{
+    delay(30)
+    playse(SE_M_TELEPORT)
+    applymovement(8, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
+    waitmovement(0)
+    playse(SE_M_MINIMIZE)
+    applymovement(8, moves(walk_down_affine, delay_16 * 5))
+    waitmovement(0)
+    removeobject(8)
 }

@@ -677,3 +677,6 @@ const u16 gObjectEventPal_GameOver4[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPic_GameOver4[] = INCGFX_U16("graphics/object_events/pics/people/gameover4.png", ".4bpp", "-mwidth 6 -mheight 6");
 const u16 gObjectEventPal_GameOver5[] = INCGFX_U16("graphics/object_events/pics/people/gameover5.png", ".gbapal");
 const u16 gObjectEventPic_GameOver5[] = INCGFX_U16("graphics/object_events/pics/people/gameover5.png", ".4bpp", "-mwidth 6 -mheight 6");
+
+const u16 gObjectEventPal_Portal[] = INCGFX_U16("graphics/object_events/pics/people/portal.png", ".gbapal");
+const u16 gObjectEventPic_Portal[] = INCGFX_U16("graphics/object_events/pics/people/portal.png", ".4bpp", "-mwidth 4 -mheight 4");

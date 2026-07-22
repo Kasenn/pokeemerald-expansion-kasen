@@ -1387,7 +1387,7 @@ static const u8 sWhiteoutTextColors[] = { TEXT_COLOR_TRANSPARENT, TEXT_COLOR_WHI
 #define tPrintState    data[2]
 #define tIsPlayerHouse data[3]
 
-static bool32 PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u32 x, u32 y)
+static bool32 UNUSED PrintWhiteOutRecoveryMessage(u8 taskId, const u8 *text, u32 x, u32 y)
 {
     u32 windowId = gTasks[taskId].tWindowId;
 
@@ -1419,7 +1419,7 @@ enum {
     WHITEOUT_CUTSCENE_HEAL_SCRIPT,
 };
 
-static const u8 *GenerateRecoveryMessage(u8 taskId)
+static const u8 UNUSED *GenerateRecoveryMessage(u8 taskId)
 {
     bool32 forfeitTrainer = DidPlayerForfeitNormalTrainerBattle();
     bool32 destinationIsPlayersHouse = (gTasks[taskId].tIsPlayerHouse == TRUE);
@@ -1504,7 +1504,7 @@ void FieldCB_RushInjuredPokemonToCenter(void)
 
     LockPlayerFieldControls();
     FillPalBufferBlack();
-    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);//wip
+    taskId = CreateTask(Task_RushInjuredPokemonToCenter, 10);
     gTasks[taskId].tState = WHITEOUT_CUTSCENE_ENTER_MSG_SCREEN;
 }
 

@@ -113,17 +113,17 @@
 #define VAR_MUSHROOM_COUNT                           0x405B //
 #define VAR_MUSHROOM_LOCATION                          0x405C //
 #define VAR_MOSSDEEP_CITY_STATE                          0x405D
-#define VAR_SOOTOPOLIS_CITY_STATE                        0x405E
+#define VAR_OLDWORLD_VAR                        0x405E // do not change
 #define VAR_OPPONENT_LEVEL                       0x405F // 
-#define VAR_ROUTE101_STATE                               0x4060
-#define VAR_ROUTE102_STATE                               0x4061 // Unused Var
-#define VAR_ROUTE103_STATE                               0x4062 // Unused Var
-#define VAR_ROUTE104_STATE                               0x4063
-#define VAR_ROUTE105_STATE                               0x4064 // Unused Var
-#define VAR_ROUTE106_STATE                               0x4065 // Unused Var
-#define VAR_ROUTE107_STATE                               0x4066 // Unused Var
-#define VAR_ROUTE108_STATE                               0x4067 // Unused Var
-#define VAR_ROUTE109_STATE                               0x4068 // Unused Var
+#define VAR_ROCKPLATE_1                               0x4060
+#define VAR_ROCKPLATE_2                               0x4061
+#define VAR_ROCKPLATE_3                               0x4062
+#define VAR_ROCKPLATE_4                               0x4063
+#define VAR_ROCKPLATE_5                               0x4064
+#define VAR_ROCKPLATE_6                               0x4065
+#define VAR_ROCKPLATE_7                               0x4066
+#define VAR_ROCKPLATE_8                               0x4067
+#define VAR_ROCKPLATE_9                               0x4068
 #define VAR_ROUTE110_STATE                               0x4069
 #define VAR_ROUTE111_STATE                               0x406A // Unused Var
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var

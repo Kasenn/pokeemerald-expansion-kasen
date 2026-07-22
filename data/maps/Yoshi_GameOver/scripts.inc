@@ -81,7 +81,7 @@ GameOverScreen_2:
 # 44 "data/maps/Yoshi_GameOver/scripts.pory"
 	goto_if_unset FLAG_GAMEOVER_QUIT, GameOverScreen_5
 # 48 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative ResetGameAfterGameOver
+	callnative DoSoftReset
 	return
 
 GameOverScreen_3:

@@ -16,7 +16,7 @@ Debug_CheatStart::
 	clearflag FLAG_HIDE_LITTLEROOT_TOWN_BIRCHS_LAB_BIRCH
 	setflag FLAG_HIDE_ROUTE_101_BIRCH_STARTERS_BAG
 	setvar VAR_BIRCH_LAB_STATE, 2
-	setvar VAR_ROUTE101_STATE, 3
+	setvar VAR_OLDWORLD_VAR, 3
 	giveegg SPECIES_TORCHIC
 	giveegg SPECIES_TREECKO
 	giveegg SPECIES_MUDKIP
@@ -201,12 +201,7 @@ Debug_EventScript_Text_DefensiveIVs:
 	.string "HP IVs: {STR_VAR_1}, DEF IVs: {STR_VAR_2}, SPDEF IVs: {STR_VAR_3}$"
 
 Debug_EventScript_Script_1::
-	waitse
-	call EventScript_LootMushroom
-	giveegg SPECIES_ROOKIDEE
-	giveegg SPECIES_ROOKIDEE
-	giveegg SPECIES_ROOKIDEE
-	giveegg SPECIES_ROOKIDEE
+	call DebugScript1
 	release
 	end
 

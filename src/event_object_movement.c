@@ -574,6 +574,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GameOver3,             OBJ_EVENT_PAL_TAG_GAMEOVER_3},
     {gObjectEventPal_GameOver4,             OBJ_EVENT_PAL_TAG_GAMEOVER_4},
     {gObjectEventPal_GameOver5,             OBJ_EVENT_PAL_TAG_GAMEOVER_5},
+    {gObjectEventPal_Portal,                OBJ_EVENT_PAL_TAG_PORTAL},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -6641,9 +6642,16 @@ u32 GetObjectObjectCollidesWith(struct ObjectEvent *objectEvent, s16 x, s16 y, b
     for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
     {
         curObject = &gObjectEvents[i];
-        if (curObject->active && (objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId]) && curObject != objectEvent
-         && !FollowerNPC_IsCollisionExempt(curObject, objectEvent)
-         )
+
+        if (curObject->active
+        && ((curObject->movementType != MOVEMENT_TYPE_FOLLOWER1
+        && curObject->movementType != MOVEMENT_TYPE_FOLLOWER2
+        && curObject->movementType != MOVEMENT_TYPE_FOLLOWER3
+        && curObject->movementType != MOVEMENT_TYPE_FOLLOWER4
+        && curObject->movementType != MOVEMENT_TYPE_FOLLOWER5)
+        || objectEvent != &gObjectEvents[gPlayerAvatar.objectEventId])
+        && curObject != objectEvent
+        && !FollowerNPC_IsCollisionExempt(curObject, objectEvent))
         {
             // check for collision if curObject is active, not the object in question, and not exempt from collisions
             if ((curObject->currentCoords.x == x && curObject->currentCoords.y == y) || (curObject->previousCoords.x == x && curObject->previousCoords.y == y))
@@ -8903,10 +8911,10 @@ bool8 MovementAction_ShowReflection_Step0(struct ObjectEvent *objectEvent, struc
 
 bool8 MovementAction_WalkDownStartAffine_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
+    // InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
     sprite->affineAnimPaused = FALSE;
     StartSpriteAffineAnimIfDifferent(sprite, 0);
-    return MovementAction_WalkDownStartAffine_Step1(objectEvent, sprite);
+    return TRUE;
 }
 
 bool8 MovementAction_WalkDownStartAffine_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
@@ -8922,10 +8930,10 @@ bool8 MovementAction_WalkDownStartAffine_Step1(struct ObjectEvent *objectEvent, 
 
 bool8 MovementAction_WalkDownAffine_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
+    // InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
     sprite->affineAnimPaused = FALSE;
     ChangeSpriteAffineAnimIfDifferent(sprite, 1);
-    return MovementAction_WalkDownAffine_Step1(objectEvent, sprite);
+    return TRUE;
 }
 
 bool8 MovementAction_WalkDownAffine_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)

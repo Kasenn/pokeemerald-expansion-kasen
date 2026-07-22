@@ -1840,6 +1840,26 @@ static const union AnimCmd *const sAnimTable_Fishing[] = {
     [ANIM_HOOKED_POKEMON_EAST] = sAnim_HookedPokemonEast,
 };
 
+const union AffineAnimCmd gPortalAffineAnimCmds1[] =
+{
+    AFFINEANIMCMD_FRAME(0x10, 0x10, 0, 0),
+    AFFINEANIMCMD_FRAME(4, 4, 3, 80),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 3, 80),
+    AFFINEANIMCMD_JUMP(2),
+    AFFINEANIMCMD_END,
+};
+
+const union AffineAnimCmd gPortalAffineAnimCmds2[] =
+{
+    AFFINEANIMCMD_FRAME(-4, -4, 3, 80),
+    AFFINEANIMCMD_END,
+};
+
+static const union AffineAnimCmd *const sAffineAnimTable_Portal[] = {
+    gPortalAffineAnimCmds1,
+    gPortalAffineAnimCmds2,
+};
+
 static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {
     sAffineAnim_KyogreGroudon_GoSouthStart, // Used by Kyogre/Groudon when awakened
     sAffineAnim_KyogreGroudon_GoSouth,      // Used by Kyogre/Groudon when awakened

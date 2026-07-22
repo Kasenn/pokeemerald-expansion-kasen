@@ -3120,3 +3120,7 @@ static const struct SpriteFrameImage sPicTable_GameOver4[] = {
 static const struct SpriteFrameImage sPicTable_GameOver5[] = {
     overworld_ascending_frames(gObjectEventPic_GameOver5, 6, 6),
 };
+
+static const struct SpriteFrameImage sPicTable_Portal[] = {
+    overworld_ascending_frames(gObjectEventPic_Portal, 4, 4),
+};
