@@ -106,9 +106,7 @@ static u32 ChooseBoxMon_CanMonLearnMove(struct BoxPokemon *boxmon, enum Move mov
 //super hacky way to exclude PC mons until I handle evolution for pc mon in a different PR
 static bool32 IsFromPC(u32 adress)
 {
-    u32 pcMonStart = (u32)&gPokemonStoragePtr->boxes;
-    u32 pcMonEnd = pcMonStart + sizeof(struct BoxPokemon) * TOTAL_BOXES_COUNT * IN_BOX_COUNT;
-    return (pcMonStart <= adress && adress <= pcMonEnd);
+    return FALSE;
 }
 static u32 ChooseBoxMon_CanEvolve(struct BoxPokemon *boxmon)
 {

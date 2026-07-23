@@ -2392,7 +2392,7 @@ static void DebugAction_FlagsVars_PokedexFlags_All(u8 taskId)
 
 static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
 {
-    int boxId, boxPosition, partyId;
+    int partyId;
     enum Species species;
 
     // Reset Pokedex to emtpy
@@ -2408,19 +2408,6 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
         }
     }
 
-    // Add box Pokemon to Pokedex
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
-        {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
-            {
-                species = GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SPECIES);
-                GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_CAUGHT);
-                GetSetPokedexFlag(SpeciesToNationalPokedexNum(species), FLAG_SET_SEEN);
-            }
-        }
-    }
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
 }
@@ -3712,28 +3699,11 @@ static void DebugAction_TimeMenu_ChangeWeekdays(u8 taskId)
 
 static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffinity
 {
-    int boxId, boxPosition;
     struct BoxPokemon boxMon;
     enum Species species = SPECIES_BULBASAUR;
-    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     CreateBoxMon(&boxMon, species, 100, Random32(), OTID_STRUCT_PLAYER_ID);
     //mons are created with 0 IVs
-
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++, species++)
-        {
-            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
-            {
-                StringCopy(speciesName, GetSpeciesName(species));
-                SetBoxMonData(&boxMon, MON_DATA_NICKNAME, &speciesName);
-                SetBoxMonData(&boxMon, MON_DATA_SPECIES, &species);
-                GiveBoxMonInitialMoveset(&boxMon);
-                gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
-            }
-        }
-    }
 
     // Set flag for user convenience
     FlagSet(FLAG_SYS_POKEMON_GET);
@@ -3743,28 +3713,7 @@ static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffini
 
 static void DebugAction_PCBag_Fill_PCBoxes_Slow(u8 taskId)
 {
-    int boxId, boxPosition;
-    struct BoxPokemon boxMon;
-    enum Species species = SPECIES_BULBASAUR;
     bool8 spaceAvailable = FALSE;
-
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
-        {
-            if (!GetBoxMonData(&gPokemonStoragePtr->boxes[boxId][boxPosition], MON_DATA_SANITY_HAS_SPECIES))
-            {
-                if (!spaceAvailable)
-                    PlayBGM(MUS_RG_MYSTERY_GIFT);
-                CreateBoxMon(&boxMon, species, 100, Random32(), OTID_STRUCT_PLAYER_ID);
-                SetBoxMonIVs(&boxMon, USE_RANDOM_IVS);
-                GiveBoxMonInitialMoveset(&boxMon);
-                gPokemonStoragePtr->boxes[boxId][boxPosition] = boxMon;
-                species = (species < NUM_SPECIES - 1) ? species + 1 : 1;
-                spaceAvailable = TRUE;
-            }
-        }
-    }
 
     // Set flag for user convenience
     FlagSet(FLAG_SYS_POKEMON_GET);

@@ -51,18 +51,7 @@ void HealPlayerParty(void)
 
 static void HealPlayerBoxes(void)
 {
-    int boxId, boxPosition;
-    struct BoxPokemon *boxMon;
-
-    for (boxId = 0; boxId < TOTAL_BOXES_COUNT; boxId++)
-    {
-        for (boxPosition = 0; boxPosition < IN_BOX_COUNT; boxPosition++)
-        {
-            boxMon = &gPokemonStoragePtr->boxes[boxId][boxPosition];
-            if (GetBoxMonData(boxMon, MON_DATA_SANITY_HAS_SPECIES))
-                HealBoxPokemon(boxMon);
-        }
-    }
+    return;
 }
 
 u8 ScriptGiveEgg(enum Species species)

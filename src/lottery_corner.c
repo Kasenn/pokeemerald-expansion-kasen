@@ -46,7 +46,6 @@ void RetrieveLotteryNumber(void)
 void PickLotteryCornerTicket(void)
 {
     u16 i;
-    u16 j;
     u32 box;
     u32 slot;
 
@@ -79,26 +78,6 @@ void PickLotteryCornerTicket(void)
         }
     }
 
-    for (i = 0; i < TOTAL_BOXES_COUNT; i++)
-    {
-        for (j = 0; j < IN_BOX_COUNT; j++)
-        {
-            if (GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_SPECIES) != SPECIES_NONE &&
-            !GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_IS_EGG))
-            {
-                u32 otId = GetBoxMonData(&gPokemonStoragePtr->boxes[i][j], MON_DATA_OT_ID);
-                u8 numMatchingDigits = GetMatchingDigits(gSpecialVar_Result, otId);
-
-                if (numMatchingDigits > gSpecialVar_0x8004 && numMatchingDigits > 1)
-                {
-                    gSpecialVar_0x8004 = numMatchingDigits - 1;
-                    box = i;
-                    slot = j;
-                }
-            }
-        }
-    }
-
     if (gSpecialVar_0x8004 != 0)
     {
         gSpecialVar_0x8005 = sLotteryPrizes[gSpecialVar_0x8004 - 1];
@@ -111,7 +90,6 @@ void PickLotteryCornerTicket(void)
         else
         {
             gSpecialVar_0x8006 = 1;
-            GetBoxMonData(&gPokemonStoragePtr->boxes[box][slot], MON_DATA_NICKNAME, gStringVar1);
         }
         StringGet_Nickname(gStringVar1);
     }
