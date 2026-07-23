@@ -274,13 +274,6 @@ static u32 Client_RunMysteryEventScript(struct MysteryGiftClient *client)
 
 static u32 Client_RunBufferScript(struct MysteryGiftClient *client)
 {
-    // exec arbitrary code
-    u32 (*func)(u32 *, struct SaveBlock2 *, struct SaveBlock1 *) = (void *)client->bufferScript;
-    if (func(&client->param, gSaveBlock2Ptr, gSaveBlock1Ptr) == 1)
-    {
-        client->funcId = FUNC_RUN;
-        client->funcState = 0;
-    }
     return CLI_RET_ACTIVE;
 }
 

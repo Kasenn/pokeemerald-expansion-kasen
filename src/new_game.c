@@ -116,7 +116,6 @@ static void WarpToTruck(void)
 
 void Sav2_ClearSetDefault(void)
 {
-    ClearSav2();
     SetDefaultOptions();
 }
 

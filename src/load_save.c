@@ -32,7 +32,6 @@ struct LoadedSaveData
 
 // EWRAM DATA
 EWRAM_DATA struct SaveBlock3 gSaveblock3 = {};
-EWRAM_DATA struct SaveBlock2ASLR gSaveblock2 = {0};
 EWRAM_DATA struct SaveBlock1ASLR gSaveblock1 = {0};
 EWRAM_DATA struct PokemonStorageASLR gPokemonStorage = {0};
 
@@ -42,7 +41,6 @@ EWRAM_DATA u32 gLastEncryptionKey = 0;
 // IWRAM common
 COMMON_DATA bool32 gFlashMemoryPresent = 0;
 COMMON_DATA struct SaveBlock1 *gSaveBlock1Ptr = NULL;
-COMMON_DATA struct SaveBlock2 *gSaveBlock2Ptr = NULL;
 IWRAM_INIT struct SaveBlock3 *gSaveBlock3Ptr = &gSaveblock3;
 COMMON_DATA struct PokemonStorage *gPokemonStoragePtr = NULL;
 
@@ -66,11 +64,6 @@ void ClearSav3(void)
     FakeRtc_Reset();
 }
 
-void ClearSav2(void)
-{
-    CpuFill16(0, &gSaveblock2, sizeof(struct SaveBlock2ASLR));
-}
-
 void ClearSav1(void)
 {
     CpuFill16(0, &gSaveblock1, sizeof(struct SaveBlock1ASLR));
@@ -83,7 +76,6 @@ void SetSaveBlocksPointers(u16 offset)
 
     offset = (offset + Random()) & (SAVEBLOCK_MOVE_RANGE - 4);
 
-    gSaveBlock2Ptr = (void *)(&gSaveblock2) + offset;
     *sav1_LocalVar = (void *)(&gSaveblock1) + offset;
     gPokemonStoragePtr = (void *)(&gPokemonStorage) + offset;
 
@@ -95,7 +87,6 @@ void MoveSaveBlocks_ResetHeap(void)
 {
     void *vblankCB, *hblankCB;
     u32 encryptionKey;
-    struct SaveBlock2 *saveBlock2Copy;
     struct SaveBlock1 *saveBlock1Copy;
     struct PokemonStorage *pokemonStorageCopy;
 
@@ -106,12 +97,10 @@ void MoveSaveBlocks_ResetHeap(void)
     gMain.hblankCallback = NULL;
     gTrainerHillVBlankCounter = NULL;
 
-    saveBlock2Copy = (struct SaveBlock2 *)(gHeap);
-    saveBlock1Copy = (struct SaveBlock1 *)(gHeap + sizeof(struct SaveBlock2));
-    pokemonStorageCopy = (struct PokemonStorage *)(gHeap + sizeof(struct SaveBlock2) + sizeof(struct SaveBlock1));
+    saveBlock1Copy = (struct SaveBlock1 *)(gHeap);
+    pokemonStorageCopy = (struct PokemonStorage *)(gHeap + sizeof(struct SaveBlock1));
 
     // backup the saves.
-    *saveBlock2Copy = *gSaveBlock2Ptr;
     *saveBlock1Copy = *gSaveBlock1Ptr;
     *pokemonStorageCopy = *gPokemonStoragePtr;
 
@@ -120,7 +109,6 @@ void MoveSaveBlocks_ResetHeap(void)
     SetSaveBlocksPointers(0);
 
     // restore saveblock data since the pointers changed
-    *gSaveBlock2Ptr = *saveBlock2Copy;
     *gSaveBlock1Ptr = *saveBlock1Copy;
     *gPokemonStoragePtr = *pokemonStorageCopy;
 
