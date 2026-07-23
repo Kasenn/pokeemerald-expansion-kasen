@@ -59,8 +59,6 @@ struct GFRomHeader
     u32 partyCountOffset;
     u32 partyOffset;
     u32 warpFlagsOffset;
-    u32 frontierStatusOffset;
-    u32 frontierStatusOffset2;
     u32 unk18;
     const struct SpeciesInfo *speciesInfo;
     const u8 (*abilityNames)[];
@@ -128,8 +126,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .partyCountOffset = offsetof(struct SaveBlock1, playerPartyCount),
     .partyOffset = offsetof(struct SaveBlock1, playerParty),
     .warpFlagsOffset = offsetof(struct SaveBlock2, specialSaveWarpFlags),
-    .frontierStatusOffset = offsetof(struct SaveBlock2, frontier.challengeStatus),
-    .frontierStatusOffset2 = offsetof(struct SaveBlock2, frontier.challengeStatus),
     .unk18 = 0x00000000,
     .speciesInfo = gSpeciesInfo,
     //.abilityNames = gAbilityNames, //handled in gAbilitiesInfo

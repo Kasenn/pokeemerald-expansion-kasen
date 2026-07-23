@@ -2153,11 +2153,6 @@ static void DebugAction_Trainers_TryBattle(u8 taskId)
         SavePlayerParty();
         gPartnerTrainerId = TRAINER_PARTNER(partnerId);
         gBattleTypeFlags |= BATTLE_TYPE_MULTI | BATTLE_TYPE_INGAME_PARTNER;
-        for (u32 i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
-        {
-            gSelectedOrderFromParty[i] = i + 1;
-            gSaveBlock2Ptr->frontier.selectedPartyMons[i] = gSelectedOrderFromParty[i];
-        }
         FillPartnerParty(gPartnerTrainerId);
     }
 
@@ -3658,7 +3653,7 @@ static void DebugAction_Give_MaxCoins(u8 taskId)
 
 static void DebugAction_Give_MaxBattlePoints(u8 taskId)
 {
-    gSaveBlock2Ptr->frontier.battlePoints = MAX_BATTLE_FRONTIER_POINTS;
+    return;
 }
 
 static void DebugAction_Give_DayCareEgg(u8 taskId)

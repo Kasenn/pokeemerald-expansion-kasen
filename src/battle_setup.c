@@ -990,8 +990,7 @@ enum BattleTransition GetSpecialBattleTransition(enum BattleTransitionGroup id)
             return RANDOM_TRANSITION(sBattleTransitionTable_BattleFrontier);
     }
 
-    var = gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum * 2 + 0]
-        + gSaveBlock2Ptr->frontier.trainerIds[gSaveBlock2Ptr->frontier.curChallengeBattleNum * 2 + 1];
+    var = 0;
 
     return sBattleTransitionTable_BattleFrontier[var % ARRAY_COUNT(sBattleTransitionTable_BattleFrontier)];
 }
@@ -1424,12 +1423,6 @@ static void CB2_EndDebugBattle(void)
 {
     if (gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER)
     {
-        for (u32 i = 0; i < 3; i++)
-        {
-            u16 monId = gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1;
-            if (monId < PARTY_SIZE)
-                SavePlayerPartyMon(gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1, &gParties[B_TRAINER_PLAYER][i]);
-        }
         LoadPlayerParty();
     }
     SetMainCallback2(CB2_EndTrainerBattle);

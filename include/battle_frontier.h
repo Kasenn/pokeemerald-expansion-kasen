@@ -20,7 +20,6 @@ struct BattleFrontierTrainer
 extern u16 gFrontierTempParty[MAX_FRONTIER_PARTY_SIZE];
 
 extern const struct BattleFrontierTrainer *gFacilityTrainers;
-extern const struct TrainerMon *gFacilityTrainerMons;
 extern const struct BattleFrontierTrainer gBattleFrontierTrainers[];
 extern const struct TrainerMon gBattleFrontierMons[];
 

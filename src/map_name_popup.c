@@ -591,7 +591,7 @@ static void ShowMapNamePopUpWindow(void)
         else
         {
             withoutPrefixPtr = &(mapDisplayHeader[MAP_POPUP_PREFIX_BUFFER_LENGTH]);
-            mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[gSaveBlock2Ptr->frontier.curChallengeBattleNum];
+            mapDisplayHeaderSource = sBattlePyramid_MapHeaderStrings[FRONTIER_STAGES_PER_CHALLENGE];
         }
         StringCopy(withoutPrefixPtr, mapDisplayHeaderSource);
     }

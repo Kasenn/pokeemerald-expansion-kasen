@@ -254,7 +254,6 @@ gSpecials::
 	def_special GetLeadMonFriendshipScore
 	def_special CallFrontierUtilFunc
 	def_special CallBattleTowerFunc
-	def_special CallBattleDomeFunction
 	def_special CallBattlePalaceFunction
 	def_special CopyEReaderTrainerGreeting
 	def_special DoSpecialTrainerBattle, waitstate=1
@@ -263,9 +262,6 @@ gSpecials::
 	def_special CallBattlePikeFunction
 	def_special CallBattlePyramidFunction
 	def_special StopMapMusic
-	def_special CallVerdanturfTentFunction
-	def_special CallFallarborTentFunction
-	def_special CallSlateportTentFunction
 	def_special ChoosePartyForBattleFrontier, waitstate=1
 	def_special ValidateEReaderTrainer
 	def_special GetBattleTowerSinglesStreak

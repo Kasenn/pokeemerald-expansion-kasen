@@ -595,7 +595,6 @@ struct SaveBlock2
              //u16 padding1:4;
              //u16 padding2;
     /*0x98*/ struct Time localTimeOffset;
-    /*0x64C*/ struct BattleFrontier frontier;
 }; // sizeof=0xF2C
 
 extern struct SaveBlock2 *gSaveBlock2Ptr;

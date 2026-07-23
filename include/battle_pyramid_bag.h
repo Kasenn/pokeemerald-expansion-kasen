@@ -57,9 +57,6 @@ struct PyramidBagMenuState
     u16 scrollPosition;
 };
 
-extern struct PyramidBagMenu *gPyramidBagMenu;
-extern struct PyramidBagMenuState gPyramidBagMenuState;
-
 void InitBattlePyramidBagCursorPosition(void);
 void CB2_PyramidBagMenuFromStartMenu(void);
 void CB2_ReturnToPyramidBagMenu(void);

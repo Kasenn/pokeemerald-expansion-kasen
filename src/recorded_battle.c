@@ -309,7 +309,6 @@ static bool32 CopyRecordedBattleFromSave(struct RecordedBattleSave *dst)
 
 static void CB2_RecordedBattleEnd(void)
 {
-    gSaveBlock2Ptr->frontier.lvlMode = sLvlMode;
     gBattleOutcome = 0;
     gBattleTypeFlags = 0;
     TRAINER_BATTLE_PARAM.opponentA = 0;
@@ -372,7 +371,7 @@ void SetVariablesForRecordedBattle(struct RecordedBattleSave *src)
     TRAINER_BATTLE_PARAM.opponentB = src->opponentB;
     gPartnerTrainerId = src->partnerId;
     gRecordedBattleMultiplayerId = src->multiplayerId;
-    sLvlMode = gSaveBlock2Ptr->frontier.lvlMode;
+    sLvlMode = 0;
     sFrontierFacility = src->frontierFacility;
     sFrontierBrainSymbol = src->frontierBrainSymbol;
     sBattleScene = src->battleScene;
@@ -388,8 +387,6 @@ void SetVariablesForRecordedBattle(struct RecordedBattleSave *src)
 
     for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
         sEasyChatSpeech[i] = src->easyChatSpeech[i];
-
-    gSaveBlock2Ptr->frontier.lvlMode = src->lvlMode;
 
     for (i = 0; i < MAX_BATTLERS_COUNT; i++)
         for (j = 0; j < BATTLER_RECORD_SIZE; j++)

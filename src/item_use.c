@@ -145,7 +145,6 @@ static void SetUpItemUseCallback(u8 taskId)
         }
         else
         {
-            gPyramidBagMenu->newScreenCallback = sItemUseCallbacks[type];
             CloseBattlePyramidBag(taskId);
         }
     }
@@ -1214,7 +1213,6 @@ static void ItemUseInBattle_ShowPartyMenu(u8 taskId)
     }
     else
     {
-        gPyramidBagMenu->newScreenCallback = ChooseMonForInBattleItem;
         CloseBattlePyramidBag(taskId);
     }
 }

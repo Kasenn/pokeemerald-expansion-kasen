@@ -296,8 +296,6 @@ void ResetTrainerHillResults(void)
     s32 i;
 #endif //FREE_TRAINER_HILL
 
-    gSaveBlock2Ptr->frontier.savedGame = 0;
-    gSaveBlock2Ptr->frontier.unk_EF9 = 0;
 #if FREE_TRAINER_HILL == FALSE
     gSaveBlock1Ptr->trainerHill.bestTime = 0;
     for (i = 0; i < NUM_TRAINER_HILL_MODES; i++)
@@ -423,7 +421,6 @@ static void TrainerHillStartChallenge(void)
     gSaveBlock1Ptr->trainerHill.spokeToOwner = 0;
     gSaveBlock1Ptr->trainerHill.checkedFinalTime = 0;
     gSaveBlock1Ptr->trainerHill.maybeECardScanDuringChallenge = 0;
-    gSaveBlock2Ptr->frontier.trainerFlags = 0;
     gBattleOutcome = 0;
     gSaveBlock1Ptr->trainerHill.receivedPrize = 0;
 #endif //FREE_TRAINER_HILL
@@ -456,7 +453,6 @@ static void GiveChallengePrize(void)
     {
         CopyItemName(itemId, gStringVar2);
         gSaveBlock1Ptr->trainerHill.receivedPrize = TRUE;
-        gSaveBlock2Ptr->frontier.unk_EF9 = 0;
         gSpecialVar_Result = 0;
     }
     else
@@ -676,8 +672,6 @@ void LoadTrainerHillObjectEventTemplates(void)
         return;
 
     SetUpDataStruct();
-    for (i = 0; i < HILL_TRAINERS_PER_FLOOR; i++)
-        gSaveBlock2Ptr->frontier.trainerIds[i] = 0xFFFF;
     CpuFill32(0, gSaveBlock1Ptr->objectEventTemplates, sizeof(gSaveBlock1Ptr->objectEventTemplates));
 
     floorId = GetFloorId();
@@ -694,7 +688,6 @@ void LoadTrainerHillObjectEventTemplates(void)
         eventTemplates[i].movementType = ((sHillData->floors[floorId].map.trainerDirections >> bits) & 0xF) + MOVEMENT_TYPE_FACE_UP;
         eventTemplates[i].trainerRange_berryTreeId = (sHillData->floors[floorId].map.trainerRanges >> bits) & 0xF;
         eventTemplates[i].script = TrainerHill_EventScript_TrainerBattle;
-        gSaveBlock2Ptr->frontier.trainerIds[i] = i + 1;
     }
 
     FreeDataStruct();
@@ -847,42 +840,17 @@ const struct WarpEvent* SetWarpDestinationTrainerHillFinalFloor(u8 warpEventId)
 
 u16 LocalIdToHillTrainerId(u8 localId)
 {
-    return gSaveBlock2Ptr->frontier.trainerIds[localId - 1];
+    return 0;
 }
 
 bool8 GetHillTrainerFlag(u8 objectEventId)
 {
-    u32 trainerIndexStart = GetFloorId() * HILL_TRAINERS_PER_FLOOR;
-    u8 bitId = gObjectEvents[objectEventId].localId - 1 + trainerIndexStart;
-
-    return gSaveBlock2Ptr->frontier.trainerFlags & (1u << bitId);
+    return FALSE;
 }
 
 void SetHillTrainerFlag(void)
 {
-    u8 i;
-    u8 trainerIndexStart = GetFloorId() * HILL_TRAINERS_PER_FLOOR;
-
-    for (i = 0; i < HILL_TRAINERS_PER_FLOOR; i++)
-    {
-        if (gSaveBlock2Ptr->frontier.trainerIds[i] == TRAINER_BATTLE_PARAM.opponentA)
-        {
-            gSaveBlock2Ptr->frontier.trainerFlags |= 1u << (trainerIndexStart + i);
-            break;
-        }
-    }
-
-    if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-    {
-        for (i = 0; i < HILL_TRAINERS_PER_FLOOR; i++)
-        {
-            if (gSaveBlock2Ptr->frontier.trainerIds[i] == TRAINER_BATTLE_PARAM.opponentB)
-            {
-                gSaveBlock2Ptr->frontier.trainerFlags |= 1u << (trainerIndexStart + i);
-                break;
-            }
-        }
-    }
+    return;
 }
 
 const u8 *GetTrainerHillTrainerScript(void)
@@ -983,7 +951,7 @@ u8 GetNumFloorsInTrainerHillChallenge(void)
 
 static void SetAllTrainerFlags(void)
 {
-    gSaveBlock2Ptr->frontier.trainerFlags = 0xFF;
+    return;
 }
 
 // Palette never loaded, OnTrainerHillEReaderChallengeFloor always FALSE
@@ -995,17 +963,17 @@ void TryLoadTrainerHillEReaderPalette(void)
 
 static void GetGameSaved(void)
 {
-    gSpecialVar_Result = gSaveBlock2Ptr->frontier.savedGame;
+    return;
 }
 
 static void SetGameSaved(void)
 {
-    gSaveBlock2Ptr->frontier.savedGame = TRUE;
+    return;
 }
 
 static void ClearGameSaved(void)
 {
-    gSaveBlock2Ptr->frontier.savedGame = FALSE;
+    return;
 }
 
 // Always FALSE

@@ -918,29 +918,7 @@ static void UNUSED GetSavedApprentices(struct Apprentice *dst, struct Apprentice
 
 void GetPlayerHallRecords(struct PlayerHallRecords *dst)
 {
-    s32 i, j;
-
-
-    for (j = 0; j < FRONTIER_LVL_MODE_COUNT; j++)
-    {
-        dst->twoPlayers[j].language = GAME_LANGUAGE;
-        StringCopy(dst->twoPlayers[j].name1, gText_Yoshi);
-    }
-
-    for (i = 0; i < FRONTIER_LVL_MODE_COUNT; i++)
-    {
-        dst->onePlayer[RANKING_HALL_TOWER_SINGLES][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
-        dst->onePlayer[RANKING_HALL_TOWER_DOUBLES][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_DOUBLES][i];
-        dst->onePlayer[RANKING_HALL_TOWER_MULTIS][i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_MULTIS][i];
-        dst->onePlayer[RANKING_HALL_DOME][i].winStreak = gSaveBlock2Ptr->frontier.domeRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
-        dst->onePlayer[RANKING_HALL_PALACE][i].winStreak = gSaveBlock2Ptr->frontier.palaceRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
-        dst->onePlayer[RANKING_HALL_ARENA][i].winStreak = gSaveBlock2Ptr->frontier.arenaRecordStreaks[i];
-        dst->onePlayer[RANKING_HALL_FACTORY][i].winStreak = gSaveBlock2Ptr->frontier.factoryRecordWinStreaks[FRONTIER_MODE_SINGLES][i];
-        dst->onePlayer[RANKING_HALL_PIKE][i].winStreak = gSaveBlock2Ptr->frontier.pikeRecordStreaks[i];
-        dst->onePlayer[RANKING_HALL_PYRAMID][i].winStreak = gSaveBlock2Ptr->frontier.pyramidRecordStreaks[i];
-
-        dst->twoPlayers[i].winStreak = gSaveBlock2Ptr->frontier.towerRecordWinStreaks[FRONTIER_MODE_LINK_MULTIS][i];
-    }
+    return;
 }
 
 static bool32 UNUSED IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct Apprentice *apprentices)

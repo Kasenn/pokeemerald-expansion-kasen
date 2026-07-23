@@ -118,10 +118,7 @@ void ClearAllContestWinnerPics(void)
 
 static void ClearFrontierRecord(void)
 {
-    CpuFill32(0, &gSaveBlock2Ptr->frontier, sizeof(gSaveBlock2Ptr->frontier));
-
-    gSaveBlock2Ptr->frontier.opponentNames[0][0] = EOS;
-    gSaveBlock2Ptr->frontier.opponentNames[1][0] = EOS;
+    return;
 }
 
 static void WarpToTruck(void)
