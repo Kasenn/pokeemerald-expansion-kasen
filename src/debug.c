@@ -2407,8 +2407,6 @@ static void DebugAction_FlagsVars_PokedexFlags_Reset(u8 taskId)
     enum Species species;
 
     // Reset Pokedex to emtpy
-    memset(&gSaveBlock1Ptr->dexCaught, 0, sizeof(gSaveBlock1Ptr->dexCaught));
-    memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 
     // Add party Pokemon to Pokedex
     for (partyId = 0; partyId < PARTY_SIZE; partyId++)
@@ -3653,7 +3651,7 @@ static void DebugAction_Give_Decoration_SelectId(u8 taskId)
 
 static void DebugAction_Give_MaxMoney(u8 taskId)
 {
-    SetMoney(&gSaveBlock1Ptr->money, MAX_MONEY);
+    return;
 }
 
 static void DebugAction_Give_MaxCoins(u8 taskId)
@@ -3671,13 +3669,11 @@ static void DebugAction_Give_MaxBattlePoints(u8 taskId)
 
 static void DebugAction_Give_DayCareEgg(u8 taskId)
 {
-    s32 emptySlot = Daycare_FindEmptySpot(&gSaveBlock1Ptr->daycare);
+    s32 emptySlot = 0;
     if (emptySlot == 0) // no daycare mons
         Debug_DestroyMenu_Full_Script(taskId, DebugScript_ZeroDaycareMons);
     else if (emptySlot == 1) // 1 daycare mon
         Debug_DestroyMenu_Full_Script(taskId, DebugScript_OneDaycareMons);
-    else if (GetDaycareCompatibilityScore(&gSaveBlock1Ptr->daycare) == PARENTS_INCOMPATIBLE) // not compatible parents
-        Debug_DestroyMenu_Full_Script(taskId, DebugScript_DaycareMonsNotCompatible);
     else // 2 Pokémon which can have a Pokémon baby together
         TriggerPendingDaycareEgg();
 }
@@ -4629,85 +4625,24 @@ static void DebugAction_BerryFunctions_ClearAll(u8 taskId)
 
 static void DebugAction_BerryFunctions_Ready(u8 taskId)
 {
-    u8 i;
-    struct BerryTree *tree;
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        if (gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
-        {
-            tree = &gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)];
-            if (tree->stage != BERRY_STAGE_NO_BERRY)
-            {
-                tree->stage = BERRY_STAGE_BERRIES - 1;
-                BerryTreeGrow(tree);
-            }
-        }
-    }
-
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }
 
 static void DebugAction_BerryFunctions_NextStage(u8 taskId)
 {
-    u8 i;
-    struct BerryTree *tree;
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        if (gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
-        {
-            tree = &gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)];
-            BerryTreeGrow(tree);
-        }
-    }
-
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }
 
 static void DebugAction_BerryFunctions_Pests(u8 taskId)
 {
-    u8 i;
-
-    if (!OW_BERRY_PESTS)
-    {
-        Debug_DestroyMenu_Full_Script(taskId, Debug_BerryPestsDisabled);
-        return;
-    }
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        if (gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
-        {
-            if (gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)].stage != BERRY_STAGE_PLANTED)
-                gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)].pests = TRUE;
-        }
-    }
-
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }
 
 static void DebugAction_BerryFunctions_Weeds(u8 taskId)
 {
-    u8 i;
-
-    if (!OW_BERRY_WEEDS)
-    {
-        Debug_DestroyMenu_Full_Script(taskId, Debug_BerryWeedsDisabled);
-        return;
-    }
-
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        if (gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
-        {
-            gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(i)].weeds = TRUE;
-        }
-    }
-
     ScriptContext_Enable();
     Debug_DestroyMenu_Full(taskId);
 }

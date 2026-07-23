@@ -289,7 +289,6 @@ static void FindMapsWithMon(enum Species species)
 {
     enum RegionMapType currentRegionMapType;
     u16 i;
-    struct Roamer *roamer;
 
     sPokedexAreaScreen->alteringCaveCounter = 0;
     sPokedexAreaScreen->alteringCaveId = VarGet(VAR_ALTERING_CAVE_WILD_SET);
@@ -355,20 +354,6 @@ static void FindMapsWithMon(enum Species species)
                 SetSpecialMapHasMon(gWildMonHeaders[i].mapGroup, gWildMonHeaders[i].mapNum);
                 break;
             }
-        }
-    }
-
-    // Add roamers to the area map
-    for (i = 0; i < ROAMER_COUNT; i++)
-    {
-        roamer = &gSaveBlock1Ptr->roamer[i];
-        if (species == roamer->species && roamer->active)
-        {
-            // This is a roamer's species, show where this roamer is currently
-            struct OverworldArea *roamerLocation = &sPokedexAreaScreen->overworldAreasWithMons[sPokedexAreaScreen->numOverworldAreas];
-            GetRoamerLocation(i, &roamerLocation->mapGroup, &roamerLocation->mapNum);
-            roamerLocation->regionMapSectionId = Overworld_GetMapHeaderByGroupAndId(roamerLocation->mapGroup, roamerLocation->mapNum)->regionMapSectionId;
-            sPokedexAreaScreen->numOverworldAreas++;
         }
     }
 }

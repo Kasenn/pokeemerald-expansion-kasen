@@ -1231,7 +1231,7 @@ static void PlayerSetCopyableMovement(enum CopyMovement movement)
 {
     gObjectEvents[gPlayerAvatar.objectEventId].playerCopyableMovement = movement;
     for (int i = 0; i < (gPlayerPartyCount - 1); i++)
-        gObjectEvents[gSaveBlock3Ptr->followerId[i]].playerCopyableMovement = movement;
+        gObjectEvents[gSaveBlock1Ptr->followerId[i]].playerCopyableMovement = movement;
 }
 
 enum CopyMovement PlayerGetCopyableMovement(void)
@@ -1241,7 +1241,7 @@ enum CopyMovement PlayerGetCopyableMovement(void)
 
 enum CopyMovement FollowerGetCopyableMovement(u8 slot)
 {
-    return gObjectEvents[gSaveBlock3Ptr->followerId[slot]].playerCopyableMovement;
+    return gObjectEvents[gSaveBlock1Ptr->followerId[slot]].playerCopyableMovement;
 }
 
 static void PlayerForceSetHeldMovement(u8 movementActionId)
@@ -1541,7 +1541,7 @@ enum Direction GetPlayerMovementDirection(void)
 
 enum Direction GetFollowerMovementDirection(u8 slot)
 {
-    return gObjectEvents[gSaveBlock3Ptr->followerId[slot]].movementDirection;
+    return gObjectEvents[gSaveBlock1Ptr->followerId[slot]].movementDirection;
 }
 
 u8 PlayerGetElevation(void)

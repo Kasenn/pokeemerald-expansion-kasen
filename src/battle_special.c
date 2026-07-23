@@ -138,40 +138,7 @@ void SetEReaderTrainerGfxId(void)
 // trainer with the player's current data.
 static void UNUSED FillEReaderTrainerWithPlayerData(void)
 {
-#if FREE_BATTLE_TOWER_E_READER == FALSE
-    struct BattleTowerEReaderTrainer *ereaderTrainer = &gSaveBlock2Ptr->frontier.ereaderTrainer;
-    s32 i, j;
-
-    if (gSaveBlock2Ptr->playerGender != MALE)
-    {
-        ereaderTrainer->facilityClass = gTowerFemaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
-                                                        + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerFemaleFacilityClasses)].class;
-    }
-    else
-    {
-        ereaderTrainer->facilityClass = gTowerMaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] + gSaveBlock2Ptr->playerTrainerId[1]
-                                                        + gSaveBlock2Ptr->playerTrainerId[2] + gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerMaleFacilityClasses)].class;
-    }
-
-    CopyTrainerId(ereaderTrainer->trainerId, gSaveBlock2Ptr->playerTrainerId);
-    StringCopy_PlayerName(ereaderTrainer->name, gSaveBlock2Ptr->playerName);
-
-    ereaderTrainer->winStreak = 1;
-
-    j = 7;
-    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-    {
-        ereaderTrainer->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
-        ereaderTrainer->farewellPlayerLost[i] = j;
-        ereaderTrainer->farewellPlayerWon[i] = j + 6;
-        j++;
-    }
-
-    for (i = 0; i < (int)ARRAY_COUNT(ereaderTrainer->party); i++)
-        ConvertPokemonToBattleTowerPokemon(&gParties[B_TRAINER_PLAYER][i], &ereaderTrainer->party[i]);
-
-    SetEReaderTrainerChecksum(ereaderTrainer);
-#endif //FREE_BATTLE_TOWER_E_READER
+    return;
 }
 
 u8 GetEreaderTrainerFrontSpriteId(void)
@@ -242,7 +209,7 @@ void ValidateEReaderTrainer(void)
 }
 
 #if FREE_BATTLE_TOWER_E_READER == FALSE
-static void SetEReaderTrainerChecksum(struct BattleTowerEReaderTrainer *ereaderTrainer)
+static void UNUSED SetEReaderTrainerChecksum(struct BattleTowerEReaderTrainer *ereaderTrainer)
 {
     s32 i;
 

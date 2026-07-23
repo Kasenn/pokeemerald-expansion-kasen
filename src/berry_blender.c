@@ -3432,8 +3432,7 @@ static void SpriteCB_PlayerArrow(struct Sprite *sprite)
 
 static void TryUpdateBerryBlenderRecord(void)
 {
-    if (gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] < sBerryBlender->maxRPM)
-        gSaveBlock1Ptr->berryBlenderRecords[sBerryBlender->numPlayers - 2] = sBerryBlender->maxRPM;
+    return;
 }
 
 static bool8 PrintBlendingResults(void)
@@ -3757,7 +3756,7 @@ void ShowBerryBlenderRecordWindow(void)
         u8 *txtPtr;
         u32 record;
 
-        record = gSaveBlock1Ptr->berryBlenderRecords[i];
+        record = 0;
 
         txtPtr = ConvertIntToDecimalStringN(text, record / 100, STR_CONV_MODE_RIGHT_ALIGN, 3);
         txtPtr = StringAppend(txtPtr, sText_Dot);

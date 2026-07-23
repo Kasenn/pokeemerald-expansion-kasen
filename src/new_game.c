@@ -110,19 +110,11 @@ static void SetDefaultOptions(void)
 static void ClearPokedexFlags(void)
 {
     gUnusedPokedexU8 = 0;
-    memset(&gSaveBlock1Ptr->dexCaught, 0, sizeof(gSaveBlock1Ptr->dexCaught));
-    memset(&gSaveBlock1Ptr->dexSeen, 0, sizeof(gSaveBlock1Ptr->dexSeen));
 }
 
 void ClearAllContestWinnerPics(void)
 {
-    s32 i;
-
-    ClearContestWinnerPicsInContestHall();
-
-    // Clear Museum paintings
-    for (i = MUSEUM_CONTEST_WINNERS_START; i < NUM_CONTEST_WINNERS; i++)
-        gSaveBlock1Ptr->contestWinners[i] = sContestWinnerPicDummy;
+    return;
 }
 
 static void ClearFrontierRecord(void)
@@ -160,15 +152,8 @@ void ResetMenuAndMonGlobals(void)
 
 void NewGameInitData(void)
 {
-#if IS_FRLG
-    u8 rivalName[PLAYER_NAME_LENGTH + 1];
-#endif
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
-
-#if IS_FRLG
-    StringCopy(rivalName, gSaveBlock1Ptr->rivalName);
-#endif
     gDifferentSaveFile = TRUE;
     gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
@@ -188,7 +173,6 @@ void NewGameInitData(void)
     ResetGabbyAndTy();
     ClearSecretBases();
     ClearBerryTrees();
-    SetMoney(&gSaveBlock1Ptr->money, 3000);
     SetCoins(0);
     ResetLinkContestBoolean();
     ResetGameStats();
@@ -200,40 +184,56 @@ void NewGameInitData(void)
     ZeroPlayerPartyMons();
     ResetPokemonStorageSystem();
     DeactivateAllRoamers();
-    gSaveBlock1Ptr->registeredItem = ITEM_NONE;
     ClearBag();
     NewGameInitPCItems();
     ClearPokeblocks();
     ClearDecorationInventories();
     InitEasyChatPhrases();
+    DebugPrintf("do we get here? a");
     SetMauvilleOldMan();
+    DebugPrintf("do we get here? b");
     InitDewfordTrend();
+    DebugPrintf("do we get here? c");
     ResetFanClub();
+    DebugPrintf("do we get here? d");
     ResetLotteryCorner();
+    DebugPrintf("do we get here? e");
     UpdateDailySeed();
+    DebugPrintf("do we get here? f");
     WarpToTruck();
-    if (IS_FRLG)
-        RunScriptImmediately(EventScript_ResetAllMapFlagsFrlg);
-    else
-        RunScriptImmediately(EventScript_ResetAllMapFlags);
-#if IS_FRLG
-        StringCopy(gSaveBlock1Ptr->rivalName, rivalName);
-#endif
+    DebugPrintf("do we get here? g");
+    RunScriptImmediately(EventScript_ResetAllMapFlags);
+    DebugPrintf("do we get here? hfgf");
     ResetMiniGamesRecords();
+    DebugPrintf("do we get here? h");
     InitUnionRoomChatRegisteredTexts();
+    DebugPrintf("do we get here? i");
     InitLilycoveLady();
+    DebugPrintf("do we get here? j");
     ResetAllApprenticeData();
+    DebugPrintf("do we get here? k");
     ClearRankingHallRecords();
+    DebugPrintf("do we get here? l");
     InitMatchCallCounters();
+    DebugPrintf("do we get here? m");
     ClearMysteryGift();
+    DebugPrintf("do we get here? n");
     WipeTrainerNameRecords();
+    DebugPrintf("do we get here? o");
     ResetTrainerHillResults();
+    DebugPrintf("do we get here? p");
     ResetTrainerTowerResults();
+    DebugPrintf("do we get here? q");
     ResetContestLinkResults();
+    DebugPrintf("do we get here? r");
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
+    DebugPrintf("do we get here? s");
     ResetItemFlags();
+    DebugPrintf("do we get here? t");
     ResetDexNav();
+    DebugPrintf("do we get here? u");
     ClearFollowerNPCData();
+    DebugPrintf("do we get here? v");
 }
 
 static void ResetMiniGamesRecords(void)
@@ -256,5 +256,4 @@ static void ResetDexNav(void)
 #if USE_DEXNAV_SEARCH_LEVELS == TRUE
     memset(gSaveBlock3Ptr->dexNavSearchLevels, 0, sizeof(gSaveBlock3Ptr->dexNavSearchLevels));
 #endif
-    gSaveBlock3Ptr->dexNavChain = 0;
 }

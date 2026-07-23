@@ -118,12 +118,12 @@ void RemoveMoney(u32 *moneyPtr, u32 toSub)
 
 bool8 IsEnoughForCostInVar0x8005(void)
 {
-    return IsEnoughMoney(&gSaveBlock1Ptr->money, gSpecialVar_0x8005);
+    return FALSE;
 }
 
 void SubtractMoneyFromVar0x8005(void)
 {
-    RemoveMoney(&gSaveBlock1Ptr->money, gSpecialVar_0x8005);
+    return;
 }
 
 void PrintMoneyAmountInMoneyBox(u8 windowId, int amount, u8 speed)

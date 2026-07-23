@@ -77,40 +77,40 @@ void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value)
     switch (type)
     {
     case FNPC_DATA_IN_PROGRESS:
-        gSaveBlock3Ptr->NPCfollower.inProgress = value;
+        gSaveBlock1Ptr->NPCfollower.inProgress = value;
         break;
     case FNPC_DATA_WARP_END:
-        gSaveBlock3Ptr->NPCfollower.warpEnd = value;
+        gSaveBlock1Ptr->NPCfollower.warpEnd = value;
         break;
     case FNPC_DATA_SURF_BLOB:
-        gSaveBlock3Ptr->NPCfollower.createSurfBlob = value;
+        gSaveBlock1Ptr->NPCfollower.createSurfBlob = value;
         break;
     case FNPC_DATA_COME_OUT_DOOR:
-        gSaveBlock3Ptr->NPCfollower.comeOutDoorStairs = value;
+        gSaveBlock1Ptr->NPCfollower.comeOutDoorStairs = value;
         break;
     case FNPC_DATA_FORCED_MOVEMENT:
-        gSaveBlock3Ptr->NPCfollower.forcedMovement = value;
+        gSaveBlock1Ptr->NPCfollower.forcedMovement = value;
         break;
     case FNPC_DATA_OBJ_ID:
-        gSaveBlock3Ptr->NPCfollower.objId = value;
+        gSaveBlock1Ptr->NPCfollower.objId = value;
         break;
     case FNPC_DATA_CURRENT_SPRITE:
-        gSaveBlock3Ptr->NPCfollower.currentSprite = value;
+        gSaveBlock1Ptr->NPCfollower.currentSprite = value;
         break;
     case FNPC_DATA_DELAYED_STATE:
-        gSaveBlock3Ptr->NPCfollower.delayedState = value;
+        gSaveBlock1Ptr->NPCfollower.delayedState = value;
         break;
     case FNPC_DATA_EVENT_FLAG:
-        gSaveBlock3Ptr->NPCfollower.flag = value;
+        gSaveBlock1Ptr->NPCfollower.flag = value;
         break;
     case FNPC_DATA_GFX_ID:
-        gSaveBlock3Ptr->NPCfollower.graphicsId = value;
+        gSaveBlock1Ptr->NPCfollower.graphicsId = value;
         break;
     case FNPC_DATA_FOLLOWER_FLAGS:
-        gSaveBlock3Ptr->NPCfollower.flags = value;
+        gSaveBlock1Ptr->NPCfollower.flags = value;
         break;
     case FNPC_DATA_BATTLE_PARTNER:
-        gSaveBlock3Ptr->NPCfollower.battlePartner = value;
+        gSaveBlock1Ptr->NPCfollower.battlePartner = value;
         break;
     }
 #endif
@@ -119,15 +119,15 @@ void SetFollowerNPCData(enum FollowerNPCDataTypes type, u32 value)
 static void SetFollowerNPCScriptPointer(const u8 *script)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    gSaveBlock3Ptr->NPCfollower.script = script;
+    gSaveBlock1Ptr->NPCfollower.script = script;
 #endif
 }
 
 static void PlayerLogCoordinates(struct ObjectEvent *player)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    gSaveBlock3Ptr->NPCfollower.log.x = player->currentCoords.x;
-    gSaveBlock3Ptr->NPCfollower.log.y = player->currentCoords.y;
+    gSaveBlock1Ptr->NPCfollower.log.x = player->currentCoords.x;
+    gSaveBlock1Ptr->NPCfollower.log.y = player->currentCoords.y;
 #endif
 }
 
@@ -135,7 +135,7 @@ const u8 *GetFollowerNPCScriptPointer(void)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
     if (PlayerHasFollowerNPC())
-        return gSaveBlock3Ptr->NPCfollower.script;
+        return gSaveBlock1Ptr->NPCfollower.script;
 
 #endif
     return NULL;
@@ -147,29 +147,29 @@ u32 GetFollowerNPCData(enum FollowerNPCDataTypes type)
     switch (type)
     {
     case FNPC_DATA_IN_PROGRESS:
-        return gSaveBlock3Ptr->NPCfollower.inProgress;
+        return gSaveBlock1Ptr->NPCfollower.inProgress;
     case FNPC_DATA_WARP_END:
-        return gSaveBlock3Ptr->NPCfollower.warpEnd;
+        return gSaveBlock1Ptr->NPCfollower.warpEnd;
     case FNPC_DATA_SURF_BLOB:
-        return gSaveBlock3Ptr->NPCfollower.createSurfBlob;
+        return gSaveBlock1Ptr->NPCfollower.createSurfBlob;
     case FNPC_DATA_COME_OUT_DOOR:
-        return gSaveBlock3Ptr->NPCfollower.comeOutDoorStairs;
+        return gSaveBlock1Ptr->NPCfollower.comeOutDoorStairs;
     case FNPC_DATA_FORCED_MOVEMENT:
-        return gSaveBlock3Ptr->NPCfollower.forcedMovement;
+        return gSaveBlock1Ptr->NPCfollower.forcedMovement;
     case FNPC_DATA_OBJ_ID:
-        return gSaveBlock3Ptr->NPCfollower.objId;
+        return gSaveBlock1Ptr->NPCfollower.objId;
     case FNPC_DATA_CURRENT_SPRITE:
-        return gSaveBlock3Ptr->NPCfollower.currentSprite;
+        return gSaveBlock1Ptr->NPCfollower.currentSprite;
     case FNPC_DATA_DELAYED_STATE:
-        return gSaveBlock3Ptr->NPCfollower.delayedState;
+        return gSaveBlock1Ptr->NPCfollower.delayedState;
     case FNPC_DATA_EVENT_FLAG:
-        return gSaveBlock3Ptr->NPCfollower.flag;
+        return gSaveBlock1Ptr->NPCfollower.flag;
     case FNPC_DATA_GFX_ID:
-        return gSaveBlock3Ptr->NPCfollower.graphicsId;
+        return gSaveBlock1Ptr->NPCfollower.graphicsId;
     case FNPC_DATA_FOLLOWER_FLAGS:
-        return gSaveBlock3Ptr->NPCfollower.flags;
+        return gSaveBlock1Ptr->NPCfollower.flags;
     case FNPC_DATA_BATTLE_PARTNER:
-        return gSaveBlock3Ptr->NPCfollower.battlePartner;
+        return gSaveBlock1Ptr->NPCfollower.battlePartner;
     }
 #endif
     return 0;
@@ -178,7 +178,7 @@ u32 GetFollowerNPCData(enum FollowerNPCDataTypes type)
 void ClearFollowerNPCData(void)
 {
 #if FNPC_ENABLE_NPC_FOLLOWERS
-    memset(&gSaveBlock3Ptr->NPCfollower, 0, sizeof(gSaveBlock3Ptr->NPCfollower));
+    memset(&gSaveBlock1Ptr->NPCfollower, 0, sizeof(gSaveBlock1Ptr->NPCfollower));
 #endif
 }
 

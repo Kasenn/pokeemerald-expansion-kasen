@@ -3918,11 +3918,7 @@ static u32 GetMonHoldEffect(struct Pokemon *mon)
     enum Item item = GetMonData(mon, MON_DATA_HELD_ITEM);
 
     if (item == ITEM_ENIGMA_BERRY_E_READER)
-    #if FREE_ENIGMA_BERRY == FALSE
-        holdEffect = gSaveBlock1Ptr->enigmaBerry.holdEffect;
-    #else
         holdEffect = 0;
-    #endif //FREE_ENIGMA_BERRY
     else
         holdEffect = GetItemHoldEffect(item);
 
@@ -5917,7 +5913,7 @@ static void Cmd_hitanimation(void)
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
-static u32 GetTrainerMoneyToGive(u16 trainerId)
+static u32 UNUSED GetTrainerMoneyToGive(u16 trainerId)
 {
     u32 lastMonLevel = 0;
     u32 moneyReward;
@@ -5950,45 +5946,7 @@ static void Cmd_getmoneyreward(void)
 {
     CMD_ARGS();
 
-    u32 money;
-    u8 sPartyLevel = 1;
-
-    if (gBattleOutcome == B_OUTCOME_WON)
-    {
-        money = GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentA);
-        if (gBattleTypeFlags & BATTLE_TYPE_TWO_OPPONENTS)
-            money += GetTrainerMoneyToGive(TRAINER_BATTLE_PARAM.opponentB);
-        AddMoney(&gSaveBlock1Ptr->money, money);
-    }
-    else
-    {
-        if (B_WHITEOUT_MONEY <= GEN_3)
-        {
-            money = GetMoney(&gSaveBlock1Ptr->money) / 2;
-        }
-        else
-        {
-            s32 i, count;
-            for (i = 0; i < PARTY_SIZE; i++)
-            {
-                if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_NONE
-                && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES_OR_EGG) != SPECIES_EGG)
-                {
-                    if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL) > sPartyLevel)
-                        sPartyLevel = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL);
-                }
-            }
-            for (count = 0, i = 0; i < ARRAY_COUNT(gBadgeFlags); i++)
-            {
-                if (FlagGet(gBadgeFlags[i]) == TRUE)
-                    ++count;
-            }
-            money = sWhiteOutBadgeMoney[count] * sPartyLevel;
-        }
-        if (!IsEnoughMoney(&gSaveBlock1Ptr->money, money))
-            money = GetMoney(&gSaveBlock1Ptr->money);
-        RemoveMoney(&gSaveBlock1Ptr->money, money);
-    }
+    u32 money = 0;
 
     PREPARE_WORD_NUMBER_BUFFER(gBattleTextBuff1, 5, money);
     gBattlescriptCurrInstr = cmd->nextInstr;
@@ -7646,20 +7604,7 @@ static void Cmd_givepaydaymoney(void)
 {
     CMD_ARGS();
 
-    if (!(gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK)) && gPaydayMoney != 0)
-    {
-        u32 bonusMoney = gPaydayMoney * gBattleStruct->moneyMultiplier;
-        AddMoney(&gSaveBlock1Ptr->money, bonusMoney);
-
-        PREPARE_HWORD_NUMBER_BUFFER(gBattleTextBuff1, 5, bonusMoney)
-
-        BattleScriptPush(cmd->nextInstr);
-        gBattlescriptCurrInstr = BattleScript_PrintPayDayMoneyString;
-    }
-    else
-    {
-        gBattlescriptCurrInstr = cmd->nextInstr;
-    }
+    gBattlescriptCurrInstr = cmd->nextInstr;
 }
 
 static void Cmd_setlightscreen(void)

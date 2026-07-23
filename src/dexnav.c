@@ -499,11 +499,6 @@ static void AddSearchWindowText(enum Species species, u8 proximity, u8 searchLev
     }
 
     //chain level - always present
-    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock3Ptr->dexNavChain, STR_CONV_MODE_LEFT_ALIGN, 3);
-    if (gSaveBlock3Ptr->dexNavChain > 99)
-        StringExpandPlaceholders(gStringVar4, sText_DexNavChainLong);
-    else
-        StringExpandPlaceholders(gStringVar4, sText_DexNavChain);
     AddTextPrinterParameterized3(windowId, FONT_SMALL, SEARCH_ARROW_X - 16, 12, sSearchFontColor, TEXT_SKIP_DRAW, gStringVar4);
 
     CopyWindowToVram(sDexNavSearchDataPtr->windowId, 2);
@@ -976,7 +971,6 @@ void EndDexNavSearch(void)
 
 static void EndDexNavSearchSetupScript(const u8 *script)
 {
-    gSaveBlock3Ptr->dexNavChain = 0;   //reset chain
     EndDexNavSearch();
     ScriptContext_SetupScript(script);
 }
@@ -1203,7 +1197,7 @@ static void CreateDexNavWildMon(enum Species species, u8 potential, u8 level, u8
 static u8 DexNavTryGenerateMonLevel(enum Species species, enum EncounterType environment)
 {
     u8 levelBase = GetEncounterLevelFromMapData(species, environment);
-    u8 levelBonus = gSaveBlock3Ptr->dexNavChain / 5;
+    u8 levelBonus = 0;
 
     if (levelBase == MON_LEVEL_NONEXISTENT)
         return MON_LEVEL_NONEXISTENT;   //species not found in the area
@@ -2136,7 +2130,6 @@ static void PrintCurrentSpeciesInfo(void)
     }
 
     //current chain
-    ConvertIntToDecimalStringN(gStringVar1, gSaveBlock3Ptr->dexNavChain, STR_CONV_MODE_LEFT_ALIGN, 3);
     AddTextPrinterParameterized3(WINDOW_INFO, FONT_SMALL, 0, CHAIN_BONUS_Y, sFontColor_Black, 0, gStringVar1);
 
     CopyWindowToVram(WINDOW_INFO, 3);
@@ -2641,7 +2634,7 @@ static void DexNavDrawHiddenIcons(void)
 u32 CalculateDexNavShinyRolls(void)
 {
     u32 chainBonus, rndBonus;
-    u8 chain = gSaveBlock3Ptr->dexNavChain;
+    u8 chain = 0;
 
     chainBonus = (chain >= 100) ? 10 : (chain >= 50) ? 5 : 0;
     rndBonus = (Random() % 100 < 4) ? 4 : 0;
@@ -2658,7 +2651,6 @@ void TryIncrementSpeciesSearchLevel()
 
 void ResetDexNavSearch(void)
 {
-    gSaveBlock3Ptr->dexNavChain = 0;    //reset dex nav chaining on new map
     VarSet(DN_VAR_STEP_COUNTER, 0); //reset hidden Pokémon step counter
     if (FlagGet(DN_FLAG_SEARCHING))
         EndDexNavSearch();   //moving to new map ends dexnav search
@@ -2666,6 +2658,5 @@ void ResetDexNavSearch(void)
 
 void IncrementDexNavChain(void)
 {
-    if (gSaveBlock3Ptr->dexNavChain < DEXNAV_CHAIN_MAX)
-        gSaveBlock3Ptr->dexNavChain++;
+    return;
 }

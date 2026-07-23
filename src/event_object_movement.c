@@ -2456,7 +2456,7 @@ void UpdateFollowingPokemon(void)
             objEvent->noCollision = TRUE;
             objEvent->isEgg = TRUE;
 
-            gSaveBlock3Ptr->followerId[slot - 1] = objId;
+            gSaveBlock1Ptr->followerId[slot - 1] = objId;
         }
         sprite = &gSprites[objEvent->spriteId];
         // objEvent->fixedPriority = TRUE;
@@ -11526,30 +11526,7 @@ bool8 PlayerIsUnderWaterfall(struct ObjectEvent *objectEvent)
 // Get gfx data from daycare Pokémon and store it in vars
 void GetDaycareGraphics(struct ScriptContext *ctx)
 {
-    u16 varGfx[] = {ScriptReadHalfword(ctx), ScriptReadHalfword(ctx)};
-    u16 varForm[] = {ScriptReadHalfword(ctx), ScriptReadHalfword(ctx)};
-    u32 specGfx;
-    bool32 shiny;
-    bool32 female;
-    s32 i;
-
-    Script_RequestEffects(SCREFF_V1);
-    Script_RequestWriteVar(varGfx[0]);
-    Script_RequestWriteVar(varGfx[1]);
-    Script_RequestWriteVar(varForm[0]);
-    Script_RequestWriteVar(varForm[1]);
-
-    for (i = 0; i < 2; i++)
-    {
-        GetMonInfo((struct Pokemon *) &gSaveBlock1Ptr->daycare.mons[i].mon, &specGfx, &shiny, &female);
-        if (specGfx == SPECIES_NONE)
-            break;
-        // Assemble gfx ID like FollowerSetGraphics
-        specGfx = GetGraphicsIdForMon(specGfx, shiny, female);
-        VarSet(varGfx[i], (u16)specGfx);
-        VarSet(varForm[i], 0);  //  This shouldn't be needed anymore, track down
-    }
-    gSpecialVar_Result = i;
+    return;
 }
 
 // running slow
@@ -12393,12 +12370,12 @@ bool8 Follower1Movement_Step(struct ObjectEvent *objectEvent, struct Sprite *spr
     s16 targetX;                                                                                                                        \
     s16 targetY;                                                                                                                        \
     u8 target = slot;                                                                                                                   \
-    u32 playerAction = gObjectEvents[gSaveBlock3Ptr->followerId[target]].movementActionId;                                              \
+    u32 playerAction = gObjectEvents[gSaveBlock1Ptr->followerId[target]].movementActionId;                                              \
                                                                                                                                         \
-    targetX = gObjectEvents[gSaveBlock3Ptr->followerId[target]].previousCoords.x;                                                       \
-    targetY = gObjectEvents[gSaveBlock3Ptr->followerId[target]].previousCoords.y;                                                       \
-    x = gObjectEvents[gSaveBlock3Ptr->followerId[target]].currentCoords.x;                                                              \
-    y = gObjectEvents[gSaveBlock3Ptr->followerId[target]].currentCoords.y;                                                              \
+    targetX = gObjectEvents[gSaveBlock1Ptr->followerId[target]].previousCoords.x;                                                       \
+    targetY = gObjectEvents[gSaveBlock1Ptr->followerId[target]].previousCoords.y;                                                       \
+    x = gObjectEvents[gSaveBlock1Ptr->followerId[target]].currentCoords.x;                                                              \
+    y = gObjectEvents[gSaveBlock1Ptr->followerId[target]].currentCoords.y;                                                              \
                                                                                                                                         \
     if ((x == targetX && y == targetY) || !IsFollowerVisible())                                                                         \
         return FALSE;                                                                                                                   \
@@ -12429,9 +12406,9 @@ bool8 Follower1Movement_Step(struct ObjectEvent *objectEvent, struct Sprite *spr
                                                                                                                                         \
     direction = GetDirectionToFace(x, y, targetX, targetY);                                                                             \
     if (ArePlayerFieldControlsLocked() &&                                                                                               \
-        gObjectEvents[gSaveBlock3Ptr->followerId[target]].facingDirection != gObjectEvents[gSaveBlock3Ptr->followerId[target]].movementDirection) \
+        gObjectEvents[gSaveBlock1Ptr->followerId[target]].facingDirection != gObjectEvents[gSaveBlock1Ptr->followerId[target]].movementDirection) \
     {                                                                                                                                   \
-        direction = gObjectEvents[gSaveBlock3Ptr->followerId[target]].movementDirection;                                                \
+        direction = gObjectEvents[gSaveBlock1Ptr->followerId[target]].movementDirection;                                                \
         objectEvent->facingDirectionLocked = TRUE;                                                                                      \
     }                                                                                                                                   \
                                                                                                                                         \

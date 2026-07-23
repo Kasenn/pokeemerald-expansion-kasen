@@ -10,8 +10,6 @@
 // We don't run the StoreSelectedPokemonInDaycare special because it relies on calling the
 // party select screen and the GetCursorSelectionMonId function, so we store directly to the struct.
 #define STORE_IN_DAYCARE_AND_GET_EGG()                                          \
-    StorePokemonInDaycare(&gParties[B_TRAINER_PLAYER][0], &gSaveBlock1Ptr->daycare.mons[0]);  \
-    StorePokemonInDaycare(&gParties[B_TRAINER_PLAYER][0], &gSaveBlock1Ptr->daycare.mons[1]);  \
     RUN_OVERWORLD_SCRIPT( special GiveEggFromDaycare; );
 
 TEST("(Daycare) Pokémon generate Eggs of the lowest member of the evolutionary family")

@@ -22,13 +22,6 @@
 #include "constants/item_effects.h"
 #include "constants/hold_effects.h"
 
-#define DUMMY_PC_BAG_POCKET                 \
-{                                           \
-    .id = POCKET_DUMMY,                     \
-    .capacity = PC_ITEMS_COUNT,             \
-    .itemSlots = gSaveBlock1Ptr->pcItems,   \
-}
-
 static bool32 CheckPyramidBagHasItem(enum Item itemId, u16 count);
 static bool32 CheckPyramidBagHasSpace(enum Item itemId, u16 count);
 static const u8 *GetItemPluralName(enum Item);
@@ -144,23 +137,18 @@ void ApplyNewEncryptionKeyToBagItems(u32 newKey)
 
 void SetBagItemsPointers(void)
 {
-    gBagPockets[POCKET_ITEMS].itemSlots = gSaveBlock1Ptr->bag.items;
     gBagPockets[POCKET_ITEMS].capacity = BAG_ITEMS_COUNT;
     gBagPockets[POCKET_ITEMS].id = POCKET_ITEMS;
 
-    gBagPockets[POCKET_KEY_ITEMS].itemSlots = gSaveBlock1Ptr->bag.keyItems;
     gBagPockets[POCKET_KEY_ITEMS].capacity = BAG_KEYITEMS_COUNT;
     gBagPockets[POCKET_KEY_ITEMS].id = POCKET_KEY_ITEMS;
 
-    gBagPockets[POCKET_POKE_BALLS].itemSlots = gSaveBlock1Ptr->bag.pokeBalls;
     gBagPockets[POCKET_POKE_BALLS].capacity = BAG_POKEBALLS_COUNT;
     gBagPockets[POCKET_POKE_BALLS].id = POCKET_POKE_BALLS;
 
-    gBagPockets[POCKET_TM_HM].itemSlots = gSaveBlock1Ptr->bag.TMsHMs;
     gBagPockets[POCKET_TM_HM].capacity = BAG_TMHM_COUNT;
     gBagPockets[POCKET_TM_HM].id = POCKET_TM_HM;
 
-    gBagPockets[POCKET_BERRIES].itemSlots = gSaveBlock1Ptr->bag.berries;
     gBagPockets[POCKET_BERRIES].capacity = BAG_BERRIES_COUNT;
     gBagPockets[POCKET_BERRIES].id = POCKET_BERRIES;
 }
@@ -438,8 +426,7 @@ static u8 NONNULL BagPocket_CountUsedItemSlots(struct BagPocket *pocket)
 
 u8 CountUsedPCItemSlots(void)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-    return BagPocket_CountUsedItemSlots(&dummyPocket);
+    return 0;
 }
 
 static bool32 NONNULL BagPocket_CheckPocketForItemCount(struct BagPocket *pocket, enum Item itemId, u16 count)
@@ -457,14 +444,12 @@ static bool32 NONNULL BagPocket_CheckPocketForItemCount(struct BagPocket *pocket
 
 bool32 CheckPCHasItem(enum Item itemId, u16 count)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-    return BagPocket_CheckPocketForItemCount(&dummyPocket, itemId, count);
+    return FALSE;
 }
 
 bool32 AddPCItem(enum Item itemId, u16 count)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-    return BagPocket_AddItem(&dummyPocket, itemId, count);
+    return FALSE;
 }
 
 static void NONNULL BagPocket_CompactItems(struct BagPocket *pocket)
@@ -489,36 +474,17 @@ static void NONNULL BagPocket_CompactItems(struct BagPocket *pocket)
 
 void RemovePCItem(u8 index, u16 count)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-
-    // Get id, quantity at slot
-    struct ItemSlot tempItem = BagPocket_GetSlotData(&dummyPocket, index);
-
-    // Remove quantity
-    BagPocket_SetSlotItemIdAndCount(&dummyPocket, index, tempItem.itemId, tempItem.quantity - count);
-
-    // Compact if necessary
-    if (tempItem.quantity == 0)
-        BagPocket_CompactItems(&dummyPocket);
+    return;
 }
 
 void CompactPCItems(void)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-    BagPocket_CompactItems(&dummyPocket);
+    return;
 }
 
 void SwapRegisteredBike(void)
 {
-    switch (gSaveBlock1Ptr->registeredItem)
-    {
-    case ITEM_MACH_BIKE:
-        gSaveBlock1Ptr->registeredItem = ITEM_ACRO_BIKE;
-        break;
-    case ITEM_ACRO_BIKE:
-        gSaveBlock1Ptr->registeredItem = ITEM_MACH_BIKE;
-        break;
-    }
+    return;
 }
 
 void CompactItemsInBagPocket(enum Pocket pocketId)
@@ -553,13 +519,12 @@ void MoveItemSlotInPocket(enum Pocket pocketId, u32 from, u32 to)
 
 void MoveItemSlotInPC(struct ItemSlot *itemSlots, u32 from, u32 to)
 {
-    struct BagPocket dummyPocket = DUMMY_PC_BAG_POCKET;
-    return BagPocket_MoveItemSlot(&dummyPocket, from, to);
+    return;
 }
 
 void ClearBag(void)
 {
-    CpuFastFill(0, &gSaveBlock1Ptr->bag, sizeof(struct Bag));
+    return;
 }
 
 static inline u16 NONNULL BagPocket_CountTotalItemQuantity(struct BagPocket *pocket, enum Item itemId)
@@ -835,11 +800,7 @@ static const u8 *GetItemPluralName(enum Item itemId)
 const u8 *GetItemEffect(enum Item itemId)
 {
     if (itemId == ITEM_ENIGMA_BERRY_E_READER)
-    #if FREE_ENIGMA_BERRY == FALSE
-        return gSaveBlock1Ptr->enigmaBerry.itemEffect;
-    #else
         return 0;
-    #endif //FREE_ENIGMA_BERRY
     else
         return gItemsInfo[SanitizeItemId(itemId)].effect;
 }

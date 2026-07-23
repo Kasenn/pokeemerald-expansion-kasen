@@ -1501,8 +1501,6 @@ static const struct WindowTemplate sSearchMenu_WindowTemplate[] =
 
 void ResetPokedex(void)
 {
-    u16 i;
-
     sLastSelectedPokemon = 0;
     sPokeBallRotation = POKEBALL_ROTATION_TOP;
     gUnusedPokedexU8 = 0;
@@ -1514,11 +1512,6 @@ void ResetPokedex(void)
     gSaveBlock2Ptr->pokedex.spindaPersonality = 0;
     gSaveBlock2Ptr->pokedex.unknown3 = 0;
     DisableNationalPokedex();
-    for (i = 0; i < NUM_DEX_FLAG_BYTES; i++)
-    {
-        gSaveBlock1Ptr->dexCaught[i] = 0;
-        gSaveBlock1Ptr->dexSeen[i] = 0;
-    }
 }
 
 void ResetPokedexScrollPositions(void)
@@ -4512,31 +4505,7 @@ static u8* ConvertMeasurementToMetricString(u32 num, u32* index)
 
 s8 GetSetPokedexFlag(enum NationalDexOrder nationalDexNo, u8 caseID)
 {
-    u32 index, bit, mask;
-    s8 retVal = 0;
-
-    nationalDexNo--;
-    index = nationalDexNo / 8;
-    bit = nationalDexNo % 8;
-    mask = 1 << bit;
-
-    switch (caseID)
-    {
-    case FLAG_GET_SEEN:
-        retVal = ((gSaveBlock1Ptr->dexSeen[index] & mask) != 0);
-        break;
-    case FLAG_GET_CAUGHT:
-         retVal = ((gSaveBlock1Ptr->dexCaught[index] & mask) != 0);
-        break;
-    case FLAG_SET_SEEN:
-        gSaveBlock1Ptr->dexSeen[index] |= mask;
-        break;
-    case FLAG_SET_CAUGHT:
-        gSaveBlock1Ptr->dexCaught[index] |= mask;
-        break;
-    }
-
-    return retVal;
+    return 0;
 }
 
 u16 GetNationalPokedexCount(u8 caseID)

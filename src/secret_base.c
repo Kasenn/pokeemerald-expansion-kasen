@@ -228,9 +228,7 @@ static void ClearSecretBase(struct SecretBase *secretBase)
 
 void ClearSecretBases(void)
 {
-    u16 i;
-    for (i = 0; i < SECRET_BASES_COUNT; i++)
-        ClearSecretBase(&gSaveBlock1Ptr->secretBases[i]);
+    return;
 }
 
 static void SetCurSecretBaseId(void)
@@ -240,27 +238,12 @@ static void SetCurSecretBaseId(void)
 
 void TrySetCurSecretBaseIndex(void)
 {
-    u16 i;
-
     gSpecialVar_Result = FALSE;
-    for (i = 0; i < SECRET_BASES_COUNT; i++)
-    {
-        if (sCurSecretBaseId == gSaveBlock1Ptr->secretBases[i].secretBaseId)
-        {
-            gSpecialVar_Result = TRUE;
-            VarSet(VAR_CURRENT_SECRET_BASE, i);
-            break;
-        }
-    }
 }
 
 void CheckPlayerHasSecretBase(void)
 {
-    // The player's secret base is always the first in the array.
-    if (gSaveBlock1Ptr->secretBases[0].secretBaseId)
-        gSpecialVar_Result = TRUE;
-    else
-        gSpecialVar_Result = FALSE;
+    gSpecialVar_Result = FALSE;
 }
 
 static u8 GetSecretBaseTypeInFrontOfPlayer_(void)
@@ -363,49 +346,13 @@ static u8 GetNameLength(const u8 *secretBaseOwnerName)
 
 void SetPlayerSecretBase(void)
 {
-    u16 i;
-
-    gSaveBlock1Ptr->secretBases[0].secretBaseId = sCurSecretBaseId;
-    for (i = 0; i < TRAINER_ID_LENGTH; i++)
-        gSaveBlock1Ptr->secretBases[0].trainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
-
-    VarSet(VAR_CURRENT_SECRET_BASE, 0);
-    StringCopyN(gSaveBlock1Ptr->secretBases[0].trainerName, gSaveBlock2Ptr->playerName, GetNameLength(gSaveBlock2Ptr->playerName));
-    gSaveBlock1Ptr->secretBases[0].gender = gSaveBlock2Ptr->playerGender;
-    gSaveBlock1Ptr->secretBases[0].language = GAME_LANGUAGE;
-    VarSet(VAR_SECRET_BASE_MAP, gMapHeader.regionMapSectionId);
+    return;
 }
 
 // Set the 'open' entrance metatile for any occupied secret base on this map
 void SetOccupiedSecretBaseEntranceMetatiles(struct MapEvents const *events)
 {
-    u16 bgId;
-    u16 i, j;
-
-    for (bgId = 0; bgId < events->bgEventCount; bgId++)
-    {
-        if (events->bgEvents[bgId].kind == BG_EVENT_SECRET_BASE)
-        {
-            for (j = 0; j < SECRET_BASES_COUNT; j++)
-            {
-                if (gSaveBlock1Ptr->secretBases[j].secretBaseId == events->bgEvents[bgId].bgUnion.secretBaseId)
-                {
-                    s16 x = events->bgEvents[bgId].x + MAP_OFFSET;
-                    s16 y = events->bgEvents[bgId].y + MAP_OFFSET;
-                    s16 tile_id = MapGridGetMetatileIdAt(x, y);
-                    for (i = 0; i < ARRAY_COUNT(sSecretBaseEntranceMetatiles); i++)
-                    {
-                        if (sSecretBaseEntranceMetatiles[i].closedMetatileId == tile_id)
-                        {
-                            MapGridSetMetatileIdAt(x, y, sSecretBaseEntranceMetatiles[i].openMetatileId | MAPGRID_IMPASSABLE);
-                            break;
-                        }
-                    }
-                    break;
-                }
-            }
-        }
-    }
+    return;
 }
 
 static void SetSecretBaseWarpDestination(void)
@@ -428,8 +375,6 @@ static void Task_EnterSecretBase(u8 taskId)
         break;
     case 1:
         secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        if (gSaveBlock1Ptr->secretBases[secretBaseIdx].numTimesEntered < 255)
-            gSaveBlock1Ptr->secretBases[secretBaseIdx].numTimesEntered++;
 
         SetSecretBaseWarpDestination();
         WarpIntoMap();
@@ -517,118 +462,12 @@ bool8 CurMapIsSecretBase(void)
 
 void InitSecretBaseAppearance(bool8 hidePC)
 {
-    u16 secretBaseIdx;
-    s16 x, y = 0;
-    u8 *decorations;
-    u8 *decorPos;
-
-    if (CurMapIsSecretBase())
-    {
-        secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        decorations = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorations;
-        decorPos = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorationPositions;
-        for (x = 0; x < DECOR_MAX_SECRET_BASE; x++)
-        {
-            if (decorations[x] > 0 && decorations[x] <= NUM_DECORATIONS && gDecorations[decorations[x]].permission != DECORPERM_SPRITE)
-                ShowDecorationOnMap((decorPos[x] >> 4) + MAP_OFFSET, (decorPos[x] & 0xF) + MAP_OFFSET, decorations[x]);
-        }
-
-        if (secretBaseIdx != 0)
-        {
-            // Another player's secret base. Change PC type to the "Register" PC.
-            FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
-            MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_SecretBase_RegisterPC | MAPGRID_IMPASSABLE);
-        }
-        else if (hidePC == TRUE && VarGet(VAR_SECRET_BASE_INITIALIZED) == 1)
-        {
-            // Change PC to regular ground tile.
-            FindMetatileIdMapCoords(&x, &y, METATILE_SecretBase_PC);
-            MapGridSetMetatileIdAt(x + MAP_OFFSET, y + MAP_OFFSET, METATILE_SecretBase_Ground | MAPGRID_IMPASSABLE);
-        }
-    }
+    return;
 }
 
 void InitSecretBaseDecorationSprites(void)
 {
-    u8 i;
-    u8 *decorations;
-    u8 *decorationPositions;
-    u8 objectEventId;
-    u8 metatileBehavior;
-    u8 category;
-    u8 permission;
-    u8 numDecorations;
-
-    objectEventId = 0;
-    if (!CurMapIsSecretBase())
-    {
-        decorations = gSaveBlock1Ptr->playerRoomDecorations;
-        decorationPositions = gSaveBlock1Ptr->playerRoomDecorationPositions;
-        numDecorations = DECOR_MAX_PLAYERS_HOUSE;
-    }
-    else
-    {
-        u16 secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-        decorations = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorations;
-        decorationPositions = gSaveBlock1Ptr->secretBases[secretBaseIdx].decorationPositions;
-        numDecorations = DECOR_MAX_SECRET_BASE;
-    }
-
-    for (i = 0; i < numDecorations; i++)
-    {
-        if (decorations[i] == DECOR_NONE)
-            continue;
-
-        permission = gDecorations[decorations[i]].permission;
-        category = gDecorations[decorations[i]].category;
-        if (permission == DECORPERM_SPRITE)
-        {
-            for (objectEventId = 0; objectEventId < gMapHeader.events->objectEventCount; objectEventId++)
-            {
-                if (gMapHeader.events->objectEvents[objectEventId].flagId == FLAG_DECORATION_1 + gSpecialVar_0x8004)
-                    break;
-            }
-
-            if (objectEventId == gMapHeader.events->objectEventCount)
-                continue;
-
-            gSpecialVar_0x8006 = decorationPositions[i] >> 4;
-            gSpecialVar_0x8007 = decorationPositions[i] & 0xF;
-            metatileBehavior = MapGridGetMetatileBehaviorAt(gSpecialVar_0x8006 + MAP_OFFSET, gSpecialVar_0x8007 + MAP_OFFSET);
-            if (MetatileBehavior_HoldsSmallDecoration(metatileBehavior) == TRUE
-             || MetatileBehavior_HoldsLargeDecoration(metatileBehavior) == TRUE)
-            {
-                gSpecialVar_Result = VAR_OBJ_GFX_ID_0 + (gMapHeader.events->objectEvents[objectEventId].graphicsId - OBJ_EVENT_GFX_VAR_0);
-                VarSet(gSpecialVar_Result, gDecorations[decorations[i]].tiles[0]);
-                gSpecialVar_Result = gMapHeader.events->objectEvents[objectEventId].localId;
-                FlagClear(FLAG_DECORATION_1 + gSpecialVar_0x8004);
-                TrySpawnObjectEvent(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                TryMoveObjectEventToMapCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, gSpecialVar_0x8006, gSpecialVar_0x8007);
-                TryOverrideObjectEventTemplateCoords(gSpecialVar_Result, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
-                if (CurMapIsSecretBase() == TRUE && VarGet(VAR_CURRENT_SECRET_BASE) != 0)
-                {
-                    if (category == DECORCAT_DOLL)
-                    {
-                        OverrideSecretBaseDecorationSpriteScript(
-                            gSpecialVar_Result,
-                            gSaveBlock1Ptr->location.mapNum,
-                            gSaveBlock1Ptr->location.mapGroup,
-                            DECORCAT_DOLL);
-                    }
-                    else if (category == DECORCAT_CUSHION)
-                    {
-                        OverrideSecretBaseDecorationSpriteScript(
-                            gSpecialVar_Result,
-                            gSaveBlock1Ptr->location.mapNum,
-                            gSaveBlock1Ptr->location.mapGroup,
-                            DECORCAT_CUSHION);
-                    }
-                }
-
-                gSpecialVar_0x8004++;
-            }
-        }
-    }
+    return;
 }
 
 void HideSecretBaseDecorationSprites(void)
@@ -718,16 +557,11 @@ static void WarpOutOfSecretBase(void)
 
 void IsCurSecretBaseOwnedByAnotherPlayer(void)
 {
-    if (gSaveBlock1Ptr->secretBases[0].secretBaseId != sCurSecretBaseId)
-        gSpecialVar_Result = TRUE;
-    else
-        gSpecialVar_Result = FALSE;
+    gSpecialVar_Result = FALSE;
 }
 
 static u8 *GetSecretBaseName(u8 *dest, u8 secretBaseIdx)
 {
-    *StringCopyN(dest, gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerName, GetNameLength(gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerName)) = EOS;
-    ConvertInternationalString(dest, gSaveBlock1Ptr->secretBases[secretBaseIdx].language);
     return StringAppend(dest, gText_ApostropheSBase);
 }
 
@@ -738,20 +572,11 @@ u8 *GetSecretBaseMapName(u8 *dest)
 
 void CopyCurSecretBaseOwnerName_StrVar1(void)
 {
-    u8 secretBaseIdx;
-    const u8 *name;
-
-    secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-    name = gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerName;
-    *StringCopyN(gStringVar1, name, GetNameLength(name)) = EOS;
-    ConvertInternationalString(gStringVar1, gSaveBlock1Ptr->secretBases[secretBaseIdx].language);
+    return;
 }
 
 static bool8 IsSecretBaseRegistered(u8 secretBaseIdx)
 {
-    if (gSaveBlock1Ptr->secretBases[secretBaseIdx].registryStatus)
-        return TRUE;
-
     return FALSE;
 }
 
@@ -769,49 +594,12 @@ static u8 GetAverageEVs(struct Pokemon *pokemon)
 
 void SetPlayerSecretBaseParty(void)
 {
-    u16 i;
-    u16 moveIndex;
-    u16 partyId;
-    struct SecretBaseParty *party;
-
-    partyId = 0;
-    party = &gSaveBlock1Ptr->secretBases[0].party;
-    if (gSaveBlock1Ptr->secretBases[0].secretBaseId)
-    {
-        for (i = 0; i < PARTY_SIZE; i++)
-        {
-            for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
-                party->moves[i * MAX_MON_MOVES + moveIndex] = MOVE_NONE;
-
-            party->species[i] = SPECIES_NONE;
-            party->heldItems[i] = ITEM_NONE;
-            party->levels[i] = 0;
-            party->personality[i] = 0;
-            party->EVs[i] = 0;
-
-            if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) != SPECIES_NONE
-            && !GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG))
-            {
-                for (moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
-                    party->moves[partyId * MAX_MON_MOVES + moveIndex] = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_MOVE1 + moveIndex);
-
-                party->species[partyId] = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
-                party->heldItems[partyId] = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_HELD_ITEM);
-                party->levels[partyId] = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_LEVEL);
-                party->personality[partyId] = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PERSONALITY);
-                party->EVs[partyId] = GetAverageEVs(&gParties[B_TRAINER_PLAYER][i]);
-                partyId++;
-            }
-        }
-    }
+    return;
 }
 
 void ClearAndLeaveSecretBase(void)
 {
-    u16 temp = gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived;
-    ClearSecretBase(&gSaveBlock1Ptr->secretBases[0]);
-    gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived = temp;
-    WarpOutOfSecretBase();
+    return;
 }
 
 void MoveOutOfSecretBase(void)
@@ -822,45 +610,14 @@ void MoveOutOfSecretBase(void)
 
 static void ClosePlayerSecretBaseEntrance(void)
 {
-    u16 i;
-    u16 j;
-    s16 metatileId;
-    const struct MapEvents *events = gMapHeader.events;
-
-    for (i = 0; i < events->bgEventCount; i++)
-    {
-        if (events->bgEvents[i].kind == BG_EVENT_SECRET_BASE
-         && gSaveBlock1Ptr->secretBases[0].secretBaseId == events->bgEvents[i].bgUnion.secretBaseId)
-        {
-            metatileId = MapGridGetMetatileIdAt(events->bgEvents[i].x + MAP_OFFSET, events->bgEvents[i].y + MAP_OFFSET);
-            for (j = 0; j < ARRAY_COUNT(sSecretBaseEntranceMetatiles); j++)
-            {
-                if (sSecretBaseEntranceMetatiles[j].openMetatileId == metatileId)
-                {
-                    MapGridSetMetatileIdAt(events->bgEvents[i].x + MAP_OFFSET,
-                                           events->bgEvents[i].y + MAP_OFFSET,
-                                           sSecretBaseEntranceMetatiles[j].closedMetatileId | MAPGRID_IMPASSABLE);
-                    break;
-                }
-            }
-
-            DrawWholeMapView();
-            break;
-        }
-    }
+    return;
 }
 
 // When the player moves to a new secret base by interacting with a new secret base
 // entrance in the overworld.
 void MoveOutOfSecretBaseFromOutside(void)
 {
-    u16 temp;
-
-    ClosePlayerSecretBaseEntrance();
-    IncrementGameStat(GAME_STAT_MOVED_SECRET_BASE);
-    temp = gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived;
-    ClearSecretBase(&gSaveBlock1Ptr->secretBases[0]);
-    gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived = temp;
+    return;
 }
 
 static u8 GetNumRegisteredSecretBases(void)
@@ -888,8 +645,7 @@ void GetCurSecretBaseRegistrationValidity(void)
 
 void ToggleCurSecretBaseRegistry(void)
 {
-    gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].registryStatus ^= 1;
-    FlagSet(FLAG_SECRET_BASE_REGISTRY_ENABLED);
+    return;
 }
 
 void ShowSecretBaseDecorationMenu(void)
@@ -1073,14 +829,7 @@ static void ShowRegistryMenuDeleteYesNo(u8 taskId)
 
 void DeleteRegistry_Yes_Callback(u8 taskId)
 {
-    u16 *data = (u16*) gTasks[taskId].data;
-    ClearDialogWindowAndFrame(0, FALSE);
-    DestroyListMenuTask(tListTaskId, &tScrollOffset, &tSelectedRow);
-    gSaveBlock1Ptr->secretBases[tSelectedBaseId].registryStatus = UNREGISTERED;
-    BuildRegistryMenuItems(taskId);
-    SetCursorWithinListBounds(&tScrollOffset, &tSelectedRow, tMaxShownItems, tNumBases);
-    FinalizeRegistryMenu(taskId);
-    gTasks[taskId].func = HandleRegistryMenuInput;
+    return;
 }
 
 static void DeleteRegistry_Yes(u8 taskId)
@@ -1130,8 +879,7 @@ static void GoToSecretBasePCRegisterMenu(u8 taskId)
 
 static u8 GetSecretBaseOwnerType(u8 secretBaseIdx)
 {
-    return (gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerId[0] % 5)
-         + (gSaveBlock1Ptr->secretBases[secretBaseIdx].gender * 5);
+    return 0;
 }
 
 const u8 *GetSecretBaseTrainerLoseText(void)
@@ -1168,24 +916,12 @@ void PrepSecretBaseBattleFlags(void)
 
 void SetBattledOwnerFromResult(void)
 {
-    gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].battledOwnerToday = gSpecialVar_Result;
+    return;
 }
 
 void GetSecretBaseOwnerAndState(void)
 {
-    u16 secretBaseIdx;
-    u8 i;
-
-    secretBaseIdx = VarGet(VAR_CURRENT_SECRET_BASE);
-    if (!FlagGet(FLAG_DAILY_SECRET_BASE))
-    {
-        for (i = 0; i < SECRET_BASES_COUNT; i++)
-            gSaveBlock1Ptr->secretBases[i].battledOwnerToday = FALSE;
-
-        FlagSet(FLAG_DAILY_SECRET_BASE);
-    }
-    gSpecialVar_0x8004 = GetSecretBaseOwnerType(secretBaseIdx);
-    gSpecialVar_Result = gSaveBlock1Ptr->secretBases[secretBaseIdx].battledOwnerToday;
+    return;
 }
 
 #define tStepCb  data[0] // See Task_RunPerStepCallback
@@ -1334,26 +1070,7 @@ void SecretBasePerStepCallback(u8 taskId)
 
 static void SaveSecretBase(u8 secretBaseIdx, struct SecretBase *secretBase, enum GameVersion version, enum Language language)
 {
-    int stringLength;
-    u8 *name;
-
-    gSaveBlock1Ptr->secretBases[secretBaseIdx] = *secretBase;
-    gSaveBlock1Ptr->secretBases[secretBaseIdx].registryStatus = NEW;
-    if (version == VERSION_SAPPHIRE || version == VERSION_RUBY)
-        gSaveBlock1Ptr->secretBases[secretBaseIdx].language = GAME_LANGUAGE;
-
-    if (version == VERSION_EMERALD && language == LANGUAGE_JAPANESE)
-    {
-        name = gSaveBlock1Ptr->secretBases[secretBaseIdx].trainerName;
-        for (stringLength = 0; stringLength < PLAYER_NAME_LENGTH; stringLength++)
-        {
-            if (name[stringLength] == EOS)
-                break;
-        }
-
-        if (stringLength > 5)
-            gSaveBlock1Ptr->secretBases[secretBaseIdx].language = GAME_LANGUAGE;
-    }
+    return;
 }
 
 static bool8 SecretBasesHaveSameTrainerId(struct SecretBase *secretBase1, struct SecretBase *secretBase2)
@@ -1394,89 +1111,21 @@ static bool8 SecretBasesBelongToSamePlayer(struct SecretBase *secretBase1, struc
 
 static s16 GetSecretBaseIndexFromId(u8 secretBaseId)
 {
-    s16 i;
-    for (i = 0; i < SECRET_BASES_COUNT; i++)
-    {
-        if (gSaveBlock1Ptr->secretBases[i].secretBaseId == secretBaseId)
-            return i;
-    }
-
     return -1;
 }
 
 static u8 FindAvailableSecretBaseIndex(void)
 {
-    s16 i;
-    for (i = 1; i < SECRET_BASES_COUNT; i++)
-    {
-        if (gSaveBlock1Ptr->secretBases[i].secretBaseId == 0)
-            return i;
-    }
-
     return 0;
 }
 
 static u8 FindUnregisteredSecretBaseIndex(void)
 {
-    s16 i;
-    for (i = 1; i < SECRET_BASES_COUNT; i++)
-    {
-        if (gSaveBlock1Ptr->secretBases[i].registryStatus == UNREGISTERED && gSaveBlock1Ptr->secretBases[i].toRegister == FALSE)
-            return i;
-    }
-
     return 0;
 }
 
 static u8 TrySaveFriendsSecretBase(struct SecretBase *secretBase, u32 version, u32 language)
 {
-    s16 index;
-
-    // Secret base has no location
-    if (!secretBase->secretBaseId)
-        return 0;
-
-    index = GetSecretBaseIndexFromId(secretBase->secretBaseId);
-    if (index != 0)
-    {
-        // An existing secret base is using this location
-        if (index != -1)
-        {
-            if (gSaveBlock1Ptr->secretBases[index].toRegister == TRUE)
-                return 0;
-
-            if (gSaveBlock1Ptr->secretBases[index].registryStatus != NEW || secretBase->toRegister == TRUE)
-            {
-                // Overwrite unregistered base at this location
-                SaveSecretBase(index, secretBase, version, language);
-                return index;
-            }
-        }
-        // No secret base is using this location, find a spot to save it
-        else
-        {
-            index = FindAvailableSecretBaseIndex();
-            if (index != 0)
-            {
-                // Save in empty space
-                SaveSecretBase(index, secretBase, version, language);
-                return index;
-            }
-
-            index = FindUnregisteredSecretBaseIndex();
-            if (index != 0)
-            {
-                // Overwrite unregistered base
-                SaveSecretBase(index, secretBase, version, language);
-                return index;
-            }
-        }
-    }
-
-    // Unable to save. Either...
-    // - This was the player's base
-    // - A registered base exists at this location
-    // - The secret base limit has been filled with registered bases
     return 0;
 }
 
@@ -1484,23 +1133,7 @@ static u8 TrySaveFriendsSecretBase(struct SecretBase *secretBase, u32 version, u
 // they won't be forgotten during record mixing.
 static void SortSecretBasesByRegistryStatus(void)
 {
-    u8 i;
-    u8 j;
-    struct SecretBase *secretBases;
-
-    secretBases = gSaveBlock1Ptr->secretBases;
-    for (i = 1; i < SECRET_BASES_COUNT - 1; i++)
-    {
-        for (j = i + 1; j < SECRET_BASES_COUNT; j++)
-        {
-            if ((secretBases[i].registryStatus == UNREGISTERED && secretBases[j].registryStatus == REGISTERED)
-             || (secretBases[i].registryStatus == NEW && secretBases[j].registryStatus != NEW))
-            {
-                struct SecretBase temp;
-                SWAP(secretBases[i], secretBases[j], temp)
-            }
-        }
-    }
+    return;
 }
 
 // Used to save a record mixing friends' bases other than their own
@@ -1694,26 +1327,7 @@ static void TrySaveRegisteredDuplicates(struct SecretBaseRecordMixer *mixers)
 
 static void SaveRecordMixBases(struct SecretBaseRecordMixer *mixers)
 {
-    DeleteFirstOldBaseFromPlayerInRecordMixingFriendsRecords(mixers[0].secretBases, mixers[1].secretBases, mixers[2].secretBases);
-    ClearDuplicateOwnedSecretBases(gSaveBlock1Ptr->secretBases, mixers[0].secretBases, mixers[1].secretBases, mixers[2].secretBases);
-
-    // First, save any registered secret bases that were deleted as duplicates
-    TrySaveRegisteredDuplicates(mixers);
-
-    // Then try to save the record mixing friends' own bases
-    TrySaveFriendsSecretBase(mixers[0].secretBases, mixers[0].version, mixers[0].language);
-    TrySaveFriendsSecretBase(mixers[1].secretBases, mixers[1].version, mixers[1].language);
-    TrySaveFriendsSecretBase(mixers[2].secretBases, mixers[2].version, mixers[2].language);
-
-    // Then try to save as many of their registered bases as possible
-    TrySaveFriendsSecretBases(&mixers[0], REGISTERED);
-    TrySaveFriendsSecretBases(&mixers[1], REGISTERED);
-    TrySaveFriendsSecretBases(&mixers[2], REGISTERED);
-
-    // Lastly save as many of their unregistered bases as possible
-    TrySaveFriendsSecretBases(&mixers[0], UNREGISTERED);
-    TrySaveFriendsSecretBases(&mixers[1], UNREGISTERED);
-    TrySaveFriendsSecretBases(&mixers[2], UNREGISTERED);
+    return;
 }
 
 #define INIT_SECRET_BASE_RECORD_MIXER(linkId1, linkId2, linkId3)        \
@@ -1765,31 +1379,6 @@ void ReceiveSecretBasesData(void *secretBases, size_t recordSize, u8 linkIdx)
         }
 
         SaveRecordMixBases(mixers);
-
-        for (i = 1; i < SECRET_BASES_COUNT; i++)
-        {
-            // In the process of deleting duplicate bases, if a base the player has registered is deleted it is
-            // flagged with the temporary toRegister flag, so it can be re-registered after it has been newly saved
-            if (gSaveBlock1Ptr->secretBases[i].toRegister == TRUE)
-            {
-                gSaveBlock1Ptr->secretBases[i].registryStatus = REGISTERED;
-                gSaveBlock1Ptr->secretBases[i].toRegister = FALSE;
-            }
-        }
-
-        SortSecretBasesByRegistryStatus();
-        for (i = 1; i < SECRET_BASES_COUNT; i++)
-        {
-            // Unmark "new" bases, they've been saved now and are no longer important
-            if (gSaveBlock1Ptr->secretBases[i].registryStatus == NEW)
-                gSaveBlock1Ptr->secretBases[i].registryStatus = UNREGISTERED;
-        }
-
-        if (gSaveBlock1Ptr->secretBases[0].secretBaseId != 0
-         && gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived != 0xFFFF)
-        {
-            gSaveBlock1Ptr->secretBases[0].numSecretBasesReceived++;
-        }
     }
 }
 

@@ -2415,57 +2415,48 @@ bool8 ScrCmd_checkfieldmove(struct ScriptContext *ctx)
 
 bool8 ScrCmd_addmoney(struct ScriptContext *ctx)
 {
-    u32 amount = ScriptReadWord(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
-        AddMoney(&gSaveBlock1Ptr->money, amount);
     }
     return FALSE;
 }
 
 bool8 ScrCmd_removemoney(struct ScriptContext *ctx)
 {
-    u32 amount = ScriptReadWord(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_SAVE);
 
-        RemoveMoney(&gSaveBlock1Ptr->money, amount);
     }
     return FALSE;
 }
 
 bool8 ScrCmd_checkmoney(struct ScriptContext *ctx)
 {
-    u32 amount = ScriptReadWord(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
     {
         Script_RequestEffects(SCREFF_V1);
 
-        gSpecialVar_Result = IsEnoughMoney(&gSaveBlock1Ptr->money, amount);
     }
     return FALSE;
 }
 
 bool8 ScrCmd_showmoneybox(struct ScriptContext *ctx)
 {
-    u8 x = ScriptReadByte(ctx);
-    u8 y = ScriptReadByte(ctx);
     u8 ignore = ScriptReadByte(ctx);
 
     if (!ignore)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
-        DrawMoneyBox(GetMoney(&gSaveBlock1Ptr->money), x, y);
     }
     return FALSE;
 }
@@ -2491,7 +2482,6 @@ bool8 ScrCmd_updatemoneybox(struct ScriptContext *ctx)
     {
         Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
-        ChangeAmountInMoneyBox(GetMoney(&gSaveBlock1Ptr->money));
     }
     return FALSE;
 }

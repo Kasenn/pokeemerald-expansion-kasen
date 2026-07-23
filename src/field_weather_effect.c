@@ -2630,7 +2630,7 @@ static const struct DynamicWeatherPool sDynamicWeatherPools[] =
     /*{ MAPSEC_DEWFORD_TOWN, DYNAMIC_WEATHER_POOL(sDynamicWeathers_DewfordTown) },*/
 };
 
-static const u8 *GetDynamicWeatherPool(u8 *count)
+static const u8 UNUSED *GetDynamicWeatherPool(u8 *count)
 {
     u16 mapSec = gMapHeader.regionMapSectionId;
 
@@ -2649,23 +2649,7 @@ static const u8 *GetDynamicWeatherPool(u8 *count)
 
 static u8 GetDynamicWeather(void)
 {
-    u8 count;
-    const u8 *weathers = GetDynamicWeatherPool(&count);
-    rng_value_t localRngState;
-    const u32 hashPieces[] =
-    {
-        gSaveBlock1Ptr->dailySeed,
-        gSaveBlock1Ptr->location.mapGroup,
-        gSaveBlock1Ptr->location.mapNum,
-        gMapHeader.mapLayoutId,
-        gMapHeader.regionMapSectionId,
-    };
-
-    if (count == 0)
-        return WEATHER_NONE;
-
-    localRngState = LocalRandomSeed(Crc32B((const u8 *)hashPieces, sizeof(hashPieces)));
-    return weathers[LocalRandom32(&localRngState) % count];
+    return 0;
 }
 
 static u8 TranslateWeatherNum(u8 weather)
@@ -2688,8 +2672,8 @@ static u8 TranslateWeatherNum(u8 weather)
     case WEATHER_DOWNPOUR:           return WEATHER_DOWNPOUR;
     case WEATHER_UNDERWATER_BUBBLES: return WEATHER_UNDERWATER_BUBBLES;
     case WEATHER_ABNORMAL:           return WEATHER_ABNORMAL;
-    case WEATHER_ROUTE119_CYCLE:     return sWeatherCycleRoute119[gSaveBlock1Ptr->weatherCycleStage];
-    case WEATHER_ROUTE123_CYCLE:     return sWeatherCycleRoute123[gSaveBlock1Ptr->weatherCycleStage];
+    case WEATHER_ROUTE119_CYCLE:     return WEATHER_ABNORMAL;
+    case WEATHER_ROUTE123_CYCLE:     return WEATHER_ABNORMAL;
     case WEATHER_DYNAMIC:            return GetDynamicWeather();
     default:                         return WEATHER_NONE;
     }
@@ -2697,9 +2681,7 @@ static u8 TranslateWeatherNum(u8 weather)
 
 void UpdateWeatherPerDay(u16 increment)
 {
-    u16 weatherStage = gSaveBlock1Ptr->weatherCycleStage + increment;
-    weatherStage %= WEATHER_CYCLE_LENGTH;
-    gSaveBlock1Ptr->weatherCycleStage = weatherStage;
+    return;
 }
 
 static void UpdateRainCounter(u8 newWeather, u8 oldWeather)

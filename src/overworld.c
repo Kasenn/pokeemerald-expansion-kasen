@@ -511,24 +511,17 @@ void IncrementGameStat(u8 index)
 
 u32 GetGameStat(u8 index)
 {
-    if (index >= NUM_USED_GAME_STATS)
-        return 0;
-
-    return gSaveBlock1Ptr->gameStats[index] ^ gSaveBlock2Ptr->encryptionKey;
+    return 0;
 }
 
 void SetGameStat(u8 index, u32 value)
 {
-    if (index < NUM_USED_GAME_STATS)
-        gSaveBlock1Ptr->gameStats[index] = value ^ gSaveBlock2Ptr->encryptionKey;
+    return;
 }
 
 void ApplyNewEncryptionKeyToGameStats(u32 newKey)
 {
-    u8 i;
-
-    for (i = 0; i < NUM_GAME_STATS; i++)
-        ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->gameStats[i], newKey);
+    return;
 }
 
 void LoadObjEventTemplatesFromHeader(void)
@@ -1913,11 +1906,17 @@ void CB2_NewGame(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
+    DebugPrintf("do we get here? 1");
     NewGameInitData();
+    DebugPrintf("do we get here? 2");
     ResetInitialPlayerAvatarState();
+    DebugPrintf("do we get here? 3");
     PlayTimeCounter_Start();
+    DebugPrintf("do we get here? 4");
     ScriptContext_Init();
+    DebugPrintf("do we get here? 5");
     UnlockPlayerFieldControls();
+    DebugPrintf("do we get here? 6");
     // if (IS_FRLG)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     // else

@@ -255,34 +255,12 @@ void CopyPartyAndObjectsFromSave(void)
 
 void LoadPlayerBag(void)
 {
-    int i;
-
-    // load player bag.
-    memcpy(&gLoadedSaveData.bag, &gSaveBlock1Ptr->bag, sizeof(struct Bag));
-
-    // load mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gLoadedSaveData.mail[i] = gSaveBlock1Ptr->mail[i];
-
-    gLastEncryptionKey = gSaveBlock2Ptr->encryptionKey;
+    return;
 }
 
 void SavePlayerBag(void)
 {
-    int i;
-    u32 encryptionKeyBackup;
-
-    // save player bag.
-    memcpy(&gSaveBlock1Ptr->bag, &gLoadedSaveData.bag, sizeof(struct Bag));
-
-    // save mail.
-    for (i = 0; i < MAIL_COUNT; i++)
-        gSaveBlock1Ptr->mail[i] = gLoadedSaveData.mail[i];
-
-    encryptionKeyBackup = gSaveBlock2Ptr->encryptionKey;
-    gSaveBlock2Ptr->encryptionKey = gLastEncryptionKey;
-    ApplyNewEncryptionKeyToBagItems(encryptionKeyBackup);
-    gSaveBlock2Ptr->encryptionKey = encryptionKeyBackup; // updated twice?
+    return;
 }
 
 void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
@@ -302,6 +280,4 @@ static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)
     ApplyNewEncryptionKeyToGameStats(encryptionKey);
     ApplyNewEncryptionKeyToBagItems(encryptionKey);
     ApplyNewEncryptionKeyToBerryPowder(encryptionKey);
-    ApplyNewEncryptionKeyToWord(&gSaveBlock1Ptr->money, encryptionKey);
-    ApplyNewEncryptionKeyToHword(&gSaveBlock1Ptr->coins, encryptionKey);
 }

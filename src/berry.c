@@ -2316,67 +2316,23 @@ const struct BerryTree gBlankBerryTree = {};
 
 void SetEnigmaBerry(u8 *src)
 {
-#if FREE_ENIGMA_BERRY == FALSE
-    u32 i;
-    u8 *dest = (u8 *)&gSaveBlock1Ptr->enigmaBerry;
-
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->enigmaBerry); i++)
-        dest[i] = src[i];
-#endif //FREE_ENIGMA_BERRY
 }
-
-#if FREE_ENIGMA_BERRY == FALSE
-static u32 GetEnigmaBerryChecksum(struct EnigmaBerry *enigmaBerry)
-{
-    u32 i;
-    u32 checksum;
-    u8 *dest;
-
-    dest = (u8 *)enigmaBerry;
-    checksum = 0;
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->enigmaBerry) - sizeof(gSaveBlock1Ptr->enigmaBerry.checksum); i++)
-        checksum += dest[i];
-
-    return checksum;
-}
-#endif //FREE_ENIGMA_BERRY
 
 bool32 IsEnigmaBerryValid(void)
 {
-#if FREE_ENIGMA_BERRY == FALSE
-    if (!gSaveBlock1Ptr->enigmaBerry.berry.growthDuration)
-        return FALSE;
-    if (!gSaveBlock1Ptr->enigmaBerry.berry.maxYield)
-        return FALSE;
-    if (GetEnigmaBerryChecksum(&gSaveBlock1Ptr->enigmaBerry) != gSaveBlock1Ptr->enigmaBerry.checksum)
-        return FALSE;
-    return TRUE;
-#else
     return FALSE;
-#endif //FREE_ENIGMA_BERRY
 }
 
 const struct BerryInfo *GetBerryInfo(enum BerryId berry)
 {
-    if (berry == BERRY_ID_ENGIMA_E_READER && IsEnigmaBerryValid())
-    {
-    #if FREE_ENIGMA_BERRY == FALSE
-        return (struct BerryInfo *)(&gSaveBlock1Ptr->enigmaBerry.berry);
-    #else
-        return &gBerries[BERRY_ID_NONE].info;    //never reached, but will appease the compiler gods
-    #endif //FREE_ENIGMA_BERRY
-    }
-    else
-    {
-        if (berry == BERRY_ID_NONE || berry > NUM_BERRIES)
-            berry = 1;
-        return &gBerries[berry].info;
-    }
+    if (berry == BERRY_ID_NONE || berry > NUM_BERRIES)
+        berry = 1;
+    return &gBerries[berry].info;
 }
 
 struct BerryTree *GetBerryTreeInfo(u8 id)
 {
-    return &gSaveBlock1Ptr->berryTrees[id];
+    return NULL;
 }
 
 bool32 ObjectEventInteractionWaterBerryTree(void)
@@ -2434,10 +2390,7 @@ bool8 TryToWaterBerryTree(void)
 
 void ClearBerryTrees(void)
 {
-    int i;
-
-    for (i = 0; i < BERRY_TREES_COUNT; i++)
-        gSaveBlock1Ptr->berryTrees[i] = gBlankBerryTree;
+    return;
 }
 
 bool32 BerryTreeGrow(struct BerryTree *tree)
@@ -2493,86 +2446,7 @@ static u16 GetMulchAffectedGrowthRate(u16 berryDuration, u8 mulch, u8 stage)
 
 void BerryTreeTimeUpdate(s32 minutes)
 {
-    int i;
-    u32 drainVal;
-    struct BerryTree *tree;
-
-    for (i = 0; i < BERRY_TREES_COUNT; i++)
-    {
-        tree = &gSaveBlock1Ptr->berryTrees[i];
-
-        if (tree->berry && tree->stage && !tree->stopGrowth && (!OW_BERRY_IMMORTAL || tree->stage != BERRY_STAGE_BERRIES))
-        {
-            if ((!OW_BERRY_IMMORTAL) && (minutes >= GetStageDurationByBerryType(tree->berry) * 71))
-            {
-                *tree = gBlankBerryTree;
-            }
-            else
-            {
-                s32 time = minutes;
-
-                // Check moisture gradient, pests and weeds
-                while (time > 0 && tree->stage != BERRY_STAGE_BERRIES)
-                {
-                    tree->moistureClock += 1;
-                    time -= 1;
-                    if (tree->moistureClock % 60 == 0)
-                    {
-                        if (OW_BERRY_MOISTURE)
-                        {
-                            drainVal = (OW_BERRY_DRAIN_RATE == GEN_4) ? GetDrainRateByBerryType(tree->berry) : (OW_BERRY_DRAIN_RATE == GEN_6_XY) ? 4 : 25;
-                            if (OW_BERRY_MULCH_USAGE)
-                            {
-                                if (tree->mulch == ITEM_TO_MULCH(ITEM_GROWTH_MULCH))
-                                    drainVal *= 2;
-                                if (tree->mulch == ITEM_TO_MULCH(ITEM_DAMP_MULCH))
-                                    drainVal /= 2;
-                                if (tree->mulch == ITEM_TO_MULCH(ITEM_BOOST_MULCH) || tree->mulch == ITEM_TO_MULCH(ITEM_AMAZE_MULCH))
-                                    drainVal = 25;
-                            }
-                            if (OW_BERRY_ALWAYS_WATERABLE && tree->moistureLevel == 0)
-                            {
-                                if (tree->berryYield > GetBerryInfo(tree->berry)->minYield + GetBerryInfo(tree->berry)->maxYield / 5)
-                                    tree->berryYield -= GetBerryInfo(tree->berry)->maxYield / 5;
-                                else
-                                    tree->berryYield = GetBerryInfo(tree->berry)->minYield;
-                            }
-                            else if (tree->moistureLevel <= drainVal)
-                                tree->moistureLevel = 0;
-                            else
-                                tree->moistureLevel -= drainVal;
-                            if (OW_BERRY_DRAIN_RATE == GEN_6_XY && tree->moistureLevel <= 4) // Without variable drain rate (and without mulches), this needs to trigger after 24 hours, hence the extra check
-                                tree->moistureLevel = 0;
-                        }
-                        if (tree->moistureClock == 120)
-                        {
-                            TryForWeeds(tree);
-                            TryForPests(tree);
-                            tree->moistureClock = 0;
-                        }
-                    }
-                }
-
-                // Check Berry growth
-                time = minutes;
-
-                while (time != 0)
-                {
-                    if (tree->minutesUntilNextStage > time)
-                    {
-                        tree->minutesUntilNextStage -= time;
-                        break;
-                    }
-                    time -= tree->minutesUntilNextStage;
-                    tree->minutesUntilNextStage = GetMulchAffectedGrowthRate(GetStageDurationByBerryType(tree->berry), tree->mulch, tree->stage);
-                    if (!BerryTreeGrow(tree))
-                        break;
-                    if (tree->stage == BERRY_STAGE_BERRIES)
-                        tree->minutesUntilNextStage = GetStageDurationByBerryType(tree->berry) * ((tree->mulch == ITEM_TO_MULCH(ITEM_STABLE_MULCH)) ? 6 : 4);
-                }
-            }
-        }
-    }
+    return;
 }
 
 void PlantBerryTree(u8 id, enum BerryId berry, u8 stage, bool8 allowGrowth)
@@ -2608,22 +2482,22 @@ void PlantBerryTree(u8 id, enum BerryId berry, u8 stage, bool8 allowGrowth)
 
 void RemoveBerryTree(u8 id)
 {
-    gSaveBlock1Ptr->berryTrees[id] = gBlankBerryTree;
+    return;
 }
 
 u8 GetBerryTypeByBerryTreeId(u8 id)
 {
-    return gSaveBlock1Ptr->berryTrees[id].berry;
+    return 0;
 }
 
 u8 GetStageByBerryTreeId(u8 id)
 {
-    return gSaveBlock1Ptr->berryTrees[id].stage;
+    return 0;
 }
 
 u8 GetMulchByBerryTreeId(u8 id)
 {
-    return gSaveBlock1Ptr->berryTrees[id].mulch;
+    return 0;
 }
 
 void GetBerryNameByBerryType(u8 berry, u8 *string)
@@ -2717,7 +2591,7 @@ static u32 GetBerryTreeAge(u8 id, u8 stage)
 
 static u8 GetBerryCountByBerryTreeId(u8 id)
 {
-    return gSaveBlock1Ptr->berryTrees[id].berryYield;
+    return 0;
 }
 
 static u16 GetStageDurationByBerryType(u8 berry)
@@ -2725,7 +2599,7 @@ static u16 GetStageDurationByBerryType(u8 berry)
     return GetBerryInfo(berry)->growthDuration * 60 / (OW_BERRY_SIX_STAGES ? 6 : 4);
 }
 
-static u8 GetDrainRateByBerryType(u8 berry)
+static u8 UNUSED GetDrainRateByBerryType(u8 berry)
 {
     return GetBerryInfo(berry)->drainRate;
 }
@@ -2749,9 +2623,7 @@ static u8 GetPestsBonusByBerryType(u8 berry)
 
 bool8 CanWaterBerryPlot(void)
 {
-    if (!OW_BERRY_MOISTURE || OW_BERRY_ALWAYS_WATERABLE)
-        return TRUE;
-    return (gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].moistureLevel == 0);
+    return TRUE;
 }
 
 void ObjectEventInteractionGetBerryTreeData(void)
@@ -2825,10 +2697,7 @@ void ObjectEventInteractionPlantBerryTree(void)
 
 void ObjectEventInteractionApplyMulch(void)
 {
-    u8 mulch = ITEM_TO_MULCH(gSpecialVar_ItemId);
-
-    gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].mulch = mulch;
-    StringExpandPlaceholders(gStringVar1, gItemsInfo[gSpecialVar_ItemId].name);
+    return;
 }
 
 void ObjectEventInteractionPickBerryTree(void)
@@ -2877,19 +2746,11 @@ bool8 PlayerHasBerries(void)
 
 bool8 ObjectEventInteractionBerryHasWeed(void)
 {
-    return gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].weeds;
+    return FALSE;
 }
 
 bool8 ObjectEventInteractionBerryHasPests(void)
 {
-    enum Species species;
-    if (!OW_BERRY_PESTS || !gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].pests)
-        return FALSE;
-    species = GetBerryPestSpecies(gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].berry);
-    if (species == SPECIES_NONE)
-        return FALSE;
-    CreateScriptedWildMon(species, 14 + Random() % 3, ITEM_NONE);
-    gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(gSelectedObjectEvent)].pests = FALSE;
     return TRUE;
 }
 
@@ -2945,80 +2806,6 @@ bool8 PlayerHasMulch(void)
     return FALSE;
 }
 
-#if OW_BERRY_MUTATIONS == TRUE
-static const u8 sBerryMutations[][3] = {
-    {BERRY_ID_IAPAPA, BERRY_ID_MAGO,   BERRY_ID_POMEG},
-    {BERRY_ID_CHESTO, BERRY_ID_PERSIM, BERRY_ID_KELPSY},
-    {BERRY_ID_ORAN,   BERRY_ID_PECHA,  BERRY_ID_QUALOT},
-    {BERRY_ID_CHESTO, BERRY_ID_PERSIM, BERRY_ID_KELPSY},
-    {BERRY_ID_ASPEAR, BERRY_ID_LEPPA,  BERRY_ID_HONDEW},
-    {BERRY_ID_AGUAV,  BERRY_ID_FIGY,   BERRY_ID_GREPA},
-    {BERRY_ID_LUM,    BERRY_ID_SITRUS, BERRY_ID_TAMATO},
-    {BERRY_ID_HONDEW, BERRY_ID_YACHE,  BERRY_ID_LIECHI},
-    {BERRY_ID_QUALOT, BERRY_ID_TANGA,  BERRY_ID_GANLON},
-    {BERRY_ID_GREPA,  BERRY_ID_ROSELI, BERRY_ID_SALAC},
-    {BERRY_ID_POMEG,  BERRY_ID_KASIB,  BERRY_ID_PETAYA},
-    {BERRY_ID_KELPSY, BERRY_ID_WACAN,  BERRY_ID_APICOT},
-    {BERRY_ID_GANLON, BERRY_ID_LIECHI, BERRY_ID_KEE},
-    {BERRY_ID_SALAC,  BERRY_ID_PETAYA, BERRY_ID_MARANGA},
-    // Up to one more Mutation can be added here for a total of 15 (only 4 bits are allocated)
-};
-
-static u8 GetMutationOutcome(u8 berry1, u8 berry2)
-{
-    u8 i;
-    for (i = 0; i < ARRAY_COUNT(sBerryMutations); i++)
-    {
-        if ((sBerryMutations[i][0] == berry1 && sBerryMutations[i][1] == berry2)
-          ||(sBerryMutations[i][0] == berry2 && sBerryMutations[i][1] == berry1))
-            return (i + 1);
-    }
-    return 0;
-}
-
-static u8 TryForMutation(u8 berryTreeId, u8 berry)
-{
-    u8 i, j, mulch;
-    s16 x1, x2, y1, y2;
-
-    // Get location of current tree
-    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
-    {
-        if (gObjectEvents[i].trainerRange_berryTreeId == berryTreeId && gObjectEvents[i].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH)
-            break;
-    }
-    if (i == OBJECT_EVENTS_COUNT)
-        return 0;
-
-    x1 = gObjectEvents[i].currentCoords.x;
-    y1 = gObjectEvents[i].currentCoords.y;
-
-    mulch = GetMulchByBerryTreeId(GetObjectEventBerryTreeId(i));
-
-    // Try mutation for each adjacent tree
-    for (j = 0; j < OBJECT_EVENTS_COUNT; j++)
-    {
-        if (gObjectEvents[j].active && gObjectEvents[j].movementType == MOVEMENT_TYPE_BERRY_TREE_GROWTH && GetStageByBerryTreeId(GetObjectEventBerryTreeId(j)) != BERRY_STAGE_NO_BERRY && j != i)
-        {
-            x2 = gObjectEvents[j].currentCoords.x;
-            y2 = gObjectEvents[j].currentCoords.y;
-            u32 rate = OW_BERRY_MUTATION_CHANCE;
-
-            if (mulch == ITEM_TO_MULCH(ITEM_SURPRISE_MULCH) || mulch == ITEM_TO_MULCH(ITEM_AMAZE_MULCH))
-                rate *= 2;
-
-            if (Random() % 100 < rate && (
-                (x1 == x2 && y1 == y2 - 1) ||
-                (x1 == x2 && y1 == y2 + 1) ||
-                (x1 == x2 - 1 && y1 == y2) ||
-                (x1 == x2 + 1 && y1 == y2)))
-                return GetMutationOutcome(berry, gSaveBlock1Ptr->berryTrees[GetObjectEventBerryTreeId(j)].berry);
-        }
-    }
-    return 0;
-}
-#endif
-
 struct TreeMutationBitfield {
   u8 a: 2;
   u8 b: 2;
@@ -3060,7 +2847,7 @@ static void SetTreeMutations(u8 id, u8 berry)
 #endif
 }
 
-static enum Species GetBerryPestSpecies(u8 berryId)
+static enum Species UNUSED GetBerryPestSpecies(u8 berryId)
 {
 #if OW_BERRY_PESTS == TRUE
     const struct BerryInfo *berryInfo = GetBerryInfo(berryId);
@@ -3092,7 +2879,7 @@ static enum Species GetBerryPestSpecies(u8 berryId)
 #define BERRY_WEEDS_CHANCE 15
 #define BERRY_PESTS_CHANCE 15
 
-static void TryForWeeds(struct BerryTree *tree)
+static void UNUSED TryForWeeds(struct BerryTree *tree)
 {
     if (!OW_BERRY_WEEDS)
         return;
@@ -3102,7 +2889,7 @@ static void TryForWeeds(struct BerryTree *tree)
         tree->weeds = TRUE;
 }
 
-static void TryForPests(struct BerryTree *tree)
+static void UNUSED TryForPests(struct BerryTree *tree)
 {
     if (!OW_BERRY_WEEDS)
         return;

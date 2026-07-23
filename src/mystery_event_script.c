@@ -100,73 +100,29 @@ void SetMysteryEventScriptStatus(u32 status)
     sMysteryEventScriptContext.mStatus = status;
 }
 
-static int CalcRecordMixingGiftChecksum(void)
+static int UNUSED CalcRecordMixingGiftChecksum(void)
 {
-    unsigned int i;
-    int sum = 0;
-    u8 *data = (u8 *)(&gSaveBlock1Ptr->recordMixingGift.data);
-
-    for (i = 0; i < sizeof(gSaveBlock1Ptr->recordMixingGift.data); i++)
-        sum += data[i];
-
-    return sum;
+    return 0;
 }
 
-static bool32 IsRecordMixingGiftValid(void)
+static bool32 UNUSED IsRecordMixingGiftValid(void)
 {
-    struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
-    int checksum = CalcRecordMixingGiftChecksum();
-
-    if (data->unk0 == 0
-        || data->quantity == 0
-        || data->itemId == 0
-        || checksum == 0
-        || checksum != gSaveBlock1Ptr->recordMixingGift.checksum)
-        return FALSE;
-    else
-        return TRUE;
+    return FALSE;
 }
 
-static void ClearRecordMixingGift(void)
+static void UNUSED ClearRecordMixingGift(void)
 {
-    CpuFill16(0, &gSaveBlock1Ptr->recordMixingGift, sizeof(gSaveBlock1Ptr->recordMixingGift));
+    return;
 }
 
 static void SetRecordMixingGift(u8 unk, u8 quantity, enum Item itemId)
 {
-    if (!unk || !quantity || !itemId)
-    {
-        ClearRecordMixingGift();
-    }
-    else
-    {
-        gSaveBlock1Ptr->recordMixingGift.data.unk0 = unk;
-        gSaveBlock1Ptr->recordMixingGift.data.quantity = quantity;
-        gSaveBlock1Ptr->recordMixingGift.data.itemId = itemId;
-        gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
-    }
+    return;
 }
 
 u16 GetRecordMixingGift(void)
 {
-    struct RecordMixingGiftData *data = &gSaveBlock1Ptr->recordMixingGift.data;
-
-    if (!IsRecordMixingGiftValid())
-    {
-        ClearRecordMixingGift();
-        return 0;
-    }
-    else
-    {
-        enum Item itemId = data->itemId;
-        data->quantity--;
-        if (data->quantity == 0)
-            ClearRecordMixingGift();
-        else
-            gSaveBlock1Ptr->recordMixingGift.checksum = CalcRecordMixingGiftChecksum();
-
-        return itemId;
-    }
+    return 0;
 }
 
 bool8 MEScrCmd_end(struct ScriptContext *ctx)
@@ -231,9 +187,6 @@ bool8 MEScrCmd_setenigmaberry(struct ScriptContext *ctx)
     const u8 *message;
     bool32 haveBerry = IsEnigmaBerryValid();
     u8 *berry = (u8 *)(ScriptReadWord(ctx) - ctx->mOffset + ctx->mScriptBase);
-    StringCopyN(gStringVar1, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
-    SetEnigmaBerry(berry);
-    StringCopyN(gStringVar2, gSaveBlock1Ptr->enigmaBerry.berry.name, BERRY_NAME_LENGTH + 1);
 
     if (!haveBerry)
     {

@@ -579,7 +579,6 @@ EWRAM_DATA struct BagPosition gBagPosition = {0};
 static EWRAM_DATA struct ListBuffer1 *sListBuffer1 = 0;
 static EWRAM_DATA struct ListBuffer2 *sListBuffer2 = 0;
 EWRAM_DATA u16 gSpecialVar_ItemId = 0;
-static EWRAM_DATA struct TempWallyBag *sTempWallyBag = 0;
 
 void ResetBagScrollPositions(void)
 {
@@ -1016,8 +1015,6 @@ static void BagMenu_ItemPrintCallback(u8 windowId, u32 itemIndex, u8 y)
         else
         {
             // Print registered icon
-            if (gSaveBlock1Ptr->registeredItem != ITEM_NONE && gSaveBlock1Ptr->registeredItem == itemSlot.itemId)
-                BlitBitmapToWindow(windowId, sRegisteredSelect_Gfx, 96, y - 1, 24, 16);
         }
     }
 }
@@ -1695,8 +1692,6 @@ static void OpenContextMenu(u8 taskId)
                 gBagMenu->contextMenuItemsPtr = gBagMenu->contextMenuItemsBuffer;
                 gBagMenu->contextMenuNumItems = ARRAY_COUNT(sContextMenuItems_KeyItemsPocket);
                 memcpy(&gBagMenu->contextMenuItemsBuffer, &sContextMenuItems_KeyItemsPocket, sizeof(sContextMenuItems_KeyItemsPocket));
-                if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
-                    gBagMenu->contextMenuItemsBuffer[1] = ACTION_DESELECT;
                 if (gSpecialVar_ItemId == ITEM_MACH_BIKE || gSpecialVar_ItemId == ITEM_ACRO_BIKE || gSpecialVar_ItemId == ITEM_BICYCLE)
                 {
                     if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_MACH_BIKE | PLAYER_AVATAR_FLAG_ACRO_BIKE))
@@ -2013,10 +2008,6 @@ static void ItemMenu_Register(u8 taskId)
     u16 *scrollPos = &gBagPosition.scrollPosition[gBagPosition.pocket];
     u16 *cursorPos = &gBagPosition.cursorPosition[gBagPosition.pocket];
 
-    if (gSaveBlock1Ptr->registeredItem == gSpecialVar_ItemId)
-        gSaveBlock1Ptr->registeredItem = ITEM_NONE;
-    else
-        gSaveBlock1Ptr->registeredItem = gSpecialVar_ItemId;
     DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
     LoadBagItemListBuffers(gBagPosition.pocket);
     tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
@@ -2146,30 +2137,11 @@ static void Task_ItemContext_GiveToPC(u8 taskId)
 
 bool8 UseRegisteredKeyItemOnField(void)
 {
-    u8 taskId;
-
     if (InUnionRoom() == TRUE || CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || InBattlePike() || InMultiPartnerRoom() == TRUE)
         return FALSE;
     HideMapNamePopUpWindow();
     ChangeBgY_ScreenOff(0, 0, BG_COORD_SET);
-    if (gSaveBlock1Ptr->registeredItem != ITEM_NONE)
-    {
-        if (CheckBagHasItem(gSaveBlock1Ptr->registeredItem, 1) == TRUE)
-        {
-            LockPlayerFieldControls();
-            FreezeObjectEvents();
-            PlayerFreeze();
-            StopPlayerAvatar();
-            gSpecialVar_ItemId = gSaveBlock1Ptr->registeredItem;
-            taskId = CreateTask(GetItemFieldFunc(gSaveBlock1Ptr->registeredItem), 8);
-            gTasks[taskId].tUsingRegisteredKeyItem = TRUE;
-            return TRUE;
-        }
-        else
-        {
-            gSaveBlock1Ptr->registeredItem = ITEM_NONE;
-        }
-    }
+
     ScriptContext_SetupScript(EventScript_SelectWithoutRegisteredItem);
     return TRUE;
 }
@@ -2285,14 +2257,12 @@ static void SellItem(u8 taskId)
 
     PlaySE(SE_SHOP);
     RemoveBagItem(gSpecialVar_ItemId, tItemCount);
-    AddMoney(&gSaveBlock1Ptr->money, GetItemSellPrice(gSpecialVar_ItemId) * tItemCount);
     DestroyListMenuTask(tListTaskId, scrollPos, cursorPos);
     UpdatePocketItemList(gBagPosition.pocket);
     UpdatePocketListPosition(gBagPosition.pocket);
     LoadBagItemListBuffers(gBagPosition.pocket);
     tListTaskId = ListMenuInit(&gMultiuseListMenuTemplate, *scrollPos, *cursorPos);
     BagMenu_PrintCursor(tListTaskId, COLORID_GRAY_CURSOR);
-    PrintMoneyAmountInMoneyBox(gBagMenu->windowIds[ITEMWIN_MONEY], GetMoney(&gSaveBlock1Ptr->money), 0);
     gTasks[taskId].func = WaitAfterItemSell;
 }
 
@@ -2402,35 +2372,12 @@ static bool8 IsWallysBag(void)
 
 static void PrepareBagForWallyTutorial(void)
 {
-    u32 i;
-
-    sTempWallyBag = AllocZeroed(sizeof(*sTempWallyBag));
-    memcpy(sTempWallyBag->bagPocket_Items, gSaveBlock1Ptr->bag.items, sizeof(gSaveBlock1Ptr->bag.items));
-    memcpy(sTempWallyBag->bagPocket_PokeBalls, gSaveBlock1Ptr->bag.pokeBalls, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
-    sTempWallyBag->pocket = gBagPosition.pocket;
-    for (i = 0; i < POCKETS_COUNT; i++)
-    {
-        sTempWallyBag->cursorPosition[i] = gBagPosition.cursorPosition[i];
-        sTempWallyBag->scrollPosition[i] = gBagPosition.scrollPosition[i];
-    }
-    memset(gSaveBlock1Ptr->bag.items, 0, sizeof(gSaveBlock1Ptr->bag.items));
-    memset(gSaveBlock1Ptr->bag.pokeBalls, 0, sizeof(gSaveBlock1Ptr->bag.pokeBalls));
-    ResetBagScrollPositions();
+    return;
 }
 
 static void RestoreBagAfterWallyTutorial(void)
 {
-    u32 i;
-
-    memcpy(gSaveBlock1Ptr->bag.items, sTempWallyBag->bagPocket_Items, sizeof(sTempWallyBag->bagPocket_Items));
-    memcpy(gSaveBlock1Ptr->bag.pokeBalls, sTempWallyBag->bagPocket_PokeBalls, sizeof(sTempWallyBag->bagPocket_PokeBalls));
-    gBagPosition.pocket = sTempWallyBag->pocket;
-    for (i = 0; i < POCKETS_COUNT; i++)
-    {
-        gBagPosition.cursorPosition[i] = sTempWallyBag->cursorPosition[i];
-        gBagPosition.scrollPosition[i] = sTempWallyBag->scrollPosition[i];
-    }
-    Free(sTempWallyBag);
+    return;
 }
 
 void DoWallyTutorialBagMenu(void)
@@ -2652,8 +2599,6 @@ void BagMenu_YesNo(u8 taskId, u8 windowType, const struct YesNoFuncTable *funcTa
 
 static void DisplayCurrentMoneyWindow(void)
 {
-    u8 windowId = BagMenu_AddWindow(ITEMWIN_MONEY);
-    PrintMoneyAmountInMoneyBoxWithBorder(windowId, 1, 14, GetMoney(&gSaveBlock1Ptr->money));
     AddMoneyLabelObject(19, 11);
 }
 

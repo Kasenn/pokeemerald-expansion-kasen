@@ -1042,50 +1042,7 @@ static void SaveCurrentWinStreak(void)
 
 static void SaveBattleTowerRecord(void)
 {
-    s32 i;
-    enum FrontierLevelMode lvlMode;
-    u8 battleMode, class;
-    struct EmeraldBattleTowerRecord *playerRecord = &gSaveBlock2Ptr->frontier.towerPlayer;
-
-    ClearBattleTowerRecord(playerRecord);
-    lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
-    battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
-    if (gSaveBlock2Ptr->playerGender != MALE)
-    {
-        class = gTowerFemaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] +
-                                       gSaveBlock2Ptr->playerTrainerId[1] +
-                                       gSaveBlock2Ptr->playerTrainerId[2] +
-                                       gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerFemaleFacilityClasses)].class;
-    }
-    else
-    {
-        class = gTowerMaleFacilityClasses[(gSaveBlock2Ptr->playerTrainerId[0] +
-                                     gSaveBlock2Ptr->playerTrainerId[1] +
-                                     gSaveBlock2Ptr->playerTrainerId[2] +
-                                     gSaveBlock2Ptr->playerTrainerId[3]) % ARRAY_COUNT(gTowerMaleFacilityClasses)].class;
-    }
-    playerRecord->lvlMode = lvlMode;
-    playerRecord->facilityClass = class;
-    CopyTrainerId(playerRecord->trainerId, gSaveBlock2Ptr->playerTrainerId);
-    StringCopy_PlayerName(playerRecord->name, gSaveBlock2Ptr->playerName);
-    playerRecord->winStreak = GetCurrentBattleTowerWinStreak(lvlMode, battleMode);
-
-    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-    {
-        playerRecord->greeting[i] = gSaveBlock1Ptr->easyChatBattleStart[i];
-        playerRecord->speechWon[i] = gSaveBlock1Ptr->easyChatBattleWon[i];
-        playerRecord->speechLost[i] = gSaveBlock1Ptr->easyChatBattleLost[i];
-    }
-
-    for (i = 0; i < MAX_FRONTIER_PARTY_SIZE; i++)
-    {
-        if (gSaveBlock2Ptr->frontier.selectedPartyMons[i] != 0)
-            ConvertPokemonToBattleTowerPokemon(&gParties[B_TRAINER_PLAYER][gSaveBlock2Ptr->frontier.selectedPartyMons[i] - 1], &playerRecord->party[i]);
-    }
-
-    playerRecord->language = gGameLanguage;
-    CalcEmeraldBattleTowerChecksum(&gSaveBlock2Ptr->frontier.towerPlayer);
-    SaveCurrentWinStreak();
+    return;
 }
 
 static void SaveTowerChallenge(void)

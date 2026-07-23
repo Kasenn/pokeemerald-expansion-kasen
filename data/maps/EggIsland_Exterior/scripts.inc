@@ -633,6 +633,8 @@ MachopScript1_1:
 # 337 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox MachopScript1_Text3
 # 338 "data/maps/EggIsland_Exterior/scripts.pory"
+	clearflag FLAG_DISABLE_ENCOUNTERS
+# 339 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
@@ -947,7 +949,7 @@ TooManyEggs::
 	.string "Replace an old egg with the new one?$"
 
 MachopScript1_Text1::
-# 341 "data/maps/EggIsland_Exterior/scripts.pory"
+# 342 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Thank you stranger.\n"
 	.string "I'm not sure I could've beaten\l"
 	.string "that Murkrow without your\l"
@@ -956,7 +958,7 @@ MachopScript1_Text1::
 	.string "getting rowdy as of late…$"
 
 MachopScript1_Text2::
-# 349 "data/maps/EggIsland_Exterior/scripts.pory"
+# 350 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "I am Macho the Machop.\n"
 	.string "And you are… Yoshi?\p"
 	.string "Hm, can't say I've met one\n"
@@ -982,7 +984,7 @@ MachopScript1_Text2::
 	.string "river to the east.$"
 
 MachopScript1_Text3::
-# 374 "data/maps/EggIsland_Exterior/scripts.pory"
+# 375 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi can now collect eggs\n"
 	.string "to help it on its journey!\p"
 	.string "Look for eggs in the tall grass,\n"

@@ -1121,7 +1121,6 @@ static bool8 BufferTradeParties(void)
         }
         break;
     case 13:
-        Trade_Memcpy(gBlockSendBuffer, gSaveBlock1Ptr->mail, PARTY_SIZE * sizeof(struct Mail) + 4);
         sTradeMenu->bufferPartyState++;
         break;
     case 15:
@@ -1138,7 +1137,6 @@ static bool8 BufferTradeParties(void)
         }
         break;
     case 17:
-        Trade_Memcpy(gBlockSendBuffer, gSaveBlock1Ptr->giftRibbons, sizeof(sTradeMenu->giftRibbons));
         sTradeMenu->bufferPartyState++;
         break;
     case 19:
@@ -2369,16 +2367,7 @@ static void SetTradePartyHPBarSprites(void)
 
 static void SaveTradeGiftRibbons(void)
 {
-    int i;
-
-    for (i = 0; i < (int)ARRAY_COUNT(sTradeMenu->giftRibbons); i++)
-    {
-        if (gSaveBlock1Ptr->giftRibbons[i] == 0 && sTradeMenu->giftRibbons[i] != 0)
-        {
-            if (sTradeMenu->giftRibbons[i] < MAX_GIFT_RIBBON)
-                gSaveBlock1Ptr->giftRibbons[i] = sTradeMenu->giftRibbons[i];
-        }
-    }
+    return;
 }
 
 static u32 CanTradeSelectedMon(struct Pokemon *playerParty, int partyCount, int monIdx)
@@ -3089,13 +3078,10 @@ static void TradeMons(u8 playerPartyIdx, u8 partnerPartyIdx)
     else
         playerMon = &gParties[B_TRAINER_PLAYER][playerPartyIdx];
 
-    u16 playerMail = GetMonData(playerMon, MON_DATA_MAIL);
     partnerMon = &gParties[B_TRAINER_OPPONENT_A][partnerPartyIdx];
     u16 partnerMail = GetMonData(partnerMon, MON_DATA_MAIL);
 
     // The mail attached to the sent Pokémon no longer exists in your file.
-    if (playerMail != MAIL_NONE)
-        ClearMail(&gSaveBlock1Ptr->mail[playerMail]);
 
     SWAP(*playerMon, *partnerMon, sTradeAnim->tempMon);
 

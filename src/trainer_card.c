@@ -695,67 +695,7 @@ static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
 
 static void SetPlayerCardData(struct TrainerCard *trainerCard, u8 cardType)
 {
-    u32 playTime;
-    u8 i;
-
-    trainerCard->gender = gSaveBlock2Ptr->playerGender;
-    trainerCard->playTimeHours = gSaveBlock2Ptr->playTimeHours;
-    trainerCard->playTimeMinutes = gSaveBlock2Ptr->playTimeMinutes;
-
-    playTime = GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME);
-    if (!GetGameStat(GAME_STAT_ENTERED_HOF))
-        playTime = 0;
-
-    trainerCard->hofDebutHours = playTime >> 16;
-    trainerCard->hofDebutMinutes = (playTime >> 8) & 0xFF;
-    trainerCard->hofDebutSeconds = playTime & 0xFF;
-    if ((playTime >> 16) > 999)
-    {
-        trainerCard->hofDebutHours = 999;
-        trainerCard->hofDebutMinutes = 59;
-        trainerCard->hofDebutSeconds = 59;
-    }
-
-    trainerCard->hasPokedex = FlagGet(FLAG_SYS_POKEDEX_GET);
-    trainerCard->caughtAllHoenn = HasAllRegionalMons();
-    trainerCard->caughtMonsCount = GetCaughtMonsCount();
-
-    trainerCard->trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
-
-    trainerCard->linkBattleWins = GetCappedGameStat(GAME_STAT_LINK_BATTLE_WINS, 9999);
-    trainerCard->linkBattleLosses = GetCappedGameStat(GAME_STAT_LINK_BATTLE_LOSSES, 9999);
-
-    trainerCard->pokemonTrades = GetCappedGameStat(GAME_STAT_POKEMON_TRADES, 0xFFFF);
-
-    trainerCard->money = GetMoney(&gSaveBlock1Ptr->money);
-
-    for (i = 0; i < TRAINER_CARD_PROFILE_LENGTH; i++)
-        trainerCard->easyChatProfile[i] = gSaveBlock1Ptr->easyChatProfile[i];
-
-    StringCopy(trainerCard->playerName, gSaveBlock2Ptr->playerName);
-
-    switch (cardType)
-    {
-    case CARD_TYPE_EMERALD:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-    // Seems like GF got CARD_TYPE_FRLG and CARD_TYPE_RS wrong.
-    case CARD_TYPE_FRLG:
-        trainerCard->contestsWithFriends = GetCappedGameStat(GAME_STAT_WON_LINK_CONTEST, 999);
-        trainerCard->pokeblocksWithFriends = GetCappedGameStat(GAME_STAT_POKEBLOCKS_WITH_FRIENDS, 0xFFFF);
-        if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
-            trainerCard->hasAllPaintings = TRUE;
-        trainerCard->stars = GetRubyTrainerStars(trainerCard);
-        break;
-    case CARD_TYPE_RS:
-        trainerCard->battleTowerWins = 0;
-        trainerCard->battleTowerStraightWins = 0;
-        trainerCard->contestsWithFriends = 0;
-        trainerCard->pokeblocksWithFriends = 0;
-        trainerCard->hasAllPaintings = 0;
-        trainerCard->stars = 0;
-        break;
-    }
+    return;
 }
 
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *trainerCard)
@@ -1150,16 +1090,7 @@ static void PrintTimeOnCard(void)
 
 static void PrintProfilePhraseOnCard(void)
 {
-    static const u8 yOffsetsLine1[] = {113, 104};
-    static const u8 yOffsetsLine2[] = {129, 120};
-
-    if (sData->isLink)
-    {
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 8, yOffsetsLine1[sData->isHoenn], sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->easyChatProfile[0]);
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringWidth(FONT_NORMAL, sData->easyChatProfile[0], 0) + 14, yOffsetsLine1[sData->isHoenn], sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->easyChatProfile[1]);
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, 8, yOffsetsLine2[sData->isHoenn], sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->easyChatProfile[2]);
-        AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, GetStringWidth(FONT_NORMAL, sData->easyChatProfile[2], 0) + 14, yOffsetsLine2[sData->isHoenn], sTrainerCardTextColors, TEXT_SKIP_DRAW, sData->easyChatProfile[3]);
-    }
+    return;
 }
 
 static void BufferNameForCardBack(void)
@@ -1828,16 +1759,7 @@ void ShowTrainerCardInLink(u8 cardId, void (*callback)(void))
 
 static void InitTrainerCardData(void)
 {
-    u8 i;
-
-    sData->mainState = 0;
-    sData->timeColonBlinkTimer = gSaveBlock2Ptr->playTimeVBlanks;
-    sData->timeColonInvisible = FALSE;
-    sData->onBack = FALSE;
-    sData->flipBlendY = 0;
-    sData->cardType = GetSetCardType();
-    for (i = 0; i < TRAINER_CARD_PROFILE_LENGTH; i++)
-        CopyEasyChatWord(sData->easyChatProfile[i], sData->trainerCard.easyChatProfile[i]);
+    return;
 }
 
 static u8 GetSetCardType(void)

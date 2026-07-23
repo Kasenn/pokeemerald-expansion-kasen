@@ -791,7 +791,7 @@ static void BuyMenuDrawGraphics(void)
     BuyMenuDrawMapGraphics();
     BuyMenuCopyMenuBgToBg1TilemapBuffer();
     AddMoneyLabelObject(19, 11);
-    PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, GetMoney(&gSaveBlock1Ptr->money));
+    PrintMoneyAmountInMoneyBoxWithBorder(WIN_MONEY, 1, 13, 0);
     ScheduleBgCopyTilemapToVram(0);
     ScheduleBgCopyTilemapToVram(1);
     ScheduleBgCopyTilemapToVram(2);
@@ -1042,10 +1042,6 @@ static void Task_BuyMenu(u8 taskId)
 
             if (GetItemImportance(itemId) && (CheckBagHasItem(itemId, 1) || CheckPCHasItem(itemId, 1)))
                 BuyMenuDisplayMessage(taskId, gText_ThatItemIsSoldOut, BuyMenuReturnToItemList);
-            else if (!IsEnoughMoney(&gSaveBlock1Ptr->money, sShopData->totalCost))
-            {
-                BuyMenuDisplayMessage(taskId, gText_YouDontHaveMoney, BuyMenuReturnToItemList);
-            }
             else
             {
                 if (sMartInfo.martType == MART_TYPE_NORMAL)
@@ -1107,7 +1103,7 @@ static void Task_BuyHowManyDialogueInit(u8 taskId)
     if (sShopData->totalCost == 0)
         maxQuantity = MAX_BAG_ITEM_CAPACITY;
     else
-        maxQuantity = GetMoney(&gSaveBlock1Ptr->money) / sShopData->totalCost;
+        maxQuantity = 1 / sShopData->totalCost;
 
     if (maxQuantity > MAX_BAG_ITEM_CAPACITY)
         sShopData->maxQuantity = MAX_BAG_ITEM_CAPACITY;
@@ -1196,9 +1192,7 @@ static void BuyMenuTryMakePurchase(u8 taskId)
 static void BuyMenuSubtractMoney(u8 taskId)
 {
     IncrementGameStat(GAME_STAT_SHOPPED);
-    RemoveMoney(&gSaveBlock1Ptr->money, sShopData->totalCost);
     PlaySE(SE_SHOP);
-    PrintMoneyAmountInMoneyBox(WIN_MONEY, GetMoney(&gSaveBlock1Ptr->money), 0);
 
     if (sMartInfo.martType == MART_TYPE_NORMAL)
         gTasks[taskId].func = Task_ReturnToItemListAfterItemPurchase;

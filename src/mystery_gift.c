@@ -419,48 +419,7 @@ bool32 MysteryGift_TrySaveStamp(const u16 *stamp)
 
 void MysteryGift_LoadLinkGameData(struct MysteryGiftLinkGameData *data, bool32 isWonderNews)
 {
-#if FREE_MYSTERY_GIFT == FALSE
-    int i;
-    CpuFill32(0, data, sizeof(*data));
-    data->validationVar = GAME_DATA_VALID_VAR;
-    data->validationFlag1 = 1;
-    data->validationFlag2 = 1;
-
-    if (isWonderNews)
-    {
-        // Despite setting these for News, they are
-        // only ever checked for Cards
-        data->validationGiftType1 = GAME_DATA_VALID_GIFT_TYPE_1 | 1;
-        data->validationGiftType2 = GAME_DATA_VALID_GIFT_TYPE_2 | 1;
-    }
-    else // Wonder Card
-    {
-        data->validationGiftType1 = GAME_DATA_VALID_GIFT_TYPE_1;
-        data->validationGiftType2 = GAME_DATA_VALID_GIFT_TYPE_2;
-    }
-
-    if (ValidateSavedWonderCard())
-    {
-        data->flagId = GetSavedWonderCard()->flagId;
-        data->cardMetadata = *GetSavedWonderCardMetadata();
-        data->maxStamps = GetSavedWonderCard()->maxStamps;
-    }
-    else
-    {
-        data->flagId = 0;
-    }
-
-    for (i = 0; i < NUM_QUESTIONNAIRE_WORDS; i++)
-        data->questionnaireWords[i] = gSaveBlock1Ptr->mysteryGift.questionnaireWords[i];
-
-    CopyTrainerId(data->playerTrainerId, gSaveBlock2Ptr->playerTrainerId);
-    StringCopy(data->playerName, gSaveBlock2Ptr->playerName);
-    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-        data->easyChatProfile[i] = gSaveBlock1Ptr->easyChatProfile[i];
-
-    memcpy(data->romHeaderGameCode, RomHeaderGameCode, GAME_CODE_LENGTH);
-    data->romHeaderSoftwareVersion = RomHeaderSoftwareVersion;
-#endif //FREE_MYSTERY_GIFT
+    return;
 }
 
 bool32 MysteryGift_ValidateLinkGameData(const struct MysteryGiftLinkGameData *data, bool32 isWonderNews)

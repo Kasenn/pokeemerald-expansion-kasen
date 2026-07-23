@@ -3699,16 +3699,10 @@ static void Task_WriteMailToGiveMonAfterText(u8 taskId)
 
 static void CB2_WriteMailToGiveMon(void)
 {
-    u8 mail = GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAIL);
-
-    DoEasyChatScreen(
-        EASY_CHAT_TYPE_MAIL,
-        gSaveBlock1Ptr->mail[mail].words,
-        CB2_ReturnToPartyMenuFromWritingMail,
-        EASY_CHAT_PERSON_DISPLAY_NONE);
+    return;
 }
 
-static void CB2_ReturnToPartyMenuFromWritingMail(void)
+static void UNUSED CB2_ReturnToPartyMenuFromWritingMail(void)
 {
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum Item item = GetMonData(mon, MON_DATA_HELD_ITEM);
@@ -3877,10 +3871,10 @@ static void CursorCb_Read(u8 taskId)
 
 static void CB2_ReadHeldMail(void)
 {
-    ReadMail(&gSaveBlock1Ptr->mail[GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAIL)], CB2_ReturnToPartyMenuFromReadingMail, TRUE);
+    return;
 }
 
-static void CB2_ReturnToPartyMenuFromReadingMail(void)
+static void UNUSED CB2_ReturnToPartyMenuFromReadingMail(void)
 {
     gPaletteFade.bufferTransferDisabled = TRUE;
     InitPartyMenu(gPartyMenu.menuType, KEEP_PARTY_LAYOUT, gPartyMenu.action, TRUE, PARTY_MSG_DO_WHAT_WITH_MON, Task_TryCreateSelectionWindow, gPartyMenu.exitCallback);
@@ -7272,18 +7266,10 @@ static void Task_UpdateHeldItemSpriteAndClosePartyMenu(u8 taskId)
 
 static void CB2_WriteMailToGiveMonFromBag(void)
 {
-    u8 mail;
-
-    GiveItemToMon(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], gPartyMenu.bagItem);
-    mail = GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAIL);
-    DoEasyChatScreen(
-        EASY_CHAT_TYPE_MAIL,
-        gSaveBlock1Ptr->mail[mail].words,
-        CB2_ReturnToPartyOrBagMenuFromWritingMail,
-        EASY_CHAT_PERSON_DISPLAY_NONE);
+    return;
 }
 
-static void CB2_ReturnToPartyOrBagMenuFromWritingMail(void)
+static void UNUSED CB2_ReturnToPartyOrBagMenuFromWritingMail(void)
 {
     struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
     enum Item item = GetMonData(mon, MON_DATA_HELD_ITEM);
@@ -7386,23 +7372,7 @@ void ChooseMonToGiveMailFromMailbox(void)
 
 static void TryGiveMailToSelectedMon(u8 taskId)
 {
-    struct Pokemon *mon = &gParties[B_TRAINER_PLAYER][gPartyMenu.slotId];
-    struct Mail *mail;
-
-    gPartyMenuUseExitCallback = FALSE;
-    mail = &gSaveBlock1Ptr->mail[gPlayerPCItemPageInfo.itemsAbove + PARTY_SIZE + gPlayerPCItemPageInfo.cursorPos];
-    if (GetMonData(mon, MON_DATA_HELD_ITEM) != ITEM_NONE)
-    {
-        DisplayPartyMenuMessage(gText_PkmnHoldingItemCantHoldMail, TRUE);
-    }
-    else
-    {
-        GiveMailToMon(mon, mail);
-        ClearMail(mail);
-        DisplayPartyMenuMessage(gText_MailTransferredFromMailbox, TRUE);
-    }
-    ScheduleBgCopyTilemapToVram(2);
-    gTasks[taskId].func = Task_UpdateHeldItemSpriteAndClosePartyMenu;
+    return;
 }
 
 void InitChooseHalfPartyForBattle(u8 unused)

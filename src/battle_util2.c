@@ -60,12 +60,6 @@ void AllocateBattleResources(void)
     gLinkBattleRecvBuffer = AllocZeroed(BATTLE_BUFFER_LINK_SIZE);
 
     AllocateBattleGfxResources();
-
-    if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
-    {
-        u16 currSecretBaseId = VarGet(VAR_CURRENT_SECRET_BASE);
-        CreateSecretBaseEnemyParty(&gSaveBlock1Ptr->secretBases[currSecretBaseId]);
-    }
 }
 
 void FreeBattleResources(void)

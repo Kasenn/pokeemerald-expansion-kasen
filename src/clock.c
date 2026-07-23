@@ -40,7 +40,7 @@ void DoTimeBasedEvents(void)
 
 void UpdateDailySeed(void)
 {
-    gSaveBlock1Ptr->dailySeed = Random32();
+    return;
 }
 
 static void UpdatePerDay(struct Time *localTime)

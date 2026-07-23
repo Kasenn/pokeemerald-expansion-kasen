@@ -34,8 +34,6 @@ struct GFRomHeader
     u32 flagsOffset;
     u32 varsOffset;
     u32 pokedexOffset;
-    u32 seen1Offset;
-    u32 seen2Offset;
     u32 pokedexVar;
     u32 pokedexFlag;
     u32 mysteryEventFlag;
@@ -67,8 +65,6 @@ struct GFRomHeader
     u32 playerGenderOffset;
     u32 frontierStatusOffset;
     u32 frontierStatusOffset2;
-    u32 externalEventFlagsOffset;
-    u32 externalEventDataOffset;
     u32 unk18;
     const struct SpeciesInfo *speciesInfo;
     const u8 (*abilityNames)[];
@@ -86,8 +82,6 @@ struct GFRomHeader
     u8 bagCountTMHMs;
     u8 bagCountBerries;
     u8 pcItemsCount;
-    u32 pcItemsOffset;
-    u32 giftRibbonsOffset;
     u32 enigmaBerryOffset;
     u32 enigmaBerrySize;
     const u8 *moveDescriptions;
@@ -113,8 +107,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .flagsOffset = offsetof(struct SaveBlock1, flags),
     .varsOffset = offsetof(struct SaveBlock1, vars),
     .pokedexOffset = offsetof(struct SaveBlock2, pokedex),
-    .seen1Offset = offsetof(struct SaveBlock1, dexSeen),
-    .seen2Offset = offsetof(struct SaveBlock1, dexSeen), // dex flags are combined, just provide the same pointer
     .pokedexVar = VAR_NATIONAL_DEX - VARS_START,
     .pokedexFlag = FLAG_RECEIVED_POKEDEX_FROM_BIRCH,
     .mysteryEventFlag = FLAG_SYS_MYSTERY_EVENT_ENABLE,
@@ -147,8 +139,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .playerGenderOffset = offsetof(struct SaveBlock2, playerGender),
     .frontierStatusOffset = offsetof(struct SaveBlock2, frontier.challengeStatus),
     .frontierStatusOffset2 = offsetof(struct SaveBlock2, frontier.challengeStatus),
-    .externalEventFlagsOffset = offsetof(struct SaveBlock1, externalEventFlags),
-    .externalEventDataOffset = offsetof(struct SaveBlock1, externalEventData),
     .unk18 = 0x00000000,
     .speciesInfo = gSpeciesInfo,
     //.abilityNames = gAbilityNames, //handled in gAbilitiesInfo
@@ -166,8 +156,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .bagCountTMHMs = BAG_TMHM_COUNT,
     .bagCountBerries = BAG_BERRIES_COUNT,
     .pcItemsCount = PC_ITEMS_COUNT,
-    .pcItemsOffset = offsetof(struct SaveBlock1, pcItems),
-    .giftRibbonsOffset = offsetof(struct SaveBlock1, giftRibbons),
 #if FREE_ENIGMA_BERRY == FALSE
     .enigmaBerryOffset = offsetof(struct SaveBlock1, enigmaBerry),
     .enigmaBerrySize = sizeof(struct EnigmaBerry),

@@ -955,15 +955,6 @@ static bool32 StartWildBattleWithOWE_CheckBattleFrontier(u32 headerId)
 
 static bool32 StartWildBattleWithOWE_CheckMassOutbreak(enum CategoryOWE category, enum Species speciesId)
 {
-    if (category == OWE_CATEGORY_MASS_OUTBREAK
-     && gSaveBlock1Ptr->outbreakPokemonSpecies == speciesId)
-    {
-        ZeroEnemyPartyMons();
-        SetUpMassOutbreakEncounter(0);
-        BattleSetup_StartWildBattle();
-        return TRUE;
-    }
-
     return FALSE;
 }
 
