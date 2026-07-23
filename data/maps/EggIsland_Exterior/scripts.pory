@@ -1,5 +1,6 @@
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
+const VAR_MACHOP_INTRO = VAR_TEMP_2
 
 mapscripts EggIsland_Exterior_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
@@ -46,41 +47,71 @@ script IntroSequence{
 	setvar(VAR_0x8006, 8)
 	setvar(VAR_0x8007, 5)
 	special(ShakeCamera)
-    delay(60)
+    delay(10)
+    setflag(FLAG_FIRST_ANIM_OVER)
+    waitmovement(8)
     playse(SE_M_MINIMIZE)
     applymovement(8, moves(walk_down_affine, delay_16 * 5))
-    waitmovement(0)
+    setflag(FLAG_SECOND_ANIM_OVER)
+    waitmovement(8)
     removeobject(8)
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 12, walk_diag_southwest * 8))
-    delay(160)
-    fadescreenspeed(FADE_TO_BLACK, 4)
+    delay(30)
+    applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_down * 12))
+    delay(90)
+    fadescreenspeed(FADE_TO_BLACK, 2)
     waitmovement(0)
-    applymovement(OBJ_EVENT_ID_PLAYER, moves(player_run_left * 9, player_run_down * 34))
-    waitmovement(0)
+    setobjectxy(LOCALID_PLAYER, 17, 74)
+    teleportcamera(17, 74)
+    turnobject(LOCALID_PLAYER, DIR_SOUTH)
+    // applymovement(OBJ_EVENT_ID_PLAYER, moves(player_run_left * 9, player_run_down * 34))
+    // waitmovement(0)
     hideobjectat(10, MAP_EGG_ISLAND_EXTERIOR)
     special(SpawnCameraObject)
     applymovement(OBJ_EVENT_ID_CAMERA, moves(player_run_down * 3))
     waitmovement(0)
-    fadescreenspeed(FADE_FROM_BLACK, 4)
+    clearflag(FLAG_FIRST_ANIM_OVER)
+    clearflag(FLAG_SECOND_ANIM_OVER)
+    fadescreenspeed(FADE_FROM_BLACK, 2)
 
     playse(SE_M_TELEPORT)
+    setmetatile(17, 74, 0x317, FALSE)
+    setmetatile(17, 75, 0x317, FALSE)
+    setmetatile(17, 76, 0x317, FALSE)
+    setmetatile(17, 77, 0x317, FALSE)
     applymovement(10, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
-    waitmovement(10)
+    // waitmovement(10)
+    clearflag(FLAG_DISABLE_GROUND_EFFECTS)
+
+    delay(160)
     showplayer
-    applymovement(OBJ_EVENT_ID_PLAYER, (moves(lock_anim, lock_facing_direction, player_run_down * 3, unlock_anim, unlock_facing_direction)))
+    applymovement(OBJ_EVENT_ID_PLAYER, (moves(lock_anim, lock_facing_direction, walk_faster_down * 3, unlock_anim, unlock_facing_direction)))
+    
     waitmovement(0)
     setvar(VAR_0x8004, 1)
 	setvar(VAR_0x8005, 2)
 	setvar(VAR_0x8006, 8)
 	setvar(VAR_0x8007, 5)
 	special(ShakeCamera)
-    delay(60)
+    delay(10)
+    setflag(FLAG_FIRST_ANIM_OVER)
+    waitmovement(10)
     playse(SE_M_MINIMIZE)
     applymovement(10, moves(walk_down_affine, delay_16 * 5))
-    waitmovement(0)
+    setflag(FLAG_SECOND_ANIM_OVER)
+    setmetatile(17, 74, 0x311, FALSE)
+    setmetatile(17, 75, 0x311, FALSE)
+    setmetatile(17, 76, 0x311, FALSE)
+    setmetatile(17, 77, 0x311, FALSE)
+    waitmovement(10)
     removeobject(10)
+    delay(30)
     special(RemoveCameraObject)
     setvar(VAR_STORY, 2)
+    clearflag(FLAG_FIRST_ANIM_OVER)
+    clearflag(FLAG_SECOND_ANIM_OVER)
+    playbgm(MUS_YOSHI1, TRUE)
+    release
+    releaseall
 }
 
 script SetUpAreaOne{
@@ -214,12 +245,142 @@ text TooManyEggs{
 }
 
 script DebugScript1{
-    delay(30)
-    playse(SE_M_TELEPORT)
-    applymovement(8, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
+    getplayerxy(VAR_X, VAR_Y)
+    addvar(VAR_X, 1)
+    addvar(VAR_Y, 1)
+    setobjectxy(LOCALID_PLAYER, VAR_X, VAR_Y)
+}
+
+script MachopIntro1{
+    setvar(VAR_MACHOP_INTRO, 1)
+    goto(MachopIntroMain)
+}
+
+script MachopIntro2{
+    setvar(VAR_MACHOP_INTRO, 2)
+    goto(MachopIntroMain)
+}
+
+script MachopIntro3{
+    setvar(VAR_MACHOP_INTRO, 3)
+    goto(MachopIntroMain)
+}
+
+script MachopIntro4{
+    setvar(VAR_MACHOP_INTRO, 4)
+    goto(MachopIntroMain)
+}
+
+script MachopIntroMain{
+    playbgm(MUS_HELP, TRUE)
+    setspeaker("Burly Man")
+    msgbox("You there!\nYou've come at the perfect time!\pCome help me deal with\nthis scoundrel!", MSGBOX_AUTOCLOSE)
+    delay(10)
+    if(var(VAR_MACHOP_INTRO) == 1)
+    {
+        turnobject(LOCALID_INTRO_MURKROW, DIR_WEST)
+    }
+    else
+    {
+        turnobject(LOCALID_INTRO_MURKROW, DIR_EAST)
+    }
+    playse(SE_PIN)
+    applymovement(LOCALID_INTRO_MURKROW, Common_Movement_ExclamationMark)
     waitmovement(0)
-    playse(SE_M_MINIMIZE)
-    applymovement(8, moves(walk_down_affine, delay_16 * 5))
-    waitmovement(0)
-    removeobject(8)
+    setspeaker("Dark Bird")
+    msgbox("Reinforcements!?\nI'm out of here!", MSGBOX_AUTOCLOSE)
+    switch(var(VAR_MACHOP_INTRO)){
+        case 1:
+            applymovement(LOCALID_INTRO_MURKROW, moves(walk_fast_right * 2, walk_fast_down, walk_fast_right * 5))
+            delay(16)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+        case 2:
+            applymovement(LOCALID_INTRO_MURKROW, moves(walk_fast_right * 13))
+            delay(24)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
+            delay(8)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+        case 3:
+            applymovement(LOCALID_INTRO_MURKROW, moves(walk_fast_right * 13))
+            delay(32)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
+            delay(8)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+        case 4:
+            applymovement(LOCALID_INTRO_MURKROW, moves(walk_fast_right * 2, walk_fast_down, walk_fast_right * 13))
+            delay(48)
+            turnobject(LOCALID_PLAYER, DIR_SOUTH)
+            delay(8)
+            turnobject(LOCALID_PLAYER, DIR_EAST)
+    }
+    waitmovement(LOCALID_INTRO_MURKROW)
+    fadedefaultbgm
+    removeobject(LOCALID_INTRO_MURKROW)
+    setobjectmovementtype(LOCALID_MACHOP1, MOVEMENT_TYPE_LOOK_AROUND)
+    setvar(VAR_STORY, 3)
+}
+
+script MachopScript1{
+    faceplayer
+    setspeaker("Burly Man")
+    msgbox(MachopScript1_Text1)
+    setspeaker("Macho")
+    msgbox(MachopScript1_Text2, MSGBOX_AUTOCLOSE)
+    if(var(VAR_FACING) == DIR_WEST){
+        applymovement(LOCALID_MACHOP1, moves(walk_down, walk_right * 2, walk_down, walk_right * 8))
+    }
+    else{
+        applymovement(LOCALID_MACHOP1, moves(walk_right * 2, walk_down * 2, walk_right * 6))
+    }
+    waitmovement(LOCALID_MACHOP1)
+    removeobject(LOCALID_MACHOP1)
+    msgbox(MachopScript1_Text3)
+    clearflag(FLAG_DISABLE_ENCOUNTERS)
+    release
+}
+
+text MachopScript1_Text1{
+    "Thank you stranger.\n"
+    "I'm not sure I could've beaten\l"
+    "that Murkrow without your\l"
+    "intervention.\p"
+    "I must say, they've been\n"
+    "getting rowdy as of late…"
+}
+text MachopScript1_Text2{
+    "I am Macho the Machop.\n"
+    "And you are… Yoshi?\p"
+    "Hm, can't say I've met one\n"
+    "like yourself before.\l"
+    "And you say you're looking\l"
+    "for something called a Kamek?\l"
+    "Yet another weird name I've not\l"
+    "heard of.\p"
+    "Anyway Yoshi, If you want to\n"
+    "survive here, you need to\l"
+    "be able to defend yourself.\p"
+    "Your form doesn't really strike\n"
+    "me as someone physical…\p"
+    "I know! This island is known as\n"
+    "the “Egg Island” due to the\l"
+    "overabundance of eggs\l"
+    "everywhere.\p"
+    "Why don't you try grabbing\n"
+    "some of those eggs and\l"
+    "chucking them at your foes?\p"
+    "Once you've grabbed a few eggs,\n"
+    "see if you can get across that\l"
+    "river to the east."
+}
+text MachopScript1_Text3{
+    "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi can now collect eggs\n"
+    "to help it on its journey!\p"
+    "Look for eggs in the tall grass,\n"
+    "deep sand, or rocky patches.\l"
+    "Some eggs are going to\l"
+    "hurt more than others,\l"
+    "and some may have special\l"
+    "attributes when thrown.\p"
+    "But beware, as these areas are\n"
+    "also inhabited by Pokémon!"
 }

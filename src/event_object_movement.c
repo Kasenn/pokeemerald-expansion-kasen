@@ -8915,14 +8915,15 @@ bool8 MovementAction_WalkDownStartAffine_Step0(struct ObjectEvent *objectEvent, 
     // InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
     sprite->affineAnimPaused = FALSE;
     StartSpriteAffineAnimIfDifferent(sprite, 0);
-    return TRUE;
+    return MovementAction_WalkDownStartAffine_Step1(objectEvent, sprite);
 }
 
 bool8 MovementAction_WalkDownStartAffine_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (UpdateWalkSlow(objectEvent, sprite))
+    // return TRUE;
+    if (FlagGet(FLAG_FIRST_ANIM_OVER))
     {
-        sprite->affineAnimPaused = TRUE;
+        sprite->affineAnimPaused = FALSE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }
@@ -8934,14 +8935,14 @@ bool8 MovementAction_WalkDownAffine_Step0(struct ObjectEvent *objectEvent, struc
     // InitWalkSlow(objectEvent, sprite, DIR_SOUTH);
     sprite->affineAnimPaused = FALSE;
     ChangeSpriteAffineAnimIfDifferent(sprite, 1);
-    return TRUE;
+    return MovementAction_WalkDownAffine_Step1(objectEvent, sprite);
 }
 
 bool8 MovementAction_WalkDownAffine_Step1(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    if (UpdateWalkSlow(objectEvent, sprite))
+    if (FlagGet(FLAG_SECOND_ANIM_OVER))
     {
-        sprite->affineAnimPaused = TRUE;
+        sprite->affineAnimPaused = FALSE;
         sprite->sActionFuncId = 2;
         return TRUE;
     }

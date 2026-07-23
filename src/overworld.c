@@ -1220,6 +1220,8 @@ static bool16 IsInfiltratedSpaceCenter(struct WarpData *warp)
 
 u16 GetLocationMusic(struct WarpData *warp)
 {
+    if (VarGet(VAR_STORY) == 1 && warp->mapNum == MAP_NUM(MAP_EGG_ISLAND_EXTERIOR))
+        return MUS_NONE;
     if (NoMusicInSootopolisWithLegendaries(warp) == TRUE)
         return MUS_NONE;
     else if (ShouldLegendaryMusicPlayAtLocation(warp) == TRUE)

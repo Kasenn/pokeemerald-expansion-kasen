@@ -2961,3 +2961,9 @@
 	.macro waitgameoverbutton
 	.byte SCR_OP_WAITGAMEOVER
 	.endm
+
+	.macro teleportcamera x:req, y:req
+	callnative ScrCmd_teleportcamera
+	.2byte \x
+	.2byte \y
+	.endm

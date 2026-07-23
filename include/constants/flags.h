@@ -70,10 +70,10 @@
 #define FLAG_HIDE_KAMEK    0x30 // Unused Flag
 #define FLAG_HIDE_HONCHKROW    0x31 // Unused Flag
 #define FLAG_HIDE_PORTAL2    0x32 // Unused Flag
-#define FLAG_UNUSED_0x033    0x33 // Unused Flag
-#define FLAG_UNUSED_0x034    0x34 // Unused Flag
-#define FLAG_UNUSED_0x035    0x35 // Unused Flag
-#define FLAG_UNUSED_0x036    0x36 // Unused Flag
+#define FLAG_FIRST_ANIM_OVER    0x33 // Unused Flag
+#define FLAG_SECOND_ANIM_OVER    0x34 // Unused Flag
+#define FLAG_INTRO_MURKROW    0x35 // Unused Flag
+#define FLAG_INTRO_MACHOP    0x36 // Unused Flag
 #define FLAG_UNUSED_0x037    0x37 // Unused Flag
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag

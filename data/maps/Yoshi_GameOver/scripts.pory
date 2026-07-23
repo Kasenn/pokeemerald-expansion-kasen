@@ -24,7 +24,14 @@ script GameOverScreen{
     addobject(3)
     addobject(4)
     addobject(5)
-    delay(404)
+    delay(202)
+    callnative(CheckIfSaveExists)
+    if(flag(FLAG_TEMP_10)){
+        waitbuttonpress
+        callnative(DoSoftReset)
+        end
+    }
+    delay(202)
     applymovement(OBJ_EVENT_ID_PLAYER, moves(walk_slow_down * 2))
     delay(45)
     waitmovement(0)

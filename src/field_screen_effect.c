@@ -98,7 +98,13 @@ void WarpFadeInScreen(void)
     {
     case 0:
         FillPalBufferBlack();
-        FadeScreen(FADE_FROM_BLACK, 0);
+        u8 delay = 0;
+        if (VarGet(VAR_FADEOUT_SPEED) != 0)
+        {
+            delay = VarGet(VAR_FADEOUT_SPEED);
+            VarSet(VAR_FADEOUT_SPEED, delay);
+        }
+        FadeScreen(FADE_FROM_BLACK, delay);
         break;
     case 1:
         FillPalBufferWhite();

@@ -125,7 +125,7 @@
 #define VAR_ROCKPLATE_8                               0x4067
 #define VAR_ROCKPLATE_9                               0x4068
 #define VAR_STORY                               0x4069
-#define VAR_ROUTE111_STATE                               0x406A // Unused Var
+#define VAR_FADEOUT_SPEED                               0x406A // Unused Var
 #define VAR_ROUTE112_STATE                               0x406B // Unused Var
 #define VAR_ROUTE113_STATE                               0x406C // Unused Var
 #define VAR_ROUTE114_STATE                               0x406D // Unused Var

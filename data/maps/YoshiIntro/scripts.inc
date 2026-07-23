@@ -113,8 +113,10 @@ YoshiIntroScript::
 # 59 "data/maps/YoshiIntro/scripts.pory"
 	delay 60
 # 60 "data/maps/YoshiIntro/scripts.pory"
-	warpsilent MAP_EGG_ISLAND_EXTERIOR, 0
+	setvar VAR_FADEOUT_SPEED, 6
 # 61 "data/maps/YoshiIntro/scripts.pory"
+	warpsilent MAP_EGG_ISLAND_EXTERIOR, 0
+# 62 "data/maps/YoshiIntro/scripts.pory"
 	waitstate
 	return
 
@@ -194,7 +196,7 @@ YoshiIntroScript_Text_1:
 	.string "Egads! Something's wrong\nwith the spell!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p$"
 
 YoshiIntroText::
-# 64 "data/maps/YoshiIntro/scripts.pory"
+# 65 "data/maps/YoshiIntro/scripts.pory"
 	.string "There you are, Yoshi!\n"
 	.string "I've been looking for you!\p"
 	.string "Too long you have been a thorn\n"

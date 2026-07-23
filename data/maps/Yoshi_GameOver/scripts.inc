@@ -53,64 +53,77 @@ GameOverScreen::
 # 26 "data/maps/Yoshi_GameOver/scripts.pory"
 	addobject 5
 # 27 "data/maps/Yoshi_GameOver/scripts.pory"
-	delay 404
+	delay 202
 # 28 "data/maps/Yoshi_GameOver/scripts.pory"
-	applymovement OBJ_EVENT_ID_PLAYER, GameOverScreen_Movement_0
+	callnative CheckIfSaveExists
 # 29 "data/maps/Yoshi_GameOver/scripts.pory"
+	goto_if_set FLAG_TEMP_10, GameOverScreen_2
+# 34 "data/maps/Yoshi_GameOver/scripts.pory"
+	delay 202
+# 35 "data/maps/Yoshi_GameOver/scripts.pory"
+	applymovement OBJ_EVENT_ID_PLAYER, GameOverScreen_Movement_0
+# 36 "data/maps/Yoshi_GameOver/scripts.pory"
 	delay 45
-# 30 "data/maps/Yoshi_GameOver/scripts.pory"
-	waitmovement 0
-GameOverScreen_2:
-# 31 "data/maps/Yoshi_GameOver/scripts.pory"
-	compare VAR_TEMP_1, 16
-	goto_if_lt GameOverScreen_3
 # 37 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative ResetPalSteps
+	waitmovement 0
+GameOverScreen_5:
 # 38 "data/maps/Yoshi_GameOver/scripts.pory"
-	delay 16
-# 39 "data/maps/Yoshi_GameOver/scripts.pory"
-	waitgameoverbutton
-# 40 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative StopGameOverMusic
-# 41 "data/maps/Yoshi_GameOver/scripts.pory"
-	fadescreen FADE_TO_BLACK
-# 42 "data/maps/Yoshi_GameOver/scripts.pory"
-	delay 60
-# 43 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative StopMusicCompletely
+	compare VAR_TEMP_1, 16
+	goto_if_lt GameOverScreen_6
 # 44 "data/maps/Yoshi_GameOver/scripts.pory"
-	goto_if_unset FLAG_GAMEOVER_QUIT, GameOverScreen_5
+	callnative ResetPalSteps
+# 45 "data/maps/Yoshi_GameOver/scripts.pory"
+	delay 16
+# 46 "data/maps/Yoshi_GameOver/scripts.pory"
+	waitgameoverbutton
+# 47 "data/maps/Yoshi_GameOver/scripts.pory"
+	callnative StopGameOverMusic
 # 48 "data/maps/Yoshi_GameOver/scripts.pory"
+	fadescreen FADE_TO_BLACK
+# 49 "data/maps/Yoshi_GameOver/scripts.pory"
+	delay 60
+# 50 "data/maps/Yoshi_GameOver/scripts.pory"
+	callnative StopMusicCompletely
+# 51 "data/maps/Yoshi_GameOver/scripts.pory"
+	goto_if_unset FLAG_GAMEOVER_QUIT, GameOverScreen_8
+# 55 "data/maps/Yoshi_GameOver/scripts.pory"
 	callnative DoSoftReset
 	return
 
-GameOverScreen_3:
-# 33 "data/maps/Yoshi_GameOver/scripts.pory"
-	addvar VAR_TEMP_1, 1
-# 34 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative LoadTextColor1
-# 35 "data/maps/Yoshi_GameOver/scripts.pory"
-	delay 2
-	goto GameOverScreen_2
+GameOverScreen_2:
+# 30 "data/maps/Yoshi_GameOver/scripts.pory"
+	waitbuttonpress
+# 31 "data/maps/Yoshi_GameOver/scripts.pory"
+	callnative DoSoftReset
+	end
 
-GameOverScreen_5:
-# 45 "data/maps/Yoshi_GameOver/scripts.pory"
+GameOverScreen_6:
+# 40 "data/maps/Yoshi_GameOver/scripts.pory"
+	addvar VAR_TEMP_1, 1
+# 41 "data/maps/Yoshi_GameOver/scripts.pory"
+	callnative LoadTextColor1
+# 42 "data/maps/Yoshi_GameOver/scripts.pory"
+	delay 2
+	goto GameOverScreen_5
+
+GameOverScreen_8:
+# 52 "data/maps/Yoshi_GameOver/scripts.pory"
 	callnative ReloadSave
 	return
 
 
 WarpToGameOverScreen::
-# 53 "data/maps/Yoshi_GameOver/scripts.pory"
+# 60 "data/maps/Yoshi_GameOver/scripts.pory"
 	warpsilent MAP_YOSHI_GAME_OVER, 0
-# 54 "data/maps/Yoshi_GameOver/scripts.pory"
+# 61 "data/maps/Yoshi_GameOver/scripts.pory"
 	waitstate
 	return
 
 
-# 28 "data/maps/Yoshi_GameOver/scripts.pory"
+# 35 "data/maps/Yoshi_GameOver/scripts.pory"
 GameOverScreen_Movement_0:
-# 28 "data/maps/Yoshi_GameOver/scripts.pory"
+# 35 "data/maps/Yoshi_GameOver/scripts.pory"
 	walk_slow_down
-# 28 "data/maps/Yoshi_GameOver/scripts.pory"
+# 35 "data/maps/Yoshi_GameOver/scripts.pory"
 	walk_slow_down
 	step_end

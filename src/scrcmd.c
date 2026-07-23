@@ -69,6 +69,8 @@
 #include "constants/rgb.h"
 #include "constants/songs.h"
 #include "m4a.h"
+#include "field_camera.h"
+#include "save.h"
 
 typedef u16 (*SpecialFunc)(void);
 typedef void (*NativeFunc)(struct ScriptContext *ctx);
@@ -4016,4 +4018,21 @@ void StopGameOverMusic(void)
 void StopMusicCompletely(void)
 {
     m4aSongNumStop(MUS_CREDITS);
+}
+
+bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
+{
+    s16 x = VarGet(ScriptReadHalfword(ctx));
+    s16 y = VarGet(ScriptReadHalfword(ctx));
+
+    MoveCameraAndRedrawMap(x, y);
+    return FALSE;
+}
+
+void CheckIfSaveExists(void)
+{
+    if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
+        FlagSet(FLAG_TEMP_10);
+    else
+        FlagClear(FLAG_TEMP_10);
 }
