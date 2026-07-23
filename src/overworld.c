@@ -1906,17 +1906,11 @@ void CB2_NewGame(void)
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();
-    DebugPrintf("do we get here? 1");
     NewGameInitData();
-    DebugPrintf("do we get here? 2");
     ResetInitialPlayerAvatarState();
-    DebugPrintf("do we get here? 3");
     PlayTimeCounter_Start();
-    DebugPrintf("do we get here? 4");
     ScriptContext_Init();
-    DebugPrintf("do we get here? 5");
     UnlockPlayerFieldControls();
-    DebugPrintf("do we get here? 6");
     // if (IS_FRLG)
         gFieldCallback = FieldCB_WarpExitFadeFromBlack;
     // else

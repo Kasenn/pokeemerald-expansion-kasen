@@ -152,9 +152,6 @@ static void WaitForDeoxysRockMovement(u8);
 static void Task_LinkRetireStatusWithBattleTowerPartner(u8);
 static void Task_LoopWingFlapSE(u8);
 static void Task_CloseBattlePikeCurtain(u8);
-static u8 DidPlayerGetFirstFans(void);
-static void SetInitialFansOfPlayer(void);
-static u16 PlayerGainRandomTrainerFan(void);
 static void CB2_ReturnToFieldWhileLearningMove(void);
 static void Task_ReturnToFieldWhileLearningMove(u8);
 #if FREE_LINK_BATTLE_RECORDS == FALSE
@@ -3913,47 +3910,16 @@ bool8 InPokemonCenter(void)
       2: Player has met their initial fans
 */
 
-#define FANCLUB_BITFIELD (gSaveBlock1Ptr->vars[VAR_FANCLUB_FAN_COUNTER - VARS_START])
-#define FANCLUB_COUNTER    0x007F
-
-#define GET_TRAINER_FAN_CLUB_FLAG(flag)  (FANCLUB_BITFIELD >> (flag) & 1)
-#define SET_TRAINER_FAN_CLUB_FLAG(flag)  (FANCLUB_BITFIELD |= 1 << (flag))
-#define FLIP_TRAINER_FAN_CLUB_FLAG(flag) (FANCLUB_BITFIELD ^= 1 << (flag))
-
-#define GET_TRAINER_FAN_CLUB_COUNTER         (FANCLUB_BITFIELD & FANCLUB_COUNTER)
-#define SET_TRAINER_FAN_CLUB_COUNTER(count)  (FANCLUB_BITFIELD = (FANCLUB_BITFIELD & ~FANCLUB_COUNTER) | (count))
-#define INCR_TRAINER_FAN_CLUB_COUNTER(count) (FANCLUB_BITFIELD += (count))
-#define CLEAR_TRAINER_FAN_CLUB_COUNTER       (FANCLUB_BITFIELD &= ~FANCLUB_COUNTER)
-
 void ResetFanClub(void)
 {
-    gSaveBlock1Ptr->vars[VAR_FANCLUB_FAN_COUNTER - VARS_START] = 0;
-    gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = 0;
 }
 
 void TryLoseFansFromPlayTimeAfterLinkBattle(void)
 {
-    if (DidPlayerGetFirstFans())
-    {
-        TryLoseFansFromPlayTime();
-        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock1Ptr->playTimeHours;
-    }
 }
 
 void UpdateTrainerFanClubGameClear(void)
 {
-    if (!GET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS))
-    {
-        SetPlayerGotFirstFans();
-        SetInitialFansOfPlayer();
-        gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock1Ptr->playTimeHours;
-        FlagClear(FLAG_HIDE_FANCLUB_OLD_LADY);
-        FlagClear(FLAG_HIDE_FANCLUB_BOY);
-        FlagClear(FLAG_HIDE_FANCLUB_LITTLE_BOY);
-        FlagClear(FLAG_HIDE_FANCLUB_LADY);
-        FlagClear(FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER);
-        VarSet(VAR_LILYCOVE_FAN_CLUB_STATE, 1);
-    }
 }
 
 // If the player has < 3 fans, gain a new fan whenever the counter reaches 20+
@@ -3961,209 +3927,26 @@ void UpdateTrainerFanClubGameClear(void)
 // Participating at Battle Tower or in a Secret Base battle increments the counter by 1
 u8 TryGainNewFanFromCounter(u8 incrementId)
 {
-    static const u8 sCounterIncrements[] =
-    {
-        [FANCOUNTER_DEFEATED_DRAKE]    = 2,
-        [FANCOUNTER_BATTLED_AT_BASE]   = 1,
-        [FANCOUNTER_FINISHED_CONTEST]  = 2,
-        [FANCOUNTER_USED_BATTLE_TOWER] = 1
-    };
-
-    if (VarGet(VAR_LILYCOVE_FAN_CLUB_STATE) == 2)
-    {
-        if (GET_TRAINER_FAN_CLUB_COUNTER + sCounterIncrements[incrementId] > 19)
-        {
-            if (GetNumFansOfPlayerInTrainerFanClub() < 3)
-            {
-                PlayerGainRandomTrainerFan();
-                CLEAR_TRAINER_FAN_CLUB_COUNTER;
-            }
-            else
-            {
-                SET_TRAINER_FAN_CLUB_COUNTER(20);
-            }
-        }
-        else
-        {
-            INCR_TRAINER_FAN_CLUB_COUNTER(sCounterIncrements[incrementId]);
-        }
-    }
-
-    return GET_TRAINER_FAN_CLUB_COUNTER;
-}
-
-
-// Loop through the fan club members, and if theyre not a fan of the player there is a 50% chance for them to become a fan
-// Stops when a fan is gained
-// If no new fan was gained while looping, the last non-fan in the list becomes a fan
-// If all the members are already fans of the player then this redundantly sets the first fan in the list to be a fan
-static u16 PlayerGainRandomTrainerFan(void)
-{
-    static const u8 sFanClubMemberIds[NUM_TRAINER_FAN_CLUB_MEMBERS] =
-    {
-        FANCLUB_MEMBER1,
-        FANCLUB_MEMBER2,
-        FANCLUB_MEMBER3,
-        FANCLUB_MEMBER4,
-        FANCLUB_MEMBER5,
-        FANCLUB_MEMBER6,
-        FANCLUB_MEMBER7,
-        FANCLUB_MEMBER8
-    };
-
-    u8 i;
-    u8 idx = 0;
-
-    for (i = 0; i < ARRAY_COUNT(sFanClubMemberIds); i++)
-    {
-        if (!GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[i]))
-        {
-            idx = i;
-            if (Random() & 1)
-            {
-                SET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-                return idx;
-            }
-        }
-    }
-    SET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-    return idx;
-}
-
-// Loops through the fan club members, and if theyre a fan of the player there is a 50% chance for them to stop being a fan
-// Stops if a fan is removed, or if the player has only one fan left
-// If no fan was lost while looping, the last current fan in the list will stop being a fan
-static u16 PlayerLoseRandomTrainerFan(void)
-{
-    static const u8 sFanClubMemberIds[NUM_TRAINER_FAN_CLUB_MEMBERS] =
-    {
-        FANCLUB_MEMBER1,
-        FANCLUB_MEMBER6,
-        FANCLUB_MEMBER7,
-        FANCLUB_MEMBER4,
-        FANCLUB_MEMBER3,
-        FANCLUB_MEMBER5,
-        FANCLUB_MEMBER8,
-        FANCLUB_MEMBER2
-    };
-
-    u8 i;
-    u8 idx = 0;
-
-    if (GetNumFansOfPlayerInTrainerFanClub() == 1)
-        return 0;
-
-    for (i = 0; i < ARRAY_COUNT(sFanClubMemberIds); i++)
-    {
-        if (GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[i]))
-        {
-            idx = i;
-            if (Random() & 1)
-            {
-                FLIP_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-                return idx;
-            }
-        }
-    }
-
-    if (GET_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]))
-        FLIP_TRAINER_FAN_CLUB_FLAG(sFanClubMemberIds[idx]);
-
-    return idx;
+    return 0;
 }
 
 u16 GetNumFansOfPlayerInTrainerFanClub(void)
 {
-    u8 i;
-    u8 numFans = 0;
-
-    for (i = 0; i < NUM_TRAINER_FAN_CLUB_MEMBERS; i++)
-    {
-        if (GET_TRAINER_FAN_CLUB_FLAG(i + FANCLUB_MEMBER1))
-            numFans++;
-    }
-
-    return numFans;
+    return 0;
 }
 
 // If the player has > 5 fans in the Trainer Fan Club, then lose 1 fan for every 12 hours since the last fan loss / timer reset
 void TryLoseFansFromPlayTime(void)
 {
-    u8 i = 0;
-    if (gSaveBlock1Ptr->playTimeHours < 999)
-    {
-        while (TRUE)
-        {
-            if (GetNumFansOfPlayerInTrainerFanClub() < 5)
-            {
-                gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] = gSaveBlock1Ptr->playTimeHours;
-                break;
-            }
-            else if (i == NUM_TRAINER_FAN_CLUB_MEMBERS)
-            {
-                break;
-            }
-            else if (gSaveBlock1Ptr->playTimeHours - gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] < 12)
-            {
-                return;
-            }
-            PlayerLoseRandomTrainerFan();
-            gSaveBlock1Ptr->vars[VAR_FANCLUB_LOSE_FAN_TIMER - VARS_START] += 12;
-            i++;
-        }
-    }
 }
 
 bool8 IsFanClubMemberFanOfPlayer(void)
 {
-    return GET_TRAINER_FAN_CLUB_FLAG(gSpecialVar_0x8004);
-}
-
-static void SetInitialFansOfPlayer(void)
-{
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER6);
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER1);
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_MEMBER3);
+    return FALSE;
 }
 
 void BufferFanClubTrainerName(void)
 {
-    u8 whichLinkTrainer = 0;
-    u8 whichNPCTrainer = 0;
-    switch (gSpecialVar_0x8004)
-    {
-    case FANCLUB_MEMBER1:
-        break;
-    case FANCLUB_MEMBER2:
-        break;
-    case FANCLUB_MEMBER3:
-        whichLinkTrainer = 0;
-        whichNPCTrainer = 3;
-        break;
-    case FANCLUB_MEMBER4:
-        whichLinkTrainer = 0;
-        whichNPCTrainer = 1;
-        break;
-    case FANCLUB_MEMBER5:
-        whichLinkTrainer = 1;
-        whichNPCTrainer = 0;
-        break;
-    case FANCLUB_MEMBER6:
-        whichLinkTrainer = 0;
-        whichNPCTrainer = 4;
-        break;
-    case FANCLUB_MEMBER7:
-        whichLinkTrainer = 1;
-        whichNPCTrainer = 5;
-        break;
-    case FANCLUB_MEMBER8:
-        break;
-    }
-#if FREE_LINK_BATTLE_RECORDS == FALSE
-    BufferFanClubTrainerName_(&gSaveBlock1Ptr->linkBattleRecords, whichLinkTrainer, whichNPCTrainer);
-#else
-    BufferFanClubTrainerName_(whichLinkTrainer, whichNPCTrainer);
-#endif //FREE_LINK_BATTLE_RECORDS
 }
 
 #if FREE_LINK_BATTLE_RECORDS == FALSE
@@ -4205,61 +3988,13 @@ static void BufferFanClubTrainerName_(struct LinkBattleRecords *linkRecords, u8 
     }
 }
 #else
-static void BufferFanClubTrainerName_(u8 whichLinkTrainer, u8 whichNPCTrainer)
+static void UNUSED BufferFanClubTrainerName_(u8 whichLinkTrainer, u8 whichNPCTrainer)
 {
-    switch (whichNPCTrainer)
-    {
-    case 0:
-        StringCopy(gStringVar1, sText_Wallace);
-        break;
-    case 1:
-        StringCopy(gStringVar1, sText_Steven);
-        break;
-    case 2:
-        StringCopy(gStringVar1, sText_Brawly);
-        break;
-    case 3:
-        StringCopy(gStringVar1, sText_Winona);
-        break;
-    case 4:
-        StringCopy(gStringVar1, sText_Phoebe);
-        break;
-    case 5:
-        StringCopy(gStringVar1, sText_Glacia);
-        break;
-    default:
-        StringCopy(gStringVar1, sText_Wallace);
-        break;
-    }
 }
 #endif //FREE_LINK_BATTLE_RECORDS
 
 void UpdateTrainerFansAfterLinkBattle(void)
 {
-    if (VarGet(VAR_LILYCOVE_FAN_CLUB_STATE) == 2)
-    {
-        TryLoseFansFromPlayTimeAfterLinkBattle();
-        if (gBattleOutcome == B_OUTCOME_WON)
-            PlayerGainRandomTrainerFan();
-        else
-            PlayerLoseRandomTrainerFan();
-    }
-}
-
-static bool8 DidPlayerGetFirstFans(void)
-{
-    return GET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS);
-}
-
-void SetPlayerGotFirstFans(void)
-{
-    SET_TRAINER_FAN_CLUB_FLAG(FANCLUB_GOT_FIRST_FANS);
-}
-
-// return value is always ignored
-u8 Script_TryGainNewFanFromCounter(void)
-{
-    return TryGainNewFanFromCounter(gSpecialVar_0x8004);
 }
 
 void TrySkyBattle(void)

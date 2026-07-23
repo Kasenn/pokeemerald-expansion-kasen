@@ -55,7 +55,6 @@
 extern const u8 EventScript_ResetAllMapFlags[];
 extern const u8 EventScript_ResetAllMapFlagsFrlg[];
 
-static void ClearFrontierRecord(void);
 static void WarpToTruck(void);
 static void ResetMiniGamesRecords(void);
 static void ResetItemFlags(void);
@@ -90,11 +89,6 @@ void CopyTrainerId(u8 *dst, u8 *src)
         dst[i] = src[i];
 }
 
-static void InitPlayerTrainerId(void)
-{
-    return;
-}
-
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
@@ -106,17 +100,7 @@ static void SetDefaultOptions(void)
     gSaveBlock1Ptr->regionMapZoom = FALSE;
 }
 
-static void ClearPokedexFlags(void)
-{
-    gUnusedPokedexU8 = 0;
-}
-
 void ClearAllContestWinnerPics(void)
-{
-    return;
-}
-
-static void ClearFrontierRecord(void)
 {
     return;
 }
@@ -154,14 +138,11 @@ void NewGameInitData(void)
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     ResetPokedex();
-    ClearFrontierRecord();
     ClearSav1();
     ClearSav3();
     ClearAllMail();
     gSaveBlock1Ptr->specialSaveWarpFlags = 0;
-    InitPlayerTrainerId();
     PlayTimeCounter_Reset();
-    ClearPokedexFlags();
     InitEventData();
     ClearTVShowData();
     ResetGabbyAndTy();
@@ -183,51 +164,28 @@ void NewGameInitData(void)
     ClearPokeblocks();
     ClearDecorationInventories();
     InitEasyChatPhrases();
-    DebugPrintf("do we get here? a");
     SetMauvilleOldMan();
-    DebugPrintf("do we get here? b");
     InitDewfordTrend();
-    DebugPrintf("do we get here? c");
     ResetFanClub();
-    DebugPrintf("do we get here? d");
     ResetLotteryCorner();
-    DebugPrintf("do we get here? e");
     UpdateDailySeed();
-    DebugPrintf("do we get here? f");
     WarpToTruck();
-    DebugPrintf("do we get here? g");
     RunScriptImmediately(EventScript_ResetAllMapFlags);
-    DebugPrintf("do we get here? hfgf");
     ResetMiniGamesRecords();
-    DebugPrintf("do we get here? h");
     InitUnionRoomChatRegisteredTexts();
-    DebugPrintf("do we get here? i");
     InitLilycoveLady();
-    DebugPrintf("do we get here? j");
     ResetAllApprenticeData();
-    DebugPrintf("do we get here? k");
     ClearRankingHallRecords();
-    DebugPrintf("do we get here? l");
     InitMatchCallCounters();
-    DebugPrintf("do we get here? m");
     ClearMysteryGift();
-    DebugPrintf("do we get here? n");
     WipeTrainerNameRecords();
-    DebugPrintf("do we get here? o");
     ResetTrainerHillResults();
-    DebugPrintf("do we get here? p");
     ResetTrainerTowerResults();
-    DebugPrintf("do we get here? q");
     ResetContestLinkResults();
-    DebugPrintf("do we get here? r");
     SetCurrentDifficultyLevel(DIFFICULTY_NORMAL);
-    DebugPrintf("do we get here? s");
     ResetItemFlags();
-    DebugPrintf("do we get here? t");
     ResetDexNav();
-    DebugPrintf("do we get here? u");
     ClearFollowerNPCData();
-    DebugPrintf("do we get here? v");
 }
 
 static void ResetMiniGamesRecords(void)

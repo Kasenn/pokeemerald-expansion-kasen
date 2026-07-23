@@ -189,9 +189,7 @@ gSpecials::
 	def_special BufferFanClubTrainerName
 	def_special TryLoseFansFromPlayTimeAfterLinkBattle
 	def_special TryLoseFansFromPlayTime
-	def_special SetPlayerGotFirstFans
 	def_special UpdateTrainerFanClubGameClear
-	def_special Script_TryGainNewFanFromCounter
 	def_special RockSmashWildEncounter
 	def_special GabbyAndTyGetBattleNum
 	def_special GabbyAndTyAfterInterview

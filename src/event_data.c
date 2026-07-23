@@ -73,15 +73,13 @@ void ClearDailyFlags(void)
 
 void DisableNationalPokedex(void)
 {
-    u16 *nationalDexVar = GetVarPointer(VAR_NATIONAL_DEX);
-    *nationalDexVar = 0;
     FlagClear(FLAG_SYS_NATIONAL_DEX);
 }
 
 void EnableNationalPokedex(void)
 {
-    u16 *nationalDexVar = GetVarPointer(VAR_NATIONAL_DEX);
-    *nationalDexVar = 0x302;
+    // u16 *nationalDexVar = GetVarPointer(VAR_NATIONAL_DEX);
+    // *nationalDexVar = 0x302;
     FlagSet(FLAG_SYS_NATIONAL_DEX);
     ResetPokedexScrollPositions();
 }

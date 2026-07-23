@@ -4727,7 +4727,7 @@ static void DestroyBoxMonIconAtPosition(u8 boxPosition)
     }
 }
 
-static void SetBoxMonIconObjMode(u8 boxPosition, u8 objMode)
+static void UNUSED SetBoxMonIconObjMode(u8 boxPosition, u8 objMode)
 {
     if (sStorage->boxMonsSprites[boxPosition] != NULL)
         sStorage->boxMonsSprites[boxPosition]->oam.objMode = objMode;
