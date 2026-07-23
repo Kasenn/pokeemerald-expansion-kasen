@@ -1061,7 +1061,7 @@ static void HideSaveInfoWindow(void)
 
 static void SaveStartTimer(void)
 {
-    sSaveDialogTimer = 60;
+    sSaveDialogTimer = 30;
 }
 
 static bool8 SaveSuccesTimer(void)
@@ -1202,7 +1202,8 @@ static u8 SaveOverwriteInputCallback(void)
 
 static u8 SaveSavingMessageCallback(void)
 {
-    ShowSaveMessage(gText_SavingDontTurnOff, SaveDoSaveCallback);
+    sSavingComplete = TRUE;
+    sSaveDialogCallback = SaveDoSaveCallback;
     return SAVE_IN_PROGRESS;
 }
 
