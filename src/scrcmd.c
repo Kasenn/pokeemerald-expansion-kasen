@@ -2779,7 +2779,7 @@ bool8 ScrCmd_checkplayergender(struct ScriptContext *ctx)
 {
     Script_RequestEffects(SCREFF_V1);
 
-    gSpecialVar_Result = gSaveBlock2Ptr->playerGender;
+    gSpecialVar_Result = FEMALE;
     return FALSE;
 }
 

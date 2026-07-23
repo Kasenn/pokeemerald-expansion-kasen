@@ -117,11 +117,7 @@ void MoveSaveBlocks_ResetHeap(void)
 
     // change saveblocks' pointers
     // argument is a sum of the individual trainerId bytes
-    SetSaveBlocksPointers(
-      saveBlock2Copy->playerTrainerId[0] +
-      saveBlock2Copy->playerTrainerId[1] +
-      saveBlock2Copy->playerTrainerId[2] +
-      saveBlock2Copy->playerTrainerId[3]);
+    SetSaveBlocksPointers(0);
 
     // restore saveblock data since the pointers changed
     *gSaveBlock2Ptr = *saveBlock2Copy;
@@ -138,7 +134,6 @@ void MoveSaveBlocks_ResetHeap(void)
     // create a new encryption key
     encryptionKey = Random32();
     ApplyNewEncryptionKeyToAllEncryptedData(encryptionKey);
-    gSaveBlock2Ptr->encryptionKey = encryptionKey;
 }
 
 u32 UseContinueGameWarp(void)
@@ -265,14 +260,12 @@ void SavePlayerBag(void)
 
 void ApplyNewEncryptionKeyToHword(u16 *hWord, u32 newKey)
 {
-    *hWord ^= gSaveBlock2Ptr->encryptionKey;
-    *hWord ^= newKey;
+    return;
 }
 
 void ApplyNewEncryptionKeyToWord(u32 *word, u32 newKey)
 {
-    *word ^= gSaveBlock2Ptr->encryptionKey;
-    *word ^= newKey;
+    return;
 }
 
 static void ApplyNewEncryptionKeyToAllEncryptedData(u32 encryptionKey)

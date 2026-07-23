@@ -97,7 +97,7 @@ static void SetupTrader(void)
 
 void SetMauvilleOldMan(void)
 {
-    u16 trainerId = (gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0];
+    u16 trainerId = 0;
 
 
     // Determine man based on the last digit of the player's trainer ID.
@@ -995,7 +995,7 @@ static void StorytellerSetPlayerName(u32 player, const u8 *src)
 static void StorytellerRecordNewStat(u32 player, u32 stat)
 {
     sStorytellerPtr->gameStatIDs[player] = stat;
-    StorytellerSetPlayerName(player, gSaveBlock2Ptr->playerName);
+    StorytellerSetPlayerName(player, gText_Yoshi);
     StorytellerSetRecordedTrainerStat(player, StorytellerGetGameStat(stat));
     ConvertIntToDecimalStringN(gStringVar1, StorytellerGetGameStat(stat), STR_CONV_MODE_LEFT_ALIGN, 10);
     StringCopy(gStringVar2, GetStoryActionByStat(stat));

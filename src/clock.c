@@ -24,7 +24,6 @@ void InitTimeBasedEvents(void)
 {
     FlagSet(FLAG_SYS_CLOCK_SET);
     RtcCalcLocalTime();
-    gSaveBlock2Ptr->lastBerryTreeUpdate = gLocalTime;
     VarSet(VAR_DAYS, gLocalTime.days);
 }
 
@@ -71,19 +70,7 @@ static void UpdatePerDay(struct Time *localTime)
 
 static void UpdatePerMinute(struct Time *localTime)
 {
-    struct Time difference;
-    int minutes;
-
-    CalcTimeDifference(&difference, &gSaveBlock2Ptr->lastBerryTreeUpdate, localTime);
-    minutes = 24 * 60 * difference.days + 60 * difference.hours + difference.minutes;
-    if (minutes != 0)
-    {
-        if (minutes >= 0)
-        {
-            BerryTreeTimeUpdate(minutes);
-            gSaveBlock2Ptr->lastBerryTreeUpdate = *localTime;
-        }
-    }
+    return;
 }
 
 void FormChangeTimeUpdate()

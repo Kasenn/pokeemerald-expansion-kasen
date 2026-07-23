@@ -168,12 +168,6 @@ void FillPartnerParty(u16 trainerId)
     }
     else
     {
-        trainerId -= TRAINER_RECORD_MIXING_APPRENTICE;
-        for (i = 0; i < FRONTIER_MULTI_PARTY_SIZE; i++)
-        {
-            CreateApprenticeMon(&gParties[B_TRAINER_PARTNER][i], &gSaveBlock2Ptr->apprentices[trainerId], gSaveBlock2Ptr->frontier.trainerIds[18 + i]);
-            j = IsFrontierTrainerFemale(trainerId + TRAINER_RECORD_MIXING_APPRENTICE);
-            SetMonData(&gParties[B_TRAINER_PARTNER][i], MON_DATA_OT_GENDER, &j);
-        }
+        return;
     }
 }

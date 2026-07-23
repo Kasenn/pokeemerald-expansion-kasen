@@ -1220,7 +1220,7 @@ static void InitLocalPlayers(u8 opponentsNum)
     case 1:
         gInGameOpponentsNo = 1;
         sBerryBlender->numPlayers = 2;
-        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+        StringCopy(gLinkPlayers[0].name, gText_Yoshi);
 
         if (!FlagGet(FLAG_HIDE_LILYCOVE_CONTEST_HALL_BLEND_MASTER))
             StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MASTER]);
@@ -1233,7 +1233,7 @@ static void InitLocalPlayers(u8 opponentsNum)
     case 2:
         gInGameOpponentsNo = 2;
         sBerryBlender->numPlayers = 3;
-        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+        StringCopy(gLinkPlayers[0].name, gText_Yoshi);
         StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_DUDE]);
         StringCopy(gLinkPlayers[2].name, sBlenderOpponentsNames[BLENDER_LASSIE]);
 
@@ -1244,7 +1244,7 @@ static void InitLocalPlayers(u8 opponentsNum)
     case 3:
         gInGameOpponentsNo = 3;
         sBerryBlender->numPlayers = 4;
-        StringCopy(gLinkPlayers[0].name, gSaveBlock2Ptr->playerName);
+        StringCopy(gLinkPlayers[0].name, gText_Yoshi);
         StringCopy(gLinkPlayers[1].name, sBlenderOpponentsNames[BLENDER_MISS]);
         StringCopy(gLinkPlayers[2].name, sBlenderOpponentsNames[BLENDER_LADDIE]);
         StringCopy(gLinkPlayers[3].name, sBlenderOpponentsNames[BLENDER_LASSIE]);

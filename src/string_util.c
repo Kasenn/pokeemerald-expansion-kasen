@@ -451,7 +451,7 @@ static const u8 *ExpandPlaceholder_UnknownStringVar(void)
 
 static const u8 *ExpandPlaceholder_PlayerName(void)
 {
-    return gSaveBlock2Ptr->playerName;
+    return gText_Yoshi;
 }
 
 static const u8 *ExpandPlaceholder_StringVar1(void)
@@ -471,7 +471,7 @@ static const u8 *ExpandPlaceholder_StringVar3(void)
 
 static const u8 *ExpandPlaceholder_KunChan(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (FEMALE == MALE)
         return gText_ExpandedPlaceholder_Kun;
     else
         return gText_ExpandedPlaceholder_Chan;
@@ -484,7 +484,7 @@ static const u8 *ExpandPlaceholder_RivalName(void)
         return gSaveBlock1Ptr->rivalName;
 #endif
 
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (FEMALE == MALE)
         return (IS_FRLG ? gText_ExpandedPlaceholder_Green : gText_ExpandedPlaceholder_May);
     else
         return (IS_FRLG ? gText_ExpandedPlaceholder_Red : gText_ExpandedPlaceholder_Brendan);

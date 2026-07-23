@@ -4,6 +4,7 @@
 #include "item_menu.h"
 
 ALIGNED(4)
+const u8 gText_Yoshi[] = _("Yoshi");
 const u8 gText_ExpandedPlaceholder_Empty[] = _("");
 const u8 gText_ExpandedPlaceholder_Kun[] = _("");
 const u8 gText_ExpandedPlaceholder_Chan[] = _("");

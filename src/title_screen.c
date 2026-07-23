@@ -809,13 +809,6 @@ static void Task_TitleScreenPhase3(u8 taskId)
     {
         SetMainCallback2(CB2_GoToClearSaveDataScreen);
     }
-    else if (JOY_HELD(RESET_RTC_BUTTON_COMBO) == RESET_RTC_BUTTON_COMBO
-      && CanResetRTC() == TRUE)
-    {
-        FadeOutBGM(4);
-        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 16, RGB_BLACK);
-        SetMainCallback2(CB2_GoToResetRtcScreen);
-    }
     // else if (JOY_HELD(BERRY_UPDATE_BUTTON_COMBO) == BERRY_UPDATE_BUTTON_COMBO)
     // {
     //     FadeOutBGM(4);
@@ -859,7 +852,7 @@ static void CB2_GoToClearSaveDataScreen(void)
         SetMainCallback2(CB2_InitClearSaveDataScreen);
 }
 
-static void CB2_GoToResetRtcScreen(void)
+static void UNUSED CB2_GoToResetRtcScreen(void)
 {
     if (!UpdatePaletteFade())
         SetMainCallback2(CB2_InitResetRtcScreen);

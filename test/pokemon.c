@@ -97,7 +97,6 @@ TEST("Shininess set on an Egg persists after hatching")
     bool32 isShiny = TRUE;
     bool8 isEgg = TRUE;
 
-    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
     CreateMon(&gParties[B_TRAINER_PLAYER][0], SPECIES_TOGEPI, EGG_HATCH_LEVEL, personality, OTID_STRUCT_PLAYER_ID);
     SetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_IS_EGG, &isEgg);
     SetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_IS_SHINY, &isShiny);

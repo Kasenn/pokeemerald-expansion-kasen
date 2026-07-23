@@ -643,7 +643,7 @@ static void CB2_InitTrainerCard(void)
     }
 }
 
-static u32 GetCappedGameStat(u8 statId, u32 maxValue)
+static u32 UNUSED GetCappedGameStat(u8 statId, u32 maxValue)
 {
     u32 statValue = GetGameStat(statId);
 
@@ -677,7 +677,7 @@ u32 CountPlayerTrainerStars(void)
     return stars;
 }
 
-static u8 GetRubyTrainerStars(struct TrainerCard *trainerCard)
+static u8 UNUSED GetRubyTrainerStars(struct TrainerCard *trainerCard)
 {
     u8 stars = 0;
 
@@ -1001,7 +1001,7 @@ static void PrintMoneyOnCard(void)
     AddTextPrinterParameterized3(WIN_CARD_TEXT, FONT_NORMAL, xOffset, top, sTrainerCardTextColors, TEXT_SKIP_DRAW, gStringVar4);
 }
 
-static u16 GetCaughtMonsCount(void)
+static u16 UNUSED GetCaughtMonsCount(void)
 {
     if (IsNationalPokedexEnabled())
         return GetNationalPokedexCount(FLAG_GET_CAUGHT);
@@ -1762,7 +1762,7 @@ static void InitTrainerCardData(void)
     return;
 }
 
-static u8 GetSetCardType(void)
+static u8 UNUSED GetSetCardType(void)
 {
     if (sData == NULL)
     {

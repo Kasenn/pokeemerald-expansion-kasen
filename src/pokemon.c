@@ -986,7 +986,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     }
     else // Player is the OT
     {
-        value = READ_OTID_FROM_SAVE;
+        value = 0;
         isShiny = ComputePlayerShinyOdds(personality, value);    
     }
 
@@ -1000,7 +1000,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     StringCopy(speciesName, GetSpeciesName(species));
     SetBoxMonData(boxMon, MON_DATA_NICKNAME, speciesName);
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
-    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
+    SetBoxMonData(boxMon, MON_DATA_OT_NAME, gText_Yoshi);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
     SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
     SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
@@ -1010,7 +1010,6 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_MET_GAME, &gGameVersion);
     value = BALL_POKE;
     SetBoxMonData(boxMon, MON_DATA_POKEBALL, &value);
-    SetBoxMonData(boxMon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
 
     value = boxMon->personality & 0x1;
     u32 teraType = value == 0 ? GetSpeciesType(species, 0) : GetSpeciesType(species, 1);
@@ -1216,9 +1215,8 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
     s32 i;
     u16 evAmount;
     u8 language;
-    u32 otId = gApprentices[src->id].otId;
-    u32 personality = ((gApprentices[src->id].otId >> 8) | ((gApprentices[src->id].otId & 0xFF) << 8))
-                    + src->party[monId].species + src->number;
+    u32 otId = 0;
+    u32 personality = 0;
 
     CreateMonWithIVs(mon,
               src->party[monId].species,
@@ -1236,7 +1234,6 @@ void CreateApprenticeMon(struct Pokemon *mon, const struct Apprentice *src, u8 m
 
     language = src->language;
     SetMonData(mon, MON_DATA_LANGUAGE, &language);
-    SetMonData(mon, MON_DATA_OT_NAME, GetApprenticeNameInLanguage(src->id, language));
     CalculateMonStats(mon);
 }
 
@@ -3008,9 +3005,7 @@ u8 GiveCapturedMonToPlayer(struct Pokemon *mon)
 {
     s32 i;
 
-    SetMonData(mon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
-    SetMonData(mon, MON_DATA_OT_GENDER, &gSaveBlock2Ptr->playerGender);
-    SetMonData(mon, MON_DATA_OT_ID, gSaveBlock2Ptr->playerTrainerId);
+    SetMonData(mon, MON_DATA_OT_NAME, gText_Yoshi);
 
     for (i = 0; i < PARTY_SIZE; i++)
     {
@@ -5513,11 +5508,11 @@ bool8 IsTradedMon(struct Pokemon *mon)
 
 bool8 IsOtherTrainer(u32 otId, u8 *otName)
 {
-    if (otId == READ_OTID_FROM_SAVE)
+    if (otId == 0)
     {
         int i;
         for (i = 0; otName[i] != EOS; i++)
-            if (otName[i] != gSaveBlock2Ptr->playerName[i])
+            if (otName[i] != gText_Yoshi[i])
                 return TRUE;
         return FALSE;
     }
@@ -5866,10 +5861,6 @@ void HandleSetPokedexFlag(enum NationalDexOrder nationalNum, u8 caseId, u32 pers
     if (!GetSetPokedexFlag(nationalNum, getFlagCaseId)) // don't set if it's already set
     {
         GetSetPokedexFlag(nationalNum, caseId);
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_UNOWN)
-            gSaveBlock2Ptr->pokedex.unownPersonality = personality;
-        if (NationalPokedexNumToSpecies(nationalNum) == SPECIES_SPINDA)
-            gSaveBlock2Ptr->pokedex.spindaPersonality = personality;
     }
 }
 

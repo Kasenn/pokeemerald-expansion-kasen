@@ -1152,7 +1152,6 @@ static void CloseTossPokeblockWindow(u8 taskId)
 
 static void PokeblockAction_UseInBattle(u8 taskId)
 {
-    u8 nature = GetNature(&gParties[B_TRAINER_OPPONENT_A][0]);
     s16 gain = 0;
     TryClearPokeblock(gSpecialVar_ItemId);
 

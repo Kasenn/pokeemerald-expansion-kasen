@@ -60,7 +60,7 @@ static inline struct ItemSlot NONNULL BagPocket_GetSlotDataGeneric(struct BagPoc
 {
     return (struct ItemSlot) {
         .itemId = pocket->itemSlots[pocketPos].itemId,
-        .quantity = pocket->itemSlots[pocketPos].quantity ^ gSaveBlock2Ptr->encryptionKey,
+        .quantity = pocket->itemSlots[pocketPos].quantity,
     };
 }
 
@@ -75,7 +75,7 @@ static inline struct ItemSlot NONNULL BagPocket_GetSlotDataPC(struct BagPocket *
 static inline void NONNULL BagPocket_SetSlotDataGeneric(struct BagPocket *pocket, u32 pocketPos, struct ItemSlot newSlot)
 {
     pocket->itemSlots[pocketPos].itemId = newSlot.itemId;
-    pocket->itemSlots[pocketPos].quantity = newSlot.quantity ^ gSaveBlock2Ptr->encryptionKey;
+    pocket->itemSlots[pocketPos].quantity = newSlot.quantity;
 }
 
 static inline void NONNULL BagPocket_SetSlotDataPC(struct BagPocket *pocket, u32 pocketPos, struct ItemSlot newSlot)
@@ -412,7 +412,7 @@ void RemoveBagItemFromSlot(struct BagPocket *pocket, u16 slotId, u16 count)
     BagPocket_SetSlotItemIdAndCount(pocket, slotId, itemSlot.itemId, itemSlot.quantity - count);
 }
 
-static u8 NONNULL BagPocket_CountUsedItemSlots(struct BagPocket *pocket)
+static u8 NONNULL UNUSED BagPocket_CountUsedItemSlots(struct BagPocket *pocket)
 {
     u8 usedSlots = 0;
 
@@ -429,7 +429,7 @@ u8 CountUsedPCItemSlots(void)
     return 0;
 }
 
-static bool32 NONNULL BagPocket_CheckPocketForItemCount(struct BagPocket *pocket, enum Item itemId, u16 count)
+static bool32 NONNULL UNUSED BagPocket_CheckPocketForItemCount(struct BagPocket *pocket, enum Item itemId, u16 count)
 {
     struct ItemSlot tempItem;
 

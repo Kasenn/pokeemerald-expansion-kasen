@@ -248,7 +248,7 @@ static u32 GetPoolSeed(const struct Trainer *trainer)
     if (B_POOL_SETTING_USE_FIXED_SEED)
         seed = B_POOL_SETTING_FIXED_SEED;
     else
-        seed = READ_OTID_FROM_SAVE;
+        seed = B_POOL_SETTING_FIXED_SEED;
     seed ^= (u32)trainer;
     return seed;
 }

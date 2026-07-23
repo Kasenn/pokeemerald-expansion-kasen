@@ -167,7 +167,7 @@ static u16 FeebasRandom(void)
     return sFeebasRngValue >> 16;
 }
 
-static void FeebasSeedRng(u16 seed)
+static void UNUSED FeebasSeedRng(u16 seed)
 {
     sFeebasRngValue = seed;
 }
@@ -665,7 +665,6 @@ bool8 StandardWildEncounter(u16 curMetatileBehavior, u16 prevMetatileBehavior)
 {
     u32 headerId;
     enum TimeOfDay timeOfDay;
-    struct Roamer *roamer = NULL;
 
     if (sWildEncountersDisabled == TRUE)
         return FALSE;

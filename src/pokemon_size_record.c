@@ -155,18 +155,7 @@ static u8 CompareMonSize(enum Species species, u16 *sizeRecord)
 // Stores species name in gStringVar1, trainer's name in gStringVar2, and size in gStringVar3
 static void GetMonSizeRecordInfo(enum Species species, u16 *sizeRecord)
 {
-    u32 size = GetMonSize(species, *sizeRecord);
-
-    FormatMonSizeRecord(gStringVar3, size);
-    StringCopy(gStringVar1, GetSpeciesName(species));
-
-    if (species == SPECIES_MAGIKARP)
-        return;
-
-    if (*sizeRecord == DEFAULT_MAX_SIZE)
-        StringCopy(gStringVar2, gText_Marco);
-    else
-        StringCopy(gStringVar2, gSaveBlock2Ptr->playerName);
+    return;
 }
 
 void InitSeedotSizeRecord(void)

@@ -2,6 +2,7 @@
 #define GUARD_STRINGS_H
 
 // Placeholders
+extern const u8 gText_Yoshi[];
 extern const u8 gText_ExpandedPlaceholder_Empty[];
 extern const u8 gText_ExpandedPlaceholder_Kun[];
 extern const u8 gText_ExpandedPlaceholder_Chan[];

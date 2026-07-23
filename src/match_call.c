@@ -1900,7 +1900,7 @@ static bool32 ShouldTrainerRequestBattle(int matchCallId)
         return FALSE;
 
     dayCount = RtcGetLocalDayCount();
-    otId = GetTrainerId(gSaveBlock2Ptr->playerTrainerId) & 0xFFFF;
+    otId = 0;
 
     dewfordRand = 0;
     numRematchTrainersFought = GetNumRematchTrainersFought();

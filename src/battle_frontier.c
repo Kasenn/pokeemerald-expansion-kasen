@@ -244,8 +244,6 @@ static void FillTrainerParty(u16 trainerId, enum BattleTrainer trainer, u8 monCo
     else
     {
         // Apprentice.
-        for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-            CreateApprenticeMon(&gParties[trainer][i], &gSaveBlock2Ptr->apprentices[trainerId - TRAINER_RECORD_MIXING_APPRENTICE], i);
         return;
     }
 

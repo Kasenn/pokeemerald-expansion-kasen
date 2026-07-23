@@ -955,12 +955,12 @@ void StorePlayerCoordsInVars(void)
 
 u8 GetPlayerTrainerIdOnesDigit(void)
 {
-    return (u16)((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]) % 10;
+    return 0;
 }
 
 void GetPlayerBigGuyGirlString(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (FEMALE == MALE)
         StringCopy(gStringVar1, sText_BigGuy);
     else
         StringCopy(gStringVar1, sText_BigGirl);
@@ -968,7 +968,7 @@ void GetPlayerBigGuyGirlString(void)
 
 void GetRivalSonDaughterString(void)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (FEMALE == MALE)
         StringCopy(gStringVar1, sText_Daughter);
     else
         StringCopy(gStringVar1, sText_Son);
@@ -1646,7 +1646,7 @@ bool8 MonOTNameNotPlayer(void)
 
     GetBoxMonData(boxmon, MON_DATA_OT_NAME, gStringVar1);
 
-    if (!StringCompare(gSaveBlock2Ptr->playerName, gStringVar1))
+    if (!StringCompare(gText_Yoshi, gStringVar1))
         return FALSE;
 
     return TRUE;

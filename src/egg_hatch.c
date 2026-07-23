@@ -398,19 +398,6 @@ void ScriptHatchMon(void)
 
 static bool8 UNUSED _CheckDaycareMonReceivedMail(struct DayCare *daycare, u8 daycareId)
 {
-    u8 nickname[max(32, POKEMON_NAME_BUFFER_SIZE)];
-    struct DaycareMon *daycareMon = &daycare->mons[daycareId];
-
-    GetBoxMonNickname(&daycareMon->mon, nickname);
-    if (daycareMon->mail.message.itemId != ITEM_NONE
-        && (StringCompareWithoutExtCtrlCodes(nickname, daycareMon->mail.monName) != 0
-         || StringCompareWithoutExtCtrlCodes(gSaveBlock2Ptr->playerName, daycareMon->mail.otName) != 0))
-    {
-        StringCopy(gStringVar1, nickname);
-        TVShowConvertInternationalString(gStringVar2, daycareMon->mail.otName, daycareMon->mail.gameLanguage);
-        TVShowConvertInternationalString(gStringVar3, daycareMon->mail.monName, daycareMon->mail.monLanguage);
-        return TRUE;
-    }
     return FALSE;
 }
 

@@ -917,9 +917,7 @@ u8 LoadGameSave(u8 saveType)
 u16 GetSaveBlocksPointersBaseOffset(void)
 {
     u16 i, slotOffset;
-    struct SaveSector *sector;
 
-    sector = gReadWriteSector = &gSaveDataBuffer;
     if (gFlashMemoryPresent != TRUE)
         return 0;
     UpdateSaveAddresses();
@@ -931,10 +929,7 @@ u16 GetSaveBlocksPointersBaseOffset(void)
 
         // Base offset for SaveBlock2 is calculated using the trainer id
         if (gReadWriteSector->id == SECTOR_ID_SAVEBLOCK2)
-            return sector->data[offsetof(struct SaveBlock2, playerTrainerId[0])] +
-                   sector->data[offsetof(struct SaveBlock2, playerTrainerId[1])] +
-                   sector->data[offsetof(struct SaveBlock2, playerTrainerId[2])] +
-                   sector->data[offsetof(struct SaveBlock2, playerTrainerId[3])];
+            return 0;
     }
     return 0;
 }

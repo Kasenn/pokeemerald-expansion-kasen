@@ -913,79 +913,18 @@ static void Task_DoRecordMixing(u8 taskId)
 
 static void UNUSED GetSavedApprentices(struct Apprentice *dst, struct Apprentice *src)
 {
-    s32 i, id;
-    s32 apprenticeSaveId, oldPlayerApprenticeSaveId;
-    s32 numOldPlayerApprentices, numMixApprentices;
-
-    dst[0].playerName[0] = EOS;
-    dst[1].playerName[0] = EOS;
-
-    dst[0] = src[0];
-
-    oldPlayerApprenticeSaveId = 0;
-    numOldPlayerApprentices = 0;
-    apprenticeSaveId = 0;
-    numMixApprentices = 0;
-    for (i = 0; i < 2; i++)
-    {
-        id = (i + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
-        if (src[id].playerName[0] != EOS)
-        {
-            if (GetTrainerId(src[id].playerId) != GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
-            {
-                numMixApprentices++;
-                apprenticeSaveId = id;
-            }
-            if (GetTrainerId(src[id].playerId) == GetTrainerId(gSaveBlock2Ptr->playerTrainerId))
-            {
-                numOldPlayerApprentices++;
-                oldPlayerApprenticeSaveId = id;
-            }
-        }
-    }
-
-    // Prefer passing on other mixed Apprentices rather than old player's Apprentices
-    if (numMixApprentices == 0 && numOldPlayerApprentices != 0)
-    {
-        numMixApprentices = numOldPlayerApprentices;
-        apprenticeSaveId = oldPlayerApprenticeSaveId;
-    }
-
-    switch (numMixApprentices)
-    {
-    case 1:
-        dst[1] = src[apprenticeSaveId];
-        break;
-    case 2:
-        if (Random2() > 0x3333)
-            dst[1] = src[gSaveBlock2Ptr->playerApprentice.saveId + 1];
-        else
-            dst[1] = src[((gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1) + 1)];
-        break;
-    }
+    return;
 }
 
 void GetPlayerHallRecords(struct PlayerHallRecords *dst)
 {
     s32 i, j;
 
-    for (i = 0; i < HALL_FACILITIES_COUNT; i++)
-    {
-        for (j = 0; j < FRONTIER_LVL_MODE_COUNT; j++)
-        {
-            CopyTrainerId(dst->onePlayer[i][j].id, gSaveBlock2Ptr->playerTrainerId);
-            dst->onePlayer[i][j].language = GAME_LANGUAGE;
-            StringCopy(dst->onePlayer[i][j].name, gSaveBlock2Ptr->playerName);
-        }
-    }
 
     for (j = 0; j < FRONTIER_LVL_MODE_COUNT; j++)
     {
         dst->twoPlayers[j].language = GAME_LANGUAGE;
-        CopyTrainerId(dst->twoPlayers[j].id1, gSaveBlock2Ptr->playerTrainerId);
-        CopyTrainerId(dst->twoPlayers[j].id2, gSaveBlock2Ptr->frontier.opponentTrainerIds[j]);
-        StringCopy(dst->twoPlayers[j].name1, gSaveBlock2Ptr->playerName);
-        StringCopy(dst->twoPlayers[j].name2, gSaveBlock2Ptr->frontier.opponentNames[j]);
+        StringCopy(dst->twoPlayers[j].name1, gText_Yoshi);
     }
 
     for (i = 0; i < FRONTIER_LVL_MODE_COUNT; i++)
@@ -1004,7 +943,7 @@ void GetPlayerHallRecords(struct PlayerHallRecords *dst)
     }
 }
 
-static bool32 IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct Apprentice *apprentices)
+static bool32 UNUSED IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct Apprentice *apprentices)
 {
     s32 i;
 
@@ -1020,40 +959,7 @@ static bool32 IsApprenticeAlreadySaved(struct Apprentice *mixApprentice, struct 
 
 static void UNUSED ReceiveApprenticeData(struct Apprentice *records, size_t recordSize, u32 multiplayerId)
 {
-    s32 i, numApprentices, apprenticeId;
-    struct Apprentice *mixApprentice;
-    u32 mixIndices[MAX_LINK_PLAYERS];
-    u32 apprenticeSaveId;
-
-    ShufflePlayerIndices(mixIndices);
-    mixApprentice = (void *)records + (recordSize * mixIndices[multiplayerId]);
-    numApprentices = 0;
-    apprenticeId = 0;
-    for (i = 0; i < 2; i++)
-    {
-        if (mixApprentice[i].playerName[0] != EOS && !IsApprenticeAlreadySaved(&mixApprentice[i], &gSaveBlock2Ptr->apprentices[0]))
-        {
-            numApprentices++;
-            apprenticeId = i;
-        }
-    }
-
-    switch (numApprentices)
-    {
-    case 1:
-        apprenticeSaveId = gSaveBlock2Ptr->playerApprentice.saveId + 1;
-        gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[apprenticeId];
-        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 1) % (APPRENTICE_COUNT - 1);
-        break;
-    case 2:
-        for (i = 0; i < 2; i++)
-        {
-            apprenticeSaveId = ((i ^ 1) + gSaveBlock2Ptr->playerApprentice.saveId) % (APPRENTICE_COUNT - 1) + 1;
-            gSaveBlock2Ptr->apprentices[apprenticeSaveId] = mixApprentice[i];
-        }
-        gSaveBlock2Ptr->playerApprentice.saveId = (gSaveBlock2Ptr->playerApprentice.saveId + 2) % (APPRENTICE_COUNT - 1);
-        break;
-    }
+    return;
 }
 
 #if FREE_RECORD_MIXING_HALL_RECORDS == FALSE

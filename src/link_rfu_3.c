@@ -657,15 +657,12 @@ void InitHostRfuGameData(struct RfuGameData *data, u8 activity, bool32 startedAc
 {
     s32 i;
 
-    for (i = 0; i < (s32)ARRAY_COUNT(data->compatibility.playerTrainerId); i++)
-        data->compatibility.playerTrainerId[i] = gSaveBlock2Ptr->playerTrainerId[i];
-
     for (i = 0; i < RFU_CHILD_MAX; i++)
     {
         data->partnerInfo[i] = partnerInfo;
         partnerInfo >>= 8; // Each element is 1 byte
     }
-    data->playerGender = gSaveBlock2Ptr->playerGender;
+    data->playerGender = FEMALE;
     data->activity = activity;
     data->startedActivity = startedActivity;
     data->compatibility.language = GAME_LANGUAGE;

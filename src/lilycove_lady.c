@@ -48,7 +48,7 @@ void SetLilycoveLadyGfx(void)
 
 void InitLilycoveLady(void)
 {
-    u16 id = ((gSaveBlock2Ptr->playerTrainerId[1] << 8) | gSaveBlock2Ptr->playerTrainerId[0]);
+    u16 id = 0;
     id %= 6;
     id >>= 1;
     switch (id)

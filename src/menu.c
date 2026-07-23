@@ -1774,7 +1774,7 @@ void AddTextPrinterParameterized6(u8 windowId, u8 fontId, u8 left, u8 top, u8 le
 void PrintPlayerNameOnWindow(u8 windowId, const u8 *src, u16 x, u16 y)
 {
     int count = 0;
-    while (gSaveBlock2Ptr->playerName[count] != EOS)
+    while (gText_Yoshi[count] != EOS)
         count++;
 
     StringExpandPlaceholders(gStringVar4, src);
@@ -1910,7 +1910,7 @@ void BufferSaveMenuText(u8 textId, u8 *dest, u8 color)
     switch (textId)
     {
     case SAVE_MENU_NAME:
-        StringCopy(string, gSaveBlock2Ptr->playerName);
+        StringCopy(string, gText_Yoshi);
         break;
     case SAVE_MENU_CAUGHT:
         if (IsNationalPokedexEnabled())

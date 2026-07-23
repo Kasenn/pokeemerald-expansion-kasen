@@ -278,8 +278,6 @@ static void UNUSED LoadLinkTestBgGfx(u8 paletteNum, u8 bgNum, u8 screenBaseBlock
 
 static void UNUSED LinkTestScreen(void)
 {
-    int i;
-
     ResetSpriteData();
     FreeAllSpritePalettes();
     ResetTasks();
@@ -288,8 +286,6 @@ static void UNUSED LinkTestScreen(void)
     gLinkType = LINKTYPE_TRADE;
     OpenLink();
     SeedRng(gMain.vblankCounter2);
-    for (i = 0; i < TRAINER_ID_LENGTH; i++)
-        gSaveBlock2Ptr->playerTrainerId[i] = Random() % 256;
 
     InitLinkTestBG(0, 2, 4, 0, 0);
     SetGpuReg(REG_OFFSET_DISPCNT, DISPCNT_MODE_0 | DISPCNT_OBJ_1D_MAP | DISPCNT_BG0_ON | DISPCNT_BG2_ON | DISPCNT_OBJ_ON);
@@ -310,9 +306,8 @@ void SetLocalLinkPlayerId(u8 playerId)
 
 static void InitLocalLinkPlayer(void)
 {
-    gLocalLinkPlayer.trainerId = READ_OTID_FROM_SAVE;
-    StringCopy(gLocalLinkPlayer.name, gSaveBlock2Ptr->playerName);
-    gLocalLinkPlayer.gender = gSaveBlock2Ptr->playerGender;
+    StringCopy(gLocalLinkPlayer.name, gText_Yoshi);
+    gLocalLinkPlayer.gender = FEMALE;
     gLocalLinkPlayer.linkType = gLinkType;
     gLocalLinkPlayer.language = gGameLanguage;
     gLocalLinkPlayer.version = gGameVersion + 0x4000;

@@ -2018,10 +2018,8 @@ void CB2_OpenPokedexPlusHGSS(void)
         sPokedexView = AllocZeroed(sizeof(struct PokedexView));
         ResetPokedexView(sPokedexView);
         CreateTask(Task_OpenPokedexMainPage, 0);
-        sPokedexView->dexMode = gSaveBlock2Ptr->pokedex.mode;
         if (!IsNationalPokedexEnabled())
             sPokedexView->dexMode = DEX_MODE_HOENN;
-        sPokedexView->dexOrder = gSaveBlock2Ptr->pokedex.order;
         sPokedexView->selectedPokemon = sLastSelectedPokemon;
         sPokedexView->pokeBallRotation = sPokeBallRotation;
         sPokedexView->selectedScreen = AREA_SCREEN;
@@ -2295,10 +2293,6 @@ static void Task_ClosePokedex(u8 taskId)
 {
     if (!gPaletteFade.active)
     {
-        gSaveBlock2Ptr->pokedex.mode = sPokedexView->dexMode;
-        if (!IsNationalPokedexEnabled())
-            gSaveBlock2Ptr->pokedex.mode = DEX_MODE_HOENN;
-        gSaveBlock2Ptr->pokedex.order = sPokedexView->dexOrder;
         ClearMonSprites();
         FreeWindowAndBgBuffers();
         DestroyTask(taskId);
@@ -4515,10 +4509,7 @@ static u32 GetPokedexMonPersonality(enum Species species)
 {
     if (species == SPECIES_UNOWN || species == SPECIES_SPINDA)
     {
-        if (species == SPECIES_UNOWN)
-            return gSaveBlock2Ptr->pokedex.unownPersonality;
-        else
-            return gSaveBlock2Ptr->pokedex.spindaPersonality;
+        return MALE_PERSONALITY;
     }
     else
     {
@@ -7409,7 +7400,7 @@ static void Task_LoadSizeScreen(u8 taskId)
         u8 string[64];
 
         StringCopy(string, gText_SizeComparedTo);
-        StringAppend(string, gSaveBlock2Ptr->playerName);
+        StringAppend(string, gText_Yoshi);
         PrintInfoScreenText(string, GetStringCenterAlignXOffset(FONT_NORMAL, string, 0xF0), 0x79);
         gMain.state++;
         break;
@@ -7419,7 +7410,7 @@ static void Task_LoadSizeScreen(u8 taskId)
         gMain.state++;
         break;
     case 5:
-        spriteId = CreateSizeScreenTrainerPic(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), 152, 56, 0);
+        spriteId = CreateSizeScreenTrainerPic(PlayerGenderToFrontTrainerPicId(FEMALE), 152, 56, 0);
         gSprites[spriteId].oam.affineMode = ST_OAM_AFFINE_NORMAL;
         gSprites[spriteId].oam.matrixNum = 1;
         gSprites[spriteId].oam.priority = 0;
@@ -8143,12 +8134,6 @@ static void Task_HandleSearchMenuInput(u8 taskId)
                 sPokedexView->pokeBallRotationBackup = POKEBALL_ROTATION_TOP;
                 sLastSelectedPokemon = 0;
                 sPokedexView->selectedPokemonBackup = 0;
-                gSaveBlock2Ptr->pokedex.mode = GetSearchModeSelection(taskId, SEARCH_MODE);
-                if (!IsNationalPokedexEnabled())
-                    gSaveBlock2Ptr->pokedex.mode = DEX_MODE_HOENN;
-                sPokedexView->dexModeBackup = gSaveBlock2Ptr->pokedex.mode;
-                gSaveBlock2Ptr->pokedex.order = GetSearchModeSelection(taskId, SEARCH_ORDER);
-                sPokedexView->dexOrderBackup = gSaveBlock2Ptr->pokedex.order;
                 PlaySE(SE_PC_OFF);
                 gTasks[taskId].func = Task_ExitSearch;
             }

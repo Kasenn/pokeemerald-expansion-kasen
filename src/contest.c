@@ -2835,11 +2835,11 @@ void CreateContestMonFromParty(u8 partyIndex)
     s16 smart;
     s16 tough;
 
-    StringCopy(name, gSaveBlock2Ptr->playerName);
+    StringCopy(name, gText_Yoshi);
     if (gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK)
         StripPlayerNameForLinkContest(name);
     memcpy(gContestMons[gContestPlayerMonIndex].trainerName, name, PLAYER_NAME_LENGTH + 1);
-    if (gSaveBlock2Ptr->playerGender == MALE)
+    if (FEMALE == MALE)
         gContestMons[gContestPlayerMonIndex].trainerGfxId = OBJ_EVENT_GFX_LINK_BRENDAN;
     else
         gContestMons[gContestPlayerMonIndex].trainerGfxId = OBJ_EVENT_GFX_LINK_MAY;
@@ -3653,13 +3653,7 @@ static void DetermineFinalStandings(void)
 
 void SaveLinkContestResults(void)
 {
-    if ((gLinkContestFlags & LINK_CONTEST_FLAG_IS_LINK))
-    {
-        gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] =
-        ((gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1) > 9999) ? 9999 :
-        (gSaveBlock2Ptr->contestLinkResults[gSpecialVar_ContestCategory][gContestFinalStandings[gContestPlayerMonIndex]] + 1);
-
-    }
+    return;
 }
 
 static bool8 DidContestantPlaceHigher(s32 a, s32 b, struct ContestFinalStandings *standings)
@@ -5532,12 +5526,7 @@ static void Contest_SetBgCopyFlags(u32 flagIndex)
 
 void ResetContestLinkResults(void)
 {
-    s32 i;
-    s32 j;
-
-    for (i = 0; i < CONTEST_CATEGORIES_COUNT; i++)
-        for (j = 0; j < CONTESTANT_COUNT; j++)
-            gSaveBlock2Ptr->contestLinkResults[i][j] = 0;
+    return;
 }
 
 bool8 SaveContestWinner(u8 rank)

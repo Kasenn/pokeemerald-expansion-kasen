@@ -779,7 +779,7 @@ static void LaunchPokeblockFeedTask(void)
     gTasks[taskId].tHorizontalThrow = TRUE;
 }
 
-static void Task_WaitForAtePokeblockMessage(u8 taskId)
+static void UNUSED Task_WaitForAtePokeblockMessage(u8 taskId)
 {
     if (RunTextPrintersRetIsActive(0) != TRUE)
         gTasks[taskId].func = Task_FadeOutPokeblockFeed;

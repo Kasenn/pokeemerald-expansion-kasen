@@ -406,7 +406,7 @@ static void RecordedPlayerHandleIntroTrainerBallThrow(enum BattlerId battler)
     if (gBattleTypeFlags & BATTLE_TYPE_RECORDED_LINK)
         gender = gLinkPlayers[GetBattlerMultiplayerId(battler)].gender;
     else
-        gender = gSaveBlock2Ptr->playerGender;
+        gender = FEMALE;
 
     trainerPicId = GetPlayerTrainerPic(gender, GAME_VERSION);
     trainerPal = GetTrainerBackPicPalette(trainerPicId);

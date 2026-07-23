@@ -623,7 +623,7 @@ static void Task_Hof_SpawnPlayerPic(u8 taskId)
     ShowBg(0);
     ShowBg(1);
     ShowBg(3);
-    gTasks[taskId].data[4] = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender), TRUE, 0x78, 0x48, 6, 0xFFFF);
+    gTasks[taskId].data[4] = CreateTrainerPicSprite(PlayerGenderToFrontTrainerPicId(FEMALE), TRUE, 0x78, 0x48, 6, 0xFFFF);
     AddWindow(&sWindowTemplate);
     LoadStdWindowGfx(1, 0x21D, BG_PLTT_ID(13));
     gTasks[taskId].data[3] = 120;
@@ -1082,9 +1082,9 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
     DrawStdFrameWithCustomTileAndPalette(1, FALSE, 0x21D, 13);
     AddTextPrinterParameterized4(1, FONT_NORMAL, 4, 3, 0, 0, sTextColors[1], 0, gText_Name);
 
-    AddTextPrinterParameterized3(1, FONT_NORMAL, textWidth - GetStringWidth(FONT_NORMAL, gSaveBlock2Ptr->playerName, 0), 3, sTextColors[1], 0, gSaveBlock2Ptr->playerName);
+    AddTextPrinterParameterized3(1, FONT_NORMAL, textWidth - GetStringWidth(FONT_NORMAL, gText_Yoshi, 0), 3, sTextColors[1], 0, gText_Yoshi);
 
-    trainerId = (gSaveBlock2Ptr->playerTrainerId[0]) | (gSaveBlock2Ptr->playerTrainerId[1] << 8);
+    trainerId = 0;
     AddTextPrinterParameterized3(1, FONT_NORMAL, 4, 18, sTextColors[1], 0, gText_IDNumber);
     text[0] = (trainerId % 100000) / 10000 + CHAR_0;
     text[1] = (trainerId % 10000) / 1000 + CHAR_0;

@@ -334,49 +334,7 @@ static void SetRentalsToOpponentParty(void)
 
 static void SetPlayerAndOpponentParties(void)
 {
-    int i;
-    u8 monLevel;
-    u16 monId;
-    u8 ivs;
-
-    if (gSaveBlock2Ptr->frontier.lvlMode == FRONTIER_LVL_TENT)
-    {
-        gFacilityTrainerMons = gSlateportBattleTentMons;
-        monLevel = TENT_MIN_LEVEL;
-    }
-    else
-    {
-        gFacilityTrainerMons = gBattleFrontierMons;
-        if (gSaveBlock2Ptr->frontier.lvlMode != FRONTIER_LVL_50)
-            monLevel = FRONTIER_MAX_LEVEL_OPEN;
-        else
-            monLevel = FRONTIER_MAX_LEVEL_50;
-    }
-
-    if (gSpecialVar_0x8005 < 2)
-    {
-        ZeroPlayerPartyMons();
-        for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-        {
-            monId = gSaveBlock2Ptr->frontier.rentalMons[i].monId;
-            ivs = gSaveBlock2Ptr->frontier.rentalMons[i].ivs;
-
-            CreateFacilityMon(&gFacilityTrainerMons[monId], monLevel, ivs, READ_OTID_FROM_SAVE, FLAG_FRONTIER_MON_FACTORY, &gParties[B_TRAINER_PLAYER][i]);
-        }
-    }
-
-    switch (gSpecialVar_0x8005)
-    {
-    case 0:
-    case 2:
-        for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
-        {
-            monId = gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].monId;
-            ivs = gSaveBlock2Ptr->frontier.rentalMons[i + FRONTIER_PARTY_SIZE].ivs;
-            CreateFacilityMon(&gFacilityTrainerMons[monId], monLevel, ivs, READ_OTID_FROM_SAVE, FLAG_FRONTIER_MON_FACTORY, &gParties[B_TRAINER_OPPONENT_A][i]);
-        }
-        break;
-    }
+    return;
 }
 
 static void GenerateInitialRentalMons(void)
@@ -658,7 +616,7 @@ void FillFactoryBrainParty(void)
     enum Item heldItems[FRONTIER_PARTY_SIZE];
     int monLevel;
     u8 fixedIV;
-    u32 otId;
+    u32 otId = 0;
 
     enum FrontierLevelMode lvlMode = gSaveBlock2Ptr->frontier.lvlMode;
     u8 battleMode = VarGet(VAR_FRONTIER_BATTLE_MODE);
@@ -666,7 +624,6 @@ void FillFactoryBrainParty(void)
     fixedIV = GetFactoryMonFixedIV(challengeNum + 2, FALSE);
     monLevel = SetFacilityPtrsGetLevel();
     i = 0;
-    otId = READ_OTID_FROM_SAVE;
 
     while (i != FRONTIER_PARTY_SIZE)
     {
@@ -807,7 +764,7 @@ static void FillFactoryFrontierTrainerParty(u16 trainerId, u8 firstMonId)
     u8 i;
     u8 level;
     u8 fixedIV;
-    u32 otID;
+    u32 otID = 0;
 
     if (trainerId < FRONTIER_TRAINERS_COUNT)
     {
@@ -845,7 +802,6 @@ static void FillFactoryFrontierTrainerParty(u16 trainerId, u8 firstMonId)
     }
 
     level = SetFacilityPtrsGetLevel();
-    otID = READ_OTID_FROM_SAVE;
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {
         u16 monId = gFrontierTempParty[i];
@@ -860,13 +816,12 @@ static void FillFactoryTentTrainerParty(u16 trainerId, u8 firstMonId)
     u8 i;
     u8 level = TENT_MIN_LEVEL;
     u8 fixedIV = 0;
-    u32 otID = READ_OTID_FROM_SAVE;
 
     for (i = 0; i < FRONTIER_PARTY_SIZE; i++)
     {
         u16 monId = gFrontierTempParty[i];
         CreateFacilityMon(&gFacilityTrainerMons[monId],
-                level, fixedIV, otID, 0,
+                level, fixedIV, 0, 0,
                 &gParties[B_TRAINER_OPPONENT_A][firstMonId + i]);
     }
 }

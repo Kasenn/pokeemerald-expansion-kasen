@@ -1317,10 +1317,8 @@ static void Task_OakSpeech_HandleGenderInput(u8 taskId)
     switch (input)
     {
     case 0: // BOY
-        gSaveBlock2Ptr->playerGender = MALE;
         break;
     case 1: // GIRL
-        gSaveBlock2Ptr->playerGender = FEMALE;
         break;
     case MENU_B_PRESSED:
     case MENU_NOTHING_CHOSEN:
@@ -1344,10 +1342,7 @@ static void Task_OakSpeech_ClearGenderWindows(u8 taskId)
 
 static void Task_OakSpeech_LoadPlayerPic(u8 taskId)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        LoadTrainerPic(MALE_PLAYER_PIC, 0);
-    else
-        LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
+    LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
     CreateFadeOutTask(taskId, 2);
     gTasks[taskId].tTimer = 32;
     gTasks[taskId].func = Task_OakSpeech_YourNameWhatIsIt;
@@ -1449,7 +1444,6 @@ static void Task_OakSpeech_DoNamingScreen(u8 taskId)
         GetDefaultName(sOakSpeechResources->hasPlayerBeenNamed, 0);
         if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
         {
-            DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnFromNamingScreen);
         }
         else
         {
@@ -1583,10 +1577,7 @@ static void Task_OakSpeech_ReshowPlayersPic(u8 taskId)
         }
         else
         {
-            if (gSaveBlock2Ptr->playerGender == MALE)
-                LoadTrainerPic(MALE_PLAYER_PIC, 0);
-            else
-                LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
+            LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
             gTasks[taskId].tTrainerPicPosX = 0;
             gSpriteCoordOffsetX = 0;
             ChangeBgX(2, 0, BG_COORD_SET);
@@ -1854,10 +1845,7 @@ static void CB2_ReturnFromNamingScreen(void)
         taskId = CreateTask(Task_OakSpeech_ConfirmName, 0);
         if (sOakSpeechResources->hasPlayerBeenNamed == FALSE)
         {
-            if (gSaveBlock2Ptr->playerGender == MALE)
-                LoadTrainerPic(MALE_PLAYER_PIC, 0);
-            else
-                LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
+            LoadTrainerPic(FEMALE_PLAYER_PIC, 0);
         }
         else
         {
@@ -2130,10 +2118,7 @@ static void PrintNameChoiceOptions(u8 taskId, u8 hasPlayerBeenNamed)
     DrawStdFrameWithCustomTileAndPalette(tMenuWindowId, 1, STD_WINDOW_BASE_TILE_NUM, 14);
     FillWindowPixelBuffer(gTasks[taskId].tMenuWindowId, PIXEL_FILL(1));
     AddTextPrinterParameterized(tMenuWindowId, FONT_NORMAL, gOtherText_NewName, 8, 1, 0, NULL);
-    if (hasPlayerBeenNamed == FALSE)
-        textPtrs = gSaveBlock2Ptr->playerGender == MALE ? sMaleNameChoices : sFemaleNameChoices;
-    else
-        textPtrs = sRivalNameChoices;
+    textPtrs = sRivalNameChoices;
     for (i = 0; i < ARRAY_COUNT(sRivalNameChoices); i++)
         AddTextPrinterParameterized(tMenuWindowId, FONT_NORMAL, textPtrs[i], 8, 16 * (i + 1) + 1, 0, NULL);
     InitMenuNormal(tMenuWindowId, FONT_NORMAL, 0, 1, 16, 5, 0);
@@ -2147,11 +2132,8 @@ static void GetDefaultName(u8 hasPlayerBeenNamed, u8 nameChoice)
     u8 i;
     if (hasPlayerBeenNamed == FALSE)
     {
-        if (gSaveBlock2Ptr->playerGender == MALE)
-            src = sMaleNameChoices[Random() % ARRAY_COUNT(sMaleNameChoices)];
-        else
-            src = sFemaleNameChoices[Random() % ARRAY_COUNT(sFemaleNameChoices)];
-        dest = gSaveBlock2Ptr->playerName;
+        src = sFemaleNameChoices[Random() % ARRAY_COUNT(sFemaleNameChoices)];
+        dest = gText_Yoshi;
     }
     else
     {

@@ -1820,21 +1820,21 @@ static void PrepareSendBuffer_Null(u8 *buffer)
 static void PrepareSendBuffer_Join(u8 *buffer)
 {
     buffer[0] = CHAT_MESSAGE_JOIN;
-    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+    StringCopy(&buffer[1], gText_Yoshi);
     buffer[1 + (PLAYER_NAME_LENGTH + 1)] = sChat->multiplayerId;
 }
 
 static void PrepareSendBuffer_Chat(u8 *buffer)
 {
     buffer[0] = CHAT_MESSAGE_CHAT;
-    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+    StringCopy(&buffer[1], gText_Yoshi);
     StringCopy(&buffer[1 + (PLAYER_NAME_LENGTH + 1)], sChat->messageEntryBuffer);
 }
 
 static void PrepareSendBuffer_Leave(u8 *buffer)
 {
     buffer[0] = CHAT_MESSAGE_LEAVE;
-    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+    StringCopy(&buffer[1], gText_Yoshi);
     buffer[1 + (PLAYER_NAME_LENGTH + 1)] = sChat->multiplayerId;
     RfuSetNormalDisconnectMode();
 }
@@ -1842,14 +1842,14 @@ static void PrepareSendBuffer_Leave(u8 *buffer)
 static void PrepareSendBuffer_Drop(u8 *buffer)
 {
     buffer[0] = CHAT_MESSAGE_DROP;
-    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+    StringCopy(&buffer[1], gText_Yoshi);
     buffer[1 + (PLAYER_NAME_LENGTH + 1)] = sChat->multiplayerId;
 }
 
 static void PrepareSendBuffer_Disband(u8 *buffer)
 {
     buffer[0] = CHAT_MESSAGE_DISBAND;
-    StringCopy(&buffer[1], gSaveBlock2Ptr->playerName);
+    StringCopy(&buffer[1], gText_Yoshi);
     buffer[1 + (PLAYER_NAME_LENGTH + 1)] = sChat->multiplayerId;
 }
 
@@ -2696,7 +2696,7 @@ static bool32 Display_PrintSavedTheGame(u8 *state)
     {
     case 0:
         DynamicPlaceholderTextUtil_Reset();
-        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gSaveBlock2Ptr->playerName);
+        DynamicPlaceholderTextUtil_SetPlaceholderPtr(0, gText_Yoshi);
         AddStdMessageWindow(STDMESSAGE_SAVED_THE_GAME, 0);
         CopyWindowToVram(sDisplay->messageWindowId, COPYWIN_FULL);
         (*state)++;

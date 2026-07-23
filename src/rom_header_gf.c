@@ -33,7 +33,6 @@ struct GFRomHeader
     const struct Decoration *decorations;
     u32 flagsOffset;
     u32 varsOffset;
-    u32 pokedexOffset;
     u32 pokedexVar;
     u32 pokedexFlag;
     u32 mysteryEventFlag;
@@ -60,9 +59,6 @@ struct GFRomHeader
     u32 partyCountOffset;
     u32 partyOffset;
     u32 warpFlagsOffset;
-    u32 trainerIdOffset;
-    u32 playerNameOffset;
-    u32 playerGenderOffset;
     u32 frontierStatusOffset;
     u32 frontierStatusOffset2;
     u32 unk18;
@@ -73,7 +69,6 @@ struct GFRomHeader
     const struct MoveInfo *moves;
     const struct CompressedSpriteSheet *ballGfx;
     const struct SpritePalette *ballPalettes;
-    u32 gcnLinkFlagsOffset;
     u32 gameClearFlag;
     u32 ribbonFlag;
     u8 bagCountItems;
@@ -106,7 +101,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .decorations = gDecorations,
     .flagsOffset = offsetof(struct SaveBlock1, flags),
     .varsOffset = offsetof(struct SaveBlock1, vars),
-    .pokedexOffset = offsetof(struct SaveBlock2, pokedex),
     .pokedexVar = VAR_NATIONAL_DEX - VARS_START,
     .pokedexFlag = FLAG_RECEIVED_POKEDEX_FROM_BIRCH,
     .mysteryEventFlag = FLAG_SYS_MYSTERY_EVENT_ENABLE,
@@ -134,9 +128,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .partyCountOffset = offsetof(struct SaveBlock1, playerPartyCount),
     .partyOffset = offsetof(struct SaveBlock1, playerParty),
     .warpFlagsOffset = offsetof(struct SaveBlock2, specialSaveWarpFlags),
-    .trainerIdOffset = offsetof(struct SaveBlock2, playerTrainerId),
-    .playerNameOffset = offsetof(struct SaveBlock2, playerName),
-    .playerGenderOffset = offsetof(struct SaveBlock2, playerGender),
     .frontierStatusOffset = offsetof(struct SaveBlock2, frontier.challengeStatus),
     .frontierStatusOffset2 = offsetof(struct SaveBlock2, frontier.challengeStatus),
     .unk18 = 0x00000000,
@@ -147,7 +138,6 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .moves = gMovesInfo,
     //.ballGfx = gBallSpriteSheets, //handled in gPokeBalls
     //.ballPalettes = gBallSpritePalettes, //handled in gPokeBalls
-    .gcnLinkFlagsOffset = offsetof(struct SaveBlock2, gcnLinkFlags),
     .gameClearFlag = FLAG_SYS_GAME_CLEAR,
     .ribbonFlag = FLAG_SYS_RIBBON_GET,
     .bagCountItems = BAG_ITEMS_COUNT,

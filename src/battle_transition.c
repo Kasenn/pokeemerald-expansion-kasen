@@ -2287,7 +2287,7 @@ static bool8 Mugshot_SetGfx(struct Task *task)
         mugshotColor = MUGSHOT_COLOR_PURPLE;
 
     LoadPalette(sOpponentMugshotsPals[mugshotColor], BG_PLTT_ID(15), PLTT_SIZE_4BPP);
-    LoadPalette(sPlayerMugshotsPals[gSaveBlock2Ptr->playerGender], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6));
+    LoadPalette(sPlayerMugshotsPals[FEMALE], BG_PLTT_ID(15) + 10, PLTT_SIZEOF(6));
 
     for (i = 0; i < 20; i++)
     {
@@ -2631,7 +2631,7 @@ static void Mugshots_CreateTrainerPics(struct Task *task)
         SetOamMatrixRotationScaling(partnerSprite->oam.matrixNum, -512, 512, 0);
     }
 
-    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(gSaveBlock2Ptr->playerGender),
+    task->tPlayerSpriteId = CreateTrainerSprite(PlayerGenderToFrontTrainerPicId(FEMALE),
                                                 DISPLAY_WIDTH + 32,
                                                 106,
                                                 0, NULL);

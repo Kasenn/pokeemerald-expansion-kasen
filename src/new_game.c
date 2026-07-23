@@ -92,8 +92,7 @@ void CopyTrainerId(u8 *dst, u8 *src)
 
 static void InitPlayerTrainerId(void)
 {
-    u32 trainerId = (Random() << 16) | GetGeneratedTrainerIdLower();
-    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
+    return;
 }
 
 // L=A isnt set here for some reason.
@@ -155,7 +154,6 @@ void NewGameInitData(void)
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         RtcReset();
     gDifferentSaveFile = TRUE;
-    gSaveBlock2Ptr->encryptionKey = 0;
     ZeroPlayerPartyMons();
     ZeroEnemyPartyMons();
     ResetPokedex();
@@ -164,7 +162,6 @@ void NewGameInitData(void)
     ClearSav3();
     ClearAllMail();
     gSaveBlock2Ptr->specialSaveWarpFlags = 0;
-    gSaveBlock2Ptr->gcnLinkFlags = 0;
     InitPlayerTrainerId();
     PlayTimeCounter_Reset();
     ClearPokedexFlags();
@@ -238,10 +235,7 @@ void NewGameInitData(void)
 
 static void ResetMiniGamesRecords(void)
 {
-    CpuFill16(0, &gSaveBlock2Ptr->berryCrush, sizeof(struct BerryCrush));
-    SetBerryPowder(&gSaveBlock2Ptr->berryCrush.berryPowderAmount, 0);
-    ResetPokemonJumpRecords();
-    CpuFill16(0, &gSaveBlock2Ptr->berryPick, sizeof(struct BerryPickingResults));
+    return;
 }
 
 static void ResetItemFlags(void)

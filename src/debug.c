@@ -1720,23 +1720,17 @@ static void DebugAction_Util_WatchCredits(u8 taskId)
 
 static void DebugAction_Player_Name(u8 taskId)
 {
-    DoNamingScreen(NAMING_SCREEN_PLAYER, gSaveBlock2Ptr->playerName, gSaveBlock2Ptr->playerGender, 0, 0, CB2_ReturnToFieldContinueScript);
+    return;
 }
 
 static void DebugAction_Player_Gender(u8 taskId)
 {
-    if (gSaveBlock2Ptr->playerGender == MALE)
-        gSaveBlock2Ptr->playerGender = FEMALE;
-    else
-        gSaveBlock2Ptr->playerGender = MALE;
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
 }
 
 static void DebugAction_Player_Id(u8 taskId)
 {
-    u32 trainerId = Random32();
-    SetTrainerId(trainerId, gSaveBlock2Ptr->playerTrainerId);
     Debug_DestroyMenu_Full(taskId);
     ScriptContext_Enable();
 }
