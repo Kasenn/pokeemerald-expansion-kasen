@@ -32,7 +32,7 @@ int GameClear(void)
     }
 
     if (GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME) == 0)
-        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
+        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock1Ptr->playTimeHours << 16) | (gSaveBlock1Ptr->playTimeMinutes << 8) | gSaveBlock1Ptr->playTimeSeconds);
 
     SetContinueGameWarpStatus();
 
@@ -110,7 +110,7 @@ bool8 EnterHallOfFame(void)
     }
     if (GetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME) == 0)
     {
-        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock2Ptr->playTimeHours << 16) | (gSaveBlock2Ptr->playTimeMinutes << 8) | gSaveBlock2Ptr->playTimeSeconds);
+        SetGameStat(GAME_STAT_FIRST_HOF_PLAY_TIME, (gSaveBlock1Ptr->playTimeHours << 16) | (gSaveBlock1Ptr->playTimeMinutes << 8) | gSaveBlock1Ptr->playTimeSeconds);
     }
     SetContinueGameWarpStatus();
     SetContinueGameWarpToHealLocation(HEAL_LOCATION_PALLET_TOWN);

@@ -90,26 +90,26 @@ static bool32 IsCurMapInEmptyList(void)
 static void TrySetPokeCenterWarpStatus(void)
 {
     if (!IsCurMapPokeCenter())
-        gSaveBlock2Ptr->specialSaveWarpFlags &= ~POKECENTER_SAVEWARP;
+        gSaveBlock1Ptr->specialSaveWarpFlags &= ~POKECENTER_SAVEWARP;
     else
-        gSaveBlock2Ptr->specialSaveWarpFlags |= POKECENTER_SAVEWARP;
+        gSaveBlock1Ptr->specialSaveWarpFlags |= POKECENTER_SAVEWARP;
 }
 
 static void TrySetReloadWarpStatus(void)
 {
     if (!IsCurMapReloadLocation())
-        gSaveBlock2Ptr->specialSaveWarpFlags &= ~LOBBY_SAVEWARP;
+        gSaveBlock1Ptr->specialSaveWarpFlags &= ~LOBBY_SAVEWARP;
     else
-        gSaveBlock2Ptr->specialSaveWarpFlags |= LOBBY_SAVEWARP;
+        gSaveBlock1Ptr->specialSaveWarpFlags |= LOBBY_SAVEWARP;
 }
 
 // Unknown save warp flag. Never set because map list is empty.
 static void TrySetUnknownWarpStatus(void)
 {
     if (!IsCurMapInEmptyList())
-        gSaveBlock2Ptr->specialSaveWarpFlags &= ~UNK_SPECIAL_SAVE_WARP_FLAG_3;
+        gSaveBlock1Ptr->specialSaveWarpFlags &= ~UNK_SPECIAL_SAVE_WARP_FLAG_3;
     else
-        gSaveBlock2Ptr->specialSaveWarpFlags |= UNK_SPECIAL_SAVE_WARP_FLAG_3;
+        gSaveBlock1Ptr->specialSaveWarpFlags |= UNK_SPECIAL_SAVE_WARP_FLAG_3;
 }
 
 void TrySetMapSaveWarpStatus(void)
@@ -129,11 +129,11 @@ void SetUnlockedPokedexFlags(void)
 
 void SetPostgameFlags(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
     return;
 }
 
 void SetChampionSaveWarp(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags |= CHAMPION_SAVEWARP;
 }

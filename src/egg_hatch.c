@@ -529,7 +529,7 @@ static void CB2_LoadEggHatch(void)
         gMain.state++;
         break;
     case 2:
-        u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+        u16 color = gSaveBlock1Ptr->battleInterfaceColor;
 
         DecompressAndLoadBgGfxUsingHeap(0, gBattleTextboxTiles, 0, 0, 0);
         CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);

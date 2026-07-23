@@ -138,28 +138,28 @@ void MoveSaveBlocks_ResetHeap(void)
 
 u32 UseContinueGameWarp(void)
 {
-    return gSaveBlock2Ptr->specialSaveWarpFlags & CONTINUE_GAME_WARP;
+    return gSaveBlock1Ptr->specialSaveWarpFlags & CONTINUE_GAME_WARP;
 }
 
 void ClearContinueGameWarpStatus(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
 }
 
 void SetContinueGameWarpStatus(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
 }
 
 void SetContinueGameWarpStatusToDynamicWarp(void)
 {
     SetContinueGameWarpToDynamicWarp(0);
-    gSaveBlock2Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags |= CONTINUE_GAME_WARP;
 }
 
 void ClearContinueGameWarpStatus2(void)
 {
-    gSaveBlock2Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
+    gSaveBlock1Ptr->specialSaveWarpFlags &= ~CONTINUE_GAME_WARP;
 }
 
 void SavePlayerParty(void)

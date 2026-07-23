@@ -98,12 +98,12 @@ static void InitPlayerTrainerId(void)
 // L=A isnt set here for some reason.
 static void SetDefaultOptions(void)
 {
-    gSaveBlock2Ptr->battleInterfaceColor = 0;
-    gSaveBlock2Ptr->optionsWindowFrameType = 0;
-    gSaveBlock2Ptr->optionsSound = OPTIONS_SOUND_STEREO;
-    gSaveBlock2Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
-    gSaveBlock2Ptr->optionsBattleSceneOff = FALSE;
-    gSaveBlock2Ptr->regionMapZoom = FALSE;
+    gSaveBlock1Ptr->battleInterfaceColor = 0;
+    gSaveBlock1Ptr->optionsWindowFrameType = 0;
+    gSaveBlock1Ptr->optionsSound = OPTIONS_SOUND_STEREO;
+    gSaveBlock1Ptr->optionsBattleStyle = OPTIONS_BATTLE_STYLE_SET;
+    gSaveBlock1Ptr->optionsBattleSceneOff = FALSE;
+    gSaveBlock1Ptr->regionMapZoom = FALSE;
 }
 
 static void ClearPokedexFlags(void)
@@ -158,7 +158,7 @@ void NewGameInitData(void)
     ClearSav1();
     ClearSav3();
     ClearAllMail();
-    gSaveBlock2Ptr->specialSaveWarpFlags = 0;
+    gSaveBlock1Ptr->specialSaveWarpFlags = 0;
     InitPlayerTrainerId();
     PlayTimeCounter_Reset();
     ClearPokedexFlags();

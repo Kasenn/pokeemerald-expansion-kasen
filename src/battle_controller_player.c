@@ -329,7 +329,7 @@ static void HandleInputChooseAction(enum BattlerId battler)
     DoBounceEffect(battler, BOUNCE_HEALTHBOX, 7, 1);
     DoBounceEffect(battler, BOUNCE_MON, 7, 1);
 
-    if (JOY_REPEAT(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (JOY_REPEAT(DPAD_ANY) && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
     else
         gPlayerDpadHoldFrames = 0;
@@ -397,11 +397,11 @@ static void HandleInputChooseAction(enum BattlerId battler)
         if (JOY_NEW(DPAD_UP))
         {
             PlaySE(SE_SELECT);
-            if (gSaveBlock2Ptr->optionsWindowFrameType == 27)
-                gSaveBlock2Ptr->optionsWindowFrameType = 0;
+            if (gSaveBlock1Ptr->optionsWindowFrameType == 27)
+                gSaveBlock1Ptr->optionsWindowFrameType = 0;
             else
-                gSaveBlock2Ptr->optionsWindowFrameType++;
-            // u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+                gSaveBlock1Ptr->optionsWindowFrameType++;
+            // u16 color = gSaveBlock1Ptr->battleInterfaceColor;
             // FillAroundBattleWindows();    
             // CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
             // CopyBgTilemapBufferToVram(0);
@@ -418,43 +418,43 @@ static void HandleInputChooseAction(enum BattlerId battler)
             // PREPARE_MON_NICK_BUFFER(gBattleTextBuff1, battler, gBattlerPartyIndexes[battler]);
             // BattleStringExpandPlaceholdersToDisplayedString(gText_WhatWillPkmnDo);
             // BattlePutTextOnWindow(gDisplayedStringBattle, B_WIN_ACTION_PROMPT);
-            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+            LoadBgTiles(2, sWindowFrames[gSaveBlock1Ptr->optionsWindowFrameType], 0x120, 0x12);
             LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
-            // LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x22);
-            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            // LoadBgTiles(2, sWindowFrames[gSaveBlock1Ptr->optionsWindowFrameType], 0x120, 0x22);
+            LoadPalette(sWindowFrameColor[gSaveBlock1Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
         }
         else if (JOY_NEW(DPAD_DOWN))
         {
             PlaySE(SE_SELECT);
-            if (gSaveBlock2Ptr->optionsWindowFrameType == 0)
-                gSaveBlock2Ptr->optionsWindowFrameType = 27;
+            if (gSaveBlock1Ptr->optionsWindowFrameType == 0)
+                gSaveBlock1Ptr->optionsWindowFrameType = 27;
             else
-                gSaveBlock2Ptr->optionsWindowFrameType--;
-            LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x12);
+                gSaveBlock1Ptr->optionsWindowFrameType--;
+            LoadBgTiles(2, sWindowFrames[gSaveBlock1Ptr->optionsWindowFrameType], 0x120, 0x12);
             LoadUserWindowBorderGfx(2, 0x22, BG_PLTT_ID(1));
-            // LoadBgTiles(2, sWindowFrames[gSaveBlock2Ptr->optionsWindowFrameType], 0x120, 0x22);
-            LoadPalette(sWindowFrameColor[gSaveBlock2Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
+            // LoadBgTiles(2, sWindowFrames[gSaveBlock1Ptr->optionsWindowFrameType], 0x120, 0x22);
+            LoadPalette(sWindowFrameColor[gSaveBlock1Ptr->optionsWindowFrameType], BG_PLTT_ID(1), PLTT_SIZE_4BPP);
             // LoadUserWindowBorderGfx(2, 0x12, BG_PLTT_ID(1));
         }
         else if (JOY_NEW(DPAD_RIGHT))
         {
             PlaySE(SE_SELECT);
-            if (gSaveBlock2Ptr->battleInterfaceColor == 7)
-                gSaveBlock2Ptr->battleInterfaceColor = 0;
+            if (gSaveBlock1Ptr->battleInterfaceColor == 7)
+                gSaveBlock1Ptr->battleInterfaceColor = 0;
             else
-                gSaveBlock2Ptr->battleInterfaceColor++;
-            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+                gSaveBlock1Ptr->battleInterfaceColor++;
+            u16 color = gSaveBlock1Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
             LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
         else if (JOY_NEW(DPAD_LEFT))
         {
             PlaySE(SE_SELECT);
-            if (gSaveBlock2Ptr->battleInterfaceColor == 0)
-                gSaveBlock2Ptr->battleInterfaceColor = 7;
+            if (gSaveBlock1Ptr->battleInterfaceColor == 0)
+                gSaveBlock1Ptr->battleInterfaceColor = 7;
             else
-                gSaveBlock2Ptr->battleInterfaceColor--;
-            u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+                gSaveBlock1Ptr->battleInterfaceColor--;
+            u16 color = gSaveBlock1Ptr->battleInterfaceColor;
             LoadPalette(sHealthBoxColor[color], OBJ_PLTT_ID(4), PLTT_SIZEOF(8));
             LoadPalette(sBattleTextboxColor[color], BG_PLTT_ID(0), TILE_SIZE_4BPP);
         }
@@ -584,7 +584,7 @@ void HandleInputChooseTarget(enum BattlerId battler)
             EndBounceEffect(i, BOUNCE_HEALTHBOX);
     }
 
-    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (JOY_HELD(DPAD_ANY) && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
     else
         gPlayerDpadHoldFrames = 0;
@@ -758,7 +758,7 @@ static void HideShownTargets(enum BattlerId battler)
 
 void HandleInputShowEntireFieldTargets(enum BattlerId battler)
 {
-    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (JOY_HELD(DPAD_ANY) && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
     else
         gPlayerDpadHoldFrames = 0;
@@ -786,7 +786,7 @@ void HandleInputShowEntireFieldTargets(enum BattlerId battler)
 
 void HandleInputShowTargets(enum BattlerId battler)
 {
-    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (JOY_HELD(DPAD_ANY) && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
     else
         gPlayerDpadHoldFrames = 0;
@@ -848,7 +848,7 @@ void HandleInputChooseMove(enum BattlerId battler)
     u32 canSelectTarget = 0;
     struct ChooseMoveStruct *moveInfo = (struct ChooseMoveStruct *)(&gBattleResources->bufferA[battler][4]);
 
-    if (JOY_HELD(DPAD_ANY) && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (JOY_HELD(DPAD_ANY) && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         gPlayerDpadHoldFrames++;
     else
         gPlayerDpadHoldFrames = 0;
@@ -1075,7 +1075,7 @@ void HandleInputChooseMove(enum BattlerId battler)
         }
     }
     else if (JOY_NEW(B_MOVE_DESCRIPTION_BUTTON) &&
-        !(B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
+        !(B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A))
     {
         gBattleStruct->descriptionSubmenu = TRUE;
         TryMoveSelectionDisplayMoveDescription(battler);

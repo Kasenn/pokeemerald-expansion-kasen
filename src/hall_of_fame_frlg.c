@@ -1095,9 +1095,9 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
     AddTextPrinterParameterized3(1, FONT_NORMAL, textWidth - 30, 18, sTextColors[1], 0, text);
 
     AddTextPrinterParameterized3(1, FONT_NORMAL, 4, 32, sTextColors[1], 0, gText_Time);
-    text[0] = (gSaveBlock2Ptr->playTimeHours / 100) + CHAR_0;
-    text[1] = (gSaveBlock2Ptr->playTimeHours % 100) / 10 + CHAR_0;
-    text[2] = (gSaveBlock2Ptr->playTimeHours % 10) + CHAR_0;
+    text[0] = (gSaveBlock1Ptr->playTimeHours / 100) + CHAR_0;
+    text[1] = (gSaveBlock1Ptr->playTimeHours % 100) / 10 + CHAR_0;
+    text[2] = (gSaveBlock1Ptr->playTimeHours % 10) + CHAR_0;
 
     if (text[0] == CHAR_0)
         text[0] = CHAR_SPACE;
@@ -1105,8 +1105,8 @@ static void HallOfFame_PrintPlayerInfo(u8 unused1, u8 unused2)
         text[1] = CHAR_SPACE;
 
     text[3] = CHAR_COLON;
-    text[4] = (gSaveBlock2Ptr->playTimeMinutes % 100) / 10 + CHAR_0;
-    text[5] = (gSaveBlock2Ptr->playTimeMinutes % 10) + CHAR_0;
+    text[4] = (gSaveBlock1Ptr->playTimeMinutes % 100) / 10 + CHAR_0;
+    text[5] = (gSaveBlock1Ptr->playTimeMinutes % 10) + CHAR_0;
     text[6] = EOS;
 
     AddTextPrinterParameterized3(1, FONT_NORMAL, textWidth - 36, 32, sTextColors[1], 0, text);

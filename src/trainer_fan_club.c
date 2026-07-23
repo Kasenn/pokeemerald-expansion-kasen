@@ -53,7 +53,7 @@ static void TryLoseFansFromPlayTimeAfterLinkBattle(struct TrainerFanClub *fanClu
     if (DidPlayerGetFirstFans(fanClub))
     {
         TryLoseFansFromPlayTime(fanClub);
-        VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock2Ptr->playTimeHours);
+        VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock1Ptr->playTimeHours);
     }
 }
 
@@ -68,7 +68,7 @@ static void UpdateTrainerFanClubGameClear(struct TrainerFanClub *fanClub)
     {
         SetPlayerGotFirstFans(fanClub);
         SetInitialFansOfPlayer(fanClub);
-        VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock2Ptr->playTimeHours);
+        VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock1Ptr->playTimeHours);
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_BLACKBELT);
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_ROCKER);
         FlagClear(FLAG_HIDE_SAFFRON_FAN_CLUB_WOMAN);
@@ -202,20 +202,20 @@ static void TryLoseFansFromPlayTime(struct TrainerFanClub *fanClub)
     u8 i = 0;
     u16 timer;
 
-    if (gSaveBlock2Ptr->playTimeHours < 999)
+    if (gSaveBlock1Ptr->playTimeHours < 999)
     {
         while (1)
         {
             if (GetNumFansOfPlayerInTrainerFanClub(fanClub) < 5)
             {
-                VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock2Ptr->playTimeHours);
+                VarSet(VAR_FANCLUB_LOSE_FAN_TIMER, gSaveBlock1Ptr->playTimeHours);
                 break;
             }
             if (i == NUM_TRAINER_FAN_CLUB_MEMBERS)
                 break;
 
             timer = VarGet(VAR_FANCLUB_LOSE_FAN_TIMER);
-            if (gSaveBlock2Ptr->playTimeHours - timer < 12)
+            if (gSaveBlock1Ptr->playTimeHours - timer < 12)
                 break;
 
             PlayerLoseRandomTrainerFan(fanClub);

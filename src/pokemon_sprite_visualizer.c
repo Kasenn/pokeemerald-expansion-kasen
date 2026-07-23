@@ -912,7 +912,7 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
 {
     bool8 invisible = FALSE;
     enum Species species = IsSpeciesEnabled(data->currentmonId) ? SanitizeSpeciesId(data->currentmonId) : SPECIES_NONE;
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
     
     if (B_ENEMY_MON_SHADOW_STYLE >= GEN_4 && P_GBA_STYLE_SPECIES_GFX == FALSE)
     {

@@ -1053,8 +1053,8 @@ static void PrintTimeOnCard(void)
     }
     else
     {
-        hours = gSaveBlock2Ptr->playTimeHours;
-        minutes = gSaveBlock2Ptr->playTimeMinutes;
+        hours = gSaveBlock1Ptr->playTimeHours;
+        minutes = gSaveBlock1Ptr->playTimeMinutes;
     }
 
     if (hours > 999)

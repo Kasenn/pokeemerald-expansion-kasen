@@ -737,7 +737,7 @@ void BattleLoadAllHealthBoxesGfxAtOnce(void)
 {
     u8 numberOfBattlers = 0;
     u8 i;
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
 
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
     LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][1]);
@@ -762,7 +762,7 @@ void BattleLoadAllHealthBoxesGfxAtOnce(void)
 bool8 BattleLoadAllHealthBoxesGfx(u8 state)
 {
     bool8 retVal = FALSE;
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
 
     if (state != 0)
     {

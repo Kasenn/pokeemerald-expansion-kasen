@@ -16,17 +16,17 @@ void PlayTimeCounter_Reset(void)
 {
     sPlayTimeCounterState = STOPPED;
 
-    gSaveBlock2Ptr->playTimeHours = 0;
-    gSaveBlock2Ptr->playTimeMinutes = 0;
-    gSaveBlock2Ptr->playTimeSeconds = 0;
-    gSaveBlock2Ptr->playTimeVBlanks = 0;
+    gSaveBlock1Ptr->playTimeHours = 0;
+    gSaveBlock1Ptr->playTimeMinutes = 0;
+    gSaveBlock1Ptr->playTimeSeconds = 0;
+    gSaveBlock1Ptr->playTimeVBlanks = 0;
 }
 
 void PlayTimeCounter_Start(void)
 {
     sPlayTimeCounterState = RUNNING;
 
-    if (gSaveBlock2Ptr->playTimeHours > 999)
+    if (gSaveBlock1Ptr->playTimeHours > 999)
         PlayTimeCounter_SetToMax();
 }
 
@@ -40,29 +40,29 @@ void PlayTimeCounter_Update(void)
     if (sPlayTimeCounterState != RUNNING)
         return;
 
-    gSaveBlock2Ptr->playTimeVBlanks++;
+    gSaveBlock1Ptr->playTimeVBlanks++;
     UpdateSpinData();
 
-    if (gSaveBlock2Ptr->playTimeVBlanks < 60)
+    if (gSaveBlock1Ptr->playTimeVBlanks < 60)
         return;
 
-    gSaveBlock2Ptr->playTimeVBlanks = 0;
-    gSaveBlock2Ptr->playTimeSeconds++;
+    gSaveBlock1Ptr->playTimeVBlanks = 0;
+    gSaveBlock1Ptr->playTimeSeconds++;
     FakeRtc_TickTimeForward();
 
-    if (gSaveBlock2Ptr->playTimeSeconds < 60)
+    if (gSaveBlock1Ptr->playTimeSeconds < 60)
         return;
 
-    gSaveBlock2Ptr->playTimeSeconds = 0;
-    gSaveBlock2Ptr->playTimeMinutes++;
+    gSaveBlock1Ptr->playTimeSeconds = 0;
+    gSaveBlock1Ptr->playTimeMinutes++;
 
-    if (gSaveBlock2Ptr->playTimeMinutes < 60)
+    if (gSaveBlock1Ptr->playTimeMinutes < 60)
         return;
 
-    gSaveBlock2Ptr->playTimeMinutes = 0;
-    gSaveBlock2Ptr->playTimeHours++;
+    gSaveBlock1Ptr->playTimeMinutes = 0;
+    gSaveBlock1Ptr->playTimeHours++;
 
-    if (gSaveBlock2Ptr->playTimeHours > 999)
+    if (gSaveBlock1Ptr->playTimeHours > 999)
         PlayTimeCounter_SetToMax();
 }
 
@@ -70,8 +70,8 @@ void PlayTimeCounter_SetToMax(void)
 {
     sPlayTimeCounterState = MAXED_OUT;
 
-    gSaveBlock2Ptr->playTimeHours = 999;
-    gSaveBlock2Ptr->playTimeMinutes = 59;
-    gSaveBlock2Ptr->playTimeSeconds = 59;
-    gSaveBlock2Ptr->playTimeVBlanks = 59;
+    gSaveBlock1Ptr->playTimeHours = 999;
+    gSaveBlock1Ptr->playTimeMinutes = 59;
+    gSaveBlock1Ptr->playTimeSeconds = 59;
+    gSaveBlock1Ptr->playTimeVBlanks = 59;
 }

@@ -1381,7 +1381,7 @@ u8 CreatePartyStatusSummarySprites(enum BattlerId battler, struct HpAndStatus *p
 
     LoadCompressedSpriteSheetUsingHeap(&sStatusSummaryBarSpriteSheet);
     LoadSpriteSheet(&sStatusSummaryBallsSpriteSheet);
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
     LoadSpritePalette(&sStatusSummaryBarSpritePal[color]);
     LoadSpritePalette(&sStatusSummaryBallsSpritePal);
 
@@ -2820,7 +2820,7 @@ void CreateAbilityPopUp(enum BattlerId battler, enum Ability ability, bool32 isD
     }
 
     if (!IsAnyAbilityPopUpActive())
-        LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
+        LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock1Ptr->battleInterfaceColor]);
 
     tileTag = (TAG_ABILITY_POP_UP_PLAYER1 + battler);
     if (IndexOfSpriteTileTag(tileTag) == 0xFF)
@@ -2971,7 +2971,7 @@ void CreateItemPopUp(enum BattlerId battler)
     const s16 (*coords)[2];
 
     if (!IsAnyAbilityPopUpActive())
-        LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
+        LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock1Ptr->battleInterfaceColor]);
 
     tileTag = (TAG_ABILITY_POP_UP_PLAYER1 + battler);
     if (IndexOfSpriteTileTag(tileTag) == 0xFF)
@@ -3177,7 +3177,7 @@ void TryAddLastUsedBallItemSprites(void)
     }
 
     // window
-    LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
+    LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock1Ptr->battleInterfaceColor]);
     if (GetSpriteTileStartByTag(TAG_LAST_BALL_WINDOW) == 0xFFFF)
         LoadSpriteSheet(&sSpriteSheet_LastUsedBallWindow);
 
@@ -3216,10 +3216,10 @@ void TryToAddMoveInfoWindow(void)
     if (!B_SHOW_MOVE_DESCRIPTION)
         return;
 
-    if (B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (B_MOVE_DESCRIPTION_BUTTON == L_BUTTON && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         return;
 
-    LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock2Ptr->battleInterfaceColor]);
+    LoadSpritePalette(&sSpritePalette_AbilityPopUp[gSaveBlock1Ptr->battleInterfaceColor]);
     if (GetSpriteTileStartByTag(MOVE_INFO_WINDOW_TAG) == 0xFFFF)
         LoadSpriteSheet(&sSpriteSheet_MoveInfoWindow);
 
@@ -3328,7 +3328,7 @@ static void TryHideOrRestoreLastUsedBall(u8 caseId)
 
 void TryHideLastUsedBall(void)
 {
-    if (B_LAST_USED_BALL_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (B_LAST_USED_BALL_BUTTON == L_BUTTON && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         return;
 
     if (B_LAST_USED_BALL == TRUE)
@@ -3340,7 +3340,7 @@ void TryRestoreLastUsedBall(void)
     if (B_LAST_USED_BALL == FALSE)
         return;
 
-    if (B_LAST_USED_BALL_BUTTON == L_BUTTON && gSaveBlock2Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
+    if (B_LAST_USED_BALL_BUTTON == L_BUTTON && gSaveBlock1Ptr->optionsButtonMode == OPTIONS_BUTTON_MODE_L_EQUALS_A)
         return;
 
     if (gBattleStruct->ballSpriteIds[0] != MAX_SPRITES)

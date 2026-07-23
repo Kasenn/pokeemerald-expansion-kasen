@@ -995,7 +995,7 @@ static const u16 *const sBattleTextboxColor[] =
 
 void LoadBattleTextboxAndBackground(void)
 {
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
 
     DecompressDataWithHeaderVram(gBattleTextboxTiles, (void *)(BG_CHAR_ADDR(0)));
     CopyToBgTilemapBuffer(0, gBattleTextboxTilemap, 0, 0);
@@ -1329,7 +1329,7 @@ void DrawBattleEntryBackground(void)
 bool8 LoadChosenBattleElement(u8 caseId)
 {
     bool8 ret = FALSE;
-    u16 color = gSaveBlock2Ptr->battleInterfaceColor;
+    u16 color = gSaveBlock1Ptr->battleInterfaceColor;
 
     switch (caseId)
     {

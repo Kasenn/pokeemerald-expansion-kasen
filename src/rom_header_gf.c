@@ -125,7 +125,7 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .saveBlock1Size = sizeof(struct SaveBlock1),
     .partyCountOffset = offsetof(struct SaveBlock1, playerPartyCount),
     .partyOffset = offsetof(struct SaveBlock1, playerParty),
-    .warpFlagsOffset = offsetof(struct SaveBlock2, specialSaveWarpFlags),
+    .warpFlagsOffset = offsetof(struct SaveBlock1, specialSaveWarpFlags),
     .unk18 = 0x00000000,
     .speciesInfo = gSpeciesInfo,
     //.abilityNames = gAbilityNames, //handled in gAbilitiesInfo
