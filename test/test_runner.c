@@ -192,7 +192,6 @@ void TestRunner_CheckMemory(void)
 static void ClearSaveBlocks(void)
 {
     ClearSav1();
-    ClearSav3();
 }
 
 void CB2_TestRunner(void)

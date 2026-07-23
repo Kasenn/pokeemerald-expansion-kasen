@@ -138,7 +138,6 @@ void NewGameInitData(void)
     ZeroEnemyPartyMons();
     ResetPokedex();
     ClearSav1();
-    ClearSav3();
     ClearAllMail();
     gSaveBlock1Ptr->specialSaveWarpFlags = 0;
     PlayTimeCounter_Reset();

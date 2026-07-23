@@ -794,7 +794,6 @@ struct BattleTestData
     bool8 hasAI:1;
     bool8 logAI:1;
 
-    struct RecordedBattleSave recordedBattle;
     u8 battleRecordTypes[MAX_BATTLERS_COUNT][BATTLER_RECORD_SIZE];
     u8 battleRecordTurnNumbers[MAX_BATTLERS_COUNT][BATTLER_RECORD_SIZE];
     u8 battleRecordSourceLineOffsets[MAX_BATTLERS_COUNT][BATTLER_RECORD_SIZE];

@@ -17,21 +17,12 @@ struct SaveBlock1ASLR {
     u8 aslr[SAVEBLOCK_MOVE_RANGE];
 };
 
-struct PokemonStorageASLR {
-    struct PokemonStorage block;
-    u8 aslr[SAVEBLOCK_MOVE_RANGE];
-};
-
 extern struct SaveBlock1ASLR gSaveblock1;
-extern struct SaveBlock3 gSaveblock3;
-extern struct PokemonStorageASLR gPokemonStorage;
 
 extern bool32 gFlashMemoryPresent;
 extern struct SaveBlock1 *gSaveBlock1Ptr;
-extern struct PokemonStorage *gPokemonStoragePtr;
 
 void CheckForFlashMemory(void);
-void ClearSav3(void);
 void ClearSav1(void);
 void SetSaveBlocksPointers(u16 offset);
 void MoveSaveBlocks_ResetHeap(void);

@@ -30,9 +30,6 @@ struct PlayerInfo
     u16 language;
 };
 
-// Save data using TryWriteSpecialSaveSector is allowed to exceed SECTOR_DATA_SIZE (up to the counter field)
-STATIC_ASSERT(sizeof(struct RecordedBattleSave) <= SECTOR_COUNTER_OFFSET, RecordedBattleSaveFreeSpace);
-
 EWRAM_DATA rng_value_t gRecordedBattleRngSeed = RNG_VALUE_EMPTY;
 EWRAM_DATA rng_value_t gBattlePalaceMoveSelectionRngValue = RNG_VALUE_EMPTY;
 EWRAM_DATA static u8 sBattleRecords[MAX_BATTLERS_COUNT][BATTLER_RECORD_SIZE] = {0};
@@ -40,7 +37,6 @@ EWRAM_DATA static u16 sBattlerRecordSizes[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA static u16 sBattlerPrevRecordSizes[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA static u16 sBattlerSavedRecordSizes[MAX_BATTLERS_COUNT] = {0};
 EWRAM_DATA static u8 sRecordMode = 0;
-EWRAM_DATA static u8 sLvlMode = 0;
 EWRAM_DATA static u8 sFrontierFacility = 0;
 EWRAM_DATA static u8 sFrontierBrainSymbol = 0;
 EWRAM_DATA static MainCallback sCallback2_AfterRecordedBattle = NULL;
@@ -64,7 +60,6 @@ static u8 sRecordMixFriendLanguage;
 static u8 sApprenticeLanguage;
 
 static u8 GetNextRecordedDataByte(u8 *, u8 *, u8 *);
-static bool32 CopyRecordedBattleFromSave(struct RecordedBattleSave *);
 static void RecordedBattle_RestoreSavedParties(void);
 static void CB2_RecordedBattle(void);
 
@@ -247,58 +242,9 @@ static u8 GetNextRecordedDataByte(u8 *data, u8 *idx, u8 *size)
     return data[(*idx)++];
 }
 
-bool32 CanCopyRecordedBattleSaveData(void)
-{
-    struct RecordedBattleSave *dst = AllocZeroed(sizeof(struct RecordedBattleSave));
-    bool32 ret = CopyRecordedBattleFromSave(dst);
-    Free(dst);
-    return ret;
-}
-
-static bool32 IsRecordedBattleSaveValid(struct RecordedBattleSave *save)
-{
-    if (save->battleFlags == 0)
-        return FALSE;
-    if (save->battleFlags & BATTLE_TYPE_RECORDED_INVALID)
-        return FALSE;
-    if (CalcByteArraySum((void *)(save), sizeof(*save) - 4) != save->checksum)
-        return FALSE;
-
-    return TRUE;
-}
-
-static bool32 UNUSED RecordedBattleToSave(struct RecordedBattleSave *battleSave, struct RecordedBattleSave *saveSector)
-{
-    memset(saveSector, 0, SECTOR_SIZE);
-    memcpy(saveSector, battleSave, sizeof(*battleSave));
-
-    saveSector->checksum = CalcByteArraySum((void *)(saveSector), sizeof(*saveSector) - 4);
-
-    return TRUE;
-}
-
 bool32 MoveRecordedBattleToSaveData(void)
 {
     return FALSE;
-}
-
-static bool32 TryCopyRecordedBattleSaveData(struct RecordedBattleSave *dst, struct SaveSector *saveBuffer)
-{
-    memcpy(dst, saveBuffer, sizeof(struct RecordedBattleSave));
-
-    if (!IsRecordedBattleSaveValid(dst))
-        return FALSE;
-
-    return TRUE;
-}
-
-static bool32 CopyRecordedBattleFromSave(struct RecordedBattleSave *dst)
-{
-    struct SaveSector *savBuffer = AllocZeroed(SECTOR_SIZE);
-    bool32 ret = TryCopyRecordedBattleSaveData(dst, savBuffer);
-    Free(savBuffer);
-
-    return ret;
 }
 
 static void CB2_RecordedBattleEnd(void)
@@ -315,7 +261,7 @@ static void CB2_RecordedBattleEnd(void)
 
 #define tFramesToWait data[0]
 
-static void Task_StartAfterCountdown(u8 taskId)
+static void UNUSED Task_StartAfterCountdown(u8 taskId)
 {
     if (--gTasks[taskId].tFramesToWait == 0)
     {
@@ -325,91 +271,11 @@ static void Task_StartAfterCountdown(u8 taskId)
     }
 }
 
-void SetPartiesFromRecordedSave(struct RecordedBattleSave *src)
-{
-    for (enum BattleTrainer trainer = B_TRAINER_PLAYER; trainer < MAX_BATTLE_TRAINERS; trainer++)
-    {
-        ZeroPartyMons(gParties[trainer]);
-        for (s32 i = 0; i < PARTY_SIZE; i++)
-            gParties[trainer][i] = src->parties[trainer][i];
-    }
-}
-
-void SetVariablesForRecordedBattle(struct RecordedBattleSave *src)
-{
-    bool8 var;
-    s32 i, j;
-
-    SetPartiesFromRecordedSave(src);
-    for (i = 0; i < MAX_LINK_PLAYERS; i++)
-    {
-        for (var = FALSE, j = 0; j < PLAYER_NAME_LENGTH + 1; j++)
-        {
-            gLinkPlayers[i].name[j] = src->playersName[i][j];
-            if (src->playersName[i][j] == EOS)
-                var = TRUE;
-        }
-        gLinkPlayers[i].gender = (src->playersGender >> i) & 1;
-        gLinkPlayers[i].language = src->playersLanguage[i];
-        gLinkPlayers[i].id = (src->playersBattlers >> (2 * (i >> 1) + 4 * (i & BIT_SIDE))) & 0x3;
-        gLinkPlayers[i].trainerId = src->playersTrainerId[i];
-        sAI_Scripts[i] = src->AI_scripts[i];
-
-        if (var)
-            ConvertInternationalString(gLinkPlayers[i].name, gLinkPlayers[i].language);
-    }
-
-    gRecordedBattleRngSeed = src->rngSeed;
-    gBattleTypeFlags = src->battleFlags | BATTLE_TYPE_RECORDED;
-    TRAINER_BATTLE_PARAM.opponentA = src->opponentA;
-    TRAINER_BATTLE_PARAM.opponentB = src->opponentB;
-    gPartnerTrainerId = src->partnerId;
-    gRecordedBattleMultiplayerId = src->multiplayerId;
-    sLvlMode = 0;
-    sFrontierFacility = src->frontierFacility;
-    sFrontierBrainSymbol = src->frontierBrainSymbol;
-    sBattleScene = src->battleScene;
-    sTextSpeed = src->textSpeed;
-
-    for (i = 0; i < PLAYER_NAME_LENGTH + 1; i++)
-        sRecordMixFriendName[i] = src->recordMixFriendName[i];
-
-    sRecordMixFriendClass = src->recordMixFriendClass;
-    sApprenticeId = src->apprenticeId;
-    sRecordMixFriendLanguage = src->recordMixFriendLanguage;
-    sApprenticeLanguage = src->apprenticeLanguage;
-
-    for (i = 0; i < EASY_CHAT_BATTLE_WORDS_COUNT; i++)
-        sEasyChatSpeech[i] = src->easyChatSpeech[i];
-
-    for (i = 0; i < MAX_BATTLERS_COUNT; i++)
-        for (j = 0; j < BATTLER_RECORD_SIZE; j++)
-            sBattleRecords[i][j] = src->battleRecord[i][j];
-}
-
-void PlayRecordedBattle(void (*CB2_After)(void))
-{
-    struct RecordedBattleSave *battleSave = AllocZeroed(sizeof(struct RecordedBattleSave));
-    if (CopyRecordedBattleFromSave(battleSave) == TRUE)
-    {
-        u8 taskId;
-
-        RecordedBattle_SaveParties();
-        SetVariablesForRecordedBattle(battleSave);
-
-        taskId = CreateTask(Task_StartAfterCountdown, 1);
-        gTasks[taskId].tFramesToWait = 128;
-
-        sCallback2_AfterRecordedBattle = CB2_After;
-        PlayMapChosenOrBattleBGM(FALSE);
-        SetMainCallback2(CB2_RecordedBattle);
-    }
-    Free(battleSave);
-}
+void PlayRecordedBattle(void (*CB2_After)(void)) {}
 
 #undef tFramesToWait
 
-static void CB2_RecordedBattle(void)
+static void UNUSED CB2_RecordedBattle(void)
 {
     AnimateSprites();
     BuildOamBuffer();

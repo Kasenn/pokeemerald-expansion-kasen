@@ -774,13 +774,7 @@ static void LoadSearchIconData(void)
 
 static u8 GetSearchLevel(enum Species species)
 {
-    u8 searchLevel;
-#if USE_DEXNAV_SEARCH_LEVELS == TRUE
-    searchLevel = gSaveBlock3Ptr->dexNavSearchLevels[species];
-#else
-    searchLevel = 0;
-#endif
-    return searchLevel;
+    return 0;
 }
 
 static void SetUpDexNavSearch(void)

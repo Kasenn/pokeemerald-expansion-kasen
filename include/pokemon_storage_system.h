@@ -22,8 +22,6 @@ struct PokemonStorage
     u8 dummy;
 };
 
-extern struct PokemonStorage *gPokemonStoragePtr;
-
 void DrawTextWindowAndBufferTiles(const u8 *string, void *dst, u8 zero1, u8 zero2, s32 bytesToBuffer);
 u8 CountMonsInBox(u8 boxId);
 s16 GetFirstFreeBoxSpot(u8 boxId);
