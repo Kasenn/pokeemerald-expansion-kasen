@@ -272,7 +272,7 @@ script MachopIntro4{
 }
 
 script MachopIntroMain{
-    playbgm(MUS_HELP, TRUE)
+    playbgm(MUS_HELP, FALSE)
     setspeaker("Burly Man")
     msgbox("You there!\nYou've come at the perfect time!\pCome help me deal with\nthis scoundrel!", MSGBOX_AUTOCLOSE)
     delay(10)

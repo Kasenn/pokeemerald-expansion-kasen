@@ -509,7 +509,7 @@ MachopIntro4::
 
 MachopIntroMain::
 # 275 "data/maps/EggIsland_Exterior/scripts.pory"
-	playbgm MUS_HELP, TRUE
+	playbgm MUS_HELP, FALSE
 # 276 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker MachopIntroMain_Text_0
 # 277 "data/maps/EggIsland_Exterior/scripts.pory"
