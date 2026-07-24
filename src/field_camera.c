@@ -474,10 +474,8 @@ void CameraUpdate(void)
     gTotalCameraPixelOffsetY -= movementSpeedY;
 }
 
-void MoveCameraAndRedrawMap(s16 deltaX, s16 deltaY)
+void MoveCameraAndRedrawMap(int deltaX, int deltaY) //unused
 {
-    deltaX = deltaX - gSaveBlock1Ptr->pos.x;
-    deltaY = deltaY - gSaveBlock1Ptr->pos.y;
     CameraMove(deltaX, deltaY);
     UpdateObjectEventsForCameraUpdate(deltaX, deltaY);
     DrawWholeMapView();
