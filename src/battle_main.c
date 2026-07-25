@@ -5329,7 +5329,15 @@ static void HandleEndTurn_BattleWon(void)
     }
     else
     {
-        gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
+        if (gChuckedEggs)
+        {
+            gChuckedEggs = 0;
+            gBattlescriptCurrInstr = BattleScript_PickupEggs;
+        }
+        else
+        {
+            gBattlescriptCurrInstr = BattleScript_PayDayMoneyAndPickUpItems;
+        }
     }
 
     gBattleMainFunc = HandleEndTurn_FinishBattle;

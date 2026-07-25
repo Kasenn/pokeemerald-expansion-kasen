@@ -176,8 +176,8 @@
   ],
   "warp_events": [
     {
-      "x": 40,
-      "y": 10,
+      "x": 17,
+      "y": 78,
       "elevation": 0,
       "dest_map": "MAP_EGG_ISLAND_EXTERIOR",
       "dest_warp_id": "0"
@@ -211,8 +211,8 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 17,
-      "y": 78,
+      "x": 40,
+      "y": 10,
       "elevation": 0,
       "dest_map": "MAP_EGG_ISLAND_EXTERIOR",
       "dest_warp_id": "0"

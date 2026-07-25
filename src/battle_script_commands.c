@@ -4136,15 +4136,7 @@ static void Cmd_getexp(void)
                         }
                         else
                         {
-                            if (gChuckedEggs)
-                            {
-                                gChuckedEggs = FALSE;
-                                string = STRINGID_PKMNGAINEDEXPRETURNEGGS;
-                            }
-                            else
-                            {
-                                string = STRINGID_PKMNGAINEDEXP;
-                            }
+                            string = STRINGID_PKMNGAINEDEXP;
                         }
                         PrepareStringBattle(string, gBattleStruct->expGetterBattlerId);
                     }

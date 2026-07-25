@@ -239,10 +239,11 @@ script Script_TryLootEgg{
 }
 
 text TooManyEggs{
-    "Yoshi found an egg, but it's\n"
-    "already carrying more than enough.\p"
+    "Yoshi found an egg, but it\n"
+    "cannot carry any more.\p"
     "{STR_VAR_1}\p"
-    "Replace an old egg with the new one?"
+    "Replace an old egg with\n"
+    "the new one?"
 }
 
 script DebugScript1{

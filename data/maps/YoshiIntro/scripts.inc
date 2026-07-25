@@ -117,7 +117,7 @@ YoshiIntroScript::
 # 61 "data/maps/YoshiIntro/scripts.pory"
 	setvar VAR_FADEOUT_SPEED, 6
 # 62 "data/maps/YoshiIntro/scripts.pory"
-	warpsilent MAP_EGG_ISLAND_EXTERIOR, 0
+	warpsilent MAP_EGG_ISLAND_EXTERIOR, 5
 # 63 "data/maps/YoshiIntro/scripts.pory"
 	waitstate
 	return

@@ -3766,30 +3766,30 @@ void UpdateMushroomPP(void)
         SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_PP4, &mushroomCount);
 }
 
-static const u8 sText_NormalEgg[]       = _("This one looks very plain.");
-static const u8 sText_FlyingEgg[]       = _("This one feels very light.");
-static const u8 sText_FightingEgg[]     = _("This one feels feisty.");
-static const u8 sText_PoisonEgg[]       = _("This one looks toxic.");
-static const u8 sText_GroundEgg[]       = _("This one seems dirty and rough.");
-static const u8 sText_RockEgg[]         = _("This one feels hard and heavy.");
-static const u8 sText_BugEgg[]          = _("This one feels creepy to hold.");
-static const u8 sText_GhostEgg[]        = _("This one seems almost translucent.");
-static const u8 sText_SteelEgg[]        = _("This one feels sturdy and heavy.");
-static const u8 sText_FireEgg[]         = _("This one's warm to the touch.");
-static const u8 sText_WaterEgg[]        = _("This one feels damp and slippery.");
-static const u8 sText_GrassEgg[]        = _("This one gives off a nice aroma.");
-static const u8 sText_ElectricEgg[]     = _("This one seems charged with energy.");
-static const u8 sText_PsychicEgg[]      = _("This one gives an odd sensation.");
-static const u8 sText_IceEgg[]          = _("This one feels cold to the touch.");
-static const u8 sText_DragonEgg[]       = _("This one feels old and powerful.");
-static const u8 sText_DarkEgg[]         = _("This one barely reflects any light.");
-static const u8 sText_FairyEgg[]        = _("This one's got a peculiar glow.");
+static const u8 sText_NormalEgg[]       = _("This one looks very plain.\n");
+static const u8 sText_FlyingEgg[]       = _("This one feels very light.\n");
+static const u8 sText_FightingEgg[]     = _("This one feels feisty.\n");
+static const u8 sText_PoisonEgg[]       = _("This one looks toxic.\n");
+static const u8 sText_GroundEgg[]       = _("This one seems dirty and rough.\n");//this is longest
+static const u8 sText_RockEgg[]         = _("This one feels hard and heavy.\n");
+static const u8 sText_BugEgg[]          = _("This one feels creepy to hold.\n");
+static const u8 sText_GhostEgg[]        = _("This one seems\nalmost translucent.\l");
+static const u8 sText_SteelEgg[]        = _("This one feels sturdy and heavy.\n");
+static const u8 sText_FireEgg[]         = _("This one's warm to the touch.\n");
+static const u8 sText_WaterEgg[]        = _("This one feels\ndamp and slippery.\l");
+static const u8 sText_GrassEgg[]        = _("This one gives off a nice aroma.\n");
+static const u8 sText_ElectricEgg[]     = _("This one seems\ncharged with energy.\l");
+static const u8 sText_PsychicEgg[]      = _("This one gives an odd sensation.\n");
+static const u8 sText_IceEgg[]          = _("This one feels\ncold to the touch.\l");
+static const u8 sText_DragonEgg[]       = _("This one feels old and powerful.\n");
+static const u8 sText_DarkEgg[]         = _("This one barely reflects\nany light.\l");
+static const u8 sText_FairyEgg[]        = _("This one's got a peculiar glow.\n");
 
-static const u8 sText_AtkText1[]       = _("\nIt doesn't look like throwing it\lhurts that much.");
-static const u8 sText_AtkText2[]       = _("\nIt looks like throwing it\lmight sting a little.");
-static const u8 sText_AtkText3[]       = _("\nIt looks like throwing it\lmight do some damage.");
-static const u8 sText_AtkText4[]       = _("\nIt looks like throwing it\lmight really hurt.");
-static const u8 sText_AtkText5[]       = _("\nIt looks like throwing it\lmight do some serious damage.");
+static const u8 sText_AtkText1[]       = _("It doesn't look like throwing it\lhurts that much.");
+static const u8 sText_AtkText2[]       = _("It looks like throwing it\lmight sting a little.");
+static const u8 sText_AtkText3[]       = _("It looks like throwing it\lmight do some damage.");
+static const u8 sText_AtkText4[]       = _("It looks like throwing it\lmight really hurt.");
+static const u8 sText_AtkText5[]       = _("It looks like throwing it\lmight do some serious damage.");
 
 void BufferEggTextBasedOnType(void)
 {

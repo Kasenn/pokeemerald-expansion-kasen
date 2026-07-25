@@ -59,7 +59,7 @@ script YoshiIntroScript{
     fadescreenspeed(FADE_TO_BLACK, 6)
     delay(60)
     setvar(VAR_FADEOUT_SPEED, 6)
-    warpsilent(MAP_EGG_ISLAND_EXTERIOR, 0)
+    warpsilent(MAP_EGG_ISLAND_EXTERIOR, 5)
     waitstate
 }
 

@@ -77,6 +77,10 @@
     "gMapGroup_IndoorSevenIslandRoute_Frlg"
   ],
   "gMapGroup_TownsAndRoutes": [
+    "EggIsland_Exterior",
+    "EggIsland_Interior",
+    "YoshiIntro",
+    "Yoshi_GameOver",
     "PetalburgCity",
     "SlateportCity",
     "MauvilleCity",
@@ -133,11 +137,7 @@
     "Underwater_Route128",
     "Underwater_Route129",
     "Underwater_Route105",
-    "Underwater_Route125",
-    "EggIsland_Exterior",
-    "YoshiIntro",
-    "EggIsland_Interior",
-    "Yoshi_GameOver"
+    "Underwater_Route125"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",
