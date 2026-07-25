@@ -97,6 +97,7 @@ EWRAM_DATA static u8 sLearningMoveTableID = 0;
 EWRAM_DATA u8 gPartiesCount[MAX_BATTLE_TRAINERS] = {0};
 EWRAM_DATA u8 gCurrentUsableEggs = 0;
 EWRAM_DATA bool8 gChuckedEggs = FALSE;
+EWRAM_DATA u8 gSwitchedMonsAround = 0;
 EWRAM_DATA struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE] = {0};
 EWRAM_DATA struct SpriteTemplate gMultiuseSpriteTemplate = {0};
 EWRAM_DATA static struct MonSpritesGfxManager *sMonSpritesGfxManagers[MON_SPR_GFX_MANAGERS_COUNT] = {NULL};
@@ -5600,6 +5601,10 @@ void SetWildMonHeldItem(void)
 
             rnd = Random() % 100;
             u16 berry = (Random() % (LAST_BERRY_INDEX - FIRST_BERRY_INDEX)) + FIRST_BERRY_INDEX;
+            if (rnd < 5)
+                berry = ITEM_SITRUS_BERRY;
+            else if (rnd < 25)
+                berry = ITEM_ORAN_BERRY;
             species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_SPECIES, 0);
             if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
             {

@@ -12,6 +12,7 @@ mapscripts YoshiIntro_MapScripts {
 }
 
 script YoshiIntroScript{
+    callnative(DoInitialSave)
     addobject(KAMEK)
     delay(60)
     fadenewbgm(MUS_KAMEK)

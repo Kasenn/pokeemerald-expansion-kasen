@@ -3320,6 +3320,7 @@ static void SwitchSelectedMons(u8 taskId)
     }
     else
     {
+        gSwitchedMonsAround = TRUE;
         // Initialize switching party mons slide animation
         windowIds[0] = sPartyMenuBoxes[gPartyMenu.slotId].windowId;
         tSlot1Left = GetWindowAttribute(windowIds[0], WINDOW_TILEMAP_LEFT);

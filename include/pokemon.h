@@ -703,6 +703,7 @@ struct OriginalTrainerId
 extern u8 gPartiesCount[MAX_BATTLE_TRAINERS];
 extern u8 gCurrentUsableEggs;
 extern u8 gChuckedEggs;
+extern u8 gSwitchedMonsAround;
 extern struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE];
 
 #define gPlayerPartyCount gPartiesCount[B_TRAINER_PLAYER]

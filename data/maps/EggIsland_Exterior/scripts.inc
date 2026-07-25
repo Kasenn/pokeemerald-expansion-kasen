@@ -557,6 +557,8 @@ MachopIntroMain_5:
 	setobjectmovementtype LOCALID_MACHOP1, MOVEMENT_TYPE_LOOK_AROUND
 # 322 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_STORY, 3
+# 323 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative DoInitialSave
 	return
 
 MachopIntroMain_2:
@@ -614,36 +616,46 @@ MachopIntroMain_10:
 
 
 MachopScript1::
-# 326 "data/maps/EggIsland_Exterior/scripts.pory"
-	faceplayer
 # 327 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker MachopIntroMain_Text_0
+	faceplayer
 # 328 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox MachopScript1_Text1
+	setspeaker MachopIntroMain_Text_0
 # 329 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker MachopScript1_Text_0
+	msgbox MachopScript1_Text1
 # 330 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox MachopScript1_Text2, MSGBOX_AUTOCLOSE
+	setspeaker MachopScript1_Text_0
 # 331 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox MachopScript1_Text2, MSGBOX_AUTOCLOSE
+# 332 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_FACING, DIR_WEST
 	goto_if_eq MachopScript1_2
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_MACHOP1, MachopScript1_Movement_1
 MachopScript1_1:
-# 337 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement LOCALID_MACHOP1
 # 338 "data/maps/EggIsland_Exterior/scripts.pory"
-	removeobject LOCALID_MACHOP1
+	waitmovement LOCALID_MACHOP1
 # 339 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox MachopScript1_Text3
+	removeobject LOCALID_MACHOP1
 # 340 "data/maps/EggIsland_Exterior/scripts.pory"
-	clearflag FLAG_DISABLE_ENCOUNTERS
+	msgbox MachopScript1_Text3
 # 341 "data/maps/EggIsland_Exterior/scripts.pory"
+	clearflag FLAG_DISABLE_ENCOUNTERS
+# 342 "data/maps/EggIsland_Exterior/scripts.pory"
+	clearflag FLAG_STOP_EXP
+# 343 "data/maps/EggIsland_Exterior/scripts.pory"
+	setmonmove 0, 0, MOVE_CHUCK_EGG
+# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+	setmonmove 0, 1, MOVE_LICK_BERRY
+# 345 "data/maps/EggIsland_Exterior/scripts.pory"
+	special HealPlayerParty
+# 346 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative DoInitialSave
+# 347 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 MachopScript1_2:
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_MACHOP1, MachopScript1_Movement_0
 	goto MachopScript1_1
 
@@ -836,55 +848,55 @@ MachopIntroMain_Movement_2:
 	walk_fast_right
 	step_end
 
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 MachopScript1_Movement_0:
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
 	step_end
 
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 MachopScript1_Movement_1:
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
-# 335 "data/maps/EggIsland_Exterior/scripts.pory"
+# 336 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_right
 	step_end
 
@@ -914,7 +926,7 @@ Script_TryLootEgg_Text_3:
 
 MachopIntroMain_Text_0:
 # 278 "data/maps/EggIsland_Exterior/scripts.pory"
-	.string "Burly Man$"
+	.string "Lean Man$"
 
 MachopIntroMain_Text_1:
 # 279 "data/maps/EggIsland_Exterior/scripts.pory"
@@ -929,7 +941,7 @@ MachopIntroMain_Text_3:
 	.string "Reinforcements!?\nI'm out of here!$"
 
 MachopScript1_Text_0:
-# 329 "data/maps/EggIsland_Exterior/scripts.pory"
+# 330 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Macho$"
 
 EventScript_LootMushroom_Text::
@@ -953,7 +965,7 @@ TooManyEggs::
 	.string "Replace an old egg with the new one?$"
 
 MachopScript1_Text1::
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 350 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Thank you stranger.\n"
 	.string "I'm not sure I could've beaten\l"
 	.string "that Murkrow without your\l"
@@ -962,7 +974,7 @@ MachopScript1_Text1::
 	.string "getting rowdy as of late…$"
 
 MachopScript1_Text2::
-# 352 "data/maps/EggIsland_Exterior/scripts.pory"
+# 358 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "I am Macho the Machop.\n"
 	.string "And you are… Yoshi?\p"
 	.string "Hm, can't say I've met one\n"
@@ -988,7 +1000,7 @@ MachopScript1_Text2::
 	.string "river to the east.$"
 
 MachopScript1_Text3::
-# 377 "data/maps/EggIsland_Exterior/scripts.pory"
+# 383 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi can now collect eggs\n"
 	.string "to help it on its journey!\p"
 	.string "Look for eggs in the tall grass,\n"

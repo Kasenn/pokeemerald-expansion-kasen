@@ -15391,11 +15391,11 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_CHANSEY] =
     {
         .baseHP        = 250,
-        .baseAttack    = 20,
-        .baseDefense   = 45,
+        .baseAttack    = 30,
+        .baseDefense   = 55,
         .baseSpeed     = 70,
-        .baseSpAttack  = 20,
-        .baseSpDefense = 45,
+        .baseSpAttack  = 30,
+        .baseSpDefense = 55,
         .types = MON_TYPES(TYPE_NORMAL),
         .catchRate = 30,
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 395 : 255,

@@ -491,6 +491,7 @@ void CreateWildMon(enum Species species, u8 level)
         delta = 10;
 
     level = playerLevel + (Random() % (delta * 2 + 1)) - delta;
+    level -= Random() % (playerLevel / 6);
     switch (VarGet(VAR_ENCOUNTER_TABLE))
     {
         default:

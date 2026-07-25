@@ -389,6 +389,15 @@ static const struct WindowTemplate sWindowTemplates_MainMenu[] =
         .paletteNum = 15,
         .baseBlock = 0x16D
     },
+    {
+        .bg = 0,
+        .tilemapLeft = MENU_LEFT_ERROR,
+        .tilemapTop = MENU_TOP_ERROR,
+        .width = MENU_WIDTH_ERROR - 8,
+        .height = MENU_HEIGHT_ERROR,
+        .paletteNum = 13,
+        .baseBlock = 0x16D
+    },
     DUMMY_WIN_TEMPLATE
 };
 
@@ -597,6 +606,7 @@ static u32 InitMainMenu(bool8 returningFromOptionsMenu)
     ResetPaletteFade();
     LoadPalette(sMainMenuBgPal, BG_PLTT_ID(0), PLTT_SIZE_4BPP);
     LoadPalette(sMainMenuTextPal, BG_PLTT_ID(15), PLTT_SIZE_4BPP);
+    LoadPalette(sMainMenuTextPal, BG_PLTT_ID(13), PLTT_SIZE_4BPP);
     ScanlineEffect_Stop();
     ResetTasks();
     ResetSpriteData();
@@ -720,6 +730,19 @@ static void Task_WaitForSaveFileErrorWindow(u8 taskId)
         ClearWindowTilemap(7);
         ClearMainMenuWindowTilemap(&sWindowTemplates_MainMenu[7]);
         gTasks[taskId].func = Task_MainMenuCheckBattery;
+    }
+}
+
+static void Task_WaitForSaveFileErrorWindow2(u8 taskId)
+{
+    RunTextPrinters();
+    if (!IsTextPrinterActiveOnWindow(8))
+    {
+        CreateYesNoMenuParameterized(22, 14, MAIN_MENU_BORDER_TILE, 0x2D5, 2, 13);
+        gTasks[taskId].func = Task_NewGameBirchSpeech_ProcessNameYesNoMenu;
+        // ClearWindowTilemap(7);
+        // ClearMainMenuWindowTilemap(&sWindowTemplates_MainMenu[7]);
+        // gTasks[taskId].func = Task_MainMenuCheckBattery;
     }
 }
 
@@ -905,6 +928,9 @@ static void Task_HighlightSelectedMainMenuItem(u8 taskId)
     gTasks[taskId].func = Task_HandleMainMenuInput;
 }
 
+// static const u8 sText_DifferentSaveFile[] = _(	"WARNING!\pThere is a different game file\nthat is already saved.\pIf you start a new game now,\nthe other adventure will be lost.\pAre you sure you want to do this?");
+static const u8 sText_DifferentSaveFile[] = _("Start a new game,\noverwriting the old save?");
+
 static bool8 HandleMainMenuInput(u8 taskId)
 {
     s16 *data = gTasks[taskId].data;
@@ -935,6 +961,16 @@ static bool8 HandleMainMenuInput(u8 taskId)
                 FadeOutBGM(5);
                 break;
             case 1:
+                FillWindowPixelBuffer(8, PIXEL_FILL(1));
+                u8 color[3] = {1, 2, 3};
+                AddTextPrinterParameterized3(8, FONT_NORMAL, 0, 1, color, OPTIONS_TEXT_SPEED_FAST, sText_DifferentSaveFile);
+                PutWindowTilemap(8);
+                CopyWindowToVram(8, COPYWIN_GFX);
+                DrawMainMenuWindowBorder(&sWindowTemplates_MainMenu[8], MAIN_MENU_BORDER_TILE);
+                SetGpuReg(REG_OFFSET_WIN0H, WIN_RANGE(9, DISPLAY_WIDTH - 9));
+                SetGpuReg(REG_OFFSET_WIN0V, WIN_RANGE(113, DISPLAY_HEIGHT - 1));
+                gTasks[taskId].func = Task_WaitForSaveFileErrorWindow2;
+                return FALSE;
                 FadeOutBGM(5);
                 break;
             case 2:
@@ -1698,20 +1734,23 @@ static void Task_NewGameBirchSpeech_ProcessNameYesNoMenu(u8 taskId)
     switch (Menu_ProcessInputNoWrapClearOnChoose())
     {
     case 0:
+        ClearStdWindowAndFrameToTransparent(8, TRUE);
+        RemoveWindow(8);
         PlaySE(SE_SELECT);
-        gSprites[gTasks[taskId].tPlayerSpriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-        NewGameBirchSpeech_StartFadeOutTarget1InTarget2(taskId, 2);
-        NewGameBirchSpeech_StartFadePlatformIn(taskId, 1);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_SlidePlatformAway2;
+        FadeOutBGM(5);
+        BeginNormalPaletteFade(PALETTES_ALL, 0, 0, 0x10, RGB_BLACK);
+        gTasks[taskId].func = Task_HandleMainMenuAPressed;
         break;
     case MENU_B_PRESSED:
     case 1:
         PlaySE(SE_SELECT);
-        gTasks[taskId].func = Task_NewGameBirchSpeech_BoyOrGirl;
+        ClearStdWindowAndFrameToTransparent(8, TRUE);
+        // RemoveWindow(8);
+        gTasks[taskId].func = Task_HighlightSelectedMainMenuItem;
     }
 }
 
-static void Task_NewGameBirchSpeech_SlidePlatformAway2(u8 taskId)
+static void UNUSED Task_NewGameBirchSpeech_SlidePlatformAway2(u8 taskId)
 {
     if (gTasks[taskId].tBG1HOFS)
     {
