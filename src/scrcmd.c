@@ -4026,3 +4026,8 @@ void CheckIfSaveExists(void)
     else
         FlagClear(FLAG_TEMP_10);
 }
+
+void DoInitialSave(void)
+{
+    TrySavingData(SAVE_NORMAL);
+}

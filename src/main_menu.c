@@ -774,7 +774,7 @@ static void Task_DisplayMainMenu(u8 taskId)
         SetGpuReg(REG_OFFSET_BLDY, 7);
 
         if (IsBGMStopped())
-            PlayBGM(MUS_CREDITS);//wip
+            PlayBGM(MUS_WM1);
 
         palette = RGB_BLACK;
         LoadPalette(&palette, BG_PLTT_ID(15) + 14, PLTT_SIZEOF(1));

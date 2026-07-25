@@ -112,6 +112,7 @@ script IntroSequence{
     playbgm(MUS_YOSHI1, TRUE)
     release
     releaseall
+    callnative(DoInitialSave)
 }
 
 script SetUpAreaOne{
