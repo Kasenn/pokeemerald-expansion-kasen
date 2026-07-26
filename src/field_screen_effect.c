@@ -102,7 +102,7 @@ void WarpFadeInScreen(void)
         if (VarGet(VAR_FADEOUT_SPEED) != 0)
         {
             delay = VarGet(VAR_FADEOUT_SPEED);
-            VarSet(VAR_FADEOUT_SPEED, delay);
+            VarSet(VAR_FADEOUT_SPEED, 0);
         }
         FadeScreen(FADE_FROM_BLACK, delay);
         break;
@@ -302,6 +302,7 @@ static void SetUpWarpExitTask(void)
 
 void FieldCB_DefaultWarpExit(void)
 {
+    DebugPrintf("does this normally run?");
     Overworld_PlaySpecialMapMusic();
     WarpFadeInScreen();
     SetUpWarpExitTask();

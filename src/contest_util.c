@@ -606,7 +606,7 @@ static void Task_ShowContestResults(u8 taskId)
             var = VarGet(VAR_CONTEST_HALL_STATE);
             VarSet(VAR_CONTEST_HALL_STATE, 0);
             SetContinueGameWarpStatusToDynamicWarp();
-            TrySavingData(SAVE_LINK);
+            TrySavingData();
             ClearContinueGameWarpStatus2();
             VarSet(VAR_CONTEST_HALL_STATE, var);
             gTasks[taskId].tState++;

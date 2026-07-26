@@ -1878,22 +1878,37 @@ static bool8 RunFieldCallback(void)
 {
     if (gFieldCallback2)
     {
+        DebugPrintf("does this happen normally");
         if (!gFieldCallback2())
         {
+                    DebugPrintf("does this happen normally2");
+
             return FALSE;
         }
         else
         {
+                    DebugPrintf("does this happen normally2");
+
             gFieldCallback2 = NULL;
             gFieldCallback = NULL;
         }
     }
     else
-    {
+    {//wip
+            DebugPrintf("do we get 3");
+
         if (gFieldCallback)
+        {
+            DebugPrintf("does this happen normally3");
             gFieldCallback();
+        }
+            
         else
-            FieldCB_DefaultWarpExit();
+        {
+            DebugPrintf("does this happen normally4");
+                        FieldCB_DefaultWarpExit();
+
+        }
 
         gFieldCallback = NULL;
     }
@@ -2342,6 +2357,7 @@ static bool32 LoadMapInStepsLocal(u8 *state, bool32 a2)
         (*state)++;
         break;
     case 12:
+    //wip, this happens when it breaks
         if (RunFieldCallback())
             (*state)++;
         break;
@@ -2387,6 +2403,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
         (*state)++;
         break;
     case 2:
+    //wip, this is the correct one
         if (RunFieldCallback())
             (*state)++;
         break;

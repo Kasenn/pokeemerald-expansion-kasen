@@ -16,8 +16,6 @@ struct HallofFameTeam
     struct HallofFameMon mon[PARTY_SIZE];
 };
 
-extern struct HallofFameTeam *gHoFSaveBuffer;
-
 void CB2_DoHallOfFameScreen(void);
 void CB2_DoHallOfFameScreenDontSaveData(void);
 void CB2_DoHallOfFamePC(void);

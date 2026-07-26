@@ -181,6 +181,14 @@ void SaveObjectEvents(void)
         // To avoid crash on vanilla, save follower as inactive
         if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER1)
             gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER2)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER3)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER4)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER5)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
     }
 }
 
@@ -209,16 +217,34 @@ void LoadObjectEvents(void)
     SetMinimumOWESpawnTimer();
 }
 
+static u16 CalculateChecksum(void *data, u16 size)
+{
+    u16 i;
+    u32 checksum = 0;
+
+    for (i = 0; i < (size / 4); i++)
+    {
+        checksum += *((u32 *)data);
+        data += sizeof(u32);
+    }
+
+    return ((checksum >> 16) + checksum);
+}
+
 void CopyPartyAndObjectsToSave(void)
 {
+    DebugPrintf("%d, check 1", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     SavePlayerParty();
     SaveObjectEvents();
+    DebugPrintf("%d, check 2", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 }
 
 void CopyPartyAndObjectsFromSave(void)
 {
+    DebugPrintf("%d, check 3", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     LoadPlayerParty();
     LoadObjectEvents();
+    DebugPrintf("%d, check 4", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 }
 
 void LoadPlayerBag(void)

@@ -1217,12 +1217,12 @@ static u8 SaveDoSaveCallback(void)
 
     if (gDifferentSaveFile == TRUE)
     {
-        saveStatus = TrySavingData(SAVE_NORMAL);
+        saveStatus = TrySavingData();
         gDifferentSaveFile = FALSE;
     }
     else
     {
-        saveStatus = TrySavingData(SAVE_NORMAL);
+        saveStatus = TrySavingData();
     }
 
     if (saveStatus == SAVE_STATUS_OK)

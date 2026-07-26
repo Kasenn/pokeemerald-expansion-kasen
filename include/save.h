@@ -21,8 +21,6 @@
 // Save Slot 1: 0-13;  Save Slot 2: 14-27
 #define SECTORS_COUNT                1
 
-#define NUM_HOF_SECTORS 2
-
 #define SAVE_STATUS_EMPTY    0
 #define SAVE_STATUS_OK       1
 #define SAVE_STATUS_CORRUPT  2
@@ -41,14 +39,7 @@ enum
     CHECK // unused
 };
 
-// Do save types
-enum
-{
-    SAVE_NORMAL,
-    SAVE_LINK, // Link / Battle Frontier
-    SAVE_EREADER, // deprecated in Emerald
-    SAVE_HALL_OF_FAME,
-};
+#define SAVE_NORMAL 0
 
 // A save sector location holds a pointer to the data for a particular sector
 // and the size of that data. Size cannot be greater than SECTOR_DATA_SIZE.
@@ -61,6 +52,7 @@ struct SaveSectorLocation
 struct SaveSector
 {
     u8 data[SECTOR_DATA_SIZE];
+    u8 padding[116];
     u16 id;
     u16 checksum;
     u32 signature;
@@ -86,7 +78,7 @@ extern struct SaveSector gSaveDataBuffer;
 void ClearSaveData(void);
 void Save_ResetSaveCounters(void);
 u8 HandleSavingData(u8 saveType);
-u8 TrySavingData(u8 saveType);
+u8 TrySavingData(void);
 bool8 LinkFullSave_Init(void);
 bool8 LinkFullSave_WriteSector(void);
 bool8 LinkFullSave_ReplaceLastSector(void);

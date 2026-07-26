@@ -1041,7 +1041,7 @@ struct SaveBlock1
     struct ObjectEventTemplate objectEventTemplates[OBJECT_EVENT_TEMPLATES_COUNT];
     u8 flags[NUM_FLAG_BYTES];
     u16 vars[VARS_COUNT];
-    u8 followerId[4];
+    u8 followerId[5];
     u8 specialSaveWarpFlags;
     u16 playTimeHours;
     u8 playTimeMinutes;

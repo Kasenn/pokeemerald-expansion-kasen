@@ -261,7 +261,7 @@ static void CB2_MysteryEventMenu(void)
             CpuFill32(0, gDecompressionBuffer, 0x7D4);
 
             if (!GetEventLoadMessage(gStringVar4, status))
-                TrySavingData(SAVE_NORMAL);
+                TrySavingData();
             */
             gMain.state++;
         }

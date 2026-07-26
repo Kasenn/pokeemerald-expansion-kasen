@@ -877,7 +877,7 @@ static bool32 SaveOnMysteryGiftMenu(u8 *state)
         (*state)++;
         break;
     case 1:
-        TrySavingData(SAVE_NORMAL);
+        TrySavingData();
         (*state)++;
         break;
     case 2:

@@ -2432,6 +2432,7 @@ void ForceResetFollowers(void)
     gSaveBlock1Ptr->followerId[1] = 0;
     gSaveBlock1Ptr->followerId[2] = 0;
     gSaveBlock1Ptr->followerId[3] = 0;
+    gSaveBlock1Ptr->followerId[4] = 0;
     UpdateFollowingPokemon();
 }
 

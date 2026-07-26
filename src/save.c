@@ -111,6 +111,7 @@ static bool32 SetDamagedSectorBits(u8 op, u8 sectorId)
 
 static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *locations)
 {
+    DebugPrintf("%d, check 5", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     u32 status;
     u16 i;
 
@@ -143,7 +144,7 @@ static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *l
             gSaveCounter = gLastSaveCounter;
         }
     }
-
+    DebugPrintf("%d, check 6", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     return status;
 }
 
@@ -364,31 +365,6 @@ static u8 HandleReplaceSector(u16 sectorId, const struct SaveSectorLocation *loc
     }
 }
 
-static u8 WriteSectorSignatureByte_NoOffset(u16 sectorId, const struct SaveSectorLocation *locations)
-{
-    // Adjust sector id for current save slot
-    // This first line lacking -1 is the only difference from WriteSectorSignatureByte
-    u16 sector = sectorId + gLastWrittenSector;
-    sector %= NUM_SECTORS_PER_SLOT;
-    sector += NUM_SECTORS_PER_SLOT * (gSaveCounter % NUM_SAVE_SLOTS);
-
-    // Write just the first byte of the signature field, which was skipped by HandleReplaceSector
-    if (ProgramFlashByte(sector, SECTOR_SIGNATURE_OFFSET, SECTOR_SIGNATURE & 0xFF))
-    {
-        // Sector is damaged, so enable the bit in gDamagedSaveSectors and restore the last written sector and save counter.
-        SetDamagedSectorBits(ENABLE, sector);
-        gLastWrittenSector = gLastKnownGoodSector;
-        gSaveCounter = gLastSaveCounter;
-        return SAVE_STATUS_ERROR;
-    }
-    else
-    {
-        // Succeeded
-        SetDamagedSectorBits(DISABLE, sector);
-        return SAVE_STATUS_OK;
-    }
-}
-
 static u8 CopySectorSignatureByte(u16 sectorId, const struct SaveSectorLocation *locations)
 {
     // Adjust sector id for current save slot
@@ -458,6 +434,7 @@ static u8 TryLoadSaveSlot(u16 sectorId, struct SaveSectorLocation *locations)
 // sectorId arg is ignored, this always reads the full save slot
 static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
 {
+    DebugPrintf("%d, check 8", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     u16 i;
     u16 checksum;
     u16 slotOffset = NUM_SECTORS_PER_SLOT * (gSaveCounter % NUM_SAVE_SLOTS);
@@ -481,6 +458,7 @@ static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
                 ((u8 *)locations[id].data)[j] = gReadWriteSector->data[j];
         }
     }
+    DebugPrintf("%d, check 8", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 
     return SAVE_STATUS_OK;
 }
@@ -670,33 +648,21 @@ static void UpdateSaveAddresses(void)
 u8 HandleSavingData(u8 saveType)
 {
     u32 *backupVar = gTrainerHillVBlankCounter;
-
     gTrainerHillVBlankCounter = NULL;
     UpdateSaveAddresses();
     switch (saveType)
     {
-    case SAVE_HALL_OF_FAME:
-        if (GetGameStat(GAME_STAT_ENTERED_HOF) < 999)
-            IncrementGameStat(GAME_STAT_ENTERED_HOF);
     case SAVE_NORMAL:
     default:
         CopyPartyAndObjectsToSave();
         WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
-        break;
-    case SAVE_LINK:
-    case SAVE_EREADER: // Dummied, now duplicate of SAVE_LINK
-        // Used by link / Battle Frontier
-        // Write only SaveBlocks 1 and 2 (skips the PC)
-        CopyPartyAndObjectsToSave();
-        HandleReplaceSector(SECTOR_ID_SAVEBLOCK1, gRamSaveSectorLocations);
-        WriteSectorSignatureByte_NoOffset(SECTOR_ID_SAVEBLOCK1, gRamSaveSectorLocations);
         break;
     }
     gTrainerHillVBlankCounter = backupVar;
     return 0;
 }
 
-u8 TrySavingData(u8 saveType)
+u8 TrySavingData(void)
 {
     if (gFlashMemoryPresent != TRUE)
     {
@@ -704,7 +670,7 @@ u8 TrySavingData(u8 saveType)
         return SAVE_STATUS_ERROR;
     }
 
-    HandleSavingData(saveType);
+    HandleSavingData(SAVE_NORMAL);
     if (!gDamagedSaveSectors)
     {
         gSaveAttemptStatus = SAVE_STATUS_OK;
@@ -712,7 +678,7 @@ u8 TrySavingData(u8 saveType)
     }
     else
     {
-        DoSaveFailedScreen(saveType);
+        DoSaveFailedScreen(SAVE_NORMAL);
         gSaveAttemptStatus = SAVE_STATUS_ERROR;
         return SAVE_STATUS_ERROR;
     }
@@ -797,7 +763,7 @@ bool8 WriteSaveBlock1Sector(void)
     }
 
     if (gDamagedSaveSectors)
-        DoSaveFailedScreen(SAVE_LINK);
+        DoSaveFailedScreen(SAVE_NORMAL);
 
     return finished;
 }
@@ -813,19 +779,10 @@ u8 LoadGameSave(u8 saveType)
     }
 
     UpdateSaveAddresses();
-    switch (saveType)
-    {
-    case SAVE_NORMAL:
-    default:
-        status = TryLoadSaveSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
-        CopyPartyAndObjectsFromSave();
-        gSaveFileStatus = status;
-        gGameContinueCallback = NULL;
-        break;
-    case SAVE_HALL_OF_FAME:
-        status = SAVE_STATUS_OK;
-        break;
-    }
+    status = TryLoadSaveSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
+    CopyPartyAndObjectsFromSave();
+    gSaveFileStatus = status;
+    gGameContinueCallback = NULL;
 
     return status;
 }
@@ -894,7 +851,7 @@ u32 TryWriteSpecialSaveSector(u8 sector, u8 *src)
 #define tTimer         data[1]
 #define tInBattleTower data[2]
 
-// Note that this is very different from TrySavingData(SAVE_LINK).
+// Note that this is very different from TrySavingData().
 // Most notably it does save the PC data.
 void Task_LinkFullSave(u8 taskId)
 {

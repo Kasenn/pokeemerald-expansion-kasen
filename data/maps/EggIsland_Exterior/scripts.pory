@@ -251,11 +251,9 @@ text TooManyEggs{
 }
 
 script DebugScript1{
-    getplayerxy(VAR_X, VAR_Y)
-    addvar(VAR_X, 3)
-    addvar(VAR_Y, 2)
-    setobjectxy(LOCALID_PLAYER, VAR_X, VAR_Y)
-    teleportcamera(VAR_X, VAR_Y)
+    buffernumberstring(STR_VAR_1, VAR_ROCKPLATE_1)
+    buffernumberstring(STR_VAR_2, VAR_ROCKPLATE_2)
+    msgbox("{STR_VAR_1}\n{STR_VAR_2}")
 }
 
 script MachopIntro1{

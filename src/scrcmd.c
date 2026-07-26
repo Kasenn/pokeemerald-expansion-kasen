@@ -4029,7 +4029,7 @@ void CheckIfSaveExists(void)
 
 void DoInitialSave(void)
 {
-    TrySavingData(SAVE_NORMAL);
+    TrySavingData();
 }
 
 void GetEggCount(void)
