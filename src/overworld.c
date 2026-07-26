@@ -2363,8 +2363,11 @@ static bool32 ReturnToFieldLocal(u8 *state)
         InitObjectEventsReturnToField();
         if (gSwitchedMonsAround)
         {
-            for (int slot = 0; slot < (gPlayerPartyCount - 1); slot++)
-                RemoveFollowingPokemon(slot); 
+            RemoveFollowingPokemon(0); 
+            RemoveFollowingPokemon(1);
+            RemoveFollowingPokemon(2);
+            RemoveFollowingPokemon(3);
+            RemoveFollowingPokemon(4);
         }
         if (gFieldCallback == FieldCallback_UseFly)
         {

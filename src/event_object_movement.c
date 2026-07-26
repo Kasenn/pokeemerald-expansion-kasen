@@ -576,6 +576,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_GameOver5,             OBJ_EVENT_PAL_TAG_GAMEOVER_5},
     {gObjectEventPal_Portal,                OBJ_EVENT_PAL_TAG_PORTAL},
     {gObjectEventPal_Kamek2,                OBJ_EVENT_PAL_TAG_KAMEK2},
+    {gObjectEventPal_WaterEgg,              OBJ_EVENT_PAL_TAG_WATEREGG},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},
@@ -1880,6 +1881,17 @@ static void ApplySpecialObjectEventSettings(struct Sprite *sprite, struct Object
         objectEvent->currentElevation = 3;
         objectEvent->previousElevation = 3;
         break;
+    case OBJ_EVENT_GFX_WATEREGG:
+        sprite->y -= 32;
+        break;
+    case OBJ_EVENT_GFX_WATEREGG_START_FROM_LEFT:
+        sprite->x += 16;
+        sprite->y += 16;
+        break;
+    case OBJ_EVENT_GFX_WATEREGG_START_FROM_RIGHT:
+        sprite->x += 16;
+        sprite->y -= 16;
+        break;
     default:
         break;
     }
@@ -1965,6 +1977,8 @@ u8 TrySpawnObjectEventTemplate(const struct ObjectEventTemplate *objectEventTemp
     if (subspriteTables)
         SetSubspriteTables(&gSprites[gObjectEvents[objectEventId].spriteId], subspriteTables);
 
+    struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
+    ApplySpecialObjectEventSettings(&gSprites[gObjectEvents[objectEventId].spriteId], objectEvent, objectEventTemplate);
     OnOverworldWildEncounterSpawn(&gObjectEvents[objectEventId]);
     return objectEventId;
 }
@@ -2400,6 +2414,25 @@ static bool8 GetMonInfo(struct Pokemon *mon, u32 *species, bool32 *shiny, bool32
 bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female, u8 slot)
 {
     return GetMonInfo(&gPlayerParty[slot], species, shiny, female);
+}
+
+void ForceResetFollowers(void)
+{
+    for (int i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (gObjectEvents[i].localId >= OBJ_EVENT_ID_FOLLOWER1 && gObjectEvents[i].localId <= OBJ_EVENT_ID_FOLLOWER5)
+        {
+            struct ObjectEvent *objectEvent = &gObjectEvents[i];
+            if (objectEvent == NULL)
+                continue;
+            RemoveObjectEvent(objectEvent);
+        }     
+    }
+    gSaveBlock1Ptr->followerId[0] = 0;
+    gSaveBlock1Ptr->followerId[1] = 0;
+    gSaveBlock1Ptr->followerId[2] = 0;
+    gSaveBlock1Ptr->followerId[3] = 0;
+    UpdateFollowingPokemon();
 }
 
 // Update following Pokémon if any

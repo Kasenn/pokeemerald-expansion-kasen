@@ -51,30 +51,30 @@
 
 #else
 
-#define FLAG_DISABLE_FOLLOWER    0x20
-#define FLAG_DISABLE_ENCOUNTERS  0x21
-#define FLAG_FORCE_EGG           0x22
-#define FLAG_EGGPIC              0x23
-#define FLAG_STOP_EXP            0x24
-#define FLAG_EGGS_HATCHED        0x25
-#define FLAG_DIGLETT_RESCUED     0x26
-#define FLAG_SKIP_FADEOUT    0x27
-#define FLAG_FORCE_ENCOUNTERRATE    0x28
-#define FLAG_NO_COLLISION    0x29
-#define FLAG_INTRODUCTION_TO_MUSHROOMS    0x2A
-#define FLAG_MUSHROOM_PICKED_UP    0x2B
-#define FLAG_MUSHROOMS_UNLOCKED    0x2C
-#define FLAG_DISABLE_GROUND_EFFECTS    0x2D
-#define FLAG_GAMEOVER_QUIT    0x2E // Unused Flag
-#define FLAG_HIDE_PORTAL    0x2F // Unused Flag
-#define FLAG_HIDE_KAMEK    0x30 // Unused Flag
-#define FLAG_HIDE_HONCHKROW    0x31 // Unused Flag
-#define FLAG_HIDE_PORTAL2    0x32 // Unused Flag
-#define FLAG_FIRST_ANIM_OVER    0x33 // Unused Flag
-#define FLAG_SECOND_ANIM_OVER    0x34 // Unused Flag
-#define FLAG_INTRO_MURKROW    0x35 // Unused Flag
-#define FLAG_INTRO_MACHOP    0x36 // Unused Flag
-#define FLAG_UNUSED_0x037    0x37 // Unused Flag
+#define FLAG_DISABLE_FOLLOWER           0x20
+#define FLAG_DISABLE_ENCOUNTERS         0x21
+#define FLAG_FORCE_EGG                  0x22
+#define FLAG_EGGPIC                     0x23
+#define FLAG_STOP_EXP                   0x24
+#define FLAG_EGGS_HATCHED               0x25
+#define FLAG_DIGLETT_RESCUED            0x26
+#define FLAG_SKIP_FADEOUT               0x27
+#define FLAG_FORCE_ENCOUNTERRATE        0x28
+#define FLAG_NO_COLLISION               0x29
+#define FLAG_INTRODUCTION_TO_MUSHROOMS  0x2A
+#define FLAG_MUSHROOM_PICKED_UP         0x2B
+#define FLAG_MUSHROOMS_UNLOCKED         0x2C
+#define FLAG_DISABLE_GROUND_EFFECTS     0x2D
+#define FLAG_GAMEOVER_QUIT              0x2E
+#define FLAG_HIDE_PORTAL                0x2F
+#define FLAG_HIDE_KAMEK                 0x30
+#define FLAG_HIDE_HONCHKROW             0x31
+#define FLAG_HIDE_PORTAL2               0x32
+#define FLAG_FIRST_ANIM_OVER            0x33
+#define FLAG_SECOND_ANIM_OVER           0x34
+#define FLAG_INTRO_MURKROW              0x35
+#define FLAG_INTRO_MACHOP               0x36
+#define FLAG_HIDE_WATEREGGS             0x37
 #define FLAG_UNUSED_0x038    0x38 // Unused Flag
 #define FLAG_UNUSED_0x039    0x39 // Unused Flag
 #define FLAG_UNUSED_0x03A    0x3A // Unused Flag

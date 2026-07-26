@@ -447,10 +447,12 @@ static void Task_WaitAfterMultiPartnerPartySlideIn(u8);
 static void Task_WaitBeforeMultiPartnerFullParty(u8);
 static void Task_WaitAfterMultiPartnerFullParty(u8);
 static void BufferMonSelection(void);
+static void DeleteEgg(void);
 static void Task_PartyMenuWaitForFade(u8 taskId);
 static void Task_ChooseContestMon(u8 taskId);
 static void CB2_ChooseContestMon(void);
 static void Task_ChoosePartyMon(u8 taskId);
+static void Task_ChoosePartyEgg(u8 taskId);
 static void Task_ChooseMonForMoveRelearner(u8);
 static void CB2_ChooseMonForMoveRelearner(void);
 static void Task_BattlePyramidChooseMonHeldItems(u8);
@@ -3134,7 +3136,7 @@ static u8 GetPartyMenuActionsType(struct Pokemon *mon)
         actionType = ACTIONS_TAKEITEM_TOSS;
         break;
     case PARTY_MENU_TYPE_TOSS_EGG:
-        actionType = ACTIONS_TOSSEGG;
+        actionType = (GetMonData(mon, MON_DATA_IS_EGG)) ? ACTIONS_TOSSEGG : ACTIONS_SUMMARY_ONLY;
         break;
     // The following have no selection actions (i.e. they exit immediately upon selection)
     // PARTY_MENU_TYPE_CONTEST
@@ -8092,6 +8094,17 @@ static void UNUSED ChoosePartyMonByMenuType(enum PartyMenuType menuType)
     InitPartyMenu(menuType, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_AND_CLOSE, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToField);
 }
 
+static void DeleteEgg(void)
+{
+    gSpecialVar_0x8004 = GetCursorSelectionMonId();
+    if (gSpecialVar_0x8004 >= PARTY_SIZE)
+        gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
+    else
+        gSwitchedMonsAround = TRUE;
+    gFieldCallback2 = CB2_FadeFromPartyMenu;
+    SetMainCallback2(CB2_ReturnToField);
+}
+
 static void BufferMonSelection(void)
 {
     gSpecialVar_0x8004 = GetCursorSelectionMonId();
@@ -8153,6 +8166,13 @@ void ChoosePartyMon(void)
     CreateTask(Task_ChoosePartyMon, 10);
 }
 
+void ChoosePartyEgg(void)
+{
+    LockPlayerFieldControls();
+    FadeScreen(FADE_TO_BLACK, 0);
+    CreateTask(Task_ChoosePartyEgg, 10);
+}
+
 static void Task_OpenPartyMenu(u8 taskId)
 {
     if (!gPaletteFade.active)
@@ -8177,6 +8197,16 @@ static void Task_ChoosePartyMon(u8 taskId)
         CleanupOverworldWindowsAndTilemaps();
         // InitPartyMenu(PARTY_MENU_TYPE_FIELD, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, CB2_ReturnToFieldWithOpenMenu);
         InitPartyMenu(PARTY_MENU_TYPE_TOSS_EGG, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, BufferMonSelection);
+        DestroyTask(taskId);
+    }
+}
+
+static void Task_ChoosePartyEgg(u8 taskId)
+{
+    if (!gPaletteFade.active)
+    {
+        CleanupOverworldWindowsAndTilemaps();
+        InitPartyMenu(PARTY_MENU_TYPE_TOSS_EGG, PARTY_LAYOUT_SINGLE, PARTY_ACTION_CHOOSE_MON, FALSE, PARTY_MSG_CHOOSE_MON, Task_HandleChooseMonInput, DeleteEgg);
         DestroyTask(taskId);
     }
 }

@@ -4031,3 +4031,23 @@ void DoInitialSave(void)
 {
     TrySavingData(SAVE_NORMAL);
 }
+
+void GetEggCount(void)
+{
+    gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
+}
+
+bool8 ScrCmd_removeegg(struct ScriptContext *ctx)
+{
+    u16 slot = VarGet(ScriptReadHalfword(ctx));
+    struct Pokemon *mon = &gPlayerParty[slot];
+
+    if (GetMonData(mon, MON_DATA_IS_EGG))
+    {
+        ZeroMonData(mon);
+        CompactPartySlots();
+        gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
+        CalculatePlayerPartyCount();
+    }
+    return FALSE;
+}

@@ -407,6 +407,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver4;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GameOver5;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Portal;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Kamek2;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_WaterEgg;
 // Begin Pokémon event objects
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_PokeBall;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Follower;
@@ -831,6 +832,9 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_GAMEOVER_5]               = &gObjectEventGraphicsInfo_GameOver5,
     [OBJ_EVENT_GFX_PORTAL]                   = &gObjectEventGraphicsInfo_Portal,
     [OBJ_EVENT_GFX_KAMEK2]                   = &gObjectEventGraphicsInfo_Kamek2,
+    [OBJ_EVENT_GFX_WATEREGG]                 = &gObjectEventGraphicsInfo_WaterEgg,
+    [OBJ_EVENT_GFX_WATEREGG_START_FROM_LEFT] = &gObjectEventGraphicsInfo_WaterEgg,
+    [OBJ_EVENT_GFX_WATEREGG_START_FROM_RIGHT]= &gObjectEventGraphicsInfo_WaterEgg,
 };
 
 const struct ObjectEventGraphicsInfo *const gMauvilleOldManGraphicsInfoPointers[] = {

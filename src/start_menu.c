@@ -1217,7 +1217,7 @@ static u8 SaveDoSaveCallback(void)
 
     if (gDifferentSaveFile == TRUE)
     {
-        saveStatus = TrySavingData(SAVE_OVERWRITE_DIFFERENT_FILE);
+        saveStatus = TrySavingData(SAVE_NORMAL);
         gDifferentSaveFile = FALSE;
     }
     else

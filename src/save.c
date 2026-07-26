@@ -78,14 +78,7 @@ EWRAM_DATA struct SaveSector gSaveDataBuffer = {0}; // Buffer used for reading/w
 
 void ClearSaveData(void)
 {
-    u16 i;
-
-    // Clear the full save two sectors at a time
-    for (i = 0; i < SECTORS_COUNT / 2; i++)
-    {
-        EraseFlashSector(i);
-        EraseFlashSector(i + SECTORS_COUNT / 2);
-    }
+    EraseFlashSector(0);
 }
 
 void Save_ResetSaveCounters(void)
@@ -682,17 +675,9 @@ u8 HandleSavingData(u8 saveType)
     UpdateSaveAddresses();
     switch (saveType)
     {
-    case SAVE_HALL_OF_FAME_ERASE_BEFORE:
-        // fallthrough
     case SAVE_HALL_OF_FAME:
         if (GetGameStat(GAME_STAT_ENTERED_HOF) < 999)
             IncrementGameStat(GAME_STAT_ENTERED_HOF);
-
-        // Write the full save slot first
-        CopyPartyAndObjectsToSave();
-        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
-
-        break;
     case SAVE_NORMAL:
     default:
         CopyPartyAndObjectsToSave();
@@ -705,11 +690,6 @@ u8 HandleSavingData(u8 saveType)
         CopyPartyAndObjectsToSave();
         HandleReplaceSector(SECTOR_ID_SAVEBLOCK1, gRamSaveSectorLocations);
         WriteSectorSignatureByte_NoOffset(SECTOR_ID_SAVEBLOCK1, gRamSaveSectorLocations);
-        break;
-    case SAVE_OVERWRITE_DIFFERENT_FILE:
-        // Overwrite save slot
-        CopyPartyAndObjectsToSave();
-        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
         break;
     }
     gTrainerHillVBlankCounter = backupVar;

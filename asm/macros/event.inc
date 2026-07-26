@@ -2964,3 +2964,12 @@
 	.2byte \x
 	.2byte \y
 	.endm
+
+	.macro counteggs
+	callnative GetEggCount
+	.endm
+
+	.macro removeegg slot:req
+	callnative ScrCmd_removeegg
+	.2byte \slot
+	.endm

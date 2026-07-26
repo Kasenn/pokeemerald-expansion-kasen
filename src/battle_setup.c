@@ -379,7 +379,7 @@ static void DoStandardWildBattle(bool32 isDouble)
         IncrementDailyWildBattles();
         TryUpdateGymLeaderRematchFromWild();
     }
-    else if (gCurrentUsableEggs == 0 || FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
+    else if (FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
     {
         if (gCurrentUsableEggs == 5)
             VarSet(VAR_FORCE_ENCOUNTER, VarGet(VAR_FORCE_ENCOUNTER) + 1);

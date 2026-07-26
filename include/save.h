@@ -6,7 +6,7 @@
 // Each 4 KiB flash sector contains 3968 bytes of actual data followed by 116 bytes of SaveBlock3 and then 12 bytes of footer.
 #define SECTOR_DATA_SIZE 3968
 // #define SAVE_BLOCK_3_CHUNK_SIZE 116 saveblock3
-#define SECTOR_FOOTER_SIZE 12
+#define SECTOR_FOOTER_SIZE 12 + 116
 #define SECTOR_SIZE (SECTOR_DATA_SIZE + SECTOR_FOOTER_SIZE)
 
 #define NUM_SAVE_SLOTS 2
@@ -48,8 +48,6 @@ enum
     SAVE_LINK, // Link / Battle Frontier
     SAVE_EREADER, // deprecated in Emerald
     SAVE_HALL_OF_FAME,
-    SAVE_OVERWRITE_DIFFERENT_FILE,
-    SAVE_HALL_OF_FAME_ERASE_BEFORE // unused
 };
 
 // A save sector location holds a pointer to the data for a particular sector
