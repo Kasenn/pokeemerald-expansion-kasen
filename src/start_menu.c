@@ -510,7 +510,7 @@ static void RemoveExtraStartMenuWindows(void)
         ClearStdWindowAndFrameToTransparent(sBattlePyramidFloorWindowId, FALSE);
         RemoveWindow(sBattlePyramidFloorWindowId);
     }
-    if (FlagGet(FLAG_MUSHROOMS_UNLOCKED))
+    if (FlagGet(FLAG_INTRODUCTION_TO_MUSHROOMS))
     {
         ClearStdWindowAndFrameToTransparent(sMushroomWindowId, FALSE);
         CopyWindowToVram(sMushroomWindowId, COPYWIN_GFX);
@@ -573,7 +573,7 @@ static bool32 InitStartMenuStep(void)
             ShowSafariBallsWindow();
         if (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE)
             ShowPyramidFloorWindow();
-        if (FlagGet(FLAG_MUSHROOMS_UNLOCKED))
+        if (FlagGet(FLAG_INTRODUCTION_TO_MUSHROOMS))
             ShowMushroomWindow();
         sInitStartMenuData[0]++;
         break;

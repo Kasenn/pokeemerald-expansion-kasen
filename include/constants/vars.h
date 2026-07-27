@@ -61,8 +61,8 @@
 #define VAR_ROCKPLATE_9                                     VARS_START + 41 // mine
 #define VAR_STORY                                           VARS_START + 42 // mine
 #define VAR_FADEOUT_SPEED                                   VARS_START + 43 // mine
-#define VAR_ROUTE126_STATE                                  VARS_START + 44 // Unused Var
-#define VAR_ROUTE127_STATE                                  VARS_START + 45 // Unused Var
+#define VAR_OVERRIDE_MON                                  VARS_START + 44 // Unused Var
+#define VAR_OVERRIDE_LEVEL                                  VARS_START + 45 // Unused Var
 #define VAR_ROUTE128_STATE                                  VARS_START + 46
 #define VAR_ROUTE129_STATE                                  VARS_START + 47 // Unused Var
 #define VAR_ROUTE130_STATE                                  VARS_START + 48 // Unused Var

@@ -1,5 +1,8 @@
 EventScript_StartTrainerApproach::
 	selectapproachingtrainer
+	setflag FLAG_NO_RUNNING
+	callnative FetchMonInfo
+	createmon 1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL
 	lockfortrainer
 EventScript_TrainerApproach::
 	special PlayTrainerEncounterMusic
@@ -108,12 +111,13 @@ EventScript_ShowTrainerIntroMsg::
 	special ShowTrainerIntroSpeech
 	waitmessage
 	waitbuttonpress
+	closemessage
 	special TryPrepareSecondApproachingTrainer
 	goto_if_eq VAR_RESULT, TRUE, EventScript_TrainerApproach
 	goto EventScript_DoTrainerBattle
 
 EventScript_DoTrainerBattle::
-	dotrainerbattle
+	dowildbattle
 	@ Below battle mode check only needed in FRLG
 	specialvar VAR_RESULT, GetTrainerBattleMode
 	goto_if_eq VAR_RESULT, TRAINER_BATTLE_SINGLE, EventScript_EndTrainerBattle

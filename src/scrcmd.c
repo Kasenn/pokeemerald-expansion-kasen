@@ -2584,12 +2584,12 @@ bool8 ScrCmd_cleartrainerflag(struct ScriptContext *ctx)
 
 bool8 ScrCmd_setwildbattle(struct ScriptContext *ctx)
 {
-    enum Species species = ScriptReadHalfword(ctx);
-    u8 level = ScriptReadByte(ctx);
-    enum Item item = ScriptReadHalfword(ctx);
-    enum Species species2 = ScriptReadHalfword(ctx);
-    u8 level2 = ScriptReadByte(ctx);
-    enum Item item2 = ScriptReadHalfword(ctx);
+    enum Species species = VarGet(ScriptReadHalfword(ctx));
+    u8 level = VarGet(ScriptReadHalfword(ctx));
+    enum Item item = VarGet(ScriptReadHalfword(ctx));
+    enum Species species2 = VarGet(ScriptReadHalfword(ctx));
+    u8 level2 = VarGet(ScriptReadHalfword(ctx));
+    enum Item item2 = VarGet(ScriptReadHalfword(ctx));
 
     Script_RequestEffects(SCREFF_V1);
 
@@ -4050,4 +4050,21 @@ bool8 ScrCmd_removeegg(struct ScriptContext *ctx)
         CalculatePlayerPartyCount();
     }
     return FALSE;
+}
+
+void FetchMonInfo(void)
+{
+    u16 species = gTrainers[DIFFICULTY_NORMAL][TRAINER_BATTLE_PARAM.opponentA].party[0].species;
+
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+
+    u8 delta = 3 + playerLevel / 8;
+    if (delta > 10)
+        delta = 10;
+
+    u8 level = playerLevel + (Random() % (delta * 2 + 1)) - delta;
+    level += Random() % (playerLevel / 6);
+
+    VarSet(VAR_OVERRIDE_MON, species);
+    VarSet(VAR_OVERRIDE_LEVEL, level);
 }

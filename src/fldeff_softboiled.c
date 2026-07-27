@@ -115,7 +115,7 @@ static void Task_ChooseNewMonForSoftboiled(u8 taskId)
 
 static void CantUseSoftboiledOnMon(u8 taskId)
 {
-    PlaySE(SE_SELECT);
+    PlaySE(SE_SELECT);//wip
     DisplayPartyMenuMessage(gText_CantBeUsedOnPkmn, FALSE);
     ScheduleBgCopyTilemapToVram(2);
     gTasks[taskId].func = Task_ChooseNewMonForSoftboiled;

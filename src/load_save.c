@@ -233,18 +233,14 @@ static u16 CalculateChecksum(void *data, u16 size)
 
 void CopyPartyAndObjectsToSave(void)
 {
-    DebugPrintf("%d, check 1", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     SavePlayerParty();
     SaveObjectEvents();
-    DebugPrintf("%d, check 2", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 }
 
 void CopyPartyAndObjectsFromSave(void)
 {
-    DebugPrintf("%d, check 3", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     LoadPlayerParty();
     LoadObjectEvents();
-    DebugPrintf("%d, check 4", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 }
 
 void LoadPlayerBag(void)

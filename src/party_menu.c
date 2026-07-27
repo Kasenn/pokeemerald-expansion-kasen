@@ -3009,7 +3009,7 @@ static u8 DisplaySelectionWindow(u8 windowType)
         else
             text = sCursorOptions[sPartyMenuInternal->actions[i]].text;
 
-        AddTextPrinterParameterized4(sPartyMenuInternal->windowId[0], FONT_NORMAL, cursorDimension, (i * 16) + 1, letterSpacing, 0, sFontColorTable[fontColorsId], 0, text);
+        AddTextPrinterParameterized4(sPartyMenuInternal->windowId[0], GetFontIdToFit(text, FONT_NORMAL, 0, 64), cursorDimension, (i * 16) + 1, letterSpacing, 0, sFontColorTable[fontColorsId], 0, text);
     }
 
     InitMenuInUpperLeftCorner(sPartyMenuInternal->windowId[0], sPartyMenuInternal->numActions, 0, TRUE);

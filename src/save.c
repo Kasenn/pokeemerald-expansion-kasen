@@ -111,7 +111,6 @@ static bool32 SetDamagedSectorBits(u8 op, u8 sectorId)
 
 static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *locations)
 {
-    DebugPrintf("%d, check 5", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     u32 status;
     u16 i;
 
@@ -144,7 +143,6 @@ static u8 WriteSaveSectorOrSlot(u16 sectorId, const struct SaveSectorLocation *l
             gSaveCounter = gLastSaveCounter;
         }
     }
-    DebugPrintf("%d, check 6", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     return status;
 }
 
@@ -434,7 +432,6 @@ static u8 TryLoadSaveSlot(u16 sectorId, struct SaveSectorLocation *locations)
 // sectorId arg is ignored, this always reads the full save slot
 static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
 {
-    DebugPrintf("%d, check 8", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
     u16 i;
     u16 checksum;
     u16 slotOffset = NUM_SECTORS_PER_SLOT * (gSaveCounter % NUM_SAVE_SLOTS);
@@ -458,7 +455,6 @@ static u8 CopySaveSlotData(u16 sectorId, struct SaveSectorLocation *locations)
                 ((u8 *)locations[id].data)[j] = gReadWriteSector->data[j];
         }
     }
-    DebugPrintf("%d, check 8", CalculateChecksum(gSaveBlock1Ptr, sizeof(*gSaveBlock1Ptr)));
 
     return SAVE_STATUS_OK;
 }

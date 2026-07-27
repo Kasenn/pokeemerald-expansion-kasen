@@ -650,7 +650,7 @@ const u16 gObjectEventPal_Sandshrew[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPal_Skarmory[] = INCGFX_U16("graphics/object_events/pics/people/skarmory2.png", ".gbapal");
 const u16 gObjectEventPal_Snorlax[] = INCGFX_U16("graphics/object_events/pics/people/snorlax2.png", ".gbapal");
 const u16 gObjectEventPal_Primeape[] = INCGFX_U16("graphics/object_events/pics/people/primeape2.png", ".gbapal");
-const u16 gObjectEventPal_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");//wip
+const u16 gObjectEventPal_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");
 const u16 gObjectEventPal_SuperMushroom[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".gbapal");
 const u16 gObjectEventPal_ItemSparkle[] = INCGFX_U16("graphics/object_events/pics/people/sparkle.png", ".gbapal");
 
@@ -661,7 +661,7 @@ const u16 gObjectEventPic_Sandshrew2[] = INCGFX_U16("graphics/object_events/pics
 const u16 gObjectEventPic_Skarmory2[] = INCGFX_U16("graphics/object_events/pics/people/skarmory2.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPic_Snorlax2[] = INCGFX_U16("graphics/object_events/pics/people/snorlax2.png", ".4bpp", "-mwidth 6 -mheight 6");
 const u16 gObjectEventPic_Primeape2[] = INCGFX_U16("graphics/object_events/pics/people/primeape2.png", ".4bpp", "-mwidth 4 -mheight 4");
-const u16 gObjectEventPic_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");//wip
+const u16 gObjectEventPic_Kamek[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPic_SuperMushroom[] = INCGFX_U16("graphics/object_events/pics/people/supermushroom.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPic_ItemSparkle[] = INCGFX_U16("graphics/object_events/pics/people/sparkle.png", ".4bpp", "-mwidth 2 -mheight 2");
 

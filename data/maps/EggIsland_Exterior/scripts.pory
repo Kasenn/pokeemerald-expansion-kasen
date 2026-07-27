@@ -151,6 +151,8 @@ script EventScript_LootMushroom{
     setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
     clearflag(FLAG_MUSHROOM_PICKED_UP)
     if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        setmonmove(0, 1, MOVE_SUPER_MUSHROOM)
+        setmonmove(0, 2, MOVE_LICK_BERRY)
         waitmoncry
         setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
         msgbox(EventScript_LootMushroom_Text, MSGBOX_AUTOCLOSE)
@@ -323,6 +325,10 @@ script MachopIntroMain{
     removeobject(LOCALID_INTRO_MURKROW)
     setobjectmovementtype(LOCALID_MACHOP1, MOVEMENT_TYPE_LOOK_AROUND)
     setvar(VAR_STORY, 3)
+    setflag(FLAG_MUSHROOMS_UNLOCKED)
+    callnative(RandomizeMushroomScript)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP)
     callnative(DoInitialSave)
 }
 
@@ -481,4 +487,47 @@ text TryCrossingTheRiver{
     "It's a rapidly flowing river.\p"
     "Toss an egg to make\n"
     "a temporary stepping stone?"
+}
+
+script MurkrowBattle{
+	trainerbattle_single(TRAINER_ALLEN, MurkrowIntro, "N/A", RemoveMurkrow)
+	end
+}
+
+text MurkrowIntro{
+    "This is our turf! Leave!"
+}
+
+script RemoveMurkrow{
+    cleartrainerflag(TRAINER_ALLEN)
+    clearflag(FLAG_NO_RUNNING)
+    applymovement(VAR_LAST_TALKED, Movement_MurkrowDisappears)
+    waitmovement(0)
+    removeobject(VAR_LAST_TALKED)
+    release
+    releaseall
+}
+
+movement Movement_MurkrowDisappears{
+	set_invisible
+	delay_4
+	set_visible
+	delay_4
+	set_invisible
+	delay_4
+	set_visible
+	delay_4
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_8
+	set_visible
+	delay_8
+	set_invisible
+	delay_16
+	set_visible
+	delay_16
+	set_invisible
 }
