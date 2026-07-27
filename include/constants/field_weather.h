@@ -31,6 +31,8 @@ enum ColorMapType
 #define FADE_TO_BLACK    1
 #define FADE_FROM_WHITE  2
 #define FADE_TO_WHITE    3
+#define FADE_FROM_BLUE   4
+#define FADE_TO_BLUE     5
 
 // Shadows values
 #define BASE_SHADOW_INTENSITY (16 - OW_SHADOW_INTENSITY)

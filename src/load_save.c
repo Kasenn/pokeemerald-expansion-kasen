@@ -217,20 +217,6 @@ void LoadObjectEvents(void)
     SetMinimumOWESpawnTimer();
 }
 
-static u16 CalculateChecksum(void *data, u16 size)
-{
-    u16 i;
-    u32 checksum = 0;
-
-    for (i = 0; i < (size / 4); i++)
-    {
-        checksum += *((u32 *)data);
-        data += sizeof(u32);
-    }
-
-    return ((checksum >> 16) + checksum);
-}
-
 void CopyPartyAndObjectsToSave(void)
 {
     SavePlayerParty();

@@ -282,6 +282,15 @@
       "var": "VAR_STORY",
       "var_value": "2",
       "script": "MachopIntro4"
+    },
+    {
+      "type": "trigger",
+      "x": 43,
+      "y": 68,
+      "elevation": 0,
+      "var": "VAR_TRICK_HOUSE_PUZZLE_1_STATE",
+      "var_value": "0",
+      "script": "SavePointTrigger"
     }
   ],
   "bg_events": [

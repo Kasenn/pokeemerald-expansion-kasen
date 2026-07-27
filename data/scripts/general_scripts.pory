@@ -1,0 +1,245 @@
+const VAR_X = VAR_TEMP_0
+const VAR_Y = VAR_TEMP_1
+const VAR_MACHOP_INTRO = VAR_TEMP_2
+const VAR_WATEREGG_1 = VAR_TEMP_3
+
+const VAR_EGGS = VAR_0x8001
+
+script DebugScript1{
+    buffernumberstring(STR_VAR_1, VAR_ROCKPLATE_1)
+    buffernumberstring(STR_VAR_2, VAR_ROCKPLATE_2)
+    msgbox("{STR_VAR_1}\n{STR_VAR_2}")
+}
+
+script SetupMushroom{
+    if(!flag(FLAG_MUSHROOMS_UNLOCKED)){
+        return
+    }
+    callnative(RandomizeMushroomOnSpawn)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP) 
+}
+
+script EventScript_LootMushroom{
+    if(var(VAR_MUSHROOM_COUNT) >= 10){
+        release
+        end
+    }
+    playmoncry(SPECIES_IRON_CROWN, 0)
+    removeobject(LOCALID_SUPER_MUSHROOM)
+    callnative(RandomizeMushroomScript)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP)
+    if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        setmonmove(0, 1, MOVE_SUPER_MUSHROOM)
+        setmonmove(0, 2, MOVE_LICK_BERRY)
+        waitmoncry
+        setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
+        msgbox(EventScript_LootMushroom_Text, MSGBOX_AUTOCLOSE)
+    }
+    if(var(VAR_MUSHROOM_COUNT) < 10){
+        addvar(VAR_MUSHROOM_COUNT, 1)
+    }
+    callnative(UpdateMushroomPP)
+    release
+}
+
+text EventScript_LootMushroom_Text{
+    "Yoshi picked up a Super\n"
+    "Mushroom!\p"
+    "Use the move “Super Mushroom”\n"
+    "to consume a Super Mushroom\l"
+    "and recover some health."
+}
+
+script EventScript_FollowerEgg{
+    msgbox("It's a Pokémon egg.", MSGBOX_AUTOCLOSE)
+}
+
+script Script_StartMenuRest{
+    call(Common_EventScript_OutOfCenterPartyHeal)
+    callnative(UpdateEggPP)
+    callnative(DoInitialSave)
+    msgbox("Your party has been\nfully healed.\pYour progress has been saved.")
+    release
+    end
+}
+
+script Script_RetreatWithDiglett{
+    msgbox(RetreatWithDiglett_Text, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setfieldeffectargument(0, 0xFF)
+    goto(EventScript_DigCommon)
+}
+
+text RetreatWithDiglett_Text{
+    "Call out for Diglett and\n"
+    "return back to latest save point?"
+}
+
+script Script_TryLootEgg{
+    lock
+    callnative(GeneratePokemonForEgg)
+    clearflag(FLAG_FORCE_ENCOUNTERRATE)
+    if(var(VAR_EGGS) < 5)
+    {
+        playse(SE_ITEMFINDER)
+        message("Yoshi found an egg!")
+        waitse
+	    waitmessage
+        giveegg(VAR_0x8000)
+        special(CalculatePlayerPartyCount)
+        callnative(UpdateEggPP)
+        callnative(UpdateFollowingPokemon)
+    }
+    else{
+        setflag(FLAG_EGGPIC)
+        showmonpic(VAR_0x8000, 10, 3)
+        callnative(BufferEggTextBasedOnType)
+        msgbox(TooManyEggs, MSGBOX_YESNO)
+        hidemonpic
+        clearflag(FLAG_EGGPIC)
+        if (var(VAR_RESULT) == FALSE)
+        {
+            release
+            end
+        }
+        msgbox("Choose an egg to toss away.")
+        special(SavePlayerParty)
+        callnative(ReplaceChanseyWithEgg)
+        special(ChoosePartyMon)
+        if(var(VAR_0x8004) >= PARTY_SIZE || var(VAR_0x8004) == 0)
+        {
+            special(LoadPlayerParty)
+            msgbox("Yoshi left the egg where it was.")
+            release
+            end
+        }
+        special(LoadPlayerParty)
+        callnative(ReplaceEggInParty)
+        msgbox("Yoshi replaced an older egg\nwith the new one.")
+    }
+    release
+}
+
+text TooManyEggs{
+    "Yoshi found an egg, but it\n"
+    "cannot carry any more.\p"
+    "{STR_VAR_1}\p"
+    "Replace an old egg with\n"
+    "the new one?"
+}
+
+script RiverCrossing1{
+    getplayerxy(VAR_X, VAR_Y)
+    counteggs
+    if(var(VAR_EGGS) < 1){
+        msgbox(CantCrossRiver, MSGBOX_AUTOCLOSE)
+        end
+    }
+    msgbox(TryCrossingTheRiver, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE)
+    {
+        release
+        end
+    }
+    msgbox("Choose an egg to toss.")
+    special(ChoosePartyEgg)
+    if(var(VAR_0x8004) >= PARTY_SIZE || var(VAR_0x8004) == 0)
+    {
+        release
+        end
+    }
+    removeegg(VAR_0x8004)
+    if(var(VAR_FACING) == DIR_EAST){
+        setvar(VAR_WATEREGG_1, LOCALID_WATEREGG_LEFT_1)
+    }
+    else{
+        setvar(VAR_WATEREGG_1, LOCALID_WATEREGG_RIGHT_1)
+    }
+    call(DoWaterEggMovement)
+    delay(32)
+    playse(SE_LEDGE)
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(LOCALID_PLAYER, moves(disable_jump_landing_ground_effect, jump_2_right, delay_16, enable_jump_landing_ground_effect, jump_2_right))
+    }
+    else{
+        applymovement(LOCALID_PLAYER, moves(disable_jump_landing_ground_effect, jump_2_left, delay_16, enable_jump_landing_ground_effect, jump_2_left))
+    }
+    delay(48)
+    playse(SE_LEDGE)
+    waitmovement(0)
+    delay(30)
+    applymovement(VAR_WATEREGG_1, MoveWaterEggAway)
+    waitmovement(0)
+    hideobjectat(VAR_WATEREGG_1, MAP_EGG_ISLAND_EXTERIOR)
+    setobjectxy(VAR_WATEREGG_1, 36, 66)
+    special(CalculatePlayerPartyCount)
+    callnative(UpdateEggPP)
+    callnative(ForceResetFollowers)
+}
+
+movement MoveWaterEggAway{
+    lock_anim
+    lock_facing_direction
+    walk_fast_down * 7
+    unlock_anim
+    unlock_facing_direction
+}
+
+script DoWaterEggMovement{
+    delay(16)
+    addobject(VAR_WATEREGG_1)
+    setobjectxy(VAR_WATEREGG_1, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    if(var(VAR_WATEREGG_1) == LOCALID_WATEREGG_LEFT_1){
+        applymovement(VAR_WATEREGG_1, moves(set_visible, jump_2_right, nurse_joy_bow))
+    }
+    else{
+        applymovement(VAR_WATEREGG_1, moves(set_visible, jump_2_left, nurse_joy_bow))
+    }
+    delay(32)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+}
+
+text CantCrossRiver{
+    "It's a rapidly flowing river.\p"
+    "Maybe there's something that\n"
+    "could be used as a temporary\l"
+    "stepping stone."
+}
+
+text TryCrossingTheRiver{
+    "It's a rapidly flowing river.\p"
+    "Toss an egg to make\n"
+    "a temporary stepping stone?"
+}
+
+script SavePointTrigger{
+    if(!flag(FLAG_EXPLAIN_REST_POINT)){
+        playse(SE_ICE_STAIRS)
+        fadescreenspeed(FADE_TO_BLUE, -2)
+        delay(15)
+        waitse
+        fadescreenspeed(FADE_FROM_BLUE, -2)
+        delay(30)
+        setflag(FLAG_EXPLAIN_REST_POINT)
+        msgbox(SavePointTrigger_Text, MSGBOX_SIGN)
+    }
+    release
+}
+
+text SavePointTrigger_Text{
+    "You have discovered a new\n"
+    "rest point!\p"
+    "When standing on a rest point,\n"
+    "you are able to heal your party\l"
+    "by choosing the “Rest” option\l"
+    "in the Start Menu.\l"
+    "Resting also saves your\l"
+    "current progress."
+}

@@ -749,12 +749,20 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
         fadeColor = RGB_WHITEALPHA;
         fadeOut = FALSE;
         break;
+    case FADE_FROM_BLUE:
+        fadeColor = RGB_BLUE;
+        fadeOut = FALSE;
+        break;
     case FADE_TO_BLACK:
         fadeColor = RGB_BLACK;
         fadeOut = TRUE;
         break;
     case FADE_TO_WHITE:
         fadeColor = RGB_WHITEALPHA;
+        fadeOut = TRUE;
+        break;
+    case FADE_TO_BLUE:
+        fadeColor = RGB_BLUE;
         fadeOut = TRUE;
         break;
     default:

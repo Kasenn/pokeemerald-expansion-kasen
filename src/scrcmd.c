@@ -829,7 +829,7 @@ bool8 ScrCmd_fadescreen(struct ScriptContext *ctx)
 bool8 ScrCmd_fadescreenspeed(struct ScriptContext *ctx)
 {
     u8 mode = ScriptReadByte(ctx);
-    u8 speed = ScriptReadByte(ctx);
+    s8 speed = ScriptReadByte(ctx);
 
     Script_RequestEffects(SCREFF_V1 | SCREFF_HARDWARE);
 
