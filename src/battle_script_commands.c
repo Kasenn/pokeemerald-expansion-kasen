@@ -7067,7 +7067,10 @@ static void Cmd_tryhealhalfhealth(void)
     if (cmd->battler == BS_ATTACKER)
         gBattlerTarget = gBattlerAttacker;
 
-    SetHealAmount(gBattlerTarget, GetNonDynamaxMaxHP(gBattlerTarget) / 2);
+    if (FlagGet(FLAG_SUPERMUSHROOM_UPGRADE) && GetBattlerSide(cmd->battler) == B_SIDE_PLAYER)
+        SetHealAmount(gBattlerTarget, GetNonDynamaxMaxHP(gBattlerTarget) / 4 * 3);
+    else
+        SetHealAmount(gBattlerTarget, GetNonDynamaxMaxHP(gBattlerTarget) / 2);
     if (gBattleMons[gBattlerTarget].hp == gBattleMons[gBattlerTarget].maxHP)
         gBattlescriptCurrInstr = failInstr;
     else

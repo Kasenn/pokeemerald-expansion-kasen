@@ -73,7 +73,10 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
             // SetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + 1, &pp);
         }
     }
-    PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);
+    if (FlagGet(FLAG_SUPERMUSHROOM_UPGRADE))
+        PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/4*3, Task_DisplayHPRestoredMessage);
+    else
+        PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);
 }
 
 static void UNUSED Task_SoftboiledRestoreHealth(u8 taskId)

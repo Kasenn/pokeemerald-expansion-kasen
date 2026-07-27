@@ -3132,3 +3132,7 @@ static const struct SpriteFrameImage sPicTable_Kamek2[] = {
 static const struct SpriteFrameImage sPicTable_WaterEgg[] = {
     overworld_ascending_frames(gObjectEventPic_WaterEgg, 4, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_AwakeSnorlax[] = {
+    overworld_ascending_frames(gObjectEventPic_AwakeSnorlax, 4, 4),
+};

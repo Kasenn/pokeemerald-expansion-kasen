@@ -2,6 +2,7 @@ const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
 const VAR_WATEREGG_1 = VAR_TEMP_3
+const VAR_SLOPE = VAR_TEMP_4
 
 const VAR_EGGS = VAR_0x8001
 
@@ -182,6 +183,10 @@ script RiverCrossing1{
     callnative(ForceResetFollowers)
 }
 
+script RiverCrossing2{
+    //wip
+}
+
 movement MoveWaterEggAway{
     lock_anim
     lock_facing_direction
@@ -220,16 +225,14 @@ text TryCrossingTheRiver{
 }
 
 script SavePointTrigger{
-    if(!flag(FLAG_EXPLAIN_REST_POINT)){
-        playse(SE_ICE_STAIRS)
-        fadescreenspeed(FADE_TO_BLUE, -2)
-        delay(15)
-        waitse
-        fadescreenspeed(FADE_FROM_BLUE, -2)
-        delay(30)
-        setflag(FLAG_EXPLAIN_REST_POINT)
-        msgbox(SavePointTrigger_Text, MSGBOX_SIGN)
-    }
+    playse(SE_ICE_STAIRS)
+    fadescreenspeed(FADE_TO_BLUE, -2)
+    delay(15)
+    waitse
+    fadescreenspeed(FADE_FROM_BLUE, -2)
+    delay(30)
+    setflag(FLAG_EXPLAIN_REST_POINT)
+    msgbox(SavePointTrigger_Text, MSGBOX_SIGN)
     release
 }
 
@@ -242,4 +245,73 @@ text SavePointTrigger_Text{
     "in the Start Menu.\l"
     "Resting also saves your\l"
     "current progress."
+}
+
+script SlipperySlope2{
+    setvar(VAR_SLOPE, 2)
+    goto(SlipperySlopeMain)}
+script SlipperySlope3{
+    setvar(VAR_SLOPE, 3)
+    goto(SlipperySlopeMain)}
+script SlipperySlope4{
+    setvar(VAR_SLOPE, 4)
+    goto(SlipperySlopeMain)}
+
+script SlipperySlopeMain{
+    if(!hasmonitem(0, ITEM_GRIP_GLOVES)){
+        msgbox(SlipperySlopeMain_Text)
+        release
+        end
+    }
+    msgbox(SlipperySlopeMain_Text2, MSGBOX_YESNO)
+    closemessage
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    switch(var(VAR_SLOPE)){
+        case 2: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 3))
+        case 3: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 4))
+        case 4: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 5))
+        case 6: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 7))
+    }
+    playse(SE_M_ROCK_THROW)
+    waitmovement(LOCALID_PLAYER)
+    release
+}
+
+text SlipperySlopeMain_Text{
+    "It's a slippery mud slope."
+}
+text SlipperySlopeMain_Text2{
+    "It's a slippery mud slope.\p"
+    "Use your Grip Gloves\n"
+    "to ascend it?"
+}
+
+script MakeEggBridge{
+    counteggs
+    if(var(VAR_EGGS) < 5){
+        msgbox(MakeEggBridge_Text)
+        release
+        end
+    }
+    if(msgbox(MakeEggBridge_Text2, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    callnative(RemoveAllEggs)
+    //wip
+}
+
+text MakeEggBridge_Text{
+    "There's a small island\n"
+    "in the middle of the lake."
+}
+
+text MakeEggBridge_Text2{
+    "There's a small island\n"
+    "in the middle of the lake.\p"
+    "Use all your eggs to\n"
+    "create a bridge?"
 }

@@ -304,3 +304,25 @@ movement Movement_MurkrowDisappears{
 	delay_16
 	set_invisible
 }
+
+script SkarmoryTrigger1{
+    //wip
+}
+script SkarmoryTrigger2{
+    //wip
+}
+script SuperMushroomUpgrade{
+    //wip
+}
+
+script SleepingSnorlax{
+    //wip
+}
+
+script ChestoBerryTree{
+    //wip
+}
+
+script Script_AwakeSnorlax{
+    //wip
+}

@@ -1,11 +1,13 @@
 EventScript_ResetAllBerries::
-	setflag FLAG_HIDE_KAMEK
-	setflag FLAG_HIDE_HONCHKROW
-	setflag FLAG_DISABLE_ENCOUNTERS
 	return
 
 EventScript_ResetAllMapFlags::
 	@setflag WE_FLAG_NO_ENCOUNTER
+	setflag FLAG_AWAKE_SNORLAX
+	setflag FLAG_HIDE_KAMEK
+	setflag FLAG_HIDE_HONCHKROW
+	setflag FLAG_DISABLE_ENCOUNTERS
+	setflag FLAG_HIDE_SKARMORY
 	setflag FLAG_STOP_EXP
 	setrespawn HEAL_LOCATION_EGG_ISLAND_EXTERIOR
 	setflag B_FLAG_FOLLOWERS_DISABLED

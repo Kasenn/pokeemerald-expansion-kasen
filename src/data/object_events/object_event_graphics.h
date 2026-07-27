@@ -685,3 +685,5 @@ const u16 gObjectEventPic_Kamek2[] = INCGFX_U16("graphics/object_events/pics/peo
 
 const u16 gObjectEventPal_WaterEgg[] = INCGFX_U16("graphics/object_events/pics/people/wateregg.png", ".gbapal");
 const u16 gObjectEventPic_WaterEgg[] = INCGFX_U16("graphics/object_events/pics/people/wateregg.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_AwakeSnorlax[] = INCGFX_U16("graphics/object_events/pics/people/awakesnorlax.png", ".gbapal");
+const u16 gObjectEventPic_AwakeSnorlax[] = INCGFX_U16("graphics/object_events/pics/people/awakesnorlax.png", ".4bpp", "-mwidth 4 -mheight 4");

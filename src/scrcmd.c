@@ -4068,3 +4068,37 @@ void FetchMonInfo(void)
     VarSet(VAR_OVERRIDE_MON, species);
     VarSet(VAR_OVERRIDE_LEVEL, level);
 }
+
+bool8 DoesMonHoldItem(struct ScriptContext *ctx)
+{
+    u16 slot = VarGet(ScriptReadHalfword(ctx));
+    enum Item item = VarGet(ScriptReadHalfword(ctx));
+
+    gSpecialVar_Result = GetMonData(&gPlayerParty[slot], MON_DATA_HELD_ITEM) == item;
+    return FALSE;
+}
+
+void RemoveAllEggs(void)
+{
+    ZeroMonData(&gPlayerParty[1]);
+    RemoveFollowingPokemon(0);
+    ZeroMonData(&gPlayerParty[2]);
+    RemoveFollowingPokemon(1);
+    ZeroMonData(&gPlayerParty[3]);
+    RemoveFollowingPokemon(2);
+    ZeroMonData(&gPlayerParty[4]);
+    RemoveFollowingPokemon(3);
+    ZeroMonData(&gPlayerParty[5]);
+    RemoveFollowingPokemon(4);
+
+    gSaveBlock1Ptr->followerId[0] = 0;
+    gSaveBlock1Ptr->followerId[1] = 0;
+    gSaveBlock1Ptr->followerId[2] = 0;
+    gSaveBlock1Ptr->followerId[3] = 0;
+    gSaveBlock1Ptr->followerId[4] = 0;
+
+    CompactPartySlots();
+    gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
+    CalculatePlayerPartyCount();
+    UpdateFollowingPokemon();
+}

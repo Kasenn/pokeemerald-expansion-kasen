@@ -2973,3 +2973,9 @@
 	callnative ScrCmd_removeegg
 	.2byte \slot
 	.endm
+
+	.macro hasmonitem slot:req, item:req
+	callnative DoesMonHoldItem
+	.2byte \slot
+	.2byte \item
+	.endm
