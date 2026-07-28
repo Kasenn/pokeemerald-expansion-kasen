@@ -4102,3 +4102,33 @@ void RemoveAllEggs(void)
     CalculatePlayerPartyCount();
     UpdateFollowingPokemon();
 }
+
+void CreateStrongMon(void)
+{
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL) + 5;
+    if (playerLevel > 100)
+        playerLevel = 100;
+
+    gSpecialVar_0x8000 = playerLevel;
+}
+
+void CreateExtraStrongMon(void)
+{
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL) + 10;
+    if (playerLevel > 100)
+        playerLevel = 100;
+
+    gSpecialVar_0x8000 = playerLevel;
+}
+
+void EquipGripGloves(void)
+{
+    enum Item item = ITEM_GRIP_GLOVES;
+    SetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM, &item);
+}
+
+void EquipStrGloves(void)
+{
+    enum Item item = ITEM_STRENGTH_GLOVES;
+    SetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM, &item);
+}

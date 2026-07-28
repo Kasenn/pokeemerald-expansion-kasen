@@ -1362,7 +1362,7 @@ static const struct LevelUpMove sMankeyLevelUpLearnset[] = {
     LEVEL_UP_END
 };
 
-static const struct LevelUpMove sPrimeapeLevelUpLearnset[] = {
+static const struct LevelUpMove sPrimeapeLevelUpLearnset[] = {//wip
     LEVEL_UP_MOVE( 0, MOVE_RAGE),
     LEVEL_UP_MOVE( 1, MOVE_RAGE),
     LEVEL_UP_MOVE( 1, MOVE_FINAL_GAMBIT),

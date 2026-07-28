@@ -4674,6 +4674,8 @@ u32 GetBattlerTotalSpeedStat(enum BattlerId battler, enum Ability ability, enum 
         speed /= 2;
     else if (holdEffect == HOLD_EFFECT_CHOICE_SCARF && GetActiveGimmick(battler) != GIMMICK_DYNAMAX)
         speed = (speed * 150) / 100;
+    else if (holdEffect == HOLD_EFFECT_GRIP_GLOVES)
+        speed = (speed * 120) / 100;
     else if (holdEffect == HOLD_EFFECT_QUICK_POWDER && gBattleMons[battler].species == SPECIES_DITTO && !(gBattleMons[battler].volatiles.transformed))
         speed *= 2;
 
@@ -6068,7 +6070,7 @@ bool32 IsWildMonSmart(void)
 #if WE_SMART_WILD_AI_FLAG != 0
     return (FlagGet(WE_SMART_WILD_AI_FLAG));
 #else
-    return FALSE;
+    return TRUE;
 #endif
 }
 

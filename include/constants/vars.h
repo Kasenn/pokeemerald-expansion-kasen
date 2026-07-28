@@ -64,8 +64,8 @@
 #define VAR_OVERRIDE_MON                                  VARS_START + 44 // Unused Var
 #define VAR_OVERRIDE_LEVEL                                  VARS_START + 45 // Unused Var
 #define VAR_ROUTE128_STATE                                  VARS_START + 46
-#define VAR_ROUTE129_STATE                                  VARS_START + 47 // Unused Var
-#define VAR_ROUTE130_STATE                                  VARS_START + 48 // Unused Var
+#define VAR_OUTSIDEBOULDER_X                                  VARS_START + 47 // Unused Var
+#define VAR_OUTSIDEBOULDER_Y                                  VARS_START + 48 // Unused Var
 #define VAR_ROUTE131_STATE                                  VARS_START + 49 // Unused Var
 #define VAR_ROUTE132_STATE                                  VARS_START + 50 // Unused Var
 #define VAR_ROUTE133_STATE                                  VARS_START + 51 // Unused Var

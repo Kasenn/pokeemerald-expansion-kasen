@@ -15832,6 +15832,24 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_PokeshiDoll,
         .iconPalette = gItemIconPalette_PokeshiDoll,
     },
+    [ITEM_GRIP_GLOVES] =
+    {
+        .name = ITEM_NAME("Grip Gloves"),
+        .holdEffect = HOLD_EFFECT_GRIP_GLOVES,
+        .pocket = POCKET_ITEMS,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ChoiceScarf,
+        .iconPalette = gItemIconPalette_ChoiceScarf,
+    },
+    [ITEM_STRENGTH_GLOVES] =
+    {
+        .name = ITEM_NAME("Strength Gloves"),
+        .holdEffect = HOLD_EFFECT_STRENGTH_GLOVES,
+        .pocket = POCKET_ITEMS,
+        .fieldUseFunc = ItemUseOutOfBattle_CannotUse,
+        .iconPic = gItemIcon_ChoiceScarf,
+        .iconPalette = gItemIconPalette_ChoiceScarf,
+    },
 };
 
 #undef ITEM_NAME

@@ -3,6 +3,7 @@ const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
 const VAR_WATEREGG_1 = VAR_TEMP_3
 const VAR_SLOPE = VAR_TEMP_4
+const VAR_TRIGGER = VAR_TEMP_5
 
 const VAR_EGGS = VAR_0x8001
 
@@ -301,7 +302,81 @@ script MakeEggBridge{
         end
     }
     callnative(RemoveAllEggs)
-    //wip
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BRIDGEEGG_1, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BRIDGEEGG_1, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BRIDGEEGG_2, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BRIDGEEGG_2, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BRIDGEEGG_3, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BRIDGEEGG_3, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BRIDGEEGG_4, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BRIDGEEGG_4, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BRIDGEEGG_5, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BRIDGEEGG_5, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, moves(walk_up * 2))
+    waitmovement(0)
+
+    setmetatile(26, 37, 0x238, FALSE)
+    setmetatile(26, 36, 0x238, FALSE)
+    setmetatile(26, 35, 0x238, FALSE)
+    setmetatile(26, 34, 0x238, FALSE)
+    setmetatile(26, 33, 0x238, FALSE)
+    special(DrawWholeMapView)
+    removeobject(LOCALID_BRIDGEEGG_1)
+    removeobject(LOCALID_BRIDGEEGG_2)
+    removeobject(LOCALID_BRIDGEEGG_3)
+    removeobject(LOCALID_BRIDGEEGG_4)
+    removeobject(LOCALID_BRIDGEEGG_5)
+    removeobject(LOCALID_BRIDGE_NINJA)
+}
+
+movement Walk1Up{
+    walk_up
+}
+
+movement ThrowBridgeEgg{
+    lock_facing_direction
+    set_visible
+    jump_up
+    unlock_facing_direction
+    nurse_joy_bow
 }
 
 text MakeEggBridge_Text{

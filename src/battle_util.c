@@ -7004,6 +7004,9 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
     // attacker's hold effect
     switch (ctx->holdEffects[ctx->battlerAtk])
     {
+    case HOLD_EFFECT_STRENGTH_GLOVES:
+        modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(1.5));
+        break;
     case HOLD_EFFECT_THICK_CLUB:
         if ((atkBaseSpeciesId == SPECIES_CUBONE || atkBaseSpeciesId == SPECIES_MAROWAK) && IsBattleMovePhysical(move))
             modifier = uq4_12_multiply_half_down(modifier, UQ_4_12(2.0));
@@ -9481,6 +9484,8 @@ bool32 AreBattlersOfSameGender(enum BattlerId battler1, enum BattlerId battler2)
 u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect)
 {
     bool8 hasSereneGrace = (battlerAbility == ABILITY_SERENE_GRACE);
+    if (!hasSereneGrace)
+        hasSereneGrace = (GetItemHoldEffect(gBattleMons[battler].item) == HOLD_EFFECT_GRIP_GLOVES);
     bool8 hasRainbow = (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW) != 0;
     u16 secondaryEffectChance = additionalEffect->chance;
 

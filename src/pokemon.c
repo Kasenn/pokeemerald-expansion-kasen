@@ -5264,6 +5264,7 @@ u16 GetBattleBGM(void)
     {
         switch (GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES))
         {
+        case SPECIES_KAMEK:
         case SPECIES_RAYQUAZA:
             return MUS_VS_RAYQUAZA;
         case SPECIES_KYOGRE:
@@ -5277,7 +5278,7 @@ u16 GetBattleBGM(void)
         case SPECIES_REGIDRAGO:
             return MUS_VS_REGI;
         default:
-            return MUS_RG_VS_LEGEND;
+            return MUS_BW_RIVAL;
         }
     }
     else if (gBattleTypeFlags & (BATTLE_TYPE_LINK | BATTLE_TYPE_RECORDED_LINK))

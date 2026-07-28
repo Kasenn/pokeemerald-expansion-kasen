@@ -85,9 +85,9 @@
 #define FLAG_PICKED_UP_CHESTO_BERRY    0x3F // Unused Flag
 #define FLAG_AWAKE_SNORLAX    0x40 // Unused Flag
 #define FLAG_HIDE_PRIMEAPE    0x41 // Unused Flag
-#define FLAG_UNUSED_0x042    0x42 // Unused Flag
-#define FLAG_UNUSED_0x043    0x43 // Unused Flag
-#define FLAG_UNUSED_0x044    0x44 // Unused Flag
+#define FLAG_PRIMEAPE_DEFEATED    0x42 // Unused Flag
+#define FLAG_SLEEPING_SNORLAX_INTRO    0x43 // Unused Flag
+#define FLAG_DISABLE_KO_ANIM    0x44 // Unused Flag
 #define FLAG_UNUSED_0x045    0x45 // Unused Flag
 #define FLAG_UNUSED_0x046    0x46 // Unused Flag
 #define FLAG_UNUSED_0x047    0x47 // Unused Flag

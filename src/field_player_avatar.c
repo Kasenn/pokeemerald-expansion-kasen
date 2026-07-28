@@ -1034,7 +1034,8 @@ static bool8 TryPushBoulder(s16 x, s16 y, enum Direction direction)
             y = gObjectEvents[objectEventId].currentCoords.y;
             MoveCoords(direction, &x, &y);
             if (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE
-             && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
+             && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
+             && MetatileBehavior_IsMuddySlope(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
             {
                 StartStrengthAnim(objectEventId, direction);
                 return TRUE;
@@ -1880,6 +1881,12 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         ObjectEventClearHeldMovementIfFinished(player);
         ObjectEventClearHeldMovementIfFinished(boulder);
         HandleBoulderFallThroughHole(boulder);
+        if (boulder->localId == LOCALID_OUTSIDEBOULDER)
+        {
+            VarSet(VAR_OUTSIDEBOULDER_X, boulder->currentCoords.x);
+            VarSet(VAR_OUTSIDEBOULDER_Y, boulder->currentCoords.y);
+            SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x, boulder->currentCoords.y);
+        }
         HandleBoulderActivateVictoryRoadSwitch(boulder->currentCoords.x, boulder->currentCoords.y);
         gPlayerAvatar.preventStep = FALSE;
         UnlockPlayerFieldControls();
@@ -2253,7 +2260,7 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, enum Direction d
         s16 x = objectEvent->currentCoords.x;
         s16 y = objectEvent->currentCoords.y;
 
-        if (IsFollowerVisible() && GetFollowerObject() != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1))
+        if (IsFollowerVisible() && GetFollowerObject(0) != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1))//wip
             return FALSE;
 
         switch (direction)

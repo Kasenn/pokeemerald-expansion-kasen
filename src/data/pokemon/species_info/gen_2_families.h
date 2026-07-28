@@ -3964,6 +3964,72 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     #endif
     },
 
+    [SPECIES_KAMEK]
+    {
+        .baseHP        = 220,
+        .baseAttack    = 5,
+        .baseDefense   = 140,
+        .baseSpeed     = 60,
+        .baseSpAttack  = 135,
+        .baseSpDefense = 140,
+        .types = MON_TYPES(TYPE_DARK, TYPE_FLYING),
+        .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 177 : 187,
+        .evYield_Attack = 2,
+        .genderRatio = MON_GENDERLESS,
+        .abilities = { ABILITY_INSOMNIA, ABILITY_SUPER_LUCK, ABILITY_MOXIE },
+        .bodyColor = BODY_COLOR_BLACK,
+        .speciesName = _("Kamek"),
+        .cryId = CRY_PECHARUNT,
+        .natDexNum = NATIONAL_DEX_HONCHKROW,
+        .categoryName = _("Big Boss"),
+        .height = 9,
+        .weight = 273,
+        .description = COMPOUND_STRING(
+            "Becoming active at night, it is known\n"
+            "to swarm with numerous Murkrow in tow.\n"
+            "It is said that it never forgives the\n"
+            "mistakes of its cronies."),
+        .pokemonScale = 338,
+        .pokemonOffset = 8,
+        .trainerScale = 256,
+        .trainerOffset = 0,
+        .frontPic = gMonFrontPic_Honchkrow,//wip
+        .frontPicSize = MON_COORDS_SIZE(64, 56),
+        .frontPicYOffset = 6,
+        .frontAnimFrames = ANIM_FRAMES(
+            ANIMCMD_FRAME(0, 21),
+            ANIMCMD_FRAME(1, 45),
+            ANIMCMD_FRAME(1, 10),
+            ANIMCMD_FRAME(0, 10),
+        ),
+        .frontAnimId = ANIM_V_SQUISH_AND_BOUNCE_SLOW,
+        .backPic = gMonBackPic_Honchkrow,
+        .backPicSize = MON_COORDS_SIZE(64, 48),
+        .backPicYOffset = 8,
+        .backAnimId = BACK_ANIM_H_STRETCH,
+    #if SPECIES_EGG_COLOR && GEN_2_EGG_COLORS
+        .eggPalette = gEggPalette_Murkrow,
+    #endif
+        .palette = gMonPalette_Honchkrow,//wip
+        .shinyPalette = gMonShinyPalette_Honchkrow,
+        .iconSprite = gMonIcon_Honchkrow,
+        .iconPalIndex = 2,
+        .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
+        SHADOW(5, 7, SHADOW_SIZE_M)
+        FOOTPRINT(Honchkrow)
+        OVERWORLD(
+            sPicTable_Honchkrow,
+            SIZE_32x32,
+            SHADOW_SIZE_M,
+            TRACKS_FOOT,
+            sAnimTable_Following,
+            gOverworldPalette_Honchkrow,
+            gShinyOverworldPalette_Honchkrow
+        )
+        .levelUpLearnset = sHonchkrowLevelUpLearnset,//wip
+        .teachableLearnset = sHonchkrowTeachableLearnset,
+    },
+
 #if P_GEN_4_CROSS_EVOS
     [SPECIES_HONCHKROW] =
     {

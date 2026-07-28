@@ -2,6 +2,8 @@ const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
 const VAR_WATEREGG_1 = VAR_TEMP_3
+const VAR_SLOPE = VAR_TEMP_4
+const VAR_TRIGGER = VAR_TEMP_5
 
 const VAR_EGGS = VAR_0x8001
 
@@ -14,6 +16,12 @@ mapscripts EggIsland_Exterior_MapScripts {
         elif (var(VAR_X) == 19 && var(VAR_Y) == 57){ call(SetUpAreaFinal) }
         else { call(SetUpAreaOne) }
 
+        if(hasmonitem(0, ITEM_STRENGTH_GLOVES)){
+            setflag(FLAG_SYS_USE_STRENGTH)
+        }
+        if(var(VAR_OUTSIDEBOULDER_X) != 0){
+            setobjectxyperm(LOCALID_OUTSIDEBOULDER, VAR_OUTSIDEBOULDER_X, VAR_OUTSIDEBOULDER_Y)
+        }
         call(SetupMushroom)
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[
@@ -27,6 +35,15 @@ mapscripts EggIsland_Exterior_MapScripts {
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_STORY, 1: IntroSequence
     ]
+    MAP_SCRIPT_ON_LOAD{
+        if(flag(FLAG_EGGBRIDGE_CREATED)){
+            setmetatile(26, 37, 0x238, FALSE)
+            setmetatile(26, 36, 0x238, FALSE)
+            setmetatile(26, 35, 0x238, FALSE)
+            setmetatile(26, 34, 0x238, FALSE)
+            setmetatile(26, 33, 0x238, FALSE)
+        }
+    }
 }
 
 script SetUpAreaOne{
@@ -38,25 +55,21 @@ script SetUpAreaTwo{
     setvar(VAR_MUSHROOM_LOCATION, 2)
 }
 script SetUpAreaFinal{
+    setobjectxyperm(LOCALID_KAMEK, 40, 8)
+    setobjectmovementtype(LOCALID_KAMEK, MOVEMENT_TYPE_FACE_DOWN)
     setvar(VAR_AI_FLAGS, 4)
     setvar(VAR_MUSHROOM_LOCATION, 0)
 }
 
 script IntroSequence{
     // Kamek's scene
-    setmetatile(40, 15, 0x273, FALSE)
-    setmetatile(40, 16, 0x273, FALSE)
-    setmetatile(40, 19, 0x273, FALSE)
-    setmetatile(40, 20, 0x273, FALSE)
-    setmetatile(40, 21, 0x273, FALSE)
-    setmetatile(40, 22, 0x273, FALSE)
     setflag(FLAG_DISABLE_GROUND_EFFECTS)
     delay(30)
     playse(SE_M_TELEPORT)
     applymovement(8, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
     delay(160)
-    addobject(9)
-    applymovement(9, (moves(lock_anim, lock_facing_direction, walk_faster_down * 3, unlock_anim, unlock_facing_direction)))
+    addobject(LOCALID_KAMEK)
+    applymovement(LOCALID_KAMEK, (moves(lock_anim, lock_facing_direction, walk_faster_down * 3, unlock_anim, unlock_facing_direction)))
     waitmovement(0)
     setvar(VAR_0x8004, 1)
 	setvar(VAR_0x8005, 2)
@@ -126,6 +139,7 @@ script IntroSequence{
     playbgm(MUS_YOSHI1, TRUE)
     release
     releaseall
+    clearflag(FLAG_HIDE_HONCHKROW)
     callnative(DoInitialSave)
 }
 
@@ -274,14 +288,14 @@ script MurkrowBattle{
 script RemoveMurkrow{
     cleartrainerflag(TRAINER_ALLEN)
     clearflag(FLAG_NO_RUNNING)
-    applymovement(VAR_LAST_TALKED, Movement_MurkrowDisappears)
+    applymovement(VAR_LAST_TALKED, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(VAR_LAST_TALKED)
     release
     releaseall
 }
 
-movement Movement_MurkrowDisappears{
+movement Movement_ObjectDisappears{
 	set_invisible
 	delay_4
 	set_visible
@@ -306,23 +320,268 @@ movement Movement_MurkrowDisappears{
 }
 
 script SkarmoryTrigger1{
-    //wip
+    setvar(VAR_TRIGGER, 1)
+    goto(SkarmoryTriggerMain)
 }
 script SkarmoryTrigger2{
-    //wip
+    setvar(VAR_TRIGGER, 2)
+    goto(SkarmoryTriggerMain)
 }
+script SkarmoryTriggerMain{
+    counteggs
+    if(var(VAR_EGGS) < 2){
+        release
+        end
+    }
+    playmoncry(SPECIES_SKARMORY, CRY_MODE_ENCOUNTER)
+    delay(15)
+    applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
+    waitmovement(0)
+    waitmoncry
+    addobject(LOCALID_SKARMORY)
+    if(var(VAR_TRIGGER) == 1){
+        applymovement(LOCALID_SKARMORY, moves(walk_down * 5))
+    }
+    else{
+        applymovement(LOCALID_SKARMORY, moves(walk_down * 6))
+    }
+    delay(48)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
+    waitmovement(LOCALID_SKARMORY)
+    delay(10)
+    callnative(CreateStrongMon)
+    createmon(1, 0, SPECIES_SKARMORY, VAR_0x8000)
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setspeaker("Skarmory")
+    msgbox("What delicious lookings eggs\nyou have there.\lHand them over!", MSGBOX_AUTOCLOSE)
+    special(StartSpecialBattle)
+    setflag(FLAG_SKARMORY_DEFEATED)
+    applymovement(LOCALID_SKARMORY, Movement_ObjectDisappears)
+    waitmovement(0)
+    removeobject(LOCALID_SKARMORY)
+}
+
 script SuperMushroomUpgrade{
-    //wip
+    playfanfare(MUS_OBTAIN_ITEM)
+	message("Yoshi obtained the\nSuper Mushroom Upgrade!")
+	delay(10)
+	waitfanfare
+    waitmessage
+    removeobject(LOCALID_SUPERMUSHROOMUPGRADE)
+	msgbox("Super Mushrooms now recover\nup to 50% more HP.")
+    release
 }
 
 script SleepingSnorlax{
-    //wip
+    msgbox("It looks to be\na sleeping Snorlax.")
+    if(!flag(FLAG_PICKED_UP_CHESTO_BERRY)){
+        release
+        end
+    }
+    if(msgbox(SleepingSnorlax_Text, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    fadescreen(FADE_TO_BLACK)
+    delay(16)
+    playfanfare(MUS_HEAL)
+    waitfanfare
+    msgbox(SleepingSnorlax_Text2, MSGBOX_AUTOCLOSE)
+    removeobject(LOCALID_SLEEPING_SNORLAX)
+    delay(16)
+    fadescreen(FADE_FROM_BLACK)
+    delay(10)
+    release
+}
+
+text SleepingSnorlax_Text{
+    "The sleeping Snorlax's nose\n"
+    "starts to twitch as it smells\l"
+    "the Chesto berries on you.\p"
+    "Feed the Chesto berries\n"
+    "to the Snorlax?"
+}
+
+text SleepingSnorlax_Text2{
+    "The Snorlax wakes up and rushes out\n"
+    "in search of more berries."
+}
+
+script SleepingSnorlaxIntro{
+    setflag(FLAG_SLEEPING_SNORLAX_INTRO)
+    release
 }
 
 script ChestoBerryTree{
-    //wip
+    if(!flag(FLAG_SLEEPING_SNORLAX_INTRO)){
+        msgbox("It's a tree full of\nChesto berries.")
+        release
+        end
+    }
+    elif(flag(FLAG_SLEEPING_SNORLAX)){
+        msgbox("It's a tree full of\nChesto berries.\pYou don't really like\nhow dry they are.")
+        release
+        end
+    }
+    elif(flag(FLAG_PICKED_UP_CHESTO_BERRY)){
+        msgbox("It's a tree full of\nChesto berries.\pYou are already carrying\na handful of them.")
+        release
+        end
+    }
+    elif(!flag(FLAG_PICKED_UP_CHESTO_BERRY)){
+        playfanfare(MUS_OBTAIN_ITEM)
+        message("Picked up a handful of\nChesto berries!")
+        delay(10)
+        waitfanfare
+        waitmessage
+        setflag(FLAG_PICKED_UP_CHESTO_BERRY)
+        release
+    }
 }
 
 script Script_AwakeSnorlax{
-    //wip
+    msgbox(Script_AwakeSnorlax_Text, MSGBOX_SIGN)
+}
+text Script_AwakeSnorlax_Text{
+    "The Snorlax is too busy chowing\n"
+    "down Chesto berries to notice you."
+}
+
+script StrGloves_ItemSparkle{
+    if(!flag(FLAG_PRIMEAPE_DEFEATED)){
+        goto(PrimeapeEncounter)
+    }
+    if(hasmonitem(0, ITEM_GRIP_GLOVES)){
+        if(msgbox(StrGlovesOnGround, MSGBOX_YESNO) == FALSE){
+            release
+            end
+        }
+        playfanfare(MUS_OBTAIN_ITEM)
+        message("Switched the Grip Gloves to\nStrength Gloves!")
+        delay(10)
+        waitfanfare
+        waitmessage
+        msgbox("The Strength gloves increase\nthe power of your moves,\land allows you to push around\lheavy boulders.")
+        setflag(FLAG_SYS_USE_STRENGTH)
+        callnative(EquipStrGloves)
+    }
+    else{
+        if(msgbox(GripGlovesOnGround, MSGBOX_YESNO) == FALSE){
+            release
+            end
+        }
+        playfanfare(MUS_OBTAIN_ITEM)
+        message("Switched the Strength Gloves to\nGrip Gloves!")
+        delay(10)
+        waitfanfare
+        waitmessage
+        msgbox(GripGlovesDescription)
+        clearflag(FLAG_SYS_USE_STRENGTH)
+        callnative(EquipGripGloves)
+    }
+    release
+}
+
+text GripGlovesDescription{
+    "The Grip Gloves boosts\n"
+    "the likelihood of added effects\l"
+    "appearing when attacking,\l"
+    "increases your speed,\l"
+    "and allows you to climb up\l"
+    "muddy slopes."
+}
+
+text StrGlovesOnGround{
+    "There seems to be a pair of\n"
+    "gloves on the ground.\l"
+    "Switch out your Grip Gloves?"
+}
+
+text GripGlovesOnGround{
+    "There seems to be a pair of\n"
+    "gloves on the ground.\l"
+    "Switch out your Strength Gloves?"
+}
+
+script PrimeapeEncounter{
+    setspeaker("???")
+    msgbox("MY SPARKLY!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
+    waitmovement(0)
+    addobject(LOCALID_PRIMEAPE)
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            applymovement(LOCALID_PRIMEAPE, moves(walk_left, walk_down * 2, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8))
+            delay(48)
+            playse(SE_LEDGE)
+            delay(16)
+            playse(SE_LEDGE)
+            delay(16)
+            playse(SE_LEDGE)
+        case DIR_EAST:
+            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8, face_left))
+            delay(48)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
+            playse(SE_LEDGE)
+            delay(16)
+            playse(SE_LEDGE)
+            delay(16)
+            playse(SE_LEDGE)
+        case DIR_WEST:
+            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, jump_down, delay_8, jump_down, delay_8))
+            delay(48)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
+            playse(SE_LEDGE)
+            delay(16)
+            playse(SE_LEDGE)
+    }
+    waitmovement(0)
+    waitse
+    delay(10)
+    callnative(CreateStrongMon)
+    createmon(1, 0, SPECIES_PRIMEAPE, VAR_0x8000)
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setspeaker("Primeape")
+    msgbox("I SAW IT FIRST!\nGET BACK!", MSGBOX_AUTOCLOSE)
+    special(StartSpecialBattle)
+    setflag(FLAG_PRIMEAPE_DEFEATED)
+    applymovement(LOCALID_PRIMEAPE, Movement_ObjectDisappears)
+    waitmovement(0)
+    removeobject(LOCALID_PRIMEAPE)
+}
+
+script HonchkrowScript{
+    playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setspeaker("Honchkrow")
+    callnative(CreateStrongMon)
+    createmon(1, 0, SPECIES_HONCHKROW, VAR_0x8000)
+    msgbox("The new boss man says to\nnot let anybody through!", MSGBOX_AUTOCLOSE)
+    settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
+    special(StartSpecialBattle)
+    applymovement(LOCALID_HONCHKROW, Movement_ObjectDisappears)
+    waitmovement(0)
+    removeobject(LOCALID_HONCHKROW)
+}
+
+script FinaleTrigger{
+    delay(16)
+    turnobject(LOCALID_KAMEK, DIR_SOUTH)
+    playse(SE_PIN)
+    applymovement(LOCALID_KAMEK, Common_Movement_ExclamationMark)
+    waitse
+    waitmovement(0)
+    playbgm(MUS_KAMEK, TRUE)
+    delay(16)
+    setspeaker("Kamek")
+
+    setflag(FLAG_DISABLE_KO_ANIM)
+    callnative(CreateExtraStrongMon)
+    createmon(1, 0, SPECIES_KAMEK, VAR_0x8000)
+    msgbox(KameBattleIntro, MSGBOX_AUTOCLOSE)
+    settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
+	special(StartRegiBattle)
+}
+
+text KameBattleIntro{
+    ""//wip
 }

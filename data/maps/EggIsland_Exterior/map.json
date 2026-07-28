@@ -77,10 +77,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "StrGloves_ItemSparkle",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_SLEEPING_SNORLAX",
       "graphics_id": "OBJ_EVENT_GFX_SNORLAX2",
       "x": 54,
       "y": 39,
@@ -94,6 +95,7 @@
       "flag": "FLAG_SLEEPING_SNORLAX"
     },
     {
+      "local_id": "LOCALID_HONCHKROW",
       "graphics_id": "OBJ_EVENT_GFX_HONCHKROW",
       "x": 40,
       "y": 17,
@@ -103,7 +105,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "HonchkrowScript",
       "flag": "FLAG_HIDE_HONCHKROW"
     },
     {
@@ -120,6 +122,7 @@
       "flag": "FLAG_HIDE_PORTAL"
     },
     {
+      "local_id": "LOCALID_KAMEK",
       "graphics_id": "OBJ_EVENT_GFX_KAMEK2",
       "x": 40,
       "y": 7,
@@ -202,6 +205,7 @@
       "flag": "FLAG_HIDE_WATEREGGS"
     },
     {
+      "local_id": "LOCALID_BRIDGE_NINJA",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 26,
       "y": 37,
@@ -226,7 +230,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_EGGBRIDGE_CREATED"
     },
     {
       "local_id": "LOCALID_BRIDGEEGG_2",
@@ -240,7 +244,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_EGGBRIDGE_CREATED"
     },
     {
       "local_id": "LOCALID_BRIDGEEGG_3",
@@ -254,7 +258,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_EGGBRIDGE_CREATED"
     },
     {
       "local_id": "LOCALID_BRIDGEEGG_4",
@@ -268,7 +272,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_EGGBRIDGE_CREATED"
     },
     {
       "local_id": "LOCALID_BRIDGEEGG_5",
@@ -282,7 +286,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
-      "flag": "0"
+      "flag": "FLAG_EGGBRIDGE_CREATED"
     },
     {
       "local_id": "LOCALID_SKARMORY",
@@ -299,6 +303,7 @@
       "flag": "FLAG_HIDE_SKARMORY"
     },
     {
+      "local_id": "LOCALID_SUPERMUSHROOMUPGRADE",
       "graphics_id": "OBJ_EVENT_GFX_ITEMSPARKLE",
       "x": 26,
       "y": 31,
@@ -403,7 +408,21 @@
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "MurkrowBattle",
-      "flag": "FLAG_TEMP_5"
+      "flag": "FLAG_TEMP_6"
+    },
+    {
+      "local_id": "LOCALID_OUTSIDEBOULDER",
+      "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
+      "x": 58,
+      "y": 32,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "EventScript_StrengthBoulder",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -513,6 +532,42 @@
       "var": "FLAG_SKARMORY_DEFEATED",
       "var_value": "0",
       "script": "SkarmoryTrigger2"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 10,
+      "elevation": 0,
+      "var": "VAR_TEMP_0",
+      "var_value": "0",
+      "script": "FinaleTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
+      "y": 41,
+      "elevation": 0,
+      "var": "FLAG_SLEEPING_SNORLAX_INTRO",
+      "var_value": "0",
+      "script": "SleepingSnorlaxIntro"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 41,
+      "elevation": 0,
+      "var": "FLAG_SLEEPING_SNORLAX_INTRO",
+      "var_value": "0",
+      "script": "SleepingSnorlaxIntro"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 41,
+      "elevation": 0,
+      "var": "FLAG_SLEEPING_SNORLAX_INTRO",
+      "var_value": "0",
+      "script": "SleepingSnorlaxIntro"
     }
   ],
   "bg_events": [

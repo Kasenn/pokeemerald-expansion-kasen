@@ -3051,6 +3051,8 @@ static void AnimateMonAfterKnockout(enum BattlerId battler)
 {
     if (B_ANIMATE_MON_AFTER_KO == FALSE)
         return;
+    if (FlagGet(FLAG_DISABLE_KO_ANIM))
+        return;
 
     enum BattlerId oppositeBattler = BATTLE_OPPOSITE(battler);
     enum BattlerId partnerBattler = BATTLE_PARTNER(oppositeBattler);

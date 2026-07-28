@@ -641,6 +641,20 @@ void StartGroudonKyogreBattle(void)
 
 void StartRegiBattle(void)
 {
+    LockPlayerFieldControls();
+    gMain.savedCallback = CB2_EndScriptedWildBattle;
+    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+
+    CreateBattleStartTask(B_TRANSITION_SHRED_SPLIT, MUS_BW_RIVAL);
+
+    IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
+    IncrementGameStat(GAME_STAT_WILD_BATTLES);
+    IncrementDailyWildBattles();
+    TryUpdateGymLeaderRematchFromWild();
+}
+
+void StartSpecialBattle(void)
+{
     enum BattleTransition transitionId;
     enum Species species;
 
@@ -661,16 +675,17 @@ void StartRegiBattle(void)
         transitionId = B_TRANSITION_REGISTEEL;
         break;
     default:
-        transitionId = B_TRANSITION_GRID_SQUARES;
+        transitionId = B_TRANSITION_SHRED_SPLIT;
         break;
     }
-    CreateBattleStartTask(transitionId, MUS_VS_REGI);
+    CreateBattleStartTask(transitionId, MUS_VS_RAYQUAZA);
 
     IncrementGameStat(GAME_STAT_TOTAL_BATTLES);
     IncrementGameStat(GAME_STAT_WILD_BATTLES);
     IncrementDailyWildBattles();
     TryUpdateGymLeaderRematchFromWild();
 }
+
 
 static void DowngradeBadPoison(void)
 {

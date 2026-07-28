@@ -3043,6 +3043,8 @@ static s32 AI_TryToFaint(enum BattlerId battlerAtk, enum BattlerId battlerDef, e
 // double battle logic
 static s32 AI_DoubleBattle(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move, s32 score)
 {
+    if (battlerDef == GetBattlerAtPosition(B_POSITION_PLAYER_RIGHT))
+        ADJUST_SCORE(Random() % 3);
     // move data
     enum Type moveType = GetMoveType(move);
     enum BattleMoveEffects effect = GetMoveEffect(move);
