@@ -2132,7 +2132,8 @@ static void Controller_DoMoveAnimation(enum BattlerId battler)
             SetBattlerSpriteAffineMode(ST_OAM_AFFINE_NORMAL);
             if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute && multihit < 2)
             {
-                InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_MON_TO_SUBSTITUTE);
+                if (move != MOVE_ILLUSION)
+                    InitAndLaunchSpecialAnimation(battler, battler, battler, B_ANIM_MON_TO_SUBSTITUTE);
                 gBattleSpritesDataPtr->battlerData[battler].flag_x8 = 0;
             }
             gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 3;

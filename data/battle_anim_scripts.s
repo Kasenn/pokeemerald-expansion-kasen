@@ -35642,9 +35642,7 @@ gBattleAnimGeneral_DynamaxGrowth:: @ PORTED FROM CFRU
 
 gBattleAnimMove_Illusion::
 	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
-	createvisualtask AnimTask_IllusionStart_TurnKamekInvisible, 5
-	waitforvisualfinish
-	createvisualtask AnimTask_IllusionStart_BringInIllusion, 5
+	createvisualtask AnimTask_Illusion_DoFade, 5
 	waitforvisualfinish
 	blendoff
 	end

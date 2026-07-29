@@ -23820,16 +23820,27 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     },
     [MOVE_ILLUSION] =
     {
-        FILLER_INFO,
         .name = COMPOUND_STRING("Illusion"),
-        .effect = EFFECT_ILLUSION,//wip
+        .description = COMPOUND_STRING("???"),
+        .effect = EFFECT_ILLUSION,
         .power = 0,
+        .type = TYPE_MAGIC,
         .accuracy = 0,
         .pp = 2,
         .target = TARGET_USER,
+        .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
+        .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .snatchAffected = FALSE,
         .ignoresProtect = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .skyBattleBanned = TRUE,
+        .contestEffect = CONTEST_EFFECT_AVOID_STARTLE_ONCE,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Illusion,
-        // gBattleAnimMove_Substitute
+        .validApprenticeMove = TRUE,
     },
 };

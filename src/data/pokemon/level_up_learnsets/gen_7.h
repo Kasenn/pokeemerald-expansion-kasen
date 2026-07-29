@@ -5653,10 +5653,10 @@ static const struct LevelUpMove sHonchkrowLevelUpLearnset[] = {
 #endif //P_FAMILY_MURKROW
 
 static const struct LevelUpMove sKamekLevelUpLearnset[] = {
-    // LEVEL_UP_MOVE( 1, MOVE_MAGICAL_BLAST),
-    // LEVEL_UP_MOVE( 1, MOVE_MAGIC_WAVE),
+    LEVEL_UP_MOVE( 1, MOVE_MAGICAL_BLAST),
+    LEVEL_UP_MOVE( 1, MOVE_MAGIC_WAVE),
     LEVEL_UP_MOVE( 1, MOVE_ILLUSION),
-    // LEVEL_UP_MOVE( 1, MOVE_BEWITCHING_RAY),
+    LEVEL_UP_MOVE( 1, MOVE_BEWITCHING_RAY),
     LEVEL_UP_END
 };
 

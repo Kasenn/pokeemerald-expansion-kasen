@@ -5216,6 +5216,11 @@ BattleScript_SubstituteFade::
 	printstring STRINGID_PKMNSUBSTITUTEFADED
 	return
 
+BattleScript_IllusionFade::
+	playanimation BS_SCRIPTING, B_ANIM_SUBSTITUTE_FADE
+	printstring STRINGID_PKMNILLUSIONFADED
+	return
+
 BattleScript_BerryCureStatusRet::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
 	printfromtable CureStatusBerryEffectStringID

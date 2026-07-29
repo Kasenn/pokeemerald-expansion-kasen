@@ -1519,15 +1519,20 @@ static void Cmd_healthbarupdate(void)
         MarkBattlerForControllerExec(battler);
         break;
     case MOVE_DAMAGE_HP_UPDATE:
+        enum StringID string;
+        if (gBattleMons[battler].species == SPECIES_KAMEK)
+            string = STRINGID_ILLUSIONDAMAGED;
+        else
+            string = STRINGID_SUBSTITUTEDAMAGED;
         if (IsDoubleSpreadMove())
         {
             DoublesHPBarReduction();
             if (DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove))
-                PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, battler);
+                PrepareStringBattle(string, battler);
         }
         else if (DoesSubstituteBlockMove(gBattlerAttacker, battler, gCurrentMove))
         {
-            PrepareStringBattle(STRINGID_SUBSTITUTEDAMAGED, battler);
+            PrepareStringBattle(string, battler);
         }
         else if (!IsBattlerUnaffectedByMove(battler)
               && !DoesDisguiseBlockMove(battler, gCurrentMove)
@@ -1602,7 +1607,10 @@ static void MoveDamageDataHpUpdate(enum BattlerId battler, u32 scriptBattler, co
         {
             gBattlescriptCurrInstr = nextInstr;
             gBattleScripting.battler = battler;
-            BattleScriptCall(BattleScript_SubstituteFade);
+            if (gBattleMons[battler].species == SPECIES_KAMEK)
+                BattleScriptCall(BattleScript_IllusionFade);
+            else
+                BattleScriptCall(BattleScript_SubstituteFade);
         }
         else
         {
@@ -6871,7 +6879,10 @@ bool32 TryTidyUpClear(bool32 clear)
                 gBattleScripting.battler = i;
                 gBattleMons[i].volatiles.substituteHP = 0;
                 gBattleMons[i].volatiles.substitute = FALSE;
-                BattleScriptCall(BattleScript_SubstituteFade);
+                if (gBattleMons[i].species == SPECIES_KAMEK)
+                    BattleScriptCall(BattleScript_IllusionFade);
+                else
+                    BattleScriptCall(BattleScript_SubstituteFade);
             }
             clearFound = TRUE;
             break;
@@ -7883,7 +7894,7 @@ static void Cmd_setsubstitute(void)
 
 void Cmd_setillusion(void)
 {
-    CMD_ARGS();
+    NATIVE_ARGS();
 
     s32 hp = 0;
 
@@ -7896,7 +7907,6 @@ void Cmd_setillusion(void)
     gBattleMons[gBattlerAttacker].volatiles.wrapped = FALSE;
     gBattleMons[gBattlerAttacker].volatiles.substituteHP = hp;
 
-    gBattleStruct->passiveHpUpdate[gBattlerAttacker] = hp;
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
 

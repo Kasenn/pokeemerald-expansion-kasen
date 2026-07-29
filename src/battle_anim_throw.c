@@ -2203,79 +2203,57 @@ void AnimTask_SwapMonSpriteToFromSubstitute(u8 taskId)
     }
 }
 
-void AnimTask_IllusionStart_BringInIllusion(u8 taskId)
-{
-    u8 spriteId;
+#define tIllusionState          data[15]
+#define tIllusionFadeOutState   data[0]
+#define tIllusionFadeOutTimer   data[1]
+#define tIllusionFadeInState    data[2]
+#define tIllusionFadeInTimer    data[3]
 
-    spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
-    switch (gTasks[taskId].data[10])
-    {
-    case 0:
-        LoadBattleMonGfxAndAnimate(gBattleAnimAttacker, FALSE, spriteId);
-        gTasks[taskId].data[10]++;
-        break;
-    case 1:
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_BG3 | BLDCNT_TGT2_BG_ALL);
-        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-
-        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
-        gTasks[taskId].data[10]++;
-        break;
-    case 2:
-        if (gTasks[taskId].data[1]++ > 1)
-        {
-            gTasks[taskId].data[1] = 0;
-            gTasks[taskId].data[0]++;
-            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[0], 16 - gTasks[taskId].data[0]));
-            if (gTasks[taskId].data[0] == 16)
-                gTasks[taskId].data[10]++;
-        }
-        break;
-    case 3:
-        if (gTasks[taskId].data[2]++ > 1)
-        {
-            LoadPalette(gBattleAnimSpritePal_Illusion, OBJ_PLTT_ID(gBattleAnimAttacker), PLTT_SIZE_4BPP);
-            BlendPalette(OBJ_PLTT_ID(gBattleAnimAttacker), 16, 16 - gTasks[taskId].data[0], RGB_WHITE);
-            if (gTasks[taskId].data[2] == 16)
-                gTasks[taskId].data[10]++;
-        }
-        break;
-    case 4:
-        spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
-        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
-        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
-        DestroyAnimVisualTask(taskId);
-        break;
-    }
-}
-
-void AnimTask_IllusionStart_TurnKamekInvisible(u8 taskId)
+void AnimTask_Illusion_DoFade(u8 taskId)
 {
     u8 spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
+    s16 *data = gTasks[taskId].data;
 
-    switch (gTasks[taskId].data[15])
+    switch (tIllusionState)
     {
     case 0:
-        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_BG3 | BLDCNT_TGT2_BG_ALL);
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_BG_ALL);
         gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
-
         SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
-        gTasks[taskId].data[15]++;
+        tIllusionState++;
         break;
     case 1:
-        if (gTasks[taskId].data[1]++ > 1)
+        if (tIllusionFadeOutTimer++ > 1)
         {
-            gTasks[taskId].data[1] = 0;
-            gTasks[taskId].data[0]++;
-            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - gTasks[taskId].data[0], gTasks[taskId].data[0]));
-            if (gTasks[taskId].data[0] == 16)
-                gTasks[taskId].data[15]++;
+            tIllusionFadeOutTimer = 0;
+            tIllusionFadeOutState++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - tIllusionFadeOutState, tIllusionFadeOutState));
+            if (tIllusionFadeOutState == 16)
+                tIllusionState++;
         }
         break;
     case 2:
-        RequestDma3Fill(0, (void *)OBJ_VRAM0 + gSprites[spriteId].oam.tileNum * TILE_SIZE_4BPP, MON_PIC_SIZE, 1);
-        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
         TrySetBehindSubstituteSpriteBit(gBattleAnimAttacker, MOVE_ILLUSION);
+        tIllusionState++;
+        break;
+    case 3:
+        LoadBattleMonGfxAndAnimate(gBattleAnimAttacker, FALSE, spriteId);
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+        tIllusionState++;
+        break;
+    case 4:
+        if (tIllusionFadeInTimer++ > 1)
+        {
+            tIllusionFadeInTimer = 0;
+            tIllusionFadeInState++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(tIllusionFadeInState, 16 - tIllusionFadeInState));
+            if (tIllusionFadeInState == 16)
+                tIllusionState++;
+        }
+        break;
+    case 5:
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
         DestroyAnimVisualTask(taskId);
         break;
     }
