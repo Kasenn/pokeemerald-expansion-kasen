@@ -1477,7 +1477,7 @@ const u32 gBattleAnimBgImage_SpacialRend[] = INCGFX_U32("graphics/battle_anims/b
 const u16 gBattleAnimBgPalette_SpacialRend[] = INCGFX_U16("graphics/battle_anims/backgrounds/spacial_rend.pal", ".gbapal");
 
 const u16 gBattleAnimBgPalette_SludgeWave[] = INCGFX_U16("graphics/battle_anims/backgrounds/sludge_wave.pal", ".gbapal");
-const u16 gBattleAnimBgPalette_MagicWave[] = INCGFX_U16("graphics/battle_anims/backgrounds/magic_wave.pal", ".gbapal");//wip
+const u16 gBattleAnimBgPalette_MagicWave[] = INCGFX_U16("graphics/battle_anims/backgrounds/magic_wave.pal", ".gbapal");
 const u32 gBattleAnimBgImage_Aeroblast[] = INCGFX_U32("graphics/battle_anims/backgrounds/aeroblast_tiles.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_Aeroblast[] = INCGFX_U16("graphics/battle_anims/backgrounds/aeroblast.pal", ".gbapal");
 const u32 gBattleAnimBgTilemap_Aeroblast[] = INCGFX_U32("graphics/battle_anims/backgrounds/aeroblast_map.bin", ".smolTM");

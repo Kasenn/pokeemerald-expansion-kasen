@@ -3428,7 +3428,7 @@ static void SurfFieldEffect_JumpOnSurfBlob(struct Task *task)
 static void SurfFieldEffect_End(struct Task *task)
 {
     struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
-    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip2 shouldn't matter
+    struct ObjectEvent *followerObject = GetFollowerObject(0);
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
         gPlayerAvatar.preventStep = FALSE;
@@ -4523,7 +4523,7 @@ static bool8 RockClimb_StopRockClimbInit(struct Task *task, struct ObjectEvent *
 
 static bool8 RockClimb_WaitStopRockClimb(struct Task *task, struct ObjectEvent *objectEvent)
 {
-    struct ObjectEvent *followerObject = GetFollowerObject(0);//wip2 shouldn't matter
+    struct ObjectEvent *followerObject = GetFollowerObject(0);
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
     {
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));

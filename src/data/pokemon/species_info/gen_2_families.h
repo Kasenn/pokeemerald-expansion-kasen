@@ -3976,7 +3976,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 177 : 187,
         .evYield_Attack = 2,
         .genderRatio = MON_GENDERLESS,
-        .abilities = { ABILITY_INSOMNIA, ABILITY_SUPER_LUCK, ABILITY_MOXIE },
+        .abilities = { ABILITY_INSOMNIA, ABILITY_SUPER_LUCK, ABILITY_MOXIE },//wip
         .bodyColor = BODY_COLOR_BLACK,
         .speciesName = _("Kamek"),
         .cryId = CRY_PECHARUNT,

@@ -1974,7 +1974,7 @@ static void Task_OWEApproachForBattle(u8 taskId)
     if (ObjectEventClearHeldMovementIfFinished(OWE))
     {
         struct ObjectEvent *player = &gObjectEvents[gPlayerAvatar.objectEventId];
-        struct ObjectEvent *followerMon = GetFollowerObject(0);//wip2 probably doesn't matter
+        struct ObjectEvent *followerMon = GetFollowerObject(0);
         bool32 oweNextToPlayer = IsOWENextToPlayer(OWE);
         bool32 oweNextToFollowerMon = IsOWENextToObject(OWE, followerMon);
 

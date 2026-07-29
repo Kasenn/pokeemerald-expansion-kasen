@@ -205,7 +205,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     {
         .fieldMoveFunc = SetUpFieldMove_SoftBoiled,
         .isUnlockedFunc = IsFieldMoveUnlocked_SoftBoiled,
-        .moveID = MOVE_SUPER_MUSHROOM,//wip
+        .moveID = MOVE_SUPER_MUSHROOM,
         .partyMsgID = PARTY_MSG_NOT_ENOUGH_PP,
     },
 

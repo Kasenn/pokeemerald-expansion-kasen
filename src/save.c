@@ -180,7 +180,7 @@ static u8 HandleWriteSector(u16 sectorId, const struct SaveSectorLocation *locat
     return TryWriteSector(sector, gReadWriteSector->data);
 }
 
-static u8 UNUSED HandleWriteSectorNBytes(u8 sectorId, u8 *data, u16 size) //wip, maybe?
+static u8 UNUSED HandleWriteSectorNBytes(u8 sectorId, u8 *data, u16 size)
 {
     u16 i;
     struct SaveSector *sector = &gSaveDataBuffer;
@@ -584,7 +584,7 @@ static u8 GetSaveValidStatus(const struct SaveSectorLocation *locations)
     return SAVE_STATUS_CORRUPT;
 }
 
-static u8 UNUSED TryLoadSaveSector(u8 sectorId, u8 *data, u16 size) //wip, maybe?
+static u8 UNUSED TryLoadSaveSector(u8 sectorId, u8 *data, u16 size)
 {
     u16 i;
     struct SaveSector *sector = &gSaveDataBuffer;

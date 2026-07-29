@@ -348,7 +348,7 @@ static void BuildNormalStartMenu(void)
     if (FlagGet(FLAG_DIGLETT_RESCUED))
         AddStartMenuAction(MENU_ACTION_RETREAT);
     AddStartMenuAction(MENU_ACTION_POKEMON);
-    if (GetMetatileNearPlayer(MB_SAVE_POINT, TRUE)) //wip
+    if (GetMetatileNearPlayer(MB_SAVE_POINT, TRUE))
     {
         AddStartMenuAction(MENU_ACTION_REST);
         // AddStartMenuAction(MENU_ACTION_SAVE);
