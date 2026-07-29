@@ -4196,7 +4196,6 @@ static void Cmd_getexp(void)
 
                 PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, expBattler, *expMonId);
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff2, 3, GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_LEVEL));
-
                 gLeveledUpInBattle |= 1 << *expMonId;
                 BattleScriptCall(BattleScript_LevelUp);
                 gBattleStruct->battlerExpReward = T1_READ_32(&gBattleResources->bufferB[expBattler][2]);
@@ -4207,6 +4206,10 @@ static void Cmd_getexp(void)
                     battler = 0;
                 else if (gBattlerPartyIndexes[2] == *expMonId && gBattleMons[2].hp && (IsDoubleBattle()))
                     battler = 2;
+
+                gBattleScripting.battler = battler;
+                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));
+
 
                 if (battler != 0xFF)
                 {
