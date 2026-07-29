@@ -426,7 +426,8 @@
 #define ANIM_TAG_TATSUGIRI_STRETCHY         (ANIM_SPRITES_START + 411)
 #define ANIM_TAG_SAFARI_BAIT                (ANIM_SPRITES_START + 412)
 #define ANIM_TAG_SUPER_MUSHROOM             (ANIM_SPRITES_START + 413)
-#define ANIM_TAG_COUNT                      GET_TRUE_SPRITE_INDEX(ANIM_TAG_SUPER_MUSHROOM + 1)
+#define ANIM_TAG_MAGICAL_BLAST              (ANIM_SPRITES_START + 414)
+#define ANIM_TAG_COUNT                      GET_TRUE_SPRITE_INDEX(ANIM_TAG_MAGICAL_BLAST + 1)
 
 // battlers
 enum AnimBattler
@@ -609,7 +610,11 @@ enum AnimBattler
 #define B_ANIM_FORM_CHANGE_INSTANT      61
 #define B_ANIM_FORM_CHANGE_DISGUISE     62
 #define B_ANIM_HELD_ITEM_BERRY          63
-#define NUM_B_ANIMS_GENERAL             64
+#define B_ANIM_ILLUSION_FADE            64
+#define B_ANIM_ILLUSION_APPEAR          65
+#define B_ANIM_SWAP_TO_ILLUSION         66
+#define B_ANIM_SWAP_FROM_ILLUSION       67
+#define NUM_B_ANIMS_GENERAL             68
 
 // special animations table (sBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0
@@ -620,8 +625,10 @@ enum AnimBattler
 #define B_ANIM_SUBSTITUTE_TO_MON        5
 #define B_ANIM_MON_TO_SUBSTITUTE        6
 #define B_ANIM_CRITICAL_CAPTURE_THROW   7
+#define B_ANIM_ILLUSION_TO_MON          8
+#define B_ANIM_MON_TO_ILLUSION          9
 
-#define NUM_B_ANIMS_SPECIAL             8
+#define NUM_B_ANIMS_SPECIAL             10
 
 // status animation table (sBattleAnims_StatusConditions)
 #define B_ANIM_STATUS_PSN               0
@@ -678,6 +685,7 @@ enum AnimBattler
 #define ANIM_SURF_PAL_SURF           0
 #define ANIM_SURF_PAL_MUDDY_WATER    1
 #define ANIM_SURF_PAL_SLUDGE_WAVE    2
+#define ANIM_SURF_PAL_MAGIC_WAVE     3
 
 // Order Up palettes for Commander
 #define ANIM_ORDER_UP_NONE           0

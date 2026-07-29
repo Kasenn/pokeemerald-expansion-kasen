@@ -18,6 +18,18 @@
 
 // Shared Move Description entries
 
+#define FILLER_INFO                                         \
+        .description = COMPOUND_STRING("???"),              \
+        .priority = 0,                                      \
+        .contestEffect = CONTEST_EFFECT_HIGHLY_APPEALING,   \
+        .contestCategory = CONTEST_CATEGORY_SMART,          \
+        .contestComboStarterId = 0,                         \
+        .contestComboMoves = {COMBO_STARTER_CALM_MIND},     \
+        .validApprenticeMove = TRUE,                        \
+        .metronomeBanned = TRUE,                            \
+        .type = TYPE_MAGIC,                                 \
+        .mirrorMoveBanned = TRUE
+
 const u8 gNotDoneYetDescription[] = _(
     "This move can't be used. Its\n"
     "effect is in development.");
@@ -1944,6 +1956,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         }),
         .contestComboMoves = {0},
         .validApprenticeMove = TRUE,
+        .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_ChuckEgg,
     },
 
@@ -3393,6 +3406,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Lick,
         .validApprenticeMove = TRUE,
     },
@@ -3787,6 +3801,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .priority = 0,
         .category = DAMAGE_CATEGORY_STATUS,
         .zMove = { .effect = Z_EFFECT_RESET_STATS },
+        .metronomeBanned = TRUE,
         .healingMove = TRUE,
         .ignoresProtect = TRUE,
         .mirrorMoveBanned = TRUE,
@@ -4603,6 +4618,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_SMART,
         .contestComboStarterId = 0,
         .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Substitute,
         .validApprenticeMove = TRUE,
     },
@@ -23761,5 +23777,59 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .category = DAMAGE_CATEGORY_PHYSICAL,
         .ignoresProtect = TRUE,
         .battleAnimScript = gBattleAnimMove_GMaxRapidFlow,
+    },
+    [MOVE_BEWITCHING_RAY] =
+    {
+        FILLER_INFO,
+        .name = COMPOUND_STRING("Bewitching Ray"),
+        .effect = EFFECT_CONFUSE,
+        .accuracy = 100,
+        .pp = 5,
+        .target = TARGET_SELECTED,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .cantUseTwice = TRUE,
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_SLEEP,
+            .chance = 75,
+        }),
+        .battleAnimScript = gBattleAnimMove_Psywave,
+    },
+    [MOVE_MAGICAL_BLAST] =
+    {
+        FILLER_INFO,
+        .name = COMPOUND_STRING("Magical Blast"),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_MagicalBlast,
+    },
+    [MOVE_MAGIC_WAVE] =
+    {
+        FILLER_INFO,
+        .name = COMPOUND_STRING("Magic Wave"),
+        .effect = EFFECT_HIT,
+        .power = 80,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_BOTH,
+        .category = DAMAGE_CATEGORY_SPECIAL,
+        .battleAnimScript = gBattleAnimMove_MagicWave,
+    },
+    [MOVE_ILLUSION] =
+    {
+        FILLER_INFO,
+        .name = COMPOUND_STRING("Illusion"),
+        .effect = EFFECT_ILLUSION,//wip
+        .power = 0,
+        .accuracy = 0,
+        .pp = 2,
+        .target = TARGET_USER,
+        .category = DAMAGE_CATEGORY_STATUS,
+        .ignoresProtect = TRUE,
+        .battleAnimScript = gBattleAnimMove_Illusion,
+        // gBattleAnimMove_Substitute
     },
 };

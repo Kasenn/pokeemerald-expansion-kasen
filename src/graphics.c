@@ -1152,6 +1152,9 @@ const u32 gBattleAnimSpriteGfx_ItemBag[] = INCGFX_U32("graphics/battle_anims/spr
 const u16 gBattleAnimSpritePal_TriAttackTriangle[] = INCGFX_U16("graphics/battle_anims/sprites/tri_attack_triangle.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_TriAttackTriangle[] = INCGFX_U32("graphics/battle_anims/sprites/tri_attack_triangle.png", ".4bpp.smol");
 
+const u32 gBattleAnimSpriteGfx_MagicalBlast[] = INCGFX_U32("graphics/battle_anims/sprites/magical_blast.png", ".4bpp.smol");
+const u16 gBattleAnimSpritePal_MagicalBlast[] = INCGFX_U16("graphics/battle_anims/sprites/magical_blast.png", ".gbapal");
+
 const u16 gBattleAnimSpritePal_LetterZ[] = INCGFX_U16("graphics/battle_anims/sprites/letter_z.png", ".gbapal");
 const u32 gBattleAnimSpriteGfx_LetterZ[] = INCGFX_U32("graphics/battle_anims/sprites/letter_z.png", ".4bpp.smol");
 
@@ -1244,6 +1247,9 @@ const u16 gBattleAnimSpritePal_Confetti[] = INCGFX_U16("graphics/battle_anims/sp
     const u32 gBattleAnimSpriteGfx_Substitute[] = INCGFX_U32("graphics/battle_anims/sprites/substitute.png", ".4bpp.smol");
     const u32 gBattleAnimSpriteGfx_SubstituteBack[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_back.png", ".4bpp.smol");
     const u16 gBattleAnimSpritePal_Substitute[] = INCGFX_U16("graphics/battle_anims/sprites/substitute.png", ".gbapal");
+
+    const u32 gBattleAnimSpriteGfx_Illusion[] = INCGFX_U32("graphics/battle_anims/sprites/illusion.png", ".4bpp.smol");
+    const u16 gBattleAnimSpritePal_Illusion[] = INCGFX_U16("graphics/battle_anims/sprites/illusion.png", ".gbapal");
 #else
     const u32 gBattleAnimSpriteGfx_Substitute[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_gba.png", ".4bpp.smol");
     const u32 gBattleAnimSpriteGfx_SubstituteBack[] = INCGFX_U32("graphics/battle_anims/sprites/substitute_back_gba.png", ".4bpp.smol");
@@ -1471,7 +1477,7 @@ const u32 gBattleAnimBgImage_SpacialRend[] = INCGFX_U32("graphics/battle_anims/b
 const u16 gBattleAnimBgPalette_SpacialRend[] = INCGFX_U16("graphics/battle_anims/backgrounds/spacial_rend.pal", ".gbapal");
 
 const u16 gBattleAnimBgPalette_SludgeWave[] = INCGFX_U16("graphics/battle_anims/backgrounds/sludge_wave.pal", ".gbapal");
-
+const u16 gBattleAnimBgPalette_MagicWave[] = INCGFX_U16("graphics/battle_anims/backgrounds/magic_wave.pal", ".gbapal");//wip
 const u32 gBattleAnimBgImage_Aeroblast[] = INCGFX_U32("graphics/battle_anims/backgrounds/aeroblast_tiles.png", ".4bpp.smol");
 const u16 gBattleAnimBgPalette_Aeroblast[] = INCGFX_U16("graphics/battle_anims/backgrounds/aeroblast.pal", ".gbapal");
 const u32 gBattleAnimBgTilemap_Aeroblast[] = INCGFX_U32("graphics/battle_anims/backgrounds/aeroblast_map.bin", ".smolTM");

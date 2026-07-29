@@ -1713,6 +1713,8 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
             ADJUST_SCORE(-10);
         if (HasMoveWithEffect(battlerAtk, EFFECT_SUBSTITUTE) && !gBattleMons[battlerAtk].volatiles.substitute)
             ADJUST_SCORE(-10);
+        if (HasMoveWithEffect(battlerAtk, EFFECT_ILLUSION) && !gBattleMons[battlerAtk].volatiles.substitute)
+            ADJUST_SCORE(-10);
         if (HasNonVolatileMoveEffect(battlerAtk, MOVE_EFFECT_SLEEP) && ! (gBattleMons[battlerDef].status1 & STATUS1_SLEEP))
             ADJUST_SCORE(-10);
         break;
@@ -1775,6 +1777,7 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
         || !AI_CanConfuse(battlerAtk, battlerDef, aiData->abilities[battlerDef], BATTLE_PARTNER(battlerAtk), move, aiData->partnerMove))
             ADJUST_SCORE(-10);
         break;
+    case EFFECT_ILLUSION:
     case EFFECT_SUBSTITUTE:
         if (gBattleMons[battlerAtk].volatiles.substitute || aiData->abilities[battlerDef] == ABILITY_INFILTRATOR)
             ADJUST_SCORE(-8);
@@ -4509,6 +4512,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
     case EFFECT_CONFUSE:
         IncreaseConfusionScore(battlerAtk, battlerDef, move, &score);
         break;
+    case EFFECT_ILLUSION:
     case EFFECT_SUBSTITUTE:
     case EFFECT_SHED_TAIL:
         ADJUST_SCORE(IncreaseSubstituteMoveScore(battlerAtk, battlerDef, move));
@@ -5939,6 +5943,7 @@ static s32 AI_ForceSetupFirstTurn(enum BattlerId battlerAtk, enum BattlerId batt
     case EFFECT_CONFUSE:
     case EFFECT_REFLECT:
     case EFFECT_NON_VOLATILE_STATUS:
+    case EFFECT_ILLUSION:
     case EFFECT_SUBSTITUTE:
     case EFFECT_LEECH_SEED:
     case EFFECT_CURSE:

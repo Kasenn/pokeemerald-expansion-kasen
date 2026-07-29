@@ -50,6 +50,7 @@ static void AnimClappingHand2(struct Sprite *);
 static void AnimRapidSpin(struct Sprite *);
 static void AnimRapidSpin_Step(struct Sprite *);
 static void AnimTriAttackTriangle(struct Sprite *);
+static void AnimMagicalBlast(struct Sprite *);
 static void AnimBatonPassPokeball(struct Sprite *);
 static void AnimWishStar(struct Sprite *);
 static void AnimWishStar_Step(struct Sprite *);
@@ -430,6 +431,27 @@ const union AffineAnimCmd gTriAttackTriangleAffineAnimCmds[] =
 const union AffineAnimCmd *const gTriAttackTriangleAffineAnimTable[] =
 {
     gTriAttackTriangleAffineAnimCmds,
+};
+
+const union AffineAnimCmd gMagicalBlastAffineAnimCmds[] =
+{
+    AFFINEANIMCMD_FRAME(0, 0, 10, 100),
+    AFFINEANIMCMD_JUMP(0),
+};
+
+const union AffineAnimCmd *const gMagicalBlastAffineAnimTable[] =
+{
+    gMagicalBlastAffineAnimCmds,
+};
+
+const struct SpriteTemplate gMagicalBlastSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_MAGICAL_BLAST,
+    .paletteTag = ANIM_TAG_MAGICAL_BLAST,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .anims = gTriAttackTriangleAnimTable,
+    .affineAnims = gMagicalBlastAffineAnimTable,
+    .callback = AnimMagicalBlast,
 };
 
 const struct SpriteTemplate gTriAttackTriangleSpriteTemplate =
@@ -2089,6 +2111,33 @@ static void TormentAttacker_Callback(struct Sprite *sprite)
     {
         gTasks[sprite->data[0]].data[sprite->data[1]]--;
         DestroySprite(sprite);
+    }
+}
+
+static void AnimMagicalBlast(struct Sprite *sprite)
+{
+    if (sprite->data[0] == 0)
+        InitSpritePosToAnimAttacker(sprite, FALSE);
+
+    if (++sprite->data[0] < 40)
+    {
+        sprite->invisible = FALSE;
+    }
+
+    if (sprite->data[0] > 30)
+        sprite->invisible = FALSE;
+
+    if (sprite->data[0] == 61)
+    {
+        StoreSpriteCallbackInData6(sprite, DestroyAnimSprite);
+        sprite->x += sprite->x2;
+        sprite->y += sprite->y2;
+        sprite->x2 = 0;
+        sprite->y2 = 0;
+        sprite->data[0] = 20;
+        sprite->data[2] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+        sprite->data[4] = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+        sprite->callback = StartAnimLinearTranslation;
     }
 }
 

@@ -568,6 +568,7 @@ extern const u8 BattleScript_EffectEvasionUp2[];
 extern const u8 BattleScript_EffectTransform[];
 extern const u8 BattleScript_EffectReflect[];
 extern const u8 BattleScript_EffectSubstitute[];
+extern const u8 BattleScript_Illusion[];
 extern const u8 BattleScript_EffectMimic[];
 extern const u8 BattleScript_EffectLeechSeed[];
 extern const u8 BattleScript_EffectDoNothing[];

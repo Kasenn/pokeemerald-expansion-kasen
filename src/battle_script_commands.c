@@ -1380,6 +1380,7 @@ static void Cmd_attackanimation(void)
     if (isAnimDisabled
         && effect != EFFECT_TRANSFORM
         && effect != EFFECT_SUBSTITUTE
+        && effect != EFFECT_ILLUSION
         && effect != EFFECT_ALLY_SWITCH
         // In a wild double battle gotta use the teleport animation if two wild Pokémon are alive.
         && !(GetMoveEffect(gCurrentMove) == EFFECT_TELEPORT && WILD_DOUBLE_BATTLE && !IsOnPlayerSide(gBattlerAttacker) && IsBattlerAlive(BATTLE_PARTNER(gBattlerAttacker))))
@@ -7875,6 +7876,25 @@ static void Cmd_setsubstitute(void)
             gBattleMons[gBattlerAttacker].volatiles.substituteHP = hp;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SUBSTITUTE;
     }
+
+    gBattleStruct->passiveHpUpdate[gBattlerAttacker] = hp;
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}
+
+void Cmd_setillusion(void)
+{
+    CMD_ARGS();
+
+    s32 hp = 0;
+
+    hp = GetNonDynamaxMaxHP(gBattlerAttacker) / 4;
+
+    if (hp == 0)
+        hp = 1;
+
+    gBattleMons[gBattlerAttacker].volatiles.substitute = TRUE;
+    gBattleMons[gBattlerAttacker].volatiles.wrapped = FALSE;
+    gBattleMons[gBattlerAttacker].volatiles.substituteHP = hp;
 
     gBattleStruct->passiveHpUpdate[gBattlerAttacker] = hp;
     gBattlescriptCurrInstr = cmd->nextInstr;

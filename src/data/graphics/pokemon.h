@@ -7875,6 +7875,10 @@ const u32 gObjectEventPic_Egg[] = INCGFX_COMP("graphics/pokemon/egg/overworld.pn
 #if P_GEN_4_CROSS_EVOS
     const u32 gMonFrontPic_Honchkrow[] = INCGFX_U32("graphics/pokemon/honchkrow/anim_front.png", ".4bpp.smol");
     const u16 gMonPalette_Honchkrow[] = INCGFX_U16("graphics/pokemon/honchkrow/normal.pal", ".gbapal");
+
+    const u32 gMonFrontPic_Kamek[] = INCGFX_U32("graphics/pokemon/honchkrow/kamek.png", ".4bpp.smol");
+    const u16 gMonPalette_Kamek[] = INCGFX_U16("graphics/pokemon/honchkrow/kamek.png", ".gbapal");
+
     const u32 gMonBackPic_Honchkrow[] = INCGFX_U32("graphics/pokemon/honchkrow/back.png", ".4bpp.smol");
     const u16 gMonShinyPalette_Honchkrow[] = INCGFX_U16("graphics/pokemon/honchkrow/shiny.pal", ".gbapal");
     const u8 gMonIcon_Honchkrow[] = INCGFX_U8("graphics/pokemon/honchkrow/icon.png", ".4bpp");

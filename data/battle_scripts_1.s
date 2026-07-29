@@ -1886,6 +1886,25 @@ BattleScript_SkyDropNoTarget::
 	makevisible BS_ATTACKER
 	goto BattleScript_MoveEnd
 
+BattleScript_Illusion::
+	attackcanceler
+	waitstate
+	jumpifvolatile BS_ATTACKER, VOLATILE_SUBSTITUTE, BattleScript_AlreadyHasIllusion
+	setillusion
+	attackanimation
+	waitanimation
+BattleScript_IllusionString::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNMADEILLUSION
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+BattleScript_AlreadyHasIllusion::
+	setalreadystatusedmoveattempt
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_PKMNHASILLUSION
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_EffectSubstitute::
 	attackcanceler
 	waitstate

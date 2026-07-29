@@ -3029,6 +3029,7 @@ bool32 IsSubstituteEffect(enum BattleMoveEffects effect)
     // Substitute effects like Substitute, Shed Tail, etc.
     switch (effect)
     {
+    case EFFECT_ILLUSION:
     case EFFECT_SUBSTITUTE:
     case EFFECT_SHED_TAIL:
         return TRUE;
@@ -5583,7 +5584,7 @@ u32 IncreaseSubstituteMoveScore(enum BattlerId battlerAtk, enum BattlerId battle
 {
     enum BattleMoveEffects effect = GetMoveEffect(move);
     u32 scoreIncrease = 0;
-    if (effect == EFFECT_SUBSTITUTE) // Substitute specific
+    if (effect == EFFECT_SUBSTITUTE || effect == EFFECT_ILLUSION) // Substitute specific
     {
         if (HasAnyKnownMove(battlerDef) && GetBestDmgFromBattler(battlerDef, battlerAtk, AI_DEFENDING) < gBattleMons[battlerAtk].maxHP / 4)
             scoreIncrease += GOOD_EFFECT;

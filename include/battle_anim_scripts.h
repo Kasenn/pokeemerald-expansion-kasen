@@ -60,6 +60,7 @@ extern const u8 gBattleAnimMove_Mist[];
 extern const u8 gBattleAnimMove_WaterGun[];
 extern const u8 gBattleAnimMove_HydroPump[];
 extern const u8 gBattleAnimMove_Surf[];
+extern const u8 gBattleAnimMove_MagicWave[];
 extern const u8 gBattleAnimMove_IceBeam[];
 extern const u8 gBattleAnimMove_Blizzard[];
 extern const u8 gBattleAnimMove_Psybeam[];
@@ -168,6 +169,7 @@ extern const u8 gBattleAnimMove_TriAttack[];
 extern const u8 gBattleAnimMove_SuperFang[];
 extern const u8 gBattleAnimMove_Slash[];
 extern const u8 gBattleAnimMove_Substitute[];
+extern const u8 gBattleAnimMove_Illusion[];
 extern const u8 gBattleAnimMove_Struggle[];
 extern const u8 gBattleAnimMove_Sketch[];
 extern const u8 gBattleAnimMove_TripleKick[];
@@ -1027,5 +1029,7 @@ extern const u8 gBattleAnimSpecial_BallThrowWithTrainer[];
 extern const u8 gBattleAnimSpecial_SubstituteToMon[];
 extern const u8 gBattleAnimSpecial_MonToSubstitute[];
 extern const u8 gBattleAnimSpecial_CriticalCaptureBallThrow[];
+
+extern const u8 gBattleAnimMove_MagicalBlast[];
 
 #endif // GUARD_BATTLE_ANIM_SCRIPTS_H

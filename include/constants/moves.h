@@ -909,6 +909,10 @@ enum __attribute__((packed)) Move
     MOVE_CHUCK_EGG,
     MOVE_SUPER_MUSHROOM,
     MOVE_LICK_BERRY,
+    MOVE_MAGICAL_BLAST,
+    MOVE_MAGIC_WAVE,
+    MOVE_ILLUSION,
+    MOVE_BEWITCHING_RAY,
 
     // Add any custom moves here, not further down!
 

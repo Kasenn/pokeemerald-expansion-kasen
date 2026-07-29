@@ -3993,12 +3993,12 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .pokemonOffset = 8,
         .trainerScale = 256,
         .trainerOffset = 0,
-        .frontPic = gMonFrontPic_Honchkrow,//wip
+        .frontPic = gMonFrontPic_Kamek,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
         .frontPicYOffset = 6,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 21),
-            ANIMCMD_FRAME(1, 45),
+            ANIMCMD_FRAME(1, 25),
             ANIMCMD_FRAME(1, 10),
             ANIMCMD_FRAME(0, 10),
         ),
@@ -4010,7 +4010,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     #if SPECIES_EGG_COLOR && GEN_2_EGG_COLORS
         .eggPalette = gEggPalette_Murkrow,
     #endif
-        .palette = gMonPalette_Honchkrow,//wip
+        .palette = gMonPalette_Kamek,
         .shinyPalette = gMonShinyPalette_Honchkrow,
         .iconSprite = gMonIcon_Honchkrow,
         .iconPalIndex = 2,
@@ -4026,7 +4026,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
             gOverworldPalette_Honchkrow,
             gShinyOverworldPalette_Honchkrow
         )
-        .levelUpLearnset = sHonchkrowLevelUpLearnset,//wip
+        .levelUpLearnset = sKamekLevelUpLearnset,
         .teachableLearnset = sHonchkrowTeachableLearnset,
     },
 

@@ -1044,20 +1044,40 @@ void BattleLoadSubstituteOrMonSpriteGfx(enum BattlerId battler, bool8 loadMonSpr
         else
             position = GetBattlerPosition(battler);
 
-        if (IsContest())
-            DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
-        else if (!IsOnPlayerSide(battler))
-            DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_Substitute, gMonSpritesGfxPtr->spritesGfx[position]);
-        else
-            DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
-
-        for (u32 i = 1; i < 2; i++)
+        if (gBattleMons[battler].species == SPECIES_KAMEK)
         {
-            Dma3CopyLarge32_(gMonSpritesGfxPtr->spritesGfx[position], &gMonSpritesGfxPtr->spritesGfx[position][MON_PIC_SIZE * i], MON_PIC_SIZE);
-        }
+            if (IsContest())
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
+            else if (!IsOnPlayerSide(battler))
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_Illusion, gMonSpritesGfxPtr->spritesGfx[position]);
+            else
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
 
-        palOffset = OBJ_PLTT_ID(battler);
-        LoadPalette(gBattleAnimSpritePal_Substitute, palOffset, PLTT_SIZE_4BPP);
+            for (u32 i = 1; i < 2; i++)
+            {
+                Dma3CopyLarge32_(gMonSpritesGfxPtr->spritesGfx[position], &gMonSpritesGfxPtr->spritesGfx[position][MON_PIC_SIZE * i], MON_PIC_SIZE);
+            }
+
+            palOffset = OBJ_PLTT_ID(battler);
+            LoadPalette(gBattleAnimSpritePal_Illusion, palOffset, PLTT_SIZE_4BPP);
+        }
+        else
+        {
+            if (IsContest())
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
+            else if (!IsOnPlayerSide(battler))
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_Substitute, gMonSpritesGfxPtr->spritesGfx[position]);
+            else
+                DecompressDataWithHeaderVram(gBattleAnimSpriteGfx_SubstituteBack, gMonSpritesGfxPtr->spritesGfx[position]);
+
+            for (u32 i = 1; i < 2; i++)
+            {
+                Dma3CopyLarge32_(gMonSpritesGfxPtr->spritesGfx[position], &gMonSpritesGfxPtr->spritesGfx[position][MON_PIC_SIZE * i], MON_PIC_SIZE);
+            }
+
+            palOffset = OBJ_PLTT_ID(battler);
+            LoadPalette(gBattleAnimSpritePal_Substitute, palOffset, PLTT_SIZE_4BPP);
+        }
     }
     else
     {
@@ -1080,7 +1100,7 @@ void LoadBattleMonGfxAndAnimate(enum BattlerId battler, bool8 loadMonSprite, u8 
 void TrySetBehindSubstituteSpriteBit(enum BattlerId battler, enum Move move)
 {
     enum BattleMoveEffects effect = GetMoveEffect(move);
-    if (effect == EFFECT_SUBSTITUTE || effect == EFFECT_SHED_TAIL)
+    if (effect == EFFECT_SUBSTITUTE || effect == EFFECT_SHED_TAIL || effect == EFFECT_ILLUSION)
         gBattleSpritesDataPtr->battlerData[battler].behindSubstitute = 1;
 }
 

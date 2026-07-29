@@ -2203,6 +2203,84 @@ void AnimTask_SwapMonSpriteToFromSubstitute(u8 taskId)
     }
 }
 
+void AnimTask_IllusionStart_BringInIllusion(u8 taskId)
+{
+    u8 spriteId;
+
+    spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
+    switch (gTasks[taskId].data[10])
+    {
+    case 0:
+        LoadBattleMonGfxAndAnimate(gBattleAnimAttacker, FALSE, spriteId);
+        gTasks[taskId].data[10]++;
+        break;
+    case 1:
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_BG3 | BLDCNT_TGT2_BG_ALL);
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(0, 16));
+        gTasks[taskId].data[10]++;
+        break;
+    case 2:
+        if (gTasks[taskId].data[1]++ > 1)
+        {
+            gTasks[taskId].data[1] = 0;
+            gTasks[taskId].data[0]++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(gTasks[taskId].data[0], 16 - gTasks[taskId].data[0]));
+            if (gTasks[taskId].data[0] == 16)
+                gTasks[taskId].data[10]++;
+        }
+        break;
+    case 3:
+        if (gTasks[taskId].data[2]++ > 1)
+        {
+            LoadPalette(gBattleAnimSpritePal_Illusion, OBJ_PLTT_ID(gBattleAnimAttacker), PLTT_SIZE_4BPP);
+            BlendPalette(OBJ_PLTT_ID(gBattleAnimAttacker), 16, 16 - gTasks[taskId].data[0], RGB_WHITE);
+            if (gTasks[taskId].data[2] == 16)
+                gTasks[taskId].data[10]++;
+        }
+        break;
+    case 4:
+        spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
+void AnimTask_IllusionStart_TurnKamekInvisible(u8 taskId)
+{
+    u8 spriteId = gBattlerSpriteIds[gBattleAnimAttacker];
+
+    switch (gTasks[taskId].data[15])
+    {
+    case 0:
+        SetGpuReg(REG_OFFSET_BLDCNT, BLDCNT_TGT2_BG3 | BLDCNT_TGT2_BG_ALL);
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_BLEND;
+
+        SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16, 0));
+        gTasks[taskId].data[15]++;
+        break;
+    case 1:
+        if (gTasks[taskId].data[1]++ > 1)
+        {
+            gTasks[taskId].data[1] = 0;
+            gTasks[taskId].data[0]++;
+            SetGpuReg(REG_OFFSET_BLDALPHA, BLDALPHA_BLEND(16 - gTasks[taskId].data[0], gTasks[taskId].data[0]));
+            if (gTasks[taskId].data[0] == 16)
+                gTasks[taskId].data[15]++;
+        }
+        break;
+    case 2:
+        RequestDma3Fill(0, (void *)OBJ_VRAM0 + gSprites[spriteId].oam.tileNum * TILE_SIZE_4BPP, MON_PIC_SIZE, 1);
+        gSprites[spriteId].oam.objMode = ST_OAM_OBJ_NORMAL;
+        TrySetBehindSubstituteSpriteBit(gBattleAnimAttacker, MOVE_ILLUSION);
+        DestroyAnimVisualTask(taskId);
+        break;
+    }
+}
+
 void AnimTask_SubstituteFadeToInvisible(u8 taskId)
 {
     u8 spriteId;

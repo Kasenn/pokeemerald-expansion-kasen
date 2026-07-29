@@ -2072,6 +2072,12 @@ extern const u32 gPokeblockFeedBg_Tilemap[];
 extern const u32 gConfetti_Gfx[];
 extern const u16 gConfetti_Pal[];
 
+extern const u32 gBattleAnimSpriteGfx_Illusion[];
+extern const u16 gBattleAnimSpritePal_Illusion[];
+
+extern const u32 gBattleAnimSpriteGfx_MagicalBlast[];
+extern const u16 gBattleAnimSpritePal_MagicalBlast[];
+
 extern const u32 gBattleInterfaceGfx_BattleBar[];
 extern const u32 gBattleAnimSpriteGfx_Substitute[];
 extern const u32 gBattleAnimSpriteGfx_SubstituteBack[];
@@ -3027,6 +3033,7 @@ extern const u32 gBattleAnimBgTilemap_InAir[];
 extern const u32 gBattleAnimBgTilemap_Aurora[];
 extern const u32 gBattleAnimBgTilemap_Fissure[];
 extern const u16 gBattleAnimBgPalette_SludgeWave[];
+extern const u16 gBattleAnimBgPalette_MagicWave[];
 extern const u32 gBattleAnimBgImage_Aeroblast[];
 extern const u16 gBattleAnimBgPalette_Aeroblast[];
 extern const u32 gBattleAnimBgTilemap_Aeroblast[];

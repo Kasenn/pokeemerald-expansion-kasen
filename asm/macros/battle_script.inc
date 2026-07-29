@@ -802,6 +802,10 @@
 	.byte B_SCR_OP_SETSUBSTITUTE
 	.endm
 
+	.macro setillusion
+	callnative Cmd_setillusion
+	.endm
+
 	.macro mimicattackcopy failInstr:req
 	.byte B_SCR_OP_MIMICATTACKCOPY
 	.4byte \failInstr

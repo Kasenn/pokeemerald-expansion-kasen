@@ -25082,6 +25082,13 @@ gBattleAnimMove_Crabhammer::
 	blendoff
 	end
 
+gBattleAnimMove_MagicWave::
+	create_surf_wave palette=ANIM_SURF_PAL_MAGIC_WAVE
+	delay 24
+	panse SE_M_REFLECT, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, +2, 0
+	waitforvisualfinish
+	end
+
 gBattleAnimMove_Surf::
 	create_surf_wave palette=ANIM_SURF_PAL_SURF
 	delay 24
@@ -26782,6 +26789,16 @@ gBattleAnimMove_TriAttack::
 	waitforvisualfinish
 	call IceCrystalEffectShort
 	simple_palette_blend selector=F_PAL_BG, delay=2, initial_blend_y=16, target_blend_y=0, color=RGB_BLACK
+	waitforvisualfinish
+	end
+
+gBattleAnimMove_MagicalBlast::
+	createsprite gMagicalBlastSpriteTemplate, ANIM_TARGET, 2, 16, 0
+	playsewithpan SE_M_DETECT, SOUND_PAN_ATTACKER
+	delay 20
+	playsewithpan SE_M_DETECT, SOUND_PAN_ATTACKER
+	delay 20
+	createsoundtask SoundTask_LoopSEAdjustPanning, SE_M_DETECT, SOUND_PAN_ATTACKER, SOUND_PAN_TARGET, 5, 6, 0, 7
 	waitforvisualfinish
 	end
 
@@ -35621,4 +35638,13 @@ gBattleAnimGeneral_DynamaxGrowth:: @ PORTED FROM CFRU
 	delay 8
 	createvisualtask AnimTask_DynamaxGrowth, 5, 1, 0
 	waitforvisualfinish
+	end
+
+gBattleAnimMove_Illusion::
+	playsewithpan SE_M_ATTRACT, SOUND_PAN_ATTACKER
+	createvisualtask AnimTask_IllusionStart_TurnKamekInvisible, 5
+	waitforvisualfinish
+	createvisualtask AnimTask_IllusionStart_BringInIllusion, 5
+	waitforvisualfinish
+	blendoff
 	end
