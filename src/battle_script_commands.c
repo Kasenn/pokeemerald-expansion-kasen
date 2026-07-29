@@ -4419,6 +4419,15 @@ static void Cmd_checkteamslost(void)
     if (NoAliveMonsForOpponent())
         gBattleOutcome |= B_OUTCOME_WON;
 
+    for (int i = 0; i < PARTY_SIZE; i++)
+    {
+        if (GetMonData(gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_CHANSEY && GetMonData(gPlayerParty[i], MON_DATA_HP) == 0)
+        {
+            gBattleOutcome |= B_OUTCOME_LOST;
+            break;
+        }
+    }
+
     // Fair switching - everyone has to switch in most at the same time, without knowing which Pokémon the other trainer selected.
     // In vanilla Emerald this was only used for link battles, in expansion it's also used for regular trainer battles.
     // For battles that haven't ended, count number of empty battler spots
