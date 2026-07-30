@@ -1,3 +1,11 @@
+//wip
+//fix 2v1 enemy healthframe
+//fix 2v1 player slide-in
+//fix followers freezing and disappearing when eggs have hatched
+//fix double battle party menu graphics and being able to shift yoshi out
+//fix followers appearing as eggs sometimes
+//fix hatch scene breaking after summary screen has been opened
+
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
@@ -8,6 +16,8 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
+    // trainerbattle_double(TRAINER_GABBY_AND_TY_1, "a", "a", "a")
+    callnative(ZeroEnemyPartyMons)
     createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
     setwilddoubleflag
     dowildbattle
