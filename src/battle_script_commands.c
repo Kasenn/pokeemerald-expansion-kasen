@@ -4421,7 +4421,7 @@ static void Cmd_checkteamslost(void)
 
     for (int i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_CHANSEY && GetMonData(gPlayerParty[i], MON_DATA_HP) == 0)
+        if (GetMonData(&gPlayerParty[i], MON_DATA_SPECIES) == SPECIES_CHANSEY && GetMonData(&gPlayerParty[i], MON_DATA_HP) == 0)
         {
             gBattleOutcome |= B_OUTCOME_LOST;
             break;

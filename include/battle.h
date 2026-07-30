@@ -938,8 +938,8 @@ struct BattleSpriteData
 struct MonSpritesGfx
 {
     void *firstDecompressed; // ptr to the decompressed sprite of the first Pokémon
-    u8 *spritesGfx[MAX_BATTLERS_COUNT];
-    struct SpriteTemplate templates[MAX_BATTLERS_COUNT];
+    u8 *spritesGfx[MAX_BATTLERS_COUNT + 2];
+    struct SpriteTemplate templates[MAX_BATTLERS_COUNT + 2];
     struct SpriteFrameImage frameImages[MAX_BATTLERS_COUNT][MAX_MON_PIC_FRAMES];
     u8 *barFontGfx;
     u16 *buffer;
