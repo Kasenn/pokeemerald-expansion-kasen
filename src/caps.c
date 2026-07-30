@@ -114,5 +114,5 @@ u32 GetCurrentEVCap(void)
         return 0;
     }
 
-    return MAX_TOTAL_EVS;
+    return MAX_PER_STAT_EVS * 6;
 }
