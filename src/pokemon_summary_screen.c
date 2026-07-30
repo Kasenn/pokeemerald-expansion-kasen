@@ -3014,7 +3014,8 @@ static void PrintNotEggInfo(void)
     PrintGenderSymbol(mon, summary->species2);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_NICKNAME);
     PutWindowTilemap(PSS_LABEL_WINDOW_PORTRAIT_SPECIES);
-    PutWindowTilemap(PSS_MAIN_SUMMARY_WINDOW);
+    if (sMonSummaryScreen->currPageIndex == PSS_PAGE_INFO)
+        PutWindowTilemap(PSS_MAIN_SUMMARY_WINDOW);
 }
 
 static void PrintEggInfo(void)
