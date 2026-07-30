@@ -178,17 +178,17 @@ void SaveObjectEvents(void)
         graphicsId = gObjectEvents[i].graphicsId;
         gSaveBlock1Ptr->objectEvents[i].graphicsId = (graphicsId >> 8) | (graphicsId << 8);
         gSaveBlock1Ptr->objectEvents[i].spriteId = 127; // magic number
-        // To avoid crash on vanilla, save follower as inactive
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER1)
-            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER2)
-            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER3)
-            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER4)
-            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER5)
-            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        // To avoid crash on vanilla, save follower as inactive//wip
+        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER1)
+        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER2)
+        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER3)
+        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER4)
+        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER5)
+        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
     }
 }
 

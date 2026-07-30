@@ -2306,7 +2306,8 @@ static u32 LoadDynamicFollowerPalette(enum Species species, bool32 shiny, bool32
 // Set graphics & sprite for a follower object event by species & shininess.
 static void FollowerSetGraphics(struct ObjectEvent *objEvent, enum Species species, bool32 shiny, bool32 female, u8 slot)
 {
-    species = SPECIES_EGG;
+    if (!FlagGet(FLAG_EGGS_HATCHED))
+        species = SPECIES_EGG;
     const struct ObjectEventGraphicsInfo *graphicsInfo = SpeciesToGraphicsInfo(species, shiny, female, slot);
     ObjectEventSetGraphics(objEvent, graphicsInfo);
     objEvent->graphicsId = GetGraphicsIdForMon(species, shiny, female);

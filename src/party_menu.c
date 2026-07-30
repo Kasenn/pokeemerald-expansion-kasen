@@ -1491,7 +1491,7 @@ void Task_HandleChooseMonInputChansey(u8 taskId)
         switch (PartyMenuButtonHandler(slotPtr))
         {
         case A_BUTTON: // Selected mon
-            if (!GetMonData(&gParties[B_TRAINER_PLAYER][*slotPtr], MON_DATA_IS_EGG))
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][*slotPtr], MON_DATA_SPECIES) == SPECIES_CHANSEY)
             {
                 PlaySE(SE_FAILURE);
                 DisplayPartyMenuMessage(gText_PkmnCantParticipate2, FALSE);
