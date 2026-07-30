@@ -79,11 +79,7 @@ static void SpriteCB_Egg_Reveal(struct Sprite *);
 static void EggHatchPrintMessage(u8, u8 *, u8, u8, u8);
 
 static struct FunctionData *sFunctionData;
-static struct EggHatchData *sEggHatchData1;
-static struct EggHatchData *sEggHatchData2;
-static struct EggHatchData *sEggHatchData3;
-static struct EggHatchData *sEggHatchData4;
-static struct EggHatchData *sEggHatchData5;
+static struct EggHatchData *sEggHatchData[NUM_EGGS];
 
 static u8 *sEggHatchSpritesGfxBuffer;
 static u8 *sEggHatchSpritesGfx[PARTY_SIZE];
@@ -214,38 +210,34 @@ static const struct EggHatchCoords sEggHatchCoords[NUM_EGGS][NUM_EGGS] =
     { {0, 0} },
     { {-32, 0}, {32, 0} },
     { {-64, 0}, {0, 0}, {64, 0} },
-    { {-32, -32}, {32, -32}, {-32, 32}, {32, 32} },
-    { {-64, -32}, {0, -32}, {64, -32}, {-32, 32}, {32, 32} },
+    { {-32, 0}, {32, 0}, {-64, -32}, {64, -32} },
+    { {-32, -32}, {32, -32}, {-64, 0}, {0, 0}, {64, 0} },
 };
 
 static void EggHatchSetCoords(void)
 {
-    struct EggHatchData *dataList[NUM_EGGS] =
-    {
-        sEggHatchData1, sEggHatchData2, sEggHatchData3, sEggHatchData4, sEggHatchData5
-    };
     u8 viableCount = 0;
     u8 slot = 0;
 
     for (u32 i = 0; i < NUM_EGGS; i++)
     {
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][dataList[i]->eggPartyId], MON_DATA_SPECIES) != SPECIES_NONE)
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData[i]->eggPartyId], MON_DATA_SPECIES) != SPECIES_NONE)
             viableCount++;
     }
 
     for (u32 i = 0; i < NUM_EGGS; i++)
     {
-        enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][dataList[i]->eggPartyId], MON_DATA_SPECIES);
+        enum Species species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData[i]->eggPartyId], MON_DATA_SPECIES);
         if (species != SPECIES_NONE && viableCount > 0)
         {
-            dataList[i]->x = sEggHatchCoords[viableCount - 1][slot].x;
-            dataList[i]->y = sEggHatchCoords[viableCount - 1][slot].y;
+            sEggHatchData[i]->x = sEggHatchCoords[viableCount - 1][slot].x;
+            sEggHatchData[i]->y = sEggHatchCoords[viableCount - 1][slot].y;
             slot++;
         }
         else
         {
-            dataList[i]->x = 0;
-            dataList[i]->y = 0;
+            sEggHatchData[i]->x = 0;
+            sEggHatchData[i]->y = 0;
         }
     }
 }
@@ -393,7 +385,7 @@ static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s
         // Create mon sprite
         SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
         gMultiuseSpriteTemplate.images = sEggHatchFrameImages[partyId];
-        spriteId = CreateSprite(&gMultiuseSpriteTemplate, EGG_X + x, EGG_Y + y, 6);
+        spriteId = CreateSprite(&gMultiuseSpriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);
         gSprites[spriteId].invisible = TRUE;
         gSprites[spriteId].callback = SpriteCallbackDummy;
         break;
@@ -445,21 +437,14 @@ static void CB2_LoadEggHatch(void)
     case 0:
         SetGpuReg(REG_OFFSET_DISPCNT, 0);
 
-        sEggHatchData1 = Alloc(sizeof(*sEggHatchData1));
-        sEggHatchData2 = Alloc(sizeof(*sEggHatchData2));
-        sEggHatchData3 = Alloc(sizeof(*sEggHatchData3));
-        sEggHatchData4 = Alloc(sizeof(*sEggHatchData4));
-        sEggHatchData5 = Alloc(sizeof(*sEggHatchData5));
+        for (int i = 0; i < NUM_EGGS; i++)
+        {
+            sEggHatchData[i] = Alloc(sizeof(*sEggHatchData[i]));
+            sEggHatchData[i]->eggPartyId = i + 1;
+        }
         sFunctionData = Alloc(sizeof(*sFunctionData));
 
-        AllocateEggHatchMonSpritesGfx();//wip
-
-        sEggHatchData1->eggPartyId = 1;
-        sEggHatchData2->eggPartyId = 2;
-        sEggHatchData3->eggPartyId = 3;
-        sEggHatchData4->eggPartyId = 4;
-        sEggHatchData5->eggPartyId = 5;
-
+        AllocateEggHatchMonSpritesGfx();
         EggHatchSetCoords();
 
         SetVBlankCallback(VBlankCB_EggHatch);
@@ -535,27 +520,25 @@ static void CB2_LoadEggHatch(void)
     }
     case 4:
         CopyBgTilemapBufferToVram(0);
-        AddHatchedMonToParty(sEggHatchData1->eggPartyId);
-        AddHatchedMonToParty(sEggHatchData2->eggPartyId);
-        AddHatchedMonToParty(sEggHatchData3->eggPartyId);
-        AddHatchedMonToParty(sEggHatchData4->eggPartyId);
-        AddHatchedMonToParty(sEggHatchData5->eggPartyId);
+        for (int i = 0; i < NUM_EGGS; i++)
+            AddHatchedMonToParty(sEggHatchData[i]->eggPartyId);
         gMain.state++;
         break;
     case 5:
-        EggHatchCreateMonSprite(0, sEggHatchData1->eggPartyId, &sEggHatchData1->species, sEggHatchData1->x, sEggHatchData1->y);
-        EggHatchCreateMonSprite(0, sEggHatchData2->eggPartyId, &sEggHatchData2->species, sEggHatchData2->x, sEggHatchData2->y);
-        EggHatchCreateMonSprite(0, sEggHatchData3->eggPartyId, &sEggHatchData3->species, sEggHatchData3->x, sEggHatchData3->y);
-        EggHatchCreateMonSprite(0, sEggHatchData4->eggPartyId, &sEggHatchData4->species, sEggHatchData4->x, sEggHatchData4->y);
-        EggHatchCreateMonSprite(0, sEggHatchData5->eggPartyId, &sEggHatchData5->species, sEggHatchData5->x, sEggHatchData5->y);
+        for (int i = 0; i < NUM_EGGS; i++)
+            EggHatchCreateMonSprite(0, sEggHatchData[i]->eggPartyId, &sEggHatchData[i]->species, sEggHatchData[i]->x, sEggHatchData[i]->y);
         gMain.state++;
         break;
     case 6:
-        sEggHatchData1->monSpriteId = EggHatchCreateMonSprite(1, sEggHatchData1->eggPartyId, &sEggHatchData1->species, sEggHatchData1->x, sEggHatchData1->y);
-        sEggHatchData2->monSpriteId = EggHatchCreateMonSprite(1, sEggHatchData2->eggPartyId, &sEggHatchData2->species, sEggHatchData2->x, sEggHatchData2->y);
-        sEggHatchData3->monSpriteId = EggHatchCreateMonSprite(1, sEggHatchData3->eggPartyId, &sEggHatchData3->species, sEggHatchData3->x, sEggHatchData3->y);
-        sEggHatchData4->monSpriteId = EggHatchCreateMonSprite(1, sEggHatchData4->eggPartyId, &sEggHatchData4->species, sEggHatchData4->x, sEggHatchData4->y);
-        sEggHatchData5->monSpriteId = EggHatchCreateMonSprite(1, sEggHatchData5->eggPartyId, &sEggHatchData5->species, sEggHatchData5->x, sEggHatchData5->y);
+        for (int i = 0; i < NUM_EGGS; i++)
+        {
+            sEggHatchData[i]->monSpriteId = EggHatchCreateMonSprite(1,
+                                                                    sEggHatchData[i]->eggPartyId,
+                                                                    &sEggHatchData[i]->species,
+                                                                    sEggHatchData[i]->x,
+                                                                    sEggHatchData[i]->y);
+
+        }
         gMain.state++;
         break;
     case 7:
@@ -616,27 +599,14 @@ static void CB2_EggHatch(void)
         template.anims = sSpriteAnimTable_Egg;
 
         BeginNormalPaletteFade(PALETTES_ALL, 0, 16, 0, RGB_BLACK);
-        template.paletteTag = PALTAG_EGG;
-        sEggHatchData1->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData1->x, EGG_Y + sEggHatchData1->y, 5);
-        template.paletteTag = PALTAG_EGG + 1;
-        sEggHatchData2->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData2->x, EGG_Y + sEggHatchData2->y, 5);
-        template.paletteTag = PALTAG_EGG + 2;
-        sEggHatchData3->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData3->x, EGG_Y + sEggHatchData3->y, 5);
-        template.paletteTag = PALTAG_EGG + 3;
-        sEggHatchData4->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData4->x, EGG_Y + sEggHatchData4->y, 5);
-        template.paletteTag = PALTAG_EGG + 4;
-        sEggHatchData5->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData5->x, EGG_Y + sEggHatchData5->y, 5);
+        for (int i = 0; i < NUM_EGGS; i++)
+        {
+            template.paletteTag = PALTAG_EGG + i;
+            sEggHatchData[i]->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData[i]->x, EGG_Y + sEggHatchData[i]->y, 5);
 
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData1->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gSprites[sEggHatchData1->eggSpriteId].invisible = TRUE;
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData2->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gSprites[sEggHatchData2->eggSpriteId].invisible = TRUE;
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData3->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gSprites[sEggHatchData3->eggSpriteId].invisible = TRUE;
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData4->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gSprites[sEggHatchData4->eggSpriteId].invisible = TRUE;
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData5->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
-            gSprites[sEggHatchData5->eggSpriteId].invisible = TRUE;
+            if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData[i]->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
+                gSprites[sEggHatchData[i]->eggSpriteId].invisible = TRUE;
+        }
         ShowBg(0);
         ShowBg(1);
         sFunctionData->state++;
@@ -655,45 +625,29 @@ static void CB2_EggHatch(void)
         {
             // Start hatching animation
             sFunctionData->state++;
-            gSprites[sEggHatchData1->eggSpriteId].sEggId = sEggHatchData1->eggPartyId;
-            gSprites[sEggHatchData2->eggSpriteId].sEggId = sEggHatchData2->eggPartyId;
-            gSprites[sEggHatchData3->eggSpriteId].sEggId = sEggHatchData3->eggPartyId;
-            gSprites[sEggHatchData4->eggSpriteId].sEggId = sEggHatchData4->eggPartyId;
-            gSprites[sEggHatchData5->eggSpriteId].sEggId = sEggHatchData5->eggPartyId;
-
-            gSprites[sEggHatchData1->eggSpriteId].sMonId = sEggHatchData1->monSpriteId;
-            gSprites[sEggHatchData2->eggSpriteId].sMonId = sEggHatchData2->monSpriteId;
-            gSprites[sEggHatchData3->eggSpriteId].sMonId = sEggHatchData3->monSpriteId;
-            gSprites[sEggHatchData4->eggSpriteId].sMonId = sEggHatchData4->monSpriteId;
-            gSprites[sEggHatchData5->eggSpriteId].sMonId = sEggHatchData5->monSpriteId;
-
-            gSprites[sEggHatchData1->eggSpriteId].callback = SpriteCB_Egg_Shake1;
-            gSprites[sEggHatchData2->eggSpriteId].callback = SpriteCB_Egg_Shake1;
-            gSprites[sEggHatchData3->eggSpriteId].callback = SpriteCB_Egg_Shake1;
-            gSprites[sEggHatchData4->eggSpriteId].callback = SpriteCB_Egg_Shake1;
-            gSprites[sEggHatchData5->eggSpriteId].callback = SpriteCB_Egg_Shake1;
+            for (int i = 0; i < NUM_EGGS; i++)
+            {
+                gSprites[sEggHatchData[i]->eggSpriteId].sEggId = sEggHatchData[i]->eggPartyId;
+                gSprites[sEggHatchData[i]->eggSpriteId].sMonId = sEggHatchData[i]->monSpriteId;
+                gSprites[sEggHatchData[i]->eggSpriteId].callback = SpriteCB_Egg_Shake1;
+            }
         }
         break;
     case 3:
         // Wait for hatching animation to finish
-        if (gSprites[sEggHatchData1->eggSpriteId].callback == SpriteCallbackDummy)
+        if (gSprites[sEggHatchData[0]->eggSpriteId].callback == SpriteCallbackDummy)
         {
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData1->eggPartyId], MON_DATA_SPECIES);
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData1->monSpriteId], species, FALSE, 1);
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData2->eggPartyId], MON_DATA_SPECIES);
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData2->monSpriteId], species, FALSE, 1);
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData3->eggPartyId], MON_DATA_SPECIES);
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData3->monSpriteId], species, FALSE, 1);
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData4->eggPartyId], MON_DATA_SPECIES);
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData4->monSpriteId], species, FALSE, 1);
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData5->eggPartyId], MON_DATA_SPECIES);
-            DoMonFrontSpriteAnimation(&gSprites[sEggHatchData5->monSpriteId], species, FALSE, 1);
+            for (int i = 0; i < NUM_EGGS; i++)
+            {
+                species = GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData[i]->eggPartyId], MON_DATA_SPECIES);
+                DoMonFrontSpriteAnimation(&gSprites[sEggHatchData[i]->monSpriteId], species, FALSE, 1);
+            }
             sFunctionData->state++;
         }
         break;
     case 4:
         // Wait for Pokémon's front sprite animation
-        if (gSprites[sEggHatchData1->monSpriteId].callback == SpriteCallbackDummy)
+        if (gSprites[sEggHatchData[0]->monSpriteId].callback == SpriteCallbackDummy)
             sFunctionData->state++;
         break;
     case 5:
@@ -724,11 +678,8 @@ static void CB2_EggHatch(void)
             RemoveWindow(sFunctionData->windowId);
             UnsetBgTilemapBuffer(0);
             UnsetBgTilemapBuffer(1);
-            Free(sEggHatchData1);
-            Free(sEggHatchData2);
-            Free(sEggHatchData3);
-            Free(sEggHatchData4);
-            Free(sEggHatchData5);
+            for (int i = 0; i < NUM_EGGS; i++)
+                Free(sEggHatchData[i]);
             Free(sFunctionData);
             SetMainCallback2(CB2_ReturnToField);
         }
