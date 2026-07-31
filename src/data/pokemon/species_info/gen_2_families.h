@@ -3972,7 +3972,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .baseSpeed     = 60,
         .baseSpAttack  = 135,
         .baseSpDefense = 140,
-        .types = MON_TYPES(TYPE_DARK, TYPE_FLYING),
+        .types = MON_TYPES(TYPE_MAGIC),
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 177 : 187,
         .evYield_Attack = 2,
         .genderRatio = MON_GENDERLESS,

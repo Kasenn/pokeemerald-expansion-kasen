@@ -4,7 +4,6 @@
 //fix followers freezing and disappearing when eggs have hatched
 //fix double battle party menu graphics and being able to shift yoshi out
 //fix followers appearing as eggs sometimes
-//fix hatch scene breaking after summary screen has been opened
 
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
