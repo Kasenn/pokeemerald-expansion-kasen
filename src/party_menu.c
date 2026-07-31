@@ -7562,6 +7562,8 @@ void ChooseMonForInBattleItem(void)
 
 static u8 GetPartyMenuActionsTypeInBattle(struct Pokemon *mon)
 {
+    if (gBattlerInMenuId == GetBattlerAtPosition(B_POSITION_PLAYER_LEFT))
+        return ACTIONS_SUMMARY_ONLY;
     if (GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_SPECIES) != SPECIES_NONE
      && GetMonData(mon, MON_DATA_IS_EGG) == FALSE
      && gPartyMenu.layout != PARTY_LAYOUT_MULTI_FULL_PARTNER)
@@ -7596,6 +7598,12 @@ static bool8 TrySwitchInPokemon(void)
     {
         GetMonNickname(&party[partySlot], gStringVar1);
         StringExpandPlaceholders(gStringVar4, gText_PkmnHasNoEnergy);
+        return FALSE;
+    }
+    if (GetMonData(&party[partySlot], MON_DATA_SPECIES) == SPECIES_CHANSEY)
+    {
+        GetMonNickname(&party[partySlot], gStringVar1);
+        StringExpandPlaceholders(gStringVar4, gText_PkmnCantParticipate2);
         return FALSE;
     }
     for (enum BattlerId i = 0; i < gBattlersCount; i++)
