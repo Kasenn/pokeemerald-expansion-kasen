@@ -383,12 +383,26 @@ static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s
         break;
     case 1:
         // Create mon sprite
-        SetMultiuseSpriteTemplateToPokemon(species, B_POSITION_OPPONENT_LEFT);
-        gMultiuseSpriteTemplate.images = sEggHatchFrameImages[partyId];
-        spriteId = CreateSprite(&gMultiuseSpriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);
-        gSprites[spriteId].invisible = TRUE;
-        gSprites[spriteId].callback = SpriteCallbackDummy;
-        break;
+        {
+            struct SpriteTemplate spriteTemplate = gBattlerSpriteTemplates[B_POSITION_OPPONENT_LEFT];
+            enum Species animSpecies = species;
+
+            spriteTemplate.paletteTag = species;
+
+            if (animSpecies > SPECIES_SHINY_TAG)
+                animSpecies -= SPECIES_SHINY_TAG;
+            animSpecies = SanitizeSpeciesId(animSpecies);
+
+            spriteTemplate.anims = (gSpeciesInfo[animSpecies].frontAnimFrames != NULL)
+                                ? gSpeciesInfo[animSpecies].frontAnimFrames
+                                : gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
+            spriteTemplate.images = sEggHatchFrameImages[partyId];
+
+            spriteId = CreateSprite(&spriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);
+            gSprites[spriteId].invisible = TRUE;
+            gSprites[spriteId].callback = SpriteCallbackDummy;
+        }
+    break;
     }
     return spriteId;
 }
@@ -749,10 +763,8 @@ static void SpriteCB_Egg_Shake3(struct Sprite *sprite)
     {
         if (++sprite->sTimer > 38)
         {
-            u16 UNUSED species;
             sprite->callback = SpriteCB_Egg_WaitHatch;
             sprite->sTimer = 0;
-            species = GetMonData(&gParties[B_TRAINER_PLAYER][sprite->sEggId], MON_DATA_SPECIES);
             gSprites[sprite->sEggId].x2 = 0;
             gSprites[sprite->sEggId].y2 = 0;
         }
