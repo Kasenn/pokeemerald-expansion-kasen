@@ -137,6 +137,8 @@ enum {
 
 enum {
     PARTY_BOX_LEFT_COLUMN,
+    PARTY_BOX_LEFT_COLUMN_DOUBLE,
+    PARTY_BOX_LEFT_COLUMN_ALT,
     PARTY_BOX_RIGHT_COLUMN,
 };
 
@@ -458,6 +460,7 @@ static void CB2_ChooseMonForMoveRelearner(void);
 static void Task_BattlePyramidChooseMonHeldItems(u8);
 static void ShiftMoveSlot(struct BoxPokemon *, u8, u8);
 static void BlitBitmapToPartyWindow_LeftColumn(u8, u8, u8, u8, u8, bool8);
+static void BlitBitmapToPartyWindow_LeftColumn_Alt(u8, u8, u8, u8, u8, bool8);
 static void BlitBitmapToPartyWindow_RightColumn(u8, u8, u8, u8, u8, bool8);
 static void CursorCb_Summary(u8);
 static void CursorCb_Switch(u8);
@@ -1000,7 +1003,12 @@ static void LoadPartyMenuBoxes(enum PartyMenuLayout layout)
 
     if (layout == PARTY_LAYOUT_MULTI_SHOWCASE)
         sPartyMenuBoxes[3].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN];
-    else if (layout == PARTY_LAYOUT_DOUBLE || layout == PARTY_LAYOUT_MULTI)
+    else if (layout == PARTY_LAYOUT_DOUBLE)
+    {
+        sPartyMenuBoxes[0].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_DOUBLE];
+        sPartyMenuBoxes[1].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_ALT];
+    }
+    else if (layout == PARTY_LAYOUT_MULTI)
         sPartyMenuBoxes[1].infoRects = &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN];
 }
 
@@ -2569,6 +2577,19 @@ static void BlitBitmapToPartyWindow_LeftColumn(u8 windowId, u8 x, u8 y, u8 width
         BlitBitmapToPartyWindow(windowId, sSlotTilemap_MainNoHP, 10, x, y, width, height);
 }
 
+static void BlitBitmapToPartyWindow_LeftColumn_Alt(u8 windowId, u8 x, u8 y, u8 width, u8 height, bool8 hideHP)
+{
+    if (width == 0 && height == 0)
+    {
+        width = 10;
+        height = 7;
+    }
+    if (hideHP == FALSE)
+        BlitBitmapToPartyWindow(windowId, sSlotTilemap_MainAlt, 10, x, y, width, height);
+    else
+        BlitBitmapToPartyWindow(windowId, sSlotTilemap_MainNoHPAlt, 10, x, y, width, height);
+}
+
 static void BlitBitmapToPartyWindow_RightColumn(u8 windowId, u8 x, u8 y, u8 width, u8 height, bool8 hideHP)
 {
     if (width == 0 && height == 0)
@@ -2820,7 +2841,9 @@ static void DisplayPartyPokemonMaxHP(u16 maxhp, struct PartyMenuBox *menuBox)
 
 static void DisplayPartyPokemonHPBarCheck(struct Pokemon *mon, struct PartyMenuBox *menuBox)
 {
-    if (GetMonData(mon, MON_DATA_SPECIES) != SPECIES_NONE && GetMonData(mon, MON_DATA_SPECIES) == SPECIES_CHANSEY)
+    if (menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN]
+     || menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_DOUBLE]
+     || menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_ALT])
         DisplayPartyPokemonHPBar(GetMonData(mon, MON_DATA_HP), GetMonData(mon, MON_DATA_MAX_HP), menuBox);
 }
 
@@ -2849,7 +2872,9 @@ static void DisplayPartyPokemonHPBar(u16 hp, u16 maxhp, struct PartyMenuBox *men
     u16 x = 0;
     u16 y = 0;
 
-    if (menuBox->windowId == 0)
+    if (menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN]
+     || menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_DOUBLE]
+     || menuBox->infoRects == &sPartyBoxInfoRects[PARTY_BOX_LEFT_COLUMN_ALT])
         y = 8;
     else
         x = 16;

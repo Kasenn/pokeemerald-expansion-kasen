@@ -45,6 +45,34 @@ static const struct PartyMenuBoxInfoRects sPartyBoxInfoRects[] =
         },
         12, 34, 64, 16      // Description text (e.g. NO USE)
     },
+    [PARTY_BOX_LEFT_COLUMN_DOUBLE] =
+    {
+        BlitBitmapToPartyWindow_LeftColumn,
+        {
+            //The below are the x, y, width, and height for each of the following info
+            11, 11, 40, 13, // Nickname (moved left 13px)
+            32, 20, 32,  8, // Level
+            69, 11,  8,  8, // Gender (moved right 5px, up 9px)
+            30, 29, 24,  16, // HP
+            45, 29, 24,  16, // Max HP
+            24, 35, 48,  3  // HP bar
+        },
+        12, 34, 64, 16      // Description text (e.g. NO USE)
+    },
+    [PARTY_BOX_LEFT_COLUMN_ALT] =
+    {
+        BlitBitmapToPartyWindow_LeftColumn_Alt,
+        {
+            //The below are the x, y, width, and height for each of the following info
+            11, 11, 40, 13, // Nickname (moved left 13px)
+            32, 20, 32,  8, // Level
+            69, 11,  8,  8, // Gender (moved right 5px, up 9px)
+            30, 29, 24,  16, // HP
+            45, 29, 24,  16, // Max HP
+            24, 35, 48,  3  // HP bar
+        },
+        12, 34, 64, 16      // Description text (e.g. NO USE)
+    },
     [PARTY_BOX_RIGHT_COLUMN] =
     {
         BlitBitmapToPartyWindow_RightColumn,
@@ -78,12 +106,12 @@ static const u8 sPartyMenuSpriteCoords[PARTY_LAYOUT_COUNT][PARTY_SIZE][4 * 2] =
     },
     [PARTY_LAYOUT_DOUBLE] =
     {
-        {16, 24, 20, 34, 50, 36, 16, 18},
-        {16, 80, 20, 90, 50, 92, 16, 74},
-        {104, 18, 108, 28, 136, 27, 102, 25},
-        {104, 50, 108, 60, 136, 59, 102, 57},
-        {104, 82, 108, 92, 136, 91, 102, 89},
-        {104, 114, 108, 124, 136, 123, 102, 121},
+        {16, 16, 20, 34, 27, 44, 16, 18},
+        {16, 72, 20, 90, 27, 100, 16, 74},
+        {104, 18, 108, 28, 138, 26, 102, 25},
+        {104, 50, 108, 60, 138, 58, 102, 57},
+        {104, 82, 108, 92, 138, 90, 102, 89},
+        {104, 114, 108, 124, 138, 122, 102, 121},
     },
     [PARTY_LAYOUT_MULTI] =
     {
@@ -693,6 +721,8 @@ static const struct WindowTemplate sUnusedWindowTemplate2 =
 // There is no empty version of the main slot because it shouldn't ever be empty.
 static const u8 sSlotTilemap_Main[]      = INCBIN_U8("graphics/party_menu/slot_main.bin");
 static const u8 sSlotTilemap_MainNoHP[]  = INCBIN_U8("graphics/party_menu/slot_main_no_hp.bin");
+static const u8 sSlotTilemap_MainAlt[]      = INCBIN_U8("graphics/party_menu/slot_main_alt.bin");
+static const u8 sSlotTilemap_MainNoHPAlt[]  = INCBIN_U8("graphics/party_menu/slot_main_no_hp_alt.bin");
 static const u8 sSlotTilemap_Wide[]      = INCBIN_U8("graphics/party_menu/slot_wide.bin");
 static const u8 sSlotTilemap_WideNoHP[]  = INCBIN_U8("graphics/party_menu/slot_wide_no_hp.bin");
 static const u8 sSlotTilemap_WideEmpty[] = INCBIN_U8("graphics/party_menu/slot_wide_empty.bin");

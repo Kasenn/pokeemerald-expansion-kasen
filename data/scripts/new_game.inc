@@ -2,7 +2,7 @@ EventScript_ResetAllBerries::
 	return
 
 EventScript_ResetAllMapFlags::
-	setflag FLAG_FORCE_SLIDEANIM
+	@setflag FLAG_FORCE_SLIDEANIM
 	setflag FLAG_HIDE_PRIMEAPE
 	@setflag WE_FLAG_NO_ENCOUNTER
 	setflag FLAG_AWAKE_SNORLAX

@@ -2,7 +2,6 @@
 //fix 2v1 enemy healthframe
 //fix 2v1 player slide-in
 //fix followers freezing and disappearing when eggs have hatched
-//fix double battle party menu graphics
 //fix followers appearing as eggs sometimes
 
 const VAR_X = VAR_TEMP_0
