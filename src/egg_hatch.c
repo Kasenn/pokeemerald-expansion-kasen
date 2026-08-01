@@ -209,9 +209,9 @@ static const struct EggHatchCoords sEggHatchCoords[NUM_EGGS][NUM_EGGS] =
 {
     { {0, 0} },
     { {-32, 0}, {32, 0} },
-    { {-64, 0}, {0, 0}, {64, 0} },
+    { {0, 0}, {-64, 0}, {64, 0} },
     { {-32, 0}, {32, 0}, {-64, -32}, {64, -32} },
-    { {-32, -32}, {32, -32}, {-64, 0}, {0, 0}, {64, 0} },
+    { {0, 0}, {-64, 0}, {64, 0}, {-32, -32}, {32, -32}},
 };
 
 static void EggHatchSetCoords(void)
@@ -398,7 +398,7 @@ static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s
                                 : gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
             spriteTemplate.images = sEggHatchFrameImages[partyId];
 
-            spriteId = CreateSprite(&spriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);
+            spriteId = CreateSprite(&spriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);//wip
             gSprites[spriteId].invisible = TRUE;
             gSprites[spriteId].callback = SpriteCallbackDummy;
         }
