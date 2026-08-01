@@ -162,6 +162,7 @@ const struct SpeciesInfo gSpeciesInfo[] =
 
     [SPECIES_EGG] =
     {
+        .speciesName = _("Egg"),
         .frontPic = gMonFrontPic_Egg,
         .frontPicSize = MON_COORDS_SIZE(24, 24),
         .frontPicYOffset = 20,

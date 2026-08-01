@@ -1055,7 +1055,7 @@ static void DrawFollowerSprite(struct PokemonSpriteVisualizer *data)
                                                         0);
     gSprites[data->followerspriteId].oam.priority = 0;
 
-    const struct ObjectEventGraphicsInfo *graphicsInfo = SpeciesToGraphicsInfo(species, data->isShiny, data->isFemale, 0);//wip2 probably doesn't matter
+    const struct ObjectEventGraphicsInfo *graphicsInfo = SpeciesToGraphicsInfo(species, data->isShiny, data->isFemale);
     gSprites[data->followerspriteId].oam.shape = graphicsInfo->oam->shape;
     gSprites[data->followerspriteId].oam.size = graphicsInfo->oam->size;
     gSprites[data->followerspriteId].images = graphicsInfo->images;

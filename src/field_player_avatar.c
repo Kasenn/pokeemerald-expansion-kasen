@@ -2260,7 +2260,7 @@ bool8 ObjectMovingOnRockStairs(struct ObjectEvent *objectEvent, enum Direction d
         s16 x = objectEvent->currentCoords.x;
         s16 y = objectEvent->currentCoords.y;
 
-        if (IsFollowerVisible() && GetFollowerObject(0) != NULL && (objectEvent->isPlayer || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1))//wip
+        if (IsFollowerVisible() && GetFollowerObject(0) != NULL && (objectEvent->isPlayer || objectEvent->isFollower))
             return FALSE;
 
         switch (direction)

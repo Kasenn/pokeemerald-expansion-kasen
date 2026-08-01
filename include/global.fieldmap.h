@@ -280,7 +280,7 @@ struct ObjectEvent
              u32 shiny:1; // OW mon shininess
              u32 jumpDone:1;
              u32 noCollision:1;
-             u32 isEgg:1;
+             u32 isFollower:1;
     /*0x04*/ u16 graphicsId; // 12 bits for species; high 4 bits for form
     /*0x06*/ u8 movementType;
     /*0x07*/ u8 trainerType;

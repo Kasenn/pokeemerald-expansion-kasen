@@ -464,6 +464,7 @@ static void CB2_LoadEggHatch(void)
         SetVBlankCallback(VBlankCB_EggHatch);
         gSpecialVar_0x8005 = GetCurrentMapMusic();
         FlagSet(FLAG_EGGS_HATCHED);
+        FlagSet(FLAG_FIRST_EGG_HATCH);
         
         ResetTempTileDataBuffers();
         ResetBgsAndClearDma3BusyFlags(0);

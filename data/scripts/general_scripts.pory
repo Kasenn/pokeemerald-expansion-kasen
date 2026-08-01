@@ -1,6 +1,5 @@
 //wip
-//fix followers freezing and disappearing when eggs have hatched
-//fix followers appearing as eggs sometimes
+//fix followers not working after saving after hatching
 
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1

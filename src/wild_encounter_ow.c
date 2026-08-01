@@ -1016,9 +1016,9 @@ void TryTriggerOverworldWildEncounter(struct ObjectEvent *obstacle, struct Objec
     if (WE_OWE_NO_REPEL_DEXNAV_COLLISION && (FlagGet(DN_FLAG_SEARCHING) || REPEL_STEP_COUNT))
         return;
 
-    bool32 playerFollowerIsColliderOWE = ((collider->isPlayer || collider->localId == OBJ_EVENT_ID_FOLLOWER1)
+    bool32 playerFollowerIsColliderOWE = ((collider->isPlayer || collider->isFollower)
                                           && IsOverworldWildEncounter(obstacle, OWE_ANY));
-    bool32 playerFollowerIsObstacleOWE = ((obstacle->isPlayer || obstacle->localId == OBJ_EVENT_ID_FOLLOWER1)
+    bool32 playerFollowerIsObstacleOWE = ((obstacle->isPlayer || obstacle->isFollower)
                                           && IsOverworldWildEncounter(collider, OWE_ANY));
 
     if (!playerFollowerIsColliderOWE && !playerFollowerIsObstacleOWE)

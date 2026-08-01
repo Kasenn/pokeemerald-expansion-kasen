@@ -1245,7 +1245,8 @@ Common_EventScript_OutOfCenterPartyHeal::
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
-	callnative UpdateFollowingPokemon
+	@callnative UpdateFollowingPokemon
+	@ //wip
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 

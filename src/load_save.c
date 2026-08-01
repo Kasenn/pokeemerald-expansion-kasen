@@ -187,8 +187,8 @@ void SaveObjectEvents(void)
         //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
         // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER4)
         //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
-        // if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER5)
-        //     gSaveBlock1Ptr->objectEvents[i].active = FALSE;
+        if (gObjectEvents[i].isFollower)
+            gSaveBlock1Ptr->objectEvents[i].active = FALSE;
     }
 }
 
@@ -208,10 +208,8 @@ void LoadObjectEvents(void)
         if (gObjectEvents[i].spriteId != 127)
             gObjectEvents[i].graphicsId &= 0xFF;
         gObjectEvents[i].spriteId = 0;
-        // Try to restore saved inactive follower
-        if (gObjectEvents[i].localId == OBJ_EVENT_ID_FOLLOWER1 &&
-            !gObjectEvents[i].active &&
-            gObjectEvents[i].graphicsId & OBJ_EVENT_MON)
+        // Try to restore saved inactive follower // OBJ_EVENT_ID_FOLLOWER1
+        if (gObjectEvents[i].isFollower && !gObjectEvents[i].active && gObjectEvents[i].graphicsId & OBJ_EVENT_MON)
             gObjectEvents[i].active = TRUE;
     }
     SetMinimumOWESpawnTimer();
