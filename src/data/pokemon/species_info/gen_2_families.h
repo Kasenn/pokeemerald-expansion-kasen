@@ -3995,7 +3995,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .trainerOffset = 0,
         .frontPic = gMonFrontPic_Kamek,
         .frontPicSize = MON_COORDS_SIZE(64, 56),
-        .frontPicYOffset = 6,
+        .frontPicYOffset = 4,
         .frontAnimFrames = ANIM_FRAMES(
             ANIMCMD_FRAME(0, 21),
             ANIMCMD_FRAME(1, 25),
@@ -4015,7 +4015,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .iconSprite = gMonIcon_Honchkrow,
         .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(5, 7, SHADOW_SIZE_M)
+        SHADOW(5, 3, SHADOW_SIZE_S)
         FOOTPRINT(Honchkrow)
         OVERWORLD(
             sPicTable_Honchkrow,
