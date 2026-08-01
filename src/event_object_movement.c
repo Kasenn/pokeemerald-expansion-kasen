@@ -2311,11 +2311,31 @@ void FollowerSetGraphics(struct ObjectEvent *objEvent, enum Species species, boo
     {
         switch (objEvent->localId)
         {
-            case OBJ_EVENT_ID_FOLLOWER1: species = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER2: species = GetMonData(&gPlayerParty[2], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER3: species = GetMonData(&gPlayerParty[3], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER4: species = GetMonData(&gPlayerParty[4], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER5: species = GetMonData(&gPlayerParty[5], MON_DATA_SPECIES); break;
+            case OBJ_EVENT_ID_FOLLOWER1:
+                species = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[1], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[1]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER2:
+                species = GetMonData(&gPlayerParty[2], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[2], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[2]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER3:
+                species = GetMonData(&gPlayerParty[3], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[3], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[3]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER4:
+                species = GetMonData(&gPlayerParty[4], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[4], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[4]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER5:
+                species = GetMonData(&gPlayerParty[5], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[5], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[5]);
+            break;
             default: break;
         }
     }
@@ -2344,11 +2364,31 @@ void RefreshFollowerGraphics(struct ObjectEvent *objEvent)
     {
         switch (objEvent->localId)
         {
-            case OBJ_EVENT_ID_FOLLOWER1: species = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER2: species = GetMonData(&gPlayerParty[2], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER3: species = GetMonData(&gPlayerParty[3], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER4: species = GetMonData(&gPlayerParty[4], MON_DATA_SPECIES); break;
-            case OBJ_EVENT_ID_FOLLOWER5: species = GetMonData(&gPlayerParty[5], MON_DATA_SPECIES); break;
+            case OBJ_EVENT_ID_FOLLOWER1:
+                species = GetMonData(&gPlayerParty[1], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[1], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[1]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER2:
+                species = GetMonData(&gPlayerParty[2], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[2], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[2]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER3:
+                species = GetMonData(&gPlayerParty[3], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[3], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[3]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER4:
+                species = GetMonData(&gPlayerParty[4], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[4], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[4]);
+            break;
+            case OBJ_EVENT_ID_FOLLOWER5:
+                species = GetMonData(&gPlayerParty[5], MON_DATA_SPECIES);
+                shiny = GetMonData(&gPlayerParty[5], MON_DATA_IS_SHINY);
+                female = GetMonGender(&gPlayerParty[5]);
+            break;
             default: break;
         }
     }
