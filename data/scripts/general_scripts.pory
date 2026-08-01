@@ -1,6 +1,5 @@
 //wip
 //fix 2v1 enemy healthframe
-//fix 2v1 player slide-in
 //fix followers freezing and disappearing when eggs have hatched
 //fix followers appearing as eggs sometimes
 
@@ -19,6 +18,14 @@ script DebugScript1{
     createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
     setwilddoubleflag
     dowildbattle
+}
+
+script DebugScript2{
+    trainerbattle_double(TRAINER_GABBY_AND_TY_1, "a", "a", "a")
+    // callnative(ZeroEnemyPartyMons)
+    // createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
+    // setwilddoubleflag
+    // dowildbattle
 }
 
 script SetupMushroom{

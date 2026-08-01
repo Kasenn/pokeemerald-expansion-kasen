@@ -206,8 +206,7 @@ Debug_EventScript_Script_1::
 	end
 
 Debug_EventScript_Script_2::
-	setobjectxy LOCALID_PLAYER, 0, 44
-	teleportcamera 0, 44
+	call DebugScript2
 	end
 
 Debug_EventScript_Script_3::
