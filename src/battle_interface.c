@@ -2019,54 +2019,55 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
 static u8 GetStatusIconForBattlerId(u8 statusElementId, enum BattlerId battler)
 {
     u8 ret = statusElementId;
-    u8 isDoubles = (GetBattlerCoordsIndex(battler) == BATTLE_COORDS_DOUBLES);
     u8 position = GetBattlerPosition(battler);
+    u8 singlePlayer = !(GetBattlerCoordsIndex(battler) == BATTLE_COORDS_DOUBLES);
+    u8 singleEnemy = !IsDoubleBattle();
 
     switch (statusElementId)
     {
     case HEALTHBOX_GFX_STATUS_PSN_BATTLER0:
         switch (position)
         {
-        case B_POSITION_PLAYER_LEFT:    ret = !isDoubles ? HEALTHBOX_GFX_STATUS_PSN_BATTLER0 : HEALTHBOX_GFX_STATUS_PSN_BATTLER0_DOUBLES; break;
-        case B_POSITION_OPPONENT_LEFT:  ret = !isDoubles ? HEALTHBOX_GFX_STATUS_PSN_BATTLER1 : HEALTHBOX_GFX_STATUS_PSN_BATTLER1_DOUBLES; break;
-        case B_POSITION_PLAYER_RIGHT:   ret =              HEALTHBOX_GFX_STATUS_PSN_BATTLER2;                                             break;
-        case B_POSITION_OPPONENT_RIGHT: ret =              HEALTHBOX_GFX_STATUS_PSN_BATTLER3;                                             break;
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_PSN_BATTLER0 : HEALTHBOX_GFX_STATUS_PSN_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_PSN_BATTLER1 : HEALTHBOX_GFX_STATUS_PSN_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_PSN_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_PSN_BATTLER3;                                             break;
         }
     break;
     case HEALTHBOX_GFX_STATUS_PRZ_BATTLER0:
         switch (position)
         {
-        case B_POSITION_PLAYER_LEFT:    ret = !isDoubles ? HEALTHBOX_GFX_STATUS_PRZ_BATTLER0 : HEALTHBOX_GFX_STATUS_PRZ_BATTLER0_DOUBLES; break;
-        case B_POSITION_OPPONENT_LEFT:  ret = !isDoubles ? HEALTHBOX_GFX_STATUS_PRZ_BATTLER1 : HEALTHBOX_GFX_STATUS_PRZ_BATTLER1_DOUBLES; break;
-        case B_POSITION_PLAYER_RIGHT:   ret =              HEALTHBOX_GFX_STATUS_PRZ_BATTLER2;                                             break;
-        case B_POSITION_OPPONENT_RIGHT: ret =              HEALTHBOX_GFX_STATUS_PRZ_BATTLER3;                                             break;
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_PRZ_BATTLER0 : HEALTHBOX_GFX_STATUS_PRZ_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_PRZ_BATTLER1 : HEALTHBOX_GFX_STATUS_PRZ_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_PRZ_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_PRZ_BATTLER3;                                             break;
         }
     break;
     case HEALTHBOX_GFX_STATUS_SLP_BATTLER0:
         switch (position)
         {
-        case B_POSITION_PLAYER_LEFT:    ret = !isDoubles ? HEALTHBOX_GFX_STATUS_SLP_BATTLER0 : HEALTHBOX_GFX_STATUS_SLP_BATTLER0_DOUBLES; break;
-        case B_POSITION_OPPONENT_LEFT:  ret = !isDoubles ? HEALTHBOX_GFX_STATUS_SLP_BATTLER1 : HEALTHBOX_GFX_STATUS_SLP_BATTLER1_DOUBLES; break;
-        case B_POSITION_PLAYER_RIGHT:   ret =              HEALTHBOX_GFX_STATUS_SLP_BATTLER2;                                             break;
-        case B_POSITION_OPPONENT_RIGHT: ret =              HEALTHBOX_GFX_STATUS_SLP_BATTLER3;                                             break;
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_SLP_BATTLER0 : HEALTHBOX_GFX_STATUS_SLP_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_SLP_BATTLER1 : HEALTHBOX_GFX_STATUS_SLP_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_SLP_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_SLP_BATTLER3;                                             break;
         }
     break;
     case HEALTHBOX_GFX_STATUS_FRZ_BATTLER0:
         switch (position)
         {
-        case B_POSITION_PLAYER_LEFT:    ret = !isDoubles ? HEALTHBOX_GFX_STATUS_FRZ_BATTLER0 : HEALTHBOX_GFX_STATUS_FRZ_BATTLER0_DOUBLES; break;
-        case B_POSITION_OPPONENT_LEFT:  ret = !isDoubles ? HEALTHBOX_GFX_STATUS_FRZ_BATTLER1 : HEALTHBOX_GFX_STATUS_FRZ_BATTLER1_DOUBLES; break;
-        case B_POSITION_PLAYER_RIGHT:   ret =              HEALTHBOX_GFX_STATUS_FRZ_BATTLER2;                                             break;
-        case B_POSITION_OPPONENT_RIGHT: ret =              HEALTHBOX_GFX_STATUS_FRZ_BATTLER3;                                             break;
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_FRZ_BATTLER0 : HEALTHBOX_GFX_STATUS_FRZ_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_FRZ_BATTLER1 : HEALTHBOX_GFX_STATUS_FRZ_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_FRZ_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_FRZ_BATTLER3;                                             break;
         }
     break;
     case HEALTHBOX_GFX_STATUS_BRN_BATTLER0:
         switch (position)
         {
-        case B_POSITION_PLAYER_LEFT:    ret = !isDoubles ? HEALTHBOX_GFX_STATUS_BRN_BATTLER0 : HEALTHBOX_GFX_STATUS_BRN_BATTLER0_DOUBLES; break;
-        case B_POSITION_OPPONENT_LEFT:  ret = !isDoubles ? HEALTHBOX_GFX_STATUS_BRN_BATTLER1 : HEALTHBOX_GFX_STATUS_BRN_BATTLER1_DOUBLES; break;
-        case B_POSITION_PLAYER_RIGHT:   ret =              HEALTHBOX_GFX_STATUS_BRN_BATTLER2;                                             break;
-        case B_POSITION_OPPONENT_RIGHT: ret =              HEALTHBOX_GFX_STATUS_BRN_BATTLER3;                                             break;
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_BRN_BATTLER0 : HEALTHBOX_GFX_STATUS_BRN_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_BRN_BATTLER1 : HEALTHBOX_GFX_STATUS_BRN_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_BRN_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_BRN_BATTLER3;                                             break;
         }
     break;
     }

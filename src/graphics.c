@@ -739,6 +739,8 @@ const u8 gHealthboxElementsGfxTable[][32] = INCBIN_U8("graphics/battle_interface
                                                   "graphics/battle_interface/status2.4bpp", // these three duplicate sets of graphics are for the opponent/partner Pokémon
                                                   "graphics/battle_interface/status3.4bpp",
                                                   "graphics/battle_interface/status4.4bpp",
+                                                  "graphics/battle_interface/status5.4bpp",
+                                                  "graphics/battle_interface/status6.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend.4bpp",
                                                   "graphics/battle_interface/healthbox_doubles_frameend_bar.4bpp");
 const u32 gBattleInterfaceGfx_UnusedWindow3[] = INCGFX_U32("graphics/battle_interface/unused_window3.png", ".4bpp.smol");
