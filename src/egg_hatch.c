@@ -61,6 +61,7 @@ struct EggHatchData
     enum Species species;
     s8 x;
     s8 y;
+    u8 priority;
 };
 
 extern const u8 gText_HatchedFromEgg[];
@@ -214,6 +215,15 @@ static const struct EggHatchCoords sEggHatchCoords[NUM_EGGS][NUM_EGGS] =
     { {0, 0}, {-64, 0}, {64, 0}, {-32, -32}, {32, -32}},
 };
 
+static const u8 sSpritePriority[NUM_EGGS][NUM_EGGS] =
+{
+    { 0 },
+    { 0, 1 },
+    { 1, 0, 2 },
+    { 0, 1, 2, 3 },
+    { 0, 1, 2, 3, 4 },
+};
+
 static void EggHatchSetCoords(void)
 {
     u8 viableCount = 0;
@@ -232,12 +242,14 @@ static void EggHatchSetCoords(void)
         {
             sEggHatchData[i]->x = sEggHatchCoords[viableCount - 1][slot].x;
             sEggHatchData[i]->y = sEggHatchCoords[viableCount - 1][slot].y;
+            sEggHatchData[i]->priority = sSpritePriority[viableCount - 1][slot];
             slot++;
         }
         else
         {
             sEggHatchData[i]->x = 0;
             sEggHatchData[i]->y = 0;
+            sEggHatchData[i]->priority = 0;
         }
     }
 }
@@ -360,7 +372,7 @@ bool8 CheckDaycareMonReceivedMail(void)
     return FALSE;
 }
 
-static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s8 y)
+static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s8 y, u8 priority)
 {
     u8 spriteId = 0;
     struct Pokemon *mon = NULL;
@@ -398,7 +410,7 @@ static u8 EggHatchCreateMonSprite(u8 state, u8 partyId, u16 *speciesLoc, s8 x, s
                                 : gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
             spriteTemplate.images = sEggHatchFrameImages[partyId];
 
-            spriteId = CreateSprite(&spriteTemplate, EGG_X + x, EGG_Y + y, 6 - partyId);//wip
+            spriteId = CreateSprite(&spriteTemplate, EGG_X + x, EGG_Y + y, priority);
             gSprites[spriteId].invisible = TRUE;
             gSprites[spriteId].callback = SpriteCallbackDummy;
         }
@@ -541,7 +553,7 @@ static void CB2_LoadEggHatch(void)
         break;
     case 5:
         for (int i = 0; i < NUM_EGGS; i++)
-            EggHatchCreateMonSprite(0, sEggHatchData[i]->eggPartyId, &sEggHatchData[i]->species, sEggHatchData[i]->x, sEggHatchData[i]->y);
+            EggHatchCreateMonSprite(0, sEggHatchData[i]->eggPartyId, &sEggHatchData[i]->species, sEggHatchData[i]->x, sEggHatchData[i]->y, sEggHatchData[i]->priority);
         gMain.state++;
         break;
     case 6:
@@ -551,7 +563,8 @@ static void CB2_LoadEggHatch(void)
                                                                     sEggHatchData[i]->eggPartyId,
                                                                     &sEggHatchData[i]->species,
                                                                     sEggHatchData[i]->x,
-                                                                    sEggHatchData[i]->y);
+                                                                    sEggHatchData[i]->y,
+                                                                    sEggHatchData[i]->priority);
 
         }
         gMain.state++;
@@ -617,7 +630,7 @@ static void CB2_EggHatch(void)
         for (int i = 0; i < NUM_EGGS; i++)
         {
             template.paletteTag = PALTAG_EGG + i;
-            sEggHatchData[i]->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData[i]->x, EGG_Y + sEggHatchData[i]->y, 5);
+            sEggHatchData[i]->eggSpriteId = CreateSprite(&template, EGG_X + sEggHatchData[i]->x, EGG_Y + sEggHatchData[i]->y, sEggHatchData[i]->priority);
 
             if (GetMonData(&gParties[B_TRAINER_PLAYER][sEggHatchData[i]->eggPartyId], MON_DATA_SPECIES) == SPECIES_NONE)
                 gSprites[sEggHatchData[i]->eggSpriteId].invisible = TRUE;
