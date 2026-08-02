@@ -1,7 +1,7 @@
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
-const VAR_WATEREGG_1 = VAR_TEMP_3
+const VAR_WATEREGG = VAR_TEMP_3
 const VAR_SLOPE = VAR_TEMP_4
 const VAR_TRIGGER = VAR_TEMP_5
 
@@ -146,6 +146,18 @@ text TooManyEggs{
 }
 
 script RiverCrossing1{
+    if(var(VAR_FACING) == DIR_EAST) {setvar(VAR_WATEREGG, LOCALID_WATEREGG_LEFT_1)}
+    else                            {setvar(VAR_WATEREGG, LOCALID_WATEREGG_RIGHT_1)}
+    call(RiverCrossingMain)
+}
+
+script RiverCrossing2{
+    if(var(VAR_FACING) == DIR_EAST) {setvar(VAR_WATEREGG, LOCALID_WATEREGG_LEFT_2)}
+    else                            {setvar(VAR_WATEREGG, LOCALID_WATEREGG_RIGHT_2)}
+    call(RiverCrossingMain)
+}
+
+script RiverCrossingMain{
     getplayerxy(VAR_X, VAR_Y)
     counteggs
     if(var(VAR_EGGS) < 1){
@@ -166,12 +178,6 @@ script RiverCrossing1{
         end
     }
     removeegg(VAR_0x8004)
-    if(var(VAR_FACING) == DIR_EAST){
-        setvar(VAR_WATEREGG_1, LOCALID_WATEREGG_LEFT_1)
-    }
-    else{
-        setvar(VAR_WATEREGG_1, LOCALID_WATEREGG_RIGHT_1)
-    }
     call(DoWaterEggMovement)
     delay(32)
     playse(SE_LEDGE)
@@ -185,17 +191,31 @@ script RiverCrossing1{
     playse(SE_LEDGE)
     waitmovement(0)
     delay(30)
-    applymovement(VAR_WATEREGG_1, MoveWaterEggAway)
+    applymovement(VAR_WATEREGG, MoveWaterEggAway)
     waitmovement(0)
-    hideobjectat(VAR_WATEREGG_1, MAP_EGG_ISLAND_EXTERIOR)
-    setobjectxy(VAR_WATEREGG_1, 36, 66)
+    hideobjectat(VAR_WATEREGG, MAP_EGG_ISLAND_EXTERIOR)
+    getplayerxy(VAR_X, VAR_Y)
+    if(var(VAR_FACING) == DIR_EAST){
+        subvar(VAR_X, 2)
+    }
+    else{
+        addvar(VAR_X, 2)
+    }
+    switch(var(VAR_Y)){
+        case 48:
+        case 67:
+            subvar(VAR_Y, 1)
+        case 49:
+        case 68:
+            subvar(VAR_Y, 2)
+        case 50:
+        case 69:
+            subvar(VAR_Y, 3)
+    }
+    setobjectxy(VAR_WATEREGG, VAR_X, VAR_Y)
     special(CalculatePlayerPartyCount)
     callnative(UpdateEggPP)
     callnative(ForceResetFollowers)
-}
-
-script RiverCrossing2{
-    //wip
 }
 
 movement MoveWaterEggAway{
@@ -208,14 +228,14 @@ movement MoveWaterEggAway{
 
 script DoWaterEggMovement{
     delay(16)
-    addobject(VAR_WATEREGG_1)
-    setobjectxy(VAR_WATEREGG_1, VAR_X, VAR_Y)
+    addobject(VAR_WATEREGG)
+    setobjectxy(VAR_WATEREGG, VAR_X, VAR_Y)
     playse(SE_M_JUMP_KICK)
-    if(var(VAR_WATEREGG_1) == LOCALID_WATEREGG_LEFT_1){
-        applymovement(VAR_WATEREGG_1, moves(set_visible, jump_2_right, nurse_joy_bow))
+    if(var(VAR_FACING) == DIR_EAST){
+        applymovement(VAR_WATEREGG, moves(set_visible, jump_2_right, nurse_joy_bow))
     }
     else{
-        applymovement(VAR_WATEREGG_1, moves(set_visible, jump_2_left, nurse_joy_bow))
+        applymovement(VAR_WATEREGG, moves(set_visible, jump_2_left, nurse_joy_bow))
     }
     delay(32)
     playse(SE_M_DIVE)

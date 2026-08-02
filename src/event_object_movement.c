@@ -10244,7 +10244,7 @@ static void ObjectEventUpdateSubpriority(struct ObjectEvent *objEvent, struct Sp
 
     u8 subPriority = 1;
 
-    if (objEvent->isFollower) //wip, make sure to properly test this
+    if (objEvent->isFollower && !FlagGet(FLAG_EGGS_HATCHED))
         subPriority = 2;
 
     // If transitioning between elevations, use the player's elevation
