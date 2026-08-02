@@ -2360,16 +2360,9 @@ static bool32 ReturnToFieldLocal(u8 *state)
         ResetScreenForMapLoad();
         ResumeMap(FALSE);
         InitObjectEventsReturnToField();
-        //wip
         if (FlagGet(FLAG_FIRST_EGG_HATCH))
         {
             FlagClear(FLAG_FIRST_EGG_HATCH);
-            // for (int i = 1; i < gPlayerPartyCount; i++)
-            // {
-            //     struct ObjectEvent *objectEvent = GetFollowerObject(i - 1);
-            //     FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent), i - 1);
-            //     RefreshFollowerGraphics(objectEvent);
-            // }
         }
         else
         {

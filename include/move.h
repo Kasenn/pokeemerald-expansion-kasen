@@ -297,6 +297,9 @@ static inline void ResetEggs(void)
 
 static inline u8 CalculateCurrentEggs(void)
 {
+    if (FlagGet(FLAG_EGGS_HATCHED))
+        return 0;
+
     u8 eggs = 0;
 
     for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)

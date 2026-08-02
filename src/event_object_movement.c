@@ -2528,7 +2528,7 @@ void UpdateFollowingPokemon(void)
         )
         {
             RemoveFollowingPokemon(slot - 1);
-            return;
+            continue;
         }
 
         if (objEvent == NULL)
@@ -2582,6 +2582,7 @@ void RemoveFollowingPokemon(u8 slot)
     struct ObjectEvent *objectEvent = GetFollowerObject(slot);
     if (objectEvent == NULL)
         return;
+    gSaveBlock1Ptr->followerId[slot] = 0;
     RemoveObjectEvent(objectEvent);
 }
 
@@ -6510,7 +6511,7 @@ void IsFollowerFieldMoveUser(struct ScriptContext *ctx)
     u16 *var = GetVarPointer(varId);
     u16 userIndex = gFieldEffectArguments[0]; // field move user index
     struct Pokemon *follower = GetFirstLiveMon();
-    struct ObjectEvent *obj = GetFollowerObject(0);//wip2 probably irrelevant
+    struct ObjectEvent *obj = GetFollowerObject(0);
     if (var == NULL)
         return;
     *var = FALSE;

@@ -1242,7 +1242,10 @@ enum CopyMovement PlayerGetCopyableMovement(void)
 
 enum CopyMovement FollowerGetCopyableMovement(u8 slot)
 {
-    return gObjectEvents[gSaveBlock1Ptr->followerId[slot]].playerCopyableMovement;
+    struct ObjectEvent *follower = GetFollowerObject(slot);
+    if (follower == NULL)
+        return COPY_MOVE_NONE;
+    return follower->playerCopyableMovement;
 }
 
 static void PlayerForceSetHeldMovement(u8 movementActionId)
@@ -1542,7 +1545,10 @@ enum Direction GetPlayerMovementDirection(void)
 
 enum Direction GetFollowerMovementDirection(u8 slot)
 {
-    return gObjectEvents[gSaveBlock1Ptr->followerId[slot]].movementDirection;
+    struct ObjectEvent *follower = GetFollowerObject(slot);
+    if (follower == NULL)
+        return DIR_SOUTH;
+    return follower->movementDirection;
 }
 
 u8 PlayerGetElevation(void)

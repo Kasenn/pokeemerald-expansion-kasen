@@ -532,7 +532,7 @@ enum
 #define OBJ_EVENT_ID_FOLLOWER3                  0xFC
 #define OBJ_EVENT_ID_FOLLOWER4                  0xFD
 #define OBJ_EVENT_ID_FOLLOWER5                  0xFE
-#define OBJ_EVENT_ID_NPC_FOLLOWER               0xFD
+#define OBJ_EVENT_ID_NPC_FOLLOWER               0xFC
 
 #define IS_LOCALID_GENERATED_OWE(localId)       (localId <= LOCALID_OW_ENCOUNTER_END \
                                                  && localId > (LOCALID_OW_ENCOUNTER_END - OWE_SPAWNS_MAX))

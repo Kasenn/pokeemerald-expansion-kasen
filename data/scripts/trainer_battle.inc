@@ -1,7 +1,7 @@
 EventScript_StartTrainerApproach::
 	selectapproachingtrainer
 	setflag FLAG_NO_RUNNING
-	callnative FetchMonInfo @//wip
+	callnative FetchMonInfo
 	createmon 1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL
 	lockfortrainer
 EventScript_TrainerApproach::

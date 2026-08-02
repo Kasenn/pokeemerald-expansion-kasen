@@ -907,7 +907,7 @@ static void SpriteCB_ReleaseMonFromBall(struct Sprite *sprite)
         gTasks[taskId].tCryTaskState = 0;
     }
 
-    u8 taskId = CreateTask(Task_MoveBattlerToField, 3);//wip2
+    u8 taskId = CreateTask(Task_MoveBattlerToField, 3);
     u16 species = GetMonData(GetBattlerMon(battler), MON_DATA_SPECIES);
     if (GetBattlerPosition(battler) == B_POSITION_PLAYER_LEFT && IsOnPlayerSide(battler) && IsDoubleBattle())
     {
