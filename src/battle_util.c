@@ -2936,11 +2936,17 @@ u32 CountBattlerStatDecreases(enum BattlerId battler)
 {
     enum Stat i;
     u32 count = 0;
+    u32 extraStages;
 
     for (i = 0; i < NUM_BATTLE_STATS; i++)
     {
-        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
-            count += DEFAULT_STAT_STAGE - gBattleMons[battler].statStages[i];
+        if (i == STAT_ACC || i == STAT_EVASION)
+            extraStages = 0;
+        else
+            extraStages = 2;
+
+        if (gBattleMons[battler].statStages[i] < (DEFAULT_STAT_STAGE + extraStages)) // Stat is decreased.
+            count += (DEFAULT_STAT_STAGE + extraStages) - gBattleMons[battler].statStages[i];
     }
 
     return count;
@@ -3639,12 +3645,17 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     bool8 statsRestored = FALSE;
                     bool8 confusionRemoved = FALSE;
                     bool8 statusRemoved = FALSE;
+                    u32 extraStages;
 
                     for (i = 0; i < NUM_BATTLE_STATS; i++)
                     {
-                        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE)
+                        if (i == STAT_ACC || i == STAT_EVASION)
+                            extraStages = 0;
+                        else
+                            extraStages = 2;
+                        if (gBattleMons[battler].statStages[i] < (DEFAULT_STAT_STAGE + extraStages))
                         {
-                            gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
+                            gBattleMons[battler].statStages[i] = (DEFAULT_STAT_STAGE + extraStages);
                             statsRestored = TRUE;
                         }
                     }

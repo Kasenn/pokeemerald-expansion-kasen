@@ -529,6 +529,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_STEALTH_ROCK, COMBO_STARTER_SPIKES, COMBO_STARTER_TOXIC_SPIKES},
         .battleAnimScript = gBattleAnimMove_Whirlwind,
         .validApprenticeMove = TRUE,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_FLY] =
@@ -1276,6 +1277,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboMoves = {COMBO_STARTER_STEALTH_ROCK, COMBO_STARTER_ENTRAINMENT, COMBO_STARTER_PLAY_NICE, COMBO_STARTER_SPIKES, COMBO_STARTER_TOXIC_SPIKES},
         .battleAnimScript = gBattleAnimMove_Roar,
         .validApprenticeMove = TRUE,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_SING] =
@@ -2781,6 +2783,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_CONFUSION, COMBO_STARTER_DOUBLE_TEAM, COMBO_STARTER_KINESIS, COMBO_STARTER_PSYCHIC},
         .battleAnimScript = gBattleAnimMove_Teleport,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_NIGHT_SHADE] =
@@ -13713,6 +13716,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = 0,
         .contestComboMoves = {COMBO_STARTER_ENTRAINMENT, COMBO_STARTER_PLAY_NICE},
         .battleAnimScript = gBattleAnimMove_CircleThrow,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_INCINERATE] =
@@ -14115,6 +14119,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .contestComboStarterId = COMBO_STARTER_DRAGON_TAIL,
         .contestComboMoves = {COMBO_STARTER_DRAGON_BREATH, COMBO_STARTER_DRAGON_DANCE, COMBO_STARTER_DRAGON_RAGE, COMBO_STARTER_DRAGON_RUSH, COMBO_STARTER_STEALTH_ROCK, COMBO_STARTER_SPIKES, COMBO_STARTER_TOXIC_SPIKES},
         .battleAnimScript = gBattleAnimMove_DragonTail,
+        .metronomeBanned = TRUE,
     },
 
     [MOVE_WORK_UP] =

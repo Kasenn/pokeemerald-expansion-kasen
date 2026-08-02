@@ -117,7 +117,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     {
         .fieldMoveFunc = SetUpFieldMove_Flash,
         .isUnlockedFunc = IsFieldMoveUnlocked_Flash,
-        .moveID = MOVE_FLASH,
+        .moveID = MOVE_FLY,
         .partyMsgID = PARTY_MSG_CANT_USE_HERE,
     },
 
@@ -197,7 +197,7 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
     {
         .fieldMoveFunc = SetUpFieldMove_SoftBoiled,
         .isUnlockedFunc = IsFieldMoveUnlocked_MilkDrink,
-        .moveID = MOVE_MILK_DRINK,
+        .moveID = MOVE_FLY,
         .partyMsgID = PARTY_MSG_NOT_ENOUGH_HP,
     },
 

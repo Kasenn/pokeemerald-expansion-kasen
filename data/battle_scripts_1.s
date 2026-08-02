@@ -4646,12 +4646,14 @@ BattleScript_HealerActivates::
 	return
 
 BattleScript_BigBossActivatesRevertStats::
+	playanimation BS_ATTACKER, B_ANIM_TOTEM_FLARE, NULL
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_STATCHANGESNORMALIZED
 	waitmessage B_WAIT_TIME_LONG
 	return
 
 BattleScript_BigBossActivatesRevertStatsCureStatus::
+	playanimation BS_ATTACKER, B_ANIM_TOTEM_FLARE, NULL
 	call BattleScript_AbilityPopUp
 	printstring STRINGID_STATCHANGESNORMALIZED
 	waitmessage B_WAIT_TIME_LONG
