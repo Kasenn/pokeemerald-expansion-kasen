@@ -2368,6 +2368,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
         {
             if (gSwitchedMonsAround)
             {
+                gSwitchedMonsAround = FALSE;
                 RemoveFollowingPokemon(0); 
                 RemoveFollowingPokemon(1);
                 RemoveFollowingPokemon(2);
