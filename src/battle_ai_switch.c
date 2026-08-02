@@ -747,6 +747,7 @@ static bool32 ShouldSwitchIfBadlyStatused(struct SwitchAiContext *switchContext)
             // Checks to see if active Pokemon can do something against sleep
             if ((monAbility == ABILITY_NATURAL_CURE
                 || monAbility == ABILITY_SHED_SKIN
+                || monAbility == ABILITY_BIG_BOSS
                 || monAbility == ABILITY_EARLY_BIRD)
                 || holdEffect == (HOLD_EFFECT_CURE_SLP | HOLD_EFFECT_CURE_STATUS)
                 || HasMoveWithEffect(switchContext->battler, EFFECT_SLEEP_TALK)

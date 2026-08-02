@@ -2932,6 +2932,20 @@ static bool32 TryDancer(void)
     return FALSE;
 }
 
+u32 CountBattlerStatDecreases(enum BattlerId battler)
+{
+    enum Stat i;
+    u32 count = 0;
+
+    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    {
+        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE) // Stat is decreased.
+            count += DEFAULT_STAT_STAGE - gBattleMons[battler].statStages[i];
+    }
+
+    return count;
+}
+
 u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum Ability ability, enum Move move, bool32 shouldAbilityTrigger)
 {
     u32 effect = 0;
@@ -3613,6 +3627,87 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
                     gBattleMons[battler].volatiles.nightmare = FALSE;
                     gBattleScripting.battler = battler;
                     BattleScriptCall(BattleScript_ShedSkinActivates);
+                    BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+                    MarkBattlerForControllerExec(battler);
+                    effect++;
+                }
+                break;
+            case ABILITY_BIG_BOSS:
+                if (((gBattleMons[battler].status1 & STATUS1_ANY) || CountBattlerStatDecreases(battler) > 0 || gBattleMons[battler].volatiles.confusionTurns > 0)
+                    && RandomPercentage(RNG_BIG_BOSS, 30))
+                {
+                    bool8 statsRestored = FALSE;
+                    bool8 confusionRemoved = FALSE;
+                    bool8 statusRemoved = FALSE;
+
+                    for (i = 0; i < NUM_BATTLE_STATS; i++)
+                    {
+                        if (gBattleMons[battler].statStages[i] < DEFAULT_STAT_STAGE)
+                        {
+                            gBattleMons[battler].statStages[i] = DEFAULT_STAT_STAGE;
+                            statsRestored = TRUE;
+                        }
+                    }
+                    if (gBattleMons[battler].volatiles.confusionTurns > 0)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_CONFUSION;
+                        confusionRemoved = TRUE;
+                        statusRemoved = TRUE;
+                    }
+                    if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_POISON_CONFUSION;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_SLEEP_CONFUSION;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_PARALYSIS_CONFUSION;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_BURN)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_BURN_CONFUSION;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_FREEZE)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FREEZE_CONFUSION;
+                    }
+                    if (gBattleMons[battler].status1 & STATUS1_FROSTBITE)
+                    {
+                        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE;
+                        statusRemoved = TRUE;
+                        if (confusionRemoved)
+                            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CURED_FROSTBITE_CONFUSION;
+                    }
+
+                    gBattleMons[battler].volatiles.confusionTurns = 0;
+                    gBattleMons[battler].volatiles.infiniteConfusion = FALSE;
+                    gBattleMons[battler].status1 = 0;
+                    gBattleMons[battler].volatiles.nightmare = FALSE;
+                    gBattleScripting.battler = battler;
+                    if (statsRestored && statusRemoved)
+                        BattleScriptCall(BattleScript_BigBossActivatesRevertStatsCureStatus);
+                    else if (statsRestored)
+                        BattleScriptCall(BattleScript_BigBossActivatesRevertStats);
+                    else
+                        BattleScriptCall(BattleScript_BigBossActivatesCureStatus);
                     BtlController_EmitSetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
                     MarkBattlerForControllerExec(battler);
                     effect++;

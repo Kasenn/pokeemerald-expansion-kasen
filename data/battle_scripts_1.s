@@ -4645,6 +4645,28 @@ BattleScript_HealerActivates::
 	waitmessage B_WAIT_TIME_LONG
 	return
 
+BattleScript_BigBossActivatesRevertStats::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_STATCHANGESNORMALIZED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
+BattleScript_BigBossActivatesRevertStatsCureStatus::
+	call BattleScript_AbilityPopUp
+	printstring STRINGID_STATCHANGESNORMALIZED
+	waitmessage B_WAIT_TIME_LONG
+	printfromtable gBigBossStringIds
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	return
+
+BattleScript_BigBossActivatesCureStatus::
+	call BattleScript_AbilityPopUp
+	printfromtable gBigBossStringIds
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	return
+
 BattleScript_ShedSkinActivates::
 	call BattleScript_AbilityPopUp
 	printfromtable gCureStatusStringIds

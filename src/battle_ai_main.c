@@ -4484,7 +4484,7 @@ static s32 AI_CalcMoveEffectScore(enum BattlerId battlerAtk, enum BattlerId batt
             {
                 ADJUST_SCORE(GOOD_EFFECT);
             }
-            else if (aiData->abilities[battlerAtk] == ABILITY_SHED_SKIN
+            else if (aiData->abilities[battlerAtk] == ABILITY_SHED_SKIN || aiData->abilities[battlerAtk] == ABILITY_BIG_BOSS
                   || aiData->abilities[battlerAtk] == ABILITY_EARLY_BIRD)
             {
                 ADJUST_SCORE(DECENT_EFFECT);
