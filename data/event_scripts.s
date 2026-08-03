@@ -1064,6 +1064,7 @@ EventScript_WhiteOut::
 	end
 
 EventScript_AfterWhiteOutHeal::
+	callnative ReloadSave
 	lockall
 	msgbox gText_FirstShouldRestoreMonsHealth
 	call EventScript_PkmnCenterNurse_TakeAndHealPkmn
@@ -1084,6 +1085,7 @@ EventScript_AfterWhiteOutHealMsg::
 	return
 
 EventScript_AfterWhiteOutMomHeal::
+	callnative ReloadSave
 	lockall
 	textcolor NPC_TEXT_COLOR_FEMALE
 	applymovement LOCALID_PLAYERS_HOUSE_1F_MOM, Common_Movement_WalkInPlaceFasterDown
