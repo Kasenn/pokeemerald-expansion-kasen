@@ -49,7 +49,8 @@ script GameOverScreen{
     delay(60)
     callnative(StopMusicCompletely)
     if(!flag(FLAG_GAMEOVER_QUIT)){
-        callnative(ReloadSave)
+        callnative(GameOver_Continue)
+        callnative(DoSoftReset)
     }
     else{
         callnative(DoSoftReset)

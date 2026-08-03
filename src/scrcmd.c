@@ -4116,3 +4116,8 @@ void EquipStrGloves(void)
     enum Item item = ITEM_STRENGTH_GLOVES;
     SetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM, &item);
 }
+
+void GameOver_Continue(void)
+{
+    gResetGame = TRUE;
+}
