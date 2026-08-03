@@ -427,7 +427,8 @@
 #define ANIM_TAG_SAFARI_BAIT                (ANIM_SPRITES_START + 412)
 #define ANIM_TAG_SUPER_MUSHROOM             (ANIM_SPRITES_START + 413)
 #define ANIM_TAG_MAGICAL_BLAST              (ANIM_SPRITES_START + 414)
-#define ANIM_TAG_COUNT                      GET_TRUE_SPRITE_INDEX(ANIM_TAG_MAGICAL_BLAST + 1)
+#define ANIM_TAG_DIGLETT                    (ANIM_SPRITES_START + 415)
+#define ANIM_TAG_COUNT                      GET_TRUE_SPRITE_INDEX(ANIM_TAG_DIGLETT + 1)
 
 // battlers
 enum AnimBattler
@@ -614,7 +615,8 @@ enum AnimBattler
 #define B_ANIM_ILLUSION_APPEAR          65
 #define B_ANIM_SWAP_TO_ILLUSION         66
 #define B_ANIM_SWAP_FROM_ILLUSION       67
-#define NUM_B_ANIMS_GENERAL             68
+#define B_ANIM_CALL_DIGLETT             68
+#define NUM_B_ANIMS_GENERAL             69
 
 // special animations table (sBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

@@ -245,6 +245,8 @@ static bool32 HandleEndTurnFutureSight(enum BattlerId battler)
 
         if (gBattleStruct->futureSight[battler].move == MOVE_FUTURE_SIGHT)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
+        else if (gBattleStruct->futureSight[battler].move == MOVE_CALL_DIGLETT)
+            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CALL_DIGLETT;
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
 

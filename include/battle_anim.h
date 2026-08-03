@@ -79,6 +79,7 @@ extern enum BattlerId gBattleAnimTarget;
 extern enum Species gAnimBattlerSpecies[MAX_BATTLERS_COUNT];
 extern u8 gAnimCustomPanning;
 extern u16 gAnimMoveIndex;
+extern bool8 gChangeDiglettAnim;
 
 void ClearBattleAnimationVars(void);
 void DoMoveAnim(enum Move move);

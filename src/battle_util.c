@@ -7869,6 +7869,55 @@ static inline s32 DoMoveDamageCalc(struct DamageContext *ctx)
     return DoMoveDamageCalcVars(ctx);
 }
 
+struct Pokemon CreateMonForCallDiglett(void)
+{
+    struct Pokemon mon;
+
+    u8 level = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL); // copy level from the first mon in player's party
+    u16 evs = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_ATK_EV); // all the evs are always equal so just use this one
+    u16 abilityNum = 0;
+    u16 nature = NATURE_HARDY;
+    enum Species species = SPECIES_DIGLETT;
+    struct OriginalTrainerId otId = OTID_STRUCT_RANDOM_NO_SHINY;
+
+    u32 personality = GetMonPersonality(species, MON_MALE, nature, RANDOM_UNOWN_LETTER);
+
+    CreateMon(&mon, species, level, personality, otId);
+
+    for (int i = 0; i < NUM_STATS; i++)
+    {
+        if (evs <= MAX_PER_STAT_EVS)
+            SetMonData(&mon, MON_DATA_HP_EV + i, &evs);
+    }
+    SetMonData(&mon, MON_DATA_ABILITY_NUM, &abilityNum);
+    CalculateMonStats(&mon);
+    
+    return mon;
+}
+
+static inline s32 DoCallDiglettAttackDamageCalc(struct DamageContext *ctx)
+{
+    struct Pokemon mon = CreateMonForCallDiglett();
+
+    struct BattlePokemon *savedBattleMons = AllocSaveBattleMons();
+
+    memset(&gBattleMons[ctx->battlerAtk], 0, sizeof(struct BattlePokemon));
+    PokemonToBattleMon(&mon, &gBattleMons[ctx->battlerAtk]);
+
+    ctx->abilities[ctx->battlerAtk] = ABILITY_NONE;
+    ctx->holdEffects[ctx->battlerAtk] = HOLD_EFFECT_NONE;
+    ctx->typeEffectivenessModifier = CalcTypeEffectivenessMultiplier(ctx);
+    ctx->isCrit = IsCriticalHit(ctx);
+
+    if (ctx->typeEffectivenessModifier == UQ_4_12(0.0))
+        return 0;
+
+    s32 dmg = DoMoveDamageCalc(ctx);
+
+    FreeRestoreBattleMons(savedBattleMons);
+    return dmg;
+}
+
 static inline s32 DoFutureSightAttackDamageCalc(struct DamageContext *ctx)
 {
     struct Pokemon *party = GetBattlerParty(ctx->battlerAtk);
@@ -8174,7 +8223,9 @@ s32 CalculateMoveDamage(struct DamageContext *ctx)
 {
     s32 damage = 0;
 
-    if (IsFutureSightAttackerInParty(ctx->battlerAtk, ctx->battlerDef, ctx->move))
+    if (ctx->move == MOVE_CALL_DIGLETT)
+        damage = DoCallDiglettAttackDamageCalc(ctx);
+    else if (IsFutureSightAttackerInParty(ctx->battlerAtk, ctx->battlerDef, ctx->move))
         damage = DoFutureSightAttackDamageCalc(ctx);
     else
         damage = DoMoveDamageCalc(ctx);

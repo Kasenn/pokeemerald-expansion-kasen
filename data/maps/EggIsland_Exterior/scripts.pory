@@ -229,6 +229,7 @@ script MachopScript1{
     clearflag(FLAG_STOP_EXP)
     setmonmove(0, 0, MOVE_CHUCK_EGG)
     setmonmove(0, 1, MOVE_LICK_BERRY)
+    setmonmove(0, 2, MOVE_CALL_DIGLETT)
     special(HealPlayerParty)
     callnative(DoInitialSave)
     release

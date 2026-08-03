@@ -22,6 +22,11 @@ static void AnimStealthRockStep(struct Sprite *sprite);
 static void AnimStealthRock(struct Sprite *sprite);
 static u8 GetRolloutCounter(void);
 
+static void AnimCallDiglett(struct Sprite *sprite);
+void AnimCallDiglett_Step(struct Sprite *sprite);
+static void CreateCallDiglettSprite(struct Sprite *bird, s16 xOffsetSign);
+static void AnimCallDiglettParticle(struct Sprite *sprite);
+
 static const union AnimCmd sAnim_FlyingRock_0[] =
 {
     ANIMCMD_FRAME(32, 1),
@@ -1045,3 +1050,146 @@ const struct SpriteTemplate gRockPlumeSpriteTemplate =
     .anims = gAnims_FlyingRock,
     .callback = AnimDirtPlumeParticle,
 };
+
+const struct SpriteTemplate gCallDiglettSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_DIGLETT,
+    .paletteTag = ANIM_TAG_DIGLETT,
+    .oam = &gOamData_AffineDouble_ObjNormal_64x64,
+    .callback = AnimCallDiglett,
+};
+
+#define tFrame          data[0]
+#define tDuration       data[1]
+#define tPosX           data[4]
+#define tPosY           data[5]
+#define tVelocityX      data[6]
+#define tVelocityY      data[7]
+
+static void AnimCallDiglett(struct Sprite *sprite)
+{
+    u16 rotation;
+    s16 targetX, targetY;
+    s16 attackerX, attackerY;
+    s16 startX, startY;
+    u8 duration = 32;
+
+    targetX = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_X_2);
+    targetY = GetBattlerSpriteCoord(gBattleAnimTarget, BATTLER_COORD_Y_PIC_OFFSET);
+    attackerX = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_X_2);
+    attackerY = GetBattlerSpriteCoord(gBattleAnimAttacker, BATTLER_COORD_Y_PIC_OFFSET);
+
+    startX = attackerX + (attackerX - targetX);
+    startY = attackerY + (attackerY - targetY);
+
+    sprite->x = startX;
+    sprite->y = startY;
+
+    sprite->tFrame     = 0;
+    sprite->tDuration  = duration;
+    sprite->tPosX      = sprite->x << 4;
+    sprite->tPosY      = sprite->y << 4;
+    sprite->tVelocityX = ((targetX - startX) << 4) / duration;
+    sprite->tVelocityY = ((targetY - startY) << 4) / duration;
+
+    rotation = ArcTan2Neg(targetX - startX, targetY - startY);
+    rotation -= 4096;
+
+    TrySetSpriteRotScale(sprite, TRUE, 0x100, 0x100, rotation);
+
+    sprite->callback = AnimCallDiglett_Step;
+}
+
+void AnimCallDiglett_Step(struct Sprite *sprite)
+{
+    u8 duration = sprite->tDuration;
+    u8 interval;
+
+    sprite->tPosX += sprite->tVelocityX;
+    sprite->tPosY += sprite->tVelocityY;
+
+    sprite->x = sprite->tPosX >> 4;
+    sprite->y = sprite->tPosY >> 4;
+
+    if (sprite->tFrame < duration)
+    {
+        interval = duration / 8;
+        if (interval == 0)
+            interval = 1;
+
+        if (sprite->tFrame % interval == 0)
+        {
+            s16 pan1 = BattleAnimAdjustPanning(SOUND_PAN_ATTACKER);
+            s16 pan2 = BattleAnimAdjustPanning(SOUND_PAN_TARGET);
+            s16 pan = pan1 + (((pan2 - pan1) * sprite->tFrame) / duration);
+            s16 step = sprite->tFrame / interval;
+
+            PlaySE12WithPanning(SE_M_DIG, pan);
+            CreateCallDiglettSprite(sprite, (step % 2 == 0) ? 1 : -1);
+        }
+
+        sprite->tFrame++;
+    }
+
+    if (sprite->x > DISPLAY_WIDTH + 45 || sprite->x < -45
+     || sprite->y > 157 || sprite->y < -45)
+        DestroySpriteAndMatrix(sprite);
+}
+
+#undef tFrame
+#undef tDuration
+#undef tPosX
+#undef tPosY
+#undef tVelocityX
+#undef tVelocityY
+
+const struct SpriteTemplate gCallDiglettParticleSpriteTemplate =
+{
+    .tileTag = ANIM_TAG_ROCKS,
+    .paletteTag = ANIM_TAG_ROCKS,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .callback = AnimCallDiglettParticle,
+};
+
+#define tDuration       data[0]
+#define tTargetX        data[2]
+#define tStartY         data[4]
+#define tArcHeight      data[5]
+
+static void CreateCallDiglettSprite(struct Sprite *diglett, s16 xOffsetSign)
+{
+    const struct SpriteTemplate * spriteTemplate = &gCallDiglettParticleSpriteTemplate;
+    int tileOffset = 64;
+    u16 x, y;
+    u8 spriteId;
+
+    if (!TryLoadSpriteAssets(spriteTemplate))
+        return;
+
+    x = diglett->data[4] >> 4;
+    y = diglett->data[5] >> 4;
+    x += (xOffsetSign * 4);
+
+    spriteId = CreateSprite(spriteTemplate, x, y, 35);
+    if (spriteId != MAX_SPRITES)
+    {
+        gSprites[spriteId].tDuration  = 18;
+        gSprites[spriteId].tTargetX   = ((xOffsetSign * 20) + x) + 3;
+        gSprites[spriteId].tStartY    = y;
+        gSprites[spriteId].tArcHeight = -16 - 2;
+        gSprites[spriteId].oam.tileNum += tileOffset;
+
+        InitAnimArcTranslation(&gSprites[spriteId]);
+    }
+}
+
+#undef tDuration
+#undef tTargetX
+#undef tStartY
+#undef tArcHeight
+
+static void AnimCallDiglettParticle(struct Sprite *sprite)
+{
+    if (TranslateAnimHorizontalArc(sprite))
+        DestroySprite(sprite);
+}

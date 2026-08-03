@@ -347,6 +347,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNFLEDFROMBATTLE]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} fled from battle!"),
     [STRINGID_PKMNFORESAWATTACK]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} foresaw an attack!"),
     [STRINGID_PKMNTOOKATTACK]                       = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} took the {B_BUFF1} attack!"),
+    [STRINGID_DIGLETTRUSHEDTOAID]                   = COMPOUND_STRING("Diglett rushed to Yoshi's aid!"),
     [STRINGID_PKMNATTACK]                           = COMPOUND_STRING("{B_BUFF1}'s attack!"), // Not in gen 5+
     [STRINGID_PKMNCENTERATTENTION]                  = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} became the center of attention!"),
     [STRINGID_PKMNCHARGINGPOWER]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} began charging power!"),
@@ -505,6 +506,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_YOUTHROWABALLNOWRIGHT]                = COMPOUND_STRING("You throw a Ball now, right? I… I'll do my best!"),
     [STRINGID_PKMNSXTOOKATTACK]                     = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} took the attack!"),
     [STRINGID_PKMNCHOSEXASDESTINY]                  = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} chose Doom Desire as its destiny!"),
+    [STRINGID_YOSHICALLEDDIGLETT]                   = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} called for Diglett for aid!"),
     [STRINGID_PKMNLOSTFOCUS]                        = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} lost its focus and couldn't move!"),
     [STRINGID_USENEXTPKMN]                          = COMPOUND_STRING("Use next battler?"),
     [STRINGID_PKMNFLEDUSINGITS]                     = COMPOUND_STRING("{PLAY_SE SE_FLEE}{B_ATK_NAME_WITH_PREFIX} fled using its {B_LAST_ITEM}!\p"),
@@ -1281,7 +1283,15 @@ const u16 gPartyStatusHealStringIds[] =
 const u16 gFutureMoveUsedStringIds[] =
 {
     [B_MSG_FUTURE_SIGHT] = STRINGID_PKMNFORESAWATTACK,
-    [B_MSG_DOOM_DESIRE]  = STRINGID_PKMNCHOSEXASDESTINY
+    [B_MSG_DOOM_DESIRE]  = STRINGID_PKMNCHOSEXASDESTINY,
+    [B_MSG_CALL_DIGLETT] = STRINGID_YOSHICALLEDDIGLETT,
+};
+
+const u16 gFutureMoveAftermathStringIds[] =
+{
+    [B_MSG_FUTURE_SIGHT] = STRINGID_PKMNTOOKATTACK,
+    [B_MSG_DOOM_DESIRE]  = STRINGID_PKMNTOOKATTACK,
+    [B_MSG_CALL_DIGLETT] = STRINGID_DIGLETTRUSHEDTOAID,
 };
 
 const u16 gBallEscapeStringIds[] =

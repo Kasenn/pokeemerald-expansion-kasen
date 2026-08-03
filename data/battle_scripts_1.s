@@ -3643,14 +3643,19 @@ BattleScript_RemoveHazardsRet:
 	return
 
 BattleScript_MonTookFutureAttack::
-	printstring STRINGID_PKMNTOOKATTACK
+	printfromtable gFutureMoveAftermathStringIds
 	waitmessage B_WAIT_TIME_LONG
 	futuresighttargetfailure BattleScript_DoFutureAttackResult
 	jumpifmovehadnoeffect BattleScript_FutureAttackEnd
 	damagecalc
 	jumpifmovehadnoeffect BattleScript_DoFutureAttackResult
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_CALL_DIGLETT, BattleScript_FutureHitAnimCallDiglett
 	jumpifbyte CMP_NOT_EQUAL, cMULTISTRING_CHOOSER, B_MSG_FUTURE_SIGHT, BattleScript_FutureHitAnimDoomDesire
 	playanimation BS_ATTACKER, B_ANIM_FUTURE_SIGHT_HIT
+	goto BattleScript_DoFutureAttackHit
+BattleScript_FutureHitAnimCallDiglett::
+	callnative ChangeDiglettAnim
+	attackanimation
 	goto BattleScript_DoFutureAttackHit
 BattleScript_FutureHitAnimDoomDesire::
 	playanimation BS_ATTACKER, B_ANIM_DOOM_DESIRE_HIT

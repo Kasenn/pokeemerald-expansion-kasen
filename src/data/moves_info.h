@@ -3387,33 +3387,6 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_LICK_BERRY] =
-    {
-        .name = COMPOUND_STRING("Tongue Attack"),
-        .additionalEffects = ADDITIONAL_EFFECTS({
-            .moveEffect = MOVE_EFFECT_BUG_BITE,
-        }),
-        .description = COMPOUND_STRING(
-            "Licks with a long tongue to\n"
-            "eat a foe's held Berry."),
-        .effect = EFFECT_HIT,
-        .power = 20,
-        .type = TYPE_NORMAL,
-        .accuracy = 100,
-        .pp = 40,
-        .target = TARGET_SELECTED,
-        .priority = 0,
-        .category = DAMAGE_CATEGORY_PHYSICAL,
-        .makesContact = TRUE,
-        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
-        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
-        .contestComboStarterId = 0,
-        .contestComboMoves = {0},
-        .metronomeBanned = TRUE,
-        .battleAnimScript = gBattleAnimMove_Lick,
-        .validApprenticeMove = TRUE,
-    },
-
     [MOVE_LICK] =
     {
         .name = COMPOUND_STRING("Lick"),
@@ -23847,5 +23820,64 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .metronomeBanned = TRUE,
         .battleAnimScript = gBattleAnimMove_Illusion,
         .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_LICK_BERRY] =
+    {
+        .name = COMPOUND_STRING("Tongue Attack"),
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_BUG_BITE,
+        }),
+        .description = COMPOUND_STRING(
+            "Licks with a long tongue to\n"
+            "eat a foe's held Berry."),
+        .effect = EFFECT_HIT,
+        .power = 20,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Lick,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_CALL_DIGLETT] =
+    {
+        .name = COMPOUND_STRING("Call Diglett"),
+        .description = COMPOUND_STRING(
+            "Calls Diglett to attack\n"
+            "with a 2-turn delay."),
+        .power = 120,
+        .effect = EFFECT_FUTURE_SIGHT,
+        .type = TYPE_GROUND,
+        .accuracy = 100,
+        .pp = 1,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_BETTER_IF_SAME_TYPE : CONTEST_EFFECT_DONT_EXCITE_AUDIENCE,
+        .contestCategory = CONTEST_CATEGORY_SMART,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {COMBO_STARTER_CALM_MIND, COMBO_STARTER_CONFUSION, COMBO_STARTER_KINESIS, COMBO_STARTER_PSYCHIC},
+        .battleAnimScript = gBattleAnimMove_CallDiglett_Start,
+        .validApprenticeMove = TRUE,
+        .mirrorMoveBanned = TRUE,
+        .meFirstBanned = TRUE,
+        .mimicBanned = TRUE,
+        .metronomeBanned = TRUE,
+        .copycatBanned = TRUE,
+        .sleepTalkBanned = TRUE,
+        .instructBanned = TRUE,
+        .encoreBanned = TRUE,
+        .assistBanned = TRUE,
+        .sketchBanned = TRUE,
     },
 };

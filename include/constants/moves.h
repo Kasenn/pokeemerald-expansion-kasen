@@ -905,7 +905,7 @@ enum __attribute__((packed)) Move
     MOVE_MALIGNANT_CHAIN = 847,
     MOVES_COUNT_GEN9,
 
-    MOVE_SEISMIC_TOSS_CHANSEY,
+    MOVE_SEISMIC_TOSS_CHANSEY = MOVES_COUNT_GEN9,
     MOVE_CHUCK_EGG,
     MOVE_SUPER_MUSHROOM,
     MOVE_LICK_BERRY,
@@ -913,6 +913,7 @@ enum __attribute__((packed)) Move
     MOVE_MAGIC_WAVE,
     MOVE_ILLUSION,
     MOVE_BEWITCHING_RAY,
+    MOVE_CALL_DIGLETT,
 
     // Add any custom moves here, not further down!
 

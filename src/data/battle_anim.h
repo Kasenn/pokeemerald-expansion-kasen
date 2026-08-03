@@ -1305,6 +1305,7 @@ const struct BattleAnimation gBattleAnimTable[ANIM_TAG_COUNT] =
     BATTLE_ANIMATION(ANIM_TAG_SHOCK_3, gBattleAnimSpriteGfx_Shock3, 0x0600, gBattleAnimSpritePal_Shock3),
     BATTLE_ANIMATION(ANIM_TAG_WEATHER_BALL, gBattleAnimSpriteGfx_WeatherBall, 0x0200, gBattleAnimSpritePal_WeatherBall),
     BATTLE_ANIMATION(ANIM_TAG_BIRD, gBattleAnimSpriteGfx_Bird, 0x0800, gBattleAnimSpritePal_Bird),
+    BATTLE_ANIMATION(ANIM_TAG_DIGLETT, gBattleAnimSpriteGfx_Diglett, 0x0800, gBattleAnimSpritePal_Diglett),
     BATTLE_ANIMATION(ANIM_TAG_CROSS_IMPACT, gBattleAnimSpriteGfx_CrossImpact, 0x0200, gBattleAnimSpritePal_CrossImpact),
     BATTLE_ANIMATION(ANIM_TAG_SLASH_2, gBattleAnimSpriteGfx_Slash, 0x0800, gBattleAnimSpritePal_Slash2),
     BATTLE_ANIMATION(ANIM_TAG_WHIP_HIT, gBattleAnimSpriteGfx_SlamHit, 0x1000, gBattleAnimSpritePal_WhipHit),

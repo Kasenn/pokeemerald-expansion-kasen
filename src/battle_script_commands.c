@@ -14061,3 +14061,11 @@ void UpdateMushroomVar(void)
     NATIVE_ARGS();
     gBattlescriptCurrInstr = cmd->nextInstr;
 }
+
+void ChangeDiglettAnim(void)
+{
+    gChangeDiglettAnim = TRUE;
+
+    NATIVE_ARGS();
+    gBattlescriptCurrInstr = cmd->nextInstr;
+}

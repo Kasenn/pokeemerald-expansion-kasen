@@ -691,6 +691,12 @@ static void DowngradeBadPoison(void)
 {
     ResetEggs();
     gCurrentUsableEggs = CalculateCurrentEggs();
+    u8 pp = 1;
+    for (int move = 0; move < MAX_MON_MOVES; move++)
+    {
+        if (GetMonData(&gPlayerParty[0], MON_DATA_MOVE1 + move) == MOVE_CALL_DIGLETT)
+            SetMonData(&gPlayerParty[0], MON_DATA_PP1 + move, &pp);
+    }
     u8 i;
     u32 status = STATUS1_POISON;
     if (B_TOXIC_REVERSAL < GEN_5)

@@ -3464,4 +3464,7 @@ extern const u16 gBattleIcons_Pal2[];
 extern const u32 gGhostFrontPic[];
 extern const u16 gGhostPalette[];
 
+extern const u32 gBattleAnimSpriteGfx_Diglett[];
+extern const u16 gBattleAnimSpritePal_Diglett[];
+
 #endif //GUARD_GRAPHICS_H

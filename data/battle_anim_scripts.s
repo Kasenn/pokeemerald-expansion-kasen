@@ -19528,6 +19528,8 @@ MatchaGotchaDoubleProjectile:
 @@@@@@@@@@@@@@@@@@@@@@@ GEN 1-3 @@@@@@@@@@@@@@@@@@@@@@@
 gBattleAnimMove_None::
 gBattleAnimMove_MirrorMove::
+	delay 32
+	end
 gBattleAnimMove_Pound::
 	monbg ANIM_TARGET
 	setalpha 12, 8
@@ -35645,4 +35647,38 @@ gBattleAnimMove_Illusion::
 	createvisualtask AnimTask_Illusion_DoFade, 5
 	waitforvisualfinish
 	blendoff
+	end
+
+gBattleAnimMove_CallDiglett_Start::
+	createvisualtask AnimTask_DeepInhale, 2, ANIM_ATTACKER
+	delay 12
+	call RoarEffect
+	createvisualtask SoundTask_PlayCryHighPitch, 2, ANIM_ATTACKER, 3
+	waitforvisualfinish
+	delay 30
+	end
+
+gBattleAnimMove_CallDiglett::
+	createvisualtask AnimTask_SetAnimTargetToBattlerTarget, 2
+	waitforvisualfinish
+	monbg ANIM_TARGET
+	delay 2
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_BG, 0, 0, 16, RGB_BLACK
+	setalpha 12, 8
+	delay 50
+	createsprite gCallDiglettSpriteTemplate, ANIM_TARGET, 2
+	delay 20
+	call SetImpactBackground
+	createvisualtask AnimTask_ShakeMon2, 2, ANIM_TARGET, 10, 0, 18, 1
+	createvisualtask AnimTask_ShakeTargetBasedOnMovePowerOrDmg, 2, 0, 1, 30, 1, 0
+	create_flashing_hitsplat_sprite ANIM_TARGET, 4, x=0, y=0, relative_to=ANIM_TARGET, animation=0
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 2, 0, 0, RGB_WHITE
+	complex_palette_blend selector=F_PAL_BG | F_PAL_BATTLERS, delay=3, num_blends=1, color1=RGB_BLACK, blend_y1=8, color2=RGB_BLACK, blend_y2=0
+	playsewithpan SE_M_MEGA_KICK2, SOUND_PAN_TARGET
+	waitforvisualfinish
+	clearmonbg ANIM_TARGET
+	blendoff
+	delay 2
+	restorebg
+	waitbgfadein
 	end

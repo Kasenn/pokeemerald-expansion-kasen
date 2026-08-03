@@ -122,6 +122,7 @@ EWRAM_DATA enum BattlerId gBattleAnimTarget = 0;
 EWRAM_DATA enum Species gAnimBattlerSpecies[MAX_BATTLERS_COUNT] = {SPECIES_NONE};
 EWRAM_DATA u8 gAnimCustomPanning = 0;
 EWRAM_DATA static bool8 sAnimHideHpBoxes = FALSE;
+EWRAM_DATA bool8 gChangeDiglettAnim = FALSE;
 
 #include "data/battle_anim.h"
 
@@ -268,6 +269,7 @@ static const u8* const sBattleAnims_General[NUM_B_ANIMS_GENERAL] =
     [B_ANIM_ROCK_THROW]             = gBattleAnimGeneral_SafariRockThrow,
     [B_ANIM_SAFARI_REACTION]        = gBattleAnimGeneral_SafariReaction,
     [B_ANIM_HELD_ITEM_BERRY]        = gBattleAnimGeneral_HeldItemBerry,
+    [B_ANIM_CALL_DIGLETT]           = gBattleAnimMove_CallDiglett,
 };
 
 static const u8* const sBattleAnims_Special[NUM_B_ANIMS_SPECIAL] =
@@ -396,6 +398,7 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
         case B_ANIM_SEA_OF_FIRE:
         case B_ANIM_SWAMP:
         case B_ANIM_TERA_CHARGE:
+        case B_ANIM_CALL_DIGLETT:
             sAnimHideHpBoxes = TRUE;
             break;
         default:
@@ -436,6 +439,12 @@ void LaunchBattleAnimation(u32 animType, u32 animId)
         break;
     case ANIM_TYPE_MOVE:
         sBattleAnimScriptPtr = GetMoveAnimationScript(animId);
+
+        if (sBattleAnimScriptPtr == gBattleAnimMove_CallDiglett_Start && gChangeDiglettAnim)
+        {
+            gChangeDiglettAnim = FALSE;
+            sBattleAnimScriptPtr = gBattleAnimMove_CallDiglett;
+        }
 
         if (sBattleAnimScriptPtr == gBattleAnimMove_SecretPower)
         {
