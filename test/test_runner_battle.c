@@ -563,7 +563,7 @@ static void BattleTest_Run(void *data)
     }
 
     for (i = 0; i < STATE->battlersCount; i++)
-        PushBattlerAction(0, i, RECORDED_BYTE, 0xFF);
+        PushBattlerAction(0, i, RECORDED_BYTE, B_ACTION_NONE);
 
     if (DATA.hasExplicitSpeeds)
     {
@@ -902,6 +902,81 @@ void TestRunner_Battle_RecordAbilityPopUp(enum BattlerId battlerId, enum Ability
                 continue;
 
             if (TryAbilityPopUp(queuedEvent, event->groupSize, battlerId, ability) != -1)
+                DATA.trial.queuedEvent = queuedEvent + event->groupSize;
+        } while (FALSE);
+        break;
+    }
+}
+
+static s32 TryItemPopUp(s32 i, s32 n, enum BattlerId battlerId, enum Item item)
+{
+    struct QueuedItemEvent *event;
+    s32 iMax = i + n;
+    for (; i < iMax; i++)
+    {
+        if (DATA.queuedEvents[i].type != QUEUED_ITEM_POPUP_EVENT)
+            continue;
+
+        event = &DATA.queuedEvents[i].as.item;
+
+        if (event->battlerId == battlerId
+         && (event->item == ITEM_NONE || event->item == item))
+            return i;
+    }
+    return -1;
+}
+
+void TestRunner_Battle_RecordItemPopUp(enum BattlerId battlerId, enum Item item)
+{
+    s32 queuedEvent;
+    s32 match;
+    struct QueuedEvent *event;
+
+    if (DATA.trial.queuedEvent == DATA.queuedEventsCount)
+        return;
+
+    event = &DATA.queuedEvents[DATA.trial.queuedEvent];
+    switch (event->groupType)
+    {
+    case QUEUE_GROUP_NONE:
+    case QUEUE_GROUP_ONE_OF:
+        if (TryItemPopUp(DATA.trial.queuedEvent, event->groupSize, battlerId, item) != -1)
+        {
+            DATA.trial.queuedEvent += event->groupSize;
+        }
+        else if (DATA.trial.queuedEvent == DATA.queuedEventsFailIndex
+              && DATA.queuedEvents[DATA.queuedEventsFailIndex].type == QUEUED_ITEM_POPUP_EVENT)
+        {
+            const char *filename = gTestRunnerState.test->filename;
+            u32 line = SourceLine(DATA.queuedEvents[DATA.queuedEventsFailIndex].sourceLineOffset);
+            if (DATA.queuedEvents[DATA.queuedEventsFailIndex].as.item.item == ITEM_NONE)
+                Test_MgbaPrintf("%s:%d: Did you mean: ITEM_POPUP(%s)", filename, line, BattlerIdentifier(battlerId));
+            else
+                Test_MgbaPrintf("%s:%d: Did you mean: ITEM_POPUP(%s, ITEM_%C)", filename, line, BattlerIdentifier(battlerId), gAbilitiesInfo[item].name);
+        }
+        break;
+    case QUEUE_GROUP_NONE_OF:
+        queuedEvent = DATA.trial.queuedEvent;
+        do
+        {
+            if ((match = TryItemPopUp(queuedEvent, event->groupSize, battlerId, item)) != -1)
+            {
+                const char *filename = gTestRunnerState.test->filename;
+                u32 line = SourceLine(DATA.queuedEvents[match].sourceLineOffset);
+                if (gTestRunnerState.expectedFailState == EXPECT_FAIL_SCENE_OPEN)
+                    gTestRunnerState.expectedFailState = EXPECT_FAIL_SUCCESS;
+                Test_ExitWithResult(TEST_RESULT_FAIL, line, "%s:%d: Matched ITEM_POPUP", filename, line);
+            }
+
+            queuedEvent += event->groupSize;
+            if (queuedEvent == DATA.queuedEventsCount)
+                break;
+
+            event = &DATA.queuedEvents[queuedEvent];
+            if (event->groupType == QUEUE_GROUP_NONE_OF)
+                continue;
+
+            if (TryItemPopUp(queuedEvent, event->groupSize, battlerId, item) != -1)
                 DATA.trial.queuedEvent = queuedEvent + event->groupSize;
         } while (FALSE);
         break;
@@ -1962,6 +2037,7 @@ static const char *const sEventTypeMacros[] =
     [QUEUED_STATUS_EVENT] = "STATUS_ICON",
     [QUEUED_CATCH_CHANCE_EVENT] = "CATCH_CHANCE",
     [QUEUED_EFFECTIVENESS_EVENT] = "EFFECTIVENESS_SE",
+    [QUEUED_ITEM_POPUP_EVENT] = "ITEM_POPUP",
 };
 
 static void TearDownBattle(void)
@@ -2420,7 +2496,7 @@ void Nature_(u32 sourceLine, u32 nature)
 void Ability_(u32 sourceLine, enum Ability ability)
 {
     s32 i;
-    u32 species;
+    enum Species species;
     const struct SpeciesInfo *info;
     INVALID_IF(!DATA.currentMon, "Ability outside of PLAYER/OPPONENT");
     INVALID_IF(ability >= ABILITIES_COUNT, "Illegal ability id: %d", ability);
@@ -2444,7 +2520,7 @@ void Ability_(u32 sourceLine, enum Ability ability)
 void Level_(u32 sourceLine, u32 level)
 {
     // TODO: Preserve any explicitly-set stats.
-    u32 species = GetMonData(DATA.currentMon, MON_DATA_SPECIES);
+    enum Species species = GetMonData(DATA.currentMon, MON_DATA_SPECIES);
     INVALID_IF(!DATA.currentMon, "Level outside of PLAYER/OPPONENT");
     INVALID_IF(level == 0 || level > MAX_LEVEL, "Illegal level: %d", level);
     SetMonData(DATA.currentMon, MON_DATA_LEVEL, &level);
@@ -2958,7 +3034,7 @@ void MoveGetIdAndSlot(enum BattlerId battlerId, struct MoveContext *ctx, u32 *mo
     {
         enum Item item = GetMonData(mon, MON_DATA_HELD_ITEM);
         enum HoldEffect holdEffect = GetItemHoldEffect(item);
-        u32 species = GetMonData(mon, MON_DATA_SPECIES);
+        enum Species species = GetMonData(mon, MON_DATA_SPECIES);
 
         // Check invalid item usage.
         INVALID_IF(ctx->gimmick == GIMMICK_MEGA && holdEffect != HOLD_EFFECT_MEGA_STONE && species != SPECIES_RAYQUAZA, "Cannot Mega Evolve without a Mega Stone");
@@ -2986,7 +3062,7 @@ u32 MoveGetFirstFainted(enum BattlerId battlerId)
     // Loop through to find fainted battler.
     for (i = 0; i < partySize; ++i)
     {
-        u32 species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
+        enum Species species = GetMonData(&party[i], MON_DATA_SPECIES_OR_EGG);
         if (species != SPECIES_NONE
             && species != SPECIES_EGG
             && GetMonData(&party[i], MON_DATA_HP) == 0)
@@ -3464,6 +3540,28 @@ void QueueAbility(u32 sourceLine, struct BattlePokemon *battler, struct AbilityE
         .as = { .ability = {
             .battlerId = battlerId,
             .ability = ctx.ability,
+        }},
+    };
+}
+
+void QueueItem(u32 sourceLine, struct BattlePokemon *battler, struct ItemEventContext ctx)
+{
+    enum BattlerId battlerId = battler - gBattleMons;
+
+    if (gTestRunnerState.expectedFailState == EXPECT_FAIL_OPEN)
+        gTestRunnerState.expectedFailState = EXPECT_FAIL_SCENE_OPEN;
+
+    INVALID_IF(!STATE->runScene, "ITEMN_POPUP outside of SCENE");
+    if (DATA.queuedEventsCount == MAX_QUEUED_EVENTS)
+        Test_ExitWithResult(TEST_RESULT_ERROR, sourceLine, "%s:%d: ITEM exceeds MAX_QUEUED_EVENTS", gTestRunnerState.test->filename, sourceLine);
+    DATA.queuedEvents[DATA.queuedEventsCount++] = (struct QueuedEvent) {
+        .type = QUEUED_ITEM_POPUP_EVENT,
+        .sourceLineOffset = SourceLineOffset(sourceLine),
+        .groupType = QUEUE_GROUP_NONE,
+        .groupSize = 1,
+        .as = { .item = {
+            .battlerId = battlerId,
+            .item = ctx.item,
         }},
     };
 }
