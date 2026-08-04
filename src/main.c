@@ -72,6 +72,8 @@ COMMON_DATA u8 gLinkVSyncDisabled = 0;
 COMMON_DATA s8 gPcmDmaCounter = 0;
 COMMON_DATA void *gAgbMainLoop_sp = NULL;
 
+COMMON_DATA bool8 gSkipIntro = 0;
+
 static EWRAM_DATA u16 sTrainerId = 0;
 
 //EWRAM_DATA void (**gFlashTimerIntrFunc)(void) = NULL;
@@ -91,7 +93,18 @@ void EnableVCountIntrAtLine150(void);
 
 void AgbMain(void)
 {
-    *(vu16 *)BG_PLTT = RGB_WHITE; // Set the backdrop to white on startup
+
+    if (*(vu8 *)0x3007FFA != 0)
+    {
+        *(vu16 *)BG_PLTT = RGB_BLACK; // Set the backdrop to white on startup
+        gSkipIntro = TRUE;
+        REG_DISPCNT = 0;
+        *(vu8 *)0x3007FFA = 0;
+    }
+    else
+    {
+        *(vu16 *)BG_PLTT = RGB_WHITE; // Set the backdrop to white on startup
+    }
     InitGpuRegManager();
     REG_WAITCNT = WAITCNT_PREFETCH_ENABLE
             | WAITCNT_WS0_S_1 | WAITCNT_WS0_N_3
@@ -459,6 +472,25 @@ void DoSoftReset(void)
     DmaStop(3);
     SiiRtcProtect();
     SoftReset(RESET_ALL);
+}
+
+void DoSpecialSoftReset(void)
+{
+    REG_IME = 0;
+    m4aSoundVSyncOff();
+    ScanlineEffect_Stop();
+    DmaStop(1);
+    DmaStop(2);
+    DmaStop(3);
+    SiiRtcProtect();
+    // NOTE: 0x3007FFA is cleared by the reset, so write a non-zero value.
+    *(vu32 *)0x2000000 = 0xE59F0008; // ldr r0, =0x3007FFA
+    *(vu32 *)0x2000004 = 0xE5C00000; // strb r0, [r0]
+    *(vu32 *)0x2000008 = 0xE3A00302; // mov r0, #0x8000000
+    *(vu32 *)0x200000C = 0xE12FFF10; // bx r0
+    *(vu32 *)0x2000010 = 0x03007FFA;
+    *(vu8 *)0x3007FFA = 1;
+    SoftReset(RESET_ALL & ~RESET_EWRAM);
 }
 
 void ClearPokemonCrySongs(void)

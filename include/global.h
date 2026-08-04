@@ -1072,8 +1072,6 @@ struct MapPosition
     s8 elevation;
 };
 
-extern u8 gResetGame;
-
 #if TESTING
 extern bool32 gLoadFail;
 extern bool32 gCountAllocs;

@@ -55,6 +55,8 @@ extern IntrFunc gIntrTable[];
 extern u8 gLinkVSyncDisabled;
 extern s8 gPcmDmaCounter;
 
+extern bool8 gSkipIntro;
+
 void AgbMain(void);
 void AgbMainLoop(void);
 void SetMainCallback2(MainCallback callback);

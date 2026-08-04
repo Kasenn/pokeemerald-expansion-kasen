@@ -40,8 +40,6 @@ EWRAM_DATA u32 gLastEncryptionKey = 0;
 COMMON_DATA bool32 gFlashMemoryPresent = 0;
 COMMON_DATA struct SaveBlock1 *gSaveBlock1Ptr = NULL;
 
-COMMON_DATA u8 gResetGame = 0;
-
 // code
 void CheckForFlashMemory(void)
 {

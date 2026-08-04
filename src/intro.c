@@ -29,6 +29,7 @@
 #include "constants/rgb.h"
 #include "constants/battle_anim.h"
 #include "pokemon.h"
+#include "overworld.h"
 
 /*
     The intro is grouped into the following scenes
@@ -1051,6 +1052,9 @@ static void SerialCB_CopyrightScreen(void)
 
 static u8 SetUpCopyrightScreen(void)
 {
+    if (gSkipIntro)
+        return 0;
+
     if (IS_FRLG)
         return SetUpCopyrightScreenFrlg();
 
@@ -1148,6 +1152,15 @@ void CB2_InitCopyrightScreenAfterBootup(void)
             Sav2_ClearSetDefault();
         SetPokemonCryStereo(gSaveBlock1Ptr->optionsSound);
         InitHeap(gHeap, HEAP_SIZE);
+
+        if (gSkipIntro)
+        {
+            gSkipIntro = FALSE;
+
+            gPlttBufferUnfaded[0] = RGB_BLACK;
+            gPlttBufferFaded[0] = RGB_BLACK;
+            SetMainCallback2(CB2_ContinueSavedGame);
+        }
     }
 }
 

@@ -108,7 +108,7 @@ GameOverScreen_6:
 
 GameOverScreen_8:
 # 52 "data/maps/Yoshi_GameOver/scripts.pory"
-	callnative ReloadSave
+	callnative DoSpecialSoftReset
 	return
 
 
