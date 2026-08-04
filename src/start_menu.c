@@ -350,7 +350,7 @@ static void BuildNormalStartMenu(void)
     AddStartMenuAction(MENU_ACTION_POKEMON);
     // if (GetMetatileNearPlayer(MB_SAVE_POINT, TRUE))
     // {
-        AddStartMenuAction(MENU_ACTION_REST); //wip2
+        AddStartMenuAction(MENU_ACTION_REST); //wip2 are we back
         // AddStartMenuAction(MENU_ACTION_SAVE);
     // }
     AddStartMenuAction(MENU_ACTION_OPTION);
