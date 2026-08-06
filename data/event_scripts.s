@@ -74,6 +74,7 @@
 #include "constants/vars.h"
 #include "constants/weather.h"
 #include "constants/speaker_names.h"
+#include "constants/metatile_behaviors.h"
 	.include "asm/macros.inc"
 	.include "asm/macros/event.inc"
 	.include "constants/constants.inc"
@@ -1245,8 +1246,7 @@ Common_EventScript_OutOfCenterPartyHeal::
 	playfanfare MUS_HEAL
 	waitfanfare
 	special HealPlayerParty
-	@callnative UpdateFollowingPokemon
-	@ //wip
+	callnative UpdateFollowingPokemon
 	fadescreenswapbuffers FADE_FROM_BLACK
 	return
 

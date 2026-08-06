@@ -75,28 +75,28 @@
 #define FLAG_INTRO_MURKROW              0x35
 #define FLAG_INTRO_MACHOP               0x36
 #define FLAG_HIDE_WATEREGGS             0x37
-#define FLAG_NO_RUNNING    0x38 // Unused Flag
-#define FLAG_EXPLAIN_REST_POINT    0x39 // Unused Flag
-#define FLAG_EGGBRIDGE_CREATED    0x3A // Unused Flag
-#define FLAG_HIDE_SKARMORY    0x3B // Unused Flag
-#define FLAG_SKARMORY_DEFEATED    0x3C // Unused Flag
-#define FLAG_SUPERMUSHROOM_UPGRADE    0x3D // Unused Flag
-#define FLAG_SLEEPING_SNORLAX    0x3E // Unused Flag
-#define FLAG_PICKED_UP_CHESTO_BERRY    0x3F // Unused Flag
-#define FLAG_AWAKE_SNORLAX    0x40 // Unused Flag
-#define FLAG_HIDE_PRIMEAPE    0x41 // Unused Flag
-#define FLAG_PRIMEAPE_DEFEATED    0x42 // Unused Flag
-#define FLAG_SLEEPING_SNORLAX_INTRO    0x43 // Unused Flag
-#define FLAG_DISABLE_KO_ANIM    0x44 // Unused Flag
-#define FLAG_FIRST_EGG_HATCH    0x45 // Unused Flag
-#define FLAG_UNUSED_0x046    0x46 // Unused Flag
-#define FLAG_UNUSED_0x047    0x47 // Unused Flag
-#define FLAG_UNUSED_0x048    0x48 // Unused Flag
-#define FLAG_UNUSED_0x049    0x49 // Unused Flag
-#define FLAG_UNUSED_0x04A    0x4A // Unused Flag
-#define FLAG_UNUSED_0x04B    0x4B // Unused Flag
-#define FLAG_UNUSED_0x04C    0x4C // Unused Flag
-#define FLAG_UNUSED_0x04D    0x4D // Unused Flag
+#define FLAG_NO_RUNNING                 0x38
+#define FLAG_EXPLAIN_REST_POINT         0x39
+#define FLAG_EGGBRIDGE_CREATED          0x3A
+#define FLAG_HIDE_SKARMORY              0x3B
+#define FLAG_SKARMORY_DEFEATED          0x3C
+#define FLAG_SUPERMUSHROOM_UPGRADE      0x3D
+#define FLAG_SLEEPING_SNORLAX           0x3E
+#define FLAG_PICKED_UP_CHESTO_BERRY     0x3F
+#define FLAG_AWAKE_SNORLAX              0x40
+#define FLAG_HIDE_PRIMEAPE              0x41
+#define FLAG_PRIMEAPE_DEFEATED          0x42
+#define FLAG_SLEEPING_SNORLAX_INTRO     0x43
+#define FLAG_DISABLE_KO_ANIM            0x44
+#define FLAG_FIRST_EGG_HATCH            0x45
+#define FLAG_DOOR_OPEN                  0x46
+#define FLAG_MUSHROOM_PICKED_UP2        0x47
+#define FLAG_GEODUDES_AWAKENED          0x48
+#define FLAG_GRIP_GLOVES                0x49
+#define FLAG_SANDSHREW1                 0x4A
+#define FLAG_SANDSHREW2                 0x4B
+#define FLAG_TONGUE_UPGRADE             0x4C
+#define FLAG_BERRYBRIDGE_CREATED    0x4D // Unused Flag
 #define FLAG_UNUSED_0x04E    0x4E // Unused Flag
 #define FLAG_UNUSED_0x04F    0x4F // Unused Flag
 
@@ -664,17 +664,17 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_UNUSED_0x264  0x264 // Unused Flag
-#define FLAG_UNUSED_0x265  0x265 // Unused Flag
-#define FLAG_UNUSED_0x266  0x266 // Unused Flag
-#define FLAG_UNUSED_0x267  0x267 // Unused Flag
-#define FLAG_UNUSED_0x268  0x268 // Unused Flag
-#define FLAG_UNUSED_0x269  0x269 // Unused Flag
-#define FLAG_UNUSED_0x26A  0x26A // Unused Flag
-#define FLAG_UNUSED_0x26B  0x26B // Unused Flag
-#define FLAG_UNUSED_0x26C  0x26C // Unused Flag
-#define FLAG_UNUSED_0x26D  0x26D // Unused Flag
-#define FLAG_UNUSED_0x26E  0x26E // Unused Flag
+#define FLAG_GROUNDEGG_1  0x264 // Unused Flag
+#define FLAG_GROUNDEGG_2  0x265 // Unused Flag
+#define FLAG_GROUNDEGG_3  0x266 // Unused Flag
+#define FLAG_GROUNDEGG_4  0x267 // Unused Flag
+#define FLAG_GROUNDEGG_5  0x268 // Unused Flag
+#define FLAG_GROUNDEGG_6  0x269 // Unused Flag
+#define FLAG_GROUNDEGG_7  0x26A // Unused Flag
+#define FLAG_GROUNDEGG_8  0x26B // Unused Flag
+#define FLAG_GROUNDEGG_9  0x26C // Unused Flag
+#define FLAG_GROUNDEGG_10  0x26D // Unused Flag
+#define FLAG_GROUNDEGG_11  0x26E // Unused Flag
 #define FLAG_UNUSED_0x26F  0x26F // Unused Flag
 #define FLAG_UNUSED_0x270  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag

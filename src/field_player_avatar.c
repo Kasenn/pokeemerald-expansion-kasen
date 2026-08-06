@@ -1035,7 +1035,8 @@ static bool8 TryPushBoulder(s16 x, s16 y, enum Direction direction)
             MoveCoords(direction, &x, &y);
             if (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE
              && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
-             && MetatileBehavior_IsMuddySlope(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
+             && MetatileBehavior_IsMuddySlope(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
+             && MetatileBehavior_IsRockStairs(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
             {
                 StartStrengthAnim(objectEventId, direction);
                 return TRUE;

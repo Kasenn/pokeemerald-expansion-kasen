@@ -25,7 +25,7 @@ EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_11:
 	goto_if_eq EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_10
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_8:
 # 16 "data/maps/EggIsland_Exterior/scripts.pory"
-	compare VAR_TEMP_0, 19
+	compare VAR_TEMP_0, 50
 	goto_if_eq EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_7
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_6:
 # 17 "data/maps/EggIsland_Exterior/scripts.pory"
@@ -66,7 +66,7 @@ EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_5:
 
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_7:
 # 16 "data/maps/EggIsland_Exterior/scripts.pory"
-	compare VAR_TEMP_1, 57
+	compare VAR_TEMP_1, 20
 	goto_if_eq EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_5
 	goto EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_6
 
@@ -148,7 +148,7 @@ SetUpAreaOne::
 
 SetUpAreaTwo::
 # 54 "data/maps/EggIsland_Exterior/scripts.pory"
-	setvar VAR_AI_FLAGS, 2
+	setvar VAR_AI_FLAGS, 1
 # 55 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_MUSHROOM_LOCATION, 2
 	return
@@ -160,7 +160,7 @@ SetUpAreaFinal::
 # 59 "data/maps/EggIsland_Exterior/scripts.pory"
 	setobjectmovementtype LOCALID_KAMEK, MOVEMENT_TYPE_FACE_DOWN
 # 60 "data/maps/EggIsland_Exterior/scripts.pory"
-	setvar VAR_AI_FLAGS, 4
+	setvar VAR_AI_FLAGS, 2
 # 61 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_MUSHROOM_LOCATION, 0
 	return
@@ -490,16 +490,12 @@ MachopScript1_1:
 # 229 "data/maps/EggIsland_Exterior/scripts.pory"
 	clearflag FLAG_STOP_EXP
 # 230 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmonmove 0, 0, MOVE_CHUCK_EGG
+	call SetYoshiMoves
 # 231 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmonmove 0, 1, MOVE_LICK_BERRY
-# 232 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmonmove 0, 2, MOVE_CALL_DIGLETT
-# 233 "data/maps/EggIsland_Exterior/scripts.pory"
 	special HealPlayerParty
-# 234 "data/maps/EggIsland_Exterior/scripts.pory"
+# 232 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative DoInitialSave
-# 235 "data/maps/EggIsland_Exterior/scripts.pory"
+# 233 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
@@ -510,284 +506,310 @@ MachopScript1_2:
 
 
 MurkrowBattle::
-# 285 "data/maps/EggIsland_Exterior/scripts.pory"
+# 283 "data/maps/EggIsland_Exterior/scripts.pory"
 	trainerbattle_single TRAINER_ALLEN, MurkrowBattle_Text_0, MurkrowBattle_Text_1, RemoveMurkrow
 	end
 
 
 RemoveMurkrow::
-# 290 "data/maps/EggIsland_Exterior/scripts.pory"
+# 288 "data/maps/EggIsland_Exterior/scripts.pory"
 	cleartrainerflag TRAINER_ALLEN
-# 291 "data/maps/EggIsland_Exterior/scripts.pory"
+# 289 "data/maps/EggIsland_Exterior/scripts.pory"
 	clearflag FLAG_NO_RUNNING
-# 292 "data/maps/EggIsland_Exterior/scripts.pory"
+# 290 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement VAR_LAST_TALKED, Movement_ObjectDisappears
-# 293 "data/maps/EggIsland_Exterior/scripts.pory"
+# 291 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 294 "data/maps/EggIsland_Exterior/scripts.pory"
+# 292 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject VAR_LAST_TALKED
-# 295 "data/maps/EggIsland_Exterior/scripts.pory"
+# 293 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
-# 296 "data/maps/EggIsland_Exterior/scripts.pory"
+# 294 "data/maps/EggIsland_Exterior/scripts.pory"
 	releaseall
 	return
 
 
-# 299 "data/maps/EggIsland_Exterior/scripts.pory"
-Movement_ObjectDisappears:
-# 300 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_invisible
-# 301 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_4
-# 302 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_visible
+GeodudeBattle::
+# 298 "data/maps/EggIsland_Exterior/scripts.pory"
+	trainerbattle_single TRAINER_TIMMY, GeodudeBattle_Text_0, MurkrowBattle_Text_1, RemoveMurkrow
+	end
+
+
+RemoveGeodude::
 # 303 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_4
+	cleartrainerflag TRAINER_TIMMY
 # 304 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_invisible
+	clearflag FLAG_NO_RUNNING
 # 305 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_4
+	applymovement VAR_LAST_TALKED, Movement_ObjectDisappears
 # 306 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_visible
+	waitmovement 0
 # 307 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_4
+	removeobject VAR_LAST_TALKED
 # 308 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_invisible
+	release
 # 309 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_8
-# 310 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_visible
-# 311 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_8
+	releaseall
+	return
+
+
 # 312 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_invisible
+Movement_ObjectDisappears:
 # 313 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_8
-# 314 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_visible
-# 315 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_8
-# 316 "data/maps/EggIsland_Exterior/scripts.pory"
 	set_invisible
-# 317 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-# 318 "data/maps/EggIsland_Exterior/scripts.pory"
+# 314 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_4
+# 315 "data/maps/EggIsland_Exterior/scripts.pory"
 	set_visible
+# 316 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_4
+# 317 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_invisible
+# 318 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_4
 # 319 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
+	set_visible
 # 320 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_4
+# 321 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_invisible
+# 322 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_8
+# 323 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_visible
+# 324 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_8
+# 325 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_invisible
+# 326 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_8
+# 327 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_visible
+# 328 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_8
+# 329 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_invisible
+# 330 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_16
+# 331 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_visible
+# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay_16
+# 333 "data/maps/EggIsland_Exterior/scripts.pory"
 	set_invisible
 	step_end
 
 SkarmoryTrigger1::
-# 324 "data/maps/EggIsland_Exterior/scripts.pory"
+# 337 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_TEMP_5, 1
-# 325 "data/maps/EggIsland_Exterior/scripts.pory"
+# 338 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto SkarmoryTriggerMain
 	return
 
 
 SkarmoryTrigger2::
-# 328 "data/maps/EggIsland_Exterior/scripts.pory"
+# 341 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_TEMP_5, 2
-# 329 "data/maps/EggIsland_Exterior/scripts.pory"
+# 342 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto SkarmoryTriggerMain
 	return
 
 
 SkarmoryTriggerMain::
-# 332 "data/maps/EggIsland_Exterior/scripts.pory"
+# 345 "data/maps/EggIsland_Exterior/scripts.pory"
 	counteggs
-# 333 "data/maps/EggIsland_Exterior/scripts.pory"
+# 346 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_0x8001, 2
 	goto_if_lt SkarmoryTriggerMain_2
-# 337 "data/maps/EggIsland_Exterior/scripts.pory"
+# 350 "data/maps/EggIsland_Exterior/scripts.pory"
 	playmoncry SPECIES_SKARMORY, CRY_MODE_ENCOUNTER
-# 338 "data/maps/EggIsland_Exterior/scripts.pory"
+# 351 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 15
-# 339 "data/maps/EggIsland_Exterior/scripts.pory"
+# 352 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
-# 340 "data/maps/EggIsland_Exterior/scripts.pory"
+# 353 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 341 "data/maps/EggIsland_Exterior/scripts.pory"
+# 354 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmoncry
-# 342 "data/maps/EggIsland_Exterior/scripts.pory"
+# 355 "data/maps/EggIsland_Exterior/scripts.pory"
 	addobject LOCALID_SKARMORY
-# 343 "data/maps/EggIsland_Exterior/scripts.pory"
+# 356 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_TEMP_5, 1
 	goto_if_eq SkarmoryTriggerMain_5
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_SKARMORY, SkarmoryTriggerMain_Movement_1
 SkarmoryTriggerMain_4:
-# 349 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 48
-# 350 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_NORTH
-# 351 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement LOCALID_SKARMORY
-# 352 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 10
-# 353 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative CreateStrongMon
-# 354 "data/maps/EggIsland_Exterior/scripts.pory"
-	createmon 1, 0, SPECIES_SKARMORY, VAR_0x8000
-# 355 "data/maps/EggIsland_Exterior/scripts.pory"
-	playbgm MUS_ENCOUNTER_INTENSE, FALSE
-# 356 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker SkarmoryTriggerMain_Text_0
-# 357 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox SkarmoryTriggerMain_Text_1, MSGBOX_AUTOCLOSE
-# 358 "data/maps/EggIsland_Exterior/scripts.pory"
-	special StartSpecialBattle
-# 359 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_SKARMORY_DEFEATED
-# 360 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_SKARMORY, Movement_ObjectDisappears
-# 361 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement 0
 # 362 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 48
+# 363 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 364 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitmovement LOCALID_SKARMORY
+# 365 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 10
+# 366 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative CreateStrongMon
+# 367 "data/maps/EggIsland_Exterior/scripts.pory"
+	createmon 1, 0, SPECIES_SKARMORY, VAR_0x8000
+# 368 "data/maps/EggIsland_Exterior/scripts.pory"
+	playbgm MUS_ENCOUNTER_INTENSE, FALSE
+# 369 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_NO_RUNNING
+# 370 "data/maps/EggIsland_Exterior/scripts.pory"
+	setspeaker SkarmoryTriggerMain_Text_0
+# 371 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox SkarmoryTriggerMain_Text_1, MSGBOX_AUTOCLOSE
+# 372 "data/maps/EggIsland_Exterior/scripts.pory"
+	special StartSpecialBattle
+# 373 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_SKARMORY_DEFEATED
+# 374 "data/maps/EggIsland_Exterior/scripts.pory"
+	applymovement LOCALID_SKARMORY, Movement_ObjectDisappears
+# 375 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitmovement 0
+# 376 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject LOCALID_SKARMORY
 	return
 
 SkarmoryTriggerMain_2:
-# 334 "data/maps/EggIsland_Exterior/scripts.pory"
+# 347 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 SkarmoryTriggerMain_5:
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_SKARMORY, SkarmoryTriggerMain_Movement_0
 	goto SkarmoryTriggerMain_4
 
 
 SuperMushroomUpgrade::
-# 366 "data/maps/EggIsland_Exterior/scripts.pory"
+# 380 "data/maps/EggIsland_Exterior/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 367 "data/maps/EggIsland_Exterior/scripts.pory"
+# 381 "data/maps/EggIsland_Exterior/scripts.pory"
 	message SuperMushroomUpgrade_Text_0
-# 368 "data/maps/EggIsland_Exterior/scripts.pory"
+# 382 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 369 "data/maps/EggIsland_Exterior/scripts.pory"
+# 383 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitfanfare
-# 370 "data/maps/EggIsland_Exterior/scripts.pory"
+# 384 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmessage
-# 371 "data/maps/EggIsland_Exterior/scripts.pory"
+# 385 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject LOCALID_SUPERMUSHROOMUPGRADE
-# 372 "data/maps/EggIsland_Exterior/scripts.pory"
+# 386 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox SuperMushroomUpgrade_Text_1
-# 373 "data/maps/EggIsland_Exterior/scripts.pory"
+# 387 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 
 SleepingSnorlax::
-# 377 "data/maps/EggIsland_Exterior/scripts.pory"
+# 391 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox SleepingSnorlax_Text_0
-# 378 "data/maps/EggIsland_Exterior/scripts.pory"
+# 392 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_unset FLAG_PICKED_UP_CHESTO_BERRY, SleepingSnorlax_2
 	msgbox SleepingSnorlax_Text, MSGBOX_YESNO
 # 0 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SleepingSnorlax_5
-# 386 "data/maps/EggIsland_Exterior/scripts.pory"
+# 400 "data/maps/EggIsland_Exterior/scripts.pory"
 	fadescreen FADE_TO_BLACK
-# 387 "data/maps/EggIsland_Exterior/scripts.pory"
+# 401 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 388 "data/maps/EggIsland_Exterior/scripts.pory"
+# 402 "data/maps/EggIsland_Exterior/scripts.pory"
 	playfanfare MUS_HEAL
-# 389 "data/maps/EggIsland_Exterior/scripts.pory"
+# 403 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitfanfare
-# 390 "data/maps/EggIsland_Exterior/scripts.pory"
+# 404 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox SleepingSnorlax_Text2, MSGBOX_AUTOCLOSE
-# 391 "data/maps/EggIsland_Exterior/scripts.pory"
+# 405 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject LOCALID_SLEEPING_SNORLAX
-# 392 "data/maps/EggIsland_Exterior/scripts.pory"
+# 406 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 393 "data/maps/EggIsland_Exterior/scripts.pory"
+# 407 "data/maps/EggIsland_Exterior/scripts.pory"
 	fadescreen FADE_FROM_BLACK
-# 394 "data/maps/EggIsland_Exterior/scripts.pory"
+# 408 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 395 "data/maps/EggIsland_Exterior/scripts.pory"
+# 409 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 SleepingSnorlax_2:
-# 379 "data/maps/EggIsland_Exterior/scripts.pory"
+# 393 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 SleepingSnorlax_5:
-# 383 "data/maps/EggIsland_Exterior/scripts.pory"
+# 397 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 
 SleepingSnorlaxIntro::
-# 412 "data/maps/EggIsland_Exterior/scripts.pory"
+# 426 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SLEEPING_SNORLAX_INTRO
-# 413 "data/maps/EggIsland_Exterior/scripts.pory"
+# 427 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 
 ChestoBerryTree::
-# 417 "data/maps/EggIsland_Exterior/scripts.pory"
+# 431 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_unset FLAG_SLEEPING_SNORLAX_INTRO, ChestoBerryTree_1
-# 422 "data/maps/EggIsland_Exterior/scripts.pory"
+# 436 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SLEEPING_SNORLAX, ChestoBerryTree_2
-# 427 "data/maps/EggIsland_Exterior/scripts.pory"
+# 441 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_PICKED_UP_CHESTO_BERRY, ChestoBerryTree_3
-# 432 "data/maps/EggIsland_Exterior/scripts.pory"
+# 446 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_unset FLAG_PICKED_UP_CHESTO_BERRY, ChestoBerryTree_4
 	return
 
 ChestoBerryTree_1:
-# 418 "data/maps/EggIsland_Exterior/scripts.pory"
+# 432 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox ChestoBerryTree_Text_0
-# 419 "data/maps/EggIsland_Exterior/scripts.pory"
+# 433 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 ChestoBerryTree_2:
-# 423 "data/maps/EggIsland_Exterior/scripts.pory"
+# 437 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox ChestoBerryTree_Text_1
-# 424 "data/maps/EggIsland_Exterior/scripts.pory"
+# 438 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 ChestoBerryTree_3:
-# 428 "data/maps/EggIsland_Exterior/scripts.pory"
+# 442 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox ChestoBerryTree_Text_2
-# 429 "data/maps/EggIsland_Exterior/scripts.pory"
+# 443 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 ChestoBerryTree_4:
-# 433 "data/maps/EggIsland_Exterior/scripts.pory"
+# 447 "data/maps/EggIsland_Exterior/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 434 "data/maps/EggIsland_Exterior/scripts.pory"
+# 448 "data/maps/EggIsland_Exterior/scripts.pory"
 	message ChestoBerryTree_Text_3
-# 435 "data/maps/EggIsland_Exterior/scripts.pory"
+# 449 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 436 "data/maps/EggIsland_Exterior/scripts.pory"
+# 450 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitfanfare
-# 437 "data/maps/EggIsland_Exterior/scripts.pory"
+# 451 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmessage
-# 438 "data/maps/EggIsland_Exterior/scripts.pory"
+# 452 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_PICKED_UP_CHESTO_BERRY
-# 439 "data/maps/EggIsland_Exterior/scripts.pory"
+# 453 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 
 Script_AwakeSnorlax::
-# 444 "data/maps/EggIsland_Exterior/scripts.pory"
+# 458 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox Script_AwakeSnorlax_Text, MSGBOX_SIGN
 	return
 
 
 StrGloves_ItemSparkle::
-# 452 "data/maps/EggIsland_Exterior/scripts.pory"
+# 466 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_unset FLAG_PRIMEAPE_DEFEATED, StrGloves_ItemSparkle_2
 StrGloves_ItemSparkle_1:
 	hasmonitem 0, ITEM_GRIP_GLOVES
@@ -798,29 +820,29 @@ StrGloves_ItemSparkle_1:
 # 0 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq StrGloves_ItemSparkle_12
-# 474 "data/maps/EggIsland_Exterior/scripts.pory"
+# 488 "data/maps/EggIsland_Exterior/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 475 "data/maps/EggIsland_Exterior/scripts.pory"
+# 489 "data/maps/EggIsland_Exterior/scripts.pory"
 	message StrGloves_ItemSparkle_Text_2
-# 476 "data/maps/EggIsland_Exterior/scripts.pory"
+# 490 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 477 "data/maps/EggIsland_Exterior/scripts.pory"
+# 491 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitfanfare
-# 478 "data/maps/EggIsland_Exterior/scripts.pory"
+# 492 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmessage
-# 479 "data/maps/EggIsland_Exterior/scripts.pory"
+# 493 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox GripGlovesDescription
-# 480 "data/maps/EggIsland_Exterior/scripts.pory"
+# 494 "data/maps/EggIsland_Exterior/scripts.pory"
 	clearflag FLAG_SYS_USE_STRENGTH
-# 481 "data/maps/EggIsland_Exterior/scripts.pory"
+# 495 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative EquipGripGloves
 StrGloves_ItemSparkle_4:
-# 483 "data/maps/EggIsland_Exterior/scripts.pory"
+# 497 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 StrGloves_ItemSparkle_2:
-# 453 "data/maps/EggIsland_Exterior/scripts.pory"
+# 467 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto PrimeapeEncounter
 	goto StrGloves_ItemSparkle_1
 
@@ -829,189 +851,193 @@ StrGloves_ItemSparkle_5:
 # 0 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq StrGloves_ItemSparkle_9
-# 460 "data/maps/EggIsland_Exterior/scripts.pory"
+# 474 "data/maps/EggIsland_Exterior/scripts.pory"
 	playfanfare MUS_OBTAIN_ITEM
-# 461 "data/maps/EggIsland_Exterior/scripts.pory"
+# 475 "data/maps/EggIsland_Exterior/scripts.pory"
 	message StrGloves_ItemSparkle_Text_0
-# 462 "data/maps/EggIsland_Exterior/scripts.pory"
+# 476 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 463 "data/maps/EggIsland_Exterior/scripts.pory"
+# 477 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitfanfare
-# 464 "data/maps/EggIsland_Exterior/scripts.pory"
+# 478 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmessage
-# 465 "data/maps/EggIsland_Exterior/scripts.pory"
+# 479 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox StrGloves_ItemSparkle_Text_1
-# 466 "data/maps/EggIsland_Exterior/scripts.pory"
+# 480 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SYS_USE_STRENGTH
-# 467 "data/maps/EggIsland_Exterior/scripts.pory"
+# 481 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative EquipStrGloves
 	goto StrGloves_ItemSparkle_4
 
 StrGloves_ItemSparkle_9:
-# 457 "data/maps/EggIsland_Exterior/scripts.pory"
+# 471 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 StrGloves_ItemSparkle_12:
-# 471 "data/maps/EggIsland_Exterior/scripts.pory"
+# 485 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 
 PrimeapeEncounter::
-# 508 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker PrimeapeEncounter_Text_0
-# 509 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox PrimeapeEncounter_Text_1, MSGBOX_AUTOCLOSE
-# 510 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
-# 511 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement 0
-# 512 "data/maps/EggIsland_Exterior/scripts.pory"
-	addobject LOCALID_PRIMEAPE
-# 513 "data/maps/EggIsland_Exterior/scripts.pory"
-	switch VAR_FACING
-# 514 "data/maps/EggIsland_Exterior/scripts.pory"
-	case DIR_NORTH, PrimeapeEncounter_3
 # 522 "data/maps/EggIsland_Exterior/scripts.pory"
+	setspeaker PrimeapeEncounter_Text_0
+# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox PrimeapeEncounter_Text_1, MSGBOX_AUTOCLOSE
+# 524 "data/maps/EggIsland_Exterior/scripts.pory"
+	applymovement LOCALID_PLAYER, Common_Movement_QuestionMark
+# 525 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitmovement 0
+# 526 "data/maps/EggIsland_Exterior/scripts.pory"
+	addobject LOCALID_PRIMEAPE
+# 527 "data/maps/EggIsland_Exterior/scripts.pory"
+	switch VAR_FACING
+# 528 "data/maps/EggIsland_Exterior/scripts.pory"
+	case DIR_NORTH, PrimeapeEncounter_3
+# 536 "data/maps/EggIsland_Exterior/scripts.pory"
 	case DIR_EAST, PrimeapeEncounter_4
-# 531 "data/maps/EggIsland_Exterior/scripts.pory"
+# 545 "data/maps/EggIsland_Exterior/scripts.pory"
 	case DIR_WEST, PrimeapeEncounter_5
 PrimeapeEncounter_1:
-# 539 "data/maps/EggIsland_Exterior/scripts.pory"
+# 553 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 540 "data/maps/EggIsland_Exterior/scripts.pory"
+# 554 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitse
-# 541 "data/maps/EggIsland_Exterior/scripts.pory"
+# 555 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 10
-# 542 "data/maps/EggIsland_Exterior/scripts.pory"
+# 556 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative CreateStrongMon
-# 543 "data/maps/EggIsland_Exterior/scripts.pory"
+# 557 "data/maps/EggIsland_Exterior/scripts.pory"
 	createmon 1, 0, SPECIES_PRIMEAPE, VAR_0x8000
-# 544 "data/maps/EggIsland_Exterior/scripts.pory"
+# 558 "data/maps/EggIsland_Exterior/scripts.pory"
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
-# 545 "data/maps/EggIsland_Exterior/scripts.pory"
+# 559 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_NO_RUNNING
+# 560 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker PrimeapeEncounter_Text_2
-# 546 "data/maps/EggIsland_Exterior/scripts.pory"
+# 561 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox PrimeapeEncounter_Text_3, MSGBOX_AUTOCLOSE
-# 547 "data/maps/EggIsland_Exterior/scripts.pory"
+# 562 "data/maps/EggIsland_Exterior/scripts.pory"
 	special StartSpecialBattle
-# 548 "data/maps/EggIsland_Exterior/scripts.pory"
+# 563 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_PRIMEAPE_DEFEATED
-# 549 "data/maps/EggIsland_Exterior/scripts.pory"
+# 564 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_PRIMEAPE, Movement_ObjectDisappears
-# 550 "data/maps/EggIsland_Exterior/scripts.pory"
+# 565 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 551 "data/maps/EggIsland_Exterior/scripts.pory"
+# 566 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject LOCALID_PRIMEAPE
 	return
 
 PrimeapeEncounter_3:
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_PRIMEAPE, PrimeapeEncounter_Movement_0
-# 516 "data/maps/EggIsland_Exterior/scripts.pory"
+# 530 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 48
-# 517 "data/maps/EggIsland_Exterior/scripts.pory"
+# 531 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
-# 518 "data/maps/EggIsland_Exterior/scripts.pory"
+# 532 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 519 "data/maps/EggIsland_Exterior/scripts.pory"
+# 533 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
-# 520 "data/maps/EggIsland_Exterior/scripts.pory"
+# 534 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 521 "data/maps/EggIsland_Exterior/scripts.pory"
+# 535 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
 	goto PrimeapeEncounter_1
 
 PrimeapeEncounter_4:
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_PRIMEAPE, PrimeapeEncounter_Movement_1
-# 524 "data/maps/EggIsland_Exterior/scripts.pory"
+# 538 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 48
-# 525 "data/maps/EggIsland_Exterior/scripts.pory"
+# 539 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 526 "data/maps/EggIsland_Exterior/scripts.pory"
+# 540 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
-# 527 "data/maps/EggIsland_Exterior/scripts.pory"
+# 541 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 528 "data/maps/EggIsland_Exterior/scripts.pory"
+# 542 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
-# 529 "data/maps/EggIsland_Exterior/scripts.pory"
+# 543 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 530 "data/maps/EggIsland_Exterior/scripts.pory"
+# 544 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
 	goto PrimeapeEncounter_1
 
 PrimeapeEncounter_5:
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_PRIMEAPE, PrimeapeEncounter_Movement_2
-# 533 "data/maps/EggIsland_Exterior/scripts.pory"
+# 547 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 48
-# 534 "data/maps/EggIsland_Exterior/scripts.pory"
+# 548 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
-# 535 "data/maps/EggIsland_Exterior/scripts.pory"
+# 549 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
-# 536 "data/maps/EggIsland_Exterior/scripts.pory"
+# 550 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 537 "data/maps/EggIsland_Exterior/scripts.pory"
+# 551 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_LEDGE
 	goto PrimeapeEncounter_1
 
 
 HonchkrowScript::
-# 555 "data/maps/EggIsland_Exterior/scripts.pory"
+# 570 "data/maps/EggIsland_Exterior/scripts.pory"
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
-# 556 "data/maps/EggIsland_Exterior/scripts.pory"
+# 571 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker HonchkrowScript_Text_0
-# 557 "data/maps/EggIsland_Exterior/scripts.pory"
+# 572 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative CreateStrongMon
-# 558 "data/maps/EggIsland_Exterior/scripts.pory"
+# 573 "data/maps/EggIsland_Exterior/scripts.pory"
 	createmon 1, 0, SPECIES_HONCHKROW, VAR_0x8000
-# 559 "data/maps/EggIsland_Exterior/scripts.pory"
+# 574 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox HonchkrowScript_Text_1, MSGBOX_AUTOCLOSE
-# 560 "data/maps/EggIsland_Exterior/scripts.pory"
+# 575 "data/maps/EggIsland_Exterior/scripts.pory"
 	settotemboost B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1
-# 561 "data/maps/EggIsland_Exterior/scripts.pory"
+# 576 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_NO_RUNNING
+# 577 "data/maps/EggIsland_Exterior/scripts.pory"
 	special StartSpecialBattle
-# 562 "data/maps/EggIsland_Exterior/scripts.pory"
+# 578 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_HONCHKROW, Movement_ObjectDisappears
-# 563 "data/maps/EggIsland_Exterior/scripts.pory"
+# 579 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 564 "data/maps/EggIsland_Exterior/scripts.pory"
+# 580 "data/maps/EggIsland_Exterior/scripts.pory"
 	removeobject LOCALID_HONCHKROW
 	return
 
 
 FinaleTrigger::
-# 568 "data/maps/EggIsland_Exterior/scripts.pory"
+# 584 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 569 "data/maps/EggIsland_Exterior/scripts.pory"
+# 585 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_KAMEK, DIR_SOUTH
-# 570 "data/maps/EggIsland_Exterior/scripts.pory"
+# 586 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_PIN
-# 571 "data/maps/EggIsland_Exterior/scripts.pory"
+# 587 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement LOCALID_KAMEK, Common_Movement_ExclamationMark
-# 572 "data/maps/EggIsland_Exterior/scripts.pory"
+# 588 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitse
-# 573 "data/maps/EggIsland_Exterior/scripts.pory"
+# 589 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 574 "data/maps/EggIsland_Exterior/scripts.pory"
+# 590 "data/maps/EggIsland_Exterior/scripts.pory"
 	playbgm MUS_KAMEK, TRUE
-# 575 "data/maps/EggIsland_Exterior/scripts.pory"
+# 591 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 576 "data/maps/EggIsland_Exterior/scripts.pory"
+# 592 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker FinaleTrigger_Text_0
-# 578 "data/maps/EggIsland_Exterior/scripts.pory"
+# 594 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_DISABLE_KO_ANIM
-# 579 "data/maps/EggIsland_Exterior/scripts.pory"
+# 595 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative CreateExtraStrongMon
-# 580 "data/maps/EggIsland_Exterior/scripts.pory"
+# 596 "data/maps/EggIsland_Exterior/scripts.pory"
 	createmon 1, 0, SPECIES_KAMEK, VAR_0x8000
-# 581 "data/maps/EggIsland_Exterior/scripts.pory"
+# 597 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox KameBattleIntro, MSGBOX_AUTOCLOSE
-# 582 "data/maps/EggIsland_Exterior/scripts.pory"
+# 598 "data/maps/EggIsland_Exterior/scripts.pory"
 	settotemboost B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2
-# 583 "data/maps/EggIsland_Exterior/scripts.pory"
+# 599 "data/maps/EggIsland_Exterior/scripts.pory"
 	special StartRegiBattle
 	return
 
@@ -1256,97 +1282,97 @@ MachopScript1_Movement_1:
 	walk_right
 	step_end
 
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 SkarmoryTriggerMain_Movement_0:
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 344 "data/maps/EggIsland_Exterior/scripts.pory"
+# 357 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
 	step_end
 
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 SkarmoryTriggerMain_Movement_1:
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 347 "data/maps/EggIsland_Exterior/scripts.pory"
+# 360 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
 	step_end
 
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 PrimeapeEncounter_Movement_0:
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_left
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 515 "data/maps/EggIsland_Exterior/scripts.pory"
+# 529 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
 	step_end
 
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 PrimeapeEncounter_Movement_1:
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 523 "data/maps/EggIsland_Exterior/scripts.pory"
+# 537 "data/maps/EggIsland_Exterior/scripts.pory"
 	face_left
 	step_end
 
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 PrimeapeEncounter_Movement_2:
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_down
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	jump_down
-# 532 "data/maps/EggIsland_Exterior/scripts.pory"
+# 546 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_8
 	step_end
 
@@ -1371,91 +1397,95 @@ MachopScript1_Text_0:
 	.string "Macho$"
 
 MurkrowBattle_Text_0:
-# 285 "data/maps/EggIsland_Exterior/scripts.pory"
+# 283 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "This is our turf! Leave!$"
 
 MurkrowBattle_Text_1:
-# 285 "data/maps/EggIsland_Exterior/scripts.pory"
+# 283 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "N/A$"
 
+GeodudeBattle_Text_0:
+# 298 "data/maps/EggIsland_Exterior/scripts.pory"
+	.string "The underground belongs to us!\nOff with you!$"
+
 SkarmoryTriggerMain_Text_0:
-# 356 "data/maps/EggIsland_Exterior/scripts.pory"
+# 370 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Skarmory$"
 
 SkarmoryTriggerMain_Text_1:
-# 357 "data/maps/EggIsland_Exterior/scripts.pory"
+# 371 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "What delicious lookings eggs\nyou have there.\lHand them over!$"
 
 SuperMushroomUpgrade_Text_0:
-# 367 "data/maps/EggIsland_Exterior/scripts.pory"
+# 381 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi obtained the\nSuper Mushroom Upgrade!$"
 
 SuperMushroomUpgrade_Text_1:
-# 372 "data/maps/EggIsland_Exterior/scripts.pory"
+# 386 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Super Mushrooms now recover\nup to 50% more HP.$"
 
 SleepingSnorlax_Text_0:
-# 377 "data/maps/EggIsland_Exterior/scripts.pory"
+# 391 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "It looks to be\na sleeping Snorlax.$"
 
 ChestoBerryTree_Text_0:
-# 418 "data/maps/EggIsland_Exterior/scripts.pory"
+# 432 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "It's a tree full of\nChesto berries.$"
 
 ChestoBerryTree_Text_1:
-# 423 "data/maps/EggIsland_Exterior/scripts.pory"
+# 437 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "It's a tree full of\nChesto berries.\pYou don't really like\nhow dry they are.$"
 
 ChestoBerryTree_Text_2:
-# 428 "data/maps/EggIsland_Exterior/scripts.pory"
+# 442 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "It's a tree full of\nChesto berries.\pYou are already carrying\na handful of them.$"
 
 ChestoBerryTree_Text_3:
-# 434 "data/maps/EggIsland_Exterior/scripts.pory"
+# 448 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Picked up a handful of\nChesto berries!$"
 
 StrGloves_ItemSparkle_Text_0:
-# 461 "data/maps/EggIsland_Exterior/scripts.pory"
+# 475 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Switched the Grip Gloves to\nStrength Gloves!$"
 
 StrGloves_ItemSparkle_Text_1:
-# 465 "data/maps/EggIsland_Exterior/scripts.pory"
+# 479 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The Strength gloves increase\nthe power of your moves,\land allows you to push around\lheavy boulders.$"
 
 StrGloves_ItemSparkle_Text_2:
-# 475 "data/maps/EggIsland_Exterior/scripts.pory"
+# 489 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Switched the Strength Gloves to\nGrip Gloves!$"
 
 PrimeapeEncounter_Text_0:
-# 508 "data/maps/EggIsland_Exterior/scripts.pory"
+# 522 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "???$"
 
 PrimeapeEncounter_Text_1:
-# 509 "data/maps/EggIsland_Exterior/scripts.pory"
+# 523 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "MY SPARKLY!$"
 
 PrimeapeEncounter_Text_2:
-# 545 "data/maps/EggIsland_Exterior/scripts.pory"
+# 560 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Primeape$"
 
 PrimeapeEncounter_Text_3:
-# 546 "data/maps/EggIsland_Exterior/scripts.pory"
+# 561 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "I SAW IT FIRST!\nGET BACK!$"
 
 HonchkrowScript_Text_0:
-# 556 "data/maps/EggIsland_Exterior/scripts.pory"
+# 571 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Honchkrow$"
 
 HonchkrowScript_Text_1:
-# 559 "data/maps/EggIsland_Exterior/scripts.pory"
+# 574 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The new boss man says to\nnot let anybody through!$"
 
 FinaleTrigger_Text_0:
-# 576 "data/maps/EggIsland_Exterior/scripts.pory"
+# 592 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Kamek$"
 
 MachopScript1_Text1::
-# 238 "data/maps/EggIsland_Exterior/scripts.pory"
+# 236 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Thank you stranger.\n"
 	.string "I'm not sure I could've beaten\l"
 	.string "that Murkrow without your\l"
@@ -1464,7 +1494,7 @@ MachopScript1_Text1::
 	.string "getting rowdy as of late…$"
 
 MachopScript1_Text2::
-# 246 "data/maps/EggIsland_Exterior/scripts.pory"
+# 244 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "I am Macho the Machop.\n"
 	.string "And you are… Yoshi?\p"
 	.string "Hm, can't say I've met one\n"
@@ -1490,7 +1520,7 @@ MachopScript1_Text2::
 	.string "river to the east.$"
 
 MachopScript1_Text3::
-# 271 "data/maps/EggIsland_Exterior/scripts.pory"
+# 269 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi can now collect eggs\n"
 	.string "to help it on its journey!\p"
 	.string "Look for eggs in the tall grass,\n"
@@ -1503,7 +1533,7 @@ MachopScript1_Text3::
 	.string "also inhabited by Pokémon!$"
 
 SleepingSnorlax_Text::
-# 398 "data/maps/EggIsland_Exterior/scripts.pory"
+# 412 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The sleeping Snorlax's nose\n"
 	.string "starts to twitch as it smells\l"
 	.string "the Chesto berries on you.\p"
@@ -1511,17 +1541,17 @@ SleepingSnorlax_Text::
 	.string "to the Snorlax?$"
 
 SleepingSnorlax_Text2::
-# 406 "data/maps/EggIsland_Exterior/scripts.pory"
+# 420 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The Snorlax wakes up and rushes out\n"
 	.string "in search of more berries.$"
 
 Script_AwakeSnorlax_Text::
-# 446 "data/maps/EggIsland_Exterior/scripts.pory"
+# 460 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The Snorlax is too busy chowing\n"
 	.string "down Chesto berries to notice you.$"
 
 GripGlovesDescription::
-# 486 "data/maps/EggIsland_Exterior/scripts.pory"
+# 500 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The Grip Gloves boosts\n"
 	.string "the likelihood of added effects\l"
 	.string "appearing when attacking,\l"
@@ -1530,17 +1560,17 @@ GripGlovesDescription::
 	.string "muddy slopes.$"
 
 StrGlovesOnGround::
-# 495 "data/maps/EggIsland_Exterior/scripts.pory"
+# 509 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "There seems to be a pair of\n"
 	.string "gloves on the ground.\l"
 	.string "Switch out your Grip Gloves?$"
 
 GripGlovesOnGround::
-# 501 "data/maps/EggIsland_Exterior/scripts.pory"
+# 515 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "There seems to be a pair of\n"
 	.string "gloves on the ground.\l"
 	.string "Switch out your Strength Gloves?$"
 
 KameBattleIntro::
-# 586 "data/maps/EggIsland_Exterior/scripts.pory"
+# 602 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "$"

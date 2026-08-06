@@ -2979,3 +2979,31 @@
 	.2byte \slot
 	.2byte \item
 	.endm
+
+	@ Buffers the nickname of a party member.
+	.macro bufferpartymonnickname stringVarId:req, slot:req
+	callnative BufferPartyMonNickname, requests_effects=1
+	stringvar \stringVarId
+	.2byte \slot
+	.endm
+
+	@ Stores the position of the given object in destX and destY. Mode CURRENT_POSITION will take the object's current position. Mode TEMPLATE_POSITION will take the object's template position.
+	.macro checkmetatileat, destX:req, destY:req
+	callnative CheckMetatileAt, requests_effects=1
+	.2byte \destX
+	.2byte \destY
+	.endm
+
+	.macro setvarid, varId:req
+	callnative ScrCmd_setvarid
+	.2byte \varId
+	.endm
+
+	.macro setcustomvar, value:req
+	callnative ScrCmd_setcustomvar
+	.2byte \value
+	.endm
+
+	.macro getcustomvar
+	callnative ScrCmd_getcustomvar
+	.endm

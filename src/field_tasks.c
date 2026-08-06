@@ -20,6 +20,7 @@
 #include "constants/items.h"
 #include "constants/songs.h"
 #include "constants/metatile_labels.h"
+#include "event_object_movement.h"
 
 /*  This file handles some persistent tasks that run in the overworld.
  *  - Task_RunTimeBasedEvents: Periodically updates local time and RTC events. Also triggers ambient cries.
@@ -56,19 +57,154 @@ static void SootopolisGymIcePerStepCallback(u8);
 static void CrackedFloorPerStepCallback(u8);
 static void IcefallCaveIcePerStepCallback(u8);
 static void Task_MuddySlope(u8);
+static void EggIslandInteriorPerStepCallback(u8);
 
 static const TaskFunc sPerStepCallbacks[] =
 {
-    [STEP_CB_DUMMY]             = DummyPerStepCallback,
-    [STEP_CB_ASH]               = AshGrassPerStepCallback,
-    [STEP_CB_FORTREE_BRIDGE]    = FortreeBridgePerStepCallback,
-    [STEP_CB_PACIFIDLOG_BRIDGE] = PacifidlogBridgePerStepCallback,
-    [STEP_CB_SOOTOPOLIS_ICE]    = SootopolisGymIcePerStepCallback,
-    [STEP_CB_TRUCK]             = EndTruckSequence,
-    [STEP_CB_SECRET_BASE]       = SecretBasePerStepCallback,
-    [STEP_CB_CRACKED_FLOOR]     = CrackedFloorPerStepCallback,
-    [STEP_CB_ICEFALL_CAVE]      = IcefallCaveIcePerStepCallback
+    [STEP_CB_DUMMY]                 = DummyPerStepCallback,
+    [STEP_CB_ASH]                   = AshGrassPerStepCallback,
+    [STEP_CB_FORTREE_BRIDGE]        = FortreeBridgePerStepCallback,
+    [STEP_CB_PACIFIDLOG_BRIDGE]     = PacifidlogBridgePerStepCallback,
+    [STEP_CB_SOOTOPOLIS_ICE]        = SootopolisGymIcePerStepCallback,
+    [STEP_CB_TRUCK]                 = EndTruckSequence,
+    [STEP_CB_SECRET_BASE]           = SecretBasePerStepCallback,
+    [STEP_CB_CRACKED_FLOOR]         = CrackedFloorPerStepCallback,
+    [STEP_CB_ICEFALL_CAVE]          = IcefallCaveIcePerStepCallback,
+    [STEP_CB_EGG_ISLAND_INTERIOR]   = EggIslandInteriorPerStepCallback
 };
+
+#define NUM_OF_SWITCHES 11
+
+extern const u8 SteppedOffofSwitch1[];
+extern const u8 SteppedOffofSwitch2[];
+extern const u8 SteppedOffofSwitch3[];
+extern const u8 SteppedOffofSwitch4[];
+extern const u8 SteppedOffofSwitch5[];
+extern const u8 SteppedOffofSwitch6[];
+extern const u8 SteppedOffofSwitch7[];
+extern const u8 SteppedOffofSwitch8[];
+extern const u8 SteppedOffofSwitch9[];
+extern const u8 SteppedOffofSwitch10[];
+extern const u8 SteppedOffofSwitch11[];
+
+static const struct {
+  u16 var;
+  s16 x;
+  s16 y;
+  const u8 *script;
+} sPlateInfo[NUM_OF_SWITCHES] = {
+    {VAR_ROCKPLATE_1 , 47, 62, SteppedOffofSwitch1},
+    {VAR_ROCKPLATE_2 , 34, 80, SteppedOffofSwitch2},
+    {VAR_ROCKPLATE_3 , 26, 80, SteppedOffofSwitch3},
+    {VAR_ROCKPLATE_4 , 30, 83, SteppedOffofSwitch4},
+    {VAR_ROCKPLATE_5 , 22, 66, SteppedOffofSwitch5},
+    {VAR_ROCKPLATE_6 , 36, 69, SteppedOffofSwitch6},
+    {VAR_ROCKPLATE_7 , 18, 48, SteppedOffofSwitch7},
+    {VAR_ROCKPLATE_8 , 35, 51, SteppedOffofSwitch8},
+    {VAR_ROCKPLATE_9 , 33, 42, SteppedOffofSwitch9},
+    {VAR_ROCKPLATE_10, 36, 30, SteppedOffofSwitch10},
+    {VAR_ROCKPLATE_11, 75, 31, SteppedOffofSwitch11},
+};
+
+static const u8 sPlateCoords[NUM_OF_SWITCHES][2] = 
+{
+    { 47, 62 },
+    { 34, 80 },
+    { 26, 80 },
+    { 30, 83 },
+    { 22, 66 },
+    { 36, 69 },
+    { 18, 48 },
+    { 35, 51 },
+    { 33, 42 },
+    { 36, 30 },
+    { 75, 31 }
+};
+
+#define tPrevX    data[2]
+#define tPrevY    data[3]
+
+static void EggIslandInteriorPerStepCallback(u8 taskId)
+{
+    s16 x, y, i;
+    s16 *data = gTasks[taskId].data;
+    bool8 switchTriggered[NUM_OF_SWITCHES] = {0};
+    PlayerGetDestCoords(&x, &y);
+
+    if (ArePlayerFieldControlsLocked())
+        return;
+
+    if (x == tPrevX && y == tPrevY)
+        return;
+
+    tPrevX = x;
+    tPrevY = y;
+
+    struct ObjectEvent *followerObj1 = GetFollowerObject(0);
+    struct ObjectEvent *followerObj2 = GetFollowerObject(1);
+    struct ObjectEvent *followerObj3 = GetFollowerObject(2);
+    struct ObjectEvent *followerObj4 = GetFollowerObject(3);
+    struct ObjectEvent *followerObj5 = GetFollowerObject(4);
+
+    for (i = 0; i < NUM_OF_SWITCHES; i++)
+    {
+        if (x == sPlateInfo[i].x && y == sPlateInfo[i].y)
+        {
+            switchTriggered[i] = TRUE;
+            break;
+        }
+        if (followerObj1)
+        {
+            if (followerObj1->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj1->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
+            {
+                switchTriggered[i] = TRUE;
+                break;
+            }
+        }
+        if (followerObj2)
+        {
+            if (followerObj2->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj2->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
+            {
+                switchTriggered[i] = TRUE;
+                break;
+            }
+        }
+        if (followerObj3)
+        {
+            if (followerObj3->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj3->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
+            {
+                switchTriggered[i] = TRUE;
+                break;
+            }
+        }
+        if (followerObj4)
+        {
+            if (followerObj4->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj4->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
+            {
+                switchTriggered[i] = TRUE;
+                break;
+            }
+        }
+        if (followerObj5)
+        {
+            if (followerObj5->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj5->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
+            {
+                switchTriggered[i] = TRUE;
+                break;
+            }
+        }
+    }
+
+    for (i = 0; i < ARRAY_COUNT(sPlateCoords); i++)
+    {
+        if (VarGet(sPlateInfo[i].var) == 0xFFFF && !switchTriggered[i])
+        {
+            LockPlayerFieldControls();
+            ScriptContext_SetupScript(sPlateInfo[i].script);
+            return;
+        }
+    }
+}
 
 // The positions of each map space with crackable ice in Icefall Cave.
 static const u8 sIcefallCaveIceCoords[][2] =

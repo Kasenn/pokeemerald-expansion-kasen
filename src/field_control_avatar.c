@@ -408,7 +408,27 @@ static const u8 *GetInteractedObjectEventScript(struct MapPosition *position, u8
     else if (IsOverworldWildEncounter(&gObjectEvents[objectEventId], OWE_ANY))
         script = GetOverworlWildEncounterScript(objectEventId);
     else if (gObjectEvents[objectEventId].isFollower)
-        script = EventScript_FollowerEgg;
+    {
+        switch (gObjectEvents[objectEventId].localId)
+        {
+        default:
+        case OBJ_EVENT_ID_FOLLOWER1:
+            script = EventScript_Follower1;
+            break;
+        case OBJ_EVENT_ID_FOLLOWER2:
+            script = EventScript_Follower2;
+            break;
+        case OBJ_EVENT_ID_FOLLOWER3:
+            script = EventScript_Follower3;
+            break;
+        case OBJ_EVENT_ID_FOLLOWER4:
+            script = EventScript_Follower4;
+            break;
+        case OBJ_EVENT_ID_FOLLOWER5:
+            script = EventScript_Follower5;
+            break;
+        }
+    }
     else if (InTrainerHill() == TRUE)
         script = GetTrainerHillTrainerScript();
     else

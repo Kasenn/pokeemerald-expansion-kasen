@@ -1,5 +1,795 @@
+const SWITCH_1_X = 47           const SWITCH_1_Y = 62
+const SWITCH_1_BLOCK_1_X = 45   const SWITCH_1_BLOCK_1_Y = 68
+const SWITCH_1_BLOCK_2_X = 46   const SWITCH_1_BLOCK_2_Y = 68
+
+const SWITCH_2_X = 34           const SWITCH_2_Y = 80
+const SWITCH_3_X = 26           const SWITCH_3_Y = 80
+
+const SWITCH_4_X = 30           const SWITCH_4_Y = 83
+const SWITCH_4_BLOCK_1_X = 21   const SWITCH_4_BLOCK_1_Y = 76
+const SWITCH_4_BLOCK_2_X = 22   const SWITCH_4_BLOCK_2_Y = 76
+
+const SWITCH_5_X = 22           const SWITCH_5_Y = 66
+const SWITCH_5_BLOCK_1_X = 29   const SWITCH_5_BLOCK_1_Y = 66
+
+const SWITCH_6_X = 36           const SWITCH_6_Y = 69
+const SWITCH_6_BLOCK_1_X = 33   const SWITCH_6_BLOCK_1_Y = 61
+const SWITCH_6_BLOCK_2_X = 34   const SWITCH_6_BLOCK_2_Y = 61
+
+const SWITCH_7_X = 18           const SWITCH_7_Y = 48
+const SWITCH_7_BLOCK_1_X = 29   const SWITCH_7_BLOCK_1_Y = 52
+const SWITCH_7_BLOCK_2_X = 29   const SWITCH_7_BLOCK_2_Y = 53
+
+const SWITCH_8_X = 35           const SWITCH_8_Y = 51
+const SWITCH_8_BLOCK_1_X = 42   const SWITCH_8_BLOCK_1_Y = 51
+const SWITCH_8_BLOCK_2_X = 42   const SWITCH_8_BLOCK_2_Y = 52
+const SWITCH_8_BLOCK_3_X = 42   const SWITCH_8_BLOCK_3_Y = 53
+
+const SWITCH_9_X = 33           const SWITCH_9_Y = 42
+const SWITCH_9_BLOCK_1_X = 31   const SWITCH_9_BLOCK_1_Y = 48
+const SWITCH_9_BLOCK_2_X = 32   const SWITCH_9_BLOCK_2_Y = 48
+
+const SWITCH_10_X = 36          const SWITCH_10_Y = 30
+const SWITCH_10_BLOCK_1_X = 68  const SWITCH_10_BLOCK_1_Y = 22
+
+const SWITCH_11_X = 75          const SWITCH_11_Y = 31
+const SWITCH_11_BLOCK_1_X = 42  const SWITCH_11_BLOCK_1_Y = 32
+
+const FINAL_BLOCK_1_X = 17      const FINAL_BLOCK_1_Y = 71
+const FINAL_BLOCK_2_X = 17      const FINAL_BLOCK_2_Y = 72
+
+const BARRIER_UP =   0x378
+const BARRIER_DOWN = 0x379
+const SWITCH_UP =    0x37A
+const SWITCH_DOWN =  0x37B
+
+const VAR_X = VAR_TEMP_0
+const VAR_Y = VAR_TEMP_1
+const VAR_MACHOP_INTRO = VAR_TEMP_2
+const VAR_WATEREGG = VAR_TEMP_3
+const VAR_SLOPE = VAR_TEMP_4
+const VAR_TRIGGER = VAR_TEMP_5
+const VAR_GROUND_EGG = VAR_TEMP_6
+
+const VAR_EGGS = VAR_0x8001
+
 mapscripts EggIsland_Interior_MapScripts {
-    
+    MAP_SCRIPT_ON_RESUME{ setstepcallback(STEP_CB_EGG_ISLAND_INTERIOR) }
+    MAP_SCRIPT_ON_TRANSITION{
+        if(!flag(FLAG_GEODUDES_AWAKENED)){
+            setflag(FLAG_TEMP_1)
+            setflag(FLAG_TEMP_2)
+            setflag(FLAG_TEMP_3)
+            setflag(FLAG_TEMP_4)
+        }
+        setflag(FLAG_SYS_USE_FLASH)
+        getplayerxy(VAR_X, VAR_Y)
+        if (var(VAR_X) == 50 && var(VAR_Y) == 52){ call(SetUpInteriorAreaOne) }
+        elif (var(VAR_X) == 19 && var(VAR_Y) == 55){ call(SetUpInteriorAreaOne) }
+        elif (var(VAR_X) == 61 && var(VAR_Y) == 28){ call(SetUpInteriorAreaTwo) }
+        elif (var(VAR_X) == 50 && var(VAR_Y) == 18){ call(SetUpInteriorAreaTwo) }
+        else { call(SetUpInteriorAreaOne) }
+
+        if(hasmonitem(0, ITEM_STRENGTH_GLOVES)){
+            setflag(FLAG_SYS_USE_STRENGTH)
+        }
+        call(SetupMushroomInterior)
+        call(SetEggs)
+    }
+    MAP_SCRIPT_ON_LOAD: SetSwitches
+}
+script SetUpInteriorAreaOne{
+    setvar(VAR_AI_FLAGS, 0)
+    setvar(VAR_ENCOUNTER_TABLE, 1)
+}
+script SetUpInteriorAreaTwo{
+    setvar(VAR_AI_FLAGS, 1)
+    setvar(VAR_ENCOUNTER_TABLE, 2)
 }
 
-//wip
+script SetEggs{
+    if (var(VAR_ROCKPLATE_1) == 0xFFFF){ setvar(VAR_ROCKPLATE_1, 0) }
+    if (var(VAR_ROCKPLATE_2) == 0xFFFF){ setvar(VAR_ROCKPLATE_2, 0) }
+    if (var(VAR_ROCKPLATE_3) == 0xFFFF){ setvar(VAR_ROCKPLATE_3, 0) }
+    if (var(VAR_ROCKPLATE_4) == 0xFFFF){ setvar(VAR_ROCKPLATE_4, 0) }
+    if (var(VAR_ROCKPLATE_5) == 0xFFFF){ setvar(VAR_ROCKPLATE_5, 0) }
+    if (var(VAR_ROCKPLATE_6) == 0xFFFF){ setvar(VAR_ROCKPLATE_6, 0) }
+    if (var(VAR_ROCKPLATE_7) == 0xFFFF){ setvar(VAR_ROCKPLATE_7, 0) }
+    if (var(VAR_ROCKPLATE_8) == 0xFFFF){ setvar(VAR_ROCKPLATE_8, 0) }
+    if (var(VAR_ROCKPLATE_9) == 0xFFFF){ setvar(VAR_ROCKPLATE_9, 0) }
+    if (var(VAR_ROCKPLATE_10) == 0xFFFF){ setvar(VAR_ROCKPLATE_10, 0) }
+    if (var(VAR_ROCKPLATE_11) == 0xFFFF){ setvar(VAR_ROCKPLATE_11, 0) }
+
+    if (var(VAR_ROCKPLATE_1) != 0){ setobjectxyperm(LOCALID_EGG_1, SWITCH_1_X, SWITCH_1_Y) }
+    if (var(VAR_ROCKPLATE_2) != 0){ setobjectxyperm(LOCALID_EGG_2, SWITCH_2_X, SWITCH_2_Y) }
+    if (var(VAR_ROCKPLATE_3) != 0){ setobjectxyperm(LOCALID_EGG_3, SWITCH_3_X, SWITCH_3_Y) }
+    if (var(VAR_ROCKPLATE_4) != 0){ setobjectxyperm(LOCALID_EGG_4, SWITCH_4_X, SWITCH_4_Y) }
+    if (var(VAR_ROCKPLATE_5) != 0){ setobjectxyperm(LOCALID_EGG_5, SWITCH_5_X, SWITCH_5_Y) }
+    if (var(VAR_ROCKPLATE_6) != 0){ setobjectxyperm(LOCALID_EGG_6, SWITCH_6_X, SWITCH_6_Y) }
+    if (var(VAR_ROCKPLATE_7) != 0){ setobjectxyperm(LOCALID_EGG_7, SWITCH_7_X, SWITCH_7_Y) }
+    if (var(VAR_ROCKPLATE_8) != 0){ setobjectxyperm(LOCALID_EGG_8, SWITCH_8_X, SWITCH_8_Y) }
+    if (var(VAR_ROCKPLATE_9) != 0){ setobjectxyperm(LOCALID_EGG_9, SWITCH_9_X, SWITCH_9_Y) }
+    if (var(VAR_ROCKPLATE_10) != 0){ setobjectxyperm(LOCALID_EGG_10, SWITCH_10_X, SWITCH_10_Y) }
+    if (var(VAR_ROCKPLATE_11) != 0){ setobjectxyperm(LOCALID_EGG_11, SWITCH_11_X, SWITCH_11_Y) }
+}
+
+script SetSwitches{
+    if (var(VAR_ROCKPLATE_1) != 0){
+        setmetatile(SWITCH_1_BLOCK_1_X, SWITCH_1_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_1_BLOCK_2_X, SWITCH_1_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_1_X,         SWITCH_1_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_2) != 0){
+        setmetatile(SWITCH_2_X,         SWITCH_2_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_3) != 0){
+        setmetatile(SWITCH_3_X,         SWITCH_3_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_4) != 0){
+        setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_5) != 0){
+        setmetatile(SWITCH_5_BLOCK_1_X, SWITCH_5_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_5_X,         SWITCH_5_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_6) != 0){
+        setmetatile(SWITCH_6_BLOCK_1_X, SWITCH_6_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_6_BLOCK_2_X, SWITCH_6_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_6_X,         SWITCH_6_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_7) != 0){
+        setmetatile(SWITCH_7_BLOCK_1_X, SWITCH_7_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_7_BLOCK_2_X, SWITCH_7_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_7_X,         SWITCH_7_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_8) != 0){
+        setmetatile(SWITCH_8_BLOCK_1_X, SWITCH_8_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_8_BLOCK_2_X, SWITCH_8_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_8_BLOCK_3_X, SWITCH_8_BLOCK_3_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_8_X,         SWITCH_8_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_9) != 0){
+        setmetatile(SWITCH_9_BLOCK_1_X, SWITCH_9_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_9_BLOCK_2_X, SWITCH_9_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_9_X,         SWITCH_9_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_10) != 0){
+        setmetatile(SWITCH_10_BLOCK_1_X, SWITCH_10_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_10_X,         SWITCH_10_Y,         SWITCH_DOWN,    FALSE)
+    }
+    if (var(VAR_ROCKPLATE_11) != 0){
+        setmetatile(SWITCH_11_BLOCK_1_X, SWITCH_11_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+        setmetatile(SWITCH_11_X,         SWITCH_11_Y,         SWITCH_DOWN,    FALSE)
+    }
+
+    if(var(VAR_ROCKPLATE_1) != 0
+    && var(VAR_ROCKPLATE_2) != 0
+    && var(VAR_ROCKPLATE_3) != 0
+    && var(VAR_ROCKPLATE_4) != 0
+    && var(VAR_ROCKPLATE_5) != 0
+    && var(VAR_ROCKPLATE_6) != 0){
+        setmetatile(FINAL_BLOCK_1_X, FINAL_BLOCK_1_Y,   BARRIER_DOWN,   FALSE)
+        setmetatile(FINAL_BLOCK_2_X, FINAL_BLOCK_2_Y,   BARRIER_DOWN,   FALSE)
+    }
+}
+
+script SetupMushroomInterior{
+    if(!flag(FLAG_MUSHROOMS_UNLOCKED)){
+        return
+    }
+    setvar(VAR_MUSHROOM_LOCATION, 1)
+    callnative(RandomizeMushroomOnSpawn)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    setvar(VAR_MUSHROOM_LOCATION, 3)
+    callnative(RandomizeMushroomOnSpawn)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP) 
+    clearflag(FLAG_MUSHROOM_PICKED_UP2)
+}
+
+script PlateTrigger1{
+    setvarid(VAR_ROCKPLATE_1)
+    call(MainPlateScript)
+    setmetatile(SWITCH_1_BLOCK_1_X, SWITCH_1_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_1_BLOCK_2_X, SWITCH_1_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_1_X,         SWITCH_1_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger2{
+        if(!flag(FLAG_GEODUDES_AWAKENED)){
+        setflag(FLAG_GEODUDES_AWAKENED)
+        clearflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+        clearflag(FLAG_TEMP_3)
+        clearflag(FLAG_TEMP_4)
+    }
+
+    setvarid(VAR_ROCKPLATE_2)
+    call(MainPlateScript)
+    setmetatile(SWITCH_2_X,         SWITCH_2_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger3{
+    if(!flag(FLAG_GEODUDES_AWAKENED)){
+        setflag(FLAG_GEODUDES_AWAKENED)
+        clearflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+        clearflag(FLAG_TEMP_3)
+        clearflag(FLAG_TEMP_4)
+    }
+
+    setvarid(VAR_ROCKPLATE_3)
+    call(MainPlateScript)
+    setmetatile(SWITCH_3_X,         SWITCH_3_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger4{
+        if(!flag(FLAG_GEODUDES_AWAKENED)){
+        setflag(FLAG_GEODUDES_AWAKENED)
+        clearflag(FLAG_TEMP_1)
+        clearflag(FLAG_TEMP_2)
+        clearflag(FLAG_TEMP_3)
+        clearflag(FLAG_TEMP_4)
+    }
+
+    setvarid(VAR_ROCKPLATE_4)
+    call(MainPlateScript)
+    setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger5{
+    setvarid(VAR_ROCKPLATE_5)
+    call(MainPlateScript)
+    setmetatile(SWITCH_5_BLOCK_1_X, SWITCH_5_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_5_X,         SWITCH_5_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger6{
+    setvarid(VAR_ROCKPLATE_6)
+    call(MainPlateScript)
+    setmetatile(SWITCH_6_BLOCK_1_X, SWITCH_6_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_6_BLOCK_2_X, SWITCH_6_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_6_X,         SWITCH_6_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger7{
+    setvarid(VAR_ROCKPLATE_7)
+    call(MainPlateScript)
+    setmetatile(SWITCH_7_BLOCK_1_X, SWITCH_7_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_7_BLOCK_2_X, SWITCH_7_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_7_X,         SWITCH_7_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger8{
+    setvarid(VAR_ROCKPLATE_8)
+    call(MainPlateScript)
+    setmetatile(SWITCH_8_BLOCK_1_X, SWITCH_8_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_8_BLOCK_2_X, SWITCH_8_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_8_BLOCK_3_X, SWITCH_8_BLOCK_3_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_8_X,         SWITCH_8_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger9{
+    setvarid(VAR_ROCKPLATE_9)
+    call(MainPlateScript)
+    setmetatile(SWITCH_9_BLOCK_1_X, SWITCH_9_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_9_BLOCK_2_X, SWITCH_9_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_9_X,         SWITCH_9_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger10{
+    setvarid(VAR_ROCKPLATE_10)
+    call(MainPlateScript)
+    setmetatile(SWITCH_10_BLOCK_1_X, SWITCH_10_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_10_X,         SWITCH_10_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script PlateTrigger11{
+    setvarid(VAR_ROCKPLATE_11)
+    call(MainPlateScript)
+    setmetatile(SWITCH_11_BLOCK_1_X, SWITCH_11_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
+    setmetatile(SWITCH_11_X,         SWITCH_11_Y,         SWITCH_DOWN,    FALSE)
+    goto(MainPlateScript2)
+}
+
+script MainPlateScript{
+    getcustomvar
+    if(var(VAR_RESULT) == 0xFFFF){
+        release
+        end
+    }
+	return
+}
+script MainPlateScript2{
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setcustomvar(0xFFFF)
+    if(var(VAR_ROCKPLATE_1) != 0
+    && var(VAR_ROCKPLATE_2) != 0
+    && var(VAR_ROCKPLATE_3) != 0
+    && var(VAR_ROCKPLATE_4) != 0
+    && var(VAR_ROCKPLATE_5) != 0
+    && var(VAR_ROCKPLATE_6) != 0){
+        goto(TriggerMainGate)
+    }
+    release
+    end
+}
+
+script TriggerMainGate{
+    setmetatile(FINAL_BLOCK_1_X, FINAL_BLOCK_1_Y,   BARRIER_DOWN,   FALSE)
+    setmetatile(FINAL_BLOCK_2_X, FINAL_BLOCK_2_Y,   BARRIER_DOWN,   FALSE)
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+    setflag(FLAG_DOOR_OPEN)
+    release
+    end
+}
+
+////////////////////////////////////////////////////
+
+script SteppedOffofSwitch1{
+    setvarid(VAR_ROCKPLATE_1)
+    setmetatile(SWITCH_1_BLOCK_1_X, SWITCH_1_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_1_BLOCK_2_X, SWITCH_1_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_1_X,         SWITCH_1_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch2{
+    setvarid(VAR_ROCKPLATE_2)
+    setmetatile(SWITCH_2_X,         SWITCH_2_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch3{
+    setvarid(VAR_ROCKPLATE_3)
+    setmetatile(SWITCH_3_X,         SWITCH_3_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch4{
+    setvarid(VAR_ROCKPLATE_4)
+    setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch5{
+    setvarid(VAR_ROCKPLATE_5)
+    setmetatile(SWITCH_5_BLOCK_1_X, SWITCH_5_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_5_X,         SWITCH_5_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch6{
+    setvarid(VAR_ROCKPLATE_6)
+    setmetatile(SWITCH_6_BLOCK_1_X, SWITCH_6_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_6_BLOCK_2_X, SWITCH_6_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_6_X,         SWITCH_6_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch7{
+    setvarid(VAR_ROCKPLATE_7)
+    setmetatile(SWITCH_7_BLOCK_1_X, SWITCH_7_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_7_BLOCK_2_X, SWITCH_7_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_7_X,         SWITCH_7_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch8{
+    setvarid(VAR_ROCKPLATE_8)
+    setmetatile(SWITCH_8_BLOCK_1_X, SWITCH_8_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_8_BLOCK_2_X, SWITCH_8_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_8_BLOCK_3_X, SWITCH_8_BLOCK_3_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_8_X,         SWITCH_8_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch9{
+    setvarid(VAR_ROCKPLATE_9)
+    setmetatile(SWITCH_9_BLOCK_1_X, SWITCH_9_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_9_BLOCK_2_X, SWITCH_9_BLOCK_2_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_9_X,         SWITCH_9_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch10{
+    setvarid(VAR_ROCKPLATE_10)
+    setmetatile(SWITCH_10_BLOCK_1_X, SWITCH_10_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_10_X,         SWITCH_10_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+script SteppedOffofSwitch11{
+    setvarid(VAR_ROCKPLATE_11)
+    setmetatile(SWITCH_11_BLOCK_1_X, SWITCH_11_BLOCK_1_Y, BARRIER_UP,   TRUE)
+    setmetatile(SWITCH_11_X,         SWITCH_11_Y,         SWITCH_UP,    FALSE)
+    goto(SteppedOffofSwitchMain)
+}
+
+script SteppedOffofSwitchMain{
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setcustomvar(0)
+    if((var(VAR_ROCKPLATE_1) == 0
+    || var(VAR_ROCKPLATE_2) == 0
+    || var(VAR_ROCKPLATE_3) == 0
+    || var(VAR_ROCKPLATE_4) == 0
+    || var(VAR_ROCKPLATE_5) == 0
+    || var(VAR_ROCKPLATE_6) == 0)
+    && flag(FLAG_DOOR_OPEN)){
+        goto(BlockMainGate)
+    }
+	release
+    end
+}
+
+script BlockMainGate{
+    setmetatile(FINAL_BLOCK_1_X, FINAL_BLOCK_1_Y,   BARRIER_UP,   TRUE)
+    setmetatile(FINAL_BLOCK_2_X, FINAL_BLOCK_2_Y,   BARRIER_UP,   TRUE)
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+    clearflag(FLAG_DOOR_OPEN)
+    release
+    end
+}
+
+script SetEggOnPedestal{
+    if(msgbox(SetEggOnPedestal_Text, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    msgbox(SetEggOnPedestal_Text2, MSGBOX_AUTOCLOSE)
+    special(ChoosePartyEgg)
+    if(var(VAR_0x8004) >= PARTY_SIZE || var(VAR_0x8004) == 0)
+    {
+        release
+        end
+    }
+    removeegg(VAR_0x8004)
+    setcustomvar(VAR_0x800A)
+    delay(32)
+    if(var(VAR_X) == SWITCH_1_X && var(VAR_Y) == SWITCH_1_Y){
+        clearflag(FLAG_GROUNDEGG_1)
+        setobjectxyperm(LOCALID_EGG_1, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_1)
+    }
+    if(var(VAR_X) == SWITCH_2_X && var(VAR_Y) == SWITCH_2_Y){
+        clearflag(FLAG_GROUNDEGG_2)
+        setobjectxyperm(LOCALID_EGG_2, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_2)
+    }
+    if(var(VAR_X) == SWITCH_3_X && var(VAR_Y) == SWITCH_3_Y){
+        clearflag(FLAG_GROUNDEGG_3)
+        setobjectxyperm(LOCALID_EGG_3, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_3)
+    }
+    if(var(VAR_X) == SWITCH_4_X && var(VAR_Y) == SWITCH_4_Y){
+        clearflag(FLAG_GROUNDEGG_4)
+        setobjectxyperm(LOCALID_EGG_4, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_4)
+    }
+    if(var(VAR_X) == SWITCH_5_X && var(VAR_Y) == SWITCH_5_Y){
+        clearflag(FLAG_GROUNDEGG_5)
+        setobjectxyperm(LOCALID_EGG_5, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_5)
+    }
+    if(var(VAR_X) == SWITCH_6_X && var(VAR_Y) == SWITCH_6_Y){
+        clearflag(FLAG_GROUNDEGG_6)
+        setobjectxyperm(LOCALID_EGG_6, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_6)
+    }
+    if(var(VAR_X) == SWITCH_7_X && var(VAR_Y) == SWITCH_7_Y){
+        clearflag(FLAG_GROUNDEGG_7)
+        setobjectxyperm(LOCALID_EGG_7, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_7)
+    }
+    if(var(VAR_X) == SWITCH_8_X && var(VAR_Y) == SWITCH_8_Y){
+        clearflag(FLAG_GROUNDEGG_8)
+        setobjectxyperm(LOCALID_EGG_8, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_8)
+    }
+    if(var(VAR_X) == SWITCH_9_X && var(VAR_Y) == SWITCH_9_Y){
+        clearflag(FLAG_GROUNDEGG_9)
+        setobjectxyperm(LOCALID_EGG_9, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_9)
+    }
+    if(var(VAR_X) == SWITCH_10_X && var(VAR_Y) == SWITCH_10_Y){
+        clearflag(FLAG_GROUNDEGG_10)
+        setobjectxyperm(LOCALID_EGG_10, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_10)
+    }
+    if(var(VAR_X) == SWITCH_11_X && var(VAR_Y) == SWITCH_11_Y){
+        clearflag(FLAG_GROUNDEGG_11)
+        setobjectxyperm(LOCALID_EGG_11, VAR_X, VAR_Y)
+        addobject(LOCALID_EGG_11)
+    }
+    msgbox(SetEggOnPedestal_Text3)
+    release
+}
+text SetEggOnPedestal_Text{
+    "There seems to be a weighted\n"
+    "pressure plate under this egg.\l"
+    "Leave an egg on the plate?"
+}
+text SetEggOnPedestal_Text2{
+    "Choose an egg to leave\n"
+    "on the plate."
+}
+text SetEggOnPedestal_Text3{
+    "Yoshi left an egg\n"
+    "on the plate."
+}
+
+script Script_GroundEgg1{
+    setvarid(VAR_ROCKPLATE_1)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_1)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg2{
+    setvarid(VAR_ROCKPLATE_2)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_2)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg3{
+    setvarid(VAR_ROCKPLATE_3)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_3)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg4{
+    setvarid(VAR_ROCKPLATE_4)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_4)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg5{
+    setvarid(VAR_ROCKPLATE_5)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_5)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg6{
+    setvarid(VAR_ROCKPLATE_6)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_6)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg7{
+    setvarid(VAR_ROCKPLATE_7)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_7)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg8{
+    setvarid(VAR_ROCKPLATE_8)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_8)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg9{
+    setvarid(VAR_ROCKPLATE_9)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_9)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg10{
+    setvarid(VAR_ROCKPLATE_10)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_10)
+    goto(GroundEggMain)
+}
+script Script_GroundEgg11{
+    setvarid(VAR_ROCKPLATE_11)
+    setvar(VAR_GROUND_EGG, LOCALID_EGG_11)
+    goto(GroundEggMain)
+}
+
+script GroundEggMain{
+    counteggs
+    if(var(VAR_EGGS) >= 5){
+        msgbox(GroundEggMain_Text1, MSGBOX_AUTOCLOSE)
+        end
+    }
+    if(msgbox(GroundEggMain_Text2, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    msgbox("Yoshi picked up the egg.", MSGBOX_AUTOCLOSE)
+    getcustomvar
+    giveegg(VAR_RESULT)
+    special(CalculatePlayerPartyCount)
+    callnative(UpdateEggPP)
+    callnative(UpdateFollowingPokemon)
+    removeobject(VAR_LAST_TALKED)
+    switch(var(VAR_GROUND_EGG)){
+        case LOCALID_EGG_1: goto(SteppedOffofSwitch1)
+        case LOCALID_EGG_2: goto(SteppedOffofSwitch2)
+        case LOCALID_EGG_3: goto(SteppedOffofSwitch3)
+        case LOCALID_EGG_4: goto(SteppedOffofSwitch4)
+        case LOCALID_EGG_5: goto(SteppedOffofSwitch5)
+        case LOCALID_EGG_6: goto(SteppedOffofSwitch6)
+        case LOCALID_EGG_7: goto(SteppedOffofSwitch7)
+        case LOCALID_EGG_8: goto(SteppedOffofSwitch8)
+        case LOCALID_EGG_9: goto(SteppedOffofSwitch9)
+        case LOCALID_EGG_10: goto(SteppedOffofSwitch10)
+        case LOCALID_EGG_11: goto(SteppedOffofSwitch11)
+    }
+}
+
+text GroundEggMain_Text1{
+    "It's an egg, holding down\n"
+    "a weighted pressure plate."
+}
+text GroundEggMain_Text2{
+    "It's an egg, holding down\n"
+    "a weighted pressure plate.\l"
+    "Do you want to pick it up?"
+}
+
+script AITrigger0{
+    setvar(VAR_MUSHROOM_LOCATION, 1)
+    setvar(VAR_AI_FLAGS, 0)
+    setvar(VAR_ENCOUNTER_TABLE, 1)
+    release
+}
+
+script AITrigger1{
+    setvar(VAR_MUSHROOM_LOCATION, 3)
+    setvar(VAR_AI_FLAGS, 1)
+    setvar(VAR_ENCOUNTER_TABLE, 3)
+    release
+}
+
+script GripGloves{
+    playfanfare(MUS_OBTAIN_ITEM)
+    message("Yoshi found the Grip Gloves!")
+    delay(10)
+    waitfanfare
+    waitmessage
+    removeobject(VAR_LAST_TALKED)
+    msgbox(GripGlovesDescription)
+    callnative(EquipGripGloves)
+}
+
+script TriggerHelpDiglett{
+    playbgm(MUS_HELP, FALSE)
+    turnobject(LOCALID_DIGLETT, DIR_WEST)
+    playse(SE_PIN)
+    applymovement(LOCALID_DIGLETT, Common_Movement_ExclamationMark)
+    waitse
+    waitmovement(0)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
+    setspeaker("Diglett")
+    msgbox("You there, please help!\pI am getting bullied by\nthese two shrews!", MSGBOX_AUTOCLOSE)
+    turnobject(LOCALID_DIGLETT, DIR_SOUTH)
+    setvar(VAR_STORY, 4)
+}
+
+script DontLeaveDiglett{
+    setspeaker("Diglett")
+    msgbox("Please don't leave me here\nwith these two!", MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_PLAYER, moves(walk_up))
+    waitmovement(0)
+    release
+}
+
+script Sandshrew1{
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    faceplayer
+    setspeaker("Sandshrew")
+	msgbox (Sandshrew1_LetsBattle, MSGBOX_DEFAULT)
+    callnative(CreateStrongMon)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
+    special(StartSpecialBattle)
+	goto(Sandshrew2Attacks)
+}
+
+script Sandshrew2{
+    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
+    faceplayer
+    setspeaker("Sandshrew")
+	msgbox (Sandshrew2_LetsBattle, MSGBOX_DEFAULT)
+    callnative(CreateStrongMon)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
+    special(StartSpecialBattle)
+	goto(Sandshrew1Attacks)
+}
+text Sandshrew1_LetsBattle{
+    "Who are you? Get lost!"
+}
+text Sandshrew2_LetsBattle{
+    "Don't butt in!"
+}
+
+script Sandshrew1Attacks{
+    delay(16)
+    applymovement(LOCALID_SANDSHREW2, Movement_ObjectDisappears)
+    removeobject(LOCALID_SANDSHREW2)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_SANDSHREW1, Common_Movement_ExclamationMark)
+    waitse
+    waitmovement(0)
+    applymovement(LOCALID_SANDSHREW1, moves(walk_left, walk_down))
+    waitmovement(0)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
+    delay(8)
+    setspeaker("Sandshrew")
+    msgbox("Now you've done it!")
+    callnative(CreateStrongMon)
+    addvar(VAR_0x8000, 3)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
+    special(StartSpecialBattle)
+    applymovement(LOCALID_SANDSHREW1, Movement_ObjectDisappears)
+    removeobject(LOCALID_SANDSHREW1)
+    waitmovement(0)
+    goto(SandshrewFinale)
+}
+script Sandshrew2Attacks{
+    delay(16)
+    applymovement(LOCALID_SANDSHREW1, Movement_ObjectDisappears)
+    removeobject(LOCALID_SANDSHREW1)
+    waitmovement(0)
+    playse(SE_PIN)
+    applymovement(LOCALID_SANDSHREW2, Common_Movement_ExclamationMark)
+    waitse
+    waitmovement(0)
+    applymovement(LOCALID_SANDSHREW2, moves(walk_left, walk_up))
+    waitmovement(0)
+    turnobject(LOCALID_PLAYER, DIR_SOUTH)
+    delay(8)
+    setspeaker("Sandshrew")
+    msgbox("Now you've done it!")
+    callnative(CreateStrongMon)
+    addvar(VAR_0x8000, 3)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
+    special(StartSpecialBattle)
+    applymovement(LOCALID_SANDSHREW2, Movement_ObjectDisappears)
+    removeobject(LOCALID_SANDSHREW2)
+    waitmovement(0)
+    goto(SandshrewFinale)
+}
+
+script SandshrewFinale{
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
+    getplayerxy(VAR_X, VAR_Y)
+    if(var(VAR_Y) == 53){
+        applymovement(LOCALID_PLAYER, moves(walk_down, walk_in_place_fast_right))
+    }
+    else{
+        applymovement(LOCALID_PLAYER, moves(walk_up, walk_in_place_fast_right))
+    }
+    waitmovement(0)
+    turnobject(LOCALID_DIGLETT, DIR_WEST)
+    delay(8)
+    msgbox(SandshrewFinale_Text, MSGBOX_AUTOCLOSE)
+    applymovement(LOCALID_DIGLETT, moves(nurse_joy_bow))
+    waitmovement(0)
+    removeobject(LOCALID_DIGLETT)
+    setvar(VAR_STORY, 5)
+    setescapewarp(MAP_EGG_ISLAND_INTERIOR, 32, 72)
+    call(SetYoshiMoves)
+    msgbox(SandshrewFinale_Text2)
+    release
+}
+
+text SandshrewFinale_Text{
+    "wip"
+}
+text SandshrewFinale_Text2{
+    "wip"
+}
+
+script DiglettScript{
+    setspeaker("Diglett")
+    msgbox(DiglettScript_Text, MSGBOX_NPC)
+    turnobject(LOCALID_DIGLETT, DIR_SOUTH)
+}
+text DiglettScript_Text{
+    "Please help me!"
+}

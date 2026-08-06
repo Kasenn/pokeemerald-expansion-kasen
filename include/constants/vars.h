@@ -66,12 +66,12 @@
 #define VAR_ROUTE128_STATE                                  VARS_START + 46
 #define VAR_OUTSIDEBOULDER_X                                  VARS_START + 47 // Unused Var
 #define VAR_OUTSIDEBOULDER_Y                                  VARS_START + 48 // Unused Var
-#define VAR_ROUTE131_STATE                                  VARS_START + 49 // Unused Var
-#define VAR_ROUTE132_STATE                                  VARS_START + 50 // Unused Var
-#define VAR_ROUTE133_STATE                                  VARS_START + 51 // Unused Var
+#define VAR_ROCKPLATE_10                                  VARS_START + 49
+#define VAR_ROCKPLATE_11                                  VARS_START + 50
+#define VAR_BERRYBRIDGE_X                                  VARS_START + 51 // Unused Var
 #define VAR_ROUTE134_STATE                                  VARS_START + 52 // Unused Var
 #define VAR_LITTLEROOT_HOUSES_STATE_MAY                     VARS_START + 53
-#define VAR_UNUSED_0x4083                                   VARS_START + 54 // Unused Var
+#define VAR_FOLLOWER_MON                                   VARS_START + 54
 #define VAR_BIRCH_LAB_STATE                                 VARS_START + 55
 #define VAR_PETALBURG_GYM_STATE                             VARS_START + 56 // 0-1: Wally tutorial, 2-6: 0-4 badges, 7: Defeated Norman, 8: Rematch Norman
 #define VAR_CONTEST_HALL_STATE                              VARS_START + 57

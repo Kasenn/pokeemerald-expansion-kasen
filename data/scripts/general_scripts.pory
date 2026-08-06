@@ -8,11 +8,12 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
+    callnative(TestMonNameLength)
     // trainerbattle_double(TRAINER_GABBY_AND_TY_1, "a", "a", "a")
-    callnative(ZeroEnemyPartyMons)
-    createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
-    setwilddoubleflag
-    dowildbattle
+    // callnative(ZeroEnemyPartyMons)
+    // createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
+    // setwilddoubleflag
+    // dowildbattle
 }
 
 script DebugScript2{
@@ -38,15 +39,27 @@ script EventScript_LootMushroom{
         end
     }
     playmoncry(SPECIES_IRON_CROWN, 0)
-    removeobject(LOCALID_SUPER_MUSHROOM)
-    callnative(RandomizeMushroomScript)
-    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    if(var(VAR_MUSHROOM_LOCATION) == 1){
+        removeobject(LOCALID_SUPER_MUSHROOM_INTERIOR)
+        callnative(RandomizeMushroomScript)
+        setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    }
+    elif(var(VAR_MUSHROOM_LOCATION) == 3){
+        removeobject(LOCALID_SUPER_MUSHROOM_INTERIOR_2)
+        callnative(RandomizeMushroomScript)
+        setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    }
+    else{
+        removeobject(LOCALID_SUPER_MUSHROOM)
+        callnative(RandomizeMushroomScript)
+        setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    }
     clearflag(FLAG_MUSHROOM_PICKED_UP)
+    clearflag(FLAG_MUSHROOM_PICKED_UP2)
     if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
-        setmonmove(0, 1, MOVE_SUPER_MUSHROOM)
-        setmonmove(0, 2, MOVE_LICK_BERRY)
         waitmoncry
         setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
+        call(SetYoshiMoves)
         msgbox(EventScript_LootMushroom_Text, MSGBOX_AUTOCLOSE)
     }
     if(var(VAR_MUSHROOM_COUNT) < 10){
@@ -320,6 +333,10 @@ text SlipperySlopeMain_Text2{
     "to ascend it?"
 }
 
+script MakeBerryBridge{
+    //wip
+}
+
 script MakeEggBridge{
     counteggs
     if(var(VAR_EGGS) < 5){
@@ -419,4 +436,107 @@ text MakeEggBridge_Text2{
     "in the middle of the lake.\p"
     "Use all your eggs to\n"
     "create a bridge?"
+}
+
+script EventScript_Follower1{
+    call(FollowerEggScript)
+    setvar(VAR_FOLLOWER_MON, 1)
+    goto(FollowerMainScript)
+}
+
+script EventScript_Follower2{
+    call(FollowerEggScript)
+    setvar(VAR_FOLLOWER_MON, 2)
+    goto(FollowerMainScript)
+}
+
+script EventScript_Follower3{
+    call(FollowerEggScript)
+    setvar(VAR_FOLLOWER_MON, 3)
+    goto(FollowerMainScript)
+}
+
+script EventScript_Follower4{
+    call(FollowerEggScript)
+    setvar(VAR_FOLLOWER_MON, 4)
+    goto(FollowerMainScript)
+}
+
+script EventScript_Follower5{
+    call(FollowerEggScript)
+    setvar(VAR_FOLLOWER_MON, 5)
+    goto(FollowerMainScript)
+}
+
+script FollowerMainScript{
+    bufferpartymonnickname(STR_VAR_1, VAR_FOLLOWER_MON)
+    setspeaker("{STR_VAR_1}")
+    call(FollowerRandomMessage)
+}
+
+script FollowerRandomMessage{
+    random(6)
+    switch(var(VAR_RESULT)){
+    case 0:  msgbox(FollowerMessage0, MSGBOX_NPC)
+    case 1:  msgbox(FollowerMessage1, MSGBOX_NPC)
+    case 2:  msgbox(FollowerMessage2, MSGBOX_NPC)
+    case 3:  msgbox(FollowerMessage3, MSGBOX_NPC)
+    case 4:  msgbox(FollowerMessage4, MSGBOX_NPC)
+    case 5:  msgbox(FollowerMessage5, MSGBOX_NPC)
+    }
+}
+
+  text FollowerMessage0{
+    "We're with you, {PLAYER}!"
+} text FollowerMessage1{
+    "We can do this!"
+} text FollowerMessage2{
+    "Let's go kick Kamek's butt!"
+} text FollowerMessage3{
+    "Is there something\n"
+    "on my face?"
+} text FollowerMessage4{
+    "We'll go wherever you lead,\n"
+    "{PLAYER}!"
+} text FollowerMessage5{
+    "No more getting thrown around\n"
+    "like a projectile!"
+}
+
+script FollowerEggScript{
+    if(flag(FLAG_EGGS_HATCHED)){
+        return
+    }
+    getobjectxy(VAR_LAST_TALKED, CURRENT_POSITION, VAR_X, VAR_Y)
+    if (checkmetatileat(VAR_X, VAR_Y) == MB_STRENGTH_BUTTON){
+        goto(SetEggOnPedestal)
+    }
+    call(EventScript_FollowerEgg)
+    release
+    end
+}
+
+script SetYoshiMoves{
+    setmonmove(0, 0, MOVE_CHUCK_EGG)
+    setmonmove(0, 1, MOVE_LICK_BERRY)
+    if(flag(FLAG_EGGS_HATCHED)){
+        setmonmove(0, 0, MOVE_HELPING_HAND)
+    }
+    if(flag(FLAG_TONGUE_UPGRADE)){
+        setmonmove(0, 1, MOVE_LICK_BERRY_STRONG)
+    }
+    if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS))
+    {
+        if(flag(FLAG_DIGLETT_RESCUED)){
+            setmonmove(0, 2, MOVE_CALL_DIGLETT)
+        }
+    }
+    if(flag(FLAG_INTRODUCTION_TO_MUSHROOMS))
+    {
+        setmonmove(0, 2, MOVE_SUPER_MUSHROOM)
+        if(flag(FLAG_DIGLETT_RESCUED)){ setmonmove(0, 3, MOVE_CALL_DIGLETT) }
+    }
+    callnative(UpdateMushroomPP)
+    callnative(UpdateEggPP)
+    callnative(RestorePPs)
 }

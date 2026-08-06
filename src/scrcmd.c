@@ -3881,7 +3881,7 @@ static const struct SpawnAreas sSpawnAreas[] =
     { sSuperMushroomUndergroundTwo,  ARRAY_COUNT(sSuperMushroomUndergroundTwo) },
 };
 
-void RandomizeMushroom(bool8 allowSpawnNearPlayer)
+void RandomizeMushroom(bool8 allowSpawnNearPlayer)//wip
 {
     u16 location = VarGet(VAR_MUSHROOM_LOCATION);
     if (location >= ARRAY_COUNT(sSpawnAreas))
@@ -4028,6 +4028,7 @@ bool8 ScrCmd_removeegg(struct ScriptContext *ctx)
 
     if (GetMonData(mon, MON_DATA_IS_EGG))
     {
+        gSpecialVar_0x800A = GetMonData(mon, MON_DATA_SPECIES);
         ZeroMonData(mon);
         CompactPartySlots();
         gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
@@ -4090,8 +4091,8 @@ void RemoveAllEggs(void)
 void CreateStrongMon(void)
 {
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL) + 5;
-    if (playerLevel > 100)
-        playerLevel = 100;
+    if (playerLevel > 90)
+        playerLevel = 90;
 
     gSpecialVar_0x8000 = playerLevel;
 }
@@ -4115,4 +4116,77 @@ void EquipStrGloves(void)
 {
     enum Item item = ITEM_STRENGTH_GLOVES;
     SetMonData(&gPlayerParty[0], MON_DATA_HELD_ITEM, &item);
+}
+
+void BufferPartyMonNickname(struct ScriptContext *ctx)
+{
+    u8 stringVarIndex = ScriptReadByte(ctx);
+    u8 slot = VarGet(ScriptReadHalfword(ctx));
+
+    Script_RequestEffects(SCREFF_V1);
+
+    GetMonData(&gPlayerParty[slot], MON_DATA_NICKNAME, sScriptStringVars[stringVarIndex]);
+    StringGet_Nickname(sScriptStringVars[stringVarIndex]);
+}
+
+void TestMonNameLength(void)
+{
+    u32 width = 0;
+    u32 previousRecord = 0;
+
+    for (int i = 0; i < SPECIES_RAYQUAZA; i++)
+    {
+        width = GetStringWidth(FONT_YOSHI, GetSpeciesName(i), 0);
+
+        if (width > previousRecord)
+        {
+            previousRecord = width;
+            DebugPrintf("Longest name is %S", GetSpeciesName(i));
+        }
+    }
+}
+
+void CheckMetatileAt(struct ScriptContext *ctx)
+{
+    u32 varIdX = ScriptReadHalfword(ctx);
+    u32 varIdY = ScriptReadHalfword(ctx);
+
+    Script_RequestEffects(SCREFF_V1);
+    Script_RequestWriteVar(varIdX);
+    Script_RequestWriteVar(varIdY);
+
+    u16 *pX = GetVarPointer(varIdX);
+    u16 *pY = GetVarPointer(varIdY);
+
+    gSpecialVar_Result = MapGridGetMetatileBehaviorAt(*pX, *pY);
+    return;
+}
+
+bool8 ScrCmd_setvarid(struct ScriptContext *ctx)
+{
+    u16 varId = ScriptReadHalfword(ctx);
+
+    gSaveBlock1Ptr->varId = varId;
+    return FALSE;
+}
+
+bool8 ScrCmd_setcustomvar(struct ScriptContext *ctx)
+{
+    u16 value = VarGet(ScriptReadHalfword(ctx));
+
+    VarSet(gSaveBlock1Ptr->varId, value);
+
+    return FALSE;
+}
+
+bool8 ScrCmd_getcustomvar(struct ScriptContext *ctx)
+{
+    gSpecialVar_Result = VarGet(gSaveBlock1Ptr->varId);
+
+    return FALSE;
+}
+
+void RestorePPs(void)
+{
+    MonRestorePP(&gPlayerParty[0]);
 }

@@ -1,7 +1,7 @@
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
-const VAR_WATEREGG_1 = VAR_TEMP_3
+const VAR_WATEREGG = VAR_TEMP_3
 const VAR_SLOPE = VAR_TEMP_4
 const VAR_TRIGGER = VAR_TEMP_5
 
@@ -13,7 +13,7 @@ mapscripts EggIsland_Exterior_MapScripts {
         if (var(VAR_X) == 50 && var(VAR_Y) == 54){ call(SetUpAreaOne) }
         elif (var(VAR_X) == 19 && var(VAR_Y) == 57){ call(SetUpAreaTwo) }
         elif (var(VAR_X) == 61 && var(VAR_Y) == 30){ call(SetUpAreaTwo) }
-        elif (var(VAR_X) == 19 && var(VAR_Y) == 57){ call(SetUpAreaFinal) }
+        elif (var(VAR_X) == 50 && var(VAR_Y) == 20){ call(SetUpAreaFinal) }
         else { call(SetUpAreaOne) }
 
         if(hasmonitem(0, ITEM_STRENGTH_GLOVES)){
@@ -51,13 +51,13 @@ script SetUpAreaOne{
     setvar(VAR_MUSHROOM_LOCATION, 0)
 }
 script SetUpAreaTwo{
-    setvar(VAR_AI_FLAGS, 2)
+    setvar(VAR_AI_FLAGS, 1)
     setvar(VAR_MUSHROOM_LOCATION, 2)
 }
 script SetUpAreaFinal{
     setobjectxyperm(LOCALID_KAMEK, 40, 8)
     setobjectmovementtype(LOCALID_KAMEK, MOVEMENT_TYPE_FACE_DOWN)
-    setvar(VAR_AI_FLAGS, 4)
+    setvar(VAR_AI_FLAGS, 2)
     setvar(VAR_MUSHROOM_LOCATION, 0)
 }
 
@@ -227,9 +227,7 @@ script MachopScript1{
     msgbox(MachopScript1_Text3)
     clearflag(FLAG_DISABLE_ENCOUNTERS)
     clearflag(FLAG_STOP_EXP)
-    setmonmove(0, 0, MOVE_CHUCK_EGG)
-    setmonmove(0, 1, MOVE_LICK_BERRY)
-    setmonmove(0, 2, MOVE_CALL_DIGLETT)
+    call(SetYoshiMoves)
     special(HealPlayerParty)
     callnative(DoInitialSave)
     release
@@ -296,6 +294,21 @@ script RemoveMurkrow{
     releaseall
 }
 
+script GeodudeBattle{
+	trainerbattle_single(TRAINER_TIMMY, "The underground belongs to us!\nOff with you!", "N/A", RemoveMurkrow)
+	end
+}
+
+script RemoveGeodude{
+    cleartrainerflag(TRAINER_TIMMY)
+    clearflag(FLAG_NO_RUNNING)
+    applymovement(VAR_LAST_TALKED, Movement_ObjectDisappears)
+    waitmovement(0)
+    removeobject(VAR_LAST_TALKED)
+    release
+    releaseall
+}
+
 movement Movement_ObjectDisappears{
 	set_invisible
 	delay_4
@@ -353,6 +366,7 @@ script SkarmoryTriggerMain{
     callnative(CreateStrongMon)
     createmon(1, 0, SPECIES_SKARMORY, VAR_0x8000)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setflag(FLAG_NO_RUNNING)
     setspeaker("Skarmory")
     msgbox("What delicious lookings eggs\nyou have there.\lHand them over!", MSGBOX_AUTOCLOSE)
     special(StartSpecialBattle)
@@ -370,6 +384,17 @@ script SuperMushroomUpgrade{
     waitmessage
     removeobject(LOCALID_SUPERMUSHROOMUPGRADE)
 	msgbox("Super Mushrooms now recover\nup to 50% more HP.")
+    release
+}
+
+script TongueUpgrade{
+    playfanfare(MUS_OBTAIN_ITEM)
+	message("Yoshi obtained the\nTongue Upgrade!")
+	delay(10)
+	waitfanfare
+    waitmessage
+    removeobject(VAR_LAST_TALKED)
+	msgbox("Tongue Attack's Power\nis greatly increased.")
     release
 }
 
@@ -542,6 +567,7 @@ script PrimeapeEncounter{
     callnative(CreateStrongMon)
     createmon(1, 0, SPECIES_PRIMEAPE, VAR_0x8000)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setflag(FLAG_NO_RUNNING)
     setspeaker("Primeape")
     msgbox("I SAW IT FIRST!\nGET BACK!", MSGBOX_AUTOCLOSE)
     special(StartSpecialBattle)
@@ -558,6 +584,7 @@ script HonchkrowScript{
     createmon(1, 0, SPECIES_HONCHKROW, VAR_0x8000)
     msgbox("The new boss man says to\nnot let anybody through!", MSGBOX_AUTOCLOSE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
+    setflag(FLAG_NO_RUNNING)
     special(StartSpecialBattle)
     applymovement(LOCALID_HONCHKROW, Movement_ObjectDisappears)
     waitmovement(0)

@@ -95,6 +95,9 @@
     },
     "hasmonitem": {
       "var_name": "VAR_RESULT"
+    },
+    "checkmetatileat": {
+      "var_name": "VAR_RESULT"
     }
   }
 }

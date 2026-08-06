@@ -1060,6 +1060,7 @@ struct SaveBlock1
 #if FNPC_ENABLE_NPC_FOLLOWERS
     struct NPCFollower NPCfollower;
 #endif
+    u16 varId;
     // sizeof: 0x3???
 };
 
