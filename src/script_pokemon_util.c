@@ -172,7 +172,7 @@ void ScriptSetMonMoveSlot(u8 monIndex, enum Move move, u8 slot)
 // TRUE if the party selection was successful.
 void ChooseHalfPartyForBattle(void)
 {
-    gMain.savedCallback = CB2_ReturnFromChooseHalfParty;
+    gMain.savedCallback = CB2_ReturnFromChooseHalfParty;//wip
     VarSet(VAR_FRONTIER_FACILITY, FACILITY_MULTI_OR_EREADER);
     InitChooseHalfPartyForBattle(0);
 }
