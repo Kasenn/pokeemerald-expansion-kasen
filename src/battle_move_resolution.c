@@ -1621,7 +1621,10 @@ static enum CancelerResult CancelerInterruptibleMoves(struct BattleCalcValues *c
         if (gCurrentMove == MOVE_DOOM_DESIRE)
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOOM_DESIRE;
         else if (gCurrentMove == MOVE_CALL_DIGLETT)
+        {
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_CALL_DIGLETT;
+            gBattleStruct->futureSight[cv->battlerDef].counter = 2;
+        }
         else
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_FUTURE_SIGHT;
 

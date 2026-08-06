@@ -473,7 +473,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
 
     [ABILITY_BIG_BOSS] = 
     {
-        .name = _("Big Boss"),
+        .name = _("Boss Man"),
         .description = COMPOUND_STRING("Sometimes removes effects."),
         .aiRating = 7,
         .cantBeCopied = TRUE,

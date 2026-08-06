@@ -228,10 +228,8 @@ static u64 GetWildAiFlags(void)
     switch (VarGet(VAR_AI_FLAGS))
     {
     case 0: flags |= AI_FLAG_CHECK_BAD_MOVE; break;
-    case 1: flags |= AI_FLAG_CHECK_BAD_MOVE; break;
-    case 2: flags |= AI_FLAG_CHECK_BAD_MOVE; flags |= AI_FLAG_CHECK_VIABILITY; break;
-    case 3: flags |= AI_FLAG_CHECK_BAD_MOVE; flags |= AI_FLAG_CHECK_VIABILITY; break;
-    case 4: flags |= (AI_FLAG_SMART_TRAINER); break;
+    case 1: flags |= AI_FLAG_CHECK_BAD_MOVE; flags |= AI_FLAG_CHECK_VIABILITY; break;
+    case 2: flags |= (AI_FLAG_SMART_TRAINER); break;
     default: break;
     }
 
