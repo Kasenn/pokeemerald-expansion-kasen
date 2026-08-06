@@ -577,6 +577,8 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPal_Kamek2,                OBJ_EVENT_PAL_TAG_KAMEK2},
     {gObjectEventPal_WaterEgg,              OBJ_EVENT_PAL_TAG_WATEREGG},
     {gObjectEventPal_AwakeSnorlax,          OBJ_EVENT_PAL_TAG_AWAKE_SNORLAX},
+    {gObjectEventPal_GroundEgg,             OBJ_EVENT_PAL_TAG_GROUND_EGG},
+    {gObjectEventPal_Geodude,               OBJ_EVENT_PAL_TAG_GEODUDE},
 #if OW_FOLLOWERS_POKEBALLS
     {gObjectEventPal_MasterBall,            OBJ_EVENT_PAL_TAG_BALL_MASTER},
     {gObjectEventPal_UltraBall,             OBJ_EVENT_PAL_TAG_BALL_ULTRA},

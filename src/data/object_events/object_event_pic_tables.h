@@ -3136,3 +3136,11 @@ static const struct SpriteFrameImage sPicTable_WaterEgg[] = {
 static const struct SpriteFrameImage sPicTable_AwakeSnorlax[] = {
     overworld_ascending_frames(gObjectEventPic_AwakeSnorlax, 4, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_GroundEgg[] = {
+    overworld_ascending_frames(gObjectEventPic_GroundEgg, 2, 2),
+};
+
+static const struct SpriteFrameImage sPicTable_Geodude2[] = {
+    overworld_ascending_frames(gObjectEventPic_Geodude2, 4, 4),
+};

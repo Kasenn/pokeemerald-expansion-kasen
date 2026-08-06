@@ -687,3 +687,8 @@ const u16 gObjectEventPal_WaterEgg[] = INCGFX_U16("graphics/object_events/pics/p
 const u16 gObjectEventPic_WaterEgg[] = INCGFX_U16("graphics/object_events/pics/people/wateregg.png", ".4bpp", "-mwidth 4 -mheight 4");
 const u16 gObjectEventPal_AwakeSnorlax[] = INCGFX_U16("graphics/object_events/pics/people/awakesnorlax.png", ".gbapal");
 const u16 gObjectEventPic_AwakeSnorlax[] = INCGFX_U16("graphics/object_events/pics/people/awakesnorlax.png", ".4bpp", "-mwidth 4 -mheight 4");
+
+const u16 gObjectEventPal_GroundEgg[] = INCGFX_U16("graphics/object_events/pics/people/groundegg.png", ".gbapal");
+const u16 gObjectEventPic_GroundEgg[] = INCGFX_U16("graphics/object_events/pics/people/groundegg.png", ".4bpp", "-mwidth 2 -mheight 2");
+const u16 gObjectEventPal_Geodude[] = INCGFX_U16("graphics/object_events/pics/people/geodude2.png", ".gbapal");
+const u16 gObjectEventPic_Geodude2[] = INCGFX_U16("graphics/object_events/pics/people/geodude2.png", ".4bpp", "-mwidth 4 -mheight 4");

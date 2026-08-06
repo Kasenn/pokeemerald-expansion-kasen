@@ -7300,7 +7300,7 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Diglett = {
     .subspriteTables = sOamTables_32x32,
     .paletteTag = OBJ_EVENT_PAL_TAG_DIGLETT,
     .tracks = TRACKS_FOOT,
-    .anims = sAnimTable_Standard,
+    .anims = sAnimTable_Diglett,
     .images = sPicTable_Diglett2,
 };
 
@@ -7518,4 +7518,31 @@ const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_AwakeSnorlax = {
     .subspriteTables = sOamTables_32x32,
     .anims = sAnimTable_Standard,
     .images = sPicTable_AwakeSnorlax,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_GroundEgg = {
+    .tileTag = TAG_NONE,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GROUND_EGG,
+    .reflectionPaletteTag = OBJ_EVENT_PAL_TAG_BRIDGE_REFLECTION,
+    .size = 128,
+    .width = 16,
+    .height = 16,
+    .paletteSlot = PALSLOT_NPC_SPECIAL,
+    .shadowSize = SHADOW_SIZE_M,
+    .inanimate = TRUE,
+    .compressed = FALSE,
+    .tracks = TRACKS_FOOT,
+    .oam = &gObjectEventBaseOam_16x16,
+    .subspriteTables = sOamTables_16x16,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_GroundEgg,
+};
+
+const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Geodude = {
+    BASE_OBJEVENT_INFO,
+    .subspriteTables = sOamTables_32x32,
+    .paletteTag = OBJ_EVENT_PAL_TAG_GEODUDE,
+    .tracks = TRACKS_FOOT,
+    .anims = sAnimTable_Standard,
+    .images = sPicTable_Geodude2,
 };

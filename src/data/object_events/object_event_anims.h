@@ -1466,6 +1466,26 @@ static const union AnimCmd *const sAnimTable_GameOver[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GameOver,
 };
 
+static const union AnimCmd sAnim_DiglettDig[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(9, 2),
+    ANIMCMD_FRAME(10, 2),
+    ANIMCMD_FRAME(11, 2),
+    ANIMCMD_FRAME(12, 2),
+    ANIMCMD_FRAME(13, 2),
+    ANIMCMD_FRAME(14, 2),
+    ANIMCMD_FRAME(15, 2),
+    ANIMCMD_FRAME(16, 2),
+    ANIMCMD_FRAME(17, 2),
+    ANIMCMD_FRAME(18, 2),
+    ANIMCMD_FRAME(19, 2),
+    ANIMCMD_FRAME(20, 2),
+    ANIMCMD_FRAME(21, 2),
+    ANIMCMD_FRAME(22, 2),
+    ANIMCMD_END,
+};
+
 static const union AnimCmd sAnim_WaterEggSink[] =
 {
     ANIMCMD_FRAME(8, 1),
@@ -1501,6 +1521,30 @@ static const union AnimCmd *const sAnimTable_WaterEgg[] = {
     [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
     [ANIM_NURSE_BOW] = sAnim_WaterEggSink,
+};
+
+static const union AnimCmd *const sAnimTable_Diglett[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
+    [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,
+    [ANIM_STD_FACE_WEST] = sAnim_FaceWest,
+    [ANIM_STD_FACE_EAST] = sAnim_FaceEast,
+    [ANIM_STD_GO_SOUTH] = sAnim_GoSouth,
+    [ANIM_STD_GO_NORTH] = sAnim_GoNorth,
+    [ANIM_STD_GO_WEST] = sAnim_GoWest,
+    [ANIM_STD_GO_EAST] = sAnim_GoEast,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_GoFastSouth,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_GoFastNorth,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_GoFastWest,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_GoFastEast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_GoFasterSouth,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_GoFasterNorth,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_GoFasterWest,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_GoFasterEast,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_GoFastestSouth,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_GoFastestNorth,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_GoFastestWest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_GoFastestEast,
+    [ANIM_NURSE_BOW] = sAnim_DiglettDig,
 };
 
 static const union AnimCmd *const sAnimTable_Standard[] = {
