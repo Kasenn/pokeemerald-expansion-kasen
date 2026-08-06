@@ -914,6 +914,7 @@ enum __attribute__((packed)) Move
     MOVE_ILLUSION,
     MOVE_BEWITCHING_RAY,
     MOVE_CALL_DIGLETT,
+    MOVE_LICK_BERRY_STRONG,
 
     // Add any custom moves here, not further down!
 

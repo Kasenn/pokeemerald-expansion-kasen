@@ -23849,6 +23849,33 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
+    [MOVE_LICK_BERRY_STRONG] =
+    {
+        .name = COMPOUND_STRING("Tongue Attack"),
+        .additionalEffects = ADDITIONAL_EFFECTS({
+            .moveEffect = MOVE_EFFECT_BUG_BITE,
+        }),
+        .description = COMPOUND_STRING(
+            "Licks with a long tongue to\n"
+            "eat a foe's held Berry."),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Lick,
+        .validApprenticeMove = TRUE,
+    },
+
     [MOVE_CALL_DIGLETT] =
     {
         .name = COMPOUND_STRING("Call Diglett"),
