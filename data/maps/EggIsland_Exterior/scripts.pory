@@ -163,7 +163,7 @@ script MachopIntro4{
 script MachopIntroMain{
     playbgm(MUS_HELP, FALSE)
     setspeaker("Lean Man")
-    msgbox("You there!\nYou've come at the perfect time!\pCome help me deal with\nthis scoundrel!", MSGBOX_AUTOCLOSE)
+    msgbox("You there! You've come\nat the perfect time!\pCome help me deal with\nthis scoundrel!", MSGBOX_AUTOCLOSE)
     delay(10)
     if(var(VAR_MACHOP_INTRO) == 1)
     {
@@ -207,10 +207,6 @@ script MachopIntroMain{
     removeobject(LOCALID_INTRO_MURKROW)
     setobjectmovementtype(LOCALID_MACHOP1, MOVEMENT_TYPE_LOOK_AROUND)
     setvar(VAR_STORY, 3)
-    setflag(FLAG_MUSHROOMS_UNLOCKED)
-    callnative(RandomizeMushroomScript)
-    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
-    clearflag(FLAG_MUSHROOM_PICKED_UP)
     callnative(DoInitialSave)
 }
 
@@ -231,6 +227,10 @@ script MachopScript1{
     msgbox(MachopScript1_Text3)
     clearflag(FLAG_DISABLE_ENCOUNTERS)
     clearflag(FLAG_STOP_EXP)
+    setflag(FLAG_MUSHROOMS_UNLOCKED)
+    callnative(RandomizeMushroomScript)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    clearflag(FLAG_MUSHROOM_PICKED_UP)
     call(SetYoshiMoves)
     special(HealPlayerParty)
     callnative(DoInitialSave)

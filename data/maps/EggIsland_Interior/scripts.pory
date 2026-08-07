@@ -458,8 +458,8 @@ script SetEggOnPedestal{
         end
     }
     removeegg(VAR_0x8004)
-    setcustomvar(VAR_0x800A)
-    delay(32)
+    setcustomvartovar(VAR_0x800A)
+    callnative(ForceResetFollowers)
     if(var(VAR_X) == SWITCH_1_X && var(VAR_Y) == SWITCH_1_Y){
         clearflag(FLAG_GROUNDEGG_1)
         setobjectxyperm(LOCALID_EGG_1, VAR_X, VAR_Y)
@@ -517,6 +517,7 @@ script SetEggOnPedestal{
     }
     msgbox(SetEggOnPedestal_Text3)
     release
+    end
 }
 text SetEggOnPedestal_Text{
     "There seems to be a weighted\n"

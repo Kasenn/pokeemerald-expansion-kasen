@@ -3004,6 +3004,12 @@
 	.2byte \value
 	.endm
 
+	.macro setcustomvartovar, value:req
+	callnative ScrCmd_setcustomvartovar
+	.2byte \value
+	.endm
+
+
 	.macro getcustomvar
 	callnative ScrCmd_getcustomvar
 	.endm

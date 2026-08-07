@@ -5024,7 +5024,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_SPITE] =
+    [MOVE_SPITE] = //wip
     {
         .name = COMPOUND_STRING("Spite"),
         .description = COMPOUND_STRING(
@@ -7967,7 +7967,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_GRUDGE] =
+    [MOVE_GRUDGE] = //wip
     {
         .name = COMPOUND_STRING("Grudge"),
         .description = COMPOUND_STRING(
@@ -19943,7 +19943,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_AstralBarrage,
     },
 
-    [MOVE_EERIE_SPELL] =
+    [MOVE_EERIE_SPELL] =//wip
     {
         .name = COMPOUND_STRING("Eerie Spell"),
         .description = COMPOUND_STRING(

@@ -57,6 +57,7 @@ script EventScript_LootMushroom{
     clearflag(FLAG_MUSHROOM_PICKED_UP)
     clearflag(FLAG_MUSHROOM_PICKED_UP2)
     if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        lockall
         waitmoncry
         setflag(FLAG_INTRODUCTION_TO_MUSHROOMS)
         call(SetYoshiMoves)
@@ -269,6 +270,7 @@ text TryCrossingTheRiver{
 }
 
 script SavePointTrigger{
+    lockall
     playse(SE_ICE_STAIRS)
     fadescreenspeed(FADE_TO_BLUE, -2)
     delay(15)
@@ -466,7 +468,7 @@ script MakeEggBridge{
     setmetatile(26, 36, 0x238, FALSE)
     setmetatile(26, 35, 0x238, FALSE)
     setmetatile(26, 34, 0x238, FALSE)
-    setmetatile(26, 33, 0x238, FALSE)
+    setmetatile(26, 33, 0x239, FALSE)
     special(DrawWholeMapView)
     removeobject(LOCALID_BRIDGEEGG_1)
     removeobject(LOCALID_BRIDGEEGG_2)

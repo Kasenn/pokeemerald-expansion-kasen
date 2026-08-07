@@ -123,7 +123,7 @@ SetUpInteriorAreaTwo::
 # 86 "data/maps/EggIsland_Interior/scripts.pory"
 	setvar VAR_AI_FLAGS, 1
 # 87 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_ENCOUNTER_TABLE, 2
+	setvar VAR_ENCOUNTER_TABLE, 3
 	return
 
 
@@ -1046,9 +1046,9 @@ SetEggOnPedestal::
 # 460 "data/maps/EggIsland_Interior/scripts.pory"
 	removeegg VAR_0x8004
 # 461 "data/maps/EggIsland_Interior/scripts.pory"
-	setcustomvar VAR_0x800A
+	setcustomvartovar VAR_0x800A
 # 462 "data/maps/EggIsland_Interior/scripts.pory"
-	delay 32
+	callnative ForceResetFollowers
 # 463 "data/maps/EggIsland_Interior/scripts.pory"
 	compare VAR_TEMP_0, 47
 	goto_if_eq SetEggOnPedestal_11
@@ -1097,7 +1097,7 @@ SetEggOnPedestal_59:
 	msgbox SetEggOnPedestal_Text3
 # 519 "data/maps/EggIsland_Interior/scripts.pory"
 	release
-	return
+	end
 
 SetEggOnPedestal_2:
 # 450 "data/maps/EggIsland_Interior/scripts.pory"
@@ -1276,436 +1276,638 @@ SetEggOnPedestal_61:
 
 
 Script_GroundEgg1::
-# 536 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_1
 # 537 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_1
+	setvarid VAR_ROCKPLATE_1
 # 538 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_1
+# 539 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg2::
-# 541 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_2
 # 542 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_2
+	setvarid VAR_ROCKPLATE_2
 # 543 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_2
+# 544 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg3::
-# 546 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_3
 # 547 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_3
+	setvarid VAR_ROCKPLATE_3
 # 548 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_3
+# 549 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg4::
-# 551 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_4
 # 552 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_4
+	setvarid VAR_ROCKPLATE_4
 # 553 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_4
+# 554 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg5::
-# 556 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_5
 # 557 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_5
+	setvarid VAR_ROCKPLATE_5
 # 558 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_5
+# 559 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg6::
-# 561 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_6
 # 562 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_6
+	setvarid VAR_ROCKPLATE_6
 # 563 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_6
+# 564 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg7::
-# 566 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_7
 # 567 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_7
+	setvarid VAR_ROCKPLATE_7
 # 568 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_7
+# 569 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg8::
-# 571 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_8
 # 572 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_8
+	setvarid VAR_ROCKPLATE_8
 # 573 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_8
+# 574 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg9::
-# 576 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_9
 # 577 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_9
+	setvarid VAR_ROCKPLATE_9
 # 578 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_9
+# 579 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg10::
-# 581 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_10
 # 582 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_10
+	setvarid VAR_ROCKPLATE_10
 # 583 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_10
+# 584 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 Script_GroundEgg11::
-# 586 "data/maps/EggIsland_Interior/scripts.pory"
-	setvarid VAR_ROCKPLATE_11
 # 587 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_TEMP_6, LOCALID_EGG_11
+	setvarid VAR_ROCKPLATE_11
 # 588 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_TEMP_6, LOCALID_EGG_11
+# 589 "data/maps/EggIsland_Interior/scripts.pory"
 	goto GroundEggMain
 	return
 
 
 GroundEggMain::
-# 592 "data/maps/EggIsland_Interior/scripts.pory"
-	counteggs
 # 593 "data/maps/EggIsland_Interior/scripts.pory"
+	counteggs
+# 594 "data/maps/EggIsland_Interior/scripts.pory"
 	compare VAR_0x8001, 5
 	goto_if_ge GroundEggMain_2
 	msgbox GroundEggMain_Text2, MSGBOX_YESNO
 # 0 "data/maps/EggIsland_Interior/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq GroundEggMain_5
-# 601 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox GroundEggMain_Text_0, MSGBOX_AUTOCLOSE
 # 602 "data/maps/EggIsland_Interior/scripts.pory"
-	getcustomvar
+	msgbox GroundEggMain_Text_0, MSGBOX_AUTOCLOSE
 # 603 "data/maps/EggIsland_Interior/scripts.pory"
-	giveegg VAR_RESULT
+	getcustomvar
 # 604 "data/maps/EggIsland_Interior/scripts.pory"
-	special CalculatePlayerPartyCount
+	giveegg VAR_RESULT
 # 605 "data/maps/EggIsland_Interior/scripts.pory"
-	callnative UpdateEggPP
+	special CalculatePlayerPartyCount
 # 606 "data/maps/EggIsland_Interior/scripts.pory"
-	callnative UpdateFollowingPokemon
+	callnative UpdateEggPP
 # 607 "data/maps/EggIsland_Interior/scripts.pory"
-	removeobject VAR_LAST_TALKED
+	callnative UpdateFollowingPokemon
 # 608 "data/maps/EggIsland_Interior/scripts.pory"
-	switch VAR_TEMP_6
+	removeobject VAR_LAST_TALKED
 # 609 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_1, GroundEggMain_8
+	switch VAR_TEMP_6
 # 610 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_2, GroundEggMain_9
+	case LOCALID_EGG_1, GroundEggMain_8
 # 611 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_3, GroundEggMain_10
+	case LOCALID_EGG_2, GroundEggMain_9
 # 612 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_4, GroundEggMain_11
+	case LOCALID_EGG_3, GroundEggMain_10
 # 613 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_5, GroundEggMain_12
+	case LOCALID_EGG_4, GroundEggMain_11
 # 614 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_6, GroundEggMain_13
+	case LOCALID_EGG_5, GroundEggMain_12
 # 615 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_7, GroundEggMain_14
+	case LOCALID_EGG_6, GroundEggMain_13
 # 616 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_8, GroundEggMain_15
+	case LOCALID_EGG_7, GroundEggMain_14
 # 617 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_9, GroundEggMain_16
+	case LOCALID_EGG_8, GroundEggMain_15
 # 618 "data/maps/EggIsland_Interior/scripts.pory"
-	case LOCALID_EGG_10, GroundEggMain_17
+	case LOCALID_EGG_9, GroundEggMain_16
 # 619 "data/maps/EggIsland_Interior/scripts.pory"
+	case LOCALID_EGG_10, GroundEggMain_17
+# 620 "data/maps/EggIsland_Interior/scripts.pory"
 	case LOCALID_EGG_11, GroundEggMain_18
 	return
 
 GroundEggMain_2:
-# 594 "data/maps/EggIsland_Interior/scripts.pory"
+# 595 "data/maps/EggIsland_Interior/scripts.pory"
 	msgbox GroundEggMain_Text1, MSGBOX_AUTOCLOSE
 	end
 
 GroundEggMain_5:
-# 598 "data/maps/EggIsland_Interior/scripts.pory"
+# 599 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	end
 
 GroundEggMain_8:
-# 609 "data/maps/EggIsland_Interior/scripts.pory"
+# 610 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch1
 	return
 
 GroundEggMain_9:
-# 610 "data/maps/EggIsland_Interior/scripts.pory"
+# 611 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch2
 	return
 
 GroundEggMain_10:
-# 611 "data/maps/EggIsland_Interior/scripts.pory"
+# 612 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch3
 	return
 
 GroundEggMain_11:
-# 612 "data/maps/EggIsland_Interior/scripts.pory"
+# 613 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch4
 	return
 
 GroundEggMain_12:
-# 613 "data/maps/EggIsland_Interior/scripts.pory"
+# 614 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch5
 	return
 
 GroundEggMain_13:
-# 614 "data/maps/EggIsland_Interior/scripts.pory"
+# 615 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch6
 	return
 
 GroundEggMain_14:
-# 615 "data/maps/EggIsland_Interior/scripts.pory"
+# 616 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch7
 	return
 
 GroundEggMain_15:
-# 616 "data/maps/EggIsland_Interior/scripts.pory"
+# 617 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch8
 	return
 
 GroundEggMain_16:
-# 617 "data/maps/EggIsland_Interior/scripts.pory"
+# 618 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch9
 	return
 
 GroundEggMain_17:
-# 618 "data/maps/EggIsland_Interior/scripts.pory"
+# 619 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch10
 	return
 
 GroundEggMain_18:
-# 619 "data/maps/EggIsland_Interior/scripts.pory"
+# 620 "data/maps/EggIsland_Interior/scripts.pory"
 	goto SteppedOffofSwitch11
 	return
 
 
 AITrigger0::
-# 634 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_MUSHROOM_LOCATION, 1
 # 635 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_AI_FLAGS, 0
+	setvar VAR_MUSHROOM_LOCATION, 1
 # 636 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_ENCOUNTER_TABLE, 1
+	setvar VAR_AI_FLAGS, 0
 # 637 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_ENCOUNTER_TABLE, 1
+# 638 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
 
 AITrigger1::
-# 641 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_MUSHROOM_LOCATION, 3
 # 642 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_AI_FLAGS, 1
+	setvar VAR_MUSHROOM_LOCATION, 3
 # 643 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_ENCOUNTER_TABLE, 3
+	setvar VAR_AI_FLAGS, 1
 # 644 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_ENCOUNTER_TABLE, 3
+# 645 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
 
 GripGloves::
-# 648 "data/maps/EggIsland_Interior/scripts.pory"
-	playfanfare MUS_OBTAIN_ITEM
 # 649 "data/maps/EggIsland_Interior/scripts.pory"
-	message GripGloves_Text_0
+	playfanfare MUS_OBTAIN_ITEM
 # 650 "data/maps/EggIsland_Interior/scripts.pory"
-	delay 10
+	message GripGloves_Text_0
 # 651 "data/maps/EggIsland_Interior/scripts.pory"
-	waitfanfare
+	delay 10
 # 652 "data/maps/EggIsland_Interior/scripts.pory"
-	waitmessage
+	waitfanfare
 # 653 "data/maps/EggIsland_Interior/scripts.pory"
-	removeobject VAR_LAST_TALKED
+	waitmessage
 # 654 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox GripGlovesDescription
+	removeobject VAR_LAST_TALKED
 # 655 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox GripGlovesDescription
+# 656 "data/maps/EggIsland_Interior/scripts.pory"
 	callnative EquipGripGloves
 	return
 
 
 TriggerHelpDiglett::
-# 659 "data/maps/EggIsland_Interior/scripts.pory"
-	playbgm MUS_HELP, FALSE
 # 660 "data/maps/EggIsland_Interior/scripts.pory"
-	turnobject LOCALID_DIGLETT, DIR_WEST
+	playbgm MUS_HELP, FALSE
 # 661 "data/maps/EggIsland_Interior/scripts.pory"
-	playse SE_PIN
+	turnobject LOCALID_DIGLETT, DIR_WEST
 # 662 "data/maps/EggIsland_Interior/scripts.pory"
-	applymovement LOCALID_DIGLETT, Common_Movement_ExclamationMark
+	playse SE_PIN
 # 663 "data/maps/EggIsland_Interior/scripts.pory"
-	waitse
+	applymovement LOCALID_DIGLETT, Common_Movement_ExclamationMark
 # 664 "data/maps/EggIsland_Interior/scripts.pory"
-	waitmovement 0
+	waitse
 # 665 "data/maps/EggIsland_Interior/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_EAST
+	waitmovement 0
 # 666 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker TriggerHelpDiglett_Text_0
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 667 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox TriggerHelpDiglett_Text_1, MSGBOX_AUTOCLOSE
+	setspeaker TriggerHelpDiglett_Text_0
 # 668 "data/maps/EggIsland_Interior/scripts.pory"
-	turnobject LOCALID_DIGLETT, DIR_SOUTH
+	msgbox TriggerHelpDiglett_Text_1, MSGBOX_AUTOCLOSE
 # 669 "data/maps/EggIsland_Interior/scripts.pory"
+	turnobject LOCALID_DIGLETT, DIR_SOUTH
+# 670 "data/maps/EggIsland_Interior/scripts.pory"
 	setvar VAR_STORY, 4
 	return
 
 
 DontLeaveDiglett::
-# 673 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker TriggerHelpDiglett_Text_0
 # 674 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox DontLeaveDiglett_Text_0, MSGBOX_AUTOCLOSE
+	setspeaker TriggerHelpDiglett_Text_0
 # 675 "data/maps/EggIsland_Interior/scripts.pory"
-	applymovement LOCALID_PLAYER, DontLeaveDiglett_Movement_0
+	msgbox DontLeaveDiglett_Text_0, MSGBOX_AUTOCLOSE
 # 676 "data/maps/EggIsland_Interior/scripts.pory"
-	waitmovement 0
+	applymovement LOCALID_PLAYER, DontLeaveDiglett_Movement_0
 # 677 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 678 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
 
 Sandshrew1::
-# 681 "data/maps/EggIsland_Interior/scripts.pory"
-	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
 # 682 "data/maps/EggIsland_Interior/scripts.pory"
-	faceplayer
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
 # 683 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker Sandshrew1_Text_0
+	faceplayer
 # 684 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox Sandshrew1_LetsBattle, MSGBOX_DEFAULT
+	setspeaker Sandshrew1_Text_0
 # 685 "data/maps/EggIsland_Interior/scripts.pory"
-	callnative CreateStrongMon
+	msgbox Sandshrew1_LetsBattle, MSGBOX_DEFAULT
 # 686 "data/maps/EggIsland_Interior/scripts.pory"
-	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000
+	callnative CreateStrongMon
 # 687 "data/maps/EggIsland_Interior/scripts.pory"
-	special StartSpecialBattle
+	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1 = MOVE_MAGNITUDE, move2 = MOVE_SWIFT, move3 = MOVE_ROLLOUT, move4 = MOVE_RAPID_SPIN
 # 688 "data/maps/EggIsland_Interior/scripts.pory"
+	special StartSpecialBattle
+# 689 "data/maps/EggIsland_Interior/scripts.pory"
 	goto Sandshrew2Attacks
 	return
 
 
 Sandshrew2::
-# 692 "data/maps/EggIsland_Interior/scripts.pory"
-	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
 # 693 "data/maps/EggIsland_Interior/scripts.pory"
-	faceplayer
+	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
 # 694 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker Sandshrew1_Text_0
+	faceplayer
 # 695 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox Sandshrew2_LetsBattle, MSGBOX_DEFAULT
+	setspeaker Sandshrew1_Text_0
 # 696 "data/maps/EggIsland_Interior/scripts.pory"
-	callnative CreateStrongMon
+	msgbox Sandshrew2_LetsBattle, MSGBOX_DEFAULT
 # 697 "data/maps/EggIsland_Interior/scripts.pory"
-	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000
+	callnative CreateStrongMon
 # 698 "data/maps/EggIsland_Interior/scripts.pory"
-	special StartSpecialBattle
+	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1 = MOVE_MAGNITUDE, move2 = MOVE_SWIFT, move3 = MOVE_ROLLOUT, move4 = MOVE_RAPID_SPIN
 # 699 "data/maps/EggIsland_Interior/scripts.pory"
+	special StartSpecialBattle
+# 700 "data/maps/EggIsland_Interior/scripts.pory"
 	goto Sandshrew1Attacks
 	return
 
 
 Sandshrew1Attacks::
+# 710 "data/maps/EggIsland_Interior/scripts.pory"
+	delay 16
+# 711 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW2, Movement_ObjectDisappears
+# 712 "data/maps/EggIsland_Interior/scripts.pory"
+	removeobject LOCALID_SANDSHREW2
+# 713 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 714 "data/maps/EggIsland_Interior/scripts.pory"
+	playse SE_PIN
+# 715 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW1, Common_Movement_ExclamationMark
+# 716 "data/maps/EggIsland_Interior/scripts.pory"
+	waitse
+# 717 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 718 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW1, Sandshrew1Attacks_Movement_0
+# 719 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 720 "data/maps/EggIsland_Interior/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
+# 721 "data/maps/EggIsland_Interior/scripts.pory"
+	delay 8
+# 722 "data/maps/EggIsland_Interior/scripts.pory"
+	setspeaker Sandshrew1_Text_0
+# 723 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox Sandshrew1Attacks_Text_0
+# 724 "data/maps/EggIsland_Interior/scripts.pory"
+	callnative CreateStrongMon
+# 725 "data/maps/EggIsland_Interior/scripts.pory"
+	addvar VAR_0x8000, 3
+# 726 "data/maps/EggIsland_Interior/scripts.pory"
+	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1 = MOVE_EARTHQUAKE, move2 = MOVE_SLASH, move3 = MOVE_ROLLOUT, move4 = MOVE_GYRO_BALL
+# 727 "data/maps/EggIsland_Interior/scripts.pory"
+	special StartSpecialBattle
+# 728 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW1, Movement_ObjectDisappears
+# 729 "data/maps/EggIsland_Interior/scripts.pory"
+	removeobject LOCALID_SANDSHREW1
+# 730 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 731 "data/maps/EggIsland_Interior/scripts.pory"
+	goto SandshrewFinale
 	return
 
 
 Sandshrew2Attacks::
+# 734 "data/maps/EggIsland_Interior/scripts.pory"
+	delay 16
+# 735 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW1, Movement_ObjectDisappears
+# 736 "data/maps/EggIsland_Interior/scripts.pory"
+	removeobject LOCALID_SANDSHREW1
+# 737 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 738 "data/maps/EggIsland_Interior/scripts.pory"
+	playse SE_PIN
+# 739 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW2, Common_Movement_ExclamationMark
+# 740 "data/maps/EggIsland_Interior/scripts.pory"
+	waitse
+# 741 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 742 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW2, Sandshrew2Attacks_Movement_0
+# 743 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 744 "data/maps/EggIsland_Interior/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+# 745 "data/maps/EggIsland_Interior/scripts.pory"
+	delay 8
+# 746 "data/maps/EggIsland_Interior/scripts.pory"
+	setspeaker Sandshrew1_Text_0
+# 747 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox Sandshrew1Attacks_Text_0
+# 748 "data/maps/EggIsland_Interior/scripts.pory"
+	callnative CreateStrongMon
+# 749 "data/maps/EggIsland_Interior/scripts.pory"
+	addvar VAR_0x8000, 3
+# 750 "data/maps/EggIsland_Interior/scripts.pory"
+	createmon 1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1 = MOVE_EARTHQUAKE, move2 = MOVE_SLASH, move3 = MOVE_ROLLOUT, move4 = MOVE_GYRO_BALL
+# 751 "data/maps/EggIsland_Interior/scripts.pory"
+	special StartSpecialBattle
+# 752 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_SANDSHREW2, Movement_ObjectDisappears
+# 753 "data/maps/EggIsland_Interior/scripts.pory"
+	removeobject LOCALID_SANDSHREW2
+# 754 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 755 "data/maps/EggIsland_Interior/scripts.pory"
+	goto SandshrewFinale
 	return
+
+
+SandshrewFinale::
+# 759 "data/maps/EggIsland_Interior/scripts.pory"
+	savebgm MUS_DUMMY
+# 760 "data/maps/EggIsland_Interior/scripts.pory"
+	fadedefaultbgm
+# 761 "data/maps/EggIsland_Interior/scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 762 "data/maps/EggIsland_Interior/scripts.pory"
+	compare VAR_TEMP_1, 53
+	goto_if_eq SandshrewFinale_2
+# 766 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_PLAYER, SandshrewFinale_Movement_1
+SandshrewFinale_1:
+# 768 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 769 "data/maps/EggIsland_Interior/scripts.pory"
+	turnobject LOCALID_DIGLETT, DIR_WEST
+# 770 "data/maps/EggIsland_Interior/scripts.pory"
+	delay 8
+# 771 "data/maps/EggIsland_Interior/scripts.pory"
+	setspeaker TriggerHelpDiglett_Text_0
+# 772 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox SandshrewFinale_Text, MSGBOX_AUTOCLOSE
+# 773 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_DIGLETT, SandshrewFinale_Movement_2
+# 774 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 775 "data/maps/EggIsland_Interior/scripts.pory"
+	removeobject LOCALID_DIGLETT
+# 776 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_STORY, 5
+# 777 "data/maps/EggIsland_Interior/scripts.pory"
+	setescapewarp MAP_EGG_ISLAND_INTERIOR, 32, 72
+# 778 "data/maps/EggIsland_Interior/scripts.pory"
+	call SetYoshiMoves
+# 779 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox SandshrewFinale_Text2
+# 780 "data/maps/EggIsland_Interior/scripts.pory"
+	release
+	return
+
+SandshrewFinale_2:
+# 763 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_PLAYER, SandshrewFinale_Movement_0
+	goto SandshrewFinale_1
 
 
 DiglettScript::
-# 716 "data/maps/EggIsland_Interior/scripts.pory"
+# 806 "data/maps/EggIsland_Interior/scripts.pory"
 	setspeaker TriggerHelpDiglett_Text_0
-# 717 "data/maps/EggIsland_Interior/scripts.pory"
+# 807 "data/maps/EggIsland_Interior/scripts.pory"
 	msgbox DiglettScript_Text, MSGBOX_NPC
+# 808 "data/maps/EggIsland_Interior/scripts.pory"
+	turnobject LOCALID_DIGLETT, DIR_SOUTH
 	return
 
 
-# 675 "data/maps/EggIsland_Interior/scripts.pory"
+# 676 "data/maps/EggIsland_Interior/scripts.pory"
 DontLeaveDiglett_Movement_0:
-# 675 "data/maps/EggIsland_Interior/scripts.pory"
+# 676 "data/maps/EggIsland_Interior/scripts.pory"
 	walk_up
 	step_end
 
+# 718 "data/maps/EggIsland_Interior/scripts.pory"
+Sandshrew1Attacks_Movement_0:
+# 718 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_left
+# 718 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_down
+	step_end
+
+# 742 "data/maps/EggIsland_Interior/scripts.pory"
+Sandshrew2Attacks_Movement_0:
+# 742 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_left
+# 742 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_up
+	step_end
+
+# 763 "data/maps/EggIsland_Interior/scripts.pory"
+SandshrewFinale_Movement_0:
+# 763 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_down
+# 763 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_in_place_fast_right
+	step_end
+
+# 766 "data/maps/EggIsland_Interior/scripts.pory"
+SandshrewFinale_Movement_1:
+# 766 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_up
+# 766 "data/maps/EggIsland_Interior/scripts.pory"
+	walk_in_place_fast_right
+	step_end
+
+# 773 "data/maps/EggIsland_Interior/scripts.pory"
+SandshrewFinale_Movement_2:
+# 773 "data/maps/EggIsland_Interior/scripts.pory"
+	nurse_joy_bow
+	step_end
+
 GroundEggMain_Text_0:
-# 601 "data/maps/EggIsland_Interior/scripts.pory"
+# 602 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Yoshi picked up the egg.$"
 
 GripGloves_Text_0:
-# 649 "data/maps/EggIsland_Interior/scripts.pory"
+# 650 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Yoshi found the Grip Gloves!$"
 
 TriggerHelpDiglett_Text_0:
-# 666 "data/maps/EggIsland_Interior/scripts.pory"
+# 667 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Diglett$"
 
 TriggerHelpDiglett_Text_1:
-# 667 "data/maps/EggIsland_Interior/scripts.pory"
+# 668 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "You there, please help!\pI am getting bullied by\nthese two shrews!$"
 
 DontLeaveDiglett_Text_0:
-# 674 "data/maps/EggIsland_Interior/scripts.pory"
+# 675 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Please don't leave me here\nwith these two!$"
 
 Sandshrew1_Text_0:
-# 683 "data/maps/EggIsland_Interior/scripts.pory"
+# 684 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Sandshrew$"
 
+Sandshrew1Attacks_Text_0:
+# 723 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "Now you've done it!$"
+
 SetEggOnPedestal_Text::
-# 521 "data/maps/EggIsland_Interior/scripts.pory"
+# 522 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "There seems to be a weighted\n"
 	.string "pressure plate under this egg.\l"
 	.string "Leave an egg on the plate?$"
 
 SetEggOnPedestal_Text2::
-# 526 "data/maps/EggIsland_Interior/scripts.pory"
+# 527 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Choose an egg to leave\n"
 	.string "on the plate.$"
 
 SetEggOnPedestal_Text3::
-# 530 "data/maps/EggIsland_Interior/scripts.pory"
+# 531 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Yoshi left an egg\n"
 	.string "on the plate.$"
 
 GroundEggMain_Text1::
-# 623 "data/maps/EggIsland_Interior/scripts.pory"
+# 624 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "It's an egg, holding down\n"
 	.string "a weighted pressure plate.$"
 
 GroundEggMain_Text2::
-# 627 "data/maps/EggIsland_Interior/scripts.pory"
+# 628 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "It's an egg, holding down\n"
 	.string "a weighted pressure plate.\l"
 	.string "Do you want to pick it up?$"
 
 Sandshrew1_LetsBattle::
-# 701 "data/maps/EggIsland_Interior/scripts.pory"
-	.string "wip$"
+# 702 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "Who are you? Get lost!$"
 
 Sandshrew2_LetsBattle::
-# 704 "data/maps/EggIsland_Interior/scripts.pory"
-	.string "wip$"
+# 705 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "Don't butt in!$"
+
+SandshrewFinale_Text::
+# 783 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "Thank you for saving me,\n"
+	.string "friend!\p"
+	.string "The two of them together was\n"
+	.string "just too much for my feeble\l"
+	.string "defenses.\p"
+	.string "I am in your debt, friend.\n"
+	.string "Whenever you are in a pinch,\l"
+	.string "call for me, and I will come\l"
+	.string "bursting out of the ground!$"
+
+SandshrewFinale_Text2::
+# 794 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}You can now use the “Retreat”\n"
+	.string "option in the Start Menu to\l"
+	.string "return to the latest discovered\l"
+	.string "save point.\p"
+	.string "You can also use the move\n"
+	.string "“Call Diglett” once every battle\l"
+	.string "to summon Diglett to fiercely\l"
+	.string "strike your foes.$"
 
 DiglettScript_Text::
-# 719 "data/maps/EggIsland_Interior/scripts.pory"
+# 810 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Please help me!$"

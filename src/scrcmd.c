@@ -4297,7 +4297,7 @@ void CheckMetatileAt(struct ScriptContext *ctx)
     u16 *pX = GetVarPointer(varIdX);
     u16 *pY = GetVarPointer(varIdY);
 
-    gSpecialVar_Result = MapGridGetMetatileBehaviorAt(*pX, *pY);
+    gSpecialVar_Result = MapGridGetMetatileBehaviorAt(*pX + MAP_OFFSET, *pY + MAP_OFFSET);
     return;
 }
 
@@ -4311,9 +4311,18 @@ bool8 ScrCmd_setvarid(struct ScriptContext *ctx)
 
 bool8 ScrCmd_setcustomvar(struct ScriptContext *ctx)
 {
-    u16 value = VarGet(ScriptReadHalfword(ctx));
+    u16 value = ScriptReadHalfword(ctx);
 
     VarSet(gSaveBlock1Ptr->varId, value);
+
+    return FALSE;
+}
+
+bool8 ScrCmd_setcustomvartovar(struct ScriptContext *ctx)
+{
+    u16 value = ScriptReadHalfword(ctx);
+
+    VarSet(gSaveBlock1Ptr->varId, VarGet(value));
 
     return FALSE;
 }
@@ -4328,4 +4337,16 @@ bool8 ScrCmd_getcustomvar(struct ScriptContext *ctx)
 void RestorePPs(void)
 {
     MonRestorePP(&gPlayerParty[0]);
+}
+
+void RemoveTwoEggs(void)
+{
+    u8 slot1 = gSelectedOrderFromParty[0] - 1;
+    u8 slot2 = gSelectedOrderFromParty[1] - 1;
+
+    ZeroMonData(&gPlayerParty[slot1]);
+    ZeroMonData(&gPlayerParty[slot2]);
+    CompactPartySlots();
+    gSpecialVar_0x8001 = gCurrentUsableEggs = CalculateCurrentEggs();
+    CalculatePlayerPartyCount();
 }
