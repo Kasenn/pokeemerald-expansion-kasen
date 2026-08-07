@@ -3661,6 +3661,146 @@ static const u16 sListOfEligibleEggMons[] =
     SPECIES_SPHEAL,
     SPECIES_BAGON,
     SPECIES_BELDUM,
+    SPECIES_TURTWIG,
+    SPECIES_CHIMCHAR,
+    SPECIES_PIPLUP,
+    SPECIES_STARLY,
+    SPECIES_BIDOOF,
+    SPECIES_KRICKETOT,
+    SPECIES_SHINX,
+    SPECIES_CRANIDOS,
+    SPECIES_SHIELDON,
+    SPECIES_COMBEE,
+    SPECIES_PACHIRISU,
+    SPECIES_BUIZEL,
+    SPECIES_CHERUBI,
+    SPECIES_SHELLOS,
+    SPECIES_DRIFLOON,
+    SPECIES_BUNEARY,
+    SPECIES_GLAMEOW,
+    SPECIES_STUNKY,
+    SPECIES_BRONZOR,
+    SPECIES_CHATOT,
+    SPECIES_GIBLE,
+    SPECIES_RIOLU,
+    SPECIES_HIPPOPOTAS,
+    SPECIES_SKORUPI,
+    SPECIES_CROAGUNK,
+    SPECIES_CARNIVINE,
+    SPECIES_SNOVER,
+    SPECIES_SNIVY,
+    SPECIES_TEPIG,
+    SPECIES_OSHAWOTT,
+    SPECIES_PATRAT,
+    SPECIES_LILLIPUP,
+    SPECIES_PURRLOIN,
+    SPECIES_MUNNA,
+    SPECIES_PIDOVE,
+    SPECIES_BLITZLE,
+    SPECIES_ROGGENROLA,
+    SPECIES_WOOBAT,
+    SPECIES_DRILBUR,
+    SPECIES_AUDINO,
+    SPECIES_TIMBURR,
+    SPECIES_TYMPOLE,
+    SPECIES_SEWADDLE,
+    SPECIES_VENIPEDE,
+    SPECIES_COTTONEE,
+    SPECIES_PETILIL,
+    SPECIES_SANDILE,
+    SPECIES_DARUMAKA,
+    SPECIES_MARACTUS,
+    SPECIES_DWEBBLE,
+    SPECIES_SCRAGGY,
+    SPECIES_SIGILYPH,
+    SPECIES_YAMASK,
+    SPECIES_ARCHEN,
+    SPECIES_TRUBBISH,
+    SPECIES_MINCCINO,
+    SPECIES_GOTHITA,
+    SPECIES_SOLOSIS,
+    SPECIES_DUCKLETT,
+    SPECIES_VANILLITE,
+    SPECIES_DEERLING,
+    SPECIES_EMOLGA,
+    SPECIES_KARRABLAST,
+    SPECIES_FOONGUS,
+    SPECIES_JOLTIK,
+    SPECIES_FERROSEED,
+    SPECIES_KLINK,
+    SPECIES_TYNAMO,
+    SPECIES_ELGYEM,
+    SPECIES_LITWICK,
+    SPECIES_AXEW,
+    SPECIES_CUBCHOO,
+    SPECIES_CRYOGONAL,
+    SPECIES_SHELMET,
+    SPECIES_STUNFISK,
+    SPECIES_MIENFOO,
+    SPECIES_DRUDDIGON,
+    SPECIES_GOLETT,
+    SPECIES_PAWNIARD,
+    SPECIES_BOUFFALANT,
+    SPECIES_RUFFLET,
+    SPECIES_VULLABY,
+    SPECIES_HEATMOR,
+    SPECIES_DURANT,
+    SPECIES_DEINO,
+    SPECIES_CHESPIN,
+    SPECIES_FENNEKIN,
+    SPECIES_FROAKIE,
+    SPECIES_BUNNELBY,
+    SPECIES_FLETCHLING,
+    SPECIES_SCATTERBUG_ICY_SNOW,
+    SPECIES_LITLEO,
+    SPECIES_FLABEBE_RED,
+    SPECIES_SKIDDO,
+    SPECIES_PANCHAM,
+    SPECIES_FURFROU,
+    SPECIES_ESPURR,
+    SPECIES_HONEDGE,
+    SPECIES_SPRITZEE,
+    SPECIES_SWIRLIX,
+    SPECIES_HELIOPTILE,
+    SPECIES_TYRUNT,
+    SPECIES_AMAURA,
+    SPECIES_HAWLUCHA,
+    SPECIES_DEDENNE,
+    SPECIES_CARBINK,
+    SPECIES_GOOMY,
+    SPECIES_KLEFKI,
+    SPECIES_PHANTUMP,
+    SPECIES_PUMPKABOO,
+    SPECIES_BERGMITE,
+    SPECIES_NOIBAT,
+    SPECIES_ROWLET,
+    SPECIES_LITTEN,
+    SPECIES_POPPLIO,
+    SPECIES_PIKIPEK,
+    SPECIES_YUNGOOS,
+    SPECIES_GRUBBIN,
+    SPECIES_ORICORIO,
+    SPECIES_CUTIEFLY,
+    SPECIES_ROCKRUFF,
+    SPECIES_MAREANIE,
+    SPECIES_MUDBRAY,
+    SPECIES_DEWPIDER,
+    SPECIES_FOMANTIS,
+    SPECIES_MORELULL,
+    SPECIES_SALANDIT,
+    SPECIES_STUFFUL,
+    SPECIES_BOUNSWEET,
+    SPECIES_COMFEY,
+    SPECIES_ORANGURU,
+    SPECIES_PASSIMIAN,
+    SPECIES_WIMPOD,
+    SPECIES_SANDYGAST,
+    SPECIES_KOMALA,
+    SPECIES_TURTONATOR,
+    SPECIES_TOGEDEMARU,
+    SPECIES_MIMIKYU,
+    SPECIES_DRAMPA,
+    SPECIES_JANGMO_O,
 };
 
 void GetMonAttacks(void)
@@ -3859,29 +3999,28 @@ static const struct SpawnCoords sSuperMushroomGrassTwo[] =
     {56, 46},{57, 46},{58, 46},{63, 48},{67, 46},{67, 47},{65, 53},{65, 54},{65, 55},{66, 57},{68, 53},{70, 59},{71, 59},{72, 59},{75, 57},{77, 57}
 };
 
-static const struct SpawnCoords sSuperMushroomUndergroundOne[] =
+static const struct SpawnCoords sSuperMushroomUndergroundArea1[] =
 {
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
+    {43, 57},{43, 58},{43, 59},{46, 61},{46, 71},{45, 72},{37, 73},{36, 74},{29, 70},{28, 68},{27, 68},{26, 68},{25, 68},{24, 69},{23, 69},{18, 70},{20, 75},{23, 75},
+    {30, 77},{30, 78},{30, 79},{30, 80},{32, 83},{33, 83},{34, 83},{24, 83},{23, 83},{22, 82},{20, 78},{20, 77},{19, 68},{30, 68},{31, 69},{36, 62},{37, 62},{40, 62},
+    {9,  65},{11, 65},{9,  59},{12, 60},{24, 56},{24, 55},{21, 47},{22, 47},{26, 47},{28, 49},{25, 52},{25, 53},{35, 53},{34, 56},
 };
 
-static const struct SpawnCoords sSuperMushroomUndergroundTwo[] =
+static const struct SpawnCoords sSuperMushroomUndergroundArea2[] =
 {
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},
-    {20, 61},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{},{}
+    {31, 44},{32, 43},{34, 44},{34, 40},{36, 41},{36, 40},{37, 30},{39, 32},{40, 32},{42, 31},{49, 32},{49, 28},{55, 27},{56, 29},{72, 27},{71, 29},
+    {72, 29},{73, 29},{69, 17},{68, 15},{76, 12},{76, 11},{76,  9},{76,  8},{75,  6},{74,  5}
 };
 
 static const struct SpawnAreas sSpawnAreas[] =
 {
     { sSuperMushroomGrassOne, ARRAY_COUNT(sSuperMushroomGrassOne) },
-    { sSuperMushroomUndergroundOne, ARRAY_COUNT(sSuperMushroomUndergroundOne) },
+    { sSuperMushroomUndergroundArea1, ARRAY_COUNT(sSuperMushroomUndergroundArea1) },
     { sSuperMushroomGrassTwo,  ARRAY_COUNT(sSuperMushroomGrassTwo)  },
-    { sSuperMushroomUndergroundTwo,  ARRAY_COUNT(sSuperMushroomUndergroundTwo) },
+    { sSuperMushroomUndergroundArea2,  ARRAY_COUNT(sSuperMushroomUndergroundArea2) },
 };
 
-void RandomizeMushroom(bool8 allowSpawnNearPlayer)//wip
+void RandomizeMushroom(bool8 allowSpawnNearPlayer)
 {
     u16 location = VarGet(VAR_MUSHROOM_LOCATION);
     if (location >= ARRAY_COUNT(sSpawnAreas))
@@ -3904,7 +4043,7 @@ void RandomizeMushroom(bool8 allowSpawnNearPlayer)//wip
          && mushroomY >= playerY - 5 && mushroomY <= playerY + 5)
             continue;
 
-        VarSet(VAR_MUSHROOM_X, mushroomX);
+        VarSet(VAR_MUSHROOM_X, mushroomX);//wip
         VarSet(VAR_MUSHROOM_Y, mushroomY);
         return;
     }

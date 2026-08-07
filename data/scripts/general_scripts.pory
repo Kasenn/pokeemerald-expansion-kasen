@@ -334,7 +334,69 @@ text SlipperySlopeMain_Text2{
 }
 
 script MakeBerryBridge{
-    //wip
+    counteggs
+    if(var(VAR_EGGS) < 2){
+        msgbox(MakeBerryEggBridge_Text)
+        release
+        end
+    }
+    if(msgbox(MakeBerryEggBridge_Text2, MSGBOX_YESNO) == FALSE){
+        release
+        end
+    }
+    msgbox("Choose two eggs to toss.", MSGBOX_AUTOCLOSE)
+    special(ChooseHalfPartyForBattle)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    callnative(RemoveTwoEggs)
+
+    getplayerxy(VAR_X, VAR_Y)
+    setobjectxy(LOCALID_BERRYBRIDGEEGG_1, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BERRYBRIDGEEGG_1, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+    getplayerxy(VAR_X, VAR_Y)
+    copyvar(VAR_BERRYBRIDGE_X, VAR_X)
+    setobjectxy(LOCALID_BERRYBRIDGEEGG_2, VAR_X, VAR_Y)
+    playse(SE_M_JUMP_KICK)
+    applymovement(LOCALID_BERRYBRIDGEEGG_2, ThrowBridgeEgg)
+    delay(16)
+    playse(SE_M_DIVE)
+    waitmovement(0)
+
+    applymovement(LOCALID_PLAYER, Walk1Up)
+    waitmovement(0)
+
+    setmetatile(VAR_X, 54, 0x238, FALSE)
+    setmetatile(VAR_X, 53, 0x239, FALSE)
+    special(DrawWholeMapView)
+    removeobject(LOCALID_BERRYBRIDGEEGG_1)
+    removeobject(LOCALID_BERRYBRIDGEEGG_2)
+    removeobject(LOCALID_BERRYBRIDGE_NINJA1)
+    removeobject(LOCALID_BERRYBRIDGE_NINJA2)
+    removeobject(LOCALID_BERRYBRIDGE_NINJA3)
+    removeobject(LOCALID_BERRYBRIDGE_NINJA4)
+    removeobject(LOCALID_BERRYBRIDGE_NINJA5)
+}
+
+text MakeBerryEggBridge_Text{
+    "There seems to be a small\n"
+    "stream here.\l"
+    "Maybe there's a way across?"
+}
+
+text MakeBerryEggBridge_Text2{
+    "There seems to be a small\n"
+    "stream here.\p"
+    "Toss in two eggs to make\n"
+    "a bridge?"
 }
 
 script MakeEggBridge{

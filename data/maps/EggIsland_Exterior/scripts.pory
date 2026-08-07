@@ -41,16 +41,22 @@ mapscripts EggIsland_Exterior_MapScripts {
             setmetatile(26, 36, 0x238, FALSE)
             setmetatile(26, 35, 0x238, FALSE)
             setmetatile(26, 34, 0x238, FALSE)
-            setmetatile(26, 33, 0x238, FALSE)
+            setmetatile(26, 33, 0x239, FALSE)
+        }
+        if(var(VAR_BERRYBRIDGE_X) != 0){
+            setmetatile(VAR_BERRYBRIDGE_X, 54, 0x238, FALSE)
+            setmetatile(VAR_BERRYBRIDGE_X, 53, 0x239, FALSE)
         }
     }
 }
 
 script SetUpAreaOne{
+    setvar(VAR_ENCOUNTER_TABLE, 0)
     setvar(VAR_AI_FLAGS, 0)
     setvar(VAR_MUSHROOM_LOCATION, 0)
 }
 script SetUpAreaTwo{
+    setvar(VAR_ENCOUNTER_TABLE, 2)
     setvar(VAR_AI_FLAGS, 1)
     setvar(VAR_MUSHROOM_LOCATION, 2)
 }
@@ -92,12 +98,10 @@ script IntroSequence{
     fadescreenspeed(FADE_TO_BLACK, 2)
     waitmovement(0)
     setobjectxy(LOCALID_PLAYER, 17, 74)
-    teleportcamera(17, 74)
+    teleportcamera(17, 77)
     turnobject(LOCALID_PLAYER, DIR_SOUTH)
     hideobjectat(10, MAP_EGG_ISLAND_EXTERIOR)
     special(SpawnCameraObject)
-    applymovement(OBJ_EVENT_ID_CAMERA, moves(player_run_down * 3))
-    waitmovement(0)
     clearflag(FLAG_FIRST_ANIM_OVER)
     clearflag(FLAG_SECOND_ANIM_OVER)
     fadescreenspeed(FADE_FROM_BLACK, 2)
@@ -605,11 +609,31 @@ script FinaleTrigger{
     setflag(FLAG_DISABLE_KO_ANIM)
     callnative(CreateExtraStrongMon)
     createmon(1, 0, SPECIES_KAMEK, VAR_0x8000)
-    msgbox(KameBattleIntro, MSGBOX_AUTOCLOSE)
+    msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
+    //remove portal here
     settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
 	special(StartRegiBattle)
+    //wip
 }
 
-text KameBattleIntro{
-    ""//wip
+text KamekBattleIntro{
+    "Yoshi?!\n"
+    "How did you get here?!\p"
+    "I gave those birdbrains clear\n"
+    "instructions to not let anyone\l"
+    "through while I channel my spell!"
+}
+
+text KamekBattleIntro2{
+    "…Oh, great! Now I lost my\n"
+    "concentration and need to start\l"
+    "from the beginning!\p"
+    "THAT'S IT!\p"
+    "You've been meddling in my\n"
+    "business for far too long!\p"
+    "Once I'm done with you,\n"
+    "I can leave you and this\l"
+    "weird world behind, and\l"
+    "return back to the young\l"
+    "master's side!"
 }

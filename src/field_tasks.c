@@ -106,21 +106,6 @@ static const struct {
     {VAR_ROCKPLATE_11, 75, 31, SteppedOffofSwitch11},
 };
 
-static const u8 sPlateCoords[NUM_OF_SWITCHES][2] = 
-{
-    { 47, 62 },
-    { 34, 80 },
-    { 26, 80 },
-    { 30, 83 },
-    { 22, 66 },
-    { 36, 69 },
-    { 18, 48 },
-    { 35, 51 },
-    { 33, 42 },
-    { 36, 30 },
-    { 75, 31 }
-};
-
 #define tPrevX    data[2]
 #define tPrevY    data[3]
 
@@ -195,7 +180,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
     }
 
-    for (i = 0; i < ARRAY_COUNT(sPlateCoords); i++)
+    for (i = 0; i < ARRAY_COUNT(sPlateInfo); i++)
     {
         if (VarGet(sPlateInfo[i].var) == 0xFFFF && !switchTriggered[i])
         {

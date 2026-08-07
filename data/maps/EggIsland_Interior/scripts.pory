@@ -84,7 +84,7 @@ script SetUpInteriorAreaOne{
 }
 script SetUpInteriorAreaTwo{
     setvar(VAR_AI_FLAGS, 1)
-    setvar(VAR_ENCOUNTER_TABLE, 2)
+    setvar(VAR_ENCOUNTER_TABLE, 3)
 }
 
 script SetEggs{
@@ -767,6 +767,7 @@ script SandshrewFinale{
     waitmovement(0)
     turnobject(LOCALID_DIGLETT, DIR_WEST)
     delay(8)
+    setspeaker("Diglett")
     msgbox(SandshrewFinale_Text, MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_DIGLETT, moves(nurse_joy_bow))
     waitmovement(0)
@@ -779,10 +780,25 @@ script SandshrewFinale{
 }
 
 text SandshrewFinale_Text{
-    "wip"
+    "Thank you for saving me,\n"
+    "friend!\p"
+    "The two of them together was\n"
+    "just too much for my feeble\l"
+    "defenses.\p"
+    "I am in your debt, friend.\n"
+    "Whenever you are in a pinch,\l"
+    "call for me, and I will come\l"
+    "bursting out of the ground!"
 }
 text SandshrewFinale_Text2{
-    "wip"
+    "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}You can now use the “Retreat”\n"
+    "option in the Start Menu to\l"
+    "return to the latest discovered\l"
+    "save point.\p"
+    "You can also use the move\n"
+    "“Call Diglett” once every battle\l"
+    "to summon Diglett to fiercely\l"
+    "strike your foes."
 }
 
 script DiglettScript{
