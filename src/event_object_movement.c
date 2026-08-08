@@ -6972,10 +6972,12 @@ bool8 ObjectEventSetHeldMovement(struct ObjectEvent *objectEvent, u8 movementAct
     // When player is moved via script, set copyable movement
     // for any followers via a lookup table
     if (ArePlayerFieldControlsLocked()
-     && objectEvent->isPlayer
+     && (objectEvent->isPlayer || objectEvent->isFollower)
      && FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT))
     {
         objectEvent->playerCopyableMovement = sActionIdToCopyableMovement[objectEvent->movementActionId];
+        for (int i = 0; i < (gPlayerPartyCount - 1); i++)
+            gObjectEvents[gSaveBlock1Ptr->followerId[i]].playerCopyableMovement = objectEvent->playerCopyableMovement;
     }
 
     return FALSE;
@@ -7005,10 +7007,12 @@ void ObjectEventClearHeldMovement(struct ObjectEvent *objectEvent)
     // When player is moved via script, set copyable movement
     // for any followers via a lookup table
     if (ArePlayerFieldControlsLocked()
-     && objectEvent->isPlayer
+     && (objectEvent->isPlayer || objectEvent->isFollower)
      && FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT))
     {
         objectEvent->playerCopyableMovement = sActionIdToCopyableMovement[objectEvent->movementActionId];
+        for (int i = 0; i < (gPlayerPartyCount - 1); i++)
+            gObjectEvents[gSaveBlock1Ptr->followerId[i]].playerCopyableMovement = objectEvent->playerCopyableMovement;
     }
 }
 

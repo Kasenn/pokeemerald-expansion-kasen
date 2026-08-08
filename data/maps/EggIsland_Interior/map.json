@@ -4,7 +4,7 @@
   "layout": "LAYOUT_EGG_ISLAND_INTERIOR",
   "music": "MUS_YOSHI2",
   "region_map_section": "MAPSEC_ABANDONED_SHIP",
-  "requires_flash": true,
+  "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
   "allow_cycling": false,
@@ -426,8 +426,8 @@
       "y": 66,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_SEQUENCE_RIGHT_DOWN_UP_LEFT",
-      "movement_range_x": 0,
-      "movement_range_y": 0,
+      "movement_range_x": 3,
+      "movement_range_y": 3,
       "trainer_type": "TRAINER_TYPE_NORMAL",
       "trainer_sight_or_berry_tree_id": "3",
       "script": "GeodudeBattle",
@@ -442,7 +442,7 @@
       "movement_range_x": 7,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
-      "trainer_sight_or_berry_tree_id": "0",
+      "trainer_sight_or_berry_tree_id": "3",
       "script": "GeodudeBattle",
       "flag": "FLAG_TEMP_3"
     },
@@ -458,6 +458,19 @@
       "trainer_sight_or_berry_tree_id": "4",
       "script": "GeodudeBattle",
       "flag": "FLAG_TEMP_4"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEMSPARKLE",
+      "x": 78,
+      "y": 28,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SecretItem",
+      "flag": "FLAG_SECRET_ITEM"
     }
   ],
   "warp_events": [
@@ -661,6 +674,60 @@
       "var": "FLAG_EXPLAIN_REST_POINT",
       "var_value": "0",
       "script": "SavePointTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 8,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 9,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 10,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 11,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 12,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 13,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "EventScript_EggHatch"
     }
   ],
   "bg_events": [

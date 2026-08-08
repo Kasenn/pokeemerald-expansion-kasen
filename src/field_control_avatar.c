@@ -711,6 +711,11 @@ static bool8 StandingOnMushroom(struct MapPosition *position)
         ScriptContext_SetupScript(EventScript_LootMushroom);
         return TRUE;
     }
+    if (VarGet(VAR_MUSHROOM2_X) == position->x - MAP_OFFSET && VarGet(VAR_MUSHROOM2_Y) == position->y - MAP_OFFSET)
+    {
+        ScriptContext_SetupScript(EventScript_LootMushroom);
+        return TRUE;
+    }
     return FALSE;
 }
 

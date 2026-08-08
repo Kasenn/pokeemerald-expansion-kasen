@@ -47,7 +47,7 @@ script EventScript_LootMushroom{
     elif(var(VAR_MUSHROOM_LOCATION) == 3){
         removeobject(LOCALID_SUPER_MUSHROOM_INTERIOR_2)
         callnative(RandomizeMushroomScript)
-        setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+        setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM2_X, VAR_MUSHROOM2_Y)
     }
     else{
         removeobject(LOCALID_SUPER_MUSHROOM)
@@ -67,7 +67,7 @@ script EventScript_LootMushroom{
         addvar(VAR_MUSHROOM_COUNT, 1)
     }
     callnative(UpdateMushroomPP)
-    release
+    releaseall
 }
 
 text EventScript_LootMushroom_Text{
@@ -279,7 +279,7 @@ script SavePointTrigger{
     delay(30)
     setflag(FLAG_EXPLAIN_REST_POINT)
     msgbox(SavePointTrigger_Text, MSGBOX_SIGN)
-    release
+    releaseall
 }
 
 text SavePointTrigger_Text{
@@ -304,6 +304,7 @@ script SlipperySlope4{
     goto(SlipperySlopeMain)}
 
 script SlipperySlopeMain{
+    lockall
     if(!hasmonitem(0, ITEM_GRIP_GLOVES)){
         msgbox(SlipperySlopeMain_Text)
         release
@@ -316,14 +317,55 @@ script SlipperySlopeMain{
         end
     }
     switch(var(VAR_SLOPE)){
-        case 2: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 3))
-        case 3: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 4))
-        case 4: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 5))
-        case 6: applymovement(LOCALID_PLAYER, moves(walk_slow_up * 7))
+        case 2:
+            applymovement(LOCALID_PLAYER, moves(walk_slow_up * 3))
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+        case 3:
+            applymovement(LOCALID_PLAYER, moves(walk_slow_up * 4))
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+        case 4:
+            applymovement(LOCALID_PLAYER, moves(walk_slow_up * 5))
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+        case 6:
+            applymovement(LOCALID_PLAYER, moves(walk_slow_up * 7))
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
+            playse(SE_M_ROCK_THROW)
+            delay(32)
     }
-    playse(SE_M_ROCK_THROW)
     waitmovement(LOCALID_PLAYER)
-    release
+    releaseall
 }
 
 text SlipperySlopeMain_Text{

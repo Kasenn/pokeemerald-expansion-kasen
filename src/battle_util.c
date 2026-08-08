@@ -6878,7 +6878,7 @@ static inline u32 CalcAttackStat(struct DamageContext *ctx)
         {
             if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
             {
-                atkStat = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_ATK);
+                atkStat = max(GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_ATK), GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPATK));
                 break;
             }
         }
@@ -8249,12 +8249,16 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
         if (ctx->updateFlags)
             RecordItemEffectBattle(ctx->battlerDef, HOLD_EFFECT_RING_TARGET);
     }
+    else if (ctx->move == MOVE_CHUCK_EGG)
+    {
+        mod = UQ_4_12(1.0);
+    }
     else if ((ctx->moveType == TYPE_FIGHTING || ctx->moveType == TYPE_NORMAL) && defType == TYPE_GHOST && gBattleMons[ctx->battlerDef].volatiles.foresight && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);
     }
     else if ((ctx->moveType == TYPE_FIGHTING || ctx->moveType == TYPE_NORMAL) && defType == TYPE_GHOST
-        && (ctx->abilities[ctx->battlerAtk] == ABILITY_SCRAPPY || ctx->abilities[ctx->battlerAtk] == ABILITY_MINDS_EYE || ctx->move == MOVE_CHUCK_EGG)
+        && (ctx->abilities[ctx->battlerAtk] == ABILITY_SCRAPPY || ctx->abilities[ctx->battlerAtk] == ABILITY_MINDS_EYE)
         && mod == UQ_4_12(0.0))
     {
         mod = UQ_4_12(1.0);

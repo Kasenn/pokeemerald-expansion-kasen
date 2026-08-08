@@ -58,7 +58,7 @@ EventScript_LootMushroom_13:
 # 69 "data/scripts/general_scripts.pory"
 	callnative UpdateMushroomPP
 # 70 "data/scripts/general_scripts.pory"
-	release
+	releaseall
 	return
 
 EventScript_LootMushroom_2:
@@ -81,7 +81,7 @@ EventScript_LootMushroom_6:
 # 49 "data/scripts/general_scripts.pory"
 	callnative RandomizeMushroomScript
 # 50 "data/scripts/general_scripts.pory"
-	setobjectxyperm LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM_X, VAR_MUSHROOM_Y
+	setobjectxyperm LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM2_X, VAR_MUSHROOM2_Y
 	goto EventScript_LootMushroom_4
 
 EventScript_LootMushroom_11:
@@ -459,7 +459,7 @@ SavePointTrigger::
 # 281 "data/scripts/general_scripts.pory"
 	msgbox SavePointTrigger_Text, MSGBOX_SIGN
 # 282 "data/scripts/general_scripts.pory"
-	release
+	releaseall
 	return
 
 
@@ -488,450 +488,526 @@ SlipperySlope4::
 
 
 SlipperySlopeMain::
+# 307 "data/scripts/general_scripts.pory"
+	lockall
 	hasmonitem 0, ITEM_GRIP_GLOVES
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, 0
 	goto_if_eq SlipperySlopeMain_2
-# 312 "data/scripts/general_scripts.pory"
-	msgbox SlipperySlopeMain_Text2, MSGBOX_YESNO
 # 313 "data/scripts/general_scripts.pory"
-	closemessage
+	msgbox SlipperySlopeMain_Text2, MSGBOX_YESNO
 # 314 "data/scripts/general_scripts.pory"
+	closemessage
+# 315 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq SlipperySlopeMain_5
-# 318 "data/scripts/general_scripts.pory"
-	switch VAR_TEMP_4
 # 319 "data/scripts/general_scripts.pory"
-	case 2, SlipperySlopeMain_9
+	switch VAR_TEMP_4
 # 320 "data/scripts/general_scripts.pory"
+	case 2, SlipperySlopeMain_9
+# 328 "data/scripts/general_scripts.pory"
 	case 3, SlipperySlopeMain_10
-# 321 "data/scripts/general_scripts.pory"
+# 338 "data/scripts/general_scripts.pory"
 	case 4, SlipperySlopeMain_11
-# 322 "data/scripts/general_scripts.pory"
+# 350 "data/scripts/general_scripts.pory"
 	case 6, SlipperySlopeMain_12
 SlipperySlopeMain_7:
-# 324 "data/scripts/general_scripts.pory"
-	playse SE_M_ROCK_THROW
-# 325 "data/scripts/general_scripts.pory"
+# 367 "data/scripts/general_scripts.pory"
 	waitmovement LOCALID_PLAYER
-# 326 "data/scripts/general_scripts.pory"
-	release
+# 368 "data/scripts/general_scripts.pory"
+	releaseall
 	return
 
 SlipperySlopeMain_2:
-# 308 "data/scripts/general_scripts.pory"
-	msgbox SlipperySlopeMain_Text
 # 309 "data/scripts/general_scripts.pory"
+	msgbox SlipperySlopeMain_Text
+# 310 "data/scripts/general_scripts.pory"
 	release
 	end
 
 SlipperySlopeMain_5:
-# 315 "data/scripts/general_scripts.pory"
+# 316 "data/scripts/general_scripts.pory"
 	release
 	end
 
 SlipperySlopeMain_9:
-# 319 "data/scripts/general_scripts.pory"
+# 321 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, SlipperySlopeMain_Movement_0
+# 322 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 323 "data/scripts/general_scripts.pory"
+	delay 32
+# 324 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 325 "data/scripts/general_scripts.pory"
+	delay 32
+# 326 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 327 "data/scripts/general_scripts.pory"
+	delay 32
 	goto SlipperySlopeMain_7
 
 SlipperySlopeMain_10:
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, SlipperySlopeMain_Movement_1
+# 330 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 331 "data/scripts/general_scripts.pory"
+	delay 32
+# 332 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 333 "data/scripts/general_scripts.pory"
+	delay 32
+# 334 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 335 "data/scripts/general_scripts.pory"
+	delay 32
+# 336 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 337 "data/scripts/general_scripts.pory"
+	delay 32
 	goto SlipperySlopeMain_7
 
 SlipperySlopeMain_11:
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, SlipperySlopeMain_Movement_2
+# 340 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 341 "data/scripts/general_scripts.pory"
+	delay 32
+# 342 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 343 "data/scripts/general_scripts.pory"
+	delay 32
+# 344 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 345 "data/scripts/general_scripts.pory"
+	delay 32
+# 346 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 347 "data/scripts/general_scripts.pory"
+	delay 32
+# 348 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 349 "data/scripts/general_scripts.pory"
+	delay 32
 	goto SlipperySlopeMain_7
 
 SlipperySlopeMain_12:
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, SlipperySlopeMain_Movement_3
+# 352 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 353 "data/scripts/general_scripts.pory"
+	delay 32
+# 354 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 355 "data/scripts/general_scripts.pory"
+	delay 32
+# 356 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 357 "data/scripts/general_scripts.pory"
+	delay 32
+# 358 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 359 "data/scripts/general_scripts.pory"
+	delay 32
+# 360 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 361 "data/scripts/general_scripts.pory"
+	delay 32
+# 362 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 363 "data/scripts/general_scripts.pory"
+	delay 32
+# 364 "data/scripts/general_scripts.pory"
+	playse SE_M_ROCK_THROW
+# 365 "data/scripts/general_scripts.pory"
+	delay 32
 	goto SlipperySlopeMain_7
 
 
 MakeBerryBridge::
-# 339 "data/scripts/general_scripts.pory"
+# 381 "data/scripts/general_scripts.pory"
 	counteggs
-# 340 "data/scripts/general_scripts.pory"
+# 382 "data/scripts/general_scripts.pory"
 	compare VAR_0x8001, 2
 	goto_if_lt MakeBerryBridge_2
 	msgbox MakeBerryEggBridge_Text2, MSGBOX_YESNO
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq MakeBerryBridge_5
-# 349 "data/scripts/general_scripts.pory"
+# 391 "data/scripts/general_scripts.pory"
 	msgbox MakeBerryBridge_Text_0, MSGBOX_AUTOCLOSE
-# 350 "data/scripts/general_scripts.pory"
+# 392 "data/scripts/general_scripts.pory"
 	special ChooseHalfPartyForBattle
-# 351 "data/scripts/general_scripts.pory"
+# 393 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq MakeBerryBridge_8
-# 355 "data/scripts/general_scripts.pory"
+# 397 "data/scripts/general_scripts.pory"
 	callnative RemoveTwoEggs
-# 357 "data/scripts/general_scripts.pory"
+# 399 "data/scripts/general_scripts.pory"
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 358 "data/scripts/general_scripts.pory"
+# 400 "data/scripts/general_scripts.pory"
 	setobjectxy LOCALID_BERRYBRIDGEEGG_1, VAR_TEMP_0, VAR_TEMP_1
-# 359 "data/scripts/general_scripts.pory"
+# 401 "data/scripts/general_scripts.pory"
 	playse SE_M_JUMP_KICK
-# 360 "data/scripts/general_scripts.pory"
+# 402 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_BERRYBRIDGEEGG_1, ThrowBridgeEgg
-# 361 "data/scripts/general_scripts.pory"
+# 403 "data/scripts/general_scripts.pory"
 	delay 16
-# 362 "data/scripts/general_scripts.pory"
+# 404 "data/scripts/general_scripts.pory"
 	playse SE_M_DIVE
-# 363 "data/scripts/general_scripts.pory"
+# 405 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 365 "data/scripts/general_scripts.pory"
+# 407 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, Walk1Up
-# 366 "data/scripts/general_scripts.pory"
+# 408 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 367 "data/scripts/general_scripts.pory"
+# 409 "data/scripts/general_scripts.pory"
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 368 "data/scripts/general_scripts.pory"
+# 410 "data/scripts/general_scripts.pory"
 	copyvar VAR_BERRYBRIDGE_X, VAR_TEMP_0
-# 369 "data/scripts/general_scripts.pory"
+# 411 "data/scripts/general_scripts.pory"
 	setobjectxy LOCALID_BERRYBRIDGEEGG_2, VAR_TEMP_0, VAR_TEMP_1
-# 370 "data/scripts/general_scripts.pory"
+# 412 "data/scripts/general_scripts.pory"
 	playse SE_M_JUMP_KICK
-# 371 "data/scripts/general_scripts.pory"
+# 413 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_BERRYBRIDGEEGG_2, ThrowBridgeEgg
-# 372 "data/scripts/general_scripts.pory"
+# 414 "data/scripts/general_scripts.pory"
 	delay 16
-# 373 "data/scripts/general_scripts.pory"
+# 415 "data/scripts/general_scripts.pory"
 	playse SE_M_DIVE
-# 374 "data/scripts/general_scripts.pory"
+# 416 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 376 "data/scripts/general_scripts.pory"
+# 418 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, Walk1Up
-# 377 "data/scripts/general_scripts.pory"
+# 419 "data/scripts/general_scripts.pory"
 	waitmovement 0
-# 379 "data/scripts/general_scripts.pory"
+# 421 "data/scripts/general_scripts.pory"
 	setmetatile VAR_TEMP_0, 54, 0x238, FALSE
-# 380 "data/scripts/general_scripts.pory"
+# 422 "data/scripts/general_scripts.pory"
 	setmetatile VAR_TEMP_0, 53, 0x239, FALSE
-# 381 "data/scripts/general_scripts.pory"
+# 423 "data/scripts/general_scripts.pory"
 	special DrawWholeMapView
-# 382 "data/scripts/general_scripts.pory"
+# 424 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGEEGG_1
-# 383 "data/scripts/general_scripts.pory"
+# 425 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGEEGG_2
-# 384 "data/scripts/general_scripts.pory"
+# 426 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGE_NINJA1
-# 385 "data/scripts/general_scripts.pory"
+# 427 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGE_NINJA2
-# 386 "data/scripts/general_scripts.pory"
+# 428 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGE_NINJA3
-# 387 "data/scripts/general_scripts.pory"
+# 429 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGE_NINJA4
-# 388 "data/scripts/general_scripts.pory"
+# 430 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BERRYBRIDGE_NINJA5
 	return
 
 MakeBerryBridge_2:
-# 341 "data/scripts/general_scripts.pory"
+# 383 "data/scripts/general_scripts.pory"
 	msgbox MakeBerryEggBridge_Text
-# 342 "data/scripts/general_scripts.pory"
+# 384 "data/scripts/general_scripts.pory"
 	release
 	end
 
 MakeBerryBridge_5:
-# 346 "data/scripts/general_scripts.pory"
+# 388 "data/scripts/general_scripts.pory"
 	release
 	end
 
 MakeBerryBridge_8:
-# 352 "data/scripts/general_scripts.pory"
+# 394 "data/scripts/general_scripts.pory"
 	release
 	end
 
 
 MakeEggBridge::
-# 405 "data/scripts/general_scripts.pory"
+# 447 "data/scripts/general_scripts.pory"
 	counteggs
-# 406 "data/scripts/general_scripts.pory"
+# 448 "data/scripts/general_scripts.pory"
 	compare VAR_0x8001, 5
 	goto_if_lt MakeEggBridge_2
 	msgbox MakeEggBridge_Text2, MSGBOX_YESNO
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq MakeEggBridge_5
-# 415 "data/scripts/general_scripts.pory"
-	callnative RemoveAllEggs
-# 416 "data/scripts/general_scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 417 "data/scripts/general_scripts.pory"
-	setobjectxy LOCALID_BRIDGEEGG_1, VAR_TEMP_0, VAR_TEMP_1
-# 418 "data/scripts/general_scripts.pory"
-	playse SE_M_JUMP_KICK
-# 419 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_BRIDGEEGG_1, ThrowBridgeEgg
-# 420 "data/scripts/general_scripts.pory"
-	delay 16
-# 421 "data/scripts/general_scripts.pory"
-	playse SE_M_DIVE
-# 422 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 424 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_PLAYER, Walk1Up
-# 425 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 426 "data/scripts/general_scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 427 "data/scripts/general_scripts.pory"
-	setobjectxy LOCALID_BRIDGEEGG_2, VAR_TEMP_0, VAR_TEMP_1
-# 428 "data/scripts/general_scripts.pory"
-	playse SE_M_JUMP_KICK
-# 429 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_BRIDGEEGG_2, ThrowBridgeEgg
-# 430 "data/scripts/general_scripts.pory"
-	delay 16
-# 431 "data/scripts/general_scripts.pory"
-	playse SE_M_DIVE
-# 432 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 434 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_PLAYER, Walk1Up
-# 435 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 436 "data/scripts/general_scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 437 "data/scripts/general_scripts.pory"
-	setobjectxy LOCALID_BRIDGEEGG_3, VAR_TEMP_0, VAR_TEMP_1
-# 438 "data/scripts/general_scripts.pory"
-	playse SE_M_JUMP_KICK
-# 439 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_BRIDGEEGG_3, ThrowBridgeEgg
-# 440 "data/scripts/general_scripts.pory"
-	delay 16
-# 441 "data/scripts/general_scripts.pory"
-	playse SE_M_DIVE
-# 442 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 444 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_PLAYER, Walk1Up
-# 445 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 446 "data/scripts/general_scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
-# 447 "data/scripts/general_scripts.pory"
-	setobjectxy LOCALID_BRIDGEEGG_4, VAR_TEMP_0, VAR_TEMP_1
-# 448 "data/scripts/general_scripts.pory"
-	playse SE_M_JUMP_KICK
-# 449 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_BRIDGEEGG_4, ThrowBridgeEgg
-# 450 "data/scripts/general_scripts.pory"
-	delay 16
-# 451 "data/scripts/general_scripts.pory"
-	playse SE_M_DIVE
-# 452 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 454 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_PLAYER, Walk1Up
-# 455 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 456 "data/scripts/general_scripts.pory"
-	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 # 457 "data/scripts/general_scripts.pory"
-	setobjectxy LOCALID_BRIDGEEGG_5, VAR_TEMP_0, VAR_TEMP_1
+	callnative RemoveAllEggs
 # 458 "data/scripts/general_scripts.pory"
-	playse SE_M_JUMP_KICK
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 # 459 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_BRIDGEEGG_5, ThrowBridgeEgg
+	setobjectxy LOCALID_BRIDGEEGG_1, VAR_TEMP_0, VAR_TEMP_1
 # 460 "data/scripts/general_scripts.pory"
-	delay 16
+	playse SE_M_JUMP_KICK
 # 461 "data/scripts/general_scripts.pory"
-	playse SE_M_DIVE
+	applymovement LOCALID_BRIDGEEGG_1, ThrowBridgeEgg
 # 462 "data/scripts/general_scripts.pory"
-	waitmovement 0
+	delay 16
+# 463 "data/scripts/general_scripts.pory"
+	playse SE_M_DIVE
 # 464 "data/scripts/general_scripts.pory"
-	applymovement LOCALID_PLAYER, MakeEggBridge_Movement_0
-# 465 "data/scripts/general_scripts.pory"
 	waitmovement 0
+# 466 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_PLAYER, Walk1Up
 # 467 "data/scripts/general_scripts.pory"
-	setmetatile 26, 37, 0x238, FALSE
+	waitmovement 0
 # 468 "data/scripts/general_scripts.pory"
-	setmetatile 26, 36, 0x238, FALSE
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 # 469 "data/scripts/general_scripts.pory"
-	setmetatile 26, 35, 0x238, FALSE
+	setobjectxy LOCALID_BRIDGEEGG_2, VAR_TEMP_0, VAR_TEMP_1
 # 470 "data/scripts/general_scripts.pory"
-	setmetatile 26, 34, 0x238, FALSE
+	playse SE_M_JUMP_KICK
 # 471 "data/scripts/general_scripts.pory"
-	setmetatile 26, 33, 0x239, FALSE
+	applymovement LOCALID_BRIDGEEGG_2, ThrowBridgeEgg
 # 472 "data/scripts/general_scripts.pory"
-	special DrawWholeMapView
+	delay 16
 # 473 "data/scripts/general_scripts.pory"
-	removeobject LOCALID_BRIDGEEGG_1
+	playse SE_M_DIVE
 # 474 "data/scripts/general_scripts.pory"
-	removeobject LOCALID_BRIDGEEGG_2
-# 475 "data/scripts/general_scripts.pory"
-	removeobject LOCALID_BRIDGEEGG_3
+	waitmovement 0
 # 476 "data/scripts/general_scripts.pory"
-	removeobject LOCALID_BRIDGEEGG_4
+	applymovement LOCALID_PLAYER, Walk1Up
 # 477 "data/scripts/general_scripts.pory"
-	removeobject LOCALID_BRIDGEEGG_5
+	waitmovement 0
 # 478 "data/scripts/general_scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 479 "data/scripts/general_scripts.pory"
+	setobjectxy LOCALID_BRIDGEEGG_3, VAR_TEMP_0, VAR_TEMP_1
+# 480 "data/scripts/general_scripts.pory"
+	playse SE_M_JUMP_KICK
+# 481 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_BRIDGEEGG_3, ThrowBridgeEgg
+# 482 "data/scripts/general_scripts.pory"
+	delay 16
+# 483 "data/scripts/general_scripts.pory"
+	playse SE_M_DIVE
+# 484 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 486 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_PLAYER, Walk1Up
+# 487 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 488 "data/scripts/general_scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 489 "data/scripts/general_scripts.pory"
+	setobjectxy LOCALID_BRIDGEEGG_4, VAR_TEMP_0, VAR_TEMP_1
+# 490 "data/scripts/general_scripts.pory"
+	playse SE_M_JUMP_KICK
+# 491 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_BRIDGEEGG_4, ThrowBridgeEgg
+# 492 "data/scripts/general_scripts.pory"
+	delay 16
+# 493 "data/scripts/general_scripts.pory"
+	playse SE_M_DIVE
+# 494 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 496 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_PLAYER, Walk1Up
+# 497 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 498 "data/scripts/general_scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 499 "data/scripts/general_scripts.pory"
+	setobjectxy LOCALID_BRIDGEEGG_5, VAR_TEMP_0, VAR_TEMP_1
+# 500 "data/scripts/general_scripts.pory"
+	playse SE_M_JUMP_KICK
+# 501 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_BRIDGEEGG_5, ThrowBridgeEgg
+# 502 "data/scripts/general_scripts.pory"
+	delay 16
+# 503 "data/scripts/general_scripts.pory"
+	playse SE_M_DIVE
+# 504 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 506 "data/scripts/general_scripts.pory"
+	applymovement LOCALID_PLAYER, MakeEggBridge_Movement_0
+# 507 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 509 "data/scripts/general_scripts.pory"
+	setmetatile 26, 37, 0x238, FALSE
+# 510 "data/scripts/general_scripts.pory"
+	setmetatile 26, 36, 0x238, FALSE
+# 511 "data/scripts/general_scripts.pory"
+	setmetatile 26, 35, 0x238, FALSE
+# 512 "data/scripts/general_scripts.pory"
+	setmetatile 26, 34, 0x238, FALSE
+# 513 "data/scripts/general_scripts.pory"
+	setmetatile 26, 33, 0x239, FALSE
+# 514 "data/scripts/general_scripts.pory"
+	special DrawWholeMapView
+# 515 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_BRIDGEEGG_1
+# 516 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_BRIDGEEGG_2
+# 517 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_BRIDGEEGG_3
+# 518 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_BRIDGEEGG_4
+# 519 "data/scripts/general_scripts.pory"
+	removeobject LOCALID_BRIDGEEGG_5
+# 520 "data/scripts/general_scripts.pory"
 	removeobject LOCALID_BRIDGE_NINJA
 	return
 
 MakeEggBridge_2:
-# 407 "data/scripts/general_scripts.pory"
+# 449 "data/scripts/general_scripts.pory"
 	msgbox MakeEggBridge_Text
-# 408 "data/scripts/general_scripts.pory"
+# 450 "data/scripts/general_scripts.pory"
 	release
 	end
 
 MakeEggBridge_5:
-# 412 "data/scripts/general_scripts.pory"
+# 454 "data/scripts/general_scripts.pory"
 	release
 	end
 
 
-# 481 "data/scripts/general_scripts.pory"
+# 523 "data/scripts/general_scripts.pory"
 Walk1Up:
-# 482 "data/scripts/general_scripts.pory"
+# 524 "data/scripts/general_scripts.pory"
 	walk_up
 	step_end
 
-# 485 "data/scripts/general_scripts.pory"
+# 527 "data/scripts/general_scripts.pory"
 ThrowBridgeEgg:
-# 486 "data/scripts/general_scripts.pory"
+# 528 "data/scripts/general_scripts.pory"
 	lock_facing_direction
-# 487 "data/scripts/general_scripts.pory"
+# 529 "data/scripts/general_scripts.pory"
 	set_visible
-# 488 "data/scripts/general_scripts.pory"
+# 530 "data/scripts/general_scripts.pory"
 	jump_up
-# 489 "data/scripts/general_scripts.pory"
+# 531 "data/scripts/general_scripts.pory"
 	unlock_facing_direction
-# 490 "data/scripts/general_scripts.pory"
+# 532 "data/scripts/general_scripts.pory"
 	nurse_joy_bow
 	step_end
 
 EventScript_Follower1::
-# 506 "data/scripts/general_scripts.pory"
+# 548 "data/scripts/general_scripts.pory"
 	call FollowerEggScript
-# 507 "data/scripts/general_scripts.pory"
+# 549 "data/scripts/general_scripts.pory"
 	setvar VAR_FOLLOWER_MON, 1
-# 508 "data/scripts/general_scripts.pory"
+# 550 "data/scripts/general_scripts.pory"
 	goto FollowerMainScript
 	return
 
 
 EventScript_Follower2::
-# 512 "data/scripts/general_scripts.pory"
+# 554 "data/scripts/general_scripts.pory"
 	call FollowerEggScript
-# 513 "data/scripts/general_scripts.pory"
+# 555 "data/scripts/general_scripts.pory"
 	setvar VAR_FOLLOWER_MON, 2
-# 514 "data/scripts/general_scripts.pory"
+# 556 "data/scripts/general_scripts.pory"
 	goto FollowerMainScript
 	return
 
 
 EventScript_Follower3::
-# 518 "data/scripts/general_scripts.pory"
+# 560 "data/scripts/general_scripts.pory"
 	call FollowerEggScript
-# 519 "data/scripts/general_scripts.pory"
+# 561 "data/scripts/general_scripts.pory"
 	setvar VAR_FOLLOWER_MON, 3
-# 520 "data/scripts/general_scripts.pory"
+# 562 "data/scripts/general_scripts.pory"
 	goto FollowerMainScript
 	return
 
 
 EventScript_Follower4::
-# 524 "data/scripts/general_scripts.pory"
+# 566 "data/scripts/general_scripts.pory"
 	call FollowerEggScript
-# 525 "data/scripts/general_scripts.pory"
+# 567 "data/scripts/general_scripts.pory"
 	setvar VAR_FOLLOWER_MON, 4
-# 526 "data/scripts/general_scripts.pory"
+# 568 "data/scripts/general_scripts.pory"
 	goto FollowerMainScript
 	return
 
 
 EventScript_Follower5::
-# 530 "data/scripts/general_scripts.pory"
+# 572 "data/scripts/general_scripts.pory"
 	call FollowerEggScript
-# 531 "data/scripts/general_scripts.pory"
+# 573 "data/scripts/general_scripts.pory"
 	setvar VAR_FOLLOWER_MON, 5
-# 532 "data/scripts/general_scripts.pory"
+# 574 "data/scripts/general_scripts.pory"
 	goto FollowerMainScript
 	return
 
 
 FollowerMainScript::
-# 536 "data/scripts/general_scripts.pory"
+# 578 "data/scripts/general_scripts.pory"
 	bufferpartymonnickname STR_VAR_1, VAR_FOLLOWER_MON
-# 537 "data/scripts/general_scripts.pory"
+# 579 "data/scripts/general_scripts.pory"
 	setspeaker FollowerMainScript_Text_0
-# 538 "data/scripts/general_scripts.pory"
+# 580 "data/scripts/general_scripts.pory"
 	call FollowerRandomMessage
 	return
 
 
 FollowerRandomMessage::
-# 542 "data/scripts/general_scripts.pory"
+# 584 "data/scripts/general_scripts.pory"
 	random 6
-# 543 "data/scripts/general_scripts.pory"
+# 585 "data/scripts/general_scripts.pory"
 	switch VAR_RESULT
-# 544 "data/scripts/general_scripts.pory"
+# 586 "data/scripts/general_scripts.pory"
 	case 0, FollowerRandomMessage_2
-# 545 "data/scripts/general_scripts.pory"
+# 587 "data/scripts/general_scripts.pory"
 	case 1, FollowerRandomMessage_3
-# 546 "data/scripts/general_scripts.pory"
+# 588 "data/scripts/general_scripts.pory"
 	case 2, FollowerRandomMessage_4
-# 547 "data/scripts/general_scripts.pory"
+# 589 "data/scripts/general_scripts.pory"
 	case 3, FollowerRandomMessage_5
-# 548 "data/scripts/general_scripts.pory"
+# 590 "data/scripts/general_scripts.pory"
 	case 4, FollowerRandomMessage_6
-# 549 "data/scripts/general_scripts.pory"
+# 591 "data/scripts/general_scripts.pory"
 	case 5, FollowerRandomMessage_7
 	return
 
 FollowerRandomMessage_2:
-# 544 "data/scripts/general_scripts.pory"
+# 586 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage0, MSGBOX_NPC
 	return
 
 FollowerRandomMessage_3:
-# 545 "data/scripts/general_scripts.pory"
+# 587 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage1, MSGBOX_NPC
 	return
 
 FollowerRandomMessage_4:
-# 546 "data/scripts/general_scripts.pory"
+# 588 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage2, MSGBOX_NPC
 	return
 
 FollowerRandomMessage_5:
-# 547 "data/scripts/general_scripts.pory"
+# 589 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage3, MSGBOX_NPC
 	return
 
 FollowerRandomMessage_6:
-# 548 "data/scripts/general_scripts.pory"
+# 590 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage4, MSGBOX_NPC
 	return
 
 FollowerRandomMessage_7:
-# 549 "data/scripts/general_scripts.pory"
+# 591 "data/scripts/general_scripts.pory"
 	msgbox FollowerMessage5, MSGBOX_NPC
 	return
 
 
 FollowerEggScript::
-# 571 "data/scripts/general_scripts.pory"
+# 613 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_EGGS_HATCHED, FollowerEggScript_2
-# 574 "data/scripts/general_scripts.pory"
+# 616 "data/scripts/general_scripts.pory"
 	getobjectxy VAR_LAST_TALKED, CURRENT_POSITION, VAR_TEMP_0, VAR_TEMP_1
 	checkmetatileat VAR_TEMP_0, VAR_TEMP_1
 # 0 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, MB_STRENGTH_BUTTON
 	goto_if_eq FollowerEggScript_5
 FollowerEggScript_4:
-# 578 "data/scripts/general_scripts.pory"
+# 620 "data/scripts/general_scripts.pory"
 	call EventScript_FollowerEgg
-# 579 "data/scripts/general_scripts.pory"
+# 621 "data/scripts/general_scripts.pory"
 	release
 	end
 
@@ -939,65 +1015,65 @@ FollowerEggScript_2:
 	return
 
 FollowerEggScript_5:
-# 576 "data/scripts/general_scripts.pory"
+# 618 "data/scripts/general_scripts.pory"
 	goto SetEggOnPedestal
 	goto FollowerEggScript_4
 
 
 SetYoshiMoves::
-# 584 "data/scripts/general_scripts.pory"
+# 626 "data/scripts/general_scripts.pory"
 	setmonmove 0, 0, MOVE_CHUCK_EGG
-# 585 "data/scripts/general_scripts.pory"
+# 627 "data/scripts/general_scripts.pory"
 	setmonmove 0, 1, MOVE_LICK_BERRY
-# 586 "data/scripts/general_scripts.pory"
+# 628 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_EGGS_HATCHED, SetYoshiMoves_2
 SetYoshiMoves_1:
-# 589 "data/scripts/general_scripts.pory"
+# 631 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_TONGUE_UPGRADE, SetYoshiMoves_5
 SetYoshiMoves_4:
-# 592 "data/scripts/general_scripts.pory"
+# 634 "data/scripts/general_scripts.pory"
 	goto_if_unset FLAG_INTRODUCTION_TO_MUSHROOMS, SetYoshiMoves_8
 SetYoshiMoves_7:
-# 598 "data/scripts/general_scripts.pory"
+# 640 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_INTRODUCTION_TO_MUSHROOMS, SetYoshiMoves_11
 SetYoshiMoves_10:
-# 603 "data/scripts/general_scripts.pory"
+# 645 "data/scripts/general_scripts.pory"
 	callnative UpdateMushroomPP
-# 604 "data/scripts/general_scripts.pory"
+# 646 "data/scripts/general_scripts.pory"
 	callnative UpdateEggPP
-# 605 "data/scripts/general_scripts.pory"
+# 647 "data/scripts/general_scripts.pory"
 	callnative RestorePPs
 	return
 
 SetYoshiMoves_2:
-# 587 "data/scripts/general_scripts.pory"
+# 629 "data/scripts/general_scripts.pory"
 	setmonmove 0, 0, MOVE_HELPING_HAND
 	goto SetYoshiMoves_1
 
 SetYoshiMoves_5:
-# 590 "data/scripts/general_scripts.pory"
+# 632 "data/scripts/general_scripts.pory"
 	setmonmove 0, 1, MOVE_LICK_BERRY_STRONG
 	goto SetYoshiMoves_4
 
 SetYoshiMoves_8:
-# 594 "data/scripts/general_scripts.pory"
+# 636 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_DIGLETT_RESCUED, SetYoshiMoves_13
 	goto SetYoshiMoves_7
 
 SetYoshiMoves_11:
-# 600 "data/scripts/general_scripts.pory"
+# 642 "data/scripts/general_scripts.pory"
 	setmonmove 0, 2, MOVE_SUPER_MUSHROOM
-# 601 "data/scripts/general_scripts.pory"
+# 643 "data/scripts/general_scripts.pory"
 	goto_if_set FLAG_DIGLETT_RESCUED, SetYoshiMoves_15
 	goto SetYoshiMoves_10
 
 SetYoshiMoves_13:
-# 595 "data/scripts/general_scripts.pory"
+# 637 "data/scripts/general_scripts.pory"
 	setmonmove 0, 2, MOVE_CALL_DIGLETT
 	goto SetYoshiMoves_7
 
 SetYoshiMoves_15:
-# 601 "data/scripts/general_scripts.pory"
+# 643 "data/scripts/general_scripts.pory"
 	setmonmove 0, 3, MOVE_CALL_DIGLETT
 	goto SetYoshiMoves_10
 
@@ -1050,65 +1126,65 @@ DoWaterEggMovement_Movement_1:
 	nurse_joy_bow
 	step_end
 
-# 319 "data/scripts/general_scripts.pory"
+# 321 "data/scripts/general_scripts.pory"
 SlipperySlopeMain_Movement_0:
-# 319 "data/scripts/general_scripts.pory"
+# 321 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 319 "data/scripts/general_scripts.pory"
+# 321 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 319 "data/scripts/general_scripts.pory"
+# 321 "data/scripts/general_scripts.pory"
 	walk_slow_up
 	step_end
 
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 SlipperySlopeMain_Movement_1:
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 320 "data/scripts/general_scripts.pory"
+# 329 "data/scripts/general_scripts.pory"
 	walk_slow_up
 	step_end
 
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 SlipperySlopeMain_Movement_2:
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 321 "data/scripts/general_scripts.pory"
+# 339 "data/scripts/general_scripts.pory"
 	walk_slow_up
 	step_end
 
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 SlipperySlopeMain_Movement_3:
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
-# 322 "data/scripts/general_scripts.pory"
+# 351 "data/scripts/general_scripts.pory"
 	walk_slow_up
 	step_end
 
-# 464 "data/scripts/general_scripts.pory"
+# 506 "data/scripts/general_scripts.pory"
 MakeEggBridge_Movement_0:
-# 464 "data/scripts/general_scripts.pory"
+# 506 "data/scripts/general_scripts.pory"
 	walk_up
-# 464 "data/scripts/general_scripts.pory"
+# 506 "data/scripts/general_scripts.pory"
 	walk_up
 	step_end
 
@@ -1145,11 +1221,11 @@ RiverCrossingMain_Text_0:
 	.string "Choose an egg to toss.$"
 
 MakeBerryBridge_Text_0:
-# 349 "data/scripts/general_scripts.pory"
+# 391 "data/scripts/general_scripts.pory"
 	.string "Choose two eggs to toss.$"
 
 FollowerMainScript_Text_0:
-# 537 "data/scripts/general_scripts.pory"
+# 579 "data/scripts/general_scripts.pory"
 	.string "{STR_VAR_1}$"
 
 EventScript_LootMushroom_Text::
@@ -1198,63 +1274,63 @@ SavePointTrigger_Text::
 	.string "current progress.$"
 
 SlipperySlopeMain_Text::
-# 329 "data/scripts/general_scripts.pory"
+# 371 "data/scripts/general_scripts.pory"
 	.string "It's a slippery mud slope.$"
 
 SlipperySlopeMain_Text2::
-# 332 "data/scripts/general_scripts.pory"
+# 374 "data/scripts/general_scripts.pory"
 	.string "It's a slippery mud slope.\p"
 	.string "Use your Grip Gloves\n"
 	.string "to ascend it?$"
 
 MakeBerryEggBridge_Text::
-# 391 "data/scripts/general_scripts.pory"
+# 433 "data/scripts/general_scripts.pory"
 	.string "There seems to be a small\n"
 	.string "stream here.\l"
 	.string "Maybe there's a way across?$"
 
 MakeBerryEggBridge_Text2::
-# 397 "data/scripts/general_scripts.pory"
+# 439 "data/scripts/general_scripts.pory"
 	.string "There seems to be a small\n"
 	.string "stream here.\p"
 	.string "Toss in two eggs to make\n"
 	.string "a bridge?$"
 
 MakeEggBridge_Text::
-# 493 "data/scripts/general_scripts.pory"
+# 535 "data/scripts/general_scripts.pory"
 	.string "There's a small island\n"
 	.string "in the middle of the lake.$"
 
 MakeEggBridge_Text2::
-# 498 "data/scripts/general_scripts.pory"
+# 540 "data/scripts/general_scripts.pory"
 	.string "There's a small island\n"
 	.string "in the middle of the lake.\p"
 	.string "Use all your eggs to\n"
 	.string "create a bridge?$"
 
 FollowerMessage0::
-# 553 "data/scripts/general_scripts.pory"
+# 595 "data/scripts/general_scripts.pory"
 	.string "We're with you, {PLAYER}!$"
 
 FollowerMessage1::
-# 555 "data/scripts/general_scripts.pory"
+# 597 "data/scripts/general_scripts.pory"
 	.string "We can do this!$"
 
 FollowerMessage2::
-# 557 "data/scripts/general_scripts.pory"
+# 599 "data/scripts/general_scripts.pory"
 	.string "Let's go kick Kamek's butt!$"
 
 FollowerMessage3::
-# 559 "data/scripts/general_scripts.pory"
+# 601 "data/scripts/general_scripts.pory"
 	.string "Is there something\n"
 	.string "on my face?$"
 
 FollowerMessage4::
-# 562 "data/scripts/general_scripts.pory"
+# 604 "data/scripts/general_scripts.pory"
 	.string "We'll go wherever you lead,\n"
 	.string "{PLAYER}!$"
 
 FollowerMessage5::
-# 565 "data/scripts/general_scripts.pory"
+# 607 "data/scripts/general_scripts.pory"
 	.string "No more getting thrown around\n"
 	.string "like a projectile!$"

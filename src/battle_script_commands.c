@@ -2926,7 +2926,10 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         }
         break;
     case MOVE_EFFECT_EERIE_SPELL:
-        if (gLastMoves[effectBattler] != MOVE_NONE && gLastMoves[effectBattler] != 0xFFFF)
+        if (gLastMoves[effectBattler] != MOVE_NONE
+         && gLastMoves[effectBattler] != MOVE_CHUCK_EGG
+         && gLastMoves[effectBattler] != MOVE_SUPER_MUSHROOM
+         && gLastMoves[effectBattler] != 0xFFFF)
         {
             u32 i;
 
@@ -2979,7 +2982,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         }
         break;
     case MOVE_EFFECT_CHUCK_EGG2:
-        enum Stat stat = NUM_STATS;
+        enum Stat stat = NUM_BATTLE_STATS;
         switch (gBattleStruct->moveType)
         {
         case TYPE_GROUND:   stat = STAT_ACC;    break;
@@ -2992,7 +2995,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         default: break;
         }
 
-        if (stat != NUM_STATS)
+        if (stat != NUM_BATTLE_STATS)
         {
             if (gBattleStruct->moveType == TYPE_DRAGON)
                 SetStatChange(effectBattler, STAT_ATK, -2);
@@ -4054,7 +4057,7 @@ static void Cmd_getexp(void)
                 gBattleStruct->battlerExpReward = 0;
             }
             else if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
-                  || GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_LEVEL) <= 90)
+                  || GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_LEVEL) >= 90)
             {
                 gBattleScripting.getexpState = 5;
                 gBattleStruct->battlerExpReward = 0;
@@ -4208,7 +4211,7 @@ static void Cmd_getexp(void)
                     battler = 2;
 
                 gBattleScripting.battler = battler;
-                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));
+                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));//wip
 
 
                 if (battler != 0xFF)
@@ -8269,7 +8272,9 @@ static void Cmd_tryspiteppreduce(void)
     CMD_ARGS(const u8 *failInstr);
 
     if (gLastMoves[gBattlerTarget] != MOVE_NONE
-     && gLastMoves[gBattlerTarget] != MOVE_UNAVAILABLE)
+     && gLastMoves[gBattlerTarget] != MOVE_UNAVAILABLE
+     && gLastMoves[gBattlerTarget] != MOVE_CHUCK_EGG
+     && gLastMoves[gBattlerTarget] != MOVE_SUPER_MUSHROOM)
     {
         s32 i;
 

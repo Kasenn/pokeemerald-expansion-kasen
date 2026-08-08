@@ -92,9 +92,9 @@
 #define VAR_PETALBURG_WOODS_STATE                           VARS_START + 72
 #define VAR_LILYCOVE_CONTEST_LOBBY_STATE                    VARS_START + 73
 #define VAR_RUSTURF_TUNNEL_STATE                            VARS_START + 74
-#define VAR_UNUSED_0x409B                                   VARS_START + 75 // Unused Var
+#define VAR_MUSHROOM2_X                                   VARS_START + 75 // Unused Var
 #define VAR_ELITE_4_STATE                                   VARS_START + 76
-#define VAR_UNUSED_0x409D                                   VARS_START + 77 // Unused Var
+#define VAR_MUSHROOM2_Y                                   VARS_START + 77 // Unused Var
 #define VAR_MOSSDEEP_SPACE_CENTER_STAIR_GUARD_STATE         VARS_START + 78
 #define VAR_MOSSDEEP_SPACE_CENTER_STATE                     VARS_START + 79
 #define VAR_SLATEPORT_HARBOR_STATE                          VARS_START + 80

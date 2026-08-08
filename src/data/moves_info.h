@@ -1954,7 +1954,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         },
         {
             .moveEffect = MOVE_EFFECT_CHUCK_EGG2,
-            .chance = 50,
+            .chance = 90,
         }),
         .contestComboMoves = {0},
         .validApprenticeMove = TRUE,
@@ -5024,7 +5024,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_SPITE] = //wip
+    [MOVE_SPITE] =
     {
         .name = COMPOUND_STRING("Spite"),
         .description = COMPOUND_STRING(
@@ -7967,7 +7967,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_GRUDGE] = //wip
+    [MOVE_GRUDGE] =
     {
         .name = COMPOUND_STRING("Grudge"),
         .description = COMPOUND_STRING(
@@ -19943,7 +19943,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .battleAnimScript = gBattleAnimMove_AstralBarrage,
     },
 
-    [MOVE_EERIE_SPELL] =//wip
+    [MOVE_EERIE_SPELL] =
     {
         .name = COMPOUND_STRING("Eerie Spell"),
         .description = COMPOUND_STRING(
@@ -23881,7 +23881,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .name = COMPOUND_STRING("Call Diglett"),
         .description = COMPOUND_STRING(
             "Calls Diglett to attack\n"
-            "with a 2-turn delay."),
+            "with a 1-turn delay."),
         .power = 120,
         .effect = EFFECT_FUTURE_SIGHT,
         .type = TYPE_GROUND,

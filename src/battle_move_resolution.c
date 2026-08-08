@@ -993,13 +993,13 @@ static enum CancelerResult CancelerPPDeduction(struct BattleCalcValues *cv)
     {
         for (u32 i = 0; i < gBattlersCount; i++)
         {
-            if (!IsBattlerAlly(i, cv->battlerAtk))
+            if (!IsBattlerAlly(i, cv->battlerAtk) && cv->move != MOVE_CHUCK_EGG && cv->move != MOVE_SUPER_MUSHROOM)
                 ppToDeduct += (GetBattlerAbility(i) == ABILITY_PRESSURE);
         }
     }
     else if (moveTarget != TARGET_OPPONENTS_FIELD)
     {
-        if (cv->battlerAtk != cv->battlerDef && GetBattlerAbility(cv->battlerDef) == ABILITY_PRESSURE)
+        if (cv->battlerAtk != cv->battlerDef && GetBattlerAbility(cv->battlerDef) == ABILITY_PRESSURE && cv->move != MOVE_CHUCK_EGG && cv->move != MOVE_SUPER_MUSHROOM)
              ppToDeduct++;
     }
 
@@ -2936,6 +2936,8 @@ static enum MoveEndResult MoveEndFaintBlock(struct BattleCalcValues *cv)
              && !IsBattlerAlly(cv->battlerAtk, cv->battlerDef)
              && !IsZMove(cv->move)
              && cv->move != MOVE_STRUGGLE
+             && cv->move != MOVE_CHUCK_EGG
+             && cv->move != MOVE_SUPER_MUSHROOM
              && cv->moveEffect != EFFECT_FUTURE_SIGHT)
             {
                 u32 moveIndex = gBattleStruct->chosenMovePositions[cv->battlerAtk];

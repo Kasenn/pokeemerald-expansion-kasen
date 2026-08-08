@@ -3372,11 +3372,11 @@ static const u8 sText_DragonEgg[]       = _("A peculiar Pokémon Egg.\nIt feels 
 static const u8 sText_DarkEgg[]         = _("A peculiar Pokémon Egg.\nThe surface barely\nreflects any light.");
 static const u8 sText_FairyEgg[]        = _("A peculiar Pokémon Egg.\nIt's got a peculiar glow.");
 
-static const u8 sText_AtkText1[]       = _("\nIt feels like throwing it\nwill barely even hurt.");
-static const u8 sText_AtkText2[]       = _("\nIt feels like throwing it\nmight sting a little.");
-static const u8 sText_AtkText3[]       = _("\nIt feels like throwing it\nmight do some damage.");
-static const u8 sText_AtkText4[]       = _("\nIt feels like throwing it\nmight really hurt.");
-static const u8 sText_AtkText5[]       = _("\nIt feels like throwing it\nmight do serious damage.");
+static const u8 sText_AtkText1[] = _("\nIt feels like throwing it\nwould barely hurt.");
+static const u8 sText_AtkText2[] = _("\nIt feels like throwing it\nwould do little damage.");
+static const u8 sText_AtkText3[] = _("\nIt feels like throwing it\nwould do moderate damage.");
+static const u8 sText_AtkText4[] = _("\nIt feels like throwing it\nwould do heavy damage.");
+static const u8 sText_AtkText5[] = _("\nIt feels like throwing it\nwould do massive damage.");
 
 static void PrintEggMemo(void)
 {
@@ -3412,6 +3412,11 @@ static void PrintEggMemo(void)
     }
 
     u8 attack = gSpeciesInfo[sum->species].baseAttack;
+    u8 spAttack = gSpeciesInfo[sum->species].baseSpAttack;
+
+    if (attack < spAttack)
+        attack = spAttack;
+
 
     if (attack < 25)
         atkText = sText_AtkText1;
@@ -3498,7 +3503,7 @@ static void PrintHeldItemName(void)
     fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sSummaryTemplate[PSS_LABEL_WINDOW_PORTRAIT_SPECIES]) - 8);
     x = GetStringCenterAlignXOffset(fontId, text, 72) + 6;
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, sText_HeldItem, 0, 1, 0, TXT_COLOR_DARK_BROWN);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, text, x, 15, 0, TXT_COLOR_DARK_BROWN);
+    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, text, x - 3, 15, 0, TXT_COLOR_DARK_BROWN);
     // PrintTextOnWindowWithFont(AddWindowFromTemplateList(sSummaryTemplate, PSS_LABEL_WINDOW_PORTRAIT_SPECIES), text, x, 1, 0, 0, fontId);
 }
 

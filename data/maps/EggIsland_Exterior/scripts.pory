@@ -290,6 +290,7 @@ script MurkrowBattle{
 
 script RemoveMurkrow{
     cleartrainerflag(TRAINER_ALLEN)
+    cleartrainerflag(TRAINER_TIMMY)
     clearflag(FLAG_NO_RUNNING)
     applymovement(VAR_LAST_TALKED, Movement_ObjectDisappears)
     waitmovement(0)
@@ -373,20 +374,21 @@ script SkarmoryTriggerMain{
     setflag(FLAG_NO_RUNNING)
     setspeaker("Skarmory")
     msgbox("What delicious lookings eggs\nyou have there.\lHand them over!", MSGBOX_AUTOCLOSE)
-    special(StartSpecialBattle)
+    dowildbattle
     setflag(FLAG_SKARMORY_DEFEATED)
     applymovement(LOCALID_SKARMORY, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(LOCALID_SKARMORY)
+    clearflag(FLAG_NO_RUNNING)
 }
 
 script SuperMushroomUpgrade{
     playfanfare(MUS_OBTAIN_ITEM)
 	message("Yoshi obtained the\nSuper Mushroom Upgrade!")
 	delay(10)
+    removeobject(LOCALID_SUPERMUSHROOMUPGRADE)
 	waitfanfare
     waitmessage
-    removeobject(LOCALID_SUPERMUSHROOMUPGRADE)
 	msgbox("Super Mushrooms now recover\nup to 50% more HP.")
     release
 }
@@ -395,9 +397,9 @@ script TongueUpgrade{
     playfanfare(MUS_OBTAIN_ITEM)
 	message("Yoshi obtained the\nTongue Upgrade!")
 	delay(10)
+    removeobject(VAR_LAST_TALKED)
 	waitfanfare
     waitmessage
-    removeobject(VAR_LAST_TALKED)
 	msgbox("Tongue Attack's Power\nis greatly increased.")
     release
 }
@@ -516,8 +518,8 @@ text GripGlovesDescription{
     "The Grip Gloves boosts\n"
     "the likelihood of added effects\l"
     "appearing when attacking,\l"
-    "increases your speed,\l"
-    "and allows you to climb up\l"
+    "increases Yoshi's speed,\l"
+    "and allows Yoshi to climb up\l"
     "muddy slopes."
 }
 
@@ -574,11 +576,12 @@ script PrimeapeEncounter{
     setflag(FLAG_NO_RUNNING)
     setspeaker("Primeape")
     msgbox("I SAW IT FIRST!\nGET BACK!", MSGBOX_AUTOCLOSE)
-    special(StartSpecialBattle)
+    dowildbattle
     setflag(FLAG_PRIMEAPE_DEFEATED)
     applymovement(LOCALID_PRIMEAPE, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(LOCALID_PRIMEAPE)
+    clearflag(FLAG_NO_RUNNING)
 }
 
 script HonchkrowScript{
@@ -589,10 +592,11 @@ script HonchkrowScript{
     msgbox("The new boss man says to\nnot let anybody through!", MSGBOX_AUTOCLOSE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
     setflag(FLAG_NO_RUNNING)
-    special(StartSpecialBattle)
+    dowildbattle
     applymovement(LOCALID_HONCHKROW, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(LOCALID_HONCHKROW)
+    clearflag(FLAG_NO_RUNNING)
 }
 
 script FinaleTrigger{
@@ -612,7 +616,7 @@ script FinaleTrigger{
     msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
     //remove portal here
     settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
-	special(StartRegiBattle)
+	special(StartSpecialBattle)
     //wip
 }
 

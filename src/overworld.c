@@ -2366,6 +2366,7 @@ static bool32 ReturnToFieldLocal(u8 *state)
         }
         else
         {
+            DebugPrintf("does this happen");
             if (gSwitchedMonsAround)
             {
                 gSwitchedMonsAround = FALSE;

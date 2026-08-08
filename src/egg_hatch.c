@@ -292,7 +292,7 @@ static void CreateHatchedMon(struct Pokemon *egg, struct Pokemon *temp)
     personality = GetMonData(egg, MON_DATA_PERSONALITY);
 
     for (i = 0; i < NUM_STATS; i++)
-        ivs[i] = GetMonData(egg, MON_DATA_HP_IV + i);
+        ivs[i] = 0;
 
     // The language is initially read from the Egg but is later overwritten below
     language = GetMonData(egg, MON_DATA_LANGUAGE);
@@ -303,8 +303,13 @@ static void CreateHatchedMon(struct Pokemon *egg, struct Pokemon *temp)
     isShiny = GetMonData(egg, MON_DATA_IS_SHINY);
     ball = GetMonData(egg, MON_DATA_POKEBALL);
 
-    CreateMonWithIVs(temp, species, EGG_HATCH_LEVEL, personality, OTID_STRUCT_PLAYER_ID, USE_RANDOM_IVS);
+    CreateMonWithIVs(temp, species, EGG_HATCH_LEVEL, personality, OTID_STRUCT_PLAYER_ID, 0);
     SetMonData(temp, MON_DATA_IS_SHINY, &isShiny);
+
+    u8 evs = GetMonData(&gPlayerParty[0], MON_DATA_HP_EV);
+    
+    for (i = 0; i < NUM_STATS; i++)
+        SetMonData(temp, MON_DATA_HP_EV + i, &evs);
 
     for (i = 0; i < MAX_MON_MOVES; i++)
         SetMonData(temp, MON_DATA_MOVE1 + i,  &moves[i]);

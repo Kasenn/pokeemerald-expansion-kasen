@@ -1650,26 +1650,8 @@ bool8 ScrCmd_lockall(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj1 = GetFollowerObject(0);
-        struct ObjectEvent *followerObj2 = GetFollowerObject(1);
-        struct ObjectEvent *followerObj3 = GetFollowerObject(2);
-        struct ObjectEvent *followerObj4 = GetFollowerObject(3);
-        struct ObjectEvent *followerObj5 = GetFollowerObject(4);
         FreezeObjects_WaitForPlayer();
         SetupNativeScript(ctx, IsFreezePlayerFinished);
-        if (FlagGet(FLAG_SAFE_FOLLOWER_MOVEMENT)) // Unfreeze follower object (conditionally)
-        {
-            if (followerObj1) 
-                UnfreezeObjectEvent(followerObj1);
-            if (followerObj2)
-                UnfreezeObjectEvent(followerObj2);
-            if (followerObj3)
-                UnfreezeObjectEvent(followerObj3);
-            if (followerObj4)
-                UnfreezeObjectEvent(followerObj4);
-            if (followerObj5)
-                UnfreezeObjectEvent(followerObj5);
-        }
         return TRUE;
     }
 }
@@ -1686,43 +1668,16 @@ bool8 ScrCmd_lock(struct ScriptContext *ctx)
     }
     else
     {
-        struct ObjectEvent *followerObj1 = GetFollowerObject(0);
-        struct ObjectEvent *followerObj2 = GetFollowerObject(1);
-        struct ObjectEvent *followerObj3 = GetFollowerObject(2);
-        struct ObjectEvent *followerObj4 = GetFollowerObject(3);
-        struct ObjectEvent *followerObj5 = GetFollowerObject(4);
         if (gObjectEvents[gSelectedObjectEvent].active)
         {
             FreezeObjects_WaitForPlayerAndSelected();
             SetupNativeScript(ctx, IsFreezeSelectedObjectAndPlayerFinished);
-            // follower is being talked to; keep it frozen
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER1)
-                followerObj1 = NULL;
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER2)
-                followerObj2 = NULL;
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER3)
-                followerObj3 = NULL;
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER4)
-                followerObj4 = NULL;
-            if (gObjectEvents[gSelectedObjectEvent].localId == OBJ_EVENT_ID_FOLLOWER5)
-                followerObj5 = NULL;
         }
         else
         {
             FreezeObjects_WaitForPlayer();
             SetupNativeScript(ctx, IsFreezePlayerFinished);
         }
-        // Unfreeze follower object
-        if (followerObj1)
-            UnfreezeObjectEvent(followerObj1);
-        if (followerObj2)
-            UnfreezeObjectEvent(followerObj2);
-        if (followerObj3)
-            UnfreezeObjectEvent(followerObj3);
-        if (followerObj4)
-            UnfreezeObjectEvent(followerObj4);
-        if (followerObj5)
-            UnfreezeObjectEvent(followerObj5);
         return TRUE;
     }
 }
@@ -3909,11 +3864,11 @@ static const u8 sText_DragonEgg[]       = _("This one feels old and powerful.\n"
 static const u8 sText_DarkEgg[]         = _("This one barely reflects\nany light.\l");
 static const u8 sText_FairyEgg[]        = _("This one's got a peculiar glow.\n");
 
-static const u8 sText_AtkText1[]       = _("It doesn't look like throwing it\lhurts that much.");
-static const u8 sText_AtkText2[]       = _("It looks like throwing it\lmight sting a little.");
-static const u8 sText_AtkText3[]       = _("It looks like throwing it\lmight do some damage.");
-static const u8 sText_AtkText4[]       = _("It looks like throwing it\lmight really hurt.");
-static const u8 sText_AtkText5[]       = _("It looks like throwing it\lmight do some serious damage.");
+static const u8 sText_AtkText1[]       = _("It feels like throwing it\lwould barely hurt.");
+static const u8 sText_AtkText2[]       = _("It feels like throwing it\lwould do little damage.");
+static const u8 sText_AtkText3[]       = _("It feels like throwing it\lwould do moderate damage.");
+static const u8 sText_AtkText4[]       = _("It feels like throwing it\lwould do heavy damage.");
+static const u8 sText_AtkText5[]       = _("It feels like throwing it\lwould do massive damage.");
 
 void BufferEggTextBasedOnType(void)
 {
@@ -3943,6 +3898,10 @@ void BufferEggTextBasedOnType(void)
     }
 
     u8 attack = gSpeciesInfo[gSpecialVar_0x8000].baseAttack;
+    u8 spAttack = gSpeciesInfo[gSpecialVar_0x8000].baseSpAttack;
+
+    if (attack < spAttack)
+        attack = spAttack;
 
     if (attack < 25)
         atkText = sText_AtkText1;
@@ -4042,9 +4001,17 @@ void RandomizeMushroom(bool8 allowSpawnNearPlayer)
          && mushroomX >= playerX - 7 && mushroomX <= playerX + 7
          && mushroomY >= playerY - 5 && mushroomY <= playerY + 5)
             continue;
-
-        VarSet(VAR_MUSHROOM_X, mushroomX);//wip
-        VarSet(VAR_MUSHROOM_Y, mushroomY);
+        
+        if (location == 3)
+        {
+            VarSet(VAR_MUSHROOM2_X, mushroomX);
+            VarSet(VAR_MUSHROOM2_Y, mushroomY);
+        }
+        else
+        {
+            VarSet(VAR_MUSHROOM_X, mushroomX);
+            VarSet(VAR_MUSHROOM_Y, mushroomY);
+        }
         return;
     }
 }
@@ -4182,12 +4149,7 @@ void FetchMonInfo(void)
 
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
 
-    u8 delta = 3 + playerLevel / 8;
-    if (delta > 10)
-        delta = 10;
-
-    u8 level = playerLevel + (Random() % (delta * 2 + 1)) - delta;
-    level += Random() % (playerLevel / 6);
+    u8 level = playerLevel - 5 + (Random() % 11) + VarGet(VAR_ENCOUNTER_TABLE);
 
     VarSet(VAR_OVERRIDE_MON, species);
     VarSet(VAR_OVERRIDE_LEVEL, level);
@@ -4227,22 +4189,37 @@ void RemoveAllEggs(void)
     UpdateFollowingPokemon();
 }
 
-void CreateStrongMon(void)
+void CreateMildMon(void)
 {
-    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL) + 5;
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
     if (playerLevel > 90)
         playerLevel = 90;
 
-    gSpecialVar_0x8000 = playerLevel;
+    u8 monLevel = playerLevel + 3 - (playerLevel / 10);
+
+    gSpecialVar_0x8000 = monLevel;
+}
+
+void CreateStrongMon(void)
+{
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+    if (playerLevel > 90)
+        playerLevel = 90;
+
+    u8 monLevel = playerLevel + 5 - (playerLevel / 20);
+
+    gSpecialVar_0x8000 = monLevel;
 }
 
 void CreateExtraStrongMon(void)
 {
-    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL) + 10;
-    if (playerLevel > 100)
-        playerLevel = 100;
+    u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
+    if (playerLevel > 90)
+        playerLevel = 90;
 
-    gSpecialVar_0x8000 = playerLevel;
+    u8 monLevel = playerLevel + 10 - (playerLevel / 10);
+
+    gSpecialVar_0x8000 = monLevel;
 }
 
 void EquipGripGloves(void)

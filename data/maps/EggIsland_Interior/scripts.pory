@@ -169,7 +169,8 @@ script SetSwitches{
     && var(VAR_ROCKPLATE_3) != 0
     && var(VAR_ROCKPLATE_4) != 0
     && var(VAR_ROCKPLATE_5) != 0
-    && var(VAR_ROCKPLATE_6) != 0){
+    && var(VAR_ROCKPLATE_6) != 0
+    && var(VAR_ROCKPLATE_8) != 0){
         setmetatile(FINAL_BLOCK_1_X, FINAL_BLOCK_1_Y,   BARRIER_DOWN,   FALSE)
         setmetatile(FINAL_BLOCK_2_X, FINAL_BLOCK_2_Y,   BARRIER_DOWN,   FALSE)
     }
@@ -184,7 +185,11 @@ script SetupMushroomInterior{
     setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
     setvar(VAR_MUSHROOM_LOCATION, 3)
     callnative(RandomizeMushroomOnSpawn)
-    setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM_X, VAR_MUSHROOM_Y)
+    setobjectxyperm(LOCALID_SUPER_MUSHROOM_INTERIOR_2, VAR_MUSHROOM2_X, VAR_MUSHROOM2_Y)
+    getplayerxy(VAR_X, VAR_Y)
+    if(var(VAR_Y) == 55 || var(VAR_Y) == 52){
+        setvar(VAR_MUSHROOM_LOCATION, 1)
+    }
     clearflag(FLAG_MUSHROOM_PICKED_UP) 
     clearflag(FLAG_MUSHROOM_PICKED_UP2)
 }
@@ -324,7 +329,8 @@ script MainPlateScript2{
     && var(VAR_ROCKPLATE_3) != 0
     && var(VAR_ROCKPLATE_4) != 0
     && var(VAR_ROCKPLATE_5) != 0
-    && var(VAR_ROCKPLATE_6) != 0){
+    && var(VAR_ROCKPLATE_6) != 0
+    && var(VAR_ROCKPLATE_8) != 0){
         goto(TriggerMainGate)
     }
     release
@@ -426,7 +432,8 @@ script SteppedOffofSwitchMain{
     || var(VAR_ROCKPLATE_3) == 0
     || var(VAR_ROCKPLATE_4) == 0
     || var(VAR_ROCKPLATE_5) == 0
-    || var(VAR_ROCKPLATE_6) == 0)
+    || var(VAR_ROCKPLATE_6) == 0
+    || var(VAR_ROCKPLATE_8) == 0)
     && flag(FLAG_DOOR_OPEN)){
         goto(BlockMainGate)
     }
@@ -645,28 +652,36 @@ script AITrigger1{
     release
 }
 
+script SecretItem{
+    //wip
+}
+
 script GripGloves{
     playfanfare(MUS_OBTAIN_ITEM)
     message("Yoshi found the Grip Gloves!")
     delay(10)
+    removeobject(VAR_LAST_TALKED)
     waitfanfare
     waitmessage
-    removeobject(VAR_LAST_TALKED)
     msgbox(GripGlovesDescription)
     callnative(EquipGripGloves)
+    release
 }
 
 script TriggerHelpDiglett{
-    playbgm(MUS_HELP, FALSE)
+    playbgm(MUS_HELP, TRUE)
     turnobject(LOCALID_DIGLETT, DIR_WEST)
     playse(SE_PIN)
     applymovement(LOCALID_DIGLETT, Common_Movement_ExclamationMark)
     waitse
     waitmovement(0)
     turnobject(LOCALID_PLAYER, DIR_EAST)
+    delay(16)
     setspeaker("Diglett")
     msgbox("You there, please help!\pI am getting bullied by\nthese two shrews!", MSGBOX_AUTOCLOSE)
     turnobject(LOCALID_DIGLETT, DIR_SOUTH)
+    setflag(FLAG_NO_RUNNING)
+    setflag(FLAG_DISABLE_ENCOUNTERS)
     setvar(VAR_STORY, 4)
 }
 
@@ -679,24 +694,22 @@ script DontLeaveDiglett{
 }
 
 script Sandshrew1{
-    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
     faceplayer
     setspeaker("Sandshrew")
 	msgbox (Sandshrew1_LetsBattle, MSGBOX_DEFAULT)
-    callnative(CreateStrongMon)
+    callnative(CreateMildMon)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
-    special(StartSpecialBattle)
+    dowildbattle
 	goto(Sandshrew2Attacks)
 }
 
 script Sandshrew2{
-    playbgm(MUS_ENCOUNTER_BRENDAN, TRUE)
     faceplayer
     setspeaker("Sandshrew")
 	msgbox (Sandshrew2_LetsBattle, MSGBOX_DEFAULT)
-    callnative(CreateStrongMon)
+    callnative(CreateMildMon)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
-    special(StartSpecialBattle)
+    dowildbattle
 	goto(Sandshrew1Attacks)
 }
 text Sandshrew1_LetsBattle{
@@ -709,12 +722,13 @@ text Sandshrew2_LetsBattle{
 script Sandshrew1Attacks{
     delay(16)
     applymovement(LOCALID_SANDSHREW2, Movement_ObjectDisappears)
-    removeobject(LOCALID_SANDSHREW2)
     waitmovement(0)
+    removeobject(LOCALID_SANDSHREW2)
     playse(SE_PIN)
     applymovement(LOCALID_SANDSHREW1, Common_Movement_ExclamationMark)
     waitse
     waitmovement(0)
+    delay(48)
     applymovement(LOCALID_SANDSHREW1, moves(walk_left, walk_down))
     waitmovement(0)
     turnobject(LOCALID_PLAYER, DIR_NORTH)
@@ -722,23 +736,25 @@ script Sandshrew1Attacks{
     setspeaker("Sandshrew")
     msgbox("Now you've done it!")
     callnative(CreateStrongMon)
-    addvar(VAR_0x8000, 3)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
-    special(StartSpecialBattle)
+    dowildbattle
     applymovement(LOCALID_SANDSHREW1, Movement_ObjectDisappears)
-    removeobject(LOCALID_SANDSHREW1)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
     waitmovement(0)
+    removeobject(LOCALID_SANDSHREW1)
     goto(SandshrewFinale)
 }
 script Sandshrew2Attacks{
     delay(16)
     applymovement(LOCALID_SANDSHREW1, Movement_ObjectDisappears)
-    removeobject(LOCALID_SANDSHREW1)
     waitmovement(0)
+    removeobject(LOCALID_SANDSHREW1)
     playse(SE_PIN)
     applymovement(LOCALID_SANDSHREW2, Common_Movement_ExclamationMark)
     waitse
     waitmovement(0)
+    delay(48)
     applymovement(LOCALID_SANDSHREW2, moves(walk_left, walk_up))
     waitmovement(0)
     turnobject(LOCALID_PLAYER, DIR_SOUTH)
@@ -746,19 +762,19 @@ script Sandshrew2Attacks{
     setspeaker("Sandshrew")
     msgbox("Now you've done it!")
     callnative(CreateStrongMon)
-    addvar(VAR_0x8000, 3)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
-    special(StartSpecialBattle)
+    dowildbattle
     applymovement(LOCALID_SANDSHREW2, Movement_ObjectDisappears)
-    removeobject(LOCALID_SANDSHREW2)
+    savebgm(MUS_DUMMY)
+	fadedefaultbgm
     waitmovement(0)
+    removeobject(LOCALID_SANDSHREW2)
     goto(SandshrewFinale)
 }
 
 script SandshrewFinale{
-    savebgm(MUS_DUMMY)
-	fadedefaultbgm
     getplayerxy(VAR_X, VAR_Y)
+    delay(32)
     if(var(VAR_Y) == 53){
         applymovement(LOCALID_PLAYER, moves(walk_down, walk_in_place_fast_right))
     }
@@ -766,13 +782,17 @@ script SandshrewFinale{
         applymovement(LOCALID_PLAYER, moves(walk_up, walk_in_place_fast_right))
     }
     waitmovement(0)
+    delay(16)
     turnobject(LOCALID_DIGLETT, DIR_WEST)
     delay(8)
     setspeaker("Diglett")
     msgbox(SandshrewFinale_Text, MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_DIGLETT, moves(nurse_joy_bow))
     waitmovement(0)
+    clearflag(FLAG_DISABLE_ENCOUNTERS)
+    clearflag(FLAG_NO_RUNNING)
     removeobject(LOCALID_DIGLETT)
+    delay(16)
     setvar(VAR_STORY, 5)
     setescapewarp(MAP_EGG_ISLAND_INTERIOR, 32, 72)
     call(SetYoshiMoves)
@@ -809,4 +829,12 @@ script DiglettScript{
 }
 text DiglettScript_Text{
     "Please help me!"
+}
+
+script EggHatchScene{//wip
+	lockall
+	msgbox (Text_EggHatchHuh, MSGBOX_DEFAULT)
+	special (EggHatch)
+	releaseall
+	end
 }

@@ -4364,7 +4364,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_SANDSHREW] =
     {
         .baseHP        = 50,
-        .baseAttack    = 75,
+        .baseAttack    = 55,
         .baseDefense   = 85,
         .baseSpeed     = 40,
         .baseSpAttack  = P_UPDATED_STATS >= GEN_2 ? 20 : 30,
