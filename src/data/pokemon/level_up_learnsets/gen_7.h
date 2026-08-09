@@ -1203,9 +1203,9 @@ static const struct LevelUpMove sMankeyLevelUpLearnset[] = {
 
 static const struct LevelUpMove sPrimeapeLevelUpLearnset[] = {
     LEVEL_UP_MOVE( 1, MOVE_RAGE),
-    LEVEL_UP_MOVE( 1, MOVE_KARATE_CHOP),
+    LEVEL_UP_MOVE( 1, MOVE_KARATE_CHOP_PRIMEAPE),
     LEVEL_UP_MOVE( 1, MOVE_SEISMIC_TOSS),
-    LEVEL_UP_MOVE( 1, MOVE_OUTRAGE),
+    LEVEL_UP_MOVE( 1, MOVE_OUTRAGE_PRIMEAPE),
     LEVEL_UP_END
 };
 

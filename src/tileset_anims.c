@@ -75,6 +75,7 @@ static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
 static void QueueAnimTiles_SootopolisGym_Waterfalls(u16);
 static void QueueAnimTiles_EliteFour_GroundLights(u16);
 static void QueueAnimTiles_EliteFour_WallLights(u16);
+static void QueueAnimTiles_General_FloatingEgg(u16);
 
 const u16 gTilesetAnims_General_Flower_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/1.png", ".4bpp");
 const u16 gTilesetAnims_General_Flower_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/flower/0.png", ".4bpp");
@@ -171,6 +172,15 @@ const u16 *const gTilesetAnims_General_LandWaterEdge[] = {
     gTilesetAnims_General_LandWaterEdge_Frame2,
     gTilesetAnims_General_LandWaterEdge_Frame3
 };
+
+const u16 gTilesetAnims_General_FloatingEgg_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/floating_egg/0.png", ".4bpp");
+const u16 gTilesetAnims_General_FloatingEgg_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/floating_egg/1.png", ".4bpp");
+
+const u16 *const gTilesetAnims_General_FloatingEgg[] = {
+    gTilesetAnims_General_FloatingEgg_Frame0,
+    gTilesetAnims_General_FloatingEgg_Frame1,
+};
+
 
 const u16 gTilesetAnims_General_Rapids_Frame0[] = INCGFX_U16("data/tilesets/primary/general/anim/rapid/1.png", ".4bpp");
 const u16 gTilesetAnims_General_Rapids_Frame1[] = INCGFX_U16("data/tilesets/primary/general/anim/rapid/2.png", ".4bpp");
@@ -676,6 +686,8 @@ static void TilesetAnim_General(u16 timer)
         QueueAnimTiles_General_LandWaterEdge(timer / 16);
     if (timer % 6 == 5)
         QueueAnimTiles_General_Rapids(timer / 6);
+    if (timer % 16 == 5)
+        QueueAnimTiles_General_FloatingEgg(timer / 16);
 }
 
 static void TilesetAnim_Building(u16 timer)
@@ -1001,6 +1013,12 @@ static void QueueAnimTiles_General_Rapids(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_General_Rapids);
     AppendTilesetAnimToBuffer(gTilesetAnims_General_Rapids[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x1A8)), 4 * TILE_SIZE_4BPP);
+}
+
+static void QueueAnimTiles_General_FloatingEgg(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_General_FloatingEgg);
+    AppendTilesetAnimToBuffer(gTilesetAnims_General_FloatingEgg[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x382)), 2 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_General_LandWaterEdge(u16 timer)

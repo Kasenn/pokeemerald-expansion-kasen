@@ -3133,10 +3133,6 @@ BattleScript_LevelUp::
 	fanfare MUS_LEVEL_UP
 	printstring STRINGID_PKMNGREWTOLV
 	setbyte sLVLBOX_STATE, 0
-	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	curestatus BS_SCRIPTING
-	updatestatusicon BS_SCRIPTING
 	drawlvlupbox
 	handlelearnnewmove BattleScript_LearnedNewMove, BattleScript_LearnMoveReturn, TRUE
 	goto BattleScript_AskToLearnMove
@@ -3170,6 +3166,11 @@ BattleScript_LearnedNewMove::
 	updatechoicemoveonlvlup
 	goto BattleScript_TryLearnMoveLoop
 BattleScript_LearnMoveReturn::
+	playse SE_USE_ITEM
+	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	curestatus BS_SCRIPTING
+	updatestatusicon BS_SCRIPTING
 	return
 
 BattleScript_WeatherAbilityActivates::

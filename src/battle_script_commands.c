@@ -4211,7 +4211,7 @@ static void Cmd_getexp(void)
                     battler = 2;
 
                 gBattleScripting.battler = battler;
-                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));//wip
+                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));
 
 
                 if (battler != 0xFF)

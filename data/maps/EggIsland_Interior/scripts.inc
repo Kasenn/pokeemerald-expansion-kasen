@@ -1790,26 +1790,32 @@ SandshrewFinale_1:
 # 789 "data/maps/EggIsland_Interior/scripts.pory"
 	msgbox SandshrewFinale_Text, MSGBOX_AUTOCLOSE
 # 790 "data/maps/EggIsland_Interior/scripts.pory"
-	applymovement LOCALID_DIGLETT, SandshrewFinale_Movement_2
+	delay 8
 # 791 "data/maps/EggIsland_Interior/scripts.pory"
-	waitmovement 0
+	turnobject LOCALID_DIGLETT, DIR_SOUTH
 # 792 "data/maps/EggIsland_Interior/scripts.pory"
-	clearflag FLAG_DISABLE_ENCOUNTERS
-# 793 "data/maps/EggIsland_Interior/scripts.pory"
-	clearflag FLAG_NO_RUNNING
-# 794 "data/maps/EggIsland_Interior/scripts.pory"
-	removeobject LOCALID_DIGLETT
-# 795 "data/maps/EggIsland_Interior/scripts.pory"
 	delay 16
+# 793 "data/maps/EggIsland_Interior/scripts.pory"
+	applymovement LOCALID_DIGLETT, SandshrewFinale_Movement_2
+# 794 "data/maps/EggIsland_Interior/scripts.pory"
+	waitmovement 0
+# 795 "data/maps/EggIsland_Interior/scripts.pory"
+	clearflag FLAG_DISABLE_ENCOUNTERS
 # 796 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_STORY, 5
+	clearflag FLAG_NO_RUNNING
 # 797 "data/maps/EggIsland_Interior/scripts.pory"
-	setescapewarp MAP_EGG_ISLAND_INTERIOR, 32, 72
+	removeobject LOCALID_DIGLETT
 # 798 "data/maps/EggIsland_Interior/scripts.pory"
-	call SetYoshiMoves
+	delay 16
 # 799 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox SandshrewFinale_Text2
+	setvar VAR_STORY, 5
 # 800 "data/maps/EggIsland_Interior/scripts.pory"
+	setescapewarp MAP_EGG_ISLAND_INTERIOR, 32, 72
+# 801 "data/maps/EggIsland_Interior/scripts.pory"
+	call SetYoshiMoves
+# 802 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox SandshrewFinale_Text2
+# 803 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
@@ -1820,23 +1826,23 @@ SandshrewFinale_2:
 
 
 DiglettScript::
-# 826 "data/maps/EggIsland_Interior/scripts.pory"
+# 829 "data/maps/EggIsland_Interior/scripts.pory"
 	setspeaker TriggerHelpDiglett_Text_0
-# 827 "data/maps/EggIsland_Interior/scripts.pory"
+# 830 "data/maps/EggIsland_Interior/scripts.pory"
 	msgbox DiglettScript_Text, MSGBOX_NPC
-# 828 "data/maps/EggIsland_Interior/scripts.pory"
+# 831 "data/maps/EggIsland_Interior/scripts.pory"
 	turnobject LOCALID_DIGLETT, DIR_SOUTH
 	return
 
 
 EggHatchScene::
-# 835 "data/maps/EggIsland_Interior/scripts.pory"
-	lockall
-# 836 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox Text_EggHatchHuh, MSGBOX_DEFAULT
-# 837 "data/maps/EggIsland_Interior/scripts.pory"
-	special EggHatch
 # 838 "data/maps/EggIsland_Interior/scripts.pory"
+	lockall
+# 839 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox Text_EggHatchHuh, MSGBOX_DEFAULT
+# 840 "data/maps/EggIsland_Interior/scripts.pory"
+	special EggHatch
+# 841 "data/maps/EggIsland_Interior/scripts.pory"
 	releaseall
 	end
 
@@ -1879,9 +1885,9 @@ SandshrewFinale_Movement_1:
 	walk_in_place_fast_right
 	step_end
 
-# 790 "data/maps/EggIsland_Interior/scripts.pory"
+# 793 "data/maps/EggIsland_Interior/scripts.pory"
 SandshrewFinale_Movement_2:
-# 790 "data/maps/EggIsland_Interior/scripts.pory"
+# 793 "data/maps/EggIsland_Interior/scripts.pory"
 	nurse_joy_bow
 	step_end
 
@@ -1949,7 +1955,7 @@ Sandshrew2_LetsBattle::
 	.string "Don't butt in!$"
 
 SandshrewFinale_Text::
-# 803 "data/maps/EggIsland_Interior/scripts.pory"
+# 806 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Thank you for saving me,\n"
 	.string "friend!\p"
 	.string "The two of them together was\n"
@@ -1961,7 +1967,7 @@ SandshrewFinale_Text::
 	.string "bursting out of the ground!$"
 
 SandshrewFinale_Text2::
-# 814 "data/maps/EggIsland_Interior/scripts.pory"
+# 817 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}You can now use the “Retreat”\n"
 	.string "option in the Start Menu to\l"
 	.string "return to the latest discovered\l"
@@ -1972,5 +1978,5 @@ SandshrewFinale_Text2::
 	.string "strike your foes.$"
 
 DiglettScript_Text::
-# 830 "data/maps/EggIsland_Interior/scripts.pory"
+# 833 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "Please help me!$"

@@ -8,6 +8,12 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
+    if(flag(FLAG_BERRYBRIDGE_CREATED)){
+        msgbox("true")
+    }
+    else{
+        msgbox("false")
+    }
     callnative(TestMonNameLength)
     // trainerbattle_double(TRAINER_GABBY_AND_TY_1, "a", "a", "a")
     // callnative(ZeroEnemyPartyMons)
@@ -102,8 +108,8 @@ script Script_RetreatWithDiglett{
 }
 
 text RetreatWithDiglett_Text{
-    "Call out for Diglett and\n"
-    "return back to latest save point?"
+    "Call out for Diglett and return\n"
+    "back to latest save point?"
 }
 
 script Script_TryLootEgg{
@@ -205,10 +211,15 @@ script RiverCrossingMain{
     playse(SE_LEDGE)
     waitmovement(0)
     delay(30)
+    getplayerxy(VAR_X, VAR_Y)
+    switch(var(VAR_Y)){
+        case 48: applymovement(VAR_WATEREGG, moves(lock_anim, lock_facing_direction, disable_jump_landing_ground_effect, walk_fast_down * 2, jump_down, walk_fast_down * 5, unlock_anim, unlock_facing_direction, enable_jump_landing_ground_effect))
+        case 49: applymovement(VAR_WATEREGG, moves(lock_anim, lock_facing_direction, disable_jump_landing_ground_effect, walk_fast_down * 1, jump_down, walk_fast_down * 6, unlock_anim, unlock_facing_direction, enable_jump_landing_ground_effect))
+        case 50: applymovement(VAR_WATEREGG, moves(lock_anim, lock_facing_direction, disable_jump_landing_ground_effect, jump_down, walk_fast_down * 7, unlock_anim, unlock_facing_direction, enable_jump_landing_ground_effect))
+    }
     applymovement(VAR_WATEREGG, MoveWaterEggAway)
     waitmovement(0)
     hideobjectat(VAR_WATEREGG, MAP_EGG_ISLAND_EXTERIOR)
-    getplayerxy(VAR_X, VAR_Y)
     if(var(VAR_FACING) == DIR_EAST){
         subvar(VAR_X, 2)
     }
@@ -316,6 +327,7 @@ script SlipperySlopeMain{
         release
         end
     }
+    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     switch(var(VAR_SLOPE)){
         case 2:
             applymovement(LOCALID_PLAYER, moves(walk_slow_up * 3))
@@ -395,6 +407,11 @@ script MakeBerryBridge{
         end
     }
     callnative(RemoveTwoEggs)
+    special(CalculatePlayerPartyCount)
+    callnative(UpdateEggPP)
+    callnative(RemoveLast2Followers)
+    setobjectsubpriority(LOCALID_PLAYER, MAP_EGG_ISLAND_EXTERIOR, 0xFF)
+    delay(32)
 
     getplayerxy(VAR_X, VAR_Y)
     setobjectxy(LOCALID_BERRYBRIDGEEGG_1, VAR_X, VAR_Y)
@@ -415,7 +432,7 @@ script MakeBerryBridge{
     playse(SE_M_DIVE)
     waitmovement(0)
 
-    applymovement(LOCALID_PLAYER, Walk1Up)
+    applymovement(LOCALID_PLAYER, moves(walk_up * 2))
     waitmovement(0)
 
     setmetatile(VAR_X, 54, 0x238, FALSE)
@@ -428,6 +445,7 @@ script MakeBerryBridge{
     removeobject(LOCALID_BERRYBRIDGE_NINJA3)
     removeobject(LOCALID_BERRYBRIDGE_NINJA4)
     removeobject(LOCALID_BERRYBRIDGE_NINJA5)
+    resetobjectsubpriority(LOCALID_PLAYER, MAP_EGG_ISLAND_EXTERIOR)
 }
 
 text MakeBerryEggBridge_Text{
@@ -454,8 +472,11 @@ script MakeEggBridge{
         release
         end
     }
+    closemessage
     callnative(RemoveAllEggs)
     getplayerxy(VAR_X, VAR_Y)
+    setobjectsubpriority(LOCALID_PLAYER, MAP_EGG_ISLAND_EXTERIOR, 0xFF)
+    delay(32)
     setobjectxy(LOCALID_BRIDGEEGG_1, VAR_X, VAR_Y)
     playse(SE_M_JUMP_KICK)
     applymovement(LOCALID_BRIDGEEGG_1, ThrowBridgeEgg)
@@ -518,6 +539,7 @@ script MakeEggBridge{
     removeobject(LOCALID_BRIDGEEGG_4)
     removeobject(LOCALID_BRIDGEEGG_5)
     removeobject(LOCALID_BRIDGE_NINJA)
+    resetobjectsubpriority(LOCALID_PLAYER, MAP_EGG_ISLAND_EXTERIOR)
 }
 
 movement Walk1Up{

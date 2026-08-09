@@ -2503,6 +2503,36 @@ void ForceResetFollowers(void)
     UpdateFollowingPokemon();
 }
 
+void RemoveLast2Followers(void)
+{
+    u8 remove = 2;
+
+    for (int i = OBJECT_EVENTS_COUNT; i > 0; i--)
+    {
+        if (remove == 0)
+            break;
+
+        if (gObjectEvents[i].isFollower)
+        {
+            struct ObjectEvent *objectEvent = &gObjectEvents[i];
+            if (objectEvent == NULL)
+                continue;
+            if (objectEvent->localId == OBJ_EVENT_ID_FOLLOWER5)
+                gSaveBlock1Ptr->followerId[4] = 0;
+            if (objectEvent->localId == OBJ_EVENT_ID_FOLLOWER4)
+                gSaveBlock1Ptr->followerId[3] = 0;
+            if (objectEvent->localId == OBJ_EVENT_ID_FOLLOWER3)
+                gSaveBlock1Ptr->followerId[2] = 0;
+            if (objectEvent->localId == OBJ_EVENT_ID_FOLLOWER2)
+                gSaveBlock1Ptr->followerId[1] = 0;
+            if (objectEvent->localId == OBJ_EVENT_ID_FOLLOWER1)
+                gSaveBlock1Ptr->followerId[0] = 0;
+            RemoveObjectEvent(objectEvent);
+            remove--;
+        }     
+    }
+}
+
 // Update following Pokémon if any
 void UpdateFollowingPokemon(void)
 {

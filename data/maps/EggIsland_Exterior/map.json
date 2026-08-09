@@ -373,7 +373,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_MURKROW",
-      "x": 48,
+      "x": 47,
       "y": 48,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_LEFT_AND_RIGHT",
@@ -561,6 +561,47 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "MakeBerryBridge",
       "flag": "FLAG_BERRYBRIDGE_CREATED"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_ITEMSPARKLE",
+      "x": 22,
+      "y": 52,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_SLOWLY_IN_PLACE_UP",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "BaitItem",
+      "flag": "FLAG_BAIT_ITEM"
+    },
+    {
+      "local_id": "LOCALID_SNORLAXNINJA1",
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 55,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SleepingSnorlax",
+      "flag": "FLAG_SLEEPING_SNORLAX"
+    },
+    {
+      "local_id": "LOCALID_SNORLAXNINJA2",
+      "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
+      "x": 53,
+      "y": 39,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "SleepingSnorlax",
+      "flag": "FLAG_SLEEPING_SNORLAX"
     }
   ],
   "warp_events": [
@@ -658,8 +699,8 @@
       "x": 24,
       "y": 39,
       "elevation": 0,
-      "var": "FLAG_SKARMORY_DEFEATED",
-      "var_value": "0",
+      "var": "FLAG_TEMP_A",
+      "var_value": "TRUE",
       "script": "SkarmoryTrigger1"
     },
     {
@@ -667,8 +708,8 @@
       "x": 24,
       "y": 40,
       "elevation": 0,
-      "var": "FLAG_SKARMORY_DEFEATED",
-      "var_value": "0",
+      "var": "FLAG_TEMP_A",
+      "var_value": "TRUE",
       "script": "SkarmoryTrigger2"
     },
     {
@@ -706,6 +747,78 @@
       "var": "FLAG_SLEEPING_SNORLAX_INTRO",
       "var_value": "0",
       "script": "SleepingSnorlaxIntro"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 48,
+      "elevation": 0,
+      "var": "FLAG_SKARMORY_DEFEATED",
+      "var_value": "0",
+      "script": "SpawnSkarmory"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 57,
+      "elevation": 0,
+      "var": "FLAG_EXPLAIN_REST_POINT",
+      "var_value": "0",
+      "script": "SavePointTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 57,
+      "elevation": 0,
+      "var": "FLAG_SAVE_3_REACHED",
+      "var_value": "0",
+      "script": "SetSave3EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 58,
+      "elevation": 0,
+      "var": "FLAG_SAVE_3_REACHED",
+      "var_value": "0",
+      "script": "SetSave3EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 32,
+      "elevation": 0,
+      "var": "FLAG_EXPLAIN_REST_POINT",
+      "var_value": "0",
+      "script": "SavePointTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 34,
+      "elevation": 0,
+      "var": "FLAG_SAVE_4_REACHED",
+      "var_value": "0",
+      "script": "SetSave4EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 33,
+      "elevation": 0,
+      "var": "FLAG_SAVE_4_REACHED",
+      "var_value": "0",
+      "script": "SetSave4EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 55,
+      "y": 34,
+      "elevation": 0,
+      "var": "FLAG_SAVE_4_REACHED",
+      "var_value": "0",
+      "script": "SetSave4EscapeWarp"
     }
   ],
   "bg_events": [

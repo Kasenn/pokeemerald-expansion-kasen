@@ -7973,7 +7973,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_MANKEY] =
     {
         .baseHP        = 40,
-        .baseAttack    = 80,
+        .baseAttack    = 60,
         .baseDefense   = 35,
         .baseSpeed     = 70,
         .baseSpAttack  = 35,
@@ -8053,7 +8053,7 @@ const struct SpeciesInfo gSpeciesInfoGen1[] =
     [SPECIES_PRIMEAPE] =
     {
         .baseHP        = 65,
-        .baseAttack    = 105,
+        .baseAttack    = 90,
         .baseDefense   = 60,
         .baseSpeed     = 95,
         .baseSpAttack  = 60,

@@ -915,6 +915,8 @@ enum __attribute__((packed)) Move
     MOVE_BEWITCHING_RAY,
     MOVE_CALL_DIGLETT,
     MOVE_LICK_BERRY_STRONG,
+    MOVE_KARATE_CHOP_PRIMEAPE,
+    MOVE_OUTRAGE_PRIMEAPE,
 
     // Add any custom moves here, not further down!
 

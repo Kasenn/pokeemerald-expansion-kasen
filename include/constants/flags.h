@@ -98,7 +98,7 @@
 #define FLAG_TONGUE_UPGRADE             0x4C
 #define FLAG_BERRYBRIDGE_CREATED    0x4D // Unused Flag
 #define FLAG_SECRET_ITEM    0x4E // Unused Flag
-#define FLAG_UNUSED_0x04F    0x4F // Unused Flag
+#define FLAG_BAIT_ITEM    0x4F // Unused Flag
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -675,8 +675,8 @@
 #define FLAG_GROUNDEGG_9  0x26C // Unused Flag
 #define FLAG_GROUNDEGG_10  0x26D // Unused Flag
 #define FLAG_GROUNDEGG_11  0x26E // Unused Flag
-#define FLAG_UNUSED_0x26F  0x26F // Unused Flag
-#define FLAG_UNUSED_0x270  0x270 // Unused Flag
+#define FLAG_SAVE_3_REACHED  0x26F // Unused Flag
+#define FLAG_SAVE_4_REACHED  0x270 // Unused Flag
 #define FLAG_UNUSED_0x271  0x271 // Unused Flag
 #define FLAG_UNUSED_0x272  0x272 // Unused Flag
 #define FLAG_UNUSED_0x273  0x273 // Unused Flag

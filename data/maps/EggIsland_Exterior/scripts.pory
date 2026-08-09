@@ -348,10 +348,11 @@ script SkarmoryTrigger2{
 }
 script SkarmoryTriggerMain{
     counteggs
-    if(var(VAR_EGGS) < 2){
+    if(var(VAR_EGGS) < 1){
         release
         end
     }
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     playmoncry(SPECIES_SKARMORY, CRY_MODE_ENCOUNTER)
     delay(15)
     applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
@@ -380,6 +381,12 @@ script SkarmoryTriggerMain{
     waitmovement(0)
     removeobject(LOCALID_SKARMORY)
     clearflag(FLAG_NO_RUNNING)
+    clearflag(FLAG_TEMP_A)
+}
+
+script SpawnSkarmory{
+    setflag(FLAG_TEMP_A)
+    release
 }
 
 script SuperMushroomUpgrade{
@@ -390,6 +397,12 @@ script SuperMushroomUpgrade{
 	waitfanfare
     waitmessage
 	msgbox("Super Mushrooms now recover\nup to 50% more HP.")
+    release
+}
+
+script BaitItem{
+    removeobject(VAR_LAST_TALKED)
+    msgbox("Huh… Looks like it was just\nsome shiny rocks glinting in\lthe sun…")
     release
 }
 
@@ -420,7 +433,10 @@ script SleepingSnorlax{
     waitfanfare
     msgbox(SleepingSnorlax_Text2, MSGBOX_AUTOCLOSE)
     removeobject(LOCALID_SLEEPING_SNORLAX)
+    removeobject(LOCALID_SNORLAXNINJA1)
+    removeobject(LOCALID_SNORLAXNINJA2)
     delay(16)
+    clearflag(FLAG_AWAKE_SNORLAX)
     fadescreen(FADE_FROM_BLACK)
     delay(10)
     release
@@ -435,8 +451,9 @@ text SleepingSnorlax_Text{
 }
 
 text SleepingSnorlax_Text2{
-    "The Snorlax wakes up and rushes out\n"
-    "in search of more berries."
+    "The Snorlax wakes up and\n"
+    "rushes out in search of\l"
+    "more berries."
 }
 
 script SleepingSnorlaxIntro{
@@ -461,6 +478,11 @@ script ChestoBerryTree{
         end
     }
     elif(!flag(FLAG_PICKED_UP_CHESTO_BERRY)){
+        msgbox("It's a tree full of\nChesto berries.\lPick a few berries?", MSGBOX_YESNO)
+        if(var(VAR_RESULT) == FALSE){
+            release
+            end
+        }
         playfanfare(MUS_OBTAIN_ITEM)
         message("Picked up a handful of\nChesto berries!")
         delay(10)
@@ -536,6 +558,7 @@ text GripGlovesOnGround{
 }
 
 script PrimeapeEncounter{
+    delay(16)
     setspeaker("???")
     msgbox("MY SPARKLY!", MSGBOX_AUTOCLOSE)
     applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
@@ -543,16 +566,16 @@ script PrimeapeEncounter{
     addobject(LOCALID_PRIMEAPE)
     switch(var(VAR_FACING)){
         case DIR_NORTH:
-            applymovement(LOCALID_PRIMEAPE, moves(walk_left, walk_down * 2, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8))
-            delay(48)
+            applymovement(LOCALID_PRIMEAPE, moves(walk_left, walk_down * 2, delay_16 * 2, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8))
+            delay(80)
             playse(SE_LEDGE)
             delay(16)
             playse(SE_LEDGE)
             delay(16)
             playse(SE_LEDGE)
         case DIR_EAST:
-            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8, face_left))
-            delay(48)
+            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, delay_16 * 2, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8, face_left))
+            delay(80)
             turnobject(LOCALID_PLAYER, DIR_NORTH)
             playse(SE_LEDGE)
             delay(16)
@@ -560,8 +583,8 @@ script PrimeapeEncounter{
             delay(16)
             playse(SE_LEDGE)
         case DIR_WEST:
-            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, jump_down, delay_8, jump_down, delay_8))
-            delay(48)
+            applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, delay_16 * 2, jump_down, delay_8, jump_down, delay_8))
+            delay(80)
             turnobject(LOCALID_PLAYER, DIR_NORTH)
             playse(SE_LEDGE)
             delay(16)
@@ -640,4 +663,16 @@ text KamekBattleIntro2{
     "weird world behind, and\l"
     "return back to the young\l"
     "master's side!"
+}
+
+script SetSave3EscapeWarp{
+    setflag(FLAG_SAVE_3_REACHED)
+    setescapewarp(MAP_EGG_ISLAND_EXTERIOR, 24, 57)
+    release
+}
+
+script SetSave4EscapeWarp{
+    setflag(FLAG_SAVE_4_REACHED)
+    setescapewarp(MAP_EGG_ISLAND_EXTERIOR, 54, 32)
+    release
 }
