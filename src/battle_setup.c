@@ -698,12 +698,10 @@ static void DowngradeBadPoison(void)
             SetMonData(&gPlayerParty[0], MON_DATA_PP1 + move, &pp);
     }
     u8 i;
-    u32 status = STATUS1_POISON;
-    if (B_TOXIC_REVERSAL < GEN_5)
-        return;
+    u32 status = STATUS1_NONE;
     for (i = 0; i < PARTY_SIZE; i++)
     {
-        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SANITY_HAS_SPECIES) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_STATUS) == STATUS1_TOXIC_POISON)
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SANITY_HAS_SPECIES) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_STATUS))
             SetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_STATUS, &status);
     }
 }
