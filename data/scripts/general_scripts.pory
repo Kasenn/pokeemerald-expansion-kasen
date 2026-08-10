@@ -102,7 +102,7 @@ text RetreatWithDiglett_Text{
 }
 
 script Script_TryLootEgg{
-    lock
+    lockall
     callnative(GeneratePokemonForEgg)
     clearflag(FLAG_FORCE_ENCOUNTERRATE)
     if(var(VAR_EGGS) < 5)
@@ -144,7 +144,7 @@ script Script_TryLootEgg{
         clearflag(FLAG_TURBOBOOST_ENCOUNTERS)
         msgbox("Yoshi replaced an older egg\nwith the new one.")
     }
-    release
+    releaseall
 }
 
 text TooManyEggs{
@@ -188,6 +188,7 @@ script RiverCrossingMain{
         end
     }
     removeegg(VAR_0x8004)
+    call(HideEggs)
     call(DoWaterEggMovement)
     delay(32)
     playse(SE_LEDGE)
@@ -230,7 +231,8 @@ script RiverCrossingMain{
     setobjectxy(VAR_WATEREGG, VAR_X, VAR_Y)
     special(CalculatePlayerPartyCount)
     callnative(UpdateEggPP)
-    callnative(ForceResetFollowers)
+    // callnative(ForceResetFollowers)
+    releaseall
 }
 
 movement MoveWaterEggAway{
@@ -636,12 +638,18 @@ script FollowerEggScript{
 
 script SetYoshiMoves{
     setmonmove(0, 0, MOVE_CHUCK_EGG)
-    setmonmove(0, 1, MOVE_LICK_BERRY)
+    setmonmove(0, 1, MOVE_TONGUE_ATTACK)
+    if (flag(FLAG_STATIC_TONGUE)){
+        setmonmove(0, 1, MOVE_TONGUE_ATTACK_STATIC)
+    }
     if(flag(FLAG_EGGS_HATCHED)){
         setmonmove(0, 0, MOVE_HELPING_HAND)
     }
     if(flag(FLAG_TONGUE_UPGRADE)){
-        setmonmove(0, 1, MOVE_LICK_BERRY_STRONG)
+        setmonmove(0, 1, MOVE_TONGUE_ATTACK_STRONG)
+        if (flag(FLAG_STATIC_TONGUE)){
+            setmonmove(0, 1, MOVE_TONGUE_ATTACK_STRONG_STATIC)
+        }
     }
     if(!flag(FLAG_INTRODUCTION_TO_MUSHROOMS))
     {
@@ -657,4 +665,41 @@ script SetYoshiMoves{
     callnative(UpdateMushroomPP)
     callnative(UpdateEggPP)
     callnative(RestorePPs)
+}
+
+script HideEggs{
+    switch(var(VAR_EGGS)){
+    case 0:
+        applymovement(OBJ_EVENT_ID_FOLLOWER1, EnterPokeballMovement)
+        waitmovement(0)
+        removeobject(OBJ_EVENT_ID_FOLLOWER1)
+    case 1:
+        applymovement(OBJ_EVENT_ID_FOLLOWER1, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER2, EnterPokeballMovement)
+        waitmovement(0)
+        removeobject(OBJ_EVENT_ID_FOLLOWER2)
+    case 2:
+        applymovement(OBJ_EVENT_ID_FOLLOWER1, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER2, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER3, EnterPokeballMovement)
+        waitmovement(0)
+        removeobject(OBJ_EVENT_ID_FOLLOWER3)
+    case 3:
+        applymovement(OBJ_EVENT_ID_FOLLOWER1, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER2, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER3, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER4, EnterPokeballMovement)
+        waitmovement(0)
+        removeobject(OBJ_EVENT_ID_FOLLOWER4)
+    case 4:
+        applymovement(OBJ_EVENT_ID_FOLLOWER1, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER2, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER3, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER4, EnterPokeballMovement)
+        applymovement(OBJ_EVENT_ID_FOLLOWER5, EnterPokeballMovement)
+        waitmovement(0)
+        removeobject(OBJ_EVENT_ID_FOLLOWER5)
+    }
+    callnative(UpdateFollowingPokemon)
+    return
 }

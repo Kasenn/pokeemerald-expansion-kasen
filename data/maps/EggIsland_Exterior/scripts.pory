@@ -401,8 +401,13 @@ script SuperMushroomUpgrade{
 }
 
 script BaitItem{
+playfanfare(MUS_OBTAIN_ITEM)
+	message("Yoshi obtained the\nJumping Diglett Upgrade!")
+	delay(10)
     removeobject(VAR_LAST_TALKED)
-    msgbox("Huh… Looks like it was just\nsome shiny rocks glinting in\lthe sun…")
+	waitfanfare
+    waitmessage
+	msgbox("Call Diglett can now hit\nFlying-type opponents.")
     release
 }
 

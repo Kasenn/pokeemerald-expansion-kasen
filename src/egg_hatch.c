@@ -714,6 +714,7 @@ static void CB2_EggHatch(void)
             for (int i = 0; i < NUM_EGGS; i++)
                 Free(sEggHatchData[i]);
             Free(sFunctionData);
+            VarSet(VAR_STORY, 6);
             SetMainCallback2(CB2_ReturnToField);
         }
         break;

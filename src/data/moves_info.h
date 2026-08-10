@@ -23874,7 +23874,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_LICK_BERRY] =
+    [MOVE_TONGUE_ATTACK] =
     {
         .name = COMPOUND_STRING("Tongue Attack"),
         .additionalEffects = ADDITIONAL_EFFECTS({
@@ -23901,7 +23901,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .validApprenticeMove = TRUE,
     },
 
-    [MOVE_LICK_BERRY_STRONG] =
+    [MOVE_TONGUE_ATTACK_STRONG] =
     {
         .name = COMPOUND_STRING("Tongue Attack"),
         .additionalEffects = ADDITIONAL_EFFECTS({
@@ -23958,5 +23958,68 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .encoreBanned = TRUE,
         .assistBanned = TRUE,
         .sketchBanned = TRUE,
+    },
+    [MOVE_TONGUE_ATTACK_STATIC] =
+    {
+        .name = COMPOUND_STRING("Tongue Attack"),
+        .additionalEffects = ADDITIONAL_EFFECTS(
+        {
+            .moveEffect = MOVE_EFFECT_BUG_BITE,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_PARALYSIS,
+            .chance = 30,
+        }),
+        .description = COMPOUND_STRING(
+            "Attempts to eat the foe's\n"
+            "Berry. May also paralyze."),
+        .effect = EFFECT_HIT,
+        .power = 20,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Lick,
+        .validApprenticeMove = TRUE,
+    },
+
+    [MOVE_TONGUE_ATTACK_STRONG_STATIC] =
+    {
+        .name = COMPOUND_STRING("Tongue Attack"),
+        .additionalEffects = ADDITIONAL_EFFECTS(
+        {
+            .moveEffect = MOVE_EFFECT_BUG_BITE,
+        },
+        {
+            .moveEffect = MOVE_EFFECT_PARALYSIS,
+            .chance = 30,
+        }),
+        .description = COMPOUND_STRING(
+            "Attempts to eat the foe's\n"
+            "Berry. May also paralyze."),
+        .effect = EFFECT_HIT,
+        .power = 70,
+        .type = TYPE_NORMAL,
+        .accuracy = 100,
+        .pp = 40,
+        .target = TARGET_SELECTED,
+        .priority = 0,
+        .category = DAMAGE_CATEGORY_PHYSICAL,
+        .makesContact = TRUE,
+        .contestEffect = C_UPDATED_MOVE_EFFECTS >= GEN_6 ? CONTEST_EFFECT_STARTLE_PREV_MON : CONTEST_EFFECT_BADLY_STARTLE_FRONT_MON,
+        .contestCategory = C_UPDATED_MOVE_CATEGORIES >= GEN_6 ? CONTEST_CATEGORY_CUTE : CONTEST_CATEGORY_TOUGH,
+        .contestComboStarterId = 0,
+        .contestComboMoves = {0},
+        .metronomeBanned = TRUE,
+        .battleAnimScript = gBattleAnimMove_Lick,
+        .validApprenticeMove = TRUE,
     },
 };

@@ -76,6 +76,9 @@ mapscripts EggIsland_Interior_MapScripts {
         call(SetEggs)
     }
     MAP_SCRIPT_ON_LOAD: SetSwitches
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_STORY, 6: EggHatchScene2
+    ]
 }
 script SetUpInteriorAreaOne{
     setvar(VAR_AI_FLAGS, 0)
@@ -491,6 +494,7 @@ script SetEggOnPedestal{
         end
     }
     removeegg(VAR_0x8004)
+    call(HideEggs)
     copyvartocustomvar(VAR_0x800A)
     // callnative(ForceResetFollowers)
     clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
@@ -560,7 +564,7 @@ script SetEggOnPedestal{
     msgbox(SetEggOnPedestal_Text3)
     special(CalculatePlayerPartyCount)
     callnative(UpdateEggPP)
-    callnative(ForceResetFollowers)
+    // callnative(ForceResetFollowers)
     release
     end
 }
@@ -690,8 +694,21 @@ script AITrigger1{
     release
 }
 
-script SecretItem{
-    //wip
+script StaticTongueUpgrade{
+    playfanfare(MUS_OBTAIN_ITEM)
+    message("Yoshi obtained the\nStatic Tongue Upgrade!")
+    delay(10)
+    removeobject(VAR_LAST_TALKED)
+    waitfanfare
+    waitmessage
+    msgbox(StaticTongueUpgrade_Text)
+    call(SetYoshiMoves)
+    release
+}
+
+text StaticTongueUpgrade_Text{
+    "Yoshi's “Tongue Attack” now has\n"
+    "a chance to paralyze the target."
 }
 
 script GripGloves{
@@ -876,7 +893,13 @@ script EggHatchScene{
 	lockall
 	msgbox (Text_EggHatchHuh, MSGBOX_DEFAULT)
 	special (EggHatch)
-    delay(32)
+	releaseall
+	end
+}
+
+script EggHatchScene2{
+    lockall
+    delay(16)
     turnobject(LOCALID_PLAYER, DIR_EAST)
     turnobject(OBJ_EVENT_ID_FOLLOWER1, DIR_WEST)
     delay(8)
@@ -884,9 +907,11 @@ script EggHatchScene{
     setspeaker("{STR_VAR_1}")
     msgbox(EggHatchScene_Text)
     call(SetYoshiMoves)
+    setspeaker(SP_NAME_NONE)
     msgbox(EggHatchScene_Text2)
-	releaseall
-	end
+    setvar(VAR_STORY, 7)
+    releaseall
+    end
 }
 
 text EggHatchScene_Text{

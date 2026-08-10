@@ -96,9 +96,9 @@
 #define FLAG_SANDSHREW1                 0x4A
 #define FLAG_SANDSHREW2                 0x4B
 #define FLAG_TONGUE_UPGRADE             0x4C
-#define FLAG_BERRYBRIDGE_CREATED    0x4D // Unused Flag
-#define FLAG_SECRET_ITEM    0x4E // Unused Flag
-#define FLAG_BAIT_ITEM    0x4F // Unused Flag
+#define FLAG_BERRYBRIDGE_CREATED        0x4D
+#define FLAG_STATIC_TONGUE              0x4E
+#define FLAG_UNUSED_0x4F                0x4F // Unused Flag
 
 // Scripts
 #define FLAG_HIDE_SKY_PILLAR_TOP_RAYQUAZA_STILL  0x50
@@ -664,23 +664,23 @@
 #define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                (FLAG_HIDDEN_ITEMS_START + 0x6E)
 #define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 (FLAG_HIDDEN_ITEMS_START + 0x6F)
 
-#define FLAG_GROUNDEGG_1  0x264 // Unused Flag
-#define FLAG_GROUNDEGG_2  0x265 // Unused Flag
-#define FLAG_GROUNDEGG_3  0x266 // Unused Flag
-#define FLAG_GROUNDEGG_4  0x267 // Unused Flag
-#define FLAG_GROUNDEGG_5  0x268 // Unused Flag
-#define FLAG_GROUNDEGG_6  0x269 // Unused Flag
-#define FLAG_GROUNDEGG_7  0x26A // Unused Flag
-#define FLAG_GROUNDEGG_8  0x26B // Unused Flag
-#define FLAG_GROUNDEGG_9  0x26C // Unused Flag
-#define FLAG_GROUNDEGG_10  0x26D // Unused Flag
-#define FLAG_GROUNDEGG_11  0x26E // Unused Flag
-#define FLAG_SAVE_3_REACHED  0x26F // Unused Flag
-#define FLAG_SAVE_4_REACHED  0x270 // Unused Flag
-#define FLAG_SAVE_5_REACHED  0x271 // Unused Flag
-#define FLAG_FINAL_BOULDER_IN_PLACE  0x272 // Unused Flag
-#define FLAG_TURBOBOOST_ENCOUNTERS  0x273 // Unused Flag
-#define FLAG_UNUSED_0x274  0x274 // Unused Flag
+#define FLAG_GROUNDEGG_1            0x264
+#define FLAG_GROUNDEGG_2            0x265
+#define FLAG_GROUNDEGG_3            0x266
+#define FLAG_GROUNDEGG_4            0x267
+#define FLAG_GROUNDEGG_5            0x268
+#define FLAG_GROUNDEGG_6            0x269
+#define FLAG_GROUNDEGG_7            0x26A
+#define FLAG_GROUNDEGG_8            0x26B
+#define FLAG_GROUNDEGG_9            0x26C
+#define FLAG_GROUNDEGG_10           0x26D
+#define FLAG_GROUNDEGG_11           0x26E
+#define FLAG_SAVE_3_REACHED         0x26F
+#define FLAG_SAVE_4_REACHED         0x270
+#define FLAG_SAVE_5_REACHED         0x271
+#define FLAG_FINAL_BOULDER_IN_PLACE 0x272
+#define FLAG_TURBOBOOST_ENCOUNTERS  0x273
+#define FLAG_DIGLETT_UPGRADE        0x274
 #define FLAG_UNUSED_0x275  0x275 // Unused Flag
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag

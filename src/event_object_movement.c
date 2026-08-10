@@ -215,6 +215,7 @@ static void DestroyLevitateMovementTask(u8);
 const struct ObjectEventGraphicsInfo *SpeciesToGraphicsInfo(enum Species species, bool32 shiny, bool32 female);
 static bool8 NpcTakeStep(struct Sprite *);
 static void CopyObjectGraphicsInfoToSpriteTemplate_WithMovementType(u16 graphicsId, u16 movementType, struct SpriteTemplate *spriteTemplate, const struct SubspriteTable **subspriteTables);
+static u8 GetFollowerSlot(u8 slot);
 
 static enum Species GetUnownSpecies(struct Pokemon *mon);
 
@@ -5975,9 +5976,14 @@ static bool8 UpdateFollowerTransformEffect(struct ObjectEvent *objectEvent, stru
 
 bool8 MovementType_Follower_Moving(struct ObjectEvent *objectEvent, struct Sprite *sprite) // this should work for all followers
 {
-    // Copied from ObjectEventExecSingleMovementAction
     if (gMovementActionFuncs[objectEvent->movementActionId][sprite->sActionFuncId](objectEvent, sprite))
     {
+        if (objectEvent->isFollower && objectEvent->movementActionId == MOVEMENT_ACTION_EXIT_POKEBALL)
+        {
+            u8 slot = GetFollowerSlot(objectEvent->localId);
+            struct ObjectEvent *target = (slot == 0) ? &gObjectEvents[gPlayerAvatar.objectEventId] : &gObjectEvents[gSaveBlock1Ptr->followerId[slot - 1]];
+            MoveObjectEventToMapCoords(objectEvent, target->previousCoords.x, target->previousCoords.y);
+        }
         objectEvent->movementActionId = MOVEMENT_ACTION_NONE;
         sprite->sActionFuncId = 0;
         objectEvent->singleMovementActive = FALSE;
@@ -12416,7 +12422,7 @@ bool8 MovementType_OverworldWildEncounter_Despawn_Step11(struct ObjectEvent *obj
 
 #undef sDespawnTimer
 
-u8 GetFollowerSlot(u8 slot)
+static u8 GetFollowerSlot(u8 slot)
 {
     switch (slot)
     {
