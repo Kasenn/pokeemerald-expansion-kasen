@@ -9644,9 +9644,10 @@ bool32 AreBattlersOfSameGender(enum BattlerId battler1, enum BattlerId battler2)
 
 u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbility, const struct AdditionalEffect *additionalEffect)
 {
+    bool8 hasGripGloves = FALSE;
     bool8 hasSereneGrace = (battlerAbility == ABILITY_SERENE_GRACE);
     if (!hasSereneGrace)
-        hasSereneGrace = (GetItemHoldEffect(gBattleMons[battler].item) == HOLD_EFFECT_GRIP_GLOVES);
+        hasGripGloves = (GetItemHoldEffect(gBattleMons[battler].item) == HOLD_EFFECT_GRIP_GLOVES);
     bool8 hasRainbow = (gSideStatuses[GetBattlerSide(battler)] & SIDE_STATUS_RAINBOW) != 0;
     u16 secondaryEffectChance = additionalEffect->chance;
 
@@ -9657,6 +9658,8 @@ u32 CalcSecondaryEffectChance(enum BattlerId battler, enum Ability battlerAbilit
         secondaryEffectChance *= 2;
     if (hasRainbow && additionalEffect->moveEffect != MOVE_EFFECT_SECRET_POWER)
         secondaryEffectChance *= 2;
+    if (hasGripGloves)
+        secondaryEffectChance = secondaryEffectChance * 75 / 50;
 
     return secondaryEffectChance;
 }

@@ -8,18 +8,7 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
-    if(flag(FLAG_BERRYBRIDGE_CREATED)){
-        msgbox("true")
-    }
-    else{
-        msgbox("false")
-    }
-    callnative(TestMonNameLength)
-    // trainerbattle_double(TRAINER_GABBY_AND_TY_1, "a", "a", "a")
-    // callnative(ZeroEnemyPartyMons)
-    // createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION)
-    // setwilddoubleflag
-    // dowildbattle
+    call(SetEggOnPedestal)
 }
 
 script DebugScript2{
@@ -152,6 +141,7 @@ script Script_TryLootEgg{
         }
         special(LoadPlayerParty)
         callnative(ReplaceEggInParty)
+        clearflag(FLAG_TURBOBOOST_ENCOUNTERS)
         msgbox("Yoshi replaced an older egg\nwith the new one.")
     }
     release

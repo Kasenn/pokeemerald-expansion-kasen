@@ -2955,6 +2955,11 @@ static void PrintTextOnWindow(u8 windowId, const u8 *string, u8 x, u8 y, u8 line
     PrintTextOnWindowWithFont(windowId, string, x, y, lineSpacing, colorId, FONT_NORMAL);
 }
 
+static void PrintTextOnWindow2(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId, u8 fontWidth)
+{
+    PrintTextOnWindowWithFont(windowId, string, x, y, lineSpacing, colorId, fontWidth);
+}
+
 static void PrintTextOnWindowToFitPx(u8 windowId, const u8 *string, u8 x, u8 y, u8 lineSpacing, u8 colorId, u32 width)
 {
     u32 fontId = GetFontIdToFit(string, FONT_NORMAL, 0, width);
@@ -3481,8 +3486,7 @@ static const u8 sText_HeldItem[] = _("Held Item:");
 static void PrintHeldItemName(void)
 {
     const u8 *text;
-    u32 fontId;
-    int x;
+    u8 fontWidth = FONT_NORMAL;
 
     if (sMonSummaryScreen->summary.item == ITEM_ENIGMA_BERRY_E_READER
         && IsMultiBattle() == TRUE
@@ -3500,10 +3504,12 @@ static void PrintHeldItemName(void)
         text = gStringVar1;
     }
 
-    fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sSummaryTemplate[PSS_LABEL_WINDOW_PORTRAIT_SPECIES]) - 8);
-    x = GetStringCenterAlignXOffset(fontId, text, 72) + 6;
+    if (sMonSummaryScreen->summary.item == ITEM_STRENGTH_GLOVES)
+        fontWidth = FONT_NARROWER;
+
+    // fontId = GetFontIdToFit(text, FONT_NORMAL, 0, WindowTemplateWidthPx(&sSummaryTemplate[PSS_LABEL_WINDOW_PORTRAIT_SPECIES]) - 8);
     PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, sText_HeldItem, 0, 1, 0, TXT_COLOR_DARK_BROWN);
-    PrintTextOnWindow(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, text, x - 3, 15, 0, TXT_COLOR_DARK_BROWN);
+    PrintTextOnWindow2(PSS_LABEL_WINDOW_PORTRAIT_SPECIES, text, 0, 15, 0, TXT_COLOR_DARK_BROWN, fontWidth);
     // PrintTextOnWindowWithFont(AddWindowFromTemplateList(sSummaryTemplate, PSS_LABEL_WINDOW_PORTRAIT_SPECIES), text, x, 1, 0, 0, fontId);
 }
 

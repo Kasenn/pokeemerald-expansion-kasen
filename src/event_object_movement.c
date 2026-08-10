@@ -1711,6 +1711,8 @@ void RemoveObjectEvent(struct ObjectEvent *objectEvent)
     objectEvent->active = FALSE;
     RemoveObjectEventInternal(objectEvent);
     // zero potential species info
+    objectEvent->isFollower = FALSE;
+    objectEvent->noCollision = FALSE;
     objectEvent->graphicsId = objectEvent->shiny = 0;
 }
 
@@ -2485,12 +2487,12 @@ bool8 GetFollowerInfo(u32 *species, bool32 *shiny, bool32 *female, u8 slot)
 
 void ForceResetFollowers(void)
 {
-    for (int i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    for (int i = OBJECT_EVENTS_COUNT - 1; i >= 0; i--)
     {
-        if (gObjectEvents[i].isFollower)
+        if (gObjectEvents[i].localId >= OBJ_EVENT_ID_FOLLOWER1 && gObjectEvents[i].localId <= OBJ_EVENT_ID_FOLLOWER5)
         {
             struct ObjectEvent *objectEvent = &gObjectEvents[i];
-            if (objectEvent == NULL)
+            if (objectEvent == NULL || !objectEvent->active)
                 continue;
             RemoveObjectEvent(objectEvent);
         }     
@@ -2536,6 +2538,7 @@ void RemoveLast2Followers(void)
 // Update following Pokémon if any
 void UpdateFollowingPokemon(void)
 {
+    CalculatePlayerPartyCount();
     // slot 0 is yoshi, who is also controlled
     // directly by the player, hence we start at slot 1
     for (int slot = 1; slot < gPlayerPartyCount; slot++)

@@ -427,6 +427,7 @@ script SleepingSnorlax{
         release
         end
     }
+    closemessage
     fadescreen(FADE_TO_BLACK)
     delay(16)
     playfanfare(MUS_HEAL)
@@ -497,8 +498,9 @@ script Script_AwakeSnorlax{
     msgbox(Script_AwakeSnorlax_Text, MSGBOX_SIGN)
 }
 text Script_AwakeSnorlax_Text{
-    "The Snorlax is too busy chowing\n"
-    "down Chesto berries to notice you."
+    "The Snorlax is too busy\n"
+    "chowing down Chesto berries\l"
+    "to notice you."
 }
 
 script StrGloves_ItemSparkle{
@@ -511,7 +513,7 @@ script StrGloves_ItemSparkle{
             end
         }
         playfanfare(MUS_OBTAIN_ITEM)
-        message("Switched the Grip Gloves to\nStrength Gloves!")
+        message("Switched the Grip Gloves\nto Strength Gloves!")
         delay(10)
         waitfanfare
         waitmessage
@@ -525,7 +527,7 @@ script StrGloves_ItemSparkle{
             end
         }
         playfanfare(MUS_OBTAIN_ITEM)
-        message("Switched the Strength Gloves to\nGrip Gloves!")
+        message("Switched the Strength Gloves\nto Grip Gloves!")
         delay(10)
         waitfanfare
         waitmessage
@@ -553,16 +555,20 @@ text StrGlovesOnGround{
 
 text GripGlovesOnGround{
     "There seems to be a pair of\n"
-    "gloves on the ground.\l"
-    "Switch out your Strength Gloves?"
+    "gloves on the ground.\p"
+    "Switch out your\n"
+    "Strength Gloves?"
 }
 
 script PrimeapeEncounter{
     delay(16)
     setspeaker("???")
     msgbox("MY SPARKLY!", MSGBOX_AUTOCLOSE)
+    playse(SE_PIN)
     applymovement(LOCALID_PLAYER, Common_Movement_QuestionMark)
     waitmovement(0)
+    waitse
+    delay(48)
     addobject(LOCALID_PRIMEAPE)
     switch(var(VAR_FACING)){
         case DIR_NORTH:
@@ -576,7 +582,6 @@ script PrimeapeEncounter{
         case DIR_EAST:
             applymovement(LOCALID_PRIMEAPE, moves(walk_down * 3, delay_16 * 2, jump_down, delay_8, jump_down, delay_8, jump_down, delay_8, face_left))
             delay(80)
-            turnobject(LOCALID_PLAYER, DIR_NORTH)
             playse(SE_LEDGE)
             delay(16)
             playse(SE_LEDGE)
@@ -594,7 +599,8 @@ script PrimeapeEncounter{
     waitse
     delay(10)
     callnative(CreateStrongMon)
-    createmon(1, 0, SPECIES_PRIMEAPE, VAR_0x8000)
+    subvar(VAR_0x8000, 3)
+    createmon(1, 0, SPECIES_PRIMEAPE, VAR_0x8000, abilityNum=0)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     setflag(FLAG_NO_RUNNING)
     setspeaker("Primeape")
@@ -674,5 +680,11 @@ script SetSave3EscapeWarp{
 script SetSave4EscapeWarp{
     setflag(FLAG_SAVE_4_REACHED)
     setescapewarp(MAP_EGG_ISLAND_EXTERIOR, 54, 32)
+    release
+}
+
+script SetSave5EscapeWarp{
+    setflag(FLAG_SAVE_5_REACHED)
+    setescapewarp(MAP_EGG_ISLAND_INTERIOR, 60, 4)
     release
 }

@@ -140,6 +140,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj1)
         {
+            DebugPrintf("follower 1 exists at coords %d.%d", followerObj1->currentCoords.x - MAP_OFFSET, followerObj1->currentCoords.y - MAP_OFFSET);
             if (followerObj1->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj1->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -148,6 +149,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj2)
         {
+            DebugPrintf("follower 2 exists at coords %d.%d", followerObj2->currentCoords.x - MAP_OFFSET, followerObj2->currentCoords.y - MAP_OFFSET);
             if (followerObj2->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj2->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -156,6 +158,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj3)
         {
+            DebugPrintf("follower 3 exists at coords %d.%d", followerObj3->currentCoords.x - MAP_OFFSET, followerObj3->currentCoords.y - MAP_OFFSET);
             if (followerObj3->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj3->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -164,6 +167,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj4)
         {
+            DebugPrintf("follower 4 exists at coords %d.%d", followerObj4->currentCoords.x - MAP_OFFSET, followerObj4->currentCoords.y - MAP_OFFSET);
             if (followerObj4->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj4->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -172,6 +176,7 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj5)
         {
+            DebugPrintf("follower 5 exists at coords %d.%d", followerObj5->currentCoords.x - MAP_OFFSET, followerObj5->currentCoords.y - MAP_OFFSET);
             if (followerObj5->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj5->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;

@@ -24,7 +24,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -37,10 +37,11 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_PUZZLE_BOULDER",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 75,
       "y": 28,
@@ -50,20 +51,20 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
-      "x": 73,
-      "y": 13,
+      "x": 7,
+      "y": 0,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -76,7 +77,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -89,7 +90,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -102,7 +103,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -141,7 +142,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -154,7 +155,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -167,7 +168,7 @@
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
-      "script": "NULL",
+      "script": "EventScript_StrengthBoulder",
       "flag": "0"
     },
     {
@@ -461,7 +462,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ITEMSPARKLE",
-      "x": 78,
+      "x": 81,
       "y": 28,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_UP",
@@ -728,6 +729,51 @@
       "var": "FLAG_EGGS_HATCHED",
       "var_value": "0",
       "script": "EventScript_EggHatch"
+    },
+    {
+      "type": "trigger",
+      "x": 60,
+      "y": 4,
+      "elevation": 0,
+      "var": "FLAG_EXPLAIN_REST_POINT",
+      "var_value": "0",
+      "script": "SavePointTrigger"
+    },
+    {
+      "type": "trigger",
+      "x": 61,
+      "y": 4,
+      "elevation": 0,
+      "var": "FLAG_SAVE_5_REACHED",
+      "var_value": "0",
+      "script": "SetSave5EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 60,
+      "y": 3,
+      "elevation": 0,
+      "var": "FLAG_SAVE_5_REACHED",
+      "var_value": "0",
+      "script": "SetSave5EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 12,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "TurboBoostEncounters"
+    },
+    {
+      "type": "trigger",
+      "x": 74,
+      "y": 13,
+      "elevation": 0,
+      "var": "FLAG_EGGS_HATCHED",
+      "var_value": "0",
+      "script": "TurboBoostEncountersOff"
     }
   ],
   "bg_events": [

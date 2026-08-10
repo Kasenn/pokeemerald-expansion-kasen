@@ -4,10 +4,7 @@ const SWITCH_1_BLOCK_2_X = 46   const SWITCH_1_BLOCK_2_Y = 68
 
 const SWITCH_2_X = 34           const SWITCH_2_Y = 80
 const SWITCH_3_X = 26           const SWITCH_3_Y = 80
-
 const SWITCH_4_X = 30           const SWITCH_4_Y = 83
-const SWITCH_4_BLOCK_1_X = 21   const SWITCH_4_BLOCK_1_Y = 76
-const SWITCH_4_BLOCK_2_X = 22   const SWITCH_4_BLOCK_2_Y = 76
 
 const SWITCH_5_X = 22           const SWITCH_5_Y = 66
 const SWITCH_5_BLOCK_1_X = 29   const SWITCH_5_BLOCK_1_Y = 66
@@ -70,6 +67,8 @@ mapscripts EggIsland_Interior_MapScripts {
         elif (var(VAR_X) == 50 && var(VAR_Y) == 18){ call(SetUpInteriorAreaTwo) }
         else { call(SetUpInteriorAreaOne) }
 
+        if(flag(FLAG_FINAL_BOULDER_IN_PLACE)){ setobjectxyperm(LOCALID_PUZZLE_BOULDER, SWITCH_11_X, SWITCH_11_Y) }
+
         if(hasmonitem(0, ITEM_STRENGTH_GLOVES)){
             setflag(FLAG_SYS_USE_STRENGTH)
         }
@@ -126,8 +125,6 @@ script SetSwitches{
         setmetatile(SWITCH_3_X,         SWITCH_3_Y,         SWITCH_DOWN,    FALSE)
     }
     if (var(VAR_ROCKPLATE_4) != 0){
-        setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
-        setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
         setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_DOWN,    FALSE)
     }
     if (var(VAR_ROCKPLATE_5) != 0){
@@ -244,8 +241,6 @@ script PlateTrigger4{
 
     setvarid(VAR_ROCKPLATE_4)
     call(MainPlateScript)
-    setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
-    setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_DOWN,    FALSE)
     goto(MainPlateScript2)
 }
@@ -273,7 +268,7 @@ script PlateTrigger7{
     setmetatile(SWITCH_7_BLOCK_1_X, SWITCH_7_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_7_BLOCK_2_X, SWITCH_7_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_7_X,         SWITCH_7_Y,         SWITCH_DOWN,    FALSE)
-    goto(MainPlateScript2)
+    goto(MainPlateScript3)
 }
 
 script PlateTrigger8{
@@ -292,7 +287,7 @@ script PlateTrigger9{
     setmetatile(SWITCH_9_BLOCK_1_X, SWITCH_9_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_9_BLOCK_2_X, SWITCH_9_BLOCK_2_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_9_X,         SWITCH_9_Y,         SWITCH_DOWN,    FALSE)
-    goto(MainPlateScript2)
+    goto(MainPlateScript3)
 }
 
 script PlateTrigger10{
@@ -300,7 +295,7 @@ script PlateTrigger10{
     call(MainPlateScript)
     setmetatile(SWITCH_10_BLOCK_1_X, SWITCH_10_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_10_X,         SWITCH_10_Y,         SWITCH_DOWN,    FALSE)
-    goto(MainPlateScript2)
+    goto(MainPlateScript3)
 }
 
 script PlateTrigger11{
@@ -308,7 +303,7 @@ script PlateTrigger11{
     call(MainPlateScript)
     setmetatile(SWITCH_11_BLOCK_1_X, SWITCH_11_BLOCK_1_Y, BARRIER_DOWN,   FALSE)
     setmetatile(SWITCH_11_X,         SWITCH_11_Y,         SWITCH_DOWN,    FALSE)
-    goto(MainPlateScript2)
+    goto(MainPlateScript4)
 }
 
 script MainPlateScript{
@@ -336,6 +331,28 @@ script MainPlateScript2{
     release
     end
 }
+script MainPlateScript3{
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+	setcustomvar(0xFFFF)
+    release
+    end
+}
+
+script MainPlateScript4{
+    playse(SE_M_STRENGTH)
+	special(DrawWholeMapView)
+	waitse
+    getobjectxy(LOCALID_PUZZLE_BOULDER, CURRENT_POSITION, VAR_X, VAR_Y)
+    if (var(VAR_X) == SWITCH_11_X && var(VAR_Y) == SWITCH_11_Y){
+        setflag(FLAG_FINAL_BOULDER_IN_PLACE)
+        setobjectxyperm(LOCALID_PUZZLE_BOULDER, SWITCH_11_X, SWITCH_11_Y)
+    }
+	setcustomvar(0xFFFF)
+    release
+    end
+}
 
 script TriggerMainGate{
     setmetatile(FINAL_BLOCK_1_X, FINAL_BLOCK_1_Y,   BARRIER_DOWN,   FALSE)
@@ -351,6 +368,7 @@ script TriggerMainGate{
 ////////////////////////////////////////////////////
 
 script SteppedOffofSwitch1{
+    delay(16)
     setvarid(VAR_ROCKPLATE_1)
     setmetatile(SWITCH_1_BLOCK_1_X, SWITCH_1_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_1_BLOCK_2_X, SWITCH_1_BLOCK_2_Y, BARRIER_UP,   TRUE)
@@ -358,29 +376,32 @@ script SteppedOffofSwitch1{
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch2{
+    delay(16)
     setvarid(VAR_ROCKPLATE_2)
     setmetatile(SWITCH_2_X,         SWITCH_2_Y,         SWITCH_UP,    FALSE)
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch3{
+    delay(16)
     setvarid(VAR_ROCKPLATE_3)
     setmetatile(SWITCH_3_X,         SWITCH_3_Y,         SWITCH_UP,    FALSE)
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch4{
+    delay(16)
     setvarid(VAR_ROCKPLATE_4)
-    setmetatile(SWITCH_4_BLOCK_1_X, SWITCH_4_BLOCK_1_Y, BARRIER_UP,   TRUE)
-    setmetatile(SWITCH_4_BLOCK_2_X, SWITCH_4_BLOCK_2_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_4_X,         SWITCH_4_Y,         SWITCH_UP,    FALSE)
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch5{
+    delay(16)
     setvarid(VAR_ROCKPLATE_5)
     setmetatile(SWITCH_5_BLOCK_1_X, SWITCH_5_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_5_X,         SWITCH_5_Y,         SWITCH_UP,    FALSE)
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch6{
+    delay(16)
     setvarid(VAR_ROCKPLATE_6)
     setmetatile(SWITCH_6_BLOCK_1_X, SWITCH_6_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_6_BLOCK_2_X, SWITCH_6_BLOCK_2_Y, BARRIER_UP,   TRUE)
@@ -388,6 +409,7 @@ script SteppedOffofSwitch6{
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch7{
+    delay(16)
     setvarid(VAR_ROCKPLATE_7)
     setmetatile(SWITCH_7_BLOCK_1_X, SWITCH_7_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_7_BLOCK_2_X, SWITCH_7_BLOCK_2_Y, BARRIER_UP,   TRUE)
@@ -395,6 +417,7 @@ script SteppedOffofSwitch7{
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch8{
+    delay(16)
     setvarid(VAR_ROCKPLATE_8)
     setmetatile(SWITCH_8_BLOCK_1_X, SWITCH_8_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_8_BLOCK_2_X, SWITCH_8_BLOCK_2_Y, BARRIER_UP,   TRUE)
@@ -403,6 +426,7 @@ script SteppedOffofSwitch8{
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch9{
+    delay(16)
     setvarid(VAR_ROCKPLATE_9)
     setmetatile(SWITCH_9_BLOCK_1_X, SWITCH_9_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_9_BLOCK_2_X, SWITCH_9_BLOCK_2_Y, BARRIER_UP,   TRUE)
@@ -410,12 +434,14 @@ script SteppedOffofSwitch9{
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch10{
+    delay(16)
     setvarid(VAR_ROCKPLATE_10)
     setmetatile(SWITCH_10_BLOCK_1_X, SWITCH_10_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_10_X,         SWITCH_10_Y,         SWITCH_UP,    FALSE)
     goto(SteppedOffofSwitchMain)
 }
 script SteppedOffofSwitch11{
+    delay(16)
     setvarid(VAR_ROCKPLATE_11)
     setmetatile(SWITCH_11_BLOCK_1_X, SWITCH_11_BLOCK_1_Y, BARRIER_UP,   TRUE)
     setmetatile(SWITCH_11_X,         SWITCH_11_Y,         SWITCH_UP,    FALSE)
@@ -465,8 +491,16 @@ script SetEggOnPedestal{
         end
     }
     removeegg(VAR_0x8004)
-    setcustomvartovar(VAR_0x800A)
-    callnative(ForceResetFollowers)
+    copyvartocustomvar(VAR_0x800A)
+    // callnative(ForceResetFollowers)
+    clearflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
+    switch(var(VAR_FACING)){
+        case DIR_NORTH: applymovement(LOCALID_PLAYER, moves(walk_in_place_up))
+        case DIR_WEST: applymovement(LOCALID_PLAYER, moves(walk_in_place_left))
+        case DIR_EAST: applymovement(LOCALID_PLAYER, moves(walk_in_place_right))
+        case DIR_SOUTH: applymovement(LOCALID_PLAYER, moves(walk_in_place_down))
+    }
+    delay(8)
     if(var(VAR_X) == SWITCH_1_X && var(VAR_Y) == SWITCH_1_Y){
         clearflag(FLAG_GROUNDEGG_1)
         setobjectxyperm(LOCALID_EGG_1, VAR_X, VAR_Y)
@@ -522,7 +556,11 @@ script SetEggOnPedestal{
         setobjectxyperm(LOCALID_EGG_11, VAR_X, VAR_Y)
         addobject(LOCALID_EGG_11)
     }
+    waitmovement(0)
     msgbox(SetEggOnPedestal_Text3)
+    special(CalculatePlayerPartyCount)
+    callnative(UpdateEggPP)
+    callnative(ForceResetFollowers)
     release
     end
 }
@@ -834,10 +872,50 @@ text DiglettScript_Text{
     "Please help me!"
 }
 
-script EggHatchScene{//wip
+script EggHatchScene{
 	lockall
 	msgbox (Text_EggHatchHuh, MSGBOX_DEFAULT)
 	special (EggHatch)
+    delay(32)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
+    turnobject(OBJ_EVENT_ID_FOLLOWER1, DIR_WEST)
+    delay(8)
+    bufferpartymonnickname(STR_VAR_1, 1)
+    setspeaker("{STR_VAR_1}")
+    msgbox(EggHatchScene_Text)
+    call(SetYoshiMoves)
+    msgbox(EggHatchScene_Text2)
 	releaseall
 	end
+}
+
+text EggHatchScene_Text{
+    "This hot sand must've\n"
+    "accelerated our growth.\p"
+    "But don't worry, Yoshi!\p"
+    "Even if our form has changed,\n"
+    "we will still aid you\l"
+    "the best we can!\p"
+    "Now, let's go find that\n"
+    "Kamek guy!"
+}
+
+text EggHatchScene_Text2{
+    "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi's “Toss Egg” has been\n"
+    "replaced with “Helping Hand”."
+}
+
+script TurboBoostEncounters{
+    counteggs
+    if (var(VAR_EGGS) == 5){
+        release
+        end
+    }
+    setflag(FLAG_TURBOBOOST_ENCOUNTERS)
+    release
+}
+
+script TurboBoostEncountersOff{
+    clearflag(FLAG_TURBOBOOST_ENCOUNTERS)
+    release
 }

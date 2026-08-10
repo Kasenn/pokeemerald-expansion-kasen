@@ -278,7 +278,8 @@ Text_CantStrength:
 	.string "there's a way to push it aside.$"
 
 Text_StrengthActivated:
-	.string "STRENGTH made it possible to move\n"
+	.string "The Strength Gloves\n"
+	.string "made it possible to move\l"
 	.string "boulders around.$"
 
 EventScript_UseWaterfall::

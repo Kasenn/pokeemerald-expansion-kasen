@@ -8137,7 +8137,7 @@ static void DeleteEgg(void)
     if (gSpecialVar_0x8004 >= PARTY_SIZE)
         gSpecialVar_0x8004 = PARTY_NOTHING_CHOSEN;
     else
-        gSwitchedMonsAround = TRUE;
+        gSwitchedMonsAround = TRUE;//wip
     gFieldCallback2 = CB2_FadeFromPartyMenu;
     SetMainCallback2(CB2_ReturnToField);
 }

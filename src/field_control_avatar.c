@@ -951,7 +951,12 @@ static bool8 CheckStandardWildEncounter(u16 metatileBehavior)
     if (ShouldDisableRandomEncounters())
         return FALSE;
 
-    if (sWildEncounterImmunitySteps < 4)
+    u8 immunitySteps = 4;
+
+    if (FlagGet(FLAG_TURBOBOOST_ENCOUNTERS))
+        immunitySteps = 2;
+
+    if (sWildEncounterImmunitySteps < immunitySteps)
     {
         sWildEncounterImmunitySteps++;
         sPrevMetatileBehavior = metatileBehavior;

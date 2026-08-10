@@ -1036,7 +1036,8 @@ static bool8 TryPushBoulder(s16 x, s16 y, enum Direction direction)
             if (GetCollisionAtCoords(&gObjectEvents[objectEventId], x, y, direction) == COLLISION_NONE
              && MetatileBehavior_IsNonAnimDoor(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
              && MetatileBehavior_IsMuddySlope(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
-             && MetatileBehavior_IsRockStairs(MapGridGetMetatileBehaviorAt(x, y)) == FALSE)
+             && MetatileBehavior_IsRockStairs(MapGridGetMetatileBehaviorAt(x, y)) == FALSE
+             && MapGridGetMetatileBehaviorAt(x, y) != MB_SAVE_POINT)
             {
                 StartStrengthAnim(objectEventId, direction);
                 return TRUE;
@@ -1888,11 +1889,11 @@ static bool8 PushBoulder_End(struct Task *task, struct ObjectEvent *player, stru
         ObjectEventClearHeldMovementIfFinished(player);
         ObjectEventClearHeldMovementIfFinished(boulder);
         HandleBoulderFallThroughHole(boulder);
+        SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x - MAP_OFFSET, boulder->currentCoords.y - MAP_OFFSET);
         if (boulder->localId == LOCALID_OUTSIDEBOULDER)
         {
-            VarSet(VAR_OUTSIDEBOULDER_X, boulder->currentCoords.x);
-            VarSet(VAR_OUTSIDEBOULDER_Y, boulder->currentCoords.y);
-            SetObjEventTemplateCoords(boulder->localId, boulder->currentCoords.x, boulder->currentCoords.y);
+            VarSet(VAR_OUTSIDEBOULDER_X, boulder->currentCoords.x - MAP_OFFSET);
+            VarSet(VAR_OUTSIDEBOULDER_Y, boulder->currentCoords.y - MAP_OFFSET);
         }
         HandleBoulderActivateVictoryRoadSwitch(boulder->currentCoords.x, boulder->currentCoords.y);
         gPlayerAvatar.preventStep = FALSE;

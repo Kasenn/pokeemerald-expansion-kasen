@@ -379,7 +379,7 @@ static void DoStandardWildBattle(bool32 isDouble)
         IncrementDailyWildBattles();
         TryUpdateGymLeaderRematchFromWild();
     }
-    else if (FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30)
+    else if (FlagGet(FLAG_FORCE_EGG) || (Random() % 100) > 30 || (FlagGet(FLAG_TURBOBOOST_ENCOUNTERS) && (Random() % 100) > 60))
     {
         if (gCurrentUsableEggs == 5)
             VarSet(VAR_FORCE_ENCOUNTER, VarGet(VAR_FORCE_ENCOUNTER) + 1);
@@ -691,6 +691,10 @@ static void DowngradeBadPoison(void)
 {
     ResetEggs();
     gCurrentUsableEggs = CalculateCurrentEggs();
+
+    if (gCurrentUsableEggs == 5)
+        FlagClear(FLAG_TURBOBOOST_ENCOUNTERS);
+
     u8 pp = 1;
     for (int move = 0; move < MAX_MON_MOVES; move++)
     {
