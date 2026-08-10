@@ -8,7 +8,8 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
-    call(SetEggOnPedestal)
+    callnative(TestSpeciesBST2)
+    callnative(TestSpeciesBST3)
 }
 
 script DebugScript2{

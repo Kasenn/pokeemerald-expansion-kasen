@@ -29,6 +29,8 @@
 #include "constants/items.h"
 #include "constants/layouts.h"
 #include "constants/weather.h"
+#include "battle.h"
+#include "battle_ai_util.h"
 
 extern const u8 EventScript_SprayWoreOff[];
 
@@ -583,6 +585,22 @@ static const u16 sEncounterTableUndergroundTwo[] =
     SPECIES_CARBINK,
     SPECIES_NOIBAT
 };
+
+void TestSpeciesBST2(void)
+{
+    for (int i = 0; i < ARRAY_COUNT(sEncounterTableGrassTwo); i++)
+    {
+        DebugPrintf("%S - %d", GetSpeciesName(sEncounterTableGrassTwo[i]), GetTotalBaseStat(sEncounterTableGrassTwo[i]));
+    }
+}
+
+void TestSpeciesBST3(void)
+{
+    for (int i = 0; i < ARRAY_COUNT(sEncounterTableUndergroundTwo); i++)
+    {
+        DebugPrintf("%S - %d", GetSpeciesName(sEncounterTableUndergroundTwo[i]), GetTotalBaseStat(sEncounterTableUndergroundTwo[i]));
+    }
+}
 
 void CreateWildMon(enum Species species, u8 level)
 {
