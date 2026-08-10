@@ -1,3 +1,9 @@
+// update yoshi sprite
+// recolor battle environments to match OW
+// update interior tilesets
+// finish finale
+// add an ending scene
+
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
