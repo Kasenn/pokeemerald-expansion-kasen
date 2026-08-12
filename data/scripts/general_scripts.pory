@@ -1,8 +1,6 @@
 // update yoshi sprite
-// recolor battle environments to match OW
 // finish finale
 // add an ending scene
-// wrong battle environment when not in encounter metatiles
 // timer doesn't keep track over game-overs
 //wip
 const VAR_X = VAR_TEMP_0
