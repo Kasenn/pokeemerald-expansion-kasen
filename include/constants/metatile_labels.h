@@ -127,6 +127,7 @@
 #define METATILE_Cave_EntranceCover                      0x229
 #define METATILE_Cave_Floor_Ledge_Bottom                 0x2E1
 #define METATILE_Cave_Floor_Ledge_Top                    0x2D1
+#define METATILE_Cave_MuddySlopeIndoor                   0x37C
 #define METATILE_Cave_RockBarrier_Bottom                 0x317
 #define METATILE_Cave_RockBarrier_Top                    0x307
 #define METATILE_Cave_SealedChamberBraille_Mid           0x235

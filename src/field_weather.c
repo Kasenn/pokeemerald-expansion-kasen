@@ -802,7 +802,7 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
         {
             gWeatherPtr->fadeScreenCounter = 0; // Triggers gamma-shift-based fade-in
         }
-        else if (MapHasNaturalLight(gMapHeader.mapType))
+        else if (gMapHeader.mapType == MAP_TYPE_UNDERGROUND)
         {
             UpdateAltBgPalettes(selectedPalettes & PALETTES_BG);
             BeginTimeOfDayPaletteFade(selectedPalettes, delay, 16, 0, &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, fadeColor);

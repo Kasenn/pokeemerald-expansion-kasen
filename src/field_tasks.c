@@ -140,7 +140,6 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj1)
         {
-            DebugPrintf("follower 1 exists at coords %d.%d", followerObj1->currentCoords.x - MAP_OFFSET, followerObj1->currentCoords.y - MAP_OFFSET);
             if (followerObj1->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj1->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -149,7 +148,6 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj2)
         {
-            DebugPrintf("follower 2 exists at coords %d.%d", followerObj2->currentCoords.x - MAP_OFFSET, followerObj2->currentCoords.y - MAP_OFFSET);
             if (followerObj2->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj2->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -158,7 +156,6 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj3)
         {
-            DebugPrintf("follower 3 exists at coords %d.%d", followerObj3->currentCoords.x - MAP_OFFSET, followerObj3->currentCoords.y - MAP_OFFSET);
             if (followerObj3->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj3->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -167,7 +164,6 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj4)
         {
-            DebugPrintf("follower 4 exists at coords %d.%d", followerObj4->currentCoords.x - MAP_OFFSET, followerObj4->currentCoords.y - MAP_OFFSET);
             if (followerObj4->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj4->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -176,7 +172,6 @@ static void EggIslandInteriorPerStepCallback(u8 taskId)
         }
         if (followerObj5)
         {
-            DebugPrintf("follower 5 exists at coords %d.%d", followerObj5->currentCoords.x - MAP_OFFSET, followerObj5->currentCoords.y - MAP_OFFSET);
             if (followerObj5->currentCoords.x - MAP_OFFSET == sPlateInfo[i].x && followerObj5->currentCoords.y - MAP_OFFSET == sPlateInfo[i].y)
             {
                 switchTriggered[i] = TRUE;
@@ -1016,6 +1011,13 @@ static const u16 sMuddySlopeMetatiles[] = {
     METATILE_General_MuddySlope_Frame1
 };
 
+static const u16 sMuddySlopeMetatiles2[] = {
+    METATILE_Cave_MuddySlopeIndoor,
+    METATILE_Cave_MuddySlopeIndoor + 3,
+    METATILE_Cave_MuddySlopeIndoor + 2,
+    METATILE_Cave_MuddySlopeIndoor + 1,
+};
+
 #define SLOPE_ANIM_TIME 32
 #define SLOPE_ANIM_STEP_TIME (SLOPE_ANIM_TIME / (int)ARRAY_COUNT(sMuddySlopeMetatiles))
 
@@ -1030,6 +1032,19 @@ static void SetMuddySlopeMetatile(s16 *data, s16 x, s16 y)
     MapGridSetMetatileIdAt(x, y, metatileId);
     CurrentMapDrawMetatileAt(x, y);
     MapGridSetMetatileIdAt(x, y, METATILE_General_MuddySlope_Frame0);
+}
+
+static void SetMuddySlopeMetatile2(s16 *data, s16 x, s16 y)
+{
+    u16 metatileId;
+    if ((--data[SLOPE_TIME]) == 0)
+        metatileId = METATILE_Cave_MuddySlopeIndoor;
+    else
+        metatileId = sMuddySlopeMetatiles2[data[SLOPE_TIME] / SLOPE_ANIM_STEP_TIME];
+
+    MapGridSetMetatileIdAt(x, y, metatileId);
+    CurrentMapDrawMetatileAt(x, y);
+    MapGridSetMetatileIdAt(x, y, METATILE_Cave_MuddySlopeIndoor);
 }
 
 static void Task_MuddySlope(u8 taskId)
@@ -1093,7 +1108,10 @@ static void Task_MuddySlope(u8 taskId)
         {
             data[i + SLOPE_X] -= cameraOffsetX;
             data[i + SLOPE_Y] -= cameraOffsetY;
-            SetMuddySlopeMetatile(&data[i + SLOPE_TIME], data[i + SLOPE_X], data[i + SLOPE_Y]);
+            if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_EGG_ISLAND_INTERIOR))
+                SetMuddySlopeMetatile2(&data[i + SLOPE_TIME], data[i + SLOPE_X], data[i + SLOPE_Y]);
+            else
+                SetMuddySlopeMetatile(&data[i + SLOPE_TIME], data[i + SLOPE_X], data[i + SLOPE_Y]);
         }
     }
 }

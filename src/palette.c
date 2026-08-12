@@ -244,7 +244,7 @@ static u8 UpdateTimeOfDayPaletteFade(void)
     gPaletteFade.delayCounter = 0;
 
     // First pply TOD blend to relevant subset of palettes
-    timePalettes = gPaletteFadeSelectedPalettes & PALETTES_MAP; // tile palettes, don't blend [13, 15]
+    timePalettes = 0; // tile palettes, don't blend [13, 15]
     // Sprite palettes, don't blend those with tags
     u32 i;
     u32 j = 1 << 16;

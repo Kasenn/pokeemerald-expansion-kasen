@@ -6,6 +6,8 @@
 #include "task.h"
 #include "battle_transition.h"
 #include "fieldmap.h"
+#include "constants/rgb.h"
+#include "overworld.h"
 
 static EWRAM_DATA struct {
     const u16 *src;
@@ -69,6 +71,9 @@ static void QueueAnimTiles_Pacifidlog_WaterCurrents(u8);
 static void QueueAnimTiles_Sootopolis_StormyWater(u16);
 static void QueueAnimTiles_Underwater_Seaweed(u8);
 static void QueueAnimTiles_Cave_Lava(u16);
+static void Cave_FlashGreen(u16);
+static void Cave_FlashBlue(u16);
+static void Cave_FlashRed(u16);
 static void QueueAnimTiles_BattleFrontierOutsideWest_Flag(u16);
 static void QueueAnimTiles_BattleFrontierOutsideEast_Flag(u16);
 static void QueueAnimTiles_MauvilleGym_ElectricGates(u16);
@@ -993,8 +998,19 @@ static void TilesetAnim_Underwater(u16 timer)
 
 static void TilesetAnim_Cave(u16 timer)
 {
+    if (timer % 16 == 0) //wip
+        QueueAnimTiles_Lavaridge_Steam(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Cave_Lava(timer / 16);
+    if (!gPaletteFade.active && !gWarpInProgress)
+    {
+        if (timer % 8 == 2)
+            Cave_FlashGreen(timer / 8);
+        if (timer % 8 == 3)
+            Cave_FlashBlue(timer / 8);
+        if (timer % 8 == 4)
+            Cave_FlashRed(timer / 8);
+    }
 }
 
 static void TilesetAnim_BattleFrontierOutsideWest(u16 timer)
@@ -1103,6 +1119,66 @@ static void QueueAnimTiles_Cave_Lava(u16 timer)
 {
     u16 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Cave_Lava);
     AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Cave_Lava[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 416)), 4 * TILE_SIZE_4BPP);
+}
+
+const u16 gTilesetAnims_GreenCrystal[] = 
+{
+    RGB2GBA(112, 156, 128),
+    RGB2GBA(112, 156, 128),
+    RGB2GBA(112, 156, 128),
+    RGB2GBA(112, 156, 128),
+    RGB2GBA(112, 156, 128),
+    RGB2GBA(165, 172, 165),
+    RGB2GBA(144, 172, 160),
+    RGB2GBA(128, 172, 144),
+};
+
+static void Cave_FlashGreen(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_GreenCrystal);
+    u16 rgb = gTilesetAnims_GreenCrystal[i];
+
+    LoadPalette(&rgb, BG_PLTT_ID(10) + 11, sizeof(rgb));
+}
+
+const u16 gTilesetAnims_BlueCrystal[] = 
+{
+    RGB2GBA(96, 120, 144),
+    RGB2GBA(96, 120, 144),
+    RGB2GBA(96, 120, 144),
+    RGB2GBA(96, 120, 144),
+    RGB2GBA(157, 169, 172),
+    RGB2GBA(127, 153, 172),
+    RGB2GBA(112, 135, 161),
+    RGB2GBA(96, 120, 144),
+};
+
+static void Cave_FlashBlue(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_BlueCrystal);
+    u16 rgb = gTilesetAnims_BlueCrystal[i];
+
+    LoadPalette(&rgb, BG_PLTT_ID(10) + 8, sizeof(rgb));
+}
+
+const u16 gTilesetAnims_RedCrystal[] = 
+{
+    RGB2GBA(112, 104, 96),
+    RGB2GBA(112, 104, 96),
+    RGB2GBA(112, 104, 96),
+    RGB2GBA(165, 170, 165),
+    RGB2GBA(144, 140, 132),
+    RGB2GBA(128, 122, 112),
+    RGB2GBA(112, 104, 96),
+    RGB2GBA(112, 104, 96),
+};
+
+static void Cave_FlashRed(u16 timer)
+{
+    u16 i = timer % ARRAY_COUNT(gTilesetAnims_RedCrystal);
+    u16 rgb = gTilesetAnims_RedCrystal[i];
+
+    LoadPalette(&rgb, BG_PLTT_ID(10) + 10, sizeof(rgb));
 }
 
 static void QueueAnimTiles_Dewford_Flag(u16 timer)

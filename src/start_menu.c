@@ -734,6 +734,7 @@ bool8 StartMenuPokedexCallback(void)
 
 static bool8 StartMenuPokemonCallback(void)
 {
+    gWarpInProgress = TRUE;
     if (!gPaletteFade.active)
     {
         PlayRainStoppingSoundEffect();

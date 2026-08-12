@@ -1,9 +1,10 @@
 // update yoshi sprite
 // recolor battle environments to match OW
-// update interior tilesets
 // finish finale
 // add an ending scene
-
+// wrong battle environment when not in encounter metatiles
+// timer doesn't keep track over game-overs
+//wip
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
@@ -136,6 +137,7 @@ script Script_TryLootEgg{
             end
         }
         msgbox("Choose an egg to toss away.")
+        special(CalculatePlayerPartyCount)
         special(SavePlayerParty)
         callnative(ReplaceChanseyWithEgg)
         special(ChoosePartyMon)
@@ -148,6 +150,10 @@ script Script_TryLootEgg{
         }
         special(LoadPlayerParty)
         callnative(ReplaceEggInParty)
+        delay(1)
+        callnative(UpdateEggPP)
+        delay(1)
+        callnative(UpdateFollowingPokemon)
         clearflag(FLAG_TURBOBOOST_ENCOUNTERS)
         msgbox("Yoshi replaced an older egg\nwith the new one.")
     }
@@ -236,7 +242,6 @@ script RiverCrossingMain{
             subvar(VAR_Y, 3)
     }
     setobjectxy(VAR_WATEREGG, VAR_X, VAR_Y)
-    special(CalculatePlayerPartyCount)
     callnative(UpdateEggPP)
     // callnative(ForceResetFollowers)
     releaseall
