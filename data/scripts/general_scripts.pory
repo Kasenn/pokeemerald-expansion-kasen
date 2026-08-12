@@ -93,6 +93,16 @@ script Script_StartMenuRest{
 }
 
 script Script_RetreatWithDiglett{
+    if(flag(FLAG_EGGS_HATCHED)){
+        if(var(VAR_AI_FLAGS) == 2){
+            msgbox(DiglettRockText)
+        }
+        else{
+            msgbox(DiglettHeatText)
+        }
+        release
+        end
+    }
     msgbox(RetreatWithDiglett_Text, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
         release
@@ -100,6 +110,17 @@ script Script_RetreatWithDiglett{
     }
     setfieldeffectargument(0, 0xFF)
     goto(EventScript_DigCommon)
+}
+
+text DiglettRockText{
+    "Diglett is struggling\n"
+    "to get to you due to the\l"
+    "hard terrain here…"
+}
+text DiglettHeatText{
+    "Diglett is struggling\n"
+    "to get to you due to the\l"
+    "intense heat here…"
 }
 
 text RetreatWithDiglett_Text{

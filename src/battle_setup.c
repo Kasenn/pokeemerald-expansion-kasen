@@ -660,8 +660,8 @@ void StartSpecialBattle(void)
 
     LockPlayerFieldControls();
     gMain.savedCallback = CB2_EndScriptedWildBattle;
-    gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
-
+    // gBattleTypeFlags = BATTLE_TYPE_LEGENDARY;
+    gBattleTypeFlags = BATTLE_TYPE_DOUBLE;
     species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][0], MON_DATA_SPECIES);
     switch (species)
     {
