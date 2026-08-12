@@ -1091,7 +1091,7 @@ HonchkrowScript::
 # 627 "data/maps/EggIsland_Exterior/scripts.pory"
 	callnative ZeroEnemyPartyMons
 # 628 "data/maps/EggIsland_Exterior/scripts.pory"
-	createmon 1, 0, SPECIES_HONCHKROW, VAR_0x8000
+	createmon 1, 0, SPECIES_HONCHKROW, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
 # 629 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox HonchkrowScript_Text_1, MSGBOX_AUTOCLOSE
 # 630 "data/maps/EggIsland_Exterior/scripts.pory"
@@ -1103,78 +1103,90 @@ HonchkrowScript::
 # 633 "data/maps/EggIsland_Exterior/scripts.pory"
 	dowildbattle
 # 634 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_HONCHKROW, Movement_ObjectDisappears
+	setflag FLAG_DONT_DESPAWN_PORTAL
 # 635 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement 0
+	addobject LOCALID_PORTAL1
 # 636 "data/maps/EggIsland_Exterior/scripts.pory"
-	removeobject LOCALID_HONCHKROW
+	applymovement 8, IntroSequence_Movement_0
 # 637 "data/maps/EggIsland_Exterior/scripts.pory"
+	applymovement LOCALID_HONCHKROW, Movement_ObjectDisappears
+# 638 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitmovement 0
+# 639 "data/maps/EggIsland_Exterior/scripts.pory"
+	removeobject LOCALID_HONCHKROW
+# 640 "data/maps/EggIsland_Exterior/scripts.pory"
 	clearflag FLAG_NO_RUNNING
 	return
 
 
 FinaleTrigger::
-# 641 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 16
-# 642 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_KAMEK, DIR_SOUTH
-# 643 "data/maps/EggIsland_Exterior/scripts.pory"
-	playse SE_PIN
 # 644 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_KAMEK, Common_Movement_ExclamationMark
+	delay 32
 # 645 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitse
+	turnobject LOCALID_KAMEK, DIR_SOUTH
 # 646 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitmovement 0
+	playse SE_PIN
 # 647 "data/maps/EggIsland_Exterior/scripts.pory"
-	playbgm MUS_KAMEK, TRUE
+	applymovement LOCALID_KAMEK, Common_Movement_ExclamationMark
 # 648 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 16
+	waitse
 # 649 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker FinaleTrigger_Text_0
+	waitmovement 0
+# 650 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 48
 # 651 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_DISABLE_KO_ANIM
+	playbgm MUS_KAMEK, TRUE
 # 652 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative CreateExtraStrongMon
+	delay 32
 # 653 "data/maps/EggIsland_Exterior/scripts.pory"
-	createmon 1, 0, SPECIES_KAMEK, VAR_0x8000
-# 654 "data/maps/EggIsland_Exterior/scripts.pory"
+	setspeaker FinaleTrigger_Text_0
+# 667 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative CreateExtraStrongMon
+# 668 "data/maps/EggIsland_Exterior/scripts.pory"
+	callnative ZeroEnemyPartyMons
+# 669 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_DISABLE_KO_ANIM
+# 670 "data/maps/EggIsland_Exterior/scripts.pory"
+	createmon 1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
+# 671 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox KamekBattleIntro, MSGBOX_AUTOCLOSE
-# 656 "data/maps/EggIsland_Exterior/scripts.pory"
-	setwilddoubleflag
-# 657 "data/maps/EggIsland_Exterior/scripts.pory"
+# 672 "data/maps/EggIsland_Exterior/scripts.pory"
 	settotemboost B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2
-# 658 "data/maps/EggIsland_Exterior/scripts.pory"
+# 673 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_NO_RUNNING
+# 674 "data/maps/EggIsland_Exterior/scripts.pory"
+	setwilddoubleflag
+# 675 "data/maps/EggIsland_Exterior/scripts.pory"
 	special StartSpecialBattle
 	return
 
 
 SetSave3EscapeWarp::
-# 685 "data/maps/EggIsland_Exterior/scripts.pory"
+# 701 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_3_REACHED
-# 686 "data/maps/EggIsland_Exterior/scripts.pory"
+# 702 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_EXTERIOR, 24, 57
-# 687 "data/maps/EggIsland_Exterior/scripts.pory"
+# 703 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 
 SetSave4EscapeWarp::
-# 691 "data/maps/EggIsland_Exterior/scripts.pory"
+# 707 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_4_REACHED
-# 692 "data/maps/EggIsland_Exterior/scripts.pory"
+# 708 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_EXTERIOR, 54, 32
-# 693 "data/maps/EggIsland_Exterior/scripts.pory"
+# 709 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 
 SetSave5EscapeWarp::
-# 697 "data/maps/EggIsland_Exterior/scripts.pory"
+# 713 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_5_REACHED
-# 698 "data/maps/EggIsland_Exterior/scripts.pory"
+# 714 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_INTERIOR, 60, 4
-# 699 "data/maps/EggIsland_Exterior/scripts.pory"
+# 715 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
@@ -1640,7 +1652,7 @@ HonchkrowScript_Text_1:
 	.string "The new boss man says to\nnot let anybody through!$"
 
 FinaleTrigger_Text_0:
-# 649 "data/maps/EggIsland_Exterior/scripts.pory"
+# 653 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Kamek$"
 
 MachopScript1_Text1::
@@ -1734,7 +1746,7 @@ GripGlovesOnGround::
 	.string "Strength Gloves?$"
 
 KamekBattleIntro::
-# 662 "data/maps/EggIsland_Exterior/scripts.pory"
+# 678 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi?!\n"
 	.string "How did you get here?!\p"
 	.string "I gave those birdbrains clear\n"
@@ -1742,7 +1754,7 @@ KamekBattleIntro::
 	.string "through while I channel my spell!$"
 
 KamekBattleIntro2::
-# 670 "data/maps/EggIsland_Exterior/scripts.pory"
+# 686 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "…Oh, great! Now I lost my\n"
 	.string "concentration and need to start\l"
 	.string "from the beginning!\p"

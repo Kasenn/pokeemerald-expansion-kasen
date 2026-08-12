@@ -96,8 +96,8 @@ static const u8 sText_IntroLevel5[] = _("a powerful-looking");
 static const u8 sText_IntroLevel6[] = _("a strong-looking");
 static const u8 sText_IntroLevel7[] = _("a tough-looking");
 
-static const u8 sText_WildPkmnAppeared[] = _("You encountered {B_BUFF1} {B_OPPONENT_MON1_NAME}!\p");
-static const u8 sText_LegendaryPkmnAppeared[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!\p");
+static const u8 sText_WildPkmnAppeared[] = _("You encountered {B_BUFF3} {B_OPPONENT_MON1_NAME}!\p");
+static const u8 sText_LegendaryPkmnAppeared[] = _("Kamek challenges you to a battle!\p");
 static const u8 sText_WildPkmnAppearedPause[] = _("You encountered a wild {B_OPPONENT_MON1_NAME}!{PAUSE 127}");
 static const u8 sText_TwoWildPkmnAppeared[] = _("Oh! A wild {B_OPPONENT_MON1_NAME} and {B_OPPONENT_MON2_NAME} appeared!\p");
 static const u8 sText_GhostAppearedCantId[] = _("The GHOST appeared!\pDarn!\nThe GHOST can't be ID'd!\p");
@@ -2515,15 +2515,22 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             s16 levelDifference = playerLevel - opponentLevel;
             const u8 *battleIntro = sText_IntroLevel2;
 
-            if (levelDifference >= 7)           battleIntro = sText_IntroLevel1;
-            else if (levelDifference >= 3)      battleIntro = sText_IntroLevel2;
-            else if (levelDifference >= -2)     battleIntro = sText_IntroLevel7;
-            else if (levelDifference >= -4)     battleIntro = sText_IntroLevel6;
-            else if (levelDifference >= -6)     battleIntro = sText_IntroLevel5;
-            else if (levelDifference >= -8)     battleIntro = sText_IntroLevel4;
-            else                                battleIntro = sText_IntroLevel3;
+            if (levelDifference >= 7)      
+                battleIntro = sText_IntroLevel1;
+            else if (levelDifference >= 3) 
+                battleIntro = sText_IntroLevel2;
+            else if (levelDifference >= -2)
+                battleIntro = sText_IntroLevel7;
+            else if (levelDifference >= -4)
+                battleIntro = sText_IntroLevel6;
+            else if (levelDifference >= -6)
+                battleIntro = sText_IntroLevel5;
+            else if (levelDifference >= -8)
+                battleIntro = sText_IntroLevel4;
+            else                           
+                battleIntro = sText_IntroLevel3;
 
-            StringCopy(gBattleTextBuff1, battleIntro);
+            StringCopy(gBattleTextBuff3, battleIntro);
 
             if (IsGhostBattleWithoutScope())
                 stringPtr = sText_GhostAppearedCantId;
@@ -2905,15 +2912,18 @@ static void GetBattlerNick(enum BattlerId battler, u8 *dst)
 #define HANDLE_NICKNAME_STRING_CASE(battler)                            \
     if (!IsOnPlayerSide(battler))                                       \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
-            toCpy = sText_FoePkmnPrefix;                                \
-        else                                                            \
-            toCpy = sText_WildPkmnPrefix;                               \
-        while (*toCpy != EOS)                                           \
+        if (!FlagGet(FLAG_DISABLE_KO_ANIM))                             \
         {                                                               \
-            dst[dstID] = *toCpy;                                        \
-            dstID++;                                                    \
-            toCpy++;                                                    \
+            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                 \
+                toCpy = sText_FoePkmnPrefix;                            \
+            else                                                        \
+                toCpy = sText_WildPkmnPrefix;                           \
+            while (*toCpy != EOS)                                       \
+            {                                                           \
+                dst[dstID] = *toCpy;                                    \
+                dstID++;                                                \
+                toCpy++;                                                \
+            }                                                           \
         }                                                               \
     }                                                                   \
     GetBattlerNick(battler, text);                                      \
@@ -2922,15 +2932,18 @@ static void GetBattlerNick(enum BattlerId battler, u8 *dst)
 #define HANDLE_NICKNAME_STRING_LOWERCASE(battler)                       \
     if (!IsOnPlayerSide(battler))                       \
     {                                                                   \
-        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                     \
-            toCpy = sText_FoePkmnPrefixLower;                           \
-        else                                                            \
-            toCpy = sText_WildPkmnPrefixLower;                          \
-        while (*toCpy != EOS)                                           \
+        if (!FlagGet(FLAG_DISABLE_KO_ANIM))                             \
         {                                                               \
-            dst[dstID] = *toCpy;                                        \
-            dstID++;                                                    \
-            toCpy++;                                                    \
+            if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)                 \
+                toCpy = sText_FoePkmnPrefixLower;                       \
+            else                                                        \
+                toCpy = sText_WildPkmnPrefixLower;                      \
+            while (*toCpy != EOS)                                       \
+            {                                                           \
+                dst[dstID] = *toCpy;                                    \
+                dstID++;                                                \
+                toCpy++;                                                \
+            }                                                           \
         }                                                               \
     }                                                                   \
     GetBattlerNick(battler, text);                                      \
@@ -3780,19 +3793,22 @@ void ExpandBattleTextBuffPlaceholders(const u8 *src, u8 *dst)
         case B_BUFF_MON_NICK_WITH_PREFIX_LOWER: // poke nick with lowercase prefix
             if (!IsOnPlayerSide(src[srcID + 1]))
             {
-                if (src[srcID] == B_BUFF_MON_NICK_WITH_PREFIX_LOWER)
+                if (!FlagGet(FLAG_DISABLE_KO_ANIM))
                 {
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                        StringAppend(dst, sText_FoePkmnPrefixLower);
+                    if (src[srcID] == B_BUFF_MON_NICK_WITH_PREFIX_LOWER)
+                    {
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                            StringAppend(dst, sText_FoePkmnPrefixLower);
+                        else
+                            StringAppend(dst, sText_WildPkmnPrefixLower);
+                    }
                     else
-                        StringAppend(dst, sText_WildPkmnPrefixLower);
-                }
-                else
-                {
-                    if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
-                        StringAppend(dst, sText_FoePkmnPrefix);
-                    else
-                        StringAppend(dst, sText_WildPkmnPrefix);
+                    {
+                        if (gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+                            StringAppend(dst, sText_FoePkmnPrefix);
+                        else
+                            StringAppend(dst, sText_WildPkmnPrefix);
+                    }
                 }
             }
             GetMonData(&GetBattlerParty(src[srcID + 1])[src[srcID + 2]], MON_DATA_NICKNAME, nickname);

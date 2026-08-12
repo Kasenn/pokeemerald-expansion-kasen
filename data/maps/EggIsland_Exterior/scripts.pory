@@ -631,6 +631,9 @@ script HonchkrowScript{
     setflag(FLAG_NO_RUNNING)
     setwilddoubleflag
     dowildbattle
+    setflag(FLAG_DONT_DESPAWN_PORTAL)
+    addobject(LOCALID_PORTAL1)
+    applymovement(8, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
     applymovement(LOCALID_HONCHKROW, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(LOCALID_HONCHKROW)
@@ -638,25 +641,38 @@ script HonchkrowScript{
 }
 
 script FinaleTrigger{
-    delay(16)
+    delay(32)
     turnobject(LOCALID_KAMEK, DIR_SOUTH)
     playse(SE_PIN)
     applymovement(LOCALID_KAMEK, Common_Movement_ExclamationMark)
     waitse
     waitmovement(0)
+    delay(48)
     playbgm(MUS_KAMEK, TRUE)
-    delay(16)
+    delay(32)
     setspeaker("Kamek")
 
-    setflag(FLAG_DISABLE_KO_ANIM)
-    callnative(CreateExtraStrongMon)
-    createmon(1, 0, SPECIES_KAMEK, VAR_0x8000)
-    msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
+
+    // callnative(ZeroEnemyPartyMons)
+    // setflag(FLAG_DISABLE_KO_ANIM)
+    // callnative(CreateExtraStrongMon)
+    // createmon(1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    // msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
     //remove portal here
-    setwilddoubleflag
-    settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
-	special(StartSpecialBattle)
+    // setwilddoubleflag
+    // settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
+	// dowildbattle
     //wip
+    // callnative(CreateStrongMon)
+    callnative(CreateExtraStrongMon)
+    callnative(ZeroEnemyPartyMons)
+    setflag(FLAG_DISABLE_KO_ANIM)
+    createmon(1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
+    settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
+    setflag(FLAG_NO_RUNNING)
+    setwilddoubleflag
+    special(StartSpecialBattle)
 }
 
 text KamekBattleIntro{

@@ -3153,6 +3153,8 @@ void RemoveObjectEventsOutsideView(void)
                 continue;
             if (IsOWEDespawnExempt(objectEvent))
                 continue;
+            if (objectEvent->localId == LOCALID_PORTAL1 && FlagGet(FLAG_DONT_DESPAWN_PORTAL))
+                continue;
 
             RemoveObjectEventIfOutsideView(objectEvent);
         }

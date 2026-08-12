@@ -681,7 +681,7 @@
 #define FLAG_FINAL_BOULDER_IN_PLACE 0x272
 #define FLAG_TURBOBOOST_ENCOUNTERS  0x273
 #define FLAG_DIGLETT_UPGRADE        0x274
-#define FLAG_UNUSED_0x275  0x275 // Unused Flag
+#define FLAG_DONT_DESPAWN_PORTAL    0x275
 #define FLAG_UNUSED_0x276  0x276 // Unused Flag
 #define FLAG_UNUSED_0x277  0x277 // Unused Flag
 #define FLAG_UNUSED_0x278  0x278 // Unused Flag
