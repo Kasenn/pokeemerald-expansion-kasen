@@ -7128,6 +7128,27 @@ static void AnimThoughtBubble_Step(struct Sprite *sprite)
     }
 }
 
+void AnimSupermushroom(struct Sprite *sprite)
+{
+    CMD_ARGS(unk0);
+
+    enum BattlerId battler;
+    if (cmd->unk0 == 0)
+        battler = gBattleAnimAttacker;
+    else
+        battler = gBattleAnimTarget;
+
+    SetSpriteNextToMonHead(battler, sprite);
+    if (gBattleAnimTarget == 2)
+    {
+        sprite->x = GetBattlerSpriteCoordAttr(2, BATTLER_COORD_ATTR_RIGHT) + 8;
+        sprite->y += 16;
+    }
+    sprite->data[0] = 0;
+    StoreSpriteCallbackInData6(sprite, AnimMetronomeFinger_Step);
+    sprite->callback = RunStoredCallbackWhenAffineAnimEnds;
+}
+
 void AnimMetronomeFinger(struct Sprite *sprite)
 {
     CMD_ARGS(unk0);

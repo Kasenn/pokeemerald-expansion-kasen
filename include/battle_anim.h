@@ -300,6 +300,7 @@ void AnimHyperBeamOrb(struct Sprite *sprite);
 void AnimNeedleArmSpike_Step(struct Sprite *sprite);
 void AnimMovePowderParticle(struct Sprite *sprite);
 void AnimMetronomeFinger(struct Sprite *sprite);
+void AnimSupermushroom(struct Sprite *sprite);
 void AnimConversion(struct Sprite *sprite);
 void AnimCuttingSlice(struct Sprite *sprite);
 void AnimThoughtBubble(struct Sprite *sprite);

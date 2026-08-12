@@ -12328,8 +12328,20 @@ gBattleAnimMove_SuperMushroom::
 	createsprite gSuperMushroomTemplate, ANIM_ATTACKER, 1, 0
 	delay 69
 	createvisualtask AnimTask_IsTargetPlayerSide, 2
-	jumpargeq 7 1 BERRYEAT_ON_PLAYER
+	jumpargeq 7 1 MUSHROOMEAT_ON_PLAYER
 	goto BerryEatingOpponent
+
+MUSHROOMEAT_ON_PLAYER:
+	call BitePlayer
+	delay 16
+	call BitePlayer
+	delay 10
+	playsewithpan SE_SHINY, SOUND_PAN_TARGET
+	createvisualtask AnimTask_BlendBattleAnimPal, 10, F_PAL_TARGET, 3, 7, 0, RGB(17, 31, 25)
+	createsprite gThinRingExpandingSpriteTemplate, ANIM_TARGET, 3, 0, 0, 0, 0
+	waitforvisualfinish
+	end
+
 
 gBattleAnimGeneral_HeldItemBerry::
 gBattleAnimMove_StuffCheeks::

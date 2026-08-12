@@ -3079,7 +3079,7 @@ const struct SpriteTemplate gSuperMushroomTemplate =
     .oam = &gOamData_AffineDouble_ObjNormal_32x32,
     .anims = sAnimCmdTable_BerryChomp,
     .affineAnims = gMetronomeFingerAffineAnimTable,
-    .callback = AnimMetronomeFinger
+    .callback = AnimSupermushroom
 };
 
 // No Retreat
