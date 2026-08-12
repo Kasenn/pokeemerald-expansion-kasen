@@ -1,8 +1,8 @@
 DebugScript1::
 # 16 "data/scripts/general_scripts.pory"
-	callnative TestSpeciesBST2
+	createmon 1, 0, SPECIES_KAMEK, 5, move1 = MOVE_ILLUSION, move2 = MOVE_NONE, move3 = MOVE_NONE, move4 = MOVE_NONE
 # 17 "data/scripts/general_scripts.pory"
-	callnative TestSpeciesBST3
+	dowildbattle
 	return
 
 

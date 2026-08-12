@@ -4015,7 +4015,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
         .iconSprite = gMonIcon_Honchkrow,
         .iconPalIndex = 2,
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
-        SHADOW(5, 3, SHADOW_SIZE_S)
+        SHADOW(6, 6, SHADOW_SIZE_S)
         FOOTPRINT(Honchkrow)
         OVERWORLD(
             sPicTable_Honchkrow,

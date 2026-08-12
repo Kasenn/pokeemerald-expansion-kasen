@@ -13,8 +13,8 @@ const VAR_TRIGGER = VAR_TEMP_5
 const VAR_EGGS = VAR_0x8001
 
 script DebugScript1{
-    callnative(TestSpeciesBST2)
-    callnative(TestSpeciesBST3)
+    createmon(1, 0, SPECIES_KAMEK, 5, move1=MOVE_ILLUSION, move2=MOVE_NONE, move3=MOVE_NONE, move4=MOVE_NONE)
+    dowildbattle
 }
 
 script DebugScript2{
