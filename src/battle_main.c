@@ -581,6 +581,7 @@ static void CB2_InitBattleInternal(void)
     gReservedSpritePaletteCount = MAX_BATTLERS_COUNT;
     SetVBlankCallback(VBlankCB_Battle);
     SetUpBattleVarsAndBirchZigzagoon();
+    CalculatePlayerPartyCount();
     ResetEggs();
     gChuckedEggs = 0;
     gCurrentUsableEggs = CalculateCurrentEggs();

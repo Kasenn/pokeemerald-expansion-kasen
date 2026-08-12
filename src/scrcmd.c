@@ -3796,6 +3796,7 @@ void UpdateEggPP(void)
 {
     int i;
 
+    CalculatePlayerPartyCount();
     for (i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
         if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES) == SPECIES_CHANSEY)

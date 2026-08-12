@@ -299,7 +299,7 @@ static inline u8 CalculateCurrentEggs(void)
 {
     if (FlagGet(FLAG_EGGS_HATCHED))
         return 0;
-
+    CalculatePlayerPartyCount();
     u8 eggs = 0;
 
     for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
@@ -319,6 +319,8 @@ static inline u8 CalculateCurrentEggs(void)
 static u32 CalculateTotalEggs(void)
 {
     u32 eggs = 0;
+
+    CalculatePlayerPartyCount();
 
     for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
     {
