@@ -625,7 +625,7 @@ script HonchkrowScript{
     setspeaker("Honchkrow")
     callnative(CreateStrongMon)
     callnative(ZeroEnemyPartyMons)
-    createmon(1, 0, SPECIES_HONCHKROW, VAR_0x8000)
+    createmon(1, 0, SPECIES_HONCHKROW, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     msgbox("The new boss man says to\nnot let anybody through!", MSGBOX_AUTOCLOSE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 1, 1, 1, 1, 1)
     setflag(FLAG_NO_RUNNING)
