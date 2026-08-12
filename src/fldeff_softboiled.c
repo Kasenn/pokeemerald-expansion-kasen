@@ -55,8 +55,9 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
         return;
     }
 
+    //wip
     hp = GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_HP);
-    if (hp == 0 || GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP) == hp)
+    if (GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP) == hp)
     {
         CantUseSoftboiledOnMon(taskId);
         return;
@@ -73,10 +74,22 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
             // SetMonData(&gParties[B_TRAINER_PLAYER][userPartyId], MON_DATA_PP1 + 1, &pp);
         }
     }
-    if (FlagGet(FLAG_SUPERMUSHROOM_UPGRADE))
-        PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/4*3, Task_DisplayHPRestoredMessage);
-    else
-        PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, GetMonData(&gParties[B_TRAINER_PLAYER][gPartyMenu.slotId], MON_DATA_MAX_HP)/2, Task_DisplayHPRestoredMessage);
+    s16 healAmount = FlagGet(FLAG_SUPERMUSHROOM_UPGRADE)
+    ? GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP)/4*3
+    : GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP)/2;
+
+    if (hp == 0)
+    {
+        u16 one = 1;
+        SetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_HP, &one);
+        RemoveStatusEffect(recipientPartyId);
+
+        AnimatePartySlot(gPartyMenu.slotId2, 1);
+
+        healAmount -= 1;
+    }
+
+    PartyMenuModifyHP(taskId, gPartyMenu.slotId2, 1, healAmount, Task_DisplayHPRestoredMessage);
 }
 
 static void UNUSED Task_SoftboiledRestoreHealth(u8 taskId)

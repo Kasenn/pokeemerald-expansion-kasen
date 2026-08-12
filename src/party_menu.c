@@ -4800,6 +4800,11 @@ static void CreatePartyMonStatusSpriteParameterized(enum Species species, u8 sta
     }
 }
 
+void RemoveStatusEffect(u8 recipientPartyId)
+{
+    SetPartyMonAilmentGfx(&gParties[B_TRAINER_PLAYER][recipientPartyId], &sPartyMenuBoxes[gPartyMenu.slotId2]);
+}
+
 static void SetPartyMonAilmentGfx(struct Pokemon *mon, struct PartyMenuBox *menuBox)
 {
     UpdatePartyMonAilmentGfx(GetMonAilment(mon), menuBox);
