@@ -5537,6 +5537,10 @@ void SetWildMonHeldItem(void)
                 berry = ITEM_SITRUS_BERRY;
             else if (rnd < 25)
                 berry = ITEM_ORAN_BERRY;
+
+            if (FlagGet(FLAG_DISABLE_KO_ANIM))
+                berry = ITEM_NONE;
+
             species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_SPECIES, 0);
             if (gMapHeader.mapLayoutId == LAYOUT_ALTERING_CAVE)
             {

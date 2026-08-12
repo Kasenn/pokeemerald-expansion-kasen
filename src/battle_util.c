@@ -2938,7 +2938,7 @@ u32 CountBattlerStatDecreases(enum BattlerId battler)
     u32 count = 0;
     u32 extraStages;
 
-    for (i = 0; i < NUM_BATTLE_STATS; i++)
+    for (i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
     {
         if (i == STAT_ACC || i == STAT_EVASION)
             extraStages = 0;

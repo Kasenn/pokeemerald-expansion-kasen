@@ -4219,7 +4219,7 @@ void CreateExtraStrongMon(void)
     if (playerLevel > 90)
         playerLevel = 90;
 
-    u8 monLevel = playerLevel + 10 - (playerLevel / 10);
+    u8 monLevel = playerLevel + 7 - (playerLevel / 20);
 
     gSpecialVar_0x8000 = monLevel;
 }

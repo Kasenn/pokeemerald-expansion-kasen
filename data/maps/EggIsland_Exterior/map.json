@@ -820,6 +820,15 @@
       "var": "FLAG_SAVE_4_REACHED",
       "var_value": "0",
       "script": "SetSave4EscapeWarp"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 21,
+      "elevation": 0,
+      "var": "FLAG_HIDE_HONCHKROW",
+      "var_value": "TRUE",
+      "script": "AnimatePortal"
     }
   ],
   "bg_events": [

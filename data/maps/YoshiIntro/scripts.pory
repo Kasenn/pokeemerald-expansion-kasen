@@ -7,8 +7,13 @@ mapscripts YoshiIntro_MapScripts {
         }
     ]
     MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_STORY, 10: EndingScene
         VAR_TEMP_0, 0: YoshiIntroScript
     ]
+}
+
+script EndingScene{
+    //wip
 }
 
 script YoshiIntroScript{

@@ -640,7 +640,17 @@ script HonchkrowScript{
     clearflag(FLAG_NO_RUNNING)
 }
 
+script AnimatePortal{
+    setflag(FLAG_DONT_DESPAWN_PORTAL)
+    addobject(LOCALID_PORTAL1)
+    applymovement(8, moves(init_affine_anim, walk_down_start_affine))
+    delay(1)
+    release
+}
+
 script FinaleTrigger{
+    lockall
+    fadenewbgm(MUS_KAMEK)
     delay(32)
     turnobject(LOCALID_KAMEK, DIR_SOUTH)
     playse(SE_PIN)
@@ -648,31 +658,87 @@ script FinaleTrigger{
     waitse
     waitmovement(0)
     delay(48)
-    playbgm(MUS_KAMEK, TRUE)
     delay(32)
-    setspeaker("Kamek")
 
-
-    // callnative(ZeroEnemyPartyMons)
-    // setflag(FLAG_DISABLE_KO_ANIM)
-    // callnative(CreateExtraStrongMon)
-    // createmon(1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
-    // msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
-    //remove portal here
-    // setwilddoubleflag
-    // settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
-	// dowildbattle
-    //wip
-    // callnative(CreateStrongMon)
+    //wip, remove portal here, also make sure it's actually spinning
     callnative(CreateExtraStrongMon)
     callnative(ZeroEnemyPartyMons)
     setflag(FLAG_DISABLE_KO_ANIM)
     createmon(1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+    setspeaker("Kamek")
     msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
+    clearflag(FLAG_FIRST_ANIM_OVER)
+    clearflag(FLAG_SECOND_ANIM_OVER)
+    applymovement(LOCALID_PORTAL1, moves(init_affine_anim, walk_down_affine, delay_16 * 5))
+    delay(2)
+    setflag(FLAG_SECOND_ANIM_OVER)
+    // waitmovement(0)
+    delay(30)
+    playse(SE_M_MINIMIZE)
+    waitse
+    removeobject(LOCALID_PORTAL1)
+    delay(16)
+    turnobject(LOCALID_KAMEK, DIR_NORTH)
+    playse(SE_PIN)
+    applymovement(LOCALID_KAMEK, Common_Movement_ExclamationMark)
+    waitse
+    waitmovement(0)
+    delay(64)
+    turnobject(LOCALID_KAMEK, DIR_SOUTH)
+    delay(16)
+    setspeaker("Kamek")
+    msgbox(KamekBattleIntro2, MSGBOX_AUTOCLOSE)
     settotemboost(B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2)
     setflag(FLAG_NO_RUNNING)
     setwilddoubleflag
     special(StartSpecialBattle)
+
+    setspeaker("Kamek")
+    msgbox(KamekPostBattle, MSGBOX_AUTOCLOSE)
+    delay(8)
+    turnobject(LOCALID_PLAYER, DIR_SOUTH)
+    delay(8)
+    bufferpartymonnickname(STR_VAR_1, 1)
+    setspeaker("{STR_VAR_1}")
+    msgbox(KamekPostBattle2, MSGBOX_AUTOCLOSE)
+    delay(8)
+    turnobject(LOCALID_PLAYER, DIR_NORTH)
+    delay(8)
+    turnobject(LOCALID_KAMEK, DIR_NORTH)
+    addobject(LOCALID_PORTAL1)
+    playse(SE_M_TELEPORT)
+    applymovement(8, moves(init_affine_anim, set_visible, walk_down_start_affine, delay_16 * 10))
+    delay(160)
+    turnobject(LOCALID_KAMEK, DIR_SOUTH)
+    delay(8)
+    setspeaker("Kamek")
+    msgbox(KamekPostBattle3, MSGBOX_AUTOCLOSE)
+    delay(8)
+    turnobject(LOCALID_KAMEK, DIR_NORTH)
+    delay(8)
+    applymovement(LOCALID_KAMEK, moves(lock_anim, lock_facing_direction, walk_up * 2, set_invisible))
+    applymovement(LOCALID_PLAYER, moves(walk_up * 4, set_invisible))
+    applymovement(OBJ_EVENT_ID_FOLLOWER1, moves(delay_16 * 5))
+    applymovement(OBJ_EVENT_ID_FOLLOWER2, moves(delay_16 * 5))
+    applymovement(OBJ_EVENT_ID_FOLLOWER3, moves(delay_16 * 5))
+    applymovement(OBJ_EVENT_ID_FOLLOWER4, moves(delay_16 * 5))
+    applymovement(OBJ_EVENT_ID_FOLLOWER5, moves(delay_16 * 5))
+    waitmovementall
+    fadescreenspeed(FADE_TO_BLACK, 6)
+    delay(60)
+    setvar(VAR_STORY, 10)
+    setvar(VAR_FADEOUT_SPEED, 6)
+    warpsilent(MAP_YOSHI_INTRO, 0)
+}
+
+text KamekPostBattle{
+    "wip1"
+}
+text KamekPostBattle2{
+    "wip2"
+}
+text KamekPostBattle3{
+    "wip3"
 }
 
 text KamekBattleIntro{
@@ -685,16 +751,12 @@ text KamekBattleIntro{
 
 text KamekBattleIntro2{
     "…Oh, great! Now I lost my\n"
-    "concentration and need to start\l"
-    "from the beginning!\p"
+    "concentration and need to\l"
+    "start from the beginning!\p"
     "THAT'S IT!\p"
     "You've been meddling in my\n"
-    "business for far too long!\p"
-    "Once I'm done with you,\n"
-    "I can leave you and this\l"
-    "weird world behind, and\l"
-    "return back to the young\l"
-    "master's side!"
+    "business for far too long!\l"
+    "Prepare to meet your end!"
 }
 
 script SetSave3EscapeWarp{

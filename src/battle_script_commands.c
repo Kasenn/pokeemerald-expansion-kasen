@@ -4074,7 +4074,10 @@ static void Cmd_getexp(void)
                     && !gBattleStruct->wildVictorySong)
                 {
                     BattleStopLowHpSound();
-                    PlayBGM(MUS_VICTORY_WILD);
+                    if (FlagGet(FLAG_DISABLE_KO_ANIM))
+                        PlayBGM(MUS_VICTORY_LEAGUE);
+                    else
+                        PlayBGM(MUS_VICTORY_WILD);
                     gBattleStruct->wildVictorySong++;
                 }
 
