@@ -715,9 +715,9 @@
     {
       "type": "trigger",
       "x": 40,
-      "y": 11,
+      "y": 12,
       "elevation": 0,
-      "var": "VAR_TEMP_0",
+      "var": "VAR_UNUSED_0x40A8",
       "var_value": "0",
       "script": "FinaleTrigger"
     },

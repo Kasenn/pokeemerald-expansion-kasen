@@ -998,7 +998,7 @@ static void TilesetAnim_Underwater(u16 timer)
 
 static void TilesetAnim_Cave(u16 timer)
 {
-    if (timer % 16 == 0) //wip
+    if (timer % 16 == 0)
         QueueAnimTiles_Lavaridge_Steam(timer / 16);
     if (timer % 16 == 1)
         QueueAnimTiles_Cave_Lava(timer / 16);
@@ -1046,10 +1046,10 @@ static void QueueAnimTiles_General_LandWaterEdge(u16 timer)
 static void QueueAnimTiles_Lavaridge_Steam(u8 timer)
 {
     u8 i = timer % ARRAY_COUNT(gTilesetAnims_Lavaridge_Steam);
-    AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 288)), 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2F0)), 4 * TILE_SIZE_4BPP);
 
     i = (timer + 2) % (int)ARRAY_COUNT(gTilesetAnims_Lavaridge_Steam);
-    AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(NUM_TILES_IN_PRIMARY + 292)), 4 * TILE_SIZE_4BPP);
+    AppendTilesetAnimToBuffer(gTilesetAnims_Lavaridge_Steam[i], (u16 *)(BG_VRAM + TILE_OFFSET_4BPP(0x2F4)), 4 * TILE_SIZE_4BPP);
 }
 
 static void QueueAnimTiles_Pacifidlog_LogBridges(u8 timer)
