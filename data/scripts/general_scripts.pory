@@ -1,8 +1,18 @@
+// Custom tiles are a mix of Minish Cap, Emerald, FRLG, Stardew Valley, Link to the Past, edited further by me
+// Intro graphics from Yoshi's Island
+// Sleeping snorlax from HGSS
+// Kamek front sprite by XxAlexsmashxX, edited by me
+// Super mushroom battle sprite by Spencer Ex and Ridge Troopa
+// Yoshi back sprite by Freakyplanet, edited by me
+// Yoshi front sprite by JoshR691, edited by me
+// Kamek's theme, Flower Garden, and Ungerground theme from Kingdom Hearts Insider
+// Pokemon B&W Trainer Battle theme by Nintendo MIDI Music
+// Yoshi OW sprite from Mario Tennis (GBC), Kamek OW sprite from Link to the Past, both edited by me
+
 // update yoshi sprite
 // finish finale
 // add an ending scene
 // timer doesn't keep track over game-overs
-// update sand tiles + shoreline anims
 //wip
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
