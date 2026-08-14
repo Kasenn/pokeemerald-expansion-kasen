@@ -3196,7 +3196,7 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
             if (gCurrentMove == MOVE_CHUCK_EGG)
                 moveType = TYPE_WATER;
             gSideStatuses[side] |= SIDE_STATUS_DAMAGE_NON_TYPES;
-            gSideTimers[side].damageNonTypesTimer = 3;
+            gSideTimers[side].damageNonTypesTimer = 4;
             gSideTimers[side].damageNonTypesType = moveType;
             BattleScriptPush(battleScript);
             ChooseDamageNonTypesString(moveType);

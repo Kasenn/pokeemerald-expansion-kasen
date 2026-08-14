@@ -851,6 +851,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_FOGCREPTUP]                           = COMPOUND_STRING("Fog crept up as thick as soup!"),
     [STRINGID_FOGISDEEP]                            = COMPOUND_STRING("The fog is deep…"),
     [STRINGID_FOGLIFTED]                            = COMPOUND_STRING("The fog lifted."),
+    [STRINGID_VORTEXENDED]                          = COMPOUND_STRING("The vortex around {B_ATK_NAME_WITH_PREFIX2} dissipated."),
     [STRINGID_PKMNMADESHELLGLEAM]                   = COMPOUND_STRING("{B_DEF_NAME_WITH_PREFIX} made its shell gleam! It's distorting type matchups!"),
     [STRINGID_FICKLEBEAMDOUBLED]                    = COMPOUND_STRING("{B_ATK_NAME_WITH_PREFIX} is going all out for this attack!"),
     [STRINGID_COMMANDERACTIVATES]                   = COMPOUND_STRING("{B_SCR_NAME_WITH_PREFIX} was swallowed by {B_BUFF1} and became {B_BUFF1}'s commander!"),

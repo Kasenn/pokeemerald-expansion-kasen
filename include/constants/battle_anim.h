@@ -616,7 +616,8 @@ enum AnimBattler
 #define B_ANIM_SWAP_TO_ILLUSION         66
 #define B_ANIM_SWAP_FROM_ILLUSION       67
 #define B_ANIM_CALL_DIGLETT             68
-#define NUM_B_ANIMS_GENERAL             69
+#define B_ANIM_WHIRLPOOL                69
+#define NUM_B_ANIMS_GENERAL             70
 
 // special animations table (sBattleAnims_Special)
 #define B_ANIM_LVL_UP                   0

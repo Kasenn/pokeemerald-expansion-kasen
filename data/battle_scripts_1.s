@@ -3209,6 +3209,18 @@ BattleScript_DamagingWeather::
 	hitanimation BS_ATTACKER
 	goto BattleScript_DoTurnDmg
 
+BattleScript_EndVortex::
+	printfromtable gDamageNonTypesDmgStringIds
+	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_WHIRLPOOL
+	waitanimation
+	effectivenesssound
+	hitanimation BS_ATTACKER
+	call BattleScript_DoTurnDmg
+	printstring STRINGID_VORTEXENDED
+	waitmessage B_WAIT_TIME_LONG
+	return
+
 BattleScript_FogEnded::
 	printstring STRINGID_FOGLIFTED
 	waitmessage B_WAIT_TIME_LONG
@@ -5951,11 +5963,15 @@ BattleScript_MoveEffectSetTerrain::
 BattleScript_MoveEffectDamageNonTypes::
 	printfromtable gDamageNonTypesStartStringIds
 	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_TARGET, B_ANIM_WHIRLPOOL
+	waitanimation
 	return
 
 BattleScript_DamageNonTypesContinues::
 	printfromtable gDamageNonTypesDmgStringIds
 	waitmessage B_WAIT_TIME_LONG
+	playanimation BS_ATTACKER, B_ANIM_WHIRLPOOL
+	waitanimation
 	effectivenesssound
 	hitanimation BS_ATTACKER
 	goto BattleScript_DoTurnDmg

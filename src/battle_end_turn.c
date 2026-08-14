@@ -337,7 +337,10 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
             {
                 SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 6);
                 ChooseDamageNonTypesString(gSideTimers[side].damageNonTypesType);
-                BattleScriptCall(BattleScript_DamageNonTypesContinues);
+                if (gSideTimers[side].damageNonTypesTimer == 1)
+                    BattleScriptCall(BattleScript_EndVortex);
+                else
+                    BattleScriptCall(BattleScript_DamageNonTypesContinues);
                 effect = TRUE;
             }
         }

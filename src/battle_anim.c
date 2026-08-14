@@ -252,6 +252,7 @@ static const u8* const sBattleAnims_General[NUM_B_ANIMS_GENERAL] =
     [B_ANIM_RAINBOW]                = gBattleAnimGeneral_Rainbow,
     [B_ANIM_SEA_OF_FIRE]            = gBattleAnimGeneral_SeaOfFire,
     [B_ANIM_SWAMP]                  = gBattleAnimGeneral_Swamp,
+    [B_ANIM_WHIRLPOOL]              = gBattleAnimMove_Whirlpool,
     [B_ANIM_TRICK_ROOM]             = gBattleAnimGeneral_TrickRoom,
     [B_ANIM_WONDER_ROOM]            = gBattleAnimGeneral_WonderRoom,
     [B_ANIM_MAGIC_ROOM]             = gBattleAnimGeneral_MagicRoom,
