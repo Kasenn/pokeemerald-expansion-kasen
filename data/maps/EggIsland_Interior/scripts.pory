@@ -891,6 +891,7 @@ text DiglettScript_Text{
 
 script EggHatchScene{
 	lockall
+    setflag(FLAG_EXP_SHARE)
 	msgbox (Text_EggHatchHuh, MSGBOX_DEFAULT)
 	special (EggHatch)
 	releaseall

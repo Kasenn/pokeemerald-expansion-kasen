@@ -55,7 +55,6 @@ void Task_TryUseSoftboiledOnPartyMon(u8 taskId)
         return;
     }
 
-    //wip
     hp = GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_HP);
     if (GetMonData(&gParties[B_TRAINER_PLAYER][recipientPartyId], MON_DATA_MAX_HP) == hp)
     {

@@ -1978,7 +1978,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         },
         {
             .moveEffect = MOVE_EFFECT_CHUCK_EGG2,
-            .chance = 66,
+            .chance = 100,
         }),
         .contestComboMoves = {0},
         .validApprenticeMove = TRUE,

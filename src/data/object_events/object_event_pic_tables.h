@@ -3144,3 +3144,11 @@ static const struct SpriteFrameImage sPicTable_GroundEgg[] = {
 static const struct SpriteFrameImage sPicTable_Geodude2[] = {
     overworld_ascending_frames(gObjectEventPic_Geodude2, 4, 4),
 };
+
+static const struct SpriteFrameImage sPicTable_EndingYoshi[] = {
+    overworld_ascending_frames(gObjectEventPic_EndingYoshi, 4, 4),
+};
+
+static const struct SpriteFrameImage sPicTable_TheEnd[] = {
+    overworld_ascending_frames(gObjectEventPic_TheEnd, 8, 8),
+};

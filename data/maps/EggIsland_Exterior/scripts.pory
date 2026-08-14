@@ -546,12 +546,9 @@ script StrGloves_ItemSparkle{
 }
 
 text GripGlovesDescription{
-    "The Grip Gloves boosts\n"
-    "the likelihood of added effects\l"
-    "appearing when attacking,\l"
-    "increases Yoshi's speed,\l"
-    "and allows Yoshi to climb up\l"
-    "muddy slopes."
+    "The Grip Gloves increase\n"
+    "Yoshi's speed, and allows\l"
+    "Yoshi to climb muddy slopes."
 }
 
 text StrGlovesOnGround{
@@ -622,6 +619,7 @@ script PrimeapeEncounter{
 
 script HonchkrowScript{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
+    setflag(FLAG_DISABLE_KO_ANIM)
     setspeaker("Honchkrow")
     callnative(CreateStrongMon)
     callnative(ZeroEnemyPartyMons)
@@ -651,6 +649,7 @@ script AnimatePortal{
 script FinaleTrigger{
     lockall
     fadenewbgm(MUS_KAMEK)
+    savebgm(MUS_KAMEK)
     delay(32)
     turnobject(LOCALID_KAMEK, DIR_SOUTH)
     playse(SE_PIN)
@@ -659,8 +658,8 @@ script FinaleTrigger{
     waitmovement(0)
     delay(48)
     delay(32)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
 
-    //wip, remove portal here, also make sure it's actually spinning
     callnative(CreateExtraStrongMon)
     callnative(ZeroEnemyPartyMons)
     setflag(FLAG_DISABLE_KO_ANIM)
@@ -672,6 +671,7 @@ script FinaleTrigger{
     applymovement(LOCALID_PORTAL1, moves(init_affine_anim, walk_down_affine, delay_16 * 5))
     delay(2)
     setflag(FLAG_SECOND_ANIM_OVER)
+    //wip, remove portal here, also make sure it's actually spinning
     // waitmovement(0)
     delay(30)
     playse(SE_M_MINIMIZE)
@@ -696,6 +696,8 @@ script FinaleTrigger{
     setspeaker("Kamek")
     msgbox(KamekPostBattle, MSGBOX_AUTOCLOSE)
     delay(8)
+    turnobject(LOCALID_KAMEK, DIR_NORTH)
+    delay(24)
     turnobject(LOCALID_PLAYER, DIR_SOUTH)
     delay(8)
     bufferpartymonnickname(STR_VAR_1, 1)
@@ -732,13 +734,28 @@ script FinaleTrigger{
 }
 
 text KamekPostBattle{
-    "wip1"
+    "Ow! You big meanie!\p"
+    "This is not fair, what with\n"
+    "you all grouping up against me!\p"
+    "If I take you back home, will\n"
+    "you please leave me alone?\p"
+    "Here, if you let me concentrate\n"
+    "for a while, I'll open up\l"
+    "the portal for you again!"
 }
 text KamekPostBattle2{
-    "wip2"
+    "Take care, Yoshi!\n"
+    "When you get back home,\l"
+    "don't forget to give that\l"
+    "Kamek guy another clobbering,\l"
+    "make him really remember to\l"
+    "not mess with you again!"
 }
 text KamekPostBattle3{
-    "wip3"
+    "The portal is stable, but\n"
+    "it won't stay open for long.\p"
+    "If you want to get back home,\n"
+    "I suggest you start moving!"
 }
 
 text KamekBattleIntro{
@@ -756,7 +773,7 @@ text KamekBattleIntro2{
     "THAT'S IT!\p"
     "You've been meddling in my\n"
     "business for far too long!\l"
-    "Prepare to meet your end!"
+    "Get ready to be clobbered!"
 }
 
 script SetSave3EscapeWarp{

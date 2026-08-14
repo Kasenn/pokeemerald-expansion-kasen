@@ -2499,9 +2499,15 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         }
         else
         {
+            enum Move currentMove = gCurrentMove;
+            if (gCurrentMove == MOVE_CHUCK_EGG)
+            {
+                gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_WRAPPED_INFESTATION;
+                currentMove = MOVE_INFESTATION;
+            }
             SetWrapTurns(effectBattler, GetBattlerHoldEffect(battlerAtk));
             gBattleMons[effectBattler].volatiles.wrapped = TRUE;
-            gBattleMons[effectBattler].volatiles.wrappedMove = gCurrentMove;
+            gBattleMons[effectBattler].volatiles.wrappedMove = currentMove;
             gBattleMons[effectBattler].volatiles.wrappedBy = battlerAtk;
             BattleScriptPush(battleScript);
             gBattlescriptCurrInstr = BattleScript_MoveEffectWrap;
@@ -2988,9 +2994,8 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         case TYPE_GROUND:   stat = STAT_ACC;    break;
         case TYPE_FIGHTING: stat = STAT_ATK;    break;
         case TYPE_GHOST:    stat = STAT_SPATK;  break;
-        case TYPE_BUG:      stat = STAT_SPDEF;  break;
         case TYPE_STEEL:    stat = STAT_DEF;    break;
-        case TYPE_WATER:    stat = STAT_SPEED;  break;
+        case TYPE_FLYING:   stat = STAT_SPEED;  break;
         case TYPE_DRAGON:   stat = STAT_SPATK;  break;
         default: break;
         }
@@ -3187,8 +3192,11 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
         if (!(gSideStatuses[side] & SIDE_STATUS_DAMAGE_NON_TYPES))
         {
             u32 moveType = GetMoveType(gCurrentMove);
+
+            if (gCurrentMove == MOVE_CHUCK_EGG)
+                moveType = TYPE_WATER;
             gSideStatuses[side] |= SIDE_STATUS_DAMAGE_NON_TYPES;
-            gSideTimers[side].damageNonTypesTimer = 5;
+            gSideTimers[side].damageNonTypesTimer = 3;
             gSideTimers[side].damageNonTypesType = moveType;
             BattleScriptPush(battleScript);
             ChooseDamageNonTypesString(moveType);
@@ -12316,6 +12324,16 @@ void BS_TrySetInfatuation(void)
     if (!gBattleMons[gBattlerTarget].volatiles.infatuation
         && gBattleMons[gBattlerTarget].ability != ABILITY_OBLIVIOUS
         && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
+        && gCurrentMove == MOVE_CHUCK_EGG)
+    {
+        gBattleMons[gBattlerTarget].volatiles.infatuation = INFATUATED_WITH(gBattlerAttacker);
+        gBattleCommunication[MULTIUSE_STATE] = 2;
+        gEffectBattler = gBattlerTarget;
+        gBattlescriptCurrInstr = cmd->nextInstr;
+    }
+    else if (!gBattleMons[gBattlerTarget].volatiles.infatuation
+        && gBattleMons[gBattlerTarget].ability != ABILITY_OBLIVIOUS
+        && !IsAbilityOnSide(gBattlerTarget, ABILITY_AROMA_VEIL)
         && AreBattlersOfOppositeGender(gBattlerAttacker, gBattlerTarget))
     {
         gBattleMons[gBattlerTarget].volatiles.infatuation = INFATUATED_WITH(gBattlerAttacker);
@@ -14040,22 +14058,22 @@ static enum MoveEffect GetMoveEffectFromEgg(enum Type eggType)
 {
     switch (eggType)
     {
-    // case TYPE_FIGHTING: return MOVE_EFFECT_THROAT_CHOP;
-    case TYPE_FLYING:   return MOVE_EFFECT_FLINCH;
     case TYPE_POISON:   return MOVE_EFFECT_POISON;
-    // case TYPE_GROUND:   return MOVE_EFFECT_GRAVITY;
     case TYPE_ROCK:     return MOVE_EFFECT_SALT_CURE;
     case TYPE_FIRE:     return MOVE_EFFECT_BURN;
     case TYPE_GRASS:    return MOVE_EFFECT_LEECH_SEED;
     case TYPE_ELECTRIC: return MOVE_EFFECT_PARALYSIS;
     case TYPE_PSYCHIC:  return MOVE_EFFECT_CONFUSION;
-    case TYPE_ICE:      return MOVE_EFFECT_FREEZE;
+    case TYPE_ICE:      return MOVE_EFFECT_FROSTBITE;
     case TYPE_DARK:     return MOVE_EFFECT_TORMENT_SIDE;
     case TYPE_FAIRY:    return MOVE_EFFECT_INFATUATE_SIDE;
-    // case TYPE_BUG:      return MOVE_EFFECT_STAT_MINUS;
+    case TYPE_BUG:      return MOVE_EFFECT_WRAP;
+    case TYPE_WATER:    return MOVE_EFFECT_CANNONADE;
+    // case TYPE_FIGHTING: return MOVE_EFFECT_THROAT_CHOP;
+    // case TYPE_FLYING:   return MOVE_EFFECT_FLINCH;
+    // case TYPE_GROUND:   return MOVE_EFFECT_GRAVITY;
     // case TYPE_GHOST:    return MOVE_EFFECT_STAT_MINUS;
     // case TYPE_STEEL:    return MOVE_EFFECT_STAT_MINUS;
-    // case TYPE_WATER:    return MOVE_EFFECT_STAT_MINUS;
     // case TYPE_DRAGON:   return MOVE_EFFECT_STAT_MINUS;
     case TYPE_STELLAR:  return MOVE_EFFECT_RAINBOW; // For testing purposes only
     default:            return MOVE_EFFECT_NONE;

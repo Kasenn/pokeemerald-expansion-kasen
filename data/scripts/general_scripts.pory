@@ -8,11 +8,9 @@
 // Kamek's theme, Flower Garden, and Ungerground theme from Kingdom Hearts Insider
 // Pokemon B&W Trainer Battle theme by Nintendo MIDI Music
 // Yoshi OW sprite from Mario Tennis (GBC), Kamek OW sprite from Link to the Past, both edited by me
+// Fonts from Yoshi's Island and TextStudio
 
 // update yoshi sprite
-// finish finale
-// add an ending scene
-// timer doesn't keep track over game-overs
 //wip
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1

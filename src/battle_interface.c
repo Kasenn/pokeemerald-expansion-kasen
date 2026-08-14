@@ -76,6 +76,9 @@ enum
     HEALTHBOX_GFX_STATUS_BRN_BATTLER0,  //status brn
     HEALTHBOX_GFX_34,
     HEALTHBOX_GFX_35,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER0,  //status frb
+    HEALTHBOX_GFX_34a,
+    HEALTHBOX_GFX_35b,
     // HEALTHBOX_GFX_STATUS_FRB_BATTLER0,  //status frb
     // HEALTHBOX_GFX_116,
     // HEALTHBOX_GFX_117,
@@ -113,8 +116,8 @@ enum
     HEALTHBOX_GFX_STATUS_BALL_EMPTY,
     HEALTHBOX_GFX_STATUS_BALL_FAINTED,
     HEALTHBOX_GFX_STATUS_BALL_STATUSED,
-    HEALTHBOX_GFX_STATUS_BALL_CAUGHT,
-    HEALTHBOX_GFX_STATUS_BALL_CAUGHT2,
+    // HEALTHBOX_GFX_STATUS_BALL_CAUGHT,
+    // HEALTHBOX_GFX_STATUS_BALL_CAUGHT2,
     HEALTHBOX_GFX_STATUS_PSN_BATTLER1, //status2 "PSN"
     HEALTHBOX_GFX_72,
     HEALTHBOX_GFX_73,
@@ -145,6 +148,12 @@ enum
     HEALTHBOX_GFX_85_A,
     HEALTHBOX_GFX_85_B,
     HEALTHBOX_GFX_85_C,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER1, //status2 "FRB"
+    HEALTHBOX_GFX_84a,
+    HEALTHBOX_GFX_85b,
+    HEALTHBOX_GFX_85_Aa,
+    HEALTHBOX_GFX_85_Bb,
+    HEALTHBOX_GFX_85_Cc,
     // HEALTHBOX_GFX_STATUS_FRB_BATTLER1, //status2 "FRB"
     // HEALTHBOX_GFX_118,
     // HEALTHBOX_GFX_119,
@@ -178,6 +187,12 @@ enum
     HEALTHBOX_GFX_100_A,
     HEALTHBOX_GFX_100_B,
     HEALTHBOX_GFX_100_C,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER2, //status3 "FRB"
+    HEALTHBOX_GFX_96a,
+    HEALTHBOX_GFX_97a,
+    HEALTHBOX_GFX_97_Aa,
+    HEALTHBOX_GFX_97_Ba,
+    HEALTHBOX_GFX_97_Ca,
     // HEALTHBOX_GFX_STATUS_FRB_BATTLER2, //status3 "FRB"
     // HEALTHBOX_GFX_120,
     // HEALTHBOX_GFX_121,
@@ -211,6 +226,12 @@ enum
     HEALTHBOX_GFX_115_A,
     HEALTHBOX_GFX_115_B,
     HEALTHBOX_GFX_115_C,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER3, //status4 "FRB"
+    HEALTHBOX_GFX_111a,
+    HEALTHBOX_GFX_112a,
+    HEALTHBOX_GFX_112_Aa,
+    HEALTHBOX_GFX_112_Ba,
+    HEALTHBOX_GFX_112_Ca,
     HEALTHBOX_GFX_STATUS_PSN_BATTLER0_DOUBLES, //status5 "PSN"
     HEALTHBOX_GFX_117,
     HEALTHBOX_GFX_118,
@@ -241,6 +262,12 @@ enum
     HEALTHBOX_GFX_130_A,
     HEALTHBOX_GFX_130_B,
     HEALTHBOX_GFX_130_C,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER0_DOUBLES, //status5 "FRB"
+    HEALTHBOX_GFX_126a,
+    HEALTHBOX_GFX_127a,
+    HEALTHBOX_GFX_127_Aa,
+    HEALTHBOX_GFX_127_Ba,
+    HEALTHBOX_GFX_127_Ca,
     HEALTHBOX_GFX_STATUS_PSN_BATTLER1_DOUBLES, //status6 "PSN"
     HEALTHBOX_GFX_132,
     HEALTHBOX_GFX_133,
@@ -271,6 +298,12 @@ enum
     HEALTHBOX_GFX_145_A,
     HEALTHBOX_GFX_145_B,
     HEALTHBOX_GFX_145_C,
+    HEALTHBOX_GFX_STATUS_FRB_BATTLER1_DOUBLES, //status6 "FRB"
+    HEALTHBOX_GFX_141a,
+    HEALTHBOX_GFX_142a,
+    HEALTHBOX_GFX_142_Aa,
+    HEALTHBOX_GFX_142_Ba,
+    HEALTHBOX_GFX_142_Ca,
     // HEALTHBOX_GFX_STATUS_FRB_BATTLER3, //status4 "FRB"
     // HEALTHBOX_GFX_122,
     // HEALTHBOX_GFX_123,
@@ -1883,8 +1916,8 @@ void TryAddPokeballIconToHealthbox(u8 healthboxSpriteId, bool8 noStatus)
 
     if (noStatus)
     {
-        CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT), (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + 0x11) * TILE_SIZE_4BPP), 32);
-        CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT2), (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + 0x11 + 8) * TILE_SIZE_4BPP), 32);
+        // CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT), (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + 0x11) * TILE_SIZE_4BPP), 32);
+        // CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT2), (void *)(OBJ_VRAM0 + (gSprites[healthboxSpriteId].oam.tileNum + 0x11 + 8) * TILE_SIZE_4BPP), 32);
         // CpuCopy32(GetHealthboxElementGfxPtr(HEALTHBOX_GFX_STATUS_BALL_CAUGHT), (void *)(OBJ_VRAM0 + (gSprites[healthBarSpriteId].oam.tileNum + 8) * TILE_SIZE_4BPP), 32);
     }
     else
@@ -1965,6 +1998,12 @@ static void UpdateStatusIconInHealthbox(u8 healthboxSpriteId)
         firstRow = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PRZ_BATTLER0, battler));
         secondRow = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_PRZ_BATTLER0, battler) + 3);
         statusPalId = PAL_STATUS_PAR;
+    }
+    else if (status & STATUS1_FROSTBITE)
+    {
+        firstRow = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_FRB_BATTLER0, battler));
+        secondRow = GetHealthboxElementGfxPtr(GetStatusIconForBattlerId(HEALTHBOX_GFX_STATUS_FRB_BATTLER0, battler) + 3);
+        statusPalId = PAL_STATUS_FRZ;
     }
     else
     {
@@ -2068,6 +2107,15 @@ static u8 GetStatusIconForBattlerId(u8 statusElementId, enum BattlerId battler)
         case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_BRN_BATTLER1 : HEALTHBOX_GFX_STATUS_BRN_BATTLER1_DOUBLES; break;
         case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_BRN_BATTLER2;                                             break;
         case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_BRN_BATTLER3;                                             break;
+        }
+    break;
+    case HEALTHBOX_GFX_STATUS_FRB_BATTLER0:
+        switch (position)
+        {
+        case B_POSITION_PLAYER_LEFT:    ret = singlePlayer ? HEALTHBOX_GFX_STATUS_FRB_BATTLER0 : HEALTHBOX_GFX_STATUS_FRB_BATTLER0_DOUBLES; break;
+        case B_POSITION_OPPONENT_LEFT:  ret = singleEnemy  ? HEALTHBOX_GFX_STATUS_FRB_BATTLER1 : HEALTHBOX_GFX_STATUS_FRB_BATTLER1_DOUBLES; break;
+        case B_POSITION_PLAYER_RIGHT:   ret =                HEALTHBOX_GFX_STATUS_FRB_BATTLER2;                                             break;
+        case B_POSITION_OPPONENT_RIGHT: ret =                HEALTHBOX_GFX_STATUS_FRB_BATTLER3;                                             break;
         }
     break;
     }

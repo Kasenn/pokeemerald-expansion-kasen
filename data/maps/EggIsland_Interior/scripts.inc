@@ -1970,66 +1970,68 @@ EggHatchScene::
 # 893 "data/maps/EggIsland_Interior/scripts.pory"
 	lockall
 # 894 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox Text_EggHatchHuh, MSGBOX_DEFAULT
+	setflag FLAG_EXP_SHARE
 # 895 "data/maps/EggIsland_Interior/scripts.pory"
-	special EggHatch
+	msgbox Text_EggHatchHuh, MSGBOX_DEFAULT
 # 896 "data/maps/EggIsland_Interior/scripts.pory"
+	special EggHatch
+# 897 "data/maps/EggIsland_Interior/scripts.pory"
 	releaseall
 	end
 
 
 EggHatchScene2::
-# 901 "data/maps/EggIsland_Interior/scripts.pory"
-	lockall
 # 902 "data/maps/EggIsland_Interior/scripts.pory"
-	delay 16
+	lockall
 # 903 "data/maps/EggIsland_Interior/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_EAST
+	delay 16
 # 904 "data/maps/EggIsland_Interior/scripts.pory"
-	turnobject OBJ_EVENT_ID_FOLLOWER1, DIR_WEST
+	turnobject LOCALID_PLAYER, DIR_EAST
 # 905 "data/maps/EggIsland_Interior/scripts.pory"
-	delay 8
+	turnobject OBJ_EVENT_ID_FOLLOWER1, DIR_WEST
 # 906 "data/maps/EggIsland_Interior/scripts.pory"
-	bufferpartymonnickname STR_VAR_1, 1
+	delay 8
 # 907 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker EggHatchScene2_Text_0
+	bufferpartymonnickname STR_VAR_1, 1
 # 908 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox EggHatchScene_Text
+	setspeaker EggHatchScene2_Text_0
 # 909 "data/maps/EggIsland_Interior/scripts.pory"
-	call SetYoshiMoves
+	msgbox EggHatchScene_Text
 # 910 "data/maps/EggIsland_Interior/scripts.pory"
-	setspeaker SP_NAME_NONE
+	call SetYoshiMoves
 # 911 "data/maps/EggIsland_Interior/scripts.pory"
-	msgbox EggHatchScene_Text2
+	setspeaker SP_NAME_NONE
 # 912 "data/maps/EggIsland_Interior/scripts.pory"
-	setvar VAR_STORY, 7
+	msgbox EggHatchScene_Text2
 # 913 "data/maps/EggIsland_Interior/scripts.pory"
+	setvar VAR_STORY, 7
+# 914 "data/maps/EggIsland_Interior/scripts.pory"
 	releaseall
 	end
 
 
 TurboBoostEncounters::
-# 934 "data/maps/EggIsland_Interior/scripts.pory"
-	counteggs
 # 935 "data/maps/EggIsland_Interior/scripts.pory"
+	counteggs
+# 936 "data/maps/EggIsland_Interior/scripts.pory"
 	compare VAR_0x8001, 5
 	goto_if_eq TurboBoostEncounters_2
-# 939 "data/maps/EggIsland_Interior/scripts.pory"
-	setflag FLAG_TURBOBOOST_ENCOUNTERS
 # 940 "data/maps/EggIsland_Interior/scripts.pory"
+	setflag FLAG_TURBOBOOST_ENCOUNTERS
+# 941 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
 TurboBoostEncounters_2:
-# 936 "data/maps/EggIsland_Interior/scripts.pory"
+# 937 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	end
 
 
 TurboBoostEncountersOff::
-# 944 "data/maps/EggIsland_Interior/scripts.pory"
-	clearflag FLAG_TURBOBOOST_ENCOUNTERS
 # 945 "data/maps/EggIsland_Interior/scripts.pory"
+	clearflag FLAG_TURBOBOOST_ENCOUNTERS
+# 946 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
@@ -2135,7 +2137,7 @@ Sandshrew1Attacks_Text_0:
 	.string "Now you've done it!$"
 
 EggHatchScene2_Text_0:
-# 907 "data/maps/EggIsland_Interior/scripts.pory"
+# 908 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "{STR_VAR_1}$"
 
 SetEggOnPedestal_Text::
@@ -2206,7 +2208,7 @@ DiglettScript_Text::
 	.string "Please help me!$"
 
 EggHatchScene_Text::
-# 917 "data/maps/EggIsland_Interior/scripts.pory"
+# 918 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "This hot sand must've\n"
 	.string "accelerated our growth.\p"
 	.string "But don't worry, Yoshi!\p"
@@ -2217,6 +2219,6 @@ EggHatchScene_Text::
 	.string "Kamek guy!$"
 
 EggHatchScene_Text2::
-# 928 "data/maps/EggIsland_Interior/scripts.pory"
+# 929 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi's “Toss Egg” has been\n"
 	.string "replaced with “Helping Hand”.$"

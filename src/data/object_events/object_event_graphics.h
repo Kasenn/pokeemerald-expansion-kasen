@@ -692,3 +692,7 @@ const u16 gObjectEventPal_GroundEgg[] = INCGFX_U16("graphics/object_events/pics/
 const u16 gObjectEventPic_GroundEgg[] = INCGFX_U16("graphics/object_events/pics/people/groundegg.png", ".4bpp", "-mwidth 2 -mheight 2");
 const u16 gObjectEventPal_Geodude[] = INCGFX_U16("graphics/object_events/pics/people/geodude2.png", ".gbapal");
 const u16 gObjectEventPic_Geodude2[] = INCGFX_U16("graphics/object_events/pics/people/geodude2.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_EndingYoshi[] = INCGFX_U16("graphics/object_events/pics/people/endingyoshi.png", ".gbapal");
+const u16 gObjectEventPic_EndingYoshi[] = INCGFX_U16("graphics/object_events/pics/people/endingyoshi.png", ".4bpp", "-mwidth 4 -mheight 4");
+const u16 gObjectEventPal_TheEnd[] = INCGFX_U16("graphics/object_events/pics/people/theend.png", ".gbapal");
+const u16 gObjectEventPic_TheEnd[] = INCGFX_U16("graphics/object_events/pics/people/theend.png", ".4bpp", "-mwidth 8 -mheight 8");
