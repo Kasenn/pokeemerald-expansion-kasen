@@ -10,8 +10,6 @@
 // Yoshi OW sprite from Mario Tennis (GBC), Kamek OW sprite from Link to the Past, both edited by me
 // Fonts from Yoshi's Island and TextStudio
 
-// update yoshi sprite
-//wip
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_MACHOP_INTRO = VAR_TEMP_2
