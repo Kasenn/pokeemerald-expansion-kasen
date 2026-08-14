@@ -7984,29 +7984,12 @@ static void ObjectEventSetPokeballGfx(struct ObjectEvent *objEvent)
 
 bool8 MovementAction_ExitPokeball_Step0(struct ObjectEvent *objectEvent, struct Sprite *sprite)
 {
-    enum Direction direction = gObjectEvents[gPlayerAvatar.objectEventId].facingDirection;
-    u16 graphicsId = objectEvent->graphicsId;
-    objectEvent->invisible = FALSE;
-    if (TestPlayerAvatarFlags(PLAYER_AVATAR_FLAG_DASH))
-    {
-        // If player is dashing, the Pokémon must come out faster
-        StartSpriteAnimInDirection(objectEvent, sprite, direction, GetJumpSpecialDirectionAnimNum(direction));
-        sprite->sDuration = 8;
-        sprite->sSpeedFlip = 0; // fast speed
-    }
-    else
-    {
-        StartSpriteAnimInDirection(objectEvent, sprite, direction, GetMoveDirectionFastestAnimNum(direction));
-        sprite->sDuration = 16;
-        sprite->sSpeedFlip = 1; // normal speed
-    }
-    // If mon's right-facing sprite is h-flipped, we need to use a different affine anim
-    if (direction == DIR_EAST && sprite->anims[ANIM_STD_FACE_EAST]->frame.hFlip)
-        sprite->sSpeedFlip |= 1 << 4;
-    ObjectEventSetPokeballGfx(objectEvent);
-    objectEvent->graphicsId = graphicsId;
+    FollowerSetGraphics(objectEvent, OW_SPECIES(objectEvent), OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
     objectEvent->inanimate = FALSE;
-    return MovementAction_ExitPokeball_Step1(objectEvent, sprite);
+    objectEvent->invisible = FALSE;
+    sprite->sActionFuncId = 2;
+    sprite->animPaused = FALSE;
+    return TRUE;
 }
 
 static const union AffineAnimCmd sAffineAnim_PokeballExit[] =
