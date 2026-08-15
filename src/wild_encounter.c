@@ -514,29 +514,7 @@ static u8 PickWildMonNature(enum Species species)
     return GetSynchronizedNature(WILDMON_ORIGIN, species);
 }
 
-static const u16 sEncounterTableGrassOne[] =
-{
-    SPECIES_PIDGEY,
-    SPECIES_RATTATA,
-    SPECIES_SPEAROW,
-    SPECIES_EKANS,
-    SPECIES_MEOWTH,
-    SPECIES_MANKEY,
-    SPECIES_GRIMER,
-    SPECIES_VOLTORB,
-    SPECIES_EXEGGCUTE,
-    SPECIES_KOFFING,
-    SPECIES_AIPOM,
-    SPECIES_GLIGAR,
-    SPECIES_SNUBBULL,
-    SPECIES_SNEASEL,
-    SPECIES_HOUNDOUR,
-    SPECIES_POOCHYENA,
-    SPECIES_ELECTRIKE,
-    SPECIES_ZIGZAGOON
-};
-
-static const u16 sEncounterTableGrassTwo[] =
+static const u16 sEncounterTableGrass[] =
 {
     SPECIES_PIDGEY,
     SPECIES_RATTATA,
@@ -573,34 +551,23 @@ static const u16 sEncounterTableGrassTwo[] =
     SPECIES_PANCHAM,
     SPECIES_YUNGOOS,
     SPECIES_ROCKRUFF,
-    SPECIES_SALANDIT
+    SPECIES_SALANDIT,
+    SPECIES_ROOKIDEE,
+    SPECIES_NICKIT,
+    SPECIES_SILICOBRA,
+    SPECIES_SINISTEA,
+    SPECIES_IMPIDIMP,
+    SPECIES_DREEPY,
+    SPECIES_TAROUNTULA,
+    SPECIES_DREEPY,
+    SPECIES_MASCHIFF,
+    SPECIES_BRAMBLIN,
+    SPECIES_TOEDSCOOL,
+    SPECIES_CAPSAKID,
+    SPECIES_VAROOM,
 };
 
-static const u16 sEncounterTableUndergroundOne[] =
-{
-    SPECIES_SANDSHREW,
-    SPECIES_CLEFAIRY,
-    SPECIES_ZUBAT,
-    SPECIES_GEODUDE,
-    SPECIES_ONIX,
-    SPECIES_CUBONE,
-    SPECIES_MISDREAVUS,
-    SPECIES_GASTLY,
-    SPECIES_LARVITAR,
-    SPECIES_WHISMUR,
-    SPECIES_MAKUHITA,
-    SPECIES_NOSEPASS,
-    SPECIES_SABLEYE,
-    SPECIES_MAWILE,
-    SPECIES_ARON,
-    SPECIES_LUNATONE,
-    SPECIES_SOLROCK,
-    SPECIES_BALTOY,
-    SPECIES_DUSKULL,
-    SPECIES_BELDUM
-};
-
-static const u16 sEncounterTableUndergroundTwo[] =
+static const u16 sEncounterTableUnderground[] =
 {
     SPECIES_SANDSHREW,
     SPECIES_CLEFAIRY,
@@ -635,24 +602,12 @@ static const u16 sEncounterTableUndergroundTwo[] =
     SPECIES_DEINO,
     SPECIES_BUNNELBY,
     SPECIES_CARBINK,
-    SPECIES_NOIBAT
+    SPECIES_NOIBAT,
+    SPECIES_ROLYCOLY,
+    SPECIES_NACLI,
+    SPECIES_TINKATINK,
+    SPECIES_GLIMMET,
 };
-
-void TestSpeciesBST2(void)
-{
-    for (int i = 0; i < ARRAY_COUNT(sEncounterTableGrassTwo); i++)
-    {
-        DebugPrintf("%S - %d", GetSpeciesName(sEncounterTableGrassTwo[i]), GetTotalBaseStat(sEncounterTableGrassTwo[i]));
-    }
-}
-
-void TestSpeciesBST3(void)
-{
-    for (int i = 0; i < ARRAY_COUNT(sEncounterTableUndergroundTwo); i++)
-    {
-        DebugPrintf("%S - %d", GetSpeciesName(sEncounterTableUndergroundTwo[i]), GetTotalBaseStat(sEncounterTableUndergroundTwo[i]));
-    }
-}
 
 void CreateWildMon(enum Species species, u8 level)
 {
@@ -663,16 +618,12 @@ void CreateWildMon(enum Species species, u8 level)
     {
         default:
         case 0:
-            species = sEncounterTableGrassOne[Random() % ARRAY_COUNT(sEncounterTableGrassOne)];
+        case 2:
+            species = sEncounterTableGrass[Random() % ARRAY_COUNT(sEncounterTableGrass)];
             break;
         case 1:
-            species = sEncounterTableUndergroundOne[Random() % ARRAY_COUNT(sEncounterTableUndergroundOne)];
-            break;
-        case 2:
-            species = sEncounterTableGrassTwo[Random() % ARRAY_COUNT(sEncounterTableGrassTwo)];
-            break;
         case 3:
-            species = sEncounterTableUndergroundTwo[Random() % ARRAY_COUNT(sEncounterTableUndergroundTwo)];
+            species = sEncounterTableUnderground[Random() % ARRAY_COUNT(sEncounterTableUnderground)];
             break;
     }
     if (VarGet(VAR_OVERRIDE_LEVEL) != 0)
