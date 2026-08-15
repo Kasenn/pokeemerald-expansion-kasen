@@ -491,10 +491,10 @@ static bool32 ShouldSwitchIfAllMovesBad(struct SwitchAiContext *switchContext)
     // Switch if no moves affect opponents
     if (IsDoubleBattle())
     {
-        enum BattlerId opposingPartner = BATTLE_PARTNER(switchContext->opposingBattler);
+        enum BattlerId opposingPartner = GetPartnerBattler(switchContext->opposingBattler);
         for (u32 moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
         {
-            ctx.move = ctx.chosenMove = gBattleMons[switchContext->battler].moves[moveIndex];
+            ctx.move = ctx.chosenMove = ctx.baseMove = gBattleMons[switchContext->battler].moves[moveIndex];
             ctx.moveType = GetBattleMoveType(ctx.move);
             // Check if move is bad in the context of both opposing battlers
             if (!IsMoveBad(&ctx, moveIndex))
@@ -509,6 +509,8 @@ static bool32 ShouldSwitchIfAllMovesBad(struct SwitchAiContext *switchContext)
                 ctx.holdEffects[ctx.battlerDef] = gAiLogicData->holdEffects[ctx.battlerDef];
                 if (!IsMoveBad(&ctx, moveIndex))
                     return FALSE;
+                // Restore opposing battler for next move check
+                ctx.battlerDef = switchContext->opposingBattler;
             }
         }
     }
@@ -516,7 +518,7 @@ static bool32 ShouldSwitchIfAllMovesBad(struct SwitchAiContext *switchContext)
     {
         for (u32 moveIndex = 0; moveIndex < MAX_MON_MOVES; moveIndex++)
         {
-            ctx.move = ctx.chosenMove = gBattleMons[switchContext->battler].moves[moveIndex];
+            ctx.move = ctx.chosenMove = ctx.baseMove = gBattleMons[switchContext->battler].moves[moveIndex];
             ctx.moveType = GetBattleMoveType(ctx.move);
             if (!IsMoveBad(&ctx, moveIndex))
                 return FALSE;
@@ -837,7 +839,7 @@ static bool32 GetHitEscapeTransformState(enum BattlerId battlerAtk, enum Move mo
     struct DamageContext ctx = {0};
     ctx.aiCalc = TRUE;
     ctx.battlerAtk = battlerAtk;
-    ctx.move = ctx.chosenMove = move;
+    ctx.move = ctx.chosenMove = ctx.baseMove = move;
     ctx.moveType = moveType;
     ctx.holdEffects[ctx.battlerAtk] = gAiLogicData->holdEffects[battlerAtk];
     ctx.abilities[ctx.battlerAtk] = gAiLogicData->abilities[battlerAtk];
@@ -953,7 +955,7 @@ static bool32 ShouldSwitchIfIntimidateBenefit(struct SwitchAiContext *switchCont
     if (!(gAiThinkingStruct->aiFlags[switchContext->battler] & AI_FLAG_SMART_SWITCHING))
         return FALSE;
 
-    enum BattlerId opposingPartner = BATTLE_PARTNER(switchContext->opposingBattler);
+    enum BattlerId opposingPartner = GetPartnerBattler(switchContext->opposingBattler);
     bool32 hasValidTarget = FALSE;
 
     if (IsBattlerAlive(switchContext->opposingBattler))
@@ -1101,7 +1103,7 @@ static bool32 CanUseSuperEffectiveMoveAgainstOpponents(enum BattlerId battler, e
     if (CanUseSuperEffectiveMoveAgainstOpponent(battler, opposingBattler))
         return TRUE;
 
-    if (IsDoubleBattle() && CanUseSuperEffectiveMoveAgainstOpponent(battler, BATTLE_PARTNER(opposingBattler)))
+    if (IsDoubleBattle() && CanUseSuperEffectiveMoveAgainstOpponent(battler, GetPartnerBattler(opposingBattler)))
         return TRUE;
 
     return FALSE;
@@ -1173,7 +1175,7 @@ static bool32 ShouldSwitchIfBadChoiceLock(struct SwitchAiContext *switchContext)
     struct DamageContext ctx = {0};
     ctx.battlerAtk = switchContext->battler;
     ctx.battlerDef = switchContext->opposingBattler;
-    ctx.move = ctx.chosenMove = choicedMove;
+    ctx.move = ctx.chosenMove = ctx.baseMove = choicedMove;
     ctx.moveType = GetBattleMoveType(choicedMove);
     ctx.abilities[ctx.battlerAtk] = gAiLogicData->abilities[ctx.battlerAtk];
     ctx.abilities[ctx.battlerDef] = gAiLogicData->abilities[ctx.battlerDef];
@@ -1188,7 +1190,7 @@ static bool32 ShouldSwitchIfBadChoiceLock(struct SwitchAiContext *switchContext)
 
     if (IsDoubleBattle())
     {
-        enum BattlerId opposingPartner = BATTLE_PARTNER(switchContext->opposingBattler);
+        enum BattlerId opposingPartner = GetPartnerBattler(switchContext->opposingBattler);
         if (IsHoldEffectChoice(ctx.holdEffects[ctx.battlerAtk]) && IsBattlerItemEnabled(switchContext->battler))
         {
             if (GetMoveCategory(choicedMove) == DAMAGE_CATEGORY_STATUS || !CanMoveAffectTarget(&ctx, moveIndex))
@@ -1465,7 +1467,7 @@ bool32 ShouldSwitchIfAllScoresBad(struct SwitchAiContext *switchContext)
         if (IsDoubleBattle())
         {
             u32 score1 = gAiBattleData->finalScore[switchContext->battler][switchContext->opposingBattler][moveIndex];
-            u32 score2 = gAiBattleData->finalScore[switchContext->battler][BATTLE_PARTNER(switchContext->opposingBattler)][moveIndex];
+            u32 score2 = gAiBattleData->finalScore[switchContext->battler][GetPartnerBattler(switchContext->opposingBattler)][moveIndex];
             if (score1 > AI_BAD_SCORE_THRESHOLD || score2 > AI_BAD_SCORE_THRESHOLD)
                 return FALSE;
         }
@@ -1500,7 +1502,7 @@ bool32 ShouldStayInToUseMove(struct SwitchAiContext *switchContext)
                 continue;
 
             if (gAiBattleData->finalScore[switchContext->battler][switchContext->opposingBattler][moveIndex] > AI_GOOD_SCORE_THRESHOLD
-                || (IsDoubleBattle() && gAiBattleData->finalScore[switchContext->battler][BATTLE_PARTNER(switchContext->opposingBattler)][moveIndex] > AI_GOOD_SCORE_THRESHOLD))
+                || (IsDoubleBattle() && gAiBattleData->finalScore[switchContext->battler][GetPartnerBattler(switchContext->opposingBattler)][moveIndex] > AI_GOOD_SCORE_THRESHOLD))
                 return TRUE;
         }
     }
@@ -1538,7 +1540,7 @@ bool32 IsSwitchinValid(enum BattlerId battler)
     // Edge case: See if partner already chose to switch into the same mon
     if (IsDoubleBattle())
     {
-        enum BattlerId partner = BATTLE_PARTNER(battler);
+        enum BattlerId partner = GetPartnerBattler(battler);
         if (gBattleStruct->AI_monToSwitchIntoId[battler] == PARTY_SIZE) // Generic switch
         {
             if ((gAiLogicData->shouldSwitch & (1u << partner))
@@ -1839,7 +1841,7 @@ static u32 GetSwitchinStatusDamage(enum BattlerId battler)
             statusDamage = maxHP / 16;
             if (statusDamage == 0)
                 statusDamage = 1;
-            statusDamage *= gBattleMons[battler].status1 & STATUS1_TOXIC_COUNTER >> 8;
+            statusDamage *= (gBattleMons[battler].status1 & STATUS1_TOXIC_COUNTER) >> 8;
         }
     }
 
@@ -2629,7 +2631,7 @@ u32 AI_SelectRevivalBlessingMon(enum BattlerId battler)
 
     if (IsDoubleBattle())
     {
-        opposingBattler = BATTLE_OPPOSITE(battler);
+        opposingBattler = GetOppositeBattler(battler);
         if (gAbsentBattlerFlags & (1u << opposingBattler))
             opposingBattler ^= BIT_FLANK;
     }

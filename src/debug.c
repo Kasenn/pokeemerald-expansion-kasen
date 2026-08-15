@@ -3674,10 +3674,19 @@ static void DebugAction_TimeMenu_ChangeWeekdays(u8 taskId)
 // *******************************
 // Actions PCBag
 
+static enum Species GetNextSpecies(enum Species species)
+{
+    do {
+        species = (species < NUM_SPECIES - 1) ? species + 1 : 1;
+    } while (!IsSpeciesEnabled(species));
+    return species;
+}
+
 static void DebugAction_PCBag_Fill_PCBoxes_Fast(u8 taskId) //Credit: Sierraffinity
 {
     struct BoxPokemon boxMon;
-    enum Species species = SPECIES_BULBASAUR;
+    enum Species species = GetNextSpecies(SPECIES_NONE);
+    u8 speciesName[POKEMON_NAME_LENGTH + 1];
 
     CreateBoxMon(&boxMon, species, 100, Random32(), OTID_STRUCT_PLAYER_ID);
     //mons are created with 0 IVs

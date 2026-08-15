@@ -56,7 +56,7 @@ static const struct WindowTemplate sDaycareLevelMenuWindowTemplate =
 };
 
 // Indices here are assigned by Task_HandleDaycareLevelMenuInput to VAR_RESULT,
-// which is copied to VAR_0x8004 and used as an index for GetDaycareCost
+// which is copied to VAR_0x8004 and used as an index for GetDaycareCostAndPrepareString
 static const struct ListMenuItem sLevelMenuItems[] =
 {
     {gText_ExpandedPlaceholder_Empty, 0},
@@ -345,7 +345,7 @@ static u8 UNUSED GetNumLevelsGainedForDaycareMon(struct DaycareMon *daycareMon)
     return numLevelsGained;
 }
 
-static u32 GetDaycareCostForSelectedMon(struct DaycareMon *daycareMon)
+static u32 PrepareDaycareCostStringForSelectedMon(struct DaycareMon *daycareMon)
 {
     u32 cost;
 
@@ -356,12 +356,12 @@ static u32 GetDaycareCostForSelectedMon(struct DaycareMon *daycareMon)
     return cost;
 }
 
-static u16 UNUSED GetDaycareCostForMon(struct DayCare *daycare, u8 slotId)
+static u16 UNUSED PrepareDaycareCostStringForMon(struct DayCare *daycare, u8 slotId)
 {
-    return GetDaycareCostForSelectedMon(&daycare->mons[slotId]);
+    return PrepareDaycareCostStringForSelectedMon(&daycare->mons[slotId]);
 }
 
-void GetDaycareCost(void)
+void GetDaycareCostAndPrepareString(void)
 {
     return;
 }
@@ -1515,7 +1515,7 @@ void PutMonInRoute5Daycare(void)
 void GetCostToWithdrawRoute5DaycareMon(void)
 {
 #if IS_FRLG
-    u16 cost = GetDaycareCostForSelectedMon(&gSaveBlock1Ptr->route5DayCareMon);
+    u16 cost = PrepareDaycareCostStringForSelectedMon(&gSaveBlock1Ptr->route5DayCareMon);
 #else
     u16 cost = 100;
 #endif

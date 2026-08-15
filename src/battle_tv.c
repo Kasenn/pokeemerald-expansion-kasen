@@ -186,7 +186,6 @@ void BattleTv_SetDataBasedOnString(enum StringID stringId)
     switch (stringId)
     {
     case STRINGID_ITDOESNTAFFECT:
-    case STRINGID_ITDOESNTAFFECTTWOFOES:
         AddMovePoints(PTS_EFFECTIVENESS, moveSlot, 2, 0);
         if (!(gBattleTypeFlags & BATTLE_TYPE_LINK))
             TrySetBattleSeminarShow();
@@ -1297,7 +1296,7 @@ static void TrySetBattleSeminarShow(void)
             struct DamageContext ctx = {0};
             ctx.battlerAtk = gBattlerAttacker;
             ctx.battlerDef = gBattlerTarget;
-            ctx.move = ctx.chosenMove = gCurrentMove;
+            ctx.move = ctx.chosenMove = ctx.baseMove = gCurrentMove;
             ctx.moveType = GetMoveType(gCurrentMove);
             ctx.isCrit = FALSE;
             ctx.randomFactor = FALSE;

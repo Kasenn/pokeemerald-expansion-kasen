@@ -870,18 +870,18 @@ bool32 ComputePlayerShinyOdds(u32 personality, u32 value)
 {
     if (P_FLAG_FORCE_NO_SHINY != 0 && FlagGet(P_FLAG_FORCE_NO_SHINY))
         return FALSE;
-    
+
     if (P_FLAG_FORCE_SHINY != 0 && FlagGet(P_FLAG_FORCE_SHINY))
         return TRUE;
-    
+
     if (P_ONLY_OBTAINABLE_SHINIES && (CurrentBattlePyramidLocation() != PYRAMID_LOCATION_NONE || (FlagGet(WE_FLAG_NO_CATCHING))))
         return FALSE;
-    
+
     if (P_NO_SHINIES_WITHOUT_POKEBALLS && !HasAtLeastOnePokeBall())
         return FALSE;
 
     u32 totalRerolls = 0;
-    
+
     if (CheckBagHasItem(ITEM_SHINY_CHARM, 1))
         totalRerolls += I_SHINY_CHARM_ADDITIONAL_ROLLS;
 
@@ -988,7 +988,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     else // Player is the OT
     {
         value = 0;
-        isShiny = ComputePlayerShinyOdds(personality, value);    
+        isShiny = ComputePlayerShinyOdds(personality, value);
     }
 
     SetBoxMonData(boxMon, MON_DATA_PERSONALITY, &personality);
@@ -1277,7 +1277,8 @@ static void CreateEventMon(struct Pokemon *mon, enum Species species, u8 level, 
 {
     bool32 isModernFatefulEncounter = TRUE;
 
-    CreateMon(mon, species, level, personality, otId);
+    CreateMonWithIVs(mon, species, level, personality, otId, USE_RANDOM_IVS);
+    GiveMonInitialMoveset(mon);
     SetMonData(mon, MON_DATA_MODERN_FATEFUL_ENCOUNTER, &isModernFatefulEncounter);
     CalculateMonStats(mon);
 }
@@ -1321,8 +1322,6 @@ void CreateEnemyEventMon(void)
     ZeroEnemyPartyMons();
 
     CreateEventMon(&gParties[B_TRAINER_OPPONENT_A][0], species, level, Random32(), OTID_STRUCT_PLAYER_ID);
-    SetBoxMonIVs(&gParties[B_TRAINER_OPPONENT_A][0].box, USE_RANDOM_IVS);
-    GiveMonInitialMoveset(&gParties[B_TRAINER_OPPONENT_A][0]);
     if (itemId)
     {
         u8 heldItem[2];
@@ -1777,7 +1776,7 @@ u8 CountAliveMonsInBattle(u8 caseId, enum BattlerId battler)
     case BATTLE_ALIVE_EXCEPT_BATTLER_SIDE:
         for (i = 0; i < gBattlersCount; i++)
         {
-            if (i != battler && i != BATTLE_PARTNER(battler) && !(gAbsentBattlerFlags & (1u << i)))
+            if (i != battler && i != GetPartnerBattler(battler) && !(gAbsentBattlerFlags & (1u << i)))
                 retVal++;
         }
         break;
@@ -1795,7 +1794,7 @@ u8 CountAliveMonsInBattle(u8 caseId, enum BattlerId battler)
 
 u8 GetDefaultMoveTarget(enum BattlerId battlerId)
 {
-    u8 opposing = BATTLE_OPPOSITE(GetBattlerSide(battlerId));
+    u8 opposing = GetBattlerLeftFoe(battlerId);
 
     if (!IsDoubleBattle())
         return GetBattlerAtPosition(opposing);
@@ -1804,7 +1803,7 @@ u8 GetDefaultMoveTarget(enum BattlerId battlerId)
         u8 position;
 
         if ((Random() & 1) == 0)
-            position = BATTLE_PARTNER(opposing);
+            position = GetPartnerPosition(opposing);
         else
             position = opposing;
 
@@ -1813,7 +1812,7 @@ u8 GetDefaultMoveTarget(enum BattlerId battlerId)
     else
     {
         if ((gAbsentBattlerFlags & (1u << opposing)))
-            return GetBattlerAtPosition(BATTLE_PARTNER(opposing));
+            return GetBattlerAtPosition(GetPartnerPosition(opposing));
         else
             return GetBattlerAtPosition(opposing);
     }
@@ -2014,7 +2013,6 @@ u32 GetMonData2(struct Pokemon *mon, s32 field)
 {
     return GetMonData3(mon, field, NULL);
 }
-
 
 union EvolutionTracker
 {
@@ -3069,7 +3067,7 @@ u8 CalculatePartyCount(enum BattleTrainer trainer)
 
 u8 CalculatePartyCountOfSide(enum BattlerId battler)
 {
-    return CalculatePartyCount(GetBattlerTrainer(battler)) + (BattleSideHasTwoTrainers(battler & BIT_SIDE) ? CalculatePartyCount(BATTLE_PARTNER(battler)) : 0);
+    return CalculatePartyCount(GetBattlerTrainer(battler)) + (BattleSideHasTwoTrainers(battler & BIT_SIDE) ? CalculatePartyCount(GetBattlerTrainer(GetPartnerBattler(battler))) : 0);
 }
 
 u8 CalculatePlayerPartyCount(void)
@@ -3999,14 +3997,13 @@ bool8 HealStatusConditions(struct Pokemon *mon, u32 healMask, enum BattlerId bat
             gBattleMons[battler].status1 &= ~healMask;
             if ((healMask & STATUS1_SLEEP))
             {
-                u32 battlerSide = GetBattlerSide(battler);
                 struct Pokemon *party = GetBattlerParty(battler);
 
                 for (u32 i = 0; i < PARTY_SIZE; i++)
                 {
                     if (&party[i] == mon)
                     {
-                        TryDeactivateSleepClause(battlerSide, i);
+                        TryDeactivateSleepClause(battler, i);
                         break;
                     }
                 }
@@ -4132,77 +4129,6 @@ u8 GetItemEffectParamOffset(enum BattlerId battler, enum Item itemId, u8 effectB
     }
 
     return offset;
-}
-
-static void BufferStatRoseMessage(enum Stat statIdx)
-{
-    gBattlerTarget = gBattlerInMenuId;
-    StringCopy(gBattleTextBuff1, gStatNamesTable[sStatsToRaise[statIdx]]);
-    if (B_X_ITEMS_BUFF >= GEN_7)
-    {
-        StringCopy(gBattleTextBuff2, gText_StatSharply);
-        StringAppend(gBattleTextBuff2, gText_StatRose);
-    }
-    else
-    {
-        StringCopy(gBattleTextBuff2, gText_StatRose);
-    }
-    BattleStringExpandPlaceholdersToDisplayedString(gText_DefendersStatRose);
-}
-
-u8 *UseStatIncreaseItem(enum Item itemId)
-{
-    const u8 *itemEffect;
-
-    if (itemId == ITEM_ENIGMA_BERRY_E_READER)
-    {
-        if (gMain.inBattle)
-            itemEffect = gEnigmaBerries[gBattlerInMenuId].itemEffect;
-        else
-            itemEffect = 0;
-    }
-    else
-    {
-        itemEffect = GetItemEffect(itemId);
-    }
-
-    gPotentialItemEffectBattler = gBattlerInMenuId;
-
-    if (itemEffect[0] & ITEM0_DIRE_HIT)
-    {
-        gBattlerAttacker = gBattlerInMenuId;
-        BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnGettingPumped);
-    }
-
-    switch (itemEffect[1])
-    {
-    case ITEM1_X_ATTACK:
-        BufferStatRoseMessage(STAT_ATK);
-        break;
-    case ITEM1_X_DEFENSE:
-        BufferStatRoseMessage(STAT_DEF);
-        break;
-    case ITEM1_X_SPEED:
-        BufferStatRoseMessage(STAT_SPEED);
-        break;
-    case ITEM1_X_SPATK:
-        BufferStatRoseMessage(STAT_SPATK);
-        break;
-    case ITEM1_X_SPDEF:
-        BufferStatRoseMessage(STAT_SPDEF);
-        break;
-    case ITEM1_X_ACCURACY:
-        BufferStatRoseMessage(STAT_ACC);
-        break;
-    }
-
-    if (itemEffect[3] & ITEM3_GUARD_SPEC)
-    {
-        gBattlerAttacker = gBattlerInMenuId;
-        BattleStringExpandPlaceholdersToDisplayedString(gText_PkmnShroudedInMist);
-    }
-
-    return gDisplayedStringBattle;
 }
 
 u8 GetNature(struct Pokemon *mon)

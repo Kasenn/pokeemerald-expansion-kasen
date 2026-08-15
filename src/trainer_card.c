@@ -115,7 +115,6 @@ static bool8 LoadCardGfx(void);
 static void CB2_InitTrainerCard(void);
 static u32 GetCappedGameStat(u8 statId, u32 maxValue);
 static bool8 HasAllFrontierSymbols(void);
-static u8 GetRubyTrainerStars(struct TrainerCard *);
 static u16 GetCaughtMonsCount(void);
 static void SetPlayerCardData(struct TrainerCard *, u8);
 static void TrainerCard_GenerateCardForPlayer(struct TrainerCard *);
@@ -668,10 +667,6 @@ u32 CountPlayerTrainerStars(void)
     if (GetGameStat(GAME_STAT_ENTERED_HOF))
         stars++;
     if (HasAllRegionalMons())
-        stars++;
-    if (CountPlayerMuseumPaintings() >= CONTEST_CATEGORIES_COUNT)
-        stars++;
-    if (HasAllFrontierSymbols())
         stars++;
 
     return stars;

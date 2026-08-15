@@ -2300,7 +2300,7 @@ gBattleAnimGeneral_TrickRoom::
 	end
 InitRoomAnimation:
 	setalpha 8, 8
-	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_TARGET, 1
+	createvisualtask AnimTask_ScaleMonAndRestore, 5, -6, -6, 15, ANIM_ATTACKER, 1
 	return
 
 gBattleAnimMove_DracoMeteor::
@@ -21219,17 +21219,17 @@ gBattleAnimMove_BubbleBeam::
 	splitbgprio ANIM_TARGET
 	setalpha 12, 8
 	delay 1
-	call BulbblebeamCreateBubbles
+	call BubblebeamCreateBubbles
 	createvisualtask AnimTask_SwayMon, 5, 0, 3, 3072, 8, ANIM_TARGET
-	call BulbblebeamCreateBubbles
-	call BulbblebeamCreateBubbles
+	call BubblebeamCreateBubbles
+	call BubblebeamCreateBubbles
 	waitforvisualfinish
 	call WaterBubblesEffectShort
 	waitforvisualfinish
 	clearmonbg ANIM_TARGET
 	blendoff
 	end
-BulbblebeamCreateBubbles:
+BubblebeamCreateBubbles:
 	createsprite gWaterBubbleProjectileSpriteTemplate, ANIM_ATTACKER, 2, 18, 0, 35, 70, 0, 256, 50
 	playsewithpan SE_M_BUBBLE, SOUND_PAN_ATTACKER
 	delay 3
@@ -28324,6 +28324,7 @@ gBattleAnimMove_SkyUppercut::
 
 gBattleAnimMove_SecretPower::
 	@ No actual animation, uses the animation of a move from src/data/battle_environment.h instead
+	end
 
 gBattleAnimMove_Twister::
 	monbg ANIM_DEF_PARTNER

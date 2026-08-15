@@ -75,7 +75,7 @@ enum ItemEffect
     ITEM_STATS_CHANGE,
 };
 
-#define IS_WHOLE_SIDE_ALIVE(battler)    ((IsBattlerAlive(battler) && IsBattlerAlive(BATTLE_PARTNER(battler))))
+#define IS_WHOLE_SIDE_ALIVE(battler)    ((IsBattlerAlive(battler) && IsBattlerAlive(GetPartnerBattler(battler))))
 #define IS_ALIVE_AND_PRESENT(battler)   (IsBattlerAlive(battler) && IsBattlerSpritePresent(battler))
 
 // Lowest and highest percentages used for damage roll calculations
@@ -104,9 +104,10 @@ struct DamageContext
     u32 unused:2;
     u32 fieldStatuses;
 
-    enum Move move:13;
-    enum Move chosenMove:13; // May be different to 'move', e.g. for Z moves.
-    enum Type moveType:6;
+    enum Move move;
+    enum Move chosenMove; // For Trump Card and Me First
+    enum Move baseMove; // For z-moves and dynamax-moves
+    enum Type moveType;
 
     uq4_12_t typeEffectivenessModifier;
     enum Ability abilities[MAX_BATTLERS_COUNT];
@@ -183,7 +184,6 @@ void MarkBattlerForControllerExec(enum BattlerId battler);
 void MarkBattlerReceivedLinkData(enum BattlerId battler);
 void CancelMultiTurnMoves(enum BattlerId battler);
 bool32 IsLastMonToMove(enum BattlerId battler);
-bool32 ShouldDefiantCompetitiveActivate(enum BattlerId battler, enum Ability ability);
 void PrepareStringBattle(enum StringID stringId, enum BattlerId battler);
 void ResetSentPokesToOpponentValue(void);
 void OpponentSwitchInResetSentPokesToOpponentValue(enum BattlerId battler);
@@ -202,6 +202,7 @@ bool32 HandleFaintedMonActions(void);
 bool32 HasNoMonsToSwitch(enum BattlerId battler, u8 partyIdBattlerOn1, u8 partyIdBattlerOn2);
 bool32 TryChangeBattleWeather(enum BattlerId battler, u32 battleWeatherId, enum Ability ability);
 bool32 TryChangeBattleTerrain(enum BattlerId battler, u32 statusFlag);
+bool32 IsPowderMoveBlocked(struct DamageContext *ctx);
 bool32 CanTargetBlockPranksterMove(struct DamageContext *ctx, s32 movePriority);
 bool32 CanPsychicTerrainProtectTarget(struct DamageContext *ctx, s32 movePriority);
 bool32 CanMoveBeBlockedByTarget(struct DamageContext *ctx, s32 movePriority);
@@ -353,7 +354,7 @@ bool32 CanMonParticipateInSkyBattle(struct Pokemon *mon);
 void RemoveBattlerType(enum BattlerId battler, enum Type type);
 enum Type GetBattleMoveType(enum Move move);
 void TryActivateSleepClause(enum BattlerId battler, u32 indexInParty);
-void TryDeactivateSleepClause(enum BattleSide battlerSide, u32 indexInParty);
+void TryDeactivateSleepClause(enum BattlerId battler, u32 indexInParty);
 bool32 IsSleepClauseActiveForSide(enum BattleSide battlerSide);
 bool32 IsSleepClauseEnabled(void);
 bool32 AreMultiPartiesFullTeams(void);
@@ -365,13 +366,12 @@ bool32 IsPursuitTargetSet(void);
 void ClearPursuitValuesIfSet(enum BattlerId battler);
 void ClearPursuitValues(void);
 bool32 HasWeatherEffect(void);
-bool32 IsFutureSightAttackerInParty(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum Move move);
 bool32 HadMoreThanHalfHpNowDoesnt(enum BattlerId battler);
 void ChooseStatBoostAnimation(enum BattlerId battler);
 bool32 TrySwitchInEjectPack(enum EjectPackTiming timing);
-bool32 EmergencyExitCanBeTriggered(enum BattlerId battler);
+bool32 EmergencyExitCanBeTriggered(enum BattlerId battler, enum Ability ability);
 bool32 TryTriggerSymbiosis(enum BattlerId battler, u32 ally);
-bool32 TrySymbiosis(enum BattlerId battler, enum Item itemId, bool32 moveEnd);
+bool32 TrySymbiosis(enum BattlerId battler, enum Item itemId, const u8 *nextInstr);
 void BestowItem(enum BattlerId battlerAtk, enum BattlerId battlerDef);
 ARM_FUNC u32 GetBattlerVolatile(enum BattlerId battler, enum Volatile _volatile);
 void SetMonVolatile(enum BattlerId battler, enum Volatile _volatile, u32 newValue);
@@ -419,5 +419,6 @@ enum Stat GetDownloadStat(enum BattlerId battler);
 bool32 BattlerJustSwitchedIn(enum BattlerId battler);
 bool32 IsBattlersFirstTurn(enum BattlerId battler);
 struct PartyState *GetBattlerPartyState(enum BattlerId battler);
+void SetValuesOnFaint(enum BattlerId battler);
 
 #endif // GUARD_BATTLE_UTIL_H
