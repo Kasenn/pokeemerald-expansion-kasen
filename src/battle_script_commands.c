@@ -4121,7 +4121,7 @@ static void Cmd_getexp(void)
 
                     if (wasSentOut || holdEffect == HOLD_EFFECT_EXP_SHARE)
                     {
-                        PrepareStringBattle(string, 0);
+                        PrepareStringBattle(STRINGID_PKMNGAINEDEXP, 0);
                     }
                     else if (IsGen6ExpShareEnabled() && !gBattleStruct->teamGotExpMsgPrinted) // Print 'the rest of your team got exp' message once, when all of the sent-in mons were given experience
                     {

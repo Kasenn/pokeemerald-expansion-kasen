@@ -7962,7 +7962,10 @@ static inline s32 DoCallDiglettAttackDamageCalc(struct DamageContext *ctx)
     ctx->isCrit = IsCriticalHit(ctx);
 
     if (ctx->typeEffectivenessModifier == UQ_4_12(0.0))
+    {
+        FreeRestoreBattleMons(savedBattleMons);
         return 0;
+    }
 
     s32 dmg = DoMoveDamageCalc(ctx);
 
@@ -7994,7 +7997,10 @@ static inline s32 DoFutureSightAttackDamageCalc(struct DamageContext *ctx)
     ctx->isCrit = IsCriticalHit(ctx);
 
     if (ctx->typeEffectivenessModifier == UQ_4_12(0.0))
+    {
+        FreeRestoreBattleMons(savedBattleMons);
         return 0;
+    }
 
     s32 dmg = DoMoveDamageCalc(ctx);
 

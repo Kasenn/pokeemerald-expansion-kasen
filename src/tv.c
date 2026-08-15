@@ -1820,13 +1820,6 @@ static enum Species GetRandomDifferentSpeciesSeenByPlayer(enum Species excludedS
     u32 count = 0;
     for (u32 i = 0; i < NUM_DEX_FLAG_BYTES; i++)
     {
-        u32 tmp = gSaveBlock1Ptr->dexSeen[i];
-        for (u32 j = 0; j < 8; j++)
-        {
-            if (tmp & 1)
-                natDexArray[count++] = i * 8 + j + 1;
-            tmp >>= 1;
-        }
     }
     if (count <= 1)
     {

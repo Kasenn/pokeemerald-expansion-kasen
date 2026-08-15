@@ -3981,9 +3981,9 @@ void SetPPNumbersPaletteInMoveSelection(enum BattlerId battler)
     u8 var;
 
     if (chooseMoveStruct->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
-        chooseMoveStruct->currentPp[gMoveSelectionCursor[battler]] = CalculateCurrentEggs();
+        chooseMoveStruct->currentPP[gMoveSelectionCursor[battler]] = CalculateCurrentEggs();
     else if (chooseMoveStruct->moves[gMoveSelectionCursor[battler]] == MOVE_SUPER_MUSHROOM)
-        chooseMoveStruct->currentPp[gMoveSelectionCursor[battler]] = VarGet(VAR_MUSHROOM_COUNT);
+        chooseMoveStruct->currentPP[gMoveSelectionCursor[battler]] = VarGet(VAR_MUSHROOM_COUNT);
 
 
     if (!gBattleStruct->zmove.viewing)
