@@ -916,7 +916,7 @@ static enum CancelerResult CancelerSetTargets(struct BattleCalcValues *cv)
         }
         else if (moveTarget == TARGET_ALLY && !IsBattlerAlly(cv->battlerDef, cv->battlerAtk))
         {
-            cv->battlerDef = BATTLE_PARTNER(cv->battlerAtk);
+            cv->battlerDef = GetPartnerBattler(cv->battlerAtk);
         }
         else if (isDoubleBattle && moveTarget == TARGET_FOES_AND_ALLY)
         {
@@ -936,16 +936,16 @@ static enum CancelerResult CancelerSetTargets(struct BattleCalcValues *cv)
         {
             cv->battlerDef = cv->battlerAtk;
         }
-        else if (moveTarget == TARGET_USER_OR_ALLY && isDoubleBattle && !IsBattlerAlive(cv->battlerDef))
+        else if (isDoubleBattle && moveTarget == TARGET_USER_OR_ALLY && !IsBattlerAlive(cv->battlerDef))
         {
             cv->battlerDef = cv->battlerAtk;
         }
-        else if (!IsBattlerAlive(cv->battlerDef)
+        else if (isDoubleBattle
               && moveTarget != TARGET_OPPONENTS_FIELD
-              && isDoubleBattle
+              && !IsBattlerAlive(cv->battlerDef)
               && !IsBattlerAlly(cv->battlerAtk, cv->battlerDef))
         {
-            cv->battlerDef = GetBattlerAtPosition(BATTLE_PARTNER(GetBattlerPosition(cv->battlerDef)));
+            cv->battlerDef = GetPartnerBattler(cv->battlerDef);
         }
     }
 

@@ -6001,6 +6001,8 @@ static bool32 IsBattlerUngroundedByAbilityItemOrEffect(enum BattlerId battler, e
 
 static bool32 IsBattlerGroundedInverseCheck(enum BattlerId battler, enum Ability ability, enum HoldEffect holdEffect, enum InverseBattleCheck checkInverse, bool32 isAnticipation)
 {
+    if (gCurrentMove == MOVE_CALL_DIGLETT && FlagGet(FLAG_DIGLETT_UPGRADE))
+        return TRUE;
     if (holdEffect == HOLD_EFFECT_IRON_BALL)
         return TRUE;
     if (gFieldStatuses & STATUS_FIELD_GRAVITY && isAnticipation == FALSE)
@@ -8275,8 +8277,6 @@ static inline void MulByTypeEffectiveness(struct DamageContext *ctx, uq4_12_t *m
     if (ctx->moveType == TYPE_STELLAR && GetActiveGimmick(ctx->battlerDef) == GIMMICK_TERA)
         mod = UQ_4_12(2.0);
 
-    if (ctx->move == MOVE_CALL_DIGLETT && defType == TYPE_FLYING && FlagGet(FLAG_DIGLETT_UPGRADE) && mod == UQ_4_12(0.0))
-        mod = UQ_4_12(1.0);
     // B_WEATHER_STRONG_WINDS weakens Super Effective moves against Flying-type Pokémon
     if (ctx->weather & B_WEATHER_STRONG_WINDS && !ctx->isAnticipation)
     {

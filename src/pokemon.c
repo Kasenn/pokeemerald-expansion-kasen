@@ -5538,6 +5538,9 @@ void SetWildMonHeldItem(void)
             else if (rnd < 25)
                 berry = ITEM_ORAN_BERRY;
 
+            if (berry == ITEM_CHILAN_BERRY)
+                berry = ITEM_ORAN_BERRY;
+
             if (FlagGet(FLAG_DISABLE_KO_ANIM))
                 berry = ITEM_NONE;
 
