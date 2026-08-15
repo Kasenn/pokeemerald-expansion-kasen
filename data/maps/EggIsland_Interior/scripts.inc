@@ -2004,34 +2004,42 @@ EggHatchScene2::
 # 912 "data/maps/EggIsland_Interior/scripts.pory"
 	msgbox EggHatchScene_Text2
 # 913 "data/maps/EggIsland_Interior/scripts.pory"
+	goto_if_set FLAG_INTRODUCTION_TO_MUSHROOMS, EggHatchScene2_2
+EggHatchScene2_1:
+# 916 "data/maps/EggIsland_Interior/scripts.pory"
 	setvar VAR_STORY, 7
-# 914 "data/maps/EggIsland_Interior/scripts.pory"
+# 917 "data/maps/EggIsland_Interior/scripts.pory"
 	releaseall
 	end
 
+EggHatchScene2_2:
+# 914 "data/maps/EggIsland_Interior/scripts.pory"
+	msgbox EggHatchScene_Text3
+	goto EggHatchScene2_1
+
 
 TurboBoostEncounters::
-# 935 "data/maps/EggIsland_Interior/scripts.pory"
+# 944 "data/maps/EggIsland_Interior/scripts.pory"
 	counteggs
-# 936 "data/maps/EggIsland_Interior/scripts.pory"
+# 945 "data/maps/EggIsland_Interior/scripts.pory"
 	compare VAR_0x8001, 5
 	goto_if_eq TurboBoostEncounters_2
-# 940 "data/maps/EggIsland_Interior/scripts.pory"
+# 949 "data/maps/EggIsland_Interior/scripts.pory"
 	setflag FLAG_TURBOBOOST_ENCOUNTERS
-# 941 "data/maps/EggIsland_Interior/scripts.pory"
+# 950 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
 TurboBoostEncounters_2:
-# 937 "data/maps/EggIsland_Interior/scripts.pory"
+# 946 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	end
 
 
 TurboBoostEncountersOff::
-# 945 "data/maps/EggIsland_Interior/scripts.pory"
+# 954 "data/maps/EggIsland_Interior/scripts.pory"
 	clearflag FLAG_TURBOBOOST_ENCOUNTERS
-# 946 "data/maps/EggIsland_Interior/scripts.pory"
+# 955 "data/maps/EggIsland_Interior/scripts.pory"
 	release
 	return
 
@@ -2208,7 +2216,7 @@ DiglettScript_Text::
 	.string "Please help me!$"
 
 EggHatchScene_Text::
-# 918 "data/maps/EggIsland_Interior/scripts.pory"
+# 921 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "This hot sand must've\n"
 	.string "accelerated our growth.\p"
 	.string "But don't worry, Yoshi!\p"
@@ -2219,6 +2227,12 @@ EggHatchScene_Text::
 	.string "Kamek guy!$"
 
 EggHatchScene_Text2::
-# 929 "data/maps/EggIsland_Interior/scripts.pory"
+# 932 "data/maps/EggIsland_Interior/scripts.pory"
 	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi's “Toss Egg” has been\n"
 	.string "replaced with “Helping Hand”.$"
+
+EggHatchScene_Text3::
+# 937 "data/maps/EggIsland_Interior/scripts.pory"
+	.string "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}When not in battle,\n"
+	.string "“Super Mushroom” can be used\l"
+	.string "to revive fallen companions.$"

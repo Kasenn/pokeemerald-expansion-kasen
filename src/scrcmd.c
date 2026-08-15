@@ -4213,13 +4213,13 @@ void CreateStrongMon(void)
     gSpecialVar_0x8000 = monLevel;
 }
 
-void CreateExtraStrongMon(void)
+void CreateDefaultLevelMon(void)
 {
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
     if (playerLevel > 90)
         playerLevel = 90;
 
-    u8 monLevel = playerLevel + 7 - (playerLevel / 20);
+    u8 monLevel = playerLevel - (playerLevel / 20);
 
     gSpecialVar_0x8000 = monLevel;
 }

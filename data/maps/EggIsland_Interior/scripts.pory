@@ -910,6 +910,9 @@ script EggHatchScene2{
     call(SetYoshiMoves)
     setspeaker(SP_NAME_NONE)
     msgbox(EggHatchScene_Text2)
+    if(flag(FLAG_INTRODUCTION_TO_MUSHROOMS)){
+        msgbox(EggHatchScene_Text3)
+    }
     setvar(VAR_STORY, 7)
     releaseall
     end
@@ -929,6 +932,12 @@ text EggHatchScene_Text{
 text EggHatchScene_Text2{
     "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}Yoshi's “Toss Egg” has been\n"
     "replaced with “Helping Hand”."
+}
+
+text EggHatchScene_Text3{
+    "{COLOR LIGHT_RED}{SHADOW LIGHT_RED}When not in battle,\n"
+    "“Super Mushroom” can be used\l"
+    "to revive fallen companions."
 }
 
 script TurboBoostEncounters{

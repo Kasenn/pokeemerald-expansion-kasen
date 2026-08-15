@@ -42,7 +42,9 @@ script EndingScene{
     applymovement(LOCALID_THEEND3, moves(lock_anim, lock_facing_direction, walk_down * 4))
     delay(180)
     waitbuttonpress
+    fadenewbgm(MUS_DUMMY)
     fadescreenspeed(FADE_TO_WHITE, 6)
+    delay(120)
     callnative(DoSoftReset)
 }
 

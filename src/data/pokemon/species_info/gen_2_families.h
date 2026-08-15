@@ -3966,12 +3966,12 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 
     [SPECIES_KAMEK]
     {
-        .baseHP        = 160,
+        .baseHP        = 120,
         .baseAttack    = 5,
-        .baseDefense   = 80,
+        .baseDefense   = 50,
         .baseSpeed     = 15,
-        .baseSpAttack  = 65,
-        .baseSpDefense = 80,
+        .baseSpAttack  = 25,
+        .baseSpDefense = 50,
         .types = MON_TYPES(TYPE_MAGIC),
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 177 : 187,
         .evYield_Attack = 2,
@@ -4034,10 +4034,10 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
     [SPECIES_HONCHKROW] =
     {
         .baseHP        = 100,
-        .baseAttack    = 125,
+        .baseAttack    = 95,
         .baseDefense   = 52,
         .baseSpeed     = 71,
-        .baseSpAttack  = 105,
+        .baseSpAttack  = 75,
         .baseSpDefense = 52,
         .types = MON_TYPES(TYPE_DARK, TYPE_FLYING),
         .catchRate = 30,

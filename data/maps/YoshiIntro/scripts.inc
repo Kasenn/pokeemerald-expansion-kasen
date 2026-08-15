@@ -82,49 +82,49 @@ EndingScene::
 # 44 "data/maps/YoshiIntro/scripts.pory"
 	waitbuttonpress
 # 45 "data/maps/YoshiIntro/scripts.pory"
-	fadescreenspeed FADE_TO_WHITE, 6
+	fadenewbgm MUS_DUMMY
 # 46 "data/maps/YoshiIntro/scripts.pory"
+	fadescreenspeed FADE_TO_WHITE, 6
+# 47 "data/maps/YoshiIntro/scripts.pory"
+	delay 120
+# 48 "data/maps/YoshiIntro/scripts.pory"
 	callnative DoSoftReset
 	return
 
 
 YoshiIntroScript::
-# 50 "data/maps/YoshiIntro/scripts.pory"
-	callnative DoInitialSave
-# 51 "data/maps/YoshiIntro/scripts.pory"
-	addobject 2
 # 52 "data/maps/YoshiIntro/scripts.pory"
-	delay 60
+	callnative DoInitialSave
 # 53 "data/maps/YoshiIntro/scripts.pory"
-	fadenewbgm MUS_KAMEK
+	addobject 2
 # 54 "data/maps/YoshiIntro/scripts.pory"
-	applymovement 2, YoshiIntroScript_Movement_0
-# 55 "data/maps/YoshiIntro/scripts.pory"
-	delay 80
-# 56 "data/maps/YoshiIntro/scripts.pory"
-	turnobject 1, DIR_NORTH
-# 57 "data/maps/YoshiIntro/scripts.pory"
-	waitmovement 0
-# 58 "data/maps/YoshiIntro/scripts.pory"
 	delay 60
+# 55 "data/maps/YoshiIntro/scripts.pory"
+	fadenewbgm MUS_KAMEK
+# 56 "data/maps/YoshiIntro/scripts.pory"
+	applymovement 2, YoshiIntroScript_Movement_0
+# 57 "data/maps/YoshiIntro/scripts.pory"
+	delay 80
+# 58 "data/maps/YoshiIntro/scripts.pory"
+	turnobject 1, DIR_NORTH
 # 59 "data/maps/YoshiIntro/scripts.pory"
-	applymovement 2, YoshiIntroScript_Movement_1
-# 60 "data/maps/YoshiIntro/scripts.pory"
-	delay 96
-# 61 "data/maps/YoshiIntro/scripts.pory"
-	turnobject 1, DIR_WEST
-# 62 "data/maps/YoshiIntro/scripts.pory"
 	waitmovement 0
+# 60 "data/maps/YoshiIntro/scripts.pory"
+	delay 60
+# 61 "data/maps/YoshiIntro/scripts.pory"
+	applymovement 2, YoshiIntroScript_Movement_1
+# 62 "data/maps/YoshiIntro/scripts.pory"
+	delay 96
 # 63 "data/maps/YoshiIntro/scripts.pory"
-	delay 30
+	turnobject 1, DIR_WEST
 # 64 "data/maps/YoshiIntro/scripts.pory"
-	applymovement 2, YoshiIntroScript_Movement_2
+	waitmovement 0
 # 65 "data/maps/YoshiIntro/scripts.pory"
-	delay 10
-# 66 "data/maps/YoshiIntro/scripts.pory"
-	playmoncry SPECIES_PECHARUNT, 0
-# 67 "data/maps/YoshiIntro/scripts.pory"
 	delay 30
+# 66 "data/maps/YoshiIntro/scripts.pory"
+	applymovement 2, YoshiIntroScript_Movement_2
+# 67 "data/maps/YoshiIntro/scripts.pory"
+	delay 10
 # 68 "data/maps/YoshiIntro/scripts.pory"
 	playmoncry SPECIES_PECHARUNT, 0
 # 69 "data/maps/YoshiIntro/scripts.pory"
@@ -132,60 +132,64 @@ YoshiIntroScript::
 # 70 "data/maps/YoshiIntro/scripts.pory"
 	playmoncry SPECIES_PECHARUNT, 0
 # 71 "data/maps/YoshiIntro/scripts.pory"
-	waitmovement 0
-# 72 "data/maps/YoshiIntro/scripts.pory"
-	delay 10
-# 73 "data/maps/YoshiIntro/scripts.pory"
-	setspeaker YoshiIntroScript_Text_0
-# 74 "data/maps/YoshiIntro/scripts.pory"
-	msgbox YoshiIntroText, MSGBOX_AUTOCLOSE
-# 75 "data/maps/YoshiIntro/scripts.pory"
-	turnobject 2, DIR_WEST
-# 76 "data/maps/YoshiIntro/scripts.pory"
-	fadedefaultbgm
-# 77 "data/maps/YoshiIntro/scripts.pory"
 	delay 30
-# 78 "data/maps/YoshiIntro/scripts.pory"
-	playse SE_ORB
-# 79 "data/maps/YoshiIntro/scripts.pory"
-	fadescreenspeednopause FADE_TO_WHITE, 6
-# 80 "data/maps/YoshiIntro/scripts.pory"
-	delay 60
-# 81 "data/maps/YoshiIntro/scripts.pory"
-	turnobject 1, DIR_EAST
-# 82 "data/maps/YoshiIntro/scripts.pory"
-	delay 90
-# 83 "data/maps/YoshiIntro/scripts.pory"
+# 72 "data/maps/YoshiIntro/scripts.pory"
 	playmoncry SPECIES_PECHARUNT, 0
-# 84 "data/maps/YoshiIntro/scripts.pory"
+# 73 "data/maps/YoshiIntro/scripts.pory"
+	waitmovement 0
+# 74 "data/maps/YoshiIntro/scripts.pory"
+	delay 10
+# 75 "data/maps/YoshiIntro/scripts.pory"
 	setspeaker YoshiIntroScript_Text_0
+# 76 "data/maps/YoshiIntro/scripts.pory"
+	msgbox YoshiIntroText, MSGBOX_AUTOCLOSE
+# 77 "data/maps/YoshiIntro/scripts.pory"
+	turnobject 2, DIR_WEST
+# 78 "data/maps/YoshiIntro/scripts.pory"
+	fadedefaultbgm
+# 79 "data/maps/YoshiIntro/scripts.pory"
+	delay 30
+# 80 "data/maps/YoshiIntro/scripts.pory"
+	playse SE_ORB
+# 81 "data/maps/YoshiIntro/scripts.pory"
+	fadescreenspeednopause FADE_TO_WHITE, 6
+# 82 "data/maps/YoshiIntro/scripts.pory"
+	delay 60
+# 83 "data/maps/YoshiIntro/scripts.pory"
+	turnobject 1, DIR_EAST
+# 84 "data/maps/YoshiIntro/scripts.pory"
+	delay 90
 # 85 "data/maps/YoshiIntro/scripts.pory"
-	message YoshiIntroScript_Text_1
+	playmoncry SPECIES_PECHARUNT, 0
 # 86 "data/maps/YoshiIntro/scripts.pory"
-	removeobject 1
+	setspeaker YoshiIntroScript_Text_0
 # 87 "data/maps/YoshiIntro/scripts.pory"
-	removeobject 2
+	message YoshiIntroScript_Text_1
 # 88 "data/maps/YoshiIntro/scripts.pory"
-	waitbuttonpress
+	removeobject 1
 # 89 "data/maps/YoshiIntro/scripts.pory"
-	closemessage
+	removeobject 2
 # 90 "data/maps/YoshiIntro/scripts.pory"
-	delay 60
+	waitbuttonpress
 # 91 "data/maps/YoshiIntro/scripts.pory"
-	fadescreenspeed FADE_FROM_WHITE, 6
+	closemessage
 # 92 "data/maps/YoshiIntro/scripts.pory"
-	delay 180
-# 93 "data/maps/YoshiIntro/scripts.pory"
-	setflag FLAG_SKIP_FADEOUT
-# 94 "data/maps/YoshiIntro/scripts.pory"
-	fadescreenspeed FADE_TO_BLACK, 6
-# 95 "data/maps/YoshiIntro/scripts.pory"
 	delay 60
+# 93 "data/maps/YoshiIntro/scripts.pory"
+	fadescreenspeed FADE_FROM_WHITE, 6
+# 94 "data/maps/YoshiIntro/scripts.pory"
+	delay 180
+# 95 "data/maps/YoshiIntro/scripts.pory"
+	setflag FLAG_SKIP_FADEOUT
 # 96 "data/maps/YoshiIntro/scripts.pory"
-	setvar VAR_FADEOUT_SPEED, 6
+	fadescreenspeed FADE_TO_BLACK, 6
 # 97 "data/maps/YoshiIntro/scripts.pory"
-	warpsilent MAP_EGG_ISLAND_EXTERIOR, 5
+	delay 60
 # 98 "data/maps/YoshiIntro/scripts.pory"
+	setvar VAR_FADEOUT_SPEED, 6
+# 99 "data/maps/YoshiIntro/scripts.pory"
+	warpsilent MAP_EGG_ISLAND_EXTERIOR, 5
+# 100 "data/maps/YoshiIntro/scripts.pory"
 	waitstate
 	return
 
@@ -230,82 +234,82 @@ EndingScene_Movement_1:
 	walk_down
 	step_end
 
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 YoshiIntroScript_Movement_0:
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
-# 54 "data/maps/YoshiIntro/scripts.pory"
+# 56 "data/maps/YoshiIntro/scripts.pory"
 	walk_faster_right
 	step_end
 
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 YoshiIntroScript_Movement_1:
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
-# 59 "data/maps/YoshiIntro/scripts.pory"
+# 61 "data/maps/YoshiIntro/scripts.pory"
 	walk_left
 	step_end
 
-# 64 "data/maps/YoshiIntro/scripts.pory"
+# 66 "data/maps/YoshiIntro/scripts.pory"
 YoshiIntroScript_Movement_2:
-# 64 "data/maps/YoshiIntro/scripts.pory"
+# 66 "data/maps/YoshiIntro/scripts.pory"
 	nurse_joy_bow
 	step_end
 
 YoshiIntroScript_Text_0:
-# 73 "data/maps/YoshiIntro/scripts.pory"
+# 75 "data/maps/YoshiIntro/scripts.pory"
 	.string "Kamek$"
 
 YoshiIntroScript_Text_1:
-# 85 "data/maps/YoshiIntro/scripts.pory"
+# 87 "data/maps/YoshiIntro/scripts.pory"
 	.string "Egads! Something's wrong\nwith the spell!{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}{PAUSE 15}\p$"
 
 YoshiIntroText::
-# 101 "data/maps/YoshiIntro/scripts.pory"
+# 103 "data/maps/YoshiIntro/scripts.pory"
 	.string "There you are, Yoshi!\n"
 	.string "I've been looking for you!\p"
 	.string "Too long you have been a thorn\n"
