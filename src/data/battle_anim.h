@@ -1194,7 +1194,7 @@ const struct BattleAnimation gBattleAnimTable[ANIM_TAG_COUNT] =
     BATTLE_ANIMATION(ANIM_TAG_PURPLE_GAS_CLOUD, gBattleAnimSpriteGfx_MistCloud, 0x0200, gBattleAnimSpritePal_PurpleGasCloud),
     BATTLE_ANIMATION(ANIM_TAG_SPARK_H, gBattleAnimSpriteGfx_SparkH, 0x0200, gBattleAnimSpritePal_Spark),
     BATTLE_ANIMATION(ANIM_TAG_YELLOW_STAR, gBattleAnimSpriteGfx_YellowStar, 0x0200, gBattleAnimSpritePal_YellowStar),
-    BATTLE_ANIMATION(ANIM_TAG_LARGE_FRESH_EGG, gBattleAnimSpriteGfx_LargeFreshEgg, 0x0080, gBattleAnimSpritePal_LargeFreshEgg),
+    BATTLE_ANIMATION(ANIM_TAG_LARGE_FRESH_EGG, gBattleAnimSpriteGfx_LargeFreshEgg, 0x0200, gBattleAnimSpritePal_LargeFreshEgg),
     BATTLE_ANIMATION(ANIM_TAG_SHADOW_BALL, gBattleAnimSpriteGfx_ShadowBall, 0x0200, gBattleAnimSpritePal_ShadowBall),
     BATTLE_ANIMATION(ANIM_TAG_LICK, gBattleAnimSpriteGfx_Lick, 0x0500, gBattleAnimSpritePal_Lick),
     BATTLE_ANIMATION(ANIM_TAG_VOID_LINES, gBattleAnimSpriteGfx_VoidLines, 0x0800, gBattleAnimSpritePal_VoidLines),

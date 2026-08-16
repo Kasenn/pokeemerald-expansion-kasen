@@ -322,8 +322,8 @@ const struct SpriteTemplate gEggThrowSpriteTemplate =
 {
     .tileTag = ANIM_TAG_LARGE_FRESH_EGG,
     .paletteTag = ANIM_TAG_LARGE_FRESH_EGG,
-    .oam = &gOamData_AffineOff_ObjNormal_16x16,
-    .callback = AnimThrowProjectile,
+    .oam = &gOamData_AffineOff_ObjNormal_32x32,
+    .callback = AnimThrowEgg,
 };
 
 // Unused

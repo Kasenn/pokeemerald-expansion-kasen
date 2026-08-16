@@ -191,6 +191,7 @@ void SetGrayscaleOrOriginalPalette(u16 paletteNum, bool8 restoreOriginalColor);
 void PrepareAffineAnimInTaskData(struct Task *task, u8 spriteId, const union AffineAnimCmd *affineAnimCmds);
 bool8 RunAffineAnimFromTaskData(struct Task *task);
 void AnimThrowProjectile(struct Sprite *sprite);
+void AnimThrowEgg(struct Sprite *sprite);
 void GetBgDataForTransform(struct BattleAnimBgData *out, enum BattlerId battler);
 u8 CreateAdditionalMonSpriteForMoveAnim(enum Species species, bool32 isBackpic, u8 id, s16 x, s16 y, u8 subpriority, u32 personality, bool32 isShiny, enum BattlerId battler);
 void ResetSpriteRotScale_PreserveAffine(struct Sprite *sprite);

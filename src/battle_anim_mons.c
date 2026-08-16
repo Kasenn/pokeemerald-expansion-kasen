@@ -1540,6 +1540,23 @@ void AnimThrowProjectile(struct Sprite *sprite)
     sprite->callback = AnimThrowProjectile_Step;
 }
 
+void AnimThrowEgg(struct Sprite *sprite)
+{
+    enum Species species = SPECIES_EGG;
+    for (int i = 0; i < gPartiesCount[B_TRAINER_PLAYER]; i++)
+    {
+        if (GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_IS_EGG) && GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SHEEN) == 0)
+        {
+            species = GetMonData(&gParties[B_TRAINER_PLAYER][i], MON_DATA_SPECIES);
+            break;
+        }
+    }
+
+    CpuCopy32(gSpeciesInfo[species].eggPalette, &gPlttBufferFaded[OBJ_PLTT_ID(sprite->oam.paletteNum)], PLTT_SIZE_4BPP);
+
+    AnimThrowProjectile(sprite);
+}
+
 static void AnimThrowProjectile_Step(struct Sprite *sprite)
 {
     if (TranslateAnimHorizontalArc(sprite))
