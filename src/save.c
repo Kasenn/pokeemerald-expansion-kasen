@@ -648,6 +648,9 @@ u8 HandleSavingData(u8 saveType)
     UpdateSaveAddresses();
     switch (saveType)
     {
+    case SAVE_RESET:
+        WriteSaveSectorOrSlot(FULL_SAVE_SLOT, gRamSaveSectorLocations);
+        break;
     case SAVE_NORMAL:
     default:
         CopyPartyAndObjectsToSave();
@@ -658,7 +661,7 @@ u8 HandleSavingData(u8 saveType)
     return 0;
 }
 
-u8 TrySavingData(void)
+u8 TrySavingData(u8 saveType)
 {
     if (gFlashMemoryPresent != TRUE)
     {
@@ -666,9 +669,10 @@ u8 TrySavingData(void)
         return SAVE_STATUS_ERROR;
     }
 
-    HandleSavingData(SAVE_NORMAL);
+    HandleSavingData(saveType);
     if (!gDamagedSaveSectors)
     {
+        memcpy(&gSaveBlock1Backup, gSaveBlock1Ptr, sizeof(struct SaveBlock1));
         gSaveAttemptStatus = SAVE_STATUS_OK;
         return SAVE_STATUS_OK;
     }

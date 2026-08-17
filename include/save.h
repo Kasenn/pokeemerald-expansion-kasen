@@ -40,6 +40,7 @@ enum
 };
 
 #define SAVE_NORMAL 0
+#define SAVE_RESET 1
 
 // A save sector location holds a pointer to the data for a particular sector
 // and the size of that data. Size cannot be greater than SECTOR_DATA_SIZE.
@@ -78,7 +79,7 @@ extern struct SaveSector gSaveDataBuffer;
 void ClearSaveData(void);
 void Save_ResetSaveCounters(void);
 u8 HandleSavingData(u8 saveType);
-u8 TrySavingData(void);
+u8 TrySavingData(u8 saveType);
 bool8 LinkFullSave_Init(void);
 bool8 LinkFullSave_WriteSector(void);
 bool8 LinkFullSave_ReplaceLastSector(void);

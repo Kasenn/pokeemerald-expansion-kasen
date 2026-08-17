@@ -476,6 +476,15 @@ void DoSoftReset(void)
 
 void DoSpecialSoftReset(void)
 {
+    gSaveBlock1Backup.playTimeHours   = gSaveBlock1Ptr->playTimeHours;
+    gSaveBlock1Backup.playTimeMinutes = gSaveBlock1Ptr->playTimeMinutes;
+    gSaveBlock1Backup.playTimeSeconds = gSaveBlock1Ptr->playTimeSeconds;
+    gSaveBlock1Backup.playTimeVBlanks = gSaveBlock1Ptr->playTimeVBlanks;
+
+    *gSaveBlock1Ptr = gSaveBlock1Backup;
+    
+    TrySavingData(SAVE_RESET);
+
     REG_IME = 0;
     m4aSoundVSyncOff();
     ScanlineEffect_Stop();
