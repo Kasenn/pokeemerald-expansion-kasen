@@ -752,6 +752,7 @@ script Sandshrew1{
     faceplayer
     setspeaker("Sandshrew")
 	msgbox (Sandshrew1_LetsBattle, MSGBOX_DEFAULT)
+    callnative(ZeroEnemyPartyMons)
     callnative(CreateMildMon)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
     dowildbattle
@@ -762,6 +763,7 @@ script Sandshrew2{
     faceplayer
     setspeaker("Sandshrew")
 	msgbox (Sandshrew2_LetsBattle, MSGBOX_DEFAULT)
+    callnative(ZeroEnemyPartyMons)
     callnative(CreateMildMon)
     createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SWIFT, move3=MOVE_ROLLOUT, move4=MOVE_RAPID_SPIN)
     dowildbattle
@@ -788,10 +790,11 @@ script Sandshrew1Attacks{
     waitmovement(0)
     turnobject(LOCALID_PLAYER, DIR_NORTH)
     delay(8)
+    callnative(ZeroEnemyPartyMons)
     setspeaker("Sandshrew")
     msgbox("Now you've done it!")
     callnative(CreateStrongMon)
-    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
     dowildbattle
     applymovement(LOCALID_SANDSHREW1, Movement_ObjectDisappears)
     savebgm(MUS_DUMMY)
@@ -814,10 +817,11 @@ script Sandshrew2Attacks{
     waitmovement(0)
     turnobject(LOCALID_PLAYER, DIR_SOUTH)
     delay(8)
+    callnative(ZeroEnemyPartyMons)
     setspeaker("Sandshrew")
     msgbox("Now you've done it!")
     callnative(CreateStrongMon)
-    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_EARTHQUAKE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
+    createmon(1, 0, SPECIES_SANDSHREW, VAR_0x8000, move1=MOVE_MAGNITUDE, move2=MOVE_SLASH, move3=MOVE_ROLLOUT, move4=MOVE_GYRO_BALL)
     dowildbattle
     applymovement(LOCALID_SANDSHREW2, Movement_ObjectDisappears)
     savebgm(MUS_DUMMY)

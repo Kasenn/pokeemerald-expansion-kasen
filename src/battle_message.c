@@ -90,11 +90,11 @@ static const u8 sText_PlayerDefeatedLinkTrainerTrainer1[] = _("You defeated {B_T
 static const u8 sText_OpponentMon1Appeared[] = _("{B_OPPONENT_MON1_NAME} appeared!\p");
 static const u8 sText_IntroLevel1[] = _("a weak-looking");
 static const u8 sText_IntroLevel2[] = _("a wild");
-static const u8 sText_IntroLevel3[] = _("an extremely dangerous-looking");
-static const u8 sText_IntroLevel4[] = _("a dangerous-looking");
+static const u8 sText_IntroLevel3[] = _("a tough-looking");
+static const u8 sText_IntroLevel4[] = _("a strong-looking");
 static const u8 sText_IntroLevel5[] = _("a powerful-looking");
-static const u8 sText_IntroLevel6[] = _("a strong-looking");
-static const u8 sText_IntroLevel7[] = _("a tough-looking");
+static const u8 sText_IntroLevel6[] = _("a dangerous-looking");
+static const u8 sText_IntroLevel7[] = _("an extremely dangerous-looking");
 
 static const u8 sText_WildPkmnAppeared[] = _("You encountered {B_BUFF3} {B_OPPONENT_MON1_NAME}!\p");
 static const u8 sText_LegendaryPkmnAppeared[] = _("Kamek challenges you to a battle!\p");
@@ -2523,15 +2523,15 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
             else if (levelDifference >= 3) 
                 battleIntro = sText_IntroLevel2;
             else if (levelDifference >= -2)
-                battleIntro = sText_IntroLevel7;
+                battleIntro = sText_IntroLevel3;
             else if (levelDifference >= -4)
-                battleIntro = sText_IntroLevel6;
+                battleIntro = sText_IntroLevel4;
             else if (levelDifference >= -6)
                 battleIntro = sText_IntroLevel5;
             else if (levelDifference >= -8)
-                battleIntro = sText_IntroLevel4;
+                battleIntro = sText_IntroLevel6;
             else                           
-                battleIntro = sText_IntroLevel3;
+                battleIntro = sText_IntroLevel7;
 
             StringCopy(gBattleTextBuff3, battleIntro);
 

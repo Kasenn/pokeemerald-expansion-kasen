@@ -371,6 +371,7 @@ script SkarmoryTriggerMain{
     turnobject(LOCALID_PLAYER, DIR_NORTH)
     waitmovement(LOCALID_SKARMORY)
     delay(10)
+    callnative(ZeroEnemyPartyMons)
     callnative(CreateStrongMon)
     createmon(1, 0, SPECIES_SKARMORY, VAR_0x8000)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
@@ -602,6 +603,7 @@ script PrimeapeEncounter{
     waitmovement(0)
     waitse
     delay(10)
+    callnative(ZeroEnemyPartyMons)
     callnative(CreateStrongMon)
     subvar(VAR_0x8000, 3)
     createmon(1, 0, SPECIES_PRIMEAPE, VAR_0x8000, abilityNum=0)
@@ -778,18 +780,30 @@ text KamekBattleIntro2{
 }
 
 script SetSave3EscapeWarp{
+    if(flag(FLAG_SAVE_3_REACHED) || flag(FLAG_SAVE_4_REACHED) || flag(FLAG_SAVE_5_REACHED)){
+        release
+        end
+    }
     setflag(FLAG_SAVE_3_REACHED)
     setescapewarp(MAP_EGG_ISLAND_EXTERIOR, 24, 57)
     release
 }
 
 script SetSave4EscapeWarp{
+    if(flag(FLAG_SAVE_4_REACHED) || flag(FLAG_SAVE_5_REACHED)){
+        release
+        end
+    }
     setflag(FLAG_SAVE_4_REACHED)
     setescapewarp(MAP_EGG_ISLAND_EXTERIOR, 54, 32)
     release
 }
 
 script SetSave5EscapeWarp{
+    if(flag(FLAG_SAVE_5_REACHED)){
+        release
+        end
+    }
     setflag(FLAG_SAVE_5_REACHED)
     setescapewarp(MAP_EGG_ISLAND_INTERIOR, 60, 4)
     release

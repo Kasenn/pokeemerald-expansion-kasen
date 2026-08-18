@@ -672,7 +672,6 @@ u8 TrySavingData(u8 saveType)
     HandleSavingData(saveType);
     if (!gDamagedSaveSectors)
     {
-        memcpy(&gSaveBlock1Backup, gSaveBlock1Ptr, sizeof(struct SaveBlock1));
         gSaveAttemptStatus = SAVE_STATUS_OK;
         return SAVE_STATUS_OK;
     }

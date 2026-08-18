@@ -21,7 +21,6 @@ extern struct SaveBlock1ASLR gSaveblock1;
 
 extern bool32 gFlashMemoryPresent;
 extern struct SaveBlock1 *gSaveBlock1Ptr;
-extern struct SaveBlock1 gSaveBlock1Backup;
 
 void CheckForFlashMemory(void);
 void ClearSav1(void);

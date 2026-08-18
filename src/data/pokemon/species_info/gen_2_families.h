@@ -3966,11 +3966,11 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 
     [SPECIES_KAMEK]
     {
-        .baseHP        = 120,
+        .baseHP        = 105,
         .baseAttack    = 5,
         .baseDefense   = 65,
         .baseSpeed     = 15,
-        .baseSpAttack  = 33,
+        .baseSpAttack  = 40,
         .baseSpDefense = 65,
         .types = MON_TYPES(TYPE_MAGIC),
         .expYield = (P_UPDATED_EXP_YIELDS >= GEN_5) ? 177 : 187,

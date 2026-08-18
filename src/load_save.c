@@ -39,7 +39,6 @@ EWRAM_DATA u32 gLastEncryptionKey = 0;
 // IWRAM common
 COMMON_DATA bool32 gFlashMemoryPresent = 0;
 COMMON_DATA struct SaveBlock1 *gSaveBlock1Ptr = NULL;
-EWRAM_DATA struct SaveBlock1 gSaveBlock1Backup = {0};
 
 // code
 void CheckForFlashMemory(void)

@@ -1,6 +1,7 @@
 EventScript_StartTrainerApproach::
 	selectapproachingtrainer
 	setflag FLAG_NO_RUNNING
+	callnative ZeroEnemyPartyMons
 	callnative FetchMonInfo
 	createmon 1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL
 	setvar VAR_OVERRIDE_MON, 0

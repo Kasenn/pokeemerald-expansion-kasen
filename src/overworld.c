@@ -2061,8 +2061,6 @@ void CB2_ContinueSavedGame(void)
 {
     u8 trainerHillMapId;
 
-    memcpy(&gSaveBlock1Backup, gSaveBlock1Ptr, sizeof(struct SaveBlock1));
-
     FieldClearVBlankHBlankCallbacks();
     StopMapMusic();
     ResetSafariZoneFlag_();

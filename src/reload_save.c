@@ -14,6 +14,11 @@
 // Used to gracefully exit after a link connection error
 void ReloadSave(void)
 {
+    u16 playTimeHours   = gSaveBlock1Ptr->playTimeHours;
+    u16 playTimeMinutes = gSaveBlock1Ptr->playTimeMinutes;
+    u16 playTimeSeconds = gSaveBlock1Ptr->playTimeSeconds;
+    u16 playTimeVBlanks = gSaveBlock1Ptr->playTimeVBlanks;
+
     u16 imeBackup = REG_IME;
     REG_IME = 0;
     RegisterRamReset(RESET_EWRAM);
@@ -29,7 +34,12 @@ void ReloadSave(void)
     if (gSaveFileStatus == SAVE_STATUS_EMPTY || gSaveFileStatus == SAVE_STATUS_CORRUPT)
         Sav2_ClearSetDefault();
     SetPokemonCryStereo(gSaveBlock1Ptr->optionsSound);
-    SetDefaultFontsPointer();
     InitHeap(gHeap, HEAP_SIZE);
+
+    gSaveBlock1Ptr->playTimeHours   = playTimeHours;
+    gSaveBlock1Ptr->playTimeMinutes = playTimeMinutes;
+    gSaveBlock1Ptr->playTimeSeconds = playTimeSeconds;
+    gSaveBlock1Ptr->playTimeVBlanks = playTimeVBlanks;
+
     SetMainCallback2(CB2_ContinueSavedGame);
 }
