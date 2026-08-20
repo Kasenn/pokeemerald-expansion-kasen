@@ -36,7 +36,7 @@ mapscripts EggIsland_Exterior_MapScripts {
         VAR_STORY, 1: IntroSequence
     ]
     MAP_SCRIPT_ON_LOAD{
-        if(flag(FLAG_EGGBRIDGE_CREATED)){
+        if(flag(FLAG_EGGBRIDGE_CREATED)){//wip
             setmetatile(26, 37, 0x238, FALSE)
             setmetatile(26, 36, 0x238, FALSE)
             setmetatile(26, 35, 0x238, FALSE)
