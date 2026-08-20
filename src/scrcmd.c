@@ -1330,6 +1330,11 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
         gSprites[objEvent->spriteId].animCmdIndex = 0; // Reset start frame of animation
     }
 
+    if (localId == LOCALID_PORTAL1 && FlagGet(FLAG_DISABLE_KO_ANIM))
+    {
+        ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
+    }
+
     gObjectEvents[GetObjectEventIdByLocalId(localId)].directionOverwrite = DIR_NONE;
     ScriptMovement_StartObjectMovementScript(localId, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, movementScript);
     sMovingNpcId = localId;

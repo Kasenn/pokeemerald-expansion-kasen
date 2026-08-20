@@ -69,7 +69,7 @@
 #define VAR_ROCKPLATE_10                                  VARS_START + 49
 #define VAR_ROCKPLATE_11                                  VARS_START + 50
 #define VAR_BERRYBRIDGE_X                                  VARS_START + 51 // Unused Var
-#define VAR_ROUTE134_STATE                                  VARS_START + 52 // Unused Var
+#define VAR_BERRYBRIDGE_MAIN_X                                  VARS_START + 52 // Unused Var
 #define VAR_LITTLEROOT_HOUSES_STATE_MAY                     VARS_START + 53
 #define VAR_FOLLOWER_MON                                   VARS_START + 54
 #define VAR_BIRCH_LAB_STATE                                 VARS_START + 55

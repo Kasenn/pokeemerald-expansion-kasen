@@ -558,5 +558,6 @@
 #define PHONEME_ID(song)            ((song) - FIRST_PHONEME_SONG)
 #define PHONEME_ID_NONE             0xFF
 #define MUS_WM1                     615
+#define MUS_STORY_DIALOG            616
 
 #endif  // GUARD_CONSTANTS_SONGS_H

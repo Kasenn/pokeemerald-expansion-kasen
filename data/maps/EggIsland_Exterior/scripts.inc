@@ -100,7 +100,8 @@ EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_TRANSITION_23:
 
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD:
 # 39 "data/maps/EggIsland_Exterior/scripts.pory"
-	goto_if_set FLAG_EGGBRIDGE_CREATED, EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_2
+	compare VAR_BERRYBRIDGE_MAIN_X, 0
+	goto_if_ne EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_2
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 # 46 "data/maps/EggIsland_Exterior/scripts.pory"
 	compare VAR_BERRYBRIDGE_X, 0
@@ -109,15 +110,15 @@ EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_1:
 
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_2:
 # 40 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmetatile 26, 37, 0x238, FALSE
+	setmetatile VAR_BERRYBRIDGE_MAIN_X, 37, 0x238, FALSE
 # 41 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmetatile 26, 36, 0x238, FALSE
+	setmetatile VAR_BERRYBRIDGE_MAIN_X, 36, 0x238, FALSE
 # 42 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmetatile 26, 35, 0x238, FALSE
+	setmetatile VAR_BERRYBRIDGE_MAIN_X, 35, 0x238, FALSE
 # 43 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmetatile 26, 34, 0x238, FALSE
+	setmetatile VAR_BERRYBRIDGE_MAIN_X, 34, 0x238, FALSE
 # 44 "data/maps/EggIsland_Exterior/scripts.pory"
-	setmetatile 26, 33, 0x239, FALSE
+	setmetatile VAR_BERRYBRIDGE_MAIN_X, 33, 0x239, FALSE
 	goto EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_1
 
 EggIsland_Exterior_MapScripts_MAP_SCRIPT_ON_LOAD_4:
@@ -1183,181 +1184,181 @@ FinaleTrigger::
 # 673 "data/maps/EggIsland_Exterior/scripts.pory"
 	clearflag FLAG_SECOND_ANIM_OVER
 # 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_PORTAL1, FinaleTrigger_Movement_0
-# 675 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 2
-# 676 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_SECOND_ANIM_OVER
-# 679 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 30
-# 680 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_M_MINIMIZE
-# 681 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitse
-# 682 "data/maps/EggIsland_Exterior/scripts.pory"
-	removeobject LOCALID_PORTAL1
-# 683 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 16
-# 684 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_KAMEK, DIR_NORTH
-# 685 "data/maps/EggIsland_Exterior/scripts.pory"
-	playse SE_PIN
-# 686 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_KAMEK, Common_Movement_ExclamationMark
-# 687 "data/maps/EggIsland_Exterior/scripts.pory"
-	waitse
-# 688 "data/maps/EggIsland_Exterior/scripts.pory"
+# 675 "data/maps/EggIsland_Exterior/scripts.pory"
+	applymovement LOCALID_PORTAL1, IntroSequence_Movement_2
+# 676 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 2
+# 677 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_SECOND_ANIM_OVER
+# 678 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovement 0
-# 689 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 64
-# 690 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_KAMEK, DIR_SOUTH
-# 691 "data/maps/EggIsland_Exterior/scripts.pory"
+# 679 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitse
+# 680 "data/maps/EggIsland_Exterior/scripts.pory"
+	removeobject LOCALID_PORTAL1
+# 681 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 16
-# 692 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker FinaleTrigger_Text_0
-# 693 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox KamekBattleIntro2, MSGBOX_AUTOCLOSE
-# 694 "data/maps/EggIsland_Exterior/scripts.pory"
-	settotemboost B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2
-# 695 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_NO_RUNNING
-# 696 "data/maps/EggIsland_Exterior/scripts.pory"
-	setwilddoubleflag
-# 697 "data/maps/EggIsland_Exterior/scripts.pory"
-	special StartSpecialBattle
-# 699 "data/maps/EggIsland_Exterior/scripts.pory"
-	setspeaker FinaleTrigger_Text_0
-# 700 "data/maps/EggIsland_Exterior/scripts.pory"
-	msgbox KamekPostBattle, MSGBOX_AUTOCLOSE
-# 701 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 8
-# 702 "data/maps/EggIsland_Exterior/scripts.pory"
+# 682 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_KAMEK, DIR_NORTH
-# 703 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 24
-# 704 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_SOUTH
-# 705 "data/maps/EggIsland_Exterior/scripts.pory"
+# 683 "data/maps/EggIsland_Exterior/scripts.pory"
+	playse SE_PIN
+# 684 "data/maps/EggIsland_Exterior/scripts.pory"
+	applymovement LOCALID_KAMEK, Common_Movement_ExclamationMark
+# 685 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitse
+# 686 "data/maps/EggIsland_Exterior/scripts.pory"
+	waitmovement 0
+# 687 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 64
+# 688 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_KAMEK, DIR_SOUTH
+# 689 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 16
+# 690 "data/maps/EggIsland_Exterior/scripts.pory"
+	setspeaker FinaleTrigger_Text_0
+# 691 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox KamekBattleIntro2, MSGBOX_AUTOCLOSE
+# 692 "data/maps/EggIsland_Exterior/scripts.pory"
+	settotemboost B_POSITION_OPPONENT_LEFT, 2, 2, 2, 2, 2
+# 693 "data/maps/EggIsland_Exterior/scripts.pory"
+	setflag FLAG_NO_RUNNING
+# 694 "data/maps/EggIsland_Exterior/scripts.pory"
+	setwilddoubleflag
+# 695 "data/maps/EggIsland_Exterior/scripts.pory"
+	special StartSpecialBattle
+# 697 "data/maps/EggIsland_Exterior/scripts.pory"
+	setspeaker FinaleTrigger_Text_0
+# 698 "data/maps/EggIsland_Exterior/scripts.pory"
+	msgbox KamekPostBattle, MSGBOX_AUTOCLOSE
+# 699 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 8
-# 706 "data/maps/EggIsland_Exterior/scripts.pory"
+# 700 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_KAMEK, DIR_NORTH
+# 701 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 24
+# 702 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_SOUTH
+# 703 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 8
+# 704 "data/maps/EggIsland_Exterior/scripts.pory"
 	bufferpartymonnickname STR_VAR_1, 1
-# 707 "data/maps/EggIsland_Exterior/scripts.pory"
+# 705 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker FinaleTrigger_Text_1
-# 708 "data/maps/EggIsland_Exterior/scripts.pory"
+# 706 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox KamekPostBattle2, MSGBOX_AUTOCLOSE
+# 707 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 8
+# 708 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_PLAYER, DIR_NORTH
 # 709 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 8
 # 710 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_PLAYER, DIR_NORTH
-# 711 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 8
-# 712 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_KAMEK, DIR_NORTH
-# 713 "data/maps/EggIsland_Exterior/scripts.pory"
+# 711 "data/maps/EggIsland_Exterior/scripts.pory"
 	addobject LOCALID_PORTAL1
-# 714 "data/maps/EggIsland_Exterior/scripts.pory"
+# 712 "data/maps/EggIsland_Exterior/scripts.pory"
 	playse SE_M_TELEPORT
-# 715 "data/maps/EggIsland_Exterior/scripts.pory"
+# 713 "data/maps/EggIsland_Exterior/scripts.pory"
 	applymovement 8, IntroSequence_Movement_0
-# 716 "data/maps/EggIsland_Exterior/scripts.pory"
+# 714 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 160
-# 717 "data/maps/EggIsland_Exterior/scripts.pory"
+# 715 "data/maps/EggIsland_Exterior/scripts.pory"
 	turnobject LOCALID_KAMEK, DIR_SOUTH
-# 718 "data/maps/EggIsland_Exterior/scripts.pory"
+# 716 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 8
-# 719 "data/maps/EggIsland_Exterior/scripts.pory"
+# 717 "data/maps/EggIsland_Exterior/scripts.pory"
 	setspeaker FinaleTrigger_Text_0
-# 720 "data/maps/EggIsland_Exterior/scripts.pory"
+# 718 "data/maps/EggIsland_Exterior/scripts.pory"
 	msgbox KamekPostBattle3, MSGBOX_AUTOCLOSE
+# 719 "data/maps/EggIsland_Exterior/scripts.pory"
+	delay 8
+# 720 "data/maps/EggIsland_Exterior/scripts.pory"
+	turnobject LOCALID_KAMEK, DIR_NORTH
 # 721 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 8
 # 722 "data/maps/EggIsland_Exterior/scripts.pory"
-	turnobject LOCALID_KAMEK, DIR_NORTH
+	applymovement LOCALID_KAMEK, FinaleTrigger_Movement_0
 # 723 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 8
+	applymovement LOCALID_PLAYER, FinaleTrigger_Movement_1
 # 724 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_KAMEK, FinaleTrigger_Movement_1
+	applymovement OBJ_EVENT_ID_FOLLOWER1, FinaleTrigger_Movement_2
 # 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement LOCALID_PLAYER, FinaleTrigger_Movement_2
+	applymovement OBJ_EVENT_ID_FOLLOWER2, FinaleTrigger_Movement_2
 # 726 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement OBJ_EVENT_ID_FOLLOWER1, FinaleTrigger_Movement_3
+	applymovement OBJ_EVENT_ID_FOLLOWER3, FinaleTrigger_Movement_2
 # 727 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement OBJ_EVENT_ID_FOLLOWER2, FinaleTrigger_Movement_3
+	applymovement OBJ_EVENT_ID_FOLLOWER4, FinaleTrigger_Movement_2
 # 728 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement OBJ_EVENT_ID_FOLLOWER3, FinaleTrigger_Movement_3
+	applymovement OBJ_EVENT_ID_FOLLOWER5, FinaleTrigger_Movement_2
 # 729 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement OBJ_EVENT_ID_FOLLOWER4, FinaleTrigger_Movement_3
-# 730 "data/maps/EggIsland_Exterior/scripts.pory"
-	applymovement OBJ_EVENT_ID_FOLLOWER5, FinaleTrigger_Movement_3
-# 731 "data/maps/EggIsland_Exterior/scripts.pory"
 	waitmovementall
-# 732 "data/maps/EggIsland_Exterior/scripts.pory"
+# 730 "data/maps/EggIsland_Exterior/scripts.pory"
 	fadescreenspeed FADE_TO_BLACK, 6
-# 733 "data/maps/EggIsland_Exterior/scripts.pory"
+# 731 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay 60
-# 734 "data/maps/EggIsland_Exterior/scripts.pory"
+# 732 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_STORY, 10
-# 735 "data/maps/EggIsland_Exterior/scripts.pory"
+# 733 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_FADEOUT_SPEED, 6
-# 736 "data/maps/EggIsland_Exterior/scripts.pory"
+# 734 "data/maps/EggIsland_Exterior/scripts.pory"
 	warpsilent MAP_YOSHI_INTRO, 0
 	return
 
 
 SetSave3EscapeWarp::
-# 783 "data/maps/EggIsland_Exterior/scripts.pory"
+# 781 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_3_REACHED, SetSave3EscapeWarp_2
-# 783 "data/maps/EggIsland_Exterior/scripts.pory"
+# 781 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_4_REACHED, SetSave3EscapeWarp_2
-# 783 "data/maps/EggIsland_Exterior/scripts.pory"
+# 781 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_5_REACHED, SetSave3EscapeWarp_2
-# 787 "data/maps/EggIsland_Exterior/scripts.pory"
+# 785 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_3_REACHED
-# 788 "data/maps/EggIsland_Exterior/scripts.pory"
+# 786 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_EXTERIOR, 24, 57
-# 789 "data/maps/EggIsland_Exterior/scripts.pory"
+# 787 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 SetSave3EscapeWarp_2:
-# 784 "data/maps/EggIsland_Exterior/scripts.pory"
+# 782 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 
 SetSave4EscapeWarp::
-# 793 "data/maps/EggIsland_Exterior/scripts.pory"
+# 791 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_4_REACHED, SetSave4EscapeWarp_2
-# 793 "data/maps/EggIsland_Exterior/scripts.pory"
+# 791 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_5_REACHED, SetSave4EscapeWarp_2
-# 797 "data/maps/EggIsland_Exterior/scripts.pory"
+# 795 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_4_REACHED
-# 798 "data/maps/EggIsland_Exterior/scripts.pory"
+# 796 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_EXTERIOR, 54, 32
-# 799 "data/maps/EggIsland_Exterior/scripts.pory"
+# 797 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 SetSave4EscapeWarp_2:
-# 794 "data/maps/EggIsland_Exterior/scripts.pory"
+# 792 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
 
 SetSave5EscapeWarp::
-# 803 "data/maps/EggIsland_Exterior/scripts.pory"
+# 801 "data/maps/EggIsland_Exterior/scripts.pory"
 	goto_if_set FLAG_SAVE_5_REACHED, SetSave5EscapeWarp_2
-# 807 "data/maps/EggIsland_Exterior/scripts.pory"
+# 805 "data/maps/EggIsland_Exterior/scripts.pory"
 	setflag FLAG_SAVE_5_REACHED
-# 808 "data/maps/EggIsland_Exterior/scripts.pory"
+# 806 "data/maps/EggIsland_Exterior/scripts.pory"
 	setescapewarp MAP_EGG_ISLAND_INTERIOR, 60, 4
-# 809 "data/maps/EggIsland_Exterior/scripts.pory"
+# 807 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	return
 
 SetSave5EscapeWarp_2:
-# 804 "data/maps/EggIsland_Exterior/scripts.pory"
+# 802 "data/maps/EggIsland_Exterior/scripts.pory"
 	release
 	end
 
@@ -1706,63 +1707,45 @@ AnimatePortal_Movement_0:
 	walk_down_start_affine
 	step_end
 
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 FinaleTrigger_Movement_0:
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	init_affine_anim
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	walk_down_affine
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-# 674 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay_16
-	step_end
-
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
-FinaleTrigger_Movement_1:
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 	lock_anim
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 	lock_facing_direction
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_up
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 	walk_up
-# 724 "data/maps/EggIsland_Exterior/scripts.pory"
+# 722 "data/maps/EggIsland_Exterior/scripts.pory"
 	set_invisible
 	step_end
 
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+FinaleTrigger_Movement_1:
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+	walk_up
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+	walk_up
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+	walk_up
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+	walk_up
+# 723 "data/maps/EggIsland_Exterior/scripts.pory"
+	set_invisible
+	step_end
+
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 FinaleTrigger_Movement_2:
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	walk_up
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	walk_up
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	walk_up
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	walk_up
-# 725 "data/maps/EggIsland_Exterior/scripts.pory"
-	set_invisible
-	step_end
-
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
-FinaleTrigger_Movement_3:
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_16
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_16
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_16
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_16
-# 726 "data/maps/EggIsland_Exterior/scripts.pory"
+# 724 "data/maps/EggIsland_Exterior/scripts.pory"
 	delay_16
 	step_end
 
@@ -1895,7 +1878,7 @@ FinaleTrigger_Text_0:
 	.string "Kamek$"
 
 FinaleTrigger_Text_1:
-# 707 "data/maps/EggIsland_Exterior/scripts.pory"
+# 705 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "{STR_VAR_1}$"
 
 MachopScript1_Text1::
@@ -1986,7 +1969,7 @@ GripGlovesOnGround::
 	.string "Strength Gloves?$"
 
 KamekPostBattle::
-# 739 "data/maps/EggIsland_Exterior/scripts.pory"
+# 737 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Ow! You big meanie!\p"
 	.string "This is not fair, what with\n"
 	.string "you all grouping up against me!\p"
@@ -1997,7 +1980,7 @@ KamekPostBattle::
 	.string "the portal for you again!$"
 
 KamekPostBattle2::
-# 749 "data/maps/EggIsland_Exterior/scripts.pory"
+# 747 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Take care, Yoshi!\n"
 	.string "When you get back home,\l"
 	.string "don't forget to give that\l"
@@ -2006,14 +1989,14 @@ KamekPostBattle2::
 	.string "not mess with you again!$"
 
 KamekPostBattle3::
-# 757 "data/maps/EggIsland_Exterior/scripts.pory"
+# 755 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "The portal is stable, but\n"
 	.string "it won't stay open for long.\p"
 	.string "If you want to get back home,\n"
 	.string "I suggest you start moving!$"
 
 KamekBattleIntro::
-# 764 "data/maps/EggIsland_Exterior/scripts.pory"
+# 762 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "Yoshi?!\n"
 	.string "How did you get here?!\p"
 	.string "I gave those birdbrains clear\n"
@@ -2021,7 +2004,7 @@ KamekBattleIntro::
 	.string "through while I channel my spell!$"
 
 KamekBattleIntro2::
-# 772 "data/maps/EggIsland_Exterior/scripts.pory"
+# 770 "data/maps/EggIsland_Exterior/scripts.pory"
 	.string "…Oh, great! Now I lost my\n"
 	.string "concentration and need to\l"
 	.string "start from the beginning!\p"

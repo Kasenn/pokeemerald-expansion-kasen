@@ -36,12 +36,12 @@ mapscripts EggIsland_Exterior_MapScripts {
         VAR_STORY, 1: IntroSequence
     ]
     MAP_SCRIPT_ON_LOAD{
-        if(flag(FLAG_EGGBRIDGE_CREATED)){//wip
-            setmetatile(26, 37, 0x238, FALSE)
-            setmetatile(26, 36, 0x238, FALSE)
-            setmetatile(26, 35, 0x238, FALSE)
-            setmetatile(26, 34, 0x238, FALSE)
-            setmetatile(26, 33, 0x239, FALSE)
+        if(var(VAR_BERRYBRIDGE_MAIN_X) != 0){
+            setmetatile(VAR_BERRYBRIDGE_MAIN_X, 37, 0x238, FALSE)
+            setmetatile(VAR_BERRYBRIDGE_MAIN_X, 36, 0x238, FALSE)
+            setmetatile(VAR_BERRYBRIDGE_MAIN_X, 35, 0x238, FALSE)
+            setmetatile(VAR_BERRYBRIDGE_MAIN_X, 34, 0x238, FALSE)
+            setmetatile(VAR_BERRYBRIDGE_MAIN_X, 33, 0x239, FALSE)
         }
         if(var(VAR_BERRYBRIDGE_X) != 0){
             setmetatile(VAR_BERRYBRIDGE_X, 54, 0x238, FALSE)
@@ -671,13 +671,11 @@ script FinaleTrigger{
     msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
     clearflag(FLAG_FIRST_ANIM_OVER)
     clearflag(FLAG_SECOND_ANIM_OVER)
-    applymovement(LOCALID_PORTAL1, moves(init_affine_anim, walk_down_affine, delay_16 * 5))
+    playse(SE_M_MINIMIZE)
+    applymovement(LOCALID_PORTAL1, moves(walk_down_affine, delay_16 * 5))
     delay(2)
     setflag(FLAG_SECOND_ANIM_OVER)
-    //wip, remove portal here, also make sure it's actually spinning
-    // waitmovement(0)
-    delay(30)
-    playse(SE_M_MINIMIZE)
+    waitmovement(0)
     waitse
     removeobject(LOCALID_PORTAL1)
     delay(16)

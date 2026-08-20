@@ -547,6 +547,7 @@ script MakeEggBridge{
     applymovement(LOCALID_PLAYER, Walk1Up)
     waitmovement(0)
     getplayerxy(VAR_X, VAR_Y)
+    copyvar(VAR_BERRYBRIDGE_MAIN_X, VAR_X)
     setobjectxy(LOCALID_BRIDGEEGG_5, VAR_X, VAR_Y)
     playse(SE_M_JUMP_KICK)
     applymovement(LOCALID_BRIDGEEGG_5, ThrowBridgeEgg)
@@ -557,11 +558,11 @@ script MakeEggBridge{
     applymovement(LOCALID_PLAYER, moves(walk_up * 2))
     waitmovement(0)
 
-    setmetatile(26, 37, 0x238, FALSE)
-    setmetatile(26, 36, 0x238, FALSE)
-    setmetatile(26, 35, 0x238, FALSE)
-    setmetatile(26, 34, 0x238, FALSE)
-    setmetatile(26, 33, 0x239, FALSE)
+    setmetatile(VAR_BERRYBRIDGE_MAIN_X, 37, 0x238, FALSE)
+    setmetatile(VAR_BERRYBRIDGE_MAIN_X, 36, 0x238, FALSE)
+    setmetatile(VAR_BERRYBRIDGE_MAIN_X, 35, 0x238, FALSE)
+    setmetatile(VAR_BERRYBRIDGE_MAIN_X, 34, 0x238, FALSE)
+    setmetatile(VAR_BERRYBRIDGE_MAIN_X, 33, 0x239, FALSE)
     special(DrawWholeMapView)
     removeobject(LOCALID_BRIDGEEGG_1)
     removeobject(LOCALID_BRIDGEEGG_2)
@@ -569,6 +570,8 @@ script MakeEggBridge{
     removeobject(LOCALID_BRIDGEEGG_4)
     removeobject(LOCALID_BRIDGEEGG_5)
     removeobject(LOCALID_BRIDGE_NINJA)
+    removeobject(LOCALID_BRIDGE_NINJA2)
+    removeobject(LOCALID_BRIDGE_NINJA3)
     resetobjectsubpriority(LOCALID_PLAYER, MAP_EGG_ISLAND_EXTERIOR)
 }
 
@@ -579,9 +582,11 @@ movement Walk1Up{
 movement ThrowBridgeEgg{
     lock_facing_direction
     set_visible
+    disable_jump_landing_ground_effect
     jump_up
     unlock_facing_direction
     nurse_joy_bow
+    enable_jump_landing_ground_effect
 }
 
 text MakeEggBridge_Text{

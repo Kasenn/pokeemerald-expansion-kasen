@@ -843,7 +843,7 @@ void HandleInputChooseMove(enum BattlerId battler)
         TryToHideMoveInfoWindow();
         PlaySE(SE_SELECT);
 
-        if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG)
+        if (moveInfo->moves[gMoveSelectionCursor[battler]] == MOVE_CHUCK_EGG && moveInfo->currentPP[gMoveSelectionCursor[battler]] != 0)
             gChuckedEggs = TRUE;
 
         enum MoveTarget moveTarget = GetBattlerMoveTargetType(battler, moveInfo->moves[gMoveSelectionCursor[battler]]);

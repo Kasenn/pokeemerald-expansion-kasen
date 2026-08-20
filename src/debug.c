@@ -4176,7 +4176,8 @@ static void DebugAction_DestroyFollowerNPC(u8 taskId)
     X(MUS_YOSHI1)                   \
     X(MUS_YOSHI2)                   \
     X(MUS_BW_RIVAL)                 \
-    X(MUS_BW_TRAINER)
+    X(MUS_BW_TRAINER)               \
+    X(MUS_STORY_DIALOG)
 
 #define SOUND_LIST_SE               \
     X(SE_USE_ITEM)                  \
