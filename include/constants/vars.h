@@ -61,8 +61,8 @@
 #define VAR_ROCKPLATE_9                                     VARS_START + 41 // mine
 #define VAR_STORY                                           VARS_START + 42 // mine
 #define VAR_FADEOUT_SPEED                                   VARS_START + 43 // mine
-#define VAR_OVERRIDE_MON                                  VARS_START + 44 // Unused Var
-#define VAR_OVERRIDE_LEVEL                                  VARS_START + 45 // Unused Var
+#define VAR_UNUSED_44                                  VARS_START + 44 // Unused Var
+#define VAR_UNUSED_45                                  VARS_START + 45 // Unused Var
 #define VAR_ROUTE128_STATE                                  VARS_START + 46
 #define VAR_OUTSIDEBOULDER_X                                  VARS_START + 47 // Unused Var
 #define VAR_OUTSIDEBOULDER_Y                                  VARS_START + 48 // Unused Var
@@ -301,7 +301,8 @@
 #define VAR_CONTEST_CATEGORY          0x8011
 #define VAR_MON_BOX_ID                0x8012
 #define VAR_MON_BOX_POS               0x8013
-#define VAR_UNUSED_0x8014             0x8014
+#define VAR_OVERRIDE_MON              0x8014
+#define VAR_OVERRIDE_LEVEL            0x8015
 #define VAR_TRAINER_BATTLE_OPPONENT_A 0x8015 // Alias of TRAINER_BATTLE_PARAM.opponentA
 
 #define SPECIAL_VARS_END              0x8015

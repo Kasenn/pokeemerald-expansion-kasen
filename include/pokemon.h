@@ -705,6 +705,7 @@ extern u8 gCurrentUsableEggs;
 extern u8 gChuckedEggs;
 extern u8 gSwitchedMonsAround;
 extern struct Pokemon gParties[MAX_BATTLE_TRAINERS][PARTY_SIZE];
+extern bool8 gDisableRunning;
 
 #define gPlayerPartyCount gPartiesCount[B_TRAINER_PLAYER]
 #define gPlayerParty gParties[B_TRAINER_PLAYER]

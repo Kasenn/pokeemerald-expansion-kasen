@@ -452,6 +452,7 @@ void Overworld_ResetBattleFlagsAndVars(void)
     FlagClear(WE_SMART_WILD_AI_FLAG);
     FlagClear(WE_FLAG_NO_CATCHING);
     FlagClear(WE_FLAG_NO_RUNNING);
+    gDisableRunning = FALSE;
     FlagClear(B_FLAG_DYNAMAX_BATTLE);
     FlagClear(B_FLAG_SKY_BATTLE);
     FlagClear(B_FLAG_NO_WHITEOUT);

@@ -4128,12 +4128,32 @@ bool8 ScrCmd_removeegg(struct ScriptContext *ctx)
     return FALSE;
 }
 
-void FetchMonInfo(void)
+void SetupCustomBattler(void)
 {
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
     u8 level = playerLevel - 5 + (Random() % 11) + VarGet(VAR_ENCOUNTER_TABLE);
+    enum Species species = SPECIES_BULBASAUR;
 
+    if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_EGG_ISLAND_EXTERIOR))
+        species = SPECIES_MURKROW;
+    else if (gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_EGG_ISLAND_INTERIOR))
+        species = SPECIES_GEODUDE;
+    else
+    {
+        species = SPECIES_MURKROW;
+        assertf(species == SPECIES_BULBASAUR, "if you see this, please inform the romhack creator");
+    }
+
+    gDisableRunning = TRUE;
+	ZeroEnemyPartyMons();
+
+    VarSet(VAR_OVERRIDE_MON, species);
     VarSet(VAR_OVERRIDE_LEVEL, level);
+}
+
+void ClearNoRunningFlag(void)
+{
+    gDisableRunning = FALSE;
 }
 
 bool8 DoesMonHoldItem(struct ScriptContext *ctx)

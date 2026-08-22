@@ -114,6 +114,9 @@ EventScript_ShowTrainerIntroMsg::
 	goto EventScript_DoTrainerBattle
 
 EventScript_DoTrainerBattle::
+    callnative SetupCustomBattler
+    delay 1
+	createmon 1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL
 	dowildbattle
 	@ Below battle mode check only needed in FRLG
 	specialvar VAR_RESULT, GetTrainerBattleMode
