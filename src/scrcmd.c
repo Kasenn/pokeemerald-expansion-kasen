@@ -4130,13 +4130,9 @@ bool8 ScrCmd_removeegg(struct ScriptContext *ctx)
 
 void FetchMonInfo(void)
 {
-    u16 species = gTrainers[DIFFICULTY_NORMAL][TRAINER_BATTLE_PARAM.opponentA].party[0].species;
-
     u8 playerLevel = GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_LEVEL);
-
     u8 level = playerLevel - 5 + (Random() % 11) + VarGet(VAR_ENCOUNTER_TABLE);
 
-    VarSet(VAR_OVERRIDE_MON, species);
     VarSet(VAR_OVERRIDE_LEVEL, level);
 }
 

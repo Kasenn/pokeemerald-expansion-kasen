@@ -100,6 +100,7 @@ script Script_StartMenuRest{
 }
 
 script Script_RetreatWithDiglett{
+    lockall
     if(flag(FLAG_EGGS_HATCHED)){
         if(var(VAR_AI_FLAGS) == 2){
             msgbox(DiglettRockText)
@@ -107,12 +108,12 @@ script Script_RetreatWithDiglett{
         else{
             msgbox(DiglettHeatText)
         }
-        release
+        releaseall
         end
     }
     msgbox(RetreatWithDiglett_Text, MSGBOX_YESNO)
     if(var(VAR_RESULT) == FALSE){
-        release
+        releaseall
         end
     }
     setfieldeffectargument(0, 0xFF)

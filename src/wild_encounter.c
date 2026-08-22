@@ -629,12 +629,10 @@ void CreateWildMon(enum Species species, u8 level)
     if (VarGet(VAR_OVERRIDE_LEVEL) != 0)
     {
         level = VarGet(VAR_OVERRIDE_LEVEL);
-        VarSet(VAR_OVERRIDE_LEVEL, 0);
     }
     if (VarGet(VAR_OVERRIDE_MON) != 0)
     {
         species = VarGet(VAR_OVERRIDE_MON);
-        VarSet(VAR_OVERRIDE_MON, 0);
     }
     ZeroEnemyPartyMons();
     u32 personality = GetMonPersonality(species, GetSynchronizedGender(WILDMON_ORIGIN, species), PickWildMonNature(species), RANDOM_UNOWN_LETTER);

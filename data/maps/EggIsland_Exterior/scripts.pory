@@ -286,14 +286,24 @@ text MachopScript1_Text3{
 }
 
 script MurkrowBattle{
+    setvar(VAR_OVERRIDE_MON, SPECIES_MURKROW)
+    setflag(FLAG_NO_RUNNING)
+	callnative(ZeroEnemyPartyMons)
+    delay(1)
+	callnative(FetchMonInfo)
+    delay(1)
+	createmon(1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL)
 	trainerbattle_single(TRAINER_ALLEN, "This is our turf! Leave!", "N/A", RemoveMurkrow)
 	end
 }
 
 script RemoveMurkrow{
+    setvar(VAR_OVERRIDE_MON, 0)
+    setvar(VAR_OVERRIDE_LEVEL, 0)
     cleartrainerflag(TRAINER_ALLEN)
     cleartrainerflag(TRAINER_TIMMY)
     clearflag(FLAG_NO_RUNNING)
+    setflag(FLAG_SAFE_FOLLOWER_MOVEMENT)
     applymovement(VAR_LAST_TALKED, Movement_ObjectDisappears)
     waitmovement(0)
     removeobject(VAR_LAST_TALKED)
@@ -302,6 +312,13 @@ script RemoveMurkrow{
 }
 
 script GeodudeBattle{
+    setvar(VAR_OVERRIDE_MON, SPECIES_GEODUDE)
+    setflag(FLAG_NO_RUNNING)
+	callnative(ZeroEnemyPartyMons)
+    delay(1)
+	callnative(FetchMonInfo)
+    delay(1)
+	createmon(1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL)
 	trainerbattle_single(TRAINER_TIMMY, "The underground belongs to us!\nOff with you!", "N/A", RemoveMurkrow)
 	end
 }
