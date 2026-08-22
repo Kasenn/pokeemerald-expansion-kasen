@@ -524,18 +524,6 @@ MachopScript1_2:
 MurkrowBattle::
 # 289 "data/maps/EggIsland_Exterior/scripts.pory"
 	setvar VAR_OVERRIDE_MON, SPECIES_MURKROW
-# 290 "data/maps/EggIsland_Exterior/scripts.pory"
-	setflag FLAG_NO_RUNNING
-# 291 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative ZeroEnemyPartyMons
-# 292 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 1
-# 293 "data/maps/EggIsland_Exterior/scripts.pory"
-	callnative FetchMonInfo
-# 294 "data/maps/EggIsland_Exterior/scripts.pory"
-	delay 1
-# 295 "data/maps/EggIsland_Exterior/scripts.pory"
-	createmon 1, 0, VAR_OVERRIDE_MON, VAR_OVERRIDE_LEVEL
 # 296 "data/maps/EggIsland_Exterior/scripts.pory"
 	trainerbattle_single TRAINER_ALLEN, MurkrowBattle_Text_0, MurkrowBattle_Text_1, RemoveMurkrow
 	end
