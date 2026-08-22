@@ -4481,6 +4481,7 @@ bool32 DoesMonMeetAdditionalConditions(struct Pokemon *mon, const struct Evoluti
 
 enum Species GetEvolutionTargetSpecies(struct Pokemon *mon, enum EvolutionMode mode, u16 evolutionItem, struct Pokemon *tradePartner, bool32 *canStopEvo, enum EvoState evoState)
 {
+    return SPECIES_NONE;
     int i;
     enum Species targetSpecies = SPECIES_NONE;
     enum Species species = GetMonData(mon, MON_DATA_SPECIES, 0);

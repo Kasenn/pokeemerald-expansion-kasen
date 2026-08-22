@@ -8067,7 +8067,11 @@ s32 CalcCritChanceStage(struct DamageContext *ctx)
 {
     s32 critChance = 0;
 
-    if (gSideStatuses[GetBattlerSide(ctx->battlerDef)] & SIDE_STATUS_LUCKY_CHANT)
+    if (ctx->move == MOVE_MAGIC_WAVE)
+    {
+        critChance = CRITICAL_HIT_BLOCKED;
+    }
+    else if (gSideStatuses[GetBattlerSide(ctx->battlerDef)] & SIDE_STATUS_LUCKY_CHANT)
     {
         critChance = CRITICAL_HIT_BLOCKED;
     }

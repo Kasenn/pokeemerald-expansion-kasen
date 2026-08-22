@@ -1,6 +1,6 @@
 DebugScript1::
 # 23 "data/scripts/general_scripts.pory"
-	createmon 1, 0, SPECIES_KAMEK, 5, move1 = MOVE_ILLUSION, move2 = MOVE_NONE, move3 = MOVE_NONE, move4 = MOVE_NONE
+	createmon 0, 1, SPECIES_SNOVER, 15, move1 = MOVE_LEER, move2 = MOVE_INGRAIN, move3 = MOVE_WOOD_HAMMER, move4 = MOVE_BLIZZARD
 # 24 "data/scripts/general_scripts.pory"
 	dowildbattle
 	return
