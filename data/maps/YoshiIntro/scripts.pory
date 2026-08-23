@@ -31,7 +31,7 @@ script EndingScene{
     delay(165)
     delay(42)
     delay(12 + 36)
-    playbgm(MUS_CREDITS, TRUE)
+    playbgm(MUS_STORY_DIALOG, TRUE)
     waitmovement(0)
     delay(180)
     addobject(LOCALID_THEEND1)

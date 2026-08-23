@@ -60,7 +60,7 @@ EndingScene::
 # 33 "data/maps/YoshiIntro/scripts.pory"
 	delay 12 + 36
 # 34 "data/maps/YoshiIntro/scripts.pory"
-	playbgm MUS_CREDITS, TRUE
+	playbgm MUS_STORY_DIALOG, TRUE
 # 35 "data/maps/YoshiIntro/scripts.pory"
 	waitmovement 0
 # 36 "data/maps/YoshiIntro/scripts.pory"
