@@ -2071,7 +2071,7 @@ static void Controller_ReturnMonToBall(enum BattlerId battler)
         if (!gBattleSpritesDataPtr->healthBoxesData[battler].specialAnimActive)
         {
             gBattleSpritesDataPtr->healthBoxesData[battler].animationState = 0;
-            InitAndLaunchSpecialAnimation(battler, battler, battler, !IsOnPlayerSide(battler) ? B_ANIM_SWITCH_OUT_OPPONENT_MON : B_ANIM_SWITCH_OUT_PLAYER_MON);
+            InitAndLaunchSpecialAnimation(battler, battler, battler, !IsOnPlayerSide(battler) ? B_ANIM_SWITCH_OUT_OPPONENT_MON : B_ANIM_SLIDE_OUT_PLAYER_MON);
             gBattlerControllerFuncs[battler] = Controller_ReturnMonToBall2;
         }
         break;

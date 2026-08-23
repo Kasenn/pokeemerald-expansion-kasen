@@ -29995,6 +29995,11 @@ gBattleAnimSpecial_SwitchOutPlayerMon::
 	createvisualtask AnimTask_SwitchOutShrinkMon, 2
 	end
 
+gBattleAnimSpecial_SlideOutPlayerMon::
+	createvisualtask AnimTask_SlideOffScreen, 5, ANIM_TARGET, 8
+	@createvisualtask AnimTask_SwitchOutShrinkMon, 2
+	end
+
 gBattleAnimSpecial_SwitchOutOpponentMon::
 	createvisualtask AnimTask_SwitchOutBallEffect, 2
 	delay 10

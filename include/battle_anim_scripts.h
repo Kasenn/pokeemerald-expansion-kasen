@@ -1029,6 +1029,7 @@ extern const u8 gBattleAnimSpecial_BallThrowWithTrainer[];
 extern const u8 gBattleAnimSpecial_SubstituteToMon[];
 extern const u8 gBattleAnimSpecial_MonToSubstitute[];
 extern const u8 gBattleAnimSpecial_CriticalCaptureBallThrow[];
+extern const u8 gBattleAnimSpecial_SlideOutPlayerMon[];
 
 extern const u8 gBattleAnimMove_MagicalBlast[];
 extern const u8 gBattleAnimMove_CallDiglett[];

@@ -129,7 +129,7 @@ static const u8 sText_LinkPartnerSentOutPkmn2[] = _("{B_LINK_PARTNER_NAME} sent 
 static const u8 sText_LinkPartnerWithdrewPkmn1[] = _("{B_LINK_PARTNER_NAME} withdrew {B_LINK_PLAYER_MON1_NAME}!");
 static const u8 sText_LinkPartnerWithdrewPkmn2[] = _("{B_LINK_PARTNER_NAME} withdrew {B_LINK_PLAYER_MON2_NAME}!");
 static const u8 sText_PkmnSwitchOut[] = _("{B_BUFF1}, switch out! Come back!"); //currently unused, I believe its used for when you switch on a Pokémon in shift mode
-static const u8 sText_PkmnThatsEnough[] = _("{B_BUFF1}, that's enough! Come back!");//wip
+static const u8 sText_PkmnThatsEnough[] = _("{B_BUFF1}, that's enough! Switch out!");//wip
 static const u8 sText_PkmnComeBack[] = _("{B_BUFF1}, come back!");
 static const u8 sText_PkmnOkComeBack[] = _("OK, {B_BUFF1}! Come back!");
 static const u8 sText_PkmnGoodComeBack[] = _("Good job, {B_BUFF1}! Come back!");
@@ -2613,14 +2613,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if (BattlerIsPlayer(battler) || BattlerIsWally(battler)) // Player
             {
-                if (*(&gBattleStruct->hpScale) == 0)
-                    stringPtr = sText_PkmnThatsEnough;
-                else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
-                    stringPtr = sText_PkmnComeBack;
-                else if (*(&gBattleStruct->hpScale) == 2)
-                    stringPtr = sText_PkmnOkComeBack;
-                else
-                    stringPtr = sText_PkmnGoodComeBack;
+                stringPtr = sText_PkmnThatsEnough;
             }
             else if (BattlerIsPartner(battler)) // Link or Ingame Partner
             {
@@ -2643,14 +2636,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if (BattlerIsPlayer(battler)) // Player
             {
-                if (*(&gBattleStruct->hpScale) == 0)
-                    stringPtr = sText_PkmnThatsEnough;
-                else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
-                    stringPtr = sText_PkmnComeBack;
-                else if (*(&gBattleStruct->hpScale) == 2)
-                    stringPtr = sText_PkmnOkComeBack;
-                else
-                    stringPtr = sText_PkmnGoodComeBack;
+                stringPtr = sText_PkmnThatsEnough;
             }
             else if (BattlerIsPartner(battler)) // Link or Ingame Partner
             {
@@ -2682,14 +2668,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if (BattlerIsPlayer(gBattleScripting.battler)) // Player
             {
-                if (*(&gBattleStruct->hpScale) == 0)
-                    stringPtr = sText_GoPkmn2;
-                else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
-                    stringPtr = sText_DoItPkmn;
-                else if (*(&gBattleStruct->hpScale) == 2)
-                    stringPtr = sText_GoForItPkmn;
-                else
-                    stringPtr = sText_YourFoesWeakGetEmPkmn;
+                stringPtr = sText_GoPkmn2;
             }
             else if (BattlerIsPartner(gBattleScripting.battler)) // Link or Ingame Partner
             {
@@ -2712,14 +2691,7 @@ void BufferStringBattle(enum StringID stringID, enum BattlerId battler)
         {
             if (BattlerIsPlayer(gBattleScripting.battler)) // Player
             {
-                if (*(&gBattleStruct->hpScale) == 0)
-                    stringPtr = sText_GoPkmn2;
-                else if (*(&gBattleStruct->hpScale) == 1 || IsDoubleBattle())
-                    stringPtr = sText_DoItPkmn;
-                else if (*(&gBattleStruct->hpScale) == 2)
-                    stringPtr = sText_GoForItPkmn;
-                else
-                    stringPtr = sText_YourFoesWeakGetEmPkmn;
+                stringPtr = sText_GoPkmn2;
             }
             else if (BattlerIsPartner(gBattleScripting.battler)) // Link or Ingame Partner
             {

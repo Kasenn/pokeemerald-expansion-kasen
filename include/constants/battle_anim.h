@@ -630,8 +630,9 @@ enum AnimBattler
 #define B_ANIM_CRITICAL_CAPTURE_THROW   7
 #define B_ANIM_ILLUSION_TO_MON          8
 #define B_ANIM_MON_TO_ILLUSION          9
+#define B_ANIM_SLIDE_OUT_PLAYER_MON     10
 
-#define NUM_B_ANIMS_SPECIAL             10
+#define NUM_B_ANIMS_SPECIAL             11
 
 // status animation table (sBattleAnims_StatusConditions)
 #define B_ANIM_STATUS_PSN               0
