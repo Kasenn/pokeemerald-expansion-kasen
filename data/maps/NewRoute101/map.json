@@ -22,6 +22,11 @@
       "map": "MAP_PRIMROSE_TOWN",
       "offset": 33,
       "direction": "up"
+    },
+    {
+      "map": "MAP_PRIMROSE_MEADOW",
+      "offset": 70,
+      "direction": "up"
     }
   ],
   "object_events": [

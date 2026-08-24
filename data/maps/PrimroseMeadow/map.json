@@ -15,8 +15,13 @@
   "connections": [
     {
       "map": "MAP_PRIMROSE_TOWN",
-      "offset": -3,
+      "offset": 6,
       "direction": "left"
+    },
+    {
+      "map": "MAP_NEW_ROUTE101",
+      "offset": -70,
+      "direction": "down"
     }
   ],
   "object_events": [
