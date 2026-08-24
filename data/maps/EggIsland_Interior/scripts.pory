@@ -563,6 +563,11 @@ script SetEggOnPedestal{
     msgbox(SetEggOnPedestal_Text3)
     special(CalculatePlayerPartyCount)
     callnative(UpdateEggPP)
+    counteggs
+    if(var(VAR_EGGS) == 0){
+        setflag(FLAG_FORCE_EGG)
+        setvar(VAR_FORCE_ENCOUNTER, 0)
+    }
     // callnative(ForceResetFollowers)
     release
     end

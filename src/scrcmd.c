@@ -1330,7 +1330,7 @@ bool8 ScrCmd_applymovement(struct ScriptContext *ctx)
         gSprites[objEvent->spriteId].animCmdIndex = 0; // Reset start frame of animation
     }
 
-    if (localId == LOCALID_PORTAL1 && FlagGet(FLAG_DISABLE_KO_ANIM))
+    if (localId == LOCALID_PORTAL1 && FlagGet(FLAG_UNLOCK_PORTAL))
     {
         ClearObjectEventMovement(objEvent, &gSprites[objEvent->spriteId]);
     }
@@ -4350,4 +4350,44 @@ bool8 ScrCmd_normalmsg(struct ScriptContext *ctx)
 
     gMsgIsSignPost = FALSE;
     return FALSE;
+}
+
+void TryInitPortalAffineAnim(void)
+{
+    int i;
+
+    for (i = 0; i < OBJECT_EVENTS_COUNT; i++)
+    {
+        if (gObjectEvents[i].localId == LOCALID_PORTAL1)
+        {
+            if (!gObjectEvents[i].active)
+                break;
+            struct Sprite *sprite = &gSprites[gObjectEvents[i].spriteId];
+
+            if (!(sprite->oam.affineMode & ST_OAM_AFFINE_ON_MASK))
+            {
+                sprite->oam.affineMode = ST_OAM_AFFINE_DOUBLE;
+                InitSpriteAffineAnim(sprite);
+            }
+            StartSpriteAffineAnim(sprite, 3);
+
+            sprite->subspriteMode = SUBSPRITES_OFF;
+            sprite->affineAnimPaused = FALSE;
+            break;
+        }
+    }
+}
+
+void Task_TryInitPortalAffineAnim(u8 taskId)
+{
+    if (++gTasks[taskId].data[0] < 2)
+        return;
+
+    TryInitPortalAffineAnim();
+    DestroyTask(taskId);
+}
+
+void QueuePortalAffineAnim(void)
+{
+    CreateTask(Task_TryInitPortalAffineAnim, 0);
 }

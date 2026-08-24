@@ -91,11 +91,12 @@ script EventScript_FollowerEgg{
 }
 
 script Script_StartMenuRest{
+    lockall
     call(Common_EventScript_OutOfCenterPartyHeal)
     callnative(UpdateEggPP)
     callnative(DoInitialSave)
     msgbox("Your party has been\nfully healed.\pYour progress has been saved.")
-    release
+    releaseall
     end
 }
 

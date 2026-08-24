@@ -854,8 +854,8 @@
       "x": 40,
       "y": 21,
       "elevation": 0,
-      "var": "FLAG_HIDE_HONCHKROW",
-      "var_value": "FALSE",
+      "var": "VAR_UNUSED_0x40A8",
+      "var_value": "0",
       "script": "AnimatePortal"
     }
   ],

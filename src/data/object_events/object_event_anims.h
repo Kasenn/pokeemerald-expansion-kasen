@@ -2001,9 +2001,19 @@ const union AffineAnimCmd gPortalAffineAnimCmds2[] =
     AFFINEANIMCMD_END,
 };
 
+const union AffineAnimCmd gPortalAffineAnimCmds3[] =
+{
+    AFFINEANIMCMD_FRAME(336, 336, 0, 0),
+    AFFINEANIMCMD_FRAME(0x0, 0x0, 3, 80),
+    AFFINEANIMCMD_JUMP(1),
+    AFFINEANIMCMD_END,
+};
+
 static const union AffineAnimCmd *const sAffineAnimTable_Portal[] = {
     gPortalAffineAnimCmds1,
     gPortalAffineAnimCmds2,
+    gPortalAffineAnimCmds3,
+    gPortalAffineAnimCmds3,
 };
 
 static const union AffineAnimCmd *const sAffineAnimTable_KyogreGroudon[] = {

@@ -774,6 +774,24 @@
       "var": "FLAG_EGGS_HATCHED",
       "var_value": "0",
       "script": "TurboBoostEncountersOff"
+    },
+    {
+      "type": "trigger",
+      "x": 45,
+      "y": 67,
+      "elevation": 0,
+      "var": "VAR_0x8001",
+      "var_value": "0",
+      "script": "Script_TryLootEgg"
+    },
+    {
+      "type": "trigger",
+      "x": 46,
+      "y": 67,
+      "elevation": 0,
+      "var": "VAR_0x8001",
+      "var_value": "0",
+      "script": "Script_TryLootEgg"
     }
   ],
   "bg_events": [

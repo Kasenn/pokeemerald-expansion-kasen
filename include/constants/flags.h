@@ -683,8 +683,8 @@
 #define FLAG_DIGLETT_UPGRADE        0x274
 #define FLAG_DONT_DESPAWN_PORTAL    0x275
 #define FLAG_EXP_SHARE              0x276
-#define FLAG_UNUSED_0x277  0x277 // Unused Flag
-#define FLAG_UNUSED_0x278  0x278 // Unused Flag
+#define FLAG_UNLOCK_PORTAL  0x277 // Unused Flag
+#define FLAG_YOSHI_LEVELED  0x278 // Unused Flag
 #define FLAG_UNUSED_0x279  0x279 // Unused Flag
 #define FLAG_UNUSED_0x27A  0x27A // Unused Flag
 #define FLAG_UNUSED_0x27B  0x27B // Unused Flag

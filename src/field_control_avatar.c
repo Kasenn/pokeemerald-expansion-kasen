@@ -711,7 +711,7 @@ static bool8 StandingOnMushroom(struct MapPosition *position)
         ScriptContext_SetupScript(EventScript_LootMushroom);
         return TRUE;
     }
-    if (VarGet(VAR_MUSHROOM2_X) == position->x - MAP_OFFSET && VarGet(VAR_MUSHROOM2_Y) == position->y - MAP_OFFSET)
+    if (VarGet(VAR_MUSHROOM2_X) == position->x - MAP_OFFSET && VarGet(VAR_MUSHROOM2_Y) == position->y - MAP_OFFSET && gSaveBlock1Ptr->location.mapNum == MAP_NUM(MAP_EGG_ISLAND_INTERIOR))
     {
         ScriptContext_SetupScript(EventScript_LootMushroom);
         return TRUE;

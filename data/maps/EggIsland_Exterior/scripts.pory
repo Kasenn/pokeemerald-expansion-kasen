@@ -48,6 +48,11 @@ mapscripts EggIsland_Exterior_MapScripts {
             setmetatile(VAR_BERRYBRIDGE_X, 53, 0x239, FALSE)
         }
     }
+    MAP_SCRIPT_ON_RETURN_TO_FIELD{
+        if(flag(FLAG_DISABLE_KO_ANIM)){
+            callnative(QueuePortalAffineAnim)
+        }
+    }
 }
 
 script SetUpAreaOne{
@@ -636,6 +641,10 @@ script HonchkrowScript{
 }
 
 script AnimatePortal{
+    if(!flag(FLAG_HIDE_HONCHKROW)){
+        release
+        end
+    }
     setflag(FLAG_DONT_DESPAWN_PORTAL)
     addobject(LOCALID_PORTAL1)
     applymovement(8, moves(init_affine_anim, walk_down_start_affine))
@@ -644,7 +653,7 @@ script AnimatePortal{
 }
 
 script FinaleTrigger{
-    lockall
+    // lockall
     fadenewbgm(MUS_KAMEK)
     savebgm(MUS_KAMEK)
     delay(32)
@@ -661,12 +670,16 @@ script FinaleTrigger{
     addvar(VAR_0x8000, 3)
     callnative(ZeroEnemyPartyMons)
     setflag(FLAG_DISABLE_KO_ANIM)
+    if(flag(FLAG_YOSHI_LEVELED)){
+        subvar(VAR_0x8000, 1)
+    }
     createmon(1, 0, SPECIES_KAMEK, VAR_0x8000, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
     setspeaker("Kamek")
     msgbox(KamekBattleIntro, MSGBOX_AUTOCLOSE)
     clearflag(FLAG_FIRST_ANIM_OVER)
     clearflag(FLAG_SECOND_ANIM_OVER)
     playse(SE_M_MINIMIZE)
+    setflag(FLAG_UNLOCK_PORTAL)
     applymovement(LOCALID_PORTAL1, moves(walk_down_affine, delay_16 * 5))
     delay(2)
     setflag(FLAG_SECOND_ANIM_OVER)
