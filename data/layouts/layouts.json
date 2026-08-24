@@ -4424,7 +4424,7 @@
     {
       "id": "LAYOUT_NEW_ROUTE101",
       "name": "NewRoute101_Layout",
-      "width": 49,
+      "width": 109,
       "height": 40,
       "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood",
