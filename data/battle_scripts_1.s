@@ -3177,11 +3177,11 @@ BattleScript_LearnedNewMove::
 	updatechoicemoveonlvlup
 	goto BattleScript_TryLearnMoveLoop
 BattleScript_LearnMoveReturn::
-	playse SE_USE_ITEM
-	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	curestatus BS_SCRIPTING
-	updatestatusicon BS_SCRIPTING
+	@playse SE_USE_ITEM
+	@healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE//wip
+	@datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	@curestatus BS_SCRIPTING
+	@updatestatusicon BS_SCRIPTING
 	return
 
 BattleScript_WeatherAbilityActivates::

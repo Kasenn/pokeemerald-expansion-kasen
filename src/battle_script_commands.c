@@ -4171,6 +4171,8 @@ static void Cmd_getexp(void)
                 PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, 0, *expMonId);
                 PREPARE_BYTE_NUMBER_BUFFER(gBattleTextBuff2, 3, GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_LEVEL));
                 gLeveledUpInBattle |= 1 << *expMonId;
+                if (GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_SPECIES) == SPECIES_CHANSEY && FlagGet(FLAG_DISABLE_KO_ANIM))
+                    FlagSet(FLAG_YOSHI_LEVELED);
                 BattleScriptCall(BattleScript_LevelUp);
                 gBattleStruct->battlerExpReward = T1_READ_32(&gBattleResources->bufferB[0][2]);
                 AdjustFriendship(&gParties[B_TRAINER_PLAYER][*expMonId], FRIENDSHIP_EVENT_GROW_LEVEL);
@@ -4181,8 +4183,8 @@ static void Cmd_getexp(void)
                 else if (gBattlerPartyIndexes[2] == *expMonId && gBattleMons[2].hp && (IsDoubleBattle()))
                     battler = 2;
 
-                gBattleScripting.battler = battler;
-                SetHealAmount(battler, GetNonDynamaxMaxHP(battler));
+                // gBattleScripting.battler = battler;//wip
+                // SetHealAmount(battler, GetNonDynamaxMaxHP(battler));
 
 
                 if (battler != MAX_BATTLERS_COUNT)
