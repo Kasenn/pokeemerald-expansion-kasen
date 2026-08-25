@@ -753,7 +753,7 @@
     {
       "type": "trigger",
       "x": 55,
-      "y": 41,
+      "y": 42,
       "elevation": 0,
       "var": "FLAG_SLEEPING_SNORLAX_INTRO",
       "var_value": "0",
@@ -762,7 +762,7 @@
     {
       "type": "trigger",
       "x": 54,
-      "y": 41,
+      "y": 42,
       "elevation": 0,
       "var": "FLAG_SLEEPING_SNORLAX_INTRO",
       "var_value": "0",
@@ -771,7 +771,7 @@
     {
       "type": "trigger",
       "x": 53,
-      "y": 41,
+      "y": 42,
       "elevation": 0,
       "var": "FLAG_SLEEPING_SNORLAX_INTRO",
       "var_value": "0",
@@ -857,6 +857,15 @@
       "var": "VAR_UNUSED_0x40A8",
       "var_value": "0",
       "script": "AnimatePortal"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 41,
+      "elevation": 0,
+      "var": "FLAG_SLEEPING_SNORLAX_INTRO",
+      "var_value": "0",
+      "script": "SleepingSnorlaxIntro"
     }
   ],
   "bg_events": [
