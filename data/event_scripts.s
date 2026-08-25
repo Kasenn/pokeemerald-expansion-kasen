@@ -2441,3 +2441,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 
 	.include "data/maps/Nes/scripts.inc"
 	.include "data/scripts/wild_encounter.inc"
+
+	.include "data/maps/ProfsGlade_Exterior/scripts.inc"

@@ -15,7 +15,7 @@
   "connections": [
     {
       "map": "MAP_PEARLWOOD_POINT",
-      "offset": 7,
+      "offset": 0,
       "direction": "left"
     },
     {

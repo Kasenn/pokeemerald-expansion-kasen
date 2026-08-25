@@ -4455,7 +4455,7 @@
       "id": "LAYOUT_PEARLWOOD_POINT",
       "name": "PearlwoodPoint_Layout",
       "width": 36,
-      "height": 37,
+      "height": 44,
       "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/PearlwoodPoint/border.bin",
@@ -7790,6 +7790,16 @@
       "secondary_tileset": "gTileset_Petalburg",
       "border_filepath": "data/layouts/Nes/border.bin",
       "blockdata_filepath": "data/layouts/Nes/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROFS_GLADE_EXTERIOR",
+      "name": "ProfsGlade_Exterior_Layout",
+      "width": 36,
+      "height": 34,
+      "primary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_Pearlwood",
+      "border_filepath": "data/layouts/ProfsGlade_Exterior/border.bin",
+      "blockdata_filepath": "data/layouts/ProfsGlade_Exterior/map.bin"
     }
   ]
 }
