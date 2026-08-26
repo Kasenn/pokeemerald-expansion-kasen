@@ -363,3 +363,6 @@ const u16 gMetatileAttributes_Mauville2[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_Nes[] = INCBIN_U16("data/tilesets/primary/nes/metatiles.bin");
 const u16 gMetatileAttributes_Nes[] = INCBIN_U16("data/tilesets/primary/nes/metatile_attributes.bin");
+
+const u16 gMetatiles_Coralgrove_Harbor[] = INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/metatiles.bin");
+const u16 gMetatileAttributes_Coralgrove_Harbor[] = INCBIN_U16("data/tilesets/secondary/coralgrove_harbor/metatile_attributes.bin");

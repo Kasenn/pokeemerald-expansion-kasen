@@ -16,6 +16,7 @@ TILESET(gTileset_BrendansMaysHouse);
 
 TILESET(gTileset_Pearlwood);
 TILESET(gTileset_Coralgrove_Secondary);
+TILESET(gTileset_Coralgrove_Harbor);
 TILESET(gTileset_Marigorge);
 TILESET(gTileset_Shoreslate);
 TILESET(gTileset_Kaolisle);

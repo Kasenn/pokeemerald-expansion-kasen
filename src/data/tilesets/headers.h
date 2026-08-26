@@ -1404,3 +1404,14 @@ const struct Tileset gTileset_Nes =
     .metatileAttributes = gMetatileAttributes_Nes,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_Coralgrove_Harbor =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_Coralgrove_Harbor,
+    .palettes = gTilesetPalettes_Coralgrove_Harbor,
+    .metatiles = gMetatiles_Coralgrove_Harbor,
+    .metatileAttributes = gMetatileAttributes_Coralgrove_Harbor,
+    .callback = NULL,
+};

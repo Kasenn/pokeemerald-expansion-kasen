@@ -88,6 +88,7 @@ enum
     MAP_FRIGID_FRONTIER10       = (73 | (0 << 8)),
     MAP_ROUTE28_PART2_SIDE_AREA = (74 | (0 << 8)),
     MAP_SNOWCREST_CITY_PART2    = (75 | (0 << 8)),
+    MAP_PROFS_GLADE_EXTERIOR    = (76 | (0 << 8)),
 
     // gMapGroup_RouteInteriors
     MAP_ROUTE7_GROTTO                 = (0 | (1 << 8)),

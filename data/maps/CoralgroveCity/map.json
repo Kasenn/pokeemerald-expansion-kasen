@@ -275,15 +275,15 @@
   ],
   "warp_events": [
     {
-      "x": 7,
-      "y": 49,
+      "x": 4,
+      "y": 47,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "2"
     },
     {
-      "x": 7,
-      "y": 48,
+      "x": 4,
+      "y": 46,
       "elevation": 0,
       "dest_map": "MAP_WINDY_WOODS",
       "dest_warp_id": "3"
@@ -352,15 +352,15 @@
       "dest_warp_id": "0"
     },
     {
-      "x": 25,
-      "y": 59,
+      "x": 3,
+      "y": 46,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "3"
     },
     {
-      "x": 26,
-      "y": 59,
+      "x": 3,
+      "y": 47,
       "elevation": 0,
       "dest_map": "MAP_ROUTE2",
       "dest_warp_id": "4"

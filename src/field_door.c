@@ -342,6 +342,7 @@ static const struct NewDoorGraphics sDoorAnimGraphicsTable[] =
 {
     {&gTileset_Pearlwood,               DOORS(sPearlwoodDoors)},
     {&gTileset_Primrose_Secondary,      DOORS(sPrimroseDoors)},
+    {&gTileset_Coralgrove_Harbor,       DOORS(sCoralgroveDoors)},
     {&gTileset_Coralgrove_Secondary,    DOORS(sCoralgroveDoors)},
     {&gTileset_Aldeleaf,                DOORS(sAldeleafDoors)},
     {&gTileset_Skyloch,                 DOORS(sSkylochDoors)},

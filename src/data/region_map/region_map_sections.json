@@ -1179,6 +1179,15 @@
     },
     {
       "id": "MAPSEC_FORTREE_CITY"
+    },
+    {
+      "id": "MAPSEC_ROUTE_111"
+    },
+    {
+      "id": "MAPSEC_ROUTE_118"
+    },
+    {
+      "id": "MAPSEC_ROUTE_110"
     }
   ]
 }
