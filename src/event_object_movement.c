@@ -11268,7 +11268,10 @@ void GroundEffect_JumpLandingDust(struct ObjectEvent *objEvent, struct Sprite *s
 
 void GroundEffect_ShortGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    StartFieldEffectForObjectEvent(FLDEFF_SHORT_GRASS, objEvent);
+    if (MAP(MAP_ROUTE2))
+        StartFieldEffectForObjectEvent(FLDEFF_SHORT_GRASS_ALT, objEvent);
+    else
+        StartFieldEffectForObjectEvent(FLDEFF_SHORT_GRASS, objEvent);
 }
 
 void GroundEffect_HotSprings(struct ObjectEvent *objEvent, struct Sprite *sprite)

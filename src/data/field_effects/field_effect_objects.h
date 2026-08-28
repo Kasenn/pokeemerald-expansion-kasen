@@ -1179,6 +1179,15 @@ const struct SpriteTemplate gFieldEffectObjectTemplate_ShortGrass = {
     .callback = UpdateShortGrassFieldEffect,
 };
 
+const struct SpriteTemplate gFieldEffectObjectTemplate_ShortGrassAlt = {
+    .tileTag = TAG_NONE,
+    .paletteTag = FLDEFF_PAL_TAG_GENERAL_2,
+    .oam = &gObjectEventBaseOam_16x16,
+    .anims = sAnimTable_ShortGrass,
+    .images = sPicTable_ShortGrass,
+    .callback = UpdateShortGrassFieldEffect,
+};
+
 static const struct SpriteFrameImage sPicTable_HotSpringsWater[] = {
     obj_frame_tiles(gFieldEffectObjectPic_HotSpringsWater),
 };

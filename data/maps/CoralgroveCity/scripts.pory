@@ -2,6 +2,11 @@ mapscripts CoralgroveCity_MapScripts{
     MAP_SCRIPT_ON_TRANSITION{
         setflag(FLAG_VISITED_CORALGROVE_CITY)
         setflag(FLAG_TEMP_1)
+
+        getplayerxy(VAR_TEMP_4, VAR_TEMP_5)
+        if(var(VAR_TEMP_5) == 14){
+            setvar(VAR_TEMP_1, 1)
+        }
     }
 }
 
@@ -178,5 +183,17 @@ script MonFleeOff{
 
 script MonFleeOn{
     setflag(FLAG_WILDS_CAN_FLEE)
+    release
+}
+
+script LoadCoralgroveAdditionalPalette{
+    setvar(VAR_TEMP_1, 1)
+    callnative(LoadCoralGroveAdditionalPal)
+    release
+}
+
+script LoadCoralgroveOriginallPalette{
+    setvar(VAR_TEMP_1, 0)
+    callnative(LoadCoralGroveOriginalPal)
     release
 }

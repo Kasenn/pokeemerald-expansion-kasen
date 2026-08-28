@@ -1247,6 +1247,8 @@ bool8 MetatileBehavior_IsShortGrass(u8 metatileBehavior)
 {
     if (metatileBehavior == MB_SHORT_GRASS)
         return TRUE;
+    else if(metatileBehavior == MB_SHORT_GRASS_ALT)
+        return TRUE;
     else
         return FALSE;
 }

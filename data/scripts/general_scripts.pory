@@ -551,19 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    givemon(SPECIES_SPINDA, 5)
-    giveegg(SPECIES_SPINDA)
-    giveegg(SPECIES_SPINDA)
-    giveegg(SPECIES_SPINDA)
-    giveegg(SPECIES_SPINDA)
-    giveegg(SPECIES_SPINDA)
-    giveegg(SPECIES_SPINDA)
+    setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
     return
 }
 script Debug_Script_4{

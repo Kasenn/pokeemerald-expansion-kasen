@@ -684,7 +684,12 @@ u32 FldEff_ShortGrass(void)
 {
     u8 objectEventId = GetObjectEventIdByLocalIdAndMap(gFieldEffectArguments[0], gFieldEffectArguments[1], gFieldEffectArguments[2]);
     struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
-    u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_SHORT_GRASS], 0, 0, 0);
+
+    u8 grassType = FLDEFFOBJ_SHORT_GRASS;
+    if (MAP(MAP_ROUTE2))
+        grassType = FLDEFFOBJ_SHORT_GRASS_ALT;
+
+    u8 spriteId = CreateSpriteAtEnd(gFieldEffectObjectTemplatePointers[grassType], 0, 0, 0);
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &(gSprites[spriteId]);
@@ -705,7 +710,10 @@ void UpdateShortGrassFieldEffect(struct Sprite *sprite)
 
     if (TryGetObjectEventIdByLocalIdAndMap(sprite->sLocalId, sprite->sMapNum, sprite->sMapGroup, &objectEventId) || !gObjectEvents[objectEventId].inShortGrass)
     {
-        FieldEffectStop(sprite, FLDEFF_SHORT_GRASS);
+        if (MAP(MAP_ROUTE2))
+            FieldEffectStop(sprite, FLDEFF_SHORT_GRASS_ALT);
+        else
+            FieldEffectStop(sprite, FLDEFF_SHORT_GRASS);
     }
     else
     {

@@ -785,6 +785,7 @@
 #define LAYOUT_CRYSTALPINE_SMALL_HOUSE_2 778
 #define LAYOUT_NES 779
 #define LAYOUT_PROFS_GLADE_EXTERIOR 780
+#define LAYOUT_ROUTE2_LAYOUT_2 781
 
 //Constants for unused layouts
 #define LAYOUT_TRAINER_TOWER_1F                   0xFFFF

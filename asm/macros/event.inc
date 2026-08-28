@@ -3122,7 +3122,7 @@
 	.2byte \y
 	.endm
 
-	.macro drawtiles map:req, srcX1:req, srcY1:req, srcX2:req, srcY2:req, destX:req, destY:req
+	.macro drawtiles map:req, srcX1:req, srcY1:req, srcX2:req, srcY2:req, destX:req, destY:req, updateMap=TRUE
     callnative ScrCmd_DrawTiles
     .2byte \map
     .2byte \srcX1
@@ -3131,6 +3131,7 @@
     .2byte \srcY2
     .2byte \destX
     .2byte \destY
+	.byte \updateMap
 	.endm
 
 	.macro iscurrentmap map:req

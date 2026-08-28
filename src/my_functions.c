@@ -813,6 +813,7 @@ void ScrCmd_DrawTiles(struct ScriptContext *ctx)
 
     s16 destXBase = VarGet(ScriptReadHalfword(ctx));
     s16 destYBase = VarGet(ScriptReadHalfword(ctx));
+    bool32 updateMap = ScriptReadByte(ctx);
 
     s16 i, j;
 
@@ -831,8 +832,8 @@ void ScrCmd_DrawTiles(struct ScriptContext *ctx)
             MapGridSetMetatileIdAt(destX + MAP_OFFSET, destY + MAP_OFFSET, metatile);
         }
     }
-
-    DrawWholeMapView();
+    if (updateMap)
+        DrawWholeMapView();
 }
 
 void PrepPlayerForGogoatRacing(void)
@@ -1097,4 +1098,19 @@ void TryShinyStarters(void)
         FlagSet(FLAG_SECOND_STARTER_SHINY);
     if (Random() < SHINY_ODDS)
         FlagSet(FLAG_THIRD_STARTER_SHINY);
+}
+
+static const u16 sCoralgrove_ExtraPalette[] = INCGFX_U16("data/tilesets/secondary/coralgrove_secondary/palettes/09backup.pal", ".gbapal");
+static const u16 sCoralgrove_OriginalPalette[] = INCGFX_U16("data/tilesets/secondary/coralgrove_secondary/palettes/09.pal", ".gbapal");              
+
+void LoadCoralGroveAdditionalPal(void)
+{
+    LoadPaletteFast(sCoralgrove_ExtraPalette, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
+    TimeMixPalettes(1, &gPlttBufferUnfaded[BG_PLTT_ID(9)], &gPlttBufferFaded[BG_PLTT_ID(9)], &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, 256);
+}
+
+void LoadCoralGroveOriginalPal(void)
+{
+    LoadPaletteFast(sCoralgrove_OriginalPalette, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
+    TimeMixPalettes(1, &gPlttBufferUnfaded[BG_PLTT_ID(9)], &gPlttBufferFaded[BG_PLTT_ID(9)], &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, 256);
 }

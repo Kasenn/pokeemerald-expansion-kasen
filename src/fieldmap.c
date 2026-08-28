@@ -1016,6 +1016,7 @@ static void ApplyGlobalTintToPaletteEntries(u16 offset, u16 size)
 
 }
 
+static const u16 sCoralgrove_ExtraPalette[] = INCGFX_U16("data/tilesets/secondary/coralgrove_secondary/palettes/09backup.pal", ".gbapal");
 
 static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u16 size, bool8 skipFaded, u32 numPalsInPrimary)
 {
@@ -1038,6 +1039,9 @@ static void LoadTilesetPalette(struct Tileset const *tileset, u16 destOffset, u1
                 CpuCopy16(tileset->palettes[numPalsInPrimary], &gPlttBufferUnfaded[destOffset], size);
             else
                 LoadPaletteFast(tileset->palettes[numPalsInPrimary], destOffset, size);
+
+            if (MAP(MAP_CORALGROVE_CITY) && gSaveBlock1Ptr->pos.y < 25 && gSaveBlock1Ptr->pos.y > 5)
+                LoadPaletteFast(sCoralgrove_ExtraPalette, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
         }
         else
         {

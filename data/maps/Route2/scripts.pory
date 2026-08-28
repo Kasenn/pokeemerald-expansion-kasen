@@ -1,15 +1,7 @@
 mapscripts Route2_MapScripts{
-    MAP_SCRIPT_ON_LOAD{
-        if(flag(FLAG_VISITED_CORALGROVE_CITY)){
-            setmetatile(74, 7, 0x0AF, FALSE)
-            setmetatile(75, 7, 0x0CF, FALSE)
-            setmetatile(75, 8, 0x071, FALSE)
-            setmetatile(74, 9, 0x0AF, FALSE)
-            setmetatile(75, 9, 0x0CF, FALSE)
-            setmetatile(74, 10, 0x071, FALSE)
-            setmetatile(74, 11, 0x0AF, FALSE)
-            setmetatile(75, 11, 0x0CF, FALSE)
-            setmetatile(74, 12, 0x071, FALSE)
+    MAP_SCRIPT_ON_TRANSITION{
+        if(var(VAR_WINDYWOODS_STATE) >= STORY_WINDY_WOODS_EVENT_COMPLETED){
+            setmaplayoutindex(LAYOUT_ROUTE2_LAYOUT_2)
         }
     }
 }

@@ -25,7 +25,7 @@
     },
     {
       "map": "MAP_PRIMROSE_MEADOW",
-      "offset": -6,
+      "offset": -4,
       "direction": "right"
     }
   ],
@@ -33,7 +33,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
       "x": 9,
-      "y": 12,
+      "y": 14,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -46,7 +46,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_FAT_MAN",
       "x": 22,
-      "y": 16,
+      "y": 18,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WANDER_AROUND",
       "movement_range_x": 1,
@@ -59,7 +59,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 25,
-      "y": 0,
+      "y": 2,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_UP",
       "movement_range_x": 0,
@@ -72,7 +72,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 19,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -85,7 +85,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 13,
-      "y": 20,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -98,7 +98,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 27,
-      "y": 21,
+      "y": 23,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -111,7 +111,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_MART_DOOR",
       "x": 25,
-      "y": 20,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -124,7 +124,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 9,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
       "movement_range_x": 0,
@@ -138,35 +138,35 @@
   "warp_events": [
     {
       "x": 11,
-      "y": 20,
+      "y": 22,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_POKEMON_CENTER_1F",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
-      "y": 9,
+      "y": 11,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
       "dest_warp_id": "0"
     },
     {
       "x": 27,
-      "y": 12,
+      "y": 14,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE1",
       "dest_warp_id": "0"
     },
     {
       "x": 25,
-      "y": 21,
+      "y": 23,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_MART",
       "dest_warp_id": "0"
     },
     {
       "x": 4,
-      "y": 6,
+      "y": 8,
       "elevation": 0,
       "dest_map": "MAP_OLDALE_TOWN_HOUSE2",
       "dest_warp_id": "2"
@@ -176,7 +176,7 @@
     {
       "type": "trigger",
       "x": 26,
-      "y": 0,
+      "y": 2,
       "elevation": 0,
       "var": "FLAG_SYS_POKEDEX_GET",
       "var_value": "0",
@@ -185,7 +185,7 @@
     {
       "type": "trigger",
       "x": 12,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -194,7 +194,7 @@
     {
       "type": "trigger",
       "x": 13,
-      "y": 11,
+      "y": 13,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -203,7 +203,7 @@
     {
       "type": "trigger",
       "x": 11,
-      "y": 9,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -212,7 +212,7 @@
     {
       "type": "trigger",
       "x": 12,
-      "y": 9,
+      "y": 11,
       "elevation": 0,
       "var": "VAR_TEMP_0",
       "var_value": "0",
@@ -223,7 +223,7 @@
     {
       "type": "sign",
       "x": 8,
-      "y": 23,
+      "y": 25,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "PrimroseTown_Sign"
@@ -231,7 +231,7 @@
     {
       "type": "sign",
       "x": 23,
-      "y": 13,
+      "y": 15,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
       "script": "Primrose_Sign2"

@@ -27,10 +27,10 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
-      "x": 22,
-      "y": 50,
+      "x": 0,
+      "y": 61,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_UP",
+      "movement_type": "MOVEMENT_TYPE_INVISIBLE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -445,6 +445,42 @@
       "var": "VAR_TEMP_0",
       "var_value": "0",
       "script": "MonFleeOff"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "LoadCoralgroveAdditionalPalette"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 25,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "0",
+      "script": "LoadCoralgroveAdditionalPalette"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "LoadCoralgroveOriginallPalette"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 51,
+      "elevation": 0,
+      "var": "VAR_TEMP_1",
+      "var_value": "1",
+      "script": "LoadCoralgroveOriginallPalette"
     }
   ],
   "bg_events": [

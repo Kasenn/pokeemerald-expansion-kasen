@@ -4465,7 +4465,7 @@
       "id": "LAYOUT_PRIMROSE_TOWN",
       "name": "PrimroseTown_Layout",
       "width": 37,
-      "height": 30,
+      "height": 32,
       "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Primrose_Secondary",
       "border_filepath": "data/layouts/PrimroseTown/border.bin",
@@ -4477,7 +4477,7 @@
       "width": 95,
       "height": 63,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Pearlwood",
+      "secondary_tileset": "gTileset_Route2New",
       "border_filepath": "data/layouts/Route2/border.bin",
       "blockdata_filepath": "data/layouts/Route2/map.bin"
     },
@@ -4505,7 +4505,7 @@
       "id": "LAYOUT_CORALGROVE_CITY",
       "name": "CoralgroveCity_Layout",
       "width": 58,
-      "height": 60,
+      "height": 64,
       "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Coralgrove_Secondary",
       "border_filepath": "data/layouts/CoralgroveCity/border.bin",
@@ -7800,6 +7800,16 @@
       "secondary_tileset": "gTileset_Pearlwood",
       "border_filepath": "data/layouts/ProfsGlade_Exterior/border.bin",
       "blockdata_filepath": "data/layouts/ProfsGlade_Exterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE2_LAYOUT_2",
+      "name": "Route2_Layout_2",
+      "width": 95,
+      "height": 63,
+      "primary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_Route2New",
+      "border_filepath": "data/layouts/Route2_Layout_2/border.bin",
+      "blockdata_filepath": "data/layouts/Route2_Layout_2/map.bin"
     }
   ]
 }

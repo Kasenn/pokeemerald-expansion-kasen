@@ -987,6 +987,7 @@ static void Task_MainMenuCheckSaveFile(u8 taskId)
 
 static void Task_WaitForSaveFileErrorWindow(u8 taskId)
 {
+    sStopCuccoSwarm = TRUE;
     RunTextPrinters();
     if (!IsTextPrinterActiveOnWindow(7) && (JOY_NEW(A_BUTTON)))
     {
@@ -1038,6 +1039,7 @@ static void Task_DisplayMainMenu(u8 taskId)
 
     if (!gPaletteFade.active)
     {
+        sStopCuccoSwarm = 0;
         SetGpuReg(REG_OFFSET_WIN0H, 0);
         SetGpuReg(REG_OFFSET_WIN0V, 0);
         SetGpuReg(REG_OFFSET_WININ, WININ_WIN0_BG0 | WININ_WIN0_OBJ);

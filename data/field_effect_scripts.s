@@ -106,6 +106,7 @@ gFieldEffectScriptPointers::
 	.4byte gFieldEffectScript_TracksBugMud 				@ FLDEFF_TRACKS_BUG_MUD
 	.4byte gFieldEffectScript_TracksSlitherMud         	@ FLDEFF_TRACKS_SLITHER_MUD
 	.4byte gFieldEffectScript_OWE_SpawnAnim				@ FLDEFF_OW_ENCOUNTER_SPAWN_ANIM
+	.4byte gFieldEffectScript_ShortGrassAlt             @ FLDEFF_SHORT_GRASS_ALT
 
 gFieldEffectScript_ExclamationMarkIcon1::
 	field_eff_callnative FldEff_ExclamationMarkIcon
@@ -274,6 +275,10 @@ gFieldEffectScript_SandPile::
 
 gFieldEffectScript_ShortGrass::
 	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect1, FldEff_ShortGrass
+	field_eff_end
+
+gFieldEffectScript_ShortGrassAlt::
+	field_eff_loadfadedpal_callnative gSpritePalette_GeneralFieldEffect2, FldEff_ShortGrass
 	field_eff_end
 
 gFieldEffectScript_HotSpringsWater::
