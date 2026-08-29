@@ -1426,3 +1426,14 @@ const struct Tileset gTileset_Route2New =
     .metatileAttributes = gMetatileAttributes_Route2New,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_HighInTheSky =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_HighInTheSky,
+    .palettes = gTilesetPalettes_HighInTheSky,
+    .metatiles = gMetatiles_HighInTheSky,
+    .metatileAttributes = gMetatileAttributes_HighInTheSky,
+    .callback = NULL,
+};

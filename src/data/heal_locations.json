@@ -334,6 +334,18 @@
       "map": "MAP_SNOWCREST_CITY_PART2",
       "x": 26,
       "y": 6
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE2",
+      "map": "MAP_ROUTE2",
+      "x": 72,
+      "y": 17
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE3",
+      "map": "MAP_ROUTE3",
+      "x": 84,
+      "y": 11
     }
   ]
 }

@@ -291,7 +291,7 @@
 #define VAR_MINUTE_OVERRIDE                               0x410C
 #define VAR_POISON_STEP_COUNTER                               0x410D
 #define VAR_DIRECTION_OVERRIDE                               0x410E
-#define VAR_UNUSED_0x410F                               0x410F
+#define VAR_SKY_BATTLE                               0x410F
 
 #define VAR_UNUSED_0x4110                               0x4110
 #define VAR_UNUSED_0x4111                               0x4111

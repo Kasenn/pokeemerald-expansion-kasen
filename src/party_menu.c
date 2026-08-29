@@ -377,7 +377,7 @@ static void Task_CancelAfterAorBPress(u8);
 static void DisplayFieldMoveExitAreaMessage(u8);
 static void DisplayCantUseFlashMessage(void);
 static void DisplayCantUseSurfMessage(void);
-static void DisplayCantUseFlyMessage(void);
+// static void DisplayCantUseFlyMessage(void);
 static void Task_FieldMoveExitAreaYesNo(u8);
 static void Task_HandleFieldMoveExitAreaYesNoInput(u8);
 static void Task_FieldMoveWaitForFade(u8);
@@ -4359,17 +4359,17 @@ static void CursorCb_FieldMove(u8 taskId)
                 DisplayFieldMoveExitAreaMessage(taskId);
                 sPartyMenuInternal->data[0] = fieldMove;
                 break;
-            case FIELD_MOVE_FLY:
-                if(FlagGet(FLAG_PARTNER_HEALS)){
-                    DisplayCantUseFlyMessage();
-                    gTasks[taskId].func = Task_CancelAfterAorBPress;
-                    break;
-                }
-                else{
-                    gPartyMenu.exitCallback = CB2_OpenFlyMap;
-                    Task_ClosePartyMenu(taskId);
-                    break;
-                }
+            // case FIELD_MOVE_FLY:
+            //     if(FlagGet(FLAG_PARTNER_HEALS)){
+            //         DisplayCantUseFlyMessage();
+            //         gTasks[taskId].func = Task_CancelAfterAorBPress;
+            //         break;
+            //     }
+            //     else{
+            //         gPartyMenu.exitCallback = CB2_OpenFlyMap;
+            //         Task_ClosePartyMenu(taskId);
+            //         break;
+            //     }
             default:
                 gPartyMenu.exitCallback = CB2_ReturnToField;
                 Task_ClosePartyMenu(taskId);
@@ -4541,10 +4541,10 @@ static void DisplayCantUseSurfMessage(void)
         DisplayPartyMenuStdMessage(PARTY_MSG_CANT_SURF_HERE);
 }
 
-static void DisplayCantUseFlyMessage(void)
-{
-    DisplayPartyMenuStdMessage(PARTY_MSG_CANT_FLY_NOW);
-}
+// static void DisplayCantUseFlyMessage(void)
+// {
+//     DisplayPartyMenuStdMessage(PARTY_MSG_CANT_FLY_NOW);
+// }
 
 bool32 SetUpFieldMove_Fly(void)
 {

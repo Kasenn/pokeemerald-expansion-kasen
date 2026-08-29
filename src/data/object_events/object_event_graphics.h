@@ -966,3 +966,7 @@ const u16 gObjectEventPic_ClefairyOld[] = INCGFX_U16("graphics/object_events/pic
 #endif // IS_FRLG
 
 const u32 gFieldEffectObjectPic_ShinySparkle[] = INCGFX_U32("graphics/field_effects/pics/shiny_sparkle.png", ".4bpp", "-mwidth 2 -mheight 4");
+
+const u32 gObjectEventPic_DrifblimBalloon[] = INCGFX_U32("graphics/object_events/pics/people/drifblimballoon.png", ".4bpp", "-mwidth 8 -mheight 8");
+const u32 gObjectEventPic_DrifblimBalloonGate[] = INCGFX_U32("graphics/object_events/pics/people/drifblimballoongate.png", ".4bpp", "-mwidth 2 -mheight 4");
+const u16 gObjectEventPalette_DrifblimBalloon[] = INCGFX_U16("graphics/object_events/pics/people/drifblimballoon.png", ".gbapal");

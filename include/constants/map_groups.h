@@ -161,6 +161,7 @@ enum
     MAP_LATIOS_ISLAND                    = (45 | (2 << 8)),
     MAP_ROUTE20_RACE_COURSE              = (46 | (2 << 8)),
     MAP_ROUTE20_RANCH_RACE               = (47 | (2 << 8)),
+    MAP_HIGH_IN_THE_SKY                  = (48 | (2 << 8)),
 
     // gMapGroup_IndoorPearlwoodPoint
     MAP_LAB2                   = (0 | (3 << 8)),

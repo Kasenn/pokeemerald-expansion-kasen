@@ -1114,3 +1114,29 @@ void LoadCoralGroveOriginalPal(void)
     LoadPaletteFast(sCoralgrove_OriginalPalette, BG_PLTT_ID(9), PLTT_SIZE_4BPP);
     TimeMixPalettes(1, &gPlttBufferUnfaded[BG_PLTT_ID(9)], &gPlttBufferFaded[BG_PLTT_ID(9)], &gTimeBlend.startBlend, &gTimeBlend.endBlend, gTimeBlend.weight, 256);
 }
+
+void ForceFadeOutBGM(void)
+{
+    FadeOutBGM(8);
+}
+
+void TestSkybattleEligibility(void)
+{   
+    int i;
+    for (i = 0; i < NUM_SPECIES; i++)
+    {
+        enum Ability ability1 = GetSpeciesAbility(i, 0);
+        enum Ability ability2 = GetSpeciesAbility(i, 1);
+        enum Ability ability3 = GetSpeciesAbility(i, 2);
+
+        bool32 hasLevitateAbility = (ability1 == ABILITY_LEVITATE || ability1 == ABILITY_EELEVATE
+                                  || ability2 == ABILITY_LEVITATE || ability2 == ABILITY_EELEVATE
+                                  || ability3 == ABILITY_LEVITATE || ability3 == ABILITY_EELEVATE);
+        bool32 isFlyingType = GetSpeciesType(i, 0) == TYPE_FLYING || GetSpeciesType(i, 1) == TYPE_FLYING;
+
+        if ((hasLevitateAbility || isFlyingType) && !gSpeciesInfo[i].isSkyBattleBanned)
+            DebugPrintf2("%S", gSpeciesInfo[i].speciesName);
+    }
+
+
+}

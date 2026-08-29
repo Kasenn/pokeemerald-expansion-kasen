@@ -1330,6 +1330,8 @@ void SpriteCB_EnemyShadow(struct Sprite *shadowSprite)
 
     if (gBattleSpritesDataPtr->battlerData[battler].behindSubstitute)
         invisible = TRUE;
+    if (MAP(MAP_HIGH_IN_THE_SKY))
+        invisible = TRUE;
 
     shadowSprite->x = battlerSprite->x + xOffset;
     shadowSprite->x2 = battlerSprite->x2;

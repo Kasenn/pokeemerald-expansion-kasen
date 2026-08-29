@@ -272,8 +272,8 @@
 #define B_VAR_NO_BAG_USE         0     // If set to 1, the ability to use the Bag is disabled in Trainer battles. If set to 2, it is also disabled in wild battles.
 
 // Sky Battles
-#define B_FLAG_SKY_BATTLE                 0     // If this flag has a value, the player will be able to engage in scripted Sky Battles.
-#define B_VAR_SKY_BATTLE                  0     // If this var has a value, the game will remember the positions of Pokémon used in Sky Battles.
+#define B_FLAG_SKY_BATTLE                 FLAG_SKY_BATTLE     // If this flag has a value, the player will be able to engage in scripted Sky Battles.
+#define B_VAR_SKY_BATTLE                  VAR_SKY_BATTLE     // If this var has a value, the game will remember the positions of Pokémon used in Sky Battles.
 #define B_SKY_BATTLE_STRICT_ELIGIBILITY   FALSE // If TRUE, Sky Battles will use the eligibility from X and Y. If FALSE, all Flying-types and Pokémon with Levitate are allowed.
 
 // Flag and Var settings

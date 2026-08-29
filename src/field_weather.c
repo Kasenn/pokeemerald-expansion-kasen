@@ -20,6 +20,7 @@
 #include "gpu_regs.h"
 #include "field_camera.h"
 #include "overworld.h"
+#include "event_data.h"
 
 #define DROUGHT_COLOR_INDEX(color) ((((color) >> 1) & 0xF) | (((color) >> 2) & 0xF0) | (((color) >> 3) & 0xF00))
 
@@ -742,6 +743,12 @@ void FadeSelectedPals(u8 mode, s8 delay, u32 selectedPalettes)
     u32 fadeColor;
     bool8 fadeOut;
     bool8 useWeatherPal;
+
+    if (FlagGet(FLAG_DONT_FADE))
+    {
+        // FlagClear(FLAG_DONT_FADE);
+        return;
+    }
 
     switch (mode)
     {

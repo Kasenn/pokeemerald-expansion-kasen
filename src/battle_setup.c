@@ -730,7 +730,7 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
     if (gBattleTypeFlags & BATTLE_TYPE_GROTTO)
         return BATTLE_ENVIRONMENT_GROTTO;
     
-    if (gOnLatiIslands)
+    if (gOnLatiIslands || (MAP(MAP_HIGH_IN_THE_SKY)))
         return BATTLE_ENVIRONMENT_SOARING;
 
     if ((GetSavedWeather() == WEATHER_SNOW || GetSavedWeather() == WEATHER_BLIZZARD)

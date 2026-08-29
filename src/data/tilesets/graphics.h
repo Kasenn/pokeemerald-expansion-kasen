@@ -2663,3 +2663,22 @@ const u16 gTilesetPalettes_Route2New[][16] =
 };
 
 const u32 gTilesetTiles_Route2New[] = INCBIN_U32("data/tilesets/secondary/route_2new/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_HighInTheSky[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/high_in_the_sky/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_HighInTheSky[] = INCBIN_U32("data/tilesets/secondary/high_in_the_sky/tiles.4bpp.lz");

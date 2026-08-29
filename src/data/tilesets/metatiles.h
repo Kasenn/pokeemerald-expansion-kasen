@@ -369,3 +369,6 @@ const u16 gMetatileAttributes_Coralgrove_Harbor[] = INCBIN_U16("data/tilesets/se
 
 const u16 gMetatiles_Route2New[] = INCBIN_U16("data/tilesets/secondary/route_2new/metatiles.bin");
 const u16 gMetatileAttributes_Route2New[] = INCBIN_U16("data/tilesets/secondary/route_2new/metatile_attributes.bin");
+
+const u16 gMetatiles_HighInTheSky[] = INCBIN_U16("data/tilesets/secondary/high_in_the_sky/metatiles.bin");
+const u16 gMetatileAttributes_HighInTheSky[] = INCBIN_U16("data/tilesets/secondary/high_in_the_sky/metatile_attributes.bin");

@@ -39,10 +39,10 @@ static bool32 IsFieldMoveUnlocked_Surf(void)
     return FlagGet(FLAG_BADGE05_GET);
 }
 
-static bool32 IsFieldMoveUnlocked_Fly(void)
-{
-    return FlagGet(FLAG_BADGE02_GET);
-}
+// static bool32 IsFieldMoveUnlocked_Fly(void)
+// {
+//     return FlagGet(FLAG_BADGE02_GET);
+// }
 
 static bool32 IsFieldMoveUnlocked_Dive(void)
 {
@@ -134,13 +134,13 @@ const struct FieldMoveInfo gFieldMoveInfo[FIELD_MOVES_COUNT] =
         .partyMsgID = PARTY_MSG_CANT_SURF_HERE,
     },
 
-    [FIELD_MOVE_FLY] =
-    {
-        .fieldMoveFunc = SetUpFieldMove_Fly,
-        .isUnlockedFunc = IsFieldMoveUnlocked_Fly,
-        .moveID = MOVE_FLY,
-        .partyMsgID = PARTY_MSG_CANT_USE_HERE,
-    },
+    // [FIELD_MOVE_FLY] =
+    // {
+    //     .fieldMoveFunc = SetUpFieldMove_Fly,
+    //     .isUnlockedFunc = IsFieldMoveUnlocked_Fly,
+    //     .moveID = MOVE_FLY,
+    //     .partyMsgID = PARTY_MSG_CANT_USE_HERE,
+    // },
 
     [FIELD_MOVE_DIVE] =
     {

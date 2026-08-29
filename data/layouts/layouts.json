@@ -7810,6 +7810,16 @@
       "secondary_tileset": "gTileset_Route2New",
       "border_filepath": "data/layouts/Route2_Layout_2/border.bin",
       "blockdata_filepath": "data/layouts/Route2_Layout_2/map.bin"
+    },
+    {
+      "id": "LAYOUT_HIGH_IN_THE_SKY",
+      "name": "HighInTheSky_Layout",
+      "width": 65,
+      "height": 20,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_HighInTheSky",
+      "border_filepath": "data/layouts/HighInTheSky/border.bin",
+      "blockdata_filepath": "data/layouts/HighInTheSky/map.bin"
     }
   ]
 }

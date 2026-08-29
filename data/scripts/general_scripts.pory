@@ -551,13 +551,14 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED)
+    callnative(TestSkybattleEligibility)
     return
 }
 script Debug_Script_4{
-    special(SpawnCameraObject)
-    playbgm(MUS_AWAKEN_LEGEND, 0)
-    end
+    setpartylevel(100)
+    // special(SpawnCameraObject)
+    // playbgm(MUS_AWAKEN_LEGEND, 0)
+    // end
     return
 }
 script Debug_Script_5{
@@ -1266,4 +1267,53 @@ script Pearlwood_Debug{
     }
     release
     end
+}
+
+script UnlockFlightpoint_1{
+    setflag(FLAG_FLIGHTPOINT1)
+    release
+}
+
+script DriftblimExpress{
+    faceplayer
+    msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setflag(FLAG_OPENED_MAP_FROM_SIGN)
+    msgbox("Please choose your destination.")
+    fadescreen(FADE_TO_BLACK)
+    callnative(OpenFlyMapFromSign)
+    waitstate
+    msgbox("Let's fly!", MSGBOX_AUTOCLOSE)
+    delay(8)
+    applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
+    waitmovement(0)
+    delay(8)
+    // setflag(FLAG_DONT_FADE)
+    warpsilent(MAP_HIGH_IN_THE_SKY, 0)
+    waitstate
+}
+
+script DriftblimExpress2{
+    faceplayer
+    msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    setflag(FLAG_OPENED_MAP_FROM_SIGN)
+    msgbox("Please choose your destination.")
+    fadescreen(FADE_TO_BLACK)
+    callnative(OpenFlyMapFromSign)
+    waitstate
+    msgbox("Let's fly!", MSGBOX_AUTOCLOSE)
+    delay(8)
+    applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
+    waitmovement(0)
+    delay(8)
+    // setflag(FLAG_DONT_FADE)
+    warpsilent(MAP_HIGH_IN_THE_SKY, 1)
+    waitstate
 }

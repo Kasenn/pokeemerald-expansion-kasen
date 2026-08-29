@@ -3620,3 +3620,11 @@ static const struct SpriteFrameImage sPicTable_MomFrlg[] = {
 };
 
 #endif // IS_FRLG
+
+static const struct SpriteFrameImage sPicTable_DrifblimBalloon[] = {
+    overworld_frame(gObjectEventPic_DrifblimBalloon, 8, 8, 0),
+};
+
+static const struct SpriteFrameImage sPicTable_DrifblimBalloonGate[] = {
+    overworld_frame(gObjectEventPic_DrifblimBalloonGate, 2, 4, 0),
+};

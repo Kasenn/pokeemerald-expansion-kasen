@@ -786,6 +786,7 @@
 #define LAYOUT_NES 779
 #define LAYOUT_PROFS_GLADE_EXTERIOR 780
 #define LAYOUT_ROUTE2_LAYOUT_2 781
+#define LAYOUT_HIGH_IN_THE_SKY 782
 
 //Constants for unused layouts
 #define LAYOUT_TRAINER_TOWER_1F                   0xFFFF

@@ -918,6 +918,9 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
     {
         invisible = gSpeciesInfo[species].suppressEnemyShadow;
 
+        if (MAP(MAP_HIGH_IN_THE_SKY))
+            invisible = TRUE;
+
         LoadCompressedSpriteSheet(&gSpriteSheet_EnemyShadowsSized);
         LoadSpritePalette(&sSpritePalettes_HealthBoxHealthBar[color][0]);
         u8 x = sBattlerCoords[0][1].x;

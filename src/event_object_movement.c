@@ -645,6 +645,7 @@ static const struct SpritePalette sObjectEventSpritePalettes[] = {
     {gObjectEventPalette_Flag,          OBJ_EVENT_PAL_TAG_FLAG},
     {gObjectEventPalette_Brendan_Contest,   OBJ_EVENT_PAL_TAG_BRENDAN_CONTEST},
     {gObjectEventPalette_May_Contest,       OBJ_EVENT_PAL_TAG_CONTEST_MAY},
+    {gObjectEventPalette_DrifblimBalloon,       OBJ_EVENT_PAL_TAG_DRIFBLIM_BALLOON},
     
 #if IS_FRLG
     {gObjectEventPal_PlayerFrlg,            OBJ_EVENT_PAL_TAG_PLAYER_RED},
@@ -3309,6 +3310,8 @@ void RemoveObjectEventsOutsideView(void)
             if (objectEvent->localId == OBJ_EVENT_ID_NPC_FOLLOWER || objectEvent->localId == OBJ_EVENT_ID_FOLLOWER)
                 continue;
             if (IsOWEDespawnExempt(objectEvent))
+                continue;
+            if (FlagGet(FLAG_DONT_DESPAWN_OBJECTS))
                 continue;
 
             RemoveObjectEventIfOutsideView(objectEvent);
