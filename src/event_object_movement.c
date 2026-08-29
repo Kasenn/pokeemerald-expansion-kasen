@@ -2510,7 +2510,7 @@ void RemoveLast2Followers(void)
 {
     u8 remove = 2;
 
-    for (int i = OBJECT_EVENTS_COUNT; i > 0; i--)
+    for (int i = OBJECT_EVENTS_COUNT - 1; i >= 0; i--)
     {
         if (remove == 0)
             break;

@@ -8,9 +8,7 @@
 // Ruby's actual debug build does not use the AGBPrint features.
 //
 // Use `make release` to automatically enable NDEBUG.
-#ifdef RELEASE
 #define NDEBUG
-#endif
 
 // printf debugging is now enabled by default. This allows
 // the various AGBPrint functions to be used. (See include/gba/isagbprint.h).

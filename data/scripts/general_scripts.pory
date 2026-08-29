@@ -469,6 +469,11 @@ script MakeBerryBridge{
 
     setmetatile(VAR_X, 54, 0x238, FALSE)
     setmetatile(VAR_X, 53, 0x239, FALSE)
+
+    if(var(VAR_X) == 71){
+        setmetatile(VAR_X, 54, 0x23B, FALSE)
+        setmetatile(VAR_X, 53, 0x23C, FALSE)
+    }
     special(DrawWholeMapView)
     removeobject(LOCALID_BERRYBRIDGEEGG_1)
     removeobject(LOCALID_BERRYBRIDGEEGG_2)

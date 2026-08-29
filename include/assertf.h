@@ -91,17 +91,8 @@
 
 #define _FATALASSERTF_FMT(cond, fmt, ...) do { if (!(cond)) _FATALASSERTF_HANDLE("%s:%d: " fmt, __FILE__, __LINE__ __VA_OPT__(,) __VA_ARGS__); } while (0)
 
-#if RELEASE
 #define _ASSERTF_HANDLE(...) (void)0
 #define _FATALASSERTF_HANDLE(fmt, ...) FatalfCrashScreen(__builtin_return_address(0), fmt, __VA_ARGS__)
-#elif TESTING
-#include "test_result.h"
-#define _ASSERTF_HANDLE(fmt, ...) Test_ExitWithResult(TEST_RESULT_INVALID, 0, fmt, __VA_ARGS__)
-#define _FATALASSERTF_HANDLE(fmt, ...) Test_ExitWithResult(TEST_RESULT_CRASH, 0, fmt, __VA_ARGS__)
-#else
-#define _ASSERTF_HANDLE(fmt, ...) AssertfCrashScreen(__builtin_return_address(0), fmt, __VA_ARGS__)
-#define _FATALASSERTF_HANDLE(fmt, ...) FatalfCrashScreen(__builtin_return_address(0), fmt, __VA_ARGS__)
-#endif
 
 void AssertfCrashScreen(const void *return0, const char *fmt, ...);
 _Noreturn void FatalfCrashScreen(const void *return0, const char *fmt, ...);

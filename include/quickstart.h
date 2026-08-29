@@ -5,11 +5,7 @@
 
 void CB2_SkipToNewGame(void);
 
-#if RELEASE
-    #define QUICKSTART FALSE
-#else
-    #define QUICKSTART ENABLE_QUICKSTART
-#endif
+#define QUICKSTART FALSE
 
 void CreateQuickstartHud(void);
 void Quickstart(void);
