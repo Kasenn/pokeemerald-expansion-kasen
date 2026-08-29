@@ -1036,6 +1036,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_HOOTHOOT
     [SPECIES_HOOTHOOT] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 60,
         .baseAttack    = 30,
         .baseDefense   = 30,
@@ -1987,6 +1988,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_NATU
     [SPECIES_NATU] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 40,
         .baseAttack    = 50,
         .baseDefense   = 45,
@@ -3948,6 +3950,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_MURKROW
     [SPECIES_MURKROW] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 60,
         .baseAttack    = 85,
         .baseDefense   = 42,
@@ -7311,6 +7314,7 @@ const struct SpeciesInfo gSpeciesInfoGen2[] =
 #if P_FAMILY_DELIBIRD
     [SPECIES_DELIBIRD] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 45,
         .baseAttack    = 55,
         .baseDefense   = 45,

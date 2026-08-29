@@ -2006,6 +2006,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_PIDOVE
     [SPECIES_PIDOVE] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 50,
         .baseAttack    = 55,
         .baseDefense   = 50,
@@ -6969,6 +6970,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_ARCHEN
     [SPECIES_ARCHEN] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 55,
         .baseAttack    = 112,
         .baseDefense   = 45,
@@ -8227,6 +8229,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_DUCKLETT
     [SPECIES_DUCKLETT] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 62,
         .baseAttack    = 44,
         .baseDefense   = 50,
@@ -12522,6 +12525,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_RUFFLET
     [SPECIES_RUFFLET] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 70,
         .baseAttack    = 83,
         .baseDefense   = 50,
@@ -12742,6 +12746,7 @@ const struct SpeciesInfo gSpeciesInfoGen5[] =
 #if P_FAMILY_VULLABY
     [SPECIES_VULLABY] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 70,
         .baseAttack    = 55,
         .baseDefense   = 75,

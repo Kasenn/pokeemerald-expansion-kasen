@@ -756,6 +756,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_STARLY
     [SPECIES_STARLY] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 40,
         .baseAttack    = 55,
         .baseDefense   = 30,
@@ -4269,6 +4270,7 @@ const struct SpeciesInfo gSpeciesInfoGen4[] =
 #if P_FAMILY_CHATOT
     [SPECIES_CHATOT] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 76,
         .baseAttack    = 65,
         .baseDefense   = 45,

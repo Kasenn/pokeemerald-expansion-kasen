@@ -1131,6 +1131,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 #if P_FAMILY_FLETCHLING
     [SPECIES_FLETCHLING] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 45,
         .baseAttack    = 50,
         .baseDefense   = 43,
@@ -5064,6 +5065,7 @@ const struct SpeciesInfo gSpeciesInfoGen6[] =
 #if P_FAMILY_HAWLUCHA
     [SPECIES_HAWLUCHA] =
     {
+        .isSkyBattleBanned = B_SKY_BATTLE_STRICT_ELIGIBILITY,
         .baseHP        = 78,
         .baseAttack    = 92,
         .baseDefense   = 75,
