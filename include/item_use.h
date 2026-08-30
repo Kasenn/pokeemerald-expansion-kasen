@@ -59,6 +59,7 @@ void ItemUseOutOfBattle_PikachuBait(u8 taskId);
 void ItemUseOutOfBattle_TmCase(u8 taskId);
 void CB2_OpenTMCaseFromBag(void);
 void CB2_OpenTMCaseFromField(void);
+void ItemUseOutOfBattle_FlightFlute(u8 taskId);
 
 enum {
     BALL_THROW_UNABLE_TWO_MONS,

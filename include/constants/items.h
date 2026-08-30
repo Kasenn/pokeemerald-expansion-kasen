@@ -1085,6 +1085,8 @@ enum __attribute__((packed)) Item
     ITEM_TATSUGIRINITE = 905,
     ITEM_GLIMMORANITE = 906,
 
+    ITEM_FLIGHT_FLUTE,
+
     ITEMS_COUNT,
     ITEM_FIELD_ARROW = ITEMS_COUNT,
 };

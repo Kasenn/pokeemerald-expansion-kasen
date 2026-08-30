@@ -694,7 +694,7 @@ static void ClearDiveAndHoleWarps(void)
     sFixedHoleWarp = sDummyWarpData;
 }
 
-static void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
+void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
     warp->mapGroup = mapGroup;
     warp->mapNum = mapNum;
@@ -847,6 +847,11 @@ void UpdateEscapeWarp(s16 x, s16 y)
 void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 {
     SetWarpData(&gSaveBlock1Ptr->escapeWarp, mapGroup, mapNum, warpId, x, y);
+}
+
+void SetWarpDestinationToFlightPointWarp(void)
+{
+    sWarpDestination = gSaveBlock1Ptr->flightPointWarp;
 }
 
 void SetWarpDestinationToEscapeWarp(void)

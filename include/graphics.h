@@ -3623,4 +3623,7 @@ extern const u32 gObjectEventPal_Gogoat[];
 extern const u32 gGhostFrontPic[];
 extern const u16 gGhostPalette[];
 
+extern const u32 gItemIcon_FlightFlute[];
+extern const u16 gItemIconPalette_FlightFlute[];
+
 #endif //GUARD_GRAPHICS_H

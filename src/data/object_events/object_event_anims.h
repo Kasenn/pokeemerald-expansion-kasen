@@ -1741,6 +1741,97 @@ static const union AnimCmd *const sAnimTable_Spirit[] = {
     [ANIM_STD_GO_FASTEST_EAST] = sAnim_Spirit,
 };
 
+static const union AnimCmd sAnim_FlockFaceLeft[] =
+{
+    ANIMCMD_FRAME(0, 16),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockFaceRight[] =
+{
+    ANIMCMD_FRAME(0, 16, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoLeft[] =
+{
+    ANIMCMD_FRAME(0, 8),
+    ANIMCMD_FRAME(1, 8),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoRight[] =
+{
+    ANIMCMD_FRAME(0, 8, .hFlip = TRUE),
+    ANIMCMD_FRAME(1, 8, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoLeftFast[] =
+{
+    ANIMCMD_FRAME(0, 4),
+    ANIMCMD_FRAME(1, 4),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoRightFast[] =
+{
+    ANIMCMD_FRAME(0, 4, .hFlip = TRUE),
+    ANIMCMD_FRAME(1, 4, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoLeftFaster[] =
+{
+    ANIMCMD_FRAME(0, 2),
+    ANIMCMD_FRAME(1, 2),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoRightFaster[] =
+{
+    ANIMCMD_FRAME(0, 2, .hFlip = TRUE),
+    ANIMCMD_FRAME(1, 2, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoLeftFastest[] =
+{
+    ANIMCMD_FRAME(0, 1),
+    ANIMCMD_FRAME(1, 1),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd sAnim_FlockGoRightFastest[] =
+{
+    ANIMCMD_FRAME(0, 1, .hFlip = TRUE),
+    ANIMCMD_FRAME(1, 1, .hFlip = TRUE),
+    ANIMCMD_JUMP(0),
+};
+
+static const union AnimCmd *const sAnimTable_Flock[] = {
+    [ANIM_STD_FACE_SOUTH] = sAnim_FlockFaceLeft,
+    [ANIM_STD_FACE_NORTH] = sAnim_FlockFaceRight,
+    [ANIM_STD_FACE_WEST] = sAnim_FlockFaceLeft,
+    [ANIM_STD_FACE_EAST] = sAnim_FlockFaceRight,
+    [ANIM_STD_GO_SOUTH] = sAnim_FlockGoLeft,
+    [ANIM_STD_GO_NORTH] = sAnim_FlockGoRight,
+    [ANIM_STD_GO_WEST] = sAnim_FlockGoLeft,
+    [ANIM_STD_GO_EAST] = sAnim_FlockGoRight,
+    [ANIM_STD_GO_FAST_SOUTH] = sAnim_FlockGoLeftFast,
+    [ANIM_STD_GO_FAST_NORTH] = sAnim_FlockGoRightFast,
+    [ANIM_STD_GO_FAST_WEST] = sAnim_FlockGoLeftFast,
+    [ANIM_STD_GO_FAST_EAST] = sAnim_FlockGoRightFast,
+    [ANIM_STD_GO_FASTER_SOUTH] = sAnim_FlockGoLeftFaster,
+    [ANIM_STD_GO_FASTER_NORTH] = sAnim_FlockGoRightFaster,
+    [ANIM_STD_GO_FASTER_WEST] = sAnim_FlockGoLeftFaster,
+    [ANIM_STD_GO_FASTER_EAST] = sAnim_FlockGoRightFaster,
+    [ANIM_STD_GO_FASTEST_SOUTH] = sAnim_FlockGoLeftFastest,
+    [ANIM_STD_GO_FASTEST_NORTH] = sAnim_FlockGoRightFastest,
+    [ANIM_STD_GO_FASTEST_WEST] = sAnim_FlockGoLeftFastest,
+    [ANIM_STD_GO_FASTEST_EAST] = sAnim_FlockGoRightFastest,
+};
+
 static const union AnimCmd *const sAnimTable_Standard[] = {
     [ANIM_STD_FACE_SOUTH] = sAnim_FaceSouth,
     [ANIM_STD_FACE_NORTH] = sAnim_FaceNorth,

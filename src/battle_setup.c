@@ -688,6 +688,7 @@ static void CB2_EndScriptedWildBattle(void)
     }
     else
     {
+        HandleBattleVariantEndParty();
         DowngradeBadPoison();
         SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
     }

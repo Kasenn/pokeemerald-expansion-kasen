@@ -1891,4 +1891,47 @@ void ItemUseOutOfBattle_PokeFlute(u8 taskId)
 //     Task_FadeAndCloseBagMenu(taskId);
 // }
 
+static bool8 CanUseFlyOnCurMap(void)
+{
+    if (!CheckFollowerNPCFlag(FOLLOWER_NPC_FLAG_CAN_LEAVE_ROUTE))
+        return FALSE;
+
+    if (Overworld_MapTypeAllowsTeleportAndFly(gMapHeader.mapType) == TRUE)
+        return TRUE;
+    else
+        return FALSE;
+}
+
+void Task_UseFlightFluteOnField(u8 taskId)
+{
+    ResetInitialPlayerAvatarState();
+    StartFlightFluteFieldEffect();
+    DestroyTask(taskId);
+}
+
+static void ItemUseOnFieldCB_FlightFlute(u8 taskId)
+{
+    Overworld_ResetStateAfterFly();
+
+    CopyItemName(gSpecialVar_ItemId, gStringVar2);
+    PlaySE(SE_GLASS_FLUTE);
+    StringExpandPlaceholders(gStringVar4, gText_PlayerUsedVar2);
+    gTasks[taskId].data[0] = 0;
+    DisplayItemMessageOnField(taskId, gStringVar4, Task_UseFlightFluteOnField);
+}
+
+void ItemUseOutOfBattle_FlightFlute(u8 taskId)//wip
+{
+    
+    if (CanUseFlyOnCurMap() == TRUE)
+    {
+        sItemUseOnFieldCB = ItemUseOnFieldCB_FlightFlute;
+        SetUpItemUseOnFieldCallback(taskId);
+    }
+    else
+    {
+        DisplayDadsAdviceCannotUseItemMessage(taskId, gTasks[taskId].tUsingRegisteredKeyItem);
+    }
+}
+
 #undef tUsingRegisteredKeyItem

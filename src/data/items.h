@@ -16553,6 +16553,23 @@ const struct ItemInfo gItemsInfo[] =
         .iconPic = gItemIcon_Camera,
         .iconPalette = gItemIconPalette_Camera,
     },
+
+    [ITEM_FLIGHT_FLUTE] =
+    {
+        .name = ITEM_NAME("Flight Flute"),
+        .description = COMPOUND_STRING(
+            "Use to return\n"
+            "to the last visited\n"
+            "Drifblim Balloon."),
+        .price = 0,
+        .importance = 1,
+        .pocket = POCKET_KEY_ITEMS,
+        .type = ITEM_USE_FIELD,
+        .fieldUseFunc = ItemUseOutOfBattle_FlightFlute,
+        .flingPower = 30,
+        .iconPic = gItemIcon_FlightFlute,
+        .iconPalette = gItemIconPalette_FlightFlute,
+    },
 };
 
 #undef ITEM_NAME

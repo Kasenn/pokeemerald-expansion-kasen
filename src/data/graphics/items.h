@@ -2206,3 +2206,6 @@ const u16 gItemIconPalette_TwiceSpicedRadish[] = INCGFX_U16("graphics/items/icon
 
 const u32 gItemIcon_BondAnklet[] = INCGFX_U32("graphics/items/icons/bond_anklet.png", ".4bpp.smol");
 const u16 gItemIconPalette_BondAnklet[] = INCGFX_U16("graphics/items/icons/bond_anklet.png", ".gbapal");
+
+const u32 gItemIcon_FlightFlute[] = INCGFX_U32("graphics/items/icons/flight_flute.png", ".4bpp.smol");
+const u16 gItemIconPalette_FlightFlute[] = INCGFX_U16("graphics/items/icons/flight_flute.png", ".gbapal");

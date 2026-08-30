@@ -2251,96 +2251,100 @@ DriftblimExpress::
 # 1285 "data/scripts/general_scripts.pory"
 	faceplayer
 # 1286 "data/scripts/general_scripts.pory"
+	callnative SetLastVisitedDrifblimBalloon
+# 1287 "data/scripts/general_scripts.pory"
 	goto_if_unset FLAG_INTRO_TO_DRIFBLIM_EXPRESS, DriftblimExpress_2
-# 1291 "data/scripts/general_scripts.pory"
+# 1292 "data/scripts/general_scripts.pory"
 	msgbox DriftblimExpress_Text_0, MSGBOX_YESNO
 DriftblimExpress_1:
-# 1293 "data/scripts/general_scripts.pory"
+# 1294 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DriftblimExpress_6
-# 1297 "data/scripts/general_scripts.pory"
-	setflag FLAG_OPENED_MAP_FROM_SIGN
-# 1298 "data/scripts/general_scripts.pory"
-	msgbox DriftblimExpress_Text_1
 # 1299 "data/scripts/general_scripts.pory"
-	fadescreen FADE_TO_BLACK
+	setflag FLAG_OPENED_MAP_FROM_SIGN
 # 1300 "data/scripts/general_scripts.pory"
-	callnative OpenFlyMapFromSign
+	msgbox DriftblimExpress_Text_2
 # 1301 "data/scripts/general_scripts.pory"
-	waitstate
+	fadescreen FADE_TO_BLACK
 # 1302 "data/scripts/general_scripts.pory"
+	callnative OpenFlyMapFromSign
+# 1303 "data/scripts/general_scripts.pory"
+	waitstate
+# 1304 "data/scripts/general_scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq DriftblimExpress_9
-# 1307 "data/scripts/general_scripts.pory"
-	msgbox DriftblimExpress_Text_3, MSGBOX_AUTOCLOSE
-# 1308 "data/scripts/general_scripts.pory"
-	delay 8
 # 1309 "data/scripts/general_scripts.pory"
-	switch VAR_FACING
+	msgbox DriftblimExpress_Text_3, MSGBOX_AUTOCLOSE
 # 1310 "data/scripts/general_scripts.pory"
-	case DIR_NORTH, DriftblimExpress_13
+	delay 8
+# 1311 "data/scripts/general_scripts.pory"
+	switch VAR_FACING
 # 1312 "data/scripts/general_scripts.pory"
-	case DIR_WEST, DriftblimExpress_14
+	case DIR_NORTH, DriftblimExpress_13
 # 1314 "data/scripts/general_scripts.pory"
-	case DIR_EAST, DriftblimExpress_15
+	case DIR_WEST, DriftblimExpress_14
 # 1316 "data/scripts/general_scripts.pory"
+	case DIR_EAST, DriftblimExpress_15
+# 1318 "data/scripts/general_scripts.pory"
 	case DIR_SOUTH, DriftblimExpress_16
 DriftblimExpress_11:
-# 1319 "data/scripts/general_scripts.pory"
-	waitmovement 0
-# 1320 "data/scripts/general_scripts.pory"
-	delay 8
 # 1321 "data/scripts/general_scripts.pory"
+	waitmovement 0
+# 1322 "data/scripts/general_scripts.pory"
+	delay 8
+# 1323 "data/scripts/general_scripts.pory"
 	compare VAR_0x8002, DIR_EAST
 	goto_if_eq DriftblimExpress_18
-# 1325 "data/scripts/general_scripts.pory"
+# 1327 "data/scripts/general_scripts.pory"
 	warpsilent MAP_HIGH_IN_THE_SKY, 1
 DriftblimExpress_17:
-# 1327 "data/scripts/general_scripts.pory"
+# 1329 "data/scripts/general_scripts.pory"
 	waitstate
 	return
 
 DriftblimExpress_2:
-# 1287 "data/scripts/general_scripts.pory"
-	setflag FLAG_INTRO_TO_DRIFBLIM_EXPRESS
 # 1288 "data/scripts/general_scripts.pory"
+	setflag FLAG_INTRO_TO_DRIFBLIM_EXPRESS
+# 1289 "data/scripts/general_scripts.pory"
 	msgbox DriftblimExpress_Text, MSGBOX_YESNO
 	goto DriftblimExpress_1
 
 DriftblimExpress_6:
-# 1294 "data/scripts/general_scripts.pory"
+# 1295 "data/scripts/general_scripts.pory"
+	msgbox DriftblimExpress_Text_1
+# 1296 "data/scripts/general_scripts.pory"
 	release
 	end
 
 DriftblimExpress_9:
-# 1303 "data/scripts/general_scripts.pory"
-	msgbox DriftblimExpress_Text_2
-# 1304 "data/scripts/general_scripts.pory"
+# 1305 "data/scripts/general_scripts.pory"
+	msgbox DriftblimExpress_Text_1
+# 1306 "data/scripts/general_scripts.pory"
 	release
 	end
 
 DriftblimExpress_13:
-# 1311 "data/scripts/general_scripts.pory"
+# 1313 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, DriftblimExpress_Movement_0
 	goto DriftblimExpress_11
 
 DriftblimExpress_14:
-# 1313 "data/scripts/general_scripts.pory"
+# 1315 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, DriftblimExpress_Movement_1
 	goto DriftblimExpress_11
 
 DriftblimExpress_15:
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, DriftblimExpress_Movement_2
 	goto DriftblimExpress_11
 
 DriftblimExpress_16:
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	applymovement LOCALID_PLAYER, DriftblimExpress_Movement_3
 	goto DriftblimExpress_11
 
 DriftblimExpress_18:
-# 1322 "data/scripts/general_scripts.pory"
+# 1324 "data/scripts/general_scripts.pory"
 	warpsilent MAP_HIGH_IN_THE_SKY, 0
 	goto DriftblimExpress_17
 
@@ -2423,51 +2427,51 @@ Debug_Script_6_Movement_0:
 	walk_down
 	step_end
 
-# 1311 "data/scripts/general_scripts.pory"
+# 1313 "data/scripts/general_scripts.pory"
 DriftblimExpress_Movement_0:
-# 1311 "data/scripts/general_scripts.pory"
+# 1313 "data/scripts/general_scripts.pory"
 	walk_right
-# 1311 "data/scripts/general_scripts.pory"
+# 1313 "data/scripts/general_scripts.pory"
 	walk_up
-# 1311 "data/scripts/general_scripts.pory"
+# 1313 "data/scripts/general_scripts.pory"
 	walk_up
 	step_end
 
-# 1313 "data/scripts/general_scripts.pory"
+# 1315 "data/scripts/general_scripts.pory"
 DriftblimExpress_Movement_1:
-# 1313 "data/scripts/general_scripts.pory"
+# 1315 "data/scripts/general_scripts.pory"
 	walk_in_place_fast_up
 	step_end
 
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 DriftblimExpress_Movement_2:
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	walk_down
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	walk_right
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	walk_right
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	walk_up
-# 1315 "data/scripts/general_scripts.pory"
+# 1317 "data/scripts/general_scripts.pory"
 	walk_up
 	step_end
 
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 DriftblimExpress_Movement_3:
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_left
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_down
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_down
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_right
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_right
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_up
-# 1317 "data/scripts/general_scripts.pory"
+# 1319 "data/scripts/general_scripts.pory"
 	walk_up
 	step_end
 
@@ -2616,19 +2620,19 @@ Pearlwood_Debug_Text_4:
 	.string "Okay then.\nBye!$"
 
 DriftblimExpress_Text_0:
-# 1291 "data/scripts/general_scripts.pory"
+# 1292 "data/scripts/general_scripts.pory"
 	.string "Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?$"
 
 DriftblimExpress_Text_1:
-# 1298 "data/scripts/general_scripts.pory"
-	.string "Please choose your destination.$"
-
-DriftblimExpress_Text_2:
-# 1303 "data/scripts/general_scripts.pory"
+# 1295 "data/scripts/general_scripts.pory"
 	.string "Let me know if there's\nsomewhere you'd like to fly.$"
 
+DriftblimExpress_Text_2:
+# 1300 "data/scripts/general_scripts.pory"
+	.string "Please choose your destination.$"
+
 DriftblimExpress_Text_3:
-# 1307 "data/scripts/general_scripts.pory"
+# 1309 "data/scripts/general_scripts.pory"
 	.string "Alright, let's fly!$"
 
 FollowerSpottedAnItemNearby_Text::
@@ -2873,7 +2877,7 @@ EndOfBeta2::
 	.string "try exploring some other areas?$"
 
 DriftblimExpress_Text::
-# 1330 "data/scripts/general_scripts.pory"
+# 1332 "data/scripts/general_scripts.pory"
 	.string "Welcome to Drifblim Express.\p"
 	.string "From here you can travel to any\n"
 	.string "other Drifblim Express location\l"

@@ -354,8 +354,8 @@
     {
       "id": "MAPSEC_HIGHINTHESKY",
       "name": "high in the sky",
-      "x": 0,
-      "y": 0,
+      "x": 1,
+      "y": 1,
       "width": 1,
       "height": 1
     },

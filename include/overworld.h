@@ -198,6 +198,8 @@ bool32 IsSendingKeysOverCable(void);
 void ClearLinkPlayerObjectEvents(void);
 bool16 SetTimeOfDay(u16 hours);
 bool8 MetatileBehavior_IsSurfableInSeafoamIslands(u16 metatileBehavior);
+void SetWarpDestinationToFlightPointWarp(void);
+void SetWarpData(struct WarpData *warp, s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y);
 
 // Item Description Headers
 enum ItemObtainFlags

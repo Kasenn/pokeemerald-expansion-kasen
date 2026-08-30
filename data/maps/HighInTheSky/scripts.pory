@@ -15,12 +15,12 @@ mapscripts HighInTheSky_MapScripts {
             setvar(VAR_DIRECTION, DIR_EAST)
             addvar(VAR_X, 9)
         }
-        // if(random(64) == 0){
+        if(random(64) == 0){
             setflag(FLAG_SKY_BATTLE)
-        // }
-        // elif(var(VAR_RESULT) == 1){
-        //     setflag(FLAG_WILD_FLOCK)
-        // }
+        }
+        elif(var(VAR_RESULT) == 1){
+            setflag(FLAG_WILD_FLOCK)
+        }
     }
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_DIRECTION, DIR_WEST: MoveDrifballoonLeftToRight
@@ -41,7 +41,6 @@ script TrySetUpSkyBattle{
     }
     special(TrySkyBattle)
     if(var(VAR_RESULT) == TRUE){
-        setvar(VAR_SKY_BATTLE, 1)
         callnative(TrySpawnSkyBattle)
         delay(1)
         createmon(1, 0, VAR_0x8000, VAR_0x8001)
@@ -84,12 +83,11 @@ script MoveDrifballoonLeftToRight{
         playmoncry(VAR_0x8000, CRY_MODE_NORMAL)
         delay(8)
         applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_right))
-        waitmovement(0)
+        waitmovementall
         waitmoncry
         delay(16)
         setflag(FLAG_SYS_CTRL_OBJ_DELETE)
         setflag(FLAG_SKY_BATTLE)
-        setvar(VAR_SKY_BATTLE, 1)
         doscriptedbattle
 
         clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
@@ -101,9 +99,14 @@ script MoveDrifballoonLeftToRight{
         applymovement(LOCALID_CAMERA, moves(walk_slow_right * 10))
         delay(240)
 
+        clearflag(FLAG_DONT_DESPAWN_OBJECTS)
+        setvar(VAR_SKY_BATTLE, 0)
+        clearflag(FLAG_SKY_BATTLE)
+        clearflag(FLAG_WILD_FLOCK)
         callnative(ForceFadeOutBGM)
         fadescreenspeed(FADE_TO_BLACK, 4)
-        waitmovement(0)
+        waitmovementall
+        special(RemoveCameraObject)
         warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
     }
     else{
@@ -136,9 +139,14 @@ script MoveDrifballoonLeftToRight{
             delay(480)
         }
 
+        clearflag(FLAG_DONT_DESPAWN_OBJECTS)
+        setvar(VAR_SKY_BATTLE, 0)
+        clearflag(FLAG_SKY_BATTLE)
+        clearflag(FLAG_WILD_FLOCK)
         callnative(ForceFadeOutBGM)
         fadescreenspeed(FADE_TO_BLACK, 4)
-        waitmovement(0)
+        waitmovementall
+        special(RemoveCameraObject)
         warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
     }
 }
@@ -165,12 +173,11 @@ script MoveDrifballoonRightToLeft{
         playmoncry(VAR_0x8000, CRY_MODE_NORMAL)
         delay(8)
         applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_left))
-        waitmovement(0)
+        waitmovementall
         waitmoncry
         delay(16)
         setflag(FLAG_SYS_CTRL_OBJ_DELETE)
         setflag(FLAG_SKY_BATTLE)
-        setvar(VAR_SKY_BATTLE, 1)
         doscriptedbattle
 
         clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
@@ -182,9 +189,14 @@ script MoveDrifballoonRightToLeft{
         applymovement(LOCALID_CAMERA, moves(walk_slow_left * 10))
         delay(240)
 
+        clearflag(FLAG_DONT_DESPAWN_OBJECTS)
+        setvar(VAR_SKY_BATTLE, 0)
+        clearflag(FLAG_SKY_BATTLE)
+        clearflag(FLAG_WILD_FLOCK)
         callnative(ForceFadeOutBGM)
         fadescreenspeed(FADE_TO_BLACK, 4)
-        waitmovement(0)
+        waitmovementall
+        special(RemoveCameraObject)
         warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
     }
     else{
@@ -217,9 +229,14 @@ script MoveDrifballoonRightToLeft{
             delay(480)
         }
 
+        clearflag(FLAG_DONT_DESPAWN_OBJECTS)
+        setvar(VAR_SKY_BATTLE, 0)
+        clearflag(FLAG_SKY_BATTLE)
+        clearflag(FLAG_WILD_FLOCK)
         callnative(ForceFadeOutBGM)
         fadescreenspeed(FADE_TO_BLACK, 4)
-        waitmovement(0)
+        waitmovementall
+        special(RemoveCameraObject)
         warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
     }
 }

@@ -72,6 +72,7 @@
 #include "start_menu.h"
 #include "constants/abilities.h"
 #include "tm_case.h"
+#include "heal_location.h"
 
 static bool8 sIsScriptedWildDouble;
 
@@ -1241,4 +1242,13 @@ void TrySpawnSkyBattle(void)
 
     gSpecialVar_0x8000 = species;
     gSpecialVar_0x8001 = (4 * badgeCount) + 4 + Random() % 3;
+}
+
+void SetLastVisitedDrifblimBalloon(void)
+{
+    const struct HealLocation *healLocation = GetHealLocationByMap(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
+    if (healLocation)
+    {
+        SetWarpData(&gSaveBlock1Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
+    }
 }

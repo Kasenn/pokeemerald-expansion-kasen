@@ -2075,14 +2075,7 @@ static const struct SpriteFrameImage sPicTable_Pidgeotto[] = {
 
 static const struct SpriteFrameImage sPicTable_Flock[] = {
     overworld_frame(gObjectEventPic_Flock, 8, 8, 0),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 2),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 4),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 0),
     overworld_frame(gObjectEventPic_Flock, 8, 8, 1),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 2),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 3),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 4),
-    overworld_frame(gObjectEventPic_Flock, 8, 8, 5),
 };
 
 static const struct SpriteFrameImage sPicTable_Pidgeot[] = {

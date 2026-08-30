@@ -1283,6 +1283,7 @@ script UnlockFlightpoint_1{
 
 script DriftblimExpress{
     faceplayer
+    callnative(SetLastVisitedDrifblimBalloon)
     if(!flag(FLAG_INTRO_TO_DRIFBLIM_EXPRESS)){
         setflag(FLAG_INTRO_TO_DRIFBLIM_EXPRESS)
         msgbox(DriftblimExpress_Text, MSGBOX_YESNO)
@@ -1291,6 +1292,7 @@ script DriftblimExpress{
         msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
     }
     if(var(VAR_RESULT) == FALSE){
+        msgbox("Let me know if there's\nsomewhere you'd like to fly.")
         release
         end
     }

@@ -41,6 +41,8 @@
 #include "constants/metatile_behaviors.h"
 #include "constants/rgb.h"
 #include "constants/songs.h"
+#include "constants/heal_locations.h"
+#include "heal_location.h"
 
 #define subsprite_table(ptr) {.subsprites = ptr, .subspriteCount = (sizeof ptr) / (sizeof(struct Subsprite))}
 
@@ -218,7 +220,6 @@ static void SurfFieldEffect_End(struct Task *);
 
 static void SpriteCB_NPCFlyOut(struct Sprite *);
 
-static void Task_FlyOut(u8);
 static void FlyOutFieldEffect_FieldMovePose(struct Task *);
 static void FlyOutFieldEffect_ShowMon(struct Task *);
 static void FlyOutFieldEffect_BirdLeaveBall(struct Task *);
@@ -2694,6 +2695,24 @@ enum
     WAIT_MOVEMENT_END
 };
 
+void StartFlightFluteFieldEffect(void)
+{
+    if (gSaveBlock1Ptr->flightPointWarp.mapNum == 0)
+    {
+        const struct HealLocation *healLocation = GetHealLocation(HEAL_LOCATION_ROUTE3);
+        SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
+    }
+    else
+    {
+        SetWarpDestinationToFlightPointWarp();
+    }
+    LockPlayerFieldControls();
+    FreezeObjectEvents();
+    HideFollowerForFieldEffect(); // hide follower before warping
+    EndORASDowsing();
+    CreateTask(Task_UseFly, 80);
+}
+
 void StartEscapeRopeFieldEffect(void)
 {
     LockPlayerFieldControls();
@@ -3719,7 +3738,6 @@ u8 FldEff_UseFly(void)
 
 static void (*const sFlyOutFieldEffectFuncs[])(struct Task *) = {
     FlyOutFieldEffect_FieldMovePose,
-    FlyOutFieldEffect_ShowMon,
     FlyOutFieldEffect_BirdLeaveBall,
     FlyOutFieldEffect_WaitBirdLeave,
     FlyOutFieldEffect_BirdSwoopDown,
@@ -3729,7 +3747,7 @@ static void (*const sFlyOutFieldEffectFuncs[])(struct Task *) = {
     FlyOutFieldEffect_End,
 };
 
-static void Task_FlyOut(u8 taskId)
+void Task_FlyOut(u8 taskId)
 {
     sFlyOutFieldEffectFuncs[gTasks[taskId].tState](&gTasks[taskId]);
 }
@@ -3742,13 +3760,14 @@ static void FlyOutFieldEffect_FieldMovePose(struct Task *task)
         task->tAvatarFlags = gPlayerAvatar.flags;
         gPlayerAvatar.preventStep = TRUE;
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
-        SetPlayerAvatarFieldMove();
-        ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
+        // SetPlayerAvatarFieldMove();
+        if (GetPlayerFacingDirection() != DIR_WEST)
+            ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_WALK_IN_PLACE_FAST_LEFT);
         task->tState++;
     }
 }
 
-static void FlyOutFieldEffect_ShowMon(struct Task *task)
+static void UNUSED FlyOutFieldEffect_ShowMon(struct Task *task)
 {
     struct ObjectEvent *objectEvent = &gObjectEvents[gPlayerAvatar.objectEventId];
     if (ObjectEventClearHeldMovementIfFinished(objectEvent))
@@ -3771,6 +3790,7 @@ static void FlyOutFieldEffect_BirdLeaveBall(struct Task *task)
             SetSurfBlob_DontSyncAnim(objectEvent->fieldEffectSpriteId, FALSE);
         }
         task->tBirdSpriteId = CreateFlyBirdSprite(); // Does "leave ball" animation by default
+        gSprites[task->tBirdSpriteId].invisible = TRUE;
         task->tState++;
     }
 }
@@ -3782,7 +3802,9 @@ static void FlyOutFieldEffect_WaitBirdLeave(struct Task *task)
         task->tState++;
         task->tTimer = 16;
         SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
+        gSprites[task->tBirdSpriteId].invisible = FALSE;
         ObjectEventSetHeldMovement(&gObjectEvents[gPlayerAvatar.objectEventId], MOVEMENT_ACTION_FACE_LEFT);
+        SetObjectSubpriority(LOCALID_PLAYER, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup, 0);
     }
 }
 
@@ -3996,7 +4018,7 @@ static void SpriteCB_FlyBirdReturnToBall(struct Sprite *sprite)
     }
 }
 
-static void StartFlyBirdReturnToBall(u8 spriteId)
+static void UNUSED StartFlyBirdReturnToBall(u8 spriteId)
 {
     StartFlyBirdSwoopDown(spriteId); // Set up is the same, but overrwrites the callback below
     gSprites[spriteId].callback = SpriteCB_FlyBirdReturnToBall;
@@ -4035,6 +4057,12 @@ static void FlyInFieldEffect_BirdSwoopDown(struct Task *task)
         task->tAvatarFlags = gPlayerAvatar.flags;
         gPlayerAvatar.preventStep = TRUE;
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
+        // SetObjectSubpriorityByElevation(4, &gSprites[objectEvent->spriteId], 0);
+
+        gSprites[objectEvent->spriteId].subpriority = 0;
+        gSprites[objectEvent->spriteId].oam.priority = 0;
+        objectEvent->fixedPriority = TRUE;
+
         if (task->tAvatarFlags & PLAYER_AVATAR_FLAG_SURFING)
         {
             SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_NONE);
@@ -4111,8 +4139,9 @@ static void FlyInFieldEffect_FieldMovePose(struct Task *task)
         sprite->x2 = 0;
         sprite->y2 = 0;
         sprite->coordOffsetEnabled = TRUE;
-        SetPlayerAvatarFieldMove();
-        ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_START_ANIM_IN_DIRECTION);
+        // SetPlayerAvatarFieldMove();
+        ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
+        ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_FACE_LEFT);
         task->tState++;
     }
 }
@@ -4122,7 +4151,7 @@ static void FlyInFieldEffect_BirdReturnToBall(struct Task *task)
     if (ObjectEventClearHeldMovementIfFinished(&gObjectEvents[gPlayerAvatar.objectEventId]))
     {
         task->tState++;
-        StartFlyBirdReturnToBall(task->tBirdSpriteId);
+        // StartFlyBirdReturnToBall(task->tBirdSpriteId);
     }
 }
 
@@ -4130,6 +4159,7 @@ static void FlyInFieldEffect_WaitBirdReturn(struct Task *task)
 {
     if (GetFlyBirdAnimCompleted(task->tBirdSpriteId))
     {
+        ResetObjectSubpriority(LOCALID_PLAYER, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
         DestroySprite(&gSprites[task->tBirdSpriteId]);
         task->tState++;
         task->data[1] = 16;
@@ -4150,7 +4180,7 @@ static void FlyInFieldEffect_End(struct Task *task)
             SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
         }
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(state));
-        ObjectEventTurn(objectEvent, DIR_SOUTH);
+        // ObjectEventTurn(objectEvent, DIR_SOUTH);
         gPlayerAvatar.flags = task->tAvatarFlags;
         gPlayerAvatar.preventStep = FALSE;
         FieldEffectActiveListRemove(FLDEFF_FLY_IN);
