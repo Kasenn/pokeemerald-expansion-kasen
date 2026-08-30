@@ -1169,6 +1169,7 @@ struct SaveBlock1
                u32 gogoatRaceRecord[2];
                struct ItemSlot freeSpaceItems[BAG_FREESPACE_COUNT];
                u16 freeSpaceFlags[BAG_FREESPACE_COUNT];
+               struct WarpData flightPointWarp;
 };
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

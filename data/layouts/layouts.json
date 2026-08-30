@@ -7814,8 +7814,8 @@
     {
       "id": "LAYOUT_HIGH_IN_THE_SKY",
       "name": "HighInTheSky_Layout",
-      "width": 65,
-      "height": 20,
+      "width": 100,
+      "height": 11,
       "primary_tileset": "gTileset_General",
       "secondary_tileset": "gTileset_HighInTheSky",
       "border_filepath": "data/layouts/HighInTheSky/border.bin",

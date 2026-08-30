@@ -1,6 +1,7 @@
 const VAR_X = VAR_TEMP_0
 const VAR_Y = VAR_TEMP_1
 const VAR_DIRECTION = VAR_TEMP_2
+const FLAG_WILD_FLOCK = FLAG_TEMP_3
 
 mapscripts HighInTheSky_MapScripts {
     MAP_SCRIPT_ON_TRANSITION{
@@ -8,10 +9,18 @@ mapscripts HighInTheSky_MapScripts {
         getplayerxy(VAR_X, VAR_Y)
         if(var(VAR_X) == 12){
             setvar(VAR_DIRECTION, DIR_WEST)
+            subvar(VAR_X, 9)
         }
         else{
             setvar(VAR_DIRECTION, DIR_EAST)
+            addvar(VAR_X, 9)
         }
+        // if(random(64) == 0){
+            setflag(FLAG_SKY_BATTLE)
+        // }
+        // elif(var(VAR_RESULT) == 1){
+        //     setflag(FLAG_WILD_FLOCK)
+        // }
     }
     MAP_SCRIPT_ON_FRAME_TABLE[
         VAR_DIRECTION, DIR_WEST: MoveDrifballoonLeftToRight
@@ -20,73 +29,199 @@ mapscripts HighInTheSky_MapScripts {
     MAP_SCRIPT_ON_RESUME{
         if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
             removeobject(5)
+            removeobject(6)
         }
     }
 }
 
-script MoveDrifballoonLeftToRight{
+script TrySetUpSkyBattle{
+    if(!flag(FLAG_SKY_BATTLE)){
+        removeobjectbyflag(FLAG_TEMP_1)
+        return
+    }
+    special(TrySkyBattle)
+    if(var(VAR_RESULT) == TRUE){
+        setvar(VAR_SKY_BATTLE, 1)
+        callnative(TrySpawnSkyBattle)
+        delay(1)
+        createmon(1, 0, VAR_0x8000, VAR_0x8001)
+        copyvar(VAR_OBJ_GFX_ID_0, VAR_0x8000)
+        addvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_MON)
+    }
+    else{
+        clearflag(FLAG_SKY_BATTLE)
+        removeobjectbyflag(FLAG_TEMP_1)
+    }
+}
+
+script SetupDrifblimObjects{
     clearflag(FLAG_DONT_FADE)
     setflag(FLAG_DONT_DESPAWN_OBJECTS)
     special(SpawnCameraObject)
+    setobjectxy(LOCALID_PLAYER, VAR_X, VAR_Y)
+    return
+}
+
+script MoveDrifballoonLeftToRight{
+    call(TrySetUpSkyBattle)
+    call(SetupDrifblimObjects)
+
     addobject(2)
     addobject(4)
-    setobjectxy(LOCALID_PLAYER, 3, 10)
-    setobjectsubpriority(LOCALID_PLAYER, MAP_HIGH_IN_THE_SKY, 0)
-    applymovement(LOCALID_PLAYER, MoveDrifblimEventsRight)
-    applymovement(2, MoveDrifblimEventsRight)
-    applymovement(4, MoveDrifblimEventsRight)
-    applymovement(LOCALID_CAMERA, moves(walk_slow_right * 20))
-    fadescreen(FADE_FROM_BLACK)
-    fadenewbgm(MUS_CYCLING)
-    delay(480)
-    callnative(ForceFadeOutBGM)
-    fadescreenspeed(FADE_TO_BLACK, 4)
-    waitmovement(0)
-    warpsilentnofadeout(MAP_ROUTE3, 84, 11)
+    
+    if(flag(FLAG_SKY_BATTLE)){
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsRightShort)
+        applymovement(2, MoveDrifblimEventsRightShort)
+        applymovement(4, MoveDrifblimEventsRightShort)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_right * 10))
+
+        fadescreen(FADE_FROM_BLACK)
+        fadenewbgm(MUS_CYCLING)
+        savebgm(MUS_CYCLING)
+
+        waitmovementall
+        special(RemoveCameraObject)
+        playmoncry(VAR_0x8000, CRY_MODE_NORMAL)
+        delay(8)
+        applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_right))
+        waitmovement(0)
+        waitmoncry
+        delay(16)
+        setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        setflag(FLAG_SKY_BATTLE)
+        setvar(VAR_SKY_BATTLE, 1)
+        doscriptedbattle
+
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        special(SpawnCameraObject)
+        delay(8)
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsRightShort)
+        applymovement(2, MoveDrifblimEventsRightShort)
+        applymovement(4, MoveDrifblimEventsRightShort)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_right * 10))
+        delay(240)
+
+        callnative(ForceFadeOutBGM)
+        fadescreenspeed(FADE_TO_BLACK, 4)
+        waitmovement(0)
+        warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
+    }
+    else{
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsRight)
+        applymovement(2, MoveDrifblimEventsRight)
+        applymovement(4, MoveDrifblimEventsRight)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_right * 20))
+
+        fadescreen(FADE_FROM_BLACK)
+        fadenewbgm(MUS_CYCLING)
+
+        if(flag(FLAG_WILD_FLOCK)){
+            delay(200)
+            addobject(7)
+            random(7)
+            addvar(VAR_RESULT, 2)
+            if(var(VAR_RESULT) == 4 || var(VAR_RESULT) == 5){
+                subvar(VAR_RESULT, 2)
+            }
+            elif(var(VAR_RESULT) == 6){
+                addvar(VAR_RESULT, 2)
+            }
+            setobjectxy(7, 3, VAR_RESULT)
+            applymovement(7, moves(walk_fast_right * 50))
+            delay(140)
+            playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
+            delay(140)
+        }
+        else{
+            delay(480)
+        }
+
+        callnative(ForceFadeOutBGM)
+        fadescreenspeed(FADE_TO_BLACK, 4)
+        waitmovement(0)
+        warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
+    }
 }
 
 script MoveDrifballoonRightToLeft{
-    clearflag(FLAG_DONT_FADE)
-    setflag(FLAG_DONT_DESPAWN_OBJECTS)
-    special(SpawnCameraObject)
+    call(TrySetUpSkyBattle)
+    call(SetupDrifblimObjects)
+
     addobject(1)
     addobject(3)
-    setobjectxy(LOCALID_PLAYER, 63, 10)
-    applymovement(LOCALID_PLAYER, MoveDrifblimEventsLeft)
-    applymovement(1, MoveDrifblimEventsLeft)
-    applymovement(3, MoveDrifblimEventsLeft)
-    applymovement(LOCALID_CAMERA, moves(walk_slow_left * 10))
-    fadescreen(FADE_FROM_BLACK)
-    fadenewbgm(MUS_CYCLING)
-    savebgm(MUS_CYCLING)
-    waitmovementall
 
-    special(RemoveCameraObject)
-    playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
-    delay(8)
-    applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_left))
-    waitmovement(0)
-    waitmoncry
-    delay(16)
-    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    setwildbattle(SPECIES_PIDGEOT, 40)
-    setflag(FLAG_SKY_BATTLE)
-    setvar(VAR_SKY_BATTLE, 1)
-    special(TrySkyBattle)
-    doscriptedbattle
+    if(flag(FLAG_SKY_BATTLE)){
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsLeftShort)
+        applymovement(1, MoveDrifblimEventsLeftShort)
+        applymovement(3, MoveDrifblimEventsLeftShort)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_left * 10))
 
-    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
-    special(SpawnCameraObject)
-    delay(8)
-    applymovement(LOCALID_PLAYER, MoveDrifblimEventsLeft2)
-    applymovement(1, MoveDrifblimEventsLeft2)
-    applymovement(3, MoveDrifblimEventsLeft2)
-    applymovement(LOCALID_CAMERA, moves(walk_slow_left * 10))
-    delay(240)
-    callnative(ForceFadeOutBGM)
-    fadescreenspeed(FADE_TO_BLACK, 4)
-    waitmovement(0)
-    warpsilentnofadeout(MAP_ROUTE2, 72, 17)
+        fadescreen(FADE_FROM_BLACK)
+        fadenewbgm(MUS_CYCLING)
+        savebgm(MUS_CYCLING)
+
+        waitmovementall
+        special(RemoveCameraObject)
+        playmoncry(VAR_0x8000, CRY_MODE_NORMAL)
+        delay(8)
+        applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_left))
+        waitmovement(0)
+        waitmoncry
+        delay(16)
+        setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        setflag(FLAG_SKY_BATTLE)
+        setvar(VAR_SKY_BATTLE, 1)
+        doscriptedbattle
+
+        clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+        special(SpawnCameraObject)
+        delay(8)
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsLeftShort)
+        applymovement(1, MoveDrifblimEventsLeftShort)
+        applymovement(3, MoveDrifblimEventsLeftShort)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_left * 10))
+        delay(240)
+
+        callnative(ForceFadeOutBGM)
+        fadescreenspeed(FADE_TO_BLACK, 4)
+        waitmovement(0)
+        warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
+    }
+    else{
+        applymovement(LOCALID_PLAYER, MoveDrifblimEventsLeft)
+        applymovement(1, MoveDrifblimEventsLeft)
+        applymovement(3, MoveDrifblimEventsLeft)
+        applymovement(LOCALID_CAMERA, moves(walk_slow_left * 20))
+
+        fadescreen(FADE_FROM_BLACK)
+        fadenewbgm(MUS_CYCLING)
+
+        if(flag(FLAG_WILD_FLOCK)){
+            delay(200)
+            addobject(8)
+            random(8)
+            addvar(VAR_RESULT, 2)
+            if(var(VAR_RESULT) == 4 || var(VAR_RESULT) == 5){
+                subvar(VAR_RESULT, 2)
+            }
+            elif(var(VAR_RESULT) == 6){
+                addvar(VAR_RESULT, 2)
+            }
+            setobjectxy(8, 99, VAR_RESULT)
+            applymovement(8, moves(walk_fast_left * 50))
+            delay(140)
+            playmoncry(SPECIES_PIDGEOT, CRY_MODE_NORMAL)
+            delay(140)
+        }
+        else{
+            delay(480)
+        }
+
+        callnative(ForceFadeOutBGM)
+        fadescreenspeed(FADE_TO_BLACK, 4)
+        waitmovement(0)
+        warpsilentnofadeout(MAP_DYNAMIC, 0, 0)
+    }
 }
 
 movement MoveDrifblimEventsRight{
@@ -97,15 +232,23 @@ movement MoveDrifblimEventsRight{
     unlock_facing_direction
 }
 
-movement MoveDrifblimEventsLeft{
+movement MoveDrifblimEventsRightShort{
     lock_facing_direction
     lock_anim
-    walk_left * 20
+    walk_right * 20
     unlock_anim
     unlock_facing_direction
 }
 
-movement MoveDrifblimEventsLeft2{
+movement MoveDrifblimEventsLeft{
+    lock_facing_direction
+    lock_anim
+    walk_left * 40
+    unlock_anim
+    unlock_facing_direction
+}
+
+movement MoveDrifblimEventsLeftShort{
     lock_facing_direction
     lock_anim
     walk_left * 20

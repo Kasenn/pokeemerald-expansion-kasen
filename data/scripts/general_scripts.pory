@@ -551,7 +551,14 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    callnative(TestSkybattleEligibility)
+    special (TrySkyBattle)
+    if(var(VAR_RESULT) == TRUE){
+        trainerbattle_no_intro(TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+    }
+    msgbox("asd")
+    closemessage
+    release
+    end
     return
 }
 script Debug_Script_4{
@@ -1276,7 +1283,13 @@ script UnlockFlightpoint_1{
 
 script DriftblimExpress{
     faceplayer
-    msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
+    if(!flag(FLAG_INTRO_TO_DRIFBLIM_EXPRESS)){
+        setflag(FLAG_INTRO_TO_DRIFBLIM_EXPRESS)
+        msgbox(DriftblimExpress_Text, MSGBOX_YESNO)
+    }
+    else{
+        msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
+    }
     if(var(VAR_RESULT) == FALSE){
         release
         end
@@ -1286,34 +1299,39 @@ script DriftblimExpress{
     fadescreen(FADE_TO_BLACK)
     callnative(OpenFlyMapFromSign)
     waitstate
-    msgbox("Let's fly!", MSGBOX_AUTOCLOSE)
+    if(var(VAR_RESULT) == FALSE){
+        msgbox("Let me know if there's\nsomewhere you'd like to fly.")
+        release
+        end
+    }
+    msgbox("Alright, let's fly!", MSGBOX_AUTOCLOSE)
     delay(8)
-    applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
+    switch(var(VAR_FACING)){
+        case DIR_NORTH:
+            applymovement(LOCALID_PLAYER, moves(walk_right, walk_up * 2))
+        case DIR_WEST:
+            applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
+        case DIR_EAST:
+            applymovement(LOCALID_PLAYER, moves(walk_down, walk_right * 2, walk_up * 2))
+        case DIR_SOUTH:
+            applymovement(LOCALID_PLAYER, moves(walk_left, walk_down * 2, walk_right * 2, walk_up * 2))
+    }
     waitmovement(0)
     delay(8)
-    // setflag(FLAG_DONT_FADE)
-    warpsilent(MAP_HIGH_IN_THE_SKY, 0)
+    if(var(VAR_0x8002) == DIR_EAST){
+        warpsilent(MAP_HIGH_IN_THE_SKY, 0) 
+    }
+    else{
+        warpsilent(MAP_HIGH_IN_THE_SKY, 1)
+    }
     waitstate
 }
 
-script DriftblimExpress2{
-    faceplayer
-    msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        release
-        end
-    }
-    setflag(FLAG_OPENED_MAP_FROM_SIGN)
-    msgbox("Please choose your destination.")
-    fadescreen(FADE_TO_BLACK)
-    callnative(OpenFlyMapFromSign)
-    waitstate
-    msgbox("Let's fly!", MSGBOX_AUTOCLOSE)
-    delay(8)
-    applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
-    waitmovement(0)
-    delay(8)
-    // setflag(FLAG_DONT_FADE)
-    warpsilent(MAP_HIGH_IN_THE_SKY, 1)
-    waitstate
+text DriftblimExpress_Text{
+    "Welcome to Drifblim Express.\p"
+    "From here you can travel to any\n"
+    "other Drifblim Express location\l"
+    "you have previously discovered.\p"
+    "Would you like to use the Drifblim\n"
+    "Balloon?"
 }

@@ -242,6 +242,14 @@ static const u16 sFlyableMapFlags[FLYABLE_MAPSEC_COUNT] =
     FLAG_FLIGHTPOINT2
 };
 
+static bool8 IsCursorInBannedCoordinates(void)
+{
+    if (sRegionMap->cursorPosX == 16 && sRegionMap->cursorPosY == 10)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 21 && sRegionMap->cursorPosY == 9)
+        return TRUE;
+    return FALSE;
+}
 
 static const mapsec_u16_t sTerraOrMarineCaveMapSecIds[ABNORMAL_WEATHER_LOCATIONS] =
 {
@@ -555,7 +563,6 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_CANYON_ENTRANCE] = {MAP_GROUP(MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE), MAP_NUM(MAP_SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE), HEAL_LOCATION_NONE},
     [MAPSEC_SEVAULT_CANYON] = {MAP_GROUP(MAP_SEVEN_ISLAND_SEVAULT_CANYON), MAP_NUM(MAP_SEVEN_ISLAND_SEVAULT_CANYON), HEAL_LOCATION_NONE},
     [MAPSEC_TANOBY_RUINS] = {MAP_GROUP(MAP_SEVEN_ISLAND_TANOBY_RUINS), MAP_NUM(MAP_SEVEN_ISLAND_TANOBY_RUINS), HEAL_LOCATION_NONE},
-    [MAPSEC_SEVII_ISLE_22] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
     [MAPSEC_SEVII_ISLE_23] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
     [MAPSEC_SEVII_ISLE_24] = {MAP_GROUP(MAP_PALLET_TOWN), MAP_NUM(MAP_PALLET_TOWN), HEAL_LOCATION_NONE},
     [MAPSEC_NAVEL_ROCK_FRLG] = {MAP_GROUP(MAP_NAVEL_ROCK_EXTERIOR_FRLG), MAP_NUM(MAP_NAVEL_ROCK_EXTERIOR_FRLG), HEAL_LOCATION_NONE},
@@ -1473,6 +1480,8 @@ static void  RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
 static u8 GetMapsecType(mapsec_u16_t mapSecId)
 {
+    if (mapSecId == gMapHeader.regionMapSectionId)
+        return MAPSECTYPE_ROUTE;
     switch (mapSecId)
     {
     case MAPSEC_NONE:
@@ -2418,15 +2427,6 @@ static void TryCreateRedOutlineFlyDestIcons(void)
 //     }
 // }
 
-static bool8 IsCursorInBannedCoordinates(void)
-{
-    if (sRegionMap->cursorPosX == 16 && sRegionMap->cursorPosY == 10)
-        return TRUE;
-    else if (sRegionMap->cursorPosX == 21 && sRegionMap->cursorPosY == 9)
-        return TRUE;
-    return FALSE;
-}
-
 // Flickers fly destination icon color (by hiding the fly icon sprite) if the cursor is currently on it
 static void SpriteCB_FlyDestIcon(struct Sprite *sprite)
 {
@@ -2465,6 +2465,25 @@ static void CB_FadeInFlyMap(void)
     }
 }
 
+static u8 GetFlyDirectionFromMapSec(mapsec_u16_t currentMapSec, mapsec_u16_t destMapSec)
+{
+    u8 currentMapX = gRegionMapEntries[currentMapSec].x;
+    u8 currentMapY = gRegionMapEntries[currentMapSec].y;
+    u8 destMapX = gRegionMapEntries[destMapSec].x;
+    u8 destMapY = gRegionMapEntries[destMapSec].y;
+
+    if (currentMapX < destMapX)
+        return DIR_EAST;
+    else if (currentMapX > destMapX)
+        return DIR_WEST;
+    else if (currentMapY < destMapY)
+        return DIR_EAST;
+    else if (currentMapY > destMapY)
+        return DIR_WEST;
+    else // just in case, but should never be reached
+        return DIR_EAST;
+}
+
 static void CB_HandleFlyMapInput(void)
 {
     if (sFlyMap->state == 0)
@@ -2495,10 +2514,13 @@ static void CB_HandleFlyMapInput(void)
                     SetFlyMapCallback(CB_ExitFlyMap);
                 }
             }
-           else if ((sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER) && !IsCursorInBannedCoordinates())
+            else if ((sFlyMap->regionMap.mapSecType == MAPSECTYPE_CITY_CANFLY || sFlyMap->regionMap.mapSecType == MAPSECTYPE_BATTLE_FRONTIER) && !IsCursorInBannedCoordinates())
             {
                 m4aSongNumStart(SE_SELECT);
                 sFlyMap->choseFlyLocation = TRUE;
+                mapsec_u16_t mapSecId = GetMapSecIdAt(sRegionMap->cursorPosX, sRegionMap->cursorPosY);
+                gSpecialVar_0x8002 = GetFlyDirectionFromMapSec(gMapHeader.regionMapSectionId, mapSecId);
+
                 SetFlyMapCallback(CB_ExitFlyMap);
             }
             break;
@@ -2525,7 +2547,7 @@ static void CB_ExitFlyMap(void)
             FreeRegionMapIconResources();
             if (sFlyMap->choseFlyLocation)
             {
-                // struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
+                struct RegionMap* tempRegionMap = &sFlyMap->regionMap;
                 // if(!FlagGet(FLAG_UNLOCKED_FLY_CHECKPOINT))
                 // {
                 //     gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup = gSaveBlock1Ptr->location.mapGroup;
@@ -2545,20 +2567,23 @@ static void CB_ExitFlyMap(void)
                 //     gSaveBlock3Ptr->flyCheckpoint.y = gSaveBlock1Ptr->pos.y;
                 //     gSaveBlock3Ptr->flyMapSec = GetCurrentRegionMapSectionId();
                 // }
+                SetFlyDestination(tempRegionMap);
+                gSpecialVar_Result = TRUE;
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
                 SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-                // SetFlyDestination(tempRegionMap);
+                
                 // ReturnToFieldFromFlyMapSelect();
             }
             else
             {
-                if (FlagGet(FLAG_OPENED_MAP_FROM_SIGN))
-                {
-                    FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
-                    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-                }
-                else
-                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                // if (FlagGet(FLAG_OPENED_MAP_FROM_SIGN))
+                // {
+                gSpecialVar_Result = FALSE;
+                FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
+                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                // }
+                // else
+                //     SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
             }
             TRY_FREE_AND_SET_NULL(sFlyMap);
             FreeAllWindowBuffers();

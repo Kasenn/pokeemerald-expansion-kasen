@@ -3,7 +3,7 @@
   "name": "HighInTheSky",
   "layout": "LAYOUT_HIGH_IN_THE_SKY",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ABANDONED_SHIP",
+  "region_map_section": "MAPSEC_HIGHINTHESKY",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_ROUTE",
@@ -16,8 +16,8 @@
   "object_events": [
     {
       "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
-      "x": 63,
-      "y": 10,
+      "x": 99,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -30,7 +30,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
       "x": 3,
-      "y": 10,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -42,8 +42,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON_GATE",
-      "x": 63,
-      "y": 10,
+      "x": 99,
+      "y": 5,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -56,7 +56,7 @@
     {
       "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON_GATE",
       "x": 3,
-      "y": 10,
+      "y": 5,
       "elevation": 4,
       "movement_type": "MOVEMENT_TYPE_NONE",
       "movement_range_x": 0,
@@ -67,9 +67,9 @@
       "flag": "0"
     },
     {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIDGEOT)",
-      "x": 39,
-      "y": 10,
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 75,
+      "y": 5,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_RIGHT",
       "movement_range_x": 0,
@@ -78,19 +78,58 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "NULL",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_VAR_0",
+      "x": 27,
+      "y": 5,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_WALK_IN_PLACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_1"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLOCK",
+      "x": 3,
+      "y": 5,
+      "elevation": 6,
+      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_2"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_FLOCK",
+      "x": 99,
+      "y": 5,
+      "elevation": 6,
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "FLAG_TEMP_2"
     }
   ],
   "warp_events": [
     {
       "x": 12,
-      "y": 10,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_HIGH_IN_THE_SKY",
       "dest_warp_id": "0"
     },
     {
-      "x": 54,
-      "y": 10,
+      "x": 90,
+      "y": 5,
       "elevation": 0,
       "dest_map": "MAP_HIGH_IN_THE_SKY",
       "dest_warp_id": "0"

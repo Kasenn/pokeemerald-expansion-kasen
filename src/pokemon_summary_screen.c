@@ -3629,6 +3629,10 @@ static void BufferMonTrainerMemo(void)
         {
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(6, COMPOUND_STRING("on"));
         }
+        else if (sum->metLocation == MAPSEC_HIGHINTHESKY)
+        {
+            DynamicPlaceholderTextUtil_SetPlaceholderPtr(6, COMPOUND_STRING(""));
+        }
         else
         {
             DynamicPlaceholderTextUtil_SetPlaceholderPtr(6, COMPOUND_STRING("in"));

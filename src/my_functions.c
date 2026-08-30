@@ -107,6 +107,8 @@ bool8 ScrCmd_warpsilentnofadeout(struct ScriptContext *ctx)
     u16 y = VarGet(ScriptReadHalfword(ctx));
 
     SetWarpDestination(mapGroup, mapNum, warpId, x, y);
+    if (MAP_NUM(MAP_DYNAMIC))
+        SetWarpDestinationToDynamicWarp(0);
     DoDiveWarpNoFadeout();
     ResetInitialPlayerAvatarState();
     return TRUE;
@@ -1117,7 +1119,7 @@ void LoadCoralGroveOriginalPal(void)
 
 void ForceFadeOutBGM(void)
 {
-    FadeOutBGM(8);
+    FadeOutBGM(4);
 }
 
 void TestSkybattleEligibility(void)
@@ -1139,4 +1141,104 @@ void TestSkybattleEligibility(void)
     }
 
 
+}
+
+static const u16 sSkyBattleBadge01[] =
+{
+    SPECIES_WINGULL,
+    SPECIES_SWABLU,
+    SPECIES_DRIFLOON,
+};
+
+static const u16 sSkyBattleBadge2[] =
+{
+    SPECIES_WINGULL,
+    SPECIES_SWABLU,
+    SPECIES_DRIFLOON,
+    SPECIES_PIDGEOTTO,
+    SPECIES_STARAVIA,
+    SPECIES_FLETCHINDER,
+};
+
+static const u16 sSkyBattleBadge3[] =
+{
+    SPECIES_WINGULL,
+    SPECIES_SWABLU,
+    SPECIES_DRIFLOON,
+    SPECIES_PIDGEOTTO,
+    SPECIES_STARAVIA,
+    SPECIES_FLETCHINDER,
+    SPECIES_FEAROW,
+    SPECIES_SKARMORY,
+    SPECIES_PELIPPER,
+};
+
+static const u16 sSkyBattleBadge4[] =
+{
+    SPECIES_WINGULL,
+    SPECIES_SWABLU,
+    SPECIES_DRIFLOON,
+    SPECIES_PIDGEOTTO,
+    SPECIES_STARAVIA,
+    SPECIES_FLETCHINDER,
+    SPECIES_FEAROW,
+    SPECIES_SKARMORY,
+    SPECIES_PELIPPER,
+    SPECIES_DRIFBLIM,
+};
+
+static const u16 sSkyBattleBadge5678[] =
+{
+    SPECIES_WINGULL,
+    SPECIES_SWABLU,
+    SPECIES_DRIFLOON,
+    SPECIES_PIDGEOTTO,
+    SPECIES_STARAVIA,
+    SPECIES_FLETCHINDER,
+    SPECIES_FEAROW,
+    SPECIES_SKARMORY,
+    SPECIES_PELIPPER,
+    SPECIES_DRIFBLIM,
+    SPECIES_PIDGEOT,
+    SPECIES_ALTARIA,
+    SPECIES_STARAPTOR,
+    SPECIES_TALONFLAME
+};
+
+void TrySpawnSkyBattle(void)
+{
+    u8 badgeCount = 0;
+    enum Species species;
+
+    for (int i = FLAG_BADGE01_GET; i < FLAG_BADGE01_GET + NUM_BADGES; i++)
+    {
+        if (FlagGet(i))
+            badgeCount++;
+    }
+
+    switch (badgeCount)
+    {
+    default:
+    case 1:
+        species = sSkyBattleBadge01[Random() % ARRAY_COUNT(sSkyBattleBadge01)];
+        break;
+    case 2:
+        species = sSkyBattleBadge2[Random() % ARRAY_COUNT(sSkyBattleBadge2)];
+        break;
+    case 3:
+        species = sSkyBattleBadge3[Random() % ARRAY_COUNT(sSkyBattleBadge3)];
+        break;
+    case 4:
+        species = sSkyBattleBadge3[Random() % ARRAY_COUNT(sSkyBattleBadge3)];
+        break;
+    case 5:
+    case 6:
+    case 7:
+    case 8:
+        species = sSkyBattleBadge5678[Random() % ARRAY_COUNT(sSkyBattleBadge5678)];
+        break;
+    }
+
+    gSpecialVar_0x8000 = species;
+    gSpecialVar_0x8001 = (4 * badgeCount) + 4 + Random() % 3;
 }
