@@ -7820,6 +7820,16 @@
       "secondary_tileset": "gTileset_HighInTheSky",
       "border_filepath": "data/layouts/HighInTheSky/border.bin",
       "blockdata_filepath": "data/layouts/HighInTheSky/map.bin"
+    },
+    {
+      "id": "LAYOUT_PROFS_GLADE_INTERIOR",
+      "name": "ProfsGladeInterior_Layout",
+      "width": 70,
+      "height": 98,
+      "primary_tileset": "gTileset_Autumn",
+      "secondary_tileset": "gTileset_Route2New",
+      "border_filepath": "data/layouts/ProfsGladeInterior/border.bin",
+      "blockdata_filepath": "data/layouts/ProfsGladeInterior/map.bin"
     }
   ]
 }

@@ -2445,3 +2445,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/ProfsGlade_Exterior/scripts.inc"
 
 	.include "data/maps/HighInTheSky/scripts.inc"
+
+	.include "data/maps/ProfsGladeInterior/scripts.inc"

@@ -214,9 +214,8 @@ script Pearlwood_Point_LittleGirl{
     turnobject(LOCALID_PEARLWOOD_LITTLE_BOY, DIR_NORTH)
 }
 text Pearlwood_Point_LittleGirl_Text{
-    "Shh!\p"
-    "I think I hear the cry of a wild\n"
-    "Pokémon coming from over there."
+    "Do you think there are Pokémon\n"
+    "in these trees?"
 }
 
 script Pearlwood_Sign{
