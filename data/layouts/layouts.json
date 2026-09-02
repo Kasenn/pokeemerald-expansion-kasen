@@ -7825,7 +7825,7 @@
       "id": "LAYOUT_PROFS_GLADE_INTERIOR",
       "name": "ProfsGladeInterior_Layout",
       "width": 70,
-      "height": 98,
+      "height": 102,
       "primary_tileset": "gTileset_Autumn",
       "secondary_tileset": "gTileset_Route2New",
       "border_filepath": "data/layouts/ProfsGladeInterior/border.bin",
