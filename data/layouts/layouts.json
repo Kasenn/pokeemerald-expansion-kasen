@@ -7824,10 +7824,10 @@
     {
       "id": "LAYOUT_PROFS_GLADE_INTERIOR",
       "name": "ProfsGladeInterior_Layout",
-      "width": 70,
-      "height": 102,
+      "width": 77,
+      "height": 95,
       "primary_tileset": "gTileset_Autumn",
-      "secondary_tileset": "gTileset_Route2New",
+      "secondary_tileset": "gTileset_ProfGlade",
       "border_filepath": "data/layouts/ProfsGladeInterior/border.bin",
       "blockdata_filepath": "data/layouts/ProfsGladeInterior/map.bin"
     }

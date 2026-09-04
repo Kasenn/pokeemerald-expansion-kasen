@@ -1437,3 +1437,14 @@ const struct Tileset gTileset_HighInTheSky =
     .metatileAttributes = gMetatileAttributes_HighInTheSky,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_ProfGlade =
+{
+    .isCompressed = TRUE,
+    .isSecondary = TRUE,
+    .tiles = gTilesetTiles_ProfGlade,
+    .palettes = gTilesetPalettes_ProfGlade,
+    .metatiles = gMetatiles_ProfGlade,
+    .metatileAttributes = gMetatileAttributes_ProfGlade,
+    .callback = NULL,
+};

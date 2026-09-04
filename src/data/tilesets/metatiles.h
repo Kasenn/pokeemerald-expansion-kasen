@@ -372,3 +372,6 @@ const u16 gMetatileAttributes_Route2New[] = INCBIN_U16("data/tilesets/secondary/
 
 const u16 gMetatiles_HighInTheSky[] = INCBIN_U16("data/tilesets/secondary/high_in_the_sky/metatiles.bin");
 const u16 gMetatileAttributes_HighInTheSky[] = INCBIN_U16("data/tilesets/secondary/high_in_the_sky/metatile_attributes.bin");
+
+const u16 gMetatiles_ProfGlade[] = INCBIN_U16("data/tilesets/secondary/prof_glade/metatiles.bin");
+const u16 gMetatileAttributes_ProfGlade[] = INCBIN_U16("data/tilesets/secondary/prof_glade/metatile_attributes.bin");

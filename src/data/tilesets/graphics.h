@@ -2682,3 +2682,22 @@ const u16 gTilesetPalettes_HighInTheSky[][16] =
 };
 
 const u32 gTilesetTiles_HighInTheSky[] = INCBIN_U32("data/tilesets/secondary/high_in_the_sky/tiles.4bpp.lz");
+
+const u16 gTilesetPalettes_ProfGlade[][16] =
+{
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/00.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/01.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/02.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/03.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/04.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/05.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/06.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/07.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/08.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/09.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/10.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/11.gbapal"),
+    INCBIN_U16("data/tilesets/secondary/prof_glade/palettes/12.gbapal"),
+};
+
+const u32 gTilesetTiles_ProfGlade[] = INCBIN_U32("data/tilesets/secondary/prof_glade/tiles.4bpp.lz");
