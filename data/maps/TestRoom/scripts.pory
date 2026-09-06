@@ -23,9 +23,9 @@ mapscripts TestRoom_MapScripts {
     // MAP_SCRIPT_ON_FRAME_TABLE[
     //     VAR_TEMP_0, 0: TestFollowerMacro
     // ]
-    MAP_SCRIPT_ON_RESUME{
-        setstepcallback(STEP_CB_WAILORD)
-    }
+    // MAP_SCRIPT_ON_RESUME{
+    //     setstepcallback(STEP_CB_WAILORD)
+    // }
 }
 
 const X = VAR_0x8001
@@ -414,3 +414,60 @@ script TestFollowerSpawning{
     clearflag(FLAG_TEMP_HIDE_FOLLOWER)
     release
 }
+
+const VAR_X = VAR_TEMP_0
+const VAR_Y = VAR_TEMP_1
+const VAR_UPPERTILE = VAR_TEMP_2
+const VAR_LOWERTILE = VAR_TEMP_3
+
+script TurnHikerTest{
+    getplayerxy(VAR_X, VAR_Y)
+    switch(var(VAR_FACING))
+    {
+        case DIR_NORTH:
+            setvar(VAR_UPPERTILE, 0x0A2)
+            setvar(VAR_LOWERTILE, 0x0AA)
+            subvar(VAR_Y, 1)
+        case DIR_WEST:
+            setvar(VAR_UPPERTILE, 0x0A2 + 3)
+            setvar(VAR_LOWERTILE, 0x0AA + 3)
+            subvar(VAR_X, 1)
+        case DIR_EAST:
+            setvar(VAR_UPPERTILE, 0x0A2 + 2)
+            setvar(VAR_LOWERTILE, 0x0AA + 2)
+            addvar(VAR_X, 1)
+        case DIR_SOUTH:
+            setvar(VAR_UPPERTILE, 0x0A2 + 1)
+            setvar(VAR_LOWERTILE, 0x0AA + 1)
+            addvar(VAR_Y, 1)
+    }
+    setmetatile(VAR_X, VAR_Y, VAR_LOWERTILE, TRUE)
+    subvar(VAR_Y, 1)
+    setmetatile(VAR_X, VAR_Y, VAR_UPPERTILE, FALSE)
+    special(DrawWholeMapView)
+    msgbox("I am not a sprite.\nI'm a sign!", MSGBOX_AUTOCLOSE)
+}
+
+// script TurnHikerTest{
+//     getplayerxy(VAR_X, VAR_Y)
+//     switch(var(VAR_FACING))
+//     {
+//     case DIR_NORTH: subvar(VAR_Y, 1)
+//     case DIR_WEST:  subvar(VAR_X, 1)
+//     case DIR_EAST:  addvar(VAR_X, 1)
+//     case DIR_SOUTH: addvar(VAR_Y, 1)
+//     }
+//     getmetatileid(VAR_X, VAR_Y)
+//     switch(var(VAR_FACING))
+//     {
+//     case DIR_WEST:  addvar(VAR_RESULT, 3)
+//     case DIR_EAST:  addvar(VAR_RESULT, 2)
+//     case DIR_SOUTH: addvar(VAR_RESULT, 1)
+//     }
+//     setmetatile(VAR_X, VAR_Y, VAR_RESULT, TRUE)
+//     subvar(VAR_Y, 1)
+//     subvar(VAR_RESULT, 8)
+//     setmetatile(VAR_X, VAR_Y, VAR_RESULT, FALSE)
+//     special(DrawWholeMapView)
+//     msgbox("I am not a sprite.\nI'm a sign!", MSGBOX_AUTOCLOSE)
+// }

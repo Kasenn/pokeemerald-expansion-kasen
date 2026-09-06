@@ -6861,6 +6861,8 @@ static enum Collision GetVanillaCollision(struct ObjectEvent *objectEvent, s16 x
         return COLLISION_IMPASSABLE;
     else if (objectEvent->trackedByCamera && !CanCameraMoveInDirection(direction))
         return COLLISION_IMPASSABLE;
+    else if (MAP(MAP_PROFS_GLADE_INTERIOR) && objectEvent->localId == LOCALID_GLADE_MON && !MetatileBehavior_IsLandWildEncounter(MapGridGetMetatileIdAt(x, y)))
+        return COLLISION_IMPASSABLE;
     else if (IsElevationMismatchAt(objectEvent->currentElevation, x, y))
         return COLLISION_ELEVATION_MISMATCH;
     else if (DoesObjectCollideWithObjectAt(objectEvent, x, y))
@@ -11271,7 +11273,7 @@ void GroundEffect_JumpLandingDust(struct ObjectEvent *objEvent, struct Sprite *s
 
 void GroundEffect_ShortGrass(struct ObjectEvent *objEvent, struct Sprite *sprite)
 {
-    if (MAP(MAP_ROUTE2))
+    if ((MAP(MAP_ROUTE2)) || (MAP(MAP_PROFS_GLADE_INTERIOR)))
         StartFieldEffectForObjectEvent(FLDEFF_SHORT_GRASS_ALT, objEvent);
     else
         StartFieldEffectForObjectEvent(FLDEFF_SHORT_GRASS, objEvent);

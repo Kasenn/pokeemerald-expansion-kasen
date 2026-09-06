@@ -3315,3 +3315,9 @@
 	getbraillestringwidth \text
 	call EventScript_BrailleCursorWaitButton
 	.endm
+
+	.macro getmetatileid x:req, y:req
+	callnative GetMetatileId
+	.2byte \x
+	.2byte \y
+	.endm

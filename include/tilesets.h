@@ -37,6 +37,7 @@ TILESET(gTileset_Fortree2);
 TILESET(gTileset_Route18);
 TILESET(gTileset_DarkForestSec);
 TILESET(gTileset_Summer);
+TILESET(gTileset_ProfGlade);
 
 #undef TILESET
 

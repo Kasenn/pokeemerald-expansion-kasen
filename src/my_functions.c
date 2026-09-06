@@ -613,6 +613,13 @@ static s32 GetCleanMetatile(s32 metatileId)
         case 0x3B6: return 0x3DD;
         case 0x3A9: return 0x32C;
         case 0x026: return METATILE_General_Grass_TreeUp;
+
+        // profglade
+        case 0x308: return 0x2E9;
+        case 0x309: return 0x201;
+        case 0x30A: return 0x221;
+        case 0x30B: return 0x241;
+
         default: return 0x000;
     }
 }
@@ -1251,4 +1258,393 @@ void SetLastVisitedDrifblimBalloon(void)
     {
         SetWarpData(&gSaveBlock1Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     }
+}
+
+// #define METATILE_ProfGlade_OrangeTreeBottom_Left                         0x238
+// #define METATILE_ProfGlade_OrangeTreeBottom_Middle                       0x239
+// #define METATILE_ProfGlade_OrangeTreeBottom_Right                        0x23A
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Left                         0x230
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Left_OrangeTreeBottom_Right  0x23C
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Left_RedTreeBottom_Right     0x25C
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Left_YellowTreeBottom_Right  0x21C
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Middle                       0x231
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Right                        0x232
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Right_OrangeTreeBottom_Left  0x23B
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Right_RedTreeBottom_Left     0x25B
+// #define METATILE_ProfGlade_OrangeTreeMiddle_Right_YellowTreeBottom_Left  0x21B
+// #define METATILE_ProfGlade_OrangeTreePeak_Clear                          0x221
+// #define METATILE_ProfGlade_OrangeTreePeak_Grass                          0x220
+// #define METATILE_ProfGlade_OrangeTreePeak_OrangeTreeBehind               0x26B
+// #define METATILE_ProfGlade_OrangeTreePeak_OrangeTreeMiddle_Left          0x282
+// #define METATILE_ProfGlade_OrangeTreePeak_OrangeTreeMiddle_Right         0x283
+// #define METATILE_ProfGlade_OrangeTreePeak_RedTreeBehind                  0x273
+// #define METATILE_ProfGlade_OrangeTreePeak_RedTreeMiddle_Left             0x28A
+// #define METATILE_ProfGlade_OrangeTreePeak_RedTreeMiddle_Right            0x28B
+// #define METATILE_ProfGlade_OrangeTreePeak_YellowTreeBehind               0x263
+// #define METATILE_ProfGlade_OrangeTreePeak_YellowTreeMiddle_Left          0x27A
+// #define METATILE_ProfGlade_OrangeTreePeak_YellowTreeMiddle_Right         0x27B
+// #define METATILE_ProfGlade_OrangeTreeTop_Left                            0x228
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_OrangeTreeBottom_Middle    0x2BA
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_OrangeTreeBottom_Right     0x29A
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_OrangeTreeMiddle_Right     0x234
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_RedTreeBottom_Middle       0x2BC
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_RedTreeBottom_Right        0x29C
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_RedTreeMiddle_Right        0x254
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_TreeBottom_Left            0x268
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_YellowTreeBottom_Middle    0x2B8
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_YellowTreeBottom_Right     0x298
+// #define METATILE_ProfGlade_OrangeTreeTop_Left_YellowTreeMiddle_Right     0x214
+// #define METATILE_ProfGlade_OrangeTreeTop_Middle                          0x229
+// #define METATILE_ProfGlade_OrangeTreeTop_Right                           0x22A
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_OrangeTreeBottom_Left     0x29B
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_OrangeTreeBottom_Middle   0x2BB
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_OrangeTreeMiddle_Left     0x233
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_RedTreeBottom_Left        0x29D
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_RedTreeBottom_Middle      0x2BD
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_RedTreeMiddle_Left        0x253
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_TreeBottom_Right          0x269
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_YellowTreeBottom_Left     0x299
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_YellowTreeBottom_Middle   0x2B9
+// #define METATILE_ProfGlade_OrangeTreeTop_Right_YellowTreeMiddle_Left     0x213
+// #define METATILE_ProfGlade_RedTreeBottom_Left                            0x258
+// #define METATILE_ProfGlade_RedTreeBottom_Middle                          0x259
+// #define METATILE_ProfGlade_RedTreeBottom_Right                           0x25A
+// #define METATILE_ProfGlade_RedTreeMiddle_Left                            0x250
+// #define METATILE_ProfGlade_RedTreeMiddle_Left_OrangeTreeBottom_Right     0x22E
+// #define METATILE_ProfGlade_RedTreeMiddle_Left_RedTreeBottom_Right        0x24E
+// #define METATILE_ProfGlade_RedTreeMiddle_Left_YellowTreeBottom_Right     0x20E
+// #define METATILE_ProfGlade_RedTreeMiddle_Middle                          0x251
+// #define METATILE_ProfGlade_RedTreeMiddle_Right                           0x252
+// #define METATILE_ProfGlade_RedTreeMiddle_Right_OrangeTreeBottom_Left     0x22D
+// #define METATILE_ProfGlade_RedTreeMiddle_Right_RedTreeBottom_Left        0x24D
+// #define METATILE_ProfGlade_RedTreeMiddle_Right_YellowTreeBottom_Left     0x20D
+// #define METATILE_ProfGlade_RedTreePeak_Clear                             0x241
+// #define METATILE_ProfGlade_RedTreePeak_Grass                             0x240
+// #define METATILE_ProfGlade_RedTreePeak_OrangeTreeBehind                  0x26C
+// #define METATILE_ProfGlade_RedTreePeak_OrangeTreeMiddle_Left             0x284
+// #define METATILE_ProfGlade_RedTreePeak_OrangeTreeMiddle_Right            0x285
+// #define METATILE_ProfGlade_RedTreePeak_RedTreeBehind                     0x274
+// #define METATILE_ProfGlade_RedTreePeak_RedTreeMiddle_Left                0x28C
+// #define METATILE_ProfGlade_RedTreePeak_RedTreeMiddle_Right               0x28D
+// #define METATILE_ProfGlade_RedTreePeak_YellowTreeBehind                  0x264
+// #define METATILE_ProfGlade_RedTreePeak_YellowTreeMiddle_Left             0x27C
+// #define METATILE_ProfGlade_RedTreePeak_YellowTreeMiddle_Right            0x27D
+// #define METATILE_ProfGlade_RedTreeTop_Left                               0x248
+// #define METATILE_ProfGlade_RedTreeTop_Left_OrangeTreeBottom_Middle       0x2C2
+// #define METATILE_ProfGlade_RedTreeTop_Left_OrangeTreeBottom_Right        0x2A2
+// #define METATILE_ProfGlade_RedTreeTop_Left_OrangeTreeMiddle_Right        0x226
+// #define METATILE_ProfGlade_RedTreeTop_Left_RedTreeBottom_Middle          0x2C4
+// #define METATILE_ProfGlade_RedTreeTop_Left_RedTreeBottom_Right           0x2A4
+// #define METATILE_ProfGlade_RedTreeTop_Left_RedTreeMiddle_Right           0x246
+// #define METATILE_ProfGlade_RedTreeTop_Left_TreeBottom_Left               0x270
+// #define METATILE_ProfGlade_RedTreeTop_Left_YellowTreeBottom_Middle       0x2C0
+// #define METATILE_ProfGlade_RedTreeTop_Left_YellowTreeBottom_Right        0x2A0
+// #define METATILE_ProfGlade_RedTreeTop_Left_YellowTreeMiddle_Right        0x206
+// #define METATILE_ProfGlade_RedTreeTop_Middle                             0x249
+// #define METATILE_ProfGlade_RedTreeTop_Right                              0x24A
+// #define METATILE_ProfGlade_RedTreeTop_Right_OrangeTreeBottom_Left        0x2A3
+// #define METATILE_ProfGlade_RedTreeTop_Right_OrangeTreeBottom_Middle      0x2C3
+// #define METATILE_ProfGlade_RedTreeTop_Right_OrangeTreeMiddle_Left        0x225
+// #define METATILE_ProfGlade_RedTreeTop_Right_RedTreeBottom_Left           0x2A5
+// #define METATILE_ProfGlade_RedTreeTop_Right_RedTreeBottom_Middle         0x2C5
+// #define METATILE_ProfGlade_RedTreeTop_Right_RedTreeMiddle_Left           0x245
+// #define METATILE_ProfGlade_RedTreeTop_Right_TreeBottom_Right             0x271
+// #define METATILE_ProfGlade_RedTreeTop_Right_YellowTreeBottom_Left        0x2A1
+// #define METATILE_ProfGlade_RedTreeTop_Right_YellowTreeBottom_Middle      0x2C1
+// #define METATILE_ProfGlade_RedTreeTop_Right_YellowTreeMiddle_Left        0x205
+// #define METATILE_ProfGlade_YellowTreeBottom_Left                         0x218
+// #define METATILE_ProfGlade_YellowTreeBottom_Middle                       0x219
+// #define METATILE_ProfGlade_YellowTreeBottom_Right                        0x21A
+// #define METATILE_ProfGlade_YellowTreeMiddle_Left                         0x210
+// #define METATILE_ProfGlade_YellowTreeMiddle_Left_OrangeTreeBottom_Right  0x22C
+// #define METATILE_ProfGlade_YellowTreeMiddle_Left_RedTreeBottom_Right     0x24C
+// #define METATILE_ProfGlade_YellowTreeMiddle_Left_YellowTreeBottom_Right  0x20C
+// #define METATILE_ProfGlade_YellowTreeMiddle_Middle                       0x211
+// #define METATILE_ProfGlade_YellowTreeMiddle_Right                        0x212
+// #define METATILE_ProfGlade_YellowTreeMiddle_Right_OrangeTreeBottom_Left  0x22B
+// #define METATILE_ProfGlade_YellowTreeMiddle_Right_RedTreeBottom_Left     0x24B
+// #define METATILE_ProfGlade_YellowTreeMiddle_Right_YellowTreeBottom_Left  0x20B
+// #define METATILE_ProfGlade_YellowTreePeak_Clear                          0x201
+// #define METATILE_ProfGlade_YellowTreePeak_Grass                          0x200
+// #define METATILE_ProfGlade_YellowTreePeak_OrangeTreeBehind               0x26A
+// #define METATILE_ProfGlade_YellowTreePeak_OrangeTreeMiddle_Left          0x280
+// #define METATILE_ProfGlade_YellowTreePeak_OrangeTreeMiddle_Right         0x281
+// #define METATILE_ProfGlade_YellowTreePeak_RedTreeBehind                  0x272
+// #define METATILE_ProfGlade_YellowTreePeak_RedTreeMiddle_Left             0x288
+// #define METATILE_ProfGlade_YellowTreePeak_RedTreeMiddle_Right            0x289
+// #define METATILE_ProfGlade_YellowTreePeak_YellowTreeBehind               0x262
+// #define METATILE_ProfGlade_YellowTreePeak_YellowTreeMiddle_Left          0x278
+// #define METATILE_ProfGlade_YellowTreePeak_YellowTreeMiddle_Right         0x279
+// #define METATILE_ProfGlade_YellowTreeTop_Left                            0x208
+// #define METATILE_ProfGlade_YellowTreeTop_Left_OrangeTreeBottom_Middle    0x2B2
+// #define METATILE_ProfGlade_YellowTreeTop_Left_OrangeTreeBottom_Right     0x292
+// #define METATILE_ProfGlade_YellowTreeTop_Left_OrangeTreeMiddle_Right     0x224
+// #define METATILE_ProfGlade_YellowTreeTop_Left_RedTreeBottom_Middle       0x2B4
+// #define METATILE_ProfGlade_YellowTreeTop_Left_RedTreeBottom_Right        0x294
+// #define METATILE_ProfGlade_YellowTreeTop_Left_RedTreeMiddle_Right        0x244
+// #define METATILE_ProfGlade_YellowTreeTop_Left_TreeBottom_Left            0x260
+// #define METATILE_ProfGlade_YellowTreeTop_Left_YellowTreeBottom_Middle    0x2B0
+// #define METATILE_ProfGlade_YellowTreeTop_Left_YellowTreeBottom_Right     0x290
+// #define METATILE_ProfGlade_YellowTreeTop_Left_YellowTreeMiddle_Right     0x204
+// #define METATILE_ProfGlade_YellowTreeTop_Middle                          0x209
+// #define METATILE_ProfGlade_YellowTreeTop_Right                           0x20A
+// #define METATILE_ProfGlade_YellowTreeTop_Right_OrangeTreeBottom_Left     0x293
+// #define METATILE_ProfGlade_YellowTreeTop_Right_OrangeTreeBottom_Middle   0x2B3
+// #define METATILE_ProfGlade_YellowTreeTop_Right_OrangeTreeMiddle_Left     0x223
+// #define METATILE_ProfGlade_YellowTreeTop_Right_RedTreeBottom_Left        0x295
+// #define METATILE_ProfGlade_YellowTreeTop_Right_RedTreeBottom_Middle      0x2B5
+// #define METATILE_ProfGlade_YellowTreeTop_Right_RedTreeMiddle_Left        0x243
+// #define METATILE_ProfGlade_YellowTreeTop_Right_TreeBottom_Right          0x261
+// #define METATILE_ProfGlade_YellowTreeTop_Right_YellowTreeBottom_Left     0x291
+// #define METATILE_ProfGlade_YellowTreeTop_Right_YellowTreeBottom_Middle   0x2B1
+// #define METATILE_ProfGlade_YellowTreeTop_Right_YellowTreeMiddle_Left     0x203
+
+// void PaintTreeMetatile(void)
+// {
+//     u16 replacementTile = 0;
+//     s16 x = sCursorPosition.x;
+//     s16 y = sCursorPosition.y;
+//     u16 destTile = GetMetatileIdAt(x, y);
+//     u16 tileAboveDestTile = GetMetatileIdAt(x, y - 1);
+//     u16 tileBelowDestTile = GetMetatileIdAt(x, y + 1);
+
+//     switch (destTile)
+//     {
+//     case METATILE_ProfGlade_YellowTreeMiddle_Left:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_YellowTreeMiddle_Left;          break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_YellowTreeMiddle_Left;          break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_YellowTreeMiddle_Left;             break;
+//         }
+//     case METATILE_ProfGlade_YellowTreeMiddle_Right:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_YellowTreeMiddle_Right;         break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_YellowTreeMiddle_Right;         break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_YellowTreeMiddle_Right;            break;
+//         }
+//     case METATILE_ProfGlade_OrangeTreeMiddle_Left:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_OrangeTreeMiddle_Left;          break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_OrangeTreeMiddle_Left;          break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_OrangeTreeMiddle_Left;             break;
+//         }
+//     case METATILE_ProfGlade_OrangeTreeMiddle_Right:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_OrangeTreeMiddle_Right;         break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_OrangeTreeMiddle_Right;         break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_OrangeTreeMiddle_Right;            break;
+//         }
+//     case METATILE_ProfGlade_RedTreeMiddle_Left:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_RedTreeMiddle_Left;             break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_RedTreeMiddle_Left;             break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_RedTreeMiddle_Left;                break;
+//         }
+//     case METATILE_ProfGlade_RedTreeMiddle_Right:
+//         switch (tileBelowDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeTop_Middle:       replacementTile = METATILE_ProfGlade_YellowTreePeak_RedTreeMiddle_Right;            break;
+//         case METATILE_ProfGlade_OrangeTreeTop_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreePeak_RedTreeMiddle_Right;            break;
+//         case METATILE_ProfGlade_RedTreeTop_Middle:          replacementTile = METATILE_ProfGlade_RedTreePeak_RedTreeMiddle_Right;               break;
+//         }
+//     case METATILE_ProfGlade_YellowTreeTop_Left:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_YellowTreeBottom_Middle;    break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_OrangeTreeBottom_Middle;    break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_RedTreeBottom_Middle;       break;
+            
+//         case METATILE_ProfGlade_YellowTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_YellowTreeBottom_Right;     break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_OrangeTreeBottom_Right;     break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Right:        replacementTile = METATILE_ProfGlade_YellowTreeTop_Left_RedTreeBottom_Right;        break;
+//         }
+//         break;
+//     case METATILE_ProfGlade_YellowTreeTop_Right:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_YellowTreeBottom_Middle;   break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_OrangeTreeBottom_Middle;   break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_RedTreeBottom_Middle;      break;
+
+//         case METATILE_ProfGlade_YellowTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_YellowTreeBottom_Left;     break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_OrangeTreeBottom_Left;     break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Left:         replacementTile = METATILE_ProfGlade_YellowTreeTop_Right_RedTreeBottom_Left;        break;
+//         }
+//         break;
+//     case METATILE_ProfGlade_OrangeTreeTop_Left:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_YellowTreeBottom_Middle;    break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_OrangeTreeBottom_Middle;    break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_RedTreeBottom_Middle;       break;
+
+//         case METATILE_ProfGlade_YellowTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_YellowTreeBottom_Right;     break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_OrangeTreeBottom_Right;     break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Right:        replacementTile = METATILE_ProfGlade_OrangeTreeTop_Left_RedTreeBottom_Right;        break;
+//         }
+//         break;
+//     case METATILE_ProfGlade_OrangeTreeTop_Right:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_YellowTreeBottom_Middle;   break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_OrangeTreeBottom_Middle;   break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_RedTreeBottom_Middle;      break;
+
+//         case METATILE_ProfGlade_YellowTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_YellowTreeBottom_Left;     break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_OrangeTreeBottom_Left;     break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Left:         replacementTile = METATILE_ProfGlade_OrangeTreeTop_Right_RedTreeBottom_Left;        break;
+//         }
+//         break;
+//     case METATILE_ProfGlade_RedTreeTop_Left:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_RedTreeTop_Left_YellowTreeBottom_Middle;       break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_RedTreeTop_Left_OrangeTreeBottom_Middle;       break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_RedTreeTop_Left_RedTreeBottom_Middle;          break;
+
+//         case METATILE_ProfGlade_YellowTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_RedTreeTop_Left_YellowTreeBottom_Right;        break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Right:     replacementTile = METATILE_ProfGlade_RedTreeTop_Left_OrangeTreeBottom_Right;        break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Right:        replacementTile = METATILE_ProfGlade_RedTreeTop_Left_RedTreeBottom_Right;           break;
+//         }
+//         break;
+//     case METATILE_ProfGlade_RedTreeTop_Right:
+//         switch (tileAboveDestTile)
+//         {
+//         case METATILE_ProfGlade_YellowTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_RedTreeTop_Right_YellowTreeBottom_Middle;      break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Middle:    replacementTile = METATILE_ProfGlade_RedTreeTop_Right_OrangeTreeBottom_Middle;      break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Middle:       replacementTile = METATILE_ProfGlade_RedTreeTop_Right_RedTreeBottom_Middle;         break;
+
+//         case METATILE_ProfGlade_YellowTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_RedTreeTop_Right_YellowTreeBottom_Left;         break;
+//         case METATILE_ProfGlade_OrangeTreeMiddle_Left:      replacementTile = METATILE_ProfGlade_RedTreeTop_Right_OrangeTreeBottom_Left;         break;
+//         case METATILE_ProfGlade_RedTreeMiddle_Left:         replacementTile = METATILE_ProfGlade_RedTreeTop_Right_RedTreeBottom_Left;            break;
+//         }
+//         break;
+//     }
+//     if (replacementTile != 0)
+//         MapGridSetMetatileIdAt(x, y, replacementTile);
+// }
+
+void GetMetatileId(struct ScriptContext *ctx)
+{
+    u16 x = VarGet(ScriptReadHalfword(ctx));
+    u16 y = VarGet(ScriptReadHalfword(ctx));
+    
+    gSpecialVar_Result = MapGridGetMetatileIdAt(x, y);
+}
+
+// Auto-generated from map.bin for MAP_PROFS_GLADE_INTERIOR
+// Encounter metatile IDs: 0x200, 0x220, 0x240, 0x2EC
+// Map dimensions: 78 x 95
+#define PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT 460
+
+struct TileCoord
+{
+    u16 x;
+    u16 y;
+};
+
+static const struct TileCoord sProfsGladeInteriorEncounterTiles[PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT] =
+{
+    {46, 5},  {47, 5},  {48, 5},  {47, 6},  {48, 6},  {47, 7},
+    {48, 7},  {49, 7},  {49, 8},  {41, 9},  {42, 9},  {43, 9},
+    {41, 10}, {42, 10}, {43, 10}, {31, 11}, {32, 11}, {41, 11},
+    {42, 11}, {31, 12}, {32, 12}, {33, 12}, {30, 13}, {31, 13},
+    {32, 13}, {33, 13}, {30, 14}, {31, 14}, {32, 14}, {33, 14},
+    {10, 15}, {11, 15}, {12, 15}, {13, 15}, {14, 15}, {30, 15},
+    {31, 15}, {32, 15}, {33, 15}, {10, 16}, {11, 16}, {12, 16},
+    {13, 16}, {14, 16}, {30, 16}, {31, 16}, {32, 16}, {33, 16},
+    {34, 16}, {10, 17}, {11, 17}, {12, 17}, {13, 17}, {14, 17},
+    {33, 17}, {11, 18}, {36, 21}, {36, 22}, {37, 22}, {36, 23},
+    {37, 23}, {36, 24}, {37, 24}, {36, 25}, {37, 25}, {65, 25},
+    {66, 25}, {67, 25}, {68, 25}, {69, 25}, {36, 26}, {37, 26},
+    {66, 26}, {67, 26}, {68, 26}, {37, 27}, {22, 29}, {23, 29},
+    {24, 29}, {42, 29}, {43, 29}, {44, 29}, {45, 29}, {46, 29},
+    {47, 29}, {48, 29}, {49, 29}, {50, 29}, {7, 30},  {8, 30},
+    {9, 30},  {22, 30}, {23, 30}, {24, 30}, {25, 30}, {26, 30},
+    {43, 30}, {44, 30}, {45, 30}, {46, 30}, {47, 30}, {48, 30},
+    {49, 30}, {50, 30}, {7, 31},  {8, 31},  {9, 31},  {10, 31},
+    {25, 31}, {26, 31}, {27, 31}, {28, 31}, {29, 31}, {43, 31},
+    {44, 31}, {45, 31}, {46, 31}, {47, 31}, {48, 31}, {49, 31},
+    {50, 31}, {51, 31}, {7, 32},  {8, 32},  {9, 32},  {10, 32},
+    {28, 32}, {29, 32}, {42, 32}, {49, 32}, {10, 33}, {11, 33},
+    {20, 33}, {21, 33}, {18, 34}, {19, 34}, {20, 34}, {21, 34},
+    {17, 35}, {18, 35}, {19, 35}, {20, 35}, {21, 35}, {16, 36},
+    {17, 36}, {18, 36}, {16, 37}, {17, 37}, {18, 37}, {67, 41},
+    {68, 41}, {69, 41}, {64, 42}, {65, 42}, {66, 42}, {67, 42},
+    {68, 42}, {69, 42}, {64, 43}, {65, 43}, {66, 43}, {67, 43},
+    {68, 43}, {69, 43}, {40, 44}, {41, 44}, {42, 44}, {64, 44},
+    {65, 44}, {66, 44}, {67, 44}, {68, 44}, {10, 45}, {11, 45},
+    {12, 45}, {41, 45}, {42, 45}, {43, 45}, {64, 45}, {65, 45},
+    {66, 45}, {67, 45}, {68, 45}, {10, 46}, {11, 46}, {12, 46},
+    {48, 46}, {49, 46}, {10, 47}, {11, 47}, {12, 47}, {49, 47},
+    {50, 47}, {51, 47}, {10, 48}, {11, 48}, {12, 48}, {13, 48},
+    {10, 49}, {11, 49}, {12, 49}, {26, 49}, {27, 49}, {16, 50},
+    {17, 50}, {18, 50}, {19, 50}, {20, 50}, {26, 50}, {27, 50},
+    {28, 50}, {29, 50}, {30, 50}, {14, 51}, {15, 51}, {16, 51},
+    {17, 51}, {18, 51}, {19, 51}, {20, 51}, {21, 51}, {27, 51},
+    {28, 51}, {29, 51}, {30, 51}, {13, 52}, {14, 52}, {15, 52},
+    {16, 52}, {17, 52}, {18, 52}, {19, 52}, {20, 52}, {21, 52},
+    {13, 53}, {14, 53}, {15, 53}, {16, 53}, {17, 53}, {18, 53},
+    {37, 53}, {38, 53}, {39, 53}, {14, 54}, {15, 54}, {37, 54},
+    {38, 54}, {14, 55}, {15, 55}, {12, 56}, {56, 56}, {11, 57},
+    {12, 57}, {13, 57}, {56, 57}, {57, 57}, {58, 57}, {59, 57},
+    {60, 57}, {61, 57}, {62, 57}, {10, 58}, {11, 58}, {12, 58},
+    {35, 58}, {58, 58}, {59, 58}, {60, 58}, {61, 58}, {62, 58},
+    {10, 59}, {11, 59}, {12, 59}, {22, 59}, {23, 59}, {34, 59},
+    {35, 59}, {36, 59}, {58, 59}, {59, 59}, {60, 59}, {61, 59},
+    {62, 59}, {63, 59}, {64, 59}, {10, 60}, {11, 60}, {12, 60},
+    {19, 60}, {20, 60}, {21, 60}, {22, 60}, {34, 60}, {35, 60},
+    {36, 60}, {19, 61}, {20, 61}, {21, 61}, {22, 61}, {34, 61},
+    {35, 61}, {36, 61}, {30, 62}, {34, 62}, {35, 62}, {36, 62},
+    {28, 63}, {29, 63}, {31, 63}, {32, 63}, {33, 63}, {34, 63},
+    {35, 63}, {36, 63}, {52, 63}, {53, 63}, {54, 63}, {55, 63},
+    {56, 63}, {57, 63}, {28, 64}, {29, 64}, {30, 64}, {31, 64},
+    {32, 64}, {34, 64}, {35, 64}, {36, 64}, {52, 64}, {53, 64},
+    {54, 64}, {57, 64}, {28, 65}, {29, 65}, {30, 65}, {32, 65},
+    {33, 65}, {52, 65}, {53, 65}, {31, 66}, {32, 66}, {33, 66},
+    {31, 67}, {32, 67}, {26, 71}, {27, 71}, {28, 71}, {29, 71},
+    {30, 71}, {31, 71}, {32, 71}, {26, 72}, {31, 72}, {35, 73},
+    {36, 73}, {34, 74}, {35, 74}, {36, 74}, {45, 74}, {46, 74},
+    {47, 74}, {48, 74}, {49, 74}, {50, 74}, {51, 74}, {49, 75},
+    {50, 75}, {51, 75}, {52, 75}, {53, 75}, {54, 75}, {52, 76},
+    {53, 76}, {54, 76}, {55, 76}, {15, 77}, {16, 77}, {17, 77},
+    {18, 77}, {52, 77}, {53, 77}, {54, 77}, {55, 77}, {15, 78},
+    {16, 78}, {17, 78}, {52, 78}, {15, 79}, {52, 79}, {37, 80},
+    {38, 80}, {39, 80}, {52, 80}, {37, 81}, {38, 81}, {39, 81},
+    {40, 81}, {41, 81}, {42, 81}, {51, 81}, {52, 81}, {40, 82},
+    {41, 82}, {42, 82}, {43, 82}, {44, 82}, {45, 82}, {46, 82},
+    {33, 83}, {34, 83}, {40, 83}, {41, 83}, {42, 83}, {43, 83},
+    {44, 83}, {45, 83}, {46, 83}, {47, 83}, {30, 84}, {31, 84},
+    {32, 84}, {33, 84}, {34, 84}, {41, 84}, {45, 84}, {46, 84},
+    {47, 84}, {48, 84}, {30, 85}, {31, 85}, {32, 85}, {33, 85},
+    {34, 85}, {45, 85}, {46, 85}, {47, 85}, {48, 85}, {21, 86},
+    {22, 86}, {23, 86}, {24, 86}, {25, 86}, {26, 86}, {31, 86},
+    {32, 86}, {33, 86}, {34, 86}, {35, 86}, {45, 86}, {46, 86},
+    {24, 87}, {25, 87}, {26, 87}, {27, 87}, {28, 87}, {45, 87},
+    {46, 87}, {27, 88}, {28, 88}, {29, 88},
+};
+
+void GetRandomGrassTileForStarterEncounter(void)
+{
+    bool8 eligibleSpot = FALSE;
+
+    do
+    {
+        u16 tile = Random() % PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT;
+
+        s16 x = sProfsGladeInteriorEncounterTiles[tile].x;
+        s16 y = sProfsGladeInteriorEncounterTiles[tile].y;
+
+        if ((x < gSaveBlock1Ptr->pos.x - 9 || x > gSaveBlock1Ptr->pos.x + 9)
+         || (y < gSaveBlock1Ptr->pos.y - 9 || y > gSaveBlock1Ptr->pos.y + 9))
+        {
+            SetObjEventTemplateCoords(LOCALID_GLADE_MON, x, y);
+            eligibleSpot = TRUE;
+        }
+    } while (!eligibleSpot);
 }

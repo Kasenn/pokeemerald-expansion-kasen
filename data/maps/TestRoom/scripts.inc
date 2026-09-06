@@ -1,12 +1,5 @@
 TestRoom_MapScripts::
-# 26 "data/maps/TestRoom/scripts.pory"
-	map_script MAP_SCRIPT_ON_RESUME, TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME
 	.byte 0
-
-TestRoom_MapScripts_MAP_SCRIPT_ON_RESUME:
-# 27 "data/maps/TestRoom/scripts.pory"
-	setstepcallback STEP_CB_WAILORD
-	return
 
 
 TestFollowerMacro::
@@ -634,6 +627,69 @@ TestFollowerSpawning::
 	return
 
 
+TurnHikerTest::
+# 424 "data/maps/TestRoom/scripts.pory"
+	getplayerxy VAR_TEMP_0, VAR_TEMP_1
+# 425 "data/maps/TestRoom/scripts.pory"
+	switch VAR_FACING
+# 427 "data/maps/TestRoom/scripts.pory"
+	case DIR_NORTH, TurnHikerTest_3
+# 431 "data/maps/TestRoom/scripts.pory"
+	case DIR_WEST, TurnHikerTest_4
+# 435 "data/maps/TestRoom/scripts.pory"
+	case DIR_EAST, TurnHikerTest_5
+# 439 "data/maps/TestRoom/scripts.pory"
+	case DIR_SOUTH, TurnHikerTest_6
+TurnHikerTest_1:
+# 444 "data/maps/TestRoom/scripts.pory"
+	setmetatile VAR_TEMP_0, VAR_TEMP_1, VAR_TEMP_3, TRUE
+# 445 "data/maps/TestRoom/scripts.pory"
+	subvar VAR_TEMP_1, 1
+# 446 "data/maps/TestRoom/scripts.pory"
+	setmetatile VAR_TEMP_0, VAR_TEMP_1, VAR_TEMP_2, FALSE
+# 447 "data/maps/TestRoom/scripts.pory"
+	special DrawWholeMapView
+# 448 "data/maps/TestRoom/scripts.pory"
+	msgbox TurnHikerTest_Text_0, MSGBOX_AUTOCLOSE
+	return
+
+TurnHikerTest_3:
+# 428 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_2, 0x0A2
+# 429 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_3, 0x0AA
+# 430 "data/maps/TestRoom/scripts.pory"
+	subvar VAR_TEMP_1, 1
+	goto TurnHikerTest_1
+
+TurnHikerTest_4:
+# 432 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_2, 0x0A2 + 3
+# 433 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_3, 0x0AA + 3
+# 434 "data/maps/TestRoom/scripts.pory"
+	subvar VAR_TEMP_0, 1
+	goto TurnHikerTest_1
+
+TurnHikerTest_5:
+# 436 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_2, 0x0A2 + 2
+# 437 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_3, 0x0AA + 2
+# 438 "data/maps/TestRoom/scripts.pory"
+	addvar VAR_TEMP_0, 1
+	goto TurnHikerTest_1
+
+TurnHikerTest_6:
+# 440 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_2, 0x0A2 + 1
+# 441 "data/maps/TestRoom/scripts.pory"
+	setvar VAR_TEMP_3, 0x0AA + 1
+# 442 "data/maps/TestRoom/scripts.pory"
+	addvar VAR_TEMP_1, 1
+	goto TurnHikerTest_1
+
+
 TestMovementScript_Text_0:
 # 107 "data/maps/TestRoom/scripts.pory"
 	.string "0$"
@@ -641,6 +697,10 @@ TestMovementScript_Text_0:
 TestMovementScript_Text_1:
 # 110 "data/maps/TestRoom/scripts.pory"
 	.string "{STR_VAR_1}$"
+
+TurnHikerTest_Text_0:
+# 448 "data/maps/TestRoom/scripts.pory"
+	.string "I am not a sprite.\nI'm a sign!$"
 
 ReturnKrokorok::
 # 231 "data/maps/TestRoom/scripts.pory"

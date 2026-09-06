@@ -402,6 +402,32 @@ static s32 GetRoute18GrassMetatile(s32 metatileId, bool8 seedDrop)
     return 0;
 }
 
+static s32 GetProfGladeGrassMetatile(s32 metatileId, bool8 seedDrop)
+{
+    if (seedDrop)
+    {
+        sCutGrassSeedDrops++;
+        switch (metatileId)
+        {
+        case 0x2EC: return 0x308;
+        case 0x200: return 0x309;
+        case 0x220: return 0x30A;
+        case 0x240: return 0x30B;
+        }
+    }
+    else
+    {
+        switch (metatileId)
+        {
+        case 0x2EC: return 0x2E9;
+        case 0x200: return 0x201;
+        case 0x220: return 0x221;
+        case 0x240: return 0x241;
+        }
+    }
+    return 0; 
+}
+
 static s32 GetWindyWoodsGrassMetatile(s32 metatileId, bool8 seedDrop)
 {
     if (seedDrop)
@@ -578,6 +604,8 @@ static void SetCutGrassMetatile(s16 x, s16 y)
         newMetatileId = GetRoute18GrassMetatile(metatileId, seedDrop);
     else if (secondary == &gTileset_DarkForestSec)
         newMetatileId = GetWindyWoodsGrassMetatile(metatileId, seedDrop);
+    else if (secondary == &gTileset_ProfGlade)
+        newMetatileId = GetProfGladeGrassMetatile(metatileId, seedDrop);
     else if (primary == &gTileset_Summer)
         newMetatileId = GetPearlwoodGrassMetatile(metatileId, seedDrop);
     else if (MAP(MAP_SAFARI_ZONE_MOUNTAIN))
