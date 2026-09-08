@@ -293,7 +293,7 @@
 #define VAR_DIRECTION_OVERRIDE                               0x410E
 #define VAR_SKY_BATTLE                               0x410F
 
-#define VAR_UNUSED_0x4110                               0x4110
+#define VAR_HIDDEN_FOREST_STEPS                               0x4110
 #define VAR_UNUSED_0x4111                               0x4111
 #define VAR_UNUSED_0x4112                               0x4112
 #define VAR_UNUSED_0x4113                               0x4113

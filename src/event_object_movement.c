@@ -6861,7 +6861,7 @@ static enum Collision GetVanillaCollision(struct ObjectEvent *objectEvent, s16 x
         return COLLISION_IMPASSABLE;
     else if (objectEvent->trackedByCamera && !CanCameraMoveInDirection(direction))
         return COLLISION_IMPASSABLE;
-    else if (MAP(MAP_PROFS_GLADE_INTERIOR) && objectEvent->localId == LOCALID_GLADE_MON && !MetatileBehavior_IsLandWildEncounter(MapGridGetMetatileIdAt(x, y)))
+    else if (MAP(MAP_PROFS_GLADE_INTERIOR) && objectEvent->localId == LOCALID_GLADE_MON && !MetatileBehavior_IsLandWildEncounter(MapGridGetMetatileBehaviorAt(x, y)))
         return COLLISION_IMPASSABLE;
     else if (IsElevationMismatchAt(objectEvent->currentElevation, x, y))
         return COLLISION_ELEVATION_MISMATCH;

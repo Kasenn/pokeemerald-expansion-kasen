@@ -1540,7 +1540,7 @@ void GetMetatileId(struct ScriptContext *ctx)
 // Auto-generated from map.bin for MAP_PROFS_GLADE_INTERIOR
 // Encounter metatile IDs: 0x200, 0x220, 0x240, 0x2EC
 // Map dimensions: 78 x 95
-#define PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT 460
+#define PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT 459
 
 struct TileCoord
 {
@@ -1597,7 +1597,7 @@ static const struct TileCoord sProfsGladeInteriorEncounterTiles[PROFS_GLADE_INTE
     {35, 58}, {58, 58}, {59, 58}, {60, 58}, {61, 58}, {62, 58},
     {10, 59}, {11, 59}, {12, 59}, {22, 59}, {23, 59}, {34, 59},
     {35, 59}, {36, 59}, {58, 59}, {59, 59}, {60, 59}, {61, 59},
-    {62, 59}, {63, 59}, {64, 59}, {10, 60}, {11, 60}, {12, 60},
+    {62, 59}, {63, 59}, {10, 60}, {11, 60}, {12, 60},
     {19, 60}, {20, 60}, {21, 60}, {22, 60}, {34, 60}, {35, 60},
     {36, 60}, {19, 61}, {20, 61}, {21, 61}, {22, 61}, {34, 61},
     {35, 61}, {36, 61}, {30, 62}, {34, 62}, {35, 62}, {36, 62},
@@ -1629,22 +1629,54 @@ static const struct TileCoord sProfsGladeInteriorEncounterTiles[PROFS_GLADE_INTE
     {46, 87}, {27, 88}, {28, 88}, {29, 88},
 };
 
+static u16 sStarters[] =
+{
+    SPECIES_ROWLET,
+    SPECIES_TORCHIC,
+    SPECIES_PIPLUP
+};
+
 void GetRandomGrassTileForStarterEncounter(void)
 {
     bool8 eligibleSpot = FALSE;
+    s16 x, y;
 
     do
     {
         u16 tile = Random() % PROFS_GLADE_INTERIOR_ENCOUNTER_TILE_COUNT;
 
-        s16 x = sProfsGladeInteriorEncounterTiles[tile].x;
-        s16 y = sProfsGladeInteriorEncounterTiles[tile].y;
+        x = sProfsGladeInteriorEncounterTiles[tile].x;
+        y = sProfsGladeInteriorEncounterTiles[tile].y;
 
         if ((x < gSaveBlock1Ptr->pos.x - 9 || x > gSaveBlock1Ptr->pos.x + 9)
          || (y < gSaveBlock1Ptr->pos.y - 9 || y > gSaveBlock1Ptr->pos.y + 9))
         {
+            if (y < 39)
+                SetObjEventTemplateCoords(LOCALID_GLADE_HIKER, 12, 51);
+            else
+                SetObjEventTemplateCoords(LOCALID_GLADE_HIKER, 39, 31);
+            VarSet(VAR_TEMP_0, x);
+            VarSet(VAR_TEMP_1, y);
             SetObjEventTemplateCoords(LOCALID_GLADE_MON, x, y);
             eligibleSpot = TRUE;
         }
     } while (!eligibleSpot);
+
+    VarSet(VAR_TEMP_2, sStarters[Random() % ARRAY_COUNT(sStarters)]);
+}
+
+void IsStarterWithinViewOfPlayer(void)
+{
+    u16 x = VarGet(VAR_TEMP_0);
+    u16 y = VarGet(VAR_TEMP_1);
+
+    if ((x < gSaveBlock1Ptr->pos.x - 9 || x > gSaveBlock1Ptr->pos.x + 9)
+     || (y < gSaveBlock1Ptr->pos.y - 9 || y > gSaveBlock1Ptr->pos.y + 9))
+    {
+        gSpecialVar_Result = FALSE;
+    }
+    else
+    {
+        gSpecialVar_Result = TRUE;
+    }
 }

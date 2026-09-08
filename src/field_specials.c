@@ -364,6 +364,15 @@ bool32 CountSSTidalStep(u16 delta)
     return TRUE;
 }
 
+bool32 HiddenForestTakeStep(void)
+{
+    if (!FlagGet(FLAG_IN_HIDDEN_FOREST))
+        return FALSE;
+    if ((*GetVarPointer(VAR_HIDDEN_FOREST_STEPS) += 1) == 750)
+        return TRUE;
+    return FALSE;
+}
+
 enum SSTidalLocation GetSSTidalLocation(s8 *mapGroup, s8 *mapNum, s16 *x, s16 *y)
 {
     u16 *varCruiseStepCount = GetVarPointer(VAR_CRUISE_STEP_COUNT);

@@ -1629,6 +1629,7 @@ static void DebugAction_Util_Fly(u8 taskId)
         FlagSet(FLAG_VISITED_SNOWCREST);
         FlagSet(FLAG_VISITED_GALEWIND);
     }
+    gDebugFly = TRUE;
     Debug_DestroyMenu_Full(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }

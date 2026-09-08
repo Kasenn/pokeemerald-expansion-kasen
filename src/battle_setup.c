@@ -752,6 +752,9 @@ enum BattleEnvironments BattleSetup_GetEnvironmentId(void)
     && ((MAP(MAP_SAFARI_ZONE_MOUNTAIN)) || (MAP(MAP_DESERT_CLIFFS))))
         return BATTLE_ENVIRONMENT_MOUNTAIN;
 
+    if (MAP(MAP_PROFS_GLADE_INTERIOR))
+        return BATTLE_ENVIRONMENT_AUTUMN_GRASS;
+
     if (MetatileBehavior_IsTallGrass(tileBehavior))
     {
         u8 battleScene = GetCurrentMapBattleScene();

@@ -41,5 +41,6 @@ void ShakeCameraParameterized(u16 horizontalPan, u16 verticalPan, u16 delay, u16
 bool32 CheckPartyHasSpecies(enum Species);
 bool8 CutMoveRuinValleyCheck(void);
 void CutMoveOpenDottedHoleDoor(void);
+bool32 HiddenForestTakeStep(void);
 
 #endif // GUARD_FIELD_SPECIALS_H

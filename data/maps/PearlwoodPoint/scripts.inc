@@ -209,7 +209,7 @@ Pearlwood_Point_LittleGirl::
 
 
 Pearlwood_Sign::
-# 223 "data/maps/PearlwoodPoint/scripts.pory"
+# 222 "data/maps/PearlwoodPoint/scripts.pory"
 	msgbox Pearlwood_Sign_Text, MSGBOX_SIGN
 	return
 
@@ -358,12 +358,11 @@ Pearlwood_Point_FatMan_Text::
 
 Pearlwood_Point_LittleGirl_Text::
 # 216 "data/maps/PearlwoodPoint/scripts.pory"
-	.string "Shh!\p"
-	.string "I think I hear the cry of a wild\n"
-	.string "Pokémon coming from over there.$"
+	.string "Do you think there are Pokémon\n"
+	.string "in these trees?$"
 
 Pearlwood_Sign_Text::
-# 225 "data/maps/PearlwoodPoint/scripts.pory"
+# 224 "data/maps/PearlwoodPoint/scripts.pory"
 	.string "PEARLWOOD POINT\n"
 	.string "“A town of new beginnings.”\p"
 	.string "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"

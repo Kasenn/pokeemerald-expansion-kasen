@@ -240,6 +240,7 @@ EWRAM_DATA bool8 gDisableMapMusicChangeOnMapLoad = MUSIC_DISABLE_OFF;
 static EWRAM_DATA const struct CreditsOverworldCmd *sCreditsOverworld_Script = NULL;
 static EWRAM_DATA s16 sCreditsOverworld_CmdLength = 0;
 static EWRAM_DATA s16 sCreditsOverworld_CmdIndex = 0;
+EWRAM_DATA bool8 gDebugFly = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
@@ -428,6 +429,8 @@ void Overworld_ResetStateAfterFly(void)
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
     FlagClear(FLAG_WILDS_CAN_FLEE);
+    FlagClear(FLAG_IN_HIDDEN_FOREST);
+    VarSet(VAR_HIDDEN_FOREST_STEPS, 0);
 }
 
 void Overworld_ResetStateAfterTeleport(void)
@@ -454,6 +457,8 @@ void Overworld_ResetStateAfterTeleport(void)
     VarSet(VAR_SHINY_MULTIPLIER, 0);
     FlagClear(FLAG_WILDS_CAN_FLEE);
     RunScriptImmediately(EventScript_ResetMrBriney);
+    FlagClear(FLAG_IN_HIDDEN_FOREST);
+    VarSet(VAR_HIDDEN_FOREST_STEPS, 0);
 }
 
 void Overworld_ResetStateAfterDigEscRope(void)
@@ -479,6 +484,8 @@ void Overworld_ResetStateAfterDigEscRope(void)
     VarSet(VAR_POKECENTER_TRAINING, 0);
     VarSet(VAR_SHINY_MULTIPLIER, 0);
     FlagClear(FLAG_WILDS_CAN_FLEE);
+    FlagClear(FLAG_IN_HIDDEN_FOREST);
+    VarSet(VAR_HIDDEN_FOREST_STEPS, 0);
 }
 
 #if B_RESET_FLAGS_VARS_AFTER_WHITEOUT == TRUE
@@ -511,12 +518,16 @@ void Overworld_ResetBattleFlagsAndVars(void)
     VarSet(VAR_SHINY_MULTIPLIER, 0);
     VarSet(VAR_POKECENTER_TRAINING, 0);
     FlagClear(B_FLAG_NO_WHITEOUT);
+    FlagClear(FLAG_IN_HIDDEN_FOREST);
+    VarSet(VAR_HIDDEN_FOREST_STEPS, 0);
 }
 #endif
 
 static void Overworld_ResetStateAfterWhiteOut(void)
 {
     gOnLatiIslands = FALSE;
+    FlagClear(FLAG_IN_HIDDEN_FOREST);
+    VarSet(VAR_HIDDEN_FOREST_STEPS, 0);
     ResetInitialPlayerAvatarState();
     FlagClear(FLAG_ESCORTING_PRYCE);
     FlagClear(FLAG_SYS_CYCLING_ROAD);
@@ -801,12 +812,13 @@ void SetWarpDestinationToDynamicWarp(u8 unusedWarpId)
 void SetWarpDestinationToHealLocation(u8 healLocationId)
 {
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if (healLocation)
+    if (gDebugFly && healLocation)
+        SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
+    else if (healLocation)
     {
         SetWarpData(&gSaveBlock1Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
         SetWarpData(&gSaveBlock1Ptr->dynamicWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     }
-        // SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
 }
 
 static bool32 IsWhiteoutCutscene(void)

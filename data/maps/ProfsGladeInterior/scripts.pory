@@ -1,0 +1,107 @@
+const VAR_X = VAR_TEMP_0
+const VAR_Y = VAR_TEMP_1
+const VAR_SPECIES = VAR_TEMP_2
+const VAR_PLAYER_X = VAR_TEMP_3
+const VAR_PLAYER_Y = VAR_TEMP_4
+
+const FLAG_STARTER_SPAWN = FLAG_TEMP_1
+
+mapscripts ProfsGladeInterior_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        clearflag(FLAG_IN_HIDDEN_FOREST)
+        random(250)
+        copyvar(VAR_HIDDEN_FOREST_STEPS, VAR_RESULT)
+        addvar(VAR_HIDDEN_FOREST_STEPS, 100)
+        callnative(GetRandomGrassTileForStarterEncounter)
+        setflag(FLAG_STARTER_SPAWN)
+        copyvar(VAR_OBJ_GFX_ID_0, VAR_SPECIES)
+        addvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_MON)
+        if(flag(FLAG_HIDDEN_FOREST_STARTERS_UNLOCKED)){
+            setflag(FLAG_IN_HIDDEN_FOREST)
+            addvar(VAR_HIDDEN_FOREST_STEPS, 150)
+        }
+    }
+    MAP_SCRIPT_ON_RESUME{
+        if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+            specialvar(VAR_RESULT, GetBattleOutcome)
+            if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+                removeobject(VAR_LAST_TALKED)
+            }
+        }
+    }
+}
+
+script HiddenForestTriggerStarterSpawn{
+    callnative(IsStarterWithinViewOfPlayer)
+    if(var(VAR_RESULT) == TRUE)
+    {
+        setvar(VAR_HIDDEN_FOREST_STEPS, 700)
+        release
+        end
+    }
+    setflag(FLAG_HIDDEN_FOREST_STARTERS_UNLOCKED)
+    playmoncry(VAR_SPECIES, CRY_MODE_NORMAL)
+    exclamationmark(LOCALID_PLAYER)
+    waitmoncry
+    clearflag(FLAG_STARTER_SPAWN)
+    msgbox("The sound of a rare Pokémon can be\nheard echoing in the distance.")
+    release
+}
+
+script HiddenForestHiker{
+    setflag(FLAG_IN_HIDDEN_FOREST)
+    msgbox(HiddenForestHiker_Text, MSGBOX_NPC)
+}
+text HiddenForestHiker_Text{
+    "Sometimes when I'm walking around\n"
+    "I think I can hear the sound of\l"
+    "a rare Pokémon nearby.\p"
+    "So far though, all the Pokémon I've\n"
+    "managed to find have been nothing to\l"
+    "write home about."
+}
+
+script HiddenForest_SetStarter{
+    random(150)
+    copyvar(VAR_HIDDEN_FOREST_STEPS, VAR_RESULT)
+    addvar(VAR_HIDDEN_FOREST_STEPS, 350)
+    callnative(GetRandomGrassTileForStarterEncounter)
+    copyvar(VAR_OBJ_GFX_ID_0, VAR_SPECIES)
+    addvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_MON)
+}
+
+script HiddenForestStarterEncounter{
+    lock
+	faceplayer
+	waitse
+	playmoncry(VAR_SPECIES, CRY_MODE_ENCOUNTER)
+	delay(40)
+	waitmoncry
+    random(4)
+    addvar(VAR_RESULT, 2)
+    createmon(1, 0, VAR_SPECIES, VAR_RESULT)
+	setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+	doscriptedbattle
+	clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+	    fadescreenswapbuffers (FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+	    fadescreenswapbuffers (FADE_FROM_BLACK)
+        call(HiddenForest_SetStarter)
+	    release
+	    end
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_RAN || var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+        copyvar(VAR_0x8004, VAR_SPECIES)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        removeobject(VAR_LAST_TALKED)
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        bufferspeciesname(STR_VAR_1, VAR_0x8004)
+        msgbox(gText_LegendaryRanAway)
+    } 
+    call(HiddenForest_SetStarter)
+	setflag(FLAG_STARTER_SPAWN)
+	release
+	end
+}

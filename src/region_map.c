@@ -242,6 +242,58 @@ static const u16 sFlyableMapFlags[FLYABLE_MAPSEC_COUNT] =
     FLAG_FLIGHTPOINT2
 };
 
+#define DEBUG_FLYABLE_MAPSEC_COUNT                21
+
+static const u16 sFlyableMapSecIdsDebug[DEBUG_FLYABLE_MAPSEC_COUNT] =
+{
+    MAPSEC_OLDALE_TOWN,
+    MAPSEC_RUSTBORO_CITY,
+    MAPSEC_PEARLWOOD_POINT,
+    MAPSEC_AZURETIDE_TOWN,
+    MAPSEC_ALDELEAF_CITY,
+    MAPSEC_SKYLOCH_VILLAGE,
+    MAPSEC_SHORESLATE_CITY,
+    MAPSEC_MARIGORGE_TOWN,
+    MAPSEC_KAOLISLE_CITY,
+    MAPSEC_ROCKLIFFE_TOWN,
+    MAPSEC_SANDSTONE_CITY,
+    MAPSEC_TOWN_WIP6,
+    MAPSEC_TOWN_WIP9,
+    MAPSEC_TOWN_WIP5,
+    MAPSEC_BASALEK_TOWN,
+    MAPSEC_FROSTFIRE_CITY,
+    MAPSEC_CRYSTALPINE_TOWN,
+    MAPSEC_TOWN_WIP10,
+    MAPSEC_CITY_WIP6,
+    MAPSEC_SNOWCREST_CITY,
+    MAPSEC_GALEWIND_CITY
+};
+
+static const u16 sFlyableMapFlagsDebug[DEBUG_FLYABLE_MAPSEC_COUNT] =
+{
+    FLAG_VISITED_PRIMROSE_TOWN,
+    FLAG_VISITED_CORALGROVE_CITY,
+    FLAG_VISITED_PEARLWOOD_POINT,
+    FLAG_VISITED_AZURETIDE,
+    FLAG_VISITED_WIP_CITY1,
+    FLAG_VISITED_WIP_TOWN2,
+    FLAG_VISITED_SHORESLATE,
+    FLAG_VISITED_MARIGORGE,
+    FLAG_VISITED_KAOLISLE,
+    FLAG_VISITED_ROCKLIFFE,
+    FLAG_VISITED_SANDSTONE_CITY,
+    FLAG_VISITED_FISHING_VILLAGE,
+    FLAG_VISITED_DRISLEDGE,
+    FLAG_VISITED_AMBEROCK,
+    FLAG_VISITED_BASALEK,
+    FLAG_VISITED_FROSTHEARTH,
+    FLAG_VISITED_CRYSTALPINE,
+    FLAG_VISITED_EVERFROST,
+    FLAG_VISITED_ICEPERCH,
+    FLAG_VISITED_SNOWCREST,
+    FLAG_VISITED_GALEWIND
+};
+
 static bool8 IsCursorInBannedCoordinates(void)
 {
     if (sRegionMap->cursorPosX == 16 && sRegionMap->cursorPosY == 10)
@@ -1480,6 +1532,8 @@ static void  RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
 static u8 GetMapsecType(mapsec_u16_t mapSecId)
 {
+    if (gDebugFly)
+        return MAPSECTYPE_CITY_CANFLY;
     if (mapSecId == gMapHeader.regionMapSectionId)
         return MAPSECTYPE_ROUTE;
     switch (mapSecId)
@@ -2357,23 +2411,57 @@ static void CreateFlyDestIcons(void)
     u8 spriteId;
 
     canFlyFlagIndex = 0;
-    for (mapSecIndex = 0; mapSecIndex < FLYABLE_MAPSEC_COUNT; mapSecIndex++)
+    if (gDebugFly)
     {
-        if (!FlagGet(sFlyableMapFlags[mapSecIndex]))
-            continue;
-        GetMapSecDimensions(sFlyableMapSecIds[mapSecIndex], &x, &y, &width, &height);
-        AdjustMapSecXY(sFlyableMapSecIds[mapSecIndex], &x, &y);
-        x = (x + MAPCURSOR_X_MIN) * 8;
-        y = (y + MAPCURSOR_Y_MIN) * 8;
-        spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
-        if (spriteId != MAX_SPRITES)
+        for (mapSecIndex = 0; mapSecIndex < DEBUG_FLYABLE_MAPSEC_COUNT; mapSecIndex++)
         {
-            gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
-            gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
-            StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
-            gSprites[spriteId].sIconMapSec = sFlyableMapSecIds[mapSecIndex];
+            u16 shape;
+            GetMapSecDimensions(sFlyableMapSecIdsDebug[mapSecIndex], &x, &y, &width, &height);
+            x = (x + MAPCURSOR_X_MIN) * 8 + 4;
+            y = (y + MAPCURSOR_Y_MIN) * 8 + 4;
+
+            if (width == 2)
+                shape = SPRITE_SHAPE(16x8);
+            else if (height == 2)
+                shape = SPRITE_SHAPE(8x16);
+            else
+                shape = SPRITE_SHAPE(8x8);
+
+            spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+            if (spriteId != MAX_SPRITES)
+            {
+                gSprites[spriteId].oam.shape = shape;
+
+                if (FlagGet(sFlyableMapFlagsDebug[canFlyFlagIndex]))
+                    gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+                else
+                    shape += 3;
+
+                StartSpriteAnim(&gSprites[spriteId], shape);
+                gSprites[spriteId].sIconMapSec = sFlyableMapSecIdsDebug[mapSecIndex];
+            }
         }
-        canFlyFlagIndex++;
+    }
+    else
+    {
+        for (mapSecIndex = 0; mapSecIndex < FLYABLE_MAPSEC_COUNT; mapSecIndex++)
+        {
+            if (!FlagGet(sFlyableMapFlags[mapSecIndex]))
+                continue;
+            GetMapSecDimensions(sFlyableMapSecIds[mapSecIndex], &x, &y, &width, &height);
+            AdjustMapSecXY(sFlyableMapSecIds[mapSecIndex], &x, &y);
+            x = (x + MAPCURSOR_X_MIN) * 8;
+            y = (y + MAPCURSOR_Y_MIN) * 8;
+            spriteId = CreateSprite(&sFlyDestIconSpriteTemplate, x, y, 10);
+            if (spriteId != MAX_SPRITES)
+            {
+                gSprites[spriteId].oam.size = SPRITE_SIZE(16x16);
+                gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
+                StartSpriteAnim(&gSprites[spriteId], FLYDESTICON_RED_OUTLINE);
+                gSprites[spriteId].sIconMapSec = sFlyableMapSecIds[mapSecIndex];
+            }
+            canFlyFlagIndex++;
+        }
     }
 }
 
@@ -2570,9 +2658,12 @@ static void CB_ExitFlyMap(void)
                 SetFlyDestination(tempRegionMap);
                 gSpecialVar_Result = TRUE;
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
-                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
                 
-                // ReturnToFieldFromFlyMapSelect();
+                if (gDebugFly)
+                    ReturnToFieldFromFlyMapSelect();
+                else
+                    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                gDebugFly = FALSE;
             }
             else
             {
@@ -2580,7 +2671,12 @@ static void CB_ExitFlyMap(void)
                 // {
                 gSpecialVar_Result = FALSE;
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
-                SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                // SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                if (gDebugFly)
+                    SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
+                else
+                    SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
+                gDebugFly = FALSE;
                 // }
                 // else
                 //     SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);

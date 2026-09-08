@@ -874,6 +874,11 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
         ScriptContext_SetupScript(SSTidalCorridor_EventScript_ReachedStepCount);
         return TRUE;
     }
+    if (HiddenForestTakeStep() == TRUE)
+    {
+        ScriptContext_SetupScript(HiddenForestTriggerStarterSpawn);
+        return TRUE;
+    }
     if (TryStartMatchCall())
         return TRUE;
     return FALSE;

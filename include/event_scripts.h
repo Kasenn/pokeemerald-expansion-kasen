@@ -635,6 +635,7 @@ extern const u8 EventScript_CutGrassSeedDrop[];
 extern const u8 UnstuckPlayer[];
 extern const u8 Debug_Script_8[];
 extern const u8 Nes_InterruptCutscene[];
+extern const u8 HiddenForestTriggerStarterSpawn[];
 
 // Secret Base
 extern const u8 SecretBase_EventScript_PC[];
