@@ -80,19 +80,6 @@
       "trainer_sight_or_berry_tree_id": "ITEM_X_SPEED",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_PROFGLADE_ITEM_3"
-    },
-    {
-      "graphics_id": "OBJ_EVENT_GFX_SPECIES(MIMIKYU)",
-      "x": 39,
-      "y": 85,
-      "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
-      "movement_range_x": 2,
-      "movement_range_y": 2,
-      "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "0",
-      "script": "HiddenForestHiker",
-      "flag": "0"
     }
   ],
   "warp_events": [

@@ -144,10 +144,14 @@ HiddenForestStarterEncounter::
 	goto_if_eq HiddenForestStarterEncounter_5
 HiddenForestStarterEncounter_4:
 # 103 "data/maps/ProfsGladeInterior/scripts.pory"
+	compare VAR_RESULT, B_OUTCOME_CAUGHT
+	goto_if_eq HiddenForestStarterEncounter_10
+HiddenForestStarterEncounter_9:
+# 113 "data/maps/ProfsGladeInterior/scripts.pory"
 	call HiddenForest_SetStarter
-# 104 "data/maps/ProfsGladeInterior/scripts.pory"
+# 114 "data/maps/ProfsGladeInterior/scripts.pory"
 	setflag FLAG_TEMP_1
-# 105 "data/maps/ProfsGladeInterior/scripts.pory"
+# 115 "data/maps/ProfsGladeInterior/scripts.pory"
 	release
 	end
 
@@ -178,6 +182,32 @@ HiddenForestStarterEncounter_5:
 # 101 "data/maps/ProfsGladeInterior/scripts.pory"
 	msgbox gText_LegendaryRanAway
 	goto HiddenForestStarterEncounter_4
+
+HiddenForestStarterEncounter_10:
+# 104 "data/maps/ProfsGladeInterior/scripts.pory"
+	switch VAR_TEMP_2
+# 105 "data/maps/ProfsGladeInterior/scripts.pory"
+	case SPECIES_ROWLET, HiddenForestStarterEncounter_13
+# 107 "data/maps/ProfsGladeInterior/scripts.pory"
+	case SPECIES_TORCHIC, HiddenForestStarterEncounter_14
+# 109 "data/maps/ProfsGladeInterior/scripts.pory"
+	case SPECIES_PIPLUP, HiddenForestStarterEncounter_15
+	goto HiddenForestStarterEncounter_9
+
+HiddenForestStarterEncounter_13:
+# 106 "data/maps/ProfsGladeInterior/scripts.pory"
+	setflag FLAG_CAUGHT_ROWLET
+	goto HiddenForestStarterEncounter_9
+
+HiddenForestStarterEncounter_14:
+# 108 "data/maps/ProfsGladeInterior/scripts.pory"
+	setflag FLAG_CAUGHT_TORCHIC
+	goto HiddenForestStarterEncounter_9
+
+HiddenForestStarterEncounter_15:
+# 110 "data/maps/ProfsGladeInterior/scripts.pory"
+	setflag FLAG_CAUGHT_PIPLUP
+	goto HiddenForestStarterEncounter_9
 
 
 HiddenForestTriggerStarterSpawn_Text_0:

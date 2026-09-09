@@ -101,6 +101,9 @@
         },
         "iscurrentmap": {
             "var_name": "VAR_RESULT"
+        },
+        "checkpartymon": {
+            "var_name": "VAR_RESULT"
         }
     }
 }

@@ -232,6 +232,116 @@ PRMeadow_Movement_WatchRivalExitFacingEastOrWest:
 	walk_in_place_faster_down
 	step_end
 
+PrimroseMeadowHoneyTree::
+# 146 "data/maps/PrimroseMeadow/scripts.pory"
+	lock
+# 147 "data/maps/PrimroseMeadow/scripts.pory"
+	checkitem ITEM_HONEY, 1
+	checkitem ITEM_HONEY, 1
+# 0 "data/maps/PrimroseMeadow/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq PrimroseMeadowHoneyTree_2
+	msgbox HoneyTree_YesHoney, MSGBOX_YESNO
+# 0 "data/maps/PrimroseMeadow/scripts.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq PrimroseMeadowHoneyTree_5
+PrimroseMeadowHoneyTree_4:
+# 181 "data/maps/PrimroseMeadow/scripts.pory"
+	release
+	end
+
+PrimroseMeadowHoneyTree_2:
+# 149 "data/maps/PrimroseMeadow/scripts.pory"
+	msgbox HoneyTree_NoHoney, MSGBOX_SIGN
+	end
+
+PrimroseMeadowHoneyTree_5:
+# 153 "data/maps/PrimroseMeadow/scripts.pory"
+	msgbox HoneyUsedOnTree, MSGBOX_DEFAULT
+# 154 "data/maps/PrimroseMeadow/scripts.pory"
+	closemessage
+# 155 "data/maps/PrimroseMeadow/scripts.pory"
+	removeitem ITEM_HONEY, 1
+# 156 "data/maps/PrimroseMeadow/scripts.pory"
+	random 10
+# 157 "data/maps/PrimroseMeadow/scripts.pory"
+	switch VAR_RESULT
+# 158 "data/maps/PrimroseMeadow/scripts.pory"
+	case 0, PrimroseMeadowHoneyTree_9
+# 160 "data/maps/PrimroseMeadow/scripts.pory"
+	case 1, PrimroseMeadowHoneyTree_10
+# 162 "data/maps/PrimroseMeadow/scripts.pory"
+	case 2, PrimroseMeadowHoneyTree_11
+# 164 "data/maps/PrimroseMeadow/scripts.pory"
+	case 3, PrimroseMeadowHoneyTree_12
+# 166 "data/maps/PrimroseMeadow/scripts.pory"
+	case 4, PrimroseMeadowHoneyTree_13
+# 168 "data/maps/PrimroseMeadow/scripts.pory"
+	case 5, PrimroseMeadowHoneyTree_14
+# 170 "data/maps/PrimroseMeadow/scripts.pory"
+	case 6, PrimroseMeadowHoneyTree_15
+# 172 "data/maps/PrimroseMeadow/scripts.pory"
+	case 7, PrimroseMeadowHoneyTree_16
+# 174 "data/maps/PrimroseMeadow/scripts.pory"
+	case 8, PrimroseMeadowHoneyTree_17
+# 176 "data/maps/PrimroseMeadow/scripts.pory"
+	case 9, PrimroseMeadowHoneyTree_18
+PrimroseMeadowHoneyTree_7:
+# 179 "data/maps/PrimroseMeadow/scripts.pory"
+	doscriptedhoneytreebattle
+	goto PrimroseMeadowHoneyTree_4
+
+PrimroseMeadowHoneyTree_9:
+# 159 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_10:
+# 161 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_11:
+# 163 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_12:
+# 165 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_13:
+# 167 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_14:
+# 169 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_15:
+# 171 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_16:
+# 173 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_17:
+# 175 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_MUNCHLAX, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+PrimroseMeadowHoneyTree_18:
+# 177 "data/maps/PrimroseMeadow/scripts.pory"
+	setwildbattlelevelrange SPECIES_MUNCHLAX, 4, ITEM_NONE, SPECIES_NONE, 7
+	goto PrimroseMeadowHoneyTree_7
+
+
 PrimroseMeadow_Text_RivalPokemon::
 # 83 "data/maps/PrimroseMeadow/scripts.pory"
 	.string "{RIVAL}: Let's see… The Pokémon found\n"

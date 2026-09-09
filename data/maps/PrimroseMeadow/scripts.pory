@@ -141,3 +141,43 @@ text PRMeadow_BrendanTimeToHeadBack{
 	"Oh we need to fix this.\n"
 	"Come on, let's get back to the lab!"
 }
+
+script PrimroseMeadowHoneyTree{
+    lock
+    checkitem(ITEM_HONEY, 1)
+    if(checkitem(ITEM_HONEY, 1) == FALSE){
+        msgbox(HoneyTree_NoHoney, MSGBOX_SIGN)
+        end
+    }
+    if(msgbox(HoneyTree_YesHoney, MSGBOX_YESNO) == TRUE){
+        msgbox(HoneyUsedOnTree, MSGBOX_DEFAULT)
+        closemessage
+        removeitem(ITEM_HONEY, 1)
+		random(10)
+        switch(var(VAR_RESULT)){
+            case 0:
+                setwildbattlelevelrange(SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 1:
+                setwildbattlelevelrange(SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 2:
+                setwildbattlelevelrange(SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 3:
+                setwildbattlelevelrange(SPECIES_KRICKETOT, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 4:
+                setwildbattlelevelrange(SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 5:
+                setwildbattlelevelrange(SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 6:
+                setwildbattlelevelrange(SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 7:
+                setwildbattlelevelrange(SPECIES_SCATTERBUG, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 8:
+                setwildbattlelevelrange(SPECIES_MUNCHLAX, 4, ITEM_NONE, SPECIES_NONE, 7)
+            case 9:
+                setwildbattlelevelrange(SPECIES_MUNCHLAX, 4, ITEM_NONE, SPECIES_NONE, 7)
+        }
+        doscriptedhoneytreebattle
+    }
+    release
+    end
+}

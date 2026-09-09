@@ -100,6 +100,16 @@ script HiddenForestStarterEncounter{
         bufferspeciesname(STR_VAR_1, VAR_0x8004)
         msgbox(gText_LegendaryRanAway)
     } 
+    if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+        switch(var(VAR_SPECIES)){
+        case SPECIES_ROWLET:
+            setflag(FLAG_CAUGHT_ROWLET)
+        case SPECIES_TORCHIC:
+            setflag(FLAG_CAUGHT_TORCHIC)
+        case SPECIES_PIPLUP:
+            setflag(FLAG_CAUGHT_PIPLUP)
+        }
+    }
     call(HiddenForest_SetStarter)
 	setflag(FLAG_STARTER_SPAWN)
 	release

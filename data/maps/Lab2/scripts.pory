@@ -304,9 +304,28 @@ script Lab_Birch{
         case STORY_PEARLWOOD_MEGA_EVENT_COMPLETED:
         case STORY_PEARLWOOD_DEX_OBTAINED:
         case STORY_PEARLWOOD_MEGA_RING_OBTAINED:
+            if(flag(FLAG_CAUGHT_ROWLET) && !flag(FLAG_RECEIVED_DECIDUEITE) && var(VAR_STARTER_MON) != SPECIES_ROWLET && checkpartymon(SPECIES_ROWLET, FALSE) == TRUE){
+                goto(Lab_GiveDecidueite)
+            }
+            if(flag(FLAG_CAUGHT_TORCHIC) && !flag(FLAG_RECEIVED_BLAZIKENITE) && var(VAR_STARTER_MON) != SPECIES_TORCHIC && checkpartymon(SPECIES_TORCHIC, FALSE) == TRUE){
+                goto(Lab_GiveBlazikenite)
+            }
+            if(flag(FLAG_CAUGHT_PIPLUP) && !flag(FLAG_RECEIVED_EMPOLEONITE) && var(VAR_STARTER_MON) != SPECIES_PIPLUP && checkpartymon(SPECIES_PIPLUP, FALSE) == TRUE){
+                goto(Lab_GiveEmpoleonite)
+            }
             call(ProfBirch_EventScript_RatePokedexOrRegister)
     }
     release
+}
+
+script Lab_GiveBlazikenite{
+    //wip
+}
+script Lab_GiveDecidueite{
+    //wip
+}
+script Lab_GiveEmpoleonite{
+    //wip
 }
 
 script Lab_MegaStoneGetLater{

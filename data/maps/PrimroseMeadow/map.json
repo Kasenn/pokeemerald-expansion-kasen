@@ -62,6 +62,54 @@
       "elevation": 0,
       "item": "ITEM_TINY_MUSHROOM",
       "flag": "FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PrimroseMeadowHoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 5,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PrimroseMeadowHoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 27,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PrimroseMeadowHoneyTree"
+    },
+    {
+      "type": "sign",
+      "x": 26,
+      "y": 6,
+      "elevation": 0,
+      "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
+      "script": "PrimroseMeadowHoneyTree"
+    },
+    {
+      "type": "hidden_item",
+      "x": 26,
+      "y": 17,
+      "elevation": 0,
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM3"
+    },
+    {
+      "type": "hidden_item",
+      "x": 17,
+      "y": 3,
+      "elevation": 0,
+      "item": "ITEM_TINY_MUSHROOM",
+      "flag": "FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM2"
     }
   ]
 }
