@@ -226,7 +226,7 @@ script UpdateGuy{
     }
     message(WhatWouldYouLikeToDo)
     waitmessage
-    if(var(VAR_DEBUG) < 6){
+    if(var(VAR_DEBUG) < 8){
         dynmultipush("Update Game", 0)
     }
     dynmultipush("Set Team Level", 1)

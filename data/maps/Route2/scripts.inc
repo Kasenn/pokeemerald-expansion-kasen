@@ -213,7 +213,7 @@ Route2_Text_Girl3PostBattle::
 Route2_Sign_Text::
 # 92 "data/maps/Route2/scripts.pory"
 	.string "{UP_ARROW} Coralgrove City\n"
-	.string "{RIGHT_ARROW} Windy Woods\l"
+	.string "{LEFT_ARROW} Windy Woods\l"
 	.string "{DOWN_ARROW} Primrose Town$"
 
 WindyWoods_Sign_Text::

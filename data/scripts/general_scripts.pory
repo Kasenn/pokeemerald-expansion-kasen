@@ -562,10 +562,9 @@ script Debug_Script_3{
     return
 }
 script Debug_Script_4{
-    setpartylevel(100)
-    // special(SpawnCameraObject)
-    // playbgm(MUS_AWAKEN_LEGEND, 0)
-    // end
+    buffernumberstring(STR_VAR_1, VAR_PEARLWOOD_TOWN_STATE)
+    msgbox("{STR_VAR_1}", MSGBOX_AUTOCLOSE)
+    setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_DEX_OBTAINED)
     return
 }
 script Debug_Script_5{

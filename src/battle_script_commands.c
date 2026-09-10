@@ -4058,7 +4058,7 @@ static void Cmd_getexp(void)
             else
             {
                 *exp = calculatedExp;
-                if(trainerClass == TRAINER_CLASS_NURSE){
+                if(trainerClass == TRAINER_CLASS_TUTOR_EXP){
                     gBattleStruct->expShareExpValue = calculatedExp;
                 }
                 else{
@@ -4087,7 +4087,7 @@ static void Cmd_getexp(void)
                 gBattleStruct->battlerExpReward = 0;
             }
             else if ((gBattleTypeFlags & BATTLE_TYPE_INGAME_PARTNER && *expMonId >= 3)
-                  || (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) == MAX_LEVEL && trainerClass != TRAINER_CLASS_EV_NURSE))
+                  || (GetMonData(&gPlayerParty[*expMonId], MON_DATA_LEVEL) == MAX_LEVEL && trainerClass != TRAINER_CLASS_TUTOR_EV))
             {
                 gBattleScripting.getexpState = 5;
                 gBattleStruct->battlerExpReward = 0;
@@ -4123,7 +4123,7 @@ static void Cmd_getexp(void)
 
                     ApplyExperienceMultipliers(&gBattleStruct->battlerExpReward, *expMonId, gBattlerFainted);
 
-                    if(trainerClass == TRAINER_CLASS_EV_NURSE)
+                    if(trainerClass == TRAINER_CLASS_TUTOR_EV)
                         gBattleStruct->battlerExpReward = 0;
 
                     if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
@@ -4168,7 +4168,7 @@ static void Cmd_getexp(void)
 
                     PREPARE_MON_NICK_WITH_PREFIX_BUFFER(gBattleTextBuff1, gBattleStruct->expGetterBattlerId, *expMonId);
 
-                    if (trainerClass == TRAINER_CLASS_EV_NURSE)
+                    if (trainerClass == TRAINER_CLASS_TUTOR_EV)
                     {
                         u32 oldLeadMonEv = 0;
                         u32 newLeadMonEv = 0;
@@ -6010,7 +6010,7 @@ u32 GetTrainerMoneyToGive(u16 trainerId)
     {
         moneyReward = 20 * gBattleResources->secretBase->party.levels[0] * gBattleStruct->moneyMultiplier;
     }
-    else if (trainerClass == TRAINER_CLASS_NURSE || trainerClass == TRAINER_CLASS_EV_NURSE)
+    else if (trainerClass == TRAINER_CLASS_TUTOR_EXP || trainerClass == TRAINER_CLASS_TUTOR_EV)
     {
         moneyReward = 0;
     }

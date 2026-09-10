@@ -91,7 +91,7 @@ script Route2_Sign{
 }
 text Route2_Sign_Text{
     "{UP_ARROW} Coralgrove City\n"
-    "{RIGHT_ARROW} Windy Woods\l"
+    "{LEFT_ARROW} Windy Woods\l"
     "{DOWN_ARROW} Primrose Town"
 }
 script WindyWoods_Sign{

@@ -319,13 +319,60 @@ script Lab_Birch{
 }
 
 script Lab_GiveBlazikenite{
-    //wip
+    faceplayer
+    waitse
+    playse(SE_PIN)
+    exclamationmark(LOCALID_LAB_BIRCH)
+    bufferspeciesname(STR_VAR_1, SPECIES_TORCHIC)
+    setvar(VAR_TEMP_4, ITEM_BLAZIKENITE)
+    msgbox(Lab_GiveStarterStone_Text)
+    giveitem(VAR_TEMP_4)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_RECEIVED_BLAZIKENITE)
+    release
 }
 script Lab_GiveDecidueite{
-    //wip
+    faceplayer
+    waitse
+    playse(SE_PIN)
+    exclamationmark(LOCALID_LAB_BIRCH)
+    bufferspeciesname(STR_VAR_1, SPECIES_ROWLET)
+    setvar(VAR_TEMP_4, ITEM_DECIDUEITE)
+    msgbox(Lab_GiveStarterStone_Text)
+    giveitem(VAR_TEMP_4)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_RECEIVED_DECIDUEITE)
+    release
 }
 script Lab_GiveEmpoleonite{
-    //wip
+    faceplayer
+    waitse
+    playse(SE_PIN)
+    exclamationmark(LOCALID_LAB_BIRCH)
+    bufferspeciesname(STR_VAR_1, SPECIES_PIPLUP)
+    setvar(VAR_TEMP_4, ITEM_EMPOLEONITE)
+    msgbox(Lab_GiveStarterStone_Text)
+    giveitem(VAR_TEMP_4)
+    if(var(VAR_RESULT) == FALSE){
+        goto(ZeBagIsFull)
+    }
+    setflag(FLAG_RECEIVED_EMPOLEONITE)
+    release
+}
+text Lab_GiveStarterStone_Text{
+    "Prof. Birch: My, what's this!?\p"
+    "You found a wild {STR_VAR_1}?\n"
+    "That's amazing, {PLAYER}!\p"
+    "I'm guessing you found the same\n"
+    "hidden forest I have been getting\l"
+    "my Pokémon from.\p"
+    "In any case, If you want your\n"
+    "newfound Pokémon to really shine,\l"
+    "you're going to need this."
 }
 
 script Lab_MegaStoneGetLater{
@@ -534,7 +581,7 @@ text LabMegaStonesWithoutRival{
     "able to somehow interact with one of\l"
     "these Mega Stones.\p"
     "I already gave {RIVAL} a stone, and\n"
-    "I want you to also have a stone that\n"
+    "I want you to also have a stone that\l"
     "I believe is related to the Pokémon\l"
     "I have given you."
 }
@@ -543,10 +590,10 @@ text TradedAwayStarter{
     "magnanimous gift away, have you?\p"
     "Don't worry, I'm just kidding.\p"
     "I can still give you the stone that's\n"
-    "associated with the Pokémon I gave you,\l"
-    "but you'll have to figure out where to\l"
-    "get the stone for the Pokémon you\l"
-    "currently have by yourself.\p"
+    "associated with the Pokémon I gave\l"
+    "you, but you'll have to figure out\l"
+    "where to get the stone for the Pokémon\l"
+    "you currently have by yourself.\p"
     "Maybe you could try checking with the\n"
     "person who traded you it originally?\p"
     "In any case, here you go."

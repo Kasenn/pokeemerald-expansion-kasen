@@ -1638,7 +1638,7 @@ static void Task_PrepareToGiveExpWithExpBar(u8 taskId)
     expToNextLvl = gExperienceTables[gSpeciesInfo[species].growthRate][level + 1] - currLvlExp;
     SetBattleBarStruct(battler, gHealthboxSpriteIds[battler], expToNextLvl, exp, -gainedExp);
     TestRunner_Battle_RecordExp(battler, exp, -gainedExp);
-    if (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA) == TRAINER_CLASS_EV_NURSE)
+    if (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA) == TRAINER_CLASS_TUTOR_EV)
         PlaySE(SE_USE_ITEM);
     else
         PlaySE(SE_EXP);
@@ -1667,7 +1667,7 @@ static void Task_GiveExpWithExpBar(u8 taskId)
         SetHealthboxSpriteVisible(gHealthboxSpriteIds[battler]);
         if (newExpPoints == -1) // The bar has been filled with given exp points.
         {
-            if (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA) != TRAINER_CLASS_EV_NURSE)
+            if (GetTrainerClassFromId(TRAINER_BATTLE_PARAM.opponentA) != TRAINER_CLASS_TUTOR_EV)
                 m4aSongNumStop(SE_EXP);
             level = GetMonData(mon, MON_DATA_LEVEL);
             currExp = GetMonData(mon, MON_DATA_EXP);

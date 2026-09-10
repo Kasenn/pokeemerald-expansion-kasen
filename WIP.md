@@ -277,6 +277,7 @@ hyo-oppa's ORAS Brendan & May trainer front pics, Emerald Brendan & May front pi
 Solo993's & Kyuzee's ORAS Brendan & May back pics
 Kyledove's RS Brendan & May front pics, Contest May front pic
 hyo-oppa's Content Brendan front pic
+PokeJosh's Nurse Joy front pic
 
 Music MIDIs:
 Nintendo MIDI Music - Pokemon B&W Trainer Battle theme

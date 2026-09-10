@@ -50,8 +50,8 @@
 #define FLAG_GLADE_PUZZLE                       0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR              0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
 #define FLAG_AZURETIDE_HONEY                    0x24 // Flag for getting honey in azuretide town
-#define FLAG_UNUSED_0x25                 0x25 // STOPS CATCHING WILD POKEMON
-#define FLAG_UNUSED_0x26             0x26 // Stops running from wild pokemon
+#define FLAG_UNUSED_0x25                        0x25 // unused
+#define FLAG_UNUSED_0x26                        0x26 // unused
 #define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS         0x27 // Forces double wild battles
 #define FLAG_OBTAINED_PAINTBRUSH                0x28 // 
 #define FLAG_MET_MOVE_TUTOR                     0x29 // Introduction to BP Shop Move Tutor
@@ -103,12 +103,11 @@
 
 // Scripts
 #define FLAG_SYSTEM_NOREWARDBATTLES             0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
-#define FLAG_RIVAL_MET_IN_SANDSTONE                     0x51
+#define FLAG_RIVAL_MET_IN_SANDSTONE             0x51
 #define FLAG_RECEIVED_METAL_COAT                0x52
 #define FLAG_SANDSTONE_LAVACOOKIE               0x53
 #define FLAG_RECEIVED_LIGHTBALL                 0x54  // Received light ball after showing 2 raichus in skyloch village
 #define FLAG_BUFFET_COMPLETE                    0x55
-
 #define FLAG_TRADED_SMEARGLE                    0x56  // HAS BEEN SET IN NEW GAME, CLEAR BEFORE USING!
 #define FLAG_MET_RIVAL_MOM                      0x57
 #define FLAG_BIRCH_AIDE_MET                     0x58

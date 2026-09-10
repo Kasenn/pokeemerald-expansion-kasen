@@ -596,7 +596,7 @@ Lab_Birch::
 # 306 "data/maps/Lab2/scripts.pory"
 	case STORY_PEARLWOOD_MEGA_RING_OBTAINED, Lab_Birch_7
 Lab_Birch_1:
-# 312 "data/maps/Lab2/scripts.pory"
+# 318 "data/maps/Lab2/scripts.pory"
 	release
 	return
 
@@ -624,9 +624,15 @@ Lab_Birch_6:
 
 Lab_Birch_7:
 # 307 "data/maps/Lab2/scripts.pory"
-	goto_if_set FLAG_CAUGHT_TORCHIC, Lab_Birch_13
+	goto_if_set FLAG_CAUGHT_ROWLET, Lab_Birch_13
 Lab_Birch_10:
 # 310 "data/maps/Lab2/scripts.pory"
+	goto_if_set FLAG_CAUGHT_TORCHIC, Lab_Birch_22
+Lab_Birch_19:
+# 313 "data/maps/Lab2/scripts.pory"
+	goto_if_set FLAG_CAUGHT_PIPLUP, Lab_Birch_31
+Lab_Birch_28:
+# 316 "data/maps/Lab2/scripts.pory"
 	call ProfBirch_EventScript_RatePokedexOrRegister
 	goto Lab_Birch_1
 
@@ -638,130 +644,277 @@ Lab_Birch_8:
 	goto Lab_Birch_1
 
 Lab_Birch_11:
+# 308 "data/maps/Lab2/scripts.pory"
+	goto Lab_GiveDecidueite
 	goto Lab_Birch_10
 
 Lab_Birch_12:
 # 307 "data/maps/Lab2/scripts.pory"
-	compare VAR_STARTER_MON, SPECIES_TORCHIC
+	compare VAR_STARTER_MON, SPECIES_ROWLET
 	goto_if_ne Lab_Birch_16
 	goto Lab_Birch_10
 
 Lab_Birch_13:
 # 307 "data/maps/Lab2/scripts.pory"
-	goto_if_unset FLAG_RECEIVED_BLAZIKENITE, Lab_Birch_12
+	goto_if_unset FLAG_RECEIVED_DECIDUEITE, Lab_Birch_12
 	goto Lab_Birch_10
 
 Lab_Birch_16:
-	checkpartymon SPECIES_TORCHIC, FALSE
+	checkpartymon SPECIES_ROWLET, FALSE
 # 0 "data/maps/Lab2/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq Lab_Birch_11
 	goto Lab_Birch_10
 
+Lab_Birch_20:
+# 311 "data/maps/Lab2/scripts.pory"
+	goto Lab_GiveBlazikenite
+	goto Lab_Birch_19
+
+Lab_Birch_21:
+# 310 "data/maps/Lab2/scripts.pory"
+	compare VAR_STARTER_MON, SPECIES_TORCHIC
+	goto_if_ne Lab_Birch_25
+	goto Lab_Birch_19
+
+Lab_Birch_22:
+# 310 "data/maps/Lab2/scripts.pory"
+	goto_if_unset FLAG_RECEIVED_BLAZIKENITE, Lab_Birch_21
+	goto Lab_Birch_19
+
+Lab_Birch_25:
+	checkpartymon SPECIES_TORCHIC, FALSE
+# 0 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq Lab_Birch_20
+	goto Lab_Birch_19
+
+Lab_Birch_29:
+# 314 "data/maps/Lab2/scripts.pory"
+	goto Lab_GiveEmpoleonite
+	goto Lab_Birch_28
+
+Lab_Birch_30:
+# 313 "data/maps/Lab2/scripts.pory"
+	compare VAR_STARTER_MON, SPECIES_PIPLUP
+	goto_if_ne Lab_Birch_34
+	goto Lab_Birch_28
+
+Lab_Birch_31:
+# 313 "data/maps/Lab2/scripts.pory"
+	goto_if_unset FLAG_RECEIVED_EMPOLEONITE, Lab_Birch_30
+	goto Lab_Birch_28
+
+Lab_Birch_34:
+	checkpartymon SPECIES_PIPLUP, FALSE
+# 0 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, TRUE
+	goto_if_eq Lab_Birch_29
+	goto Lab_Birch_28
+
+
+Lab_GiveBlazikenite::
+# 322 "data/maps/Lab2/scripts.pory"
+	faceplayer
+# 323 "data/maps/Lab2/scripts.pory"
+	waitse
+# 324 "data/maps/Lab2/scripts.pory"
+	playse SE_PIN
+# 325 "data/maps/Lab2/scripts.pory"
+	exclamationmark LOCALID_LAB_BIRCH
+# 326 "data/maps/Lab2/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_TORCHIC
+# 327 "data/maps/Lab2/scripts.pory"
+	setvar VAR_TEMP_4, ITEM_BLAZIKENITE
+# 328 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_GiveStarterStone_Text
+# 329 "data/maps/Lab2/scripts.pory"
+	giveitem VAR_TEMP_4
+# 330 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab_GiveBlazikenite_2
+Lab_GiveBlazikenite_1:
+# 333 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_RECEIVED_BLAZIKENITE
+# 334 "data/maps/Lab2/scripts.pory"
+	release
+	return
+
+Lab_GiveBlazikenite_2:
+# 331 "data/maps/Lab2/scripts.pory"
+	goto ZeBagIsFull
+	goto Lab_GiveBlazikenite_1
+
+
+Lab_GiveDecidueite::
+# 337 "data/maps/Lab2/scripts.pory"
+	faceplayer
+# 338 "data/maps/Lab2/scripts.pory"
+	waitse
+# 339 "data/maps/Lab2/scripts.pory"
+	playse SE_PIN
+# 340 "data/maps/Lab2/scripts.pory"
+	exclamationmark LOCALID_LAB_BIRCH
+# 341 "data/maps/Lab2/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_ROWLET
+# 342 "data/maps/Lab2/scripts.pory"
+	setvar VAR_TEMP_4, ITEM_DECIDUEITE
+# 343 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_GiveStarterStone_Text
+# 344 "data/maps/Lab2/scripts.pory"
+	giveitem VAR_TEMP_4
+# 345 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab_GiveDecidueite_2
+Lab_GiveDecidueite_1:
+# 348 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_RECEIVED_DECIDUEITE
+# 349 "data/maps/Lab2/scripts.pory"
+	release
+	return
+
+Lab_GiveDecidueite_2:
+# 346 "data/maps/Lab2/scripts.pory"
+	goto ZeBagIsFull
+	goto Lab_GiveDecidueite_1
+
+
+Lab_GiveEmpoleonite::
+# 352 "data/maps/Lab2/scripts.pory"
+	faceplayer
+# 353 "data/maps/Lab2/scripts.pory"
+	waitse
+# 354 "data/maps/Lab2/scripts.pory"
+	playse SE_PIN
+# 355 "data/maps/Lab2/scripts.pory"
+	exclamationmark LOCALID_LAB_BIRCH
+# 356 "data/maps/Lab2/scripts.pory"
+	bufferspeciesname STR_VAR_1, SPECIES_PIPLUP
+# 357 "data/maps/Lab2/scripts.pory"
+	setvar VAR_TEMP_4, ITEM_EMPOLEONITE
+# 358 "data/maps/Lab2/scripts.pory"
+	msgbox Lab_GiveStarterStone_Text
+# 359 "data/maps/Lab2/scripts.pory"
+	giveitem VAR_TEMP_4
+# 360 "data/maps/Lab2/scripts.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Lab_GiveEmpoleonite_2
+Lab_GiveEmpoleonite_1:
+# 363 "data/maps/Lab2/scripts.pory"
+	setflag FLAG_RECEIVED_EMPOLEONITE
+# 364 "data/maps/Lab2/scripts.pory"
+	release
+	return
+
+Lab_GiveEmpoleonite_2:
+# 361 "data/maps/Lab2/scripts.pory"
+	goto ZeBagIsFull
+	goto Lab_GiveEmpoleonite_1
+
 
 Lab_MegaStoneGetLater::
-# 316 "data/maps/Lab2/scripts.pory"
+# 379 "data/maps/Lab2/scripts.pory"
 	lock
-# 317 "data/maps/Lab2/scripts.pory"
+# 380 "data/maps/Lab2/scripts.pory"
 	faceplayer
-# 318 "data/maps/Lab2/scripts.pory"
+# 381 "data/maps/Lab2/scripts.pory"
 	msgbox HeresYourStoneNow
-# 319 "data/maps/Lab2/scripts.pory"
+# 382 "data/maps/Lab2/scripts.pory"
 	switch VAR_STARTER_MON
-# 320 "data/maps/Lab2/scripts.pory"
+# 383 "data/maps/Lab2/scripts.pory"
 	case SPECIES_ROWLET, Lab_MegaStoneGetLater_3
-# 322 "data/maps/Lab2/scripts.pory"
+# 385 "data/maps/Lab2/scripts.pory"
 	case SPECIES_TORCHIC, Lab_MegaStoneGetLater_4
-# 324 "data/maps/Lab2/scripts.pory"
+# 387 "data/maps/Lab2/scripts.pory"
 	case SPECIES_PIPLUP, Lab_MegaStoneGetLater_5
 Lab_MegaStoneGetLater_1:
-# 327 "data/maps/Lab2/scripts.pory"
+# 390 "data/maps/Lab2/scripts.pory"
 	goto_if_set FLAG_RECEIVED_CAPSULE, Lab_MegaStoneGetLater_6
-# 331 "data/maps/Lab2/scripts.pory"
+# 394 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_STONE_OBTAINED
 	return
 
 Lab_MegaStoneGetLater_3:
-# 321 "data/maps/Lab2/scripts.pory"
+# 384 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_DECIDUEITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_4:
-# 323 "data/maps/Lab2/scripts.pory"
+# 386 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_BLAZIKENITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_5:
-# 325 "data/maps/Lab2/scripts.pory"
+# 388 "data/maps/Lab2/scripts.pory"
 	giveitem ITEM_EMPOLEONITE
 	goto Lab_MegaStoneGetLater_1
 
 Lab_MegaStoneGetLater_6:
-# 328 "data/maps/Lab2/scripts.pory"
+# 391 "data/maps/Lab2/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_EVENT_COMPLETED
 	return
 
 
-# 335 "data/maps/Lab2/scripts.pory"
+# 398 "data/maps/Lab2/scripts.pory"
 Lab_Movement_RivalExit1:
-# 336 "data/maps/Lab2/scripts.pory"
+# 399 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 336 "data/maps/Lab2/scripts.pory"
+# 399 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 336 "data/maps/Lab2/scripts.pory"
+# 399 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 337 "data/maps/Lab2/scripts.pory"
+# 400 "data/maps/Lab2/scripts.pory"
 	player_run_left
-# 338 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 338 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 338 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 338 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	player_run_down
-# 338 "data/maps/Lab2/scripts.pory"
+# 401 "data/maps/Lab2/scripts.pory"
 	player_run_down
 	step_end
 
-# 340 "data/maps/Lab2/scripts.pory"
+# 403 "data/maps/Lab2/scripts.pory"
 LabFaceDown:
-# 341 "data/maps/Lab2/scripts.pory"
+# 404 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 342 "data/maps/Lab2/scripts.pory"
+# 405 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
 	step_end
 
-# 344 "data/maps/Lab2/scripts.pory"
+# 407 "data/maps/Lab2/scripts.pory"
 ProfBackAndForth:
-# 345 "data/maps/Lab2/scripts.pory"
+# 408 "data/maps/Lab2/scripts.pory"
 	walk_right
-# 346 "data/maps/Lab2/scripts.pory"
+# 409 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 347 "data/maps/Lab2/scripts.pory"
+# 410 "data/maps/Lab2/scripts.pory"
 	delay_16
-# 348 "data/maps/Lab2/scripts.pory"
+# 411 "data/maps/Lab2/scripts.pory"
 	walk_left
-# 349 "data/maps/Lab2/scripts.pory"
+# 412 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
-# 350 "data/maps/Lab2/scripts.pory"
+# 413 "data/maps/Lab2/scripts.pory"
 	step_end
 
-# 352 "data/maps/Lab2/scripts.pory"
+# 415 "data/maps/Lab2/scripts.pory"
 TurnPlayer:
-# 353 "data/maps/Lab2/scripts.pory"
+# 416 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_right
-# 354 "data/maps/Lab2/scripts.pory"
+# 417 "data/maps/Lab2/scripts.pory"
 	walk_in_place_faster_down
 	step_end
 
@@ -821,8 +974,20 @@ Lab_DexGet_Text_5:
 # 222 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Sigh…\pSometimes I wonder\nwhere {RIVAL} gets all that energy…$"
 
+Lab_GiveStarterStone_Text::
+# 366 "data/maps/Lab2/scripts.pory"
+	.string "Prof. Birch: My, what's this!?\p"
+	.string "You found a wild {STR_VAR_1}?\n"
+	.string "That's amazing, {PLAYER}!\p"
+	.string "I'm guessing you found the same\n"
+	.string "hidden forest I have been getting\l"
+	.string "my Pokémon from.\p"
+	.string "In any case, If you want your\n"
+	.string "newfound Pokémon to really shine,\l"
+	.string "you're going to need this.$"
+
 Lab_Intro_Speech::
-# 357 "data/maps/Lab2/scripts.pory"
+# 420 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Hello!\n"
 	.string "You must be {PLAYER}!\p"
 	.string "As you may know, it is customary in\n"
@@ -836,7 +1001,7 @@ Lab_Intro_Speech::
 	.string "your decision.$"
 
 Lab_Intro_Speech2::
-# 371 "data/maps/Lab2/scripts.pory"
+# 434 "data/maps/Lab2/scripts.pory"
 	.string "Over there on the table lies three\n"
 	.string "Poké Balls. Each of them stores\l"
 	.string "some very rare Pokémon.\p"
@@ -846,7 +1011,7 @@ Lab_Intro_Speech2::
 	.string "sure you decide carefully!$"
 
 BirchSurprised::
-# 380 "data/maps/Lab2/scripts.pory"
+# 443 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh my!\p"
 	.string "I knew these little fellas were\n"
 	.string "energetic, but I never expected one\l"
@@ -856,12 +1021,12 @@ BirchSurprised::
 	.string "its ball if you simply ask it nicely.$"
 
 Lab_DexTalkMayA::
-# 389 "data/maps/Lab2/scripts.pory"
+# 452 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "is there something you need?$"
 
 Lab_DexTalkMayB::
-# 393 "data/maps/Lab2/scripts.pory"
+# 456 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Oh boy, is there…\p"
 	.string "You gave {PLAYER} a Pokémon but\n"
 	.string "never gave him a Pokédex, dad!\p"
@@ -869,19 +1034,19 @@ Lab_DexTalkMayB::
 	.string "a great trainer without one?!$"
 
 Lab_DexTalkMayC::
-# 400 "data/maps/Lab2/scripts.pory"
+# 463 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, it must've\n"
 	.string "slipped my mind…$"
 
 Lab_DexTalkMayD::
-# 404 "data/maps/Lab2/scripts.pory"
+# 467 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Slipped your mind?!\n"
 	.string "You're a Pokémon professor!\p"
 	.string "Surely you realize that giving one to\n"
 	.string "{PLAYER} helps your research as well?$"
 
 Lab_DexTalkMayE::
-# 410 "data/maps/Lab2/scripts.pory"
+# 473 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I know, I know.\n"
 	.string "I'll get {PLAYER} one right away.\p"
 	.string "Now, let's see…\p"
@@ -891,46 +1056,46 @@ Lab_DexTalkMayE::
 	.string "lying around at this time…$"
 
 Lab_DexTalkMayF::
-# 419 "data/maps/Lab2/scripts.pory"
+# 482 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Well we can't have {PLAYER}\n"
 	.string "leaving empty-handed, now can we?!$"
 
 Lab_DexTalkMayG::
-# 423 "data/maps/Lab2/scripts.pory"
+# 486 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Here, {PLAYER},\n"
 	.string "you can have mine.\l"
 	.string "I'll order myself a new one.$"
 
 Lab_DexTalkMayH::
-# 428 "data/maps/Lab2/scripts.pory"
+# 491 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Yay! Thanks, dad!$"
 
 Lab_DexTalkBrendanA::
-# 432 "data/maps/Lab2/scripts.pory"
+# 495 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "is there something you need?$"
 
 Lab_DexTalkBrendanB::
-# 436 "data/maps/Lab2/scripts.pory"
+# 499 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: As a matter of fact, there is.\n"
 	.string "You never gave {PLAYER} a Pokédex!\p"
 	.string "How do you expect her to become\n"
 	.string "a great trainer without one?$"
 
 Lab_DexTalkBrendanC::
-# 442 "data/maps/Lab2/scripts.pory"
+# 505 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, it must've\n"
 	.string "slipped my mind…$"
 
 Lab_DexTalkBrendanD::
-# 446 "data/maps/Lab2/scripts.pory"
+# 509 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Slipped your mind?\n"
 	.string "Aren't you a Pokémon professor?\p"
 	.string "Surely giving one to {PLAYER}\n"
 	.string "helps your research as well.$"
 
 Lab_DexTalkBrendanE::
-# 452 "data/maps/Lab2/scripts.pory"
+# 515 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I know, I know.\n"
 	.string "I'll get {PLAYER} one right away.\p"
 	.string "Now, let's see…\p"
@@ -940,22 +1105,22 @@ Lab_DexTalkBrendanE::
 	.string "lying around at this time…$"
 
 Lab_DexTalkBrendanF::
-# 461 "data/maps/Lab2/scripts.pory"
+# 524 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Well we can't have {PLAYER}\n"
 	.string "leaving empty-handed, now can we?$"
 
 Lab_DexTalkBrendanG::
-# 465 "data/maps/Lab2/scripts.pory"
+# 528 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Yes, I know. {PLAYER},\n"
 	.string "you can have mine.\l"
 	.string "I'll order myself a new one.$"
 
 Lab_DexTalkBrendanH::
-# 470 "data/maps/Lab2/scripts.pory"
+# 533 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: You're the best, dad!$"
 
 LabMegaStones::
-# 473 "data/maps/Lab2/scripts.pory"
+# 536 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: {RIVAL}, {PLAYER},\n"
 	.string "what a pleasant surprise.\l"
 	.string "I was hoping to see you two soon.\p"
@@ -981,7 +1146,7 @@ LabMegaStones::
 	.string "I have given you.$"
 
 LabMegaStonesWithoutRival::
-# 498 "data/maps/Lab2/scripts.pory"
+# 561 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, hello, {PLAYER}.\n"
 	.string "what a pleasant surprise.\p"
 	.string "I must say, I was expecting to see\n"
@@ -1004,26 +1169,26 @@ LabMegaStonesWithoutRival::
 	.string "able to somehow interact with one of\l"
 	.string "these Mega Stones.\p"
 	.string "I already gave {RIVAL} a stone, and\n"
-	.string "I want you to also have a stone that\n"
+	.string "I want you to also have a stone that\l"
 	.string "I believe is related to the Pokémon\l"
 	.string "I have given you.$"
 
 TradedAwayStarter::
-# 525 "data/maps/Lab2/scripts.pory"
+# 588 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, you haven't traded my\n"
 	.string "magnanimous gift away, have you?\p"
 	.string "Don't worry, I'm just kidding.\p"
 	.string "I can still give you the stone that's\n"
-	.string "associated with the Pokémon I gave you,\l"
-	.string "but you'll have to figure out where to\l"
-	.string "get the stone for the Pokémon you\l"
-	.string "currently have by yourself.\p"
+	.string "associated with the Pokémon I gave\l"
+	.string "you, but you'll have to figure out\l"
+	.string "where to get the stone for the Pokémon\l"
+	.string "you currently have by yourself.\p"
 	.string "Maybe you could try checking with the\n"
 	.string "person who traded you it originally?\p"
 	.string "In any case, here you go.$"
 
 GonnaTakeMyLeave_May::
-# 538 "data/maps/Lab2/scripts.pory"
+# 601 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "You better train your Pokémon to use\n"
@@ -1033,7 +1198,7 @@ GonnaTakeMyLeave_May::
 	.string "to use Mega Evolution!$"
 
 GonnaTakeMyLeave_Brendan::
-# 547 "data/maps/Lab2/scripts.pory"
+# 610 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: I can't wait to see this\n"
 	.string "thing in action!\p"
 	.string "I hope you train your Pokémon to get\n"
@@ -1043,28 +1208,28 @@ GonnaTakeMyLeave_Brendan::
 	.string "know how to Mega Evolve your Pokémon.$"
 
 ThanksDadBirch::
-# 556 "data/maps/Lab2/scripts.pory"
+# 619 "data/maps/Lab2/scripts.pory"
 	.string "{RIVAL}: Thanks dad! I'm going to go\n"
 	.string "and give this thing a try right away!$"
 
 PickABall::
-# 561 "data/maps/Lab2/scripts.pory"
+# 624 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Go on, pick one of the\n"
 	.string "balls from the table.$"
 
 TakeCareOfPokemon::
-# 565 "data/maps/Lab2/scripts.pory"
+# 628 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I hope you take\n"
 	.string "good care of your new companion.$"
 
 YourFatherIsInTown::
-# 569 "data/maps/Lab2/scripts.pory"
+# 632 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: Oh, I almost forgot!\n"
 	.string "Your father is currently in town.\p"
 	.string "I know he's a busy man. You may want\n"
 	.string "to dash on home before he leaves.$"
 
 HeresYourStoneNow::
-# 575 "data/maps/Lab2/scripts.pory"
+# 638 "data/maps/Lab2/scripts.pory"
 	.string "Prof. Birch: I hope you've made enough\n"
 	.string "space in your bag to hold this stone.$"

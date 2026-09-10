@@ -581,6 +581,9 @@ const u16 gTrainerBackPicPalette_Leaf[] = INCGFX_U16("graphics/trainers/back_pic
 const u16 gTrainerBackPicPalette_Pokedude[] = INCGFX_U16("graphics/trainers/back_pics/pokedude.png", ".gbapal");
 const u16 gTrainerBackPicPalette_OldMan[] = INCGFX_U16("graphics/trainers/back_pics/old_man.png", ".gbapal");
 
+const u32 gTrainerFrontPic_Nurse[] = INCGFX_U32("graphics/trainers/front_pics/nurse.png", ".4bpp.smol");
+const u16 gTrainerPalette_Nurse[] = INCGFX_U16("graphics/trainers/front_pics/nurse.png", ".gbapal");
+
 
 static const union AnimCmd sAnimCmd_Hoenn[] =
 {
@@ -1436,5 +1439,9 @@ const struct TrainerPicInfo gTrainerPicInfo[TRAINER_PIC_COUNT] =
     {
         .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_BrendanContest, gTrainerPalette_BrendanContest),
         .backPic = TRAINER_BACK_PIC(4, gTrainerBackPic_BrendanContest, gTrainerPaletteBackpic_BrendanContest, sBackAnims_Hoenn)
+    },
+    [TRAINER_PIC_NURSE] =
+    {
+        .frontPic = TRAINER_FRONT_PIC(gTrainerFrontPic_Nurse, gTrainerPalette_Nurse),
     },
 };

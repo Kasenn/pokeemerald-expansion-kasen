@@ -535,7 +535,7 @@ UpdateGuy::
 # 228 "data/scripts/my_debug.pory"
 	waitmessage
 # 229 "data/scripts/my_debug.pory"
-	compare VAR_DEBUG, 6
+	compare VAR_DEBUG, 8
 	goto_if_lt UpdateGuy_5
 UpdateGuy_4:
 # 232 "data/scripts/my_debug.pory"
