@@ -81,6 +81,7 @@ enum __attribute__((packed)) EggGroup
 
 #define NATURE_RANDOM            NUM_NATURES
 #define NATURE_MAY_SYNCHRONIZE   NUM_NATURES + 1
+#define NATURE_NEUTRAL  NATURE_HARDY
 
 // Pokémon Stats
 enum __attribute__((packed)) Stat

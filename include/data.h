@@ -79,40 +79,21 @@ struct TrainerPicInfo
 #define IVS_ALL(value)      IVS(value, value, value, value, value, value)
 #define EVS_ALL(value)      EVS(value, value, value, value, value, value)
 
+#define MOVES(...)          .moves = { __VA_ARGS__ }
+#define HELD(item)          .heldItem = item
+#define ABILITY(ability_)   .ability = ability_
+#define FS(friendship_)     .friendship = friendship_
+#define BALL(pokeBall)      .ball = ITEM_##pokeBall##_BALL
+#define SHINY               .isShiny = TRUE
 
-#define POKEMON(mon, level)     \
-    .species = mon,             \
-    .lvl = level
-
-#define POKEMON_F(mon, level)   \
-    .species = mon,             \
-    .lvl = level,               \
-    .gender = TRAINER_MON_FEMALE
-
-#define POKEMON_M(mon, level)   \
-    .species = mon,             \
-    .lvl = level,               \
-    .gender = TRAINER_MON_MALE
-
-#define POKEMON_N(mon, level, nature1)          \
-    .species = mon,                             \
-    .lvl = level,                               \
-    .nature = nature1
-
-#define POKEMON_FN(mon, level, nature1)         \
-    .species = mon,                             \
-    .lvl = level,                               \
-    .gender = TRAINER_MON_FEMALE,               \
-    .nature = nature1
-
-#define POKEMON_MN(mon, level, nature1)         \
-    .species = mon,                             \
-    .lvl = level,                               \
-    .gender = TRAINER_MON_MALE,                 \
-    .nature = nature1
-
-#define MOVES(...)      .moves = { __VA_ARGS__ }
-#define HELD(item)      .heldItem = item
+#define MON(mon, lvl_, gender_, nature_, ...)   \
+    {                                           \
+        .species = mon,                         \
+        .lvl = lvl_,                            \
+        .gender = TRAINER_MON_##gender_,        \
+        .nature = nature_,                      \
+        __VA_ARGS__                             \
+    }
 
 // Shared by both trainer and frontier mons
 // See CreateNPCTrainerPartyFromTrainer and CreateFacilityMon
