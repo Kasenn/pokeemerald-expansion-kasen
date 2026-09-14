@@ -2,6 +2,12 @@ mapscripts WW_Grotto_MapScripts{
     MAP_SCRIPT_ON_TRANSITION: WW_Grotto_SetObject
 }
 script WW_Grotto_SetObject{
+    if (var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_TALKED_TO_AIDE){
+        if (var(VAR_GROTTO_1) <= 39){
+            setvar(VAR_GROTTO_1, 79)
+        }
+        setvar(VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_ENTERED_HIDDEN_GROTTO)
+    }
     if(var(VAR_GROTTO_1) <= 39){
         setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL)
     }

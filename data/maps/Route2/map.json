@@ -79,7 +79,7 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
-      "x": 64,
+      "x": 63,
       "y": 53,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_FISH_DOWN",
@@ -105,10 +105,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_GIRL_3",
-      "x": 21,
+      "x": 20,
       "y": 47,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_type": "MOVEMENT_TYPE_ROTATE_CLOCKWISE",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -118,10 +118,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_LASS",
-      "x": 56,
-      "y": 51,
+      "x": 63,
+      "y": 19,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NORMAL",
@@ -182,6 +182,7 @@
       "flag": "FLAG_ZYGARDE_CELL_5"
     },
     {
+      "local_id": "LOCALID_ROUTE2_HIKER",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 73,
       "y": 28,
@@ -218,6 +219,19 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "DriftblimExpress",
+      "flag": "0"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
+      "x": 72,
+      "y": 9,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_FACE_DOWN_AND_RIGHT",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NORMAL",
+      "trainer_sight_or_berry_tree_id": "4",
+      "script": "Route2_Youngster2",
       "flag": "0"
     }
   ],
@@ -258,18 +272,18 @@
       "dest_warp_id": "12"
     },
     {
-      "x": 19,
-      "y": 31,
+      "x": 50,
+      "y": 17,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_WINDY_WOODS",
+      "dest_warp_id": "3"
     },
     {
-      "x": 20,
-      "y": 31,
+      "x": 50,
+      "y": 18,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "11"
+      "dest_map": "MAP_WINDY_WOODS",
+      "dest_warp_id": "2"
     }
   ],
   "coord_events": [
@@ -338,10 +352,10 @@
     },
     {
       "type": "hidden_item",
-      "x": 62,
-      "y": 50,
+      "x": 81,
+      "y": 12,
       "elevation": 0,
-      "item": "ITEM_BIG_PEARL",
+      "item": "ITEM_ANTIDOTE",
       "flag": "FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL"
     },
     {

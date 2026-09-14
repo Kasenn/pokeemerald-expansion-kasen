@@ -71,8 +71,8 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
-      "x": 52,
-      "y": 27,
+      "x": 56,
+      "y": 22,
       "elevation": 0,
       "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
       "movement_range_x": 2,
@@ -117,16 +117,16 @@
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
-      "trainer_sight_or_berry_tree_id": "ITEM_CARBOS",
+      "trainer_sight_or_berry_tree_id": "ITEM_X_SPEED",
       "script": "Common_EventScript_FindItem",
       "flag": "FLAG_ITEM_WW_CARBOS"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
-      "x": 53,
-      "y": 4,
+      "x": 67,
+      "y": 49,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -162,10 +162,10 @@
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(POOCHYENA)",
-      "x": 52,
-      "y": 4,
+      "x": 68,
+      "y": 49,
       "elevation": 0,
-      "movement_type": "MOVEMENT_TYPE_FACE_RIGHT",
+      "movement_type": "MOVEMENT_TYPE_FACE_LEFT",
       "movement_range_x": 0,
       "movement_range_y": 0,
       "trainer_type": "TRAINER_TYPE_NONE",
@@ -237,6 +237,33 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_6"
+    },
+    {
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 18,
+      "y": 16,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "WindyWoodsNurse",
+      "flag": "0"
+    },
+    {
+      "local_id": "LOCALID_WW_SCIENTIST",
+      "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_1",
+      "x": 64,
+      "y": 7,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_LOOK_AROUND",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "HiddenGrottoIntroScientist",
+      "flag": "FLAG_TEMP_4"
     }
   ],
   "warp_events": [
@@ -258,15 +285,15 @@
       "x": 62,
       "y": 40,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE2",
+      "dest_warp_id": "6"
     },
     {
       "x": 62,
       "y": 39,
       "elevation": 0,
-      "dest_map": "MAP_CORALGROVE_CITY",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_ROUTE2",
+      "dest_warp_id": "5"
     },
     {
       "x": 10,
@@ -300,8 +327,8 @@
   "coord_events": [
     {
       "type": "trigger",
-      "x": 58,
-      "y": 4,
+      "x": 62,
+      "y": 49,
       "elevation": 0,
       "var": "VAR_WINDYWOODS_STATE",
       "var_value": "1",
@@ -309,8 +336,8 @@
     },
     {
       "type": "trigger",
-      "x": 57,
-      "y": 4,
+      "x": 63,
+      "y": 49,
       "elevation": 0,
       "var": "VAR_WINDYWOODS_STATE",
       "var_value": "2",
@@ -318,8 +345,8 @@
     },
     {
       "type": "trigger",
-      "x": 56,
-      "y": 4,
+      "x": 64,
+      "y": 49,
       "elevation": 0,
       "var": "VAR_WINDYWOODS_STATE",
       "var_value": "3",
@@ -333,13 +360,31 @@
       "var": "VAR_WINDYWOODS_STATE",
       "var_value": "0",
       "script": "WW_HelpGirl"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 8,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_GROTTO_INTRO",
+      "var_value": "0",
+      "script": "HiddenGrottoIntro2"
+    },
+    {
+      "type": "trigger",
+      "x": 64,
+      "y": 6,
+      "elevation": 0,
+      "var": "VAR_HIDDEN_GROTTO_INTRO",
+      "var_value": "0",
+      "script": "HiddenGrottoIntro1"
     }
   ],
   "bg_events": [
     {
       "type": "hidden_item",
-      "x": 51,
-      "y": 7,
+      "x": 70,
+      "y": 49,
       "elevation": 0,
       "item": "ITEM_RARE_CANDY",
       "flag": "FLAG_HIDDEN_ITEM_WW_RARE_CANDY"
@@ -354,10 +399,10 @@
     },
     {
       "type": "hidden_item",
-      "x": 56,
-      "y": 44,
+      "x": 67,
+      "y": 6,
       "elevation": 0,
-      "item": "ITEM_ETHER",
+      "item": "ITEM_POTION",
       "flag": "FLAG_HIDDEN_ITEM_WW_ETHER"
     },
     {

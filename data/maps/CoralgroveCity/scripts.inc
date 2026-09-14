@@ -262,72 +262,82 @@ Coralgrove_LASS::
 
 Coralgrove_HIKER::
 # 149 "data/maps/CoralgroveCity/scripts.pory"
+	compare VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_EVENT_COMPLETED
+	goto_if_ge Coralgrove_HIKER_1
+# 153 "data/maps/CoralgroveCity/scripts.pory"
+	msgbox Coral_Hiker_Text2, MSGBOX_NPC
+# 154 "data/maps/CoralgroveCity/scripts.pory"
+	turnobject VAR_LAST_TALKED, DIR_SOUTH
+	return
+
+Coralgrove_HIKER_1:
+# 150 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coral_Hiker_Text, MSGBOX_NPC
 	return
 
 
 Coralgrove_Children::
-# 160 "data/maps/CoralgroveCity/scripts.pory"
+# 171 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_Children_Text_0, MSGBOX_NPC
 	return
 
 
 Coralgrove_school::
-# 164 "data/maps/CoralgroveCity/scripts.pory"
+# 175 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_school_Text_0, MSGBOX_SIGN
 	return
 
 
 Coralgrove_Lifthouse::
-# 168 "data/maps/CoralgroveCity/scripts.pory"
+# 179 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox Coralgrove_Lifthouse_Text_0, MSGBOX_SIGN
 	return
 
 
 CoralSign::
-# 172 "data/maps/CoralgroveCity/scripts.pory"
+# 183 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralSign_Text_0, MSGBOX_SIGN
 	return
 
 
 CoralGrove_EventScript_GymSign::
-# 176 "data/maps/CoralgroveCity/scripts.pory"
+# 187 "data/maps/CoralgroveCity/scripts.pory"
 	msgbox CoralGrove_EventScript_GymSign_Text_0, MSGBOX_SIGN
 	return
 
 
 MonFleeOff::
-# 180 "data/maps/CoralgroveCity/scripts.pory"
-	clearflag FLAG_WILDS_CAN_FLEE
-# 181 "data/maps/CoralgroveCity/scripts.pory"
-	release
-	return
-
-
-MonFleeOn::
-# 185 "data/maps/CoralgroveCity/scripts.pory"
-	setflag FLAG_WILDS_CAN_FLEE
-# 186 "data/maps/CoralgroveCity/scripts.pory"
-	release
-	return
-
-
-LoadCoralgroveAdditionalPalette::
-# 190 "data/maps/CoralgroveCity/scripts.pory"
-	setvar VAR_TEMP_1, 1
 # 191 "data/maps/CoralgroveCity/scripts.pory"
-	callnative LoadCoralGroveAdditionalPal
+	clearflag FLAG_WILDS_CAN_FLEE
 # 192 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	return
 
 
-LoadCoralgroveOriginallPalette::
+MonFleeOn::
 # 196 "data/maps/CoralgroveCity/scripts.pory"
-	setvar VAR_TEMP_1, 0
+	setflag FLAG_WILDS_CAN_FLEE
 # 197 "data/maps/CoralgroveCity/scripts.pory"
+	release
+	return
+
+
+LoadCoralgroveAdditionalPalette::
+# 201 "data/maps/CoralgroveCity/scripts.pory"
+	setvar VAR_TEMP_1, 1
+# 202 "data/maps/CoralgroveCity/scripts.pory"
+	callnative LoadCoralGroveAdditionalPal
+# 203 "data/maps/CoralgroveCity/scripts.pory"
+	release
+	return
+
+
+LoadCoralgroveOriginallPalette::
+# 207 "data/maps/CoralgroveCity/scripts.pory"
+	setvar VAR_TEMP_1, 0
+# 208 "data/maps/CoralgroveCity/scripts.pory"
 	callnative LoadCoralGroveOriginalPal
-# 198 "data/maps/CoralgroveCity/scripts.pory"
+# 209 "data/maps/CoralgroveCity/scripts.pory"
 	release
 	return
 
@@ -365,23 +375,23 @@ Coralgrove_LASS_Text_0:
 	.string "Can you even call this place a city?\pThere's the Trainers' School and\nthe Pokémon Gym but apart from those\lthere's very little to do here.$"
 
 Coralgrove_Children_Text_0:
-# 160 "data/maps/CoralgroveCity/scripts.pory"
+# 171 "data/maps/CoralgroveCity/scripts.pory"
 	.string "We're on recess!$"
 
 Coralgrove_school_Text_0:
-# 164 "data/maps/CoralgroveCity/scripts.pory"
+# 175 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Pokémon Trainers' School$"
 
 Coralgrove_Lifthouse_Text_0:
-# 168 "data/maps/CoralgroveCity/scripts.pory"
+# 179 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Elevator access to harbor area$"
 
 CoralSign_Text_0:
-# 172 "data/maps/CoralgroveCity/scripts.pory"
+# 183 "data/maps/CoralgroveCity/scripts.pory"
 	.string "CORALGROVE CITY\n“Home of many aspiring trainers.”$"
 
 CoralGrove_EventScript_GymSign_Text_0:
-# 176 "data/maps/CoralgroveCity/scripts.pory"
+# 187 "data/maps/CoralgroveCity/scripts.pory"
 	.string "Coralgrove City Pokémon Gym\nLeader: Aaron$"
 
 Coralgrove_GENTLEMAN_Text::
@@ -406,8 +416,13 @@ Coralgrove_Old_Woman2_Text::
 	.string "Nowadays we just use the elevator.$"
 
 Coral_Hiker_Text::
-# 152 "data/maps/CoralgroveCity/scripts.pory"
+# 158 "data/maps/CoralgroveCity/scripts.pory"
 	.string "There was a landslide between\n"
 	.string "Coralgrove City and Primrose Town.\p"
 	.string "There's some rocks here and there but\n"
 	.string "most of it has already been cleared.$"
+
+Coral_Hiker_Text2::
+# 165 "data/maps/CoralgroveCity/scripts.pory"
+	.string "This landslide is worse than I feared.\n"
+	.string "It may take a while to clear this up.$"

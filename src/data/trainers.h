@@ -204,8 +204,6 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .partyFire = sParty_Brother6_Charmander,
         .partyWater = sParty_Brother6_Squirtle,
     },
-    [TRAINER_UNUSED_7_] = {},
-    [TRAINER_UNUSED_8_] = {},
     [TRAINER_UNUSED_9_] = {},
     [TRAINER_UNUSED_10_] = {},
     [TRAINER_UNUSED_11_] = {},
@@ -336,6 +334,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R2_BLACKBELT] =        {BLACK_BELT,        DUMB_AI,        NAME("Zander"),         TPARTY(sParty_TRAINER_R2_BLACKBELT)},
     [TRAINER_R2_YOUNGSTER] =        {YOUNGSTER,         DUMB_AI,        NAME("Billy"),          TPARTY(sParty_TRAINER_R2_YOUNGSTER)},
     [TRAINER_R2_SCHOOL_KID_F] =     {SCHOOL_GIRL,       DUMB_AI,        NAME("Karen"),          TPARTY(sParty_TRAINER_R2_SCHOOL_KID_F)},
+    [TRAINER_R2_YOUNGSTER2] =       {YOUNGSTER,         DUMB_AI,        NAME("Joel"),           TPARTY(sParty_TRAINER_R2_YOUNGSTER2)},
     ////// Windy Woods //////
     [TRAINER_WW_BUGCATCHER] =       {BUG_CATCHER,       DUMB_AI,        NAME("Trevor"),         TPARTY(sParty_TRAINER_WW_BUGCATCHER)},
     [TRAINER_WW_LADY] =             {LADY,              DUMB_AI,        NAME("Cindy"),          TPARTY(sParty_TRAINER_WW_LADY),       ITEMS(ITEM_FULL_RESTORE)},
@@ -345,6 +344,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_WW_YOUNGSTER] =        {YOUNGSTER,         DUMB_AI,        NAME("Josh"),           TPARTY(sParty_TRAINER_WW_YOUNGSTER)},
     [TRAINER_WW_ROCKET] =           {TEAM_ROCKET_M,     DUMB_AI,                                TPARTY(sParty_TRAINER_WW_ROCKET)},
     [TRAINER_WW_ACE_TRAINER] =      {BW_ACE_F,          ADV_AI,         NAME("Whitney"),        TPARTY(sParty_TRAINER_WW_ACE_TRAINER),  ITEMS(ITEM_SUPER_POTION)},
+    [TRAINER_WW_NURSE] =            {NURSE,             DUMB_AI,        NAME("Kirsten"),        TPARTY(sParty_TRAINER_WW_NURSE),        ITEMS(ITEM_POTION, ITEM_FULL_HEAL)},
     ////// Coralgrove //////
     [TRAINER_SCHOOLHALL_1] =        {SCHOOL_GIRL,       ADV_AI | BAT,   NAME("Robin"),          TPARTY(sParty_TRAINER_SCHOOLHALL_1)},
     [TRAINER_SCHOOLHALL_2] =        {SCHOOL_BOY,        ADV_AI,         NAME("Jerry"),          TPARTY(sParty_TRAINER_SCHOOLHALL_2)},

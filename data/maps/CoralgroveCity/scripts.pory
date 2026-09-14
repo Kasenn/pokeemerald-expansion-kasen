@@ -146,7 +146,13 @@ script Coralgrove_LASS{
 }
 
 script Coralgrove_HIKER{
-    msgbox(Coral_Hiker_Text, MSGBOX_NPC)
+    if(var(VAR_WINDYWOODS_STATE) >= STORY_WINDY_WOODS_EVENT_COMPLETED){
+        msgbox(Coral_Hiker_Text, MSGBOX_NPC)
+    }
+    else{
+        msgbox(Coral_Hiker_Text2, MSGBOX_NPC)
+        turnobject(VAR_LAST_TALKED, DIR_SOUTH)
+    }
 }
 
 text Coral_Hiker_Text{
@@ -154,6 +160,11 @@ text Coral_Hiker_Text{
     "Coralgrove City and Primrose Town.\p"
     "There's some rocks here and there but\n"
     "most of it has already been cleared."
+}
+
+text Coral_Hiker_Text2{
+    "This landslide is worse than I feared.\n"
+    "It may take a while to clear this up."
 }
 
 script Coralgrove_Children{

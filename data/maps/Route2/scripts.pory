@@ -3,6 +3,12 @@ mapscripts Route2_MapScripts{
         if(var(VAR_WINDYWOODS_STATE) >= STORY_WINDY_WOODS_EVENT_COMPLETED){
             setmaplayoutindex(LAYOUT_ROUTE2_LAYOUT_2)
         }
+        else{
+            setobjectxyperm(LOCALID_ROUTE2_HIKER, 74, 32)
+        }
+        if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_TALKED_TO_AIDE){
+            setvar(VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_DIDNT_ENTER)
+        }
     }
 }
 
@@ -69,6 +75,27 @@ text Route2_Text_YoungsterDefeated{
 }
 text Route2_Text_YoungsterPostBattle{
     "You're older than me so you were\nsupposed to let me win!"
+}
+
+script Route2_Youngster2{
+    trainerbattle_single(TRAINER_R2_YOUNGSTER2, Route2_Text_Youngster2Intro, Route2_Text_Youngster2Defeated)
+	msgbox(Route2_Text_Youngster2PostBattle, MSGBOX_AUTOCLOSE)
+	end
+}
+text Route2_Text_Youngster2Intro{
+    "Are you going to challenge the\n"
+    "Pokémon Gym in Coralgrove City?\l"
+    "Let me see your Pokémon first!"
+}
+text Route2_Text_Youngster2Defeated{
+    "Wait, is it already over?"
+}
+text Route2_Text_Youngster2PostBattle{
+    "If you're heading to Coralgrove,\n"
+    "you should check out the\l"
+    "Pokémon Trainers' School.\l"
+    "They teach some crazy stuff to\l"
+    "the students there!"
 }
 
 script Route2_Girl3{

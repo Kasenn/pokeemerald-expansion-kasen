@@ -69,13 +69,13 @@ movement Route28BrotherLeaves2{
 
 script Route28_BrotherFight{
     delay(5)
-    if(flag(FLAG_BADGE02_GET) && (!flag(FLAG_RECEIVED_HM_FLY))){
+    if(flag(FLAG_BADGE02_GET) && (!flag(FLAG_RECEIVED_FLIGHT_FLUTE))){
         msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
         waitmessage
         closemessage
         trainerbattle_no_intro(TRAINER_BROTHER_3_ROUTE28, Route28_BrotherLost)
     }
-    elif(flag(FLAG_BADGE02_GET) && (flag(FLAG_RECEIVED_HM_FLY))){
+    elif(flag(FLAG_BADGE02_GET) && (flag(FLAG_RECEIVED_FLIGHT_FLUTE))){
         msgbox(Route28_BrotherIntroAfterGym, MSGBOX_DEFAULT)
         waitmessage
         closemessage

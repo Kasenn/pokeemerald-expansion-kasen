@@ -101,7 +101,7 @@ Windplume_IronBall::
 
 Windplume_Guide::
 # 49 "data/maps/WindplumeRidge/scripts.pory"
-	goto_if_set FLAG_RECEIVED_HM_FLY, Windplume_Guide_2
+	goto_if_set FLAG_RECEIVED_FLIGHT_FLUTE, Windplume_Guide_2
 # 53 "data/maps/WindplumeRidge/scripts.pory"
 	msgbox Windplume_Guide_Text, MSGBOX_NPC
 Windplume_Guide_1:
@@ -237,11 +237,11 @@ Windplume_Event_SkylaDefeated::
 # 352 "data/maps/WindplumeRidge/scripts.pory"
 	closemessage
 # 353 "data/maps/WindplumeRidge/scripts.pory"
-	giveitem ITEM_HM02
+	giveitem ITEM_FLIGHT_FLUTE
 # 354 "data/maps/WindplumeRidge/scripts.pory"
 	waitfanfare
 # 355 "data/maps/WindplumeRidge/scripts.pory"
-	setflag FLAG_RECEIVED_HM_FLY
+	setflag FLAG_RECEIVED_FLIGHT_FLUTE
 # 356 "data/maps/WindplumeRidge/scripts.pory"
 	call SetWindPlumeTrainersDefeated
 # 357 "data/maps/WindplumeRidge/scripts.pory"
@@ -256,31 +256,31 @@ Windplume_Event_SkylaDefeated::
 
 
 SetWindPlumeTrainersDefeated::
-# 405 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BIRDKEEPER
 # 406 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TRIATH
+	settrainerflag TRAINER_WPV_BIRDKEEPER
 # 407 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BATTLEGIRL
+	settrainerflag TRAINER_WPV_TRIATH
 # 408 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_CAMPER
+	settrainerflag TRAINER_WPV_BATTLEGIRL
 # 409 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BIRDKEEPER2
+	settrainerflag TRAINER_WPV_CAMPER
 # 410 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_MANIAC
+	settrainerflag TRAINER_WPV_BIRDKEEPER2
 # 411 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BIRDKEEPER3
+	settrainerflag TRAINER_WPV_MANIAC
 # 412 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_NINJABOY
+	settrainerflag TRAINER_WPV_BIRDKEEPER3
 # 413 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_LASS
+	settrainerflag TRAINER_WPV_NINJABOY
 # 414 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_TRIATH2
+	settrainerflag TRAINER_WPV_LASS
 # 415 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BIRDKEEPER4
+	settrainerflag TRAINER_WPV_TRIATH2
 # 416 "data/maps/WindplumeRidge/scripts.pory"
-	settrainerflag TRAINER_WPV_BATTLEGIRL2
+	settrainerflag TRAINER_WPV_BIRDKEEPER4
 # 417 "data/maps/WindplumeRidge/scripts.pory"
+	settrainerflag TRAINER_WPV_BATTLEGIRL2
+# 418 "data/maps/WindplumeRidge/scripts.pory"
 	settrainerflag TRAINER_WPV_BIRDKEEPER5
 	return
 
@@ -570,13 +570,14 @@ Windplume_Text_Trainer14PostBattle::
 
 Windplume_Text_ExplainFly::
 # 388 "data/maps/WindplumeRidge/scripts.pory"
-	.string "That's a Hidden Machine, Fly!\p"
-	.string "When you use that move outside of\n"
-	.string "battle, you can easily visit towns\l"
-	.string "you've already visited!$"
+	.string "That's a Flight Flute!\p"
+	.string "Use it in any outdoor location and\n"
+	.string "one of my birds will swoop down to\l"
+	.string "you and ferry you to the last\l"
+	.string "Drifblim Balloon you've visited!$"
 
 Windplume_Text_Trainer14Outro::
-# 395 "data/maps/WindplumeRidge/scripts.pory"
+# 396 "data/maps/WindplumeRidge/scripts.pory"
 	.string "You're an amazing Pokémon Trainer.\n"
 	.string "My Pokémon and I are happy,\l"
 	.string "because for the first time in a while,\l"

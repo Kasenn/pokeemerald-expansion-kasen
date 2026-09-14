@@ -217,12 +217,12 @@ Route28_BrotherFight_3:
 
 Route28_BrotherFight_5:
 # 78 "data/maps/Route28/scripts.pory"
-	goto_if_set FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_3
+	goto_if_set FLAG_RECEIVED_FLIGHT_FLUTE, Route28_BrotherFight_3
 	goto Route28_BrotherFight_4
 
 Route28_BrotherFight_8:
 # 72 "data/maps/Route28/scripts.pory"
-	goto_if_unset FLAG_RECEIVED_HM_FLY, Route28_BrotherFight_2
+	goto_if_unset FLAG_RECEIVED_FLIGHT_FLUTE, Route28_BrotherFight_2
 	goto Route28_BrotherFight_6
 
 Route28_BrotherFight_12:

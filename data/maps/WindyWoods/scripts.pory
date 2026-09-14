@@ -11,9 +11,26 @@ mapscripts WindyWoods_MapScripts{
         && var(VAR_WINDYWOODS_STATE) <= STORY_WINDY_WOODS_2ND_STEP_TAKEN){
             setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_TALKED_TO_GIRL)
         }
+        if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_DIDNT_ENTER){
+            setvar(VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_COMPLETE)
+        }
+        if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_TALKED_TO_AIDE || var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_ENTERED_HIDDEN_GROTTO){
+            setobjectxyperm(LOCALID_WW_SCIENTIST, 51, 4)
+            setobjectmovementtype(LOCALID_WW_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT)
+        }
+        if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_COMPLETE){
+            setflag(FLAG_TEMP_4)
+        }
+        getplayerxy(VAR_TEMP_5, VAR_TEMP_6)
+        if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_ENTERED_HIDDEN_GROTTO && var(VAR_TEMP_5) == 52 && var(VAR_TEMP_6) == 4){
+            setvar(VAR_TEMP_7, 1)
+        }
     }
     MAP_SCRIPT_ON_WARP_INTO_MAP_TABLE[VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED{turnobject(LOCALID_PLAYER, DIR_WEST)}]
-    MAP_SCRIPT_ON_FRAME_TABLE[VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED: WW_BridgeScene2]
+    MAP_SCRIPT_ON_FRAME_TABLE[
+        VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_ROCKET_DEFEATED: WW_BridgeScene2
+        VAR_TEMP_7, 1: WW_HiddenGrottoExitIntro
+    ]
 }
 
 script WindyWoods_Bugcatcher1{
@@ -82,13 +99,17 @@ script WindyWoods_Lass{
 	end
 }
 text WindyWoods_LassIntro{
-    "Have you seen any hidden grottos?"
+    "One person already dashed past me\n"
+    "when I tried challenging them to a\l"
+    "Pokémon battle.\p"
+    "I will not let another pass!"
 }
 text WindyWoods_LassDefeated{
     "Why can I never win?!"
 }
 text WindyWoods_LassPostBattle{
-    "I'm looking for a hidden grotto but\nas the name would suggest,\lit truly is hidden."
+    "Maybe I need to pick my battles\n"
+    "more carefully…"
 }
 
 script WindyWoods_Youngster{
@@ -103,7 +124,7 @@ text WindyWoods_YoungsterDefeated{
     "Fine, you win, I guess…"
 }
 text WindyWoods_YoungsterPostBattle{
-    "I saw this really scary looking guy\nto the northwest earlier.\pHe was dragging a Poochyena on a leash\nbut it looked reluctant to follow."
+    "I saw this really scary looking guy\npass by me a short while ago.\pHe was dragging a Poochyena on a leash\nbut it looked reluctant to follow."
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -234,7 +255,7 @@ text WW_Help2{
 
 script WW_RocketStop1{
     lock
-    turnobject(LOCALID_PLAYER, DIR_WEST)
+    turnobject(LOCALID_PLAYER, DIR_EAST)
     setvar(VAR_WINDYWOODS_STATE, STORY_WINDY_WOODS_1ST_STEP_TAKEN)
     msgbox("That's far enough, pal.", MSGBOX_SIGN)
 }
@@ -327,4 +348,145 @@ text GoInsideGrotto{
     "There looks to be a narrow path\n"
     "between the trees!\p"
     "Follow the path?"
+}
+
+script WindyWoodsNurse{
+    if(defeated(TRAINER_WW_NURSE)){
+        faceplayer
+        msgbox("Your Pokémon seem a bit worn out.\nHere, let me see to them.", MSGBOX_AUTOCLOSE)
+        call(Common_EventScript_OutOfCenterPartyHeal)
+        msgbox("Be careful out there.", MSGBOX_AUTOCLOSE)
+        end
+    }
+    playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+    faceplayer
+    msgbox("I'm studying to one day\nbe a full-fledged nurse.\pI'll heal up your Pokémon if you\ncan defeat me in battle. ")
+    trainerbattle_no_intro(TRAINER_WW_NURSE, "So strong!")
+    goto(WindyWoodsNurse)
+}
+
+script HiddenGrottoIntro1{
+    setvar(VAR_TEMP_0, 1)
+    goto(HiddenGrottoIntroMain)
+}
+script HiddenGrottoIntro2{
+    setvar(VAR_TEMP_0, 2)
+    goto(HiddenGrottoIntroMain)
+}
+script HiddenGrottoIntroScientist{
+    if(var(VAR_HIDDEN_GROTTO_INTRO) == STORY_HIDDEN_GROTTO_TALKED_TO_AIDE){
+        msgbox(HiddenGrottoIntroScientist_Text, MSGBOX_NPC)
+        end
+    }
+    elif(var(STORY_HIDDEN_GROTTO_ENTERED_HIDDEN_GROTTO)){
+        goto(WW_HiddenGrottoExitIntro)
+    }
+    setvar(VAR_TEMP_0, 3)
+    goto(HiddenGrottoIntroMain)
+}
+
+text HiddenGrottoIntroScientist_Text{
+    "Go on, see if you can find\n"
+    "a Pokémon in there."
+}
+
+script HiddenGrottoIntroMain{
+    switch(var(VAR_TEMP_0)){
+        case 1:
+            playse(SE_PIN)
+            turnobject(LOCALID_WW_SCIENTIST, DIR_NORTH)
+            exclamationmark(LOCALID_WW_SCIENTIST)
+            turnobject(LOCALID_PLAYER, DIR_SOUTH)
+        case 2:
+            playse(SE_PIN)
+            turnobject(LOCALID_WW_SCIENTIST, DIR_SOUTH)
+            exclamationmark(LOCALID_WW_SCIENTIST)
+            turnobject(LOCALID_PLAYER, DIR_NORTH)
+    }
+    msgbox(HiddenGrottoIntro_Text, MSGBOX_AUTOCLOSE)
+    playbgm(MUS_FOLLOW_ME, FALSE)
+    applymovement(LOCALID_WW_SCIENTIST, WWScientistMove)
+    switch(var(VAR_TEMP_0)){
+        case 1: applymovement(LOCALID_PLAYER, moves(walk_down, walk_left, walk_up, walk_left * 3, walk_up * 2, walk_left * 8))
+        case 2: applymovement(LOCALID_PLAYER, moves(walk_up, walk_left, walk_up, walk_left * 3, walk_up * 2, walk_left * 8))
+        case 3: applymovement(LOCALID_PLAYER, moves(walk_left * 2, walk_up, walk_left * 3, walk_up * 2, walk_left * 8))
+    }
+    waitmovementall
+    msgbox(HiddenGrottoIntro_Text2, MSGBOX_AUTOCLOSE)
+    setvar(VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_TALKED_TO_AIDE)
+    setobjectxyperm(LOCALID_WW_SCIENTIST, 51, 4)
+    setobjectmovementtype(LOCALID_WW_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT)
+    fadedefaultbgm
+    release
+}
+
+text HiddenGrottoIntro_Text{
+    "Hello, I'm one of Prof. Birch's\n"
+    "aides.\p"
+    "I'm here to study hidden grottos and\n"
+    "the Pokémon found in them.\p"
+    "I bet a trainer such as yourself must\n"
+    "be curious about this phenomenon\l"
+    "as well!\p"
+    "Here, let me show you."
+}
+
+text HiddenGrottoIntro_Text2{
+    "Look here, there's a patch of\n"
+    "grass between these trees.\p"
+    "If you crawl in this small space,\n"
+    "you should be able to find a small\l"
+    "hidden grotto inhabited by a Pokémon.\p"
+    "I already finished recording this\n"
+    "hidden grotto, so don't feel bad about\l"
+    "capturing the Pokémon within."
+}
+
+movement WWScientistMove {
+    walk_left
+    walk_up
+    walk_left * 3
+    walk_up * 2
+    walk_left * 9
+    walk_in_place_fast_right
+}
+
+script WW_HiddenGrottoExitIntro{
+    setvar(VAR_TEMP_7, 0)
+    delay(16)
+    turnobject(LOCALID_PLAYER, DIR_WEST)
+    delay(8)
+    msgbox(WW_HiddenGrottoExitIntro_Text)
+    msgbox(WW_HiddenGrottoExitIntro_Text2, MSGBOX_AUTOCLOSE)
+    fadescreenswapbuffers(FADE_TO_BLACK)
+    delay(25)
+    removeobject(LOCALID_WW_SCIENTIST)
+    fadescreenswapbuffers(FADE_FROM_BLACK)
+    setvar(VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_COMPLETE)
+    release
+    end
+}
+
+text WW_HiddenGrottoExitIntro_Text{
+    "You're back! Did you manage to\n"
+    "find a Pokémon in there?\p"
+    "While many of the Pokémon you\n"
+    "can find in the grottos are\l"
+    "commonly found elsewhere,\l"
+    "what makes these Pokémon special is\l"
+    "that many of them come with\l"
+    "special abilities that can't be\l"
+    "found in the wild."
+}
+
+text WW_HiddenGrottoExitIntro_Text2{
+    "Anyway, I am off to find more\n"
+    "hidden grottos so I may study\l"
+    "the Pokémon found in them.\p"
+    "Do keep an eye out for them\n"
+    "as well.\p"
+    "While hidden grottos are\n"
+    "generally found inbetween trees,\l"
+    "some may be harder to spot than\l"
+    "others."
 }

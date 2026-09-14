@@ -615,82 +615,76 @@ AT_TopEvent_9:
 	goto_if_set FLAG_HIDE_LIBRARY_BIRCH, AT_TopEvent_14
 AT_TopEvent_13:
 # 359 "data/maps/SkyPillar_Top/scripts.pory"
-	checkitem ITEM_HM02
-# 360 "data/maps/SkyPillar_Top/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq AT_TopEvent_17
-AT_TopEvent_16:
-# 368 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 10
-# 369 "data/maps/SkyPillar_Top/scripts.pory"
+# 360 "data/maps/SkyPillar_Top/scripts.pory"
 	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_WalkInPlaceFasterDown
-# 370 "data/maps/SkyPillar_Top/scripts.pory"
+# 361 "data/maps/SkyPillar_Top/scripts.pory"
 	waitmovement 0
-# 371 "data/maps/SkyPillar_Top/scripts.pory"
+# 362 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 50
-# 372 "data/maps/SkyPillar_Top/scripts.pory"
+# 363 "data/maps/SkyPillar_Top/scripts.pory"
 	setfieldeffectargument 0, 1
-# 373 "data/maps/SkyPillar_Top/scripts.pory"
+# 364 "data/maps/SkyPillar_Top/scripts.pory"
 	dofieldeffect FLDEFF_NPCFLY_OUT
-# 374 "data/maps/SkyPillar_Top/scripts.pory"
+# 365 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 15
-# 375 "data/maps/SkyPillar_Top/scripts.pory"
+# 366 "data/maps/SkyPillar_Top/scripts.pory"
 	destroyfollowernpc
-# 376 "data/maps/SkyPillar_Top/scripts.pory"
+# 367 "data/maps/SkyPillar_Top/scripts.pory"
 	waitfieldeffect FLDEFF_NPCFLY_OUT
-# 377 "data/maps/SkyPillar_Top/scripts.pory"
+# 368 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 30
-# 378 "data/maps/SkyPillar_Top/scripts.pory"
+# 369 "data/maps/SkyPillar_Top/scripts.pory"
 	setvar VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MEGA_RING_OBTAINED
-# 379 "data/maps/SkyPillar_Top/scripts.pory"
+# 370 "data/maps/SkyPillar_Top/scripts.pory"
 	clearflag FLAG_KORRINA_LEAVESGYM
-# 380 "data/maps/SkyPillar_Top/scripts.pory"
+# 371 "data/maps/SkyPillar_Top/scripts.pory"
 	clearflag FLAG_HIDE_PLAYERS_HOUSE_DAD
-# 381 "data/maps/SkyPillar_Top/scripts.pory"
+# 372 "data/maps/SkyPillar_Top/scripts.pory"
 	clearflag FLAG_HIDE_LAB_RIVAL
-# 382 "data/maps/SkyPillar_Top/scripts.pory"
+# 373 "data/maps/SkyPillar_Top/scripts.pory"
 	setflag FLAG_HIDE_LIBRARY_BIRCH
-# 383 "data/maps/SkyPillar_Top/scripts.pory"
+# 374 "data/maps/SkyPillar_Top/scripts.pory"
 	clearflag FLAG_PARTNER_HEALS
-# 384 "data/maps/SkyPillar_Top/scripts.pory"
+# 375 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_2F_MAN3
-# 385 "data/maps/SkyPillar_Top/scripts.pory"
+# 376 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_2F_WOMAN5
-# 386 "data/maps/SkyPillar_Top/scripts.pory"
+# 377 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_2F_PSYCHIC
-# 387 "data/maps/SkyPillar_Top/scripts.pory"
+# 378 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_2F_MAN5
-# 388 "data/maps/SkyPillar_Top/scripts.pory"
+# 379 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_3F_EXPERT_M
-# 389 "data/maps/SkyPillar_Top/scripts.pory"
+# 380 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_3F_EXPERT_F
-# 390 "data/maps/SkyPillar_Top/scripts.pory"
+# 381 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_3F_HEXMANIAC
-# 391 "data/maps/SkyPillar_Top/scripts.pory"
+# 382 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_3F_PSYCHICF
-# 392 "data/maps/SkyPillar_Top/scripts.pory"
+# 383 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_BLACKBELT
-# 393 "data/maps/SkyPillar_Top/scripts.pory"
+# 384 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_HEXMANIAC
-# 394 "data/maps/SkyPillar_Top/scripts.pory"
+# 385 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_LASS
-# 395 "data/maps/SkyPillar_Top/scripts.pory"
+# 386 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_YOUNGSTER
-# 396 "data/maps/SkyPillar_Top/scripts.pory"
+# 387 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_BATTLEGIRL
-# 397 "data/maps/SkyPillar_Top/scripts.pory"
+# 388 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_4F_BLACKBELT2
-# 398 "data/maps/SkyPillar_Top/scripts.pory"
+# 389 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_5F_COOLTRAINER_M
-# 399 "data/maps/SkyPillar_Top/scripts.pory"
+# 390 "data/maps/SkyPillar_Top/scripts.pory"
 	settrainerflag TRAINER_AT_5F_COOLTRAINER_F
-# 400 "data/maps/SkyPillar_Top/scripts.pory"
+# 391 "data/maps/SkyPillar_Top/scripts.pory"
 	delay 30
-# 401 "data/maps/SkyPillar_Top/scripts.pory"
+# 392 "data/maps/SkyPillar_Top/scripts.pory"
 	release
-# 402 "data/maps/SkyPillar_Top/scripts.pory"
-	goto_if_unset FLAG_Q33_PROF_BIRCH_MEGASTONE_START, AT_TopEvent_24
-AT_TopEvent_23:
+# 393 "data/maps/SkyPillar_Top/scripts.pory"
+	goto_if_unset FLAG_Q33_PROF_BIRCH_MEGASTONE_START, AT_TopEvent_17
+AT_TopEvent_16:
 	end
 
 AT_TopEvent_3:
@@ -756,18 +750,10 @@ AT_TopEvent_19:
 	goto AT_TopEvent_13
 
 AT_TopEvent_17:
-# 361 "data/maps/SkyPillar_Top/scripts.pory"
-	playse SE_PIN
-# 362 "data/maps/SkyPillar_Top/scripts.pory"
-	applymovement OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_QuestionMark
-# 363 "data/maps/SkyPillar_Top/scripts.pory"
-	waitmovement 0
-# 364 "data/maps/SkyPillar_Top/scripts.pory"
-	delay 48
-# 365 "data/maps/SkyPillar_Top/scripts.pory"
-	msgbox NotHaveFly
-# 366 "data/maps/SkyPillar_Top/scripts.pory"
-	closemessage
+# 394 "data/maps/SkyPillar_Top/scripts.pory"
+	startquest FLAG_Q33_PROF_BIRCH_MEGASTONE_START
+# 395 "data/maps/SkyPillar_Top/scripts.pory"
+	special ShowJournalPopupAdd
 	goto AT_TopEvent_16
 
 AT_TopEvent_20:
@@ -775,391 +761,384 @@ AT_TopEvent_20:
 	msgbox YouMetDadBrendan
 	goto AT_TopEvent_19
 
-AT_TopEvent_24:
-# 403 "data/maps/SkyPillar_Top/scripts.pory"
-	startquest FLAG_Q33_PROF_BIRCH_MEGASTONE_START
-# 404 "data/maps/SkyPillar_Top/scripts.pory"
-	special ShowJournalPopupAdd
-	goto AT_TopEvent_23
 
-
-# 502 "data/maps/SkyPillar_Top/scripts.pory"
+# 493 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement1:
-# 503 "data/maps/SkyPillar_Top/scripts.pory"
+# 494 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 504 "data/maps/SkyPillar_Top/scripts.pory"
+# 495 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 504 "data/maps/SkyPillar_Top/scripts.pory"
+# 495 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 504 "data/maps/SkyPillar_Top/scripts.pory"
+# 495 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 505 "data/maps/SkyPillar_Top/scripts.pory"
+# 496 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 506 "data/maps/SkyPillar_Top/scripts.pory"
+# 497 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 508 "data/maps/SkyPillar_Top/scripts.pory"
+# 499 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement2:
-# 509 "data/maps/SkyPillar_Top/scripts.pory"
+# 500 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 510 "data/maps/SkyPillar_Top/scripts.pory"
+# 501 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 510 "data/maps/SkyPillar_Top/scripts.pory"
+# 501 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 511 "data/maps/SkyPillar_Top/scripts.pory"
+# 502 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 512 "data/maps/SkyPillar_Top/scripts.pory"
+# 503 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 514 "data/maps/SkyPillar_Top/scripts.pory"
+# 505 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement4:
-# 515 "data/maps/SkyPillar_Top/scripts.pory"
+# 506 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 516 "data/maps/SkyPillar_Top/scripts.pory"
+# 507 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 516 "data/maps/SkyPillar_Top/scripts.pory"
+# 507 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 517 "data/maps/SkyPillar_Top/scripts.pory"
+# 508 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 518 "data/maps/SkyPillar_Top/scripts.pory"
+# 509 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 520 "data/maps/SkyPillar_Top/scripts.pory"
+# 511 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement5:
-# 521 "data/maps/SkyPillar_Top/scripts.pory"
+# 512 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 522 "data/maps/SkyPillar_Top/scripts.pory"
+# 513 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 522 "data/maps/SkyPillar_Top/scripts.pory"
+# 513 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 522 "data/maps/SkyPillar_Top/scripts.pory"
+# 513 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 522 "data/maps/SkyPillar_Top/scripts.pory"
+# 513 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 523 "data/maps/SkyPillar_Top/scripts.pory"
+# 514 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 524 "data/maps/SkyPillar_Top/scripts.pory"
+# 515 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 526 "data/maps/SkyPillar_Top/scripts.pory"
+# 517 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement6:
-# 527 "data/maps/SkyPillar_Top/scripts.pory"
+# 518 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 528 "data/maps/SkyPillar_Top/scripts.pory"
+# 519 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 528 "data/maps/SkyPillar_Top/scripts.pory"
+# 519 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 528 "data/maps/SkyPillar_Top/scripts.pory"
+# 519 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 528 "data/maps/SkyPillar_Top/scripts.pory"
+# 519 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 528 "data/maps/SkyPillar_Top/scripts.pory"
+# 519 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 529 "data/maps/SkyPillar_Top/scripts.pory"
+# 520 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 530 "data/maps/SkyPillar_Top/scripts.pory"
+# 521 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 532 "data/maps/SkyPillar_Top/scripts.pory"
+# 523 "data/maps/SkyPillar_Top/scripts.pory"
 TurnKorrina:
-# 533 "data/maps/SkyPillar_Top/scripts.pory"
+# 524 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 533 "data/maps/SkyPillar_Top/scripts.pory"
+# 524 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 534 "data/maps/SkyPillar_Top/scripts.pory"
+# 525 "data/maps/SkyPillar_Top/scripts.pory"
 	face_down
 	step_end
 
-# 536 "data/maps/SkyPillar_Top/scripts.pory"
+# 527 "data/maps/SkyPillar_Top/scripts.pory"
 KorrinaGoesToRival:
-# 537 "data/maps/SkyPillar_Top/scripts.pory"
+# 528 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_down
-# 538 "data/maps/SkyPillar_Top/scripts.pory"
+# 529 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 539 "data/maps/SkyPillar_Top/scripts.pory"
+# 530 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 539 "data/maps/SkyPillar_Top/scripts.pory"
+# 530 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 540 "data/maps/SkyPillar_Top/scripts.pory"
+# 531 "data/maps/SkyPillar_Top/scripts.pory"
 	face_down
 	step_end
 
-# 542 "data/maps/SkyPillar_Top/scripts.pory"
+# 533 "data/maps/SkyPillar_Top/scripts.pory"
 KorrinaGoesToPlayer:
-# 543 "data/maps/SkyPillar_Top/scripts.pory"
+# 534 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 543 "data/maps/SkyPillar_Top/scripts.pory"
+# 534 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_left
-# 544 "data/maps/SkyPillar_Top/scripts.pory"
+# 535 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 544 "data/maps/SkyPillar_Top/scripts.pory"
+# 535 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 545 "data/maps/SkyPillar_Top/scripts.pory"
+# 536 "data/maps/SkyPillar_Top/scripts.pory"
 	face_down
 	step_end
 
-# 547 "data/maps/SkyPillar_Top/scripts.pory"
+# 538 "data/maps/SkyPillar_Top/scripts.pory"
 KorrinaGoesBack:
-# 548 "data/maps/SkyPillar_Top/scripts.pory"
+# 539 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_right
-# 549 "data/maps/SkyPillar_Top/scripts.pory"
+# 540 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
-# 550 "data/maps/SkyPillar_Top/scripts.pory"
+# 541 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 550 "data/maps/SkyPillar_Top/scripts.pory"
+# 541 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_in_place_faster_down
-# 551 "data/maps/SkyPillar_Top/scripts.pory"
+# 542 "data/maps/SkyPillar_Top/scripts.pory"
 	face_down
 	step_end
 
-# 554 "data/maps/SkyPillar_Top/scripts.pory"
+# 545 "data/maps/SkyPillar_Top/scripts.pory"
 AT_Top_Movement1Follower:
-# 555 "data/maps/SkyPillar_Top/scripts.pory"
+# 546 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 546 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 547 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 547 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 547 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 547 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 547 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 548 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 549 "data/maps/SkyPillar_Top/scripts.pory"
+	step_end
+
+# 551 "data/maps/SkyPillar_Top/scripts.pory"
+AT_Top_Movement2Follower:
+# 552 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 552 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 553 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 553 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 553 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 553 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 554 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 555 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 556 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 556 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 556 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 556 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 556 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
+	step_end
+
 # 557 "data/maps/SkyPillar_Top/scripts.pory"
+AT_Top_Movement3Follower:
+# 558 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 558 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 559 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 559 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_right
+# 560 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 561 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 560 "data/maps/SkyPillar_Top/scripts.pory"
-AT_Top_Movement2Follower:
-# 561 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 561 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 562 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 562 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 562 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 562 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
 # 563 "data/maps/SkyPillar_Top/scripts.pory"
+AT_Top_Movement4Follower:
+# 564 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 564 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 564 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 565 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 566 "data/maps/SkyPillar_Top/scripts.pory"
-AT_Top_Movement3Follower:
 # 567 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 567 "data/maps/SkyPillar_Top/scripts.pory"
+AT_Top_Movement5Follower:
+# 568 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 568 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
-# 568 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_right
+	walk_up
 # 569 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
+	walk_left
+# 569 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_left
 # 570 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_up
+# 571 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
-# 572 "data/maps/SkyPillar_Top/scripts.pory"
-AT_Top_Movement4Follower:
 # 573 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 573 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 573 "data/maps/SkyPillar_Top/scripts.pory"
+AT_Top_Movement6Follower:
+# 574 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 574 "data/maps/SkyPillar_Top/scripts.pory"
-	step_end
-
+	walk_up
+# 575 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_left
+# 575 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_left
+# 575 "data/maps/SkyPillar_Top/scripts.pory"
+	walk_left
 # 576 "data/maps/SkyPillar_Top/scripts.pory"
-AT_Top_Movement5Follower:
-# 577 "data/maps/SkyPillar_Top/scripts.pory"
 	walk_up
 # 577 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 578 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_left
-# 578 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_left
-# 579 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 580 "data/maps/SkyPillar_Top/scripts.pory"
-	step_end
-
-# 582 "data/maps/SkyPillar_Top/scripts.pory"
-AT_Top_Movement6Follower:
-# 583 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 583 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 584 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_left
-# 584 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_left
-# 584 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_left
-# 585 "data/maps/SkyPillar_Top/scripts.pory"
-	walk_up
-# 586 "data/maps/SkyPillar_Top/scripts.pory"
 	step_end
 
 AT_Custodian::
-# 590 "data/maps/SkyPillar_Top/scripts.pory"
+# 581 "data/maps/SkyPillar_Top/scripts.pory"
 	lock
-# 591 "data/maps/SkyPillar_Top/scripts.pory"
+# 582 "data/maps/SkyPillar_Top/scripts.pory"
 	faceplayer
-# 592 "data/maps/SkyPillar_Top/scripts.pory"
+# 583 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_SPHERES_FOUND, 5
 	goto_if_eq AT_Custodian_2
-# 596 "data/maps/SkyPillar_Top/scripts.pory"
+# 587 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_SPHERES_FOUND, 4
 	goto_if_eq AT_Custodian_5
-# 602 "data/maps/SkyPillar_Top/scripts.pory"
+# 593 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_SPHERES_FOUND, 3
 	goto_if_eq AT_Custodian_8
 	checkitem ITEM_VERDANT_SPHERE
 # 0 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq AT_Custodian_11
-# 619 "data/maps/SkyPillar_Top/scripts.pory"
+# 610 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_SPHERES_FOUND, 2
 	goto_if_eq AT_Custodian_14
-# 623 "data/maps/SkyPillar_Top/scripts.pory"
+# 614 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_SPHERES_FOUND, 1
 	goto_if_eq AT_Custodian_17
-# 638 "data/maps/SkyPillar_Top/scripts.pory"
+# 629 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox ImTheCaretaker
-# 639 "data/maps/SkyPillar_Top/scripts.pory"
+# 630 "data/maps/SkyPillar_Top/scripts.pory"
 	closemessage
-# 640 "data/maps/SkyPillar_Top/scripts.pory"
+# 631 "data/maps/SkyPillar_Top/scripts.pory"
 	checkitem ITEM_STONE_SPHERE
-# 641 "data/maps/SkyPillar_Top/scripts.pory"
+# 632 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq AT_Custodian_20
 AT_Custodian_19:
-# 648 "data/maps/SkyPillar_Top/scripts.pory"
+# 639 "data/maps/SkyPillar_Top/scripts.pory"
 	release
 	end
 
 AT_Custodian_2:
-# 593 "data/maps/SkyPillar_Top/scripts.pory"
+# 584 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox TrackTheGuardiansShort, MSGBOX_NPC
 	end
 
 AT_Custodian_5:
-# 597 "data/maps/SkyPillar_Top/scripts.pory"
+# 588 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox TrackTheGuardians
-# 598 "data/maps/SkyPillar_Top/scripts.pory"
+# 589 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox TrackTheGuardians2, MSGBOX_NPC
-# 599 "data/maps/SkyPillar_Top/scripts.pory"
+# 590 "data/maps/SkyPillar_Top/scripts.pory"
 	setvar VAR_SPHERES_FOUND, 5
 	end
 
 AT_Custodian_8:
-# 603 "data/maps/SkyPillar_Top/scripts.pory"
+# 594 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox PutSpheresInPlace, MSGBOX_NPC
-# 604 "data/maps/SkyPillar_Top/scripts.pory"
+# 595 "data/maps/SkyPillar_Top/scripts.pory"
 	turnobject 1, DIR_NORTH
 	end
 
 AT_Custodian_11:
-# 608 "data/maps/SkyPillar_Top/scripts.pory"
+# 599 "data/maps/SkyPillar_Top/scripts.pory"
 	waitse
-# 609 "data/maps/SkyPillar_Top/scripts.pory"
+# 600 "data/maps/SkyPillar_Top/scripts.pory"
 	playse SE_PIN
-# 610 "data/maps/SkyPillar_Top/scripts.pory"
+# 601 "data/maps/SkyPillar_Top/scripts.pory"
 	safefollow
-# 611 "data/maps/SkyPillar_Top/scripts.pory"
+# 602 "data/maps/SkyPillar_Top/scripts.pory"
 	exclamationmark 1
-# 612 "data/maps/SkyPillar_Top/scripts.pory"
+# 603 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox ThatsVerdantSphere
-# 613 "data/maps/SkyPillar_Top/scripts.pory"
+# 604 "data/maps/SkyPillar_Top/scripts.pory"
 	setvar VAR_SPHERES_FOUND, 3
-# 614 "data/maps/SkyPillar_Top/scripts.pory"
+# 605 "data/maps/SkyPillar_Top/scripts.pory"
 	release
-# 615 "data/maps/SkyPillar_Top/scripts.pory"
+# 606 "data/maps/SkyPillar_Top/scripts.pory"
 	closemessage
-# 616 "data/maps/SkyPillar_Top/scripts.pory"
+# 607 "data/maps/SkyPillar_Top/scripts.pory"
 	turnobject 1, DIR_NORTH
 	end
 
 AT_Custodian_14:
-# 620 "data/maps/SkyPillar_Top/scripts.pory"
+# 611 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox LookForVerdantSphere, MSGBOX_NPC
 	end
 
 AT_Custodian_17:
-# 624 "data/maps/SkyPillar_Top/scripts.pory"
+# 615 "data/maps/SkyPillar_Top/scripts.pory"
 	checkitem ITEM_STEEL_SPHERE
-# 625 "data/maps/SkyPillar_Top/scripts.pory"
+# 616 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_RESULT, FALSE
 	goto_if_eq AT_Custodian_23
-# 629 "data/maps/SkyPillar_Top/scripts.pory"
+# 620 "data/maps/SkyPillar_Top/scripts.pory"
 	playse SE_PIN
-# 630 "data/maps/SkyPillar_Top/scripts.pory"
+# 621 "data/maps/SkyPillar_Top/scripts.pory"
 	safefollow
-# 631 "data/maps/SkyPillar_Top/scripts.pory"
+# 622 "data/maps/SkyPillar_Top/scripts.pory"
 	exclamationmark 1
-# 632 "data/maps/SkyPillar_Top/scripts.pory"
+# 623 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox ThatsSteelSphere
-# 633 "data/maps/SkyPillar_Top/scripts.pory"
+# 624 "data/maps/SkyPillar_Top/scripts.pory"
 	setvar VAR_SPHERES_FOUND, 2
-# 634 "data/maps/SkyPillar_Top/scripts.pory"
+# 625 "data/maps/SkyPillar_Top/scripts.pory"
 	release
-# 635 "data/maps/SkyPillar_Top/scripts.pory"
+# 626 "data/maps/SkyPillar_Top/scripts.pory"
 	closemessage
 	end
 
 AT_Custodian_20:
-# 642 "data/maps/SkyPillar_Top/scripts.pory"
+# 633 "data/maps/SkyPillar_Top/scripts.pory"
 	playse SE_PIN
-# 643 "data/maps/SkyPillar_Top/scripts.pory"
+# 634 "data/maps/SkyPillar_Top/scripts.pory"
 	safefollow
-# 644 "data/maps/SkyPillar_Top/scripts.pory"
+# 635 "data/maps/SkyPillar_Top/scripts.pory"
 	exclamationmark 1
-# 645 "data/maps/SkyPillar_Top/scripts.pory"
+# 636 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox ThatsStoneSphere
-# 646 "data/maps/SkyPillar_Top/scripts.pory"
+# 637 "data/maps/SkyPillar_Top/scripts.pory"
 	setvar VAR_SPHERES_FOUND, 1
 	goto AT_Custodian_19
 
 AT_Custodian_23:
-# 626 "data/maps/SkyPillar_Top/scripts.pory"
+# 617 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox LookForSteelSphere, MSGBOX_NPC
 	end
 
 
 OddSensation::
-# 707 "data/maps/SkyPillar_Top/scripts.pory"
+# 698 "data/maps/SkyPillar_Top/scripts.pory"
 	goto_if_set FLAG_STEELSPHERE_CLUE, OddSensation_2
-# 711 "data/maps/SkyPillar_Top/scripts.pory"
+# 702 "data/maps/SkyPillar_Top/scripts.pory"
 	checkitem ITEM_STONE_SPHERE
-# 712 "data/maps/SkyPillar_Top/scripts.pory"
+# 703 "data/maps/SkyPillar_Top/scripts.pory"
 	compare VAR_RESULT, TRUE
 	goto_if_eq OddSensation_5
 OddSensation_4:
-# 717 "data/maps/SkyPillar_Top/scripts.pory"
-	release
-	end
-
-OddSensation_2:
 # 708 "data/maps/SkyPillar_Top/scripts.pory"
 	release
 	end
 
+OddSensation_2:
+# 699 "data/maps/SkyPillar_Top/scripts.pory"
+	release
+	end
+
 OddSensation_5:
-# 713 "data/maps/SkyPillar_Top/scripts.pory"
+# 704 "data/maps/SkyPillar_Top/scripts.pory"
 	lock
-# 714 "data/maps/SkyPillar_Top/scripts.pory"
+# 705 "data/maps/SkyPillar_Top/scripts.pory"
 	msgbox OddSensation_Text
-# 715 "data/maps/SkyPillar_Top/scripts.pory"
+# 706 "data/maps/SkyPillar_Top/scripts.pory"
 	setflag FLAG_STEELSPHERE_CLUE
 	goto OddSensation_4
 
@@ -1468,7 +1447,7 @@ TrackTheGuardiansShort::
 	.string "you originally found the spheres at.$"
 
 YouTwoMadeIt::
-# 407 "data/maps/SkyPillar_Top/scripts.pory"
+# 398 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "Korrina: Oh hey, you two actually\n"
 	.string "made it to the top!\p"
 	.string "Sorry about not mentioning those\n"
@@ -1493,7 +1472,7 @@ YouTwoMadeIt::
 	.string "People like you!$"
 
 IDontHaveStones::
-# 430 "data/maps/SkyPillar_Top/scripts.pory"
+# 421 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "Korrina: Now, in order to have your\n"
 	.string "Pokémon Mega Evolve, they must be\l"
 	.string "holding onto a specific Mega Stone.\p"
@@ -1518,7 +1497,7 @@ IDontHaveStones::
 	.string "stamina rapidly!$"
 
 ReturnToGym::
-# 453 "data/maps/SkyPillar_Top/scripts.pory"
+# 444 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "Korrina: Okay!\p"
 	.string "I know that introduction was kinda\n"
 	.string "short and fast, but I'm sure you two\l"
@@ -1530,28 +1509,28 @@ ReturnToGym::
 	.string "So, I must bid you two adieu!$"
 
 LetsGoMeetDadBrendan::
-# 463 "data/maps/SkyPillar_Top/scripts.pory"
+# 454 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "{RIVAL}: Hey {PLAYER}, let's go ask\n"
 	.string "my dad!\p"
 	.string "Since he's a Pokémon Professor, I'm\n"
 	.string "sure he knows something about this!$"
 
 LetsGoMeetDadMay::
-# 469 "data/maps/SkyPillar_Top/scripts.pory"
+# 460 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "{RIVAL}: Hey, {PLAYER}, maybe we ought\n"
 	.string "to go and ask my dad?\p"
 	.string "Since he's a Pokémon Professor, I bet\n"
 	.string "he can point us in the right direction!$"
 
 YouMetDadBrendan::
-# 475 "data/maps/SkyPillar_Top/scripts.pory"
+# 466 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "{RIVAL}: You met dad in the library?\n"
 	.string "And he told to come and visit?\p"
 	.string "Well, all the more reason I guess.\n"
 	.string "Come on, let's go!$"
 
 YouMetDadMay::
-# 481 "data/maps/SkyPillar_Top/scripts.pory"
+# 472 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "{RIVAL}: Oh?\p"
 	.string "You met him in the library?\n"
 	.string "And he told us to come and visit?\p"
@@ -1559,7 +1538,7 @@ YouMetDadMay::
 	.string "Let's go!$"
 
 NotHaveFly::
-# 488 "data/maps/SkyPillar_Top/scripts.pory"
+# 479 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "{RIVAL}: Wait…\p"
 	.string "{PLAYER}, Don't you have a Pokémon\n"
 	.string "that can fly you across the region?\p"
@@ -1573,7 +1552,7 @@ NotHaveFly::
 	.string "Anyway, see you back at the lab!$"
 
 ImTheCaretaker::
-# 652 "data/maps/SkyPillar_Top/scripts.pory"
+# 643 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "I am the current caretaker of\n"
 	.string "this tower.\p"
 	.string "It is said that this tower was erected\n"
@@ -1581,7 +1560,7 @@ ImTheCaretaker::
 	.string "a beacon to guide home the Protectors.$"
 
 ThatsStoneSphere::
-# 659 "data/maps/SkyPillar_Top/scripts.pory"
+# 650 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "That Stone Sphere you are carrying,\n"
 	.string "may I see it?\p"
 	.string "… … … … …\p"
@@ -1597,7 +1576,7 @@ ThatsStoneSphere::
 	.string "to witness the Protectors in person!$"
 
 LookForSteelSphere::
-# 674 "data/maps/SkyPillar_Top/scripts.pory"
+# 665 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "Please, seek the other spheres!\p"
 	.string "Maybe one day, we will finally be able\n"
 	.string "to witness the Protectors in person!\p"
@@ -1606,7 +1585,7 @@ LookForSteelSphere::
 	.string "or something related to this topic.$"
 
 ThatsSteelSphere::
-# 682 "data/maps/SkyPillar_Top/scripts.pory"
+# 673 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "That Steel Sphere…\p"
 	.string "Yes, this is undoubtedly another\n"
 	.string "fragment of the Protectors!\p"
@@ -1622,7 +1601,7 @@ ThatsSteelSphere::
 	.string "or something related to this topic.$"
 
 LookForVerdantSphere::
-# 697 "data/maps/SkyPillar_Top/scripts.pory"
+# 688 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "Please, seek the final sphere!\p"
 	.string "Maybe one day, we will finally be able\n"
 	.string "to witness the Protectors in person!\p"
@@ -1631,6 +1610,6 @@ LookForVerdantSphere::
 	.string "or something related to this topic.$"
 
 OddSensation_Text::
-# 721 "data/maps/SkyPillar_Top/scripts.pory"
+# 712 "data/maps/SkyPillar_Top/scripts.pory"
 	.string "You feel an odd sensation emanating\n"
 	.string "from the Stone Sphere.$"

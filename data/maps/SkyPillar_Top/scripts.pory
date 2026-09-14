@@ -356,15 +356,6 @@ script AT_TopEvent{
         }
         closemessage
     }
-    checkitem(ITEM_HM02)
-    if(var(VAR_RESULT) == FALSE){
-        playse(SE_PIN)
-        applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_QuestionMark)
-        waitmovement(0)
-        delay(48)
-        msgbox(NotHaveFly)
-        closemessage
-    }
     delay(10)
     applymovement(OBJ_EVENT_ID_NPC_FOLLOWER, Common_Movement_WalkInPlaceFasterDown)
 	waitmovement(0)

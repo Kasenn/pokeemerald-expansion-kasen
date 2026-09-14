@@ -46,7 +46,7 @@ script Windplume_IronBall{
 }
 
 script Windplume_Guide{
-    if(flag(FLAG_RECEIVED_HM_FLY)){
+    if(flag(FLAG_RECEIVED_FLIGHT_FLUTE)){
         msgbox(Windplume_Guide_Text_Post, MSGBOX_NPC)
     }
     else{
@@ -350,9 +350,9 @@ script Windplume_Event_SkylaDefeated{
     msgbox(Windplume_Text_Trainer14Outro, MSGBOX_DEFAULT)
     waitmessage
     closemessage
-    giveitem(ITEM_HM02)
+    giveitem(ITEM_FLIGHT_FLUTE)
     waitfanfare
-    setflag(FLAG_RECEIVED_HM_FLY)
+    setflag(FLAG_RECEIVED_FLIGHT_FLUTE)
     call(SetWindPlumeTrainersDefeated)
     msgbox(Windplume_Text_ExplainFly, MSGBOX_DEFAULT)
     waitmessage
@@ -386,10 +386,11 @@ text Windplume_Text_Trainer14PostBattle{
 }
 
 text Windplume_Text_ExplainFly{
-    "That's a Hidden Machine, Fly!\p"
-    "When you use that move outside of\n"
-    "battle, you can easily visit towns\l"
-    "you've already visited!"
+    "That's a Flight Flute!\p"
+    "Use it in any outdoor location and\n"
+    "one of my birds will swoop down to\l"
+    "you and ferry you to the last\l"
+    "Drifblim Balloon you've visited!"
 }
 
 text Windplume_Text_Trainer14Outro{

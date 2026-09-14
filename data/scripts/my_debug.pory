@@ -53,12 +53,12 @@ script Update4{
         settrainerflag(TRAINER_BROTHER_2_ROUTE28)
     }
     ///
-    if (defeated(TRAINER_UNUSED_7_)){
-        cleartrainerflag(TRAINER_UNUSED_7_)
+    if (defeated(TRAINER_R2_YOUNGSTER2)){
+        cleartrainerflag(TRAINER_R2_YOUNGSTER2)
         settrainerflag(TRAINER_BROTHER_3_ROUTE28)
     }
-    if (defeated(TRAINER_UNUSED_8_)){
-        cleartrainerflag(TRAINER_UNUSED_8_)
+    if (defeated(TRAINER_WW_NURSE)){
+        cleartrainerflag(TRAINER_WW_NURSE)
         settrainerflag(TRAINER_BROTHER_3_ROUTE28)
     }
     if (defeated(TRAINER_UNUSED_9_)){
@@ -226,7 +226,7 @@ script UpdateGuy{
     }
     message(WhatWouldYouLikeToDo)
     waitmessage
-    if(var(VAR_DEBUG) < 8){
+    if(var(VAR_DEBUG) < 9){
         dynmultipush("Update Game", 0)
     }
     dynmultipush("Set Team Level", 1)
@@ -310,6 +310,13 @@ script UpdateGame{
         clearflag(FLAG_UNUSED_0x26)
         clearflag(FLAG_UNUSED_0x25)
         setvar(VAR_DEBUG, 8)
+    }
+    if(var(VAR_DEBUG) == 8){
+        setvar(VAR_DEBUG, 9)
+        if(flag(FLAG_RECEIVED_FLIGHT_FLUTE)){
+            removeitem(ITEM_HM02)
+            giveitem(ITEM_FLIGHT_FLUTE)
+        }
     }
     msgbox(GameIsUpToDate)
     release
@@ -2198,7 +2205,7 @@ script CompleteArea_Route_2{
         }
         if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)){
             setflag(FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL)
-            additem(ITEM_BIG_PEARL)
+            additem(ITEM_ANTIDOTE)
         }
         if(!flag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL2)){
             setflag(FLAG_HIDDEN_ITEM_ROUTE2_PEARL2)
@@ -2228,6 +2235,7 @@ script CompleteArea_Route_2{
         defeattrainer(TRAINER_R2_LASS)
         defeattrainer(TRAINER_R2_BLACKBELT)
         defeattrainer(TRAINER_R2_YOUNGSTER)
+        defeattrainer(TRAINER_R2_YOUNGSTER2)
         defeattrainer(TRAINER_R2_SCHOOL_KID_F)
     }
     if(flag(FLAG_EVENTS)){
@@ -2250,7 +2258,7 @@ script CompleteArea_Windy_Woods{
         }
         if(!flag(FLAG_ITEM_WW_CARBOS)){
             setflag(FLAG_ITEM_WW_CARBOS)
-            additem(ITEM_CARBOS)
+            additem(ITEM_X_SPEED)
         }
         if(!flag(FLAG_HIDDEN_ITEM_WW_RARE_CANDY)){
             setflag(FLAG_HIDDEN_ITEM_WW_RARE_CANDY)
@@ -2258,7 +2266,7 @@ script CompleteArea_Windy_Woods{
         }
         if(!flag(FLAG_HIDDEN_ITEM_WW_ETHER)){
             setflag(FLAG_HIDDEN_ITEM_WW_ETHER)
-            additem(ITEM_ETHER)
+            additem(ITEM_POTION)
         }
     }
     if(flag(FLAG_TRAINERS)){
@@ -2268,6 +2276,7 @@ script CompleteArea_Windy_Woods{
         defeattrainer(TRAINER_WW_CAMPER)
         defeattrainer(TRAINER_WW_LASS)
         defeattrainer(TRAINER_WW_YOUNGSTER)
+        defeattrainer(TRAINER_WW_NURSE)
         if(!defeated(TRAINER_WW_ACE_TRAINER)){
             defeattrainer(TRAINER_WW_ACE_TRAINER)
             setflag(FLAG_WW_COOLTRAINERREWARD)
@@ -2565,9 +2574,9 @@ script CompleteArea_Windplume_Valley{
         defeattrainer(TRAINER_WPV_BATTLEGIRL2)
         defeattrainer(TRAINER_WPV_BIRDKEEPER5)
         if(!defeated(TRAINER_WPV_TR14_SKYLA)){
-            giveitem(ITEM_HM02)
+            giveitem(ITEM_FLIGHT_FLUTE)
             defeattrainer(TRAINER_WPV_TR14_SKYLA)
-            setflag(FLAG_RECEIVED_HM_FLY)
+            setflag(FLAG_RECEIVED_FLIGHT_FLUTE)
         }
     }
     return

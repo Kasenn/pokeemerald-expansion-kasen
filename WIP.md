@@ -5,15 +5,12 @@ eventually fix song instruments
 
 fix contest brendan backpic
 
+add nurses and drifblim balloons
+add fly to somewhere near fishing village (maybe brother, maybe a house)
+
 eventual redesigns:
-move trainers out of route 1?
-move primrose meadow to route 1 or give a surf access point
 possibly expand primrose town geography
-path from route 2 to hidden birch island
-move team rocket down in windy woods, add ball on ledge to attract player back, add prof to guide player to grotto
-	- add canopy effect
-expand route 2 after windy woods
-potentially add wailmer pail here
+	- add canopy effect to windy woods
 add hot air balloonn quick travel
 	- locations: coralgrove, near poke ranch, near shoreslate, kaolisle, near daycare, in sandstone city, etc
 	- add whistle item to windplume valley that returns to last spot
@@ -28,7 +25,6 @@ fishing contest in fishing village??
 add some extra exploration stuff in frosthearth city
 	ice rink with daily trainers??
 make path from magical forest to near sandstone
-redesign pokemon center training bots
 possibly add eevee stones (ow metatile)
 replace linking cord with something more suitable
 give iceperch city more interesting layout + more ice

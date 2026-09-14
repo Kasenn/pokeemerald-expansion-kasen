@@ -139,7 +139,7 @@ static const struct TrainerMon sParty_TRAINER_R2_FISHER[] = {
 };
 
 static const struct TrainerMon sParty_TRAINER_R2_LASS[] = {
-    MON(SPECIES_CUTIEFLY, 6, NONE, NATURE_NEUTRAL),
+    MON(SPECIES_CUTIEFLY, 9, NONE, NATURE_NEUTRAL),
 };
 
 static const struct TrainerMon sParty_TRAINER_R2_BLACKBELT[] = {
@@ -149,6 +149,11 @@ static const struct TrainerMon sParty_TRAINER_R2_BLACKBELT[] = {
 
 static const struct TrainerMon sParty_TRAINER_R2_YOUNGSTER[] = {
     MON(SPECIES_RATTATA, 7, NONE, NATURE_NEUTRAL),
+};
+
+static const struct TrainerMon sParty_TRAINER_R2_YOUNGSTER2[] = {
+    MON(SPECIES_BIDOOF, 7, NONE, NATURE_NEUTRAL),
+    MON(SPECIES_RIOLU,  7, NONE, NATURE_NEUTRAL),
 };
 
 static const struct TrainerMon sParty_TRAINER_R2_SCHOOL_KID_F[] = {
@@ -196,6 +201,10 @@ static const struct TrainerMon sParty_TRAINER_WW_ACE_TRAINER[] = {
 static const struct TrainerMon sParty_TRAINER_WW_ROCKET[] = {
     MON(SPECIES_ZUBAT,    7, NONE, NATURE_NEUTRAL),
     MON(SPECIES_CROAGUNK, 8, NONE, NATURE_NEUTRAL),
+};
+
+static const struct TrainerMon sParty_TRAINER_WW_NURSE[] = {
+    MON(SPECIES_AUDINO, 8, NONE, NATURE_NEUTRAL),
 };
 
 static const struct TrainerMon sParty_TRAINER_SCHOOLHALL_1[] = {

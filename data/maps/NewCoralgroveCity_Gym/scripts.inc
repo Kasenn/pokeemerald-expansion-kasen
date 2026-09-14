@@ -326,12 +326,10 @@ NewCoralgroveCity_Gym_Text_StoneBadgeInfoTakeThis::
 # 232 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	.string "The Hive Badge makes any Pokémon up to\n"
 	.string "level 30 obey all of your commands.\p"
-	.string "It also enables them to use the HM move\n"
-	.string "“Fly” outside of battle.\p"
 	.string "Please take this with you, too.$"
 
 NewCoralgroveCity_Gym_Text_ExplainUTurn::
-# 239 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
+# 237 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	.string "That Technical Machine, TM89,\n"
 	.string "contains U-turn.\p"
 	.string "After making its attack, the user\n"
@@ -342,21 +340,21 @@ NewCoralgroveCity_Gym_Text_ExplainUTurn::
 	.string "experiment to your heart's content.$"
 
 NewCoralgroveCity_Gym_Text_AaronPostBattle::
-# 249 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
+# 247 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	.string "Since you are so strong, you should\n"
 	.string "challenge other Gym Leaders.\p"
 	.string "By gaining experience, you could take\n"
 	.string "perfection to a whole another level.$"
 
 NewCoralgroveCity_Gym_Text_GymStatue::
-# 255 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
+# 253 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
 	.string "{BROTHER}\l"
 	.string "{RIVAL}$"
 
 NewCoralgroveCity_Gym_Text_GymStatueCertified::
-# 261 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
+# 259 "data/maps/NewCoralgroveCity_Gym/scripts.pory"
 	.string "Coralgrove City Pokémon Gym\p"
 	.string "Aaron's certified trainers:\n"
 	.string "{BROTHER}\l"
