@@ -3584,7 +3584,7 @@ static enum MoveEndResult MoveEndMoveBlock(struct BattleCalcValues *cv)
             }
             else
             {
-                StealTargetItem(cv->battlerAtk, battlerDef);  // Attacker steals target item
+                StealTargetItem(cv->battlerAtk, battlerDef, ITEM_NONE);  // Attacker steals target item
 
                 if (!(GetConfig(B_STEAL_WILD_ITEMS) >= GEN_9
                  && !(gBattleTypeFlags & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_PALACE))))
