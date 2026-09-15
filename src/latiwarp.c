@@ -367,7 +367,7 @@ static void Task_LatiRide(u8 taskId)
             VarSet(VAR_HOUR_OVERRIDE, hours);
             VarSet(VAR_MINUTE_OVERRIDE, minutes2);
 
-            UpdateTimeOfDay();
+            UpdateTimeOfDay(TRUE);
             UpdatePalettesWithTime(PALETTES_ALL);
         }
 
