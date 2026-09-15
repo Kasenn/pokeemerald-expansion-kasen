@@ -2564,6 +2564,8 @@ void SetMoveEffect(enum BattlerId battlerAtk, enum BattlerId effectBattler, enum
     case MOVE_EFFECT_RECOIL_HP_25: // Struggle
     {
         s32 recoil = (gBattleMons[effectBattler].maxHP) / 4;
+        if (B_UPDATED_MOVE_DATA >= GEN_5 && (gBattleMons[effectBattler].maxHP % 4) >= 2) // Account for standard rounding (Gen5+)
+            recoil++;
         if (recoil == 0)
             recoil = 1;
         SetPassiveDamageAmount(effectBattler, recoil);
@@ -3936,6 +3938,14 @@ static void Cmd_getexp(void)
             oldEvTeam += GetMonData(&gPlayerParty[j], statEv);
     }
     gBattleScripting.recordEvCalc = TRUE;
+    
+    enum Species faintedSpecies;
+    if (!gBattleMons[gBattlerFainted].volatiles.transformed)
+        faintedSpecies = gBattleMons[gBattlerFainted].species;
+    else if (GetConfig(B_TRANSFORM_BATTLE_REWARDS) == GEN_3 || GetConfig(B_TRANSFORM_BATTLE_REWARDS) == GEN_4)
+        faintedSpecies = gBattleMons[gBattlerFainted].species;
+    else
+        faintedSpecies = gBattleMons[gBattlerFainted].volatiles.transformedMonSpecies;
 
     switch (gBattleScripting.getexpState)
     {
@@ -3991,16 +4001,16 @@ static void Cmd_getexp(void)
             if (orderId < PARTY_SIZE)
                 gBattleStruct->expGettersOrder[orderId] = PARTY_SIZE;
 
-            calculatedExp = gSpeciesInfo[gBattleMons[gBattlerFainted].species].expYield * gBattleMons[gBattlerFainted].level;
-            if (B_SCALED_EXP >= GEN_5 && B_SCALED_EXP != GEN_6)
+            calculatedExp = gSpeciesInfo[faintedSpecies].expYield * gBattleMons[gBattlerFainted].level;
+            if (GetConfig(B_SCALED_EXP) >= GEN_5 && GetConfig(B_SCALED_EXP) != GEN_6)
                 calculatedExp /= 5;
             else
                 calculatedExp /= 7;
 
-            if (B_TRAINER_EXP_MULTIPLIER <= GEN_7 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
+            if (GetConfig(B_TRAINER_EXP_MULTIPLIER) <= GEN_7 && gBattleTypeFlags & BATTLE_TYPE_TRAINER)
                 calculatedExp = (calculatedExp * 100) / 100;
 
-            if (B_SPLIT_EXP < GEN_6)
+            if (GetConfig(B_SPLIT_EXP) < GEN_6)
             {
                 if (viaExpShare) // at least one mon is getting exp via exp share
                 {
@@ -4057,7 +4067,7 @@ static void Cmd_getexp(void)
                 gBattleScripting.getexpState = 5;
                 gBattleStruct->battlerExpReward = 0;
                 if (B_MAX_LEVEL_EV_GAINS >= GEN_5)
-                    MonGainEVs(&gParties[B_TRAINER_PLAYER][*expMonId], gBattleMons[gBattlerFainted].species);
+                    MonGainEVs(&gParties[B_TRAINER_PLAYER][*expMonId], faintedSpecies);
             }
             else
             {
@@ -4140,7 +4150,7 @@ static void Cmd_getexp(void)
                         u32 stat = GetStatToPrintFromEvYield(gBattleMons[gBattlerFainted].species);
 
                         oldLeadMonEv = GetMonData(&gPlayerParty[0], statEv);
-                        MonGainEVs(&gPlayerParty[*expMonId], gBattleMons[gBattlerFainted].species);
+                        MonGainEVs(&gPlayerParty[*expMonId], faintedSpecies);
                         newLeadMonEv = GetMonData(&gPlayerParty[*expMonId], statEv);
 
                         StringCopy(gBattleTextBuff2, gStatNamesTable[stat]);
@@ -4171,7 +4181,7 @@ static void Cmd_getexp(void)
                             gBattleStruct->teamGotExpMsgPrinted = TRUE;
                         }
 
-                        MonGainEVs(&gPlayerParty[*expMonId], gBattleMons[gBattlerFainted].species);
+                        MonGainEVs(&gPlayerParty[*expMonId], faintedSpecies);
                     }
                 }
                 gBattleScripting.getexpState++;
@@ -7108,6 +7118,7 @@ void BS_CourtChangeSwapSideStatuses(void)
         gBattleStruct->hazardsQueue[B_SIDE_PLAYER][i] = gBattleStruct->hazardsQueue[B_SIDE_OPPONENT][i];
     for (u32 i = 0; i < HAZARDS_MAX_COUNT; i++)
         gBattleStruct->hazardsQueue[B_SIDE_OPPONENT][i] = tempQueue[i];
+    SWAP(gBattleStruct->numHazards[B_SIDE_PLAYER], gBattleStruct->numHazards[B_SIDE_OPPONENT], temp);
     SWAP(sideTimerPlayer->spikesAmount, sideTimerOpp->spikesAmount, temp);
     SWAP(sideTimerPlayer->toxicSpikesAmount, sideTimerOpp->toxicSpikesAmount, temp);
 
@@ -10256,6 +10267,18 @@ static const u8 sBadgeLevel[] = {
     100,
 };
 
+static u32 GetBattleMonCatchRate(struct BattlePokemon *battleMon)
+{
+    enum Species species;
+    if (!battleMon->volatiles.transformed)
+        species = battleMon->species;
+    else if (GetConfig(B_TRANSFORM_CATCH_RATE) == GEN_3 || GetConfig(B_TRANSFORM_CATCH_RATE) == GEN_4)
+        species = battleMon->species;
+    else
+        species = battleMon->volatiles.transformedMonSpecies;
+    return gSpeciesInfo[species].catchRate;
+}
+
 static u32 ComputeCaptureOdds(u32 wildMonBattler, u32 playerBattler)
 {
     struct BallData ball;
@@ -10270,7 +10293,7 @@ static u32 ComputeCaptureOdds(u32 wildMonBattler, u32 playerBattler)
     if (gBattleTypeFlags & BATTLE_TYPE_SAFARI)
         catchRate = gBattleStruct->safariCatchFactor * 1275 / 100;
     else
-        catchRate = gSpeciesInfo[battleMon->species].catchRate;
+        catchRate = GetBattleMonCatchRate(battleMon);
 
     catchRate += ball.flatBonus;
     if (catchRate <= 0)
@@ -11538,14 +11561,13 @@ void ApplyExperienceMultipliers(s32 *expAmount, u8 expGetterMonId, u8 faintedBat
         *expAmount = (*expAmount * 150) / 100;
     if (MAP(MAP_BASALEK_TUNNELS))
         *expAmount = (*expAmount * 110) / 100;
-    if (B_UNEVOLVED_EXP_MULTIPLIER >= GEN_6 && IsMonPastEvolutionLevel(&gPlayerParty[expGetterMonId]))
+    if (GetConfig(B_UNEVOLVED_EXP_MULTIPLIER) >= GEN_6 && IsMonPastEvolutionLevel(&gParties[B_TRAINER_PLAYER][expGetterMonId]))
         *expAmount = (*expAmount * 4915) / 4096;
-    if (B_AFFECTION_MECHANICS == TRUE && GetMonAffectionHearts(&gParties[B_TRAINER_PLAYER][expGetterMonId]) >= AFFECTION_FOUR_HEARTS)
+    if (GetConfig(B_AFFECTION_MECHANICS) == TRUE && GetMonAffectionHearts(&gParties[B_TRAINER_PLAYER][expGetterMonId]) >= AFFECTION_FOUR_HEARTS)
         *expAmount = (*expAmount * 4915) / 4096;
     if (CheckBagHasItem(ITEM_EXP_CHARM, 1)) //is also for other exp boosting Powers if/when implemented
         *expAmount = (*expAmount * 150) / 100;
-
-    if (B_SCALED_EXP >= GEN_5 && B_SCALED_EXP != GEN_6)
+    if (GetConfig(B_SCALED_EXP) >= GEN_5 && GetConfig(B_SCALED_EXP) != GEN_6)
     {
         // Note: There is an edge case where if a Pokémon receives a large amount of exp, it wouldn't be properly calculated
         //       because of multiplying by scaling factor(the value would simply be larger than an u32 can hold). Hence u64 is needed.
@@ -12459,8 +12481,12 @@ void BS_AllySwitchSwapBattler(void)
 void BS_TryAllySwitch(void)
 {
     NATIVE_ARGS(const u8 *failInstr);
+    enum BattlerId partner = BATTLE_PARTNER(gBattlerAttacker);
 
-    if (!IsBattlerAlive(BATTLE_PARTNER(gBattlerAttacker)) || HasPartnerTrainer(gBattlerAttacker))
+    if (!IsBattlerAlive(partner)
+     || HasPartnerTrainer(gBattlerAttacker)
+     || gBattleStruct->battlerState[gBattlerAttacker].commanderSpecies != SPECIES_NONE
+     || gBattleStruct->battlerState[partner].commanderSpecies != SPECIES_NONE)
     {
         gBattlescriptCurrInstr = cmd->failInstr;
     }

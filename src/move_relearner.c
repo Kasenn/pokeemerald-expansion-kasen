@@ -541,9 +541,17 @@ static void UIEndTask(u8 taskId)
         return;
     }
     if (gSpecialVar_Result == TRUE)
-        RedrawMoveList();
-    else
-        ShowTeachMoveText();
+    {
+        DestroyListMenuTask(sMoveRelearnerStruct->moveListMenuTask, &sMoveRelearnerScrollState.listOffset, &sMoveRelearnerScrollState.listRow);
+        CreateLearnableMovesList();
+        if (sMoveRelearnerScrollState.listOffset + sMoveRelearnerScrollState.listRow >= sMoveRelearnerStruct->numMenuChoices)
+        {
+            sMoveRelearnerScrollState.listOffset = 0;
+            sMoveRelearnerScrollState.listRow = 0;
+        }
+        sMoveRelearnerStruct->moveListMenuTask = ListMenuInit(&gMultiuseListMenuTemplate, sMoveRelearnerScrollState.listOffset, sMoveRelearnerScrollState.listRow);
+    }
+    ShowTeachMoveText();
     AddScrollArrows();
     gTasks[taskId].func = Task_MoveRelearner_HandleInput;
 }

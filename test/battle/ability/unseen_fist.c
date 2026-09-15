@@ -112,3 +112,28 @@ DOUBLE_BATTLE_TEST("Unseen Fist shows its ability pop-up on each affected target
         }
     }
 }
+
+SINGLE_BATTLE_TEST("Unseen Fist continues bypassing protect effects after being replaced during a multi-strike move")
+{
+    GIVEN {
+        ASSUME(MoveMakesContact(MOVE_SURGING_STRIKES));
+        ASSUME(GetMoveStrikeCount(MOVE_SURGING_STRIKES) == 3);
+        ASSUME(GetMoveEffect(MOVE_OBSTRUCT) == EFFECT_PROTECT);
+        PLAYER(SPECIES_URSHIFU_RAPID_STRIKE) { Ability(ABILITY_UNSEEN_FIST); Attack(1); }
+        OPPONENT(SPECIES_COFAGRIGUS) { Ability(ABILITY_MUMMY); }
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_OBSTRUCT); MOVE(player, MOVE_SURGING_STRIKES); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_OBSTRUCT, opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
+        HP_BAR(opponent);
+        ABILITY_POPUP(opponent, ABILITY_MUMMY);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
+        HP_BAR(opponent);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SURGING_STRIKES, player);
+        HP_BAR(opponent);
+    } THEN {
+        EXPECT_EQ(player->ability, ABILITY_MUMMY);
+        EXPECT_EQ(player->statStages[STAT_DEF], DEFAULT_STAT_STAGE);
+    }
+}

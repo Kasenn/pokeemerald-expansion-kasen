@@ -4,16 +4,17 @@
 SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 5 turns when hit")
 {
     GIVEN {
-        PLAYER(SPECIES_SANDSLASH) { Moves(MOVE_CELEBRATE); Ability(ABILITY_SAND_SPIT); }
-        OPPONENT(SPECIES_LANDORUS) { Moves(MOVE_TACKLE, MOVE_CELEBRATE); }
+        PLAYER(SPECIES_SANDACONDA) { Ability(ABILITY_SAND_SPIT); }
+        OPPONENT(SPECIES_LANDORUS);
     } WHEN {
-        TURN { MOVE(opponent, MOVE_TACKLE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); }
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
     } SCENE {
-        MESSAGE("The foe Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Scratch!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
@@ -28,19 +29,21 @@ SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 5 turns when hit")
 SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 8 turns when hit with Smooth Rock")
 {
     GIVEN {
-        PLAYER(SPECIES_SANDSLASH) { Moves(MOVE_CELEBRATE); Ability(ABILITY_SAND_SPIT); Item(ITEM_SMOOTH_ROCK); }
-        OPPONENT(SPECIES_LANDORUS) { Moves(MOVE_TACKLE, MOVE_CELEBRATE); }
+        ASSUME(gItemsInfo[ITEM_SMOOTH_ROCK].holdEffect == HOLD_EFFECT_SMOOTH_ROCK);
+        PLAYER(SPECIES_SANDACONDA) { Ability(ABILITY_SAND_SPIT); Item(ITEM_SMOOTH_ROCK); }
+        OPPONENT(SPECIES_LANDORUS);
     } WHEN {
-        TURN { MOVE(opponent, MOVE_TACKLE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
-        TURN { MOVE(player, MOVE_CELEBRATE); MOVE(opponent, MOVE_CELEBRATE); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); }
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
+        TURN {}
     } SCENE {
-        MESSAGE("The foe Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Scratch!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
@@ -58,14 +61,15 @@ SINGLE_BATTLE_TEST("Sand Spit sets up sandstorm for 8 turns when hit with Smooth
 SINGLE_BATTLE_TEST("Sand Spit triggers even if the user is knocked out by the hit")
 {
     GIVEN {
-        PLAYER(SPECIES_SANDSLASH) { Ability(ABILITY_SAND_SPIT); HP(1); Speed(1); }
-        PLAYER(SPECIES_LANDORUS) { Moves(MOVE_CELEBRATE); Speed(5); }
-        OPPONENT(SPECIES_LANDORUS) { Moves(MOVE_TACKLE, MOVE_CELEBRATE); Speed(10); }
+        PLAYER(SPECIES_SANDACONDA) { Ability(ABILITY_SAND_SPIT); HP(1); }
+        PLAYER(SPECIES_LANDORUS);
+        OPPONENT(SPECIES_LANDORUS);
     } WHEN {
-        TURN { MOVE(opponent, MOVE_TACKLE); SEND_OUT(player, 1); }
-        TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_CELEBRATE); }
+        TURN { MOVE(opponent, MOVE_SCRATCH); SEND_OUT(player, 1); }
+        TURN {}
     } SCENE {
-        MESSAGE("The foe Landorus used Tackle!");
+        MESSAGE("The foe Landorus used Scratch!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         HP_BAR(player);
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");

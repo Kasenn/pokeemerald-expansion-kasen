@@ -28,6 +28,7 @@
 #include "constants/abilities.h"
 #include "constants/battle_dome.h"
 #include "constants/battle_string_ids.h"
+#include "constants/comparison_operators.h"
 #include "constants/flags.h"
 #include "constants/frontier_util.h"
 #include "constants/items.h"
@@ -41,7 +42,7 @@
 #include "trainer_slide.h"
 #include "battle_message.h"
 
-static u32 BattlerHPPercentage(enum BattlerId battler, u32 operation, u32 threshold);
+static u32 BattlerHPPercentage(enum BattlerId battler, enum ComparisonOperators operation, u32 threshold);
 static u32 GetPartyMonCount(u32 lastId, struct Pokemon *party, bool32 onlyAlive);
 static bool32 DoesTrainerHaveSlideMessage(u32 trainerId, u32 slideId);
 static bool32 ShouldRunTrainerSlideLandsFirstCriticalHit(enum BattlerId battler, enum TrainerSlideType slideId);
@@ -80,7 +81,7 @@ static const u8* const sTestTrainerSlides[MAX_TRAINERS_COUNT_EMERALD + PARTNER_C
 #include "../test/battle/trainer_slides.h"
 };
 
-static u32 BattlerHPPercentage(enum BattlerId battler, u32 operation, u32 threshold)
+static u32 BattlerHPPercentage(enum BattlerId battler, enum ComparisonOperators operation, u32 threshold)
 {
     switch (operation)
     {

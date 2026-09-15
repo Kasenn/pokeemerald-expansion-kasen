@@ -760,28 +760,29 @@ static bool32 IsMirrorArmorReflected(struct BattleCalcValues *cv, struct StatCha
 
     if (gBattleStruct->moveResultFlags[cv->battlerDef] & MOVE_RESULT_MIRROR_ARMOR_PENDING || !st->ignoreCertainFailure)
     {
+        st->silentFailure = FALSE; // Mirror Armor still deflects damaging move stat drops
         st->script = BattleScript_MirrorArmorReflect;
         gBattlerAbility = cv->battlerDef;
         RecordAbilityBattle(cv->battlerDef, cv->abilities[cv->battlerDef]);
 
         if (st->stickyWeb)
         {
-            if (gSideTimers[GetBattlerSide(cv->battlerDef)].stickyWebBattlerId != 0xFF)
-            {
-                gBattleScripting.battler = gSideTimers[GetBattlerSide(cv->battlerDef)].stickyWebBattlerId;
-            }
-            else
+            if (GetConfig(B_MIRROR_ARMOR_STICKY_WEB) >= GEN_9)
             {
                 st->script = BattleScript_AbilityPopUp;
                 return TRUE;
             }
+            else if (gSideTimers[GetBattlerSide(cv->battlerDef)].stickyWebBattlerId != 0xFF)
+            {
+                gBattleScripting.battler = gSideTimers[GetBattlerSide(cv->battlerDef)].stickyWebBattlerId;
+            }
         }
         else
         {
-            if (cv->battlerAtk == cv->battlerDef)
-                gBattleScripting.battler = cv->battlerDef;
-            else
-                gBattleScripting.battler = cv->battlerAtk;
+            gBattleScripting.battler = cv->battlerAtk;
+
+            if (IsBattlerAlly(cv->battlerAtk, cv->battlerDef))
+                gBattleStruct->ignoreDefiant = TRUE;
 
             gBattleStruct->allowPartingShot = TRUE;
         }
@@ -861,7 +862,35 @@ static bool32 AbilityPreventsSpecificStatDrop(enum Ability ability, enum Stat st
     }
 }
 
-u32 GetStatStage(enum Stat stat, const struct AdditionalEffect *additionalEffect)
+bool32 ShouldDefiantCompetitiveActivate(enum BattlerId battler, enum Ability ability)
+{
+    enum BattleSide side = GetBattlerSide(battler);
+
+    if (gBattleStruct->ignoreDefiant)
+        return FALSE;
+
+    switch (ability)
+    {
+    case ABILITY_DEFIANT:
+        if (CompareStat(battler, STAT_ATK, MAX_STAT_STAGE, CMP_EQUAL, ability))
+            return FALSE;
+        break;
+    case ABILITY_COMPETITIVE:
+        if (CompareStat(battler, STAT_SPATK, MAX_STAT_STAGE, CMP_EQUAL, ability))
+            return FALSE;
+        break;
+    default:
+        return FALSE;
+    }
+
+    if (GetConfig(B_DEFIANT_STICKY_WEB) >= GEN_9 || !gBattleScripting.stickyWebStatDrop)
+        return TRUE;
+
+    // only activate Defiant/Competitive if Web was setup by foe
+    return gSideTimers[side].stickyWebBattlerSide != side;
+}
+
+u32 GetStatStage(u32 stat, const struct AdditionalEffect *additionalEffect)
 {
     switch (stat)
     {

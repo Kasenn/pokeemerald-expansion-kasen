@@ -1508,3 +1508,63 @@ AI_SINGLE_BATTLE_TEST("AI_FLAG_MOVE_OMNISCIENCE: AI knows the player's moves")
             TURN { MOVE(player, MOVE_TACKLE); EXPECT_MOVE(opponent, MOVE_TACKLE); EXPECT_SEND_OUT(opponent, 1); }
     }
 }
+
+AI_DOUBLE_BATTLE_TEST("AI does not switch in into invalid Pokemon")
+{
+    u64 flags = 0;
+
+    PARAMETRIZE { flags = (AI_FLAG_ACE_POKEMON | AI_FLAG_SMART_TRAINER); }
+    PARAMETRIZE { flags = AI_FLAG_ACE_POKEMON; }
+
+    GIVEN {
+        AI_FLAGS(flags);
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_WOBBUFFET) { Level(1); }
+        OPPONENT(SPECIES_WYNAUT) { Level(1); }
+        OPPONENT(SPECIES_HAPPINY) { Level(1); }
+        OPPONENT(SPECIES_CHANSEY) { Level(1); }
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); }
+        TURN { }
+    }
+}
+
+AI_SINGLE_BATTLE_TEST("AI scores fixed damage moves correctly")
+{
+    enum Move move = MOVE_NONE;
+    s32 hp = 400;
+
+    ASSUME(GetMoveEffect(MOVE_SONIC_BOOM) == EFFECT_FIXED_HP_DAMAGE);
+    ASSUME(GetMoveFixedHPDamage(MOVE_SONIC_BOOM) == 20);
+    ASSUME(GetMoveEffect(MOVE_DRAGON_RAGE) == EFFECT_FIXED_HP_DAMAGE);
+    ASSUME(GetMoveFixedHPDamage(MOVE_DRAGON_RAGE) == 40);
+
+    PARAMETRIZE { move = MOVE_SONIC_BOOM, hp = 20; }
+    PARAMETRIZE { move = MOVE_SONIC_BOOM, hp = 60; }
+    PARAMETRIZE { move = MOVE_DRAGON_RAGE, hp = 40; }
+    PARAMETRIZE { move = MOVE_DRAGON_RAGE, hp = 60; }
+
+    GIVEN {
+        AI_FLAGS(AI_FLAG_SMART_TRAINER);
+        PLAYER(SPECIES_WOBBUFFET) { Speed(4); Moves(MOVE_SCRATCH); MaxHP(hp); HP(hp); Defense(999); }
+        OPPONENT(SPECIES_WOBBUFFET) { Speed(5); Moves(MOVE_SCRATCH, move); }
+    } WHEN {
+        if (hp == 60)
+        {
+            TURN { 
+                EXPECT_MOVE(opponent, move);
+                SCORE_EQ_VAL(opponent, MOVE_SCRATCH, AI_SCORE_DEFAULT);
+                SCORE_EQ_VAL(opponent, move, AI_SCORE_DEFAULT + BEST_DAMAGE_MOVE);
+            }
+        }
+        else
+        {
+            TURN { 
+                EXPECT_MOVE(opponent, move);
+                SCORE_EQ_VAL(opponent, MOVE_SCRATCH, AI_SCORE_DEFAULT);
+                SCORE_EQ_VAL(opponent, move, AI_SCORE_DEFAULT + BEST_DAMAGE_MOVE + FAST_KILL);
+            }
+        }
+    }
+}
