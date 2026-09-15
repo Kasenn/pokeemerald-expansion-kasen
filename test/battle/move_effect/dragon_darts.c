@@ -290,7 +290,7 @@ DOUBLE_BATTLE_TEST("Dragon Darts fails to strike any target if under a Fairy-typ
     }
 }
 
-DOUBLE_BATTLE_TEST("Dragon Darts fails to strike the second target if first target fainted and follow me was active")
+DOUBLE_BATTLE_TEST("Dragon Darts fails to strike the second target if first target fainted and Follow Me was active")
 {
     GIVEN {
         PLAYER(SPECIES_WOBBUFFET);
@@ -329,3 +329,22 @@ DOUBLE_BATTLE_TEST("Dragon Darts can be absorbed by both opponents and hit neith
     }
 }
 
+DOUBLE_BATTLE_TEST("Dragon Darts always prints effectiveness message after every hit")
+{
+    // The messages are possibly incorrect if they should print the target
+    GIVEN {
+        PLAYER(SPECIES_WOBBUFFET);
+        PLAYER(SPECIES_WYNAUT);
+        OPPONENT(SPECIES_CUFANT);
+        OPPONENT(SPECIES_DRATINI);
+    } WHEN {
+        TURN { MOVE(playerLeft, MOVE_DRAGON_DARTS, target: opponentLeft); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
+        HP_BAR(opponentLeft);
+        MESSAGE("It's not very effective…");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
+        HP_BAR(opponentRight);
+        MESSAGE("It's super effective!");
+    }
+}

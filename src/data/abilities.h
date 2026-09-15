@@ -2284,8 +2284,6 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
         .cantBeTraced = TRUE,
-        .cantBeSuppressed = TRUE,
-        .cantBeOverwritten = TRUE,
     },
 
     [ABILITY_ELECTROMORPHOSIS] =
@@ -2588,7 +2586,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_EELEVATE] =
     {
         .name = _("Eelevate"),
-        .description = COMPOUND_STRING("Levitate and Beast Boost."),
+        .description = COMPOUND_STRING("Unimplemented."),
     },
 
     [ABILITY_314] =
@@ -2606,7 +2604,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_FIRE_MANE] =
     {
         .name = _("Fire Mane"),
-        .description = COMPOUND_STRING("Ups Fire-type moves."),
+        .description = COMPOUND_STRING("Unimplemented."),
     },
 
     [ABILITY_317] =

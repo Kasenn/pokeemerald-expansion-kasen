@@ -16,7 +16,7 @@ SINGLE_BATTLE_TEST("Revival Blessing revives a chosen fainted party member for t
     } WHEN {
         TURN { MOVE(player, MOVE_REVIVAL_BLESSING, partyIndex:2); }
     } SCENE {
-        MESSAGE("Wobbuffet used Revival Blessing!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, player);
         MESSAGE("Wynaut was revived and is ready to fight again!");
     }
 }
@@ -32,6 +32,7 @@ SINGLE_BATTLE_TEST("Revival Blessing revives a fainted party member for an oppon
         TURN { MOVE(opponent, MOVE_REVIVAL_BLESSING, partyIndex:1); }
     } SCENE {
         MESSAGE("The foe Raichu used Revival Blessing!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, opponent);
         MESSAGE("Pichu was revived and is ready to fight again!");
     }
 }
@@ -97,10 +98,12 @@ DOUBLE_BATTLE_TEST("Revival Blessing doesn't prevent revived battlers from losin
                MOVE(opponentLeft, MOVE_REVIVAL_BLESSING, partyIndex: 1); }
     } SCENE {
         MESSAGE("Wobbuffet used Scratch!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         MESSAGE("The foe Wynaut fainted!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, opponentLeft);
         MESSAGE("The foe Wobbuffet used Revival Blessing!");
         MESSAGE("Wynaut was revived and is ready to fight again!");
-        NOT { MESSAGE("Wynaut used Celebrate!"); }
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
     }
 }
 
@@ -130,5 +133,33 @@ DOUBLE_BATTLE_TEST("Revival Blessing correctly updates battler absent flags")
         MESSAGE("The foe Geodude fainted!");
         MESSAGE("It doesn't affect Pidgeot…");
         MESSAGE("It doesn't affect the foe Starly…");
+    }
+}
+
+SINGLE_BATTLE_TEST("Revival Blessing keeps Mimikyu Busted forms and Eiscue Noice in their current forms")
+{
+    enum Species species;
+    enum Ability ability;
+
+    PARAMETRIZE { species = SPECIES_MIMIKYU_BUSTED;       ability = ABILITY_DISGUISE; }
+    PARAMETRIZE { species = SPECIES_MIMIKYU_BUSTED_TOTEM; ability = ABILITY_DISGUISE; }
+    PARAMETRIZE { species = SPECIES_EISCUE_NOICE;         ability = ABILITY_ICE_FACE; }
+
+    GIVEN {
+        ASSUME(GetMoveCategory(MOVE_CRUNCH) == DAMAGE_CATEGORY_PHYSICAL);
+        PLAYER(species) { HP(1); Ability(ability); }
+        PLAYER(SPECIES_WOBBUFFET);
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_CRUNCH); SEND_OUT(player, 1); }
+        TURN { MOVE(player, MOVE_REVIVAL_BLESSING, partyIndex: 0); }
+        TURN { SWITCH(player, 0); MOVE(opponent, MOVE_CRUNCH); }
+    } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CRUNCH, opponent);
+        HP_BAR(player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, player);
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_CRUNCH, opponent);
+        NOT ABILITY_POPUP(player, ability);
+        HP_BAR(player);
     }
 }
