@@ -375,4 +375,3 @@ DOUBLE_BATTLE_TEST("Opportunist activates before Mirror Herb during the end turn
 }
 
 TO_DO_BATTLE_TEST("Opportunist copies stat changes from the opponent's X Attack and other stat-boosting items.")
-

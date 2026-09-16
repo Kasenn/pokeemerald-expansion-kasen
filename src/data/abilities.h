@@ -2580,7 +2580,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_EELEVATE] =
     {
         .name = _("Eelevate"),
-        .description = COMPOUND_STRING("Unimplemented."),
+        .description = COMPOUND_STRING("Levitate and Beast Boost."),
     },
 
     [ABILITY_314] =
@@ -2598,7 +2598,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_FIRE_MANE] =
     {
         .name = _("Fire Mane"),
-        .description = COMPOUND_STRING("Unimplemented."),
+        .description = COMPOUND_STRING("Ups Fire-type moves."),
     },
 
     [ABILITY_317] =

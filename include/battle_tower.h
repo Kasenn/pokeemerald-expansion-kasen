@@ -40,7 +40,6 @@ void TryHideBattleTowerReporter(void);
 // void CalcApprenticeChecksum(void);
 void GetBattleTowerTrainerLanguage(u8 *dst, u16 trainerId);
 u8 SetTentPtrsGetLevel(void);
-bool32 ValidateBattleTowerRecord(u8 recordId); // unused
 // void TrySetLinkBattleTowerEnemyPartyLevel(void);
 void FillTentTrainerParty(u8 monsCount);
 

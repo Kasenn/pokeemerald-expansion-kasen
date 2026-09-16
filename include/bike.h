@@ -83,7 +83,6 @@ enum AcroTransition
 // Exported ROM declarations
 void MovePlayerOnBike(enum Direction direction, u16 newKeys, u16 heldKeys);
 void Bike_TryAcroBikeHistoryUpdate(u16 newKeys, u16 heldKeys);
-bool8 RS_IsRunningDisallowed(u8 tile);
 bool8 IsBikingDisallowedByPlayer(void);
 bool8 IsPlayerNotUsingAcroBikeOnBumpySlope(void);
 void BikeClearState(int newDirHistory, int newAbStartHistory);
