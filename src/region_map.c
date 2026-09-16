@@ -1834,7 +1834,7 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
 
     LoadSpriteSheet(&sheet);
     LoadSpritePalette(&palette);
-    spriteId = CreateSpriteUnchecked(&template, 0, 0, 1);
+    spriteId = CreateSprite(&template, 0, 0, 1);
     sRegionMap->playerIconSprite = &gSprites[spriteId];
     if (!sRegionMap->zoomed)
     {
@@ -1921,7 +1921,7 @@ void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag)
             
                 LoadSpriteSheet(&sheet);
                 LoadSpritePalette(&palette);
-                spriteId = CreateSpriteUnchecked(&template, 0, 0, 1);
+                spriteId = CreateSprite(&template, 0, 0, 1);
                 sRegionMap->roamerIconSprite[j] = &gSprites[spriteId];
 
                 GetRoamerLocation(i, &mapGroup, &mapNum);

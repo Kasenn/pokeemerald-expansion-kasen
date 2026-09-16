@@ -145,5 +145,6 @@ u8 GetRivalBattleFlags(void);
 bool8 HandleBattleVariantEndParty(void);
 
 void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer);
+void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum);
 
 #endif // GUARD_BATTLE_SETUP_H

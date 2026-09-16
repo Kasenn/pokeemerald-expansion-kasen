@@ -19149,7 +19149,7 @@ gBattleAnimMove_RazorGale::
 	createvisualtask AnimTask_ShakeMon, 2, ANIM_TARGET, 3, 0, 10, 1
 	call SonicBoomHit
 	waitforvisualfinish
-	call UnsetHighSpeedBg
+	call UnsetBackground
 	clearmonbg ANIM_DEF_PARTNER
 	blendoff
 	end

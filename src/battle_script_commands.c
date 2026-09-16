@@ -6247,9 +6247,8 @@ void BS_SetCameraEffect(void)
                 break;
             }
         case CAMERA_STAT_DOWN:
-            DebugPrintf("0");
             if (holdEffect != HOLD_EFFECT_CLEAR_AMULET
-             && !IsMistyTerrainAffected(gBattlerTarget, ability, holdEffect, STATUS_FIELD_MISTY_TERRAIN)
+             && !IsMistyTerrainAffected(gBattlerTarget, ability, holdEffect, gFieldTimers.terrain)
              && ability != ABILITY_FULL_METAL_BODY
              && ability != ABILITY_CLEAR_BODY
              && ability != ABILITY_ILLUMINATE
@@ -6259,17 +6258,14 @@ void BS_SetCameraEffect(void)
              && !IsFlowerVeilProtected(gBattlerTarget)
              && gSideTimers[GetBattlerSide(gBattlerTarget)].mistTimer < 1)
             {
-                DebugPrintf("1");
                 if (CompareStat(gBattlerTarget, STAT_ACC, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
                 {
-                    DebugPrintf("2");
                     SetStatChange(gBattlerTarget, STAT_ACC, -1);
                     gBattlescriptCurrInstr = BattleScript_EffectCamera;
                     break;
                 }
                 else if (CompareStat(gBattlerTarget, STAT_SPEED, MIN_STAT_STAGE, CMP_GREATER_THAN, ability))
                 {
-                    DebugPrintf("3");
                     SetStatChange(gBattlerTarget, STAT_SPEED, -1);
                     gBattlescriptCurrInstr = BattleScript_EffectCamera;
                     break;

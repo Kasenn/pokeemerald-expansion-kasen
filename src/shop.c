@@ -798,6 +798,9 @@ static void MoveTutorLoadMoveInfo(u32 item)
     x = GetStringWidth(FONT_NARROW, str, 0) + GetStringRightAlignXOffset(FONT_NARROW, str, 0);
     switch (move->category)
     {
+        case DAMAGE_CATEGORY_NONE:
+            str = gText_FiveMarks;
+            break;
         case DAMAGE_CATEGORY_PHYSICAL:
             str = gText_TutorPhysical;
             break;

@@ -179,6 +179,10 @@ void GenerateMonFromTrainerMon(struct Pokemon *mon, const struct TrainerMon *tra
     if (trainerMon->ball < POKEBALL_COUNT)
     {
         data = trainerMon->ball;
+
+        if (data == BALL_STRANGE && !TESTING)
+            data = BALL_POKE;
+
         SetMonData(mon, MON_DATA_POKEBALL, &data);
     }
     else if (B_TRAINER_CLASS_POKE_BALLS >= GEN_7 && trainer->trainerClass && trainerMon->ball == POKEBALL_COUNT)

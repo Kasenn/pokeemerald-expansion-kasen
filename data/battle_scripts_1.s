@@ -2151,13 +2151,12 @@ BattleScript_ForestsCurseEqualByte::
 	getmovetarget
 BattleScript_DoForestsCurse::
 	attackcanceler
-	accuracycheck
 	forestscursetarget BattleScript_ButItFailed
 	setbyte sB_ANIM_TURN, 0
 	attackanimation
 	waitanimation
-	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	printstring STRINGID_FORESTCURSE
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
@@ -2930,7 +2929,7 @@ BattleScript_AmphyInterrupts::
 BattleScript_FaintedMonSendOutNewEnd2:
 	switchineffects BS_FAINTED
 	cancelallactions
-	end2
+	end
 BattleScript_FaintedMonShiftSwitched2:
 	copybyte sSAVED_BATTLER, gBattlerTarget
 	switchineffects BS_ATTACKER
@@ -3169,7 +3168,7 @@ BattleScript_PrintCantRunFromTrainer::
 
 BattleScript_PrintCantRunFromGhost::
 	printstring STRINGID_NORUNNINGFROMGHOST
-	end2
+	end
 
 BattleScript_PrintFailedToRunString::
 	printfromtable gNoEscapeStringIds
@@ -3396,7 +3395,7 @@ BattleScript_MistWoreOffReturn::
 BattleScript_ReflectLightScreenWoreOff::
 	printstring STRINGID_PKMNSSCREENWOREOFF
 	waitmessage B_WAIT_TIME_LONG
-	end2
+	end
 
 BattleScript_ReflectLightScreenWoreOffReturn::
 	printstring STRINGID_PKMNSSCREENWOREOFF
@@ -4429,7 +4428,7 @@ BattleScript_DoSelfConfusionDmg::
 	waitstate
 	tryselfconfusiondmgformchange
 	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER, ASSURANCE_IGNORE
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
@@ -5723,8 +5722,8 @@ BattleScript_BerrySleepHealRet_Anim:
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
 	printstring STRINGID_PKMNSITEMRESTOREDHEALTH
 	waitmessage B_WAIT_TIME_LONG
-	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING, ASSURANCE_DOUBLE
 	removeitem BS_SCRIPTING
 	seteffectprimary BS_SCRIPTING, BS_SCRIPTING, MOVE_EFFECT_SLEEP
 	return
@@ -6586,11 +6585,11 @@ BattleScript_ForfeitBattleGaveMoney::
 BattleScript_MegaExhaustion::
 	printstring STRINGID_TARGETISHURTBYMEGAEXHAUSTION
 	waitmessage B_WAIT_TIME_LONG
-	healthbarupdate BS_ATTACKER, PASSIVE_HP_UPDATE
-	datahpupdate BS_ATTACKER, PASSIVE_HP_UPDATE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	tryfaintmon BS_ATTACKER
 	checkteamslost BattleScript_DoTurnDmgEnd
-	end2
+	end
 
 BattleScript_Attackstring::
 	printattackstring

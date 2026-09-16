@@ -432,6 +432,7 @@ enum BattleTerrain
     B_TERRAIN_MISTY,
     B_TERRAIN_ELECTRIC,
     B_TERRAIN_PSYCHIC,
+    B_TERRAIN_ROCKY,
     B_TERRAIN_COUNT,
 };
 
@@ -655,7 +656,7 @@ enum MoveTarget
 #define PARENTAL_BOND_2ND_HIT 1
 #define PARENTAL_BOND_OFF     0
 
-#define RAPID_FISTS_1ST_HIT 3
+#define RAPID_FISTS_1ST_HIT 3//wip2
 #define RAPID_FISTS_2ND_HIT 2
 #define RAPID_FISTS_3RD_HIT 1
 #define RAPID_FISTS_OFF     0

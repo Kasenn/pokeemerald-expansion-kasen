@@ -26,9 +26,8 @@ const struct Trainer gBattlePartners[PARTNER_COUNT] =
 
 void FillPartnerParty(u16 trainerId)
 {
-    s32 i, j, k;
-    u32 firstIdPart = 0, secondIdPart = 0, thirdIdPart = 0;
-    u32 ivs, level, personality;
+    s32 i, j;
+    u32 ivs, level;
     u16 monId;
 
     u8 trainerName[(PLAYER_NAME_LENGTH * 3) + 1];
@@ -48,7 +47,17 @@ void FillPartnerParty(u16 trainerId)
             partnerGen.otID = OTID_STRUCT_PRESET(STEVEN_OTID);
         for (i = 0; i < lastIndex && i < partner->partySize; i++)
         {
-            GenerateMonFromTrainerMon(&gParties[B_TRAINER_PARTNER][i], &partner->party[i], &partnerGen);
+            baseMonIndex = i;
+            actualMonIndex = baseMonIndex;
+
+            if (trainerId >= TRAINER_PARTNER(PARTNER_MAY_ROWLET) && trainerId <= TRAINER_PARTNER(PARTNER_BRENDAN_ORAS_PIPLUP))
+            {
+                if (baseMonIndex == 0)  actualMonIndex = VarGet(VAR_FIRST_MON);
+                if (baseMonIndex == 1)  actualMonIndex = VarGet(VAR_SECOND_MON);
+                if (baseMonIndex == 2)  actualMonIndex = VarGet(VAR_THIRD_MON);
+            }
+
+            GenerateMonFromTrainerMon(&gParties[B_TRAINER_PARTNER][i], &partner->party[actualMonIndex], &partnerGen);
         }
     }
     else if (trainerId == TRAINER_EREADER)

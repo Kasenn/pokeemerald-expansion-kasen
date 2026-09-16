@@ -129,16 +129,16 @@ BattleScript_ItemHealAndCureStatus_HasStatus::
 	printfromtable gCureStatusStringIds
 	waitmessage B_WAIT_TIME_LONG
 	clearmoveresultflags MOVE_RESULT_NO_EFFECT
-	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING, ASSURANCE_DOUBLE
 	printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
 	waitmessage B_WAIT_TIME_LONG
 	end
 
 BattleScript_ItemHealAndCureStatus_NoStatus::
 	clearmoveresultflags MOVE_RESULT_NO_EFFECT
-	healthbarupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
-	datahpupdate BS_SCRIPTING, PASSIVE_HP_UPDATE
+	healthbarupdate BS_SCRIPTING
+	datahpupdate BS_SCRIPTING, ASSURANCE_DOUBLE
 	printstring STRINGID_ITEMRESTOREDSPECIESHEALTH
 	waitmessage B_WAIT_TIME_LONG
 	end
@@ -362,7 +362,7 @@ BattleScript_GhostBallDodge::
 BattleScript_ActionLayLow:
     printfromtable gSafariGetNearStringIds
     waitmessage B_WAIT_TIME_LONG
-    end2
+    end
 
 BattleScript_ActionThrowRock::
 	printstring STRINGID_THREWROCK

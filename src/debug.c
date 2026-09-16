@@ -3574,9 +3574,9 @@ static void DebugSelectionStep_UpdateDecoration(u8 taskId, u8 digits, u32 min, u
 {
     u32 decorationId = gTasks[taskId].tInput;
     DestroyDebugIcon(taskId);
-    gTasks[taskId].tSpriteId = AddDecorationIconObject(decorationId,
-        DEBUG_NUMBER_ICON_X + 8, DEBUG_NUMBER_ICON_Y + 10, 0,
-        DEBUG_ICON_TAG, DEBUG_ICON_TAG);
+    // gTasks[taskId].tSpriteId = AddDecorationIconObject(decorationId,
+    //     DEBUG_NUMBER_ICON_X + 8, DEBUG_NUMBER_ICON_Y + 10, 0,
+    //     DEBUG_ICON_TAG, DEBUG_ICON_TAG);
 
     ConvertIntToDecimalStringN(gStringVar3, decorationId, STR_CONV_MODE_LEADING_ZEROS, digits);
     StringExpandPlaceholders(gStringVar1, COMPOUND_STRING("Decor ID: {STR_VAR_3}"));

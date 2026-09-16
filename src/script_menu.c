@@ -74,7 +74,6 @@ static void MultichoiceDynamicEventShowSprite_OnInit(struct DynamicListMenuEvent
 static void MultichoiceDynamicEventShowItem_OnSelectionChanged(struct DynamicListMenuEventArgs *eventArgs);
 static void MultichoiceDynamicEventShowMon_OnInit(struct DynamicListMenuEventArgs *eventArgs);
 static void MultichoiceDynamicEventShowMon_OnSelectionChanged(struct DynamicListMenuEventArgs *eventArgs);
-static void MultichoiceDynamicEventShowMon_OnDestroy(struct DynamicListMenuEventArgs *eventArgs);
 static void MultichoiceDynamicEventShowPkmn_OnSelectionChanged(struct DynamicListMenuEventArgs *eventArgs);
 static void MultichoiceDynamicEventShowSprite_OnDestroy(struct DynamicListMenuEventArgs *eventArgs);
 
@@ -96,7 +95,7 @@ static const struct DynamicListMenuEventCollection sDynamicListMenuEventCollecti
     {
         .OnInit = MultichoiceDynamicEventShowMon_OnInit,
         .OnSelectionChanged = MultichoiceDynamicEventShowMon_OnSelectionChanged,
-        .OnDestroy = MultichoiceDynamicEventShowMon_OnDestroy
+        .OnDestroy = MultichoiceDynamicEventShowSprite_OnDestroy
         
     },
     [DYN_MULTICHOICE_CB_SHOW_PKMN] =
@@ -258,32 +257,20 @@ static void MultichoiceDynamicEventShowMon_OnInit(struct DynamicListMenuEventArg
     FillWindowPixelBuffer(auxWindowId, 0x11);
     CopyWindowToVram(auxWindowId, COPYWIN_FULL);
     sAuxWindowId = auxWindowId;
-    sItemSpriteId = MAX_SPRITES;
+    sSpriteId = MAX_SPRITES;
 }
 
 static void MultichoiceDynamicEventShowMon_OnSelectionChanged(struct DynamicListMenuEventArgs *eventArgs)
 {
-    if (sItemSpriteId != MAX_SPRITES)
+    if (sSpriteId != MAX_SPRITES)
     {
-        FreeAndDestroyMonPicSprite(sItemSpriteId);
+        FreeAndDestroyMonPicSprite(sSpriteId);
         // FieldEffectFreePaletteIfUnused(paletteNum); // Clear palette only if unused, in case follower is using it
-        DestroySprite(&gSprites[sItemSpriteId]);
+        DestroySprite(&gSprites[sSpriteId]);
     }
     
-    sItemSpriteId = CreateMonSprite_PicBox(eventArgs->selectedItem, FALSE, 120, 72, 0);
+    sSpriteId = CreateMonSprite_PicBox(eventArgs->selectedItem, FALSE, 120, 72, 0);
 }
-
-static void MultichoiceDynamicEventShowMon_OnDestroy(struct DynamicListMenuEventArgs *eventArgs)
-{
-    ClearStdWindowAndFrame(sAuxWindowId, TRUE);
-    RemoveWindow(sAuxWindowId);
-
-    if (sItemSpriteId != MAX_SPRITES)
-    {
-        DestroySprite(&gSprites[sItemSpriteId]);
-    }
-}
-
 
 #undef sAuxWindowId
 #undef sSpriteId

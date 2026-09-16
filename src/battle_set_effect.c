@@ -20,6 +20,7 @@
 #include "random.h"
 #include "string_util.h"
 #include "config/battle.h"
+#include "overworld.h"
 
 static inline bool32 IgnoreTargetingForMoveEffect(enum MoveEffect moveEffect);
 static bool32 DoesSubstituteBlockMoveEffectOnTarget(enum BattlerId battlerAtk, enum BattlerId battlerDef, enum MoveEffect moveEffect);
@@ -222,6 +223,32 @@ static void HandleSetEffectWrap(struct BattleCalcValues *cv, struct SetEffect *s
         BattleScriptPush(se->script);
         gBattlescriptCurrInstr = BattleScript_MoveEffectWrap;
     }
+}
+
+
+static void HandleSetEffectStatChangeOmni(struct BattleCalcValues *cv, struct SetEffect *se)
+{
+    if (IsOnPlayerSide(gBattlerAttacker))
+        IncrementGameStat(GAME_STAT_OMNIBOOST);
+
+    for (enum Stat i = STAT_ATK; i < NUM_BATTLE_STATS; i++)
+    {
+        enum Stat stat = sAccurateStatOrder[i];
+        s32 stage = GetStatStage(stat, se->additionalEffect);
+
+        if (stage == 0)
+            continue;
+
+        if (se->additionalEffect->moveEffect == MOVE_EFFECT_STAT_MINUS)
+            stage = -1 * stage;
+
+        SetStatChange(se->effectBattler, stat, stage);
+        if (se->additionalEffect->onSide)
+            SetStatChange(GetPartnerBattler(se->effectBattler), stat, stage);
+    }
+
+    BattleScriptPush(se->script);
+    gBattlescriptCurrInstr = BattleScript_MoveEffectStatChange;
 }
 
 static void HandleSetEffectStatChange(struct BattleCalcValues *cv, struct SetEffect *se)
@@ -1228,6 +1255,13 @@ static void HandleSetEffectBreakScreen(struct BattleCalcValues *cv, struct SetEf
         if (!failed)
         {
             if (gSideTimers[side].reflectTimer)
+                gBattleCustomString |= SIDE_STATUS_REFLECT;
+            if (gSideTimers[side].lightscreenTimer)
+                gBattleCustomString |= SIDE_STATUS_LIGHTSCREEN;
+            if (gSideTimers[side].auroraVeilTimer)
+                gBattleCustomString |= SIDE_STATUS_AURORA_VEIL;
+
+            if (gSideTimers[side].reflectTimer)
                 gBattleCommunication[MULTISTRING_CHOOSER] |= 1 << 0;
             if (gSideTimers[side].lightscreenTimer)
                 gBattleCommunication[MULTISTRING_CHOOSER] |= 1 << 1;
@@ -1322,6 +1356,7 @@ static void (*const sSetEffectHandlers[])(struct BattleCalcValues *cv, struct Se
     [MOVE_EFFECT_UPROAR] = HandleSetEffectUproar,
     [MOVE_EFFECT_PAYDAY] = HandleSetEffectPayday,
     [MOVE_EFFECT_WRAP] = HandleSetEffectWrap,
+    [MOVE_EFFECT_OMNIBOOST] = HandleSetEffectStatChangeOmni,
     [MOVE_EFFECT_STAT_PLUS] = HandleSetEffectStatChange,
     [MOVE_EFFECT_STAT_MINUS] = HandleSetEffectStatChange,
     [MOVE_EFFECT_REMOVE_ARG_TYPE] = HandleSetEffectRemoveArgType,

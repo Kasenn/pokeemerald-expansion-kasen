@@ -920,7 +920,7 @@ static enum ItemEffect HealSleepBerry(enum BattlerId battler, enum Item itemId)
     u32 ability = GetBattlerAbility(battler);
 
     if (HasEnoughHpToEatBerry(battler, ability, hpFraction, itemId)
-     && !(B_HEAL_BLOCKING >= GEN_5 && gBattleMons[battler].volatiles.healBlock))
+     && !(B_HEAL_BLOCKING >= GEN_5 && gBattleMons[battler].volatiles.healBlockTimer))
     {
         s32 healAmount = GetNonDynamaxMaxHP(battler);
         SetHealAmount(battler, healAmount);

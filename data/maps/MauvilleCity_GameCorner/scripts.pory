@@ -190,11 +190,11 @@ script AmberockTown_GameCorner_Buy1000Coins{
 
 script AmberockTown_GameCorner_BuyCoinsEnd{
 	updatemoneybox
-	updatecoinsbox(1, 6)
+	updatecoinsbox
 	playse(SE_SHOP)
 	msgbox(AmberockTown_GameCorner_ThankYouHereAreYourCoins)
 	hidemoneybox
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	release
 	end
 }
@@ -216,7 +216,7 @@ script AmberockTown_GameCorner_NoRoomForCoins{
 
 script AmberockTown_GameCorner_HideMoneyBox{
 	hidemoneybox
-	hidecoinsbox(0, 5)
+	hidecoinsbox
 	release
 	end
 }
@@ -342,7 +342,7 @@ script Amberock_GameCorner_ChooseMegaStone{
 
 script Amberock_GameCorner_NotEnoughCoins{
     msgbox("I'm sorry, but you don't have\nenough coins.")
-	hidecoinsbox(0, 0)
+	hidecoinsbox
 	release
 	end
 }
@@ -363,7 +363,7 @@ script Amberock_GameCorner_ConfirmMegaStone{
     }
     removecoins(MEGA_STONE_COINS)
     additem(VAR_0x8004)
-    updatecoinsbox(1, 1)
+    updatecoinsbox
     playse(SE_SHOP)
     msgbox(AmberockTown_GameCorner_HereYouGo)
     goto(Amberock_GameCorner_ChooseMegaStone)
@@ -421,7 +421,7 @@ script Amberock_GameCorner_ConfirmPokemon{
     givemon(VAR_TEMP_TRANSFERRED_SPECIES, 10)
     if(var(VAR_RESULT) == MON_GIVEN_TO_PARTY){
         removecoins(VAR_TEMP_3)
-        updatecoinsbox(1, 1)
+        updatecoinsbox
         playse(SE_SHOP)
         msgbox(AmberockTown_GameCorner_HereYouGo)
         call(Amberock_GameCorner_ReceivedMonFanfare)
@@ -434,7 +434,7 @@ script Amberock_GameCorner_ConfirmPokemon{
     }
     elif(var(VAR_RESULT) == MON_GIVEN_TO_PC){
         removecoins(VAR_TEMP_3)
-        updatecoinsbox(1, 1)
+        updatecoinsbox
         playse(SE_SHOP)
         msgbox(AmberockTown_GameCorner_HereYouGo)
         call(Amberock_GameCorner_ReceivedMonFanfare)
@@ -453,7 +453,7 @@ script Amberock_GameCorner_ConfirmPokemon{
 }
 
 script Amberock_GameCorner_EndScript{
-    hidecoinsbox(0, 0)
+    hidecoinsbox
 	release
 	end
 }
@@ -470,7 +470,7 @@ script Amberock_GameCorner_ReceivedMonFanfare{
 
 script AmberockTown_GameCorner_CancelRewardSelect{
 	msgbox(AmberockTown_GameCorner_OhIsThatSo)
-	hidecoinsbox(0, 0)
+	hidecoinsbox
 	release
 	end
 }

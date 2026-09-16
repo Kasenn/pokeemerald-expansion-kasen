@@ -266,7 +266,7 @@ AmberockTown_GameCorner_BuyCoinsEnd::
 # 192 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	updatemoneybox
 # 193 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	updatecoinsbox 1, 6
+	updatecoinsbox
 # 194 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	playse SE_SHOP
 # 195 "data/maps/MauvilleCity_GameCorner/scripts.pory"
@@ -274,7 +274,7 @@ AmberockTown_GameCorner_BuyCoinsEnd::
 # 196 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	hidemoneybox
 # 197 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 5
+	hidecoinsbox
 # 198 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	release
 	end
@@ -308,7 +308,7 @@ AmberockTown_GameCorner_HideMoneyBox::
 # 218 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	hidemoneybox
 # 219 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 5
+	hidecoinsbox
 # 220 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	release
 	end
@@ -439,7 +439,7 @@ Amberock_GameCorner_NotEnoughCoins::
 # 344 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	msgbox Amberock_GameCorner_NotEnoughCoins_Text_0
 # 345 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 0
+	hidecoinsbox
 # 346 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	release
 	end
@@ -468,7 +468,7 @@ Amberock_GameCorner_ConfirmMegaStone_7:
 # 365 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	additem VAR_0x8004
 # 366 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	updatecoinsbox 1, 1
+	updatecoinsbox
 # 367 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	playse SE_SHOP
 # 368 "data/maps/MauvilleCity_GameCorner/scripts.pory"
@@ -639,7 +639,7 @@ Amberock_GameCorner_ConfirmPokemon_7:
 # 423 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	removecoins VAR_TEMP_3
 # 424 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	updatecoinsbox 1, 1
+	updatecoinsbox
 # 425 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	playse SE_SHOP
 # 426 "data/maps/MauvilleCity_GameCorner/scripts.pory"
@@ -663,7 +663,7 @@ Amberock_GameCorner_ConfirmPokemon_8:
 # 436 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	removecoins VAR_TEMP_3
 # 437 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	updatecoinsbox 1, 1
+	updatecoinsbox
 # 438 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	playse SE_SHOP
 # 439 "data/maps/MauvilleCity_GameCorner/scripts.pory"
@@ -698,7 +698,7 @@ Amberock_GameCorner_ConfirmPokemon_16:
 
 Amberock_GameCorner_EndScript::
 # 456 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 0
+	hidecoinsbox
 # 457 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	release
 	end
@@ -724,7 +724,7 @@ AmberockTown_GameCorner_CancelRewardSelect::
 # 472 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	msgbox AmberockTown_GameCorner_OhIsThatSo
 # 473 "data/maps/MauvilleCity_GameCorner/scripts.pory"
-	hidecoinsbox 0, 0
+	hidecoinsbox
 # 474 "data/maps/MauvilleCity_GameCorner/scripts.pory"
 	release
 	end

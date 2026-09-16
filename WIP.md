@@ -8,6 +8,12 @@ fix contest brendan backpic
 add nurses and drifblim balloons
 add fly to somewhere near fishing village (maybe brother, maybe a house)
 
+check outfit change window
+fix gem/berry activation (first gem -> used move -> move anim -> berry eat 1 -> berry eat text 1 -> berry eat 2 -> berry eat text 2 -> actual hit animation)
+check rivals and partner battles
+remember to fix rocky terrain and rapid fists
+check if forest's curse missing works correctly
+
 eventual redesigns:
 possibly expand primrose town geography
 	- add canopy effect to windy woods

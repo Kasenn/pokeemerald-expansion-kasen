@@ -918,9 +918,6 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_PKMNAURORAVEIL]                       = COMPOUND_STRING("{B_CURRENT_MOVE} raised {B_ATK_TEAM2} team's Special Defense!\p{B_CURRENT_MOVE} raised {B_ATK_TEAM2} team's Defense!"),
     [STRINGID_VICTORYCATCH]                         = COMPOUND_STRING("{B_DEF_NAME} is weak!\nThrow a Poké Ball now!"),
     [STRINGID_CANTUSEMOVE]                          = COMPOUND_STRING("This move can't be used!\p"),
-    [STRINGID_REFLECTWOREOFF]                       = COMPOUND_STRING("{B_DEF_TEAM1} side's Reflect wore off!"),
-    [STRINGID_LIGHTSCREENWOREOFF]                   = COMPOUND_STRING("{B_DEF_TEAM1} side's Light Screen wore off!"),
-    [STRINGID_AURORAVEILWOREOFF]                    = COMPOUND_STRING("{B_DEF_TEAM1} side's Aurora Veil wore off!"),
     [STRINGID_MOSTLYINEFFECTIVE]                    = COMPOUND_STRING("It's mostly ineffective…"),
     [STRINGID_EXTREMELYEFFECTIVE]                   = COMPOUND_STRING("It's extremely effective!"),
     [STRINGID_NOTVERYEFFECTIVEONDEF]                = COMPOUND_STRING("It's not very effective on {B_DEF_NAME_PREFIX_LOWERCASE}."),
@@ -3769,7 +3766,7 @@ u32 BattleStringExpandPlaceholders(const u8 *src, u8 *dst, u32 dstSize)
                 HANDLE_NICKNAME_STRING_LOWERCASE(gBattlerAttacker)
                 break;
             case B_TXT_DEF_PARTNER_NAME:
-                HANDLE_NICKNAME_STRING_LOWERCASE(BATTLE_PARTNER(gBattlerTarget));
+                HANDLE_NICKNAME_STRING_LOWERCASE(GetPartnerBattler(gBattlerTarget));
                 break;
             case B_DEF_NAME_PREFIX_LOWERCASE:
                 HANDLE_NICKNAME_STRING_LOWERCASE(gBattlerTarget)

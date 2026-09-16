@@ -19,7 +19,6 @@
 #include "field_player_avatar.h"
 #include "field_screen_effect.h"
 #include "field_weather.h"
-#include "fishing.h"
 #include "fldeff.h"
 #include "fldeff_misc.h"
 #include "follower_npc.h"
@@ -58,6 +57,7 @@
 #include "constants/trainers.h"
 #include "constants/trainer_hill.h"
 #include "constants/weather.h"
+#include "wild_encounter.h"
 
 enum TransitionType
 {
@@ -90,7 +90,6 @@ static u16 GetRematchTrainerId(u16 trainerId);
 static void HandleRematchVarsOnBattleEnd(void);
 static const u8 *GetIntroSpeechOfApproachingTrainer(void);
 static const u8 *GetTrainerCantBattleSpeech(void);
-static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum);
 static void DoTrainerBattle(void);
 
 EWRAM_DATA TrainerBattleParameter gTrainerBattleParameter = {0};
@@ -2364,6 +2363,39 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
             monsCount = PARTY_SIZE / 2;
     }
 
+    const struct TrainerMon *partyData = NULL;
+
+    if (trainer->isRival)
+    {
+        if (trainer->trainerClass == TRAINER_CLASS_BROTHER)
+        {
+            switch (VarGet(VAR_STARTER_MON))
+            {
+            case SPECIES_ROWLET:    partyData = trainer->partyWater; break;
+            case SPECIES_TORCHIC:   partyData = trainer->partyGrass; break;
+            case SPECIES_PIPLUP:    partyData = trainer->partyFire; break;
+            }   
+        }
+        else
+        {
+            switch (VarGet(VAR_STARTER_MON))
+            {
+            case SPECIES_ROWLET:    partyData = trainer->partyFire; break;
+            case SPECIES_TORCHIC:   partyData = trainer->partyWater; break;
+            case SPECIES_PIPLUP:    partyData = trainer->partyGrass; break;
+            }
+        }
+    }
+
+    if (partyData == NULL)
+        partyData = trainer->party;
+
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && FlagGet(FLAG_TEMP_1))
+    {
+        monsCount = 1;
+        partyData = gTrainers[TRAINER_LEADER_JASMINE_2].party;
+    }        
+
     u32 monIndices[monsCount];
     struct TrainerGenerator *trainerGen = AllocZeroed(sizeof(struct TrainerGenerator));
     MakeTrainerGenerator(trainerGen, trainer);
@@ -2372,12 +2404,12 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
     for (i = 0; i < monsCount; i++)
     {
         u32 monIndex = monIndices[i];
-        GenerateMonFromTrainerMon(&party[i], &trainer->party[monIndex], trainerGen);
+        GenerateMonFromTrainerMon(&party[i], &partyData[monIndex], trainerGen);
     }
     Free(trainerGen);
 }
 
-static void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
+void CreateNPCTrainerParty(struct Pokemon *party, u16 trainerNum)
 {
     if (!GetTrainerStructFromId(trainerNum)->overrideTrainer)
     {

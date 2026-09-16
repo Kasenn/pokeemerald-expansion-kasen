@@ -2659,11 +2659,8 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
         }
         else if (gStartingStatuses.rockyTerrain)
         {
-            effect = SetStartingFieldStatus(
-                        STATUS_FIELD_ROCKY_TERRAIN,
-                        B_MSG_TERRAIN_SET_ROCKY,
-                        0,
-                        &gFieldTimers.terrainTimer, 0);
+            effect = SetStartingFieldTerrain(B_TERRAIN_ROCKY, &gFieldTimers.terrainTimer,
+                gStartingStatuses.rockyTerrain ? 0 : 5);
             gStartingStatuses.rockyTerrain = FALSE;
             return effect;
         }
@@ -3347,7 +3344,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
             {
                 gBattleStruct->setToFaint[battler] = FALSE;
                 gBattlerAttacker = gBattlerTarget;
-                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
+                gBattlerTarget = GetOppositeBattler(gBattlerAttacker);
                 BattleScriptCall(BattleScript_FickleActivatesOnSwitchIn);
                 effect++;
             }
@@ -4396,7 +4393,7 @@ u32 AbilityBattleEffects(enum AbilityEffect caseID, enum BattlerId battler, enum
              && IsBattlerAlive(gBattlerTarget))
             {
                 gBattlerAttacker = gBattlerTarget;
-                gBattlerTarget = BATTLE_OPPOSITE(gBattlerAttacker);
+                gBattlerTarget = GetOppositeBattler(gBattlerAttacker);
                 BattleScriptCall(BattleScript_FickleActivates);
                 effect++;
             }

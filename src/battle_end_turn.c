@@ -412,7 +412,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         gBattleStruct->eventState.endTurnBlock++;
         break;
     case FIRST_EVENT_BLOCK_ROCKY_TERRAIN_DAMAGE:
-        if ((gFieldStatuses & STATUS_FIELD_ROCKY_TERRAIN)
+        if (gFieldTimers.terrain == B_TERRAIN_ROCKY
         && IsBattlerAlive(battler)
         && IsBattlerGrounded(battler, GetBattlerAbility(battler), GetBattlerHoldEffect(battler))
         && !(IS_BATTLER_OF_TYPE(battler, TYPE_ROCK)

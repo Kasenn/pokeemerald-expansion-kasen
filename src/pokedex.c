@@ -1225,8 +1225,8 @@ static const struct SearchOptionText sDexSearchColorOptions[] =
     [BODY_COLOR_GRAY + 1]   = {sText_DexEmptyString, COMPOUND_STRING("Gray")},
     [BODY_COLOR_WHITE + 1]  = {sText_DexEmptyString, COMPOUND_STRING("White")},
     [BODY_COLOR_PINK + 1]   = {sText_DexEmptyString, COMPOUND_STRING("Pink")},
-    [BODY_COLOR_ORANGE + 1]   = {gText_DexEmptyString, COMPOUND_STRING("Orange")},
-    [BODY_COLOR_CYAN + 1]   = {gText_DexEmptyString, COMPOUND_STRING("Cyan")},
+    [BODY_COLOR_ORANGE + 1] = {sText_DexEmptyString, COMPOUND_STRING("Orange")},
+    [BODY_COLOR_CYAN + 1]   = {sText_DexEmptyString, COMPOUND_STRING("Cyan")},
     {},
 };
 
