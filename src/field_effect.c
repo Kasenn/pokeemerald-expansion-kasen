@@ -2697,7 +2697,7 @@ enum
 
 void StartFlightFluteFieldEffect(void)
 {
-    if (gSaveBlock1Ptr->flightPointWarp.mapNum == 0)
+    if (gSaveBlock3Ptr->flightPointWarp.mapNum == 0)
     {
         const struct HealLocation *healLocation = GetHealLocation(HEAL_LOCATION_ROUTE3);
         SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);

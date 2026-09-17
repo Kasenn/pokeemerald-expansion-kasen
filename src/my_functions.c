@@ -1256,7 +1256,7 @@ void SetLastVisitedDrifblimBalloon(void)
     const struct HealLocation *healLocation = GetHealLocationByMap(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     if (healLocation)
     {
-        SetWarpData(&gSaveBlock1Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
+        SetWarpData(&gSaveBlock3Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     }
 }
 

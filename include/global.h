@@ -286,6 +286,15 @@ struct ContestWinner
     //u8 padding;
 };
 
+struct WarpData
+{
+    s8 mapGroup;
+    s8 mapNum;
+    s8 warpId;
+    //u8 padding;
+    s16 x, y;
+};
+
 #include "constants/items.h"
 #define ITEM_FLAGS_COUNT ((ITEMS_COUNT / 8) + ((ITEMS_COUNT % 8) ? 1 : 0))
 
@@ -318,6 +327,7 @@ struct SaveBlock3
     u8 apricornTrees[NUM_APRICORN_TREE_BYTES];
 #endif
     u32 dailySeed;
+    struct WarpData flightPointWarp;
 }; /* max size 1624 bytes */
 
 extern struct SaveBlock3 *gSaveBlock3Ptr;
@@ -693,15 +703,6 @@ struct SecretBase
 #include "global.berry.h"
 #include "global.tv.h"
 #include "pokemon.h"
-
-struct WarpData
-{
-    s8 mapGroup;
-    s8 mapNum;
-    s8 warpId;
-    //u8 padding;
-    s16 x, y;
-};
 
 struct Pokeblock
 {
@@ -1169,7 +1170,6 @@ struct SaveBlock1
                u32 gogoatRaceRecord[2];
                struct ItemSlot freeSpaceItems[BAG_FREESPACE_COUNT];
                u16 freeSpaceFlags[BAG_FREESPACE_COUNT];
-               struct WarpData flightPointWarp;
 };
 
 extern struct SaveBlock1 *gSaveBlock1Ptr;

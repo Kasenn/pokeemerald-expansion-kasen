@@ -817,7 +817,7 @@ void SetWarpDestinationToHealLocation(u8 healLocationId)
         SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     else if (healLocation)
     {
-        SetWarpData(&gSaveBlock1Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
+        SetWarpData(&gSaveBlock3Ptr->flightPointWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
         SetWarpData(&gSaveBlock1Ptr->dynamicWarp, healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     }
 }
@@ -864,7 +864,7 @@ void SetEscapeWarp(s8 mapGroup, s8 mapNum, s8 warpId, s8 x, s8 y)
 
 void SetWarpDestinationToFlightPointWarp(void)
 {
-    sWarpDestination = gSaveBlock1Ptr->flightPointWarp;
+    sWarpDestination = gSaveBlock3Ptr->flightPointWarp;
 }
 
 void SetWarpDestinationToEscapeWarp(void)
