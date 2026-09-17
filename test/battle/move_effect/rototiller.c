@@ -50,7 +50,7 @@ SINGLE_BATTLE_TEST("Rototiller fails if there are no valid targets")
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_ROTOTILLER, player);
         MESSAGE("Wynaut used Rototiller!");
         MESSAGE("It doesn't affect Wynaut…");
-        MESSAGE("It doesn't affect the opposing Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Wobbuffet…");
     }
 }
 
@@ -70,8 +70,8 @@ DOUBLE_BATTLE_TEST("Rototiller fails if there are no valid targets (Double Battl
         MESSAGE("Wobbuffet used Rototiller!");
         MESSAGE("It doesn't affect Wobbuffet…");
         MESSAGE("It doesn't affect Flygon…");
-        MESSAGE("It doesn't affect the opposing Wobbuffet…");
-        MESSAGE("It doesn't affect the opposing Flygon…");
+        MESSAGE("It doesn't affect the foe Wobbuffet…");
+        MESSAGE("It doesn't affect the foe Flygon…");
     }
 }
 

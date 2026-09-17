@@ -379,7 +379,7 @@ SINGLE_BATTLE_TEST("Toxic Chain can inflict bad poison from Future Sight if the 
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FUTURE_SIGHT, player);
-        MESSAGE("The opposing Wobbuffet took the Future Sight attack!");
+        MESSAGE("The foe Wobbuffet took the Future Sight attack!");
         HP_BAR(opponent);
         ABILITY_POPUP(player, ABILITY_TOXIC_CHAIN);
         ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PSN, opponent);
@@ -402,7 +402,7 @@ SINGLE_BATTLE_TEST("Toxic Chain does not trigger from Future Sight if the user i
         TURN {}
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FUTURE_SIGHT, player);
-        MESSAGE("The opposing Wobbuffet took the Future Sight attack!");
+        MESSAGE("The foe Wobbuffet took the Future Sight attack!");
         HP_BAR(opponent);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_TOXIC_CHAIN);

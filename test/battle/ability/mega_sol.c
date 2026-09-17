@@ -155,14 +155,14 @@ SINGLE_BATTLE_TEST("Mega Sol ignores Snow's Ice-type Defense boost")
         ASSUME(GetMoveEffect(MOVE_SKILL_SWAP) == EFFECT_SKILL_SWAP);
         ASSUME(GetSpeciesType(SPECIES_VANILLUXE, 0) == TYPE_ICE || GetSpeciesType(SPECIES_VANILLUXE, 1) == TYPE_ICE);
         PLAYER(SPECIES_MEGANIUM) { Item(ITEM_MEGANIUMITE); }
-        OPPONENT(SPECIES_VANILLUXE) { Ability(ABILITY_SNOW_WARNING); }
+        OPPONENT(SPECIES_VANILLUXE) { Ability(ABILITY_SNOW_WARNING_TEST); }
     } WHEN {
         TURN { MOVE(player, MOVE_CELEBRATE, gimmick: GIMMICK_MEGA); }
         TURN { MOVE(player, MOVE_SCRATCH); }
         TURN { MOVE(opponent, MOVE_SKILL_SWAP); }
         TURN { MOVE(player, MOVE_SCRATCH); }
     } SCENE {
-        ABILITY_POPUP(opponent, ABILITY_SNOW_WARNING);
+        ABILITY_POPUP(opponent, ABILITY_SNOW_WARNING_TEST);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         HP_BAR(opponent, captureDamage: &damage[0]);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, opponent);

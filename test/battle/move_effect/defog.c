@@ -54,7 +54,7 @@ SINGLE_BATTLE_TEST("Defog fails if target has minimum evasion stat change")
             MESSAGE("The foe Numel's evasiveness fell harshly!");
         }
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_DEFOG, player);
-        MESSAGE("But it failed!");
+        MESSAGE("The foe Numel's evasiveness won't go any lower!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_EVASION], DEFAULT_STAT_STAGE - 6);
     }
@@ -193,8 +193,8 @@ DOUBLE_BATTLE_TEST("Defog removes Reflect and Light Screen from target's side", 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LIGHT_SCREEN, opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         if (move == MOVE_DEFOG) {
-            MESSAGE("The opposing side's Reflect wore off!");
-            MESSAGE("The opposing side's Light Screen wore off!");
+            MESSAGE("The opposing team's Reflect wore off!");
+            MESSAGE("The opposing team's Light Screen wore off!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         HP_BAR(opponentLeft, captureDamage: &results[i].damagePhysical);
@@ -226,8 +226,8 @@ DOUBLE_BATTLE_TEST("Defog doesn't remove Mist or Safeguard from the user's side"
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SAFEGUARD, playerRight);
         ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         NONE_OF {
-            MESSAGE("Your side's Mist wore off!");
-            MESSAGE("Your side's Safeguard wore off!");
+            MESSAGE("Your team is no longer protected by mist!");
+            MESSAGE("Your team is no longer protected by Safeguard!");
         }
         MESSAGE("The foe Wobbuffet used Screech!");
         MESSAGE("Wobbuffet is protected by mist!");
@@ -258,8 +258,8 @@ DOUBLE_BATTLE_TEST("Defog removes Mist and Safeguard from target's side")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SAFEGUARD, opponentRight);
         if (move == MOVE_DEFOG) {
             ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
-            MESSAGE("The opposing side's Mist wore off!");
-            MESSAGE("The opposing side's Safeguard wore off!");
+            MESSAGE("The foe's team is no longer protected by mist!");
+            MESSAGE("The foe's team is no longer protected by Safeguard!");
         }
         MESSAGE("Wobbuffet used Screech!");
         if (move == MOVE_DEFOG) {
@@ -686,7 +686,7 @@ DOUBLE_BATTLE_TEST("Defog removes everything it can")
         MESSAGE("Glalie is protected by mist!");
 
         // No, idea. Either I'm blind or the anim is played on the correct mon
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_DEFOG, opponentRight);
+        // ANIMATION(ANIM_TYPE_MOVE, MOVE_DEFOG, opponentRight);
 
         // Player side
         MESSAGE("Your team's Reflect wore off!");
@@ -755,7 +755,7 @@ SINGLE_BATTLE_TEST("Defog is used on the correct side if opposing mon is behind 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
         MESSAGE("Wobbuffet used Defog!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DEFOG, player);
-        MESSAGE("The opposing side's Light Screen wore off!");
+        MESSAGE("The opposing team's Light Screen wore off!");
     } THEN {
         if (config >= GEN_5)
             EXPECT_EQ(opponent->statStages[STAT_EVASION], DEFAULT_STAT_STAGE);

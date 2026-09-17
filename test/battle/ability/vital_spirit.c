@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Vital Spirit prevents sleep")
         TURN { MOVE(opponent, MOVE_SPORE); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_VITAL_SPIRIT);
-        MESSAGE("Mankey made it ineffective!");
+        MESSAGE("It doesn't affect Mankey…");
         NONE_OF {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_SPORE, opponent);
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_SLP, player);

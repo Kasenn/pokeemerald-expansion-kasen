@@ -101,13 +101,13 @@ SINGLE_BATTLE_TEST("Trace will copy an opponent's ability after obtaining it via
         TURN { SWITCH(opponent, 0); }
     } SCENE {
         ABILITY_POPUP(player, ABILITY_TRACE);
-        MESSAGE("It traced the opposing Torchic's Blaze!");
+        MESSAGE("It traced the foe Torchic's Blaze!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, player);
         // Player now has Flower Gift
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKILL_SWAP, player);
         // Player now has Trace
         ABILITY_POPUP(player, ABILITY_TRACE);
-        MESSAGE("It traced the opposing Torchic's Blaze!");
+        MESSAGE("It traced the foe Torchic's Blaze!");
     }
 }
 
@@ -149,7 +149,7 @@ SINGLE_BATTLE_TEST("Trace can activate if it couldn't copy opponent's ability ev
         ANIMATION(ANIM_TYPE_MOVE, MOVE_KNOCK_OFF, opponent);
         // After switching
         ABILITY_POPUP(player, ABILITY_TRACE);
-        MESSAGE("It traced the opposing Torchic's Blaze!");
+        MESSAGE("It traced the foe Torchic's Blaze!");
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
     }

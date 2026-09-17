@@ -102,7 +102,7 @@ SINGLE_BATTLE_TEST("Red Card does not activate if attacker faints from recoil")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLARE_BLITZ, player);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-            MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
+            MESSAGE("The foe Wobbuffet held up its Red Card against Wobbuffet!");
         }
     } THEN {
         EXPECT_EQ(opponent->item, ITEM_RED_CARD);

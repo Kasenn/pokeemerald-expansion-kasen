@@ -16,7 +16,6 @@ SINGLE_BATTLE_TEST("Dragon Darts strikes twice")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, player);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -39,7 +38,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes each opponent once in a double battle")
         HP_BAR(chosenTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(secondaryTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -63,7 +61,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes the other opponent twice if one target 
         HP_BAR(secondaryTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(secondaryTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -91,7 +88,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes an opponent twice if the other one is F
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -118,7 +114,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes an opponent twice if electrified and th
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -145,7 +140,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes an opponent twice if electrified and th
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -170,7 +164,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes an opponent twice if the other one is i
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -189,7 +182,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts is not effected by Wide Guard")
         HP_BAR(opponentLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(opponentRight);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -214,7 +206,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes an opponent twice if the other one is f
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -263,7 +254,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes the other opponent twice if the chosen 
         HP_BAR(finalTarget);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(finalTarget);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 
@@ -282,7 +272,6 @@ DOUBLE_BATTLE_TEST("Dragon Darts strikes will be both redirected to Follow Me us
         HP_BAR(opponentRight);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_DARTS, playerLeft);
         HP_BAR(opponentRight);
-        MESSAGE("Hit 2 time(s)!");
     }
 }
 

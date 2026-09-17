@@ -40,6 +40,6 @@ DOUBLE_BATTLE_TEST("Disable works even if the target's last move failed")
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SUCKER_PUNCH, opponentRight);
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DISABLE, playerLeft);
-        MESSAGE("The opposing Wobbuffet's Sucker Punch was disabled!");
+        MESSAGE("The foe Wobbuffet's Sucker Punch was disabled!");
     }
 }

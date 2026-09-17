@@ -76,6 +76,6 @@ DOUBLE_BATTLE_TEST("Torment works even if the target's last move failed")
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SUCKER_PUNCH, opponentRight);
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TORMENT, playerLeft);
-        MESSAGE("The opposing Wobbuffet was subjected to torment!");
+        MESSAGE("The foe Wobbuffet was subjected to torment!");
     }
 }

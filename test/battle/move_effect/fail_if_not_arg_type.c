@@ -97,8 +97,6 @@ SINGLE_BATTLE_TEST("Double Shock user loses its Electric-type")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player);
         MESSAGE("Pikachu used up all of its electricity!");
-        MESSAGE("Pikachu used Double Shock!");
-        MESSAGE("But it failed!");
         NONE_OF {
             MESSAGE("It's super effective!");
         }
@@ -154,7 +152,7 @@ SINGLE_BATTLE_TEST("Burn Up cannot be selected if the user is not Fire-type (Cha
         TURN { MOVE(opponent, MOVE_BURN_UP, allowed: FALSE); }
     } SCENE {
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_BURN_UP, player); }
-        MESSAGE("The opposing Wobbuffet used Struggle!");
+        MESSAGE("The foe Wobbuffet used Struggle!");
     }
 }
 
@@ -171,6 +169,6 @@ SINGLE_BATTLE_TEST("Double Shock cannot be selected if the user is not Electric-
         TURN { MOVE(opponent, MOVE_DOUBLE_SHOCK, allowed: FALSE); }
     } SCENE {
         NONE_OF { ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_SHOCK, player); }
-        MESSAGE("The opposing Wobbuffet used Struggle!");
+        MESSAGE("The foe Wobbuffet used Struggle!");
     }
 }

@@ -513,10 +513,10 @@ AI_DOUBLE_BATTLE_TEST("Trainer Slide: Doubles: Attacker Lands First STAB Hit")
         TURN { EXPECT_MOVE(opponentLeft, MOVE_VINE_WHIP); }
         TURN { EXPECT_MOVE(opponentRight, MOVE_VINE_WHIP); }
     } SCENE {
-        MESSAGE("The opposing Bulbasaur used Vine Whip!");
+        MESSAGE("The foe Bulbasaur used Vine Whip!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VINE_WHIP, opponentLeft);
         MESSAGE("Trainer A: Attacker lands their first STAB move.{PAUSE_UNTIL_PRESS}");
-        MESSAGE("The opposing Bulbasaur used Vine Whip!");
+        MESSAGE("The foe Bulbasaur used Vine Whip!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_VINE_WHIP, opponentRight);
         NONE_OF {
             MESSAGE("Trainer A: Attacker lands their first STAB move.{PAUSE_UNTIL_PRESS}");
@@ -631,7 +631,7 @@ AI_DOUBLE_BATTLE_TEST("Trainer Slide: Doubles: Self Mon Unaffected")
         TURN { MOVE(playerLeft, MOVE_SHEER_COLD); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SHEER_COLD, playerLeft);
-        MESSAGE("It doesn't affect the opposing Glalie…");
+        MESSAGE("It doesn't affect the foe Glalie…");
         MESSAGE("Trainer A: Opponent attacked defender with ineffective move.{PAUSE_UNTIL_PRESS}");
         NONE_OF {
             MESSAGE("Trainer A: Opponent attacked defender with ineffective move.{PAUSE_UNTIL_PRESS}");
@@ -675,7 +675,7 @@ AI_DOUBLE_BATTLE_TEST("Trainer Slide: Doubles: Self Last Switchin")
     } WHEN {
         TURN { EXPECT_MOVE(opponentLeft, MOVE_HEALING_WISH); EXPECT_SEND_OUT(opponentLeft,2); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Trainer A: This message plays after the battler switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
         NONE_OF {
             MESSAGE("Trainer A: This message plays after the battler switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
@@ -997,8 +997,8 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Defender Takes First Critical Hit")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LASER_FOCUS, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SURF, playerLeft);
-        MESSAGE("A critical hit on the opposing Wobbuffet!");
-        MESSAGE("A critical hit on the opposing Wobbuffet!");
+        MESSAGE("A critical hit on the foe Wobbuffet!");
+        MESSAGE("A critical hit on the foe Wobbuffet!");
         MESSAGE("Trainer A: This message plays after the defender takes their first critical hit.{PAUSE_UNTIL_PRESS}");
         MESSAGE("Trainer B: This message plays after the defender takes their first critical hit.{PAUSE_UNTIL_PRESS}");
         // Note: Planned PR for additional slides will change slides from using "Player/Opponent" side to "Attacker/Target" side
@@ -1061,7 +1061,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Defender Takes First STAB Hit")
     } SCENE {
         MESSAGE("Sandshrew used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentLeft);
         MESSAGE("Trainer A: Defender takes their first STAB move.{PAUSE_UNTIL_PRESS}");
         MESSAGE("Trainer B: Defender takes their first STAB move.{PAUSE_UNTIL_PRESS}");
@@ -1087,11 +1087,11 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Attacker Lands First STAB Hit")
             EXPECT_MOVE(opponentRight, MOVE_EARTHQUAKE);
         }
     } SCENE {
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentLeft);
         MESSAGE("Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerRight);
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentRight);
 
         MESSAGE("Trainer A: Attacker lands their first STAB move.{PAUSE_UNTIL_PRESS}");
@@ -1120,7 +1120,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Defender Takes First Super Effective
     } SCENE {
         MESSAGE("Sandshrew used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentLeft);
         MESSAGE("Trainer A: This message plays after the defender takes their first super effective hit.{PAUSE_UNTIL_PRESS}");
         MESSAGE("Trainer B: This message plays after the defender takes their first super effective hit.{PAUSE_UNTIL_PRESS}");
@@ -1146,11 +1146,11 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Attacker Lands First Super Effective
             EXPECT_MOVE(opponentRight, MOVE_EARTHQUAKE);
         }
     } SCENE {
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentLeft);
         MESSAGE("Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerRight);
-        MESSAGE("The opposing Golem used Earthquake!");
+        MESSAGE("The foe Golem used Earthquake!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, opponentRight);
 
         MESSAGE("Trainer A: This message plays after the attacker lands their first super effective hit.{PAUSE_UNTIL_PRESS}");
@@ -1233,10 +1233,10 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Self Mon Unaffected")
         }
     } SCENE {
         MESSAGE("It doesn't affect Gastly…");
-        MESSAGE("It doesn't affect the opposing Gengar…");
-        MESSAGE("It doesn't affect the opposing Haunter…");
+        MESSAGE("It doesn't affect the foe Gengar…");
+        MESSAGE("It doesn't affect the foe Haunter…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, playerLeft);
-        MESSAGE("It doesn't affect the opposing Haunter…");
+        MESSAGE("It doesn't affect the foe Haunter…");
         MESSAGE("It doesn't affect Gastly…");
         MESSAGE("It doesn't affect Gastly…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, opponentLeft);
@@ -1262,17 +1262,17 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Mon Unaffected")
             EXPECT_MOVE(opponentRight, MOVE_BOOMBURST);
         }
     } SCENE {
-        MESSAGE("It doesn't affect the opposing Haunter…");
+        MESSAGE("It doesn't affect the foe Haunter…");
         MESSAGE("It doesn't affect Gastly…");
         MESSAGE("It doesn't affect Gastly…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, opponentLeft);
 
         MESSAGE("It doesn't affect Gastly…");
-        MESSAGE("It doesn't affect the opposing Gengar…");
-        MESSAGE("It doesn't affect the opposing Haunter…");
+        MESSAGE("It doesn't affect the foe Gengar…");
+        MESSAGE("It doesn't affect the foe Haunter…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, playerRight);
 
-        MESSAGE("It doesn't affect the opposing Gengar…");
+        MESSAGE("It doesn't affect the foe Gengar…");
         MESSAGE("It doesn't affect Gastly…");
         MESSAGE("It doesn't affect Gastly…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_BOOMBURST, opponentRight);
@@ -1335,7 +1335,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Last Switchin")
         }
     } SCENE {
         MESSAGE("Wobbuffet fainted!");
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
         MESSAGE("Raticate fainted!");
         MESSAGE("Trainer A: This message plays after the opponent switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
         MESSAGE("Trainer Partner: This message plays after the opponent switches in their last Pokemon.{PAUSE_UNTIL_PRESS}");
@@ -1621,7 +1621,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Mega Evolution")
             MESSAGE("Trainer B: This message plays before the opponent activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponentLeft);
-        MESSAGE("The opposing Lopunny has Mega Evolved into Mega Lopunny!");
+        MESSAGE("The foe Lopunny has Mega Evolved into Mega Lopunny!");
 
         NOT MESSAGE("Trainer Partner: This message plays before the attacker activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, playerRight);
@@ -1633,7 +1633,7 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Mega Evolution")
             MESSAGE("Trainer B: This message plays before the opponent activates the Mega Evolution gimmick.{PAUSE_UNTIL_PRESS}");
         }
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_MEGA_EVOLUTION, opponentRight);
-        MESSAGE("The opposing Medicham has Mega Evolved into Mega Medicham!");
+        MESSAGE("The foe Medicham has Mega Evolved into Mega Medicham!");
     }
 }
 
@@ -1670,8 +1670,8 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Z Move")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, playerLeft);
 
         MESSAGE("Trainer Partner: This message plays before the opponent activates the Z-Move gimmick.{PAUSE_UNTIL_PRESS}");
-        MESSAGE("The opposing Wobbuffet surrounded itself with its Z-Power!");
-        MESSAGE("The opposing Wobbuffet unleashes its full-force Z-Move!");
+        MESSAGE("The foe Wobbuffet surrounded itself with its Z-Power!");
+        MESSAGE("The foe Wobbuffet unleashes its full-force Z-Move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, opponentLeft);
 
         NONE_OF {
@@ -1684,8 +1684,8 @@ AI_MULTI_BATTLE_TEST("Trainer Slide: Multi: Opponent Z Move")
         MESSAGE("Wobbuffet unleashes its full-force Z-Move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, playerRight);
 
-        MESSAGE("The opposing Wobbuffet surrounded itself with its Z-Power!");
-        MESSAGE("The opposing Wobbuffet unleashes its full-force Z-Move!");
+        MESSAGE("The foe Wobbuffet surrounded itself with its Z-Power!");
+        MESSAGE("The foe Wobbuffet unleashes its full-force Z-Move!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, opponentRight);
     }
 }

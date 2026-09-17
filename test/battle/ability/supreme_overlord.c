@@ -189,7 +189,7 @@ MULTI_BATTLE_TEST("Supreme Overlord does not count an opposing partner Trainer's
     } SCENE {
         NONE_OF {
             ABILITY_POPUP(opponentRight, ABILITY_SUPREME_OVERLORD);
-            MESSAGE("The opposing Kingambit gained strength from the fallen!");
+            MESSAGE("The foe Kingambit gained strength from the fallen!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentRight);
         HP_BAR(playerLeft, captureDamage: &results[i].damage);

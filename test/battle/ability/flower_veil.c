@@ -119,7 +119,7 @@ DOUBLE_BATTLE_TEST("Flower Veil does not prevent self-inflicted stat drops - mov
 DOUBLE_BATTLE_TEST("Flower Veil does not prevent self-inflicted stat drops - abilities")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
+        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
         ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
         ASSUME(GetMoveCategory(MOVE_SCRATCH) == DAMAGE_CATEGORY_PHYSICAL);
         PLAYER(SPECIES_SLUGMA) { Ability(ABILITY_WEAK_ARMOR); }

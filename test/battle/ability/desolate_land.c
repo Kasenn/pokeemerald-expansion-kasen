@@ -158,7 +158,7 @@ SINGLE_BATTLE_TEST("Desolate Land can be replaced by Primordial Sea")
         TURN { SWITCH(opponent, 1); }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_PRIMORDIAL_SEA);
-        MESSAGE("A heavy rain began to fall!");
+        MESSAGE("Error 05: something has gone awry.\nPlease inform the romhack creator!");
     } THEN {
         EXPECT(gBattleWeather & B_WEATHER_RAIN_PRIMAL);
     }
@@ -175,7 +175,7 @@ SINGLE_BATTLE_TEST("Desolate Land fails if overworld weather is present (Gen9)")
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_DESOLATE_LAND);
-        MESSAGE("But it failed!");
+        MESSAGE("Error 01: something has gone awry.\nPlease inform the romhack creator!\p");
     } THEN {
         EXPECT(gBattleWeather & B_WEATHER_SUN);
         ResetStartingStatuses();

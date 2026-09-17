@@ -206,7 +206,7 @@ SINGLE_BATTLE_TEST("Unseen Fist KOs protected targets with OHKO moves (Champions
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PROTECT, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HORN_DRILL, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
     }
 }
 

@@ -221,7 +221,7 @@ SINGLE_BATTLE_TEST("Freeze isn't thawed if opponent is asleep during thawing att
         TURN { MOVE(opponent, MOVE_EMBER); MOVE(player, MOVE_CELEBRATE); }
     } SCENE {
         NONE_OF {
-            MESSAGE("The opposing Wobbuffet used Ember!");
+            MESSAGE("The foe Wobbuffet used Ember!");
             MESSAGE("Wobbuffet thawed out!");
             STATUS_ICON(player, none: TRUE);
         }

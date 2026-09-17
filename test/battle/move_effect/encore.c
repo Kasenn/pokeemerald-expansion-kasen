@@ -106,7 +106,7 @@ SINGLE_BATTLE_TEST("Encore forces the last move used before the target flinched"
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASS_KNOT, opponent);
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_HEADBUTT, player);
-        MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+        MESSAGE("The foe Wobbuffet flinched!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENCORE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRASS_KNOT, opponent);
@@ -191,7 +191,7 @@ DOUBLE_BATTLE_TEST("Encore works even if the target's last move failed")
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_SUCKER_PUNCH, opponentRight);
         MESSAGE("But it failed!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENCORE, playerLeft);
-        MESSAGE("The opposing Wobbuffet must do an encore!");
+        MESSAGE("The foe Wobbuffet received an encore!");
     }
 }
 

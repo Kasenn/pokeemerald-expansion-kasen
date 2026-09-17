@@ -136,13 +136,13 @@ SINGLE_BATTLE_TEST("Revelation Dance becomes Normal type if used by a Typeless P
         if (speciesOpponent == SPECIES_AGGRON) {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_REVELATION_DANCE, player);
             HP_BAR(opponent);
-            MESSAGE("It's mostly ineffective…");
+            MESSAGE("It's not very effective…");
         }
         else {
             NONE_OF {
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_REVELATION_DANCE, player);
                 HP_BAR(opponent);
-                MESSAGE("It's mostly ineffective…");
+                MESSAGE("It's not very effective…");
             }
         }
     }

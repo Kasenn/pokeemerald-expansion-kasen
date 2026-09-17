@@ -90,7 +90,7 @@ SINGLE_BATTLE_TEST("Stench is blocked by Shield Dust")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NONE_OF {
-            MESSAGE("The opposing Vivillon flinched and couldn't move!");
+            MESSAGE("The foe Vivillon flinched!");
         }
     }
 }
@@ -107,7 +107,7 @@ SINGLE_BATTLE_TEST("Stench is blocked by Covert Cloak")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
         NONE_OF {
-            MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+            MESSAGE("The foe Wobbuffet flinched!");
         }
     }
 }

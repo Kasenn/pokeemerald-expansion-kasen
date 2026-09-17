@@ -10,7 +10,6 @@ SINGLE_BATTLE_TEST("Hadron Engine creates Electric Terrain when entering the bat
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_HADRON_ENGINE);
-        MESSAGE("An electric current runs across the battlefield!");
         MESSAGE("Miraidon turned the ground into Electric Terrain, energizing its futuristic engine!");
     }
 }
@@ -41,8 +40,8 @@ SINGLE_BATTLE_TEST("Hadron Engine announces Electric Terrain before triggering Q
         ABILITY_POPUP(player, ABILITY_HADRON_ENGINE);
         MESSAGE("Miraidon turned the ground into Electric Terrain, energizing its futuristic engine!");
         ABILITY_POPUP(opponent, ABILITY_QUARK_DRIVE);
-        MESSAGE("The Electric Terrain activated the opposing Iron Bundle's Quark Drive!");
-        MESSAGE("The opposing Iron Bundle's Sp. Atk was heightened!");
+        MESSAGE("The Electric Terrain activated the foe Iron Bundle's Quark Drive!");
+        MESSAGE("The foe Iron Bundle's Sp. Atk was heightened!");
     }
 }
 

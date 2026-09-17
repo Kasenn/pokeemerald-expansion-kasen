@@ -30,7 +30,7 @@ SINGLE_BATTLE_TEST("Mimic copies the last move used even while asleep")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPORE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MIMIC, opponent);
-        MESSAGE("The opposing Wobbuffet learned Pound!");
+        MESSAGE("The foe Wobbuffet learned Pound!");
     }
 }
 

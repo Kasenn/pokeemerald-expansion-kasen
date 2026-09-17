@@ -136,7 +136,7 @@ SINGLE_BATTLE_TEST("Belch fails if the user has not eaten a berry (Champions)")
         }
     } SCENE {
         if (item == ITEM_NONE) {
-            MESSAGE("Skwovet hasn't eaten any held Berries, so it can't possibly belch!");
+            MESSAGE("Belch cannot be used right now!");
         }
         else {
             ANIMATION(ANIM_TYPE_MOVE, MOVE_STUFF_CHEEKS, player);

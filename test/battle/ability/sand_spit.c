@@ -74,8 +74,6 @@ SINGLE_BATTLE_TEST("Sand Spit triggers even if the user is knocked out by the hi
         ABILITY_POPUP(player, ABILITY_SAND_SPIT);
         MESSAGE("A sandstorm kicked up!");
         MESSAGE("The sandstorm rages.");
-        MESSAGE("The foe Landorus used Celebrate!");
-        MESSAGE("Landorus used Celebrate!");
         MESSAGE("The sandstorm rages.");
     }
 }

@@ -43,7 +43,7 @@ SINGLE_BATTLE_TEST("Rapid Spin blows away Wrap, hazards and raises Speed (Gen 8+
         MESSAGE("Wobbuffet's Speed rose!");
     #endif
         MESSAGE("Wobbuffet was freed from Wrap!");
-        MESSAGE("The pointed stones disappeared from your side!");
+        MESSAGE("The pointed stones disappeared from around your team!");
     }
 }
 
@@ -62,7 +62,7 @@ SINGLE_BATTLE_TEST("Rapid Spin: Mortal Spin blows away Wrap, hazards and poisons
         MESSAGE("The foe Wobbuffet was poisoned!");
         STATUS_ICON(opponent, poison: TRUE);
         MESSAGE("Wobbuffet was freed from Wrap!");
-        MESSAGE("The pointed stones disappeared from your side!");
+        MESSAGE("The pointed stones disappeared from around your team!");
     }
 }
 
@@ -202,6 +202,6 @@ SINGLE_BATTLE_TEST("Rapid Spin and Mortal Spin remove hazards even if the user f
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         ABILITY_POPUP(opponent, ABILITY_ROUGH_SKIN);
-        MESSAGE("The pointed stones disappeared from your side!");
+        MESSAGE("The pointed stones disappeared from around your team!");
     }
 }

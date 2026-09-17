@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Last Resort as the only known move results in Struggle (Cham
             MOVE(opponent, MOVE_LAST_RESORT, allowed: FALSE);
         }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Struggle!");
+        MESSAGE("The foe Wobbuffet used Struggle!");
     }
 }
 

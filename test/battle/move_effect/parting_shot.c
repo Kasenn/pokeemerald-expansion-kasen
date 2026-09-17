@@ -178,7 +178,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if both stats are at minimum (
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The foe Omastar's stats won't go any lower!");
+        MESSAGE("The foe Omastar's Attack won't go any higher!");
+        MESSAGE("The foe Omastar's Sp. Atk won't go any higher!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MIN_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], MIN_STAT_STAGE);
@@ -200,7 +201,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if Contrary is at maximum stat
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The foe Inkay's stats won't go any higher!");
+        MESSAGE("The foe Inkay's Attack won't go any higher!");
+        MESSAGE("The foe Inkay's Sp. Atk won't go any higher!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MAX_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], MAX_STAT_STAGE);
@@ -291,7 +293,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Switches if both stats are at minimum (Gen6)")
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The foe Omastar's stats won't go any lower!");
+        MESSAGE("The foe Omastar's Attack won't go any lower!");
+        MESSAGE("The foe Omastar's Sp. Atk won't go any lower!");
         SEND_IN_MESSAGE("Wynaut");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MIN_STAT_STAGE);
@@ -314,7 +317,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Switches if Contrary is at maximum stats (Gen6
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The foe Inkay's stats won't go any higher!");
+        MESSAGE("The foe Inkay's Attack won't go any higher!");
+        MESSAGE("The foe Inkay's Sp. Atk won't go any higher!");
         SEND_IN_MESSAGE("Wynaut");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MAX_STAT_STAGE);

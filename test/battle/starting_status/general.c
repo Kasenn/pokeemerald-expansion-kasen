@@ -46,7 +46,7 @@ SINGLE_BATTLE_TEST("SetStartingStatus messages work as intended")
         switch (status)
         {
         case STARTING_STATUS_ELECTRIC_TERRAIN_TEMPORARY:
-            MESSAGE("An electric current is running across the battlefield!");
+            MESSAGE("An electric current runs across the battlefield!");
             break;
         case STARTING_STATUS_MISTY_TERRAIN_TEMPORARY:
             MESSAGE("Mist swirls around the battlefield!");
@@ -55,16 +55,16 @@ SINGLE_BATTLE_TEST("SetStartingStatus messages work as intended")
             MESSAGE("The battlefield is covered with grass!");
             break;
         case STARTING_STATUS_PSYCHIC_TERRAIN_TEMPORARY:
-            MESSAGE("The battlefield seems weird!");
+            MESSAGE("The battlefield got weird!");
             break;
         case STARTING_STATUS_TRICK_ROOM_TEMPORARY:
             MESSAGE("The dimensions were twisted!");
             break;
         case STARTING_STATUS_MAGIC_ROOM_TEMPORARY:
-            MESSAGE("A bizarre area was created in which Pokémon's held items lose their effects!");
+            MESSAGE("It created a bizarre area in which held items lose their effects!");
             break;
         case STARTING_STATUS_WONDER_ROOM_TEMPORARY:
-            MESSAGE("A bizarre area was created in which Defense and Sp. Def stats are swapped!");
+            MESSAGE("It created a bizarre area in which Defense and Sp. Def stats are swapped!");
             break;
         case STARTING_STATUS_TAILWIND_OPPONENT_TEMPORARY:
             MESSAGE("A tailwind started blowing on the opposing side!");
@@ -168,7 +168,7 @@ SINGLE_BATTLE_TEST("SetStartingStatus messages work as intended")
         switch (status)
         {
         case STARTING_STATUS_TAILWIND_OPPONENT_TEMPORARY:
-            MESSAGE("The opposing side's tailwind petered out!");
+            MESSAGE("The opposing team's tailwind petered out!");
             break;
         case STARTING_STATUS_RAINBOW_OPPONENT_TEMPORARY:
             MESSAGE("The rainbow on the opposing side disappeared!");

@@ -241,10 +241,10 @@ DOUBLE_BATTLE_TEST("Spread Moves: Explosion, Gem Boosted, vs Resist Berries")
         MESSAGE("Normal Gem strengthened Wobbuffet's power!");
 
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EXPLOSION, playerLeft);
-        MESSAGE("Chilan Berry weakened the damage to the foe Wobbuffet!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponentLeft);
-        MESSAGE("Chilan Berry weakened the damage to the foe Wynaut!");
+        MESSAGE("Chilan Berry weakened the damage to the foe Wobbuffet!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponentRight);
+        MESSAGE("Chilan Berry weakened the damage to the foe Wynaut!");
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
     }
@@ -323,7 +323,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Super Effective Message on both opposing mons"
         EFFECTIVENESS_SE(opponentLeft, SE_SUPER_EFFECTIVE);
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective on the foe Golem! It's super effective on the foe Onix!");
     }
 }
 
@@ -341,7 +341,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Super Effective Message on both player mons")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PRECIPICE_BLADES, opponentLeft);
         HP_BAR(playerLeft);
         HP_BAR(playerRight);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective on Golem! It's super effective on Onix!");
     }
 }
 
@@ -359,7 +359,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Not very effective Message on both opposing mo
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PRECIPICE_BLADES, playerLeft);
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
-        MESSAGE("It's not very effective…");
+        MESSAGE("It's not very effective on the foe Chikorita. It's not very effective on the foe Treecko.");
     }
 }
 
@@ -377,7 +377,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Not very effective message on both player mons
         ANIMATION(ANIM_TYPE_MOVE, MOVE_PRECIPICE_BLADES, opponentLeft);
         HP_BAR(playerLeft);
         HP_BAR(playerRight);
-        MESSAGE("It's not very effective…");
+        MESSAGE("It's not very effective on Chikorita. It's not very effective on Treecko.");
     }
 }
 
@@ -392,9 +392,10 @@ DOUBLE_BATTLE_TEST("Spread Moves: Doesn't affect any target")
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); }
     } SCENE {
-        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_PRECIPICE_BLADES, playerLeft);
+        NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         MESSAGE("It doesn't affect Pidgey…");
-        MESSAGE("It doesn't affect the foe Pidgey… It doesn't affect the foe Hoothoot…");
+        MESSAGE("It doesn't affect the foe Pidgey…");
+        MESSAGE("It doesn't affect the foe Hoothoot…");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
     }
 }
@@ -419,7 +420,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Unless move hits every target user will not in
         EFFECTIVENESS_SE(opponentLeft, SE_SUPER_EFFECTIVE); // se against torkoal
         HP_BAR(opponentLeft);
         HP_BAR(opponentRight);
-        MESSAGE("It's super effective!");
+        MESSAGE("It's super effective on the foe Torkoal! It's super effective on the foe Torkoal!");
     }
 }
 
@@ -497,8 +498,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: Earthquake fails due to accuracy in order of a
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         MESSAGE("Wynaut avoided the attack!");
-        MESSAGE("The opposing Wobbuffet avoided the attack!");
-        MESSAGE("The opposing Wynaut avoided the attack!");
+        MESSAGE("The foe Wobbuffet avoided the attack!");
+        MESSAGE("The foe Wynaut avoided the attack!");
     }
 }
 
@@ -513,7 +514,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: A missed multi-target stat move names the miss
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_STRING_SHOT, hit: FALSE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet avoided the attack!");
+        MESSAGE("The foe Wobbuffet avoided the attack!");
     }
 }
 
@@ -544,18 +545,18 @@ DOUBLE_BATTLE_TEST("Spread Moves: Results aren't printed for battlers not presen
         NONE_OF {
             EFFECTIVENESS_SE(opponentLeft, SE_EFFECTIVE);
             HP_BAR(opponentLeft);
-            MESSAGE("It's extremely effective on the opposing Aggron!");
+            MESSAGE("It's super effective on the foe Aggron!");
         }
         ANIMATION(ANIM_TYPE_MOVE, MOVE_COTTON_SPORE, playerRight);
         NONE_OF {
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Aggron's Speed harshly fell!");
+            MESSAGE("The foe Aggron's Speed fell harshly!");
         }
         MESSAGE("Whimsicott used Cotton Spore!");
         NONE_OF {
-            MESSAGE("The opposing Aggron is protected by the Psychic Terrain!");
+            MESSAGE("The foe Aggron is protected by the Psychic Terrain!");
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponentLeft);
-            MESSAGE("The opposing Aggron's Speed harshly fell!");
+            MESSAGE("The foe Aggron's Speed fell harshly!");
             MESSAGE("But it failed!");
         }
     }
@@ -578,7 +579,7 @@ DOUBLE_BATTLE_TEST("Spread Moves: Results aren't printed for battlers not presen
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BRUTAL_SWING, playerRight);
-        NOT MESSAGE("It's super effective on the opposing Wobbuffet and Wynaut!");
+        NOT MESSAGE("It's super effective on the foe Wobbuffet and Wynaut!");
     }
 }
 
@@ -619,8 +620,8 @@ DOUBLE_BATTLE_TEST("Spread Moves: Results aren't printed for battlers not presen
         }
     } SCENE {
         MESSAGE("Wobbuffet avoided the attack!");
-        NOT MESSAGE("The opposing Wobbuffet avoided the attack!");
-        MESSAGE("The opposing Wynaut avoided the attack!");
+        NOT MESSAGE("The foe Wobbuffet avoided the attack!");
+        MESSAGE("The foe Wynaut avoided the attack!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerRight);
     }
 }

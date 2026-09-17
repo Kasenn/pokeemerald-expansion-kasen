@@ -368,7 +368,7 @@ SINGLE_BATTLE_TEST("Pickpocket can steal the attacker's Air Balloon")
         MESSAGE("Wobbuffet floats in the air with its Air Balloon!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-        MESSAGE("The opposing Sneasel stole Wobbuffet's Air Balloon!");
+        MESSAGE("The foe Sneasel stole Wobbuffet's Air Balloon!");
     } THEN {
         EXPECT_EQ(player->item, ITEM_NONE);
         EXPECT_EQ(opponent->item, ITEM_AIR_BALLOON);
@@ -390,7 +390,7 @@ SINGLE_BATTLE_TEST("Pickpocket steals from the original U-turn user before it sw
         ANIMATION(ANIM_TYPE_MOVE, MOVE_U_TURN, player);
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-        MESSAGE("The opposing Sneasel stole Wobbuffet's Potion!");
+        MESSAGE("The foe Sneasel stole Wobbuffet's Potion!");
     } THEN {
         EXPECT(opponent->item == ITEM_POTION);
         EXPECT(player->item == ITEM_NONE);
@@ -411,10 +411,10 @@ SINGLE_BATTLE_TEST("Pickpocket steals the attacker's item even after Red Card fo
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("The opposing Sneasel held up its Red Card against Wobbuffet!");
+        MESSAGE("The foe Sneasel held up its Red Card against Wobbuffet!");
         MESSAGE("Wynaut was dragged out!");
         ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-        MESSAGE("The opposing Sneasel stole Wobbuffet's Poké Ball!");
+        MESSAGE("The foe Sneasel stole Wobbuffet's Poké Ball!");
     } THEN {
         EXPECT(opponent->item == ITEM_POKE_BALL);
         EXPECT(player->item == ITEM_NONE);
@@ -433,10 +433,10 @@ SINGLE_BATTLE_TEST("Pickpocket does not activate if its user switches out with E
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("The opposing Sneasel is switched out with the Eject Button!");
+        MESSAGE("The foe Sneasel is switched out with the Eject Button!");
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-            MESSAGE("The opposing Sneasel stole Wobbuffet's Potion!");
+            MESSAGE("The foe Sneasel stole Wobbuffet's Potion!");
         }
     } THEN {
         EXPECT(opponent->item == ITEM_NONE);
@@ -459,7 +459,7 @@ SINGLE_BATTLE_TEST("Pickpocket cannot steal an item if hit by a contact move tha
         HP_BAR(opponent);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-            MESSAGE("The opposing Sneasel stole Landorus's Life Orb!");
+            MESSAGE("The foe Sneasel stole Landorus's Life Orb!");
         }
     } THEN {
         EXPECT(opponent->item == ITEM_NONE);
@@ -482,7 +482,7 @@ SINGLE_BATTLE_TEST("Pickpocket can steal an item even if hit by a contact move t
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CRUNCH, player);
         HP_BAR(opponent);
         ABILITY_POPUP(opponent, ABILITY_PICKPOCKET);
-        MESSAGE("The opposing Sneasel stole Landorus's Life Orb!");
+        MESSAGE("The foe Sneasel stole Landorus's Life Orb!");
     } THEN {
         EXPECT(opponent->item == ITEM_LIFE_ORB);
         EXPECT(player->item == ITEM_NONE);

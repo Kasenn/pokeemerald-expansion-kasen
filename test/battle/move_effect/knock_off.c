@@ -423,10 +423,10 @@ SINGLE_BATTLE_TEST("Knock Off does activate if user faints (Champions)")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_KNOCK_OFF, player);
-        MESSAGE("Wobbuffet was hurt by the opposing Wobbuffet's Rocky Helmet!");
+        MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
         MESSAGE("Wobbuffet fainted!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ITEM_KNOCKOFF);
-        MESSAGE("Wobbuffet knocked off the opposing Wobbuffet's Rocky Helmet!");
+        MESSAGE("Wobbuffet knocked off the foe Wobbuffet's Rocky Helmet!");
     } THEN {
         EXPECT(opponent->item == ITEM_NONE);
     }
@@ -562,7 +562,7 @@ SINGLE_BATTLE_TEST("Knock Off does not remove items that can change the form of 
     } WHEN {
         TURN { MOVE(opponent, MOVE_CELEBRATE); MOVE(player, MOVE_KNOCK_OFF); }
     } SCENE {
-        NOT MESSAGE("Malamar knocked off the opposing Wobbuffet's Malamarite!");
+        NOT MESSAGE("Malamar knocked off the foe Wobbuffet's Malamarite!");
     } THEN {
         if (item == ITEM_MALAMARITE)
         {
@@ -589,9 +589,9 @@ SINGLE_BATTLE_TEST("Knock Off remove items that can change the form of the Knock
     } SCENE {
         if (item == ITEM_MASTER_BALL)
         {
-            MESSAGE("Malamar knocked off the opposing Wobbuffet's Master Ball!");
+            MESSAGE("Malamar knocked off the foe Wobbuffet's Master Ball!");
         } else {
-            MESSAGE("Malamar knocked off the opposing Wobbuffet's Malamarite!");
+            MESSAGE("Malamar knocked off the foe Wobbuffet's Malamarite!");
         }
     } THEN {
         EXPECT(opponent->item == ITEM_NONE);

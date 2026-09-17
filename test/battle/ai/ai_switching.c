@@ -104,7 +104,7 @@ AI_MULTI_BATTLE_TEST("AI will not revive a partner's party member with Revival B
         TURN { EXPECT_MOVE(playerRight, move2); } // EXPECT_MOVE makes battler2 AI-controlled
     } SCENE {
         if (user == opponentLeft) {
-            MESSAGE("The opposing Wobbuffet used Revival Blessing!");
+            MESSAGE("The foe Wobbuffet used Revival Blessing!");
             MESSAGE("But it failed!");
         } else if (user == playerRight) {
             MESSAGE("Clefairy used Revival Blessing!");

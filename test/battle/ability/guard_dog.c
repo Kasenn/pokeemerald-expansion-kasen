@@ -105,7 +105,7 @@ SINGLE_BATTLE_TEST("Guard Dog does not activate if Intimidate is blocked by Mist
         TURN { SWITCH(opponent, 1); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MIST, player);
-        MESSAGE("Okidogi surrounds itself with a protective mist!");
+        MESSAGE("Your team became shrouded in mist!");
         ABILITY_POPUP(opponent, ABILITY_INTIMIDATE);
         NONE_OF {
             ABILITY_POPUP(player, ABILITY_GUARD_DOG);
@@ -147,7 +147,7 @@ SINGLE_BATTLE_TEST("Guard Dog does not activate if Intimidate cannot lower Attac
 DOUBLE_BATTLE_TEST("Guard Dog does not activate if Intimidate is blocked by Flower Veil")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
+        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
         ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
         PLAYER(SPECIES_COMFEY) { Ability(ABILITY_FLOWER_VEIL); Speed(40); }
         PLAYER(SPECIES_OKIDOGI) { Ability(ABILITY_GUARD_DOG); Speed(30); }
@@ -176,7 +176,7 @@ DOUBLE_BATTLE_TEST("Guard Dog does not activate if Intimidate is blocked by Flow
 DOUBLE_BATTLE_TEST("Guard Dog activates before Flower Veil if it has higher unmodified Speed")
 {
     GIVEN {
-        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_THIRD_TYPE);
+        ASSUME(GetMoveEffect(MOVE_FORESTS_CURSE) == EFFECT_FORESTS_CURSE);
         ASSUME(GetMoveArgType(MOVE_FORESTS_CURSE) == TYPE_GRASS);
         PLAYER(SPECIES_COMFEY) { Ability(ABILITY_FLOWER_VEIL); Speed(30); }
         PLAYER(SPECIES_OKIDOGI) { Ability(ABILITY_GUARD_DOG); Speed(40); }

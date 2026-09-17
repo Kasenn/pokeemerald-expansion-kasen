@@ -19,10 +19,10 @@ SINGLE_BATTLE_TEST("Iron Barbs: Damages attackers that make contact")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POPULATION_BOMB, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POPULATION_BOMB, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POPULATION_BOMB, player);
-        MESSAGE("The Pokémon was hit 4 times!");
+        MESSAGE("Hit 4 time(s)!");
         NONE_OF {
             HP_BAR(player);
-            MESSAGE("Wobbuffet was hurt by the opposing Ferroseed's Iron Barbs!");
+            MESSAGE("Wobbuffet was hurt by the foe Ferroseed's Iron Barbs!");
         }
     } THEN {
         EXPECT_EQ(player->hp, maxHP - ironBarbsDamage * 4);

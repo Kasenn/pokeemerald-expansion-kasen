@@ -97,13 +97,13 @@ SINGLE_BATTLE_TEST("Weather started after the one which started the battle lasts
 
         // 5 turns
         MESSAGE("Politoed used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Politoed used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("Politoed used Celebrate!");
-        MESSAGE("The opposing Wobbuffet used Celebrate!");
+        MESSAGE("The foe Wobbuffet used Celebrate!");
 
         MESSAGE("The rain stopped.");
     } THEN {
@@ -124,7 +124,7 @@ SINGLE_BATTLE_TEST("StartingStatus weather activates weather-reliant abilities")
     } SCENE {
         MESSAGE("It started to rain!");
         ABILITY_POPUP(player, ABILITY_HYDRATION);
-        MESSAGE("Swanna's burn was cured!");
+        MESSAGE("Swanna's burn was healed!");
         STATUS_ICON(player, none: TRUE);
     } THEN {
         ResetStartingStatuses();

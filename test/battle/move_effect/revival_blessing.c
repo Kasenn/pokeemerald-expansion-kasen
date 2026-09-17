@@ -100,8 +100,8 @@ DOUBLE_BATTLE_TEST("Revival Blessing doesn't prevent revived battlers from losin
         MESSAGE("Wobbuffet used Scratch!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, playerLeft);
         MESSAGE("The foe Wynaut fainted!");
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, opponentLeft);
         MESSAGE("The foe Wobbuffet used Revival Blessing!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_REVIVAL_BLESSING, opponentLeft);
         MESSAGE("Wynaut was revived and is ready to fight again!");
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponentRight);
     }
@@ -119,20 +119,19 @@ DOUBLE_BATTLE_TEST("Revival Blessing correctly updates battler absent flags")
                MOVE(opponentRight, MOVE_REVIVAL_BLESSING, partyIndex: 0); }
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); }
     } SCENE {
-        // Turn 1
         MESSAGE("Salamence used Earthquake!");
-        HP_BAR(opponentLeft);
-        MESSAGE("The foe Geodude fainted!");
         MESSAGE("It doesn't affect Pidgeot…");
         MESSAGE("It doesn't affect the foe Starly…");
+        HP_BAR(opponentLeft);
+        MESSAGE("The foe Geodude fainted!");
         MESSAGE("The foe Starly used Revival Blessing!");
         MESSAGE("Geodude was revived and is ready to fight again!"); // Should have prefix but it doesn't currently.
         // Turn 2
         MESSAGE("Salamence used Earthquake!");
-        HP_BAR(opponentLeft);
-        MESSAGE("The foe Geodude fainted!");
         MESSAGE("It doesn't affect Pidgeot…");
         MESSAGE("It doesn't affect the foe Starly…");
+        HP_BAR(opponentLeft);
+        MESSAGE("The foe Geodude fainted!");
     }
 }
 

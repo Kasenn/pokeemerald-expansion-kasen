@@ -39,12 +39,12 @@ DOUBLE_BATTLE_TEST("Critical hits mention each affected target")
         TURN { MOVE(playerLeft, MOVE_DAZZLING_GLEAM); }
     } SCENE {
         // Surf against all targets
-        MESSAGE("A critical hit on the opposing Wynaut!");
+        MESSAGE("A critical hit on the foe Wynaut!");
         MESSAGE("A critical hit on Wobbuffet!");
-        MESSAGE("A critical hit on the opposing Wobbuffet!");
+        MESSAGE("A critical hit on the foe Wobbuffet!");
         // Surf against one opponent and one partner
         MESSAGE("A critical hit on Wobbuffet!");
-        MESSAGE("A critical hit on the opposing Wobbuffet!");
+        MESSAGE("A critical hit on the foe Wobbuffet!");
         // Dazzling Gleam against one target
         MESSAGE("A critical hit!");
     }

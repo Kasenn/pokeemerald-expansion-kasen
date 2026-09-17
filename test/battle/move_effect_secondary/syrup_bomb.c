@@ -228,7 +228,7 @@ SINGLE_BATTLE_TEST("Sticky Syrup is not reflected by Mirror Armor")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SYRUP_BOMB, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Corviknight got covered in sticky candy syrup!");
+        MESSAGE("The foe Corviknight got covered in sticky candy syrup!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SYRUP_BOMB_SPEED_DROP, opponent);
         NONE_OF {
             ABILITY_POPUP(opponent, ABILITY_MIRROR_ARMOR);
@@ -253,7 +253,7 @@ SINGLE_BATTLE_TEST("Sticky Syrup stat drop is prevented by Mist")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_MIST, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SYRUP_BOMB, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Wobbuffet got covered in sticky candy syrup!");
+        MESSAGE("The foe Wobbuffet got covered in sticky candy syrup!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_SYRUP_BOMB_SPEED_DROP, opponent);
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
     } THEN {

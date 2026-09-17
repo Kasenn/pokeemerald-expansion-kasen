@@ -14,7 +14,7 @@ SINGLE_BATTLE_TEST("Spite reduces the PP the last move used even while asleep")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_POUND, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPORE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SPITE, opponent);
-        MESSAGE("Wobbuffet lost 4 PP from Pound!");
+        MESSAGE("It reduced the PP of Wobbuffet's Pound by 4!");
     }
 }
 

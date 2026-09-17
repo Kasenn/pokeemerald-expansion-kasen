@@ -24,16 +24,12 @@ SINGLE_BATTLE_TEST("Effectiveness strings are correct in Single Battles")
         switch (move)
         {
             case MOVE_POUND:
-                MESSAGE("It's mostly ineffective…");
-                break;
             case MOVE_ROCK_THROW:
                 MESSAGE("It's not very effective…");
                 break;
             case MOVE_WATER_GUN:
-                MESSAGE("It's super effective!");
-                break;
             case MOVE_KARATE_CHOP:
-                MESSAGE("It's extremely effective!");
+                MESSAGE("It's super effective!");
                 break;
             default:
                 break;
@@ -59,21 +55,15 @@ DOUBLE_BATTLE_TEST("Effectiveness strings are correct in Double Battles")
     } SCENE {
         switch (move)
         {
-            case MOVE_BOOMBURST:
-                MESSAGE("It's mostly ineffective on the opposing Aggron and Aggron.");
-                MESSAGE("It's mostly ineffective on Aggron and Aggron.");
-                break;
             case MOVE_SYNCHRONOISE:
-                MESSAGE("It's not very effective on the opposing Aggron and Aggron.");
-                MESSAGE("It's not very effective on Aggron and Aggron.");
-                break;
-            case MOVE_SURF:
-                MESSAGE("It's super effective on the opposing Aggron and Aggron!");
-                MESSAGE("It's super effective on Aggron and Aggron!");
+            case MOVE_BOOMBURST:
+                MESSAGE("It's not very effective on the foe Aggron. It's not very effective on the foe Aggron.");
+                MESSAGE("It's not very effective on Aggron.");
                 break;
             case MOVE_EARTHQUAKE:
-                MESSAGE("It's extremely effective on the opposing Aggron and Aggron!");
-                MESSAGE("It's extremely effective on Aggron and Aggron!");
+            case MOVE_SURF:
+                MESSAGE("It's super effective on the foe Aggron! It's super effective on the foe Aggron!");
+                MESSAGE("It's super effective on Aggron!");
                 break;
             default:
                 break;

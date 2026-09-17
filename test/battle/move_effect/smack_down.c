@@ -20,7 +20,7 @@ SINGLE_BATTLE_TEST("Smack Down doesn't affect pokemon behind Substitute")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUBSTITUTE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
         NONE_OF {
-            MESSAGE("The opposing Pidgey fell straight down!");
+            MESSAGE("The foe Pidgey fell straight down!");
             ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
             HP_BAR(opponent);
         }
@@ -39,7 +39,7 @@ SINGLE_BATTLE_TEST("Smack Down grounds flying type pokemon")
         TURN { MOVE(player, MOVE_EARTHQUAKE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
-        MESSAGE("The opposing Pidgey fell straight down!");
+        MESSAGE("The foe Pidgey fell straight down!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
         HP_BAR(opponent);
     }
@@ -55,7 +55,7 @@ SINGLE_BATTLE_TEST("Smack Down grounds pokemon with Levitate")
         TURN { MOVE(player, MOVE_EARTHQUAKE); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
-        MESSAGE("The opposing Flygon fell straight down!");
+        MESSAGE("The foe Flygon fell straight down!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
         HP_BAR(opponent);
     }
@@ -76,7 +76,7 @@ SINGLE_BATTLE_TEST("Smack Down hits airborne pokemon and grounds them")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLY, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Pidgey fell straight down!");
+        MESSAGE("The foe Pidgey fell straight down!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, player);
         HP_BAR(opponent);
     }
@@ -97,7 +97,7 @@ DOUBLE_BATTLE_TEST("Smack Down does not bring down pokemon that are involved in 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_DROP, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, playerRight);
-        NOT MESSAGE("The opposing Wobbuffet fell straight down!");
+        NOT MESSAGE("The foe Wobbuffet fell straight down!");
     }
 }
 
@@ -113,7 +113,7 @@ SINGLE_BATTLE_TEST("Smack Down hitting into an underground pokemon with No Guard
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SMACK_DOWN, player);
         HP_BAR(opponent);
-        MESSAGE("The opposing Flygon fell straight down!");
+        MESSAGE("The foe Flygon fell straight down!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DIG, opponent);
         HP_BAR(player);
     }
@@ -136,7 +136,7 @@ DOUBLE_BATTLE_TEST("Thousand Arrows will ground both targets")
         }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_THOUSAND_ARROWS, playerLeft);
-        MESSAGE("The opposing Pidgey fell straight down!");
-        MESSAGE("The opposing Flygon fell straight down!");
+        MESSAGE("The foe Pidgey fell straight down!");
+        MESSAGE("The foe Flygon fell straight down!");
     }
 }

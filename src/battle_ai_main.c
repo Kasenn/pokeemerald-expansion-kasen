@@ -1960,14 +1960,11 @@ static s32 AI_CheckBadMove(enum BattlerId battlerAtk, enum BattlerId battlerDef,
               || DoesPartnerHaveSameMoveEffect(GetPartnerBattler(battlerAtk), battlerDef, move, aiData->partnerMove))
                 ADJUST_SCORE(-10);
             else if (aiData->hpPercents[battlerAtk] <= 50)
-                ADJUST_SCORE(-6);
-        }
-        else // regular curse
-        {
-            if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_ATK) || !HasMoveWithCategory(battlerAtk, DAMAGE_CATEGORY_PHYSICAL))
-                ADJUST_SCORE(-10);
-            else if (!BattlerStatCanRise(battlerAtk, aiData->abilities[battlerAtk], STAT_DEF))
                 ADJUST_SCORE(-8);
+        }
+        else if (!AI_CanAnyStatChange(battlerAtk, battlerAtk, move))
+        {
+            ADJUST_SCORE(-10);
         }
         break;
     case EFFECT_SPIKES:

@@ -14,6 +14,6 @@ WILD_BATTLE_TEST("Shadow Tag prevents wild Pokemon from fleeing with Teleport")
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_TELEPORT, opponent);
         ABILITY_POPUP(player, ABILITY_SHADOW_TAG);
-        MESSAGE("Wobbuffet made it ineffective!");
+        MESSAGE("Wobbuffet prevents escape with Shadow Tag!");
     }
 }

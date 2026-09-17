@@ -326,6 +326,10 @@ SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 1")
         switch (move)
         {
         case MOVE_LIGHT_SCREEN:
+            NONE_OF {
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                MESSAGE("The opposing team's Reflect wore off!");
+            }
             MESSAGE("The opposing team's Light Screen wore off!");
             NONE_OF {
                 MESSAGE("The opposing team's Aurora Veil wore off!");
@@ -333,6 +337,10 @@ SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 1")
             }
             break;
         case MOVE_REFLECT:
+            NONE_OF {
+                MESSAGE("The opposing team's Aurora Veil wore off!");
+                MESSAGE("The opposing team's Light Screen wore off!");
+            }
             MESSAGE("The opposing team's Reflect wore off!");
             NONE_OF {
                 MESSAGE("The opposing team's Aurora Veil wore off!");
@@ -340,6 +348,10 @@ SINGLE_BATTLE_TEST("My own: screen breakers print the correct text 1")
             }
             break;
         case MOVE_AURORA_VEIL:
+            NONE_OF {
+                MESSAGE("The opposing team's Light Screen wore off!");
+                MESSAGE("The opposing team's Reflect wore off!");
+            }
             MESSAGE("The opposing team's Aurora Veil wore off!");
             NONE_OF {
                 MESSAGE("The opposing team's Light Screen wore off!");
@@ -461,8 +473,8 @@ SINGLE_BATTLE_TEST("My own: Lum Berry prints the correct text 1")
         PLAYER(SPECIES_WOBBUFFET) {Speed(2); Item(ITEM_LUM_BERRY); }
         OPPONENT(SPECIES_WOBBUFFET) { Speed(1); }
     } WHEN {
-        TURN { MOVE(player, move); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
-        TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, 0)); }
+        TURN { MOVE(player, move); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, FALSE)); }
+        TURN { MOVE(player, MOVE_BESTOW); MOVE(opponent, MOVE_CELEBRATE, WITH_RNG(RNG_FROZEN, FALSE)); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BESTOW, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
