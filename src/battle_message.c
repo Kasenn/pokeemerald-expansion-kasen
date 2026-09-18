@@ -3145,12 +3145,15 @@ static const u8 *BattleStringGetTrainerName(u8 *text, u8 multiplayerId, enum Bat
         return BattleStringGetOpponentName(text, multiplayerId, battler);
 }
 
+
 static const u8 *BattleStringGetOpponentClassByTrainerId(u16 trainerId)
 {
     const u8 *toCpy;
 
     if (gBattleTypeFlags & BATTLE_TYPE_SECRET_BASE)
         toCpy = gTrainerClasses[GetSecretBaseTrainerClass()].name;
+    else if (trainerId == TRAINER_UNION_ROOM)
+        toCpy = gTrainerClasses[GetUnionRoomTrainerClass()].name;
     else if (trainerId == TRAINER_FRONTIER_BRAIN)
         toCpy = gTrainerClasses[GetFrontierBrainTrainerClass()].name;
     else if (gBattleTypeFlags & BATTLE_TYPE_FRONTIER)

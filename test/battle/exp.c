@@ -216,9 +216,6 @@ AI_TWO_VS_ONE_BATTLE_TEST("Partner Pokemon do not gain experience")
 
 AI_ONE_VS_TWO_BATTLE_TEST("Both opponent's Pokemon give experience in battle against two opponents")
 {
-    u32 expectedXp = 1; // level 1 xp
-    expectedXp += gSpeciesInfo[SPECIES_WYNAUT].expYield * 100 / 7; // level (100) * scaling multipler (1 / 7)
-    expectedXp += gSpeciesInfo[SPECIES_WOBBUFFET].expYield * 100 / 7;
     GIVEN {
         WITH_CONFIG(B_SCALED_EXP, GEN_3);
         WITH_CONFIG(B_UNEVOLVED_EXP_MULTIPLIER, GEN_3);
@@ -230,7 +227,8 @@ AI_ONE_VS_TWO_BATTLE_TEST("Both opponent's Pokemon give experience in battle aga
         OPPONENT_A(SPECIES_WOBBUFFET) { Moves(MOVE_CELEBRATE); Speed(1); }
     } WHEN {
         TURN { }
-    } THEN {
-        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP), expectedXp);
+    } SCENE {
+        MESSAGE("Metapod gained 371 Exp. Points!");
+        MESSAGE("Metapod gained 1014 Exp. Points!");
     }
 }

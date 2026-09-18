@@ -219,20 +219,6 @@ static void TransferEggMoves(struct DayCare *daycare)
 
 void StorePokemonInDaycare(struct Pokemon *mon, struct DaycareMon *daycareMon)
 {
-    // if (MonHasMail(mon))
-    // {
-    //     u8 mailId;
-
-    //     StringCopy(daycareMon->mail.otName, gSaveBlock2Ptr->playerName);
-    //     GetMonNicknameVanilla(mon, daycareMon->mail.monName);
-    //     StripExtCtrlCodes(daycareMon->mail.monName);
-    //     daycareMon->mail.gameLanguage = GAME_LANGUAGE;
-    //     daycareMon->mail.monLanguage = GetMonData(mon, MON_DATA_LANGUAGE);
-    //     mailId = GetMonData(mon, MON_DATA_MAIL);
-    //     daycareMon->mail.message = gSaveBlock1Ptr->mail[mailId];
-    //     TakeMailFromMon(mon);
-    // }
-
     TryFormChange(mon, FORM_CHANGE_DEPOSIT, B_TRAINER_PLAYER);
 
     daycareMon->mon = mon->box;
@@ -257,18 +243,29 @@ static void StorePokemonInEmptyDaycareSlot(struct Pokemon *mon, struct DayCare *
 
 void StoreSelectedPokemonInDaycare(void)
 {
-    u8 monId = GetCursorSelectionMonId();
-    if (gSaveBlock1Ptr->followerIndex == monId)
+    struct Pokemon *mon;
+    if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
+    {
+        mon = Alloc(sizeof(struct Pokemon));
+        RemoveSelectedPcMon(mon);
+    }
+    else
+    {
+        mon = &gParties[B_TRAINER_PLAYER][gSpecialVar_0x8004];
+    }
+    if (gSaveBlock1Ptr->followerIndex == gSpecialVar_0x8004)
     {
         gSaveBlock1Ptr->followerIndex = OW_FOLLOWER_NOT_SET;
         gDontCompact = 1;
     }
-    else if (gSaveBlock1Ptr->followerIndex < PARTY_SIZE && monId < gSaveBlock1Ptr->followerIndex)
+    else if (gSaveBlock1Ptr->followerIndex < PARTY_SIZE && gSpecialVar_0x8004 < gSaveBlock1Ptr->followerIndex)
     {
         gSaveBlock1Ptr->followerIndex--;
         gDontCompact = 1;
     }
-    StorePokemonInEmptyDaycareSlot(&gPlayerParty[monId], &gSaveBlock1Ptr->daycare);
+    StorePokemonInEmptyDaycareSlot(mon, &gSaveBlock1Ptr->daycare);
+    if (gSpecialVar_0x8004 == PC_MON_CHOSEN)
+        Free(mon);
 }
 
 void SeparateZygarde(void)
@@ -410,9 +407,8 @@ u16 TakePokemonFromDaycare(void)
 static u8 GetLevelAfterDaycareSteps(struct BoxPokemon *mon, u32 steps)
 {
     struct BoxPokemon tempMon = *mon;
-    u8 doubleSteps = steps * 2;
 
-    u32 experience = GetBoxMonData(mon, MON_DATA_EXP) + doubleSteps;
+    u32 experience = GetBoxMonData(mon, MON_DATA_EXP) + (steps * 2);
     SetBoxMonData(&tempMon, MON_DATA_EXP,  &experience);
     return GetLevelFromBoxMonExp(&tempMon);
 }

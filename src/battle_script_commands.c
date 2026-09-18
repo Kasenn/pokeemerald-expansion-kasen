@@ -1688,7 +1688,6 @@ void SetNonVolatileStatus(enum BattlerId battlerAtk, enum BattlerId effectBattle
         gBattlescriptCurrInstr = BattleScript_MoveEffectBurn;
         break;
     case MOVE_EFFECT_FREEZE:
-        GetBattlerPartyState(effectBattler)->freezeTurns = 2;
         gBattleMons[effectBattler].status1 |= STATUS1_FREEZE;
         gBattlescriptCurrInstr = BattleScript_MoveEffectFreeze;
         break;

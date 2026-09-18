@@ -92,7 +92,6 @@ TEST("(Daycare) Shellos' form is always based on the mother's form")
 
 TEST("(Daycare) Pokémon with regional forms give the correct offspring")
 {
-    enum Region region;
     enum Species offspring, species1, species2;
     enum Item item1, item2;
 

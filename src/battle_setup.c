@@ -2371,18 +2371,18 @@ void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Traine
         {
             switch (VarGet(VAR_STARTER_MON))
             {
-            case SPECIES_ROWLET:    partyData = trainer->partyWater; break;
-            case SPECIES_TORCHIC:   partyData = trainer->partyGrass; break;
-            case SPECIES_PIPLUP:    partyData = trainer->partyFire; break;
+            case SPECIES_ROWLET:    partyData = trainer->partyWater;    break;
+            case SPECIES_TORCHIC:   partyData = trainer->partyGrass;    break;
+            case SPECIES_PIPLUP:    partyData = trainer->partyFire;     break;
             }   
         }
         else
         {
             switch (VarGet(VAR_STARTER_MON))
             {
-            case SPECIES_ROWLET:    partyData = trainer->partyFire; break;
-            case SPECIES_TORCHIC:   partyData = trainer->partyWater; break;
-            case SPECIES_PIPLUP:    partyData = trainer->partyGrass; break;
+            case SPECIES_ROWLET:    partyData = trainer->partyFire;     break;
+            case SPECIES_TORCHIC:   partyData = trainer->partyWater;    break;
+            case SPECIES_PIPLUP:    partyData = trainer->partyGrass;    break;
             }
         }
     }

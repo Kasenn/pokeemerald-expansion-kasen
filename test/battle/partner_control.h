@@ -4,12 +4,14 @@
 // If you want to modify this file see expansion PR #7154
 //
 
+
     [PARTNER_NONE] =
     {
         .trainerClass = TRAINER_CLASS_PKMN_TRAINER_1,
         .trainerPic = TRAINER_PIC_BRENDAN,
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
+        .multiTeamSize = MULTI_TEAM_SIZE_FULL,
         .partySize = 0,
         .party = (const struct TrainerMon[])
         {
@@ -23,6 +25,7 @@
         .gender = TRAINER_GENDER_MALE,
         .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
         .aiFlags = AI_FLAG_BASIC_TRAINER,
+        .multiTeamSize = MULTI_TEAM_SIZE_FULL,
         .partySize = 3,
         .party = (const struct TrainerMon[])
         {
@@ -73,27 +76,6 @@
                 MOVE_SOLAR_BEAM,
                 MOVE_DRAGON_CLAW,
             },
-            },
-        },
-    },
-    [2] =
-    {
-        .trainerName = _("Test2"),
-        .trainerClass = TRAINER_CLASS_RIVAL,
-        .trainerPic = TRAINER_PIC_STEVEN,
-        .gender = TRAINER_GENDER_MALE,
-        .encounterMusic = TRAINER_ENCOUNTER_MUSIC_MALE,
-        .partySize = 1,
-        .party = (const struct TrainerMon[])
-        {
-            {
-            .species = SPECIES_MEWTWO,
-            .gender = TRAINER_MON_RANDOM_GENDER,
-            IVS(31, 31, 31, 31, 31, 31),
-            .lvl = 50,
-            .ball = POKEBALL_COUNT,
-            .nature = NATURE_HARDY,
-            .dynamaxLevel = MAX_DYNAMAX_LEVEL,
             },
         },
     },
