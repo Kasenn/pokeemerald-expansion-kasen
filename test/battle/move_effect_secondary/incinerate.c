@@ -39,8 +39,8 @@ SINGLE_BATTLE_TEST("Incinerate activates Occa Berry before destroying it")
     } WHEN {
         TURN { MOVE(player, MOVE_INCINERATE); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_INCINERATE, player);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
         HP_BAR(opponent);
     } THEN {
         EXPECT_EQ(opponent->item, ITEM_NONE);

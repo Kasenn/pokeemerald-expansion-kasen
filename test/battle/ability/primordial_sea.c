@@ -135,13 +135,14 @@ SINGLE_BATTLE_TEST("Primordial Sea fails if overworld weather is present (Gen9)"
     SetStartingStatus(STARTING_STATUS_WEATHER_SUN);
 
     GIVEN {
+        WITH_CONFIG(B_OVERWORLD_WEATHER_OVERRIDE, GEN_9);
         PLAYER(SPECIES_KYOGRE) { Item(ITEM_BLUE_ORB); }
         OPPONENT(SPECIES_WOBBUFFET);
     } WHEN {
         TURN {}
     } SCENE {
         ABILITY_POPUP(player, ABILITY_PRIMORDIAL_SEA);
-        MESSAGE("Error 05: something has gone awry. Please inform the romhack creator!");
+        MESSAGE("But it failed!");
     } THEN {
         EXPECT(gBattleWeather & B_WEATHER_SUN);
         ResetStartingStatuses();

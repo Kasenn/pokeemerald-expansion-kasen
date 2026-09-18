@@ -903,3 +903,19 @@ WILD_BATTLE_TEST("My own: Dire Ball guaranteed chance to capture on low health")
             MESSAGE("Oh, no! The Pokémon broke free!");
     }
 }
+
+SINGLE_BATTLE_TEST("My own: Resist Berry animation happens in the correct order")
+{
+    GIVEN {
+        PLAYER(SPECIES_APPLIN) { Item(ITEM_TANGA_BERRY); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(opponent, MOVE_LEECH_LIFE); }
+    } SCENE {
+        MESSAGE("The foe Wobbuffet used Leech Life!");
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_LEECH_LIFE, opponent);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, player);
+        MESSAGE("Tanga Berry weakened the damage to Applin!");
+        EFFECTIVENESS_SE(player, SE_SUPER_EFFECTIVE);
+    }
+}

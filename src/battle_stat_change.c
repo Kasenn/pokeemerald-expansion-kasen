@@ -574,7 +574,7 @@ static bool32 IsMistProtected(struct BattleCalcValues *cv, struct StatChange *st
     if (!IsBattlerAlly(cv->battlerDef, cv->battlerAtk) && cv->abilities[cv->battlerAtk] == ABILITY_INFILTRATOR)
         return FALSE;
 
-    if (!(cv->abilities[cv->battlerAtk] == ABILITY_DATA_BREACH && GetMoveType(gCurrentMove) == TYPE_NORMAL))
+    if (cv->abilities[cv->battlerAtk] == ABILITY_DATA_BREACH && GetMoveType(gCurrentMove) == TYPE_NORMAL)
         return FALSE;
 
     if (!st->onlyChecking)

@@ -14,9 +14,9 @@ SINGLE_BATTLE_TEST("Tera Shell makes all moves against Terapagos not very effect
     } SCENE {
         if (hp == 100) {
             MESSAGE("The foe Wobbuffet used Scratch!");
+            ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
             ABILITY_POPUP(player, ABILITY_TERA_SHELL);
             MESSAGE("Terapagos made its shell gleam! It's distorting type matchups!");
-            ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
             HP_BAR(player);
             MESSAGE("It's not very effective…");
         }
@@ -41,8 +41,8 @@ SINGLE_BATTLE_TEST("Tera Shell makes all hits of multi-hit moves against Terapag
         TURN { MOVE(opponent, MOVE_DOUBLE_HIT); }
     } SCENE {
         MESSAGE("The foe Wobbuffet used Double Hit!");
-        ABILITY_POPUP(player, ABILITY_TERA_SHELL);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_HIT, opponent);
+        ABILITY_POPUP(player, ABILITY_TERA_SHELL);
         HP_BAR(player, captureDamage: &firstHit);
         NOT ABILITY_POPUP(player, ABILITY_TERA_SHELL);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DOUBLE_HIT, opponent);
@@ -65,9 +65,9 @@ DOUBLE_BATTLE_TEST("Tera Shell only makes the first hit of a double battle turn 
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_SCRATCH, target: playerLeft); MOVE(opponentRight, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_TERA_SHELL);
         MESSAGE("Terapagos made its shell gleam! It's distorting type matchups!");
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
         HP_BAR(playerLeft, captureDamage: &firstHit);
         MESSAGE("It's not very effective…");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentRight);
@@ -88,9 +88,9 @@ DOUBLE_BATTLE_TEST("Tera Shell only makes the first hit against Terapagos from a
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_BLIZZARD); }
     } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_BLIZZARD, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_TERA_SHELL);
         MESSAGE("Terapagos made its shell gleam! It's distorting type matchups!");
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_BLIZZARD, opponentLeft);
         HP_BAR(playerLeft);
         HP_BAR(playerRight);
         MESSAGE("It's not very effective on Terapagos.");

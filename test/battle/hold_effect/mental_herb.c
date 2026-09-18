@@ -55,7 +55,7 @@ SINGLE_BATTLE_TEST("Mental Herb clears the Torment timer set by G-Max Meltdown (
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_G_MAX_MELTDOWN, opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
-        MESSAGE("Wobbuffet's torment wore off'!");
+        MESSAGE("Wobbuffet's torment wore off!");
     } THEN {
         EXPECT(player->volatiles.torment == FALSE);
         EXPECT(player->volatiles.tormentTimer == 0);

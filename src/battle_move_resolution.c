@@ -2773,7 +2773,11 @@ static enum CancelerResult CancelerPreAnimActivations(struct BattleCalcValues *c
             }
 
             gBattleScripting.battler = battlerDef;
+            gLastUsedItem = gBattleMons[battlerDef].item;
+            GetBattlerPartyState(battlerDef)->ateBerry = TRUE;
+
             BattleScriptCall(BattleScript_BerryReduceAnimation);
+
             return CANCELER_RESULT_RUN_SCRIPT;
         }
         gBattleStruct->eventState.moveEndBlock++;
@@ -3161,8 +3165,8 @@ static enum CancelerResult (*const sMoveSuccessOrderCancelers[])(struct BattleCa
     [CANCELER_ACCURACY_CHECK] = CancelerAccuracyCheck,
     [CANCELER_PRE_ATTACK_MOVE_EFFECT] = CancelerPreAttackMoveEffect,
     [CANCELER_DAMAGE_CALC] = CancelerDamageCalc,
-    [CANCELER_PRE_ANIM_ACTIVATIONS] = CancelerPreAnimActivations,
     [CANCELER_MOVE_ANIMATION] = CancelerMoveAnimation,
+    [CANCELER_PRE_ANIM_ACTIVATIONS] = CancelerPreAnimActivations,
     [CANCELER_EFFECTIVENESS_SOUND] = CancelerEffectivenessSound,
     [CANCELER_HIT_ANIMATION] = CancelerHitAnimation,
     [CANCELER_SKIP_FRAME] = CancelerSkipFrame,
@@ -3464,7 +3468,7 @@ static enum MoveEndResult MoveEndAbilities(struct BattleCalcValues *cv)
     return result;
 }
 
-static enum MoveEndResult MoveEndResistBerryMessage(struct BattleCalcValues *cv)
+static enum MoveEndResult UNUSED MoveEndResistBerryMessage(struct BattleCalcValues *cv)
 {
     enum MoveEndResult result = MOVEEND_RESULT_CONTINUE;
 
@@ -5295,7 +5299,6 @@ static enum MoveEndResult (*const sMoveEndHandlers[])(struct BattleCalcValues *c
     [MOVEEND_RAGE] = MoveEndRage,
     [MOVEEND_BEAK_BLAST] = MoveEndBeakBlast,
     [MOVEEND_ABILITIES] = MoveEndAbilities,
-    [MOVEEND_RESIST_BERRY_MESSAGE] = MoveEndResistBerryMessage,
     [MOVEEND_FORM_CHANGE_ON_HIT] = MoveEndFormChangeOnHit,
     [MOVEEND_ABILITIES_ATTACKER] = MoveEndAbilitiesAttacker,
     [MOVEEND_QUEUE_DANCER] = MoveEndQueueDancer,

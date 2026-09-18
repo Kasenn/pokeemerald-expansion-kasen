@@ -178,8 +178,8 @@ SINGLE_BATTLE_TEST("Parting Shot: Does not switch if both stats are at minimum (
         TURN { MOVE(player, MOVE_TOPSY_TURVY); MOVE(opponent, MOVE_CELEBRATE); }
         TURN { MOVE(player, MOVE_PARTING_SHOT); MOVE(opponent, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The foe Omastar's Attack won't go any higher!");
-        MESSAGE("The foe Omastar's Sp. Atk won't go any higher!");
+        MESSAGE("The foe Omastar's Attack won't go any lower!");
+        MESSAGE("The foe Omastar's Sp. Atk won't go any lower!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MIN_STAT_STAGE);
         EXPECT_EQ(opponent->statStages[STAT_SPATK], MIN_STAT_STAGE);

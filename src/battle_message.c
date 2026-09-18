@@ -405,7 +405,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
     [STRINGID_HAZARDSTR_6]                          = COMPOUND_STRING("from around your team!"),
     [STRINGID_HAZARDSTR_7]                          = COMPOUND_STRING("from around your foe's team!"),
     [STRINGID_HAZARDSTR_8]                          = COMPOUND_STRING("all around your team's feet!"),
-    [STRINGID_HAZARDSTR_9]                          = COMPOUND_STRING("all around the feet of the foe's team!"),
+    [STRINGID_HAZARDSTR_9]                          = COMPOUND_STRING("all around\nthe feet of the foe's team!"),
 
     // Substitute
     [STRINGID_PKMNMADESUBSTITUTE]                   = COMPOUND_STRING("{B_ATK_NAME_PREFIX} put in\na substitute!"),
@@ -3021,6 +3021,10 @@ static const u8 *BattleStringGetOpponentNameByTrainerId(u16 trainerId, u8 *text,
         text[i] = EOS;
         ConvertInternationalString(text, gBattleResources->secretBase->language);
         toCpy = text;
+    }
+    else if (trainerId == TRAINER_UNION_ROOM)
+    {
+        toCpy = gLinkPlayers[multiplayerId ^ BIT_SIDE].name;
     }
     else if (trainerId == TRAINER_LINK_OPPONENT)
     {

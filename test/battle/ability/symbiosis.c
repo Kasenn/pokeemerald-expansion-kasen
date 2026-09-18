@@ -131,8 +131,8 @@ DOUBLE_BATTLE_TEST("Symbiosis transfers its item to an ally after it consumes a 
     } WHEN {
         TURN { MOVE(opponentLeft, MOVE_SCRATCH, target: playerLeft); }
     } SCENE {
-        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponentLeft);
+        ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, playerLeft);
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);
     } THEN {
@@ -155,9 +155,9 @@ DOUBLE_BATTLE_TEST("A spread move does not consume items received through Symbio
     } WHEN {
         TURN { MOVE(playerLeft, MOVE_EARTHQUAKE); }
     } SCENE {
+        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, playerRight);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponentLeft);
-        ANIMATION(ANIM_TYPE_MOVE, MOVE_EARTHQUAKE, playerLeft);
         ABILITY_POPUP(opponentRight, ABILITY_SYMBIOSIS);
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponentLeft);
         ABILITY_POPUP(playerLeft, ABILITY_SYMBIOSIS);

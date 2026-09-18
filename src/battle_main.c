@@ -1759,6 +1759,7 @@ void BattleMainCB2(void)
     UpdatePaletteFade();
     RunTasks();
 
+    //wip2
     if (JOY_HELD(B_BUTTON) && gBattleTypeFlags & BATTLE_TYPE_RECORDED && RecordedBattle_CanStopPlayback())
     {
         // Player pressed B during recorded battle playback, end battle

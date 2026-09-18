@@ -5449,6 +5449,9 @@ BattleScript_BerryReduceAnimation::
 	playanimation BS_SCRIPTING, B_ANIM_HELD_ITEM_BERRY
 	waitanimation
 	waitabilitypopup
+	printstring STRINGID_BERRYDMGREDUCES
+	waitmessage B_WAIT_TIME_LONG
+	removeitem BS_SCRIPTING
 	return
 
 BattleScript_BerryReduceDmg::

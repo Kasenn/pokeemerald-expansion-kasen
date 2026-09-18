@@ -31,7 +31,7 @@ SINGLE_BATTLE_TEST("Flatter on a foe with Own Tempo prevents confusion, changes 
         TURN { MOVE(player, MOVE_FLATTER); MOVE(opponent, MOVE_CURSE); }
     } SCENE {
         ABILITY_POPUP(opponent, ABILITY_OWN_TEMPO);
-        MESSAGE("The foe Slowpoke cannot be confused!");
+        MESSAGE("The foe Slowpoke doesn't become confused!");
         MESSAGE("The foe Slowpoke's Defense rose!");
     }
 }
