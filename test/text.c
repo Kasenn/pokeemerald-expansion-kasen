@@ -649,9 +649,6 @@ TEST("Battle strings fit on the battle message window")
 
     switch (battleStringId)
     {
-    // case STRINGID_TARGETSSTATWASMAXEDOUT:
-    //     longAbilityID = ABILITY_ANGER_POINT;
-    //     break;
     case STRINGID_PKMNWASDEFROSTEDBY:
         longMoveID = MOVE_FUSION_FLARE;
         break;
@@ -819,7 +816,6 @@ TEST("Battle strings fit on the battle message window")
     case STRINGID_STATSWONTINCREASE:
     case STRINGID_STATSWONTDECREASE:
     case STRINGID_PKMNSXPREVENTSYLOSS:
-    // case STRINGID_TARGETSSTATWASMAXEDOUT:
     case STRINGID_ATTACKERABILITYSTATRAISE:
     case STRINGID_TARGETABILITYSTATLOWER:
     case STRINGID_BATTLERABILITYRAISEDSTAT:

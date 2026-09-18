@@ -324,14 +324,14 @@ const struct TerrainInfo gBattleTerrainInfo[B_TERRAIN_COUNT] = {
         .endMessage = B_MSG_TERRAIN_END_MISTY,
     },
 
-    [B_TERRAIN_ROCKY] = { //wip2
+    [B_TERRAIN_ROCKY] = {
         .type = TYPE_ROCK,
         .secretPowerAnimation = gBattleAnimMove_RockSlide,
-        .secretPowerEffect = SECRET_POWER_SP_ATK_MINUS_1,
+        .secretPowerEffect = MOVE_EFFECT_CONFUSION,
         .naturePowerMove = MOVE_ROCK_SLIDE,
         .battleBackground = BG_ROCKY_TERRAIN,
         .seedStat = STAT_SPDEF,
-        .seedHoldEffect = HOLD_EFFECT_PARAM_MISTY_TERRAIN,
+        .seedHoldEffect = HOLD_EFFECT_PARAM_ROCKY_TERRAIN,
         .startMessage = B_MSG_TERRAIN_SET_ROCKY,
         .endMessage = B_MSG_TERRAIN_END_ROCKY,
     },

@@ -2642,27 +2642,8 @@ BattleScript_BrickBreak_AuroraVeil::
 	waitmessage B_WAIT_TIME_LONG
 BattleScript_BrickBreakHitEnd::
 	clearcustombattlestrings
-@BattleScript_BreakScreensRetReflect:
-@	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_REFLECT, BattleScript_BreakReflect @//wip
-@BattleScript_BreakScreensRetLightScreen:
-@	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_LIGHT_SCREEN, BattleScript_BreakLightScreen
-@BattleScript_BreakScreensRetAuroraVeil:
-@	jumpifbyte CMP_BITMASK, cMULTISTRING_CHOOSER, B_MSG_BREAK_AURORA_VEIL, BattleScript_BreakAuroraVeil
 BattleScript_BreakScreensRetFinish:
 	return
-
-@BattleScript_BreakReflect:
-@	printstring STRINGID_REFLECTWOREOFF
-@	waitmessage B_WAIT_TIME_LONG
-@	goto BattleScript_BreakScreensRetLightScreen
-@BattleScript_BreakLightScreen:
-@	printstring STRINGID_LIGHTSCREENWOREOFF
-@	waitmessage B_WAIT_TIME_LONG
-@	goto BattleScript_BreakScreensRetAuroraVeil
-@BattleScript_BreakAuroraVeil:
-@	printstring STRINGID_AURORAVEILWOREOFF
-@	waitmessage B_WAIT_TIME_LONG
-@	goto BattleScript_BreakScreensRetFinish
 
 BattleScript_StealStats::
 	playmoveanimation MOVE_SPECTRAL_THIEF
@@ -4258,6 +4239,8 @@ BattleScript_AftermathDmg::
 	jumpifability BS_ATTACKER, ABILITY_MAGIC_GUARD, BattleScript_AftermathDmgRet
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
+	printstring STRINGID_PKMNWASHURT
+	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 BattleScript_AftermathDmgRet:
 	return
@@ -4265,8 +4248,7 @@ BattleScript_AftermathDmgRet:
 BattleScript_DampPreventsAftermath::
 	copybyte gBattlerAbility, sBATTLER
 	call BattleScript_AbilityPopUp
-	@printstring STRINGID_SCR_ITDOESNTAFFECT @//wip, check how gen 5 handles messages
-	printstring STRINGID_ITDOESNTAFFECTSCR
+	printstring STRINGID_ITDOESNTAFFECTSCR	@//wip, check how gen 5 handles messages
 	waitmessage B_WAIT_TIME_LONG
 	return
 
@@ -5591,7 +5573,7 @@ BattleScript_ItemHurtWithAnim::
 BattleScript_LifeOrbActivates::
 	healthbarupdate BS_ATTACKER
 	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
-	printstring STRINGID_LOSTSOMEOFITSHP
+	printstring STRINGID_LIFEORBACTIVATES
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	return

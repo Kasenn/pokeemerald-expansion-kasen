@@ -15,6 +15,7 @@ SINGLE_BATTLE_TEST("Aftermath damages the attacker by 1/4th of its max HP if fai
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
         ABILITY_POPUP(player, ABILITY_AFTERMATH);
         HP_BAR(opponent, captureDamage: &aftermathDamage);
+        MESSAGE("The foe Wobbuffet is hurt!");
         MESSAGE("Voltorb fainted!");
     } THEN {
         EXPECT_EQ(aftermathDamage, opponent->maxHP / 4);
