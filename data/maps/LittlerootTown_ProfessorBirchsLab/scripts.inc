@@ -201,7 +201,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_UpgradeToNationalDex::
 	setflag FLAG_HIDE_LITTLEROOT_TOWN_RIVAL
 	setvar VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2
 	setvar VAR_SCOTT_BF_CALL_STEP_COUNTER, 0
-	setflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 
@@ -465,7 +465,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_Birch::
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 5, LittlerootTown_ProfessorBirchsLab_EventScript_CanHaveAnyOneOfRarePokemon
 	goto_if_eq VAR_DEX_UPGRADE_JOHTO_STARTER_STATE, 2, LittlerootTown_ProfessorBirchsLab_EventScript_GrassyPatchWaiting
 	goto_if_unset FLAG_HAS_MATCH_CALL, LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
-	goto_if_unset FLAG_ENABLE_PROF_BIRCH_MATCH_CALL, EventScript_RegisterProfBirch
+	goto_if_unset FLAG_OLD_WORLD_FLAG, EventScript_RegisterProfBirch
 	goto LittlerootTown_ProfessorBirchsLab_EventScript_TryRatePokedexOrRegister
 	end
 
@@ -497,7 +497,7 @@ EventScript_RegisterProfBirch::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_PROF_BIRCH_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_REGISTER_BIRCH_STATE, 2
 	release
 	end
@@ -648,7 +648,7 @@ LittlerootTown_ProfessorBirchsLab_EventScript_ScottAboardSSTidalCall::
 	lockall
 	pokenavcall LittlerootTown_ProfessorBirchsLab_Text_ScottAboardSSTidalCall
 	waitmessage
-	clearflag FLAG_SCOTT_CALL_BATTLE_FRONTIER
+	clearflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

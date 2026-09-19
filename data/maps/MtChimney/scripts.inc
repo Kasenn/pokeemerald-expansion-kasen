@@ -14,12 +14,12 @@ MtChimney_OnResume:
 MtChimney_EventScript_Archie::
 	lock
 	faceplayer
-	call_if_unset FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieGoStopTeamMagma
-	call_if_set FLAG_EVIL_LEADER_PLEASE_STOP, MtChimney_EventScript_ArchieBusyFighting
+	call_if_unset FLAG_OLD_WORLD_FLAG, MtChimney_EventScript_ArchieGoStopTeamMagma
+	call_if_set FLAG_OLD_WORLD_FLAG, MtChimney_EventScript_ArchieBusyFighting
 	closemessage
 	applymovement LOCALID_MT_CHIMNEY_ARCHIE, Common_Movement_FaceOriginalDirection
 	waitmovement 0
-	setflag FLAG_EVIL_LEADER_PLEASE_STOP
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -66,7 +66,7 @@ MtChimney_EventScript_Maxie::
 	call_if_eq VAR_FACING, DIR_NORTH, MtChimney_EventScript_ArchieExitNorth
 	removeobject LOCALID_MT_CHIMNEY_ARCHIE
 	setflag FLAG_HIDE_MT_CHIMNEY_TEAM_AQUA
-	setflag FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY
+	setflag FLAG_OLD_WORLD_FLAG
 	clearflag FLAG_HIDE_FALLARBOR_HOUSE_PROF_COZMO
 	setflag FLAG_HIDE_METEOR_FALLS_1F_1R_COZMO
 	clearflag FLAG_HIDE_MT_CHIMNEY_LAVA_COOKIE_LADY
@@ -449,14 +449,14 @@ MtChimney_EventScript_AquaPoochyena::
 
 MtChimney_EventScript_MeteoriteMachine::
 	lockall
-	goto_if_unset FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, MtChimney_EventScript_MachineOn
-	goto_if_set FLAG_RECEIVED_METEORITE, MtChimney_EventScript_MachineOff
+	goto_if_unset FLAG_OLD_WORLD_FLAG, MtChimney_EventScript_MachineOn
+	goto_if_set FLAG_OLD_WORLD_FLAG, MtChimney_EventScript_MachineOff
 	msgbox MtChimney_Text_RemoveTheMeteorite, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, MtChimney_EventScript_LeaveMeteoriteAlone
 	msgbox MtChimney_Text_PlayerRemovedMeteorite, MSGBOX_DEFAULT
 	giveitem ITEM_METEORITE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_METEORITE
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

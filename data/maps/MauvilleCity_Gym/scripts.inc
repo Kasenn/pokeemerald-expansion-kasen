@@ -13,7 +13,7 @@ MauvilleCity_Gym_OnLoad:
 	end
 
 MauvilleCity_Gym_EventScript_UpdateBarriers::
-	goto_if_set FLAG_MAUVILLE_GYM_BARRIERS_STATE, MauvilleCity_Gym_EventScript_SetAltBarriers
+	goto_if_set FLAG_OLD_WORLD_FLAG, MauvilleCity_Gym_EventScript_SetAltBarriers
 	end
 
 MauvilleCity_Gym_EventScript_SetAltBarriers::
@@ -77,7 +77,7 @@ MauvilleCity_Gym_EventScript_Wattson::
 	trainerbattle_single TRAINER_SANDGYM_CYCLISTF2, MauvilleCity_Gym_Text_WattsonIntro, MauvilleCity_Gym_Text_WattsonDefeat, MauvilleCity_Gym_EventScript_WattsonDefeated, NO_MUSIC
 	specialvar VAR_RESULT, ShouldTryRematchBattle
 	goto_if_eq VAR_RESULT, TRUE, MauvilleCity_Gym_EventScript_WattsonRematch
-	goto_if_unset FLAG_RECEIVED_TM_SHOCK_WAVE, MauvilleCity_Gym_EventScript_GiveShockWave2
+	goto_if_unset FLAG_OLD_WORLD_FLAG, MauvilleCity_Gym_EventScript_GiveShockWave2
 	goto_if_eq VAR_NEW_MAUVILLE_STATE, 2, MauvilleCity_Gym_EventScript_CompletedNewMauville
 	msgbox MauvilleCity_Gym_Text_WattsonPostBattle, MSGBOX_DEFAULT
 	release
@@ -115,7 +115,7 @@ MauvilleCity_Gym_EventScript_GiveShockWave2::
 	giveitem ITEM_TM_SHOCK_WAVE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
 	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -123,7 +123,7 @@ MauvilleCity_Gym_EventScript_GiveShockWave::
 	giveitem ITEM_TM_SHOCK_WAVE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_BagIsFull
 	msgbox MauvilleCity_Gym_Text_ExplainShockWave, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_TM_SHOCK_WAVE
+	setflag FLAG_OLD_WORLD_FLAG
 	return
 
 MauvilleCity_Gym_EventScript_CompletedNewMauville::
@@ -177,8 +177,8 @@ MauvilleCity_Gym_EventScript_PressFloorSwitch::
 	special MauvilleGymPressSwitch
 	special DrawWholeMapView
 	playse SE_UNLOCK
-	goto_if_set FLAG_MAUVILLE_GYM_BARRIERS_STATE, MauvilleCity_Gym_EventScript_ClearBarriersAltState
-	goto_if_unset FLAG_MAUVILLE_GYM_BARRIERS_STATE, MauvilleCity_Gym_EventScript_SetBarriersAltState
+	goto_if_set FLAG_OLD_WORLD_FLAG, MauvilleCity_Gym_EventScript_ClearBarriersAltState
+	goto_if_unset FLAG_OLD_WORLD_FLAG, MauvilleCity_Gym_EventScript_SetBarriersAltState
 	releaseall
 	end
 
@@ -187,12 +187,12 @@ MauvilleCity_Gym_EventScript_SwitchDoNothing::
 	end
 
 MauvilleCity_Gym_EventScript_SetBarriersAltState::
-	setflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 
 MauvilleCity_Gym_EventScript_ClearBarriersAltState::
-	clearflag FLAG_MAUVILLE_GYM_BARRIERS_STATE
+	clearflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

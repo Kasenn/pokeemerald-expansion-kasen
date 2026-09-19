@@ -105,11 +105,11 @@ MossdeepCity_SpaceCenter_1F_EventScript_SunStoneMan::
 	lock
 	faceplayer
 	goto_if_eq VAR_MOSSDEEP_CITY_STATE, 2, MossdeepCity_SpaceCenter_1F_EventScript_SunStoneManMagma
-	goto_if_set FLAG_RECEIVED_SUN_STONE_MOSSDEEP, MossdeepCity_SpaceCenter_1F_EventScript_GaveSunStone
+	goto_if_set FLAG_OLD_WORLD_FLAG, MossdeepCity_SpaceCenter_1F_EventScript_GaveSunStone
 	msgbox MossdeepCity_SpaceCenter_1F_Text_FoundThisYouCanHaveIt, MSGBOX_DEFAULT
 	giveitem ITEM_SUN_STONE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_SUN_STONE_MOSSDEEP
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox MossdeepCity_SpaceCenter_1F_Text_HoennFamousForMeteorShowers, MSGBOX_DEFAULT
 	release
 	end
@@ -120,11 +120,11 @@ MossdeepCity_SpaceCenter_1F_EventScript_GaveSunStone::
 	end
 
 MossdeepCity_SpaceCenter_1F_EventScript_SunStoneManMagma::
-	goto_if_set FLAG_RECEIVED_SUN_STONE_MOSSDEEP, MossdeepCity_SpaceCenter_1F_EventScript_GaveSunStoneMagma
+	goto_if_set FLAG_OLD_WORLD_FLAG, MossdeepCity_SpaceCenter_1F_EventScript_GaveSunStoneMagma
 	msgbox MossdeepCity_SpaceCenter_1F_Text_MagmaCantStealFuelTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_SUN_STONE
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_SUN_STONE_MOSSDEEP
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox MossdeepCity_SpaceCenter_1F_Text_CantStrollOnBeachWithMagma, MSGBOX_DEFAULT
 	applymovement VAR_LAST_TALKED, Common_Movement_WalkInPlaceFasterRight
 	waitmovement 0
@@ -215,10 +215,10 @@ MossdeepCity_SpaceCenter_1F_EventScript_Grunt4::
 MossdeepCity_SpaceCenter_1F_EventScript_Grunt2::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F, MossdeepCity_SpaceCenter_1F_EventScript_Grunt2Defeated
+	goto_if_set FLAG_OLD_WORLD_FLAG, MossdeepCity_SpaceCenter_1F_EventScript_Grunt2Defeated
 	msgbox MossdeepCity_SpaceCenter_1F_Text_Grunt2Intro, MSGBOX_DEFAULT
 	trainerbattle_no_intro TRAINER_R5_TRIATHLETE, MossdeepCity_SpaceCenter_1F_Text_Grunt2Defeat
-	setflag FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F
+	setflag FLAG_OLD_WORLD_FLAG
 	copyobjectxytoperm LOCALID_SPACE_CENTER_1F_STAIR_GRUNT
 	switch VAR_FACING
 	case DIR_WEST, MossdeepCity_SpaceCenter_1F_EventScript_MoveGruntFromStairsWest

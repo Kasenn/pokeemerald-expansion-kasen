@@ -9,7 +9,7 @@ MossdeepCity_SpaceCenter_2F_OnTransition:
 	end
 
 MossdeepCity_SpaceCenter_2F_EventScript_MoveCivilians::
-	clearflag FLAG_INTERACTED_WITH_STEVEN_SPACE_CENTER
+	clearflag FLAG_OLD_WORLD_FLAG
 	setobjectxyperm LOCALID_SPACE_CENTER_2F_SCIENTIST, 5, 3
 	setobjectmovementtype LOCALID_SPACE_CENTER_2F_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
 	setobjectxyperm LOCALID_SPACE_CENTER_2F_RICH_BOY, 3, 2
@@ -178,8 +178,8 @@ MossdeepCity_SpaceCenter_2F_EventScript_Maxie::
 
 MossdeepCity_SpaceCenter_2F_EventScript_Steven::
 	lockall
-	goto_if_set FLAG_INTERACTED_WITH_STEVEN_SPACE_CENTER, MossdeepCity_SpaceCenter_2F_EventScript_ReadyForBattlePrompt
-	setflag FLAG_INTERACTED_WITH_STEVEN_SPACE_CENTER
+	goto_if_set FLAG_OLD_WORLD_FLAG, MossdeepCity_SpaceCenter_2F_EventScript_ReadyForBattlePrompt
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox MossdeepCity_SpaceCenter_2F_Text_StevenWhyStealRocketFuel, MSGBOX_DEFAULT
 	msgbox MossdeepCity_SpaceCenter_2F_Text_MaxieUseFuelToEruptVolcano, MSGBOX_DEFAULT
 	closemessage
@@ -288,7 +288,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_DefeatedMaxieTabitha::
 	msgbox MossdeepCity_SpaceCenter_2F_Text_StevenThankYouComeSeeMeAtHome, MSGBOX_DEFAULT
 	closemessage
 	fadescreen FADE_TO_BLACK
-	setflag FLAG_DEFEATED_MAGMA_SPACE_CENTER
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_STEVEN
 	removeobject LOCALID_SPACE_CENTER_2F_STEVEN
 	setflag FLAG_HIDE_MOSSDEEP_CITY_SPACE_CENTER_MAGMA_NOTE
@@ -337,7 +337,7 @@ MossdeepCity_SpaceCenter_2F_EventScript_RivalRayquazaCall::
 	call_if_eq VAR_RESULT, MALE, MossdeepCity_SpaceCenter_2F_EventScript_MayRayquazaCall
 	call_if_eq VAR_RESULT, FEMALE, MossdeepCity_SpaceCenter_2F_EventScript_BrendanRayquazaCall
 	closemessage
-	clearflag FLAG_DEFEATED_MAGMA_SPACE_CENTER
+	clearflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

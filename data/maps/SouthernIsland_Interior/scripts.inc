@@ -54,7 +54,7 @@ SouthernIsland_Interior_EventScript_Lati::
 	goto_if_set FLAG_DEFEATED_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
 	goto_if_set FLAG_CAUGHT_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
 	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, SouthernIsland_Interior_EventScript_Sign
-	setflag FLAG_ENCOUNTERED_LATIAS_OR_LATIOS
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_2
 	special SpawnCameraObject
 	applymovement LOCALID_CAMERA, SouthernIsland_Interior_Movement_CameraPanUp

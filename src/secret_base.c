@@ -876,7 +876,7 @@ void MoveOutOfSecretBase(void)
 void ToggleCurSecretBaseRegistry(void)
 {
 //     gSaveBlock1Ptr->secretBases[VarGet(VAR_CURRENT_SECRET_BASE)].registryStatus ^= 1;
-//     FlagSet(FLAG_SECRET_BASE_REGISTRY_ENABLED);
+//     FlagSet(FLAG_OLD_WORLD_FLAG);
 }
 
 void ShowSecretBaseDecorationMenu(void)
@@ -1722,7 +1722,7 @@ void GetSecretBaseOwnerAndState(void){}
 //     if (linkIdx > 3)
 //         return;
 
-//     if (FlagGet(FLAG_RECEIVED_SECRET_POWER))
+//     if (FlagGet(FLAG_OLD_WORLD_FLAG))
 //     {
 //         switch (GetLinkPlayerCount())
 //         {

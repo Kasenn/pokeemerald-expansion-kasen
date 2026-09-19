@@ -36,7 +36,7 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "PrimroseMeadow_EventScript_Rival",
-      "flag": "FLAG_DEFEATED_RIVAL_ROUTE103"
+      "flag": "FLAG_DEFEATED_RIVAL_PRIMROSE_MEADOW"
     },
     {
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",

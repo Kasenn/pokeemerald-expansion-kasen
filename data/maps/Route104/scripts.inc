@@ -31,7 +31,7 @@ Route104_EventScript_HideWhiteHerbFlorist::
 Route104_EventScript_TrySetRivalPos::
 	goto_if_ge VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_DontSetRivalPos
 	goto_if_set FLAG_MET_RIVAL_RUSTBORO, Route104_EventScript_DontSetRivalPos
-	goto_if_unset FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_DontSetRivalPos
+	goto_if_unset FLAG_OLD_WORLD_FLAG, Route104_EventScript_DontSetRivalPos
 	setobjectxyperm LOCALID_ROUTE104_RIVAL, 17, 52
 	return
 
@@ -91,9 +91,9 @@ Route104_EventScript_RivalEncounter::
 	end
 
 Route104_EventScript_MayEncounter::
-	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_EventScript_MayDefeated
-	goto_if_set FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_MayAskToBattle
-	setflag FLAG_REGISTER_RIVAL_POKENAV
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_MayDefeated
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_MayAskToBattle
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox Route104_Text_MayWeShouldRegister, MSGBOX_DEFAULT
 	closemessage
 	delay 30
@@ -102,7 +102,7 @@ Route104_EventScript_MayEncounter::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	applymovement LOCALID_PLAYER, Route104_Movement_PlayerFaceRival
 	applymovement LOCALID_ROUTE104_RIVAL, Route104_Movement_RivalWalkSlowLeft
 	msgbox Route104_Text_MayHowsYourPokedex, MSGBOX_DEFAULT
@@ -160,26 +160,26 @@ Route104_EventScript_RestoreMusic::
 
 Route104_EventScript_BattleMayTreecko::
 	trainerbattle_no_intro TRAINER_UNUSED_768_, Route104_Text_MayDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_MayDefeated
 	end
 
 Route104_EventScript_BattleMayTorchic::
 	trainerbattle_no_intro TRAINER_UNUSED_769_, Route104_Text_MayDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_MayDefeated
 	end
 
 Route104_EventScript_BattleMayMudkip::
 	trainerbattle_no_intro TRAINER_UNUSED_600_, Route104_Text_MayDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_MayDefeated
 	end
 
 Route104_EventScript_BrendanEncounter::
-	goto_if_set FLAG_DEFEATED_RIVAL_ROUTE_104, Route104_EventScript_BrendanDefeated
-	goto_if_set FLAG_REGISTER_RIVAL_POKENAV, Route104_EventScript_BrendanAskToBattle
-	setflag FLAG_REGISTER_RIVAL_POKENAV
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_BrendanDefeated
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_BrendanAskToBattle
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox Route104_Text_BrendanWeShouldRegister, MSGBOX_DEFAULT
 	closemessage
 	delay 30
@@ -188,7 +188,7 @@ Route104_EventScript_BrendanEncounter::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_RIVAL_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	applymovement LOCALID_PLAYER, Route104_Movement_PlayerFaceRival
 	applymovement LOCALID_ROUTE104_RIVAL, Route104_Movement_RivalWalkSlowLeft
 	msgbox Route104_Text_BrendanHowsYourPokedex, MSGBOX_DEFAULT
@@ -227,19 +227,19 @@ Route104_EventScript_BrendanDefeated::
 
 Route104_EventScript_BattleBrendanTreecko::
 	trainerbattle_no_intro TRAINER_UNUSED_592_, Route104_Text_BrendanDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_BrendanDefeated
 	end
 
 Route104_EventScript_BattleBrendanTorchic::
 	trainerbattle_no_intro TRAINER_UNUSED_599_, Route104_Text_BrendanDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_BrendanDefeated
 	end
 
 Route104_EventScript_BattleBrendanMudkip::
 	trainerbattle_no_intro TRAINER_UNUSED_593_, Route104_Text_BrendanDefeat
-	setflag FLAG_DEFEATED_RIVAL_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	goto Route104_EventScript_BrendanDefeated
 	end
 
@@ -256,11 +256,11 @@ Route104_Movement_RivalExitBrineysCottage:
 Route104_EventScript_ExpertF::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104, Route104_EventScript_ReceivedBerry
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_ReceivedBerry
 	msgbox Route104_Text_PlantBerriesInSoilTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_CHESTO_BERRY
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox Route104_Text_TrainersOftenMakeMonHoldBerries, MSGBOX_DEFAULT
 	release
 	end
@@ -273,11 +273,11 @@ Route104_EventScript_ReceivedBerry::
 Route104_EventScript_WhiteHerbFlorist::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_WHITE_HERB, Route104_EventScript_ReceivedWhiteHerb
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_ReceivedWhiteHerb
 	msgbox Route104_Text_DontNeedThisTakeIt, MSGBOX_DEFAULT
 	giveitem ITEM_WHITE_HERB
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_WHITE_HERB
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -325,11 +325,11 @@ Route104_EventScript_Woman::
 Route104_EventScript_Boy2::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_BULLET_SEED, Route104_EventScript_ReceivedBulletSeed
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_ReceivedBulletSeed
 	msgbox Route104_Text_LikeFillingMouthWithSeedsTakeThis, MSGBOX_DEFAULT
 	giveitem ITEM_TM_BULLET_SEED
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_BULLET_SEED
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -405,8 +405,8 @@ Route104_EventScript_ArriveInDewford::
 	resetobjectsubpriority LOCALID_DEWFORD_BRINEY, MAP_DEWFORD_TOWN
 	copyobjectxytoperm LOCALID_DEWFORD_BRINEY
 	setvar VAR_BOARD_BRINEY_BOAT_STATE, 0
-	goto_if_unset FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_DeliverLetterReminder
-	goto_if_set FLAG_DELIVERED_STEVEN_LETTER, Route104_EventScript_LandedInDewford
+	goto_if_unset FLAG_OLD_WORLD_FLAG, Route104_EventScript_DeliverLetterReminder
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_LandedInDewford
 	end
 
 Route104_EventScript_DeliverLetterReminder::

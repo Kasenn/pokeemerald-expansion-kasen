@@ -52,7 +52,7 @@ MirageTower_4F_EventScript_CollapseMirageTower::
 	waitstate
 	special DoMirageTowerCeilingCrumble
 	setvar VAR_MIRAGE_TOWER_STATE, 1
-	clearflag FLAG_LANDMARK_MIRAGE_TOWER
+	clearflag FLAG_OLD_WORLD_FLAG
 	warp MAP_ROUTE111, 19, 59
 	waitstate
 	release

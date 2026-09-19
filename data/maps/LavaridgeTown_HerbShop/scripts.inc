@@ -26,11 +26,11 @@ LavaridgeTown_HerbShop_EventScript_ExpertM::
 LavaridgeTown_HerbShop_EventScript_OldMan::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_CHARCOAL, LavaridgeTown_HerbShop_EventScript_ExplainCharcoal
+	goto_if_set FLAG_OLD_WORLD_FLAG, LavaridgeTown_HerbShop_EventScript_ExplainCharcoal
 	msgbox LavaridgeTown_HerbShop_Text_YouveComeToLookAtHerbalMedicine, MSGBOX_DEFAULT
 	giveitem ITEM_CHARCOAL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_CHARCOAL
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

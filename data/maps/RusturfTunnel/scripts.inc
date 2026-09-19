@@ -332,8 +332,8 @@ RusturfTunnel_EventScript_Grunt::
 	waitmovement 0
 	removeobject 0
 	removeobject LOCALID_RUSTURF_TUNNEL_PEEKO
-	clearflag FLAG_DEVON_GOODS_STOLEN
-	setflag FLAG_RECOVERED_DEVON_GOODS
+	clearflag FLAG_OLD_WORLD_FLAG
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_TEMP_0, 4
 	setvar VAR_BRINEY_HOUSE_STATE, 1
 	setflag FLAG_HIDE_ROUTE_116_MR_BRINEY

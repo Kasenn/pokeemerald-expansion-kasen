@@ -331,6 +331,8 @@ u8 *GetFlagPointer(u16 id)
 
 u8 FlagSet(u16 id)
 {
+    if (id == FLAG_OLD_WORLD_FLAG)
+        return 0;
     u8 *ptr = GetFlagPointer(id);
     if (ptr)
         *ptr |= 1 << (id & 7);

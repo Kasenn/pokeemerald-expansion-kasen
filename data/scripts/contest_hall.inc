@@ -1045,7 +1045,7 @@ ContestHall_EventScript_DontSkipPrize::
 
 @ This flag is never read
 ContestHall_EventScript_SetSketchFlag::
-	setflag FLAG_CONTEST_SKETCH_CREATED
+	setflag FLAG_OLD_WORLD_FLAG
 	return
 
 ContestHall_EventScript_SetReadyForContestArtist::

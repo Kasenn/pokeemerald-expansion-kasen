@@ -131,7 +131,7 @@ SecretBase_EventScript_InitSecretBase::
 	closemessage
 	playse SE_EXIT
 	setvar VAR_INIT_SECRET_BASE, 0
-	setflag FLAG_HIDE_SECRET_BASE_TRAINER
+	setflag FLAG_OLD_WORLD_FLAG
 	@special EnterSecretBase
 	setvar VAR_0x8004, 0
 	setvar VAR_0x8005, 0
@@ -153,7 +153,7 @@ SecretBase_EventScript_FirstEntrance::
 
 SecretBase_EventScript_SetAsBase::
 	closemessage
-	setflag FLAG_RECEIVED_SECRET_POWER
+	setflag FLAG_OLD_WORLD_FLAG
 	waitstate
 	end
 
@@ -167,14 +167,14 @@ SecretBase_EventScript_Enter::
 	setvar VAR_INIT_SECRET_BASE, 1
 	playse SE_EXIT
 	goto_if_eq VAR_RESULT, FALSE, SecretBase_EventScript_EnterPlayersBase
-	clearflag FLAG_HIDE_SECRET_BASE_TRAINER
+	clearflag FLAG_OLD_WORLD_FLAG
 	@special EnterSecretBase
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	waitstate
 	end
 
 SecretBase_EventScript_EnterPlayersBase::
-	setflag FLAG_HIDE_SECRET_BASE_TRAINER
+	setflag FLAG_OLD_WORLD_FLAG
 	@special EnterSecretBase
 	setvar VAR_SECRET_BASE_INITIALIZED, 0
 	waitstate

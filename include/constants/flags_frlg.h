@@ -1516,89 +1516,89 @@
 #define FLAG_DECLINED_BIKE                   0
 #define FLAG_RECEIVED_BIKE                   0
 #define FLAG_WATTSON_REMATCH_AVAILABLE       0
-#define FLAG_COLLECTED_ALL_SILVER_SYMBOLS    0
+#define FLAG_OLD_WORLD_FLAG    0
 #define FLAG_GOOD_LUCK_SAFARI_ZONE           0 // Set after talking to NPC blocking Safari Zone entrance/exit once.
 #define FLAG_RECEIVED_WAILMER_PAIL           0
 #define FLAG_RECEIVED_POKEBLOCK_CASE         0
-#define FLAG_RECEIVED_SECRET_POWER           0
+#define FLAG_OLD_WORLD_FLAG           0
 #define FLAG_MET_TEAM_AQUA_HARBOR            0
-#define FLAG_TV_EXPLAINED                    0
-#define FLAG_MAUVILLE_GYM_BARRIERS_STATE     0
-#define FLAG_MOSSDEEP_GYM_SWITCH_1           0 // Leftover from the RS version of Mossdeep Gym, functionally unused
-#define FLAG_MOSSDEEP_GYM_SWITCH_2           0 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_3           0 //
-#define FLAG_MOSSDEEP_GYM_SWITCH_4           0 //
+#define FLAG_OLD_WORLD_FLAG                    0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG           0 // Leftover from the RS version of Mossdeep Gym, functionally unused
+#define FLAG_OLD_WORLD_FLAG           0 //
+#define FLAG_OLD_WORLD_FLAG           0 //
+#define FLAG_OLD_WORLD_FLAG           0 //
 
 #define FLAG_OCEANIC_MUSEUM_MET_REPORTER     0
 #define FLAG_RECEIVED_HM_STRENGTH            0
 #define FLAG_RECEIVED_HM_ROCK_SMASH          0
-#define FLAG_WHITEOUT_TO_LAVARIDGE           0 // Set after defeating Flannery, so the player can't white out from poison before receiving Go Goggles
-#define FLAG_RECEIVED_HM_FLASH               0
+#define FLAG_OLD_WORLD_FLAG           0 // Set after defeating Flannery, so the player can't white out from poison before receiving Go Goggles
+#define FLAG_OLD_WORLD_FLAG               0
 #define FLAG_RECEIVED_FLIGHT_FLUTE                 0
-#define FLAG_GROUDON_AWAKENED_MAGMA_HIDEOUT  0
-#define FLAG_TEAM_AQUA_ESCAPED_IN_SUBMARINE  0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG  0
 #define FLAG_UNUSED_RS_LEGENDARY_BATTLE_DONE 0 // Unused Flag. Used in R/S to indicate whether player defeated or caught Groudon/Kyogre in Cave of Origin.
-#define FLAG_SCOTT_CALL_BATTLE_FRONTIER      0 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
-#define FLAG_RECEIVED_METEORITE              0
+#define FLAG_OLD_WORLD_FLAG      0 // Used in order to activate a phone call from Scott, inviting the player to the SS Tidal.
+#define FLAG_OLD_WORLD_FLAG              0
 #define FLAG_ADVENTURE_STARTED               0 // RECEIVED Pokédex.
-#define FLAG_DEFEATED_MAGMA_SPACE_CENTER     0 // Set when Team Magma is defeated at Mossdeep's Space Center.
-#define FLAG_MET_HIDDEN_POWER_GIVER          0
+#define FLAG_OLD_WORLD_FLAG     0 // Set when Team Magma is defeated at Mossdeep's Space Center.
+#define FLAG_OLD_WORLD_FLAG          0
 
 #define FLAG_CANCEL_BATTLE_ROOM_CHALLENGE    0
 
-#define FLAG_LANDMARK_MIRAGE_TOWER           0
-#define FLAG_RECEIVED_TM_BRICK_BREAK         0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG         0
 #define FLAG_RECEIVED_HM_SURF                0
-#define FLAG_RECEIVED_HM_DIVE                0
-#define FLAG_REGISTER_RIVAL_POKENAV          0
-#define FLAG_DEFEATED_RIVAL_ROUTE_104        0
-#define FLAG_DEFEATED_WALLY_VICTORY_ROAD     0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG          0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG     0
 #define FLAG_MET_PRETTY_PETAL_SHOP_OWNER     0
-#define FLAG_ENABLE_ROXANNE_FIRST_CALL       0 // Set after defeating Brawly. This will activate a call with Roxanne in order to register her.
-#define FLAG_KYOGRE_ESCAPED_SEAFLOOR_CAVERN  0
-#define FLAG_DEFEATED_RIVAL_ROUTE103         0
+#define FLAG_OLD_WORLD_FLAG       0 // Set after defeating Brawly. This will activate a call with Roxanne in order to register her.
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_DEFEATED_RIVAL_PRIMROSE_MEADOW         0
 #define FLAG_RECEIVED_DOLL_LANETTE           0
-#define FLAG_RECEIVED_POTION_OLDALE          0
-#define FLAG_RECEIVED_AMULET_COIN            0
-#define FLAG_THANKED_FOR_PLAYING_WITH_WALLY  0
-#define FLAG_ENABLE_FIRST_WALLY_POKENAV_CALL 0 // Set after defeating Wally outside Mauville Gym. Will activate a call later to register Wally.
+#define FLAG_OLD_WORLD_FLAG          0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG 0 // Set after defeating Wally outside Mauville Gym. Will activate a call later to register Wally.
 #define FLAG_RECEIVED_HM_CUT                 0
-#define FLAG_SCOTT_CALL_FORTREE_GYM          0 // Triggers call from Scott after defeating Winona
-#define FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY   0
-#define FLAG_RECEIVED_6_SODA_POP             0
-#define FLAG_DEFEATED_SEASHORE_HOUSE         0
-#define FLAG_DEVON_GOODS_STOLEN              0
-#define FLAG_RECOVERED_DEVON_GOODS           0
-#define FLAG_RETURNED_DEVON_GOODS            0
-#define FLAG_CAUGHT_LUGIA                    0
-#define FLAG_CAUGHT_HO_OH                    0
-#define FLAG_MR_BRINEY_SAILING_INTRO         0
+#define FLAG_OLD_WORLD_FLAG          0 // Triggers call from Scott after defeating Winona
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG                    0
+#define FLAG_OLD_WORLD_FLAG                    0
+#define FLAG_OLD_WORLD_FLAG         0
 #define FLAG_DOCK_REJECTED_DEVON_GOODS       0
-#define FLAG_DELIVERED_DEVON_GOODS           0
+#define FLAG_OLD_WORLD_FLAG           0
 #define FLAG_RECEIVED_CONTEST_PASS           0 // Unused, leftover from R/S
-#define FLAG_RECEIVED_CASTFORM               0
-#define FLAG_RECEIVED_SUPER_ROD              0
-#define FLAG_RUSTBORO_NPC_TRADE_COMPLETED    0
-#define FLAG_PACIFIDLOG_NPC_TRADE_COMPLETED  0
-#define FLAG_FORTREE_NPC_TRADE_COMPLETED     0
-#define FLAG_BATTLE_FRONTIER_TRADE_DONE      0
-#define FLAG_FORCE_MIRAGE_TOWER_VISIBLE      0
-#define FLAG_SOOTOPOLIS_ARCHIE_MAXIE_LEAVE   0
-#define FLAG_INTERACTED_WITH_DEVON_EMPLOYEE_GOODS_STOLEN 0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG      0
+#define FLAG_OLD_WORLD_FLAG      0
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG 0
 #define FLAG_COOL_PAINTING_MADE              0
 #define FLAG_BEAUTY_PAINTING_MADE            0
 #define FLAG_CUTE_PAINTING_MADE              0
 #define FLAG_SMART_PAINTING_MADE             0
 #define FLAG_TOUGH_PAINTING_MADE             0
-#define FLAG_RECEIVED_TM_ROCK_TOMB           0
-#define FLAG_RECEIVED_TM_BULK_UP             0
-#define FLAG_RECEIVED_TM_SHOCK_WAVE          0
-#define FLAG_RECEIVED_TM_OVERHEAT            0
-#define FLAG_RECEIVED_TM_FACADE              0
-#define FLAG_RECEIVED_TM_AERIAL_ACE          0
-#define FLAG_RECEIVED_TM_CALM_MIND           0
-#define FLAG_RECEIVED_TM_WATER_PULSE         0
-#define FLAG_HIDE_SECRET_BASE_TRAINER        0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG          0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG          0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG        0
 #define FLAG_DECORATION_1                    0
 #define FLAG_DECORATION_2                    0
 #define FLAG_DECORATION_3                    0
@@ -1613,103 +1613,103 @@
 #define FLAG_DECORATION_12                   0
 #define FLAG_DECORATION_13                   0
 #define FLAG_DECORATION_14                   0
-#define FLAG_RECEIVED_POKENAV                0
-#define FLAG_DELIVERED_STEVEN_LETTER         0
-#define FLAG_DEFEATED_WALLY_MAUVILLE         0
-#define FLAG_DEFEATED_GRUNT_SPACE_CENTER_1F  0
-#define FLAG_RECEIVED_SUN_STONE_MOSSDEEP     0
-#define FLAG_WALLY_SPEECH                    0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG                    0
 #define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_1   0 // Leftover from the RS version of Puzzle Room 7, functionally unused
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_2   0 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_3   0 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_4   0 //
-#define FLAG_TRICK_HOUSE_PUZZLE_7_SWITCH_5   0 //
-#define FLAG_RUSTURF_TUNNEL_OPENED           0
+#define FLAG_OLD_WORLD_FLAG   0 //
+#define FLAG_OLD_WORLD_FLAG   0 //
+#define FLAG_OLD_WORLD_FLAG   0 //
+#define FLAG_OLD_WORLD_FLAG   0 //
+#define FLAG_OLD_WORLD_FLAG           0
 #define FLAG_RECEIVED_RED_SCARF              0
 #define FLAG_RECEIVED_BLUE_SCARF             0
 #define FLAG_RECEIVED_PINK_SCARF             0
 #define FLAG_RECEIVED_GREEN_SCARF            0
 #define FLAG_RECEIVED_YELLOW_SCARF           0
-#define FLAG_INTERACTED_WITH_STEVEN_SPACE_CENTER    0
-#define FLAG_ENCOUNTERED_LATIAS_OR_LATIOS    0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG    0
 #define FLAG_MET_ARCHIE_METEOR_FALLS         0
-#define FLAG_GOT_BASEMENT_KEY_FROM_WATTSON   0
-#define FLAG_GOT_TM_THUNDERBOLT_FROM_WATTSON 0
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG 0
 #define FLAG_FAN_CLUB_STRENGTH_SHARED        0 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
-#define FLAG_DEFEATED_RIVAL_RUSTBORO         0
-#define FLAG_RECEIVED_RED_OR_BLUE_ORB        0
-#define FLAG_RECEIVED_PREMIER_BALL_RUSTBORO  0
-#define FLAG_ENABLE_WALLY_MATCH_CALL         0
-#define FLAG_ENABLE_SCOTT_MATCH_CALL         0
-#define FLAG_ENABLE_MOM_MATCH_CALL           0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG           0
 #define FLAG_MET_DIVING_TREASURE_HUNTER      0
-#define FLAG_MET_WAILMER_TRAINER             0
-#define FLAG_EVIL_LEADER_PLEASE_STOP         0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG         0
 
-#define FLAG_NEVER_SET_0x0DC                 0 // This flag is read, but never written to
+#define FLAG_OLD_WORLD_FLAG                 0 // This flag is read, but never written to
 
-#define FLAG_RECEIVED_GO_GOGGLES             0
+#define FLAG_OLD_WORLD_FLAG             0
 #define FLAG_WINGULL_SENT_ON_ERRAND          0
 #define FLAG_RECEIVED_MENTAL_HERB            0
 #define FLAG_WINGULL_DELIVERED_MAIL          0
 #define FLAG_RECEIVED_20_COINS               0
 #define FLAG_RECEIVED_STARTER_DOLL           0
 #define FLAG_RECEIVED_GOOD_ROD               0
-#define FLAG_REGI_DOORS_OPENED               0
-#define FLAG_RECEIVED_TM_RETURN              0
-#define FLAG_RECEIVED_TM_SLUDGE_BOMB         0
-#define FLAG_RECEIVED_TM_ROAR                0
-#define FLAG_RECEIVED_TM_GIGA_DRAIN          0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG          0
 
-#define FLAG_RECEIVED_TM_REST                0
-#define FLAG_RECEIVED_TM_ATTRACT             0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG             0
 #define FLAG_RECEIVED_GLASS_ORNAMENT         0
 #define FLAG_RECEIVED_SILVER_SHIELD          0
 #define FLAG_RECEIVED_GOLD_SHIELD            0
 #define FLAG_USED_STORAGE_KEY                0
-#define FLAG_USED_ROOM_1_KEY                 0
-#define FLAG_USED_ROOM_2_KEY                 0
-#define FLAG_USED_ROOM_4_KEY                 0
-#define FLAG_USED_ROOM_6_KEY                 0
-#define FLAG_MET_PROF_COZMO                  0
-#define FLAG_RECEIVED_WAILMER_DOLL           0
-#define FLAG_RECEIVED_CHESTO_BERRY_ROUTE_104 0
-#define FLAG_DEFEATED_SS_TIDAL_TRAINERS      0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                  0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG      0
 #define FLAG_RECEIVED_SPELON_BERRY           0
 #define FLAG_RECEIVED_PAMTRE_BERRY           0
 #define FLAG_RECEIVED_WATMEL_BERRY           0
 #define FLAG_RECEIVED_DURIN_BERRY            0
 #define FLAG_RECEIVED_BELUE_BERRY            0
-#define FLAG_ENABLE_RIVAL_MATCH_CALL         0
-#define FLAG_RECEIVED_CHARCOAL               0
-#define FLAG_LATIOS_OR_LATIAS_ROAMING        0
-#define FLAG_RECEIVED_REPEAT_BALL            0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG            0
 #define FLAG_RECEIVED_OLD_ROD                0
-#define FLAG_RECEIVED_COIN_CASE              0
-#define FLAG_RETURNED_RED_OR_BLUE_ORB        0
-#define FLAG_RECEIVED_TM_SNATCH              0
-#define FLAG_RECEIVED_TM_DIG                 0
-#define FLAG_RECEIVED_TM_BULLET_SEED         0
-#define FLAG_ENTERED_ELITE_FOUR              0
-#define FLAG_RECEIVED_TM_HIDDEN_POWER        0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG        0
 #define FLAG_RECEIVED_TM_TORMENT             0
 #define FLAG_RECEIVED_LAVARIDGE_EGG          0
 #define FLAG_RECEIVED_REVIVED_FOSSIL_MON     0
-#define FLAG_SECRET_BASE_REGISTRY_ENABLED    0
-#define FLAG_RECEIVED_TM_THIEF               0
-#define FLAG_CONTEST_SKETCH_CREATED          0  // Set but never read
-#define FLAG_EVIL_TEAM_ESCAPED_STERN_SPOKE   0
-#define FLAG_RECEIVED_EXP_SHARE              0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG          0  // Set but never read
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG              0
 #define FLAG_POKERUS_EXPLAINED               0
 #define FLAG_RECEIVED_RUNNING_SHOES          0
-#define FLAG_RECEIVED_QUICK_CLAW             0
-#define FLAG_RECEIVED_KINGS_ROCK             0
-#define FLAG_RECEIVED_MACHO_BRACE            0
-#define FLAG_RECEIVED_SOOTHE_BELL            0
-#define FLAG_RECEIVED_WHITE_HERB             0
-#define FLAG_RECEIVED_SOFT_SAND              0
-#define FLAG_ENABLE_PROF_BIRCH_MATCH_CALL    0
-#define FLAG_RECEIVED_CLEANSE_TAG            0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG             0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG            0
 #define FLAG_RECEIVED_FOCUS_BAND             0
 #define FLAG_DECLINED_WALLY_BATTLE_MAUVILLE  0
 #define FLAG_RECEIVED_DEVON_SCOPE            0

@@ -4,8 +4,8 @@ FortreeCity_House2_MapScripts::
 FortreeCity_House2_EventScript_HiddenPowerGiver::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_TM_HIDDEN_POWER, FortreeCity_House2_EventScript_ExplainHiddenPower
-	call_if_unset FLAG_MET_HIDDEN_POWER_GIVER, FortreeCity_House2_EventScript_Greeting
+	goto_if_set FLAG_OLD_WORLD_FLAG, FortreeCity_House2_EventScript_ExplainHiddenPower
+	call_if_unset FLAG_OLD_WORLD_FLAG, FortreeCity_House2_EventScript_Greeting
 	msgbox FortreeCity_House2_Text_CoinInWhichHand, MSGBOX_DEFAULT
 	multichoice 21, 8, MULTI_RIGHTLEFT, TRUE
 	switch VAR_RESULT
@@ -21,14 +21,14 @@ FortreeCity_House2_EventScript_HiddenPowerGiver::
 	msgbox FortreeCity_House2_Text_YourHiddenPowerHasAwoken, MSGBOX_DEFAULT
 	giveitem ITEM_TM_HIDDEN_POWER
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_TM_HIDDEN_POWER
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox FortreeCity_House2_Text_ExplainHiddenPower, MSGBOX_DEFAULT
 	release
 	end
 
 FortreeCity_House2_EventScript_Greeting::
 	msgbox FortreeCity_House2_Text_HiddenPowersArousedByNature, MSGBOX_DEFAULT
-	setflag FLAG_MET_HIDDEN_POWER_GIVER
+	setflag FLAG_OLD_WORLD_FLAG
 	return
 
 FortreeCity_House2_EventScript_ExplainHiddenPower::

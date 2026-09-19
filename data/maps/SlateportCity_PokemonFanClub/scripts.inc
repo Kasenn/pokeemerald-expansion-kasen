@@ -189,7 +189,7 @@ SlateportCity_PokemonFanClub_EventScript_MeetChairman::
 SlateportCity_PokemonFanClub_EventScript_SootheBellWoman::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_SOOTHE_BELL, SlateportCity_PokemonFanClub_EventScript_ReceivedSootheBell
+	goto_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_PokemonFanClub_EventScript_ReceivedSootheBell
 	msgbox SlateportCity_PokemonFanClub_Text_ShowMePokemonThatLoveYou, MSGBOX_DEFAULT
 	specialvar VAR_RESULT, GetLeadMonFriendshipScore
 	goto_if_ge VAR_RESULT, FRIENDSHIP_150_TO_199, SlateportCity_PokemonFanClub_EventScript_GiveSootheBell
@@ -205,7 +205,7 @@ SlateportCity_PokemonFanClub_EventScript_GiveSootheBell::
 	msgbox SlateportCity_PokemonFanClub_Text_PokemonAdoresYou, MSGBOX_DEFAULT
 	giveitem ITEM_SOOTHE_BELL
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_SOOTHE_BELL
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

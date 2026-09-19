@@ -5,7 +5,7 @@ OldaleTown_MapScripts::
 OldaleTown_OnTransition:
 	call SetupRivalGfxId
 	setflag FLAG_VISITED_PRIMROSE_TOWN
-	call_if_unset FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_MoveMartEmployee
+	call_if_unset FLAG_OLD_WORLD_FLAG, OldaleTown_EventScript_MoveMartEmployee
 	end
 
 @ This script seems pointless because nothing uses VAR_OLDALE_TOWN_STATE
@@ -33,7 +33,7 @@ OldaleTown_EventScript_Girl::
 OldaleTown_EventScript_MartEmployee::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_POTION_OLDALE, OldaleTown_EventScript_ExplainPotion
+	goto_if_set FLAG_OLD_WORLD_FLAG, OldaleTown_EventScript_ExplainPotion
 	goto_if_set FLAG_TEMP_1, OldaleTown_EventScript_ExplainPotion
 	setflag FLAG_TEMP_1
 	playbgm MUS_FOLLOW_ME, FALSE
@@ -71,7 +71,7 @@ OldaleTown_EventScript_ExplainPokemonMart::
 	giveitem ITEM_POTION
 	goto_if_eq VAR_RESULT, FALSE, OldaleTown_EventScript_BagIsFull
 	msgbox OldaleTown_Text_PotionExplanation, MSGBOX_DEFAULT
-	setflag FLAG_RECEIVED_POTION_OLDALE
+	setflag FLAG_OLD_WORLD_FLAG
 	fadedefaultbgm
 	release
 	end

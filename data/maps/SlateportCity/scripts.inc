@@ -72,7 +72,7 @@ SlateportCity_EventScript_ScottScene::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_SCOTT_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox SlateportCity_Text_KeepEyeOnTrainersBeSeeingYou, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_SLATEPORT_SCOTT, SlateportCity_Movement_ScottExit
@@ -497,7 +497,7 @@ SlateportCity_EventScript_ComeBackWithSecretPower::
 SlateportCity_EventScript_DecorClerk::
 	lock
 	faceplayer
-	goto_if_unset FLAG_RECEIVED_SECRET_POWER, SlateportCity_EventScript_ComeBackWithSecretPower
+	goto_if_unset FLAG_OLD_WORLD_FLAG, SlateportCity_EventScript_ComeBackWithSecretPower
 	message gText_HowMayIServeYou
 	waitmessage
 	pokemartdecoration SlateportCity_PokemartDecor

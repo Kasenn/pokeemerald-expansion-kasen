@@ -5,13 +5,13 @@ FallarborTown_MapScripts::
 FallarborTown_OnTransition:
 	setflag FLAG_VISITED_FALLARBOR_TOWN
 	setvar VAR_CONTEST_HALL_STATE, 0
-	clearflag FLAG_CONTEST_SKETCH_CREATED
+	clearflag FLAG_OLD_WORLD_FLAG
 	end
 
 FallarborTown_EventScript_ExpertM::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_EVIL_TEAM_MT_CHIMNEY, FallarborTown_EventScript_ExpertMNormal
+	goto_if_set FLAG_OLD_WORLD_FLAG, FallarborTown_EventScript_ExpertMNormal
 	msgbox FallarborTown_Text_ShadyCharactersCozmosHome, MSGBOX_DEFAULT
 	release
 	end

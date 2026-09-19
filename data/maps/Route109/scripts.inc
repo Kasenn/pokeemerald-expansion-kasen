@@ -275,7 +275,7 @@ Route109_Movement_BrineyExitBoat:
 Route109_EventScript_MrBriney::
 	lock
 	faceplayer
-	goto_if_unset FLAG_DELIVERED_DEVON_GOODS, Route109_EventScript_HaveNotDeliveredDevonGood
+	goto_if_unset FLAG_OLD_WORLD_FLAG, Route109_EventScript_HaveNotDeliveredDevonGood
 	goto Route109_EventScript_DeliveredDevonGoods
 	end
 
@@ -330,14 +330,14 @@ Route109_EventScript_SoftSandGirl::
 	lock
 	faceplayer
 	special GetPlayerBigGuyGirlString
-	goto_if_set FLAG_RECEIVED_SOFT_SAND, Route109_EventScript_AlreadyReceivedSoftSand
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route109_EventScript_AlreadyReceivedSoftSand
 	msgbox Route109_Text_YouCanHaveThis, MSGBOX_DEFAULT
 	giveitem ITEM_SOFT_SAND
 	goto_if_eq VAR_RESULT, 0, Common_EventScript_ShowBagIsFull
 	closemessage
 	applymovement VAR_LAST_TALKED, Common_Movement_FaceOriginalDirection
 	waitmovement 0
-	setflag FLAG_RECEIVED_SOFT_SAND
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

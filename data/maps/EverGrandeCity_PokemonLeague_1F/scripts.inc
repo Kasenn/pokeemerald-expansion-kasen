@@ -6,7 +6,7 @@ EverGrandeCity_PokemonLeague_1F_MapScripts::
 EverGrandeCity_PokemonLeague_1F_OnTransition:
 	setrespawn HEAL_LOCATION_EVER_GRANDE_CITY_POKEMON_LEAGUE
 	setflag FLAG_LANDMARK_POKEMON_LEAGUE
-	call_if_unset FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
+	call_if_unset FLAG_OLD_WORLD_FLAG, EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor
 	end
 
 EverGrandeCity_PokemonLeague_1F_EventScript_GuardsBlockDoor::
@@ -39,7 +39,7 @@ EverGrandeCity_PokemonLeague_1F_Pokemart:
 @ Its assumed the player has the remaining badges
 EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	lockall
-	goto_if_set FLAG_ENTERED_ELITE_FOUR, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
+	goto_if_set FLAG_OLD_WORLD_FLAG, EverGrandeCity_PokemonLeague_1F_EventScript_GoForth
 	getplayerxy VAR_TEMP_0, VAR_TEMP_1
 	call_if_ge VAR_TEMP_0, 11, EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromRight
 	call_if_le VAR_TEMP_0, 8, EverGrandeCity_PokemonLeague_1F_EventScript_PlayerMoveToFrontFromLeft
@@ -59,7 +59,7 @@ EverGrandeCity_PokemonLeague_1F_EventScript_DoorGuard::
 	closemessage
 	copyobjectxytoperm LOCALID_LEAGUE_GUARD_1
 	copyobjectxytoperm LOCALID_LEAGUE_GUARD_2
-	setflag FLAG_ENTERED_ELITE_FOUR
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

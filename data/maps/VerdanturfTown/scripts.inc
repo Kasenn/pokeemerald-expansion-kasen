@@ -10,7 +10,7 @@ VerdanturfTown_OnTransition:
 VerdanturfTown_EventScript_Twin::
 	lock
 	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_TwinTunnelOpen
+	goto_if_set FLAG_OLD_WORLD_FLAG, VerdanturfTown_EventScript_TwinTunnelOpen
 	msgbox VerdanturfTown_Text_ManTryingToDigTunnel, MSGBOX_DEFAULT
 	applymovement LOCALID_VERDANTURF_TWIN, Common_Movement_FaceOriginalDirection
 	waitmovement 0
@@ -35,7 +35,7 @@ VerdanturfTown_EventScript_Camper::
 VerdanturfTown_EventScript_Boy::
 	lock
 	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, VerdanturfTown_EventScript_BoyTunnelOpen
+	goto_if_set FLAG_OLD_WORLD_FLAG, VerdanturfTown_EventScript_BoyTunnelOpen
 	msgbox VerdanturfTown_Text_GuyTryingToBustThroughCave, MSGBOX_DEFAULT
 	release
 	end

@@ -17,7 +17,7 @@ Route116_TunnelersRestHouse_EventScript_Tunneler2::
 Route116_TunnelersRestHouse_EventScript_Tunneler3::
 	lock
 	faceplayer
-	goto_if_set FLAG_RUSTURF_TUNNEL_OPENED, Route116_TunnelersRestHouse_EventScript_TunnelOpened
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_TunnelersRestHouse_EventScript_TunnelOpened
 	msgbox Route116_TunnelersRestHouse_Text_GetToVerdanturfWithoutTunnel, MSGBOX_DEFAULT
 	release
 	end

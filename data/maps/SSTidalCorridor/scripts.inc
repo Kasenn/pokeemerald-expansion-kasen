@@ -121,7 +121,7 @@ SSTidalCorridor_EventScript_ExitSailor::
 SSTidalCorridor_EventScript_ExitLilycove::
 	setrespawn HEAL_LOCATION_LILYCOVE_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
+	call_if_set FLAG_OLD_WORLD_FLAG, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_LILYCOVE_CITY_HARBOR, 8, 11
 	waitstate
 	release
@@ -130,7 +130,7 @@ SSTidalCorridor_EventScript_ExitLilycove::
 SSTidalCorridor_EventScript_ExitSlateport::
 	setrespawn HEAL_LOCATION_SLATEPORT_CITY
 	msgbox SSTidalCorridor_Text_WeveArrived, MSGBOX_DEFAULT
-	call_if_set FLAG_RECEIVED_TM_SNATCH, SSTidalCorridor_EventScript_HideSnatchGiver
+	call_if_set FLAG_OLD_WORLD_FLAG, SSTidalCorridor_EventScript_HideSnatchGiver
 	warp MAP_SLATEPORT_CITY_HARBOR, 8, 11
 	waitstate
 	release
@@ -155,7 +155,7 @@ SSTidalCorridor_EventScript_LookThroughPorthole::
 SSTidalCorridor_EventScript_Sailor::
 	lock
 	faceplayer
-	goto_if_set FLAG_DEFEATED_SS_TIDAL_TRAINERS, SSTidalCorridor_EventScript_EnjoyYourCruise
+	goto_if_set FLAG_OLD_WORLD_FLAG, SSTidalCorridor_EventScript_EnjoyYourCruise
 	call SSTidalCorridor_EventScript_CheckIfTrainersDefeated
 	msgbox SSTidalCorridor_Text_VisitOtherCabins, MSGBOX_DEFAULT
 	release
@@ -175,7 +175,7 @@ SSTidalCorridor_EventScript_CheckIfTrainersDefeated::
 	goto_if_not_defeated TRAINER_LEA_AND_JED, SSTidalCorridor_EventScript_TrainerNotDefeated
 	goto_if_not_defeated TRAINER_R8_HIKER, SSTidalCorridor_EventScript_TrainerNotDefeated
 	goto_if_not_defeated TRAINER_R5_BUGCATCHER, SSTidalCorridor_EventScript_TrainerNotDefeated
-	setflag FLAG_DEFEATED_SS_TIDAL_TRAINERS
+	setflag FLAG_OLD_WORLD_FLAG
 	goto SSTidalCorridor_EventScript_EnjoyYourCruise
 	return
 
