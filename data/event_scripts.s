@@ -1765,686 +1765,348 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/text/birch_speech.inc"
 
 	.include "data/maps/NewBirchLab/scripts.inc"
-
 	.include "data/maps/NewRoute101/scripts.inc"
-
 	.include "data/maps/Town1House1/scripts.inc"
-
 	.include "data/maps/Lab2/scripts.inc"
-
 	.include "data/maps/PearlwoodPoint/scripts.inc"
-
 	.include "data/maps/PrimroseTown/scripts.inc"
-
 	.include "data/maps/Route2/scripts.inc"
-
 	.include "data/maps/WindyWoods/scripts.inc"
-
 	.include "data/maps/LostGlade/scripts.inc"
-
 	.include "data/maps/CoralgroveCity/scripts.inc"
-
 	.include "data/maps/CoralgroveElevator1/scripts.inc"
-
 	.include "data/maps/CoralgroveElevator2/scripts.inc"
-
 	.include "data/maps/CoralgroveHarbor/scripts.inc"
-
 	.include "data/maps/CoralgroveGym/scripts.inc"
-
 	.include "data/maps/Pearlwood_House1/scripts.inc"
-
 	.include "data/maps/Pearlwood_House2/scripts.inc"
-
 	.include "data/maps/Pearlwood_House3/scripts.inc"
-
 	.include "data/maps/PlayerHouse2F/scripts.inc"
-
 	.include "data/maps/PlayerHouse1F/scripts.inc"
-
 	.include "data/maps/PearlwoodHouse2_2F/scripts.inc"
-
 	.include "data/maps/Pearlwood_MaysHouse1F/scripts.inc"
-
 	.include "data/maps/Pearlwood_MaysHouse2F/scripts.inc"
-
 	.include "data/maps/PrimroseMeadow/scripts.inc"
-
 	.include "data/maps/CoralTradeHouse/scripts.inc"
-
 	.include "data/maps/SchoolHall/scripts.inc"
-
 	.include "data/maps/SchoolHall2F/scripts.inc"
-
 	.include "data/maps/Coralgrove_Shop/scripts.inc"
-
 	.include "data/maps/WW_Grotto/scripts.inc"
-
 	.include "data/maps/NewCoralgroveCity_Gym/scripts.inc"
-
 	.include "data/maps/CoastTown/scripts.inc"
-
 	.include "data/maps/Route3/scripts.inc"
-
 	.include "data/maps/Coast1/scripts.inc"
-
 	.include "data/maps/CoralgroveFriendshipRater/scripts.inc"
-
 	.include "data/maps/PokeRanch/scripts.inc"
-
 	.include "data/maps/CoralgroveHarvorInterior/scripts.inc"
-
 	.include "data/maps/CoralHarborHouse/scripts.inc"
-
 	.include "data/maps/CoralgroveElevatorInt/scripts.inc"
-
 	.include "data/maps/CoralgroveElevatorInt2/scripts.inc"
-
 	.include "data/maps/CoastTownHarbor/scripts.inc"
-
 	.include "data/maps/WindplumeRidge/scripts.inc"
-
 	.include "data/maps/WipCity1/scripts.inc"
-
 	.include "data/maps/Route28/scripts.inc"
-
 	.include "data/maps/Route5/scripts.inc"
-
 	.include "data/maps/Town_Wip2/scripts.inc"
-
 	.include "data/maps/Route6/scripts.inc"
-
 	.include "data/maps/Route7/scripts.inc"
-
 	.include "data/maps/ShoreslateCity/scripts.inc"
-
 	.include "data/maps/Desert/scripts.inc"
-
 	.include "data/maps/WipTown3/scripts.inc"
-
 	.include "data/maps/RanchBarn/scripts.inc"
-
 	.include "data/maps/RanchHouse/scripts.inc"
-
 	.include "data/maps/AzuretideHouse1/scripts.inc"
-
 	.include "data/maps/AzuretideHouse2/scripts.inc"
-
 	.include "data/maps/AldeleafSmallHouse1/scripts.inc"
-
 	.include "data/maps/AldeleafSmallHouse2/scripts.inc"
-
 	.include "data/maps/AldeleafSmallHouse3/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse1/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse2/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse3/scripts.inc"
-
 	.include "data/maps/AldeleafPokeCenter1F/scripts.inc"
-
 	.include "data/maps/AldeleafPokeCenter2F/scripts.inc"
-
 	.include "data/maps/AldeleafMart/scripts.inc"
-
 	.include "data/maps/AldeleafBPShop/scripts.inc"
-
 	.include "data/maps/AldeleafGym/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse1_2F/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse2_2F/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse3_2F/scripts.inc"
-
 	.include "data/maps/AldeleafBigHouse3_3F/scripts.inc"
-
 	.include "data/maps/TestRoom/scripts.inc"
-
 	.include "data/maps/Route28TunnelHouse/scripts.inc"
-
 	.include "data/maps/WeirdCave/scripts.inc"
-
 	.include "data/maps/WeirdCavePt2/scripts.inc"
-
 	.include "data/maps/SkylochHouse1/scripts.inc"
-
 	.include "data/maps/SkylochHouse2/scripts.inc"
-
 	.include "data/maps/SkylochHouse3/scripts.inc"
-
 	.include "data/maps/SkylochHouse4/scripts.inc"
-
 	.include "data/maps/Route7_Grotto/scripts.inc"
-
 	.include "data/maps/Shoreslate_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Shoreslate_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Shoreslate_Mart/scripts.inc"
-
 	.include "data/maps/Shoreslate_BP_Shop/scripts.inc"
-
 	.include "data/maps/Shoreslate_Harbor/scripts.inc"
-
 	.include "data/maps/Shoreslate_BikeShop/scripts.inc"
-
 	.include "data/maps/Shoreslate_House1/scripts.inc"
-
 	.include "data/maps/Shoreslate_House2/scripts.inc"
-
 	.include "data/maps/Shoreslate_House3_1F/scripts.inc"
-
 	.include "data/maps/Shoreslate_House3_2F/scripts.inc"
-
 	.include "data/maps/Shoreslate_House3_3F/scripts.inc"
-
 	.include "data/maps/DevonCorpBasement/scripts.inc"
-
 	.include "data/maps/Route8/scripts.inc"
-
 	.include "data/maps/UndergroundRuins/scripts.inc"
-
 	.include "data/maps/MarigorgeTown/scripts.inc"
-
 	.include "data/maps/Marigorge_Mart/scripts.inc"
-
 	.include "data/maps/Marigorge_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Marigorge_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Marigorge_SmallHouse1/scripts.inc"
-
 	.include "data/maps/Marigorge_SmallHouse2/scripts.inc"
-
 	.include "data/maps/UndergroundRuins_1F/scripts.inc"
-
 	.include "data/maps/UndergroundRuins_3F/scripts.inc"
-
 	.include "data/maps/UndergroundRuins_VolcaronaRoom/scripts.inc"
-
 	.include "data/maps/Route9/scripts.inc"
-
 	.include "data/maps/KaolisleCity/scripts.inc"
-
 	.include "data/maps/Kaolisle_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Mart/scripts.inc"
-
 	.include "data/maps/Kaolisle_BP_Shop/scripts.inc"
-
 	.include "data/maps/Kaolisle_Gym/scripts.inc"
-
 	.include "data/maps/Kaolisle_Mines/scripts.inc"
-
 	.include "data/maps/Kaolisle_Harbor/scripts.inc"
-
 	.include "data/maps/Kaolisle_House1/scripts.inc"
-
 	.include "data/maps/Kaolisle_House2/scripts.inc"
-
 	.include "data/maps/Kaolisle_House3/scripts.inc"
-
 	.include "data/maps/Kaolisle_House4/scripts.inc"
-
 	.include "data/maps/Kaolisle_FishingAssociation/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_1F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Mines_2F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Mines_3F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_3F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_5F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_3F_Rooms/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_5F_Rooms/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_Elevator/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_2F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_4F/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_2F_Rooms/scripts.inc"
-
 	.include "data/maps/Kaolisle_Hotel_4F_Rooms/scripts.inc"
-
 	.include "data/maps/Route10/scripts.inc"
-
 	.include "data/maps/RockliffeTown/scripts.inc"
-
 	.include "data/maps/Rockliffe_Harbor/scripts.inc"
-
 	.include "data/maps/Rockliffe_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Rockliffe_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Rockliffe_Mart/scripts.inc"
-
 	.include "data/maps/Rockliffe_House1/scripts.inc"
-
 	.include "data/maps/Rockliffe_House2/scripts.inc"
-
 	.include "data/maps/Rockliffe_House3/scripts.inc"
-
 	.include "data/maps/Route11/scripts.inc"
-
 	.include "data/maps/Route12/scripts.inc"
-
 	.include "data/maps/SandstoneCity/scripts.inc"
-
 	.include "data/maps/Route13/scripts.inc"
-
 	.include "data/maps/Route14/scripts.inc"
-
 	.include "data/maps/AdamantTowerExterior/scripts.inc"
-
 	.include "data/maps/Route11_Cave/scripts.inc"
-
 	.include "data/maps/FloodedCave1F/scripts.inc"
-
 	.include "data/maps/FloodedCave2F/scripts.inc"
-
 	.include "data/maps/FloodedCave3F/scripts.inc"
-
 	.include "data/maps/Route12_SideArea/scripts.inc"
-
 	.include "data/maps/Route12_StrengthHouse/scripts.inc"
-
 	.include "data/maps/Sandstone_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Sandstone_SmallHouse1/scripts.inc"
-
 	.include "data/maps/Sandstone_SmallHouse2/scripts.inc"
-
 	.include "data/maps/Sandstone_SmallHouse3/scripts.inc"
-
 	.include "data/maps/Sandstone_SmallHouse4/scripts.inc"
-
 	.include "data/maps/Sandstone_SmallHouse5/scripts.inc"
-
 	.include "data/maps/Sandstone_BP_Shop/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse1_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse1_2F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse2_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse2_2F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse2_3F/scripts.inc"
-
 	.include "data/maps/Sandstone_Gym_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_Gym_2F/scripts.inc"
-
 	.include "data/maps/UndergroundRuins_4F/scripts.inc"
-
 	.include "data/maps/Sandstone_Library_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_Library_2F/scripts.inc"
-
 	.include "data/maps/Route15/scripts.inc"
-
 	.include "data/maps/AzuretideMart/scripts.inc"
-
 	.include "data/maps/PlayerHouse2F_May/scripts.inc"
-
 	.include "data/maps/PlayerHouse1F_May/scripts.inc"
-
 	.include "data/maps/RivalHouse1F_Brendan/scripts.inc"
-
 	.include "data/maps/RivalHouse2F_Brendan/scripts.inc"
-
 	.include "data/maps/WindplumePeak/scripts.inc"
-
 	.include "data/maps/Route10_Cave1/scripts.inc"
-
 	.include "data/maps/Route10_Cave2/scripts.inc"
-
 	.include "data/maps/BerryFields/scripts.inc"
-
 	.include "data/maps/FishingVillage/scripts.inc"
-
 	.include "data/maps/Route23/scripts.inc"
-
 	.include "data/maps/DrisledgeTown/scripts.inc"
-
 	.include "data/maps/FishVIllageFIller/scripts.inc"
-
 	.include "data/maps/Route22/scripts.inc"
-
 	.include "data/maps/AmberockTown/scripts.inc"
-
 	.include "data/maps/Route14_Grotto/scripts.inc"
-
 	.include "data/maps/BerryFieldHouse/scripts.inc"
-
 	.include "data/maps/FishingVillage_House1/scripts.inc"
-
 	.include "data/maps/FishingVillage_House2/scripts.inc"
-
 	.include "data/maps/FishingVillage_House3/scripts.inc"
-
 	.include "data/maps/Drisledge_Pokecenter_1F/scripts.inc"
-
 	.include "data/maps/Drisledge_Pokecenter_2F/scripts.inc"
-
 	.include "data/maps/Drisledge_Mart/scripts.inc"
-
 	.include "data/maps/Drisledge_House1/scripts.inc"
-
 	.include "data/maps/Drisledge_House2/scripts.inc"
-
 	.include "data/maps/Drisledge_Gym/scripts.inc"
-
 	.include "data/maps/Route15_MoveReminder/scripts.inc"
-
 	.include "data/maps/Drisledge_Pokecenter_BackRoom/scripts.inc"
-
 	.include "data/maps/DrisledgeTown_Broken/scripts.inc"
-
 	.include "data/maps/Drisledge_Gym_House/scripts.inc"
-
 	.include "data/maps/Drisledge_Mart_Backroom/scripts.inc"
-
 	.include "data/maps/DrisledgeTown_Broken2/scripts.inc"
-
 	.include "data/maps/BasaluffTown/scripts.inc"
-
 	.include "data/maps/EverfrostTown/scripts.inc"
-
 	.include "data/maps/FrostfireCity/scripts.inc"
-
 	.include "data/maps/CrystalpineTwon/scripts.inc"
-
 	.include "data/maps/IceperchCity/scripts.inc"
-
 	.include "data/maps/SnowcrestCity/scripts.inc"
-
 	.include "data/maps/GalewindCity/scripts.inc"
-
 	.include "data/maps/Route15_Grotto/scripts.inc"
-
 	.include "data/maps/Route14_CaveEntrance/scripts.inc"
-
 	.include "data/maps/WindywoodsFix/scripts.inc"
-
 	.include "data/maps/PokemonWorldTournament/scripts.inc"
-
 	.include "data/maps/Route16/scripts.inc"
-
 	.include "data/maps/Route17/scripts.inc"
-
 	.include "data/maps/BarrenWastes/scripts.inc"
-
 	.include "data/maps/Route18/scripts.inc"
-
 	.include "data/maps/Route19/scripts.inc"
-
 	.include "data/maps/Route20/scripts.inc"
-
 	.include "data/maps/Route21/scripts.inc"
-
 	.include "data/maps/Route22_Part2/scripts.inc"
-
 	.include "data/maps/Route24/scripts.inc"
-
 	.include "data/maps/Route25/scripts.inc"
-
 	.include "data/maps/Route26/scripts.inc"
-
 	.include "data/maps/Route27/scripts.inc"
-
 	.include "data/maps/Route27_Part2/scripts.inc"
-
 	.include "data/maps/Route28_Part2/scripts.inc"
-
 	.include "data/maps/Route29/scripts.inc"
-
 	.include "data/maps/Route13Alternative/scripts.inc"
-
 	.include "data/maps/Route13_GateHouse/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse3_1F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse3_2F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse3_3F/scripts.inc"
-
 	.include "data/maps/Sandstone_LargeHouse3_4F/scripts.inc"
-
 	.include "data/maps/SandstoneCityAlt/scripts.inc"
-
 	.include "data/maps/FlowerFields/scripts.inc"
-
 	.include "data/maps/AmberockTest/scripts.inc"
-
 	.include "data/maps/SerpentCave/scripts.inc"
-
 	.include "data/maps/SerpentCave_0_Streams/scripts.inc"
-
 	.include "data/maps/SerpentCave_1_Streams/scripts.inc"
-
 	.include "data/maps/SerpentCave_2_Streams/scripts.inc"
-
 	.include "data/maps/SerpentCave_3_Streams/scripts.inc"
-
 	.include "data/maps/SerpentCave_B1F/scripts.inc"
-
 	.include "data/maps/SerpentCave_B2F/scripts.inc"
-
 	.include "data/maps/SerpentCave_B3F/scripts.inc"
-
 	.include "data/maps/Route23Lake/scripts.inc"
-
 	.include "data/maps/SerpentCaveMain/scripts.inc"
-
 	.include "data/maps/FloodedCave_FossilRoom/scripts.inc"
-
 	.include "data/maps/WindplumeMountain/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_2F/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_3F/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_4F/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_5F/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_6F/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_Peak/scripts.inc"
-
 	.include "data/maps/WindplumeMountain_7F/scripts.inc"
-
 	.include "data/maps/SafariZone_Mountain/scripts.inc"
-
 	.include "data/maps/Maptest/scripts.inc"
-
 	.include "data/maps/AmberockPokeCenter1F/scripts.inc"
-
 	.include "data/maps/AmberockMart/scripts.inc"
-
 	.include "data/maps/Amberock_House1/scripts.inc"
-
 	.include "data/maps/Amberock_House2/scripts.inc"
-
 	.include "data/maps/Amberock_House3/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory_B1F/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory_Office/scripts.inc"
-
 	.include "data/maps/UndergroundRuins_5F/scripts.inc"
-
 	.include "data/maps/SouthernDesert/scripts.inc"
-
 	.include "data/maps/DevonCrop_Memory/scripts.inc"
-
 	.include "data/maps/TestWall/scripts.inc"
-
 	.include "data/maps/TestRoomCopy/scripts.inc"
-
 	.include "data/maps/Azuretide_Grotto/scripts.inc"
-
 	.include "data/maps/Kaolisle_BirdHouse/scripts.inc"
-
 	.include "data/maps/AmberockTown_KrokorokPier/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory_NoLights/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory_B1F_NoLights/scripts.inc"
-
 	.include "data/maps/Amberock_PokeballFactory_Office_NoLights/scripts.inc"
-
 	.include "data/maps/AmberockTown_PlayerPier/scripts.inc"
-
 	.include "data/maps/Route16_NoCurrents/scripts.inc"
-
 	.include "data/maps/PrimroseTown_Copy/scripts.inc"
-
 	.include "data/maps/Route16_Filler/scripts.inc"
-
 	.include "data/maps/BasaluffTown_Filler/scripts.inc"
-
 	.include "data/maps/BasalekMart/scripts.inc"
-
 	.include "data/maps/BasalekHouse1/scripts.inc"
-
 	.include "data/maps/BasalekHouse2/scripts.inc"
-
 	.include "data/maps/BasalekTunnels/scripts.inc"
-
 	.include "data/maps/SunkernCavern/scripts.inc"
-
 	.include "data/maps/HoundoomCave/scripts.inc"
-
 	.include "data/maps/BasalekTunnels_Copy/scripts.inc"
-
 	.include "data/maps/OceanWalkway/scripts.inc"
-
 	.include "data/maps/FrigidFrontier_2/scripts.inc"
-
 	.include "data/maps/FrigidFrontier3/scripts.inc"
-
 	.include "data/maps/FrigidFrontier4/scripts.inc"
-
 	.include "data/maps/FrigidFrontier5/scripts.inc"
-
 	.include "data/maps/FrigidFrontier6/scripts.inc"
-
 	.include "data/maps/FrigidFrontier7/scripts.inc"
-
 	.include "data/maps/FrigidFrontier8/scripts.inc"
-
 	.include "data/maps/FrigidFrontier9/scripts.inc"
-
 	.include "data/maps/FrigidFrontier10/scripts.inc"
-
 	.include "data/maps/FrigidFrontier_Cave/scripts.inc"
-
 	.include "data/maps/FrigidFrontier_CaveDeeper/scripts.inc"
-
 	.include "data/maps/Route6Filler/scripts.inc"
-
 	.include "data/maps/DesertCliffs/scripts.inc"
-
 	.include "data/maps/SnowyRidge/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_House1/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_House2/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_House3/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_House4/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_Motel/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_PokemonFanClub/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_PokeCenter/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_Mart/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_Harbor/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_Gym/scripts.inc"
-
 	.include "data/maps/FrosthearthCity_Motel_2F/scripts.inc"
-
 	.include "data/maps/Crystalpine_Filler1/scripts.inc"
-
 	.include "data/maps/Route24_Filler/scripts.inc"
-
 	.include "data/maps/Route20_Filler/scripts.inc"
-
 	.include "data/maps/Route22_Filler/scripts.inc"
-
 	.include "data/maps/Route21_Filler/scripts.inc"
-
 	.include "data/maps/Route26_Filler/scripts.inc"
-
 	.include "data/maps/Route28_Part2_SideArea/scripts.inc"
-
 	.include "data/maps/Route28_Filler/scripts.inc"
-
 	.include "data/maps/SnowcrestCity_Part2/scripts.inc"
 	
 	.include "data/scripts/dexnav.inc"
-
 	.include "data/maps/Windywoods_Filler/scripts.inc"
-
 	.include "data/maps/Coralgrove_House/scripts.inc"
-
 	.include "data/maps/Route3_Copy/scripts.inc"
-
 	.include "data/maps/Route22_Part2_West/scripts.inc"
-
 	.include "data/maps/Route22_Part2_Top/scripts.inc"
-
 	.include "data/maps/LatiasIsland/scripts.inc"
-
 	.include "data/maps/LatiosIsland/scripts.inc"
-
 	.include "data/maps/Route20_FarmHouse/scripts.inc"
-
 	.include "data/maps/Route20_RaceCourse/scripts.inc"
-
 	.include "data/maps/Route20_Filler2/scripts.inc"
-
 	.include "data/maps/Route20_RanchRace/scripts.inc"
 	.include "data/scripts/battle_frontier.inc"
 	.include "data/scripts/apricorn_tree.inc"
-
 	.include "data/maps/Crystalpine_PokeCenter/scripts.inc"
-
 	.include "data/maps/Crystalpine_Mart/scripts.inc"
-
 	.include "data/maps/Crystalpine_SmallHouse_1/scripts.inc"
-
 	.include "data/maps/Crystalpine_SmallHouse_3/scripts.inc"
-
 	.include "data/maps/Crystalpine_SmallHouse_2/scripts.inc"
-
 	.include "data/maps/Nes/scripts.inc"
 	.include "data/scripts/wild_encounter.inc"
-
 	.include "data/maps/ProfsGlade_Exterior/scripts.inc"
-
 	.include "data/maps/HighInTheSky/scripts.inc"
-
 	.include "data/maps/ProfsGladeInterior/scripts.inc"
+	.include "data/town_scripts/pearlwood.inc"

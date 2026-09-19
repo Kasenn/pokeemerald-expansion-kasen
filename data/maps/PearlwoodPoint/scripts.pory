@@ -45,15 +45,6 @@ text Pearlwood_Point_WildPokemon{
     "without your own Pokémon."
 }
 
-script Pearlwood_Point_StopGirlTalk{
-    msgbox(Pearlwood_Point_Dangerous, MSGBOX_NPC)
-    turnobject(2, DIR_SOUTH)
-}
-text Pearlwood_Point_Dangerous{
-    "It's dangerous to leave the town\n"
-    "without your own Pokémon."
-}
-
 script Pearlwood_BrotherFightRight{
     setvar(BROTHER_TRIGGER, 1)
     goto(Pearlwood_BrotherFightMain)
@@ -197,33 +188,4 @@ text PearlwoodBrotherPrize{
     "or we'll fall behind!\p"
     "Don't know about you but I'm not\n"
     "content with a second place."
-}
-
-script Pearlwood_Point_FatMan{
-    msgbox(Pearlwood_Point_FatMan_Text, MSGBOX_NPC)
-}
-text Pearlwood_Point_FatMan_Text{
-    "The weather is so calm here despite\n"
-    "the close proximity to the sea.\p"
-    "Must be all the trees blocking\n"
-    "the sea breeze."
-}
-
-script Pearlwood_Point_LittleGirl{
-    msgbox(Pearlwood_Point_LittleGirl_Text, MSGBOX_NPC)
-    turnobject(LOCALID_PEARLWOOD_LITTLE_BOY, DIR_NORTH)
-}
-text Pearlwood_Point_LittleGirl_Text{
-    "Do you think there are Pokémon\n"
-    "in these trees?"
-}
-
-script Pearlwood_Sign{
-    msgbox(Pearlwood_Sign_Text, MSGBOX_SIGN)
-}
-text Pearlwood_Sign_Text{
-    "PEARLWOOD POINT\n"
-    "“A town of new beginnings.”\p"
-    "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"
-    "{RIGHT_ARROW} Route 1"
 }

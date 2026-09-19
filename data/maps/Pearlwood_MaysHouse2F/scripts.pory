@@ -1,78 +1,8 @@
 mapscripts Pearlwood_MaysHouse2F_MapScripts{
-    MAP_SCRIPT_ON_TRANSITION: Pearlwood_MaysHouse2F_SetRival
-}
-
-const RIVAL = 3
-
-script Pearlwood_MaysHouse2F_SetRival{
-    if(checkplayergender == FEMALE){
-        setmaplayoutindex(LAYOUT_RIVAL_HOUSE2F_BRENDAN)
-    }
-    call(SetupRivalGfxId)
-}
-
-script Pearlwood_MaysHouse2F_Rival{
-    lock
-    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES){
-        waitse
-        playse(SE_PIN)
-        safefollow
-        exclamationmark(RIVAL)
-        faceplayer
-        msgbox(Pearlwood_MaysHouse2F_Intro)
-        closemessage
-        delay(20)
-        playse(SE_PIN)
-        exclamationmark(RIVAL)
-        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL)
-        if(checkplayergender == MALE){
-            msgbox(Pearlwood_MaysHouse2F_Intro2_MalePC)
+    MAP_SCRIPT_ON_TRANSITION{
+        if(checkplayergender == FEMALE){
+            setmaplayoutindex(LAYOUT_RIVAL_HOUSE2F_BRENDAN)
         }
-        else{
-            msgbox(Pearlwood_MaysHouse2F_Intro2_FemalePC)
-        }
+        call(SetupRivalGfxId)
     }
-    else{
-        msgbox(Pearlwood_MaysHouse2F_Gossip)
-    }
-    turnobject(RIVAL, DIR_NORTH)
-    release
-}
-
-text Pearlwood_MaysHouse2F_Intro{
-    "{RIVAL}: Oh, hi {PLAYER}!\p"
-    "Sorry, I'm a bit busy answering to\n"
-    "some e-mail.\p"
-    "I heard that my dad\n"
-    "was looking for you."
-}
-
-text Pearlwood_MaysHouse2F_Intro2_MalePC{
-    "I get it now!\n"
-    "I bet it's time for you to finally\l"
-    "get your own Pokémon!\l"
-    "I hope you pick a cute one!\p"
-    "Dad's probably waiting for you\n"
-    "in his lab to the northwest."
-}
-
-text Pearlwood_MaysHouse2F_Intro2_FemalePC{
-    "I get it now!\n"
-    "I bet it's time for you to finally\l"
-    "get your own Pokémon!\l"
-    "I hope you pick a cool one!\p"
-    "Dad's probably waiting for you\n"
-    "in his lab to the northwest."
-}
-
-text Pearlwood_MaysHouse2F_Gossip{
-    "{RIVAL}: Sorry, but I REALLY need to\n"
-    "finish writing this e-mail."
-}
-
-script WooperDoll{
-    msgbox("It's a Wooper doll.", MSGBOX_SIGN)
-}
-script AzurillDoll{
-    msgbox("It's an Azurill doll.", MSGBOX_SIGN)
 }

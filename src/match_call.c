@@ -1143,6 +1143,17 @@ static bool32 SelectMatchCallTrainer(void)
 */
 bool32 TryStartMatchCall(void)
 {
+    if (UpdateMatchCallStepCounter()
+        && UpdateMatchCallMinutesCounter()
+        && CheckMatchCallChance()
+        && MapAllowsMatchCall()
+        && SelectMatchCallTrainer())
+    {
+        return FALSE;
+        StartMatchCall();
+        return TRUE;
+    }
+
     return FALSE;
 }
 

@@ -1,13 +1,1 @@
 mapscripts PearlwoodHouse2_2F_MapScripts{}
-
-script PearlwoodHouse2_2F_Girl{
-    msgbox(PearlwoodHouse2_2F_Girl_Text, MSGBOX_NPC)
-    turnobject(1, DIR_NORTH)
-}
-text PearlwoodHouse2_2F_Girl_Text{
-    "Have you heard of the Fairy type?\n"
-    "Fairy type Pokémon are really strong\l"
-    "against Fighting, Dark, and Dragon\l"
-    "type Pokémon while being very weak\l"
-    "to Steel and Poison."
-}

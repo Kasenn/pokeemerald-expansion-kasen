@@ -135,14 +135,6 @@ RivalsHouse_1F_EventScript_GoHomeEverySoOften::
 	release
 	end
 
-RivalsHouse_1F_EventScript_RivalSibling::
-	lock
-	faceplayer
-	special GetPlayerBigGuyGirlString
-	msgbox RivalsHouse_1F_Text_DoYouHavePokemon, MSGBOX_DEFAULT
-	release
-	end
-
 LittlerootTown_MaysHouse_1F_EventScript_GoSeeRoom::
 	lockall
 	setvar VAR_0x8004, LOCALID_PLAYERS_HOUSE_1F_MOM
@@ -398,8 +390,3 @@ RivalsHouse_1F_Text_BrendanWhoAreYou:
 	.string "I'm supposed to go help my dad catch\n"
 	.string "some wild POKéMON.\p"
 	.string "Some other time, okay?$"
-
-RivalsHouse_1F_Text_DoYouHavePokemon:
-	.string "Hi, neighbor!\p"
-	.string "Do you already have your\n"
-	.string "own Pokémon?$"

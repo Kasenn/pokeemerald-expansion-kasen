@@ -1,0 +1,169 @@
+script Pearlwood_Point_FatMan{
+    msgbox("The weather is so calm here despite\n"
+           "the close proximity to the sea.\p"
+           "Must be all the trees blocking\n"
+           "the sea breeze.", MSGBOX_NPC)}
+
+script Pearlwood_Point_LittleGirl{
+    msgbox("Do you think there are Pokémon\n"
+           "in these trees?", MSGBOX_NPC)
+    objturnnorth}
+
+script Pearlwood_Sign{
+    msgbox("PEARLWOOD POINT\n"
+           "“A town of new beginnings.”\p"
+           "{LEFT_ARROW} Prof. Birch's Pokémon lab\n"
+           "{RIGHT_ARROW} Route 1", MSGBOX_SIGN)}
+
+script Pearlwood_Point_StopGirlTalk{
+    msgbox("It's dangerous to leave the town\n"
+           "without your own Pokémon.", MSGBOX_NPC)
+    objturnsouth}
+
+
+script Pearlwood_House3_OldGuy{
+    if(!flag(FLAG_SYS_POKEMON_GET)){
+        msgbox("Oh?\p"
+               "You look like the age where you're\n"
+               "supposed to get your first Pokémon.\p"
+               "If you're looking for the Professor's\n"
+               "lab, you can find it on the opposite\l"
+               "end of the town.", MSGBOX_NPC)
+        end
+    }
+    if(!flag(FLAG_PEARLWOOD_POTION_SAMPLE)){
+        lock
+        faceplayer
+        msgbox("I used to work at a Pokémon Mart\n"
+               "back in the day.\p"
+               "Here, I want you to have this sample.")
+        giveitem(ITEM_POTION, 1)
+        if(var(VAR_RESULT) == FALSE){ goto(ZeBagIsFull) }
+        setflag(FLAG_PEARLWOOD_POTION_SAMPLE)
+        release
+    }
+    else{
+        msgbox("A potion can be used anytime, so it's\n"
+               "even more useful than a Pokémon Center\l"
+               "in certain situations.", MSGBOX_NPC)
+    }
+}
+
+script Pearlwood_House2_OldGuy{
+    msgbox("Back in my day we had no idea of any\n"
+           "physical and special splits.\l"
+           "Fire punch was as much a special move\l"
+           "as fire blast.\p"
+           "Oh how times have changed…", MSGBOX_NPC)}
+
+script Pearlwood_House2_Woman{
+    msgbox("It really feels like you're living\n"
+           "at the end of a world here.\l"
+           "Or, at the beginning of one.", MSGBOX_NPC)}
+
+script PearlwoodHouse2_2F_Girl{
+    msgbox("Have you heard of the Fairy type?\n"
+           "Fairy type Pokémon are really strong\l"
+           "against Fighting, Dark, and Dragon\l"
+           "type Pokémon while being very weak\l"
+           "to Steel and Poison.", MSGBOX_NPC)
+    objturnnorth}
+
+script Pearlwood_House1_OldLady{
+    msgbox("How is the professor able to provide\n"
+           "all the young trainers with Pokémon?\p"
+           "I rarely see him leaving the village\n"
+           "so he must be getting them from\l"
+           "somewhere nearby.", MSGBOX_NPC)}
+
+script Pearlwood_House1_YoungGirl{
+    msgbox("Listen to this book I'm reading!\p"
+           "“The Pokémon habitat can be more\n"
+           "diverse than it initially seems.\l"
+           "While most habitats seem to be \l"
+           "dominated by only a handful of\l"
+           "Pokémon species, one should never\l"
+           "rule out the possibility of coming\l"
+           "across something unexpected.”", MSGBOX_NPC)
+    objturnnorth}
+
+script Pearlwood_MaysHouse1F_RivalMom{
+    if(var(VAR_PEARLWOOD_TOWN_STATE) <= STORY_PEARLWOOD_MET_RIVAL){
+        if(checkplayergender == MALE){ bufferstring(STR_VAR_1, "her") }
+        else{ bufferstring(STR_VAR_1, "his") }
+        msgbox("Hello neighbor!\p"
+               "I believe {RIVAL} was working on\n"
+               "something in {STR_VAR_1} room.\p"
+               "If you're looking for my husband,\n"
+               "you can probably find him in his lab.", MSGBOX_NPC)
+    }
+    elif(var(VAR_PEARLWOOD_TOWN_STATE) >= STORY_PEARLWOOD_BROTHER_FOUGHT){
+        msgbox("I think it's wonderful for people to\n"
+	           "travel with Pokémon.\p"
+	           "But you should go home every so often\n"
+	           "to let your mother know you're okay.\p"
+	           "She might not say it, but I'm sure she\n"
+	           "worries about you, {PLAYER}.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("Oh, {RIVAL} went out to Primrose\n"
+               "Meadow just a little while ago.\p"
+               "Like father, like child.\n"
+               "{RIVAL} can't stay quietly at home.\p"
+               "Primrose Meadow is just past\n"
+               "the next town.", MSGBOX_NPC)
+    }
+}
+
+script Pearlwood_MaysHouse1F_RivalSibling{
+    msgbox("Hi, neighbor!\p"
+           "Do you already have your\n"
+           "own Pokémon?", MSGBOX_NPC)}
+
+script Pearlwood_MaysHouse2F_Rival{
+    lock
+    if(var(VAR_PEARLWOOD_TOWN_STATE) == STORY_PEARLWOOD_RECEIVED_RUNNING_SHOES){
+        waitse
+        playse(SE_PIN)
+        safefollow
+        exclamationmark(VAR_LAST_TALKED)
+        faceplayer
+        msgbox("{RIVAL}: Oh, hi {PLAYER}!\p"
+               "Sorry, I'm a bit busy answering to\n"
+               "some e-mail.\p"
+               "I heard that my dad\n"
+               "was looking for you.", MSGBOX_AUTOCLOSE)
+        delay(20)
+        playse(SE_PIN)
+        exclamationmark(VAR_LAST_TALKED)
+        setvar(VAR_PEARLWOOD_TOWN_STATE, STORY_PEARLWOOD_MET_RIVAL)
+        if(checkplayergender == MALE){
+            msgbox("I get it now!\n"
+                   "I bet it's time for you to finally\l"
+                   "get your own Pokémon!\l"
+                   "I hope you pick a cute one!\p"
+                   "Dad's probably waiting for you\n"
+                   "in his lab to the northwest.")
+        }
+        else{
+            msgbox("I get it now!\n"
+                   "I bet it's time for you to finally\l"
+                   "get your own Pokémon!\l"
+                   "I hope you pick a cool one!\p"
+                   "Dad's probably waiting for you\n"
+                   "in his lab to the northwest.")
+        }
+    }
+    else{
+        msgbox("{RIVAL}: Sorry, but I REALLY need to\n"
+               "finish writing this e-mail.")
+    }
+    objturnnorth
+    release
+}
+
+script WooperDoll{
+    msgbox("It's a Wooper doll.", MSGBOX_SIGN)}
+
+script AzurillDoll{
+    msgbox("It's an Azurill doll.", MSGBOX_SIGN)}

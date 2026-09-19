@@ -3309,3 +3309,11 @@
 	.2byte \x
 	.2byte \y
 	.endm
+
+	.macro objturnnorth
+	turnobject VAR_LAST_TALKED, DIR_NORTH
+	.endm
+
+	.macro objturnsouth
+	turnobject VAR_LAST_TALKED, DIR_SOUTH
+	.endm
