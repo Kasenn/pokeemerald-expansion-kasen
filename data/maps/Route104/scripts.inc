@@ -30,7 +30,7 @@ Route104_EventScript_HideWhiteHerbFlorist::
 
 Route104_EventScript_TrySetRivalPos::
 	goto_if_ge VAR_BOARD_BRINEY_BOAT_STATE, 1, Route104_EventScript_DontSetRivalPos
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, Route104_EventScript_DontSetRivalPos
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_DontSetRivalPos
 	goto_if_unset FLAG_OLD_WORLD_FLAG, Route104_EventScript_DontSetRivalPos
 	setobjectxyperm LOCALID_ROUTE104_RIVAL, 17, 52
 	return
@@ -352,8 +352,8 @@ Route104_EventScript_SailToDewford::
 	waitmovement 0
 	hideobjectat LOCALID_PLAYER, MAP_ROUTE104
 	call Common_EventScript_PlayBrineysBoatMusic
-	goto_if_set FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordNoCall
-	goto_if_unset FLAG_ENABLE_NORMAN_MATCH_CALL, Route104_EventScript_SailToDewfordDadCalls
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_SailToDewfordNoCall
+	goto_if_unset FLAG_OLD_WORLD_FLAG, Route104_EventScript_SailToDewfordDadCalls
 	end
 
 Route104_EventScript_SailToDewfordNoCall::
@@ -374,7 +374,7 @@ Route104_EventScript_SailToDewfordDadCalls::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_NORMAN_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	applymovement LOCALID_PLAYER, Route104_Movement_SailToDewfordAfterDadCalls
 	applymovement LOCALID_ROUTE104_BOAT, Route104_Movement_SailToDewfordAfterDadCalls, MAP_ROUTE104
 	waitmovement LOCALID_ROUTE104_BOAT, MAP_ROUTE104
@@ -866,7 +866,7 @@ Route104_EventScript_Haley::
 Route104_EventScript_TryRegisterHaleyAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaleyAfterBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterHaleyAfterBattle
 	release
 	end
 
@@ -877,7 +877,7 @@ Route104_EventScript_RegisterHaleyAfterBattle::
 	end
 
 Route104_EventScript_TryRegisterHaley::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterHaley
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterHaley
 	msgbox Route104_Text_HaleyPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -907,7 +907,7 @@ Route104_EventScript_Winston::
 Route104_EventScript_TryRegisterWinstonAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinstonAfterBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterWinstonAfterBattle
 	release
 	end
 
@@ -918,7 +918,7 @@ Route104_EventScript_RegisterWinstonAfterBattle::
 	end
 
 Route104_EventScript_TryRegisterWinston::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterWinston
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterWinston
 	msgbox Route104_Text_WinstonPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -948,7 +948,7 @@ Route104_EventScript_Cindy::
 Route104_EventScript_TryRegisterCindyAfterBattle::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindyAfterBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterCindyAfterBattle
 	release
 	end
 
@@ -959,7 +959,7 @@ Route104_EventScript_RegisterCindyAfterBattle::
 	end
 
 Route104_EventScript_TryRegisterCindy::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route104_EventScript_RegisterCindy
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route104_EventScript_RegisterCindy
 	msgbox Route104_Text_CindyPostBattle, MSGBOX_DEFAULT
 	release
 	end

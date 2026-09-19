@@ -97,7 +97,7 @@ SootopolisCity_EventScript_SetDownpour::
 	return
 
 SootopolisCity_EventScript_CheckSetEnterCaveOfOriginObjPos::
-	goto_if_set FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN, SootopolisCity_EventScript_SetEnterCaveOfOriginObjPos
+	goto_if_set FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_SetEnterCaveOfOriginObjPos
 	return
 
 SootopolisCity_EventScript_SetEnterCaveOfOriginObjPos::
@@ -871,7 +871,7 @@ SootopolisCity_EventScript_Steven::
 	lockall
 	applymovement LOCALID_SOOTOPOLIS_STEVEN, Common_Movement_FacePlayer
 	waitmovement 0
-	call_if_unset FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN, SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin
+	call_if_unset FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 2, SootopolisCity_EventScript_StevenHelpWallace
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 3, SootopolisCity_EventScript_StevenHelpedWallace
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_StevenHelpedWallace
@@ -913,7 +913,7 @@ SootopolisCity_EventScript_StevenLeadPlayerCaveOfOrigin::
 	waitmovement 0
 	msgbox SootopolisCity_Text_HereWereAreHelpWallace, MSGBOX_DEFAULT
 	closemessage
-	setflag FLAG_STEVEN_GUIDES_TO_CAVE_OF_ORIGIN
+	setflag FLAG_OLD_WORLD_FLAG
 	applymovement LOCALID_PLAYER, SootopolisCity_Movement_PlayerEnterCaveOfOrigin
 	waitmovement 0
 	warp MAP_CAVE_OF_ORIGIN_ENTRANCE, 9, 20

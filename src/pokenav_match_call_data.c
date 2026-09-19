@@ -203,12 +203,12 @@ static const struct MatchCallStructTrainer sNormanMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_PETALBURG_CITY,
-    .flag = FLAG_ENABLE_NORMAN_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_NORMAN,
     .desc = COMPOUND_STRING("RELIABLE ONE"),
     .name = COMPOUND_STRING("DAD"),
     .textData = (const match_call_text_data_t[]) {
-        { MatchCall_Text_Norman1,                  FLAG_ENABLE_NORMAN_MATCH_CALL, NO_FLAG_TO_SET },
+        { MatchCall_Text_Norman1,                  FLAG_OLD_WORLD_FLAG, NO_FLAG_TO_SET },
         { MatchCall_Text_Norman2,                  FLAG_DEFEATED_DEWFORD_GYM,     NO_FLAG_TO_SET },
         { MatchCall_Text_Norman3,                  FLAG_DEFEATED_LAVARIDGE_GYM,   NO_FLAG_TO_SET },
         { MatchCall_Text_Norman4,                  FLAG_DEFEATED_PETALBURG_GYM,   NO_FLAG_TO_SET },
@@ -256,7 +256,7 @@ static const struct MatchCallStructNPC sStevenMatchCallHeader =
 {
     .type = MC_TYPE_NPC,
     .mapSec = MAPSEC_NONE,
-    .flag = FLAG_REGISTERED_STEVEN_POKENAV,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .desc = COMPOUND_STRING("HARD AS ROCK"),
     .name = COMPOUND_STRING("STEVEN"),
     .textData = (const match_call_text_data_t[]) {

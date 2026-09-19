@@ -49,7 +49,7 @@ RustboroCity_EventScript_ScientistAddMatchCall::
 	waitmovement 0
 	msgbox RustboroCity_Text_DevelopedNewPokenavFeature, MSGBOX_DEFAULT
 	closemessage
-	setflag FLAG_HAS_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	applymovement LOCALID_RUSTBORO_SCIENTIST, Common_Movement_WalkInPlaceFasterLeft
 	waitmovement 0
 	playse SE_CLICK
@@ -74,7 +74,7 @@ RustboroCity_EventScript_PleaseSelectPokenav::
 	goto RustboroCity_EventScript_MatchCallTutorial
 
 RustboroCity_EventScript_MatchCallTutorial::
-	setflag FLAG_ADDED_MATCH_CALL_TO_POKENAV
+	setflag FLAG_OLD_WORLD_FLAG
 	special ScriptMenu_CreateStartMenuForPokenavTutorial
 	switch VAR_RESULT
 	case 0, RustboroCity_EventScript_PleaseSelectPokenav
@@ -670,7 +670,7 @@ RustboroCity_EventScript_EmployeeFacePlayerRight::
 
 RustboroCity_EventScript_Rival::
 	lockall
-	call_if_unset FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_PlayRivalMusic
+	call_if_unset FLAG_OLD_WORLD_FLAG, RustboroCity_EventScript_PlayRivalMusic
 	applymovement LOCALID_RUSTBORO_RIVAL, Common_Movement_FacePlayer
 	waitmovement 0
 	goto RustboroCity_EventScript_RivalEncounter
@@ -825,8 +825,8 @@ RustboroCity_EventScript_RivalEncounter::
 
 RustboroCity_EventScript_MayEncounter::
 	goto_if_set FLAG_OLD_WORLD_FLAG, RustboroCity_EventScript_MayBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_MayAskToBattle
-	setflag FLAG_MET_RIVAL_RUSTBORO
+	goto_if_set FLAG_OLD_WORLD_FLAG, RustboroCity_EventScript_MayAskToBattle
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox RustboroCity_Text_MayHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
 	delay 30
@@ -893,8 +893,8 @@ RustboroCity_EventScript_BattleMayMudkip::
 
 RustboroCity_EventScript_BrendanEncounter::
 	goto_if_set FLAG_OLD_WORLD_FLAG, RustboroCity_EventScript_BrendanBrineyHint
-	goto_if_set FLAG_MET_RIVAL_RUSTBORO, RustboroCity_EventScript_BrendanAskToBattle
-	setflag FLAG_MET_RIVAL_RUSTBORO
+	goto_if_set FLAG_OLD_WORLD_FLAG, RustboroCity_EventScript_BrendanAskToBattle
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox RustboroCity_Text_BrendanHiLetsRegister, MSGBOX_DEFAULT
 	closemessage
 	delay 30

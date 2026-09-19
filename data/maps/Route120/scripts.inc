@@ -33,8 +33,8 @@ Route120_EventScript_RemoveKecleon::
 
 Route120_OnLoad:
 	call_if_unset FLAG_OLD_WORLD_FLAG, Route120_EventScript_CloseAncientTomb
-	call_if_set FLAG_RECEIVED_DEVON_SCOPE, Route120_EventScript_SetBridgeClearMetatiles
-	call_if_unset FLAG_RECEIVED_DEVON_SCOPE, Route120_EventScript_SetBridgeKecleonMovement
+	call_if_set FLAG_OLD_WORLD_FLAG, Route120_EventScript_SetBridgeClearMetatiles
+	call_if_unset FLAG_OLD_WORLD_FLAG, Route120_EventScript_SetBridgeKecleonMovement
 	end
 
 Route120_EventScript_CloseAncientTomb::
@@ -154,7 +154,7 @@ Route120_EventScript_BerryNotLove::
 Route120_EventScript_Steven::
 	lock
 	faceplayer
-	goto_if_set FLAG_NOT_READY_FOR_BATTLE_ROUTE_120, Route120_EventScript_StevenAskReadyForBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route120_EventScript_StevenAskReadyForBattle
 	msgbox Route120_Text_StevenGreeting, MSGBOX_YESNO
 	goto_if_eq VAR_RESULT, NO, Route120_EventScript_StevenNotReady
 	goto Route120_EventScript_StevenBattleKecleon
@@ -162,7 +162,7 @@ Route120_EventScript_Steven::
 
 Route120_EventScript_StevenNotReady::
 	msgbox Route120_Text_StevenIllWaitHere, MSGBOX_DEFAULT
-	setflag FLAG_NOT_READY_FOR_BATTLE_ROUTE_120
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -216,7 +216,7 @@ Route120_EventScript_StevenGiveDeconScope::
 	waitmovement 0
 	msgbox Route120_Text_StevenGiveDevonScope, MSGBOX_DEFAULT
 	giveitem ITEM_DEVON_SCOPE
-	setflag FLAG_RECEIVED_DEVON_SCOPE
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox Route120_Text_StevenGoodbye, MSGBOX_DEFAULT
 	closemessage
 	applymovement LOCALID_ROUTE120_STEVEN, Common_Movement_WalkInPlaceFasterDown

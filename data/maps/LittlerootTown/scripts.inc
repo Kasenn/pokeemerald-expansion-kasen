@@ -127,7 +127,7 @@ LittlerootTown_EventScript_HideMapNamePopup::
 # 64 "data/maps/LittlerootTown/scripts.pory"
 LittlerootTown_EventScript_SetRivalLeftForRoute103::
 # 65 "data/maps/LittlerootTown/scripts.pory"
-	setflag FLAG_RIVAL_LEFT_FOR_ROUTE103
+	setflag FLAG_OLD_WORLD_FLAG
 # 66 "data/maps/LittlerootTown/scripts.pory"
 	return
 # 67 "data/maps/LittlerootTown/scripts.pory"

@@ -2175,7 +2175,7 @@ void ClearCurrentTrainerWantRematchVsSeeker(void)
 
 // static void RegisterTrainerInMatchCall(void)
 // {
-//     if (FlagGet(FLAG_HAS_MATCH_CALL))
+//     if (FlagGet(FLAG_OLD_WORLD_FLAG))
 //     {
 //         u32 matchCallFlagId = GetTrainerMatchCallFlag(TRAINER_BATTLE_PARAM.opponentA);
 //         if (matchCallFlagId != 0xFFFF)

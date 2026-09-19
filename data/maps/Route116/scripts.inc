@@ -46,13 +46,13 @@ Route116_EventScript_BoyfriendGruntInTunnel::
 Route116_EventScript_DevonEmployee::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_DEVON_EMPLOYEE, Route116_EventScript_TryGiveRepeatBallAgain
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_EventScript_TryGiveRepeatBallAgain
 	msgbox Route116_Text_ThankYouTokenOfAppreciation, MSGBOX_DEFAULT
 	goto Route116_EventScript_GiveRepeatBall
 	end
 
 Route116_EventScript_GiveRepeatBall::
-	setflag FLAG_MET_DEVON_EMPLOYEE
+	setflag FLAG_OLD_WORLD_FLAG
 	giveitem ITEM_REPEAT_BALL
 	goto_if_eq VAR_RESULT, FALSE, Route116_EventScript_NoRoomForRepeatBall
 	msgbox Route116_Text_NewBallAvailableAtMart, MSGBOX_DEFAULT
@@ -248,7 +248,7 @@ Route116_EventScript_Jerry::
 	end
 
 Route116_EventScript_TryRegisterJerryAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerryAfterBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_EventScript_RegisterJerryAfterBattle
 	release
 	end
 
@@ -261,7 +261,7 @@ Route116_EventScript_RegisterJerryAfterBattle::
 	end
 
 Route116_EventScript_TryRegisterJerry::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterJerry
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_EventScript_RegisterJerry
 	msgbox Route116_Text_JerryPostBattle, MSGBOX_DEFAULT
 	release
 	end
@@ -299,7 +299,7 @@ Route116_EventScript_Karen::
 	end
 
 Route116_EventScript_TryRegisterKarenAfterBattle::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKarenAfterBattle
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_EventScript_RegisterKarenAfterBattle
 	release
 	end
 
@@ -312,7 +312,7 @@ Route116_EventScript_RegisterKarenAfterBattle::
 	end
 
 Route116_EventScript_TryRegisterKaren::
-	goto_if_set FLAG_HAS_MATCH_CALL, Route116_EventScript_RegisterKaren
+	goto_if_set FLAG_OLD_WORLD_FLAG, Route116_EventScript_RegisterKaren
 	msgbox Route116_Text_KarenPostBattle, MSGBOX_DEFAULT
 	release
 	end

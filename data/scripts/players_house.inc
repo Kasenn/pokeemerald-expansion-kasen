@@ -310,7 +310,7 @@ PlayersHouse_1F_EventScript_Mom::
 	faceplayer
 	goto_if_eq VAR_UNUSED_VAR, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
 	goto_if_eq VAR_LITTLEROOT_HOUSES_STATE_BRENDAN, 4, PlayersHouse_1F_EventScript_DontPushYourselfTooHard
-	goto_if_set FLAG_HAS_MATCH_CALL, PlayersHouse_1F_EventScript_TryRegisterMom
+	goto_if_set FLAG_OLD_WORLD_FLAG, PlayersHouse_1F_EventScript_TryRegisterMom
 	goto_if_set FLAG_RECEIVED_METAL_COAT, PlayersHouse_1F_EventScript_MomHealsParty
 	goto_if_eq VAR_TEMP_1, 1, PlayersHouse_1F_EventScript_SeeYouHoney
 	goto_if_eq VAR_LITTLEROOT_INTRO_STATE, 7, PlayersHouse_1F_EventScript_DidYouMeetProfBirch
@@ -452,7 +452,7 @@ PlayersHouse_1F_EventScript_GetSSTicketAndSeeLatiTV::
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_DadExitsFemale
 	playse SE_DOOR
 	removeobject VAR_0x8009
-	setflag FLAG_RECEIVED_SS_TICKET
+	setflag FLAG_OLD_WORLD_FLAG
 	delay 30
 	call_if_eq VAR_0x8008, MALE, PlayersHouse_1F_EventScript_MomApproachPlayerMale
 	call_if_eq VAR_0x8008, FEMALE, PlayersHouse_1F_EventScript_MomApproachPlayerFemale

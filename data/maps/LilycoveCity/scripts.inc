@@ -234,8 +234,8 @@ LilycoveCity_EventScript_Rival::
 
 LilycoveCity_EventScript_May::
 	playbgm MUS_ENCOUNTER_MAY, TRUE
-	call_if_set FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_MayAskToBattleAgain
-	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_MayAskToBattle
+	call_if_set FLAG_OLD_WORLD_FLAG, LilycoveCity_EventScript_MayAskToBattleAgain
+	call_if_unset FLAG_OLD_WORLD_FLAG, LilycoveCity_EventScript_MayAskToBattle
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineMayBattle
 	msgbox LilycoveCity_Text_MayWontBeBeaten, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
@@ -253,7 +253,7 @@ LilycoveCity_EventScript_MayAskToBattle::
 	return
 
 LilycoveCity_EventScript_DeclineMayBattle::
-	setflag FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox LilycoveCity_Text_MayNotRaisingPokemon, MSGBOX_DEFAULT
 	savebgm MUS_DUMMY
 	fadedefaultbgm
@@ -262,8 +262,8 @@ LilycoveCity_EventScript_DeclineMayBattle::
 
 LilycoveCity_EventScript_Brendan::
 	playbgm MUS_ENCOUNTER_BRENDAN, TRUE
-	call_if_set FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_BrendanAskToBattleAgain
-	call_if_unset FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE, LilycoveCity_EventScript_BrendanAskToBattle
+	call_if_set FLAG_OLD_WORLD_FLAG, LilycoveCity_EventScript_BrendanAskToBattleAgain
+	call_if_unset FLAG_OLD_WORLD_FLAG, LilycoveCity_EventScript_BrendanAskToBattle
 	goto_if_eq VAR_RESULT, NO, LilycoveCity_EventScript_DeclineBrendanBattle
 	msgbox LilycoveCity_Text_BrendanWontBeBeaten, MSGBOX_DEFAULT
 	switch VAR_STARTER_MON
@@ -281,7 +281,7 @@ LilycoveCity_EventScript_BrendanAskToBattle::
 	return
 
 LilycoveCity_EventScript_DeclineBrendanBattle::
-	setflag FLAG_DECLINED_RIVAL_BATTLE_LILYCOVE
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox LilycoveCity_Text_BrendanNoConfidence, MSGBOX_DEFAULT
 	savebgm MUS_DUMMY
 	fadedefaultbgm
@@ -386,7 +386,7 @@ LilycoveCity_EventScript_RivalFlyAway::
 	waitfieldeffect FLDEFF_NPCFLY_OUT
 	savebgm MUS_DUMMY
 	fadedefaultbgm
-	setflag FLAG_MET_RIVAL_LILYCOVE
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

@@ -39,7 +39,7 @@ MossdeepCity_StevensHouse_EventScript_StevenGivesDive::
 	msgbox MossdeepCity_StevensHouse_Text_YouveEarnedHMDive, MSGBOX_DEFAULT
 	giveitem ITEM_HM_ROCK_CLIMB
 	setflag FLAG_OLD_WORLD_FLAG
-	setflag FLAG_OMIT_DIVE_FROM_STEVEN_LETTER
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox MossdeepCity_StevensHouse_Text_ExplainDive, MSGBOX_DEFAULT
 	closemessage
 	delay 20
@@ -123,7 +123,7 @@ MossdeepCity_StevensHouse_EventScript_ReceivedBeldumFanfare::
 
 MossdeepCity_StevensHouse_EventScript_ReceivedBeldum::
 	setflag FLAG_HIDE_MOSSDEEP_CITY_STEVENS_HOUSE_BELDUM_POKEBALL
-	setflag FLAG_RECEIVED_BELDUM
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 

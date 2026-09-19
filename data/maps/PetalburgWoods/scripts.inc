@@ -248,11 +248,11 @@ PetalburgWoods_EventScript_Boy2::
 PetalburgWoods_EventScript_Girl::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_MIRACLE_SEED, PetalburgWoods_EventScript_ExplainMiracleSeed
+	goto_if_set FLAG_OLD_WORLD_FLAG, PetalburgWoods_EventScript_ExplainMiracleSeed
 	msgbox PetalburgWoods_Text_TryUsingThisItem, MSGBOX_DEFAULT
 	giveitem ITEM_MIRACLE_SEED
 	goto_if_eq VAR_RESULT, FALSE, Common_EventScript_ShowBagIsFull
-	setflag FLAG_RECEIVED_MIRACLE_SEED
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -288,7 +288,7 @@ PetalburgWoods_EventScript_James::
 PetalburgWoods_EventScript_TryRegisterJames::
 	special PlayerFaceTrainerAfterBattle
 	waitmovement 0
-	goto_if_set FLAG_HAS_MATCH_CALL, PetalburgWoods_EventScript_RegisterJames
+	goto_if_set FLAG_OLD_WORLD_FLAG, PetalburgWoods_EventScript_RegisterJames
 	release
 	end
 
@@ -299,7 +299,7 @@ PetalburgWoods_EventScript_RegisterJames::
 	end
 
 PetalburgWoods_EventScript_TryRegisterJames2::
-	goto_if_set FLAG_HAS_MATCH_CALL, PetalburgWoods_EventScript_RegisterJames2
+	goto_if_set FLAG_OLD_WORLD_FLAG, PetalburgWoods_EventScript_RegisterJames2
 	msgbox PetalburgWoods_Text_PeopleRespectYou, MSGBOX_DEFAULT
 	release
 	end
