@@ -2962,14 +2962,56 @@ static void SpriteCB_FreeOpponentSprite(struct Sprite *sprite)
 
 #undef sBattlerId
 
+static void SetPartyStatusSummarySlot(struct HpAndStatus *dst, struct Pokemon *mon)
+{
+    enum Species species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG);
+
+    if (species == SPECIES_NONE || species == SPECIES_EGG)
+    {
+        dst->hp = HP_EMPTY_SLOT;
+        dst->status = 0;
+    }
+    else
+    {
+        dst->hp = GetMonData(mon, MON_DATA_HP);
+        dst->status = GetMonData(mon, MON_DATA_STATUS);
+    }
+}
+
+static void BuildPartyStatusSummary(enum BattlerId battler, enum BattleSide side, struct HpAndStatus *partyInfo)
+{
+    if (BattleSideHasTwoTrainers(side))
+    {
+        enum BattlerId leftBattler = GetBattlerAtPosition(side == B_SIDE_PLAYER ? B_POSITION_PLAYER_LEFT : B_POSITION_OPPONENT_LEFT);
+        enum BattlerId rightBattler = GetBattlerAtPosition(side == B_SIDE_PLAYER ? B_POSITION_PLAYER_RIGHT : B_POSITION_OPPONENT_RIGHT);
+        struct Pokemon *leftParty = GetBattlerParty(leftBattler);
+        struct Pokemon *rightParty = GetBattlerParty(rightBattler);
+
+        for (u32 i = 0; i < PARTY_SIZE / 2; i++)
+        {
+            SetPartyStatusSummarySlot(&partyInfo[i], &leftParty[i]);
+            SetPartyStatusSummarySlot(&partyInfo[PARTY_SIZE / 2 + i], &rightParty[i]);
+        }
+    }
+    else
+    {
+        struct Pokemon *party = GetBattlerParty(battler);
+
+        for (u32 i = 0; i < PARTY_SIZE; i++)
+            SetPartyStatusSummarySlot(&partyInfo[i], &party[i]);
+    }
+}
+
 void BtlController_HandleDrawPartyStatusSummary(enum BattlerId battler, enum BattleSide side, bool32 considerDelay)
 {
-    if (gBattleResources->bufferA[battler][1] != 0 && IsOnPlayerSide(battler))
+    if ((gBattleResources->bufferA[battler][1] != 0 && IsOnPlayerSide(battler)) || GetBattlerTrainer(battler) == B_TRAINER_PARTNER)
     {
         BtlController_Complete(battler);
     }
     else
     {
+        if (gBattleResources->bufferA[battler][2] && GetBattlerTrainer(battler) == B_TRAINER_OPPONENT_A && BattleSideHasTwoTrainers(side))
+            BtlController_Complete(battler);
         gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown = 1;
 
         if (side == B_SIDE_OPPONENT && gBattleResources->bufferA[battler][2] != 0)
@@ -2985,7 +3027,10 @@ void BtlController_HandleDrawPartyStatusSummary(enum BattlerId battler, enum Bat
             }
         }
 
-        gBattlerStatusSummaryTaskId[battler] = CreatePartyStatusSummarySprites(battler, (struct HpAndStatus *)&gBattleResources->bufferA[battler][4], gBattleResources->bufferA[battler][1], gBattleResources->bufferA[battler][2]);
+        struct HpAndStatus partyInfo[PARTY_SIZE];
+
+        BuildPartyStatusSummary(battler, side, partyInfo); //wip2, remove this if the actual summary ever gets fixed
+        gBattlerStatusSummaryTaskId[battler] = CreatePartyStatusSummarySprites(battler, partyInfo, gBattleResources->bufferA[battler][1], gBattleResources->bufferA[battler][2]);
         gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusDelayTimer = 0;
 
         // If intro, skip the delay after drawing
