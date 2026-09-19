@@ -2659,8 +2659,7 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
         }
         else if (gStartingStatuses.rockyTerrain)
         {
-            effect = SetStartingFieldTerrain(B_TERRAIN_ROCKY, &gFieldTimers.terrainTimer,
-                gStartingStatuses.rockyTerrain ? 0 : 5);
+            effect = SetStartingFieldTerrain(B_TERRAIN_ROCKY, &gFieldTimers.terrainTimer, 0);
             gStartingStatuses.rockyTerrain = FALSE;
             return effect;
         }
@@ -2933,9 +2932,9 @@ bool32 TryFieldEffects(enum FieldEffectCases caseId)
             effect = TRUE;
         }
         else if ((MAP(MAP_BASALEK_TUNNELS))
-            && !(gFieldStatuses & B_TERRAIN_ROCKY))
+         && gFieldTimers.terrain != B_TERRAIN_ROCKY)
         {
-            gFieldStatuses = B_TERRAIN_ROCKY;
+            gFieldTimers.terrain = B_TERRAIN_ROCKY;
             gFieldTimers.terrainTimer = 0;
             gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_TERRAIN_SET_ROCKY;
             BattleScriptPushCursorAndCallback(BattleScript_OverworldTerrain);

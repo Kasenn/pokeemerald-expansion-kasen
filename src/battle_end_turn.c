@@ -421,7 +421,7 @@ static bool32 HandleEndTurnFirstEventBlock(enum BattlerId battler)
         {
             gBattlerAttacker = battler;
             SetPassiveDamageAmount(battler, GetNonDynamaxMaxHP(battler) / 6);
-            BattleScriptExecute(BattleScript_RockyTerrainDamages);
+            BattleScriptCall(BattleScript_RockyTerrainDamages);
             effect = TRUE;
         }
         gBattleStruct->eventState.endTurnBlock++;

@@ -5116,7 +5116,9 @@ BattleScript_GrassyTerrainHeals::
 BattleScript_RockyTerrainDamages::
 	printstring STRINGID_ROCKYTERRAINDAMAGES
 	waitmessage B_WAIT_TIME_LONG
-	goto BattleScript_DoTurnDmg
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
+	return
 
 BattleScript_StickyHoldActivates::
 	call BattleScript_StickyHoldActivatesRet

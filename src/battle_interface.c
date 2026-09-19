@@ -2677,11 +2677,19 @@ static const union TextColor sBattlerTextColor =
     .accent = 0,
 };
 
+static const union TextColor sAbilityTextColorInvert =
+{
+    .background = 0,
+    .foreground = 7,
+    .shadow = 12,
+    .accent = 0,
+};
+
 static const union TextColor sAbilityTextColor =
 {
     .background = 0,
-    .foreground = 9,
-    .shadow = 1,
+    .foreground = 11,
+    .shadow = 13,
     .accent = 0,
 };
 
@@ -2779,7 +2787,7 @@ static void PrintOnAbilityPopUp(const u8 *str, u32 spriteId1, u32 spriteId2, u32
 
     if (isName)
     {
-        AddSpriteTextPrinterParameterized6(spriteId1, font, x, y, 0, 0, sBattlerTextColor, TEXT_SKIP_DRAW, str);
+        AddSpriteTextPrinterParameterized6(spriteId1, font, x, y, 0, 0, sAbilityTextColorInvert, TEXT_SKIP_DRAW, str);
     }
     else
     {
