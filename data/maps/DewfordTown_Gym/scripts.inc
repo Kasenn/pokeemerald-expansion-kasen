@@ -161,7 +161,7 @@ DewfordTown_Gym_EventScript_BrawlyDefeated::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_BRAWLY_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_ROXANNE_CALL_STEP_COUNTER, 0
 	setflag FLAG_OLD_WORLD_FLAG
 	release

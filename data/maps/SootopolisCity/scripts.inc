@@ -1274,7 +1274,7 @@ SootopolisCity_EventScript_Wallace::
 	lock
 	faceplayer
 	goto_if_eq VAR_SOOTOPOLIS_CITY_STATE, 4, SootopolisCity_EventScript_GoToSkyPillar
-	goto_if_set FLAG_RECEIVED_HM_WATERFALL, SootopolisCity_EventScript_GoToGym
+	goto_if_set FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_GoToGym
 	goto_if_set FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_GiveWaterfall
 	msgbox SootopolisCity_Text_AquaMagmaDidntMeanHarm, MSGBOX_DEFAULT
 	release
@@ -1283,7 +1283,7 @@ SootopolisCity_EventScript_Wallace::
 SootopolisCity_EventScript_GiveWaterfall::
 	msgbox SootopolisCity_Text_ThankYouForHelpAcceptThis, MSGBOX_DEFAULT
 	giveitem ITEM_HM_WATERFALL
-	setflag FLAG_RECEIVED_HM_WATERFALL
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox SootopolisCity_Text_ExplainWaterfallGoToGym, MSGBOX_DEFAULT
 	closemessage
 	call_if_eq VAR_FACING, DIR_NORTH, SootopolisCity_EventScript_WallaceMoveFromGym
@@ -1336,8 +1336,8 @@ SootopolisCity_EventScript_Maxie::
 
 SootopolisCity_EventScript_MaxieRayquaza::
 	msgbox SootopolisCity_Text_AfterAllOurScheming, MSGBOX_DEFAULT
-	setflag FLAG_MET_MAXIE_SOOTOPOLIS
-	goto_if_set FLAG_MET_ARCHIE_SOOTOPOLIS, SootopolisCity_EventScript_MaxieArchieLeave
+	setflag FLAG_OLD_WORLD_FLAG
+	goto_if_set FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_MaxieArchieLeave
 	releaseall
 	end
 
@@ -1351,8 +1351,8 @@ SootopolisCity_EventScript_Archie::
 
 SootopolisCity_EventScript_ArchieRayquaza::
 	msgbox SootopolisCity_Text_TryingMeaninglessToPokemon, MSGBOX_DEFAULT
-	setflag FLAG_MET_ARCHIE_SOOTOPOLIS
-	goto_if_set FLAG_MET_MAXIE_SOOTOPOLIS, SootopolisCity_EventScript_MaxieArchieLeave
+	setflag FLAG_OLD_WORLD_FLAG
+	goto_if_set FLAG_OLD_WORLD_FLAG, SootopolisCity_EventScript_MaxieArchieLeave
 	releaseall
 	end
 

@@ -4,8 +4,8 @@ SlateportCity_PokemonFanClub_MapScripts::
 SlateportCity_PokemonFanClub_EventScript_Chairman::
 	lock
 	faceplayer
-	goto_if_unset FLAG_ENTERED_CONTEST, SlateportCity_PokemonFanClub_EventScript_ChairmanNotEnteredContest
-	call_if_unset FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN, SlateportCity_PokemonFanClub_EventScript_MeetChairman
+	goto_if_unset FLAG_OLD_WORLD_FLAG, SlateportCity_PokemonFanClub_EventScript_ChairmanNotEnteredContest
+	call_if_unset FLAG_OLD_WORLD_FLAG, SlateportCity_PokemonFanClub_EventScript_MeetChairman
 	switch VAR_SLATEPORT_FAN_CLUB_STATE
 	case 0, SlateportCity_PokemonFanClub_EventScript_ChairmanFirstAssessment
 	case 1, SlateportCity_PokemonFanClub_EventScript_ChairmanTryAssessPokemon
@@ -170,9 +170,9 @@ SlateportCity_PokemonFanClub_EventScript_SetMonTough::
 	return
 
 SlateportCity_PokemonFanClub_EventScript_ChairmanNotEnteredContest::
-	goto_if_set FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN, SlateportCity_PokemonFanClub_EventScript_ChairmanEnterContest
+	goto_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_PokemonFanClub_EventScript_ChairmanEnterContest
 	msgbox SlateportCity_PokemonFanClub_Text_MeetChairman, MSGBOX_DEFAULT
-	setflag FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 
@@ -183,7 +183,7 @@ SlateportCity_PokemonFanClub_EventScript_ChairmanEnterContest::
 
 SlateportCity_PokemonFanClub_EventScript_MeetChairman::
 	msgbox SlateportCity_PokemonFanClub_Text_MeetChairman, MSGBOX_DEFAULT
-	setflag FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN
+	setflag FLAG_OLD_WORLD_FLAG
 	return
 
 SlateportCity_PokemonFanClub_EventScript_SootheBellWoman::

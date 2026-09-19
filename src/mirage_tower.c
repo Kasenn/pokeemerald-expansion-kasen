@@ -269,7 +269,7 @@ void TryStartMirageTowerPulseBlendEffect(void)
 
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_ROUTE111)
      || gSaveBlock1Ptr->location.mapNum != MAP_NUM(MAP_ROUTE111)
-     || !FlagGet(FLAG_MIRAGE_TOWER_VISIBLE))
+     || !FlagGet(FLAG_OLD_WORLD_FLAG))
         return;
 
     sMirageTowerPulseBlend = AllocZeroed(sizeof(*sMirageTowerPulseBlend));
@@ -283,7 +283,7 @@ void ClearMirageTowerPulseBlendEffect(void)
 {
     if (gSaveBlock1Ptr->location.mapGroup != MAP_GROUP(MAP_ROUTE111)
      || gSaveBlock1Ptr->location.mapNum   != MAP_NUM(MAP_ROUTE111)
-     || !FlagGet(FLAG_MIRAGE_TOWER_VISIBLE)
+     || !FlagGet(FLAG_OLD_WORLD_FLAG)
      || sMirageTowerPulseBlend == NULL)
         return;
 
@@ -303,7 +303,7 @@ void SetMirageTowerVisibility(void)
     if (VarGet(VAR_MIRAGE_TOWER_STATE))
     {
         // Mirage Tower event has already been completed, hide it
-        FlagClear(FLAG_MIRAGE_TOWER_VISIBLE);
+        FlagClear(FLAG_OLD_WORLD_FLAG);
         return;
     }
 
@@ -314,12 +314,12 @@ void SetMirageTowerVisibility(void)
 
     if (visible)
     {
-        FlagSet(FLAG_MIRAGE_TOWER_VISIBLE);
+        FlagSet(FLAG_OLD_WORLD_FLAG);
         TryStartMirageTowerPulseBlendEffect();
         return;
     }
 
-    FlagClear(FLAG_MIRAGE_TOWER_VISIBLE);
+    FlagClear(FLAG_OLD_WORLD_FLAG);
 }
 
 void StartPlayerDescendMirageTower(void)

@@ -101,7 +101,7 @@ LilycoveCity_PokemonTrainerFanClub_EventScript_HideOrShowInterviewer::
 	specialvar VAR_RESULT, ShouldHideFanClubInterviewer
 	goto_if_eq VAR_RESULT, TRUE, LilycoveCity_PokemonTrainerFanClub_EventScript_HideInterviewer
 	clearflag FLAG_HIDE_LILYCOVE_FAN_CLUB_INTERVIEWER
-	clearflag FLAG_FAN_CLUB_STRENGTH_SHARED
+	clearflag FLAG_OLD_WORLD_FLAG
 	return
 
 LilycoveCity_PokemonTrainerFanClub_EventScript_HideInterviewer::
@@ -455,8 +455,8 @@ LilycoveCity_PokemonTrainerFanClub_EventScript_ExpertFOnlyNonFan::
 LilycoveCity_PokemonTrainerFanClub_EventScript_Interviewer::
 	lock
 	faceplayer
-	goto_if_set FLAG_FAN_CLUB_STRENGTH_SHARED, LilycoveCity_PokemonTrainerFanClub_EventScript_AlreadyInterviewed
-	goto_if_unset FLAG_FAN_CLUB_STRENGTH_SHARED, LilycoveCity_PokemonTrainerFanClub_EventScript_Interview
+	goto_if_set FLAG_OLD_WORLD_FLAG, LilycoveCity_PokemonTrainerFanClub_EventScript_AlreadyInterviewed
+	goto_if_unset FLAG_OLD_WORLD_FLAG, LilycoveCity_PokemonTrainerFanClub_EventScript_Interview
 	end
 
 @ The interviewer doesnt count as an individual fan club member
@@ -542,7 +542,7 @@ LilycoveCity_PokemonTrainerFanClub_EventScript_CompleteInterview::
 	setvar VAR_0x8004, FANCLUB_MEMBER1
 	special BufferFanClubTrainerName
 	msgbox LilycoveCity_PokemonTrainerFanClub_Text_ThankYouIllShareThisInfo, MSGBOX_DEFAULT
-	setflag FLAG_FAN_CLUB_STRENGTH_SHARED
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

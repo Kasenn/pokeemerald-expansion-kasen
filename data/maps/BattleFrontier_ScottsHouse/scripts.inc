@@ -11,9 +11,9 @@ BattleFrontier_ScottsHouse_EventScript_Scott::
 	end
 
 BattleFrontier_ScottsHouse_EventScript_CheckGiveItems::
-	goto_if_unset FLAG_SCOTT_GIVES_BATTLE_POINTS, BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier
+	goto_if_unset FLAG_OLD_WORLD_FLAG, BattleFrontier_ScottsHouse_EventScript_WelcomeToFrontier
 	goto_if_unset FLAG_OLD_WORLD_FLAG, BattleFrontier_ScottsHouse_EventScript_CheckSilverSymbols
-	goto_if_unset FLAG_COLLECTED_ALL_GOLD_SYMBOLS, BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols
+	goto_if_unset FLAG_OLD_WORLD_FLAG, BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols
 	goto BattleFrontier_ScottsHouse_EventScript_CheckGiveShield
 	end
 
@@ -50,7 +50,7 @@ BattleFrontier_ScottsHouse_EventScript_CheckGoldSymbols::
 	msgbox BattleFrontier_ScottsHouse_Text_YouveCollectedAllGoldSymbols, MSGBOX_DEFAULT
 	giveitem ITEM_STARF_BERRY
 	goto_if_eq VAR_RESULT, FALSE, BattleFrontier_ScottsHouse_EventScript_BerryPocketFull
-	setflag FLAG_COLLECTED_ALL_GOLD_SYMBOLS
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_4
 	release
 	end
@@ -184,7 +184,7 @@ BattleFrontier_ScottsHouse_EventScript_GiveBattlePoints::
 	special GiveFrontierBattlePoints
 	msgbox BattleFrontier_ScottsHouse_Text_ObtainedXBattlePoints, MSGBOX_GETPOINTS
 	msgbox BattleFrontier_ScottsHouse_Text_ExplainBattlePoints, MSGBOX_DEFAULT
-	setflag FLAG_SCOTT_GIVES_BATTLE_POINTS
+	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_2
 	release
 	end

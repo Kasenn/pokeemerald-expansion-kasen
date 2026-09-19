@@ -184,17 +184,17 @@ static const struct MatchCallStructNPC sMrStoneMatchCallHeader =
     .desc = COMPOUND_STRING("DEVON PRES"),
     .name = COMPOUND_STRING("MR. STONE"),
     .textData = (const match_call_text_data_t[]) {
-        { MatchCall_Text_MrStone1,  ALWAYS_AVAILABLE,                    FLAG_ENABLE_MR_STONE_POKENAV },
-        { MatchCall_Text_MrStone2,  FLAG_ENABLE_MR_STONE_POKENAV,        NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone3,  FLAG_OLD_WORLD_FLAG,        NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone4,  FLAG_OLD_WORLD_FLAG,             NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone5,  FLAG_RECEIVED_HM_STRENGTH,           NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone6,  FLAG_DEFEATED_PETALBURG_GYM,         NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone7,  FLAG_OLD_WORLD_FLAG,              NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone8,  FLAG_OLD_WORLD_FLAG, NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone9,  FLAG_OLD_WORLD_FLAG, NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone10, FLAG_DEFEATED_SOOTOPOLIS_GYM,        NO_FLAG_TO_SET },
-        { MatchCall_Text_MrStone11, FLAG_SYS_GAME_CLEAR,                 NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone1,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone2,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone3,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone4,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone5,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone6,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone7,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone8,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone9,  FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone10, FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
+        { MatchCall_Text_MrStone11, FLAG_OLD_WORLD_FLAG,    NO_FLAG_TO_SET },
         MATCH_CALL_TEXT_END
     }
 };
@@ -375,7 +375,7 @@ static const struct MatchCallStructTrainer sRoxanneMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_RUSTBORO_CITY,
-    .flag = FLAG_ENABLE_ROXANNE_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_ROXANNE,
     .desc = COMPOUND_STRING("ROCKIN' WHIZ"),
     .name = NULL,
@@ -392,7 +392,7 @@ static const struct MatchCallStructTrainer sBrawlyMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_DEWFORD_TOWN,
-    .flag = FLAG_ENABLE_BRAWLY_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_BRAWLY,
     .desc = COMPOUND_STRING("THE BIG HIT"),
     .name = NULL,
@@ -409,7 +409,7 @@ static const struct MatchCallStructTrainer sWattsonMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_MAUVILLE_CITY,
-    .flag = FLAG_ENABLE_WATTSON_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_WATTSON,
     .desc = COMPOUND_STRING("SWELL SHOCK"),
     .name = NULL,
@@ -426,7 +426,7 @@ static const struct MatchCallStructTrainer sFlanneryMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_LAVARIDGE_TOWN,
-    .flag = FLAG_ENABLE_FLANNERY_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_FLANNERY,
     .desc = COMPOUND_STRING("PASSION BURN"),
     .name = NULL,
@@ -443,7 +443,7 @@ static const struct MatchCallStructTrainer sWinonaMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_FORTREE_CITY,
-    .flag = FLAG_ENABLE_WINONA_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_WINONA,
     .desc = COMPOUND_STRING("SKY TAMER"),
     .name = NULL,
@@ -460,7 +460,7 @@ static const struct MatchCallStructTrainer sTateLizaMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_MOSSDEEP_CITY,
-    .flag = FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_TATE_AND_LIZA,
     .desc = COMPOUND_STRING("MYSTIC DUO"),
     .name = NULL,
@@ -477,7 +477,7 @@ static const struct MatchCallStructTrainer sJuanMatchCallHeader =
 {
     .type = MC_TYPE_LEADER,
     .mapSec = MAPSEC_SOOTOPOLIS_CITY,
-    .flag = FLAG_ENABLE_JUAN_MATCH_CALL,
+    .flag = FLAG_OLD_WORLD_FLAG,
     .rematchTableIdx = REMATCH_JUAN,
     .desc = COMPOUND_STRING("DANDY CHARM"),
     .name = NULL,

@@ -90,7 +90,7 @@ VermilionCity_EventScript_ChooseSeagallopDestRainbowPass::
 VermilionCity_EventScript_HasMysticTicket::
 	call VermilionCity_EventScript_CheckHasAuroraTicket
 	goto_if_eq VAR_RESULT, TRUE, VermilionCity_EventScript_HasMysticAndAuroraTickets
-	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
+	call_if_unset FLAG_OLD_WORLD_FLAG, VermilionCity_EventScript_ShowMysticTicket
 	message VermilionCity_Text_BoardSeagallopFerry
 	waitmessage
 	multichoice 17, 6, MULTI_UNUSED, FALSE
@@ -102,12 +102,12 @@ VermilionCity_EventScript_HasMysticTicket::
 	end
 
 VermilionCity_EventScript_ShowMysticTicket::
-	setflag FLAG_SHOWN_MYSTIC_TICKET
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox VermilionCity_Text_OhMysticTicketTakeYouToNavelRock
 	return
 
 VermilionCity_EventScript_HasAuroraTicket::
-	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
+	call_if_unset FLAG_OLD_WORLD_FLAG, VermilionCity_EventScript_ShowAuroraTicket
 	message VermilionCity_Text_BoardSeagallopFerry
 	waitmessage
 	multichoice 13, 6, MULTI_UNUSED, FALSE
@@ -119,13 +119,13 @@ VermilionCity_EventScript_HasAuroraTicket::
 	end
 
 VermilionCity_EventScript_ShowAuroraTicket::
-	setflag FLAG_SHOWN_AURORA_TICKET
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox VermilionCity_Text_OhAuroraTicketTakeYouToBirthIsland
 	return
 
 VermilionCity_EventScript_HasMysticAndAuroraTickets::
-	call_if_unset FLAG_SHOWN_MYSTIC_TICKET, VermilionCity_EventScript_ShowMysticTicket
-	call_if_unset FLAG_SHOWN_AURORA_TICKET, VermilionCity_EventScript_ShowAuroraTicket
+	call_if_unset FLAG_OLD_WORLD_FLAG, VermilionCity_EventScript_ShowMysticTicket
+	call_if_unset FLAG_OLD_WORLD_FLAG, VermilionCity_EventScript_ShowAuroraTicket
 	message VermilionCity_Text_BoardSeagallopFerry
 	waitmessage
 	multichoice 13, 5, MULTI_UNUSED, FALSE

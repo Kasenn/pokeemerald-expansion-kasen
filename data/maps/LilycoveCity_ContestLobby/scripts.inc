@@ -362,7 +362,7 @@ LilycoveCity_ContestLobby_EventScript_SetDebug::
 	end
 
 LilycoveCity_ContestLobby_EventScript_WarpToContestHall::
-	setflag FLAG_ENTERED_CONTEST
+	setflag FLAG_OLD_WORLD_FLAG
 	switch VAR_CONTEST_CATEGORY
 	case CONTEST_CATEGORY_COOL, LilycoveCity_ContestLobby_EventScript_WarpToCoolContestHall
 	case CONTEST_CATEGORY_BEAUTY, LilycoveCity_ContestLobby_EventScript_WarpToBeautyContestHall

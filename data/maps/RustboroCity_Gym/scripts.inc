@@ -96,7 +96,7 @@ RustboroCity_Gym_EventScript_RegisterRoxanne::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_ROXANNE_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	clearflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end

@@ -950,7 +950,7 @@ static void CreateLilycoveSSTidalMultichoice(void)
         sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_SLATEPORT;
         selectionCount++;
 
-        if (FlagGet(FLAG_MET_SCOTT_ON_SS_TIDAL) == TRUE)
+        if (FlagGet(FLAG_OLD_WORLD_FLAG) == TRUE)
         {
             sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_BATTLE_FRONTIER;
             selectionCount++;
@@ -965,11 +965,11 @@ static void CreateLilycoveSSTidalMultichoice(void)
             selectionCount++;
         }
 
-        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_SHOWN_EON_TICKET) == FALSE)
+        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_OLD_WORLD_FLAG) == FALSE)
         {
             sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_SOUTHERN_ISLAND;
             selectionCount++;
-            FlagSet(FLAG_SHOWN_EON_TICKET);
+            FlagSet(FLAG_OLD_WORLD_FLAG);
         }
     }
 
@@ -981,11 +981,11 @@ static void CreateLilycoveSSTidalMultichoice(void)
             selectionCount++;
         }
 
-        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_SHOWN_MYSTIC_TICKET) == FALSE)
+        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_OLD_WORLD_FLAG) == FALSE)
         {
             sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_NAVEL_ROCK;
             selectionCount++;
-            FlagSet(FLAG_SHOWN_MYSTIC_TICKET);
+            FlagSet(FLAG_OLD_WORLD_FLAG);
         }
     }
 
@@ -997,11 +997,11 @@ static void CreateLilycoveSSTidalMultichoice(void)
             selectionCount++;
         }
 
-        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_SHOWN_AURORA_TICKET) == FALSE)
+        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_OLD_WORLD_FLAG) == FALSE)
         {
             sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_BIRTH_ISLAND;
             selectionCount++;
-            FlagSet(FLAG_SHOWN_AURORA_TICKET);
+            FlagSet(FLAG_OLD_WORLD_FLAG);
         }
     }
 
@@ -1013,18 +1013,18 @@ static void CreateLilycoveSSTidalMultichoice(void)
             selectionCount++;
         }
 
-        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_SHOWN_OLD_SEA_MAP) == FALSE)
+        if (gSpecialVar_0x8004 == 1 && FlagGet(FLAG_OLD_WORLD_FLAG) == FALSE)
         {
             sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_FARAWAY_ISLAND;
             selectionCount++;
-            FlagSet(FLAG_SHOWN_OLD_SEA_MAP);
+            FlagSet(FLAG_OLD_WORLD_FLAG);
         }
     }
 
     sLilycoveSSTidalSelections[selectionCount] = SSTIDAL_SELECTION_EXIT;
     selectionCount++;
 
-    if (gSpecialVar_0x8004 == 0 && FlagGet(FLAG_MET_SCOTT_ON_SS_TIDAL) == TRUE)
+    if (gSpecialVar_0x8004 == 0 && FlagGet(FLAG_OLD_WORLD_FLAG) == TRUE)
     {
         count = selectionCount;
     }

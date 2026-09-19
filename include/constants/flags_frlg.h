@@ -660,9 +660,9 @@
 #define FLAG_0x2A4                                       0x2A4
 #define FLAG_CAN_USE_ROCKET_HIDEOUT_LIFT                 0x2A5
 #define FLAG_GOT_TEA                                     0x2A6
-#define FLAG_RECEIVED_AURORA_TICKET                      0x2A7
-#define FLAG_RECEIVED_MYSTIC_TICKET                      0x2A8
-#define FLAG_RECEIVED_OLD_SEA_MAP                        0x2A9
+#define FLAG_OLD_WORLD_FLAG                      0x2A7
+#define FLAG_OLD_WORLD_FLAG                      0x2A8
+#define FLAG_OLD_WORLD_FLAG                        0x2A9
 #define FLAG_WONDER_CARD_UNUSED_1                        0x2AA
 #define FLAG_WONDER_CARD_UNUSED_2                        0x2AB
 #define FLAG_WONDER_CARD_UNUSED_3                        0x2AC
@@ -680,7 +680,7 @@
 #define FLAG_WONDER_CARD_UNUSED_15                       0x2B8
 #define FLAG_WONDER_CARD_UNUSED_16                       0x2B9
 #define FLAG_WONDER_CARD_UNUSED_17                       0x2BA
-#define NUM_WONDER_CARD_FLAGS                            (1 + FLAG_WONDER_CARD_UNUSED_17 - FLAG_RECEIVED_AURORA_TICKET)
+#define NUM_WONDER_CARD_FLAGS                            (1 + FLAG_WONDER_CARD_UNUSED_17 - FLAG_OLD_WORLD_FLAG)
 
 #define FLAG_GOT_POWDER_JAR                              0x2BB
 #define FLAG_FOUGHT_MEWTWO                               0x2BC
@@ -735,8 +735,8 @@
 #define FLAG_REVIVED_HELIX                               0x2ED
 #define FLAG_REVIVED_AMBER                               0x2EE
 #define FLAG_GOT_HM06                                    0x2EF
-#define FLAG_SHOWN_MYSTIC_TICKET                         0x2F0
-#define FLAG_SHOWN_AURORA_TICKET                         0x2F1
+#define FLAG_OLD_WORLD_FLAG                         0x2F0
+#define FLAG_OLD_WORLD_FLAG                         0x2F1
 #define FLAG_FOUGHT_LUGIA                                0x2F2
 #define FLAG_FOUGHT_HO_OH                                0x2F3
 #define FLAG_OAK_SAW_DEX_COMPLETION                      0x2F4
@@ -1635,7 +1635,7 @@
 #define FLAG_MET_ARCHIE_METEOR_FALLS         0
 #define FLAG_OLD_WORLD_FLAG   0
 #define FLAG_OLD_WORLD_FLAG 0
-#define FLAG_FAN_CLUB_STRENGTH_SHARED        0 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
+#define FLAG_OLD_WORLD_FLAG        0 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
 #define FLAG_OLD_WORLD_FLAG         0
 #define FLAG_OLD_WORLD_FLAG        0
 #define FLAG_OLD_WORLD_FLAG  0
@@ -1726,8 +1726,8 @@
 #define FLAG_OLD_WORLD_FLAG   0
 #define FLAG_OLD_WORLD_FLAG           0
 #define FLAG_OLD_WORLD_FLAG                 0
-#define FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK   0
-#define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG     0
 #define FLAG_OLD_WORLD_FLAG         0
 #define FLAG_OLD_WORLD_FLAG    0
 #define FLAG_OLD_WORLD_FLAG                  0
@@ -1735,29 +1735,29 @@
 #define FLAG_OLD_WORLD_FLAG       0
 #define FLAG_OLD_WORLD_FLAG        0
 #define FLAG_OLD_WORLD_FLAG 0 // Set after you follow Steven to the entrance of the Cave of Origin.
-#define FLAG_MET_ARCHIE_SOOTOPOLIS           0
-#define FLAG_MET_MAXIE_SOOTOPOLIS            0
-#define FLAG_MET_SCOTT_RUSTBORO              0
-#define FLAG_WALLACE_GOES_TO_SKY_PILLAR      0 // Set after speaking to Wallace within the Cave of Origin.
-#define FLAG_RECEIVED_HM_WATERFALL           0
-#define FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS    0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG              0
+#define FLAG_OLD_WORLD_FLAG      0 // Set after speaking to Wallace within the Cave of Origin.
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG    0
 
-#define FLAG_MIRAGE_TOWER_VISIBLE            0
-#define FLAG_CHOSE_ROOT_FOSSIL               0
-#define FLAG_CHOSE_CLAW_FOSSIL               0
-#define FLAG_RECEIVED_POWDER_JAR             0
+#define FLAG_OLD_WORLD_FLAG            0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG             0
 
 #define FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER 0
 
-#define FLAG_MET_BATTLE_FRONTIER_BREEDER     0
-#define FLAG_MET_BATTLE_FRONTIER_MANIAC      0
-#define FLAG_ENTERED_CONTEST                 0
-#define FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN  0
-#define FLAG_MET_BATTLE_FRONTIER_GAMBLER     0
-#define FLAG_ENABLE_MR_STONE_POKENAV         0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG      0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG         0
 #define FLAG_NURSE_MENTIONS_GOLD_CARD        0
 #define FLAG_MET_FRONTIER_BEAUTY_MOVE_TUTOR  0
-#define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0
+#define FLAG_OLD_WORLD_FLAG 0
 
 // Flags for whether a rematchable trainer has been registered in the player's Match Call.
 // Most are used implicitly by adding their REMATCH_* id to TRAINER_REGISTERED_FLAGS_START.
@@ -1843,56 +1843,56 @@
 #define FLAG_REGISTERED_DRAKE                0
 #define FLAG_REGISTERED_WALLACE              0
 
-#define FLAG_DEFEATED_DEOXYS                 0
-#define FLAG_BATTLED_DEOXYS                  0
-#define FLAG_SHOWN_EON_TICKET                0
-#define FLAG_SHOWN_OLD_SEA_MAP               0
-#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER       0
-#define FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT       0
-#define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER   0
-#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0
-#define FLAG_MOVE_TUTOR_TAUGHT_METRONOME     0
-#define FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK    0
-#define FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE    0
-#define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0
-#define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0
-#define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                  0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG     0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG    0
+#define FLAG_OLD_WORLD_FLAG  0
+#define FLAG_OLD_WORLD_FLAG   0
+#define FLAG_OLD_WORLD_FLAG     0
 #define FLAG_DEFEATED_REGIROCK               0
-#define FLAG_DEFEATED_REGICE                 0
-#define FLAG_DEFEATED_REGISTEEL              0
-#define FLAG_DEFEATED_KYOGRE                 0
-#define FLAG_DEFEATED_GROUDON                0
-#define FLAG_DEFEATED_RAYQUAZA               0
-#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0
-#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0
-#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0
-#define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0
-#define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0
+#define FLAG_DEFEATED_MOLTRES                 0
+#define FLAG_DEFEATED_ARTICUNO              0
+#define FLAG_OLD_WORLD_FLAG                 0
+#define FLAG_OLD_WORLD_FLAG                0
+#define FLAG_OLD_WORLD_FLAG               0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG 0
 #define FLAG_DEFEATED_SUDOWOODO              0
-#define FLAG_DEFEATED_MEW                    0
-#define FLAG_DEFEATED_LATIAS_OR_LATIOS       0
-#define FLAG_CAUGHT_LATIAS_OR_LATIOS         0
-#define FLAG_CAUGHT_MEW                      0
-#define FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE 0
-#define FLAG_MET_SCOTT_IN_VERDANTURF         0
-#define FLAG_MET_SCOTT_IN_FALLARBOR          0
-#define FLAG_MET_SCOTT_IN_LILYCOVE           0
-#define FLAG_MET_SCOTT_IN_EVERGRANDE         0
-#define FLAG_MET_SCOTT_ON_SS_TIDAL           0
-#define FLAG_SCOTT_GIVES_BATTLE_POINTS       0
-#define FLAG_COLLECTED_ALL_GOLD_SYMBOLS      0
-#define FLAG_ENABLE_ROXANNE_MATCH_CALL       0
-#define FLAG_ENABLE_BRAWLY_MATCH_CALL        0
-#define FLAG_ENABLE_WATTSON_MATCH_CALL       0
-#define FLAG_ENABLE_FLANNERY_MATCH_CALL      0
-#define FLAG_ENABLE_WINONA_MATCH_CALL        0
-#define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0
-#define FLAG_ENABLE_JUAN_MATCH_CALL          0
+#define FLAG_OLD_WORLD_FLAG                    0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG                      0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG          0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG         0
+#define FLAG_OLD_WORLD_FLAG           0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG      0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG       0
+#define FLAG_OLD_WORLD_FLAG      0
+#define FLAG_OLD_WORLD_FLAG        0
+#define FLAG_OLD_WORLD_FLAG 0
+#define FLAG_OLD_WORLD_FLAG          0
 
 #define FLAG_UNUSED_0x1DA                    0 // Unused Flag
 
-#define FLAG_DEFEATED_HO_OH                  0
-#define FLAG_DEFEATED_LUGIA                  0
+#define FLAG_OLD_WORLD_FLAG                  0
+#define FLAG_OLD_WORLD_FLAG                  0
 
 // Hidden Items
 #define FLAG_HIDDEN_ITEM_LAVARIDGE_TOWN_ICE_HEAL             0

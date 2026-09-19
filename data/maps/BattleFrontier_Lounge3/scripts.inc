@@ -8,10 +8,10 @@ BattleFrontier_Lounge3_MapScripts::
 BattleFrontier_Lounge3_EventScript_Gambler::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_BATTLE_FRONTIER_GAMBLER, BattleFrontier_Lounge3_EventScript_AlreadyMetGambler
+	goto_if_set FLAG_OLD_WORLD_FLAG, BattleFrontier_Lounge3_EventScript_AlreadyMetGambler
 	call BattleFrontier_Lounge3_EventScript_CountSilverSymbols
 	goto_if_le VAR_0x8004, 2, BattleFrontier_Lounge3_EventScript_NotEnoughSilverSymbols
-	setflag FLAG_MET_BATTLE_FRONTIER_GAMBLER
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox BattleFrontier_Lounge3_Text_YouLookToughExplainGambling, MSGBOX_DEFAULT
 	goto BattleFrontier_Lounge3_EventScript_AskToEnterChallenge
 	end

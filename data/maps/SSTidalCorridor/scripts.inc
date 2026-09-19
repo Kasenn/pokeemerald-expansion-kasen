@@ -200,7 +200,7 @@ SSTidalCorridor_EventScript_ScottScene::
 	applymovement LOCALID_SS_TIDAL_EXIT_SAILOR, SSTidalCorridor_Movement_SailorReturn
 	waitmovement 0
 	delay 30
-	setflag FLAG_MET_SCOTT_ON_SS_TIDAL
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_SS_TIDAL_SCOTT_STATE, 1
 	releaseall
 	end

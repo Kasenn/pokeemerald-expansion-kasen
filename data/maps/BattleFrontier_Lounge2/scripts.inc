@@ -10,8 +10,8 @@ BattleFrontier_Lounge2_MapScripts::
 BattleFrontier_Lounge2_EventScript_FrontierManiac::
 	lock
 	faceplayer
-	goto_if_set FLAG_MET_BATTLE_FRONTIER_MANIAC, BattleFrontier_Lounge2_EventScript_AlreadyMetManiac
-	setflag FLAG_MET_BATTLE_FRONTIER_MANIAC
+	goto_if_set FLAG_OLD_WORLD_FLAG, BattleFrontier_Lounge2_EventScript_AlreadyMetManiac
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox BattleFrontier_Lounge2_Text_FrontierManiacIntro, MSGBOX_DEFAULT
 	goto BattleFrontier_Lounge2_EventScript_GiveAdvice
 	end

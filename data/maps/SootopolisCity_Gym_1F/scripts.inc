@@ -111,7 +111,7 @@ SootopolisCity_Gym_1F_EventScript_JuanDefeated::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_JUAN_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

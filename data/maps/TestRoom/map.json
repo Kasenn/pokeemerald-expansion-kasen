@@ -550,7 +550,7 @@
       "y": 33,
       "elevation": 0,
       "item": "ITEM_POKE_BALL",
-      "flag": "FLAG_CHOSE_ROOT_FOSSIL"
+      "flag": "FLAG_OLD_WORLD_FLAG"
     },
     {
       "type": "sign",

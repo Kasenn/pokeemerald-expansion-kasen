@@ -15,7 +15,7 @@ NavelRock_Top_EventScript_HideHoOh::
 
 NavelRock_Top_EventScript_TryShowHoOh::
 	setvar VAR_TEMP_1, 1
-	goto_if_set FLAG_DEFEATED_HO_OH, Common_EventScript_NopReturn
+	goto_if_set FLAG_OLD_WORLD_FLAG, Common_EventScript_NopReturn
 	setvar VAR_TEMP_1, 0
 	clearflag FLAG_HIDE_HO_OH
 	return
@@ -68,7 +68,7 @@ NavelRock_Top_EventScript_HoOh::
 	end
 
 NavelRock_Top_EventScript_DefeatedHoOh::
-	setflag FLAG_DEFEATED_HO_OH
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_0x8004, SPECIES_HO_OH
 	goto Common_EventScript_LegendaryFlewAway
 	end

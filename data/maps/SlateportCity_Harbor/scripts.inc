@@ -170,7 +170,7 @@ SlateportCity_Harbor_EventScript_AskForTicket::
 	end
 
 SlateportCity_Harbor_EventScript_ChooseDestination::
-	goto_if_set FLAG_MET_SCOTT_ON_SS_TIDAL, SlateportCity_Harbor_EventScript_ChooseDestinationWithBattleFrontier
+	goto_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_Harbor_EventScript_ChooseDestinationWithBattleFrontier
 	multichoicedefault 18, 8, MULTI_SSTIDAL_SLATEPORT_NO_BF, 2, FALSE
 	switch VAR_RESULT
 	case 0, SlateportCity_Harbor_EventScript_Lilycove
@@ -262,8 +262,8 @@ SlateportCity_Harbor_EventScript_Sailor::
 	faceplayer
 	goto_if_unset FLAG_SYS_GAME_CLEAR, SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather
 	setvar VAR_0x8004, 0
-	call_if_set FLAG_DEFEATED_KYOGRE, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
-	call_if_set FLAG_DEFEATED_GROUDON, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
+	call_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
+	call_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_Harbor_EventScript_CountDefeatedLegendary
 	goto_if_eq VAR_0x8004, 2, SlateportCity_Harbor_EventScript_SailorNoAbnormalWeather  @ Defeated both
 	msgbox SlateportCity_Harbor_Text_AbnormalWeather, MSGBOX_DEFAULT
 	release

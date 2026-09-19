@@ -51,7 +51,7 @@ CaveOfOrigin_B1F_EventScript_AtSkyPillar::
 	closemessage
 	playse SE_EXIT
 	fadescreenspeed FADE_TO_BLACK, 4
-	setflag FLAG_WALLACE_GOES_TO_SKY_PILLAR
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_SOOTOPOLIS_CITY_STATE, 3
 	removeobject LOCALID_CAVE_OF_ORIGIN_WALLACE
 	clearflag FLAG_HIDE_SKY_PILLAR_WALLACE

@@ -713,10 +713,10 @@ SlateportCity_EventScript_Man3::
 SlateportCity_EventScript_BerryPowderClerk::
 	lock
 	faceplayer
-	goto_if_set FLAG_RECEIVED_POWDER_JAR, SlateportCity_EventScript_ReceivedPowderJar
+	goto_if_set FLAG_OLD_WORLD_FLAG, SlateportCity_EventScript_ReceivedPowderJar
 	msgbox SlateportCity_Text_ExplainBerries, MSGBOX_DEFAULT
 	giveitem ITEM_POWDER_JAR
-	setflag FLAG_RECEIVED_POWDER_JAR
+	setflag FLAG_OLD_WORLD_FLAG
 	msgbox SlateportCity_Text_ExplainBerryPowder, MSGBOX_DEFAULT
 	release
 	end

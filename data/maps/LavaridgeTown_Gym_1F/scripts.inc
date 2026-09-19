@@ -74,7 +74,7 @@ LavaridgeTown_Gym_1F_EventScript_FlanneryDefeated::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_FLANNERY_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	release
 	end
 

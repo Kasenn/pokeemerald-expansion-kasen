@@ -51,8 +51,8 @@ SouthernIsland_Interior_EventScript_TryLatiEncounter::
 
 SouthernIsland_Interior_EventScript_Lati::
 	goto_if_set FLAG_TEMP_2, SouthernIsland_Interior_EventScript_Sign
-	goto_if_set FLAG_DEFEATED_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
-	goto_if_set FLAG_CAUGHT_LATIAS_OR_LATIOS, SouthernIsland_Interior_EventScript_Sign
+	goto_if_set FLAG_OLD_WORLD_FLAG, SouthernIsland_Interior_EventScript_Sign
+	goto_if_set FLAG_OLD_WORLD_FLAG, SouthernIsland_Interior_EventScript_Sign
 	goto_if_unset FLAG_ENABLE_SHIP_SOUTHERN_ISLAND, SouthernIsland_Interior_EventScript_Sign
 	setflag FLAG_OLD_WORLD_FLAG
 	setflag FLAG_TEMP_2
@@ -81,12 +81,12 @@ SouthernIsland_Interior_EventScript_Lati::
 	goto_if_eq VAR_RESULT, B_OUTCOME_WON, SouthernIsland_Interior_EventScript_LatiDefeated
 	goto_if_eq VAR_RESULT, B_OUTCOME_RAN, SouthernIsland_Interior_EventScript_RanFromLati
 	goto_if_eq VAR_RESULT, B_OUTCOME_PLAYER_TELEPORTED, SouthernIsland_Interior_EventScript_RanFromLati
-	setflag FLAG_CAUGHT_LATIAS_OR_LATIOS
+	setflag FLAG_OLD_WORLD_FLAG
 	releaseall
 	end
 
 SouthernIsland_Interior_EventScript_LatiDefeated::
-	setflag FLAG_DEFEATED_LATIAS_OR_LATIOS
+	setflag FLAG_OLD_WORLD_FLAG
 	copyvar VAR_0x8004, VAR_TEMP_4
 	goto Common_EventScript_LegendaryFlewAway
 	end

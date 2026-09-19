@@ -45,17 +45,17 @@
 #define TEMP_FLAGS_END                                              FLAG_TEMP_1F
 #define NUM_TEMP_FLAGS                                              (TEMP_FLAGS_END - TEMP_FLAGS_START + 1)
 
-#define FLAG_HIDE_LAB_RIVAL                                         0x20 // Used to show/hide rival in prof's lab
-#define FLAG_INTRO_TO_BP                                            0x21 // Introduction to battle points
+#define FLAG_HIDE_LAB_RIVAL                                         0x20
+#define FLAG_INTRO_TO_BP                                            0x21
 #define FLAG_GLADE_PUZZLE                                           0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR                                  0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
-#define FLAG_AZURETIDE_HONEY                                        0x24 // Flag for getting honey in azuretide town
+#define FLAG_AZURETIDE_HONEY                                        0x24
 #define FLAG_UNUSED_0x25                                            0x25
 #define FLAG_UNUSED_0x26                                            0x26
 #define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS                             0x27 // Forces double wild battles
 #define FLAG_OBTAINED_PAINTBRUSH                                    0x28
-#define FLAG_MET_MOVE_TUTOR                                         0x29 // Introduction to BP Shop Move Tutor
-#define FLAG_ROUTE5_ITEM1                                           0x2A // Route 5 item flags start
+#define FLAG_MET_MOVE_TUTOR                                         0x29
+#define FLAG_ROUTE5_ITEM1                                           0x2A
 #define FLAG_ROUTE5_ITEM2                                           0x2B
 #define FLAG_ROUTE5_ITEM3                                           0x2C
 #define FLAG_ROUTE5_ITEM4                                           0x2D
@@ -63,13 +63,13 @@
 #define FLAG_ROUTE5_HIDDENITEM2                                     0x2F
 #define FLAG_ROUTE5_HIDDENITEM3                                     0x30 
 #define FLAG_ROUTE5_HIDDENITEM4                                     0x31
-#define FLAG_ROUTE5_HIDDENITEM5                                     0x32 // Route 5 item flags end
+#define FLAG_ROUTE5_HIDDENITEM5                                     0x32
 #define FLAG_INCREASED_SHINY_ODDS                                   0x33 // increase shiny odds
 #define FLAG_SKYLOCH_JUICE                                          0x34
 #define FLAG_SKYLOCH_CASTELIACONE                                   0x35
 #define FLAG_SHOWED_BADGE                                           0x36 // Showed badge to gain entry to adamant tower
 #define FLAG_PARTNER_HEALS                                          0x37 // disable switching while followed by a partner
-#define FLAG_ROUTE8_ITEM1                                           0x38 // Route 8 item flags
+#define FLAG_ROUTE8_ITEM1                                           0x38
 #define FLAG_ROUTE8_ITEM2                                           0x39
 #define FLAG_ROUTE8_ITEM3                                           0x3A
 #define FLAG_ROUTE8_ITEM4                                           0x3B
@@ -94,13 +94,6 @@
 #define FLAG_KAOLISLE_PLAYINGPIANO                                  0x4E
 #define FLAG_PIANOREWARD                                            0x4F
 
-#if IS_FRLG
-
-#include "constants/flags_frlg.h"
-
-#else
-
-
 // Scripts
 #define FLAG_SYSTEM_NOREWARDBATTLES                                 0x50 // NO EXP OR MONEY FROM BATTLES, used in hotel battle buffet
 #define FLAG_RIVAL_MET_IN_SANDSTONE                                 0x51
@@ -108,12 +101,12 @@
 #define FLAG_SANDSTONE_LAVACOOKIE                                   0x53
 #define FLAG_RECEIVED_LIGHTBALL                                     0x54  // Received light ball after showing 2 raichus in skyloch village
 #define FLAG_BUFFET_COMPLETE                                        0x55
-#define FLAG_TRADED_SMEARGLE                                        0x56  // HAS BEEN SET IN NEW GAME, CLEAR BEFORE USING!
+#define FLAG_TRADED_SMEARGLE                                        0x56
 #define FLAG_MET_RIVAL_MOM                                          0x57
 #define FLAG_BIRCH_AIDE_MET                                         0x58
 #define FLAG_DECLINED_BIKE                                          0x59
 #define FLAG_RECEIVED_BIKE                                          0x5A
-#define FLAG_WATTSON_REMATCH_AVAILABLE                              0x5B
+#define FLAG_WATTSON_REMATCH_AVAILABLE                              0x5B // Unused, but better left intact
 #define FLAG_UNUSED_0x5C                                            0x5C
 #define FLAG_GOOD_LUCK_SAFARI_ZONE                                  0x5D // Set after talking to NPC blocking Safari Zone entrance/exit once.
 #define FLAG_RECEIVED_WAILMER_PAIL                                  0x5E
@@ -135,13 +128,13 @@
 #define FLAG_RECEIVED_FLIGHT_FLUTE                                  0x6E
 #define FLAG_UNUSED_0x6F                                            0x6F
 #define FLAG_UNUSED_0x70                                            0x70
-#define FLAG_OBTAINED_ECHOEDVOICE                                   0x71 // obtained hm for echoed voice on kaolisle hotel
+#define FLAG_OBTAINED_ECHOEDVOICE                                   0x71
 #define FLAG_UNUSED_0x72                                            0x72
 #define FLAG_UNUSED_0x73                                            0x73
 #define FLAG_R14_ITEM3                                              0x74
 #define FLAG_UNUSED_0x75                                            0x75
 #define FLAG_UNUSED_0x76                                            0x76
-#define FLAG_CANCEL_BATTLE_ROOM_CHALLENGE                           0x77
+#define FLAG_CANCEL_BATTLE_ROOM_CHALLENGE                           0x77 // Unused, but better left intact
 #define FLAG_UNUSED_0x78                                            0x78
 #define FLAG_UNUSED_0x79                                            0x79
 #define FLAG_RECEIVED_HM_SURF                                       0x7A
@@ -232,7 +225,7 @@
 #define FLAG_MET_STRANGE_SEED_TRADER                                0xCF
 #define FLAG_UNUSED_0xD0                                            0xD0
 #define FLAG_UNUSED_0xD1                                            0xD1
-#define FLAG_FAN_CLUB_STRENGTH_SHARED                               0xD2 // Set when you rate the strength of another trainer in Lilycove's Trainer Fan Club.
+#define FLAG_UNUSED_0xD2                                            0xD2
 #define FLAG_UNUSED_0xD3                                            0xD3
 #define FLAG_UNUSED_0xD4                                            0xD4
 #define FLAG_UNUSED_0xD5                                            0xD5
@@ -324,8 +317,8 @@
 #define FLAG_UNUSED_0x128                                           0x128
 #define FLAG_UNUSED_0x129                                           0x129
 #define FLAG_UNUSED_0x12A                                           0x12A
-#define FLAG_RECEIVED_FANCLUB_TM_THIS_WEEK   0x12B
-#define FLAG_MET_FANCLUB_YOUNGER_BROTHER     0x12C
+#define FLAG_UNUSED_0x12B                                           0x12B
+#define FLAG_UNUSED_0x12C                                           0x12C
 #define FLAG_UNUSED_0x12D                                           0x12D
 #define FLAG_UNUSED_0x12E                                           0x12E
 #define FLAG_UNUSED_0x12F                                           0x12F
@@ -333,15 +326,15 @@
 #define FLAG_UNUSED_0x131                                           0x131
 #define FLAG_UNUSED_0x132                                           0x132
 #define FLAG_UNUSED_0x133                                           0x133
-#define FLAG_MET_ARCHIE_SOOTOPOLIS           0x134
-#define FLAG_MET_MAXIE_SOOTOPOLIS            0x135
-#define FLAG_MET_SCOTT_RUSTBORO              0x136
-#define FLAG_WALLACE_GOES_TO_SKY_PILLAR      0x137 // Set after speaking to Wallace within the Cave of Origin.
-#define FLAG_RECEIVED_HM_WATERFALL           0x138
-#define FLAG_BEAT_MAGMA_GRUNT_JAGGED_PASS    0x139
-#define FLAG_RECEIVED_AURORA_TICKET          0x13A
-#define FLAG_RECEIVED_MYSTIC_TICKET          0x13B
-#define FLAG_RECEIVED_OLD_SEA_MAP            0x13C
+#define FLAG_UNUSED_0x134                                           0x134
+#define FLAG_UNUSED_0x135                                           0x135
+#define FLAG_UNUSED_0x136                                           0x136
+#define FLAG_UNUSED_0x137                                           0x137
+#define FLAG_UNUSED_0x138                                           0x138
+#define FLAG_UNUSED_0x139                                           0x139
+#define FLAG_UNUSED_0x13A                                           0x13A
+#define FLAG_UNUSED_0x13B                                           0x13B
+#define FLAG_UNUSED_0x13C                                           0x13C
 #define FLAG_KAOLISLE_ITEM1                                         0x13D
 #define FLAG_KAOLISLE_ITEM2                                         0x13E
 #define FLAG_KAOLISLE_ITEM3                                         0x13F
@@ -359,24 +352,20 @@
 #define FLAG_OBTAINED_AERODACTYLITE                                 0x14B
 #define FLAG_ROUTE23_ITEM3                                          0x14C
 #define FLAG_SAFARIMOUNTAIN_ITEM7                                   0x14D
-
-#define FLAG_MIRAGE_TOWER_VISIBLE            0x14E
-#define FLAG_CHOSE_ROOT_FOSSIL               0x14F
-#define FLAG_CHOSE_CLAW_FOSSIL               0x150
-#define FLAG_RECEIVED_POWDER_JAR             0x151
-
-#define FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER 0x152
-
-#define FLAG_MET_BATTLE_FRONTIER_BREEDER     0x153
-#define FLAG_MET_BATTLE_FRONTIER_MANIAC      0x154
-#define FLAG_ENTERED_CONTEST                 0x155
-#define FLAG_MET_SLATEPORT_FANCLUB_CHAIRMAN  0x156
-#define FLAG_MET_BATTLE_FRONTIER_GAMBLER     0x157
-#define FLAG_ENABLE_MR_STONE_POKENAV         0x158
-#define FLAG_NURSE_MENTIONS_GOLD_CARD        0x159
-#define FLAG_MET_MOVE_REMINDER  0x15A
-#define FLAG_MET_FRONTIER_SWIMMER_MOVE_TUTOR 0x15B
-
+#define FLAG_UNUSED_0x14E                                           0x14E
+#define FLAG_UNUSED_0x14F                                           0x14F
+#define FLAG_UNUSED_0x150                                           0x150
+#define FLAG_UNUSED_0x151                                           0x151
+#define FLAG_CHOSEN_MULTI_BATTLE_NPC_PARTNER                        0x152 // Unused, but better left intact
+#define FLAG_UNUSED_0x153                                           0x153
+#define FLAG_UNUSED_0x154                                           0x154
+#define FLAG_UNUSED_0x155                                           0x155
+#define FLAG_UNUSED_0x156                                           0x156
+#define FLAG_UNUSED_0x157                                           0x157
+#define FLAG_UNUSED_0x158                                           0x158
+#define FLAG_NURSE_MENTIONS_GOLD_CARD                               0x159
+#define FLAG_MET_MOVE_REMINDER                                      0x15A
+#define FLAG_UNUSED_0x15B                                           0x15B
 #define FLAG_ZYGARDE_CELL_1                                         0x15C
 #define FLAG_ZYGARDE_CELL_2                                         0x15D
 #define FLAG_ZYGARDE_CELL_3                                         0x15E
@@ -457,287 +446,281 @@
 #define FLAG_FLOODEDCAVE_FOSSIL                                     0x1A9
 #define FLAG_OLDMAN_PEARLSTRING                                     0x1AA
 #define FLAG_REVEAL_PEARLSTRING                                     0x1AB
+#define FLAG_UNUSED_0x1AC                                           0x1AC
+#define FLAG_UNUSED_0x1AD                                           0x1AD
+#define FLAG_UNUSED_0x1AE                                           0x1AE
+#define FLAG_UNUSED_0x1AF                                           0x1AF
+#define FLAG_UNUSED_0x1B0                                           0x1B0
+#define FLAG_UNUSED_0x1B1                                           0x1B1
+#define FLAG_UNUSED_0x1B2                                           0x1B2
+#define FLAG_UNUSED_0x1B3                                           0x1B3
+#define FLAG_UNUSED_0x1B4                                           0x1B4
+#define FLAG_UNUSED_0x1B5                                           0x1B5
+#define FLAG_UNUSED_0x1B6                                           0x1B6
+#define FLAG_UNUSED_0x1B7                                           0x1B7
+#define FLAG_UNUSED_0x1B8                                           0x1B8
+#define FLAG_UNUSED_0x1B9                                           0x1B9
+#define FLAG_UNUSED_0x1BA                                           0x1BA
+#define FLAG_DEFEATED_ZAPDOS                                        0x1BB
+#define FLAG_DEFEATED_MOLTRES                                       0x1BC
+#define FLAG_DEFEATED_ARTICUNO                                      0x1BD
+#define FLAG_UNUSED_0x1BE                                           0x1BE
+#define FLAG_UNUSED_0x1BF                                           0x1BF
+#define FLAG_UNUSED_0x1C0                                           0x1C0
+#define FLAG_UNUSED_0x1C1                                           0x1C1
+#define FLAG_UNUSED_0x1C2                                           0x1C2
+#define FLAG_UNUSED_0x1C3                                           0x1C3
+#define FLAG_UNUSED_0x1C4                                           0x1C4
+#define FLAG_UNUSED_0x1C5                                           0x1C5
+#define FLAG_DEFEATED_SUDOWOODO                                     0x1C6
+#define FLAG_UNUSED_0x1C7                                           0x1C7
+#define FLAG_UNUSED_0x1C8                                           0x1C8
+#define FLAG_UNUSED_0x1C9                                           0x1C9
+#define FLAG_UNUSED_0x1CA                                           0x1CA
+#define FLAG_UNUSED_0x1CB                                           0x1CB
+#define FLAG_UNUSED_0x1CC                                           0x1CC
+#define FLAG_UNUSED_0x1CD                                           0x1CD
+#define FLAG_UNUSED_0x1CE                                           0x1CE
+#define FLAG_UNUSED_0x1CF                                           0x1CF
+#define FLAG_UNUSED_0x1D0                                           0x1D0
+#define FLAG_UNUSED_0x1D1                                           0x1D1
+#define FLAG_UNUSED_0x1D2                                           0x1D2
+#define FLAG_UNUSED_0x1D3                                           0x1D3
+#define FLAG_UNUSED_0x1D4                                           0x1D4
+#define FLAG_UNUSED_0x1D5                                           0x1D5
+#define FLAG_UNUSED_0x1D6                                           0x1D6
+#define FLAG_UNUSED_0x1D7                                           0x1D7
+#define FLAG_UNUSED_0x1D8                                           0x1D8
+#define FLAG_UNUSED_0x1D9                                           0x1D9
+#define FLAG_OBTAINED_BEACHBALL                                     0x1DA
+#define FLAG_UNUSED_0x1DB                                           0x1DB
+#define FLAG_UNUSED_0x1DC                                           0x1DC
+#define FLAG_UNUSED_0x1DD                                           0x1DD
+#define FLAG_QUEST_FOR_GOOD_ROD                                     0x1DE
+#define FLAG_KAOLISLE_BROTHER_INTRO                                 0x1DF
+#define FLAG_VISITED_KAOLISLE                                       0x1E0
+#define FLAG_AT_ITEM1                                               0x1E1
+#define FLAG_AT_ITEM2                                               0x1E2
+#define FLAG_AT_ITEM3                                               0x1E3
+#define FLAG_UNUSED_0x1E4                                           0x1E4
+#define FLAG_UNUSED_0x1E5                                           0x1E5
+#define FLAG_UNUSED_0x1E6                                           0x1E6
+#define FLAG_UNUSED_0x1E7                                           0x1E7
+#define FLAG_UNUSED_0x1E8                                           0x1E8
+#define FLAG_UNUSED_0x1E9                                           0x1E9
+#define FLAG_UNUSED_0x1EA                                           0x1EA
+#define FLAG_UNUSED_0x1EB                                           0x1EB
+#define FLAG_UNUSED_0x1EC                                           0x1EC
+#define FLAG_UNUSED_0x1ED                                           0x1ED
+#define FLAG_UNUSED_0x1EE                                           0x1EE
+#define FLAG_UNUSED_0x1EF                                           0x1EF
+#define FLAG_UNUSED_0x1F0                                           0x1F0
+#define FLAG_UNUSED_0x1F1                                           0x1F1
+#define FLAG_UNUSED_0x1F2                                           0x1F2
+#define FLAG_UNUSED_0x1F3                                           0x1F3
+#define FLAG_ACEROLA_TALKED_TO                                      0x1F4
+#define FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION                         0x1F5
+#define FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE                           0x1F6
+#define FLAG_HIDDEN_ITEM_ROUTE2_PEARL1                              0x1F7
+#define FLAG_HIDDEN_ITEM_ROUTE2_PEARL2                              0x1F8
+#define FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL                            0x1F9
+#define FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL                          0x1FA
+#define FLAG_HIDDEN_ITEM_WW_DAMP_ROCK                               0x1FB
+#define FLAG_HIDDEN_ITEM_WW_RARE_CANDY                              0x1FC
+#define FLAG_HIDDEN_ITEM_WW_ETHER                                   0x1FD
+#define FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY                       0x1FE
+#define FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM                       0x1FF
 
-#define FLAG_DEFEATED_DEOXYS                 0x1AC
-#define FLAG_BATTLED_DEOXYS                  0x1AD
-#define FLAG_SHOWN_EON_TICKET                0x1AE
-#define FLAG_SHOWN_AURORA_TICKET             0x1AF
-#define FLAG_SHOWN_OLD_SEA_MAP               0x1B0
-#define FLAG_MOVE_TUTOR_TAUGHT_SWAGGER       0x1B1
-#define FLAG_MOVE_TUTOR_TAUGHT_ROLLOUT       0x1B2
-#define FLAG_MOVE_TUTOR_TAUGHT_FURY_CUTTER   0x1B3
-#define FLAG_MOVE_TUTOR_TAUGHT_MIMIC         0x1B4
-#define FLAG_MOVE_TUTOR_TAUGHT_METRONOME     0x1B5
-#define FLAG_MOVE_TUTOR_TAUGHT_SLEEP_TALK    0x1B6
-#define FLAG_MOVE_TUTOR_TAUGHT_SUBSTITUTE    0x1B7
-#define FLAG_MOVE_TUTOR_TAUGHT_DYNAMICPUNCH  0x1B8
-#define FLAG_MOVE_TUTOR_TAUGHT_DOUBLE_EDGE   0x1B9
-#define FLAG_MOVE_TUTOR_TAUGHT_EXPLOSION     0x1BA
-#define FLAG_DEFEATED_ZAPDOS               0x1BB
-#define FLAG_DEFEATED_REGICE                 0x1BC
-#define FLAG_DEFEATED_REGISTEEL              0x1BD
-#define FLAG_DEFEATED_KYOGRE                 0x1BE
-#define FLAG_DEFEATED_GROUDON                0x1BF
-#define FLAG_DEFEATED_RAYQUAZA               0x1C0
-#define FLAG_DEFEATED_VOLTORB_1_NEW_MAUVILLE 0x1C1
-#define FLAG_DEFEATED_VOLTORB_2_NEW_MAUVILLE 0x1C2
-#define FLAG_DEFEATED_VOLTORB_3_NEW_MAUVILLE 0x1C3
-#define FLAG_DEFEATED_ELECTRODE_1_AQUA_HIDEOUT 0x1C4
-#define FLAG_DEFEATED_ELECTRODE_2_AQUA_HIDEOUT 0x1C5
-#define FLAG_DEFEATED_SUDOWOODO              0x1C6
-#define FLAG_DEFEATED_MEW                    0x1C7
-#define FLAG_DEFEATED_LATIAS_OR_LATIOS       0x1C8
-#define FLAG_CAUGHT_LATIAS_OR_LATIOS         0x1C9
-#define FLAG_CAUGHT_MEW                      0x1CA
-#define FLAG_MET_SCOTT_AFTER_OBTAINING_STONE_BADGE 0x1CB
-#define FLAG_MET_SCOTT_IN_VERDANTURF         0x1CC
-#define FLAG_MET_SCOTT_IN_FALLARBOR          0x1CD
-#define FLAG_MET_SCOTT_IN_LILYCOVE           0x1CE
-#define FLAG_MET_SCOTT_IN_EVERGRANDE         0x1CF
-#define FLAG_MET_SCOTT_ON_SS_TIDAL           0x1D0
-#define FLAG_SCOTT_GIVES_BATTLE_POINTS       0x1D1
-#define FLAG_COLLECTED_ALL_GOLD_SYMBOLS      0x1D2
-#define FLAG_ENABLE_ROXANNE_MATCH_CALL       0x1D3
-#define FLAG_ENABLE_BRAWLY_MATCH_CALL        0x1D4
-#define FLAG_ENABLE_WATTSON_MATCH_CALL       0x1D5
-#define FLAG_ENABLE_FLANNERY_MATCH_CALL      0x1D6
-#define FLAG_ENABLE_WINONA_MATCH_CALL        0x1D7
-#define FLAG_ENABLE_TATE_AND_LIZA_MATCH_CALL 0x1D8
-#define FLAG_ENABLE_JUAN_MATCH_CALL          0x1D9
 
-#define FLAG_OBTAINED_BEACHBALL                    0x1DA // 
 
-#define FLAG_SHOWN_MYSTIC_TICKET             0x1DB
-#define FLAG_DEFEATED_HO_OH                  0x1DC
-#define FLAG_DEFEATED_LUGIA                  0x1DD
-
-#define FLAG_QUEST_FOR_GOOD_ROD                    0x1DE // 
-#define FLAG_KAOLISLE_BROTHER_INTRO                    0x1DF // 
-#define FLAG_VISITED_KAOLISLE                    0x1E0 // 
-#define FLAG_AT_ITEM1                    0x1E1
-#define FLAG_AT_ITEM2                    0x1E2
-#define FLAG_AT_ITEM3                    0x1E3
-
-// Mystery Gift Flags (Unknown)
-#define FLAG_MYSTERY_GIFT_DONE               0x1E4
-#define FLAG_MYSTERY_GIFT_1                  0x1E5
-#define FLAG_MYSTERY_GIFT_2                  0x1E6
-#define FLAG_MYSTERY_GIFT_3                  0x1E7
-#define FLAG_MYSTERY_GIFT_4                  0x1E8
-#define FLAG_MYSTERY_GIFT_5                  0x1E9
-#define FLAG_MYSTERY_GIFT_6                  0x1EA
-#define FLAG_MYSTERY_GIFT_7                  0x1EB
-#define FLAG_MYSTERY_GIFT_8                  0x1EC
-#define FLAG_MYSTERY_GIFT_9                  0x1ED
-#define FLAG_MYSTERY_GIFT_10                 0x1EE
-#define FLAG_MYSTERY_GIFT_11                 0x1EF
-#define FLAG_MYSTERY_GIFT_12                 0x1F0
-#define FLAG_MYSTERY_GIFT_13                 0x1F1
-#define FLAG_MYSTERY_GIFT_14                 0x1F2
-#define FLAG_MYSTERY_GIFT_15                 0x1F3
-
-// Hidden Items
-#define FLAG_ACEROLA_TALKED_TO                               0x1F4
-#define FLAG_HIDDEN_ITEM_ROUTE1_SUPERPOTION                  0x1F5
-#define FLAG_HIDDEN_ITEM_ROUTE2_HARDSTONE                    0x1F6
-#define FLAG_HIDDEN_ITEM_ROUTE2_PEARL1                       0x1F7
-#define FLAG_HIDDEN_ITEM_ROUTE2_PEARL2                       0x1F8
-#define FLAG_HIDDEN_ITEM_ROUTE2_BIGPEARL                     0x1F9
-#define FLAG_HIDDEN_ITEM_ROUTE2_GREAT_BALL                   0x1FA
-#define FLAG_HIDDEN_ITEM_WW_DAMP_ROCK                        0x1FB
-#define FLAG_HIDDEN_ITEM_WW_RARE_CANDY                       0x1FC
-#define FLAG_HIDDEN_ITEM_WW_ETHER                            0x1FD
-#define FLAG_HIDDEN_ITEM_CORALGROVE_RARECANDY                0x1FE
-#define FLAG_HIDDEN_ITEM_MEADOW_TINY_MUSHROOM                0x1FF
-#define FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL                     0x200
-#define FLAG_HIDDEN_ITEM_ROUTE3_REVIVE                       0x201
-#define FLAG_HIDDEN_ITEM_ROUTE3_ETHER                        0x202
-#define FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL                   0x203
-#define FLAG_HIDDEN_ITEM_RANCH                               0x204
-#define FLAG_UNDERGROUNDRUINS_ITEM1                          0x205
-#define FLAG_UNDERGROUNDRUINS_ITEM2                          0x206
-#define FLAG_UNDERGROUNDRUINS_ITEM3                          0x207
-#define FLAG_UNDERGROUNDRUINS_ITEM4                          0x208
-#define FLAG_UNDERGROUNDRUINS_ITEM5                          0x209
-#define FLAG_UNDERGROUNDRUINS_ITEM6                          0x20A
-#define FLAG_UNDERGROUNDRUINS_ITEM7                          0x20B
-#define FLAG_UNDERGROUNDRUINS_ITEM8                          0x20C
-#define FLAG_UNDERGROUNDRUINS_ITEM9                          0x20D
-#define FLAG_UNDERGROUNDRUINS_ITEM10                         0x20E
-#define FLAG_UNDERGROUNDRUINS_ITEM11                         0x20F
-#define FLAG_UNDERGROUNDRUINS_ITEM12                         0x210
-#define FLAG_UNDERGROUNDRUINS_ITEM13                         0x211
-#define FLAG_UNDERGROUNDRUINS_ITEM14                         0x212
-#define FLAG_UNDERGROUNDRUINS_ITEM15                         0x213
-#define FLAG_UNDERGROUNDRUINS_ITEM16                         0x214
-#define FLAG_OLD_WORLD_FLAG                                  0x215
-#define FLAG_ROUTE11_HONEY                                   0x216
-#define FLAG_ROUTE11_GREATBALL                               0x217
-#define FLAG_ROUTE11_RARECANDY                               0x218
-#define FLAG_R12_ITEM1                                       0x219
-#define FLAG_R12_ITEM2                                       0x21A
-#define FLAG_R12_ITEM3                                       0x21B
-#define FLAG_HIDDEN_ITEM_ROUTE_121_NUGGET                    0x21C
-#define FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE                    0x21D
-#define FLAG_HIDDEN_ITEM_ROUTE_114_REVIVE                    0x21E
-#define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_PP_UP                 0x21F
-#define FLAG_ROCKLIFFE_ITEM2                                 0x220
-#define FLAG_ROCKLIFFE_ITEM3                                 0x221
-#define FLAG_HIDDEN_ITEM_ROUTE_106_STARDUST                  0x222
-#define FLAG_HIDDEN_ITEM_ROUTE_106_HEART_SCALE               0x223
-#define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_1        0x224
-#define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_2        0x225
-#define FLAG_HIDDEN_ITEM_ROUTE_109_REVIVE                    0x226
-#define FLAG_HIDDEN_ITEM_ROUTE_109_GREAT_BALL                0x227
-#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_1             0x228
-#define FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL                0x229
-#define FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE                    0x22A
-#define FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL                 0x22B
-#define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                   0x22C
-#define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                0x22D
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION              0x22E
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1     0x22F
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2     0x230
-#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL           0x231
-#define FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL                 0x232
-#define FLAG_HIDDEN_ITEM_ROUTE_106_POKE_BALL                 0x233
-#define FLAG_HIDDEN_ITEM_ROUTE_109_ETHER                     0x234
-#define FLAG_HIDDEN_ITEM_ROUTE_110_POKE_BALL                 0x235
-#define FLAG_HIDDEN_ITEM_ROUTE_118_HEART_SCALE               0x236
-#define FLAG_HIDDEN_ITEM_ROUTE_118_IRON                      0x237
-#define FLAG_HIDDEN_ITEM_ROUTE_119_FULL_HEAL                 0x238
-#define FLAG_HIDDEN_ITEM_ROUTE_120_RARE_CANDY_2              0x239
-#define FLAG_HIDDEN_ITEM_ROUTE_120_ZINC                      0x23A
-#define FLAG_HIDDEN_ITEM_ROUTE_120_RARE_CANDY_1              0x23B
-#define FLAG_HIDDEN_ITEM_ROUTE_117_REPEL                     0x23C
-#define FLAG_HIDDEN_ITEM_ROUTE_121_FULL_HEAL                 0x23D
-#define FLAG_HIDDEN_ITEM_ROUTE_123_HYPER_POTION              0x23E
-#define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL             0x23F
-#define FLAG_HIDDEN_ITEM_JAGGED_PASS_GREAT_BALL              0x240
-#define FLAG_HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL               0x241
-#define FLAG_HIDDEN_ITEM_MT_PYRE_EXTERIOR_MAX_ETHER          0x242
-#define FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_ZINC                 0x243
-#define FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_RARE_CANDY           0x244
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL          0x245
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_ELIXIR             0x246
-#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_MAX_REPEL          0x247
-#define FLAG_HIDDEN_ITEM_ROUTE_120_REVIVE                    0x248
-#define FLAG_HIDDEN_ITEM_ROUTE_104_ANTIDOTE                  0x249
-#define FLAG_HIDDEN_ITEM_ROUTE_108_RARE_CANDY                0x24A
-#define FLAG_HIDDEN_ITEM_ROUTE_119_MAX_ETHER                 0x24B
-#define FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE               0x24C
-#define FLAG_HIDDEN_ITEM_ROUTE_105_HEART_SCALE               0x24D
-#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_2             0x24E
-#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_3             0x24F
-#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1             0x250
-#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2             0x251
-#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3             0x252
-#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY           0x253
-#define FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES             0x254
-#define FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE               0x255
-#define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                    0x256
-#define FLAG_HIDDEN_ITEM_ROUTE_123_PP_UP                     0x257
-#define FLAG_HIDDEN_ITEM_ROUTE_121_MAX_REVIVE                0x258
-#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_CALCIUM            0x259
-#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_ZINC               0x25A
-#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_PROTEIN            0x25B
-#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_IRON               0x25C
-#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE 0x25D
-#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY   0x25E
-#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC         0x25F
-#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP        0x260
-#define FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH           0x261
-#define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                0x262
-#define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                 0x263
-
-#define FLAG_SANDSTONE_HIDDENITEM_1             0x264 //
-#define FLAG_SANDSTONE_HIDDENITEM_2                   0x265 //
-#define FLAG_KAOLISLE_ITEM9                    0x266 // TRAINER SCHOOL DONE
-#define FLAG_0x267_CG_HIDEGHOST      0x267 // Used to hide the ghost in Coralgrove City
-#define FLAG_OBTAINED_A_FOSSIL  0x268 // 
-#define FLAG_WW_WATERSTONE             0x269 // TM for first gym
-#define FLAG_NECTARQUESTDONE                0x26A // set this flag if oricorio shown to nectar maniac
-#define FLAG_SAFARI_NW_ITEM1  0x26B // 
-#define FLAG_SAFARI_NW_ITEM2  0x26C // 
-#define FLAG_SAFARI_NW_ITEM3  0x26D // 
-#define FLAG_SAFARI_NW_ITEM4  0x26E // 
-#define FLAG_JASMINE_HELPED                 0x26F // START OF POKE RANCH EVENT FLAGS
-#define FLAG_JASMINE_TALKED_TO_FIRST        0x270 // 
-#define FLAG_VOLKNER_TALKED_TO_FIRST        0x271 // 
-#define FLAG_VOLKNER_INFORMED               0x272 // 
-#define FLAG_HIDE_VOLKNER_2                 0x273 // 
-#define FLAG_RANCH_EVENT_NPC                0x274 // 
-#define FLAG_MAREEP_NOT_RETURNED            0x275 // 
-#define FLAG_HIDE_VOLKNER_1                 0x276 // 
-#define FLAG_HIDE_RANCH_OWNER               0x277 //  
-#define FLAG_RANCH_HELPED                   0x278 //  
-#define FLAG_VOLKNER_HELPED                 0x279 //  
-#define FLAG_JASMINE_MET                    0x27A //  
-#define FLAG_JASMINE_QUEST_STARTED          0x27B //  
-#define FLAG_VISITED_HERB_SHOP              0x27C //  
-#define FLAG_VISITED_HERB_SHOP_2            0x27D //  
-#define FLAG_VOLKNER_MET                    0x27E // END OF POKE RANCH EVENT FLAGS
-#define FLAG_HIDE3FMAN                      0x27F // Used to hide the man in Aldeleaf House 3, 3F
-#define FLAG_ANGEREDGUYINALDELEAF           0x280 // Used to stop player going back upstairs after event
-#define FLAG_TOUCHPOKEBALL                  0x281 // Interacted once with the poke ball in Aldeleaf House 3, 3F
-#define FLAG_ALDELEAF_MUSHROOM              0x282 // Hidden item in Aldeleaf
-#define FLAG_ALDELEAF_MUSHROOM2             0x283 // Hidden item in Aldeleaf
-#define FLAG_ALDELEAF_LOST_KEY              0x284 // Hidden key item in Aldeleaf
-#define FLAG_KEY_RETURNED                   0x285 // Key returned in Aldeleaf, despawns npc
-#define FLAG_WPV_FEATHER1                   0x286 // Start of Windplume Valley items
-#define FLAG_WPV_FEATHER2                   0x287 //  
-#define FLAG_WPV_FEATHER3                   0x288 //  
-#define FLAG_WPV_FEATHER4                   0x289 //  
-#define FLAG_WPV_FEATHER5                   0x28A //  
-#define FLAG_WPV_FEATHER6                   0x28B //  
-#define FLAG_WPV_HYPER_POTION               0x28C //  
-#define FLAG_WPV_ELIXIR                     0x28D //  
-#define FLAG_WPV_IRON_BALL                  0x28E // End of Windplume Valley items
-#define FLAG_LANDMARK_POKE_RANCH  0x28F // 
-#define FLAG_LANDMARK_WINDPLUME_VALLEY  0x290 // 
-#define FLAG_VISITED_SHORESLATE  0x291 // 
-#define FLAG_SHORESLATE_MART_SECRET  0x292 // 
-#define FLAG_SHOWN_GRASS  0x293 // 
-#define FLAG_SHOWN_FIRE  0x294 // 
-#define FLAG_SHOWN_WATER  0x295 // 
-#define FLAG_RECEIVED_CYNDAQUIL  0x296 // 
-#define FLAG_RECEIVED_TOTODILE  0x297 // 
-#define FLAG_RECEIVED_CHIKORITA  0x298 // 
-#define FLAG_VOLCARONA_FOUGHT  0x299 // 
-#define FLAG_OBTAINED_HELIX_FOSSIL  0x29A // 
-#define FLAG_OBTAINED_DOME_FOSSIL  0x29B // 
-#define FLAG_OBTAINED_OLDAMBER_FOSSIL  0x29C // 
-#define FLAG_OBTAINED_ROOT_FOSSIL  0x29D // 
-#define FLAG_OBTAINED_CLAW_FOSSIL  0x29E // 
-#define FLAG_OBTAINED_SKULL_FOSSIL  0x29F // 
-#define FLAG_OBTAINED_ARMOR_FOSSIL  0x2A0 // 
-#define FLAG_OBTAINED_COVER_FOSSIL  0x2A1 // 
-#define FLAG_OBTAINED_PLUME_FOSSIL  0x2A2 // 
-#define FLAG_OBTAINED_JAW_FOSSIL  0x2A3 // 
-#define FLAG_OBTAINED_SAIL_FOSSIL  0x2A4 // 
-#define FLAG_DESERT_ITEM1  0x2A5 // 
-#define FLAG_DESERT_ITEM2  0x2A6 // 
-#define FLAG_DESERT_ITEM3  0x2A7 // 
-#define FLAG_DESERT_ITEM4  0x2A8 // 
-#define FLAG_DESERT_ITEM5  0x2A9 // 
-#define FLAG_DESERT_ITEM6  0x2AA // 
-#define FLAG_DESERT_ITEM7  0x2AB // 
-#define FLAG_DESERT_ITEM8  0x2AC // 
-#define FLAG_DESERT_ITEM9  0x2AD // 
-#define FLAG_DESERT_ITEM10  0x2AE // 
-#define FLAG_ROUTE7_ITEM1  0x2AF // 
-#define FLAG_ROUTE7_ITEM2  0x2B0 // 
-#define FLAG_ROUTE7_ITEM3  0x2B1 // 
-#define FLAG_ROUTE7_ITEM4  0x2B2 // 
-#define FLAG_ROUTE7_ITEM5  0x2B3 // 
-#define FLAG_RECOMMEND_LIBRARY  0x2B4 // 
-#define FLAG_ARCHEOLOGIST_TALKED_TO  0x2B5 // 
-#define FLAG_MARIGORGE_ITEM1  0x2B6 // 
-#define FLAG_MARIGORGE_ITEM2  0x2B7 // 
-#define FLAG_MARIGORGE_ITEM3  0x2B8 // 
-#define FLAG_ROCKLIFFE_ITEM1  0x2B9 // 
-#define FLAG_OBTAINED_MEGA_RING  0x2BA // 
-#define FLAG_OBTAINED_BEEDRILLITE  0x2BB // 
+#define FLAG_HIDDEN_ITEM_ROUTE3_POKEBALL                            0x200
+#define FLAG_HIDDEN_ITEM_ROUTE3_REVIVE                              0x201
+#define FLAG_HIDDEN_ITEM_ROUTE3_ETHER                               0x202
+#define FLAG_HIDDEN_ITEM_ROUTE3_SUPERREPEL                          0x203
+#define FLAG_HIDDEN_ITEM_RANCH                                      0x204
+#define FLAG_UNDERGROUNDRUINS_ITEM1                                 0x205
+#define FLAG_UNDERGROUNDRUINS_ITEM2                                 0x206
+#define FLAG_UNDERGROUNDRUINS_ITEM3                                 0x207
+#define FLAG_UNDERGROUNDRUINS_ITEM4                                 0x208
+#define FLAG_UNDERGROUNDRUINS_ITEM5                                 0x209
+#define FLAG_UNDERGROUNDRUINS_ITEM6                                 0x20A
+#define FLAG_UNDERGROUNDRUINS_ITEM7                                 0x20B
+#define FLAG_UNDERGROUNDRUINS_ITEM8                                 0x20C
+#define FLAG_UNDERGROUNDRUINS_ITEM9                                 0x20D
+#define FLAG_UNDERGROUNDRUINS_ITEM10                                0x20E
+#define FLAG_UNDERGROUNDRUINS_ITEM11                                0x20F
+#define FLAG_UNDERGROUNDRUINS_ITEM12                                0x210
+#define FLAG_UNDERGROUNDRUINS_ITEM13                                0x211
+#define FLAG_UNDERGROUNDRUINS_ITEM14                                0x212
+#define FLAG_UNDERGROUNDRUINS_ITEM15                                0x213
+#define FLAG_UNDERGROUNDRUINS_ITEM16                                0x214
+#define FLAG_OLD_WORLD_FLAG                                         0x215
+#define FLAG_ROUTE11_HONEY                                          0x216
+#define FLAG_ROUTE11_GREATBALL                                      0x217
+#define FLAG_ROUTE11_RARECANDY                                      0x218
+#define FLAG_R12_ITEM1                                              0x219
+#define FLAG_R12_ITEM2                                              0x21A
+#define FLAG_R12_ITEM3                                              0x21B
+#define FLAG_HIDDEN_ITEM_ROUTE_121_NUGGET                           0x21C
+#define FLAG_HIDDEN_ITEM_ROUTE_123_REVIVE                           0x21D
+#define FLAG_HIDDEN_ITEM_ROUTE_114_REVIVE                           0x21E
+#define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_PP_UP                        0x21F
+#define FLAG_ROCKLIFFE_ITEM2                                        0x220
+#define FLAG_ROCKLIFFE_ITEM3                                        0x221
+#define FLAG_HIDDEN_ITEM_ROUTE_106_STARDUST                         0x222
+#define FLAG_HIDDEN_ITEM_ROUTE_106_HEART_SCALE                      0x223
+#define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_1               0x224
+#define FLAG_HIDDEN_ITEM_GRANITE_CAVE_B2F_EVERSTONE_2               0x225
+#define FLAG_HIDDEN_ITEM_ROUTE_109_REVIVE                           0x226
+#define FLAG_HIDDEN_ITEM_ROUTE_109_GREAT_BALL                       0x227
+#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_1                    0x228
+#define FLAG_HIDDEN_ITEM_ROUTE_110_GREAT_BALL                       0x229
+#define FLAG_HIDDEN_ITEM_ROUTE_110_REVIVE                           0x22A
+#define FLAG_HIDDEN_ITEM_ROUTE_110_FULL_HEAL                        0x22B
+#define FLAG_HIDDEN_ITEM_ROUTE_111_PROTEIN                          0x22C
+#define FLAG_HIDDEN_ITEM_ROUTE_111_RARE_CANDY                       0x22D
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POTION                     0x22E
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_1            0x22F
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_TINY_MUSHROOM_2            0x230
+#define FLAG_HIDDEN_ITEM_PETALBURG_WOODS_POKE_BALL                  0x231
+#define FLAG_HIDDEN_ITEM_ROUTE_104_POKE_BALL                        0x232
+#define FLAG_HIDDEN_ITEM_ROUTE_106_POKE_BALL                        0x233
+#define FLAG_HIDDEN_ITEM_ROUTE_109_ETHER                            0x234
+#define FLAG_HIDDEN_ITEM_ROUTE_110_POKE_BALL                        0x235
+#define FLAG_HIDDEN_ITEM_ROUTE_118_HEART_SCALE                      0x236
+#define FLAG_HIDDEN_ITEM_ROUTE_118_IRON                             0x237
+#define FLAG_HIDDEN_ITEM_ROUTE_119_FULL_HEAL                        0x238
+#define FLAG_HIDDEN_ITEM_ROUTE_120_RARE_CANDY_2                     0x239
+#define FLAG_HIDDEN_ITEM_ROUTE_120_ZINC                             0x23A
+#define FLAG_HIDDEN_ITEM_ROUTE_120_RARE_CANDY_1                     0x23B
+#define FLAG_HIDDEN_ITEM_ROUTE_117_REPEL                            0x23C
+#define FLAG_HIDDEN_ITEM_ROUTE_121_FULL_HEAL                        0x23D
+#define FLAG_HIDDEN_ITEM_ROUTE_123_HYPER_POTION                     0x23E
+#define FLAG_HIDDEN_ITEM_LILYCOVE_CITY_POKE_BALL                    0x23F
+#define FLAG_HIDDEN_ITEM_JAGGED_PASS_GREAT_BALL                     0x240
+#define FLAG_HIDDEN_ITEM_JAGGED_PASS_FULL_HEAL                      0x241
+#define FLAG_HIDDEN_ITEM_MT_PYRE_EXTERIOR_MAX_ETHER                 0x242
+#define FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_ZINC                        0x243
+#define FLAG_HIDDEN_ITEM_MT_PYRE_SUMMIT_RARE_CANDY                  0x244
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_1F_ULTRA_BALL                 0x245
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_ELIXIR                    0x246
+#define FLAG_HIDDEN_ITEM_VICTORY_ROAD_B2F_MAX_REPEL                 0x247
+#define FLAG_HIDDEN_ITEM_ROUTE_120_REVIVE                           0x248
+#define FLAG_HIDDEN_ITEM_ROUTE_104_ANTIDOTE                         0x249
+#define FLAG_HIDDEN_ITEM_ROUTE_108_RARE_CANDY                       0x24A
+#define FLAG_HIDDEN_ITEM_ROUTE_119_MAX_ETHER                        0x24B
+#define FLAG_HIDDEN_ITEM_ROUTE_104_HEART_SCALE                      0x24C
+#define FLAG_HIDDEN_ITEM_ROUTE_105_HEART_SCALE                      0x24D
+#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_2                    0x24E
+#define FLAG_HIDDEN_ITEM_ROUTE_109_HEART_SCALE_3                    0x24F
+#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_1                    0x250
+#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_2                    0x251
+#define FLAG_HIDDEN_ITEM_ROUTE_128_HEART_SCALE_3                    0x252
+#define FLAG_HIDDEN_ITEM_PETALBURG_CITY_RARE_CANDY                  0x253
+#define FLAG_HIDDEN_ITEM_ROUTE_116_BLACK_GLASSES                    0x254
+#define FLAG_HIDDEN_ITEM_ROUTE_115_HEART_SCALE                      0x255
+#define FLAG_HIDDEN_ITEM_ROUTE_113_NUGGET                           0x256
+#define FLAG_HIDDEN_ITEM_ROUTE_123_PP_UP                            0x257
+#define FLAG_HIDDEN_ITEM_ROUTE_121_MAX_REVIVE                       0x258
+#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_CALCIUM                   0x259
+#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_ZINC                      0x25A
+#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_PROTEIN                   0x25B
+#define FLAG_HIDDEN_ITEM_ARTISAN_CAVE_B1F_IRON                      0x25C
+#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_FULL_RESTORE        0x25D
+#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_RARE_CANDY          0x25E
+#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_NORTH_EAST_ZINC                0x25F
+#define FLAG_HIDDEN_ITEM_SAFARI_ZONE_SOUTH_EAST_PP_UP               0x260
+#define FLAG_HIDDEN_ITEM_NAVEL_ROCK_TOP_SACRED_ASH                  0x261
+#define FLAG_HIDDEN_ITEM_ROUTE_123_RARE_CANDY                       0x262
+#define FLAG_HIDDEN_ITEM_ROUTE_105_BIG_PEARL                        0x263
+#define FLAG_SANDSTONE_HIDDENITEM_1                                 0x264
+#define FLAG_SANDSTONE_HIDDENITEM_2                                 0x265
+#define FLAG_KAOLISLE_ITEM9                                         0x266
+#define FLAG_0x267_CG_HIDEGHOST                                     0x267
+#define FLAG_OBTAINED_A_FOSSIL                                      0x268
+#define FLAG_WW_WATERSTONE                                          0x269
+#define FLAG_NECTARQUESTDONE                                        0x26A
+#define FLAG_SAFARI_NW_ITEM1                                        0x26B
+#define FLAG_SAFARI_NW_ITEM2                                        0x26C
+#define FLAG_SAFARI_NW_ITEM3                                        0x26D
+#define FLAG_SAFARI_NW_ITEM4                                        0x26E
+#define FLAG_JASMINE_HELPED                                         0x26F // START OF POKE RANCH EVENT FLAGS
+#define FLAG_JASMINE_TALKED_TO_FIRST                                0x270 // 
+#define FLAG_VOLKNER_TALKED_TO_FIRST                                0x271 // 
+#define FLAG_VOLKNER_INFORMED                                       0x272 // 
+#define FLAG_HIDE_VOLKNER_2                                         0x273 // 
+#define FLAG_RANCH_EVENT_NPC                                        0x274 // 
+#define FLAG_MAREEP_NOT_RETURNED                                    0x275 // 
+#define FLAG_HIDE_VOLKNER_1                                         0x276 // 
+#define FLAG_HIDE_RANCH_OWNER                                       0x277 //  
+#define FLAG_RANCH_HELPED                                           0x278 //  
+#define FLAG_VOLKNER_HELPED                                         0x279 //  
+#define FLAG_JASMINE_MET                                            0x27A //  
+#define FLAG_JASMINE_QUEST_STARTED                                  0x27B //  
+#define FLAG_VISITED_HERB_SHOP                                      0x27C //  
+#define FLAG_VISITED_HERB_SHOP_2                                    0x27D //  
+#define FLAG_VOLKNER_MET                                            0x27E // END OF POKE RANCH EVENT FLAGS
+#define FLAG_HIDE3FMAN                                              0x27F
+#define FLAG_ANGEREDGUYINALDELEAF                                   0x280
+#define FLAG_TOUCHPOKEBALL                                          0x281
+#define FLAG_ALDELEAF_MUSHROOM                                      0x282
+#define FLAG_ALDELEAF_MUSHROOM2                                     0x283
+#define FLAG_ALDELEAF_LOST_KEY                                      0x284
+#define FLAG_KEY_RETURNED                                           0x285
+#define FLAG_WPV_FEATHER1                                           0x286
+#define FLAG_WPV_FEATHER2                                           0x287
+#define FLAG_WPV_FEATHER3                                           0x288
+#define FLAG_WPV_FEATHER4                                           0x289
+#define FLAG_WPV_FEATHER5                                           0x28A
+#define FLAG_WPV_FEATHER6                                           0x28B
+#define FLAG_WPV_HYPER_POTION                                       0x28C
+#define FLAG_WPV_ELIXIR                                             0x28D
+#define FLAG_WPV_IRON_BALL                                          0x28E
+#define FLAG_LANDMARK_POKE_RANCH                                    0x28F
+#define FLAG_LANDMARK_WINDPLUME_VALLEY                              0x290
+#define FLAG_VISITED_SHORESLATE                                     0x291
+#define FLAG_SHORESLATE_MART_SECRET                                 0x292
+#define FLAG_SHOWN_GRASS                                            0x293
+#define FLAG_SHOWN_FIRE                                             0x294
+#define FLAG_SHOWN_WATER                                            0x295
+#define FLAG_RECEIVED_CYNDAQUIL                                     0x296
+#define FLAG_RECEIVED_TOTODILE                                      0x297
+#define FLAG_RECEIVED_CHIKORITA                                     0x298
+#define FLAG_VOLCARONA_FOUGHT                                       0x299
+#define FLAG_OBTAINED_HELIX_FOSSIL                                  0x29A
+#define FLAG_OBTAINED_DOME_FOSSIL                                   0x29B
+#define FLAG_OBTAINED_OLDAMBER_FOSSIL                               0x29C
+#define FLAG_OBTAINED_ROOT_FOSSIL                                   0x29D
+#define FLAG_OBTAINED_CLAW_FOSSIL                                   0x29E
+#define FLAG_OBTAINED_SKULL_FOSSIL                                  0x29F
+#define FLAG_OBTAINED_ARMOR_FOSSIL                                  0x2A0
+#define FLAG_OBTAINED_COVER_FOSSIL                                  0x2A1
+#define FLAG_OBTAINED_PLUME_FOSSIL                                  0x2A2
+#define FLAG_OBTAINED_JAW_FOSSIL                                    0x2A3
+#define FLAG_OBTAINED_SAIL_FOSSIL                                   0x2A4
+#define FLAG_DESERT_ITEM1                                           0x2A5
+#define FLAG_DESERT_ITEM2                                           0x2A6
+#define FLAG_DESERT_ITEM3                                           0x2A7
+#define FLAG_DESERT_ITEM4                                           0x2A8
+#define FLAG_DESERT_ITEM5                                           0x2A9
+#define FLAG_DESERT_ITEM6                                           0x2AA
+#define FLAG_DESERT_ITEM7                                           0x2AB
+#define FLAG_DESERT_ITEM8                                           0x2AC
+#define FLAG_DESERT_ITEM9                                           0x2AD
+#define FLAG_DESERT_ITEM10                                          0x2AE
+#define FLAG_ROUTE7_ITEM1                                           0x2AF
+#define FLAG_ROUTE7_ITEM2                                           0x2B0
+#define FLAG_ROUTE7_ITEM3                                           0x2B1
+#define FLAG_ROUTE7_ITEM4                                           0x2B2
+#define FLAG_ROUTE7_ITEM5                                           0x2B3
+#define FLAG_RECOMMEND_LIBRARY                                      0x2B4
+#define FLAG_ARCHEOLOGIST_TALKED_TO                                 0x2B5
+#define FLAG_MARIGORGE_ITEM1                                        0x2B6
+#define FLAG_MARIGORGE_ITEM2                                        0x2B7
+#define FLAG_MARIGORGE_ITEM3                                        0x2B8
+#define FLAG_ROCKLIFFE_ITEM1                                        0x2B9
+#define FLAG_OBTAINED_MEGA_RING                                     0x2BA
+#define FLAG_OBTAINED_BEEDRILLITE                                   0x2BB
 
 // Event Flags
 #define FLAG_REUNITE_WITH_RIVAL                      0x2BC
@@ -802,6 +785,9 @@
 #define FLAG_HIDE_MAUVILLE_CITY_SCOTT                               0x2FD
 #define FLAG_HIDE_VERDANTURF_TOWN_SCOTT                             0x2FE
 #define FLAG_HIDE_FALLARBOR_TOWN_BATTLE_TENT_SCOTT                  0x2FF
+
+
+
 #define FLAG_HIDE_ROUTE_111_VICTOR_WINSTRATE                        0x300
 #define FLAG_HIDE_ROUTE_111_VICTORIA_WINSTRATE                      0x301
 #define FLAG_HIDE_ROUTE_111_VIVI_WINSTRATE                          0x302
@@ -3459,8 +3445,6 @@
 #define FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL                0
 #define FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY       0
 #define FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR                        0
-
-#endif
 
 #if TESTING
 #define TESTING_FLAGS_START                     0x5000

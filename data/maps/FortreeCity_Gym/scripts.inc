@@ -43,7 +43,7 @@ FortreeCity_Gym_EventScript_WinonaDefeated::
 	waitfanfare
 	closemessage
 	delay 30
-	setflag FLAG_ENABLE_WINONA_MATCH_CALL
+	setflag FLAG_OLD_WORLD_FLAG
 	setvar VAR_SCOTT_FORTREE_CALL_STEP_COUNTER, 0
 	setflag FLAG_OLD_WORLD_FLAG
 	release
