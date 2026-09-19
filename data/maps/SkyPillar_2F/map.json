@@ -54,6 +54,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ATOWER_1F_PSYCHIC_M",
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 13,
       "y": 7,
@@ -67,6 +68,7 @@
       "flag": "0"
     },
     {
+      "local_id": "LOCALID_ATOWER_1F_MAN5",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 10,
       "y": 7,

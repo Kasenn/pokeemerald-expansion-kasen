@@ -37,32 +37,7 @@ script Tower_4F_Tr1_Battle{
     turnobject(LOCALID_PLAYER, DIR_WEST)
     msgbox(Tr1_4F_HexManiacIntro)
     closemessage
-    switch(var(VAR_TOWER_PARTNER)){
-        case 0:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_TORCHIC)
-        case 1:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_PIPLUP)
-        case 2:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ORAS_ROWLET)
-        case 3:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_TORCHIC)
-        case 4:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_PIPLUP)
-        case 5:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_MAY_ROWLET)
-        case 6:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
-        case 7:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
-        case 8:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
-        case 9:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_TORCHIC)
-        case 10:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_PIPLUP)
-        case 11:
-            multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, PARTNER_BRENDAN_ROWLET)
-    }
+    multi_2_vs_2(TRAINER_AT_4F_BLACKBELT, Tr1_4F_Blackbelt_Lost, TRAINER_AT_4F_HEXMANIAC, Tr1_4F_HexManiac_Lost, VAR_TOWER_PARTNER)
     switch(var(VAR_RESULT)){
         case 1:
             settrainerflag(TRAINER_AT_4F_BLACKBELT)
@@ -153,32 +128,7 @@ script Tower_4F_Tr2_Battle{
             msgbox(Tr2_4F_YoungsterIntro)
     }
     closemessage
-    switch(var(VAR_TOWER_PARTNER)){
-        case 0:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_TORCHIC)
-        case 1:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_PIPLUP)
-        case 2:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ORAS_ROWLET)
-        case 3:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_TORCHIC)
-        case 4:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_PIPLUP)
-        case 5:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_MAY_ROWLET)
-        case 6:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
-        case 7:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
-        case 8:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
-        case 9:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_TORCHIC)
-        case 10:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_PIPLUP)
-        case 11:
-            multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, PARTNER_BRENDAN_ROWLET)
-    }
+    multi_2_vs_2(TRAINER_AT_4F_LASS, Tr2_4F_Lass_Lost, TRAINER_AT_4F_YOUNGSTER, Tr2_4F_Youngster_Lost, VAR_TOWER_PARTNER)
     switch(var(VAR_RESULT)){
         case 1:
             settrainerflag(TRAINER_AT_4F_LASS)
@@ -271,32 +221,7 @@ script Tower_4F_Tr3_Battle{
             msgbox(Tr3_4F_BattleGirlIntro)
     }
     closemessage
-    switch(var(VAR_TOWER_PARTNER)){
-        case 0:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_TORCHIC)
-        case 1:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_PIPLUP)
-        case 2:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ORAS_ROWLET)
-        case 3:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_TORCHIC)
-        case 4:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_PIPLUP)
-        case 5:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_MAY_ROWLET)
-        case 6:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_TORCHIC)
-        case 7:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_PIPLUP)
-        case 8:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ORAS_ROWLET)
-        case 9:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_TORCHIC)
-        case 10:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_PIPLUP)
-        case 11:
-            multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, PARTNER_BRENDAN_ROWLET)
-    }
+    multi_2_vs_2(TRAINER_AT_4F_BATTLEGIRL, Tr3_4F_BattleGirl_Lost, TRAINER_AT_4F_BLACKBELT2, Tr3_4F_Blackbelt_Lost, VAR_TOWER_PARTNER)
     switch(var(VAR_RESULT)){
         case 1:
             settrainerflag(TRAINER_AT_4F_BATTLEGIRL)

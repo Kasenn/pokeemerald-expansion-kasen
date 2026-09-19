@@ -551,12 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    special (TrySkyBattle)
-    if(var(VAR_RESULT) == TRUE){
-        trainerbattle_no_intro(TRAINER_CASUAL_IRIS, RustboroCity_DevonCorp_1F_Rocket1_Defeat)
-    }
-    msgbox("asd")
-    closemessage
+    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)//wip2
     release
     end
     return

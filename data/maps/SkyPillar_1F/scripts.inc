@@ -29,16 +29,18 @@ SetupRivalPartner_1:
 # 33 "data/maps/SkyPillar_1F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq SetupRivalPartner_5
-# 56 "data/maps/SkyPillar_1F/scripts.pory"
+# 52 "data/maps/SkyPillar_1F/scripts.pory"
 	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, SetupRivalPartner_11
-# 67 "data/maps/SkyPillar_1F/scripts.pory"
+# 61 "data/maps/SkyPillar_1F/scripts.pory"
 	switch VAR_STARTER_MON
-# 68 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_ROWLET, SetupRivalPartner_27
-# 70 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_TORCHIC, SetupRivalPartner_28
-# 72 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_PIPLUP, SetupRivalPartner_29
+# 62 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_ROWLET, SetupRivalPartner_30
+# 63 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_TORCHIC, SetupRivalPartner_31
+# 64 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_PIPLUP, SetupRivalPartner_32
+# 65 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_TORCHIC
 SetupRivalPartner_4:
 	end
 
@@ -50,14 +52,16 @@ SetupRivalPartner_2:
 SetupRivalPartner_5:
 # 34 "data/maps/SkyPillar_1F/scripts.pory"
 	goto_if_set FLAG_RIVAL_COSTUME_CHANGE, SetupRivalPartner_8
-# 45 "data/maps/SkyPillar_1F/scripts.pory"
+# 43 "data/maps/SkyPillar_1F/scripts.pory"
 	switch VAR_STARTER_MON
+# 44 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_ROWLET, SetupRivalPartner_20
+# 45 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_TORCHIC, SetupRivalPartner_21
 # 46 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_ROWLET, SetupRivalPartner_19
-# 48 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_TORCHIC, SetupRivalPartner_20
-# 50 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_PIPLUP, SetupRivalPartner_21
+	case SPECIES_PIPLUP, SetupRivalPartner_22
+# 47 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_TORCHIC
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_8:
@@ -65,112 +69,116 @@ SetupRivalPartner_8:
 	switch VAR_STARTER_MON
 # 36 "data/maps/SkyPillar_1F/scripts.pory"
 	case SPECIES_ROWLET, SetupRivalPartner_15
-# 38 "data/maps/SkyPillar_1F/scripts.pory"
+# 37 "data/maps/SkyPillar_1F/scripts.pory"
 	case SPECIES_TORCHIC, SetupRivalPartner_16
-# 40 "data/maps/SkyPillar_1F/scripts.pory"
+# 38 "data/maps/SkyPillar_1F/scripts.pory"
 	case SPECIES_PIPLUP, SetupRivalPartner_17
+# 39 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_TORCHIC
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_11:
-# 57 "data/maps/SkyPillar_1F/scripts.pory"
+# 53 "data/maps/SkyPillar_1F/scripts.pory"
 	switch VAR_STARTER_MON
-# 58 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_ROWLET, SetupRivalPartner_23
-# 60 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_TORCHIC, SetupRivalPartner_24
-# 62 "data/maps/SkyPillar_1F/scripts.pory"
-	case SPECIES_PIPLUP, SetupRivalPartner_25
+# 54 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_ROWLET, SetupRivalPartner_25
+# 55 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_TORCHIC, SetupRivalPartner_26
+# 56 "data/maps/SkyPillar_1F/scripts.pory"
+	case SPECIES_PIPLUP, SetupRivalPartner_27
+# 57 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_TORCHIC
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_15:
-# 37 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 0
+# 36 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_TORCHIC
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_16:
-# 39 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 1
+# 37 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_PIPLUP
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_17:
-# 41 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 2
-	goto SetupRivalPartner_4
-
-SetupRivalPartner_19:
-# 47 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 3
+# 38 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_ROWLET
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_20:
-# 49 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 4
+# 44 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_TORCHIC
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_21:
-# 51 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 5
+# 45 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_PIPLUP
 	goto SetupRivalPartner_4
 
-SetupRivalPartner_23:
-# 59 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 6
-	goto SetupRivalPartner_4
-
-SetupRivalPartner_24:
-# 61 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 7
+SetupRivalPartner_22:
+# 46 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_MAY_ROWLET
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_25:
-# 63 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 8
+# 54 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_TORCHIC
+	goto SetupRivalPartner_4
+
+SetupRivalPartner_26:
+# 55 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_PIPLUP
 	goto SetupRivalPartner_4
 
 SetupRivalPartner_27:
-# 69 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 9
+# 56 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_ROWLET
 	goto SetupRivalPartner_4
 
-SetupRivalPartner_28:
-# 71 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 10
+SetupRivalPartner_30:
+# 62 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_TORCHIC
 	goto SetupRivalPartner_4
 
-SetupRivalPartner_29:
-# 73 "data/maps/SkyPillar_1F/scripts.pory"
-	setvar VAR_TOWER_PARTNER, 11
+SetupRivalPartner_31:
+# 63 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_PIPLUP
+	goto SetupRivalPartner_4
+
+SetupRivalPartner_32:
+# 64 "data/maps/SkyPillar_1F/scripts.pory"
+	setvar VAR_TOWER_PARTNER, PARTNER_BRENDAN_ROWLET
 	goto SetupRivalPartner_4
 
 
 FollowerStaysBehind::
-# 81 "data/maps/SkyPillar_1F/scripts.pory"
+# 73 "data/maps/SkyPillar_1F/scripts.pory"
 	lock
-# 82 "data/maps/SkyPillar_1F/scripts.pory"
+# 74 "data/maps/SkyPillar_1F/scripts.pory"
 	playse SE_PIN
-# 83 "data/maps/SkyPillar_1F/scripts.pory"
+# 75 "data/maps/SkyPillar_1F/scripts.pory"
 	exclamationmark OBJ_EVENT_ID_NPC_FOLLOWER
-# 84 "data/maps/SkyPillar_1F/scripts.pory"
+# 76 "data/maps/SkyPillar_1F/scripts.pory"
 	facefollowernpc
-# 85 "data/maps/SkyPillar_1F/scripts.pory"
+# 77 "data/maps/SkyPillar_1F/scripts.pory"
 	delay 15
 	checkplayergender
 # 0 "data/maps/SkyPillar_1F/scripts.pory"
 	compare VAR_RESULT, MALE
 	goto_if_eq FollowerStaysBehind_2
-# 90 "data/maps/SkyPillar_1F/scripts.pory"
+# 82 "data/maps/SkyPillar_1F/scripts.pory"
 	msgbox BrendanStayHere
 FollowerStaysBehind_1:
-# 92 "data/maps/SkyPillar_1F/scripts.pory"
+# 84 "data/maps/SkyPillar_1F/scripts.pory"
 	closemessage
-# 93 "data/maps/SkyPillar_1F/scripts.pory"
+# 85 "data/maps/SkyPillar_1F/scripts.pory"
 	setflag FLAG_TEMP_1
-# 94 "data/maps/SkyPillar_1F/scripts.pory"
+# 86 "data/maps/SkyPillar_1F/scripts.pory"
 	release
 	end
 
 FollowerStaysBehind_2:
-# 87 "data/maps/SkyPillar_1F/scripts.pory"
+# 79 "data/maps/SkyPillar_1F/scripts.pory"
 	msgbox MaystayHere
 	goto FollowerStaysBehind_1
 
@@ -189,7 +197,7 @@ AdamantTower1F_Man4_Text::
 	.string "wrecked my team…$"
 
 MaystayHere::
-# 97 "data/maps/SkyPillar_1F/scripts.pory"
+# 89 "data/maps/SkyPillar_1F/scripts.pory"
 	.string "{RIVAL}: You're not planning to leave\n"
 	.string "me to tackle this tower alone,\l"
 	.string "are you?\p"
@@ -199,7 +207,7 @@ MaystayHere::
 	.string "and exciting Pokémon here!$"
 
 BrendanStayHere::
-# 106 "data/maps/SkyPillar_1F/scripts.pory"
+# 98 "data/maps/SkyPillar_1F/scripts.pory"
 	.string "{RIVAL}: Got something more important\n"
 	.string "to do?\p"
 	.string "I understand.\p"

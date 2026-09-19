@@ -2344,7 +2344,7 @@ void SetMultiTrainerBattle(struct ScriptContext *ctx)
     TRAINER_BATTLE_PARAM.defeatTextA = (u8*)ScriptReadWord(ctx);
     TRAINER_BATTLE_PARAM.opponentB = ScriptReadHalfword(ctx);
     TRAINER_BATTLE_PARAM.defeatTextB = (u8*)ScriptReadWord(ctx);
-    gPartnerTrainerId = TRAINER_PARTNER(ScriptReadHalfword(ctx));
+    gPartnerTrainerId = TRAINER_PARTNER(VarGet(ScriptReadHalfword(ctx)));
 };
 
 void CreateNPCTrainerPartyFromTrainer(struct Pokemon *party, const struct Trainer *trainer)

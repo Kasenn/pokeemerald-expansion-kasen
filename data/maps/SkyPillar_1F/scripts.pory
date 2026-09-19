@@ -33,44 +33,36 @@ script SetupRivalPartner{
     if(var(VAR_RESULT) == MALE){
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
-                case SPECIES_ROWLET:
-                    setvar(VAR_TOWER_PARTNER, 0)
-                case SPECIES_TORCHIC:
-                    setvar(VAR_TOWER_PARTNER, 1)
-                case SPECIES_PIPLUP:
-                    setvar(VAR_TOWER_PARTNER, 2)
+                case SPECIES_ROWLET:    setvar(VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_TORCHIC)
+                case SPECIES_TORCHIC:   setvar(VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_PIPLUP)
+                case SPECIES_PIPLUP:    setvar(VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_ROWLET)
+                default:                setvar(VAR_TOWER_PARTNER, PARTNER_MAY_ORAS_TORCHIC)
             }
         }
         else{
             switch(var(VAR_STARTER_MON)){
-                case SPECIES_ROWLET:
-                    setvar(VAR_TOWER_PARTNER, 3)
-                case SPECIES_TORCHIC:
-                    setvar(VAR_TOWER_PARTNER, 4)
-                case SPECIES_PIPLUP:
-                    setvar(VAR_TOWER_PARTNER, 5)
+                case SPECIES_ROWLET:    setvar(VAR_TOWER_PARTNER, PARTNER_MAY_TORCHIC)
+                case SPECIES_TORCHIC:   setvar(VAR_TOWER_PARTNER, PARTNER_MAY_PIPLUP)
+                case SPECIES_PIPLUP:    setvar(VAR_TOWER_PARTNER, PARTNER_MAY_ROWLET)
+                default:                setvar(VAR_TOWER_PARTNER, PARTNER_MAY_TORCHIC)
             }
         }
     }
     else{
         if(flag(FLAG_RIVAL_COSTUME_CHANGE)){
             switch(var(VAR_STARTER_MON)){
-                case SPECIES_ROWLET:
-                    setvar(VAR_TOWER_PARTNER, 6)
-                case SPECIES_TORCHIC:
-                    setvar(VAR_TOWER_PARTNER, 7)
-                case SPECIES_PIPLUP:
-                    setvar(VAR_TOWER_PARTNER, 8)
+                case SPECIES_ROWLET:    setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_TORCHIC)
+                case SPECIES_TORCHIC:   setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_PIPLUP)
+                case SPECIES_PIPLUP:    setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_ROWLET)
+                default:                setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_ORAS_TORCHIC)
             }
         }
         else{
             switch(var(VAR_STARTER_MON)){
-                case SPECIES_ROWLET:
-                    setvar(VAR_TOWER_PARTNER, 9)
-                case SPECIES_TORCHIC:
-                    setvar(VAR_TOWER_PARTNER, 10)
-                case SPECIES_PIPLUP:
-                    setvar(VAR_TOWER_PARTNER, 11)
+                case SPECIES_ROWLET:    setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_TORCHIC)
+                case SPECIES_TORCHIC:   setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_PIPLUP)
+                case SPECIES_PIPLUP:    setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_ROWLET)
+                default:                setvar(VAR_TOWER_PARTNER, PARTNER_BRENDAN_TORCHIC)
             }
         }
     }

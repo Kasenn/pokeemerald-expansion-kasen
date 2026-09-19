@@ -2698,7 +2698,7 @@
 	.4byte \lose_text_a
 	.2byte \trainer_b
 	.4byte \lose_text_b
-	.2byte \partnerId
+	.4byte \partnerId
 	.endm
 
 	@ facility version of `trainerbattle` macro. Used in Battle Pyramid and Trainer Hill
@@ -3316,4 +3316,8 @@
 
 	.macro objturnsouth
 	turnobject VAR_LAST_TALKED, DIR_SOUTH
+	.endm
+
+	.macro turnplayer direction:req
+	turnobject LOCALID_PLAYER, \direction
 	.endm
