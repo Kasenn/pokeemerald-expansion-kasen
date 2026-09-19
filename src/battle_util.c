@@ -10090,11 +10090,17 @@ bool32 AreMultiPartiesFullTeams(void)
     }
 #else
 
-    if (B_MULTI_HALF_TEAMS)
-		return FALSE;
+    if (B_MULTI_HALF_TEAMS)//wip2
+	{
+        gSpecialVar_Result = FALSE;
+        return FALSE;
+    }
 
-	if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
-		return TRUE;
+    if (!(gBattleTypeFlags & BATTLE_TYPE_TRAINER))
+    {
+        gSpecialVar_Result = TRUE;
+        return TRUE;
+    }
 		
     if (TRAINER_BATTLE_PARAM.opponentA == TRAINER_LINK_OPPONENT
      || gBattleTypeFlags & BATTLE_TYPE_TOWER_LINK_MULTI

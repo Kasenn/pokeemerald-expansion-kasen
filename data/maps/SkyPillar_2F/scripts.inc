@@ -204,7 +204,7 @@ Tower_2F_Tr1_Battle::
 # 142 "data/maps/SkyPillar_2F/scripts.pory"
 	special SetPlayerParty
 # 143 "data/maps/SkyPillar_2F/scripts.pory"
-	exclamationmark LOCALID_ATOWER_1F_MAN5
+	exclamationmark LOCALID_ATOWER_1F_PSYCHIC_M
 # 144 "data/maps/SkyPillar_2F/scripts.pory"
 	compare VAR_TEMP_2, 1
 	goto_if_eq Tower_2F_Tr1_Battle_2
@@ -216,7 +216,7 @@ Tower_2F_Tr1_Battle_1:
 # 147 "data/maps/SkyPillar_2F/scripts.pory"
 	playbgm MUS_ENCOUNTER_INTENSE, FALSE
 # 148 "data/maps/SkyPillar_2F/scripts.pory"
-	exclamationmark LOCALID_ATOWER_1F_PSYCHIC_M
+	exclamationmark LOCALID_ATOWER_1F_MAN5
 # 149 "data/maps/SkyPillar_2F/scripts.pory"
 	compare VAR_TEMP_2, 2
 	goto_if_eq Tower_2F_Tr1_Battle_5
@@ -239,12 +239,12 @@ Tower_2F_Tr1_Battle_4:
 
 Tower_2F_Tr1_Battle_2:
 # 144 "data/maps/SkyPillar_2F/scripts.pory"
-	waitmove LOCALID_ATOWER_1F_MAN5, Walk1Left
+	waitmove LOCALID_ATOWER_1F_PSYCHIC_M, Walk1Left
 	goto Tower_2F_Tr1_Battle_1
 
 Tower_2F_Tr1_Battle_5:
 # 149 "data/maps/SkyPillar_2F/scripts.pory"
-	waitmove LOCALID_ATOWER_1F_PSYCHIC_M, Walk1Right
+	waitmove LOCALID_ATOWER_1F_MAN5, Walk1Right
 	goto Tower_2F_Tr1_Battle_4
 
 Tower_2F_Tr1_Battle_9:

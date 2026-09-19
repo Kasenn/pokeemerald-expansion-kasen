@@ -140,13 +140,13 @@ script Tower_2F_Tr1_Battle{
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
     special(SavePlayerParty)
     special(SetPlayerParty)
-    exclamationmark(LOCALID_ATOWER_1F_MAN5)
-    if(var(VAR_TEMP_2) == 1){ waitmove(LOCALID_ATOWER_1F_MAN5, Walk1Left) }
+    exclamationmark(LOCALID_ATOWER_1F_PSYCHIC_M)
+    if(var(VAR_TEMP_2) == 1){ waitmove(LOCALID_ATOWER_1F_PSYCHIC_M, Walk1Left) }
     turnplayer(DIR_EAST)
     msgbox(Tr1_2F_PsychicIntro, MSGBOX_AUTOCLOSE)
     playbgm(MUS_ENCOUNTER_INTENSE, FALSE)
-    exclamationmark(LOCALID_ATOWER_1F_PSYCHIC_M)
-    if(var(VAR_TEMP_2) == 2){ waitmove(LOCALID_ATOWER_1F_PSYCHIC_M, Walk1Right) }
+    exclamationmark(LOCALID_ATOWER_1F_MAN5)
+    if(var(VAR_TEMP_2) == 2){ waitmove(LOCALID_ATOWER_1F_MAN5, Walk1Right) }
     turnplayer(DIR_WEST)
     msgbox(Tr1_2F_Man5Intro, MSGBOX_AUTOCLOSE)
     multi_2_vs_2(TRAINER_AT_2F_PSYCHIC, Tr1_2F_PsychicLost, TRAINER_AT_2F_MAN5, Tr1_2F_Man5Lost, VAR_TOWER_PARTNER)

@@ -1,7 +1,8 @@
 #ifndef GUARD_BATTLE_SPECIAL_H
 #define GUARD_BATTLE_SPECIAL_H
 
-void DoSpecialTrainerBattle(void); 
+void DoSpecialTrainerBattle(void);
+void CB2_EndSpecialTrainerBattle(void);
 void SetEReaderTrainerGfxId(void);
 u8 GetEreaderTrainerFrontSpriteId(void);
 enum TrainerClassID GetEreaderTrainerClassId(void);
