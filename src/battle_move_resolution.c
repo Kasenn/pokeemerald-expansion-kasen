@@ -2792,6 +2792,9 @@ static enum CancelerResult CancelerMoveAnimation(struct BattleCalcValues *cv)
     if (gSpecialStatuses[cv->battlerAtk].parentalBondState == PARENTAL_BOND_2ND_HIT)
         return CANCELER_RESULT_SUCCESS;
 
+    if (gSpecialStatuses[cv->battlerAtk].rapidFistsState == RAPID_FISTS_2ND_HIT || gSpecialStatuses[cv->battlerAtk].rapidFistsState == RAPID_FISTS_3RD_HIT)
+        return CANCELER_RESULT_SUCCESS;
+
     bool32 isAnimDisabled = (gHitMarker & (HITMARKER_NO_ANIMATIONS | HITMARKER_DISABLE_ANIMATION)
                           || gBattleStruct->attackAnimPlayed);
     if (isAnimDisabled

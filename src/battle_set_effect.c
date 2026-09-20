@@ -1455,6 +1455,14 @@ void SetMoveEffect(struct BattleCalcValues *cv, struct SetEffect *se)
         return;
     }
 
+    if ((gSpecialStatuses[cv->battlerAtk].rapidFistsState == RAPID_FISTS_1ST_HIT || gSpecialStatuses[cv->battlerAtk].rapidFistsState == RAPID_FISTS_2ND_HIT)
+     && IsBattlerAlive(se->effectBattler)
+     && IsFinalStrikeEffect(se->moveEffect))
+    {
+        gBattlescriptCurrInstr = se->script;
+        return;
+    }
+
     gBattleScripting.battler = cv->battlerAtk;
     gEffectBattler = se->effectBattler;
 
