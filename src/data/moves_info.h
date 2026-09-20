@@ -7402,7 +7402,7 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
         .bpCost = 16,
         .description = COMPOUND_STRING(
             "Focuses before launching.\n"
-            "Fails if the user if hit."),
+            "Fails if the user is hit."),
         .effect = EFFECT_FOCUS_PUNCH,
         .power = 150,
         .type = TYPE_FIGHTING,

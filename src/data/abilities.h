@@ -80,7 +80,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_VOLT_ABSORB] =
     {
         .name = _("Volt Absorb"),
-        .description = COMPOUND_STRING("Restores if hit by Electric."),
+        .description = COMPOUND_STRING("Restores HP if hit by Electric."),
         .aiRating = 7,
         .breakable = TRUE,
     },
@@ -199,7 +199,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_WONDER_GUARD] =
     {
         .name = _("Wonder Guard"),
-        .description = COMPOUND_STRING("Only “supereffective” hits."),
+        .description = COMPOUND_STRING("Only “super effective” hits."),
         .aiRating = 10,
         .cantBeCopied = TRUE,
         .cantBeSwapped = TRUE,
@@ -866,7 +866,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_FILTER] =
     {
         .name = _("Filter"),
-        .description = COMPOUND_STRING("Weakens “supereffective”."),
+        .description = COMPOUND_STRING("Weakens “super effective”."),
         .aiRating = 6,
         .breakable = TRUE,
     },
@@ -915,7 +915,7 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_SOLID_ROCK] =
     {
         .name = _("Solid Rock"),
-        .description = COMPOUND_STRING("Weakens “supereffective”."),
+        .description = COMPOUND_STRING("Weakens “super effective”."),
         .aiRating = 6,
         .breakable = TRUE,
     },
@@ -1888,14 +1888,14 @@ const struct AbilityInfo gAbilitiesInfo[ABILITIES_COUNT] =
     [ABILITY_PRISM_ARMOR] =
     {
         .name = _("Prism Armor"),
-        .description = COMPOUND_STRING("Weakens “supereffective”."),
+        .description = COMPOUND_STRING("Weakens “super effective”."),
         .aiRating = 6,
     },
 
     [ABILITY_NEUROFORCE] =
     {
         .name = _("Neuroforce"),
-        .description = COMPOUND_STRING("Ups “supereffective” hits."),
+        .description = COMPOUND_STRING("Ups “super effective” hits."),
         .aiRating = 6,
     },
 
