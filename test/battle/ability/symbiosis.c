@@ -20,7 +20,7 @@ DOUBLE_BATTLE_TEST("Symbiosis transfers its item to an ally after it consumes an
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, playerLeft);
         // symbiosis triggers
         ABILITY_POPUP(playerRight, ABILITY_SYMBIOSIS);
-        MESSAGE("Wobbuffet received Toxic Orb from Oranguru!"); //wip, this is intended message, edit battle_message and then fix tests
+        MESSAGE("Wobbuffet received Toxic Orb from Oranguru!");
         // end of turn, wobb gets poisoned
         MESSAGE("Wobbuffet was badly poisoned by the Toxic Orb!");
         STATUS_ICON(playerLeft, STATUS1_TOXIC_POISON);

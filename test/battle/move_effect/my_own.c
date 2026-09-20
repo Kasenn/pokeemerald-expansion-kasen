@@ -918,3 +918,34 @@ SINGLE_BATTLE_TEST("My own: Resist Berry animation happens in the correct order"
         EFFECTIVENESS_SE(player, SE_SUPER_EFFECTIVE);
     }
 }
+
+SINGLE_BATTLE_TEST("My own: Rapid Fists hits thrice")
+{
+    
+    GIVEN {
+        PLAYER(SPECIES_LEDIAN) {Ability(ABILITY_RAPID_FISTS); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_POWER_UP_PUNCH); }
+    } SCENE {
+        HP_BAR(opponent);
+        HP_BAR(opponent);
+        HP_BAR(opponent);
+    } THEN {
+        EXPECT_EQ(player->statStages[STAT_ATK], DEFAULT_STAT_STAGE + 3); 
+    }
+}
+
+SINGLE_BATTLE_TEST("My own: Rapid Fists doesn't affect multistrike punching moves")
+{
+    GIVEN {
+        PLAYER(SPECIES_LEDIAN) {Ability(ABILITY_RAPID_FISTS); }
+        OPPONENT(SPECIES_WOBBUFFET);
+    } WHEN {
+        TURN { MOVE(player, MOVE_DOUBLE_IRON_BASH); }
+    } SCENE {
+        HP_BAR(opponent);
+        HP_BAR(opponent);
+        NOT HP_BAR(opponent);
+    }
+}

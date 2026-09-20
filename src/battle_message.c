@@ -139,7 +139,7 @@ const u8 *const gBattleStringsTable[STRINGID_COUNT] =
 {
     // Level-up
     [STRINGID_PKMNGAINEDEXP]                        = COMPOUND_STRING("{B_BUFF1} gained{B_BUFF2}\n{B_BUFF3} Exp. Points!\p"),
-    [STRINGID_PKMNGAINEDEV]                         = COMPOUND_STRING("{B_BUFF1}'s {B_BUFF2}\nimproved greatly!\p"),
+    [STRINGID_PKMNGAINEDEV]                         = COMPOUND_STRING("{B_BUFF1}'s {B_BUFF2} improved greatly!\p"),
     [STRINGID_TEAMGAINEDEV]                         = COMPOUND_STRING("The rest of your team improved its\n{B_BUFF2} thanks to the {B_LAST_ITEM}!\p"),
     [PKMNDIDNTGAINEV]                               = COMPOUND_STRING("{B_BUFF1}'s {B_BUFF2}\ndidn't improve any further!\p"),
     [TEAMDIDNTGAINEV]                               = COMPOUND_STRING("The rest of your team's {B_BUFF2}\nfailed to improve any further!\p"),

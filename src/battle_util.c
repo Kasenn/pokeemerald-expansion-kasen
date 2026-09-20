@@ -10090,7 +10090,7 @@ bool32 AreMultiPartiesFullTeams(void)
     }
 #else
 
-    if (B_MULTI_HALF_TEAMS)//wip2
+    if (B_MULTI_HALF_TEAMS)
 	{
         gSpecialVar_Result = FALSE;
         return FALSE;

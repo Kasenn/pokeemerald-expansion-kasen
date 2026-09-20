@@ -551,7 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)//wip2
+    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)
     release
     end
     return

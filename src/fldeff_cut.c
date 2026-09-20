@@ -600,7 +600,7 @@ static void SetCutGrassMetatile(s16 x, s16 y)
         }
     }
 
-    if (secondary == &gTileset_Route18)//wip
+    if (secondary == &gTileset_Route18)
         newMetatileId = GetRoute18GrassMetatile(metatileId, seedDrop);
     else if (secondary == &gTileset_DarkForestSec)
         newMetatileId = GetWindyWoodsGrassMetatile(metatileId, seedDrop);

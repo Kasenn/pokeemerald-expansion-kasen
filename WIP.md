@@ -8,9 +8,6 @@ fix contest brendan backpic
 add nurses and drifblim balloons
 add fly to somewhere near fishing village (maybe brother, maybe a house)
 
-adamant tower scripts are absolutely broken
-remember to fix rapid fists
-
 eventual redesigns:
 possibly expand primrose town geography
 	- add canopy effect to windy woods

@@ -1319,12 +1319,7 @@ static void BattleSetup_ConfigureApproachingTrainerBattle(TrainerBattleParameter
 // }
 
 static void BattleSetup_ConfigureTrainerBattle(TrainerBattleParameter *battleParams, struct ScriptStack *scrStack)
-{
-    // if (gObjectEvents[trainerObjEventId].trainerType == TRAINER_TYPE_SCRIPTED)
-    // {
-    //     ScriptContext_SetupScript(trainerScript);
-    // } //wip
-    
+{    
     SetMapVarsToTrainerA();
 
     PUSH       (EventSnippet_Lock)

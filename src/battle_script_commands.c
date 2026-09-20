@@ -2364,9 +2364,9 @@ static void Cmd_getexp(void)
                         {
                             StringCopy(gBattleTextBuff2, gStatNamesTable[stat]);
                             if (oldMonEv == newMonEv)
-                                PrepareStringBattle(PKMNDIDNTGAINEV, 0);//wip2, gBattleStruct->expGetterBattlerId
+                                PrepareStringBattle(PKMNDIDNTGAINEV, 0);
                             else
-                                PrepareStringBattle(STRINGID_PKMNGAINEDEV, 0);//wip2, gBattleStruct->expGetterBattlerId
+                                PrepareStringBattle(STRINGID_PKMNGAINEDEV, 0);
                         }
                     }
                     else
@@ -2486,12 +2486,13 @@ static void Cmd_getexp(void)
                 {
                     newLeadMonEvTeam += GetMonData(&gPlayerParty[j], statEv);
                 }
-
+                u32 stat = GetStatToPrintFromEvYield(gBattleMons[gBattlerFainted].species);
+                StringCopy(gBattleTextBuff2, gStatNamesTable[stat]);
                 gLastUsedItem = ITEM_EXP_SHARE;
                 if (oldEvTeam == newLeadMonEvTeam)
-                    PrepareStringBattle(TEAMDIDNTGAINEV, 0);//wip2, gBattleStruct->expGetterBattlerId
+                    PrepareStringBattle(TEAMDIDNTGAINEV, 0);
                 else
-                    PrepareStringBattle(STRINGID_TEAMGAINEDEV, 0);//wip2, gBattleStruct->expGetterBattlerId
+                    PrepareStringBattle(STRINGID_TEAMGAINEDEV, 0);
                 gBattleStruct->teamGotExpMsgPrinted = TRUE;
             }
 

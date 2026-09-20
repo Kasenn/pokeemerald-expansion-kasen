@@ -1856,7 +1856,7 @@ static void ItemUseOnFieldCB_FlightFlute(u8 taskId)
     DisplayItemMessageOnField(taskId, gStringVar4, Task_UseFlightFluteOnField);
 }
 
-void ItemUseOutOfBattle_FlightFlute(u8 taskId)//wip
+void ItemUseOutOfBattle_FlightFlute(u8 taskId)
 {
     
     if (CanUseFlyOnCurMap() == TRUE)
