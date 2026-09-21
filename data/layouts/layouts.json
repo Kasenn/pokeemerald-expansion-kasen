@@ -7830,6 +7830,26 @@
       "secondary_tileset": "gTileset_ProfGlade",
       "border_filepath": "data/layouts/ProfsGladeInterior/border.bin",
       "blockdata_filepath": "data/layouts/ProfsGladeInterior/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE7_FILLER",
+      "name": "Route7_Filler_Layout",
+      "width": 80,
+      "height": 4,
+      "primary_tileset": "gTileset_Summer",
+      "secondary_tileset": "gTileset_Skyloch",
+      "border_filepath": "data/layouts/Route7_Filler/border.bin",
+      "blockdata_filepath": "data/layouts/Route7_Filler/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE21_GROTTO",
+      "name": "Route21_Grotto_Layout",
+      "width": 13,
+      "height": 23,
+      "primary_tileset": "gTileset_SecretBase",
+      "secondary_tileset": "gTileset_SecretBaseShrub",
+      "border_filepath": "data/layouts/Route21_Grotto/border.bin",
+      "blockdata_filepath": "data/layouts/Route21_Grotto/map.bin"
     }
   ]
 }

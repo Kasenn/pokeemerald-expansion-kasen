@@ -2877,10 +2877,10 @@
 	.macro setwildbattlelevelrange species:req, level:req, item=ITEM_NONE, species2=SPECIES_NONE, level2=0, item2=ITEM_NONE
 	.byte SCR_OP_WILDBATTLERANGE
 	.2byte \species
-	.byte \level
+	.2byte \level
 	.2byte \item
 	.2byte \species2
-	.byte \level2
+	.2byte \level2
 	.2byte \item2
 	.endm
 
@@ -3320,4 +3320,9 @@
 
 	.macro turnplayer direction:req
 	turnobject LOCALID_PLAYER, \direction
+	.endm
+
+	@ Copies the map num to VAR_RESULT. Remember to use MAP_NUM() in the script
+	.macro getmapnum
+	callnative Scrcmd_GetMapId
 	.endm

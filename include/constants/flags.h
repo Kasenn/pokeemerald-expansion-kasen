@@ -153,12 +153,12 @@
 #define FLAG_UNUSED_0x87                                            0x87
 #define FLAG_UNUSED_0x88                                            0x88
 #define FLAG_RECEIVED_HM_CUT                                        0x89
-#define FLAG_UNUSED_0x8A                                            0x8A
-#define FLAG_UNUSED_0x8B                                            0x8B
-#define FLAG_UNUSED_0x8C                                            0x8C
-#define FLAG_UNUSED_0x8D                                            0x8D
-#define FLAG_UNUSED_0x8E                                            0x8E
-#define FLAG_UNUSED_0x8F                                            0x8F
+#define FLAG_ROUTE21_ITEM_1                                            0x8A
+#define FLAG_ROUTE21_ITEM_2                                            0x8B
+#define FLAG_ROUTE21_ITEM_3                                            0x8C
+#define FLAG_ROUTE21_ITEM_4                                            0x8D
+#define FLAG_ROUTE21_ITEM_HIDDEN_1                                            0x8E
+#define FLAG_ROUTE21_ITEM_HIDDEN_2                                            0x8F
 #define FLAG_UNUSED_0x90                                            0x90
 #define FLAG_UNUSED_0x91                                            0x91
 #define FLAG_UNUSED_0x92                                            0x92
@@ -1569,7 +1569,7 @@
 #define FLAG_DAILY_GROTTO_5                         (DAILY_FLAGS_START + 0x17)
 #define FLAG_DAILY_BASALEK_CHECKER                  (DAILY_FLAGS_START + 0x18)
 #define FLAG_DAILY_FROSTHEARTH_TYPE_CHECK           (DAILY_FLAGS_START + 0x19)
-#define FLAG_UNUSED_0x93A                           (DAILY_FLAGS_START + 0x1A)
+#define FLAG_DAILY_GROTTO_6                         (DAILY_FLAGS_START + 0x1A)
 #define FLAG_OBTAIN_CONTEST_OUTFIT                  (DAILY_FLAGS_START + 0x1B)
 #define FLAG_UNUSED_0x93C                           (DAILY_FLAGS_START + 0x1C)
 #define FLAG_UNUSED_0x93D                           (DAILY_FLAGS_START + 0x1D)

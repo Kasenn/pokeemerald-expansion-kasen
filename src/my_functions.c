@@ -216,11 +216,11 @@ bool8 ScrCmd_checkpartylevel(struct ScriptContext *ctx)
 
 bool8 ScrCmd_setwildbattlelevelrange(struct ScriptContext *ctx)
 {
-    u16 species = ScriptReadHalfword(ctx);
-    u8 level = ScriptReadByte(ctx);
+    u16 species = VarGet(ScriptReadHalfword(ctx));
+    u16 level = VarGet(ScriptReadHalfword(ctx));
     u16 item = ScriptReadHalfword(ctx);
     u16 species2 = ScriptReadHalfword(ctx);
-    u8 level2 = ScriptReadByte(ctx);
+    u16 level2 = VarGet(ScriptReadHalfword(ctx));
     u16 item2 = ScriptReadHalfword(ctx);
 
     u8 randomLevel = Random() % (level2 - level + 1) + level;
@@ -652,6 +652,7 @@ void FixGrottoHiddenAbility(void)
         MAPSEC_HIDDENGROTTO_ROUTE7,
         MAPSEC_HIDDENGROTTO_ROUTE14,
         MAPSEC_HIDDENGROTTO_ROUTE15,
+        MAPSEC_HIDDENGROTTO_ROUTE21,
     };
 
     for (i = 0; i < PARTY_SIZE; i++)
@@ -1679,4 +1680,9 @@ void IsStarterWithinViewOfPlayer(void)
     {
         gSpecialVar_Result = TRUE;
     }
+}
+
+void Scrcmd_GetMapId(void)
+{
+    gSpecialVar_Result = gSaveBlock1Ptr->location.mapNum;
 }

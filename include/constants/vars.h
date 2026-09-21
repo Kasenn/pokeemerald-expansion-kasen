@@ -295,7 +295,7 @@
 
 #define VAR_HIDDEN_FOREST_STEPS                               0x4110
 #define VAR_HIDDEN_GROTTO_INTRO                               0x4111
-#define VAR_UNUSED_0x4112                               0x4112
+#define VAR_GROTTO_6                               0x4112
 #define VAR_UNUSED_0x4113                               0x4113
 #define VAR_UNUSED_0x4114                               0x4114
 #define VAR_UNUSED_0x4115                               0x4115

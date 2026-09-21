@@ -158,26 +158,32 @@ void SetGrottos(void)
         rand = Random() % 100;
         VarSet(VAR_GROTTO_2, rand);
     }
-        if(VarGet(VAR_GROTTO_3) == 0)
+    if(VarGet(VAR_GROTTO_3) == 0)
     {
         rand = Random() % 100;
         VarSet(VAR_GROTTO_3, rand);
     }
-        if(VarGet(VAR_GROTTO_4) == 0)
+    if(VarGet(VAR_GROTTO_4) == 0)
     {
         rand = Random() % 100;
         VarSet(VAR_GROTTO_4, rand);
     }
-        if(VarGet(VAR_GROTTO_5) == 0)
+    if(VarGet(VAR_GROTTO_5) == 0)
     {
         rand = Random() % 100;
         VarSet(VAR_GROTTO_5, rand);
+    }
+    if(VarGet(VAR_GROTTO_6) == 0)
+    {
+        rand = Random() % 100;
+        VarSet(VAR_GROTTO_6, rand);
     }
     FlagClear(FLAG_DAILY_GROTTO_1);
     FlagClear(FLAG_DAILY_GROTTO_2);
     FlagClear(FLAG_DAILY_GROTTO_3);
     FlagClear(FLAG_DAILY_GROTTO_4);
     FlagClear(FLAG_DAILY_GROTTO_5);
+    FlagClear(FLAG_DAILY_GROTTO_6);
 }
 
 void DisableNationalPokedex(void)

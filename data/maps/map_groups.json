@@ -154,7 +154,8 @@
     "Route13_GateHouse",
     "Route119_WeatherInstitute_1F",
     "Route119_WeatherInstitute_2F",
-    "Route20_FarmHouse"
+    "Route20_FarmHouse",
+    "Route21_Grotto"
   ],
   "gMapGroup_Dungeons": [
     "WindyWoods",
@@ -1017,6 +1018,7 @@
     "Route101",
     "Route102",
     "Route103",
-    "Route104"
+    "Route104",
+    "Route7_Filler"
   ]
 }

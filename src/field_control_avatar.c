@@ -884,33 +884,45 @@ static bool8 TryStartStepCountScript(u16 metatileBehavior)
     return FALSE;
 }
 
+static const u16 sGrottoFlags[] = {
+    FLAG_DAILY_GROTTO_1,
+    FLAG_DAILY_GROTTO_2,
+    FLAG_DAILY_GROTTO_3,
+    FLAG_DAILY_GROTTO_4,
+    FLAG_DAILY_GROTTO_5,
+    FLAG_DAILY_GROTTO_6,
+};
+
+static const u16 sGrottoVars[] = {
+    VAR_GROTTO_1,
+    VAR_GROTTO_2,
+    VAR_GROTTO_3,
+    VAR_GROTTO_4,
+    VAR_GROTTO_5,
+    VAR_GROTTO_6,
+};
+
 static void UpdateGrottos(void)
 {
     u16 *ptr = GetVarPointer(VAR_GROTTO_STEP_COUNT);
 
     (*ptr)++;
     (*ptr) %= 256;
-    if (*ptr == 0)
+    if (*ptr != 0)
+        return;
+
+    for (int i = 0; i < ARRAY_COUNT(sGrottoFlags); i++)
     {
-        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_1)){
-            FlagClear(FLAG_DAILY_GROTTO_1);
-            VarSet(VAR_GROTTO_1, Random() % 100);
-        }
-        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_2)){
-            FlagClear(FLAG_DAILY_GROTTO_2);
-            VarSet(VAR_GROTTO_2, Random() % 100);
-        }
-        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_3)){
-            FlagClear(FLAG_DAILY_GROTTO_3);
-            VarSet(VAR_GROTTO_3, Random() % 100);
-        }
-        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_4)){
-            FlagClear(FLAG_DAILY_GROTTO_4);
-            VarSet(VAR_GROTTO_4, Random() % 100);
-        }
-        if (Random() % 10 == 0 && FlagGet(FLAG_DAILY_GROTTO_5)){
-            FlagClear(FLAG_DAILY_GROTTO_5);
-            VarSet(VAR_GROTTO_5, Random() % 100);
+        u32 r;
+
+        if (!FlagGet(sGrottoFlags[i]))
+            continue;
+
+        r = Random();
+        if (r < 6554)
+        {
+            FlagClear(sGrottoFlags[i]);
+            VarSet(sGrottoVars[i], (r * 1000) >> 16);
         }
     }
 }

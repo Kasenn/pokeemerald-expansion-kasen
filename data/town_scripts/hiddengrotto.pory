@@ -1,0 +1,184 @@
+const VAR_SPECIES = VAR_TEMP_0
+const VAR_MIN_LEVEL = VAR_TEMP_1
+const VAR_MAX_LEVEL = VAR_TEMP_2
+
+script SetHiddenGrottoGfx{
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_ROUTE7_GROTTO):
+            if(var(VAR_GROTTO_2) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_2) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDYBA)) }
+            elif(var(VAR_GROTTO_2) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(VULPIX_ALOLAN)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SKORUPI)) }
+        case MAP_NUM(MAP_ROUTE14_GROTTO):
+            if(var(VAR_GROTTO_3) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_3) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(KLEFKI)) }
+            elif(var(VAR_GROTTO_3) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOXEL)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDIAN)) }
+        case MAP_NUM(MAP_AZURETIDE_GROTTO):
+            if(var(VAR_GROTTO_5) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_5) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(MUNNA)) }
+            elif(var(VAR_GROTTO_5) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(ELEKID)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDIAN)) }
+        case MAP_NUM(MAP_WW_GROTTO):
+            if(var(VAR_GROTTO_1) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_1) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(TOGEPI)) }
+            elif(var(VAR_GROTTO_1) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDYBA)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(GLIGAR)) }
+        case MAP_NUM(MAP_ROUTE15_GROTTO):
+            if(var(VAR_GROTTO_4) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_4) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(CLEFFA)) }
+            elif(var(VAR_GROTTO_4) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(IGGLYBUFF)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(NATU)) }
+        case MAP_NUM(MAP_ROUTE21_GROTTO):
+            if(var(VAR_GROTTO_6) <= 39){    setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_ITEM_BALL) }
+            elif(var(VAR_GROTTO_6) <= 59){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(MARILL)) }
+            elif(var(VAR_GROTTO_6) <= 79){  setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(LEDIAN)) }
+            else{                           setvar(VAR_OBJ_GFX_ID_0, OBJ_EVENT_GFX_SPECIES(SEVIPER)) }
+    }
+}
+
+script RemoveStaticEncounter{
+    if(flag(FLAG_SYS_CTRL_OBJ_DELETE)){
+        specialvar(VAR_RESULT, GetBattleOutcome)
+        if(var(VAR_RESULT) == B_OUTCOME_CAUGHT){
+            removeobject(VAR_LAST_TALKED)
+        }
+    }
+}
+
+script GrottoInteract{
+    faceplayer
+    lock
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_WW_GROTTO):        if(var(VAR_GROTTO_1) <= 39) { setflag(FLAG_TEMP_1) }
+        case MAP_NUM(MAP_ROUTE7_GROTTO):    if(var(VAR_GROTTO_2) <= 39) { setflag(FLAG_TEMP_1) }
+        case MAP_NUM(MAP_ROUTE14_GROTTO):   if(var(VAR_GROTTO_3) <= 39) { setflag(FLAG_TEMP_1) }
+        case MAP_NUM(MAP_ROUTE15_GROTTO):   if(var(VAR_GROTTO_4) <= 39) { setflag(FLAG_TEMP_1) }
+        case MAP_NUM(MAP_AZURETIDE_GROTTO): if(var(VAR_GROTTO_5) <= 39) { setflag(FLAG_TEMP_1) }
+        case MAP_NUM(MAP_ROUTE21_GROTTO):   if(var(VAR_GROTTO_6) <= 39) { setflag(FLAG_TEMP_1) }
+    }
+    if(flag(FLAG_TEMP_1)){ goto(GrottoInteract_Item) }
+    else{ goto(GrottoInteract_Pokemon) }
+    end
+}
+
+script GrottoInteract_Item{
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_WW_GROTTO):        copyvar(VAR_RESULT, VAR_GROTTO_1)
+        case MAP_NUM(MAP_ROUTE7_GROTTO):    copyvar(VAR_RESULT, VAR_GROTTO_2)
+        case MAP_NUM(MAP_ROUTE14_GROTTO):   copyvar(VAR_RESULT, VAR_GROTTO_3)
+        case MAP_NUM(MAP_ROUTE15_GROTTO):   copyvar(VAR_RESULT, VAR_GROTTO_4)
+        case MAP_NUM(MAP_AZURETIDE_GROTTO): copyvar(VAR_RESULT, VAR_GROTTO_5)
+        case MAP_NUM(MAP_ROUTE21_GROTTO):   copyvar(VAR_RESULT, VAR_GROTTO_6)
+    }
+    if(  var(VAR_RESULT) <= 3){   finditem(ITEM_GREAT_BALL) }
+    elif(var(VAR_RESULT) <= 7){   finditem(ITEM_SUPER_REPEL) }
+    elif(var(VAR_RESULT) <= 11){  finditem(ITEM_SUPER_POTION) }
+    elif(var(VAR_RESULT) <= 15){  finditem(ITEM_ULTRA_BALL) }
+    elif(var(VAR_RESULT) <= 19){  finditem(ITEM_FULL_HEAL) }
+    elif(var(VAR_RESULT) <= 23){  finditem(ITEM_HYPER_POTION) }
+    elif(var(VAR_RESULT) <= 27){  finditem(ITEM_FIRE_STONE) }
+    elif(var(VAR_RESULT) <= 31){  finditem(ITEM_THUNDER_STONE) }
+    elif(var(VAR_RESULT) <= 35){  finditem(ITEM_WATER_STONE) }
+    elif(var(VAR_RESULT) <= 39){  finditem(ITEM_LEAF_STONE) }
+    else{                         finditem(ITEM_NUGGET) }
+    waitfanfare
+    waitmessage
+    call(SetGrottoCompleted)
+    closemessage
+    release
+    end
+}
+
+script GrottoInteract_Pokemon{
+    lock
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_WW_GROTTO):
+            setvar(VAR_MIN_LEVEL, 5)
+            setvar(VAR_MAX_LEVEL, 7)
+            if(var(VAR_GROTTO_1) <= 59){    setvar(VAR_SPECIES, SPECIES_TOGEPI) }
+            elif(var(VAR_GROTTO_1) <= 79){  setvar(VAR_SPECIES, SPECIES_LEDYBA) }
+            else{                           setvar(VAR_SPECIES, SPECIES_GLIGAR) }
+        case MAP_NUM(MAP_ROUTE7_GROTTO):
+            setvar(VAR_MIN_LEVEL, 15)
+            setvar(VAR_MAX_LEVEL, 18)
+            if(var(VAR_GROTTO_2) <= 59){    setvar(VAR_SPECIES, SPECIES_LEDYBA) }
+            elif(var(VAR_GROTTO_2) <= 79){  setvar(VAR_SPECIES, SPECIES_VULPIX_ALOLAN) }
+            else{                           setvar(VAR_SPECIES, SPECIES_SKORUPI) }
+        case MAP_NUM(MAP_ROUTE14_GROTTO):
+            setvar(VAR_MIN_LEVEL, 30)
+            setvar(VAR_MAX_LEVEL, 33)
+            if(var(VAR_GROTTO_3) <= 59){    setvar(VAR_SPECIES, SPECIES_KLEFKI) }
+            elif(var(VAR_GROTTO_3) <= 79){  setvar(VAR_SPECIES, SPECIES_TOXEL) }
+            else{                           setvar(VAR_SPECIES, SPECIES_LEDIAN) }
+        case MAP_NUM(MAP_ROUTE15_GROTTO):
+            setvar(VAR_MIN_LEVEL, 30)
+            setvar(VAR_MAX_LEVEL, 33)
+            if(var(VAR_GROTTO_4) <= 59){    setvar(VAR_SPECIES, SPECIES_CLEFFA) }
+            elif(var(VAR_GROTTO_4) <= 79){  setvar(VAR_SPECIES, SPECIES_IGGLYBUFF) }
+            else{                           setvar(VAR_SPECIES, SPECIES_NATU) }
+        case MAP_NUM(MAP_AZURETIDE_GROTTO):
+            setvar(VAR_MIN_LEVEL, 11)
+            setvar(VAR_MAX_LEVEL, 14)
+            if(var(VAR_GROTTO_5) <= 59){    setvar(VAR_SPECIES, SPECIES_MUNNA) }
+            elif(var(VAR_GROTTO_5) <= 79){  setvar(VAR_SPECIES, SPECIES_ELEKID) }
+            else{                           setvar(VAR_SPECIES, SPECIES_LEDIAN) }
+        case MAP_NUM(MAP_ROUTE21_GROTTO):
+            setvar(VAR_MIN_LEVEL, 36)
+            setvar(VAR_MAX_LEVEL, 39)
+            if(var(VAR_GROTTO_6) <= 59){    setvar(VAR_SPECIES, SPECIES_MARILL) }
+            elif(var(VAR_GROTTO_6) <= 79){  setvar(VAR_SPECIES, SPECIES_LEDIAN) }
+            else{                           setvar(VAR_SPECIES, SPECIES_SEVIPER) }
+    }
+    playmoncry(VAR_SPECIES, CRY_MODE_ENCOUNTER)
+    delay(40)
+    waitmoncry
+    setwildbattlelevelrange(VAR_SPECIES, VAR_MIN_LEVEL, ITEM_NONE, SPECIES_NONE, VAR_MAX_LEVEL)
+    setflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    doscriptedgrottobattle
+    clearflag(FLAG_SYS_CTRL_OBJ_DELETE)
+    call(SetGrottoCompleted)
+	specialvar(VAR_RESULT, GetBattleOutcome)
+	if(var(VAR_RESULT) == B_OUTCOME_WON){
+	    fadescreenswapbuffers(FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+	    fadescreenswapbuffers(FADE_FROM_BLACK)
+    } 
+	if(var(VAR_RESULT) == B_OUTCOME_RAN || var(VAR_RESULT) == B_OUTCOME_PLAYER_TELEPORTED){
+	    fadescreenswapbuffers(FADE_TO_BLACK)
+	    removeobject (VAR_LAST_TALKED)
+	    fadescreenswapbuffers(FADE_FROM_BLACK)
+        msgbox("The wild Pokémon ran away!")
+    } 
+    release
+    end
+}
+
+script SetGrottoCompleted{
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_WW_GROTTO):       
+            setvar(VAR_GROTTO_1, 0)
+            setflag(FLAG_DAILY_GROTTO_1)
+        case MAP_NUM(MAP_ROUTE7_GROTTO):   
+            setvar(VAR_GROTTO_2, 0)
+            setflag(FLAG_DAILY_GROTTO_2)
+        case MAP_NUM(MAP_ROUTE14_GROTTO):  
+            setvar(VAR_GROTTO_3, 0)
+            setflag(FLAG_DAILY_GROTTO_3)
+        case MAP_NUM(MAP_ROUTE15_GROTTO):  
+            setvar(VAR_GROTTO_4, 0)
+            setflag(FLAG_DAILY_GROTTO_4)
+        case MAP_NUM(MAP_AZURETIDE_GROTTO):
+            setvar(VAR_GROTTO_5, 0)
+            setflag(FLAG_DAILY_GROTTO_5)
+        case MAP_NUM(MAP_ROUTE21_GROTTO):  
+            setvar(VAR_GROTTO_6, 0)
+            setflag(FLAG_DAILY_GROTTO_6)
+    }
+    return
+}

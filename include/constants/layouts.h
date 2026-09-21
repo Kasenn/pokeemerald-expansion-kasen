@@ -788,6 +788,8 @@
 #define LAYOUT_ROUTE2_LAYOUT_2 781
 #define LAYOUT_HIGH_IN_THE_SKY 782
 #define LAYOUT_PROFS_GLADE_INTERIOR 783
+#define LAYOUT_ROUTE7_FILLER 784
+#define LAYOUT_ROUTE21_GROTTO 785
 
 //Constants for unused layouts
 #define LAYOUT_TRAINER_TOWER_1F                   0xFFFF

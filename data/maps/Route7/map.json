@@ -22,6 +22,11 @@
       "map": "MAP_TOWN_WIP2",
       "offset": 0,
       "direction": "right"
+    },
+    {
+      "map": "MAP_ROUTE7_FILLER",
+      "offset": 0,
+      "direction": "up"
     }
   ],
   "object_events": [

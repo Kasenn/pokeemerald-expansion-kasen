@@ -2110,3 +2110,7 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/HighInTheSky/scripts.inc"
 	.include "data/maps/ProfsGladeInterior/scripts.inc"
 	.include "data/town_scripts/pearlwood.inc"
+	.include "data/town_scripts/hiddengrotto.inc"
+	.include "data/maps/Route7_Filler/scripts.inc"
+
+	.include "data/maps/Route21_Grotto/scripts.inc"

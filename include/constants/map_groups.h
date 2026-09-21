@@ -111,6 +111,7 @@ enum
     MAP_ROUTE119_WEATHER_INSTITUTE_1F = (17 | (1 << 8)),
     MAP_ROUTE119_WEATHER_INSTITUTE_2F = (18 | (1 << 8)),
     MAP_ROUTE20_FARM_HOUSE            = (19 | (1 << 8)),
+    MAP_ROUTE21_GROTTO                = (20 | (1 << 8)),
 
     // gMapGroup_Dungeons
     MAP_WINDY_WOODS                      = (0 | (2 << 8)),
@@ -976,6 +977,7 @@ enum
     MAP_ROUTE102                    = (29 | (53 << 8)),
     MAP_ROUTE103                    = (30 | (53 << 8)),
     MAP_ROUTE104                    = (31 | (53 << 8)),
+    MAP_ROUTE7_FILLER               = (32 | (53 << 8)),
 
 };
 

@@ -1,0 +1,4 @@
+mapscripts Route21_Grotto_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION: SetHiddenGrottoGfx
+    MAP_SCRIPT_ON_RESUME: RemoveStaticEncounter
+}
