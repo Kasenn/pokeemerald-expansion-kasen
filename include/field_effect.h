@@ -58,5 +58,4 @@ void StartEscapeRopeFieldEffect(void);
 void StartFlightFluteFieldEffect(void);
 void FieldEffectFreeGraphicsResources(struct Sprite *sprite);
 bool8 IsRockClimbRHHActive(void);
-void Task_FlyOut(u8 taskId);
 #endif // GUARD_FIELD_EFFECTS_H
