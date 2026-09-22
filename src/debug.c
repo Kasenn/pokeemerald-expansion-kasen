@@ -1788,6 +1788,7 @@ static void DebugAction_OpenSubMenuCreateFollowerNPC(u8 taskId, const struct Deb
 static void DebugAction_Util_Fly(u8 taskId)
 {
     gDebugFly = TRUE;
+    gDrifblimBalloon = FALSE;
     Debug_DestroyMenu(taskId);
     SetMainCallback2(CB2_OpenFlyMap);
 }

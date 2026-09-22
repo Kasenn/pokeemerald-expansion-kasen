@@ -182,3 +182,29 @@ script SetGrottoCompleted{
     }
     return
 }
+
+script Grotto_Entrance{
+    lock
+    msgbox(GoInsideGrotto, MSGBOX_YESNO)
+    if(var(VAR_RESULT) == FALSE){
+        release
+        end
+    }
+    getmapnum
+    switch(var(VAR_RESULT)){
+        case MAP_NUM(MAP_WINDY_WOODS):  warp(MAP_WW_GROTTO, 6, 19)
+        case MAP_NUM(MAP_ROUTE7):       warp(MAP_ROUTE7_GROTTO, 6, 19)
+        case MAP_NUM(MAP_ROUTE14):      warp(MAP_ROUTE14_GROTTO, 6, 19)
+        case MAP_NUM(MAP_ROUTE15):      warp(MAP_ROUTE15_GROTTO, 6, 19)
+        case MAP_NUM(MAP_COAST_TOWN):   warp(MAP_AZURETIDE_GROTTO, 6, 19)
+        case MAP_NUM(MAP_ROUTE21):      warp(MAP_ROUTE21_GROTTO, 6, 19)
+    }
+    waitstate
+    release
+}
+
+text GoInsideGrotto{
+    "There looks to be a narrow path\n"
+    "between the trees!\p"
+    "Follow the path?"
+}

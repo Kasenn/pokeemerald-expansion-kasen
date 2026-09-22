@@ -26,6 +26,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PUSHABLE_BOULDER",
       "x": 20,
       "y": 57,
@@ -39,6 +40,7 @@
       "flag": "FLAG_TEMP_10"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
       "x": 20,
       "y": 61,
@@ -52,6 +54,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
       "x": 18,
       "y": 42,
@@ -65,6 +68,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
       "x": 25,
       "y": 22,
@@ -78,6 +82,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
       "x": 15,
       "y": 5,
@@ -91,6 +96,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 20,
       "y": 28,
@@ -104,6 +110,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 27,
       "y": 37,
@@ -117,6 +124,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 17,
       "y": 52,
@@ -130,6 +138,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 13,
       "y": 14,
@@ -143,6 +152,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PSYCHIC_M",
       "x": 18,
       "y": 15,
@@ -156,6 +166,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 18,
       "y": 27,
@@ -169,6 +180,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 22,
       "y": 42,
@@ -182,6 +194,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GEN4_BREEDER_F",
       "x": 12,
       "y": 53,
@@ -195,6 +208,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 28,
       "y": 58,
@@ -208,6 +222,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 34,
       "y": 18,
@@ -221,6 +236,7 @@
       "flag": "FLAG_R12_ITEM1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
       "x": 32,
       "y": 10,
@@ -234,6 +250,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 22,
       "y": 32,

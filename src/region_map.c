@@ -229,18 +229,34 @@ static const mapsec_u16_t sMarineCaveMapSecIds[] =
     MAPSEC_UNDERWATER_MARINE_CAVE
 };
 
-#define FLYABLE_MAPSEC_COUNT                2
+#define FLYABLE_MAPSEC_COUNT    10
 
 static const u16 sFlyableMapSecIds[FLYABLE_MAPSEC_COUNT] =
 {
     MAPSEC_SINKO_ROUTE_2,
-    MAPSEC_SINKO_ROUTE_4
+    MAPSEC_SINKO_ROUTE_4,
+    MAPSEC_SINKO_ROUTE_8,
+    MAPSEC_SINKO_ROUTE_7,
+    MAPSEC_SINKO_ROUTE_11,
+    MAPSEC_SINKO_ROUTE_13,
+    MAPSEC_SINKO_ROUTE_15,
+    MAPSEC_SINKO_ROUTE_20,
+    MAPSEC_SINKO_ROUTE_27,
+    MAPSEC_SNOWCREST_CITY,
 };
 
 static const u16 sFlyableMapFlags[FLYABLE_MAPSEC_COUNT] =
 {
     FLAG_FLIGHTPOINT1,
-    FLAG_FLIGHTPOINT2
+    FLAG_FLIGHTPOINT2,
+    FLAG_FLIGHTPOINT3,
+    FLAG_FLIGHTPOINT4,
+    FLAG_FLIGHTPOINT5,
+    FLAG_FLIGHTPOINT6,
+    FLAG_FLIGHTPOINT7,
+    FLAG_FLIGHTPOINT8,
+    FLAG_FLIGHTPOINT9,
+    FLAG_FLIGHTPOINT10,
 };
 
 #define DEBUG_FLYABLE_MAPSEC_COUNT                21
@@ -300,6 +316,29 @@ static bool8 IsCursorInBannedCoordinates(void)
     if (sRegionMap->cursorPosX == 16 && sRegionMap->cursorPosY == 10)
         return TRUE;
     else if (sRegionMap->cursorPosX == 21 && sRegionMap->cursorPosY == 9)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 7 && sRegionMap->cursorPosY == 16)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 9 && sRegionMap->cursorPosY == 16)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 22 && sRegionMap->cursorPosY == 14)
+        return TRUE;
+
+    else if (sRegionMap->cursorPosX == 2 && sRegionMap->cursorPosY == 11)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 2 && sRegionMap->cursorPosY == 12)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 2 && sRegionMap->cursorPosY == 14)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 2 && sRegionMap->cursorPosY == 15)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 20 && sRegionMap->cursorPosY == 5)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 20 && sRegionMap->cursorPosY == 4)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 19 && sRegionMap->cursorPosY == 5)
+        return TRUE;
+    else if (sRegionMap->cursorPosX == 27 && sRegionMap->cursorPosY == 4)
         return TRUE;
     return FALSE;
 }
@@ -418,6 +457,8 @@ static const u32 sRegionMapFrameGfxLZ[] = INCGFX_U32("graphics/pokenav/region_ma
 static const u32 sRegionMapFrameTilemapLZ[] = INCGFX_U32("graphics/pokenav/region_map/frame.bin", ".smolTM");
 static const u16 sFlyTargetIcons_Pal[] = INCGFX_U16("graphics/pokenav/region_map/fly_target_icons.png", ".gbapal");
 static const u32 sFlyTargetIcons_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/fly_target_icons.png", ".4bpp.smol");
+static const u16 sFlyTargetIconsDrifblim_Pal[] = INCGFX_U16("graphics/pokenav/region_map/fly_target_icons_drifblim.png", ".gbapal");
+static const u32 sFlyTargetIconsDrifblim_Gfx[] = INCGFX_U32("graphics/pokenav/region_map/fly_target_icons_drifblim.png", ".4bpp.smol");
 
 static const u16 ALIGNED(4) sPokedexAreaMap_Pal[] = INCGFX_U16("graphics/pokedex/region_map.pal", ".gbapal");
 static const u32 sPokedexAreaMap_Gfx[] = INCGFX_U32("graphics/pokedex/region_map.png", ".8bpp.smol", "-num_tiles 232 -Wnum_tiles");
@@ -544,6 +585,14 @@ static const u8 sMapHealLocations[][3] =
     [MAPSEC_GALEWIND_CITY]  = {MAP_GROUP(MAP_GALEWIND_CITY), MAP_NUM(MAP_GALEWIND_CITY), HEAL_LOCATION_GALEWIND_CITY},
     [MAPSEC_SINKO_ROUTE_2] = {MAP_GROUP(MAP_ROUTE2), MAP_NUM(MAP_ROUTE2), HEAL_LOCATION_ROUTE2},
     [MAPSEC_SINKO_ROUTE_4] = {MAP_GROUP(MAP_ROUTE3), MAP_NUM(MAP_ROUTE3), HEAL_LOCATION_ROUTE3},
+    [MAPSEC_SINKO_ROUTE_7] = {MAP_GROUP(MAP_ROUTE8), MAP_NUM(MAP_ROUTE8), HEAL_LOCATION_ROUTE8},
+    [MAPSEC_SINKO_ROUTE_8] = {MAP_GROUP(MAP_ROUTE7), MAP_NUM(MAP_ROUTE7), HEAL_LOCATION_ROUTE7},
+    [MAPSEC_SINKO_ROUTE_11] = {MAP_GROUP(MAP_ROUTE11), MAP_NUM(MAP_ROUTE11), HEAL_LOCATION_ROUTE11},
+    [MAPSEC_SINKO_ROUTE_13] = {MAP_GROUP(MAP_ROUTE13), MAP_NUM(MAP_ROUTE13), HEAL_LOCATION_ROUTE13},
+    [MAPSEC_SINKO_ROUTE_15] = {MAP_GROUP(MAP_ROUTE15), MAP_NUM(MAP_ROUTE15), HEAL_LOCATION_ROUTE15},
+    [MAPSEC_SINKO_ROUTE_20] = {MAP_GROUP(MAP_ROUTE20), MAP_NUM(MAP_ROUTE20), HEAL_LOCATION_ROUTE20},
+    [MAPSEC_SINKO_ROUTE_27] = {MAP_GROUP(MAP_ROUTE27), MAP_NUM(MAP_ROUTE27), HEAL_LOCATION_ROUTE27},
+    // [MAPSEC_SNOWCREST_CITY] = {MAP_GROUP(MAP_SNOWCREST_CITY), MAP_NUM(MAP_SNOWCREST_CITY), HEAL_LOCATION_SNOWCREST_CITY_2},
     [MAPSEC_TOWN_WIP10]     = {MAP_GROUP(MAP_EVERFROST_TOWN), MAP_NUM(MAP_EVERFROST_TOWN), HEAL_LOCATION_EVERFROST_TOWN},
     [MAPSEC_CITY_WIP6]      = {MAP_GROUP(MAP_ICEPERCH_CITY), MAP_NUM(MAP_ICEPERCH_CITY), HEAL_LOCATION_ICEPERCH_CITY},
     [MAPSEC_SNOWCREST_CITY] = {MAP_GROUP(MAP_SNOWCREST_CITY_PART2), MAP_NUM(MAP_SNOWCREST_CITY_PART2), HEAL_LOCATION_SNOWCREST_CITY_PART2},
@@ -719,6 +768,12 @@ static const struct WindowTemplate sFlyMapWindowTemplates[] =
 static const struct SpritePalette sFlyTargetIconsSpritePalette =
 {
     .data = sFlyTargetIcons_Pal,
+    .tag = TAG_FLY_ICON
+};
+
+static const struct SpritePalette sFlyTargetIconsSpritePaletteDrifblim =
+{
+    .data = sFlyTargetIconsDrifblim_Pal,
     .tag = TAG_FLY_ICON
 };
 
@@ -1544,6 +1599,22 @@ static u8 GetMapsecType(mapsec_u16_t mapSecId)
         return FlagGet(FLAG_FLIGHTPOINT1) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     case MAPSEC_SINKO_ROUTE_4:
         return FlagGet(FLAG_FLIGHTPOINT2) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_8:
+        return FlagGet(FLAG_FLIGHTPOINT3) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_7:
+        return FlagGet(FLAG_FLIGHTPOINT4) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_11:
+        return FlagGet(FLAG_FLIGHTPOINT5) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_13:
+        return FlagGet(FLAG_FLIGHTPOINT6) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_15:
+        return FlagGet(FLAG_FLIGHTPOINT7) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_20:
+        return FlagGet(FLAG_FLIGHTPOINT8) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SINKO_ROUTE_27:
+        return FlagGet(FLAG_FLIGHTPOINT9) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+    case MAPSEC_SNOWCREST_CITY:
+        return FlagGet(FLAG_FLIGHTPOINT10) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -2363,12 +2434,18 @@ static void LoadFlyDestIcons(void)
 {
     struct SpriteSheet sheet;
 
-    DecompressDataWithHeaderWram(sFlyTargetIcons_Gfx, sFlyMap->tileBuffer);
+    if (gDrifblimBalloon)
+        DecompressDataWithHeaderWram(sFlyTargetIconsDrifblim_Gfx, sFlyMap->tileBuffer);
+    else
+        DecompressDataWithHeaderWram(sFlyTargetIcons_Gfx, sFlyMap->tileBuffer);
     sheet.data = sFlyMap->tileBuffer;
     sheet.size = sizeof(sFlyMap->tileBuffer);
     sheet.tag = TAG_FLY_ICON;
     LoadSpriteSheet(&sheet);
-    LoadSpritePalette(&sFlyTargetIconsSpritePalette);
+    if (gDrifblimBalloon)
+        LoadSpritePalette(&sFlyTargetIconsSpritePaletteDrifblim);
+    else
+        LoadSpritePalette(&sFlyTargetIconsSpritePalette);
     if (gOnLatiIslands && !gOpenedMapFromItem)
     {
         TryCreateRedOutlineFlyDestIcons();
@@ -2394,7 +2471,14 @@ static void AdjustMapSecXY(mapsec_u16_t mapSecId, u16 *x, u16 *y)
     {
     case MAPSEC_SINKO_ROUTE_2:
     case MAPSEC_SINKO_ROUTE_4:
+    case MAPSEC_SINKO_ROUTE_11:
         *x = (gRegionMapEntries[mapSecId].x + 1);
+        break;
+    case MAPSEC_SINKO_ROUTE_15:
+        *y = (gRegionMapEntries[mapSecId].y + 2);
+        break;
+    case MAPSEC_SNOWCREST_CITY:
+        *y = (gRegionMapEntries[mapSecId].y + 1);
         break;
     default: break;
     }
@@ -2560,6 +2644,41 @@ static u8 GetFlyDirectionFromMapSec(mapsec_u16_t currentMapSec, mapsec_u16_t des
     u8 destMapX = gRegionMapEntries[destMapSec].x;
     u8 destMapY = gRegionMapEntries[destMapSec].y;
 
+    switch (currentMapSec)
+    {
+    case MAPSEC_SINKO_ROUTE_2:
+    case MAPSEC_SINKO_ROUTE_4:
+    case MAPSEC_SINKO_ROUTE_11:
+        currentMapX++;
+        break;
+    case MAPSEC_SINKO_ROUTE_15:
+        currentMapY =+ 2;
+        break;
+    case MAPSEC_SNOWCREST_CITY:
+        currentMapY++;
+        break;
+    }
+
+    switch (destMapX)
+    {
+    case MAPSEC_SINKO_ROUTE_2:
+    case MAPSEC_SINKO_ROUTE_4:
+    case MAPSEC_SINKO_ROUTE_11:
+        destMapX++;
+        break;
+    case MAPSEC_SINKO_ROUTE_15:
+        destMapY =+ 2;
+        break;
+    case MAPSEC_SNOWCREST_CITY:
+        destMapY++;
+        break;
+    }
+
+    if (currentMapSec == MAPSEC_SINKO_ROUTE_8 && destMapSec == MAPSEC_SINKO_ROUTE_4)
+        return DIR_EAST;
+    if (currentMapSec == MAPSEC_SINKO_ROUTE_11 && destMapSec == MAPSEC_SINKO_ROUTE_13)
+        return DIR_EAST;
+
     if (currentMapX < destMapX)
         return DIR_EAST;
     else if (currentMapX > destMapX)
@@ -2690,6 +2809,7 @@ static void CB_ExitFlyMap(void)
 
 void OpenFlyMapFromSign(void)
 {
+    gDrifblimBalloon = TRUE;
     SetMainCallback2(CB2_OpenFlyMap);
 }
 u32 FilterFlyDestination(struct RegionMap* regionMap)
@@ -2700,7 +2820,10 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
         return HEAL_LOCATION_SOUTHERN_ISLAND_EXTERIOR;
     case MAPSEC_LITTLEROOT_TOWN:
         return (gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
+    case MAPSEC_SNOWCREST_CITY:
     case MAPSEC_EVER_GRANDE_CITY:
+        if (FlagGet(FLAG_FLIGHTPOINT10) && gDrifblimBalloon)
+            return HEAL_LOCATION_SNOWCREST_CITY_2;
         return (FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && regionMap->posWithinMapSec == 0 ? HEAL_LOCATION_SNOWCREST_CITY_PART2  : HEAL_LOCATION_SNOWCREST_CITY);
     default:
         if (sMapHealLocations[regionMap->mapSecId][2] != HEAL_LOCATION_NONE)

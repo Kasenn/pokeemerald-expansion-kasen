@@ -346,6 +346,54 @@
       "map": "MAP_ROUTE3",
       "x": 84,
       "y": 11
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE7",
+      "map": "MAP_ROUTE7",
+      "x": 5,
+      "y": 34
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE11",
+      "map": "MAP_ROUTE11",
+      "x": 47,
+      "y": 7
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE13",
+      "map": "MAP_ROUTE13",
+      "x": 2,
+      "y": 10
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE15",
+      "map": "MAP_ROUTE15",
+      "x": 36,
+      "y": 73
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE20",
+      "map": "MAP_ROUTE20",
+      "x": 21,
+      "y": 26
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE27",
+      "map": "MAP_ROUTE27",
+      "x": 32,
+      "y": 35
+    },
+    {
+      "id": "HEAL_LOCATION_ROUTE8",
+      "map": "MAP_ROUTE8",
+      "x": 51,
+      "y": 49
+    },
+    {
+      "id": "HEAL_LOCATION_SNOWCREST_CITY_2",
+      "map": "MAP_SNOWCREST_CITY",
+      "x": 26,
+      "y": 47
     }
   ]
 }

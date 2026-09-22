@@ -84,6 +84,7 @@ extern bool8 gOpenedMapFromItem;
 extern bool8 gOnLatiIslands;
 extern u8 gDisableMapMusicChangeOnMapLoad;
 extern bool8 gDebugFly;
+extern bool8 gDrifblimBalloon;
 
 extern struct TimeBlendSettings gTimeBlend;
 

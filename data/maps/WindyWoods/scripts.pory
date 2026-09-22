@@ -333,23 +333,6 @@ text WW_DevonTalk2{
     "I work for the Devon Corp.\pShow that letter to the receptionist\nat our offices in Shoreslate City and\lI'm sure they'll reward you.\pThank you again for taking care\nof the situation.\pAlthough, I am a bit concerned about\nthis person clad in dark.\pThe way you described him sounded like\nhe could be a Team Rocket member.\pHowever, Team Rocket was disbanded\nyears ago…\pAnyway, we should head back home."
 }
 
-script WW_Grotto_Entrance{
-    lock
-    msgbox(GoInsideGrotto, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        release
-        end
-    }
-    warp(MAP_WW_GROTTO, 6, 19)
-    waitstate
-    release
-}
-text GoInsideGrotto{
-    "There looks to be a narrow path\n"
-    "between the trees!\p"
-    "Follow the path?"
-}
-
 script WindyWoodsNurse{
     if(defeated(TRAINER_WW_NURSE)){
         faceplayer

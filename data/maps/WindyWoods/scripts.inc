@@ -484,345 +484,323 @@ WW_DevonEnters:
 	face_up
 	step_end
 
-WW_Grotto_Entrance::
-# 337 "data/maps/WindyWoods/scripts.pory"
-	lock
-# 338 "data/maps/WindyWoods/scripts.pory"
-	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 339 "data/maps/WindyWoods/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq WW_Grotto_Entrance_2
-# 343 "data/maps/WindyWoods/scripts.pory"
-	warp MAP_WW_GROTTO, 6, 19
-# 344 "data/maps/WindyWoods/scripts.pory"
-	waitstate
-# 345 "data/maps/WindyWoods/scripts.pory"
-	release
-	return
-
-WW_Grotto_Entrance_2:
-# 340 "data/maps/WindyWoods/scripts.pory"
-	release
-	end
-
-
 WindyWoodsNurse::
-# 354 "data/maps/WindyWoods/scripts.pory"
+# 337 "data/maps/WindyWoods/scripts.pory"
 	checktrainerflag TRAINER_WW_NURSE
 	goto_if 1, WindyWoodsNurse_2
-# 361 "data/maps/WindyWoods/scripts.pory"
+# 344 "data/maps/WindyWoods/scripts.pory"
 	playbgm MUS_ENCOUNTER_GIRL, FALSE
-# 362 "data/maps/WindyWoods/scripts.pory"
+# 345 "data/maps/WindyWoods/scripts.pory"
 	faceplayer
-# 363 "data/maps/WindyWoods/scripts.pory"
+# 346 "data/maps/WindyWoods/scripts.pory"
 	msgbox WindyWoodsNurse_Text_2
-# 364 "data/maps/WindyWoods/scripts.pory"
+# 347 "data/maps/WindyWoods/scripts.pory"
 	trainerbattle_no_intro TRAINER_WW_NURSE, WindyWoodsNurse_Text_3
-# 365 "data/maps/WindyWoods/scripts.pory"
+# 348 "data/maps/WindyWoods/scripts.pory"
 	goto WindyWoodsNurse
 	return
 
 WindyWoodsNurse_2:
-# 355 "data/maps/WindyWoods/scripts.pory"
+# 338 "data/maps/WindyWoods/scripts.pory"
 	faceplayer
-# 356 "data/maps/WindyWoods/scripts.pory"
+# 339 "data/maps/WindyWoods/scripts.pory"
 	msgbox WindyWoodsNurse_Text_0, MSGBOX_AUTOCLOSE
-# 357 "data/maps/WindyWoods/scripts.pory"
+# 340 "data/maps/WindyWoods/scripts.pory"
 	call Common_EventScript_OutOfCenterPartyHeal
-# 358 "data/maps/WindyWoods/scripts.pory"
+# 341 "data/maps/WindyWoods/scripts.pory"
 	msgbox WindyWoodsNurse_Text_1, MSGBOX_AUTOCLOSE
 	end
 
 
 HiddenGrottoIntro1::
-# 369 "data/maps/WindyWoods/scripts.pory"
+# 352 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_TEMP_0, 1
-# 370 "data/maps/WindyWoods/scripts.pory"
+# 353 "data/maps/WindyWoods/scripts.pory"
 	goto HiddenGrottoIntroMain
 	return
 
 
 HiddenGrottoIntro2::
-# 373 "data/maps/WindyWoods/scripts.pory"
+# 356 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_TEMP_0, 2
-# 374 "data/maps/WindyWoods/scripts.pory"
+# 357 "data/maps/WindyWoods/scripts.pory"
 	goto HiddenGrottoIntroMain
 	return
 
 
 HiddenGrottoIntroScientist::
-# 377 "data/maps/WindyWoods/scripts.pory"
+# 360 "data/maps/WindyWoods/scripts.pory"
 	compare VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_TALKED_TO_AIDE
 	goto_if_eq HiddenGrottoIntroScientist_2
-# 381 "data/maps/WindyWoods/scripts.pory"
+# 364 "data/maps/WindyWoods/scripts.pory"
 	compare STORY_HIDDEN_GROTTO_ENTERED_HIDDEN_GROTTO, 0
 	goto_if_ne HiddenGrottoIntroScientist_3
 HiddenGrottoIntroScientist_1:
-# 384 "data/maps/WindyWoods/scripts.pory"
+# 367 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_TEMP_0, 3
-# 385 "data/maps/WindyWoods/scripts.pory"
+# 368 "data/maps/WindyWoods/scripts.pory"
 	goto HiddenGrottoIntroMain
 	return
 
 HiddenGrottoIntroScientist_2:
-# 378 "data/maps/WindyWoods/scripts.pory"
+# 361 "data/maps/WindyWoods/scripts.pory"
 	msgbox HiddenGrottoIntroScientist_Text, MSGBOX_NPC
 	end
 
 HiddenGrottoIntroScientist_3:
-# 382 "data/maps/WindyWoods/scripts.pory"
+# 365 "data/maps/WindyWoods/scripts.pory"
 	goto WW_HiddenGrottoExitIntro
 	goto HiddenGrottoIntroScientist_1
 
 
 HiddenGrottoIntroMain::
-# 394 "data/maps/WindyWoods/scripts.pory"
+# 377 "data/maps/WindyWoods/scripts.pory"
 	switch VAR_TEMP_0
-# 395 "data/maps/WindyWoods/scripts.pory"
+# 378 "data/maps/WindyWoods/scripts.pory"
 	case 1, HiddenGrottoIntroMain_3
-# 400 "data/maps/WindyWoods/scripts.pory"
+# 383 "data/maps/WindyWoods/scripts.pory"
 	case 2, HiddenGrottoIntroMain_4
 HiddenGrottoIntroMain_1:
-# 406 "data/maps/WindyWoods/scripts.pory"
+# 389 "data/maps/WindyWoods/scripts.pory"
 	msgbox HiddenGrottoIntro_Text, MSGBOX_AUTOCLOSE
-# 407 "data/maps/WindyWoods/scripts.pory"
+# 390 "data/maps/WindyWoods/scripts.pory"
 	playbgm MUS_FOLLOW_ME, FALSE
-# 408 "data/maps/WindyWoods/scripts.pory"
+# 391 "data/maps/WindyWoods/scripts.pory"
 	applymovement LOCALID_WW_SCIENTIST, WWScientistMove
-# 409 "data/maps/WindyWoods/scripts.pory"
+# 392 "data/maps/WindyWoods/scripts.pory"
 	switch VAR_TEMP_0
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	case 1, HiddenGrottoIntroMain_7
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	case 2, HiddenGrottoIntroMain_8
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	case 3, HiddenGrottoIntroMain_9
 HiddenGrottoIntroMain_5:
-# 414 "data/maps/WindyWoods/scripts.pory"
+# 397 "data/maps/WindyWoods/scripts.pory"
 	waitmovementall
-# 415 "data/maps/WindyWoods/scripts.pory"
+# 398 "data/maps/WindyWoods/scripts.pory"
 	msgbox HiddenGrottoIntro_Text2, MSGBOX_AUTOCLOSE
-# 416 "data/maps/WindyWoods/scripts.pory"
+# 399 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_TALKED_TO_AIDE
-# 417 "data/maps/WindyWoods/scripts.pory"
+# 400 "data/maps/WindyWoods/scripts.pory"
 	setobjectxyperm LOCALID_WW_SCIENTIST, 51, 4
-# 418 "data/maps/WindyWoods/scripts.pory"
+# 401 "data/maps/WindyWoods/scripts.pory"
 	setobjectmovementtype LOCALID_WW_SCIENTIST, MOVEMENT_TYPE_FACE_RIGHT
-# 419 "data/maps/WindyWoods/scripts.pory"
+# 402 "data/maps/WindyWoods/scripts.pory"
 	fadedefaultbgm
-# 420 "data/maps/WindyWoods/scripts.pory"
+# 403 "data/maps/WindyWoods/scripts.pory"
 	release
 	return
 
 HiddenGrottoIntroMain_3:
-# 396 "data/maps/WindyWoods/scripts.pory"
+# 379 "data/maps/WindyWoods/scripts.pory"
 	playse SE_PIN
-# 397 "data/maps/WindyWoods/scripts.pory"
+# 380 "data/maps/WindyWoods/scripts.pory"
 	turnobject LOCALID_WW_SCIENTIST, DIR_NORTH
-# 398 "data/maps/WindyWoods/scripts.pory"
+# 381 "data/maps/WindyWoods/scripts.pory"
 	exclamationmark LOCALID_WW_SCIENTIST
-# 399 "data/maps/WindyWoods/scripts.pory"
+# 382 "data/maps/WindyWoods/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_SOUTH
 	goto HiddenGrottoIntroMain_1
 
 HiddenGrottoIntroMain_4:
-# 401 "data/maps/WindyWoods/scripts.pory"
+# 384 "data/maps/WindyWoods/scripts.pory"
 	playse SE_PIN
-# 402 "data/maps/WindyWoods/scripts.pory"
+# 385 "data/maps/WindyWoods/scripts.pory"
 	turnobject LOCALID_WW_SCIENTIST, DIR_SOUTH
-# 403 "data/maps/WindyWoods/scripts.pory"
+# 386 "data/maps/WindyWoods/scripts.pory"
 	exclamationmark LOCALID_WW_SCIENTIST
-# 404 "data/maps/WindyWoods/scripts.pory"
+# 387 "data/maps/WindyWoods/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_NORTH
 	goto HiddenGrottoIntroMain_1
 
 HiddenGrottoIntroMain_7:
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	applymovement LOCALID_PLAYER, HiddenGrottoIntroMain_Movement_0
 	goto HiddenGrottoIntroMain_5
 
 HiddenGrottoIntroMain_8:
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	applymovement LOCALID_PLAYER, HiddenGrottoIntroMain_Movement_1
 	goto HiddenGrottoIntroMain_5
 
 HiddenGrottoIntroMain_9:
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	applymovement LOCALID_PLAYER, HiddenGrottoIntroMain_Movement_2
 	goto HiddenGrottoIntroMain_5
 
 
-# 445 "data/maps/WindyWoods/scripts.pory"
+# 428 "data/maps/WindyWoods/scripts.pory"
 WWScientistMove:
-# 446 "data/maps/WindyWoods/scripts.pory"
+# 429 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 447 "data/maps/WindyWoods/scripts.pory"
+# 430 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 448 "data/maps/WindyWoods/scripts.pory"
+# 431 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 448 "data/maps/WindyWoods/scripts.pory"
+# 431 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 448 "data/maps/WindyWoods/scripts.pory"
+# 431 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 449 "data/maps/WindyWoods/scripts.pory"
+# 432 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 449 "data/maps/WindyWoods/scripts.pory"
+# 432 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 450 "data/maps/WindyWoods/scripts.pory"
+# 433 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 451 "data/maps/WindyWoods/scripts.pory"
+# 434 "data/maps/WindyWoods/scripts.pory"
 	walk_in_place_fast_right
 	step_end
 
 WW_HiddenGrottoExitIntro::
-# 455 "data/maps/WindyWoods/scripts.pory"
+# 438 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_TEMP_7, 0
-# 456 "data/maps/WindyWoods/scripts.pory"
+# 439 "data/maps/WindyWoods/scripts.pory"
 	delay 16
-# 457 "data/maps/WindyWoods/scripts.pory"
+# 440 "data/maps/WindyWoods/scripts.pory"
 	turnobject LOCALID_PLAYER, DIR_WEST
-# 458 "data/maps/WindyWoods/scripts.pory"
+# 441 "data/maps/WindyWoods/scripts.pory"
 	delay 8
-# 459 "data/maps/WindyWoods/scripts.pory"
+# 442 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_HiddenGrottoExitIntro_Text
-# 460 "data/maps/WindyWoods/scripts.pory"
+# 443 "data/maps/WindyWoods/scripts.pory"
 	msgbox WW_HiddenGrottoExitIntro_Text2, MSGBOX_AUTOCLOSE
-# 461 "data/maps/WindyWoods/scripts.pory"
+# 444 "data/maps/WindyWoods/scripts.pory"
 	fadescreenswapbuffers FADE_TO_BLACK
-# 462 "data/maps/WindyWoods/scripts.pory"
+# 445 "data/maps/WindyWoods/scripts.pory"
 	delay 25
-# 463 "data/maps/WindyWoods/scripts.pory"
+# 446 "data/maps/WindyWoods/scripts.pory"
 	removeobject LOCALID_WW_SCIENTIST
-# 464 "data/maps/WindyWoods/scripts.pory"
+# 447 "data/maps/WindyWoods/scripts.pory"
 	fadescreenswapbuffers FADE_FROM_BLACK
-# 465 "data/maps/WindyWoods/scripts.pory"
+# 448 "data/maps/WindyWoods/scripts.pory"
 	setvar VAR_HIDDEN_GROTTO_INTRO, STORY_HIDDEN_GROTTO_COMPLETE
-# 466 "data/maps/WindyWoods/scripts.pory"
+# 449 "data/maps/WindyWoods/scripts.pory"
 	release
 	end
 
 
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 HiddenGrottoIntroMain_Movement_0:
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_down
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 410 "data/maps/WindyWoods/scripts.pory"
+# 393 "data/maps/WindyWoods/scripts.pory"
 	walk_left
 	step_end
 
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 HiddenGrottoIntroMain_Movement_1:
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 411 "data/maps/WindyWoods/scripts.pory"
+# 394 "data/maps/WindyWoods/scripts.pory"
 	walk_left
 	step_end
 
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 HiddenGrottoIntroMain_Movement_2:
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_up
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
-# 412 "data/maps/WindyWoods/scripts.pory"
+# 395 "data/maps/WindyWoods/scripts.pory"
 	walk_left
 	step_end
 
@@ -867,19 +845,19 @@ WW_BridgeScene2_Text_1:
 	.string "Little girl: This brave girl saved me!$"
 
 WindyWoodsNurse_Text_0:
-# 356 "data/maps/WindyWoods/scripts.pory"
+# 339 "data/maps/WindyWoods/scripts.pory"
 	.string "Your Pokémon seem a bit worn out.\nHere, let me see to them.$"
 
 WindyWoodsNurse_Text_1:
-# 358 "data/maps/WindyWoods/scripts.pory"
+# 341 "data/maps/WindyWoods/scripts.pory"
 	.string "Be careful out there.$"
 
 WindyWoodsNurse_Text_2:
-# 363 "data/maps/WindyWoods/scripts.pory"
+# 346 "data/maps/WindyWoods/scripts.pory"
 	.string "I'm studying to one day\nbe a full-fledged nurse.\pI'll heal up your Pokémon if you\ncan defeat me in battle. $"
 
 WindyWoodsNurse_Text_3:
-# 364 "data/maps/WindyWoods/scripts.pory"
+# 347 "data/maps/WindyWoods/scripts.pory"
 	.string "So strong!$"
 
 WindyWoods_Bugcatcher1Intro::
@@ -1016,19 +994,13 @@ WW_DevonTalk2::
 # 332 "data/maps/WindyWoods/scripts.pory"
 	.string "I work for the Devon Corp.\pShow that letter to the receptionist\nat our offices in Shoreslate City and\lI'm sure they'll reward you.\pThank you again for taking care\nof the situation.\pAlthough, I am a bit concerned about\nthis person clad in dark.\pThe way you described him sounded like\nhe could be a Team Rocket member.\pHowever, Team Rocket was disbanded\nyears ago…\pAnyway, we should head back home.$"
 
-GoInsideGrotto::
-# 347 "data/maps/WindyWoods/scripts.pory"
-	.string "There looks to be a narrow path\n"
-	.string "between the trees!\p"
-	.string "Follow the path?$"
-
 HiddenGrottoIntroScientist_Text::
-# 388 "data/maps/WindyWoods/scripts.pory"
+# 371 "data/maps/WindyWoods/scripts.pory"
 	.string "Go on, see if you can find\n"
 	.string "a Pokémon in there.$"
 
 HiddenGrottoIntro_Text::
-# 423 "data/maps/WindyWoods/scripts.pory"
+# 406 "data/maps/WindyWoods/scripts.pory"
 	.string "Hello, I'm one of Prof. Birch's\n"
 	.string "aides.\p"
 	.string "I'm here to study hidden grottos and\n"
@@ -1039,7 +1011,7 @@ HiddenGrottoIntro_Text::
 	.string "Here, let me show you.$"
 
 HiddenGrottoIntro_Text2::
-# 434 "data/maps/WindyWoods/scripts.pory"
+# 417 "data/maps/WindyWoods/scripts.pory"
 	.string "Look here, there's a patch of\n"
 	.string "grass between these trees.\p"
 	.string "If you crawl in this small space,\n"
@@ -1050,7 +1022,7 @@ HiddenGrottoIntro_Text2::
 	.string "capturing the Pokémon within.$"
 
 WW_HiddenGrottoExitIntro_Text::
-# 470 "data/maps/WindyWoods/scripts.pory"
+# 453 "data/maps/WindyWoods/scripts.pory"
 	.string "You're back! Did you manage to\n"
 	.string "find a Pokémon in there?\p"
 	.string "While many of the Pokémon you\n"
@@ -1062,7 +1034,7 @@ WW_HiddenGrottoExitIntro_Text::
 	.string "found in the wild.$"
 
 WW_HiddenGrottoExitIntro_Text2::
-# 482 "data/maps/WindyWoods/scripts.pory"
+# 465 "data/maps/WindyWoods/scripts.pory"
 	.string "Anyway, I am off to find more\n"
 	.string "hidden grottos so I may study\l"
 	.string "the Pokémon found in them.\p"

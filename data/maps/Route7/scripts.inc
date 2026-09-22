@@ -142,28 +142,6 @@ Route8_Trainer11_BirdKeeper::
 	end
 
 
-Route7_Grotto_Entrance::
-# 291 "data/maps/Route7/scripts.pory"
-	lock
-# 292 "data/maps/Route7/scripts.pory"
-	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 293 "data/maps/Route7/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route7_Grotto_Entrance_2
-# 297 "data/maps/Route7/scripts.pory"
-	warp MAP_ROUTE7_GROTTO, 6, 19
-# 298 "data/maps/Route7/scripts.pory"
-	waitstate
-# 299 "data/maps/Route7/scripts.pory"
-	release
-	return
-
-Route7_Grotto_Entrance_2:
-# 294 "data/maps/Route7/scripts.pory"
-	release
-	end
-
-
 Route8_Boy_Text::
 # 16 "data/maps/Route7/scripts.pory"
 	.string "Why'd they have to set the flower shop\n"

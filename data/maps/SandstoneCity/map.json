@@ -36,6 +36,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 40,
       "y": 19,
@@ -49,6 +50,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 50,
       "y": 42,
@@ -62,6 +64,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
       "x": 51,
       "y": 50,
@@ -75,6 +78,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GAMEBOY_KID",
       "x": 52,
       "y": 50,
@@ -88,6 +92,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 47,
       "y": 24,
@@ -101,6 +106,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_4",
       "x": 48,
       "y": 24,
@@ -114,6 +120,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
       "x": 50,
       "y": 33,
@@ -127,6 +134,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 37,
       "y": 37,
@@ -140,6 +148,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 21,
       "y": 35,
@@ -153,6 +162,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 24,
       "y": 25,
@@ -166,6 +176,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 26,
       "y": 50,
@@ -179,6 +190,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 32,
       "y": 32,
@@ -192,6 +204,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_VAR_0",
       "x": 51,
       "y": 22,
@@ -205,6 +218,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
       "x": 42,
       "y": 30,
@@ -218,6 +232,7 @@
       "flag": "FLAG_RIVAL_MET_IN_SANDSTONE"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(BUNEARY)",
       "x": 42,
       "y": 29,
@@ -231,6 +246,7 @@
       "flag": "FLAG_RIVAL_MET_IN_SANDSTONE"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 56,
       "y": 44,
@@ -244,6 +260,7 @@
       "flag": "FLAG_ZYGARDE_CELL_30"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 25,
       "y": 51,
@@ -257,6 +274,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 37,
       "y": 52,
@@ -270,6 +288,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 52,
@@ -283,6 +302,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 37,
       "y": 47,
@@ -296,6 +316,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 47,
@@ -309,6 +330,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 53,
       "y": 51,
@@ -322,6 +344,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 37,
       "y": 39,
@@ -335,6 +358,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 39,
@@ -348,6 +372,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 36,
       "y": 35,
@@ -361,6 +386,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 43,
       "y": 35,
@@ -374,6 +400,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 50,
       "y": 35,
@@ -387,6 +414,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 56,
       "y": 40,
@@ -400,6 +428,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 48,
       "y": 44,
@@ -413,6 +442,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 64,
       "y": 35,
@@ -426,6 +456,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 57,
       "y": 35,
@@ -439,6 +470,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 64,
       "y": 31,
@@ -452,6 +484,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 50,
       "y": 31,
@@ -465,6 +498,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 43,
       "y": 31,
@@ -478,6 +512,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 28,
       "y": 40,
@@ -491,6 +526,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 22,
       "y": 40,
@@ -504,6 +540,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 12,
       "y": 35,
@@ -517,6 +554,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 12,
       "y": 31,
@@ -530,6 +568,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 16,
       "y": 30,
@@ -543,6 +582,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 20,
       "y": 30,
@@ -556,6 +596,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 28,
       "y": 31,
@@ -569,6 +610,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 36,
       "y": 31,
@@ -582,6 +624,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 35,
       "y": 22,
@@ -595,6 +638,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 56,
       "y": 27,
@@ -608,6 +652,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 52,
       "y": 27,
@@ -621,6 +666,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 38,
       "y": 26,
@@ -634,6 +680,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 45,
       "y": 22,
@@ -647,6 +694,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 13,
@@ -660,6 +708,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 37,
       "y": 13,
@@ -673,6 +722,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 57,
       "y": 31,
@@ -686,6 +736,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 31,
@@ -699,6 +750,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 32,
       "y": 39,
@@ -710,6 +762,22 @@
       "trainer_sight_or_berry_tree_id": "LIGHT_TYPE_BP_SHOP_SIGN",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 78,
+      "y": 30,
+      "target_local_id": "11",
+      "target_map": "MAP_ROUTE13"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 79,
+      "y": 29,
+      "target_local_id": "10",
+      "target_map": "MAP_ROUTE13"
     }
   ],
   "warp_events": [
@@ -848,6 +916,69 @@
       "var": "FLAG_RIVAL_MET_IN_SANDSTONE",
       "var_value": "0",
       "script": "SandstoneRivalTrigger4"
+    },
+    {
+      "type": "trigger",
+      "x": 70,
+      "y": 30,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 31,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 32,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 33,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 71,
+      "y": 34,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 72,
+      "y": 35,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
+    },
+    {
+      "type": "trigger",
+      "x": 73,
+      "y": 36,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT6",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_6"
     }
   ],
   "bg_events": [

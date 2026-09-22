@@ -464,28 +464,6 @@ Route14_Tr8_Maniac::
 	end
 
 
-Route14_Grotto_Entrance::
-# 366 "data/maps/Route14/scripts.pory"
-	lock
-# 367 "data/maps/Route14/scripts.pory"
-	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 368 "data/maps/Route14/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route14_Grotto_Entrance_2
-# 372 "data/maps/Route14/scripts.pory"
-	warp MAP_ROUTE14_GROTTO, 6, 19
-# 373 "data/maps/Route14/scripts.pory"
-	waitstate
-# 374 "data/maps/Route14/scripts.pory"
-	release
-	return
-
-Route14_Grotto_Entrance_2:
-# 369 "data/maps/Route14/scripts.pory"
-	release
-	end
-
-
 R14Tr1_Intro::
 # 34 "data/maps/Route14/scripts.pory"
 	.string "Whether it be rain or sunshine,\n"

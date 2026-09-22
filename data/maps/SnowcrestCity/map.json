@@ -26,6 +26,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 36,
       "y": 45,
@@ -37,9 +38,83 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_65"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 26,
+      "y": 46,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 25,
+      "y": 47,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DriftblimExpress",
+      "flag": "0"
     }
   ],
   "warp_events": [],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 48,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT10",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_10"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 49,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT10",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_10"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 50,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT10",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_10"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 51,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT10",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_10"
+    },
+    {
+      "type": "trigger",
+      "x": 26,
+      "y": 52,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT10",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_10"
+    }
+  ],
   "bg_events": []
 }

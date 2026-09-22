@@ -743,6 +743,79 @@ SetGrottoCompleted_8:
 	goto SetGrottoCompleted_1
 
 
+Grotto_Entrance::
+# 187 "data/town_scripts/hiddengrotto.pory"
+	lock
+# 188 "data/town_scripts/hiddengrotto.pory"
+	msgbox GoInsideGrotto, MSGBOX_YESNO
+# 189 "data/town_scripts/hiddengrotto.pory"
+	compare VAR_RESULT, FALSE
+	goto_if_eq Grotto_Entrance_2
+# 193 "data/town_scripts/hiddengrotto.pory"
+	getmapnum
+# 194 "data/town_scripts/hiddengrotto.pory"
+	switch VAR_RESULT
+# 195 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_WINDY_WOODS ), Grotto_Entrance_6
+# 196 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_ROUTE7 ), Grotto_Entrance_7
+# 197 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_ROUTE14 ), Grotto_Entrance_8
+# 198 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_ROUTE15 ), Grotto_Entrance_9
+# 199 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_COAST_TOWN ), Grotto_Entrance_10
+# 200 "data/town_scripts/hiddengrotto.pory"
+	case MAP_NUM ( MAP_ROUTE21 ), Grotto_Entrance_11
+Grotto_Entrance_4:
+# 202 "data/town_scripts/hiddengrotto.pory"
+	waitstate
+# 203 "data/town_scripts/hiddengrotto.pory"
+	release
+	return
+
+Grotto_Entrance_2:
+# 190 "data/town_scripts/hiddengrotto.pory"
+	release
+	end
+
+Grotto_Entrance_6:
+# 195 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_WW_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+Grotto_Entrance_7:
+# 196 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_ROUTE7_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+Grotto_Entrance_8:
+# 197 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_ROUTE14_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+Grotto_Entrance_9:
+# 198 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_ROUTE15_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+Grotto_Entrance_10:
+# 199 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_AZURETIDE_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+Grotto_Entrance_11:
+# 200 "data/town_scripts/hiddengrotto.pory"
+	warp MAP_ROUTE21_GROTTO, 6, 19
+	goto Grotto_Entrance_4
+
+
 GrottoInteract_Pokemon_Text_0:
 # 155 "data/town_scripts/hiddengrotto.pory"
 	.string "The wild Pokémon ran away!$"
+
+GoInsideGrotto::
+# 206 "data/town_scripts/hiddengrotto.pory"
+	.string "There looks to be a narrow path\n"
+	.string "between the trees!\p"
+	.string "Follow the path?$"

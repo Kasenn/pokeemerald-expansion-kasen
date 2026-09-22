@@ -3619,3 +3619,7 @@ static const struct SpriteFrameImage sPicTable_DrifblimBalloon[] = {
 static const struct SpriteFrameImage sPicTable_DrifblimBalloonGate[] = {
     overworld_frame(gObjectEventPic_DrifblimBalloonGate, 2, 4, 0),
 };
+
+static const struct SpriteFrameImage sPicTable_DrifblimGirl[] = {
+    overworld_ascending_frames(gObjectEventPic_DrifblimGirl, 2, 4),
+};

@@ -369,18 +369,6 @@ text AmphyPoints{
     "Follow the Pokémon?"
 }
 
-script Azuretide_Grotto_Entrance{
-    lock
-    msgbox(GoInsideGrotto, MSGBOX_YESNO)
-    if(var(VAR_RESULT) == FALSE){
-        release
-        end
-    }
-    warp(MAP_AZURETIDE_GROTTO, 6, 19)
-    waitstate
-    release
-}
-
 script AzureTide_MysteryWoman_Battle{
     checkpartylevel(55)
     if(var(VAR_RESULT) == FALSE){

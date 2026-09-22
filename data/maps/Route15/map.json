@@ -36,6 +36,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 30,
       "y": 89,
@@ -49,6 +50,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 34,
       "y": 47,
@@ -62,6 +64,7 @@
       "flag": "FLAG_TEMP_3"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 0,
       "y": 0,
@@ -75,6 +78,7 @@
       "flag": "FLAG_TEMP_4"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 31,
       "y": 52,
@@ -88,6 +92,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 37,
       "y": 60,
@@ -101,6 +106,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 11,
       "y": 59,
@@ -114,6 +120,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 14,
       "y": 77,
@@ -127,6 +134,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 19,
       "y": 77,
@@ -140,6 +148,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
       "x": 15,
       "y": 67,
@@ -153,6 +162,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BUG_CATCHER",
       "x": 38,
       "y": 21,
@@ -166,6 +176,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BEAUTY",
       "x": 15,
       "y": 32,
@@ -179,6 +190,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
       "x": 30,
       "y": 142,
@@ -192,6 +204,7 @@
       "flag": "FLAG_TEMP_11"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CUTTABLE_TREE",
       "x": 29,
       "y": 104,
@@ -205,6 +218,7 @@
       "flag": "FLAG_TEMP_10"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_F",
       "x": 0,
       "y": 0,
@@ -218,6 +232,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
       "x": 11,
       "y": 7,
@@ -231,6 +246,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 24,
       "y": 109,
@@ -244,6 +260,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 22,
       "y": 102,
@@ -257,6 +274,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 33,
       "y": 117,
@@ -270,6 +288,7 @@
       "flag": "FLAG_TEMP_2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCIENTIST_2",
       "x": 21,
       "y": 120,
@@ -283,6 +302,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 21,
       "y": 137,
@@ -296,6 +316,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
       "x": 25,
       "y": 137,
@@ -309,6 +330,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ACEROLA",
       "x": 18,
       "y": 89,
@@ -322,6 +344,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 34,
       "y": 13,
@@ -335,6 +358,7 @@
       "flag": "FLAG_ROUTE15_ITEM2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 34,
       "y": 101,
@@ -348,6 +372,7 @@
       "flag": "FLAG_ROUTE15_ITEM5"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXCADRILL",
       "x": 34,
       "y": 46,
@@ -361,6 +386,7 @@
       "flag": "FLAG_TEMP_3"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CYCLING_TRIATHLETE_M",
       "x": 0,
       "y": 0,
@@ -374,6 +400,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_F",
       "x": 23,
       "y": 7,
@@ -387,6 +414,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ACE_TRAINER_M",
       "x": 23,
       "y": 8,
@@ -400,6 +428,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 31,
       "y": 99,
@@ -411,6 +440,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_34"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 36,
+      "y": 72,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 35,
+      "y": 73,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DriftblimExpress",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -902,6 +959,76 @@
       "y": 81,
       "elevation": 0,
       "weather": "COORD_EVENT_WEATHER_ROUTE123_CYCLE"
+    },
+    {
+      "type": "trigger",
+      "x": 40,
+      "y": 74,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "trigger",
+      "x": 39,
+      "y": 75,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 76,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 77,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "trigger",
+      "x": 38,
+      "y": 78,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "weather",
+      "x": 46,
+      "y": 75,
+      "elevation": 0,
+      "weather": "COORD_EVENT_WEATHER_ROUTE123_CYCLE"
+    },
+    {
+      "type": "trigger",
+      "x": 36,
+      "y": 79,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
+    },
+    {
+      "type": "trigger",
+      "x": 35,
+      "y": 79,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT7",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_7"
     }
   ],
   "bg_events": [
@@ -967,7 +1094,7 @@
       "y": 134,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Route15_Grotto_Entrance"
+      "script": "Grotto_Entrance"
     },
     {
       "type": "sign",
@@ -975,7 +1102,7 @@
       "y": 134,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_NORTH",
-      "script": "Route15_Grotto_Entrance"
+      "script": "Grotto_Entrance"
     }
   ]
 }

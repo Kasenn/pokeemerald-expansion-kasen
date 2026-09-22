@@ -36,6 +36,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 48,
       "y": 26,
@@ -49,6 +50,7 @@
       "flag": "FLAG_ZYGARDE_CELL_43"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXAMPLE",
       "x": 29,
       "y": 35,
@@ -62,6 +64,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 27,
       "y": 9,
@@ -75,6 +78,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BERRY_TREE",
       "x": 28,
       "y": 9,
@@ -88,6 +92,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 40,
       "y": 17,
@@ -101,6 +106,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 33,
       "y": 15,
@@ -114,6 +120,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIRL_2",
       "x": 35,
       "y": 15,
@@ -127,6 +134,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 39,
       "y": 17,
@@ -140,6 +148,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 34,
       "y": 15,
@@ -153,6 +162,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 38,
       "y": 11,
@@ -166,6 +176,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 28,
       "y": 15,
@@ -179,6 +190,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 46,
       "y": 17,
@@ -192,6 +204,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 46,
       "y": 18,
@@ -205,6 +218,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 34,
       "y": 20,
@@ -218,6 +232,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 45,
       "y": 21,
@@ -231,6 +246,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 44,
       "y": 13,
@@ -244,6 +260,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 32,
       "y": 9,
@@ -257,6 +274,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY_2",
       "x": 37,
       "y": 26,
@@ -270,6 +288,7 @@
       "flag": "FLAG_TEMP_2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 21,
       "y": 11,
@@ -283,6 +302,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 32,
       "y": 5,
@@ -296,6 +316,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 25,
       "y": 4,
@@ -309,6 +330,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 40,
       "y": 4,
@@ -322,6 +344,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 50,
       "y": 13,
@@ -335,6 +358,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(GOGOAT)",
       "x": 53,
       "y": 8,
@@ -345,6 +369,34 @@
       "trainer_type": "TRAINER_TYPE_NONE",
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route20_Gogoat",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 21,
+      "y": 25,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 20,
+      "y": 26,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DriftblimExpress",
       "flag": "0"
     }
   ],
@@ -586,6 +638,87 @@
       "var": "TRAINER_FLAGS_START+TRAINER_BROTHER_6_ROUTE20",
       "var_value": "0",
       "script": "Route20_BrotherTrigger6"
+    },
+    {
+      "type": "trigger",
+      "x": 18,
+      "y": 28,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 19,
+      "y": 29,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 20,
+      "y": 30,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 23,
+      "y": 29,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 21,
+      "y": 30,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 22,
+      "y": 30,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 24,
+      "y": 28,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 27,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
+    },
+    {
+      "type": "trigger",
+      "x": 25,
+      "y": 26,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT8",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_8"
     }
   ],
   "bg_events": [

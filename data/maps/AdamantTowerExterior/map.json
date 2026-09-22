@@ -21,6 +21,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_3",
       "x": 14,
       "y": 7,
@@ -34,6 +35,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 18,
       "y": 30,
@@ -47,6 +49,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 25,
       "y": 21,
@@ -60,6 +63,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 11,
       "y": 21,

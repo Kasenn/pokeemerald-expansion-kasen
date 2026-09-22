@@ -329,7 +329,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Azuretide_Grotto_Entrance"
+      "script": "Grotto_Entrance"
     },
     {
       "type": "sign",
@@ -337,7 +337,7 @@
       "y": 5,
       "elevation": 0,
       "player_facing_dir": "BG_EVENT_PLAYER_FACING_ANY",
-      "script": "Azuretide_Grotto_Entrance"
+      "script": "Grotto_Entrance"
     }
   ]
 }

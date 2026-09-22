@@ -551,8 +551,16 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    call(MossdeepCity_SpaceCenter_2F_EventScript_ChoosePartyForMultiBattle)
-    release
+    setflag(FLAG_FLIGHTPOINT1)
+    setflag(FLAG_FLIGHTPOINT2)
+    setflag(FLAG_FLIGHTPOINT3)
+    setflag(FLAG_FLIGHTPOINT4)
+    setflag(FLAG_FLIGHTPOINT5)
+    setflag(FLAG_FLIGHTPOINT6)
+    setflag(FLAG_FLIGHTPOINT7)
+    setflag(FLAG_FLIGHTPOINT8)
+    setflag(FLAG_FLIGHTPOINT9)
+    setflag(FLAG_FLIGHTPOINT10)
     end
     return
 }
@@ -1276,6 +1284,51 @@ script UnlockFlightpoint_1{
     release
 }
 
+script UnlockFlightpoint_2{
+    setflag(FLAG_FLIGHTPOINT2)
+    release
+}
+
+script UnlockFlightpoint_3{
+    setflag(FLAG_FLIGHTPOINT3)
+    release
+}
+
+script UnlockFlightpoint_4{
+    setflag(FLAG_FLIGHTPOINT4)
+    release
+}
+
+script UnlockFlightpoint_5{
+    setflag(FLAG_FLIGHTPOINT5)
+    release
+}
+
+script UnlockFlightpoint_6{
+    setflag(FLAG_FLIGHTPOINT6)
+    release
+}
+
+script UnlockFlightpoint_7{
+    setflag(FLAG_FLIGHTPOINT7)
+    release
+}
+
+script UnlockFlightpoint_8{
+    setflag(FLAG_FLIGHTPOINT8)
+    release
+}
+
+script UnlockFlightpoint_9{
+    setflag(FLAG_FLIGHTPOINT9)
+    release
+}
+
+script UnlockFlightpoint_10{
+    setflag(FLAG_FLIGHTPOINT10)
+    release
+}
+
 script DriftblimExpress{
     faceplayer
     callnative(SetLastVisitedDrifblimBalloon)
@@ -1284,10 +1337,10 @@ script DriftblimExpress{
         msgbox(DriftblimExpress_Text, MSGBOX_YESNO)
     }
     else{
-        msgbox("Welcome to Drifblim Express.\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
+        msgbox("Welcome to Drifblim Express!\pWould you like to use the Drifblim\nBalloon?", MSGBOX_YESNO)
     }
     if(var(VAR_RESULT) == FALSE){
-        msgbox("Let me know if there's\nsomewhere you'd like to fly.")
+        msgbox("Let me know if there's\nsomewhere you'd like to fly!")
         release
         end
     }
@@ -1296,8 +1349,9 @@ script DriftblimExpress{
     fadescreen(FADE_TO_BLACK)
     callnative(OpenFlyMapFromSign)
     waitstate
+    callnative(ClearDrifblimBalloonFlag)
     if(var(VAR_RESULT) == FALSE){
-        msgbox("Let me know if there's\nsomewhere you'd like to fly.")
+        msgbox("Let me know if there's\nsomewhere you'd like to fly!")
         release
         end
     }
@@ -1305,13 +1359,13 @@ script DriftblimExpress{
     delay(8)
     switch(var(VAR_FACING)){
         case DIR_NORTH:
-            applymovement(LOCALID_PLAYER, moves(walk_right, walk_up * 2))
+            applymovement(LOCALID_PLAYER, moves(walk_right, walk_up))
         case DIR_WEST:
             applymovement(LOCALID_PLAYER, moves(walk_in_place_fast_up))
         case DIR_EAST:
-            applymovement(LOCALID_PLAYER, moves(walk_down, walk_right * 2, walk_up * 2))
+            applymovement(LOCALID_PLAYER, moves(walk_down, walk_right * 2, walk_up))
         case DIR_SOUTH:
-            applymovement(LOCALID_PLAYER, moves(walk_left, walk_down * 2, walk_right * 2, walk_up * 2))
+            applymovement(LOCALID_PLAYER, moves(walk_left, walk_down * 2, walk_right * 2, walk_up))
     }
     waitmovement(0)
     delay(8)
@@ -1325,10 +1379,11 @@ script DriftblimExpress{
 }
 
 text DriftblimExpress_Text{
-    "Welcome to Drifblim Express.\p"
+    "Heyo!\n"
+    "Welcome to Drifblim Express!\p"
     "From here you can travel to any\n"
     "other Drifblim Express location\l"
-    "you have previously discovered.\p"
+    "you have previously discovered!\p"
     "Would you like to use the Drifblim\n"
     "Balloon?"
 }

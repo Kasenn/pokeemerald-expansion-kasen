@@ -26,6 +26,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ROCKET_M",
       "x": 19,
       "y": 15,
@@ -39,6 +40,7 @@
       "flag": "FLAG_DEVON_UNDER_ATTACK"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 45,
       "y": 8,
@@ -52,6 +54,7 @@
       "flag": "FLAG_SHORESLATE_ITEM1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY_1",
       "x": 55,
       "y": 17,
@@ -65,6 +68,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 30,
       "y": 12,
@@ -78,6 +82,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_WOMAN",
       "x": 41,
       "y": 12,
@@ -91,6 +96,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 50,
       "y": 28,
@@ -104,6 +110,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 20,
       "y": 33,
@@ -117,6 +124,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_3",
       "x": 27,
       "y": 29,
@@ -130,6 +138,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_F",
       "x": 41,
       "y": 31,
@@ -143,6 +152,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 40,
       "y": 31,
@@ -156,6 +166,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 6,
       "y": 20,
@@ -169,6 +180,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_WEST",
       "x": 9,
       "y": 42,
@@ -182,6 +194,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_1",
       "x": 9,
       "y": 43,
@@ -195,6 +208,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MANIAC",
       "x": 34,
       "y": 24,
@@ -208,6 +222,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 24,
       "y": 47,
@@ -221,6 +236,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 17,
       "y": 44,
@@ -234,6 +250,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MART_EMPLOYEE",
       "x": 30,
       "y": 42,
@@ -247,6 +264,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 36,
       "y": 42,
@@ -260,6 +278,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_5",
       "x": 36,
       "y": 44,
@@ -273,6 +292,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_COOK",
       "x": 19,
       "y": 42,
@@ -286,6 +306,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GIRL_1",
       "x": 27,
       "y": 44,
@@ -299,6 +320,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_F",
       "x": 24,
       "y": 43,
@@ -312,6 +334,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_POKEFAN_M",
       "x": 16,
       "y": 47,
@@ -325,6 +348,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 30,
       "y": 44,
@@ -338,6 +362,7 @@
       "flag": "FLAG_GIVEN_CASTELIATOGIRL"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 7,
       "y": 13,
@@ -351,6 +376,7 @@
       "flag": "FLAG_ZYGARDE_CELL_23"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MART_DOOR",
       "x": 25,
       "y": 15,
@@ -364,6 +390,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 17,
       "y": 11,
@@ -377,6 +404,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 16,
       "y": 13,
@@ -390,6 +418,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 11,
       "y": 13,
@@ -403,6 +432,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 10,
       "y": 11,
@@ -416,6 +446,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 31,
       "y": 12,
@@ -429,6 +460,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 33,
       "y": 16,
@@ -442,6 +474,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 38,
       "y": 12,
@@ -455,6 +488,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 36,
       "y": 16,
@@ -468,6 +502,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 48,
       "y": 13,
@@ -481,6 +516,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 57,
       "y": 18,
@@ -494,6 +530,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 57,
       "y": 23,
@@ -507,6 +544,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 44,
       "y": 30,
@@ -520,6 +558,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 36,
       "y": 30,
@@ -533,6 +572,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 33,
       "y": 30,
@@ -546,6 +586,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 25,
       "y": 30,
@@ -559,6 +600,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 27,
       "y": 16,
@@ -572,6 +614,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 47,
       "y": 11,
@@ -585,6 +628,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 26,
       "y": 28,
@@ -596,6 +640,22 @@
       "trainer_sight_or_berry_tree_id": "LIGHT_TYPE_BP_SHOP_SIGN",
       "script": "NULL",
       "flag": "0"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 73,
+      "y": 15,
+      "target_local_id": "27",
+      "target_map": "MAP_ROUTE7"
+    },
+    {
+      "type": "clone",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 72,
+      "y": 16,
+      "target_local_id": "26",
+      "target_map": "MAP_ROUTE7"
     }
   ],
   "warp_events": [

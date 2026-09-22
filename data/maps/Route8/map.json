@@ -26,6 +26,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 27,
       "y": 25,
@@ -39,6 +40,7 @@
       "flag": "FLAG_ROUTE7_ITEM2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 0,
       "y": 0,
@@ -52,6 +54,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 32,
       "y": 14,
@@ -65,6 +68,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BLACK_BELT",
       "x": 16,
       "y": 28,
@@ -78,6 +82,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MAN_5",
       "x": 21,
       "y": 38,
@@ -91,6 +96,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_NORTH",
       "x": 24,
       "y": 13,
@@ -104,6 +110,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 55,
       "y": 41,
@@ -117,6 +124,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_HIKER",
       "x": 43,
       "y": 19,
@@ -130,6 +138,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_CAMPER",
       "x": 59,
       "y": 34,
@@ -143,6 +152,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 39,
       "y": 36,
@@ -156,6 +166,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_PICNICKER",
       "x": 23,
       "y": 19,
@@ -169,6 +180,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 44,
       "y": 8,
@@ -182,6 +194,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 50,
       "y": 24,
@@ -195,6 +208,7 @@
       "flag": "FLAG_ROUTE7_ITEM1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 35,
       "y": 26,
@@ -208,6 +222,7 @@
       "flag": "FLAG_ZYGARDE_CELL_20"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 43,
       "y": 30,
@@ -221,6 +236,7 @@
       "flag": "FLAG_TEMP_2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_YOUNGSTER",
       "x": 43,
       "y": 30,
@@ -234,6 +250,7 @@
       "flag": "FLAG_TEMP_1"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(WOOPER)",
       "x": 43,
       "y": 29,
@@ -247,6 +264,7 @@
       "flag": "FLAG_TEMP_2"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(WOOPER_OUTSIDER)",
       "x": 44,
       "y": 30,
@@ -258,6 +276,34 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "Route7_Wooper_Wet",
       "flag": "FLAG_TEMP_1"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_GIRL",
+      "x": 50,
+      "y": 49,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DriftblimExpress",
+      "flag": "0"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_DRIFBLIM_BALLOON",
+      "x": 51,
+      "y": 48,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "NULL",
+      "flag": "0"
     }
   ],
   "warp_events": [
@@ -269,7 +315,44 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
+  "coord_events": [
+    {
+      "type": "trigger",
+      "x": 54,
+      "y": 53,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT4",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_4"
+    },
+    {
+      "type": "trigger",
+      "x": 53,
+      "y": 53,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT4",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_4"
+    },
+    {
+      "type": "trigger",
+      "x": 52,
+      "y": 53,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT4",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_4"
+    },
+    {
+      "type": "trigger",
+      "x": 51,
+      "y": 54,
+      "elevation": 0,
+      "var": "FLAG_FLIGHTPOINT4",
+      "var_value": "0",
+      "script": "UnlockFlightpoint_4"
+    }
+  ],
   "bg_events": [
     {
       "type": "hidden_item",

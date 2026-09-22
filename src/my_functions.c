@@ -1686,3 +1686,8 @@ void Scrcmd_GetMapId(void)
 {
     gSpecialVar_Result = gSaveBlock1Ptr->location.mapNum;
 }
+
+void ClearDrifblimBalloonFlag(void)
+{
+    gDrifblimBalloon = FALSE;
+}

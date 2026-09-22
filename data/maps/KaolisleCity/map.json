@@ -26,6 +26,7 @@
   ],
   "object_events": [
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 36,
       "y": 15,
@@ -39,6 +40,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_NINJA_BOY",
       "x": 45,
       "y": 25,
@@ -52,6 +54,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_WOMAN_2",
       "x": 41,
       "y": 37,
@@ -65,6 +68,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
       "x": 28,
       "y": 12,
@@ -78,6 +82,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_BOY_3",
       "x": 10,
       "y": 19,
@@ -91,6 +96,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LASS",
       "x": 10,
       "y": 20,
@@ -104,6 +110,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXPERT_M",
       "x": 12,
       "y": 0,
@@ -117,6 +124,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 27,
       "y": 17,
@@ -130,6 +138,7 @@
       "flag": "FLAG_KAOLISLE_ITEM7"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(ZIGZAGOON)",
       "x": 9,
       "y": 32,
@@ -143,6 +152,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LITTLE_GIRL",
       "x": 9,
       "y": 33,
@@ -156,6 +166,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 13,
       "y": 41,
@@ -169,6 +180,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_GENTLEMAN",
       "x": 38,
       "y": 46,
@@ -182,6 +194,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
       "x": 23,
       "y": 64,
@@ -195,6 +208,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_SOUTH",
       "x": 36,
       "y": 61,
@@ -208,6 +222,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_WEST",
       "x": 11,
       "y": 49,
@@ -221,6 +236,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_FISHERMAN_WEST",
       "x": 15,
       "y": 57,
@@ -234,6 +250,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_RUNNING_TRIATHLETE_F",
       "x": 26,
       "y": 56,
@@ -247,6 +264,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
       "x": 56,
       "y": 67,
@@ -260,6 +278,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SAILOR",
       "x": 47,
       "y": 72,
@@ -273,6 +292,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
       "x": 63,
       "y": 67,
@@ -286,6 +306,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 65,
       "y": 69,
@@ -299,6 +320,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_F",
       "x": 71,
       "y": 63,
@@ -312,6 +334,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 72,
       "y": 63,
@@ -325,6 +348,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_TUBER_M",
       "x": 70,
       "y": 71,
@@ -338,6 +362,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_F",
       "x": 71,
       "y": 71,
@@ -351,6 +376,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
       "x": 71,
       "y": 59,
@@ -364,6 +390,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LAND_SWIMMER_F",
       "x": 70,
       "y": 59,
@@ -377,6 +404,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SWIMMER_M",
       "x": 66,
       "y": 77,
@@ -390,6 +418,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SCOTT",
       "x": 65,
       "y": 64,
@@ -403,6 +432,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_EXAMPLE",
       "x": 29,
       "y": 26,
@@ -416,6 +446,7 @@
       "flag": "FLAG_BADGE03_GET"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_OLD_MAN",
       "x": 20,
       "y": 13,
@@ -429,6 +460,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ITEM_BALL",
       "x": 23,
       "y": 22,
@@ -442,6 +474,7 @@
       "flag": "FLAG_KAOLISLE_ITEM10"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_ZYGARDE_CELL",
       "x": 27,
       "y": 18,
@@ -455,6 +488,7 @@
       "flag": "FLAG_ZYGARDE_CELL_25"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKIPEK)",
       "x": 14,
       "y": 23,
@@ -468,6 +502,7 @@
       "flag": "FLAG_TEMP_7"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKIPEK)",
       "x": 61,
       "y": 61,
@@ -481,6 +516,7 @@
       "flag": "FLAG_TEMP_5"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(PIKIPEK)",
       "x": 23,
       "y": 38,
@@ -494,6 +530,7 @@
       "flag": "FLAG_TEMP_6"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TRUMBEAK)",
       "x": 53,
       "y": 10,
@@ -507,6 +544,7 @@
       "flag": "FLAG_TEMP_9"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_SPECIES(TRUMBEAK)",
       "x": 6,
       "y": 64,
@@ -520,6 +558,7 @@
       "flag": "FLAG_TEMP_8"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 41,
       "y": 26,
@@ -533,6 +572,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 33,
       "y": 44,
@@ -546,6 +586,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_LIGHT_SPRITE",
       "x": 26,
       "y": 10,
@@ -559,6 +600,7 @@
       "flag": "0"
     },
     {
+      "type": "object",
       "graphics_id": "OBJ_EVENT_GFX_MART_DOOR",
       "x": 24,
       "y": 9,

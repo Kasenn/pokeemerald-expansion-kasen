@@ -693,28 +693,6 @@ R15_AceTrainerNotEligible_2:
 	goto R15_AceTrainerNotEligible_1
 
 
-Route15_Grotto_Entrance::
-# 709 "data/maps/Route15/scripts.pory"
-	lock
-# 710 "data/maps/Route15/scripts.pory"
-	msgbox GoInsideGrotto, MSGBOX_YESNO
-# 711 "data/maps/Route15/scripts.pory"
-	compare VAR_RESULT, FALSE
-	goto_if_eq Route15_Grotto_Entrance_2
-# 715 "data/maps/Route15/scripts.pory"
-	warp MAP_ROUTE15_GROTTO, 6, 19
-# 716 "data/maps/Route15/scripts.pory"
-	waitstate
-# 717 "data/maps/Route15/scripts.pory"
-	release
-	return
-
-Route15_Grotto_Entrance_2:
-# 712 "data/maps/Route15/scripts.pory"
-	release
-	end
-
-
 R15_Acerola_Text_0:
 # 39 "data/maps/Route15/scripts.pory"
 	.string "mister$"

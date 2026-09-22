@@ -208,6 +208,7 @@ extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Giovanni;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Petrel;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DrifblimBalloon;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DrifblimBalloonGate;
+extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_DrifblimGirl;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Gate;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_Crate;
 extern const struct ObjectEventGraphicsInfo gObjectEventGraphicsInfo_SSTidalRear;
@@ -870,6 +871,7 @@ const struct ObjectEventGraphicsInfo *const gObjectEventGraphicsInfoPointers[NUM
     [OBJ_EVENT_GFX_PETREL]                          &gObjectEventGraphicsInfo_Petrel,
     [OBJ_EVENT_GFX_DRIFBLIM_BALLOON]                &gObjectEventGraphicsInfo_DrifblimBalloon,
     [OBJ_EVENT_GFX_DRIFBLIM_BALLOON_GATE]           &gObjectEventGraphicsInfo_DrifblimBalloonGate,
+    [OBJ_EVENT_GFX_DRIFBLIM_GIRL]                &gObjectEventGraphicsInfo_DrifblimGirl,
     [OBJ_EVENT_GFX_GATE]                            &gObjectEventGraphicsInfo_Gate,
     [OBJ_EVENT_GFX_CRATE]                           &gObjectEventGraphicsInfo_Crate,
     [OBJ_EVENT_GFX_SS_TIDAL_REAR] =                 &gObjectEventGraphicsInfo_SSTidalRear,
