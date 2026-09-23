@@ -896,6 +896,34 @@ R11VarTest::
 	end
 
 
+Route11_Nurse::
+# 908 "data/maps/Route11/scripts.pory"
+	checktrainerflag TRAINER_ROUTE11_NURSE
+	goto_if 1, Route11_Nurse_2
+# 915 "data/maps/Route11/scripts.pory"
+	playbgm MUS_ENCOUNTER_GIRL, FALSE
+# 916 "data/maps/Route11/scripts.pory"
+	faceplayer
+# 917 "data/maps/Route11/scripts.pory"
+	msgbox Route11_Nurse_Intro
+# 918 "data/maps/Route11/scripts.pory"
+	trainerbattle_no_intro TRAINER_ROUTE11_NURSE, Route11_Nurse_Text_2
+# 919 "data/maps/Route11/scripts.pory"
+	goto Route11_Nurse
+	return
+
+Route11_Nurse_2:
+# 909 "data/maps/Route11/scripts.pory"
+	faceplayer
+# 910 "data/maps/Route11/scripts.pory"
+	msgbox Route11_Nurse_Text_0, MSGBOX_AUTOCLOSE
+# 911 "data/maps/Route11/scripts.pory"
+	call Common_EventScript_OutOfCenterPartyHeal
+# 912 "data/maps/Route11/scripts.pory"
+	msgbox Route11_Nurse_Text_1, MSGBOX_AUTOCLOSE
+	end
+
+
 RewardBP_Text_0:
 # 455 "data/maps/Route11/scripts.pory"
 	.string "Earned {STR_VAR_1} BP!$"
@@ -903,6 +931,18 @@ RewardBP_Text_0:
 R11VarTest_Text_0:
 # 903 "data/maps/Route11/scripts.pory"
 	.string "{STR_VAR_1}$"
+
+Route11_Nurse_Text_0:
+# 910 "data/maps/Route11/scripts.pory"
+	.string "Your Pokémon seem a bit worn out.\nHere, let me see to them.$"
+
+Route11_Nurse_Text_1:
+# 912 "data/maps/Route11/scripts.pory"
+	.string "Be careful out there.$"
+
+Route11_Nurse_Text_2:
+# 918 "data/maps/Route11/scripts.pory"
+	.string "Impeccable technique!$"
 
 LeaveMeAlone_Torment::
 # 91 "data/maps/Route11/scripts.pory"
@@ -1393,3 +1433,9 @@ R11BrendanChallengeKorrina::
 	.string "my Pokémon get an ample amount of\l"
 	.string "training.\p"
 	.string "Hope to see you soon!$"
+
+Route11_Nurse_Intro::
+# 922 "data/maps/Route11/scripts.pory"
+	.string "You've done well to get this far,\n"
+	.string "but do you think you'll be able to\l"
+	.string "defeat me?$"

@@ -5,26 +5,16 @@ eventually fix song instruments
 
 fix contest brendan backpic
 
-add nurses and drifblim balloons
 add fly to somewhere near fishing village (maybe brother, maybe a house)
-
 eventual redesigns:
-possibly expand primrose town geography
-	- add canopy effect to windy woods
-add hot air balloonn quick travel
-	- locations: coralgrove, near poke ranch, near shoreslate, kaolisle, near daycare, in sandstone city, etc
-	- add whistle item to windplume valley that returns to last spot
-	- possibly turn fly into TM
+add canopy effect to windy woods?
 make gym 1 skippable
 add tide to route 3
 add park or something to aldeleaf
-add rival or brother fight to somewhere near skyloch
 add something extra in sandstone city?
-nurse trainers that heal, especially north of amberock
 fishing contest in fishing village??
 add some extra exploration stuff in frosthearth city
 	ice rink with daily trainers??
-make path from magical forest to near sandstone
 possibly add eevee stones (ow metatile)
 replace linking cord with something more suitable
 give iceperch city more interesting layout + more ice

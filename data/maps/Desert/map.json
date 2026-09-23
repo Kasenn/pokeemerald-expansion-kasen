@@ -295,6 +295,20 @@
       "trainer_sight_or_berry_tree_id": "0",
       "script": "ZygardeCell",
       "flag": "FLAG_ZYGARDE_CELL_19"
+    },
+    {
+      "type": "object",
+      "graphics_id": "OBJ_EVENT_GFX_NURSE",
+      "x": 40,
+      "y": 42,
+      "elevation": 0,
+      "movement_type": "MOVEMENT_TYPE_NONE",
+      "movement_range_x": 0,
+      "movement_range_y": 0,
+      "trainer_type": "TRAINER_TYPE_NONE",
+      "trainer_sight_or_berry_tree_id": "0",
+      "script": "DesertNurse",
+      "flag": "0"
     }
   ],
   "warp_events": [

@@ -590,3 +590,26 @@ text StrongSandstorm{
     "The wind coming from the south is too\n"
     "strong even for your Go-goggles."
 }
+
+script DesertNurse{
+    if(defeated(TRAINER_DESERT_NURSE)){
+        faceplayer
+        msgbox("Your Pokémon seem a bit worn out.\nHere, let me see to them.", MSGBOX_AUTOCLOSE)
+        call(Common_EventScript_OutOfCenterPartyHeal)
+        msgbox("Be careful out there.", MSGBOX_AUTOCLOSE)
+        end
+    }
+    playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+    faceplayer
+    msgbox(DesertNurse_Intro)
+    trainerbattle_no_intro(TRAINER_DESERT_NURSE, "Impeccable technique!")
+    goto(DesertNurse)
+}
+
+text DesertNurse_Intro{
+    "This sandstorm can be bad for Pokémon\n"
+    "if they haven't grown accustomed to it.\p"
+    "If you can beat me in a Pokémon battle,\n"
+    "I'll make sure your Pokémon are in\l"
+    "good shape."
+}

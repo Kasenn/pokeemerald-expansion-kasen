@@ -903,3 +903,24 @@ script R11VarTest{
     msgbox("{STR_VAR_1}", MSGBOX_NPC)
     end
 }
+
+script Route11_Nurse{
+    if(defeated(TRAINER_ROUTE11_NURSE)){
+        faceplayer
+        msgbox("Your Pokémon seem a bit worn out.\nHere, let me see to them.", MSGBOX_AUTOCLOSE)
+        call(Common_EventScript_OutOfCenterPartyHeal)
+        msgbox("Be careful out there.", MSGBOX_AUTOCLOSE)
+        end
+    }
+    playbgm(MUS_ENCOUNTER_GIRL, FALSE)
+    faceplayer
+    msgbox(Route11_Nurse_Intro)
+    trainerbattle_no_intro(TRAINER_ROUTE11_NURSE, "Impeccable technique!")
+    goto(Route11_Nurse)
+}
+
+text Route11_Nurse_Intro{
+    "You've done well to get this far,\n"
+    "but do you think you'll be able to\l"
+    "defeat me?"
+}

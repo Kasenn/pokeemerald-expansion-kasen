@@ -83981,6 +83981,195 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_ROUTE21",
+          "base_label": "gRoute21",
+          "land_mons": {
+            "encounter_rate": 10,
+            "mons": [
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_SPEAROW"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_RATTATA"
+              },
+              {
+                "min_level": 35,
+                "max_level": 38,
+                "species": "SPECIES_SEVIPER"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_SPEAROW"
+              },
+              {
+                "min_level": 37,
+                "max_level": 40,
+                "species": "SPECIES_FEAROW"
+              },
+              {
+                "min_level": 38,
+                "max_level": 41,
+                "species": "SPECIES_SEVIPER"
+              },
+              {
+                "min_level": 38,
+                "max_level": 40,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_RATICATE"
+              },
+              {
+                "min_level": 38,
+                "max_level": 41,
+                "species": "SPECIES_FEAROW"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_FEAROW"
+              }
+            ]
+          },
+          "water_mons": {
+            "encounter_rate": 4,
+            "mons": [
+              {
+                "min_level": 31,
+                "max_level": 34,
+                "species": "SPECIES_TENTACOOL"
+              },
+              {
+                "min_level": 31,
+                "max_level": 34,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_WINGULL"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_TENTACRUEL"
+              },
+              {
+                "min_level": 36,
+                "max_level": 39,
+                "species": "SPECIES_TENTACRUEL"
+              }
+            ]
+          },
+          "fishing_mons": {
+            "encounter_rate": 40,
+            "mons": [
+              {
+                "min_level": 15,
+                "max_level": 20,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 15,
+                "max_level": 20,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 15,
+                "max_level": 20,
+                "species": "SPECIES_CHINCHOU"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_MAGIKARP"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 20,
+                "max_level": 25,
+                "species": "SPECIES_CHINCHOU"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_CHINCHOU"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_GOLDEEN"
+              },
+              {
+                "min_level": 30,
+                "max_level": 35,
+                "species": "SPECIES_QWILFISH"
+              },
+              {
+                "min_level": 33,
+                "max_level": 36,
+                "species": "SPECIES_POLIWAG"
+              },
+              {
+                "min_level": 33,
+                "max_level": 36,
+                "species": "SPECIES_POLIWAG"
+              }
+            ]
+          },
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              }
+            ]
+          }
         }
       ]
     },

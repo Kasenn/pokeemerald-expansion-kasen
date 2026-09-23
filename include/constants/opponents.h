@@ -13,8 +13,8 @@
 #define TRAINER_BROTHER_6_ROUTE20               6
 #define TRAINER_R2_YOUNGSTER2               7
 #define TRAINER_WW_NURSE              8
-#define TRAINER_UNUSED_9_               9
-#define TRAINER_UNUSED_10_              10
+#define TRAINER_DESERT_NURSE               9
+#define TRAINER_ROUTE11_NURSE              10
 #define TRAINER_UNUSED_11_             11
 #define TRAINER_UNUSED_12_              12
 #define TRAINER_UNUSED_13_              13

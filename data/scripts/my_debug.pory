@@ -61,13 +61,13 @@ script Update4{
         cleartrainerflag(TRAINER_WW_NURSE)
         settrainerflag(TRAINER_BROTHER_3_ROUTE28)
     }
-    if (defeated(TRAINER_UNUSED_9_)){
-        cleartrainerflag(TRAINER_UNUSED_9_)
+    if (defeated(TRAINER_DESERT_NURSE)){
+        cleartrainerflag(TRAINER_DESERT_NURSE)
         settrainerflag(TRAINER_BROTHER_3_ROUTE28)
     }
     ///
-    if (defeated(TRAINER_UNUSED_10_)){
-        cleartrainerflag(TRAINER_UNUSED_10_)
+    if (defeated(TRAINER_ROUTE11_NURSE)){
+        cleartrainerflag(TRAINER_ROUTE11_NURSE)
         settrainerflag(TRAINER_BROTHER_4_ROUTE28)
     }
     if (defeated(TRAINER_UNUSED_11_)){
@@ -2852,6 +2852,7 @@ script CompleteArea_Scorched_Desert{
         }
     }
     if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_DESERT_NURSE)
         defeattrainer(TRAINER_DESERT_CAMPER)
         defeattrainer(TRAINER_DESERT_CAMPER2)
         defeattrainer(TRAINER_DESERT_PICNICKER)
@@ -3209,6 +3210,7 @@ script CompleteArea_Route_11{
         call(TryCuttingStrangeSeedTree)
     }
     if(flag(FLAG_TRAINERS)){
+        defeattrainer(TRAINER_ROUTE11_NURSE)
         defeattrainer(TRAINER_R11_LASS)
         defeattrainer(TRAINER_R11_BIRDKEEPER)
         defeattrainer(TRAINER_R11_BUGCATCHER)

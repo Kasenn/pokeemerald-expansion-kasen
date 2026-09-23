@@ -204,8 +204,6 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
         .partyFire = sParty_Brother6_Charmander,
         .partyWater = sParty_Brother6_Squirtle,
     },
-    [TRAINER_UNUSED_9_] = {},
-    [TRAINER_UNUSED_10_] = {},
     [TRAINER_UNUSED_11_] = {},
     [TRAINER_UNUSED_12_] = {},
     [TRAINER_UNUSED_13_] = {},
@@ -459,6 +457,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_DESERT_HIKER4] =       {RUIN_MANIAC,       BASIC_AI,       NAME("Herman"),         TPARTY(sParty_TRAINER_DESERT_HIKER4)},
     [TRAINER_DESERT_PSYCHIC_F] =    {PSYCHIC_F,         BASIC_AI,       NAME("Wendy"),          TPARTY(sParty_TRAINER_DESERT_PSYCHIC_F)},
     [TRAINER_DESERT_ACETRAINER] =   {BW_ACE_F,          EXPERT_AI,      NAME("Olivia"),         TPARTY(sParty_TRAINER_DESERT_ACETRAINER),              ITEMS(ITEM_HYPER_POTION, ITEM_FULL_HEAL)},
+    [TRAINER_DESERT_NURSE] =        {NURSE,             DUMB_AI,        NAME("Mariah"),         TPARTY(sParty_TRAINER_DESERT_NURSE),        ITEMS(ITEM_SUPER_POTION, ITEM_FULL_HEAL)},
     /////// Route 7 ///////
     [TRAINER_R7_CAMPER] =           {RANGER_M,          BASIC_AI,       NAME("Franklin"),       TPARTY(sParty_TRAINER_R7_CAMPER)},
     [TRAINER_R7_PICNICKER] =        {RANGER_F,          BASIC_AI,       NAME("Gemma"),          TPARTY(sParty_TRAINER_R7_PICNICKER)},
@@ -561,6 +560,7 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R11_EXPERT] =          {EXPERT_M,          ADV_AI,         NAME("Timothy"),        TPARTY(sParty_TRAINER_R11_EXPERT)},
     [TRAINER_R11_PSYCHIC_F] =       {PSYCHIC_F,         BASIC_AI,       NAME("Kayla"),          TPARTY(sParty_TRAINER_R11_PSYCHIC_F)},
     [TRAINER_R11_ACETRAINER_F] =    {BW_ACE_F,          EXPERT_AI,      NAME("Kathrine"),       TPARTY(sParty_R11Tr14_Acetrainer_F),    ITEMS(ITEM_HYPER_POTION, ITEM_HYPER_POTION, ITEM_FULL_HEAL)},
+    [TRAINER_ROUTE11_NURSE] =       {NURSE,             DUMB_AI,        NAME("Katelyn"),        TPARTY(sParty_TRAINER_ROUTE11_NURSE),   ITEMS(ITEM_SUPER_POTION, ITEM_FULL_HEAL)},
     /////// Route 12 ///////
     [TRAINER_R12_TRIATHLETE_F] =    {CYCLER_F,          BASIC_AI,       NAME("Claire"),         TPARTY(sParty_TRAINER_R12_TRIATHLETE_F)},
     [TRAINER_R12_TRIATHLETE_M] =    {CYCLER_M,          BASIC_AI,       NAME("Doug"),           TPARTY(sParty_TRAINER_R12_TRIATHLETE_M)},

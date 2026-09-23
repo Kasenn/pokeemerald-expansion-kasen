@@ -581,6 +581,34 @@ BlockSouthernDesert::
 	return
 
 
+DesertNurse::
+# 595 "data/maps/Desert/scripts.pory"
+	checktrainerflag TRAINER_DESERT_NURSE
+	goto_if 1, DesertNurse_2
+# 602 "data/maps/Desert/scripts.pory"
+	playbgm MUS_ENCOUNTER_GIRL, FALSE
+# 603 "data/maps/Desert/scripts.pory"
+	faceplayer
+# 604 "data/maps/Desert/scripts.pory"
+	msgbox DesertNurse_Intro
+# 605 "data/maps/Desert/scripts.pory"
+	trainerbattle_no_intro TRAINER_DESERT_NURSE, DesertNurse_Text_2
+# 606 "data/maps/Desert/scripts.pory"
+	goto DesertNurse
+	return
+
+DesertNurse_2:
+# 596 "data/maps/Desert/scripts.pory"
+	faceplayer
+# 597 "data/maps/Desert/scripts.pory"
+	msgbox DesertNurse_Text_0, MSGBOX_AUTOCLOSE
+# 598 "data/maps/Desert/scripts.pory"
+	call Common_EventScript_OutOfCenterPartyHeal
+# 599 "data/maps/Desert/scripts.pory"
+	msgbox DesertNurse_Text_1, MSGBOX_AUTOCLOSE
+	end
+
+
 DesertEntrance_Text_0:
 # 15 "data/maps/Desert/scripts.pory"
 	.string "This place is still work in progress.\n"
@@ -620,6 +648,18 @@ Desert_Trainer14_CooltrainerPostBattle_Text_0:
 TestVarDesert_Text_0:
 # 562 "data/maps/Desert/scripts.pory"
 	.string "{STR_VAR_1}$"
+
+DesertNurse_Text_0:
+# 597 "data/maps/Desert/scripts.pory"
+	.string "Your Pokémon seem a bit worn out.\nHere, let me see to them.$"
+
+DesertNurse_Text_1:
+# 599 "data/maps/Desert/scripts.pory"
+	.string "Be careful out there.$"
+
+DesertNurse_Text_2:
+# 605 "data/maps/Desert/scripts.pory"
+	.string "Impeccable technique!$"
 
 Desert_Trainer1_Camper_Intro::
 # 149 "data/maps/Desert/scripts.pory"
@@ -918,3 +958,11 @@ StrongSandstorm::
 # 589 "data/maps/Desert/scripts.pory"
 	.string "The wind coming from the south is too\n"
 	.string "strong even for your Go-goggles.$"
+
+DesertNurse_Intro::
+# 609 "data/maps/Desert/scripts.pory"
+	.string "This sandstorm can be bad for Pokémon\n"
+	.string "if they haven't grown accustomed to it.\p"
+	.string "If you can beat me in a Pokémon battle,\n"
+	.string "I'll make sure your Pokémon are in\l"
+	.string "good shape.$"
