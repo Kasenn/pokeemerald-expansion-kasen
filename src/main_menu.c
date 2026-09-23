@@ -822,6 +822,8 @@ static void CB2_MainMenu(void)
     UpdatePaletteFade();
     if (gMain.vblankCounter1 == (gIntroFrameCounter + 1200))
     {
+        for (int i = 0; i < ARRAY_COUNT(gMonIconPaletteTable); i++)
+            LoadSpritePalette(&gMonIconPaletteTable[i]);
         CreateTask(Task_CuccoSwarm, 0);
     }
 }

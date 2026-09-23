@@ -551,26 +551,17 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    setflag(FLAG_FLIGHTPOINT1)
-    setflag(FLAG_FLIGHTPOINT2)
-    setflag(FLAG_FLIGHTPOINT3)
-    setflag(FLAG_FLIGHTPOINT4)
-    setflag(FLAG_FLIGHTPOINT5)
-    setflag(FLAG_FLIGHTPOINT6)
-    setflag(FLAG_FLIGHTPOINT7)
-    setflag(FLAG_FLIGHTPOINT8)
-    setflag(FLAG_FLIGHTPOINT9)
-    setflag(FLAG_FLIGHTPOINT10)
+    trainerbattle_no_intro(TRAINER_UNUSED_225_, "c")
     end
     return
 }
 script Debug_Script_4{
-    givemon(SPECIES_WEAVILE, 30)
-    trainerbattle_single(TRAINER_CASUAL_IRIS,"aa", RustboroCity_DevonCorp_1F_Rocket1_Defeat)
+    trainerbattle_no_intro(TRAINER_UNUSED_226_, "c")
     return
 }
 script Debug_Script_5{
-    warp(MAP_NES, 0)
+    trainerbattle_two_trainers(TRAINER_UNUSED_227_, "a", TRAINER_UNUSED_226_, "b")
+    trainerbattle_no_intro(TRAINER_UNUSED_227_, "c")
     return
 }
 
