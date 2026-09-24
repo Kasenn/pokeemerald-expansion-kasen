@@ -416,7 +416,10 @@ static void OpponentHandleDrawTrainerPic(enum BattlerId battler)
         }
         else
         {
-            xPos = 176;
+            if (GetTrainerPartnerPicFromId(TRAINER_BATTLE_PARAM.opponentA))
+                xPos = 200;
+            else
+                xPos = 176;
         }
     }
 

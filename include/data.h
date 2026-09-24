@@ -186,6 +186,12 @@ struct Trainer
     bool8 extendedBpCap:1;
     bool8 isRival:1;
     bool8 padding:5;
+    u16 trainerPartnerPic:13;
+    u16 trainerPartnerPicIsSpecies:1;
+    u16 trainerPartnerPicLinearMovement:1;
+    u16 trainerPartnerPicShowOnSlides:1;
+    s8 trainerPartnerPicXOffset;
+    s8 trainerPartnerPicYOffset;
 };
 
 struct TrainerClass
@@ -239,6 +245,8 @@ extern const struct SpriteFrameImage gBattlerPicTable_PlayerLeft[];
 extern const struct SpriteFrameImage gBattlerPicTable_OpponentLeft[];
 extern const struct SpriteFrameImage gBattlerPicTable_PlayerRight[];
 extern const struct SpriteFrameImage gBattlerPicTable_OpponentRight[];
+extern const struct SpriteFrameImage gBattlerPicTable_OpponentPartner1[];
+extern const struct SpriteFrameImage gBattlerPicTable_OpponentPartner2[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Brendan[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_May[];
 extern const struct SpriteFrameImage gTrainerBackPicTable_Red[];
@@ -519,6 +527,36 @@ static inline const union AnimCmd *const *GetTrainerBackPicAnims(enum TrainerPic
 static inline const u16 *GetTrainerBackPicPalette(enum TrainerPicID trainerPic)
 {
     return gTrainerPicInfo[SanitizeBackTrainerPic(trainerPic)].backPic->paletteData;
+}
+
+static inline const u16 GetTrainerPartnerPicFromId(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPic;
+}
+
+static inline const s8 GetTrainerPartnerPicXOffset(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPicXOffset;
+}
+
+static inline const s8 GetTrainerPartnerPicYOffset(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPicYOffset;
+}
+
+static inline const u8 GetTrainerPartnerPicLinearMovement(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPicLinearMovement;
+}
+
+static inline const u8 IsTrainerPartnerPicSpecies(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPicIsSpecies;
+}
+
+static inline const u8 ShowTrainerPartnerOnSlide(u16 trainerId)
+{
+    return GetTrainerStructFromId(trainerId)->trainerPartnerPicShowOnSlides;
 }
 
 #endif // GUARD_DATA_H

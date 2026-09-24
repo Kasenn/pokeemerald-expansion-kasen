@@ -720,7 +720,7 @@ struct BattleStruct
     u8 moldBreakerActive:1;
     u8 unused4:4;
     struct MessageStatus slideMessageStatus;
-    u8 trainerSlideSpriteIds[MAX_BATTLERS_COUNT];
+    u8 trainerSlideSpriteIds[MAX_TRAINER_PIC_COUNT];
     u8 hazardsQueue[NUM_BATTLE_SIDES][HAZARDS_MAX_COUNT];
     u8 numHazards[NUM_BATTLE_SIDES];
     u8 hazardsCounter:4; // Counter for applying hazard on switch in
@@ -980,9 +980,9 @@ struct BattleSpriteData
 struct MonSpritesGfx
 {
     void *firstDecompressed; // ptr to the decompressed sprite of the first Pokémon
-    u8 *spritesGfx[MAX_BATTLERS_COUNT];
-    struct SpriteTemplate templates[MAX_BATTLERS_COUNT];
-    struct SpriteFrameImage frameImages[MAX_BATTLERS_COUNT][MAX_MON_PIC_FRAMES];
+    u8 *spritesGfx[MAX_TRAINER_PIC_COUNT];
+    struct SpriteTemplate templates[MAX_TRAINER_PIC_COUNT];
+    struct SpriteFrameImage frameImages[MAX_TRAINER_PIC_COUNT][MAX_MON_PIC_FRAMES];
     u8 *barFontGfx;
     u16 *buffer;
 };

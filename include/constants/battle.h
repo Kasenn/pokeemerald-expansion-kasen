@@ -73,6 +73,9 @@ enum __attribute__((packed)) BattlerId
     B_BATTLER_2,
     B_BATTLER_3,
     MAX_BATTLERS_COUNT,
+    B_BATTLER_PARTNER_1 = MAX_BATTLERS_COUNT,
+    B_BATTLER_PARTNER_2,
+    MAX_TRAINER_PIC_COUNT,
 };
 
 enum __attribute__((packed)) BattleTrainer

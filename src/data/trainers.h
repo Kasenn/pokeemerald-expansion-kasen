@@ -4,6 +4,14 @@
     .trainerPic = TRAINER_PIC_##pic,                            \
     .gender = trainerGender
 
+#define PARTNER_INFO(trainerPic, isPokemon, xOffset, yOffset, linearMovement, doSlide)  \
+    .trainerPartnerPic = trainerPic,                                                    \
+    .trainerPartnerPicIsSpecies = isPokemon,                                            \
+    .trainerPartnerPicXOffset = xOffset,                                                \
+    .trainerPartnerPicYOffset = yOffset,                                                \
+    .trainerPartnerPicLinearMovement = linearMovement,                                  \
+    .trainerPartnerPicShowOnSlides = doSlide
+
 #define LEADER_INFO(class, music, pic, trainerGender, mugshot)  \
     .trainerClass = TRAINER_CLASS_##class,                      \
     .encounterMusic = TRAINER_ENCOUNTER_MUSIC_##music,          \
@@ -121,6 +129,7 @@
 #define ENTHUSIAST_M            BASIC_TRAINER_INFO(ENTHUSIAST,       MALE,       AFICIONADO_M,             MALE), EBP
 #define ENTHUSIAST_F            BASIC_TRAINER_INFO(ENTHUSIAST,       FEMALE,     AFICIONADO_F,             FEMALE), EBP
 #define NURSE                   BASIC_TRAINER_INFO(NURSE,            FEMALE,     NURSE,                    FEMALE)
+#define MYSTERIOUS_SISTERS      BASIC_TRAINER_INFO(MYSTERIOUS_SISTERS, FEMALE,   FAIRY_TALE_GIRL,          FEMALE)
 
 #define EXP_TUTOR                                               \
     BASIC_TRAINER_INFO(TUTOR_EXP, FEMALE, AROMA_LADY, FEMALE),  \
@@ -723,9 +732,12 @@ const struct Trainer gTrainers[TRAINERS_COUNT] =
     [TRAINER_R19_SWIMMER_M4] =      {EBP, SWIMMER_M,    BASIC_AI,       NAME("Jared"),          TPARTY(sParty_TRAINER_R19_SWIMMER_M4)},
 
     [TRAINER_UNUSED_54_] = {FAIRY_TALE_GIRL, BASIC_AI, NAME("Asd"), TPARTY(sParty_TRAINER_R19_SWIMMER_M4)},
-    [TRAINER_UNUSED_225_] = {},
-    [TRAINER_UNUSED_226_] = {},
-    [TRAINER_UNUSED_227_] = {},
+    [TRAINER_UNUSED_225_] = {MYSTERIOUS_SISTERS, BASIC_AI, NAME("Tarja & Ella"), DOUBLE_BATTLE, TPARTY(sParty_TRAINER_R19_HIKER),
+                             PARTNER_INFO(TRAINER_PIC_HEX_MANIAC, FALSE, 24, 0, TRUE, TRUE)},
+    [TRAINER_UNUSED_226_] = {HIKER, BASIC_AI, NAME("Dan"), TPARTY(sParty_TRAINER_R19_HIKER),
+                             PARTNER_INFO(SPECIES_GEODUDE, TRUE, 32, 8, FALSE, TRUE)},
+    [TRAINER_UNUSED_227_] = {RANGER_F, BASIC_AI, NAME("Hannah"), TPARTY(sParty_TRAINER_R19_SWIMMER_M4),
+                             PARTNER_INFO(SPECIES_VILEPLUME, TRUE, 32, 8, FALSE, TRUE)},
     [TRAINER_UNUSED_228_] = {},
     [TRAINER_UNUSED_229_] = {},
     [TRAINER_UNUSED_230_] = {},
