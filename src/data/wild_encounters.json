@@ -84080,6 +84080,36 @@
               }
             ]
           },
+          "rock_smash_mons": {
+            "encounter_rate": 20,
+            "mons": [
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              },
+              {
+                "min_level": 34,
+                "max_level": 39,
+                "species": "SPECIES_ROGGENROLA"
+              }
+            ]
+          },
           "fishing_mons": {
             "encounter_rate": 40,
             "mons": [
@@ -84137,36 +84167,6 @@
                 "min_level": 33,
                 "max_level": 36,
                 "species": "SPECIES_POLIWAG"
-              }
-            ]
-          },
-          "rock_smash_mons": {
-            "encounter_rate": 20,
-            "mons": [
-              {
-                "min_level": 34,
-                "max_level": 39,
-                "species": "SPECIES_ROGGENROLA"
-              },
-              {
-                "min_level": 34,
-                "max_level": 39,
-                "species": "SPECIES_ROGGENROLA"
-              },
-              {
-                "min_level": 34,
-                "max_level": 39,
-                "species": "SPECIES_ROGGENROLA"
-              },
-              {
-                "min_level": 34,
-                "max_level": 39,
-                "species": "SPECIES_ROGGENROLA"
-              },
-              {
-                "min_level": 34,
-                "max_level": 39,
-                "species": "SPECIES_ROGGENROLA"
               }
             ]
           }

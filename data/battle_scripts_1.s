@@ -2882,7 +2882,7 @@ BattleScript_FaintedMonShiftSwitched:
 	goto BattleScript_FaintedMonSendOutNewEnd
 
 BattleScript_AmphyInterrupts::
-@ Steelix faints
+@ Steelix "faints"
 	pause B_WAIT_TIME_MED
 	setcustomjasmineflag
 	dofaintanimation BS_OPPONENT1
@@ -2891,24 +2891,13 @@ BattleScript_AmphyInterrupts::
 @ No mon on the field
 	getswitchedmondata BS_FAINTED
 	switchindataupdate BS_FAINTED
-	hpthresholds BS_FAINTED
-	trytoclearprimalweather
 	flushtextbox
 @ Amphy enters
 	switchinanim BS_OPPONENT1, FALSE, FALSE
 	waitstate
 	printstring STRINGID_JASMINE_AMPHY
-	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonShiftSwitched2
-BattleScript_FaintedMonSendOutNewEnd2:
-	switchineffects BS_FAINTED
-	cancelallactions
-	end
-BattleScript_FaintedMonShiftSwitched2:
-	copybyte sSAVED_BATTLER, gBattlerTarget
-	switchineffects BS_ATTACKER
-	resetsentmonsvalue
-	copybyte gBattlerTarget, sSAVED_BATTLER
-	goto BattleScript_FaintedMonSendOutNewEnd2
+	jumpifbytenotequal sSHIFT_SWITCHED, sZero, BattleScript_FaintedMonShiftSwitched
+	goto BattleScript_FaintedMonSendOutNewEnd
 
 BattleScript_HandleFaintedMonMultiple::
 	openpartyscreen BS_FAINTED_MULTIPLE_1, BattleScript_HandleFaintedMonMultipleStart

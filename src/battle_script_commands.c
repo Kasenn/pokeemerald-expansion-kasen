@@ -3268,10 +3268,6 @@ static void Cmd_getswitchedmondata(void)
         return;
 
     enum BattleTrainer trainer = GetBattlerTrainer(battler);
-    assertf(IsValidSwitchIn(trainer, gBattleStruct->monToSwitchIntoId[battler]))
-    {
-        gBattleStruct->monToSwitchIntoId[battler] = GetArbitraryValidSwitchIn(trainer);
-    }
 
     if (gBattleTypeFlags & BATTLE_TYPE_JASMINE && CountUsablePartyMons(battler) == 0)
     {
@@ -3279,7 +3275,13 @@ static void Cmd_getswitchedmondata(void)
         CreateNPCTrainerParty(&gEnemyParty[0], TRAINER_BATTLE_PARAM.opponentA);
     }
     else
+    {
+        assertf(IsValidSwitchIn(trainer, gBattleStruct->monToSwitchIntoId[battler]))
+        {
+            gBattleStruct->monToSwitchIntoId[battler] = GetArbitraryValidSwitchIn(trainer);
+        }
         gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler];
+    }
 
     BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 1u << gBattlerPartyIndexes[battler]);
     MarkBattlerForControllerExec(battler);
@@ -3306,12 +3308,25 @@ static void Cmd_switchindataupdate(void)
         monData[i] = gBattleResources->bufferB[battler][4 + i];
 
     enum BattleTrainer trainer = GetBattlerTrainer(battler);
-    assertf(IsBattlerAlive(battler))
+    if (gBattleTypeFlags & BATTLE_TYPE_JASMINE)
     {
-        gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler] = GetArbitraryValidSwitchIn(trainer);
-        BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 1u << gBattlerPartyIndexes[battler]);
-        MarkBattlerForControllerExec(battler);
-        return;
+        if(!IsBattlerAlive(battler))
+        {
+            gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler] = GetArbitraryValidSwitchIn(trainer);
+            BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 1u << gBattlerPartyIndexes[battler]);
+            MarkBattlerForControllerExec(battler);
+            return;
+        }
+    }
+    else
+    {
+        assertf(IsBattlerAlive(battler))
+        {
+            gBattlerPartyIndexes[battler] = gBattleStruct->monToSwitchIntoId[battler] = GetArbitraryValidSwitchIn(trainer);
+            BtlController_EmitGetMonData(battler, B_COMM_TO_CONTROLLER, REQUEST_ALL_BATTLE, 1u << gBattlerPartyIndexes[battler]);
+            MarkBattlerForControllerExec(battler);
+            return;
+        }
     }
 
     gBattleMons[battler].types[0] = GetSpeciesType(gBattleMons[battler].species, 0);

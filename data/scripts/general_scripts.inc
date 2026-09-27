@@ -876,7 +876,7 @@ Debug_Script_2_7:
 
 Debug_Script_3::
 # 554 "data/scripts/general_scripts.pory"
-	trainerbattle_no_intro TRAINER_UNUSED_225_, Debug_Script_3_Text_0
+	trainerbattle_no_intro TRAINER_LEADER_JASMINE, Debug_Script_3_Text_0
 # 555 "data/scripts/general_scripts.pory"
 	end
 	return

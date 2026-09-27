@@ -551,7 +551,7 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    trainerbattle_no_intro(TRAINER_UNUSED_225_, "c")
+    trainerbattle_no_intro(TRAINER_LEADER_JASMINE, "c")
     end
     return
 }
