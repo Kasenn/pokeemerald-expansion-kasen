@@ -50,8 +50,8 @@
 #define FLAG_GLADE_PUZZLE                                           0x22 // Sets the lost glade flag so the camper changes dialogue
 #define FLAG_DEFEATED_RIVAL_HARBOR                                  0x23 // Flag for defeating rival at coralgrove harbor. Also used to define whether the itemfinder has already been obtained
 #define FLAG_AZURETIDE_HONEY                                        0x24
-#define FLAG_UNUSED_0x25                                            0x25
-#define FLAG_UNUSED_0x26                                            0x26
+#define FLAG_AMPHAROS_CONTROLS_UNLOCKED                             0x25
+#define FLAG_NO_TRAINER_SEE                                         0x26
 #define FLAG_SYSTEM_TOGGLE_DOUBLE_WILDS                             0x27 // Forces double wild battles
 #define FLAG_OBTAINED_PAINTBRUSH                                    0x28
 #define FLAG_MET_MOVE_TUTOR                                         0x29

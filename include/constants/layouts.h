@@ -790,6 +790,7 @@
 #define LAYOUT_PROFS_GLADE_INTERIOR 783
 #define LAYOUT_ROUTE7_FILLER 784
 #define LAYOUT_ROUTE21_GROTTO 785
+#define LAYOUT_GALEWIND_CITY_GYM 786
 
 //Constants for unused layouts
 #define LAYOUT_TRAINER_TOWER_1F                   0xFFFF

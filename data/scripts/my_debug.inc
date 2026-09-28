@@ -708,9 +708,9 @@ UpdateGame_17:
 # 309 "data/scripts/my_debug.pory"
 	clearflag FLAG_UNUSED_EXTENDED_58
 # 310 "data/scripts/my_debug.pory"
-	clearflag FLAG_UNUSED_0x26
+	clearflag FLAG_NO_TRAINER_SEE
 # 311 "data/scripts/my_debug.pory"
-	clearflag FLAG_UNUSED_0x25
+	clearflag FLAG_AMPHAROS_CONTROLS_UNLOCKED
 # 312 "data/scripts/my_debug.pory"
 	setvar VAR_DEBUG, 8
 	goto UpdateGame_16

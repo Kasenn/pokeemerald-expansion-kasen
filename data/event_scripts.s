@@ -2114,3 +2114,5 @@ EventScript_PalletTown_PlayersHouse_2F_TurnOnPC::
 	.include "data/maps/Route7_Filler/scripts.inc"
 
 	.include "data/maps/Route21_Grotto/scripts.inc"
+
+	.include "data/maps/GalewindCity_Gym/scripts.inc"

@@ -551,7 +551,8 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    trainerbattle_no_intro(TRAINER_LEADER_JASMINE, "c")
+    warp(MAP_GALEWIND_CITY_GYM, 27, 54)
+    waitstate
     end
     return
 }

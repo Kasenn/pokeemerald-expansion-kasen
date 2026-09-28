@@ -790,8 +790,8 @@ void LatisWarp(void)
 
 bool8 ScrCmd_teleportcamera(struct ScriptContext *ctx)
 {
-    s16 x = VarGet(ScriptReadHalfword(ctx));
-    s16 y = VarGet(ScriptReadHalfword(ctx));
+    s16 x = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.x;
+    s16 y = VarGet(ScriptReadHalfword(ctx)) - gSaveBlock1Ptr->pos.y;
 
     MoveCameraAndRedrawMap(x, y);
     return FALSE;

@@ -1,0 +1,164 @@
+const VAR_PLAYER_X = VAR_TEMP_0
+const VAR_PLAYER_Y = VAR_TEMP_1
+const VAR_AMPHY_X = VAR_TEMP_2
+const VAR_AMPHY_Y = VAR_TEMP_3
+const VAR_PLAYER_DIR = VAR_TEMP_4
+const VAR_AMPHY_DIR = VAR_TEMP_5
+const FLAG_CONTROLLING_AMPHY = FLAG_TEMP_2
+const FLAG_HIDE_FAKE_PLAYER = FLAG_TEMP_3
+const FLAG_HIDE_CONTROLLED_AMPHY = FLAG_TEMP_4
+const FLAG_HIDE_DEFAULT_AMPHY = FLAG_TEMP_5
+
+mapscripts GalewindCity_Gym_MapScripts {
+    MAP_SCRIPT_ON_TRANSITION{
+        setflag(FLAG_HIDE_FAKE_PLAYER)
+        setflag(FLAG_HIDE_CONTROLLED_AMPHY)
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+        call(Amberock_SetPlayerModel)
+    }
+}
+
+script GalewindGym_ToggleBetweenAmphy{
+    lockall
+    if(flag(FLAG_CONTROLLING_AMPHY)){ // Switching from amphy to player
+        // Store amphy's coordinates and facing dir
+        getplayerxy(VAR_AMPHY_X, VAR_AMPHY_Y)
+        specialvar(VAR_AMPHY_DIR, GetPlayerFacingDirection)
+
+        // Set up static amphy
+        setobjectxyperm(LOCALID_GYM_AMPHY, VAR_AMPHY_X, VAR_AMPHY_Y)
+        switch(var(VAR_AMPHY_DIR)){
+            case DIR_NORTH: setobjectmovementtype(LOCALID_GYM_AMPHY, MOVEMENT_TYPE_FACE_UP)
+            case DIR_SOUTH: setobjectmovementtype(LOCALID_GYM_AMPHY, MOVEMENT_TYPE_FACE_DOWN)
+            case DIR_WEST:  setobjectmovementtype(LOCALID_GYM_AMPHY, MOVEMENT_TYPE_FACE_LEFT)
+            case DIR_EAST:  setobjectmovementtype(LOCALID_GYM_AMPHY, MOVEMENT_TYPE_FACE_RIGHT)
+        }
+        clearflag(FLAG_HIDE_DEFAULT_AMPHY)
+        addobject(LOCALID_GYM_AMPHY)
+        removeobject(LOCALID_GYM_AMPHY_CONTROLLED)
+
+        // Fade to black, move player & camera
+        special(SpawnCameraObject)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        teleportcamera(VAR_PLAYER_X, VAR_PLAYER_Y)
+        setobjectxy(LOCALID_PLAYER, VAR_PLAYER_X, VAR_PLAYER_Y)
+
+        // Switch fake player to real
+        removeobject(LOCALID_GYM_FAKEPLAYER)
+        showplayer
+        switch(var(VAR_PLAYER_DIR)){
+            case DIR_NORTH: turnobject(LOCALID_PLAYER, DIR_NORTH)
+            case DIR_SOUTH: turnobject(LOCALID_PLAYER, DIR_SOUTH)
+            case DIR_WEST:  turnobject(LOCALID_PLAYER, DIR_WEST)
+            case DIR_EAST:  turnobject(LOCALID_PLAYER, DIR_EAST)
+        }
+        // Fade back and clean up the camera
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        special(RemoveCameraObject)
+        // Set up flags
+        setflag(FLAG_SYS_B_DASH)
+        clearflag(FLAG_NO_TRAINER_SEE)
+        clearflag(FLAG_CONTROLLING_AMPHY)
+    }
+    else{ // Switching from player to amphy
+        // Store player's coordinates and facing dir
+        getplayerxy(VAR_PLAYER_X, VAR_PLAYER_Y)
+        specialvar(VAR_PLAYER_DIR, GetPlayerFacingDirection)
+
+        // Set up fake player
+        setobjectxyperm(LOCALID_GYM_FAKEPLAYER, VAR_PLAYER_X, VAR_PLAYER_Y)
+        switch(var(VAR_PLAYER_DIR)){
+            case DIR_NORTH: setobjectmovementtype(LOCALID_GYM_FAKEPLAYER, MOVEMENT_TYPE_FACE_UP)
+            case DIR_SOUTH: setobjectmovementtype(LOCALID_GYM_FAKEPLAYER, MOVEMENT_TYPE_FACE_DOWN)
+            case DIR_WEST: setobjectmovementtype(LOCALID_GYM_FAKEPLAYER, MOVEMENT_TYPE_FACE_LEFT)
+            case DIR_EAST: setobjectmovementtype(LOCALID_GYM_FAKEPLAYER, MOVEMENT_TYPE_FACE_RIGHT)
+        }
+        clearflag(FLAG_HIDE_FAKE_PLAYER)
+        addobject(LOCALID_GYM_FAKEPLAYER)
+        hideplayer
+
+        // Fade to black, move player & camera
+        special(SpawnCameraObject)
+        fadescreenswapbuffers(FADE_TO_BLACK)
+        teleportcamera(VAR_AMPHY_X, VAR_AMPHY_Y)
+        setobjectxy(LOCALID_PLAYER, VAR_AMPHY_X, VAR_AMPHY_Y)
+        turnobject(LOCALID_PLAYER, DIR_NORTH)
+        
+        // Switch perma Amphy to controllable
+        removeobject(LOCALID_GYM_AMPHY)
+        setobjectxyperm(LOCALID_GYM_AMPHY_CONTROLLED, VAR_AMPHY_X, VAR_AMPHY_Y)
+        clearflag(FLAG_HIDE_CONTROLLED_AMPHY)
+        addobject(LOCALID_GYM_AMPHY_CONTROLLED)
+        delay(1) // without this the script breaks
+
+        // Sync up player and amphy directions
+        switch(var(VAR_AMPHY_DIR)){
+            case DIR_NORTH:
+                turnobject(LOCALID_PLAYER, DIR_NORTH)
+                turnobject(LOCALID_GYM_AMPHY_CONTROLLED, DIR_NORTH)
+            case DIR_SOUTH:
+                turnobject(LOCALID_PLAYER, DIR_SOUTH)
+                turnobject(LOCALID_GYM_AMPHY_CONTROLLED, DIR_SOUTH)
+            case DIR_WEST: 
+                turnobject(LOCALID_PLAYER, DIR_WEST)
+                turnobject(LOCALID_GYM_AMPHY_CONTROLLED, DIR_WEST)
+            case DIR_EAST: 
+                turnobject(LOCALID_PLAYER, DIR_EAST)
+                turnobject(LOCALID_GYM_AMPHY_CONTROLLED, DIR_EAST)
+        }
+
+        // Fade back and clean up the camera
+        fadescreenswapbuffers(FADE_FROM_BLACK)
+        special(RemoveCameraObject)
+
+        // Set up flags
+        clearflag(FLAG_SYS_B_DASH)
+        setflag(FLAG_NO_TRAINER_SEE)
+        setflag(FLAG_CONTROLLING_AMPHY)
+    }
+    releaseall
+}
+
+script GalewindGym_GymGuide{
+    if(flag(FLAG_CONTROLLING_AMPHY)){
+        msgbox("Shouldn't you be helping our latest\nchallenger with their gym challenge?", MSGBOX_NPC)
+    }
+    else{
+        msgbox("Yo, champ in the making!\pPress the SELECT button to\ntake control of Amphy!", MSGBOX_NPC)
+        if(!flag(FLAG_AMPHAROS_CONTROLS_UNLOCKED)){
+            setvar(VAR_AMPHY_X, 27)
+            setvar(VAR_AMPHY_Y, 48)
+            setvar(VAR_AMPHY_DIR, DIR_SOUTH)
+            setobjectxyperm(LOCALID_GYM_AMPHY_CONTROLLED, VAR_AMPHY_X, VAR_AMPHY_Y)
+        }
+        setflag(FLAG_AMPHAROS_CONTROLS_UNLOCKED)
+    }
+}
+
+script GalewindGym_Trainer1{
+    if(flag(FLAG_CONTROLLING_AMPHY)){
+        msgbox("Hey, cut that out!\nI can't see!", MSGBOX_NPC)
+        end
+    }
+    trainerbattle_single(TRAINER_ALDEGYM_15, "Stop right there!", "A")
+}
+
+script GalewindGym_Amphy{
+    if(!flag(FLAG_AMPHAROS_CONTROLS_UNLOCKED)){
+        setvar(VAR_AMPHY_X, 27)
+        setvar(VAR_AMPHY_Y, 48)
+        setvar(VAR_AMPHY_DIR, DIR_SOUTH)
+        setobjectxyperm(LOCALID_GYM_AMPHY_CONTROLLED, VAR_AMPHY_X, VAR_AMPHY_Y)
+        setflag(FLAG_AMPHAROS_CONTROLS_UNLOCKED)
+        msgbox("Amphy patiently awaits your orders.\pPress the SELECT button to\ntake control of Amphy.", MSGBOX_NPC)
+    }
+    else{
+        msgbox("Amphy patiently awaits your orders.", MSGBOX_NPC)
+    }
+    switch(var(VAR_FACING)){
+        case DIR_NORTH: setvar(VAR_AMPHY_DIR, DIR_SOUTH)
+        case DIR_SOUTH: setvar(VAR_AMPHY_DIR, DIR_NORTH)
+        case DIR_WEST:  setvar(VAR_AMPHY_DIR, DIR_EAST)
+        case DIR_EAST:  setvar(VAR_AMPHY_DIR, DIR_WEST)
+    }
+}

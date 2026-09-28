@@ -307,8 +307,8 @@ script UpdateGame{
     if(var(VAR_DEBUG) == 7)
     {
         clearflag(FLAG_UNUSED_EXTENDED_58)
-        clearflag(FLAG_UNUSED_0x26)
-        clearflag(FLAG_UNUSED_0x25)
+        clearflag(FLAG_NO_TRAINER_SEE)
+        clearflag(FLAG_AMPHAROS_CONTROLS_UNLOCKED)
         setvar(VAR_DEBUG, 8)
     }
     if(var(VAR_DEBUG) == 8){

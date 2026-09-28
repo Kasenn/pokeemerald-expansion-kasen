@@ -7850,6 +7850,16 @@
       "secondary_tileset": "gTileset_SecretBaseShrub",
       "border_filepath": "data/layouts/Route21_Grotto/border.bin",
       "blockdata_filepath": "data/layouts/Route21_Grotto/map.bin"
+    },
+    {
+      "id": "LAYOUT_GALEWIND_CITY_GYM",
+      "name": "GalewindCity_Gym_Layout",
+      "width": 59,
+      "height": 64,
+      "primary_tileset": "gTileset_Building",
+      "secondary_tileset": "gTileset_FortreeGym",
+      "border_filepath": "data/layouts/GalewindCity_Gym/border.bin",
+      "blockdata_filepath": "data/layouts/GalewindCity_Gym/map.bin"
     }
   ]
 }

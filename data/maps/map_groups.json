@@ -20,6 +20,7 @@
     "gMapGroup_IndoorBasalekTown",
     "gMapGroup_IndoorFrosthearth",
     "gMapGroup_IndoorCrystalpine",
+    "gMapGroup_IndoorGalewindCity",
     "gMapGroup_IndoorLittleroot",
     "gMapGroup_IndoorOldale",
     "gMapGroup_IndoorDewford",
@@ -439,6 +440,9 @@
     "Crystalpine_SmallHouse_1",
     "Crystalpine_SmallHouse_2",
     "Crystalpine_SmallHouse_3"
+  ],
+  "gMapGroup_IndoorGalewindCity": [
+    "GalewindCity_Gym"
   ],
   "gMapGroup_IndoorLittleroot": [
     "LittlerootTown_BrendansHouse_1F",

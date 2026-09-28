@@ -251,6 +251,11 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->pressedSelectButton)
     {
+        if(FlagGet(FLAG_AMPHAROS_CONTROLS_UNLOCKED))
+        {
+            ScriptContext_SetupScript(GalewindGym_ToggleBetweenAmphy);
+            return TRUE;
+        }
         if(FlagGet(FLAG_GOGOAT_RIDING))
         {
             return FALSE;

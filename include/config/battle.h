@@ -267,7 +267,7 @@
 
 // Flag settings
 // To use the following features, change the 0 for a flag present in include/constants/flags.h, preferably an unused one.
-// Eg: You may rename FLAG_UNUSED_0x264 to a descriptive name and use it below.
+// Eg: You may rename FLAG_NO_TRAINER_SEE4 to a descriptive name and use it below.
 
 // Badge boost flags
 #define B_FLAG_BADGE_BOOST_ATTACK   FLAG_BADGE01_GET // If this flag is set and B_BADGE_BOOST == GEN_3, it will increase the Attack of the player's Pokémon.

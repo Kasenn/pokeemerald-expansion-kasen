@@ -17,6 +17,7 @@ extern const u8 LatiosIsland_CallBackMon3[];
 extern const u8 LatiosIsland_CallBackMon4[];
 extern const u8 LatiosIsland_CallBackMon5[];
 extern const u8 LatiosIsland_CallBackMon6[];
+extern const u8 GalewindGym_ToggleBetweenAmphy[];
 
 extern const u8 EventScript_FollowerIsShivering[];
 extern const u8 EventScript_FollowerNostalgia[];
