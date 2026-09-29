@@ -2103,34 +2103,34 @@ static enum BattlerId GetBattlerFromPlayerPartyId(u32 partyId)
 
 static u32 GetSpeciesEvYield(u16 defeatedSpecies)
 {
-    if (gSpeciesInfo[defeatedSpecies].evYield_HP)
+    if (gSpeciesBaseInfo[defeatedSpecies].evYield_HP)
         return MON_DATA_HP_EV;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Attack)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Attack)
         return MON_DATA_ATK_EV;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Defense)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Defense)
         return MON_DATA_DEF_EV;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Speed)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Speed)
         return MON_DATA_SPEED_EV;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_SpAttack)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_SpAttack)
         return MON_DATA_SPATK_EV;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_SpDefense)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_SpDefense)
         return MON_DATA_SPDEF_EV;
     return 0;
 }
 
 static u32 GetStatToPrintFromEvYield(u16 defeatedSpecies)
 {
-    if (gSpeciesInfo[defeatedSpecies].evYield_HP)
+    if (gSpeciesBaseInfo[defeatedSpecies].evYield_HP)
         return STAT_HP;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Attack)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Attack)
         return STAT_ATK;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Defense)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Defense)
         return STAT_DEF;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_Speed)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_Speed)
         return STAT_SPEED;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_SpAttack)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_SpAttack)
         return STAT_SPATK;
-    else if (gSpeciesInfo[defeatedSpecies].evYield_SpDefense)
+    else if (gSpeciesBaseInfo[defeatedSpecies].evYield_SpDefense)
         return STAT_SPDEF;
     return 0;
 }
@@ -2222,7 +2222,7 @@ static void Cmd_getexp(void)
             if (orderId < PARTY_SIZE)
                 gBattleStruct->expGettersOrder[orderId] = PARTY_SIZE;
 
-            calculatedExp = gSpeciesInfo[faintedSpecies].expYield * gBattleMons[gBattlerFainted].level;
+            calculatedExp = gSpeciesBaseInfo[faintedSpecies].expYield * gBattleMons[gBattlerFainted].level;
             if (GetConfig(B_SCALED_EXP) >= GEN_5 && GetConfig(B_SCALED_EXP) != GEN_6)
                 calculatedExp /= 5;
             else
@@ -2323,7 +2323,7 @@ static void Cmd_getexp(void)
 
                     if (B_EXP_CAP_TYPE == EXP_CAP_HARD && gBattleStruct->battlerExpReward != 0)
                     {
-                        enum GrowthRate growthRate = gSpeciesInfo[GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_SPECIES)].growthRate;
+                        enum GrowthRate growthRate = gSpeciesBaseInfo[GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_SPECIES)].growthRate;
                         u32 currentExp = GetMonData(&gParties[B_TRAINER_PLAYER][*expMonId], MON_DATA_EXP);
                         u32 levelCap = GetCurrentLevelCap();
 
@@ -8127,7 +8127,7 @@ static void ComputeBallData(u32 wildMonBattler, u32 playerBattler, struct BallDa
     ball->flatBonus = 0;
     ball->guaranteedCapture = FALSE;
 
-    if (gSpeciesInfo[battleMon->species].isUltraBeast)
+    if (gSpeciesMiscInfo[battleMon->species].isUltraBeast)
     {
         if (ballId == BALL_BEAST)
             ball->multiplier = 500;
@@ -8334,7 +8334,7 @@ static u32 GetBattleMonCatchRate(struct BattlePokemon *battleMon)
         species = battleMon->species;
     else
         species = battleMon->volatiles.transformedMonSpecies;
-    return gSpeciesInfo[species].catchRate;
+    return gSpeciesBaseInfo[species].catchRate;
 }
 
 static u32 ComputeCaptureOdds(u32 wildMonBattler, u32 playerBattler)
@@ -8978,7 +8978,7 @@ bool32 IsTelekinesisBannedSpecies(enum Species species)
 {
     species = SanitizeSpeciesId(species);
 
-    return gSpeciesInfo[species].isTelekinesisBanned;
+    return gSpeciesMiscInfo[species].isTelekinesisBanned;
 }
 
 static void Cmd_settelekinesis(void)

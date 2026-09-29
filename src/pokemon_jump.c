@@ -522,7 +522,7 @@ static void ResetPlayersForNewGame(void)
 
 static s16 GetSpeciesPokemonJumpType(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].pokemonJumpType;
+    return gSpeciesGraphicsInfo[SanitizeSpeciesId(species)].pokemonJumpType;
 }
 
 static void InitJumpMonInfo(struct PokemonJump_MonInfo *monInfo, struct Pokemon *mon)
@@ -3569,7 +3569,7 @@ static void CreateJumpMonSprites(void)
     {
         struct PokemonJump_MonInfo *monInfo = GetMonInfoByMultiplayerId(i);
 
-        y = gSpeciesInfo[monInfo->species].frontPicYOffset;
+        y = gSpeciesGraphicsInfo[monInfo->species].frontPicYOffset;
         CreateJumpMonSprite(sPokemonJumpGfx, monInfo, *xCoords, y + 112, i);
         CreateStarSprite(sPokemonJumpGfx, *xCoords, 112, i);
         xCoords++;

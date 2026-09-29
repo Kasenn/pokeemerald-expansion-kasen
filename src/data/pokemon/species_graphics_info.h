@@ -1,6 +1,3 @@
-#include "constants/abilities.h"
-#include "constants/teaching_types.h"
-#include "species_info/shared_dex_text.h"
 #include "species_info/shared_front_pic_anims.h"
 
 // Macros for ease of use.
@@ -95,21 +92,10 @@
 #define FLIP    0
 #define NO_FLIP 1
 
-const struct SpeciesInfo gSpeciesInfo[] =
+const struct SpeciesGraphicsInfo gSpeciesGraphicsInfo[] =
 {
     [SPECIES_NONE] =
     {
-        .speciesName = _("??????????"),
-        .cryId = CRY_PORYGON,
-        .natDexNum = NATIONAL_DEX_NONE,
-        .categoryName = _("Unknown"),
-        .height = 0,
-        .weight = 0,
-        .description = gFallbackPokedexText,
-        .pokemonScale = 256,
-        .pokemonOffset = 0,
-        .trainerScale = 256,
-        .trainerOffset = 0,
         .frontPic = gMonFrontPic_CircledQuestionMark,
         .frontPicSize = MON_COORDS_SIZE(40, 40),
         .frontPicYOffset = 12,
@@ -145,21 +131,18 @@ const struct SpeciesInfo gSpeciesInfo[] =
             .images = sPicTable_Substitute,
         },
     #endif
-        .levelUpLearnset = sNoneLevelUpLearnset,
-        .teachableLearnset = sNoneTeachableLearnset,
-        .eggMoveLearnset = sNoneEggMoveLearnset,
     },
 
-    #include "species_info/gen_0_families.h"
-    #include "species_info/gen_1_families.h"
-    #include "species_info/gen_2_families.h"
-    #include "species_info/gen_3_families.h"
-    #include "species_info/gen_4_families.h"
-    #include "species_info/gen_5_families.h"
-    #include "species_info/gen_6_families.h"
-    #include "species_info/gen_7_families.h"
-    #include "species_info/gen_8_families.h"
-    #include "species_info/gen_9_families.h"
+    #include "species_info/species_graphics_info/gen_0_families.h"
+    #include "species_info/species_graphics_info/gen_1_families.h"
+    #include "species_info/species_graphics_info/gen_2_families.h"
+    #include "species_info/species_graphics_info/gen_3_families.h"
+    #include "species_info/species_graphics_info/gen_4_families.h"
+    #include "species_info/species_graphics_info/gen_5_families.h"
+    #include "species_info/species_graphics_info/gen_6_families.h"
+    #include "species_info/species_graphics_info/gen_7_families.h"
+    #include "species_info/species_graphics_info/gen_8_families.h"
+    #include "species_info/species_graphics_info/gen_9_families.h"
 
     [SPECIES_EGG] =
     {

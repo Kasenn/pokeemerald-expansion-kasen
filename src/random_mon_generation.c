@@ -69,7 +69,7 @@ static bool32 IsMoveInMoveset(enum Move move, enum Move *moves, u32 count);
 static bool32 IsSpeciesBannedByRandomSpeciesOptions(enum Species species, const struct RandomSpeciesGeneratorOptions *options, const struct FilterFuncArgs *filterFuncArgs)
 {
     enum Species baseSpecies = GET_BASE_SPECIES_ID(species);
-    const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
+    const struct SpeciesMiscInfo *speciesInfo = &gSpeciesMiscInfo[species];
 
     for (u32 i = 0; i < options->bannedSpeciesCount; i++)
     {
@@ -187,7 +187,7 @@ static bool32 IsRandomSpeciesInFormOrFusionTables(enum Species species, const u1
 
 static bool32 IsRandomSpeciesFormAllowed(enum Species species, const u16 *formTable)
 {
-    const struct SpeciesInfo *speciesInfo;
+    const struct SpeciesMiscInfo *speciesInfo;
     enum Species baseSpecies = GET_BASE_SPECIES_ID(species);
 
     switch (species) // Special case because darm has galarian forms (desired) and zen mode forms (not desired)
@@ -206,7 +206,7 @@ static bool32 IsRandomSpeciesFormAllowed(enum Species species, const u16 *formTa
      && IsRandomSpeciesInFormOrFusionTables(species, formTable))
         return FALSE;
 
-    speciesInfo = &gSpeciesInfo[species];
+    speciesInfo = &gSpeciesMiscInfo[species];
 
     return !speciesInfo->isMegaEvolution
         && !speciesInfo->isGigantamax

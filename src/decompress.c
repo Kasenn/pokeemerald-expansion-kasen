@@ -1138,34 +1138,34 @@ void LoadSpecialPokePicIsEgg(void *dest, enum Species species, u32 personality, 
 
     if (isEgg)
     {
-        if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
-            DecompressDataWithHeaderWram(gEggDatas[gSpeciesInfo[species].eggId].eggSprite, dest);
+        if (gSpeciesGraphicsInfo[species].eggId != EGG_ID_NONE)
+            DecompressDataWithHeaderWram(gEggDatas[gSpeciesGraphicsInfo[species].eggId].eggSprite, dest);
         else
-            DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_EGG].frontPic, dest);
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[SPECIES_EGG].frontPic, dest);
     }
     else if (isFrontPic)
     {
     #if P_GENDER_DIFFERENCES
-        if (gSpeciesInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
-            DecompressDataWithHeaderWram(gSpeciesInfo[species].frontPicFemale, dest);
+        if (gSpeciesGraphicsInfo[species].frontPicFemale != NULL && IsPersonalityFemale(species, personality))
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[species].frontPicFemale, dest);
         else
     #endif
-        if (gSpeciesInfo[species].frontPic != NULL)
-            DecompressDataWithHeaderWram(gSpeciesInfo[species].frontPic, dest);
+        if (gSpeciesGraphicsInfo[species].frontPic != NULL)
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[species].frontPic, dest);
         else
-            DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_NONE].frontPic, dest);
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[SPECIES_NONE].frontPic, dest);
     }
     else
     {
     #if P_GENDER_DIFFERENCES
-        if (gSpeciesInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
-            DecompressDataWithHeaderWram(gSpeciesInfo[species].backPicFemale, dest);
+        if (gSpeciesGraphicsInfo[species].backPicFemale != NULL && IsPersonalityFemale(species, personality))
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[species].backPicFemale, dest);
         else
     #endif
-        if (gSpeciesInfo[species].backPic != NULL)
-            DecompressDataWithHeaderWram(gSpeciesInfo[species].backPic, dest);
+        if (gSpeciesGraphicsInfo[species].backPic != NULL)
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[species].backPic, dest);
         else
-            DecompressDataWithHeaderWram(gSpeciesInfo[SPECIES_NONE].backPic, dest);
+            DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[SPECIES_NONE].backPic, dest);
     }
 
     if (ShouldDrawSpotsOnSpecies(species) && isFrontPic && !isEgg)

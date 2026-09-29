@@ -43,7 +43,7 @@ static void CustomTrainerPartyAssignMoves(struct Pokemon *mon, const struct Trai
 
 u32 GeneratePersonalityForGender(u32 gender, u32 species)
 {
-    const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
+    const struct SpeciesBaseInfo *speciesInfo = &gSpeciesBaseInfo[species];
     if (gender == MON_MALE)
     {
         assertf(speciesInfo->genderRatio < MON_FEMALE, "species %d cannot be male", species);
@@ -78,7 +78,8 @@ static void ModifyPersonalityForNature(u32 *personality, s32 newNature)
 
 static bool32 SetCorrectAbilityNum(struct Pokemon *mon, enum Species species, enum Ability ability)
 {
-    const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[species];
+    const struct SpeciesBaseInfo *speciesInfo = &gSpeciesBaseInfo[species];
+    const struct SpeciesDexInfo *speciesDexInfo = &gSpeciesDexInfo[species];
     u32 abilityNum;
     u32 maxAbilityNum = ARRAY_COUNT(speciesInfo->abilities);
     for (abilityNum = 0; abilityNum < maxAbilityNum; ++abilityNum)
@@ -86,7 +87,7 @@ static bool32 SetCorrectAbilityNum(struct Pokemon *mon, enum Species species, en
         if (speciesInfo->abilities[abilityNum] == ability)
             break;
     }
-    assertf(abilityNum < maxAbilityNum, "illegal ability %S for %S", gAbilitiesInfo[ability].name, speciesInfo->speciesName)
+    assertf(abilityNum < maxAbilityNum, "illegal ability %S for %S", gAbilitiesInfo[ability].name, speciesDexInfo->speciesName)
     {
         return FALSE;
     }

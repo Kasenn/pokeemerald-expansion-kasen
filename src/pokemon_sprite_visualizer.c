@@ -795,9 +795,9 @@ static void BattleLoadOpponentMonSpriteGfxCustom(enum Species species, bool8 isF
 static void SetConstSpriteValues(struct PokemonSpriteVisualizer *data)
 {
     enum Species species = IsSpeciesEnabled(data->currentmonId) ? SanitizeSpeciesId(data->currentmonId) : SPECIES_NONE;
-    data->constSpriteValues.frontPicCoords = gSpeciesInfo[species].frontPicYOffset;
-    data->constSpriteValues.frontElevation = gSpeciesInfo[species].enemyMonElevation;
-    data->constSpriteValues.backPicCoords = gSpeciesInfo[species].backPicYOffset;
+    data->constSpriteValues.frontPicCoords = gSpeciesGraphicsInfo[species].frontPicYOffset;
+    data->constSpriteValues.frontElevation = gSpeciesGraphicsInfo[species].enemyMonElevation;
+    data->constSpriteValues.backPicCoords = gSpeciesGraphicsInfo[species].backPicYOffset;
 }
 
 static void ResetOffsetSpriteValues(struct PokemonSpriteVisualizer *data)
@@ -812,9 +812,9 @@ static void ResetShadowSettings(struct PokemonSpriteVisualizer *data)
     if (B_ENEMY_MON_SHADOW_STYLE <= GEN_3 || P_GBA_STYLE_SPECIES_GFX == TRUE)
         return;
     enum Species species = IsSpeciesEnabled(data->currentmonId) ? SanitizeSpeciesId(data->currentmonId) : SPECIES_NONE;
-    data->shadowSettings.definedX = gSpeciesInfo[species].enemyShadowXOffset;
-    data->shadowSettings.definedY = gSpeciesInfo[species].enemyShadowYOffset;
-    data->shadowSettings.definedSize = gSpeciesInfo[species].enemyShadowSize;
+    data->shadowSettings.definedX = gSpeciesGraphicsInfo[species].enemyShadowXOffset;
+    data->shadowSettings.definedY = gSpeciesGraphicsInfo[species].enemyShadowYOffset;
+    data->shadowSettings.definedSize = gSpeciesGraphicsInfo[species].enemyShadowSize;
 
     data->shadowSettings.overrideX = data->shadowSettings.definedX;
     data->shadowSettings.overrideY = data->shadowSettings.definedY;
@@ -828,10 +828,10 @@ static u8 GetBattlerSpriteFinal_YCustom(enum Species species, s8 offset_picCoord
     species = SanitizeSpeciesId(species);
 
     //FrontPicCoords
-    offset = gSpeciesInfo[species].frontPicYOffset + offset_picCoords;
+    offset = gSpeciesGraphicsInfo[species].frontPicYOffset + offset_picCoords;
 
     //Elevation
-    offset -= gSpeciesInfo[species].enemyMonElevation + offset_elevation;
+    offset -= gSpeciesGraphicsInfo[species].enemyMonElevation + offset_elevation;
 
     //Main position
     y = offset + sBattlerCoords[0][1].y;
@@ -916,7 +916,7 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
     
     if (B_ENEMY_MON_SHADOW_STYLE >= GEN_4 && P_GBA_STYLE_SPECIES_GFX == FALSE)
     {
-        invisible = gSpeciesInfo[species].suppressEnemyShadow;
+        invisible = gSpeciesGraphicsInfo[species].suppressEnemyShadow;
 
         if (MAP(MAP_HIGH_IN_THE_SKY))
             invisible = TRUE;
@@ -951,7 +951,7 @@ static void LoadAndCreateEnemyShadowSpriteCustom(struct PokemonSpriteVisualizer 
     }
     else
     {
-        if (gSpeciesInfo[species].enemyMonElevation == 0)
+        if (gSpeciesGraphicsInfo[species].enemyMonElevation == 0)
             invisible = TRUE;
 
         LoadCompressedSpriteSheet(&gSpriteSheet_EnemyShadow);
@@ -1298,7 +1298,7 @@ void CB2_Pokemon_Sprite_Visualizer(void)
         HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->spritesGfx[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
         BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 5);
         SetMultiuseSpriteTemplateToPokemon(species, 2);
-        offset_y = gSpeciesInfo[species].backPicYOffset;
+        offset_y = gSpeciesGraphicsInfo[species].backPicYOffset;
         data->backspriteId = CreateSprite(&gMultiuseSpriteTemplate, VISUALIZER_MON_BACK_X, VISUALIZER_MON_BACK_Y + offset_y, 0);
         gSprites[data->backspriteId].oam.paletteNum = 5;
         gSprites[data->backspriteId].callback = SpriteCallbackDummy;
@@ -1323,7 +1323,7 @@ void CB2_Pokemon_Sprite_Visualizer(void)
 
         //Anim names
         data->animIdBack = GetSpeciesBackAnimSet(species) + 1;
-        data->animIdFront = gSpeciesInfo[species].frontAnimId;
+        data->animIdFront = gSpeciesGraphicsInfo[species].frontAnimId;
         UpdateMonAnimNames(taskId);
 
         //Footprint
@@ -1392,7 +1392,7 @@ static void ApplyOffsetSpriteValues(struct PokemonSpriteVisualizer *data)
 {
     enum Species species = IsSpeciesEnabled(data->currentmonId) ? SanitizeSpeciesId(data->currentmonId) : SPECIES_NONE;
     //Back
-    gSprites[data->backspriteId].y = VISUALIZER_MON_BACK_Y + gSpeciesInfo[species].backPicYOffset + data->offsetsSpriteValues.offset_back_picCoords;
+    gSprites[data->backspriteId].y = VISUALIZER_MON_BACK_Y + gSpeciesGraphicsInfo[species].backPicYOffset + data->offsetsSpriteValues.offset_back_picCoords;
     //Front
     gSprites[data->frontspriteId].y = GetBattlerSpriteFinal_YCustom(species, data->offsetsSpriteValues.offset_front_picCoords, data->offsetsSpriteValues.offset_front_elevation);
 
@@ -1469,7 +1469,7 @@ static void UpdateSubmenuOneOptionValue(u8 taskId, bool8 increment)
                     modArrows->currValue = GetFormSpeciesId(species, formId - 1);
             }
             data->animIdBack = GetSpeciesBackAnimSet(modArrows->currValue) + 1;
-            data->animIdFront = gSpeciesInfo[modArrows->currValue].frontAnimId;
+            data->animIdFront = gSpeciesGraphicsInfo[modArrows->currValue].frontAnimId;
             UpdateMonAnimNames(taskId);
             ResetOffsetSpriteValues(data);
             ResetShadowSettings(data);
@@ -1512,7 +1512,7 @@ static void UpdateSubmenuTwoOptionValue(u8 taskId, bool8 increment)
                 offset -= 1;
         }
         data->offsetsSpriteValues.offset_back_picCoords = offset;
-        gSprites[data->backspriteId].y = VISUALIZER_MON_BACK_Y + gSpeciesInfo[species].backPicYOffset + offset;
+        gSprites[data->backspriteId].y = VISUALIZER_MON_BACK_Y + gSpeciesGraphicsInfo[species].backPicYOffset + offset;
         break;
     case 1: //Front picCoords
         offset = data->offsetsSpriteValues.offset_front_picCoords;
@@ -1723,13 +1723,13 @@ static void HandleInput_PokemonSpriteVisualizer(u8 taskId)
         if (HasTwoFramesAnimation(species))
             StartSpriteAnim(Frontsprite, 1);
 
-        if (gSpeciesInfo[species].frontAnimDelay != 0)
+        if (gSpeciesGraphicsInfo[species].frontAnimDelay != 0)
         {
             // Animation has delay, start delay task
             u8 taskId = CreateTask(Task_AnimateAfterDelay, 0);
             STORE_PTR_IN_TASK(Frontsprite, taskId, 0);
             gTasks[taskId].sAnimId = data->animIdFront;
-            gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
+            gTasks[taskId].sAnimDelay = gSpeciesGraphicsInfo[species].frontAnimDelay;
         }
         else
         {
@@ -1780,7 +1780,7 @@ static void HandleInput_PokemonSpriteVisualizer(u8 taskId)
                 ResetShadowSettings(data);
                 ReloadPokemonSprites(data);
                 data->animIdBack = GetSpeciesBackAnimSet(species) + 1;
-                data->animIdFront = gSpeciesInfo[species].frontAnimId;
+                data->animIdFront = gSpeciesGraphicsInfo[species].frontAnimId;
                 UpdateMonAnimNames(taskId);
                 ResetOffsetSpriteValues(data);
             }
@@ -1797,7 +1797,7 @@ static void HandleInput_PokemonSpriteVisualizer(u8 taskId)
                 ResetShadowSettings(data);
                 ReloadPokemonSprites(data);
                 data->animIdBack = GetSpeciesBackAnimSet(species) + 1;
-                data->animIdFront = gSpeciesInfo[species].frontAnimId;
+                data->animIdFront = gSpeciesGraphicsInfo[species].frontAnimId;
                 UpdateMonAnimNames(taskId);
                 ResetOffsetSpriteValues(data);
             }
@@ -2041,7 +2041,7 @@ static void ReloadPokemonSprites(struct PokemonSpriteVisualizer *data)
     HandleLoadSpecialPokePic(FALSE, gMonSpritesGfxPtr->spritesGfx[2], species, (data->isFemale ? FEMALE_PERSONALITY : MALE_PERSONALITY));
     BattleLoadOpponentMonSpriteGfxCustom(species, data->isFemale, data->isShiny, 5);
     SetMultiuseSpriteTemplateToPokemon(species, 2);
-    offset_y = gSpeciesInfo[species].backPicYOffset;
+    offset_y = gSpeciesGraphicsInfo[species].backPicYOffset;
     data->backspriteId = CreateSprite(&gMultiuseSpriteTemplate, VISUALIZER_MON_BACK_X, VISUALIZER_MON_BACK_Y + offset_y, 0);
     gSprites[data->backspriteId].oam.paletteNum = 5;
     gSprites[data->backspriteId].callback = SpriteCallbackDummy;

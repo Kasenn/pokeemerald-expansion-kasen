@@ -567,7 +567,7 @@ Edit [src/data/pokemon/pokedex_orders.h](https://github.com/rh-hideout/pokeemera
 ## 4. Define its species information
 Edit [src/data/pokemon/species_info.h](https://github.com/rh-hideout/pokeemerald-expansion/blob/master/src/data/pokemon/species_info.h):
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      [SPECIES_NONE] = {0},
      ...
@@ -613,7 +613,7 @@ Edit [src/data/pokemon/species_info.h](https://github.com/rh-hideout/pokeemerald
 +        .growthRate = GROWTH_SLOW,
 +        .eggGroups = { EGG_GROUP_UNDISCOVERED, EGG_GROUP_UNDISCOVERED},
 +        .abilities = {ABILITY_INSOMNIA, ABILITY_NONE},
-+        .safariZoneFleeRate = 0,
++        .monFleeRate = 0,
 +        .bodyColor = BODY_COLOR_PURPLE,
 +        .noFlip = FALSE,
 +     },

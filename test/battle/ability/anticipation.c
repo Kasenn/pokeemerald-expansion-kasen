@@ -291,8 +291,8 @@ SINGLE_BATTLE_TEST("Anticipation treats dynamic move types as their base type (N
 // {
 //     KNOWN_FAILING;
 //     GIVEN {
-//         ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[0] == TYPE_DRAGON);
-//         ASSUME(gSpeciesInfo[SPECIES_RAYQUAZA_MEGA].types[1] == TYPE_FLYING);
+//         ASSUME(gSpeciesBaseInfo[SPECIES_RAYQUAZA_MEGA].types[0] == TYPE_DRAGON);
+//         ASSUME(gSpeciesBaseInfo[SPECIES_RAYQUAZA_MEGA].types[1] == TYPE_FLYING);
 //         PLAYER(SPECIES_RAYQUAZA) { Moves(MOVE_DRAGON_ASCENT, MOVE_CELEBRATE); }
 //         OPPONENT(SPECIES_EEVEE) { Ability(ABILITY_ANTICIPATION); Moves(MOVE_ROCK_SLIDE, MOVE_SKILL_SWAP, MOVE_POUND, MOVE_CELEBRATE); }
 //     } WHEN {

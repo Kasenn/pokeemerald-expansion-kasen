@@ -27,7 +27,7 @@
     uses a BACK_ANIM_* that refers to a set of 3 ANIM functions. Which of the
     3 that gets used depends on the Pokémon's nature (see sBackAnimationIds).
 
-    The gSpeciesInfo table links to both BACK_ANIM and ANIM in its frontAnimId and backAnimId fields.
+    The gSpeciesBaseInfo table links to both BACK_ANIM and ANIM in its frontAnimId and backAnimId fields.
 
     These are the functions that will start an animation:
     - LaunchAnimationTaskForFrontSprite
@@ -471,8 +471,8 @@ static void SetPosForRotation(struct Sprite *sprite, u16 index, s16 amplitudeX, 
 
 enum BackAnim GetSpeciesBackAnimSet(enum Species species)
 {
-    if (gSpeciesInfo[species].backAnimId != BACK_ANIM_NONE)
-        return gSpeciesInfo[species].backAnimId - 1;
+    if (gSpeciesGraphicsInfo[species].backAnimId != BACK_ANIM_NONE)
+        return gSpeciesGraphicsInfo[species].backAnimId - 1;
     else
         return BACK_ANIM_NONE;
 }

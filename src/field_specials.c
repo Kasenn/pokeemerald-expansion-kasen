@@ -1285,7 +1285,7 @@ bool8 ScrCmd_IsTypeInParty(struct ScriptContext *ctx)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
-            if (gSpeciesInfo[species].types[0] == type || gSpeciesInfo[species].types[1] == type)
+            if (gSpeciesBaseInfo[species].types[0] == type || gSpeciesBaseInfo[species].types[1] == type)
             {
                 gSpecialVar_Result = TRUE;
                 gSpecialVar_0x8000 = i;
@@ -1309,7 +1309,7 @@ void IsFireTypeInParty(void)
         if (GetMonData(pokemon, MON_DATA_SANITY_HAS_SPECIES) && !GetMonData(pokemon, MON_DATA_IS_EGG))
         {
             species = GetMonData(pokemon, MON_DATA_SPECIES);
-            if (gSpeciesInfo[species].types[0] == TYPE_FIRE || gSpeciesInfo[species].types[1] == TYPE_FIRE)
+            if (gSpeciesBaseInfo[species].types[0] == TYPE_FIRE || gSpeciesBaseInfo[species].types[1] == TYPE_FIRE)
             {  
                 gSpecialVar_0x8004 = species;
                 gSpecialVar_Result = TRUE;
@@ -5755,7 +5755,7 @@ void SampleResortGorgeousMonAndReward(void)
         VarSet(VAR_RESORT_GORGEOUS_REWARD, SampleResortGorgeousReward());
         VarSet(VAR_RESORT_GOREGEOUS_STEP_COUNTER, 0);
     }
-    StringCopy(gStringVar1, gSpeciesInfo[VarGet(VAR_RESORT_GORGEOUS_REQUESTED_MON)].speciesName);
+    StringCopy(gStringVar1, gSpeciesDexInfo[VarGet(VAR_RESORT_GORGEOUS_REQUESTED_MON)].speciesName);
 }
 
 static enum Species SampleResortGorgeousMon(void)

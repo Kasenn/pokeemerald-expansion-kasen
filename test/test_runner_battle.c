@@ -2478,9 +2478,9 @@ static void SetGimmick(u32 sourceLine, enum BattleTrainer trainer, u32 partyInde
 
 void Gender_(u32 sourceLine, u32 gender)
 {
-    const struct SpeciesInfo *info;
+    const struct SpeciesBaseInfo *info;
     INVALID_IF(!DATA.currentMon, "Gender outside of PLAYER/OPPONENT");
-    info = &gSpeciesInfo[GetMonData(DATA.currentMon, MON_DATA_SPECIES)];
+    info = &gSpeciesBaseInfo[GetMonData(DATA.currentMon, MON_DATA_SPECIES)];
     switch (gender)
     {
     case MON_MALE:
@@ -2508,11 +2508,11 @@ void Ability_(u32 sourceLine, enum Ability ability)
 {
     s32 i;
     enum Species species;
-    const struct SpeciesInfo *info;
+    const struct SpeciesBaseInfo *info;
     INVALID_IF(!DATA.currentMon, "Ability outside of PLAYER/OPPONENT");
     INVALID_IF(ability >= ABILITIES_COUNT, "Illegal ability id: %d", ability);
     species = GetMonData(DATA.currentMon, MON_DATA_SPECIES);
-    info = &gSpeciesInfo[species];
+    info = &gSpeciesBaseInfo[species];
     for (i = 0; i < NUM_ABILITY_SLOTS; i++)
     {
         if (info->abilities[i] == ability)
@@ -2535,7 +2535,7 @@ void Level_(u32 sourceLine, u32 level)
     INVALID_IF(!DATA.currentMon, "Level outside of PLAYER/OPPONENT");
     INVALID_IF(level == 0 || level > MAX_LEVEL, "Illegal level: %d", level);
     SetMonData(DATA.currentMon, MON_DATA_LEVEL, &level);
-    SetMonData(DATA.currentMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
+    SetMonData(DATA.currentMon, MON_DATA_EXP, &gExperienceTables[gSpeciesBaseInfo[species].growthRate][level]);
     gMain.inBattle = TRUE;
     CalculateMonStats(DATA.currentMon);
     gMain.inBattle = FALSE;

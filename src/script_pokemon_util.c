@@ -329,7 +329,7 @@ void ToggleGigantamaxFactor(struct ScriptContext *ctx)
     {
         bool32 gigantamaxFactor;
 
-        if (gSpeciesInfo[SanitizeSpeciesId(GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_SPECIES))].isMythical)
+        if (gSpeciesMiscInfo[SanitizeSpeciesId(GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_SPECIES))].isMythical)
             return;
 
         gigantamaxFactor = GetMonData(&gParties[B_TRAINER_PLAYER][partyIndex], MON_DATA_GIGANTAMAX_FACTOR);
@@ -480,7 +480,7 @@ void ScrCmd_setpartylevel(struct ScriptContext *ctx)
         u32 species = GetMonData(&gPlayerParty[i], MON_DATA_SPECIES, NULL);
 
         SetMonData(&gPlayerParty[i], MON_DATA_LEVEL, &level);
-        SetMonData(&gPlayerParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
+        SetMonData(&gPlayerParty[i], MON_DATA_EXP, &gExperienceTables[gSpeciesBaseInfo[species].growthRate][level]);
         CalculateMonStats(&gPlayerParty[i]);
     }
 }

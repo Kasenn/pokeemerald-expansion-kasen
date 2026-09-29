@@ -586,7 +586,7 @@ SINGLE_BATTLE_TEST("Fling fails when a Paradox mon holds a Booster Energy")
 {
     GIVEN {
         ASSUME(GetItemHoldEffect(ITEM_BOOSTER_ENERGY) == HOLD_EFFECT_BOOSTER_ENERGY);
-        ASSUME(gSpeciesInfo[SPECIES_RAGING_BOLT].isParadox == TRUE);
+        ASSUME(gSpeciesMiscInfo[SPECIES_RAGING_BOLT].isParadox == TRUE);
         PLAYER(SPECIES_RAGING_BOLT) { Item(ITEM_BOOSTER_ENERGY); Ability(ABILITY_PROTOSYNTHESIS); }
         OPPONENT(SPECIES_TORKOAL) { Ability(ABILITY_DROUGHT); }
     } WHEN {
@@ -602,7 +602,7 @@ SINGLE_BATTLE_TEST("Fling doesn't fail when holding a Booster Energy and the tar
 {
     GIVEN {
         ASSUME(GetItemHoldEffect(ITEM_BOOSTER_ENERGY) == HOLD_EFFECT_BOOSTER_ENERGY);
-        ASSUME(gSpeciesInfo[SPECIES_RAGING_BOLT].isParadox == TRUE);
+        ASSUME(gSpeciesMiscInfo[SPECIES_RAGING_BOLT].isParadox == TRUE);
         PLAYER(SPECIES_WOBBUFFET) { Item(ITEM_BOOSTER_ENERGY); }
         OPPONENT(SPECIES_RAGING_BOLT) { Ability(ABILITY_PROTOSYNTHESIS); }
     } WHEN {

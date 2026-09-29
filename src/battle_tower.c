@@ -2046,7 +2046,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
                 enum Species species = GetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_SPECIES);
                 if (species)
                 {
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][enemyLevel]);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_EXP, &gExperienceTables[gSpeciesBaseInfo[species].growthRate][enemyLevel]);
                     CalculateMonStats(&gParties[B_TRAINER_OPPONENT_A][i]);
                 }
             }
@@ -2055,7 +2055,7 @@ void TrySetLinkBattleTowerEnemyPartyLevel(void)
                 enum Species species = GetMonData(&gParties[B_TRAINER_OPPONENT_B][i], MON_DATA_SPECIES);
                 if (species)
                 {
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_B][i], MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][enemyLevel]);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_B][i], MON_DATA_EXP, &gExperienceTables[gSpeciesBaseInfo[species].growthRate][enemyLevel]);
                     CalculateMonStats(&gParties[B_TRAINER_OPPONENT_B][i]);
                 }
             }

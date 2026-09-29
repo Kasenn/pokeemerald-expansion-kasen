@@ -391,7 +391,7 @@ struct Evolution
     const struct EvolutionParam *params;
 };
 
-struct SpeciesInfo /*0xC4*/
+struct SpeciesBaseInfo
 {
     u8 baseHP;
     u8 baseAttack;
@@ -401,7 +401,6 @@ struct SpeciesInfo /*0xC4*/
     u8 baseSpDefense;
     enum Type types[2];
     u8 catchRate;
-    u8 forceTeraType;
     u16 expYield; // expYield was changed from u8 to u16 for the new Exp System.
     u16 evYield_HP:4;
     u16 evYield_Attack:4;
@@ -409,22 +408,31 @@ struct SpeciesInfo /*0xC4*/
     u16 evYield_Speed:4;
     u16 evYield_SpAttack:4;
     u16 evYield_SpDefense:4;
-    u16 padding2:8;
+    u16 padding:8;
     enum Item itemCommon;
     enum Item itemRare;
     u8 genderRatio;
     u8 eggCycles;
-    u8 friendship;
     u8 growthRate;
     enum EggGroup eggGroups[EGG_GROUPS_PER_MON];
     enum Ability abilities[NUM_ABILITY_SLOTS]; // 3 abilities, no longer u8 because we have over 255 abilities now.
-    u8 safariZoneFleeRate;
+    // Move Data
+    const struct LevelUpMove *levelUpLearnset;
+    const u16 *teachableLearnset;
+    const u16 *eggMoveLearnset;
+    const struct Evolution *evolutions;
+    const u16 *formSpeciesIdTable;
+    const struct FormChange *formChangeTable;
+    u8 friendship;
+};
 
-    // Pokédex data
+struct SpeciesDexInfo
+{
     u8 categoryName[13];
     u8 speciesName[POKEMON_NAME_LENGTH + 1];
-    enum PokemonCry cryId:16;
-    enum NationalDexOrder natDexNum:16;
+    enum PokemonCry cryId:12;
+    enum NationalDexOrder natDexNum:12;
+    enum BodyColor bodyColor:8;
     u16 height; //in decimeters
     u16 weight; //in hectograms
     u16 pokemonScale;
@@ -432,9 +440,10 @@ struct SpeciesInfo /*0xC4*/
     u16 trainerScale;
     u16 trainerOffset;
     const u8 *description;
-    enum BodyColor bodyColor:7;
-    // Graphical Data
-    u8 noFlip:1;
+};
+
+struct SpeciesGraphicsInfo
+{
     u8 frontAnimDelay;
     u8 frontAnimId;
     u8 backAnimId;
@@ -471,7 +480,34 @@ struct SpeciesInfo /*0xC4*/
 #endif //P_GENDER_DIFFERENCES
     u8 pokemonJumpType:2; // According to the clerk, the Pokémon allowed in Pokémon Jump are all <= 28 inches/71 cm, and do not only swim, burrow, or fly.
     u8 enemyMonElevation; // This determines how much higher above the usual position the enemy Pokémon is during battle. Species that float or fly have nonzero values.
-    // Flags
+#if OW_POKEMON_OBJECT_EVENTS
+    struct ObjectEventGraphicsInfo overworldData;
+#if P_GENDER_DIFFERENCES
+    struct ObjectEventGraphicsInfo overworldDataFemale;
+#endif //P_GENDER_DIFFERENCES
+#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
+    const void *overworldPalette;
+    const void *overworldShinyPalette;
+#if P_GENDER_DIFFERENCES
+    const void *overworldPaletteFemale;
+    const void *overworldShinyPaletteFemale;
+#endif //P_GENDER_DIFFERENCES
+#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
+#endif //OW_POKEMON_OBJECT_EVENTS
+    // Shadow settings
+    s8 enemyShadowXOffset; // This determines the X-offset for an enemy Pokémon's shadow during battle; negative values point left, positive values point right.
+    s8 enemyShadowYOffset; // This determines the Y-offset for an enemy Pokémon's shadow during battle; negative values point up, positive values point down.
+    u16 enemyShadowSize:3; // This determines the size of the shadow sprite used for an enemy Pokémon's front sprite during battle.
+    u16 suppressEnemyShadow:1; // If set to true, then a shadow will not be drawn beneath an enemy Pokémon's front sprite during battle.
+    enum EggIds eggId:11;
+    u8 noFlip:1;
+#if SPECIES_EGG_COLOR
+    const u16 *eggPalette;
+#endif
+};
+
+struct SpeciesMiscInfo
+{
     u32 isRestrictedLegendary:1;
     u32 isSubLegendary:1;
     u32 isMythical:1;
@@ -494,38 +530,8 @@ struct SpeciesInfo /*0xC4*/
     u32 isFrontierBanned:1; // This species is not allowed to participate in Battle Frontier facilities.
     u32 isSkyBattleBanned:1;
     u32 isTelekinesisBanned:1;
-    u32 padding4:8;
-    // Shadow settings
-    s8 enemyShadowXOffset; // This determines the X-offset for an enemy Pokémon's shadow during battle; negative values point left, positive values point right.
-    s8 enemyShadowYOffset; // This determines the Y-offset for an enemy Pokémon's shadow during battle; negative values point up, positive values point down.
-    u16 enemyShadowSize:3; // This determines the size of the shadow sprite used for an enemy Pokémon's front sprite during battle.
-    u16 suppressEnemyShadow:1; // If set to true, then a shadow will not be drawn beneath an enemy Pokémon's front sprite during battle.
-    enum EggIds eggId:12;
-    // Move Data
-    const struct LevelUpMove *levelUpLearnset;
-    const u16 *teachableLearnset;
-    const u16 *eggMoveLearnset;
-    const struct Evolution *evolutions;
-    const u16 *formSpeciesIdTable;
-    const struct FormChange *formChangeTable;
-#if OW_POKEMON_OBJECT_EVENTS
-    struct ObjectEventGraphicsInfo overworldData;
-#if P_GENDER_DIFFERENCES
-    struct ObjectEventGraphicsInfo overworldDataFemale;
-#endif //P_GENDER_DIFFERENCES
-#if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
-    const void *overworldPalette;
-    const void *overworldShinyPalette;
-#if P_GENDER_DIFFERENCES
-    const void *overworldPaletteFemale;
-    const void *overworldShinyPaletteFemale;
-#endif //P_GENDER_DIFFERENCES
-#endif //OW_PKMN_OBJECTS_SHARE_PALETTES
-#endif //OW_POKEMON_OBJECT_EVENTS
+    u32 monFleeRate:8;
     enum OverworldWildEncounterBehaviors overworldEncounterBehavior;
-#if SPECIES_EGG_COLOR
-    const u16 *eggPalette;
-#endif
 };
 
 // This struct represent values from user input (createmon/givemon) that have not been sanitized
@@ -767,7 +773,10 @@ extern u8 gCustomBattleFlags;
 
 extern const u16 gFacilityClassToPicIndex[];
 extern const enum TrainerClassID gFacilityClassToTrainerClass[];
-extern const struct SpeciesInfo gSpeciesInfo[];
+extern const struct SpeciesBaseInfo gSpeciesBaseInfo[];
+extern const struct SpeciesDexInfo gSpeciesDexInfo[];
+extern const struct SpeciesGraphicsInfo gSpeciesGraphicsInfo[];
+extern const struct SpeciesMiscInfo gSpeciesMiscInfo[];
 extern const u32 gExperienceTables[][MAX_LEVEL + 1];
 extern const u8 gPPUpGetMask[];
 extern const u8 gPPUpClearMask[];
@@ -1006,50 +1015,92 @@ void CreateMonFromTemplate(struct Pokemon *mon, const struct PokemonTemplate *mo
 static inline u32 OWE_GetMovementTypeFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].movementType;
 }
 
 static inline u32 OWE_GetViewDistanceFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].viewDistance;
 }
 
 static inline u32 OWE_GetViewWidthFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].viewWidth;
 }
 
 static inline u32 OWE_GetViewActiveDistanceFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].activeDistance;
 }
 
 static inline enum SpeedOWE OWE_GetIdleSpeedFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].idleSpeed;
 }
 
 static inline enum SpeedOWE OWE_GetActiveSpeedFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].activeSpeed;
 }
 
 static inline enum ReturnToIdleOWE OWE_GetReturnToIdleFromSpecies(enum Species speciesId)
 {
     speciesId = SanitizeSpeciesId(speciesId);
-    enum OverworldWildEncounterBehaviors behavior = gSpeciesInfo[speciesId].overworldEncounterBehavior;
+    enum OverworldWildEncounterBehaviors behavior = gSpeciesMiscInfo[speciesId].overworldEncounterBehavior;
     return gOWESpeciesBehavior[behavior].returnToIdle;
+}
+
+static inline u8 GetSpeciesBackPicYOffset(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].backPicYOffset;
+}
+
+static inline u8 GetSpeciesFrontPicYOffset(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].frontPicYOffset;
+}
+
+static inline u8 GetSpeciesEnemyMonElevation(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].enemyMonElevation;
+}
+
+static inline u8 GetSpeciesBackPicSize(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].backPicSize;
+}
+
+static inline u8 GetSpeciesFrontPicSize(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].frontPicSize;
+}
+
+static inline u8 GetSpeciesFrontPicSizeFemale(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesGraphicsInfo[speciesId].frontPicSizeFemale;
+}
+
+static inline u8 GetSpeciesGrowthRate(enum Species speciesId)
+{
+    speciesId = SanitizeSpeciesId(speciesId);
+    return gSpeciesBaseInfo[speciesId].growthRate;
 }
 
 #endif // GUARD_POKEMON_H

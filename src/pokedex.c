@@ -4603,7 +4603,7 @@ bool16 HasAllHoennMons(void)
     for (i = 0; i < HOENN_DEX_COUNT - 1; i++)
     {
         j = HoennToNationalOrder(i + 1);
-        if (!(gSpeciesInfo[j].isMythical && !gSpeciesInfo[j].dexForceRequired) && !GetSetPokedexFlag(j, FLAG_GET_CAUGHT))
+        if (!(gSpeciesMiscInfo[j].isMythical && !gSpeciesMiscInfo[j].dexForceRequired) && !GetSetPokedexFlag(j, FLAG_GET_CAUGHT))
             return FALSE;
     }
     return TRUE;
@@ -4617,7 +4617,7 @@ bool16 HasAllKantoMons(void)
     for (i = 0; i < KANTO_DEX_COUNT - 1; i++)
     {
         j = KantoToNationalOrder(i + 1);
-        if (!(gSpeciesInfo[j].isMythical && !gSpeciesInfo[j].dexForceRequired) && !GetSetPokedexFlag(j, FLAG_GET_CAUGHT))
+        if (!(gSpeciesMiscInfo[j].isMythical && !gSpeciesMiscInfo[j].dexForceRequired) && !GetSetPokedexFlag(j, FLAG_GET_CAUGHT))
             return FALSE;
     }
     return TRUE;
@@ -4630,7 +4630,7 @@ bool16 HasAllMons(void)
     for (i = 1; i < NATIONAL_DEX_COUNT + 1; i++)
     {
         j = NationalPokedexNumToSpecies(i);
-        if (!(gSpeciesInfo[j].isMythical && !gSpeciesInfo[j].dexForceRequired) && !GetSetPokedexFlag(i, FLAG_GET_CAUGHT))
+        if (!(gSpeciesMiscInfo[j].isMythical && !gSpeciesMiscInfo[j].dexForceRequired) && !GetSetPokedexFlag(i, FLAG_GET_CAUGHT))
             return FALSE;
     }
 
@@ -4792,7 +4792,7 @@ void DrawFootprint(u8 windowId, enum Species species)
     u32 i, j, tileIdx = 0;
 
 #if P_FOOTPRINTS
-    footprintGfx = gSpeciesInfo[SanitizeSpeciesId(species)].footprint;
+    footprintGfx = gSpeciesGraphicsInfo[SanitizeSpeciesId(species)].footprint;
 #else
     return;
 #endif
@@ -4888,25 +4888,25 @@ u16 CreateMonSpriteFromNationalDexNumber(enum NationalDexOrder nationalNum, s16 
 u16 GetPokemonScaleFromNationalDexNumber(u16 nationalNum)
 {
     nationalNum = NationalPokedexNumToSpeciesForm(nationalNum);
-    return gSpeciesInfo[nationalNum].pokemonScale;
+    return gSpeciesDexInfo[nationalNum].pokemonScale;
 }
 
 u16 GetPokemonOffsetFromNationalDexNumber(u16 nationalNum)
 {
     nationalNum = NationalPokedexNumToSpeciesForm(nationalNum);
-    return gSpeciesInfo[nationalNum].pokemonOffset;
+    return gSpeciesDexInfo[nationalNum].pokemonOffset;
 }
 
 u16 GetTrainerScaleFromNationalDexNumber(u16 nationalNum)
 {
     nationalNum = NationalPokedexNumToSpeciesForm(nationalNum);
-    return gSpeciesInfo[nationalNum].trainerScale;
+    return gSpeciesDexInfo[nationalNum].trainerScale;
 }
 
 u16 GetTrainerOffsetFromNationalDexNumber(u16 nationalNum)
 {
     nationalNum = NationalPokedexNumToSpeciesForm(nationalNum);
-    return gSpeciesInfo[nationalNum].trainerOffset;
+    return gSpeciesDexInfo[nationalNum].trainerOffset;
 }
 
 u16 CreateSizeScreenTrainerPic(u16 species, s16 x, s16 y, s8 paletteSlot)
@@ -4958,7 +4958,7 @@ static int DoPokedexSearch(u8 dexMode, u8 order, u8 abcGroup, enum BodyColor bod
         {
             species = NationalPokedexNumToSpeciesForm(sPokedexView->pokedexList[i].dexNum);
 
-            if (bodyColor == gSpeciesInfo[species].bodyColor)
+            if (bodyColor == gSpeciesDexInfo[species].bodyColor)
             {
                 sPokedexView->pokedexList[resultsCount] = sPokedexView->pokedexList[i];
                 resultsCount++;

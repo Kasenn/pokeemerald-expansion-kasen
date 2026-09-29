@@ -11,7 +11,7 @@ The main things that the Expansion changes are listed here.
 * Still Front Pics *(`gMonStillFrontPic_YourPokemon`)* and by extension `src/anim_mon_front_pics.c` have been removed.
 * `src/data/pokemon/cry_ids.h` doesn't exist anymore.
 * You have 6 icon palettes available instead of the base 3.
-* Most tables that use `SPECIES_x` as indexes have been moved to `gSpeciesInfo`.
+* Most tables that use `SPECIES_x` as indexes have been moved to `gSpeciesBaseInfo`.
 
 # Content
 * [Useful resources](#useful-resources)
@@ -175,7 +175,7 @@ We'll start by adding the self-explanatory data that's also present in pret's va
 ## 3. Define its basic species information
 Edit [src/data/pokemon/species_info.h](https://github.com/rh-hideout/pokeemerald-expansion/blob/master/src/data/pokemon/species_info.h):
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      [SPECIES_NONE] = {0},
      ...
@@ -269,7 +269,7 @@ That's all the basic fields present in vanilla emerald, so now let's take a look
 ## 4. Species Name
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -344,7 +344,7 @@ And then link it in [sound/cry_tables.inc](https://github.com/rh-hideout/pokeeme
 
 Lastly, we add the cry to our species entry
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -423,7 +423,7 @@ Edit [src/pokemon.c](https://github.com/rh-hideout/pokeemerald-expansion/blob/ma
 
 Now we can add the number and entry to our Mewthree:
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -607,10 +607,10 @@ static const union AnimCmd sAnim_##name##_1[] = \
 ```
 
 ## 4. Linking graphic information to our Pokémon
-Now that we have all the external data ready, we just need to add it to `gSpeciesInfo` plus the rest of the animation and graphical data that we want to use:
+Now that we have all the external data ready, we just need to add it to `gSpeciesBaseInfo` plus the rest of the animation and graphical data that we want to use:
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -699,7 +699,7 @@ We're almost there just a bit left!
 ## 1. Species Flags
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -800,10 +800,10 @@ static const struct LevelUpMove sPecharuntLevelUpLearnset[] = {
 ```
 **NOTE**: If `P_LVL_UP_LEARNSETS` is not set to something equal to `GEN_9`, the file to be edited will change to what's specified.
 
-Again, we need to register the learnset in `gSpeciesInfo`:
+Again, we need to register the learnset in `gSpeciesBaseInfo`:
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -862,10 +862,10 @@ static const u16 sPecharuntTeachableLearnset[] = {
 +};
 ```
 
-Once more, we also need to register the learnset in `gSpeciesInfo`:
+Once more, we also need to register the learnset in `gSpeciesBaseInfo`:
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =
@@ -885,10 +885,10 @@ If you want to create a Pokémon which can breed, you will need to edit [src/dat
 
 We want Mewthree to evolve from Mewtwo by reaching level 100.
 
-Edit `gSpeciesInfo`:
+Edit `gSpeciesBaseInfo`:
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTWO] =
@@ -976,7 +976,7 @@ static const u16 sPikachuFormSpeciesIdTable[] = {
 };
 #endif //P_FAMILY_PIKACHU
 ```
-We register the table for each form in `gSpeciesInfo`.
+We register the table for each form in `gSpeciesBaseInfo`.
 
 ```diff
     [SPECIES_PIKACHU] =
@@ -1106,10 +1106,10 @@ Thirdly, in [src/data/object_events/object_event_pic_tables_followers.h](https:/
 +};
 ```
 
-And finally, in `gSpeciesInfo`:
+And finally, in `gSpeciesBaseInfo`:
 
 ```diff
- const struct SpeciesInfo gSpeciesInfo[] =
+ const struct SpeciesInfo gSpeciesBaseInfo[] =
  {
      ...
      [SPECIES_MEWTHREE] =

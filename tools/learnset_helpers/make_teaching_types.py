@@ -42,8 +42,8 @@ def extract_repo_species_data() -> list:
     species_data = []
     pokemon_list = []
     teaching_type = "DEFAULT_LEARNING"
-    file_list = sorted(glob.glob("src/data/pokemon/species_info/*_families.h"))
-    file_list.append("./src/data/pokemon/species_info.h")
+    file_list = sorted(glob.glob("src/data/pokemon/species_info/species_base_info/*_families.h"))
+    file_list.append("./src/data/pokemon/species_base_info.h")
     for families_fname in file_list:
         with open(families_fname, "r") as family_fp:
             species_lines = family_fp.readlines()

@@ -562,8 +562,8 @@ SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 1")
 {
     s16 damage[2];
     
-    ASSUME(gSpeciesInfo[SPECIES_GENGAR_MEGA].baseSpAttack == 170);
-    ASSUME(gSpeciesInfo[SPECIES_GENGAR_MEGA].baseSpDefense == 95);
+    ASSUME(gSpeciesBaseInfo[SPECIES_GENGAR_MEGA].baseSpAttack == 170);
+    ASSUME(gSpeciesBaseInfo[SPECIES_GENGAR_MEGA].baseSpDefense == 95);
     ASSUME(GetMovePower(MOVE_WATER_GUN) == 40);
     
     FlagSet(FLAG_OBTAINED_MEGA_RING);
@@ -598,8 +598,8 @@ SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 2")
 {
     s16 damage[1];
     
-    ASSUME(gSpeciesInfo[SPECIES_BEEDRILL_MEGA].baseAttack == 150);
-    ASSUME(gSpeciesInfo[SPECIES_BEEDRILL_MEGA].baseDefense == 40);
+    ASSUME(gSpeciesBaseInfo[SPECIES_BEEDRILL_MEGA].baseAttack == 150);
+    ASSUME(gSpeciesBaseInfo[SPECIES_BEEDRILL_MEGA].baseDefense == 40);
     
     FlagSet(FLAG_OBTAINED_MEGA_RING);
 
@@ -628,8 +628,8 @@ SINGLE_BATTLE_TEST("My own: Mega Exhaustion deals damage correctly 3")
 {
     s16 damage[3];
     
-    ASSUME(gSpeciesInfo[SPECIES_HERACROSS_MEGA].baseAttack == 185);
-    ASSUME(gSpeciesInfo[SPECIES_HERACROSS_MEGA].baseDefense == 115);
+    ASSUME(gSpeciesBaseInfo[SPECIES_HERACROSS_MEGA].baseAttack == 185);
+    ASSUME(gSpeciesBaseInfo[SPECIES_HERACROSS_MEGA].baseDefense == 115);
     ASSUME(GetMovePower(MOVE_SCRATCH) == 40);
     
     FlagSet(FLAG_OBTAINED_MEGA_RING);

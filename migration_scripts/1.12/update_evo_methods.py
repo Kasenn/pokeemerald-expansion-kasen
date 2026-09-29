@@ -227,7 +227,7 @@ species_files = [
     "gen_9_families.h",
 ]
 
-PATH = "src/data/pokemon/species_info/"
+PATH = "src/data/pokemon/species_info/species_base_info/"
 
 for source in species_files:
     with open(PATH + source, 'r') as file:

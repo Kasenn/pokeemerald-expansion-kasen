@@ -466,7 +466,7 @@ void ScrCmd_DefeatTrainer(struct ScriptContext *ctx)
 
     for (i = 0; i < partySize; i++)
     {
-        exp += (gSpeciesInfo[party[i].species].expYield * party[i].lvl * 150) / 700;
+        exp += (gSpeciesBaseInfo[party[i].species].expYield * party[i].lvl * 150) / 700;
         // Base trainer exp without scaling and without any exp boosts
     }
     while (exp >= XL_CANDY_EXP)
@@ -938,13 +938,13 @@ void TestSpeciesName(void)
     DebugPrintf2("==========SPECIES==========");
     for (int i = 0; i < NUM_SPECIES; i++)
     {
-        width = GetStringWidth(FONT_NORMAL, gSpeciesInfo[i].speciesName, 0);
+        width = GetStringWidth(FONT_NORMAL, gSpeciesDexInfo[i].speciesName, 0);
 
         if (width > finalWidth && width < 200)
         {
             finalWidth = width;
             species = i;
-            DebugPrintf2("width: %d, %S", finalWidth, gSpeciesInfo[species].speciesName);
+            DebugPrintf2("width: %d, %S", finalWidth, gSpeciesDexInfo[species].speciesName);
         }
     }
 }
@@ -1145,8 +1145,8 @@ void TestSkybattleEligibility(void)
                                   || ability3 == ABILITY_LEVITATE || ability3 == ABILITY_EELEVATE);
         bool32 isFlyingType = GetSpeciesType(i, 0) == TYPE_FLYING || GetSpeciesType(i, 1) == TYPE_FLYING;
 
-        if ((hasLevitateAbility || isFlyingType) && !gSpeciesInfo[i].isSkyBattleBanned)
-            DebugPrintf2("%S", gSpeciesInfo[i].speciesName);
+        if ((hasLevitateAbility || isFlyingType) && !gSpeciesMiscInfo[i].isSkyBattleBanned)
+            DebugPrintf2("%S", gSpeciesDexInfo[i].speciesName);
     }
 
 

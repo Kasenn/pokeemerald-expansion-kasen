@@ -824,7 +824,7 @@ void HandleAction_WatchesCarefully(void)
             gBattleStruct->safariRockThrowCounter--;
             if (gBattleStruct->safariRockThrowCounter == 0)
             {
-                gBattleStruct->safariCatchFactor = gSpeciesInfo[GetMonData(gParties[B_TRAINER_OPPONENT_A], MON_DATA_SPECIES)].catchRate * 100 / 1275;
+                gBattleStruct->safariCatchFactor = gSpeciesBaseInfo[GetMonData(gParties[B_TRAINER_OPPONENT_A], MON_DATA_SPECIES)].catchRate * 100 / 1275;
                 gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MON_WATCHING;
             }
             else
@@ -1791,7 +1791,7 @@ u32 GetBattlerAffectionHearts(enum BattlerId battler)
      || gSpecialStatuses[battler].attackerInParty)
         return AFFECTION_NO_HEARTS;
 
-    if (gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution
+    if (gSpeciesMiscInfo[gBattleMons[battler].species].isMegaEvolution
           || (gBattleTypeFlags & (BATTLE_TYPE_EREADER_TRAINER
                                 | BATTLE_TYPE_FRONTIER
                                 | BATTLE_TYPE_LINK
@@ -8810,7 +8810,7 @@ bool32 IsBattlerMegaEvolved(enum BattlerId battler)
     // While Transform does copy stats and visuals, it shouldn't be counted as true Mega Evolution.
     if (gBattleMons[battler].volatiles.transformed)
         return FALSE;
-    return (gSpeciesInfo[gBattleMons[battler].species].isMegaEvolution);
+    return (gSpeciesMiscInfo[gBattleMons[battler].species].isMegaEvolution);
 }
 
 bool32 IsBattlerPrimalReverted(enum BattlerId battler)
@@ -8818,7 +8818,7 @@ bool32 IsBattlerPrimalReverted(enum BattlerId battler)
     // While Transform does copy stats and visuals, it shouldn't be counted as true Primal Revesion.
     if (gBattleMons[battler].volatiles.transformed)
         return FALSE;
-    return (gSpeciesInfo[gBattleMons[battler].species].isPrimalReversion);
+    return (gSpeciesMiscInfo[gBattleMons[battler].species].isPrimalReversion);
 }
 
 bool32 IsBattlerUltraBursted(enum BattlerId battler)
@@ -8826,7 +8826,7 @@ bool32 IsBattlerUltraBursted(enum BattlerId battler)
     // While Transform does copy stats and visuals, it shouldn't be counted as true Ultra Burst.
     if (gBattleMons[battler].volatiles.transformed)
         return FALSE;
-    return (gSpeciesInfo[gBattleMons[battler].species].isUltraBurst);
+    return (gSpeciesMiscInfo[gBattleMons[battler].species].isUltraBurst);
 }
 
 bool32 IsBattlerInTeraForm(enum BattlerId battler)
@@ -8834,7 +8834,7 @@ bool32 IsBattlerInTeraForm(enum BattlerId battler)
     // While Transform does copy stats and visuals, it shouldn't be counted as a true Tera Form.
     if (gBattleMons[battler].volatiles.transformed)
         return FALSE;
-    return (gSpeciesInfo[gBattleMons[battler].species].isTeraForm);
+    return (gSpeciesMiscInfo[gBattleMons[battler].species].isTeraForm);
 }
 
 enum Species GetBattleFormChangeTargetSpecies(enum BattlerId battler, enum FormChanges method, enum Ability ability)
@@ -8999,7 +8999,7 @@ bool32 CanBattlerGetOrLoseItem(enum BattlerId fromBattler, enum BattlerId battle
     else if (holdEffect == HOLD_EFFECT_Z_CRYSTAL)
         return FALSE;
     else if (holdEffect == HOLD_EFFECT_BOOSTER_ENERGY
-         && (gSpeciesInfo[fromSpecies].isParadox || gSpeciesInfo[otherSpecies].isParadox))
+         && (gSpeciesMiscInfo[fromSpecies].isParadox || gSpeciesMiscInfo[otherSpecies].isParadox))
         return FALSE;
     else if (holdEffect == HOLD_EFFECT_OGERPON_MASK && GET_BASE_SPECIES_ID(fromSpecies) == SPECIES_OGERPON)
         return FALSE;
@@ -9883,7 +9883,7 @@ bool32 CanMonParticipateInSkyBattle(struct Pokemon *mon)
 
     if (monIsValidAndNotEgg)
     {
-        if ((hasLevitateAbility || isFlyingType) && !gSpeciesInfo[species].isSkyBattleBanned)
+        if ((hasLevitateAbility || isFlyingType) && !gSpeciesMiscInfo[species].isSkyBattleBanned)
             return TRUE;
     }
     return FALSE;

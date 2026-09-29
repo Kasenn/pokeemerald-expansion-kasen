@@ -3158,7 +3158,7 @@ static u32 ReturnAnimIdForBattler(bool32 wasPlayerSideKnockedOut, u32 specificBa
 {
     enum Species species = GetBattlerVisualSpecies(specificBattler);
     if (wasPlayerSideKnockedOut)
-        return gSpeciesInfo[species].frontAnimId;
+        return gSpeciesGraphicsInfo[species].frontAnimId;
     else
         return GetSpeciesBackAnimSet(species);
 }
@@ -3494,7 +3494,7 @@ static void LoadPartnerPicGfx(u16 trainerId, u16 partnerPicId, u8 partnerSlot)
 
     if (IsTrainerPartnerPicSpecies(trainerId))
     {
-        DecompressDataWithHeaderWram(gSpeciesInfo[partnerPicId].frontPic, gMonSpritesGfxPtr->spritesGfx[partnerSlot]);
+        DecompressDataWithHeaderWram(gSpeciesGraphicsInfo[partnerPicId].frontPic, gMonSpritesGfxPtr->spritesGfx[partnerSlot]);
         index = LoadSpritePaletteWithTag(GetMonSpritePalFromSpeciesAndPersonality(partnerPicId, 0, 0), GetTrainerPicTag(partnerPicId, TRUE));
         SetMultiuseSpriteTemplateToPokemon(partnerPicId, partnerSlot);
     }

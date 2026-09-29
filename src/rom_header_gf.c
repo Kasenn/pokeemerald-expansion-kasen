@@ -70,7 +70,7 @@ struct GFRomHeader
     u32 externalEventFlagsOffset;
     u32 externalEventDataOffset;
     u32 unk18;
-    const struct SpeciesInfo *speciesInfo;
+    const struct SpeciesBaseInfo *speciesBaseInfo;
     const u8 (*abilityNames)[];
     const u8 *const *abilityDescriptions;
     const struct ItemInfo *items;
@@ -100,14 +100,14 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .version = GAME_VERSION,
     .language = GAME_LANGUAGE,
     .gameName = "pokemon emerald version",
-    //.monFrontPics = gMonFrontPicTable, // Handled in gSpeciesInfo
-    //.monBackPics = gMonBackPicTable, // Handled in gSpeciesInfo
-    //.monNormalPalettes = gMonPaletteTable, // Handled in gSpeciesInfo
-    //.monShinyPalettes = gMonShinyPaletteTable, // Handled in gSpeciesInfo
+    //.monFrontPics = gMonFrontPicTable, // Handled in gSpeciesBaseInfo
+    //.monBackPics = gMonBackPicTable, // Handled in gSpeciesBaseInfo
+    //.monNormalPalettes = gMonPaletteTable, // Handled in gSpeciesBaseInfo
+    //.monShinyPalettes = gMonShinyPaletteTable, // Handled in gSpeciesBaseInfo
     //.monIcons = gMonIconTable,
     //.monIconPaletteIds = gMonIconPaletteIndices,
     .monIconPalettes = gMonIconPaletteTable,
-    //.monSpeciesNames = gSpeciesNames, // Handled in gSpeciesInfo
+    //.monSpeciesNames = gSpeciesNames, // Handled in gSpeciesBaseInfo
     //.moveNames = gMoveNames, // Handled in gMovesInfo
     .decorations = gDecorations,
     .flagsOffset = offsetof(struct SaveBlock1, flags),
@@ -150,7 +150,7 @@ __attribute__((section(".text.header_gf"))) USED static const struct GFRomHeader
     .externalEventFlagsOffset = offsetof(struct SaveBlock1, externalEventFlags),
     .externalEventDataOffset = offsetof(struct SaveBlock1, externalEventData),
     .unk18 = 0x00000000,
-    .speciesInfo = gSpeciesInfo,
+    .speciesBaseInfo = gSpeciesBaseInfo,
     //.abilityNames = gAbilityNames, //handled in gAbilitiesInfo
     //.abilityDescriptions = gAbilityDescriptionPointers, //handled in gAbilitiesInfo
     .items = gItemsInfo,

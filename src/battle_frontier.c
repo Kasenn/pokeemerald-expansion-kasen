@@ -344,7 +344,7 @@ void CreateFacilityMon(const struct TrainerMon *fmon, u16 level, u8 fixedIV, u32
     // try to set ability. Otherwise, random of non-hidden as per vanilla
     if (fmon->ability != ABILITY_NONE)
     {
-        const struct SpeciesInfo *speciesInfo = &gSpeciesInfo[fmon->species];
+        const struct SpeciesBaseInfo *speciesInfo = &gSpeciesBaseInfo[fmon->species];
         u32 maxAbilities = ARRAY_COUNT(speciesInfo->abilities);
         for (ability = 0; ability < maxAbilities; ++ability)
         {

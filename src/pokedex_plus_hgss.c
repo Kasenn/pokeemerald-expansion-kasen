@@ -1157,12 +1157,12 @@ static void CreateStatBar(u8 *dst, u32 y, u32 width)
 }
 static const u8 sBaseStatOffsets[] =
 {
-    offsetof(struct SpeciesInfo, baseHP),
-    offsetof(struct SpeciesInfo, baseAttack),
-    offsetof(struct SpeciesInfo, baseDefense),
-    offsetof(struct SpeciesInfo, baseSpAttack),
-    offsetof(struct SpeciesInfo, baseSpDefense),
-    offsetof(struct SpeciesInfo, baseSpeed),
+    offsetof(struct SpeciesBaseInfo, baseHP),
+    offsetof(struct SpeciesBaseInfo, baseAttack),
+    offsetof(struct SpeciesBaseInfo, baseDefense),
+    offsetof(struct SpeciesBaseInfo, baseSpAttack),
+    offsetof(struct SpeciesBaseInfo, baseSpDefense),
+    offsetof(struct SpeciesBaseInfo, baseSpeed),
 };
 void TryDestroyStatBars(void)
 {
@@ -1204,7 +1204,7 @@ static void CreateStatBars(struct PokedexListItem *dexMon)
         memcpy(gfx, sStatBarsGfx, sizeof(sStatBarsGfx));
         for (i = 0; i < NUM_STATS; i++)
         {
-            statValue = *((u8*)(&gSpeciesInfo[species]) + sBaseStatOffsets[i]);
+            statValue = *((u8*)(&gSpeciesBaseInfo[species]) + sBaseStatOffsets[i]);
             if (statValue <= 100)
             {
                 width = statValue / 3;
@@ -1905,12 +1905,12 @@ static void SaveMonDataInStruct(void)
     enum Species species = NationalPokedexNumToSpeciesForm(sPokedexListItem->dexNum);
     u8 evs[NUM_STATS] =
     {
-        [STAT_HP]    = gSpeciesInfo[species].evYield_HP,
-        [STAT_ATK]   = gSpeciesInfo[species].evYield_Speed,
-        [STAT_DEF]   = gSpeciesInfo[species].evYield_Attack,
-        [STAT_SPEED] = gSpeciesInfo[species].evYield_SpAttack,
-        [STAT_SPATK] = gSpeciesInfo[species].evYield_Defense,
-        [STAT_SPDEF] = gSpeciesInfo[species].evYield_SpDefense
+        [STAT_HP]    = gSpeciesBaseInfo[species].evYield_HP,
+        [STAT_ATK]   = gSpeciesBaseInfo[species].evYield_Speed,
+        [STAT_DEF]   = gSpeciesBaseInfo[species].evYield_Attack,
+        [STAT_SPEED] = gSpeciesBaseInfo[species].evYield_SpAttack,
+        [STAT_SPATK] = gSpeciesBaseInfo[species].evYield_Defense,
+        [STAT_SPDEF] = gSpeciesBaseInfo[species].evYield_SpDefense
     };
     u8 differentEVs = 0;
     u8 i;
@@ -1923,7 +1923,7 @@ static void SaveMonDataInStruct(void)
     }
 
     sPokedexView->sPokemonStats.species             = species;
-    sPokedexView->sPokemonStats.genderRatio         = gSpeciesInfo[species].genderRatio;
+    sPokedexView->sPokemonStats.genderRatio         = gSpeciesBaseInfo[species].genderRatio;
     sPokedexView->sPokemonStats.baseHP              = GetSpeciesBaseHP(species);
     sPokedexView->sPokemonStats.baseSpeed           = GetSpeciesBaseSpeed(species);
     sPokedexView->sPokemonStats.baseAttack          = GetSpeciesBaseAttack(species);
@@ -1937,13 +1937,13 @@ static void SaveMonDataInStruct(void)
     sPokedexView->sPokemonStats.evYield_SpAttack    = evs[STAT_SPEED];
     sPokedexView->sPokemonStats.evYield_Defense     = evs[STAT_SPATK];
     sPokedexView->sPokemonStats.evYield_SpDefense   = evs[STAT_SPDEF];
-    sPokedexView->sPokemonStats.catchRate           = gSpeciesInfo[species].catchRate;
-    sPokedexView->sPokemonStats.growthRate          = gSpeciesInfo[species].growthRate;
-    sPokedexView->sPokemonStats.eggGroup1           = gSpeciesInfo[species].eggGroups[0];
-    sPokedexView->sPokemonStats.eggGroup2           = gSpeciesInfo[species].eggGroups[1];
-    sPokedexView->sPokemonStats.eggCycles           = gSpeciesInfo[species].eggCycles;
-    sPokedexView->sPokemonStats.expYield            = gSpeciesInfo[species].expYield;
-    sPokedexView->sPokemonStats.friendship          = gSpeciesInfo[species].friendship;
+    sPokedexView->sPokemonStats.catchRate           = gSpeciesBaseInfo[species].catchRate;
+    sPokedexView->sPokemonStats.growthRate          = gSpeciesBaseInfo[species].growthRate;
+    sPokedexView->sPokemonStats.eggGroup1           = gSpeciesBaseInfo[species].eggGroups[0];
+    sPokedexView->sPokemonStats.eggGroup2           = gSpeciesBaseInfo[species].eggGroups[1];
+    sPokedexView->sPokemonStats.eggCycles           = gSpeciesBaseInfo[species].eggCycles;
+    sPokedexView->sPokemonStats.expYield            = gSpeciesBaseInfo[species].expYield;
+    sPokedexView->sPokemonStats.friendship          = gSpeciesBaseInfo[species].friendship;
     sPokedexView->sPokemonStats.ability0            = GetAbilityBySpecies(species, 0);
     sPokedexView->sPokemonStats.ability1            = GetAbilityBySpecies(species, 1);
     sPokedexView->sPokemonStats.abilityHidden       = GetAbilityBySpecies(species, 2);
@@ -2192,7 +2192,7 @@ static bool8 CalculateMoves(void)
     u32 i;
 
     // Mega and Gmax Pokémon don't have distinct learnsets from their base form; so use base species for calculation
-    if (gSpeciesInfo[species].isMegaEvolution || gSpeciesInfo[species].isGigantamax)
+    if (gSpeciesMiscInfo[species].isMegaEvolution || gSpeciesMiscInfo[species].isGigantamax)
         species = GetFormSpeciesId(species, 0);
 
     // Egg moves

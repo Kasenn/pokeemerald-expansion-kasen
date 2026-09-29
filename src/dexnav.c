@@ -1284,8 +1284,8 @@ static enum Item DexNavGenerateHeldItem(enum Species species, u8 searchLevel)
 {
     u16 randVal = Random() % 100;
     u8 searchLevelInfluence = searchLevel >> 1;
-    enum Item item1 = gSpeciesInfo[species].itemCommon;
-    enum Item item2 = gSpeciesInfo[species].itemRare;
+    enum Item item1 = gSpeciesBaseInfo[species].itemCommon;
+    enum Item item2 = gSpeciesBaseInfo[species].itemRare;
 
     // if both are the same, 100% to hold
     if (item1 == item2)

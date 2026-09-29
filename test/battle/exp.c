@@ -148,9 +148,9 @@ WILD_BATTLE_TEST("Transformed Pokemon gives the experience points of the copied 
     } SCENE {
         EXPERIENCE_BAR(player, captureGainedExp: &gainedExp);
     } THEN {
-        EXPECT_EQ(gainedExp, gSpeciesInfo[speciesExp].expYield);
-        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP), 1 + gSpeciesInfo[speciesExp].expYield);
-        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_HP_EV), gSpeciesInfo[speciesExp].evYield_HP);
+        EXPECT_EQ(gainedExp, gSpeciesBaseInfo[speciesExp].expYield);
+        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP), 1 + gSpeciesBaseInfo[speciesExp].expYield);
+        EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_HP_EV), gSpeciesBaseInfo[speciesExp].evYield_HP);
     }
 }
 
@@ -176,9 +176,9 @@ WILD_BATTLE_TEST("Exp Share(held) gives Experience to mons which did not partici
         NOT MESSAGE("The rest of your team gained EXP. Points thanks to the Exp. Share!");
     } THEN {
         if (item == ITEM_EXP_SHARE)
-            EXPECT_GT(GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_EXP), gExperienceTables[gSpeciesInfo[SPECIES_WYNAUT].growthRate][40]);
+            EXPECT_GT(GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_EXP), gExperienceTables[gSpeciesBaseInfo[SPECIES_WYNAUT].growthRate][40]);
         else
-            EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_EXP), gExperienceTables[gSpeciesInfo[SPECIES_WYNAUT].growthRate][40]);
+            EXPECT_EQ(GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_EXP), gExperienceTables[gSpeciesBaseInfo[SPECIES_WYNAUT].growthRate][40]);
     }
 }
 
@@ -194,7 +194,7 @@ AI_DOUBLE_BATTLE_TEST("Both player Pokemon gain experience in double battles")
     } WHEN {
         TURN { }
     } THEN {
-        EXPECT(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP) > gExperienceTables[gSpeciesInfo[SPECIES_WOBBUFFET].growthRate][99]);
+        EXPECT(GetMonData(&gParties[B_TRAINER_PLAYER][0], MON_DATA_EXP) > gExperienceTables[gSpeciesBaseInfo[SPECIES_WOBBUFFET].growthRate][99]);
         EXPECT(GetMonData(&gParties[B_TRAINER_PLAYER][1], MON_DATA_LEVEL) > 1);
     }
 }

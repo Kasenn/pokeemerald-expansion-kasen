@@ -3,9 +3,9 @@
 
 ASSUMPTIONS
 {
-    ASSUME(gSpeciesInfo[SPECIES_NIDOKING].genderRatio == MON_MALE);
-    ASSUME(gSpeciesInfo[SPECIES_NIDOQUEEN].genderRatio == MON_FEMALE);
-    ASSUME(gSpeciesInfo[SPECIES_PORYGON].genderRatio == MON_GENDERLESS);
+    ASSUME(gSpeciesBaseInfo[SPECIES_NIDOKING].genderRatio == MON_MALE);
+    ASSUME(gSpeciesBaseInfo[SPECIES_NIDOQUEEN].genderRatio == MON_FEMALE);
+    ASSUME(gSpeciesBaseInfo[SPECIES_PORYGON].genderRatio == MON_GENDERLESS);
 }
 
 SINGLE_BATTLE_TEST("Rivalry increases power by x1.25 towards Pokémon of the same gender", s16 damage)

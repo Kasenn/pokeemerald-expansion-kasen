@@ -30,7 +30,7 @@
 #include "constants/party_menu.h"
 #include "constants/region_map_sections.h"
 
-#define IS_DITTO(species) (gSpeciesInfo[species].eggGroups[0] == EGG_GROUP_DITTO || gSpeciesInfo[species].eggGroups[1] == EGG_GROUP_DITTO)
+#define IS_DITTO(species) (gSpeciesBaseInfo[species].eggGroups[0] == EGG_GROUP_DITTO || gSpeciesBaseInfo[species].eggGroups[1] == EGG_GROUP_DITTO)
 
 static void ClearDaycareMonMail(struct DaycareMail *mail);
 static void SetInitialEggData(struct Pokemon *mon, enum Species species, struct DayCare *daycare);
@@ -355,7 +355,7 @@ static void ApplyDaycareExperience(struct Pokemon *mon)
 
 static u32 GetExpAtLevelCap(struct Pokemon *mon)
 {
-    return gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][GetCurrentLevelCap()];
+    return gExperienceTables[gSpeciesBaseInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][GetCurrentLevelCap()];
 }
 
 static u16 TakeSelectedPokemonFromDaycare(struct DaycareMon *daycareMon)
@@ -1066,7 +1066,7 @@ void CreateEgg(struct Pokemon *mon, enum Species species, bool8 setHotSpringsLoc
     language = LANGUAGE_JAPANESE;
     SetMonData(mon, MON_DATA_POKEBALL, &ball);
     SetMonData(mon, MON_DATA_NICKNAME, sJapaneseEggNickname);
-    SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].eggCycles);
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesBaseInfo[species].eggCycles);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
     SetMonData(mon, MON_DATA_LANGUAGE, &language);
     if (setHotSpringsLocation)
@@ -1090,7 +1090,7 @@ static void SetInitialEggData(struct Pokemon *mon, enum Species species, struct 
     metLevel = 0;
     language = LANGUAGE_JAPANESE;
     SetMonData(mon, MON_DATA_NICKNAME, sJapaneseEggNickname);
-    SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].eggCycles);
+    SetMonData(mon, MON_DATA_FRIENDSHIP, &gSpeciesBaseInfo[species].eggCycles);
     SetMonData(mon, MON_DATA_MET_LEVEL, &metLevel);
     SetMonData(mon, MON_DATA_LANGUAGE, &language);
 }
@@ -1289,8 +1289,8 @@ u8 GetDaycareCompatibilityScore(struct DayCare *daycare)
         trainerIds[i] = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_OT_ID);
         personality = GetBoxMonData(&daycare->mons[i].mon, MON_DATA_PERSONALITY);
         genders[i] = GetGenderFromSpeciesAndPersonality(species[i], personality);
-        eggGroups[i][0] = gSpeciesInfo[species[i]].eggGroups[0];
-        eggGroups[i][1] = gSpeciesInfo[species[i]].eggGroups[1];
+        eggGroups[i][0] = gSpeciesBaseInfo[species[i]].eggGroups[0];
+        eggGroups[i][1] = gSpeciesBaseInfo[species[i]].eggGroups[1];
     }
 
     // check unbreedable egg group

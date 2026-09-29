@@ -6787,7 +6787,7 @@ static s32 AI_WildCanFlee(enum BattlerId battlerAtk, enum BattlerId battlerDef, 
     if ((!wildCanFlee && IsBattlerTrapped(battlerDef, battlerAtk)) || hpPercent >= 90)
         return score;
 
-    if ((Random() % 100) < (gSpeciesInfo[species].safariZoneFleeRate * (200 - hpPercent) / 100))
+    if ((Random() % 100) < (gSpeciesMiscInfo[species].monFleeRate * (200 - hpPercent) / 100))
         AI_Flee();
 
     return score;

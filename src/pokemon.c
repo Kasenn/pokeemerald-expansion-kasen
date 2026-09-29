@@ -491,7 +491,10 @@ const struct NatureInfo gNaturesInfo[NUM_NATURES] =
 #include "data/pokemon/wild_encounter_ow_behavior.h"
 #include "data/object_events/object_event_pic_tables_followers.h"
 
-#include "data/pokemon/species_info.h"
+#include "data/pokemon/species_base_info.h"
+#include "data/pokemon/species_dex_info.h"
+#include "data/pokemon/species_graphics_info.h"
+#include "data/pokemon/species_misc_info.h"
 
 #define PP_UP_SHIFTS(val)           val,        (val) << 2,        (val) << 4,        (val) << 6
 #define PP_UP_SHIFTS_INV(val) (u8)~(val), (u8)~((val) << 2), (u8)~((val) << 4), (u8)~((val) << 6)
@@ -962,7 +965,7 @@ void SetBoxMonIVs(struct BoxPokemon *mon, u8 fixedIV)
     iv = (value & (MAX_IV_MASK << 10)) >> 10;
     SetBoxMonData(mon, MON_DATA_SPDEF_IV, &iv);
 
-    SetBoxMonPerfectIVs(mon, gSpeciesInfo[species].perfectIVCount);
+    SetBoxMonPerfectIVs(mon, gSpeciesMiscInfo[species].perfectIVCount);
 }
 
 void SetBoxMonPerfectIVs(struct BoxPokemon *mon, u32 numPerfect)
@@ -1031,8 +1034,8 @@ void CreateBoxMon(struct BoxPokemon *boxMon, enum Species species, u8 level, u32
     SetBoxMonData(boxMon, MON_DATA_LANGUAGE, &gGameLanguage);
     SetBoxMonData(boxMon, MON_DATA_OT_NAME, gSaveBlock2Ptr->playerName);
     SetBoxMonData(boxMon, MON_DATA_SPECIES, &species);
-    SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesInfo[species].growthRate][level]);
-    SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesInfo[species].friendship);
+    SetBoxMonData(boxMon, MON_DATA_EXP, &gExperienceTables[gSpeciesBaseInfo[species].growthRate][level]);
+    SetBoxMonData(boxMon, MON_DATA_FRIENDSHIP, &gSpeciesBaseInfo[species].friendship);
     value = GetCurrentRegionMapSectionId();
     SetBoxMonData(boxMon, MON_DATA_MET_LOCATION, &value);
     SetBoxMonData(boxMon, MON_DATA_MET_LEVEL, &level);
@@ -1065,7 +1068,7 @@ static bool32 IsValidGender(u32 gender)
 
 static void CleanIncompatibleGenderSpecies(enum Species species, u8 *gender)
 {
-    switch (gSpeciesInfo[species].genderRatio)
+    switch (gSpeciesBaseInfo[species].genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
@@ -1508,7 +1511,7 @@ u8 GetLevelFromMonExp(struct Pokemon *mon)
     u32 exp = GetMonData(mon, MON_DATA_EXP);
     s32 level = 1;
 
-    while (level <= MAX_LEVEL && gExperienceTables[gSpeciesInfo[species].growthRate][level] <= exp)
+    while (level <= MAX_LEVEL && gExperienceTables[gSpeciesBaseInfo[species].growthRate][level] <= exp)
         level++;
 
     return level - 1;
@@ -1520,7 +1523,7 @@ u8 GetLevelFromBoxMonExp(struct BoxPokemon *boxMon)
     u32 exp = GetBoxMonData(boxMon, MON_DATA_EXP);
     s32 level = 1;
 
-    while (level <= MAX_LEVEL && gExperienceTables[gSpeciesInfo[species].growthRate][level] <= exp)
+    while (level <= MAX_LEVEL && gExperienceTables[gSpeciesBaseInfo[species].growthRate][level] <= exp)
         level++;
 
     return level - 1;
@@ -1819,15 +1822,15 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
     enum Species species = GetBoxMonData(boxMon, MON_DATA_SPECIES);
     u32 personality = GetBoxMonData(boxMon, MON_DATA_PERSONALITY);
 
-    switch (gSpeciesInfo[species].genderRatio)
+    switch (gSpeciesBaseInfo[species].genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
     case MON_GENDERLESS:
-        return gSpeciesInfo[species].genderRatio;
+        return gSpeciesBaseInfo[species].genderRatio;
     }
 
-    if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+    if (gSpeciesBaseInfo[species].genderRatio > (personality & 0xFF))
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -1835,15 +1838,15 @@ u8 GetBoxMonGender(struct BoxPokemon *boxMon)
 
 u8 GetGenderFromSpeciesAndPersonality(enum Species species, u32 personality)
 {
-    switch (gSpeciesInfo[species].genderRatio)
+    switch (gSpeciesBaseInfo[species].genderRatio)
     {
     case MON_MALE:
     case MON_FEMALE:
     case MON_GENDERLESS:
-        return gSpeciesInfo[species].genderRatio;
+        return gSpeciesBaseInfo[species].genderRatio;
     }
 
-    if (gSpeciesInfo[species].genderRatio > (personality & 0xFF))
+    if (gSpeciesBaseInfo[species].genderRatio > (personality & 0xFF))
         return MON_FEMALE;
     else
         return MON_MALE;
@@ -1883,10 +1886,10 @@ void SetMultiuseSpriteTemplateToPokemon(enum Species speciesTag, enum BattlerPos
             speciesTag = speciesTag - SPECIES_SHINY_TAG;
 
         speciesTag = SanitizeSpeciesId(speciesTag);
-        if (gSpeciesInfo[speciesTag].frontAnimFrames != NULL)
-            gMultiuseSpriteTemplate.anims = gSpeciesInfo[speciesTag].frontAnimFrames;
+        if (gSpeciesGraphicsInfo[speciesTag].frontAnimFrames != NULL)
+            gMultiuseSpriteTemplate.anims = gSpeciesGraphicsInfo[speciesTag].frontAnimFrames;
         else
-            gMultiuseSpriteTemplate.anims = gSpeciesInfo[SPECIES_NONE].frontAnimFrames;
+            gMultiuseSpriteTemplate.anims = gSpeciesGraphicsInfo[SPECIES_NONE].frontAnimFrames;
     }
 }
 
@@ -2436,7 +2439,7 @@ u32 GetBoxMonData3(struct BoxPokemon *boxMon, s32 field, u8 *data)
 
                 if (substruct0->teraType == TYPE_NONE) // Tera Type hasn't been modified so we can just use the personality
                 {
-                    const enum Type *types = gSpeciesInfo[substruct0->species].types;
+                    const enum Type *types = gSpeciesBaseInfo[substruct0->species].types;
                     retVal = (boxMon->personality & 0x1) == 0 ? types[0] : types[1];
                 }
                 else
@@ -3207,75 +3210,75 @@ bool8 IsPokemonStorageFull(void)
 const u8 *GetSpeciesName(enum Species species)
 {
     species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].speciesName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].speciesName;
-    return gSpeciesInfo[species].speciesName;
+    if (gSpeciesDexInfo[species].speciesName[0] == 0)
+        return gSpeciesDexInfo[SPECIES_NONE].speciesName;
+    return gSpeciesDexInfo[species].speciesName;
 }
 
 const u8 *GetSpeciesCategory(enum Species species)
 {
     species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].categoryName[0] == 0)
-        return gSpeciesInfo[SPECIES_NONE].categoryName;
-    return gSpeciesInfo[species].categoryName;
+    if (gSpeciesDexInfo[species].categoryName[0] == 0)
+        return gSpeciesDexInfo[SPECIES_NONE].categoryName;
+    return gSpeciesDexInfo[species].categoryName;
 }
 
 const u8 *GetSpeciesPokedexDescription(enum Species species)
 {
     species = SanitizeSpeciesId(species);
-    if (gSpeciesInfo[species].description == NULL)
-        return gSpeciesInfo[SPECIES_NONE].description;
-    return gSpeciesInfo[species].description;
+    if (gSpeciesDexInfo[species].description == NULL)
+        return gSpeciesDexInfo[SPECIES_NONE].description;
+    return gSpeciesDexInfo[species].description;
 }
 
 u32 GetSpeciesHeight(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].height;
+    return gSpeciesDexInfo[SanitizeSpeciesId(species)].height;
 }
 
 u32 GetSpeciesWeight(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].weight;
+    return gSpeciesDexInfo[SanitizeSpeciesId(species)].weight;
 }
 
 enum Type GetSpeciesType(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].types[slot];
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].types[slot];
 }
 
 enum Ability GetSpeciesAbility(enum Species species, u8 slot)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].abilities[slot];
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].abilities[slot];
 }
 
 u32 GetSpeciesBaseHP(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseHP;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseHP;
 }
 
 u32 GetSpeciesBaseAttack(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseAttack;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseAttack;
 }
 
 u32 GetSpeciesBaseDefense(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseDefense;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseDefense;
 }
 
 u32 GetSpeciesBaseSpAttack(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpAttack;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseSpAttack;
 }
 
 u32 GetSpeciesBaseSpDefense(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpDefense;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseSpDefense;
 }
 
 u32 GetSpeciesBaseSpeed(enum Species species)
 {
-    return gSpeciesInfo[SanitizeSpeciesId(species)].baseSpeed;
+    return gSpeciesBaseInfo[SanitizeSpeciesId(species)].baseSpeed;
 }
 
 u32 GetSpeciesBaseStat(enum Species species, u32 statIndex)
@@ -3310,25 +3313,25 @@ u32 GetSpeciesBaseStatTotal(enum Species species)
 
 const struct LevelUpMove *GetSpeciesLevelUpLearnset(enum Species species)
 {
-    const struct LevelUpMove *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].levelUpLearnset;
+    const struct LevelUpMove *learnset = gSpeciesBaseInfo[SanitizeSpeciesId(species)].levelUpLearnset;
     if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].levelUpLearnset;
+        return gSpeciesBaseInfo[SPECIES_NONE].levelUpLearnset;
     return learnset;
 }
 
 const u16 *GetSpeciesTeachableLearnset(enum Species species)
 {
-    const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].teachableLearnset;
+    const u16 *learnset = gSpeciesBaseInfo[SanitizeSpeciesId(species)].teachableLearnset;
     if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].teachableLearnset;
+        return gSpeciesBaseInfo[SPECIES_NONE].teachableLearnset;
     return learnset;
 }
 
 const u16 *GetSpeciesEggMoves(enum Species species)
 {
-    const u16 *learnset = gSpeciesInfo[SanitizeSpeciesId(species)].eggMoveLearnset;
+    const u16 *learnset = gSpeciesBaseInfo[SanitizeSpeciesId(species)].eggMoveLearnset;
     if (learnset == NULL)
-        return gSpeciesInfo[SPECIES_NONE].eggMoveLearnset;
+        return gSpeciesBaseInfo[SPECIES_NONE].eggMoveLearnset;
     return learnset;
 }
 
@@ -3346,25 +3349,25 @@ bool32 SpeciesHasEggMove(enum Species species, enum Move move)
 
 const struct Evolution *GetSpeciesEvolutions(enum Species species)
 {
-    const struct Evolution *evolutions = gSpeciesInfo[SanitizeSpeciesId(species)].evolutions;
+    const struct Evolution *evolutions = gSpeciesBaseInfo[SanitizeSpeciesId(species)].evolutions;
     if (evolutions == NULL)
-        return gSpeciesInfo[SPECIES_NONE].evolutions;
+        return gSpeciesBaseInfo[SPECIES_NONE].evolutions;
     return evolutions;
 }
 
 const u16 *GetSpeciesFormTable(enum Species species)
 {
-    const u16 *formTable = gSpeciesInfo[SanitizeSpeciesId(species)].formSpeciesIdTable;
+    const u16 *formTable = gSpeciesBaseInfo[SanitizeSpeciesId(species)].formSpeciesIdTable;
     if (formTable == NULL)
-        return gSpeciesInfo[SPECIES_NONE].formSpeciesIdTable;
+        return gSpeciesBaseInfo[SPECIES_NONE].formSpeciesIdTable;
     return formTable;
 }
 
 const struct FormChange *GetSpeciesFormChanges(enum Species species)
 {
-    const struct FormChange *formChanges = gSpeciesInfo[SanitizeSpeciesId(species)].formChangeTable;
+    const struct FormChange *formChanges = gSpeciesBaseInfo[SanitizeSpeciesId(species)].formChangeTable;
     if (formChanges == NULL)
-        return gSpeciesInfo[SPECIES_NONE].formChangeTable;
+        return gSpeciesBaseInfo[SPECIES_NONE].formChangeTable;
     return formChanges;
 }
 
@@ -3540,7 +3543,7 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
 
                 if (param == 0) // Rare Candy
                 {
-                    dataUnsigned = gExperienceTables[gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][GetMonData(mon, MON_DATA_LEVEL) + itemCount];
+                    dataUnsigned = gExperienceTables[gSpeciesBaseInfo[GetMonData(mon, MON_DATA_SPECIES)].growthRate][GetMonData(mon, MON_DATA_LEVEL) + itemCount];
                 }
                 else if (param - 1 < ARRAY_COUNT(sExpCandyExperienceTable)) // EXP Candies
                 {
@@ -3550,12 +3553,12 @@ bool8 PokemonUseItemEffects(struct Pokemon *mon, enum Item item, u8 partyIndex, 
                     if (B_RARE_CANDY_CAP && B_EXP_CAP_TYPE == EXP_CAP_HARD)
                     {
                         u32 currentLevelCap = GetCurrentLevelCap();
-                        if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap])
-                            dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][currentLevelCap];
+                        if (dataUnsigned > gExperienceTables[gSpeciesBaseInfo[species].growthRate][currentLevelCap])
+                            dataUnsigned = gExperienceTables[gSpeciesBaseInfo[species].growthRate][currentLevelCap];
                     }
-                    else if (dataUnsigned > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
+                    else if (dataUnsigned > gExperienceTables[gSpeciesBaseInfo[species].growthRate][MAX_LEVEL])
                     {
-                        dataUnsigned = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+                        dataUnsigned = gExperienceTables[gSpeciesBaseInfo[species].growthRate][MAX_LEVEL];
                     }
                 }
 
@@ -4699,7 +4702,7 @@ enum Species NationalPokedexNumToSpecies(enum NationalDexOrder nationalNum)
 
     species = 1;
 
-    while (species < (NUM_SPECIES) && gSpeciesInfo[species].natDexNum != nationalNum)
+    while (species < (NUM_SPECIES) && gSpeciesDexInfo[species].natDexNum != nationalNum)
         species++;
 
     if (species == NUM_SPECIES)
@@ -4757,7 +4760,7 @@ enum NationalDexOrder SpeciesToNationalPokedexNum(enum Species species)
     if (!species)
         return NATIONAL_DEX_NONE;
 
-    return gSpeciesInfo[species].natDexNum;
+    return gSpeciesDexInfo[species].natDexNum;
 }
 
 u32 SpeciesToRegionalPokedexNum(enum Species species)
@@ -4771,14 +4774,14 @@ enum KantoDexOrder SpeciesToKantoPokedexNum(enum Species species)
 {
     if (!species)
         return 0;
-    return NationalToKantoOrder(gSpeciesInfo[species].natDexNum);
+    return NationalToKantoOrder(gSpeciesDexInfo[species].natDexNum);
 }
 
 enum HoennDexOrder SpeciesToHoennPokedexNum(enum Species species)
 {
     if (!species)
         return 0;
-    return NationalToHoennOrder(gSpeciesInfo[species].natDexNum);
+    return NationalToHoennOrder(gSpeciesDexInfo[species].natDexNum);
 }
 
 enum NationalDexOrder RegionalToNationalOrder(u32 regionalNum)
@@ -5002,39 +5005,39 @@ void MonGainEVs(struct Pokemon *mon, enum Species defeatedSpecies)
         {
         case STAT_HP:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_HP)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_HP + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_HP + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_HP * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_HP * multiplier;
             break;
         case STAT_ATK:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_ATK)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Attack + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_Attack + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Attack * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_Attack * multiplier;
             break;
         case STAT_DEF:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_DEF)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Defense + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_Defense + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Defense * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_Defense * multiplier;
             break;
         case STAT_SPEED:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPEED)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_Speed + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_Speed + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_Speed * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_Speed * multiplier;
             break;
         case STAT_SPATK:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPATK)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpAttack + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_SpAttack + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpAttack * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_SpAttack * multiplier;
             break;
         case STAT_SPDEF:
             if (holdEffect == HOLD_EFFECT_POWER_ITEM && stat == STAT_SPDEF)
-                evIncrease = (gSpeciesInfo[defeatedSpecies].evYield_SpDefense + bonus) * multiplier;
+                evIncrease = (gSpeciesBaseInfo[defeatedSpecies].evYield_SpDefense + bonus) * multiplier;
             else
-                evIncrease = gSpeciesInfo[defeatedSpecies].evYield_SpDefense * multiplier;
+                evIncrease = gSpeciesBaseInfo[defeatedSpecies].evYield_SpDefense * multiplier;
             break;
         default:
             break;
@@ -5075,12 +5078,12 @@ bool8 TryIncrementMonLevel(struct Pokemon *mon)
     enum Species species = GetMonData(mon, MON_DATA_SPECIES, 0);
     u8 nextLevel = GetMonData(mon, MON_DATA_LEVEL, 0) + 1;
     u32 expPoints = GetMonData(mon, MON_DATA_EXP, 0);
-    if (expPoints > gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL])
+    if (expPoints > gExperienceTables[gSpeciesBaseInfo[species].growthRate][MAX_LEVEL])
     {
-        expPoints = gExperienceTables[gSpeciesInfo[species].growthRate][MAX_LEVEL];
+        expPoints = gExperienceTables[gSpeciesBaseInfo[species].growthRate][MAX_LEVEL];
         SetMonData(mon, MON_DATA_EXP, &expPoints);
     }
-    if (nextLevel > GetCurrentLevelCap() || expPoints < gExperienceTables[gSpeciesInfo[species].growthRate][nextLevel])
+    if (nextLevel > GetCurrentLevelCap() || expPoints < gExperienceTables[gSpeciesBaseInfo[species].growthRate][nextLevel])
     {
         return FALSE;
     }
@@ -5318,43 +5321,43 @@ const u16 *GetMonSpritePalFromSpeciesIsEgg(enum Species species, bool32 isShiny,
     if (isEgg)
     {
     #if SPECIES_EGG_COLOR
-        if (gSpeciesInfo[species].eggPalette != NULL)
+        if (gSpeciesGraphicsInfo[species].eggPalette != NULL)
         {
             if (species == SPECIES_FRILLISH && isFemale && GEN_5_EGG_COLORS)
                 return gEggPalette_FrillishF;
             else
-                return gSpeciesInfo[species].eggPalette;
+                return gSpeciesGraphicsInfo[species].eggPalette;
         }
         else
     #endif
-        if (gSpeciesInfo[species].eggId != EGG_ID_NONE)
-            return gEggDatas[gSpeciesInfo[species].eggId].eggPalette;
+        if (gSpeciesGraphicsInfo[species].eggId != EGG_ID_NONE)
+            return gEggDatas[gSpeciesGraphicsInfo[species].eggId].eggPalette;
         else
-            return gSpeciesInfo[SPECIES_EGG].palette;
+            return gSpeciesGraphicsInfo[SPECIES_EGG].palette;
     }
     else if (isShiny)
     {
     #if P_GENDER_DIFFERENCES
-        if (gSpeciesInfo[species].shinyPaletteFemale != NULL && isFemale)
-            return gSpeciesInfo[species].shinyPaletteFemale;
+        if (gSpeciesGraphicsInfo[species].shinyPaletteFemale != NULL && isFemale)
+            return gSpeciesGraphicsInfo[species].shinyPaletteFemale;
         else
     #endif
-        if (gSpeciesInfo[species].shinyPalette != NULL)
-            return gSpeciesInfo[species].shinyPalette;
+        if (gSpeciesGraphicsInfo[species].shinyPalette != NULL)
+            return gSpeciesGraphicsInfo[species].shinyPalette;
         else
-            return gSpeciesInfo[SPECIES_NONE].shinyPalette;
+            return gSpeciesGraphicsInfo[SPECIES_NONE].shinyPalette;
     }
     else
     {
     #if P_GENDER_DIFFERENCES
-        if (gSpeciesInfo[species].paletteFemale != NULL && isFemale)
-            return gSpeciesInfo[species].paletteFemale;
+        if (gSpeciesGraphicsInfo[species].paletteFemale != NULL && isFemale)
+            return gSpeciesGraphicsInfo[species].paletteFemale;
         else
     #endif
-        if (gSpeciesInfo[species].palette != NULL)
-            return gSpeciesInfo[species].palette;
+        if (gSpeciesGraphicsInfo[species].palette != NULL)
+            return gSpeciesGraphicsInfo[species].palette;
         else
-            return gSpeciesInfo[SPECIES_NONE].palette;
+            return gSpeciesGraphicsInfo[SPECIES_NONE].palette;
     }
 }
 
@@ -5377,7 +5380,7 @@ bool32 CannotForgetMove(enum Move move)
 
 bool8 IsMonSpriteNotFlipped(enum Species species)
 {
-    return gSpeciesInfo[species].noFlip;
+    return gSpeciesGraphicsInfo[species].noFlip;
 }
 
 s8 GetMonFlavorRelation(struct Pokemon *mon, enum Flavor flavor)
@@ -5559,26 +5562,26 @@ void SetWildMonHeldItem(void)
                 if (rnd < chanceNoItem)
                     continue;
                 if (rnd < chanceNotRare)
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesBaseInfo[species].itemCommon);
                 else
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesBaseInfo[species].itemRare);
             }
         }
         else
         {
-            if (gSpeciesInfo[species].itemCommon == gSpeciesInfo[species].itemRare && gSpeciesInfo[species].itemCommon != ITEM_NONE)
+            if (gSpeciesBaseInfo[species].itemCommon == gSpeciesBaseInfo[species].itemRare && gSpeciesBaseInfo[species].itemCommon != ITEM_NONE)
             {
                 // Both held items are the same, 100% chance to hold item
-                SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesBaseInfo[species].itemCommon);
             }
             else
             {
                 if (rnd < chanceNoItem)
                     continue;
                 if (rnd < chanceNotRare)
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemCommon);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesBaseInfo[species].itemCommon);
                 else
-                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesInfo[species].itemRare);
+                    SetMonData(&gParties[B_TRAINER_OPPONENT_A][i], MON_DATA_HELD_ITEM, &gSpeciesBaseInfo[species].itemRare);
             }
         }
     }
@@ -5685,18 +5688,18 @@ void DoMonFrontSpriteAnimation(struct Sprite *sprite, enum Species species, bool
             if (HasTwoFramesAnimation(species))
                 StartSpriteAnim(sprite, 1);
         }
-        if (gSpeciesInfo[species].frontAnimDelay != 0)
+        if (gSpeciesGraphicsInfo[species].frontAnimDelay != 0)
         {
             // Animation has delay, start delay task
             u8 taskId = CreateTask(Task_AnimateAfterDelay, 0);
             STORE_PTR_IN_TASK(sprite, taskId, 0);
-            gTasks[taskId].sAnimId = gSpeciesInfo[species].frontAnimId;
-            gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
+            gTasks[taskId].sAnimId = gSpeciesGraphicsInfo[species].frontAnimId;
+            gTasks[taskId].sAnimDelay = gSpeciesGraphicsInfo[species].frontAnimDelay;
         }
         else
         {
             // No delay, start animation
-            LaunchAnimationTaskForFrontSprite(sprite, gSpeciesInfo[species].frontAnimId);
+            LaunchAnimationTaskForFrontSprite(sprite, gSpeciesGraphicsInfo[species].frontAnimId);
         }
         sprite->callback = SpriteCallbackDummy_2;
     }
@@ -5706,20 +5709,20 @@ void PokemonSummaryDoMonAnimation(struct Sprite *sprite, enum Species species, b
 {
     if (!oneFrame && HasTwoFramesAnimation(species))
         StartSpriteAnim(sprite, 1);
-    if (gSpeciesInfo[species].frontAnimDelay != 0)
+    if (gSpeciesGraphicsInfo[species].frontAnimDelay != 0)
     {
         // Animation has delay, start delay task
         u8 taskId = CreateTask(Task_PokemonSummaryAnimateAfterDelay, 0);
         STORE_PTR_IN_TASK(sprite, taskId, 0);
-        gTasks[taskId].sAnimId = gSpeciesInfo[species].frontAnimId;
-        gTasks[taskId].sAnimDelay = gSpeciesInfo[species].frontAnimDelay;
+        gTasks[taskId].sAnimId = gSpeciesGraphicsInfo[species].frontAnimId;
+        gTasks[taskId].sAnimDelay = gSpeciesGraphicsInfo[species].frontAnimDelay;
         SummaryScreen_SetAnimDelayTaskId(taskId);
         SetSpriteCB_MonAnimDummy(sprite);
     }
     else
     {
         // No delay, start animation
-        StartMonSummaryAnimation(sprite, gSpeciesInfo[species].frontAnimId);
+        StartMonSummaryAnimation(sprite, gSpeciesGraphicsInfo[species].frontAnimId);
     }
 }
 
@@ -5856,7 +5859,7 @@ void HandleSetPokedexFlagFromMon(struct Pokemon *mon, u32 caseId)
 bool8 HasTwoFramesAnimation(enum Species species)
 {
     return P_TWO_FRAME_FRONT_SPRITES
-        && gSpeciesInfo[species].frontAnimFrames != sAnims_SingleFramePlaceHolder
+        && gSpeciesGraphicsInfo[species].frontAnimFrames != sAnims_SingleFramePlaceHolder
         && species != SPECIES_UNOWN
         && !gTestRunnerHeadless;
 }
@@ -6437,11 +6440,11 @@ void TrySpecialOverworldEvo(void)
 bool32 SpeciesHasGenderDifferences(enum Species species)
 {
 #if P_GENDER_DIFFERENCES
-    if (gSpeciesInfo[species].frontPicFemale != NULL
-     || gSpeciesInfo[species].backPicFemale != NULL
-     || gSpeciesInfo[species].paletteFemale != NULL
-     || gSpeciesInfo[species].shinyPaletteFemale != NULL
-     || gSpeciesInfo[species].iconSpriteFemale != NULL)
+    if (gSpeciesGraphicsInfo[species].frontPicFemale != NULL
+     || gSpeciesGraphicsInfo[species].backPicFemale != NULL
+     || gSpeciesGraphicsInfo[species].paletteFemale != NULL
+     || gSpeciesGraphicsInfo[species].shinyPaletteFemale != NULL
+     || gSpeciesGraphicsInfo[species].iconSpriteFemale != NULL)
         return TRUE;
 #endif
 
@@ -6539,7 +6542,7 @@ enum Species SanitizeSpeciesId(enum Species species)
 bool32 IsSpeciesEnabled(enum Species species)
 {
     // This function should not use the GetSpeciesBaseHP function, as the included sanitation will result in an infinite loop
-    return gSpeciesInfo[species].baseHP > 0 || species == SPECIES_EGG;
+    return gSpeciesBaseInfo[species].baseHP > 0 || species == SPECIES_EGG;
 }
 
 void TryToSetBattleFormChangeMoves(struct Pokemon *mon, enum FormChanges method)
@@ -6676,9 +6679,9 @@ void HealBoxPokemon(struct BoxPokemon *boxMon)
 enum PokemonCry GetCryIdBySpecies(enum Species species)
 {
     species = SanitizeSpeciesId(species);
-    if (P_CRIES_ENABLED == FALSE || gSpeciesInfo[species].cryId >= CRY_COUNT || gTestRunnerHeadless)
+    if (P_CRIES_ENABLED == FALSE || gSpeciesDexInfo[species].cryId >= CRY_COUNT || gTestRunnerHeadless)
         return CRY_NONE;
-    return gSpeciesInfo[species].cryId;
+    return gSpeciesDexInfo[species].cryId;
 }
 
 enum Species GetSpeciesPreEvolution(enum Species species)
@@ -6749,20 +6752,20 @@ uq4_12_t GetDynamaxLevelHPMultiplier(u32 dynamaxLevel, bool32 inverseMultiplier)
 
 bool32 IsSpeciesRegionalForm(enum Species species)
 {
-    return gSpeciesInfo[species].isAlolanForm
-        || gSpeciesInfo[species].isGalarianForm
-        || gSpeciesInfo[species].isHisuianForm
-        || gSpeciesInfo[species].isPaldeanForm;
+    return gSpeciesMiscInfo[species].isAlolanForm
+        || gSpeciesMiscInfo[species].isGalarianForm
+        || gSpeciesMiscInfo[species].isHisuianForm
+        || gSpeciesMiscInfo[species].isPaldeanForm;
 }
 
 bool32 IsSpeciesRegionalFormFromRegion(enum Species species, enum Region region)
 {
     switch (region)
     {
-    case REGION_ALOLA:  return gSpeciesInfo[species].isAlolanForm;
-    case REGION_GALAR:  return gSpeciesInfo[species].isGalarianForm;
-    case REGION_HISUI:  return gSpeciesInfo[species].isHisuianForm;
-    case REGION_PALDEA: return gSpeciesInfo[species].isPaldeanForm;
+    case REGION_ALOLA:  return gSpeciesMiscInfo[species].isAlolanForm;
+    case REGION_GALAR:  return gSpeciesMiscInfo[species].isGalarianForm;
+    case REGION_HISUI:  return gSpeciesMiscInfo[species].isHisuianForm;
+    case REGION_PALDEA: return gSpeciesMiscInfo[species].isPaldeanForm;
     default:            return FALSE;
     }
 }
@@ -6815,7 +6818,7 @@ bool32 IsSpeciesForeignRegionalForm(enum Species species, enum Region currentReg
 
 enum Type GetTeraTypeFromPersonality(struct Pokemon *mon)
 {
-    const u8 *types = gSpeciesInfo[GetMonData(mon, MON_DATA_SPECIES)].types;
+    const u8 *types = gSpeciesBaseInfo[GetMonData(mon, MON_DATA_SPECIES)].types;
     return (GetMonData(mon, MON_DATA_PERSONALITY) & 0x1) == 0 ? types[0] : types[1];
 }
 
@@ -6836,8 +6839,8 @@ void SavePlayerPartyMon(u32 index, struct Pokemon *mon)
 
 bool32 IsSpeciesOfType(enum Species species, enum Type type)
 {
-    if (gSpeciesInfo[species].types[0] == type
-     || gSpeciesInfo[species].types[1] == type)
+    if (gSpeciesBaseInfo[species].types[0] == type
+     || gSpeciesBaseInfo[species].types[1] == type)
         return TRUE;
     return FALSE;
 }
@@ -6952,16 +6955,16 @@ static void ResolveIVs(enum Species species, const u16 *ivsTemplate, u8 *ivs)
     }
 
     // Perfect IV calculation
-    if (gSpeciesInfo[species].perfectIVCount != 0)
+    if (gSpeciesMiscInfo[species].perfectIVCount != 0)
     {
         // Select the IVs that will be perfected.
-        for (i = 0; i < nonFixedIvCount && i < gSpeciesInfo[species].perfectIVCount; i++)
+        for (i = 0; i < nonFixedIvCount && i < gSpeciesMiscInfo[species].perfectIVCount; i++)
         {
             u8 index = Random() % (nonFixedIvCount - i);
             selectedIvs[i] = availableIVs[index];
             RemoveIVIndexFromList(availableIVs, index);
         }
-        for (i = 0; i < nonFixedIvCount && i < gSpeciesInfo[species].perfectIVCount; i++)
+        for (i = 0; i < nonFixedIvCount && i < gSpeciesMiscInfo[species].perfectIVCount; i++)
         {
             ivs[selectedIvs[i]] = MAX_PER_STAT_IVS;
         }
