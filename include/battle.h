@@ -746,6 +746,7 @@ struct BattleStruct
     u8 allowPartingShot:1;
     u8 adrenalineOrbActivated:1; // prevents looping after an adrenaline stat changed
     u8 setToFaint[MAX_BATTLERS_COUNT];
+    u32 evTutorTeamEvsBefore;
 };
 
 struct AiBattleData

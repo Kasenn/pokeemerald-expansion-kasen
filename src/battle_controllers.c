@@ -3043,14 +3043,22 @@ static void BuildPartyStatusSummary(enum BattlerId battler, enum BattleSide side
 
 void BtlController_HandleDrawPartyStatusSummary(enum BattlerId battler, enum BattleSide side, bool32 considerDelay)
 {
-    if ((gBattleResources->bufferA[battler][1] != 0 && IsOnPlayerSide(battler)) || GetBattlerTrainer(battler) == B_TRAINER_PARTNER)
+    if ((gBattleResources->bufferA[battler][1] != 0 && IsOnPlayerSide(battler))
+     || (side == B_SIDE_PLAYER
+     && BattleSideHasTwoTrainers(side)
+     && GetBattlerPosition(battler) == B_POSITION_PLAYER_RIGHT))
     {
         BtlController_Complete(battler);
     }
     else
     {
-        if (gBattleResources->bufferA[battler][2] && GetBattlerTrainer(battler) == B_TRAINER_OPPONENT_A && BattleSideHasTwoTrainers(side))
+        if (gBattleResources->bufferA[battler][2]
+        && GetBattlerTrainer(battler) == B_TRAINER_OPPONENT_A
+        && BattleSideHasTwoTrainers(side))
+        {
             BtlController_Complete(battler);
+            return;
+        }
         gBattleSpritesDataPtr->healthBoxesData[battler].partyStatusSummaryShown = 1;
 
         if (side == B_SIDE_OPPONENT && gBattleResources->bufferA[battler][2] != 0)
