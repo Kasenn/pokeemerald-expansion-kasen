@@ -89,7 +89,7 @@ Route3_Hiker::
 
 Route3_Lass::
 # 51 "data/maps/Route3/scripts.pory"
-	trainerbattle_single TRAINER_UNUSED_54_, Route3_LassIntro, Route3_LassDefeated
+	trainerbattle_single TRAINER_R21_RANGER_F, Route3_LassIntro, Route3_LassDefeated
 # 52 "data/maps/Route3/scripts.pory"
 	msgbox Route3_LassPostBattle, MSGBOX_AUTOCLOSE
 # 53 "data/maps/Route3/scripts.pory"

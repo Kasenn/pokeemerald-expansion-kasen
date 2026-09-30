@@ -557,12 +557,12 @@ script Debug_Script_3{
     return
 }
 script Debug_Script_4{
-    trainerbattle_no_intro(TRAINER_UNUSED_226_, "c")
+    trainerbattle_no_intro(TRAINER_R21_HIKER, "c")
     return
 }
 script Debug_Script_5{
-    trainerbattle_two_trainers(TRAINER_UNUSED_227_, "a", TRAINER_UNUSED_226_, "b")
-    trainerbattle_no_intro(TRAINER_UNUSED_227_, "c")
+    trainerbattle_two_trainers(TRAINER_R21_RANGER_M, "a", TRAINER_R21_HIKER, "b")
+    trainerbattle_no_intro(TRAINER_R21_RANGER_M, "c")
     return
 }
 

@@ -3,6 +3,8 @@ CONTEST SPRITES
 fix slot machine rng + add quest to manip them
 eventually fix song instruments
 
+fix town map
+
 fix contest brendan backpic
 
 add fly to somewhere near fishing village (maybe brother, maybe a house)

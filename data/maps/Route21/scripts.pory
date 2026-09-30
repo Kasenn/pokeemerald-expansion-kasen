@@ -1,3 +1,103 @@
 mapscripts Route21_MapScripts {
-    
+    MAP_SCRIPT_ON_TRANSITION{
+        clearflag(FLAG_TIME_STOP)
+        clearflag(FLAG_ENCHANTED_FOREST_NIGHT)
+    }
+}
+
+script TrainerBattle_TRAINER_R21_RANGER_F{
+    trainerbattle_single(TRAINER_R21_RANGER_F, TRAINER_R21_RANGER_F_Intro, TRAINER_R21_RANGER_F_Lose)
+    msgbox(TRAINER_R21_RANGER_F_PostBattle, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_RANGER_F_Intro{
+    "wip"
+}
+text TRAINER_R21_RANGER_F_Lose{
+    "wip"
+}
+text TRAINER_R21_RANGER_F_PostBattle{
+    "wip"
+}
+
+script TrainerBattle_TRAINER_R21_MYSTERIOUS_SISTERS_BigSis{
+    trainerbattle_double(TRAINER_R21_MYSTERIOUS_SISTERS, TRAINER_R21_MYSTERIOUS_SISTERS_IntroBigSis, TRAINER_R21_MYSTERIOUS_SISTERS_LoseBigSis, TRAINER_R21_MYSTERIOUS_SISTERS_NotEnoughMonsBigSis)
+    msgbox(TRAINER_R21_MYSTERIOUS_SISTERS_PostBattleBigSis, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_IntroBigSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_LoseBigSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_PostBattleBigSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_NotEnoughMonsBigSis{
+    "wip"
+}
+
+script TrainerBattle_TRAINER_R21_MYSTERIOUS_SISTERS_LilSis{
+    trainerbattle_double(TRAINER_R21_MYSTERIOUS_SISTERS, TRAINER_R21_MYSTERIOUS_SISTERS_IntroLilSis, TRAINER_R21_MYSTERIOUS_SISTERS_LoseLilSis, TRAINER_R21_MYSTERIOUS_SISTERS_NotEnoughMonsLilSis)
+    msgbox(TRAINER_R21_MYSTERIOUS_SISTERS_PostBattleLilSis, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_IntroLilSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_LoseLilSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_PostBattleLilSis{
+    "wip"
+}
+text TRAINER_R21_MYSTERIOUS_SISTERS_NotEnoughMonsLilSis{
+    "wip"
+}
+
+script TrainerBattle_TRAINER_R21_HIKER{
+    trainerbattle_single(TRAINER_R21_HIKER, TRAINER_R21_HIKER_Intro, TRAINER_R21_HIKER_Lose)
+    msgbox(TRAINER_R21_HIKER_PostBattle, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_HIKER_Intro{
+    "wip"
+}
+text TRAINER_R21_HIKER_Lose{
+    "wip"
+}
+text TRAINER_R21_HIKER_PostBattle{
+    "wip"
+}
+
+script TrainerBattle_TRAINER_R21_RANGER_M{
+    trainerbattle_single(TRAINER_R21_RANGER_M, TRAINER_R21_RANGER_M_Intro, TRAINER_R21_RANGER_M_Lose)
+    msgbox(TRAINER_R21_RANGER_M_PostBattle, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_RANGER_M_Intro{
+    "wip"
+}
+text TRAINER_R21_RANGER_M_Lose{
+    "wip"
+}
+text TRAINER_R21_RANGER_M_PostBattle{
+    "wip"
+}
+
+script TrainerBattle_TRAINER_R21_FAIRY_TALE_GIRL{
+    trainerbattle_single(TRAINER_R21_FAIRY_TALE_GIRL, TRAINER_R21_FAIRY_TALE_GIRL_Intro, TRAINER_R21_FAIRY_TALE_GIRL_Lose)
+    msgbox(TRAINER_R21_FAIRY_TALE_GIRL_PostBattle, MSGBOX_AUTOCLOSE)
+}
+text TRAINER_R21_FAIRY_TALE_GIRL_Intro{
+    "wip"
+}
+text TRAINER_R21_FAIRY_TALE_GIRL_Lose{
+    "wip"
+}
+text TRAINER_R21_FAIRY_TALE_GIRL_PostBattle{
+    "wip"
+}
+
+script Route21_Lass{
+    msgbox(Route21_Lass_Text, MSGBOX_NPC)
+}
+text Route21_Lass_Text{
+    "wip"
 }

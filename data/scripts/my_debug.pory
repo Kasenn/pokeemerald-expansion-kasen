@@ -139,8 +139,8 @@ script Update4{
         settrainerflag(TRAINER_MAY_ROUTE_11_ANGRY)
     }
     ///
-    if (defeated(TRAINER_UNUSED_228_)){
-        cleartrainerflag(TRAINER_UNUSED_228_)
+    if (defeated(TRAINER_R21_FAIRY_TALE_GIRL)){
+        cleartrainerflag(TRAINER_R21_FAIRY_TALE_GIRL)
         settrainerflag(TRAINER_BRENDAN_ROUTE_11_ANGRY)
     }
     if (defeated(TRAINER_UNUSED_229_)){
@@ -165,16 +165,16 @@ script Update4{
         settrainerflag(TRAINER_MAY_ROUTE_11_NORMAL)
     }
     ///
-    if (defeated(TRAINER_UNUSED_225_)){
-        cleartrainerflag(TRAINER_UNUSED_225_)
+    if (defeated(TRAINER_R21_MYSTERIOUS_SISTERS)){
+        cleartrainerflag(TRAINER_R21_MYSTERIOUS_SISTERS)
         settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
     }
-    if (defeated(TRAINER_UNUSED_226_)){
-        cleartrainerflag(TRAINER_UNUSED_226_)
+    if (defeated(TRAINER_R21_HIKER)){
+        cleartrainerflag(TRAINER_R21_HIKER)
         settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
     }
-    if (defeated(TRAINER_UNUSED_227_)){
-        cleartrainerflag(TRAINER_UNUSED_227_)
+    if (defeated(TRAINER_R21_RANGER_M)){
+        cleartrainerflag(TRAINER_R21_RANGER_M)
         settrainerflag(TRAINER_BRENDAN_ROUTE_11_NORMAL)
     }
     ///
@@ -300,7 +300,7 @@ script UpdateGame{
         setvar(VAR_DEBUG, 6)
     }
     if(var(VAR_DEBUG) == 6){
-        cleartrainerflag(TRAINER_UNUSED_54_)
+        cleartrainerflag(TRAINER_R21_RANGER_F)
         cleartrainerflag(TRAINER_UNUSED_172_)
         setvar(VAR_DEBUG, 7)
     }

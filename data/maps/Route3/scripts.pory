@@ -48,7 +48,7 @@ script Route3_Hiker{
 	end
 }
 script Route3_Lass{
-    trainerbattle_single(TRAINER_UNUSED_54_, Route3_LassIntro, Route3_LassDefeated)
+    trainerbattle_single(TRAINER_R21_RANGER_F, Route3_LassIntro, Route3_LassDefeated)
 	msgbox(Route3_LassPostBattle, MSGBOX_AUTOCLOSE)
     waitmessage
 	end

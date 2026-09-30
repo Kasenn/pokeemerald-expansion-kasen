@@ -162,7 +162,7 @@ Update4_75:
 	goto_if 1, Update4_79
 Update4_78:
 # 142 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_UNUSED_228_
+	checktrainerflag TRAINER_R21_FAIRY_TALE_GIRL
 	goto_if 1, Update4_82
 Update4_81:
 # 146 "data/scripts/my_debug.pory"
@@ -186,15 +186,15 @@ Update4_93:
 	goto_if 1, Update4_97
 Update4_96:
 # 168 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_UNUSED_225_
+	checktrainerflag TRAINER_R21_MYSTERIOUS_SISTERS
 	goto_if 1, Update4_100
 Update4_99:
 # 172 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_UNUSED_226_
+	checktrainerflag TRAINER_R21_HIKER
 	goto_if 1, Update4_103
 Update4_102:
 # 176 "data/scripts/my_debug.pory"
-	checktrainerflag TRAINER_UNUSED_227_
+	checktrainerflag TRAINER_R21_RANGER_M
 	goto_if 1, Update4_106
 Update4_105:
 # 181 "data/scripts/my_debug.pory"
@@ -419,7 +419,7 @@ Update4_79:
 
 Update4_82:
 # 143 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_228_
+	cleartrainerflag TRAINER_R21_FAIRY_TALE_GIRL
 # 144 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_ANGRY
 	goto Update4_81
@@ -461,21 +461,21 @@ Update4_97:
 
 Update4_100:
 # 169 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_225_
+	cleartrainerflag TRAINER_R21_MYSTERIOUS_SISTERS
 # 170 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_99
 
 Update4_103:
 # 173 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_226_
+	cleartrainerflag TRAINER_R21_HIKER
 # 174 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_102
 
 Update4_106:
 # 177 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_227_
+	cleartrainerflag TRAINER_R21_RANGER_M
 # 178 "data/scripts/my_debug.pory"
 	settrainerflag TRAINER_BRENDAN_ROUTE_11_NORMAL
 	goto Update4_105
@@ -697,7 +697,7 @@ UpdateGame_11:
 
 UpdateGame_14:
 # 303 "data/scripts/my_debug.pory"
-	cleartrainerflag TRAINER_UNUSED_54_
+	cleartrainerflag TRAINER_R21_RANGER_F
 # 304 "data/scripts/my_debug.pory"
 	cleartrainerflag TRAINER_UNUSED_172_
 # 305 "data/scripts/my_debug.pory"

@@ -13395,11 +13395,15 @@ const struct ItemInfo gItemsInfo[] =
     {
         .name = ITEM_NAME("TM83"),
         .price = 3000,
-        .description = sQuestionMarksDesc, // Todo
+        .description = COMPOUND_STRING(
+            "The user cuts its target\n"
+            "with sharp shells.\n"
+            "This attack may also lower\n"
+            "the target's Defense stat."),
         .importance = I_REUSABLE_TMS,
         .pocket = POCKET_TM_HM,
         .type = ITEM_USE_PARTY_MENU,
-        .fieldUseFunc = ItemUseOutOfBattle_TMHM, //wip, Not In-Game Yet
+        .fieldUseFunc = ItemUseOutOfBattle_TMHM,
     },
 
     [ITEM_TM_STOMPING_TANTRUM] =

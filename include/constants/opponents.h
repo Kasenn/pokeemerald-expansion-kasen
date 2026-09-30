@@ -58,7 +58,7 @@
 #define TRAINER_LEADER_AARON               51
 #define TRAINER_CORALGROVE_NURSE               52
 #define TRAINER_R4_HIKER               53
-#define TRAINER_UNUSED_54_               54
+#define TRAINER_R21_RANGER_F               54
 #define TRAINER_R4_POKEMANIAC               55
 #define TRAINER_R4_BUGCATCHER               56
 #define TRAINER_R4_TWINS                       57
@@ -229,10 +229,10 @@
 #define TRAINER_R11_EXPERT                             222
 #define TRAINER_R11_PSYCHIC_F                          223
 #define TRAINER_R11_ACETRAINER_F                       224
-#define TRAINER_UNUSED_225_                          225
-#define TRAINER_UNUSED_226_                         226
-#define TRAINER_UNUSED_227_                          227
-#define TRAINER_UNUSED_228_                    228
+#define TRAINER_R21_MYSTERIOUS_SISTERS                          225
+#define TRAINER_R21_HIKER                         226
+#define TRAINER_R21_RANGER_M                          227
+#define TRAINER_R21_FAIRY_TALE_GIRL                    228
 #define TRAINER_UNUSED_229_                   229
 #define TRAINER_UNUSED_230_                    230
 #define TRAINER_UNUSED_231_                              231

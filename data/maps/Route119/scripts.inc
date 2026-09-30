@@ -328,7 +328,7 @@ Route119_EventScript_Donald::
 	end
 
 Route119_EventScript_Taylor::
-	trainerbattle_single TRAINER_UNUSED_225_, Route119_Text_TaylorIntro, Route119_Text_TaylorDefeat
+	trainerbattle_single TRAINER_R21_MYSTERIOUS_SISTERS, Route119_Text_TaylorIntro, Route119_Text_TaylorDefeat
 	msgbox Route119_Text_TaylorPostBattle, MSGBOX_AUTOCLOSE
 	end
 

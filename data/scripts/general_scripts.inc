@@ -886,15 +886,15 @@ Debug_Script_3::
 
 Debug_Script_4::
 # 560 "data/scripts/general_scripts.pory"
-	trainerbattle_no_intro TRAINER_UNUSED_226_, Debug_Script_4_Text_0
+	trainerbattle_no_intro TRAINER_R21_HIKER, Debug_Script_4_Text_0
 	return
 
 
 Debug_Script_5::
 # 564 "data/scripts/general_scripts.pory"
-	trainerbattle_two_trainers TRAINER_UNUSED_227_, Debug_Script_5_Text_0, TRAINER_UNUSED_226_, Debug_Script_5_Text_1
+	trainerbattle_two_trainers TRAINER_R21_RANGER_M, Debug_Script_5_Text_0, TRAINER_R21_HIKER, Debug_Script_5_Text_1
 # 565 "data/scripts/general_scripts.pory"
-	trainerbattle_no_intro TRAINER_UNUSED_227_, Debug_Script_4_Text_0
+	trainerbattle_no_intro TRAINER_R21_RANGER_M, Debug_Script_4_Text_0
 	return
 
 
