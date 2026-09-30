@@ -298,6 +298,9 @@ BattleScript_EffectDoodle_AfterCopy:
 	recordability BS_ATTACKER
 	printstring STRINGID_PKMNCOPIEDFOE
 	waitmessage B_WAIT_TIME_LONG
+	tryendneutralizinggas BS_ATTACKER
+	trytoclearprimalweather
+	call BattleScript_TryRevertWeatherform
 	switchinabilities BS_ATTACKER
 	jumpifbyte CMP_NOT_EQUAL, gBattleCommunication, 0x0, BattleScript_EffectDoodleMoveEnd
 	addbyte gBattleCommunication, 1
@@ -1085,13 +1088,13 @@ BattleScript_EffectEntrainment::
 	tryentrainment BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	switchinabilities BS_TARGET
 	printstring STRINGID_PKMNACQUIREDABILITY
 	waitmessage B_WAIT_TIME_LONG
+	tryendneutralizinggas
 	trytoclearprimalweather
 	call BattleScript_TryRevertWeatherform
 	flushtextbox
-	tryendneutralizinggas
+	switchinabilities BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectLuckyChant::
@@ -1168,6 +1171,7 @@ BattleScript_EffectOverwriteAbility::
 	call BattleScript_TryRevertWeatherform
 	flushtextbox
 	tryendneutralizinggas
+	switchinabilities BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_EffectPowerSplit::
@@ -1858,10 +1862,6 @@ BattleScript_TwoTurnMoveCharging::
 	twoturnmoveschargestringandanimation
 	setadditionaleffects @ only onChargeTurnOnly effects will work here
 	return
-
-BattleScript_SkyDropCharging::
-	call BattleScript_TwoTurnMoveCharging
-	goto BattleScript_MoveEnd
 
 BattleScript_TwoTurnMovesSecondTurnRet:
 	setbyte sB_ANIM_TURN, 1
@@ -2587,6 +2587,9 @@ BattleScript_EffectRolePlay::
 	recordability BS_ATTACKER
 	printstring STRINGID_PKMNCOPIEDFOE
 	waitmessage B_WAIT_TIME_LONG
+	tryendneutralizinggas BS_ATTACKER
+	trytoclearprimalweather
+	call BattleScript_TryRevertWeatherform
 	switchinabilities BS_ATTACKER
 	goto BattleScript_MoveEnd
 
@@ -2920,6 +2923,7 @@ BattleScript_HandleFaintedMonLoop::
 	trytrainerslidemsglaston BS_FAINTED
 	switchineffects BS_FAINTED_MULTIPLE_1
 	jumpifbytenotequal gBattlerFainted, gBattlersCount, BattleScript_HandleFaintedMonLoop
+	setbyte gBattlerFainted, 0
 BattleScript_HandleFaintedMonMultipleEnd::
 	switchinevents
 	trytrainerslidemsglaston BS_FAINTED_MULTIPLE_2
@@ -4391,7 +4395,7 @@ BattleScript_DoSelfConfusionDmg::
 	waitstate
 	tryselfconfusiondmgformchange
 	healthbarupdate BS_ATTACKER
-	datahpupdate BS_ATTACKER, ASSURANCE_IGNORE
+	datahpupdate BS_ATTACKER, ASSURANCE_DOUBLE
 	resultmessage
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
@@ -5167,7 +5171,7 @@ BattleScript_MummyActivates::
 	trytoclearprimalweather
 	call BattleScript_TryRevertWeatherform
 	flushtextbox
-	tryendneutralizinggas
+	tryendneutralizinggas BS_ATTACKER
 	return
 
 BattleScript_WanderingSpiritActivates::
@@ -6511,6 +6515,7 @@ BattleScript_MegaExhaustion::
 
 BattleScript_Attackstring::
 	printattackstring
+	waitmessage B_WAIT_TIME_SHORT
 	return
 
 BattleScript_SubmoveAttackstring::

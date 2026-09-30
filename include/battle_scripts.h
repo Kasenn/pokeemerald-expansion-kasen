@@ -515,7 +515,6 @@ extern const u8 BattleScript_NaturePowerAttackstring[];
 extern const u8 BattleScript_PokemonCantUseTheMove[];
 extern const u8 BattleScript_ButHoopaCantUseIt[];
 extern const u8 BattleScript_TwoTurnMoveCharging[];
-extern const u8 BattleScript_SkyDropCharging[];
 extern const u8 BattleScript_PowerHerbActivation[];
 extern const u8 BattleScript_StrongWindsActivation[];
 extern const u8 BattleScript_Explosion[];
