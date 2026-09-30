@@ -47,7 +47,7 @@ SINGLE_BATTLE_TEST("Kings Rock can flinch with a non-flinching move boosted by S
         TURN { MOVE(player, MOVE_FLARE_BLITZ); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FLARE_BLITZ, player);
-        MESSAGE("The opposing Wobbuffet flinched and couldn't move!");
+        MESSAGE("The foe Wobbuffet flinched!");
     }
 }
 

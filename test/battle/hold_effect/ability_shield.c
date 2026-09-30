@@ -369,7 +369,7 @@ SINGLE_BATTLE_TEST("Ability Shield prevents the user's Trace from changing its a
             NOT ABILITY_POPUP(player, ABILITY_TRACE);
         } else {
             ABILITY_POPUP(player, ABILITY_TRACE);
-            MESSAGE("It traced the opposing Torchic's Blaze!");
+            MESSAGE("It traced the foe Torchic's Blaze!");
         }
     } THEN {
         EXPECT_EQ(player->ability, item == ITEM_ABILITY_SHIELD ? ABILITY_TRACE : ABILITY_BLAZE);

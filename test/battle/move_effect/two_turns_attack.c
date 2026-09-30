@@ -107,7 +107,7 @@ SINGLE_BATTLE_TEST("Sky Attack needs a charging turn")
         TURN { SKIP_TURN(player); }
     } SCENE {
         MESSAGE("Wobbuffet used Sky Attack!");
-        MESSAGE("Wobbuffet became cloaked in a harsh light!");
+        MESSAGE("Wobbuffet is glowing!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_ATTACK, player);
         NOT HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SKY_ATTACK, player);

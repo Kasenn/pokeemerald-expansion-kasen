@@ -22,7 +22,7 @@ SINGLE_BATTLE_TEST("Fissure does not bypass type immunities (Gen 1)")
         TURN { MOVE(player, MOVE_FISSURE); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_FISSURE, player);
-        MESSAGE("It doesn't affect the opposing Pidgey…");
+        MESSAGE("It doesn't affect the foe Pidgey…");
     }
 }
 
@@ -37,7 +37,7 @@ SINGLE_BATTLE_TEST("Guillotine does not bypass type immunities (Gen 1)")
         TURN { MOVE(player, MOVE_GUILLOTINE); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_GUILLOTINE, player);
-        MESSAGE("It doesn't affect the opposing Gastly…");
+        MESSAGE("It doesn't affect the foe Gastly…");
     }
 }
 
@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Horn Drill does not bypass type immunities (Gen 1)")
         TURN { MOVE(player, MOVE_HORN_DRILL); }
     } SCENE {
         NOT ANIMATION(ANIM_TYPE_MOVE, MOVE_HORN_DRILL, player);
-        MESSAGE("It doesn't affect the opposing Gastly…");
+        MESSAGE("It doesn't affect the foe Gastly…");
     }
 }
 

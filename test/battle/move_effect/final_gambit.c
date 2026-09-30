@@ -210,7 +210,7 @@ SINGLE_BATTLE_TEST("Final Gambit triggers the target's Focus Band")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FINAL_GAMBIT, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("The opposing Wobbuffet hung on using its Focus Band!");
+        MESSAGE("The foe Wobbuffet hung on using its Focus Band!");
         HP_BAR(player, hp: 0);
     } THEN {
         EXPECT_EQ(opponent->hp, 1);
@@ -229,7 +229,7 @@ SINGLE_BATTLE_TEST("Final Gambit triggers the target's Focus Sash")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FINAL_GAMBIT, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("The opposing Wobbuffet hung on using its Focus Sash!");
+        MESSAGE("The foe Wobbuffet hung on using its Focus Sash!");
         HP_BAR(player, hp: 0);
     } THEN {
         EXPECT_EQ(opponent->hp, 1);
@@ -268,7 +268,7 @@ SINGLE_BATTLE_TEST("Final Gambit triggers the target's Endure")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ENDURE, opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FINAL_GAMBIT, player);
         HP_BAR(opponent, hp: 1);
-        MESSAGE("The opposing Wobbuffet endured the hit!");
+        MESSAGE("The foe Wobbuffet endured the hit!");
         HP_BAR(player, hp: 0);
     } THEN {
         EXPECT_EQ(opponent->hp, 1);

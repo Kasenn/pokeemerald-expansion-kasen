@@ -52,7 +52,7 @@ SINGLE_BATTLE_TEST("Terrain created by moves lasts 5 turns without Terrain Exten
             MESSAGE("The mist disappeared from the battlefield.");
             break;
         case MOVE_PSYCHIC_TERRAIN:
-            MESSAGE("The weirdness disappeared from the battlefield!");
+            MESSAGE("The weirdness disappeared from the battlefield.");
             break;
         default:
             break;
@@ -147,7 +147,7 @@ SINGLE_BATTLE_TEST("Terrain Extender makes terrain created by moves last 8 turns
             MESSAGE("The mist disappeared from the battlefield.");
             break;
         case MOVE_PSYCHIC_TERRAIN:
-            MESSAGE("The weirdness disappeared from the battlefield!");
+            MESSAGE("The weirdness disappeared from the battlefield.");
             break;
         default:
             break;
@@ -196,7 +196,7 @@ SINGLE_BATTLE_TEST("Terrain Extender makes terrain created by abilities last 8 t
             MESSAGE("The mist disappeared from the battlefield.");
             break;
         case ABILITY_PSYCHIC_SURGE:
-            MESSAGE("The weirdness disappeared from the battlefield!");
+            MESSAGE("The weirdness disappeared from the battlefield.");
             break;
         default:
             break;

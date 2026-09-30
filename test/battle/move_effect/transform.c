@@ -191,8 +191,8 @@ DOUBLE_BATTLE_TEST("Transform copies a target's Flying type but not its active R
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_ROOST, playerLeft);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_TRANSFORM, opponentLeft);
-        MESSAGE("The opposing Ditto transformed into Swellow!");
-        MESSAGE("It doesn't affect the opposing Ditto…");
+        MESSAGE("The foe Ditto transformed into Swellow!");
+        MESSAGE("It doesn't affect the foe Ditto…");
     } THEN {
         EXPECT_EQ(opponentLeft->types[0], TYPE_NORMAL);
         EXPECT_EQ(opponentLeft->types[1], TYPE_FLYING);

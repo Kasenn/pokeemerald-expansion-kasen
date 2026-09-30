@@ -24,8 +24,8 @@ SINGLE_BATTLE_TEST("Soak/Magic Powder changes the target's type to pure Water/Ps
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         switch (move) {
-            case MOVE_SOAK:         MESSAGE("The opposing Golem transformed into the Water type!"); break;
-            case MOVE_MAGIC_POWDER: MESSAGE("The opposing Golem transformed into the Psychic type!"); break;
+            case MOVE_SOAK:         MESSAGE("The foe Golem transformed into the Water type!"); break;
+            case MOVE_MAGIC_POWDER: MESSAGE("The foe Golem transformed into the Psychic type!"); break;
             default: break;
         }
     } THEN {

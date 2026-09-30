@@ -33,7 +33,7 @@ SINGLE_BATTLE_TEST("False Swipe still hits the target if it has 1 HP")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_FALSE_SWIPE, player);
         HP_BAR(player);
-        MESSAGE("Wobbuffet was hurt by the opposing Wobbuffet's Rocky Helmet!");
+        MESSAGE("Wobbuffet was hurt by the Rocky Helmet!");
     } THEN {
         EXPECT_EQ(opponent->hp, 1);
     }

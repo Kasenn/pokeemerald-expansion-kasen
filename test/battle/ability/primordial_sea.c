@@ -27,7 +27,7 @@ DOUBLE_BATTLE_TEST("Primordial Sea ending reverts Castform before the replacemen
             ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         }
 
-        MESSAGE("The heavy rain has lifted!");
+        MESSAGE("Error 06: something has gone awry. Please inform the romhack creator!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_DRIZZLE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_RAIN_CONTINUES);

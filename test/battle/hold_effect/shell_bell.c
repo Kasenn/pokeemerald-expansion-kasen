@@ -304,7 +304,7 @@ SINGLE_BATTLE_TEST("A Pokémon that steals a Shell Bell with Thief or Covet reco
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         HP_BAR(opponent, captureDamage: &results[i].damage);
-        MESSAGE("Wobbuffet stole the opposing Wobbuffet's Shell Bell!");
+        MESSAGE("Wobbuffet stole the foe Wobbuffet's Shell Bell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
         HP_BAR(player, captureDamage: &results[i].recovery);
     } THEN {
@@ -328,7 +328,7 @@ SINGLE_BATTLE_TEST("A Pokémon that steals a Shell Bell with Magician recovers H
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         HP_BAR(opponent, captureDamage: &damage);
         ABILITY_POPUP(player, ABILITY_MAGICIAN);
-        MESSAGE("Delphox stole the opposing Wobbuffet's Shell Bell!");
+        MESSAGE("Delphox stole the foe Wobbuffet's Shell Bell!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
         HP_BAR(player, captureDamage: &recovery);
     } THEN {

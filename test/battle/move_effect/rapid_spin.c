@@ -110,7 +110,7 @@ SINGLE_BATTLE_TEST("Rapid Spin blows away Wrap and hazards but doesn't raise Spe
         ANIMATION(ANIM_TYPE_MOVE, MOVE_RAPID_SPIN, player);
         NOT ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, player);
         MESSAGE("Tauros was freed from Wrap!");
-        MESSAGE("The pointed stones disappeared from your side!");
+        MESSAGE("The pointed stones disappeared from around your team!");
     } THEN {
         EXPECT_EQ(player->statStages[STAT_SPEED], DEFAULT_STAT_STAGE);
         for (u32 i = 0; i < ARRAY_COUNT(gBattleStruct->hazardsQueue[B_SIDE_PLAYER]); i++)

@@ -400,7 +400,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't prevent the usage of Z-Moves")
         TURN { MOVE(opponent, MOVE_EMBARGO); }
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_Z_MOVE); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Embargo!");
+        MESSAGE("The foe Wobbuffet used Embargo!");
         MESSAGE("Wobbuffet can't use items anymore!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_ZMOVE_ACTIVATE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BREAKNECK_BLITZ, player);
@@ -418,7 +418,7 @@ SINGLE_BATTLE_TEST("Embargo doesn't block held item effects that affect prize mo
         TURN { MOVE(opponent, MOVE_EMBARGO); }
         TURN { MOVE(player, MOVE_BATON_PASS); SEND_OUT(player, 1); }
     } SCENE {
-        MESSAGE("The opposing Wobbuffet used Embargo!");
+        MESSAGE("The foe Wobbuffet used Embargo!");
         MESSAGE("Wobbuffet can't use items anymore!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BATON_PASS, player);
         SEND_IN_MESSAGE("Wynaut");

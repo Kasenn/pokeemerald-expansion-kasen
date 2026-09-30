@@ -35,7 +35,7 @@ SINGLE_BATTLE_TEST("Fairy Lock does not prevent switch out via Dragon Tail")
         TURN { MOVE(player, MOVE_DRAGON_TAIL); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_DRAGON_TAIL, player);
-        MESSAGE("The opposing Wynaut was dragged out!");
+        MESSAGE("The foe Wynaut was dragged out!");
     } THEN {
         EXPECT_EQ(opponent->species, SPECIES_WYNAUT);
     }
@@ -53,7 +53,7 @@ SINGLE_BATTLE_TEST("Fairy Lock does not prevent switch out via Whirlwind")
         TURN { MOVE(player, MOVE_WHIRLWIND); }
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_WHIRLWIND, player);
-        MESSAGE("The opposing Wynaut was dragged out!");
+        MESSAGE("The foe Wynaut was dragged out!");
     } THEN {
         EXPECT_EQ(opponent->species, SPECIES_WYNAUT);
     }
@@ -72,7 +72,7 @@ SINGLE_BATTLE_TEST("Fairy Lock does not prevent switch out via Eject Button")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("The opposing Wobbuffet is switched out with the Eject Button!");
+        MESSAGE("The foe Wobbuffet is switched out with the Eject Button!");
         MESSAGE("2 sent out Wynaut!");
     } THEN {
         EXPECT_EQ(opponent->species, SPECIES_WYNAUT);
@@ -92,7 +92,7 @@ SINGLE_BATTLE_TEST("Fairy Lock does not prevent switch out via Red Card")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, player);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, opponent);
-        MESSAGE("The opposing Wobbuffet held up its Red Card against Wobbuffet!");
+        MESSAGE("The foe Wobbuffet held up its Red Card against Wobbuffet!");
         MESSAGE("Wynaut was dragged out!");
     } THEN {
         EXPECT_EQ(player->species, SPECIES_WYNAUT);

@@ -55,9 +55,9 @@ SINGLE_BATTLE_TEST("Cute Charm cannot infatuate if either Pokémon is genderless
 
     GIVEN {
         ASSUME(MoveMakesContact(MOVE_SCRATCH));
-        ASSUME(gSpeciesInfo[SPECIES_NIDOKING].genderRatio == MON_MALE);
-        ASSUME(gSpeciesInfo[SPECIES_NIDOQUEEN].genderRatio == MON_FEMALE);
-        ASSUME(gSpeciesInfo[SPECIES_STARMIE].genderRatio == MON_GENDERLESS);
+        ASSUME(gSpeciesBaseInfo[SPECIES_NIDOKING].genderRatio == MON_MALE);
+        ASSUME(gSpeciesBaseInfo[SPECIES_NIDOQUEEN].genderRatio == MON_FEMALE);
+        ASSUME(gSpeciesBaseInfo[SPECIES_STARMIE].genderRatio == MON_GENDERLESS);
         PLAYER(playerSpecies);
         OPPONENT(opponentSpecies) { Ability(ABILITY_CUTE_CHARM); }
     } WHEN {

@@ -39,13 +39,13 @@ SINGLE_BATTLE_TEST("Icy Rock extends hail created by compatible moves to 8 turns
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         MESSAGE("It started to hail!");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
-        MESSAGE("The hail is crashing down.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
+        MESSAGE("Hail continues to fall.");
         MESSAGE("The hail stopped.");
     }
 }

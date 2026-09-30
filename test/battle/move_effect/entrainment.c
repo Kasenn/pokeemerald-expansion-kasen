@@ -83,7 +83,7 @@ SINGLE_BATTLE_TEST("Entrainment fails on Dynamaxed Pokémon")
         TURN { MOVE(player, MOVE_SCRATCH, gimmick: GIMMICK_DYNAMAX); MOVE(opponent, MOVE_ENTRAINMENT); }
     } SCENE {
         MESSAGE("Wobbuffet used Max Strike!");
-        MESSAGE("The opposing Wobbuffet used Entrainment!");
+        MESSAGE("The foe Wobbuffet used Entrainment!");
         MESSAGE("But it failed!");
     } THEN {
         EXPECT_EQ(player->ability, ABILITY_SHADOW_TAG);

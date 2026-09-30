@@ -43,9 +43,9 @@ SINGLE_BATTLE_TEST("Screen-breaking moves do not announce expiration again on la
         ANIMATION(ANIM_TYPE_MOVE, move, player);
         HP_BAR(opponent);
         NONE_OF {
-            MESSAGE("The opposing side's Reflect wore off!");
-            MESSAGE("The opposing side's Light Screen wore off!");
-            MESSAGE("The opposing side's Aurora Veil wore off!");
+            MESSAGE("The opposing team's Reflect wore off!");
+            MESSAGE("The opposing team's Light Screen wore off!");
+            MESSAGE("The opposing team's Aurora Veil wore off!");
         }
     }
 }
@@ -67,12 +67,12 @@ SINGLE_BATTLE_TEST("Screen-breaking moves do not announce Reflect when breaking 
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_REFLECT, opponent);
         ANIMATION(ANIM_TYPE_MOVE, move, player);
-        MESSAGE("The opposing side's Reflect wore off!");
+        MESSAGE("The opposing team's Reflect wore off!");
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_LIGHT_SCREEN, opponent);
         ANIMATION(ANIM_TYPE_MOVE, move, player);
-        NOT MESSAGE("The opposing side's Reflect wore off!");
-        MESSAGE("The opposing side's Light Screen wore off!");
+        NOT MESSAGE("The opposing team's Reflect wore off!");
+        MESSAGE("The opposing team's Light Screen wore off!");
         HP_BAR(opponent);
     }
 }

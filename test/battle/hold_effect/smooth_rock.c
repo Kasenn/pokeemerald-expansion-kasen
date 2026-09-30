@@ -25,13 +25,13 @@ SINGLE_BATTLE_TEST("Smooth Rock extends sandstorm created by Sandstorm to 8 turn
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SANDSTORM, player);
         MESSAGE("A sandstorm kicked up!");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
-        MESSAGE("The sandstorm is raging.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
+        MESSAGE("The sandstorm rages.");
         MESSAGE("The sandstorm subsided.");
     }
 }

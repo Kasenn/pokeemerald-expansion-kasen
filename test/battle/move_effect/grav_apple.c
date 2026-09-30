@@ -18,7 +18,7 @@ SINGLE_BATTLE_TEST("Grav Apple lowers the target's Defense by 1 stage")
         ANIMATION(ANIM_TYPE_MOVE, MOVE_GRAV_APPLE, player);
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_STATS_CHANGE, opponent);
-        MESSAGE("The opposing Wobbuffet's Defense fell!");
+        MESSAGE("The foe Wobbuffet's Defense fell!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_DEF], DEFAULT_STAT_STAGE - 1);
     }

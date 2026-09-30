@@ -34,7 +34,7 @@ SINGLE_BATTLE_TEST("Super Fang always deals at least 1 HP of damage")
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SUPER_FANG, player);
         HP_BAR(opponent, damage: 1);
-        MESSAGE("The opposing Wobbuffet fainted!");
+        MESSAGE("The foe Wobbuffet fainted!");
     }
 }
 
@@ -72,7 +72,7 @@ SINGLE_BATTLE_TEST("Super Fang doesn't hit Ghost-type Pokémon (Gen 2+)")
     } WHEN {
         TURN { MOVE(player, MOVE_SUPER_FANG); }
     } SCENE {
-        MESSAGE("It doesn't affect the opposing Gastly…");
+        MESSAGE("It doesn't affect the foe Gastly…");
         NOT HP_BAR(opponent);
     }
 }

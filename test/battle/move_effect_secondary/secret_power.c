@@ -146,7 +146,7 @@ DOUBLE_BATTLE_TEST("Rainbow and Serene Grace do not stack for Secret Power's fli
                MOVE(playerRight, MOVE_FIRE_PLEDGE, target: opponentRight); }
         TURN { MOVE(playerLeft, MOVE_SECRET_POWER, target: opponentRight); MOVE(opponentRight, MOVE_CELEBRATE); }
     } SCENE {
-        MESSAGE("The opposing Wynaut flinched and couldn't move!");
+        MESSAGE("The foe Wynaut flinched!");
     }
 }
 
@@ -169,7 +169,7 @@ SINGLE_BATTLE_TEST("Secret Power does not inflict its secondary effect if the us
         HP_BAR(opponent);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_BERRY, opponent);
         HP_BAR(player, hp: 0);
-        MESSAGE("Wobbuffet was hurt by the opposing Wobbuffet's Jaboca Berry!");
+        MESSAGE("Wobbuffet was hurt by the Jaboca Berry!");
         MESSAGE("Wobbuffet fainted!");
         NONE_OF {
             ANIMATION(ANIM_TYPE_STATUS, B_ANIM_STATUS_PRZ, opponent);

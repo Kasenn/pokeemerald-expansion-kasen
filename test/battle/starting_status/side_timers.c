@@ -27,7 +27,7 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind names Tailwind as the trigger in th
         switch (status)
         {
         case STARTING_STATUS_TAILWIND_OPPONENT:
-            MESSAGE("A tailwind started blowing on the opposing side!");
+            MESSAGE("The tailwind blew from behind the foe's team!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_POWER);
                 MESSAGE("Being hit by Tailwind charged Wattrel with power!");
@@ -35,7 +35,7 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind names Tailwind as the trigger in th
                 MESSAGE("Being hit by Tailwind charged Kilowattrel with power!");
             }
             ABILITY_POPUP(opponentLeft, ABILITY_WIND_POWER);
-            MESSAGE("Being hit by Tailwind charged the opposing Wattrel with power!");
+            MESSAGE("Being hit by Tailwind charged the foe Wattrel with power!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_POWER);
                 MESSAGE("Being hit by Tailwind charged Wattrel with power!");
@@ -43,7 +43,7 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind names Tailwind as the trigger in th
                 MESSAGE("Being hit by Tailwind charged Kilowattrel with power!");
             }
             ABILITY_POPUP(opponentRight, ABILITY_WIND_POWER);
-            MESSAGE("Being hit by Tailwind charged the opposing Kilowattrel with power!");
+            MESSAGE("Being hit by Tailwind charged the foe Kilowattrel with power!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_POWER);
                 MESSAGE("Being hit by Tailwind charged Wattrel with power!");
@@ -56,28 +56,28 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind names Tailwind as the trigger in th
             }
             break;
         case STARTING_STATUS_TAILWIND_PLAYER:
-            MESSAGE("A tailwind started blowing on your side!");
+            MESSAGE("The tailwind blew from behind your team!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Wattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Wattrel with power!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Kilowattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Kilowattrel with power!");
             }
             ABILITY_POPUP(playerLeft, ABILITY_WIND_POWER);
             MESSAGE("Being hit by Tailwind charged Wattrel with power!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Wattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Wattrel with power!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Kilowattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Kilowattrel with power!");
             }
             ABILITY_POPUP(playerRight, ABILITY_WIND_POWER);
             MESSAGE("Being hit by Tailwind charged Kilowattrel with power!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Wattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Wattrel with power!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_POWER);
-                MESSAGE("Being hit by Tailwind charged the opposing Kilowattrel with power!");
+                MESSAGE("Being hit by Tailwind charged the foe Kilowattrel with power!");
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, playerLeft);
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, opponentLeft);
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, playerRight);
@@ -117,7 +117,7 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind only triggers Wind Rider once per b
         switch (status)
         {
         case STARTING_STATUS_TAILWIND_OPPONENT:
-            MESSAGE("A tailwind started blowing on the opposing side!");
+            MESSAGE("The tailwind blew from behind the foe's team!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
                 MESSAGE("Bramblin's Attack rose!");
@@ -125,26 +125,26 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind only triggers Wind Rider once per b
                 MESSAGE("Brambleghast's Attack rose!");
             }
             ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-            MESSAGE("The opposing Bramblin's Attack rose!");
+            MESSAGE("The foe Bramblin's Attack rose!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
                 MESSAGE("Bramblin's Attack rose!");
                 ABILITY_POPUP(playerRight, ABILITY_WIND_RIDER);
                 MESSAGE("Brambleghast's Attack rose!");
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Bramblin's Attack rose!");
+                MESSAGE("The foe Bramblin's Attack rose!");
             }
             ABILITY_POPUP(opponentRight, ABILITY_WIND_RIDER);
-            MESSAGE("The opposing Brambleghast's Attack rose!");
+            MESSAGE("The foe Brambleghast's Attack rose!");
             NONE_OF {
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
                 MESSAGE("Bramblin's Attack rose!");
                 ABILITY_POPUP(playerRight, ABILITY_WIND_RIDER);
                 MESSAGE("Brambleghast's Attack rose!");
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Bramblin's Attack rose!");
+                MESSAGE("The foe Bramblin's Attack rose!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Brambleghast's Attack rose!");
+                MESSAGE("The foe Brambleghast's Attack rose!");
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, playerLeft);
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, opponentLeft);
                 ANIMATION(ANIM_TYPE_MOVE, MOVE_TAILWIND, playerRight);
@@ -152,20 +152,20 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind only triggers Wind Rider once per b
             }
             break;
         case STARTING_STATUS_TAILWIND_PLAYER:
-            MESSAGE("A tailwind started blowing on your side!");
+            MESSAGE("The tailwind blew from behind your team!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Bramblin's Attack rose!");
+                MESSAGE("The foe Bramblin's Attack rose!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Brambleghast's Attack rose!");
+                MESSAGE("The foe Brambleghast's Attack rose!");
             }
             ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
             MESSAGE("Bramblin's Attack rose!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Bramblin's Attack rose!");
+                MESSAGE("The foe Bramblin's Attack rose!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Brambleghast's Attack rose!");
+                MESSAGE("The foe Brambleghast's Attack rose!");
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
                 MESSAGE("Bramblin's Attack rose!");
             }
@@ -173,9 +173,9 @@ DOUBLE_BATTLE_TEST("Starting Status Tailwind only triggers Wind Rider once per b
             MESSAGE("Brambleghast's Attack rose!");
             NONE_OF {
                 ABILITY_POPUP(opponentLeft, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Bramblin's Attack rose!");
+                MESSAGE("The foe Bramblin's Attack rose!");
                 ABILITY_POPUP(opponentRight, ABILITY_WIND_RIDER);
-                MESSAGE("The opposing Brambleghast's Attack rose!");
+                MESSAGE("The foe Brambleghast's Attack rose!");
                 ABILITY_POPUP(playerLeft, ABILITY_WIND_RIDER);
                 MESSAGE("Bramblin's Attack rose!");
                 ABILITY_POPUP(playerRight, ABILITY_WIND_RIDER);

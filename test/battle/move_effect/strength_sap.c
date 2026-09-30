@@ -155,7 +155,7 @@ SINGLE_BATTLE_TEST("Strength Sap will restore HP if target has Contrary and is a
     } SCENE {
         ANIMATION(ANIM_TYPE_MOVE, MOVE_STRENGTH_SAP, player);
         HP_BAR(player, hp: 201);
-        MESSAGE("The opposing Snivy had its energy drained!");
+        MESSAGE("The foe Snivy had its energy drained!");
     } THEN {
         EXPECT_EQ(opponent->statStages[STAT_ATK], MAX_STAT_STAGE);
         EXPECT_EQ(player->hp, 201);

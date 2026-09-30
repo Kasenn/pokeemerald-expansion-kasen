@@ -27,7 +27,7 @@ DOUBLE_BATTLE_TEST("Desolate Land ending reverts Castform before the replacement
             ANIMATION(ANIM_TYPE_MOVE, move, playerLeft);
         }
 
-        MESSAGE("The extremely harsh sunlight faded!");
+        MESSAGE("Error 02: something has gone awry. Please inform the romhack creator!");
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_FORM_CHANGE, opponentRight);
         ABILITY_POPUP(playerLeft, ABILITY_DRIZZLE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_RAIN_CONTINUES);

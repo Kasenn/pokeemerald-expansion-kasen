@@ -252,7 +252,7 @@ SINGLE_BATTLE_TEST("Bide has +1 priority on following turns if called via a diff
         // On the following turns, Bide's +1 priority overrides the speed order.
         MESSAGE("Wobbuffet is storing energy!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_SCRATCH, opponent);
-        MESSAGE("Wobbuffet unleashed its energy!");
+        MESSAGE("Wobbuffet unleashed energy!");
         ANIMATION(ANIM_TYPE_MOVE, MOVE_BIDE, player);
         ANIMATION(ANIM_TYPE_MOVE, MOVE_CELEBRATE, opponent);
     }

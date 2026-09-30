@@ -15,7 +15,6 @@ SINGLE_BATTLE_TEST("Black Sludge recovers 1/16 HP for Poison-type holders")
     } WHEN {
         TURN {}
     } SCENE {
-        ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
         ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
         HP_BAR(player, damage: -10);
     }
@@ -46,7 +45,6 @@ SINGLE_BATTLE_TEST("Black Sludge does nothing if a Poison-type holder is at full
         TURN {}
     } SCENE {
         NONE_OF {
-            ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             HP_BAR(player);
         }
@@ -71,12 +69,10 @@ SINGLE_BATTLE_TEST("Black Sludge does not heal a Poison-type holder under Heal B
     } SCENE {
         if (genConfig >= GEN_5) {
             NONE_OF {
-                ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
                 ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
                 HP_BAR(player);
             }
         } else {
-            ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             HP_BAR(player, damage: -10);
         }
@@ -109,7 +105,6 @@ SINGLE_BATTLE_TEST("Black Sludge has no effect if the holder has Klutz")
         TURN {}
     } SCENE {
         NONE_OF {
-            ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             HP_BAR(player);
         }
@@ -127,7 +122,6 @@ SINGLE_BATTLE_TEST("Black Sludge has no effect while Magic Room is active")
         TURN { MOVE(opponent, MOVE_MAGIC_ROOM); }
     } SCENE {
         NONE_OF {
-            ITEM_POPUP(player, ITEM_BLACK_SLUDGE);
             ANIMATION(ANIM_TYPE_GENERAL, B_ANIM_HELD_ITEM_EFFECT, player);
             HP_BAR(player);
         }
