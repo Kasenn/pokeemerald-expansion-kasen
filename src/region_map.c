@@ -912,7 +912,7 @@ bool8 LoadRegionMapGfx(void)
         {
             if (!FreeTempTileDataBuffersIfPossible())
             {
-                if(gOnLatiIslands && !gOpenedMapFromItem)
+                if(gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
                     DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZEmpty, 0, 0, 1);
                 else
                     DecompressAndCopyTileDataToVram(sRegionMap->bgNum, sRegionMapBg_TilemapLZ, 0, 0, 1);
@@ -920,7 +920,7 @@ bool8 LoadRegionMapGfx(void)
         }
         else
         {
-            if(gOnLatiIslands && !gOpenedMapFromItem)
+            if(gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
                 DecompressDataWithHeaderVram(sRegionMapBg_TilemapLZEmpty, (u16 *)BG_SCREEN_ADDR(28));
             else
                 DecompressDataWithHeaderVram(sRegionMapBg_TilemapLZ, (u16 *)BG_SCREEN_ADDR(28));
@@ -1397,7 +1397,7 @@ static void InitMapBasedOnPlayerLocation(void)
     u16 xOnMap;
     struct WarpData *warp;
 
-    if (gOnLatiIslands && !gOpenedMapFromItem)
+    if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
     {
         RegionMap_InitializeStateBasedOnSSTidalLocation();
         return;
@@ -1587,37 +1587,96 @@ static void  RegionMap_InitializeStateBasedOnSSTidalLocation(void)
 
 static u8 GetMapsecType(mapsec_u16_t mapSecId)
 {
-    if (gDebugFly)
-        return MAPSECTYPE_CITY_CANFLY;
-    if (mapSecId == gMapHeader.regionMapSectionId)
-        return MAPSECTYPE_ROUTE;
-    switch (mapSecId)
+    if (gRegionMapType == REGION_MAP_TYPE_DEBUG)    return MAPSECTYPE_CITY_CANFLY;
+    if (mapSecId == gMapHeader.regionMapSectionId)  return MAPSECTYPE_ROUTE;
+    if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
     {
-    case MAPSEC_NONE:
-        return MAPSECTYPE_NONE;
-    case MAPSEC_SINKO_ROUTE_2:
-        return FlagGet(FLAG_FLIGHTPOINT1) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_4:
-        return FlagGet(FLAG_FLIGHTPOINT2) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_8:
-        return FlagGet(FLAG_FLIGHTPOINT3) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_7:
-        return FlagGet(FLAG_FLIGHTPOINT4) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_11:
-        return FlagGet(FLAG_FLIGHTPOINT5) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_13:
-        return FlagGet(FLAG_FLIGHTPOINT6) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_15:
-        return FlagGet(FLAG_FLIGHTPOINT7) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_20:
-        return FlagGet(FLAG_FLIGHTPOINT8) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SINKO_ROUTE_27:
-        return FlagGet(FLAG_FLIGHTPOINT9) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    case MAPSEC_SNOWCREST_CITY:
-        return FlagGet(FLAG_FLIGHTPOINT10) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
-    default:
-        return MAPSECTYPE_ROUTE;
+        switch (mapSecId)
+        {
+        case MAPSEC_NONE:
+            return MAPSECTYPE_NONE;
+        case MAPSEC_SINKO_ROUTE_2:
+            return FlagGet(FLAG_FLIGHTPOINT1) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_4:
+            return FlagGet(FLAG_FLIGHTPOINT2) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_8:
+            return FlagGet(FLAG_FLIGHTPOINT3) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_7:
+            return FlagGet(FLAG_FLIGHTPOINT4) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_11:
+            return FlagGet(FLAG_FLIGHTPOINT5) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_13:
+            return FlagGet(FLAG_FLIGHTPOINT6) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_15:
+            return FlagGet(FLAG_FLIGHTPOINT7) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_20:
+            return FlagGet(FLAG_FLIGHTPOINT8) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SINKO_ROUTE_27:
+            return FlagGet(FLAG_FLIGHTPOINT9) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SNOWCREST_CITY:
+            return FlagGet(FLAG_FLIGHTPOINT10) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        default:
+            return MAPSECTYPE_ROUTE;
+        }
     }
+    if (gRegionMapType == REGION_MAP_TYPE_FLY || gRegionMapType == REGION_MAP_TYPE_TOWN_MAP)
+    {
+        switch (mapSecId)
+        {
+        case MAPSEC_NONE:
+            return MAPSECTYPE_NONE;
+        case MAPSEC_OLDALE_TOWN:
+            return FlagGet(FLAG_VISITED_PRIMROSE_TOWN) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_RUSTBORO_CITY:
+            return FlagGet(FLAG_VISITED_CORALGROVE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_ABANDONED_SHIP:
+            if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
+                return MAPSECTYPE_BATTLE_FRONTIER;
+            else
+                return MAPSECTYPE_NONE;
+        case MAPSEC_PEARLWOOD_POINT:
+            return FlagGet(FLAG_VISITED_PEARLWOOD_POINT) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_AZURETIDE_TOWN:
+            return FlagGet(FLAG_VISITED_AZURETIDE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_ALDELEAF_CITY:
+            return FlagGet(FLAG_VISITED_WIP_CITY1) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SKYLOCH_VILLAGE:
+            return FlagGet(FLAG_VISITED_WIP_TOWN2) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SHORESLATE_CITY:
+            return FlagGet(FLAG_VISITED_SHORESLATE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_MARIGORGE_TOWN:
+            return FlagGet(FLAG_VISITED_MARIGORGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_KAOLISLE_CITY:
+            return FlagGet(FLAG_VISITED_KAOLISLE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_ROCKLIFFE_TOWN:
+            return FlagGet(FLAG_VISITED_ROCKLIFFE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SANDSTONE_CITY:
+            return FlagGet(FLAG_VISITED_SANDSTONE_CITY) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_TOWN_WIP6:
+            return FlagGet(FLAG_VISITED_FISHING_VILLAGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_TOWN_WIP9:
+            return FlagGet(FLAG_VISITED_DRISLEDGE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_TOWN_WIP5:
+            return FlagGet(FLAG_VISITED_AMBEROCK) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_BASALEK_TOWN:
+            return FlagGet(FLAG_VISITED_BASALEK) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_FROSTFIRE_CITY:
+            return FlagGet(FLAG_VISITED_FROSTHEARTH) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_CRYSTALPINE_TOWN:
+            return FlagGet(FLAG_VISITED_CRYSTALPINE) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_TOWN_WIP10:
+            return FlagGet(FLAG_VISITED_EVERFROST) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_CITY_WIP6:
+            return FlagGet(FLAG_VISITED_ICEPERCH) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_SNOWCREST_CITY:
+            return FlagGet(FLAG_VISITED_SNOWCREST) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        case MAPSEC_GALEWIND_CITY:
+            return FlagGet(FLAG_VISITED_GALEWIND) ? MAPSECTYPE_CITY_CANFLY : MAPSECTYPE_CITY_CANTFLY;
+        default:
+            return MAPSECTYPE_ROUTE;
+        }
+    }
+    return MAPSECTYPE_ROUTE;
 }
 
 mapsec_u16_t GetRegionMapSecIdAt(u16 x, u16 y)
@@ -1857,7 +1916,7 @@ void CreateRegionMapPlayerIcon(u16 tileTag, u16 paletteTag)
         sRegionMap->playerIconSprite = NULL;
         return;
     }
-    else if (gOnLatiIslands && gOpenedMapFromItem)
+    else if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_TOWN_MAP)
     {
         sRegionMap->playerIconSprite = NULL;
         return;
@@ -1956,7 +2015,7 @@ static const struct {
 
 void CreateRegionMapRoamerIcon(u16 tileTag, u16 paletteTag)
 {
-    if (gOnLatiIslands && !gOpenedMapFromItem)
+    if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
         return;
     u16 spriteId, i, j, mapSec;
     u8 mapGroup, mapNum;
@@ -2258,7 +2317,6 @@ void CB2_OpenFlyMap(void)
         SetGpuReg(REG_OFFSET_BG3HOFS, 0);
         SetGpuReg(REG_OFFSET_BG3VOFS, 0);
         sFlyMap = Alloc(sizeof(*sFlyMap));
-        gOpenedMapFromItem = FALSE;
         if (sFlyMap == NULL)
         {
             SetMainCallback2(CB2_ReturnToFieldWithOpenMenu);
@@ -2365,7 +2423,7 @@ static void DrawFlyDestTextWindow(void)
     bool32 namePrinted;
     const u8 *name;
 
-    if (gOnLatiIslands && !gOpenedMapFromItem)
+    if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
     {
         ClearStdWindowAndFrameToTransparent(WIN_MAPSEC_NAME, FALSE);
         DrawStdFrameWithCustomTileAndPalette(WIN_MAPSEC_NAME, FALSE, 101, 13);
@@ -2446,7 +2504,7 @@ static void LoadFlyDestIcons(void)
         LoadSpritePalette(&sFlyTargetIconsSpritePaletteDrifblim);
     else
         LoadSpritePalette(&sFlyTargetIconsSpritePalette);
-    if (gOnLatiIslands && !gOpenedMapFromItem)
+    if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
     {
         TryCreateRedOutlineFlyDestIcons();
         return;
@@ -2495,7 +2553,7 @@ static void CreateFlyDestIcons(void)
     u8 spriteId;
 
     canFlyFlagIndex = 0;
-    if (gDebugFly)
+    if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON)
     {
         for (mapSecIndex = 0; mapSecIndex < DEBUG_FLYABLE_MAPSEC_COUNT; mapSecIndex++)
         {
@@ -2516,7 +2574,7 @@ static void CreateFlyDestIcons(void)
             {
                 gSprites[spriteId].oam.shape = shape;
 
-                if (FlagGet(sFlyableMapFlagsDebug[canFlyFlagIndex]))
+                if (FlagGet(sFlyableMapFlagsDebug[canFlyFlagIndex]) || gRegionMapType == REGION_MAP_TYPE_DEBUG)
                     gSprites[spriteId].callback = SpriteCB_FlyDestIcon;
                 else
                     shape += 3;
@@ -2524,6 +2582,8 @@ static void CreateFlyDestIcons(void)
                 StartSpriteAnim(&gSprites[spriteId], shape);
                 gSprites[spriteId].sIconMapSec = sFlyableMapSecIdsDebug[mapSecIndex];
             }
+            if (gRegionMapType != REGION_MAP_TYPE_DEBUG)
+                canFlyFlagIndex++;
         }
     }
     else
@@ -2712,7 +2772,7 @@ static void CB_HandleFlyMapInput(void)
             //     sFlyMap->choseFlyLocation = TRUE;
             //     SetFlyMapCallback(CB_ExitFlyMap);
             // }
-            if (gOnLatiIslands && !gOpenedMapFromItem)
+            if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
             {
                 if(sRegionMap->cursorPosX == 25 && sRegionMap->cursorPosY == 13)
                 {
@@ -2778,11 +2838,11 @@ static void CB_ExitFlyMap(void)
                 gSpecialVar_Result = TRUE;
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
                 
-                if (gDebugFly)
+                if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON)
                     ReturnToFieldFromFlyMapSelect();
                 else
                     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-                gDebugFly = FALSE;
+                gRegionMapType = REGION_MAP_TYPE_NONE;
             }
             else
             {
@@ -2791,11 +2851,11 @@ static void CB_ExitFlyMap(void)
                 gSpecialVar_Result = FALSE;
                 FlagClear(FLAG_OPENED_MAP_FROM_SIGN);
                 // SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-                if (gDebugFly)
+                if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON)
                     SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
                 else
                     SetMainCallback2(CB2_ReturnToFieldContinueScriptPlayMapMusic);
-                gDebugFly = FALSE;
+                gRegionMapType = REGION_MAP_TYPE_NONE;
                 // }
                 // else
                 //     SetMainCallback2(CB2_ReturnToPartyMenuFromFlyMap);
@@ -2842,7 +2902,7 @@ void SetFlyDestination(struct RegionMap* regionMap)
     //     sUseFlyCheckpoint = FALSE;
     //     SetWarpDestination(gSaveBlock3Ptr->previousFlyCheckpoint.mapGroup, gSaveBlock3Ptr->previousFlyCheckpoint.mapNum, WARP_ID_NONE, gSaveBlock3Ptr->previousFlyCheckpoint.x, gSaveBlock3Ptr->previousFlyCheckpoint.y);
     // }
-    if (gOnLatiIslands && !gOpenedMapFromItem)
+    if (gOnLatiIslands && gRegionMapType == REGION_MAP_TYPE_FLY)
         SetWarpDestinationToMapWarp(MAP_GROUP(MAP_TOWN_WIP2), MAP_NUM(MAP_TOWN_WIP2), 4);
     else if (flyDestination != WARP_ID_NONE)
         SetWarpDestinationToHealLocation(flyDestination);

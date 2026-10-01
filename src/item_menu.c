@@ -35,6 +35,7 @@
 #include "player_pc.h"
 #include "pokemon.h"
 #include "pokemon_summary_screen.h"
+#include "region_map.h"
 #include "scanline_effect.h"
 #include "script.h"
 #include "script_menu.h"
@@ -2304,7 +2305,7 @@ static void ItemMenu_UseInBattle(u8 taskId)
 
 void CB2_ReturnToBagMenuPocket(void)
 {
-    gOpenedMapFromItem = FALSE;
+    gRegionMapType = REGION_MAP_TYPE_NONE;
     GoToBagMenu(ITEMMENULOCATION_LAST, POCKETS_COUNT, NULL);
 }
 

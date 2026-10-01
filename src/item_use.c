@@ -36,6 +36,7 @@
 #include "pokeblock.h"
 #include "pokemon.h"
 #include "pokenav.h"
+#include "region_map.h"
 #include "script.h"
 #include "sound.h"
 #include "strings.h"
@@ -297,7 +298,7 @@ static void Task_OpenRegisteredTownMap(u8 taskId)
 
 void ItemUseOutOfBattle_TownMap(u8 taskId)
 {
-    gOpenedMapFromItem = TRUE;
+    gRegionMapType = REGION_MAP_TYPE_TOWN_MAP;
     if (gTasks[taskId].tUsingRegisteredKeyItem != TRUE)
     {
         gBagMenu->newScreenCallback = CB2_OpenTownMapFromBag;

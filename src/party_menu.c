@@ -4355,6 +4355,7 @@ static void CursorCb_FieldMove(u8 taskId)
             sPartyMenuInternal->data[0] = fieldMove;
             break;
         case FIELD_MOVE_FLY:
+            gRegionMapType = REGION_MAP_TYPE_FLY;
             gPartyMenu.exitCallback = CB2_OpenFlyMap;
             Task_ClosePartyMenu(taskId);
             break;

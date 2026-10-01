@@ -51,6 +51,7 @@
 #include "palette.h"
 #include "play_time.h"
 #include "random.h"
+#include "region_map.h"
 #include "roamer.h"
 #include "rotating_gate.h"
 #include "rtc.h"
@@ -235,13 +236,12 @@ EWRAM_DATA struct LinkPlayerObjectEvent gLinkPlayerObjectEvents[4] = {0};
 EWRAM_DATA bool8 gExitStairsMovementDisabled = FALSE;
 EWRAM_DATA bool8 gWarpInProgress = FALSE;
 EWRAM_DATA bool8 gEnchantedForestNight = FALSE;
-EWRAM_DATA bool8 gOpenedMapFromItem = FALSE;
 EWRAM_DATA bool8 gOnLatiIslands = FALSE;
 EWRAM_DATA bool8 gDisableMapMusicChangeOnMapLoad = MUSIC_DISABLE_OFF;
 static EWRAM_DATA const struct CreditsOverworldCmd *sCreditsOverworld_Script = NULL;
 static EWRAM_DATA s16 sCreditsOverworld_CmdLength = 0;
 static EWRAM_DATA s16 sCreditsOverworld_CmdIndex = 0;
-EWRAM_DATA bool8 gDebugFly = FALSE;
+EWRAM_DATA u8 gRegionMapType = REGION_MAP_TYPE_NONE;
 EWRAM_DATA bool8 gDrifblimBalloon = FALSE;
 
 static const struct WarpData sDummyWarpData =
@@ -814,7 +814,7 @@ void SetWarpDestinationToDynamicWarp(u8 unusedWarpId)
 void SetWarpDestinationToHealLocation(u8 healLocationId)
 {
     const struct HealLocation *healLocation = GetHealLocation(healLocationId);
-    if (gDebugFly && healLocation)
+    if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON && healLocation)
         SetWarpDestination(healLocation->mapGroup, healLocation->mapNum, WARP_ID_NONE, healLocation->x, healLocation->y);
     else if (healLocation)
     {

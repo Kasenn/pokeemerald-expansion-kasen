@@ -203,8 +203,8 @@ struct
         .yStart = 42,
         .deltaY = 20,
         .gfx = {
+            sOptionsLabelGfx_RegionMap,
             sOptionsLabelGfx_Condition,
-            sOptionsLabelGfx_Ribbons,
             sOptionsLabelGfx_SwitchOff
         }
     },
@@ -233,7 +233,7 @@ struct
     },
     [POKENAV_MENU_TYPE_CONDITION] =
     {
-        .yStart = 48,
+        .yStart = 56,
         .deltaY = 20,
         .gfx = {
             sOptionsLabelGfx_Party,

@@ -35,6 +35,14 @@ enum {
     NUM_MAPSEC_TYPES
 };
 
+enum {
+    REGION_MAP_TYPE_NONE,
+    REGION_MAP_TYPE_DEBUG,
+    REGION_MAP_TYPE_FLY,
+    REGION_MAP_TYPE_DRIFBLIM_BALLOON,
+    REGION_MAP_TYPE_TOWN_MAP,
+};
+
 struct RegionMapInfo
 {
     const u32 *dexMapTilemap;
