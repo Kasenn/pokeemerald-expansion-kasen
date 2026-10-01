@@ -83,7 +83,6 @@ extern bool8 gEnchantedForestNight;
 extern bool8 gOnLatiIslands;
 extern u8 gDisableMapMusicChangeOnMapLoad;
 extern u8 gRegionMapType;
-extern bool8 gDrifblimBalloon;
 
 extern struct TimeBlendSettings gTimeBlend;
 

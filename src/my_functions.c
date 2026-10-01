@@ -1689,5 +1689,5 @@ void Scrcmd_GetMapId(void)
 
 void ClearDrifblimBalloonFlag(void)
 {
-    gDrifblimBalloon = FALSE;
+    gRegionMapType = 0;
 }

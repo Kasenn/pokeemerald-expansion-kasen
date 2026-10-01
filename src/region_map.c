@@ -2492,7 +2492,7 @@ static void LoadFlyDestIcons(void)
 {
     struct SpriteSheet sheet;
 
-    if (gDrifblimBalloon)
+    if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         DecompressDataWithHeaderWram(sFlyTargetIconsDrifblim_Gfx, sFlyMap->tileBuffer);
     else
         DecompressDataWithHeaderWram(sFlyTargetIcons_Gfx, sFlyMap->tileBuffer);
@@ -2500,7 +2500,7 @@ static void LoadFlyDestIcons(void)
     sheet.size = sizeof(sFlyMap->tileBuffer);
     sheet.tag = TAG_FLY_ICON;
     LoadSpriteSheet(&sheet);
-    if (gDrifblimBalloon)
+    if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         LoadSpritePalette(&sFlyTargetIconsSpritePaletteDrifblim);
     else
         LoadSpritePalette(&sFlyTargetIconsSpritePalette);
@@ -2869,7 +2869,7 @@ static void CB_ExitFlyMap(void)
 
 void OpenFlyMapFromSign(void)
 {
-    gDrifblimBalloon = TRUE;
+    gRegionMapType = REGION_MAP_TYPE_FLY;
     SetMainCallback2(CB2_OpenFlyMap);
 }
 u32 FilterFlyDestination(struct RegionMap* regionMap)
@@ -2882,7 +2882,7 @@ u32 FilterFlyDestination(struct RegionMap* regionMap)
         return (gSaveBlock2Ptr->playerGender == MALE ? HEAL_LOCATION_LITTLEROOT_TOWN_BRENDANS_HOUSE : HEAL_LOCATION_LITTLEROOT_TOWN_MAYS_HOUSE);
     case MAPSEC_SNOWCREST_CITY:
     case MAPSEC_EVER_GRANDE_CITY:
-        if (FlagGet(FLAG_FLIGHTPOINT10) && gDrifblimBalloon)
+        if (FlagGet(FLAG_FLIGHTPOINT10) && gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
             return HEAL_LOCATION_SNOWCREST_CITY_2;
         return (FlagGet(FLAG_LANDMARK_POKEMON_LEAGUE) && regionMap->posWithinMapSec == 0 ? HEAL_LOCATION_SNOWCREST_CITY_PART2  : HEAL_LOCATION_SNOWCREST_CITY);
     default:

@@ -25,6 +25,7 @@
 #include "party_menu.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
+#include "region_map.h"
 #include "script.h"
 #include "sound.h"
 #include "sprite.h"
@@ -2705,7 +2706,7 @@ void StartFlightFluteFieldEffect(void)
     {
         SetWarpDestinationToFlightPointWarp();
     }
-    gDrifblimBalloon = TRUE;
+    gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON;
     LockPlayerFieldControls();
     FreezeObjectEvents();
     HideFollowerForFieldEffect(); // hide follower before warping
@@ -3761,7 +3762,7 @@ static void FlyOutFieldEffect_FieldMovePose(struct Task *task)
         task->tAvatarFlags = gPlayerAvatar.flags;
         gPlayerAvatar.preventStep = TRUE;
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         {
             if (GetPlayerFacingDirection() != DIR_WEST)
                 ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_WALK_IN_PLACE_FAST_LEFT);
@@ -3777,7 +3778,7 @@ static void FlyOutFieldEffect_FieldMovePose(struct Task *task)
 
 static void FlyOutFieldEffect_ShowMon(struct Task *task)
 {
-    if (gDrifblimBalloon)
+    if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
     {
         task->tState++;
         return;
@@ -3803,7 +3804,7 @@ static void FlyOutFieldEffect_BirdLeaveBall(struct Task *task)
             SetSurfBlob_DontSyncAnim(objectEvent->fieldEffectSpriteId, FALSE);
         }
         task->tBirdSpriteId = CreateFlyBirdSprite(); // Does "leave ball" animation by default
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
             gSprites[task->tBirdSpriteId].invisible = TRUE;
         task->tState++;
     }
@@ -3815,7 +3816,7 @@ static void FlyOutFieldEffect_WaitBirdLeave(struct Task *task)
     {
         task->tState++;
         task->tTimer = 16;
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         {
             SetPlayerAvatarTransitionFlags(PLAYER_AVATAR_FLAG_ON_FOOT);
             gSprites[task->tBirdSpriteId].invisible = FALSE;
@@ -4079,7 +4080,7 @@ static void FlyInFieldEffect_BirdSwoopDown(struct Task *task)
         task->tAvatarFlags = gPlayerAvatar.flags;
         gPlayerAvatar.preventStep = TRUE;
         SetPlayerAvatarStateMask(PLAYER_AVATAR_FLAG_ON_FOOT);
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         {
             gSprites[objectEvent->spriteId].subpriority = 0;
             gSprites[objectEvent->spriteId].oam.priority = 0;
@@ -4161,7 +4162,7 @@ static void FlyInFieldEffect_FieldMovePose(struct Task *task)
         sprite->x2 = 0;
         sprite->y2 = 0;
         sprite->coordOffsetEnabled = TRUE;
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
         {
             ObjectEventSetGraphicsId(&gObjectEvents[gPlayerAvatar.objectEventId], GetPlayerAvatarGraphicsIdByStateId(PLAYER_AVATAR_STATE_NORMAL));
             ObjectEventSetHeldMovement(objectEvent, MOVEMENT_ACTION_FACE_LEFT);
@@ -4180,7 +4181,7 @@ static void FlyInFieldEffect_BirdReturnToBall(struct Task *task)
     if (ObjectEventClearHeldMovementIfFinished(&gObjectEvents[gPlayerAvatar.objectEventId]))
     {
         task->tState++;
-        if (!gDrifblimBalloon)
+        if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON)
             StartFlyBirdReturnToBall(task->tBirdSpriteId);
     }
 }
@@ -4189,7 +4190,7 @@ static void FlyInFieldEffect_WaitBirdReturn(struct Task *task)
 {
     if (GetFlyBirdAnimCompleted(task->tBirdSpriteId))
     {
-        if (gDrifblimBalloon)
+        if (gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON)
             ResetObjectSubpriority(LOCALID_PLAYER, gSaveBlock1Ptr->location.mapNum, gSaveBlock1Ptr->location.mapGroup);
         DestroySprite(&gSprites[task->tBirdSpriteId]);
         task->tState++;
@@ -4211,11 +4212,11 @@ static void FlyInFieldEffect_End(struct Task *task)
             SetSurfBlob_BobState(objectEvent->fieldEffectSpriteId, BOB_PLAYER_AND_MON);
         }
         ObjectEventSetGraphicsId(objectEvent, GetPlayerAvatarGraphicsIdByStateId(state));
-        if (!gDrifblimBalloon)
+        if (gRegionMapType != REGION_MAP_TYPE_DRIFBLIM_BALLOON)
             ObjectEventTurn(objectEvent, DIR_SOUTH);
         gPlayerAvatar.flags = task->tAvatarFlags;
         gPlayerAvatar.preventStep = FALSE;
-        gDrifblimBalloon = FALSE;
+        gRegionMapType == REGION_MAP_TYPE_NONE;
         FieldEffectActiveListRemove(FLDEFF_FLY_IN);
         DestroyTask(FindTaskIdByFunc(Task_FlyIn));
     }

@@ -242,7 +242,6 @@ static EWRAM_DATA const struct CreditsOverworldCmd *sCreditsOverworld_Script = N
 static EWRAM_DATA s16 sCreditsOverworld_CmdLength = 0;
 static EWRAM_DATA s16 sCreditsOverworld_CmdIndex = 0;
 EWRAM_DATA u8 gRegionMapType = REGION_MAP_TYPE_NONE;
-EWRAM_DATA bool8 gDrifblimBalloon = FALSE;
 
 static const struct WarpData sDummyWarpData =
 {
