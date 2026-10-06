@@ -449,6 +449,7 @@ void UpdateShadowFieldEffect(struct Sprite *sprite)
 #define sLocalId     data[3] >> 8 // Upper 8 bits
 #define sMapGroup    data[4]
 #define sCurrentMap  data[5]
+#define sXOffset     data[6]
 #define sObjectMoved data[7]
 
 u32 FldEff_TallGrass(void)
@@ -580,30 +581,48 @@ u8 FindTallGrassFieldEffectSpriteId(u8 localId, u8 mapNum, u8 mapGroup, s16 x, s
     return MAX_SPRITES;
 }
 
-u32 FldEff_LongGrass(void)
+static void SetUpLongGrassSprite(u8 spriteId, s16 xOffset)
 {
-    u8 spriteId;
-    s16 x = gFieldEffectArguments[0];
-    s16 y = gFieldEffectArguments[1];
-    SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
-    spriteId = CreateSpriteAtEndUnchecked(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x, y, 0);
-    
     if (spriteId != MAX_SPRITES)
     {
         struct Sprite *sprite = &gSprites[spriteId];
         sprite->coordOffsetEnabled = TRUE;
         sprite->oam.priority = ElevationToPriority(gFieldEffectArguments[2]);
         sprite->sElevation = gFieldEffectArguments[2];
-        sprite->sX = gFieldEffectArguments[0];
+        sprite->sX = gFieldEffectArguments[0] + xOffset;
         sprite->sY = gFieldEffectArguments[1];
         sprite->sMapNum = gFieldEffectArguments[4]; // Also sLocalId
         sprite->sMapGroup = gFieldEffectArguments[5];
         sprite->sCurrentMap = gFieldEffectArguments[6];
+        sprite->sXOffset = xOffset;
         if(MAP(MAP_ROUTE3))
             sprite->oam.paletteNum = LoadFieldEffectPalette(FLDEFF_PAL_TAG_AUTUMN_LONG_GRASS);
 
         if (gFieldEffectArguments[7])
             SeekSpriteAnim(sprite, 6); // Skip to end of anim
+    }
+}
+
+u32 FldEff_LongGrass(void)
+{
+    u8 spriteId, spriteId2, spriteId3;
+    s16 x = gFieldEffectArguments[0];
+    s16 y = gFieldEffectArguments[1];
+    SetSpritePosToOffsetMapCoords(&x, &y, 8, 8);
+    spriteId = CreateSpriteAtEndUnchecked(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x, y, 0);
+    SetUpLongGrassSprite(spriteId, 0);
+
+    u8 localId = (gFieldEffectArguments[4] >> 8) & 0xFF;
+    struct ObjectEvent *objectEvent = &gObjectEvents[GetObjectEventIdByLocalId(localId)];
+    if (objectEvent->graphicsId & OBJ_EVENT_MON && (gSpeciesGraphicsInfo[OW_SPECIES(objectEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_WIDE))
+    {
+        spriteId2 = CreateSpriteAtEndUnchecked(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x - 16, y, 0);
+        spriteId3 = CreateSpriteAtEndUnchecked(gFieldEffectObjectTemplatePointers[FLDEFFOBJ_LONG_GRASS], x + 16, y, 0);
+
+        if (spriteId2 != MAX_SPRITES)
+            SetUpLongGrassSprite(spriteId2, -1);
+        if (spriteId3 != MAX_SPRITES)
+            SetUpLongGrassSprite(spriteId3, 1);
     }
     return 0;
 }
@@ -636,8 +655,8 @@ void UpdateLongGrassFieldEffect(struct Sprite *sprite)
     {
         // Check if the object that triggered the effect has moved away
         struct ObjectEvent *objectEvent = &gObjectEvents[objectEventId];
-        if ((objectEvent->currentCoords.x != sprite->sX || objectEvent->currentCoords.y != sprite->sY)
-         && (objectEvent->previousCoords.x != sprite->sX || objectEvent->previousCoords.y != sprite->sY))
+        if ((objectEvent->currentCoords.x != sprite->sX - sprite->sXOffset || objectEvent->currentCoords.y != sprite->sY)
+         && (objectEvent->previousCoords.x != sprite->sX - sprite->sXOffset || objectEvent->previousCoords.y != sprite->sY))
             sprite->sObjectMoved = TRUE;
 
         UpdateObjectEventSpriteInvisibility(sprite, FALSE);
@@ -653,6 +672,7 @@ void UpdateLongGrassFieldEffect(struct Sprite *sprite)
 #undef sMapGroup
 #undef sCurrentMap
 #undef sObjectMoved
+#undef sXOffset
 
 // Effectively unused as it's not possible in vanilla to jump onto long grass (no adjacent ledges, and can't ride the Acro Bike in it).
 // The graphics for this effect do not visually correspond to long grass either. Perhaps these graphics were its original design?

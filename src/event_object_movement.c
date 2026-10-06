@@ -10199,12 +10199,16 @@ static void GetGroundEffectFlags_Reflection(struct ObjectEvent *objEvent, u32 *f
 
 static void GetGroundEffectFlags_TallGrassOnSpawn(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsTallGrass(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_TALL_GRASS_ON_SPAWN;
 }
 
 static void GetGroundEffectFlags_TallGrassOnBeginStep(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsTallGrass(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_TALL_GRASS_ON_MOVE;
 }
@@ -10223,6 +10227,8 @@ static void GetGroundEffectFlags_LongGrassOnBeginStep(struct ObjectEvent *objEve
 
 static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (objEvent->directionOverwrite)
         return;
 
@@ -10237,6 +10243,8 @@ static void GetGroundEffectFlags_Tracks(struct ObjectEvent *objEvent, u32 *flags
 
 static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (objEvent->directionOverwrite)
         return;
 
@@ -10246,6 +10254,8 @@ static void GetGroundEffectFlags_TracksMud(struct ObjectEvent *objEvent, u32 *fl
 
 static void GetGroundEffectFlags_SandHeap(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_CreatesPileAroundPlayer(objEvent->currentMetatileBehavior)
         && MetatileBehavior_CreatesPileAroundPlayer(objEvent->previousMetatileBehavior))
     {
@@ -10274,6 +10284,8 @@ static void GetGroundEffectFlags_SandHeap(struct ObjectEvent *objEvent, u32 *fla
 
 static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if ((MetatileBehavior_IsShallowFlowingWater(objEvent->currentMetatileBehavior)
          && MetatileBehavior_IsShallowFlowingWater(objEvent->previousMetatileBehavior))
         || (MetatileBehavior_IsPacifidlogLog(objEvent->currentMetatileBehavior)
@@ -10294,6 +10306,8 @@ static void GetGroundEffectFlags_ShallowFlowingWater(struct ObjectEvent *objEven
 
 static void GetGroundEffectFlags_Puddle(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsPuddle(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsPuddle(objEvent->previousMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_PUDDLE;
@@ -10301,6 +10315,8 @@ static void GetGroundEffectFlags_Puddle(struct ObjectEvent *objEvent, u32 *flags
 
 static void GetGroundEffectFlags_Ripple(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (objEvent->graphicsId == OBJ_EVENT_GFX_GASTLY
     || objEvent->graphicsId == OBJ_EVENT_GFX_HAUNTER
     || objEvent->graphicsId == OBJ_EVENT_GFX_MISDREAVUS
@@ -10315,6 +10331,8 @@ static void GetGroundEffectFlags_Ripple(struct ObjectEvent *objEvent, u32 *flags
 
 static void GetGroundEffectFlags_ShortGrass(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsShortGrass(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsShortGrass(objEvent->previousMetatileBehavior))
     {
@@ -10373,6 +10391,8 @@ static void UpdatePlayerDeepSnowDepth(struct ObjectEvent *objEvent)
 
 static void GetGroundEffectFlags_HotSprings(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsHotSprings(objEvent->currentMetatileBehavior)
         && MetatileBehavior_IsHotSprings(objEvent->previousMetatileBehavior))
     {
@@ -10391,12 +10411,16 @@ static void GetGroundEffectFlags_HotSprings(struct ObjectEvent *objEvent, u32 *f
 
 static void GetGroundEffectFlags_Seaweed(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     if (MetatileBehavior_IsSeaweed(objEvent->currentMetatileBehavior))
         *flags |= GROUND_EFFECT_FLAG_SEAWEED;
 }
 
 static void GetGroundEffectFlags_JumpLanding(struct ObjectEvent *objEvent, u32 *flags)
 {
+    if (objEvent->localId == LOCALID_FOLLOWING_POKEMON && (gSpeciesGraphicsInfo[OW_SPECIES(objEvent)].overworldBehavior & OVERWORLD_BEHAVIOR_FLYING))
+        return;
     typedef bool8 (*MetatileFunc)(u8);
 
     static const MetatileFunc metatileFuncs[] = {
@@ -11288,7 +11312,6 @@ static void DoGroundEffects_OnSpawn(struct ObjectEvent *objEvent, struct Sprite 
             sprite->subspriteMode = SUBSPRITES_ON;
         UpdateObjectEventElevationAndPriority(objEvent, sprite);
         GetAllGroundEffectFlags_OnSpawn(objEvent, &flags);
-        SetObjectEventSpriteOamTableForLongGrass(objEvent, sprite);
         DoFlaggedGroundEffects(objEvent, sprite, flags);
         objEvent->triggerGroundEffectsOnMove = FALSE;
         objEvent->disableCoveringGroundEffects = 0;
@@ -11310,7 +11333,9 @@ static void DoGroundEffects_OnBeginStep(struct ObjectEvent *objEvent, struct Spr
             sprite->subspriteMode = SUBSPRITES_ON;
         UpdateObjectEventElevationAndPriority(objEvent, sprite);
         GetAllGroundEffectFlags_OnBeginStep(objEvent, &flags);
-        SetObjectEventSpriteOamTableForLongGrass(objEvent, sprite);
+        if ((objEvent->movementDirection == DIR_NORTH || objEvent->movementDirection == DIR_SOUTH)
+         && (objEvent->localId != LOCALID_FOLLOWING_POKEMON || objEvent->movementActionId != MOVEMENT_ACTION_EXIT_POKEBALL))
+            SetObjectEventSpriteOamTableForLongGrass(objEvent, sprite);
         filters_out_some_ground_effects(objEvent, &flags);
         DoFlaggedGroundEffects(objEvent, sprite, flags);
         objEvent->triggerGroundEffectsOnMove = FALSE;
@@ -11331,7 +11356,6 @@ static void DoGroundEffects_OnFinishStep(struct ObjectEvent *objEvent, struct Sp
         flags = 0;
         UpdateObjectEventElevationAndPriority(objEvent, sprite);
         GetAllGroundEffectFlags_OnFinishStep(objEvent, &flags);
-        SetObjectEventSpriteOamTableForLongGrass(objEvent, sprite);
         FilterOutStepOnPuddleGroundEffectIfJumping(objEvent, &flags);
         DoFlaggedGroundEffects(objEvent, sprite, flags);
         objEvent->triggerGroundEffectsOnStop = 0;

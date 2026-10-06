@@ -504,6 +504,7 @@ struct SpeciesGraphicsInfo
 #if SPECIES_EGG_COLOR
     const u16 *eggPalette;
 #endif
+    u8 overworldBehavior;
 };
 
 struct SpeciesMiscInfo

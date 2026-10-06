@@ -2706,7 +2706,7 @@ void StartFlightFluteFieldEffect(void)
     {
         SetWarpDestinationToFlightPointWarp();
     }
-    gRegionMapType == REGION_MAP_TYPE_DRIFBLIM_BALLOON;
+    gRegionMapType = REGION_MAP_TYPE_DRIFBLIM_BALLOON;
     LockPlayerFieldControls();
     FreezeObjectEvents();
     HideFollowerForFieldEffect(); // hide follower before warping
@@ -4216,7 +4216,7 @@ static void FlyInFieldEffect_End(struct Task *task)
             ObjectEventTurn(objectEvent, DIR_SOUTH);
         gPlayerAvatar.flags = task->tAvatarFlags;
         gPlayerAvatar.preventStep = FALSE;
-        gRegionMapType == REGION_MAP_TYPE_NONE;
+        gRegionMapType = REGION_MAP_TYPE_NONE;
         FieldEffectActiveListRemove(FLDEFF_FLY_IN);
         DestroyTask(FindTaskIdByFunc(Task_FlyIn));
     }
