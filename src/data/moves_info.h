@@ -1960,8 +1960,8 @@ const struct MoveInfo gMovesInfo[MOVES_COUNT_ALL] =
     {
         .name = COMPOUND_STRING("Toss Egg"),
         .description = COMPOUND_STRING(
-            "Attack and effect vary\n"
-            "based on the egg tossed."),
+            "Throws first available egg.\n"
+            "Egg type changes effect."),
         .power = 50,
         .type = TYPE_NORMAL,
         .accuracy = 100,
