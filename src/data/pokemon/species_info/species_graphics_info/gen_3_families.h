@@ -2371,6 +2371,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_Probopass,
             gShinyOverworldPalette_Probopass
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_NOSEPASS
@@ -3315,6 +3316,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             TRACKS_FOOT,
             sAnimTable_Following_Asym
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_ROSELIA
@@ -5454,6 +5456,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_Dusknoir,
             gShinyOverworldPalette_Dusknoir
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_DUSKULL
@@ -5873,6 +5876,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_Froslass,
             gShinyOverworldPalette_Froslass
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS

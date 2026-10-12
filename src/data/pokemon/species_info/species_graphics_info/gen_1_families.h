@@ -5716,6 +5716,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Magnemite,
             gShinyOverworldPalette_Magnemite
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_MAGNETON] =
@@ -5757,7 +5758,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Magneton,
             gShinyOverworldPalette_Magneton
         )
-        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GEN_4_CROSS_EVOS
@@ -5798,6 +5799,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Magnezone,
             gShinyOverworldPalette_Magnezone
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_MAGNEMITE
@@ -7512,6 +7514,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Lickilicky,
             gShinyOverworldPalette_Lickilicky
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_LICKITUNG
@@ -7787,6 +7790,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_FOOT,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_RHYHORN
@@ -7995,6 +7999,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_FOOT,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_TANGELA
@@ -8935,6 +8940,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Electivire,
             gShinyOverworldPalette_Electivire
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_ELECTABUZZ
@@ -9051,6 +9057,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Magmortar,
             gShinyOverworldPalette_Magmortar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 #endif //P_FAMILY_MAGMAR
@@ -9869,6 +9876,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Leafeon,
             gShinyOverworldPalette_Leafeon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GLACEON] =
@@ -9905,6 +9913,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Glaceon,
             gShinyOverworldPalette_Glaceon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_4_CROSS_EVOS
 
@@ -10064,6 +10073,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_PorygonZ,
             gShinyOverworldPalette_PorygonZ
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
     [SPECIES_PORYGON_Z_MEGA] =
     {
