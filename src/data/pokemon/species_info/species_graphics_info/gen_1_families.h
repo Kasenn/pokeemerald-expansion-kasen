@@ -3176,6 +3176,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Crobat,
             gShinyOverworldPalette_Crobat
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_ZUBAT
@@ -6611,6 +6612,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_SLITHER,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -7900,6 +7902,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Blissey,
             gShinyOverworldPalette_Blissey
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_CHANSEY
@@ -8190,6 +8193,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Kingdra,
             gShinyOverworldPalette_Kingdra
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_2_CROSS_EVOS
 #endif //P_FAMILY_HORSEA
@@ -8661,6 +8665,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_FOOT,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -8851,6 +8856,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Elekid,
             gShinyOverworldPalette_Elekid
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_2_CROSS_EVOS
 
@@ -9788,6 +9794,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Espeon,
             gShinyOverworldPalette_Espeon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_UMBREON] =
@@ -9823,6 +9830,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Umbreon,
             gShinyOverworldPalette_Umbreon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_2_CROSS_EVOS
 
