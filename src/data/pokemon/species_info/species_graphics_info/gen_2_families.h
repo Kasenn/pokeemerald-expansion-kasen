@@ -1309,6 +1309,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_Azurill,
             gShinyOverworldPalette_Azurill
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_3_CROSS_EVOS
 
