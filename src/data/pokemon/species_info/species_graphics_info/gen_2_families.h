@@ -293,6 +293,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_TyphlosionHisui,
             gShinyOverworldPalette_TyphlosionHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_CYNDAQUIL
@@ -2948,6 +2949,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_QwilfishHisui,
             gShinyOverworldPalette_QwilfishHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_OVERQWIL] =

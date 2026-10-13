@@ -692,6 +692,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_ZigzagoonGalar,
             gShinyOverworldPalette_ZigzagoonGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_LINOONE_GALAR] =
@@ -724,6 +725,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_LinooneGalar,
             gShinyOverworldPalette_LinooneGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_OBSTAGOON] =

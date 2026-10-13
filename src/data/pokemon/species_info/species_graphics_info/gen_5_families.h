@@ -467,6 +467,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_SamurottHisui,
             gShinyOverworldPalette_SamurottHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_OSHAWOTT
@@ -3013,6 +3014,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_DarumakaGalar,
             gShinyOverworldPalette_DarumakaGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_DARMANITAN_GALAR_STANDARD] =
@@ -3045,6 +3047,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_DarmanitanGalarStandard,
             gShinyOverworldPalette_DarmanitanGalarStandard
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_DARMANITAN_GALAR_ZEN] =
@@ -3456,6 +3459,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_YamaskGalar,
             gShinyOverworldPalette_YamaskGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_RUNERIGUS] =
@@ -3874,6 +3878,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_ZoruaHisui,
             gShinyOverworldPalette_ZoruaHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_ZOROARK_HISUI] =
@@ -3907,6 +3912,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_ZoroarkHisui,
             gShinyOverworldPalette_ZoroarkHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_ZORUA
@@ -6525,6 +6531,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Braviary,
             gShinyOverworldPalette_Braviary
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_HISUIAN_FORMS

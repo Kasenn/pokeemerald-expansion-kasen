@@ -2897,6 +2897,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen6[] =
             gOverworldPalette_SliggooHisui,
             gShinyOverworldPalette_SliggooHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GOODRA_HISUI] =
@@ -2929,6 +2930,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen6[] =
             gOverworldPalette_GoodraHisui,
             gShinyOverworldPalette_GoodraHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_GOOMY
@@ -3431,6 +3433,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen6[] =
             gOverworldPalette_AvaluggHisui,
             gShinyOverworldPalette_AvaluggHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_BERGMITE

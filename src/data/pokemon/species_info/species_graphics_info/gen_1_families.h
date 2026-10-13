@@ -1137,6 +1137,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_FOOT,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_RATICATE_OUTSIDER] =
@@ -1195,6 +1196,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             TRACKS_FOOT,
             sAnimTable_Following
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_ALOLAN_FORMS
@@ -2141,6 +2143,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_RaichuAlola,
             gShinyOverworldPalette_RaichuAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_ALOLAN_FORMS
 
@@ -2346,6 +2349,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_SandslashAlola,
             gShinyOverworldPalette_SandslashAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_SANDSHREW
@@ -2835,6 +2839,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_VulpixAlola,
             gShinyOverworldPalette_VulpixAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_NINETALES_ALOLA] =
@@ -2871,6 +2876,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_NinetalesAlola,
             gShinyOverworldPalette_NinetalesAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_VULPIX
@@ -3731,6 +3737,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_DugtrioAlola,
             gShinyOverworldPalette_DugtrioAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_DIGLETT
@@ -3774,6 +3781,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Meowth,
             gShinyOverworldPalette_Meowth
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_PERSIAN_OUTSIDER] =
@@ -3810,6 +3818,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Persian,
             gShinyOverworldPalette_Persian
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_ALOLAN_FORMS
@@ -4319,6 +4328,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_ArcanineHisui,
             gShinyOverworldPalette_ArcanineHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_GROWLITHE
@@ -5088,7 +5098,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Geodude,
             gShinyOverworldPalette_Geodude
         )
-        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_GRAVELER] =
@@ -5205,6 +5215,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_GeodudeAlola,
             gShinyOverworldPalette_GeodudeAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_GRAVELER_ALOLA] =
@@ -5243,6 +5254,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_GravelerAlola,
             gShinyOverworldPalette_GravelerAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GOLEM_ALOLA] =
@@ -5279,6 +5291,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_GolemAlola,
             gShinyOverworldPalette_GolemAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_GEODUDE
@@ -5389,6 +5402,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_PonytaGalar,
             gShinyOverworldPalette_PonytaGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_RAPIDASH_GALAR] =
@@ -5421,6 +5435,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_RapidashGalar,
             gShinyOverworldPalette_RapidashGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_PONYTA
@@ -5608,6 +5623,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_SlowpokeGalar,
             gShinyOverworldPalette_SlowpokeGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SLOWBRO_GALAR] =
@@ -5641,6 +5657,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_SlowbroGalar,
             gShinyOverworldPalette_SlowbroGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_2_CROSS_EVOS
@@ -6222,6 +6239,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_GrimerAlola,
             gShinyOverworldPalette_GrimerAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MUK_ALOLA] =
@@ -6259,6 +6277,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_MukAlola,
             gShinyOverworldPalette_MukAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_GRIMER
@@ -7001,6 +7020,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_ElectrodeHisui,
             gShinyOverworldPalette_ElectrodeHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_VOLTORB
@@ -7122,6 +7142,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_ExeggutorAlola,
             gShinyOverworldPalette_ExeggutorAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_ALOLAN_FORMS
 #endif //P_FAMILY_EXEGGCUTE
@@ -7241,6 +7262,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_MarowakAlola,
             gShinyOverworldPalette_MarowakAlola
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MAROWAK_ALOLA_TOTEM] =
@@ -7636,6 +7658,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_WeezingGalar,
             gShinyOverworldPalette_WeezingGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_KOFFING
@@ -8534,6 +8557,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_MrMimeGalar,
             gShinyOverworldPalette_MrMimeGalar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MR_RIME] =
@@ -10489,6 +10513,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Articuno,
             gShinyOverworldPalette_Articuno
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GALARIAN_FORMS
@@ -10564,6 +10589,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Zapdos,
             gShinyOverworldPalette_Zapdos
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GALARIAN_FORMS
@@ -10667,6 +10693,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen1[] =
             gOverworldPalette_Moltres,
             gShinyOverworldPalette_Moltres
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GALARIAN_FORMS
