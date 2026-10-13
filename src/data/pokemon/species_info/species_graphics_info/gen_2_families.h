@@ -2981,6 +2981,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_Overqwil,
             gShinyOverworldPalette_Overqwil
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_QWILFISH
@@ -3418,6 +3419,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_Ursaluna,
             gShinyOverworldPalette_Ursaluna
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_URSALUNA_BLOODMOON] =
@@ -3451,6 +3453,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_UrsalunaBloodmoon,
             gShinyOverworldPalette_UrsalunaBloodmoon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_8_CROSS_EVOS
 #endif //P_FAMILY_TEDDIURSA
@@ -4341,6 +4344,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen2[] =
             gOverworldPalette_Wyrdeer,
             gShinyOverworldPalette_Wyrdeer
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GEN_8_CROSS_EVOS
 #endif //P_FAMILY_STANTLER

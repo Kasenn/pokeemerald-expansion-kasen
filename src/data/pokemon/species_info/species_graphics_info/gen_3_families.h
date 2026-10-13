@@ -756,6 +756,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen3[] =
             gOverworldPalette_Obstagoon,
             gShinyOverworldPalette_Obstagoon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_ZIGZAGOON

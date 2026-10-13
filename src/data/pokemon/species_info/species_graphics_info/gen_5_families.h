@@ -2727,6 +2727,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BasculegionM,
             gShinyOverworldPalette_BasculegionM
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_BASCULEGION_F] =
@@ -2760,6 +2761,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BasculegionF,
             gShinyOverworldPalette_BasculegionF
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_BASCULIN
@@ -3488,6 +3490,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Runerigus,
             gShinyOverworldPalette_Runerigus
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_GALARIAN_FORMS
 #endif //P_FAMILY_YAMASK
