@@ -76,6 +76,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Snivy,
             gShinyOverworldPalette_Snivy
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SERVINE] =
@@ -116,6 +117,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Servine,
             gShinyOverworldPalette_Servine
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SERPERIOR] =
@@ -154,6 +156,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Serperior,
             gShinyOverworldPalette_Serperior
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_SNIVY
 
@@ -194,6 +197,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Tepig,
             gShinyOverworldPalette_Tepig
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_PIGNITE] =
@@ -230,6 +234,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Pignite,
             gShinyOverworldPalette_Pignite
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_EMBOAR] =
@@ -286,6 +291,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Emboar,
             gShinyOverworldPalette_Emboar
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -427,6 +433,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Samurott,
             gShinyOverworldPalette_Samurott
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_HISUIAN_FORMS
@@ -498,6 +505,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Patrat,
             gShinyOverworldPalette_Patrat
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_WATCHOG] =
@@ -538,6 +546,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Watchog,
             gShinyOverworldPalette_Watchog
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_PATRAT
 
@@ -619,6 +628,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Herdier,
             gShinyOverworldPalette_Herdier
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_STOUTLAND] =
@@ -657,6 +667,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Stoutland,
             gShinyOverworldPalette_Stoutland
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_LILLIPUP
 
@@ -695,6 +706,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Purrloin,
             gShinyOverworldPalette_Purrloin
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_LIEPARD] =
@@ -731,6 +743,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Liepard,
             gShinyOverworldPalette_Liepard
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_PURRLOIN
 
@@ -771,6 +784,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Pansage,
             gShinyOverworldPalette_Pansage
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SIMISAGE] =
@@ -807,6 +821,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Simisage,
             gShinyOverworldPalette_Simisage
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_PANSAGE
 
@@ -845,6 +860,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Pansear,
             gShinyOverworldPalette_Pansear
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SIMISEAR] =
@@ -884,6 +900,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Simisear,
             gShinyOverworldPalette_Simisear
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_PANSEAR
 
@@ -922,6 +939,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Panpour,
             gShinyOverworldPalette_Panpour
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SIMIPOUR] =
@@ -957,6 +975,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Simipour,
             gShinyOverworldPalette_Simipour
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_PANPOUR
 
@@ -1001,6 +1020,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Munna,
             gShinyOverworldPalette_Munna
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_MUSHARNA] =
@@ -1040,6 +1060,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Musharna,
             gShinyOverworldPalette_Musharna
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_MUNNA
 
@@ -1078,6 +1099,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Pidove,
             gShinyOverworldPalette_Pidove
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_TRANQUILL] =
@@ -1114,6 +1136,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Tranquill,
             gShinyOverworldPalette_Tranquill
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_UNFEZANT] =
@@ -1169,6 +1192,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_UnfezantF,
             gShinyOverworldPalette_UnfezantF
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_PIDOVE
 
@@ -1210,6 +1234,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Blitzle,
             gShinyOverworldPalette_Blitzle
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_ZEBSTRIKA] =
@@ -1246,6 +1271,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Zebstrika,
             gShinyOverworldPalette_Zebstrika
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_BLITZLE
 
@@ -1323,6 +1349,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Boldore,
             gShinyOverworldPalette_Boldore
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GIGALITH] =
@@ -1359,6 +1386,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Gigalith,
             gShinyOverworldPalette_Gigalith
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_ROGGENROLA
 
@@ -1414,6 +1442,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Woobat,
             gShinyOverworldPalette_Woobat
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_SWOOBAT] =
@@ -1454,6 +1483,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Swoobat,
             gShinyOverworldPalette_Swoobat
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_WOOBAT
 
@@ -1495,6 +1525,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Drilbur,
             gShinyOverworldPalette_Drilbur
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_EXCADRILL] =
@@ -1533,6 +1564,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Excadrill,
             gShinyOverworldPalette_Excadrill
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -1597,6 +1629,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Audino,
             gShinyOverworldPalette_Audino
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_MEGA_EVOLUTIONS
@@ -1711,6 +1744,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Gurdurr,
             gShinyOverworldPalette_Gurdurr
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_CONKELDURR] =
@@ -1746,6 +1780,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Conkeldurr,
             gShinyOverworldPalette_Conkeldurr
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_TIMBURR
 
@@ -1821,6 +1856,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Palpitoad,
             gShinyOverworldPalette_Palpitoad
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SEISMITOAD] =
@@ -1861,6 +1897,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Seismitoad,
             gShinyOverworldPalette_Seismitoad
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_TYMPOLE
 
@@ -1900,6 +1937,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Throh,
             gShinyOverworldPalette_Throh
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_THROH
 
@@ -1938,6 +1976,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Sawk,
             gShinyOverworldPalette_Sawk
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_SAWK
 
@@ -2093,6 +2132,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Venipede,
             gShinyOverworldPalette_Venipede
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_WHIRLIPEDE] =
@@ -2132,6 +2172,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Whirlipede,
             gShinyOverworldPalette_Whirlipede
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SCOLIPEDE] =
@@ -2167,6 +2208,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Scolipede,
             gShinyOverworldPalette_Scolipede
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -2433,6 +2475,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Whimsicott,
             gShinyOverworldPalette_Whimsicott
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_COTTONEE
 
@@ -2581,6 +2624,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BasculinRedStriped,
             gShinyOverworldPalette_BasculinRedStriped
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_BASCULIN_BLUE_STRIPED] =
@@ -2614,6 +2658,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BasculinBlueStriped,
             gShinyOverworldPalette_BasculinBlueStriped
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_HISUIAN_FORMS
@@ -2648,6 +2693,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BasculinWhiteStriped,
             gShinyOverworldPalette_BasculinWhiteStriped
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_BASCULEGION_M] =
@@ -2753,6 +2799,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Sandile,
             gShinyOverworldPalette_Sandile
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_KROKOROK] =
@@ -2788,6 +2835,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Krokorok,
             gShinyOverworldPalette_Krokorok
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_KROOKODILE] =
@@ -2826,6 +2874,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Krookodile,
             gShinyOverworldPalette_Krookodile
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_SANDILE
 
@@ -2864,6 +2913,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Darumaka,
             gShinyOverworldPalette_Darumaka
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_DARMANITAN_STANDARD] =
@@ -2901,6 +2951,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_DarmanitanStandard,
             gShinyOverworldPalette_DarmanitanStandard
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_DARMANITAN_ZEN] =
@@ -3059,6 +3110,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Maractus,
             gShinyOverworldPalette_Maractus
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_MARACTUS
 
@@ -3142,6 +3194,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Crustle,
             gShinyOverworldPalette_Crustle
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_DWEBBLE
 
@@ -3216,6 +3269,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Scrafty,
             gShinyOverworldPalette_Scrafty
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -3285,6 +3339,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Sigilyph,
             gShinyOverworldPalette_Sigilyph
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_SIGILYPH
 
@@ -3326,6 +3381,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Yamask,
             gShinyOverworldPalette_Yamask
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_COFAGRIGUS] =
@@ -3362,6 +3418,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Cofagrigus,
             gShinyOverworldPalette_Cofagrigus
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GALARIAN_FORMS
@@ -3471,6 +3528,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Tirtouga,
             gShinyOverworldPalette_Tirtouga
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_CARRACOSTA] =
@@ -3514,6 +3572,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Carracosta,
             gShinyOverworldPalette_Carracosta
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_TIRTOUGA
 
@@ -3552,6 +3611,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Archen,
             gShinyOverworldPalette_Archen
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_ARCHEOPS] =
@@ -3594,6 +3654,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Archeops,
             gShinyOverworldPalette_Archeops
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_ARCHEN
 
@@ -3632,6 +3693,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Trubbish,
             gShinyOverworldPalette_Trubbish
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GARBODOR] =
@@ -3669,6 +3731,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Garbodor,
             gShinyOverworldPalette_Garbodor
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GIGANTAMAX_FORMS
@@ -3735,6 +3798,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Zorua,
             gShinyOverworldPalette_Zorua
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_ZOROARK] =
@@ -3773,6 +3837,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Zoroark,
             gShinyOverworldPalette_Zoroark
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_HISUIAN_FORMS
@@ -3878,6 +3943,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Minccino,
             gShinyOverworldPalette_Minccino
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_CINCCINO] =
@@ -3916,6 +3982,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Cinccino,
             gShinyOverworldPalette_Cinccino
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_MINCCINO
 
@@ -3993,6 +4060,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Gothorita,
             gShinyOverworldPalette_Gothorita
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GOTHITELLE] =
@@ -4109,6 +4177,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Duosion,
             gShinyOverworldPalette_Duosion
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_REUNICLUS] =
@@ -4148,6 +4217,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Reuniclus,
             gShinyOverworldPalette_Reuniclus
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_SOLOSIS
 
@@ -4225,6 +4295,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Swanna,
             gShinyOverworldPalette_Swanna
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_DUCKLETT
 
@@ -4338,6 +4409,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Vanilluxe,
             gShinyOverworldPalette_Vanilluxe
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_VANILLITE
 
@@ -4500,6 +4572,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_SawsbuckSpring,
             gShinyOverworldPalette_SawsbuckSpring
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SAWSBUCK_SUMMER] =
@@ -4532,6 +4605,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_SawsbuckSummer,
             gShinyOverworldPalette_SawsbuckSummer
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SAWSBUCK_AUTUMN] =
@@ -4564,6 +4638,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_SawsbuckAutumn,
             gShinyOverworldPalette_SawsbuckAutumn
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_SAWSBUCK_WINTER] =
@@ -4596,6 +4671,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_SawsbuckWinter,
             gShinyOverworldPalette_SawsbuckWinter
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_DEERLING
 
@@ -4636,6 +4712,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Emolga,
             gShinyOverworldPalette_Emolga
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_EMOLGA
 
@@ -4709,6 +4786,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Escavalier,
             gShinyOverworldPalette_Escavalier
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_KARRABLAST
 
@@ -4789,6 +4867,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Amoonguss,
             gShinyOverworldPalette_Amoonguss
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_FOONGUS
 
@@ -4847,6 +4926,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_FrillishF,
             gShinyOverworldPalette_FrillishF
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_JELLICENT] =
@@ -4904,6 +4984,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_JellicentF,
             gShinyOverworldPalette_JellicentF
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_FRILLISH
 
@@ -4982,6 +5063,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Joltik,
             gShinyOverworldPalette_Joltik
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GALVANTULA] =
@@ -5023,6 +5105,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Galvantula,
             gShinyOverworldPalette_Galvantula
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_JOLTIK
 
@@ -5102,6 +5185,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Ferrothorn,
             gShinyOverworldPalette_Ferrothorn
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_FERROSEED
 
@@ -5143,6 +5227,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Klink,
             gShinyOverworldPalette_Klink
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_KLANG] =
@@ -5182,6 +5267,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Klang,
             gShinyOverworldPalette_Klang
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_KLINKLANG] =
@@ -5221,6 +5307,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Klinklang,
             gShinyOverworldPalette_Klinklang
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_KLINK
 
@@ -5273,6 +5360,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Tynamo,
             gShinyOverworldPalette_Tynamo
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_EELEKTRIK] =
@@ -5312,6 +5400,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Eelektrik,
             gShinyOverworldPalette_Eelektrik
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_EELEKTROSS] =
@@ -5352,6 +5441,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Eelektross,
             gShinyOverworldPalette_Eelektross
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -5421,6 +5511,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Elgyem,
             gShinyOverworldPalette_Elgyem
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_BEHEEYEM] =
@@ -5456,6 +5547,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Beheeyem,
             gShinyOverworldPalette_Beheeyem
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_ELGYEM
 
@@ -5534,6 +5626,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Lampent,
             gShinyOverworldPalette_Lampent
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_CHANDELURE] =
@@ -5571,6 +5664,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Chandelure,
             gShinyOverworldPalette_Chandelure
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -5670,6 +5764,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Fraxure,
             gShinyOverworldPalette_Fraxure
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_HAXORUS] =
@@ -5707,6 +5802,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Haxorus,
             gShinyOverworldPalette_Haxorus
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_AXEW
 
@@ -5782,6 +5878,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Beartic,
             gShinyOverworldPalette_Beartic
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_CUBCHOO
 
@@ -5823,6 +5920,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Cryogonal,
             gShinyOverworldPalette_Cryogonal
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_CRYOGONAL
 
@@ -5898,6 +5996,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Accelgor,
             gShinyOverworldPalette_Accelgor
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_SHELMET
 
@@ -5935,6 +6034,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Stunfisk,
             gShinyOverworldPalette_Stunfisk
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GALARIAN_FORMS
@@ -6007,6 +6107,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Mienfoo,
             gShinyOverworldPalette_Mienfoo
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MIENSHAO] =
@@ -6089,6 +6190,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Druddigon,
             gShinyOverworldPalette_Druddigon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_DRUDDIGON
 
@@ -6128,6 +6230,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Golett,
             gShinyOverworldPalette_Golett
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_GOLURK] =
@@ -6164,6 +6267,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Golurk,
             gShinyOverworldPalette_Golurk
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_GEN_9_MEGA_EVOLUTIONS
@@ -6340,6 +6444,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Bouffalant,
             gShinyOverworldPalette_Bouffalant
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_BOUFFALANT
 
@@ -6451,6 +6556,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_BraviaryHisui,
             gShinyOverworldPalette_BraviaryHisui
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_HISUIAN_FORMS
 #endif //P_FAMILY_RUFFLET
@@ -6490,6 +6596,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Vullaby,
             gShinyOverworldPalette_Vullaby
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MANDIBUZZ] =
@@ -6526,6 +6633,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Mandibuzz,
             gShinyOverworldPalette_Mandibuzz
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_VULLABY
 
@@ -6563,6 +6671,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Heatmor,
             gShinyOverworldPalette_Heatmor
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_HEATMOR
 
@@ -6615,6 +6724,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Durant,
             gShinyOverworldPalette_Durant
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_DURANT
 
@@ -6653,6 +6763,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Deino,
             gShinyOverworldPalette_Deino
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_ZWEILOUS] =
@@ -6688,6 +6799,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Zweilous,
             gShinyOverworldPalette_Zweilous
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_HYDREIGON] =
@@ -6730,6 +6842,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Hydreigon,
             gShinyOverworldPalette_Hydreigon
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_DEINO
 
@@ -6814,6 +6927,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Volcarona,
             gShinyOverworldPalette_Volcarona
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_LARVESTA
 
@@ -6852,6 +6966,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Cobalion,
             gShinyOverworldPalette_Cobalion
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_COBALION
 
@@ -6894,6 +7009,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Terrakion,
             gShinyOverworldPalette_Terrakion
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_TERRAKION
 
@@ -6931,6 +7047,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Virizion,
             gShinyOverworldPalette_Virizion
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_VIRIZION
 
@@ -6989,6 +7106,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_TornadusIncarnate,
             gShinyOverworldPalette_TornadusIncarnate
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_TORNADUS_THERIAN] =
@@ -7085,6 +7203,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_ThundurusIncarnate,
             gShinyOverworldPalette_ThundurusIncarnate
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_THUNDURUS_THERIAN] =
@@ -7172,6 +7291,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Reshiram,
             gShinyOverworldPalette_Reshiram
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 #endif //P_FAMILY_RESHIRAM
 
@@ -7209,6 +7329,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Zekrom,
             gShinyOverworldPalette_Zekrom
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_ZEKROM
 
@@ -7267,6 +7388,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_LandorusIncarnate,
             gShinyOverworldPalette_LandorusIncarnate
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE | OVERWORLD_BEHAVIOR_FLYING,
     },
 
     [SPECIES_LANDORUS_THERIAN] =
@@ -7345,6 +7467,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Kyurem,
             gShinyOverworldPalette_Kyurem
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
 #if P_FUSION_FORMS
@@ -7382,6 +7505,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_KyuremWhite,
             gShinyOverworldPalette_KyuremWhite
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_KYUREM_BLACK] =
@@ -7418,6 +7542,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_KyuremBlack,
             gShinyOverworldPalette_KyuremBlack
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FUSION_FORMS
 #endif //P_FAMILY_KYUREM
@@ -7456,6 +7581,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_KeldeoOrdinary,
             gShinyOverworldPalette_KeldeoOrdinary
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_KELDEO_RESOLUTE] =
@@ -7484,6 +7610,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
         .pokemonJumpType = PKMN_JUMP_TYPE_NONE,
         SHADOW(0, 12, SHADOW_SIZE_M)
         FOOTPRINT(Keldeo)
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_KELDEO
 
@@ -7528,6 +7655,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_MeloettaAria,
             gShinyOverworldPalette_MeloettaAria
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 
     [SPECIES_MELOETTA_PIROUETTE] =
@@ -7569,6 +7697,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_MeloettaPirouette,
             gShinyOverworldPalette_MeloettaPirouette
         )
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,
     },
 #endif //P_FAMILY_MELOETTA
 
@@ -7607,6 +7736,7 @@ const struct SpeciesGraphicsInfo gSpeciesGraphicsInfoGen5[] =
             gOverworldPalette_Genesect,                                             \
             gShinyOverworldPalette_Genesect                                         \
         )                                                                           \
+        .overworldBehavior = OVERWORLD_BEHAVIOR_WIDE,                               \
     }
 
     [SPECIES_GENESECT]             = GENESECT_SPECIES_INFO_GRAPHICS(Genesect),
