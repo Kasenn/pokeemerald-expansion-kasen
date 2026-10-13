@@ -20655,8 +20655,8 @@ const u8 gMonIcon_PorygonZMega[] = INCGFX_U8("graphics/pokemon/porygon_z/mega/ic
     const u8 gMonFootprint_Inkay[] = INCGFX_U8("graphics/pokemon/inkay/footprint.png", ".1bpp");
 #endif //P_FOOTPRINTS
 #if OW_POKEMON_OBJECT_EVENTS
-    const u32 gObjectEventPic_Inkay[] = INCGFX_COMP("graphics/pokemon/inkay/overworld.png", ".4bpp");
-    const u32 gObjectEventPic_InkayFlipped[] = INCGFX_COMP("graphics/pokemon/inkay/overworld_flipped.png", ".4bpp");
+    const u32 gObjectEventPic_Inkay[] = INCGFX_COMP("graphics/pokemon/inkay/overworld.png", ".4bpp", "-mwidth 4 -mheight 4");
+    const u32 gObjectEventPic_InkayFlipped[] = INCGFX_COMP("graphics/pokemon/inkay/overworld_flipped.png", ".4bpp", "-mwidth 4 -mheight 4");
 #if OW_PKMN_OBJECTS_SHARE_PALETTES == FALSE
     const u16 gOverworldPalette_Inkay[] = INCGFX_U16("graphics/pokemon/inkay/overworld_normal.pal", ".gbapal");
     const u16 gShinyOverworldPalette_Inkay[] = INCGFX_U16("graphics/pokemon/inkay/overworld_shiny.pal", ".gbapal");
