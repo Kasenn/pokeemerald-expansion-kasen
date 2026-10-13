@@ -10566,10 +10566,39 @@ static void SetObjectEventSpriteOamTableForLongGrass(struct ObjectEvent *objEven
     if (!MetatileBehavior_IsLongGrass(objEvent->previousMetatileBehavior))
         return;
 
-    sprite->subspriteTableNum = 4;
 
     if (ElevationToPriority(objEvent->previousElevation) == 1)
-        sprite->subspriteTableNum = 5;
+    {
+        if (objEvent->localId == LOCALID_FOLLOWING_POKEMON)
+        {
+            if (MapGridGetMetatileBehaviorAt(objEvent->currentCoords.x - 1, objEvent->currentCoords.y) != MB_LONG_GRASS)
+                sprite->subspriteTableNum = OAM_TABLE_LEFT_PRIO_1;
+            else if (MapGridGetMetatileBehaviorAt(objEvent->currentCoords.x + 1, objEvent->currentCoords.y) != MB_LONG_GRASS)
+                sprite->subspriteTableNum = OAM_TABLE_RIGHT_PRIO_1;
+            else
+                sprite->subspriteTableNum = OAM_TABLE_PRIO_1;
+        }
+        else
+        {
+            sprite->subspriteTableNum = OAM_TABLE_PRIO_1;
+        }
+    }
+    else
+    {
+        if (objEvent->localId == LOCALID_FOLLOWING_POKEMON)
+        {
+            if (MapGridGetMetatileBehaviorAt(objEvent->currentCoords.x - 1, objEvent->currentCoords.y) != MB_LONG_GRASS)
+                sprite->subspriteTableNum = OAM_TABLE_LEFT_PRIO_2;
+            else if (MapGridGetMetatileBehaviorAt(objEvent->currentCoords.x + 1, objEvent->currentCoords.y) != MB_LONG_GRASS)
+                sprite->subspriteTableNum = OAM_TABLE_RIGHT_PRIO_2;
+            else
+                sprite->subspriteTableNum = OAM_TABLE_PRIO_2;
+        }
+        else
+        {
+            sprite->subspriteTableNum = OAM_TABLE_PRIO_2;
+        }
+    }
 }
 
 bool8 IsElevationMismatchAt(u8 elevation, s16 x, s16 y)

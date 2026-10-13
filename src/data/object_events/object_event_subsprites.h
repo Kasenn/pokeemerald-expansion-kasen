@@ -272,13 +272,121 @@ static const struct Subsprite sOamTable_32x32_4[] = {
     }
 };
 
+#define PRIO(prio_) .priority = prio_
+
+static const struct Subsprite sOamTable_32x32_LeftPrio2[] = {
+    {
+        .x = -16, .y = -16,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 0, PRIO(2)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 8, PRIO(3)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 8, PRIO(2)
+    },
+    {
+        .x = -16, .y = 8,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 12, PRIO(2)
+    }
+};
+
+static const struct Subsprite sOamTable_32x32_LeftPrio1[] = {
+    {
+        .x = -16, .y = -16,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 0, PRIO(1)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 8, PRIO(3)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 8, PRIO(1)
+    },
+    {
+        .x = -16, .y = 8,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 12, PRIO(1)
+    }
+};
+
+static const struct Subsprite sOamTable_32x32_RightPrio2[] = {
+    {
+        .x = -16, .y = -16,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 0, PRIO(2)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 8, PRIO(3)
+    },
+    {
+        .x = 8, .y = 0,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 11, PRIO(2)
+    },
+    {
+        .x = 8, .y = 8,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 15, PRIO(2)
+    }
+};
+
+static const struct Subsprite sOamTable_32x32_RightPrio1[] = {
+    {
+        .x = -16, .y = -16,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 0, PRIO(1)
+    },
+    {
+        .x = -16, .y = 0,
+        SUBSPRITE_SHAPE(32, 16),
+        .tileOffset = 8, PRIO(3)
+    },
+    {
+        .x = 8, .y = 0,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 11, PRIO(1)
+    },
+    {
+        .x = 8, .y = 8,
+        SUBSPRITE_SHAPE(8, 8),
+        .tileOffset = 15, PRIO(1)
+    }
+};
+
+enum
+{
+    OAM_TABLE_PRIO_2 = 4,
+    OAM_TABLE_PRIO_1,
+    OAM_TABLE_LEFT_PRIO_2,
+    OAM_TABLE_LEFT_PRIO_1,
+    OAM_TABLE_RIGHT_PRIO_2,
+    OAM_TABLE_RIGHT_PRIO_1,
+};
+
 const struct SubspriteTable sOamTables_32x32[] = {
     {},
     {ARRAY_COUNT(sOamTable_32x32_0), sOamTable_32x32_0},
     {ARRAY_COUNT(sOamTable_32x32_1), sOamTable_32x32_1},
     {ARRAY_COUNT(sOamTable_32x32_2), sOamTable_32x32_2},
     {ARRAY_COUNT(sOamTable_32x32_3), sOamTable_32x32_3},
-    {ARRAY_COUNT(sOamTable_32x32_4), sOamTable_32x32_4}
+    {ARRAY_COUNT(sOamTable_32x32_4), sOamTable_32x32_4},
+    {ARRAY_COUNT(sOamTable_32x32_LeftPrio2), sOamTable_32x32_LeftPrio2},
+    {ARRAY_COUNT(sOamTable_32x32_LeftPrio1), sOamTable_32x32_LeftPrio1},
+    {ARRAY_COUNT(sOamTable_32x32_RightPrio2), sOamTable_32x32_RightPrio2},
+    {ARRAY_COUNT(sOamTable_32x32_RightPrio1), sOamTable_32x32_RightPrio1},
 };
 
 static const struct Subsprite sOamTable_64x32_0[] = {
@@ -377,7 +485,11 @@ const struct SubspriteTable sOamTables_64x64[] = {
     {ARRAY_COUNT(sOamTable_64x64_1), sOamTable_64x64_1},
     {ARRAY_COUNT(sOamTable_64x64_2), sOamTable_64x64_2},
     {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
-    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3}
+    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
+    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
+    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
+    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
+    {ARRAY_COUNT(sOamTable_64x64_3), sOamTable_64x64_3},
 };
 
 static const struct Subsprite sOamTable_96x40_0[] = {
