@@ -551,9 +551,10 @@ script Debug_Script_2{              //
     return
 }
 script Debug_Script_3{
-    warp(MAP_GALEWIND_CITY_GYM, 27, 54)
-    waitstate
-    end
+    createmon(0, 0, SPECIES_PONYTA_GALAR, 5, shinyMode=SHINY_MODE_NEVER)
+    createmon(0, 1, SPECIES_PONYTA_GALAR, 5, shinyMode=SHINY_MODE_ALWAYS)
+    createmon(0, 2, SPECIES_PONYTA, 5, shinyMode=SHINY_MODE_NEVER)
+    createmon(0, 3, SPECIES_PONYTA, 5, shinyMode=SHINY_MODE_ALWAYS)
     return
 }
 script Debug_Script_4{

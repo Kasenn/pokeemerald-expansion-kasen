@@ -26,6 +26,11 @@ mapscripts TestRoom_MapScripts {
     // MAP_SCRIPT_ON_RESUME{
     //     setstepcallback(STEP_CB_WAILORD)
     // }
+    MAP_SCRIPT_ON_TRANSITION{
+        setvar(VAR_HOUR_OVERRIDE, 1)
+        setvar(VAR_MINUTE_OVERRIDE, 1)
+        setflag(FLAG_TEMP_HIDE_FOLLOWER)
+    }
 }
 
 const X = VAR_0x8001

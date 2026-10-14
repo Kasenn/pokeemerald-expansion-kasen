@@ -167,17 +167,6 @@ void FieldGetPlayerInput(struct FieldInput *input, u16 newKeys, u16 heldKeys)
     }
 }
 
-void TestFollowerGfx(void)
-{
-    struct ObjectEvent *objectEvent = GetFollowerObject();
-    u16 species = VarGet(VAR_TEMP_0);
-
-    FollowerSetGraphics(objectEvent, species, OW_SHINY(objectEvent), OW_FEMALE(objectEvent));
-    RefreshFollowerGraphics(objectEvent);
-
-    VarSet(VAR_TEMP_0, species + 1);
-}
-
 int ProcessPlayerFieldInput(struct FieldInput *input)
 {
     struct MapPosition position;
@@ -262,9 +251,6 @@ int ProcessPlayerFieldInput(struct FieldInput *input)
     
     if (input->pressedSelectButton)
     {
-        TestFollowerGfx();
-        return FALSE;
-
         if(FlagGet(FLAG_AMPHAROS_CONTROLS_UNLOCKED))
         {
             ScriptContext_SetupScript(GalewindGym_ToggleBetweenAmphy);
