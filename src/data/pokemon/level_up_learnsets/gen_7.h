@@ -7638,6 +7638,7 @@ static const struct LevelUpMove sPelipperLevelUpLearnset[] = {
 
 #if P_FAMILY_RALTS
 static const struct LevelUpMove sRaltsLevelUpLearnset[] = {
+    LEVEL_UP_MOVE( 1, MOVE_POUND),
     LEVEL_UP_MOVE( 1, MOVE_GROWL),
     LEVEL_UP_MOVE( 4, MOVE_CONFUSION),
     LEVEL_UP_MOVE( 6, MOVE_DOUBLE_TEAM),
